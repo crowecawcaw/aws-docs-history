@@ -346,7 +346,7 @@ The following diagram illustrates the relationship between the agent user and th
 
 
 
-![An illustration of the relationship between agent-users and the jobRunAsUser on queues.](/images/deadline-cloud/latest/developerguide/images/worker_users_and_groups.png)
+![An illustration of the relationship between agent-users and the jobRunAsUser on queues.](../../../images/deadline-cloud/latest/developerguide/images/worker_users_and_groups.png)
 
 **Windows users**
 

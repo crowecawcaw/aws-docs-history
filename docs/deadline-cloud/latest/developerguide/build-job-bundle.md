@@ -30,7 +30,7 @@ Use a job bundle for custom job submissions with the Deadline Cloud CLI and a jo
 deadline bundle gui-submit blender_render
 ```
 
-![An example of a custom job submission interface for Blender.](/images/deadline-cloud/latest/developerguide/images/blender_submit_shared_settings.png)
+![An example of a custom job submission interface for Blender.](../../../images/deadline-cloud/latest/developerguide/images/blender_submit_shared_settings.png)
 The job-specific settings panel are generated from the `userInterface` properties
  of the job parameters defined in the job template.
 
