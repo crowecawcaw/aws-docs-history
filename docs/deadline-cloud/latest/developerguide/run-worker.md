@@ -34,7 +34,7 @@ mkdir ~/demoenv-persist`
 ###### Note
 
 On Windows, it is required that the agent files are installed
- into Pythonâs global site-packages directory. Python virtual environments are
+ into Python’s global site-packages directory. Python virtual environments are
  not currently supported.
 
 
@@ -75,15 +75,15 @@ As the worker agent initializes and then polls the
 
 ```
 INFO    Worker Agent starting
-[2024-03-27 15:51:01,292][INFO    ] ð Worker Agent starting
+[2024-03-27 15:51:01,292][INFO    ] 👋 Worker Agent starting
 [2024-03-27 15:51:01,292][INFO    ] AgentInfo 
 Python Interpreter: /usr/bin/python3
 Python Version: 3.9.16 (main, Sep  8 2023, 00:00:00)  - [GCC 11.4.1 20230605 (Red Hat 11.4.1-2)]
 Platform: linux
 ...
-[2024-03-27 15:51:02,528][INFO    ] ð¥ API.Resp ð¥ [deadline:UpdateWorkerSchedule](200) params={'assignedSessions': {}, 'cancelSessionActions': {}, 'updateIntervalSeconds': 15} ...
-[2024-03-27 15:51:17,635][INFO    ] ð¥ API.Resp ð¥ [deadline:UpdateWorkerSchedule](200) params=(Duplicate removed, see previous response) ...
-[2024-03-27 15:51:32,756][INFO    ] ð¥ API.Resp ð¥ [deadline:UpdateWorkerSchedule](200) params=(Duplicate removed, see previous response) ...
+[2024-03-27 15:51:02,528][INFO    ] 📥 API.Resp 📥 [deadline:UpdateWorkerSchedule](200) params={'assignedSessions': {}, 'cancelSessionActions': {}, 'updateIntervalSeconds': 15} ...
+[2024-03-27 15:51:17,635][INFO    ] 📥 API.Resp 📥 [deadline:UpdateWorkerSchedule](200) params=(Duplicate removed, see previous response) ...
+[2024-03-27 15:51:32,756][INFO    ] 📥 API.Resp 📥 [deadline:UpdateWorkerSchedule](200) params=(Duplicate removed, see previous response) ...
 ...
 
 ```

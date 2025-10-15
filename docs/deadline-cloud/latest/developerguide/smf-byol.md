@@ -34,8 +34,8 @@ You can configure a queue environment in your queue to access your license serve
 
 
 
-* License server â The instance hosts the license servers directly.
-* License proxy â The instance has network access to the license server, and
+* License server – The instance hosts the license servers directly.
+* License proxy – The instance has network access to the license server, and
  forwards license server ports to the license server. For details on how to configure a
  license proxy instance, see [Step 2: (Optional) License proxy instance setup](#license-proxy "#license-proxy").
 
@@ -299,11 +299,11 @@ environment:
 	
 	
 	
-		+ **LicenseInstanceID** â The Amazon EC2 instance ID of your
+		+ **LicenseInstanceID** – The Amazon EC2 instance ID of your
 		 license server or proxy instance
-		+ **LicenseInstanceRegion** â The AWS Region containing
+		+ **LicenseInstanceRegion** – The AWS Region containing
 		 your farm
-		+ **LicensePorts** â A comma-separated list of ports to
+		+ **LicensePorts** – A comma-separated list of ports to
 		 be forwarded to the license server or proxy instance (for example
 		 2700,2701)
 	* Add any required licensing environment variables to the variables section. These

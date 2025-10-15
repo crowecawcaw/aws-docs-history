@@ -3,11 +3,11 @@
 You can open the Deadline Cloud monitor by any of the following ways: 
 
 
-* **Console** â Sign in to the AWS Management Console and
+* **Console** – Sign in to the AWS Management Console and
  open the Deadline Cloud console.
-* **Web** â Go to the monitor URL that you
+* **Web** – Go to the monitor URL that you
  created when you set up Deadline Cloud.
-* **Monitor** â Use the desktop
+* **Monitor** – Use the desktop
  Deadline Cloud monitor.
 When you use the console, you must be able to sign in to AWS using an AWS Identity and Access Management
  identity, and then sign in to the monitor with AWS IAM Identity Center credentials. If you only have

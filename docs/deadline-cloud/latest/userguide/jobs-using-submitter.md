@@ -53,12 +53,12 @@ The shared job settings tab contains the settings that are common to all jobs se
 
 
 
-* *Job properties* â Sets the overall properties of the
+* *Job properties* – Sets the overall properties of the
  job. These properties are present in submitters for all DCC applications.
-* *Deadline Cloud settings* â Shows the farm and queue that the job
+* *Deadline Cloud settings* – Shows the farm and queue that the job
  is sent to. To change the farm and queue, use the **Settings...**
  button at the bottom of the submitter.
-* *Queue environment* â Sets the parameter values defined
+* *Queue environment* – Sets the parameter values defined
  in the queue environment. Deadline Cloud adds the default parameter values for your DCC
  application, you can add additional values if necessary.
 

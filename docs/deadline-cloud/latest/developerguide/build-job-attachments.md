@@ -7,12 +7,12 @@ Use *job attachments* to make files not in shared directories available
 
 You must use job attachments when running jobs on [service-managed fleets](../userguide/smf-manage.md "../userguide/smf-manage.md") because
  hosts don't share file system locations. Job attachments are also useful with [customer-managed
- fleets](../userguide/manage-cmf.md "../userguide/manage-cmf.md") when a jobâs input or output files stored on a shared network file system, such
+ fleets](../userguide/manage-cmf.md "../userguide/manage-cmf.md") when a job’s input or output files stored on a shared network file system, such
  as when your [job bundle](../userguide/submit-job-bundle.md "../userguide/submit-job-bundle.md") contains shell
  or Python scripts. 
 
  When you submit a job bundle with either the [Deadline Cloud CLI](https://pypi.org/project/deadline/ "https://pypi.org/project/deadline/") or a Deadline Cloud submitter, job
- attachments use the jobâs storage profile and the queueâs required file system locations to
+ attachments use the job’s storage profile and the queue’s required file system locations to
  identify the input files that are not on a worker host and should be uploaded to Amazon S3 as part of
  job submission. These storage profiles also help Deadline Cloud identify the output files in worker host
  locations that must be uploaded to Amazon S3 so that they are available to your workstation. 
@@ -21,7 +21,7 @@ You must use job attachments when running jobs on [service-managed fleets](../us
  configurations from [Sample project infrastructure](sample-project-infrastructure.md "sample-project-infrastructure.md") and [Storage profiles and path mapping](storage-profiles-and-path-mapping.md "storage-profiles-and-path-mapping.md"). You should go through those sections before this one. 
 
 In the following examples, you use a sample job bundle as a starting point, then modify it
- to explore job attachmentâs functionality. Job bundles are the best way for your jobs to use job
+ to explore job attachment’s functionality. Job bundles are the best way for your jobs to use job
  attachments. They combine an [Open Job
  Description](https://github.com/OpenJobDescription/openjd-specifications/wiki "https://github.com/OpenJobDescription/openjd-specifications/wiki") job template in a directory with additional files that list the files and
  directories required by jobs using the job bundle. For more information about job bundles, see

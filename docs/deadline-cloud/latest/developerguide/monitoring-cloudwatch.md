@@ -9,7 +9,7 @@ These statistics are kept for 15 months so you can access historical information
  alarms that watch for certain thresholds, and send notifications or take actions when those
  thresholds are met. For more information, see the [Amazon CloudWatch User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/").
 
-Deadline Cloud has two kinds of logs â task logs and worker logs. A task log is when you run
+Deadline Cloud has two kinds of logs – task logs and worker logs. A task log is when you run
  execution logs as a script or as DCC runs. A task log might show events such as assets
  loading, tiles rendering, or textures not being found.
 

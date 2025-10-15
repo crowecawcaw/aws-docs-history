@@ -3,8 +3,8 @@
 
  For a job to use the files that Deadline Cloud uploads to Amazon S3 using job attachments, your job
  needs those files available through the file system on the worker hosts. When a [session](https://github.com/OpenJobDescription/openjd-specifications/wiki/How-Jobs-Are-Run#sessions "https://github.com/OpenJobDescription/openjd-specifications/wiki/How-Jobs-Are-Run#sessions") for your job runs on a worker host, Deadline Cloud downloads the input files for
- the job into a temporary directory on the worker hostâs local drive and adds path mapping
- rules for each of the jobâs root paths to its file system location on the local drive. 
+ the job into a temporary directory on the worker host’s local drive and adds path mapping
+ rules for each of the job’s root paths to its file system location on the local drive. 
 
  For this example, start the Deadline Cloud worker agent in an AWS CloudShell tab. Let any
  previously submitted jobs finish running, and then delete the job logs from the logs
@@ -14,7 +14,7 @@
 ```
 rm -rf ~/devdemo-logs/queue-*
 ```
- The following script modifies the job bundle to show all files in the sessionâs
+ The following script modifies the job bundle to show all files in the session’s
  temporary working directory and the contents of the path mapping rules file, and then
  submits a job with the modified bundle: 
 
@@ -63,7 +63,7 @@ EOF
 
 deadline bundle submit --farm-id $FARM_ID --queue-id $QUEUE1_ID job_attachments_devguide/
 ```
- You can look at the log of the jobâs run after it has been run by the worker in your
+ You can look at the log of the job’s run after it has been run by the worker in your
  AWS CloudShell environment: 
 
 
@@ -90,9 +90,9 @@ Total processing time of 0.09752 seconds at 1.91 KB/s.
 
 
 * The input files uploaded when the job was submitted are located under a directory
- whose name begins with "assetroot" in the sessionâs temporary directory.
-* The input filesâ paths have been relocated relative to the "assetroot" directory
- instead of relative to the root path for the jobâs input manifest
+ whose name begins with "assetroot" in the session’s temporary directory.
+* The input files’ paths have been relocated relative to the "assetroot" directory
+ instead of relative to the root path for the job’s input manifest
  (`"/"`).
 * The path mapping rules file contains an additional rule that remaps
  `"/"` to the absolute path of the "assetroot" directory.
@@ -165,7 +165,7 @@ EOF
 deadline bundle submit --farm-id $FARM_ID --queue-id $QUEUE1_ID job_attachments_devguide/ \
   -p LocationToRemap=/shared/projects/project2
 ```
- The log file for this jobâs run contains its output: 
+ The log file for this job’s run contains its output: 
 
 
 ```

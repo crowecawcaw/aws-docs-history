@@ -279,7 +279,7 @@ PS C:\> Get-Command deadline
 	deadline bundle submit .
 	```
 	
-		1. If you donât have the default deadline config setup, you might need to supply the following in the command line.
+		1. If you don’t have the default deadline config setup, you might need to supply the following in the command line.
 		
 		
 		

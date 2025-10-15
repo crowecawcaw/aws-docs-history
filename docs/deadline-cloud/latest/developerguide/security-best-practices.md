@@ -2,7 +2,7 @@
 
 AWS Deadline Cloud (Deadline Cloud) provides a number of security features to consider as you develop and
  implement your own security policies. The following best practices are general guidelines and
- donât represent a complete security solution. Because these best practices might not be
+ don’t represent a complete security solution. Because these best practices might not be
  appropriate or sufficient for your environment, treat them as helpful considerations rather
  than prescriptions.
 
@@ -40,7 +40,7 @@ We strongly recommend that you never put sensitive identifying information, such
  field. This includes when you work with AWS Deadline Cloud or other AWS services using the
  console, API, AWS CLI, or AWS SDKs. Any data that you enter into Deadline Cloud or other services
  might get picked up for inclusion in diagnostic logs. When you provide a URL to an external
- server, donât include credentials information in the URL to validate your request to that
+ server, don’t include credentials information in the URL to validate your request to that
  server.
 
 
@@ -57,19 +57,19 @@ Manage access to AWS resources using users, AWS Identity and Access Management (
 ## Run jobs as users and groups
 
 
-When using queue functionality in Deadline Cloud, itâs a best practice to specify an operating
+When using queue functionality in Deadline Cloud, it’s a best practice to specify an operating
  system (OS) user and its primary group so that the OS user has least-privilege permissions
- for the queueâs jobs.
+ for the queue’s jobs.
 
 
-When you specify a âRun as userâ (and group), any processes for jobs submitted to the
- queue will be run using that OS user and will inherit that userâs associated OS
+When you specify a “Run as user” (and group), any processes for jobs submitted to the
+ queue will be run using that OS user and will inherit that user’s associated OS
  permissions.
 
 
 The fleet and queue configurations combine to establish a security posture. On the queue
- side, the âJob run as userâ and IAM role can be specified to use the OS and AWS
- permissions for the queueâs jobs. The fleet defines the infrastructure (worker hosts,
+ side, the “Job run as user” and IAM role can be specified to use the OS and AWS
+ permissions for the queue’s jobs. The fleet defines the infrastructure (worker hosts,
  networks, mounted shared storage) that, when associated to a particular queue, run jobs
  within the queue. The data available on the worker hosts needs to be accessed by jobs from
  one or more associated queues. Specifying a user or group helps protect the data in jobs
@@ -92,8 +92,8 @@ We recommend that you secure your networking environment in the following ways:
 
 * Secure Amazon Virtual Private Cloud (Amazon VPC) subnet route tables to control how IP layer traffic is
  routed.
-* If you are using Amazon RouteÂ 53 (RouteÂ 53) as a DNS provider in your farm or workstation
- setup, secure access to the RouteÂ 53 API.
+* If you are using Amazon Route 53 (Route 53) as a DNS provider in your farm or workstation
+ setup, secure access to the Route 53 API.
 * If you connect to Deadline Cloud outside of AWS such as by using on-premises workstations
  or other data centers, secure any on-premises networking infrastructure. This
  includes DNS servers and route tables on routers, switches, and other networking
@@ -337,9 +337,9 @@ We recommend the following best practices to secure worker hosts:
 * Using a *host configuration script* can change the security and operations of a 
  worker. An incorrect configuration may cause the worker to be unstable or to stop
  working. It is your responsibility to debug such failures.
-* Donât use the same `jobRunAsUser` value with multiple queues unless
+* Don’t use the same `jobRunAsUser` value with multiple queues unless
  jobs submitted to those queues are within the same security boundary.
-* Donât set the queue `jobRunAsUser` to the name of the OS user that the
+* Don’t set the queue `jobRunAsUser` to the name of the OS user that the
  worker agent runs as.
 * Grant queue users least-privileged OS permissions required for the intended queue
  workloads. Ensure that they don't have filesystem write permissions to work agent
@@ -505,7 +505,7 @@ EOF
 
 
 
-	* The internet connection youâve used to obtain the GPG key from this
+	* The internet connection you’ve used to obtain the GPG key from this
 	 website is secure.
 	* The device that you are accessing this website on is secure.
 	* AWS has taken measures to secure the hosting of the

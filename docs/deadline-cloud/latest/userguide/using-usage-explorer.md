@@ -2,7 +2,7 @@
  explorer
 
 With the Deadline Cloud usage explorer, you can see real-time metrics on the activity happening on
- each farm. You can look at the farmâs costs by different variables, such as queue, job,
+ each farm. You can look at the farm’s costs by different variables, such as queue, job,
  license product, or instance types. Select various time frames to see usage during a
  specific period of time, and look at usage trends over the course of time. You can also see
  a detailed breakdown of selected data points, allowing for a closer look into metrics. Usage

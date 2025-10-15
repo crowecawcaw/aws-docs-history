@@ -66,14 +66,14 @@ You can access Deadline Cloud in any of the following ways:
 
 
 
-* **Deadline Cloud console**â Access the console in a browser to
+* **Deadline Cloud console**– Access the console in a browser to
  create a farm and its resources, and manage user access. For more information, see [Getting
  started](getting-started.md "getting-started.md").
-* **Deadline Cloud monitor**â Manage your render jobs, including
+* **Deadline Cloud monitor**– Manage your render jobs, including
  updating priorities and job statuses. Monitor your farm and view logs and job status. For users
  with Owner permissions, the Deadline Cloud monitor also provides access to explore usage and create budgets.
  The Deadline Cloud monitor is available as both a web browser and a desktop application.
-* **AWS SDK and AWS CLI**â Use the AWS Command Line Interface (AWS CLI) to
+* **AWS SDK and AWS CLI**– Use the AWS Command Line Interface (AWS CLI) to
  call the Deadline Cloud API operations from the command line on your local system. For more information,
  see  [Set up a developer workstation](getting-started-dev.md "getting-started-dev.md").
 
@@ -84,27 +84,27 @@ Deadline Cloud works with the following AWS services:
 
 
 
-* **Amazon CloudWatch**â With CloudWatch, you can monitor your projects
+* **Amazon CloudWatch**– With CloudWatch, you can monitor your projects
  and associated AWS resources. For more information, see [Monitoring with
  CloudWatch](../developerguide/monitoring-cloudwatch.md "../developerguide/monitoring-cloudwatch.md") in the *Deadline Cloud Developer Guide*.
-* **Amazon EC2**âThis AWS service provides virtual servers
+* **Amazon EC2**–This AWS service provides virtual servers
  that run your applications in the cloud. You can configure your projects to use Amazon EC2 instances
  for your workloads. For more information, see [Amazon EC2 instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instances-and-amis.html "https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instances-and-amis.html").
-* **Amazon EC2 Auto Scaling**â With Auto Scaling, you can automatically
+* **Amazon EC2 Auto Scaling**– With Auto Scaling, you can automatically
  increase or decrease the number of instances as the demand on your instances changes. Auto Scaling
  helps to make sure that you're running your desired number of instances, even if an instance
  fails. If you enable Auto Scaling with Deadline Cloud, instances that are launched by Auto Scaling are automatically
  registered with the workload. Likewise, instances that are terminated by Auto Scaling are automatically
  de-registered from the workload. For more information, see the  [Amazon EC2 Auto Scaling User
  Guide](https://docs.aws.amazon.com/autoscaling/ec2/userguide/what-is-amazon-ec2-auto-scaling.html "https://docs.aws.amazon.com/autoscaling/ec2/userguide/what-is-amazon-ec2-auto-scaling.html").
-* **AWS PrivateLink**â AWS PrivateLink provides private
+* **AWS PrivateLink**– AWS PrivateLink provides private
  connectivity between virtual private clouds (VPCs), AWS services, and your on-premises
  networks, without exposing your traffic to the public internet. AWS PrivateLink makes it easy to
  connect services across different accounts and VPCs. For more information, see [AWS PrivateLink](https://docs.aws.amazon.com/vpc/latest/privatelink/what-is-privatelink.html "https://docs.aws.amazon.com/vpc/latest/privatelink/what-is-privatelink.html").
-* **Amazon S3**â Amazon S3 is an object storage service. Deadline Cloud
+* **Amazon S3**– Amazon S3 is an object storage service. Deadline Cloud
  uses Amazon S3 buckets to store job attachments. For more information, see the [Amazon S3 User
  Guide](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html "https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html").
-* **IAM Identity Center**â IAM Identity Center is an AWS service where you can
+* **IAM Identity Center**– IAM Identity Center is an AWS service where you can
  provide users with single sign-on access to all their assigned accounts and applications from
  one place. You can also centrally manage multi-account access and user permissions to all of
  your accounts in AWS Organizations. For more information, see [AWS IAM Identity Center FAQs](https://aws.amazon.com/single-sign-on/faqs "https://aws.amazon.com/single-sign-on/faqs").

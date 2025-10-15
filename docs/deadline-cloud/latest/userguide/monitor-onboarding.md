@@ -19,11 +19,11 @@ Your monitor's infrastructure consists of the following components:
 
 
 * **Monitor name**: The **Monitor name**
- is how you can identify your monitor â for example *AnyCompany monitor*. Your monitor's name also
+ is how you can identify your monitor — for example *AnyCompany monitor*. Your monitor's name also
  determines your **monitor URL**.
 * **Monitor URL**: You can access your monitor by using the
  **Monitor URL**. The URL is based on the
- **Monitor name** â for example *https://anycompanymonitor.awsapps.com*.
+ **Monitor name** — for example *https://anycompanymonitor.awsapps.com*.
 * **AWS Region**: The **AWS Region**
  is the physical location for a collection of AWS data centers. When you
  set up your monitor, the Region defaults to the closest
@@ -46,7 +46,7 @@ Complete the tasks in this section to configure your monitor's
 
 1. Sign in to the **AWS Management Console** to start the Welcome to
  Deadline Cloud setup, then choose **Next**.
-2. Enter the **Monitor name** â for example
+2. Enter the **Monitor name** — for example
  `AnyCompany Monitor`.
 3. (Optional) To change the **Monitor URL**,
  choose **Edit URL**.
@@ -93,7 +93,7 @@ An AWS service can assume a service role to perform actions on your
 You can attach AWS Identity and Access Management (IAM) managed policies to the monitor user
  role. The policies give users permissions to perform certain actions, such
  as creating jobs in a specific Deadline Cloud application. Because applications
- depend on specific conditions in the managed policy, if you donât use the
+ depend on specific conditions in the managed policy, if you don’t use the
  managed policies, the application might not perform as expected. 
 
 
