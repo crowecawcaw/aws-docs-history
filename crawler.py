@@ -15,7 +15,7 @@ import os
 import queue
 import threading
 from collections.abc import Callable
-from pathlib import Path
+from pathlib import Path, PurePosixPath
 import posixpath
 from typing import Optional
 from urllib.parse import urljoin, urlparse, urlunparse
@@ -87,6 +87,11 @@ TAGS_TO_STRIP = [
 
 
 LOGGER = logging.getLogger(__name__)
+
+IMAGE_HOST = "docs.aws.amazon.com"
+IMAGE_PATH_PREFIX = "/images/"
+ALLOWED_IMAGE_EXTENSIONS = {".png", ".jpg", ".jpeg", ".gif", ".svg"}
+MAX_IMAGE_BYTES = 10 * 1024 * 1024  # 10 MiB safeguard for very large assets
 
 
 def build_deadline_cloud_link_checker() -> Callable[[str], bool]:
@@ -278,6 +283,10 @@ class DeadlineCloudCrawler:
         self._known_tocs: set[str] = set()
         self._visited_urls: list[str] = []
         self._workers: list[threading.Thread] = []
+        self._downloaded_images: set[str] = set()
+        self._downloaded_images_lock = threading.Lock()
+
+        self.images_root = self.output_dir / "images"
 
     @property
     def visited_urls(self) -> list[str]:
@@ -345,10 +354,11 @@ class DeadlineCloudCrawler:
         html = response.text
         soup = BeautifulSoup(html, "html.parser")
         main = extract_main_content(soup)
+        output_path = url_to_output_path(url, self.output_dir)
+        self._download_and_rewrite_images(main, url, output_path)
         rewrite_doc_links(main, url, self.output_dir, self.link_checker)
         markdown = convert_html_to_markdown(str(main))
 
-        output_path = url_to_output_path(url, self.output_dir)
         output_path.parent.mkdir(parents=True, exist_ok=True)
         output_path.write_text(markdown, encoding="utf-8")
         LOGGER.info("Wrote %s", output_path)
@@ -445,6 +455,100 @@ class DeadlineCloudCrawler:
 
         _walk(node)
         return hrefs
+
+    def _download_and_rewrite_images(self, container: Tag, page_url: str, page_output: Path) -> None:
+        for image in container.find_all("img", src=True):
+            raw_src = image.get("src", "").strip()
+            if not raw_src:
+                continue
+
+            absolute_url = normalise_url(urljoin(page_url, raw_src))
+            parsed = urlparse(absolute_url)
+
+            if parsed.scheme not in {"http", "https"}:
+                continue
+
+            if parsed.netloc != IMAGE_HOST:
+                continue
+
+            if not parsed.path.startswith(IMAGE_PATH_PREFIX):
+                continue
+
+            extension = Path(parsed.path).suffix.lower()
+            if extension not in ALLOWED_IMAGE_EXTENSIONS:
+                continue
+
+            local_path = self._image_output_path(parsed.path)
+            if not self._download_image(absolute_url, local_path):
+                continue
+
+            relative_path = os.path.relpath(local_path, start=page_output.parent)
+            image["src"] = Path(relative_path).as_posix()
+
+    def _image_output_path(self, image_path: str) -> Path:
+        relative_path = image_path[len(IMAGE_PATH_PREFIX) :]
+        safe_parts = [part for part in PurePosixPath(relative_path).parts if part not in {"..", "."}]
+        local_path = self.images_root.joinpath(*safe_parts)
+        return local_path
+
+    def _download_image(self, image_url: str, destination: Path) -> bool:
+        destination.parent.mkdir(parents=True, exist_ok=True)
+
+        if destination.exists():
+            return True
+
+        with self._downloaded_images_lock:
+            if image_url in self._downloaded_images:
+                return destination.exists()
+            self._downloaded_images.add(image_url)
+
+        try:
+            response = self.session.get(image_url, stream=True, timeout=30)
+            response.raise_for_status()
+        except requests.RequestException as exc:
+            LOGGER.warning("Failed to download image %s: %s", image_url, exc)
+            with self._downloaded_images_lock:
+                self._downloaded_images.discard(image_url)
+            return False
+
+        content_length = response.headers.get("Content-Length")
+        if content_length:
+            try:
+                if int(content_length) > MAX_IMAGE_BYTES:
+                    LOGGER.warning(
+                        "Skipping image %s because it exceeds the %d byte limit", image_url, MAX_IMAGE_BYTES
+                    )
+                    with self._downloaded_images_lock:
+                        self._downloaded_images.discard(image_url)
+                    response.close()
+                    return False
+            except ValueError:
+                pass
+
+        bytes_written = 0
+        try:
+            with destination.open("wb") as handle:
+                for chunk in response.iter_content(chunk_size=8192):
+                    if not chunk:
+                        continue
+                    bytes_written += len(chunk)
+                    if bytes_written > MAX_IMAGE_BYTES:
+                        LOGGER.warning(
+                            "Skipping image %s because it exceeded the %d byte limit while downloading",
+                            image_url,
+                            MAX_IMAGE_BYTES,
+                        )
+                        response.close()
+                        handle.close()
+                        destination.unlink(missing_ok=True)
+                        with self._downloaded_images_lock:
+                            self._downloaded_images.discard(image_url)
+                        return False
+                    handle.write(chunk)
+        finally:
+            response.close()
+
+        return True
 
 
 def parse_args() -> argparse.Namespace:
