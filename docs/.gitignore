@@ -1,0 +1,5 @@
+# Ignore non-Markdown assets in this directory
+*
+!*/
+!*.md
+!.gitignore
