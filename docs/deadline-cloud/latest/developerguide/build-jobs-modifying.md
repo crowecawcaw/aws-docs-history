@@ -11,7 +11,7 @@ In the following examples of the `update` commands, replace each
  ``user input placeholder`` with your own
  information.
 
-###### Example â Requeue a job
+###### Example – Requeue a job
 
 All tasks in the job switch to the `READY` status, unless there are step
  dependencies. Steps with dependencies switch to either `READY` or
@@ -25,7 +25,7 @@ aws deadline update-job \
 --job-id `jobID` \
 --target-task-run-status PENDING
 ```
-###### Example â Cancel a job
+###### Example – Cancel a job
 
 All tasks in the job that don't have the status `SUCCEEDED` or
  `FAILED` are marked `CANCELED`.
@@ -38,7 +38,7 @@ aws deadline update-job \
 --job-id `jobID` \
 --target-task-run-status CANCELED
 ```
-###### Example â Mark a job failed
+###### Example – Mark a job failed
 
 All tasks in the job that have the status `SUCCEEDED` are left unchanged. All
  other tasks are marked `FAILED`.
@@ -51,7 +51,7 @@ aws deadline update-job \
 --job-id `jobID` \
 --target-task-run-status FAILED
 ```
-###### Example â Mark a job successful
+###### Example – Mark a job successful
 
 All tasks in the job move to the `SUCCEEDED` state.
 
@@ -63,7 +63,7 @@ aws deadline update-job \
 --job-id `jobID` \
 --target-task-run-status SUCCEEDED
 ```
-###### Example â Suspend a job
+###### Example – Suspend a job
 
 Tasks in the job in the `SUCCEEDED`, `CANCELED`, or
  `FAILED` state don't change. All other tasks are marked
@@ -77,7 +77,7 @@ aws deadline update-job \
 --job-id `jobID` \
 --target-task-run-status SUSPENDED
 ```
-###### Example â Change the priority of a job
+###### Example – Change the priority of a job
 
 Updates the priority of a job in a queue to change the order that it is scheduled.
  Higher priority jobs are generally scheduled first.
@@ -90,7 +90,7 @@ aws deadline update-job \
 --job-id `jobID` \
 --priority 100
 ```
-###### Example â Change the number of failed tasks allowed
+###### Example – Change the number of failed tasks allowed
 
 Updates the maximum number of failed tasks that the job can have before the remaining
  tasks are canceled.
@@ -103,7 +103,7 @@ aws deadline update-job \
 --job-id `jobID` \
 --max-failed-tasks-count 200
 ```
-###### Example â Change the number of task retries allowed
+###### Example – Change the number of task retries allowed
 
 Updates the maximum number of retries for a task before the task fails. A task that has
  reached the maximum number of retries can't be requeued until this value is
@@ -117,7 +117,7 @@ aws deadline update-job \
 --job-id `jobID` \
 --max-retries-per-task 10
 ```
-###### Example â Archive a job
+###### Example – Archive a job
 
 Updates the job's lifecycle status to `ARCHIVED`. Archived jobs can't be
  scheduled or modified. You can only archive a job that is in the `FAILED`,
@@ -131,7 +131,7 @@ aws deadline update-job \
 --job-id `jobID` \
 --lifecycle-status ARCHIVED
 ```
-###### Example â Requeue a step
+###### Example – Requeue a step
 
 All tasks in the step switch to the `READY` state, unless there are step
  dependencies. Tasks in steps with dependencies switch to either `READY` or
@@ -146,7 +146,7 @@ aws deadline update-step \
 --step-id `stepID` \
 --target-task-run-status PENDING
 ```
-###### Example â Cancel a step
+###### Example – Cancel a step
 
 All tasks in the step that don't have the status `SUCCEEDED` or
  `FAILED` are marked `CANCELED`.
@@ -160,7 +160,7 @@ aws deadline update-step \
 --step-id `stepID` \
 --target-task-run-status CANCELED
 ```
-###### Example â Mark a step failed
+###### Example – Mark a step failed
 
 All tasks in the step that have the status `SUCCEEDED` are left unchanged.
  All other tasks are marked `FAILED`.
@@ -174,7 +174,7 @@ aws deadline update-step \
 --step-id `stepID` \
 --target-task-run-status FAILED
 ```
-###### Example â Mark a step successful
+###### Example – Mark a step successful
 
 All tasks in the step are marked `SUCCEEDED`.
 
@@ -187,7 +187,7 @@ aws deadline update-step \
 --step-id `stepID` \
 --target-task-run-status SUCCEEDED
 ```
-###### Example â Suspend a step
+###### Example – Suspend a step
 
 Tasks in the step in the `SUCCEEDED`, `CANCELED`, or
  `FAILED` state don't change. All other tasks are marked
@@ -202,7 +202,7 @@ aws deadline update-step \
 --step-id `stepID` \
 --target-task-run-status SUSPENDED
 ```
-###### Example â Change the status of a task
+###### Example – Change the status of a task
 
 When you use the `update-task` Deadline Cloud CLI command, the task switches to the
  specified status.

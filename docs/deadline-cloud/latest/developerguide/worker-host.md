@@ -48,7 +48,7 @@ You can create a Python virtual environment on Linux if you have installed Pytho
 
 ###### Note
 
-On Windows, agent files must be installed into Pythonâs global site-packages
+On Windows, agent files must be installed into Python’s global site-packages
  directory. Python virtual environments are not currently supported.
 
 
@@ -172,13 +172,13 @@ The worker agent does not support running as a domain user on Windows. To run a 
  *AWS Deadline Cloud User Guide*.
 
 
-**Command line arguments** â You can specify
+**Command line arguments** — You can specify
  arguments when you run the Deadline Cloud worker agent from the command line. Some configuration
  settings are not available through command line arguments. To see all the available
  command line arguments, enter `deadline-worker-agent --help`. 
 
 
-**Environment variables** â You can configure the
+**Environment variables** — You can configure the
  Deadline Cloud worker agent by setting environment variable beginning with
  `DEADLINE_WORKER_`. For example, to see all the available command line
  arguments you can use `export DEADLINE_WORKER_VERBOSE=true` to set the worker
@@ -188,7 +188,7 @@ The worker agent does not support running as a domain user on Windows. To run a 
  Windows.
 
 
-**Configuration file** â When you install the
+**Configuration file** — When you install the
  worker agent, it creates a configuration file located at
  `/etc/amazon/deadline/worker.toml` on Linux or
  `C:\ProgramData\Amazon\Deadline\Config\worker.toml` on Windows. The
@@ -346,7 +346,7 @@ The following diagram illustrates the relationship between the agent user and th
 
 
 
-![An illustration of the relationship between agent-users and the jobRunAsUser on queues.](/images/deadline-cloud/latest/developerguide/images/worker_users_and_groups.png)
+![An illustration of the relationship between agent-users and the jobRunAsUser on queues.](../../../images/deadline-cloud/latest/developerguide/images/worker_users_and_groups.png)
 
 **Windows users**
 
@@ -357,7 +357,7 @@ To use a Windows user as the `jobRunAsUser`, it must meet the following
 
 
 * All queue `jobRunAsUser` users must exist.
-* Their passwords must match the value of the secret specified in their queueâs
+* Their passwords must match the value of the secret specified in their queue’s
  `JobRunAsUser` field. For instructions, see step 7 in [Deadline Cloud
  queues](../userguide/queues.md "../userguide/queues.md") in the *AWS Deadline Cloud User Guide*.
 * The agent-user must be able to log on as those users.

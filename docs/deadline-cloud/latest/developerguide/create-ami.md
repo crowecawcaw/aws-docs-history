@@ -8,7 +8,7 @@ To create an Amazon Machine Image (AMI) to use in an Amazon Elastic Compute Clou
 
 ###### Important
 
-Creating an AMI creates a snapshot of the Amazon EC2 instanceâs attached volumes. Any
+Creating an AMI creates a snapshot of the Amazon EC2 instance’s attached volumes. Any
  software installed on the instance persists so instances, which are reused when you
  launch instances from the AMI. We recommend adopting a patching strategy and regularly
  updating any new AMI with updated software before applying to your fleet.

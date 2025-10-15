@@ -239,9 +239,9 @@ There are two submission modes for the KeyShot submitter. Select the submission
 
 
 * *Attach the scene BIP file and all external file
- references* â The open scene file and all external
+ references* – The open scene file and all external
  files referenced in the BIP are included as job attachments.
-* *Attach only the scene BIP file* â Only the
+* *Attach only the scene BIP file* – Only the
  open scene file is attached to the submission. Any external files referenced
  in the scene must be available to workers through network storage or another
  method.
@@ -262,7 +262,7 @@ Support for Maya and Arnold for Maya (MtoA)
 1. Open **Maya**.
 2. Set your project, and open a file that exists within the asset root
  directory.
-3. Choose **Windows â Settings/Preferences â Plugin
+3. Choose **Windows → Settings/Preferences → Plugin
  Manager**.
 4. Search for **DeadlineCloudSubmitter**.
 5. To load the Deadline Cloud submitter plugin, select

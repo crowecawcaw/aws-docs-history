@@ -5,14 +5,14 @@
  to your job are: 
 
 
-* The values of all `PATH`-type job parameters defined in the job bundleâs
+* The values of all `PATH`-type job parameters defined in the job bundle’s
  job template with a `dataFlow` value of `IN` or
  `INOUT`.
-* The files and directories listed as inputs in the job bundleâs asset references
+* The files and directories listed as inputs in the job bundle’s asset references
  file.
  If you submit a job with no storage profile, all of the files considered for uploading
  are uploaded. If you submit a job with a storage profile, files are not uploaded to Amazon S3 if
- they are located in the storage profileâs `SHARED`-type file system locations
+ they are located in the storage profile’s `SHARED`-type file system locations
  that are also required file system locations for the queue. These locations are expected to
  be available on the worker hosts that run the job, so there is no need to upload them to S3. 
 
@@ -116,9 +116,9 @@ aws deadline get-job --farm-id $FARM_ID --queue-id $QUEUE1_ID --job-id $JOB_ID -
  input files that were uploaded are: 
 
 
-* `/home/cloudshell-user/job_attachments_devguide/script.sh` â The script
+* `/home/cloudshell-user/job_attachments_devguide/script.sh` – The script
  file in the job bundle.
-* `/shared/projects/project2/file.txt` â The file in a
+* `/shared/projects/project2/file.txt` – The file in a
  `SHARED` file system location in the `WSAll` storage profile
  that is **not** in the list of required file system
  locations for queue `Q1`.

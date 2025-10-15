@@ -28,15 +28,15 @@ Use the [Amazon VPC Console](https://console.aws.amazon.com/vpc "https://console
 
 
 
-* Autodesk Maya and Arnold â 2701 - 2702, TCP, IPv4, IPv6
-* Autodesk 3ds Max â 2704, TCP, IPv4, IPv6
-* Cinema 4D â 7057, TCP, IPv4, IPv6
-* KeyShot â 2703, TCP, IPv4, IPv6
-* Foundry Nuke â 6101, TCP, IPv4, IPv6
-* Red Giant â 7055, TCP, IPV4
-* Redshift â 7054, TCP, IPv4, IPv6
-* SideFX Houdini, Mantra, and Karma â 1715 - 1717, TCP, IPv4, IPv6
-* VRay â 30304, TCP, IPV4
+* Autodesk Maya and Arnold – 2701 - 2702, TCP, IPv4, IPv6
+* Autodesk 3ds Max – 2704, TCP, IPv4, IPv6
+* Cinema 4D – 7057, TCP, IPv4, IPv6
+* KeyShot – 2703, TCP, IPv4, IPv6
+* Foundry Nuke – 6101, TCP, IPv4, IPv6
+* Red Giant – 7055, TCP, IPV4
+* Redshift – 7054, TCP, IPv4, IPv6
+* SideFX Houdini, Mantra, and Karma – 1715 - 1717, TCP, IPv4, IPv6
+* VRay – 30304, TCP, IPV4
 
 The source for each inbound rule is the fleet's worker security group.
 
@@ -100,7 +100,7 @@ To get the license endpoint DNS name, select the license endpoint in the console
 ### Configuration examples
 
 
-###### Example â Autodesk Maya and Arnold
+###### Example – Autodesk Maya and Arnold
 
 ###### Note
 
@@ -130,7 +130,7 @@ For Windows workers, use a semi-colon (;) instead of a colon (:) to separate
  endpoints.
 
 
-###### Example â Autodesk 3ds Max
+###### Example – Autodesk 3ds Max
 
 Set the environment variable `ADSKFLEX_LICENSE_FILE` to:
 
@@ -139,7 +139,7 @@ Set the environment variable `ADSKFLEX_LICENSE_FILE` to:
 2704@`VPC_Endpoint_DNS_Name`
 ```
 
-###### Example â Cinema 4D
+###### Example – Cinema 4D
 
 Set the environment variable `g_licenseServerRLM` to:
 
@@ -157,7 +157,7 @@ After you create the environment variable, you should be able to render a an ima
     -oimage "C:\Users\Administrator\User\MyOutputImage.png
 ```
 
-###### Example â KeyShot
+###### Example – KeyShot
 
 Set the environment variable `LUXION_LICENSE_FILE` to:
 
@@ -183,7 +183,7 @@ The response should contain the following without any error messages:
 Connecting to floating license server
 ```
 
-###### Example â Foundry Nuke
+###### Example – Foundry Nuke
 
 Set the environment variable `foundry_LICENSE` to:
 
@@ -198,7 +198,7 @@ To test that licensing is working properly, you can run Nuke in a terminal:
 ~/nuke/Nuke14.0v5/Nuke14.0 -x 
 ```
 
-###### Example â Red Giant
+###### Example – Red Giant
 
 Set the environment variable `redshift_LICENSE` to:
 
@@ -228,7 +228,7 @@ C:\Program Files\Adobe\Adobe After Effects 2025\Support Files\aerender.exe -comp
             C:\Users\MyUser\`myMovieWithRedGiant`.mp4
 ```
 
-###### Example â Redshift
+###### Example – Redshift
 
 Set the environment variable `redshift_LICENSE` to:
 
@@ -246,7 +246,7 @@ C:\ProgramData\redshift\bin\redshiftCmdLine.exe ^
     -oip C:\demo\proxy\images
 ```
 
-###### Example â SideFX Houdini, Mantra, and Karma
+###### Example – SideFX Houdini, Mantra, and Karma
 
 Run the following command:
 
@@ -262,7 +262,7 @@ To test that licensing is working properly, you can render a Houdini scene via t
 /opt/hfs19.5.640/bin/hython ~/forpentest.hip -c "hou.node('/out/mantra1').render()"
 ```
 
-###### Example â VRay
+###### Example – VRay
 
 Set the environment variable `VRAY_AUTH_CLIENT_SETTINGS` to:
 

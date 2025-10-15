@@ -12,7 +12,7 @@ This example shows how one step in a job can access the outputs from a step that
 Use the `job_attachments_devguide_output` job bundle for this example. Start by
  making a copy in your AWS CloudShell environment from your clone of the Deadline Cloud samples GitHub
  repository. Modify it to add a dependent step that only runs after the existing step and uses
- that stepâs output: 
+ that step’s output: 
 
 
 ```

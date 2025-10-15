@@ -2,7 +2,7 @@
 
 You can deactivate any active budget. Deactivating a budget changes its status from
  **Active** to **Inactive**. When a budget is
- deactivated, it no longer tracks a resource to that budgetâs amount.
+ deactivated, it no longer tracks a resource to that budget’s amount.
 
 To deactivate a budget, use the following procedure.
 

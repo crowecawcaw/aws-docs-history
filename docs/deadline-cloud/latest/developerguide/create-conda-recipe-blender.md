@@ -140,7 +140,7 @@ The lower left of the monitor shows the two steps of the job, building the packa
 
 
 
-![The Deadline Cloud monitor showing the progress and status of a job building the Blender package.](/images/deadline-cloud/latest/developerguide/images/Conda-Figure3.png)
+![The Deadline Cloud monitor showing the progress and status of a job building the Blender package.](../../../images/deadline-cloud/latest/developerguide/images/Conda-Figure3.png)
 
 In the lower left of the monitor are the two steps of the job, building the package and
  then reindexing the conda channel. In the lower right are the individual tasks for each
@@ -153,17 +153,17 @@ When you right click on the task for the package building step and choose **View
 
 
 
-* **Sync attachments** â This action copies the
+* **Sync attachments** – This action copies the
  input job attachments or mounts a virtual file system, depending on the setting used for
  the job attachments file system.
-* **Launch Conda** â This action is from the queue
+* **Launch Conda** – This action is from the queue
  environment added by default when you created the queue. The job doesn't specify any
  conda packages, so it finishes quickly and doesn't create a conda virtual
  environment.
-* **Launch CondaBuild Env** â This action creates a
+* **Launch CondaBuild Env** – This action creates a
  custom conda virtual environment that includes the software needed to build a conda
  package and reindex a channel. It installs from the [conda-forge](https://conda-forge.org/ "https://conda-forge.org/") channel.
-* **Task run** â This action builds the Blender
+* **Task run** – This action builds the Blender
  package and uploads the results to Amazon S3.
 
 As the actions run, they send logs in a structured format to Amazon CloudWatch. When a job is

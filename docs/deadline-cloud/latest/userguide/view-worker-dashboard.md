@@ -72,14 +72,14 @@ When investigating failed tasks, the worker dashboard serves as a valuable diagn
 **vCPU Utilization**
 
 
-**Target range: 70â90%**
+**Target range: 70–90%**
 
 
 
 * **Below 70%**:
  Likely underutilizing compute resources, meaning you're paying for more
  CPU than your workload needs
-* **70â90%**:
+* **70–90%**:
  Optimal range where you're efficiently using resources without hitting
  bottlenecks
 * **Consistently at 100%**: Could indicate
@@ -94,13 +94,13 @@ Keep in mind that some render tasks will naturally be more CPU-intensive than ot
 **Memory Utilization**
 
 
-**Target range: 70â85%**
+**Target range: 70–85%**
 
 
 
 * **Below 50%**:
  Potentially oversized instances for your workload
-* **70â85%**:
+* **70–85%**:
  Optimal utilization with enough headroom for spikes
 * **Above 90%**: Risk
  of performance degradation or out-of-memory errors
@@ -113,13 +113,13 @@ Memory requirements can vary significantly depending on scene complexity, textur
 **Disk Space Utilization**
 
 
-**Target range: 60â80%**
+**Target range: 60–80%**
 
 
 
 * **Below 40%**:
  Likely over-provisioned storage
-* **60â85%**:
+* **60–85%**:
  Good utilization with room for temporary files and caches
 * **Above 85%**: Risk
  of running out of space during large renders

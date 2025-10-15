@@ -29,7 +29,7 @@ Deadline Cloud console
 	2. You can also use an existing service role by selecting **Choose a service role**.
 9. Review your selections, then choose **Next**.
 10. Select an **operating system** for your fleet. All of 
- a fleetâs workers must have a common operating system.
+ a fleet’s workers must have a common operating system.
 11. Select the **host CPU architecture**.
 12. Select the minimum and maximum vCPU and memory **Hardware 
  capabilities** to meet the workload demands of your fleets.

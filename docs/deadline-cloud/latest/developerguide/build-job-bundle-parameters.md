@@ -33,15 +33,15 @@ Each element of the `parameterValues` list must be one of the following:
 
 
 
-	+ `deadline:priority` â The value must be an integer. It is passed
+	+ `deadline:priority` – The value must be an integer. It is passed
 	 to the `CreateJob` operation as the [priority](https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_CreateJob.html#deadlinecloud-CreateJob-request-priority "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_CreateJob.html#deadlinecloud-CreateJob-request-priority") parameter.
-	+ `deadline:targetTaskRunStatus` â The value must be a string. It
+	+ `deadline:targetTaskRunStatus` – The value must be a string. It
 	 is passed to the `CreateJob` operation as the [targetTaskRunStatus](https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_CreateJob.html#deadlinecloud-CreateJob-request-targetTaskRunStatus "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_CreateJob.html#deadlinecloud-CreateJob-request-targetTaskRunStatus") parameter.
-	+ `deadline:maxFailedTasksCount` â The value must be an integer. It
+	+ `deadline:maxFailedTasksCount` – The value must be an integer. It
 	 is passed to the `CreateJob` operation as the [maxFailedTasksCount](https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_CreateJob.html#deadlinecloud-CreateJob-request-maxFailedTasksCount "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_CreateJob.html#deadlinecloud-CreateJob-request-maxFailedTasksCount") parameter.
-	+ `deadline:maxRetriesPerTask` â The value must be an integer. It
+	+ `deadline:maxRetriesPerTask` – The value must be an integer. It
 	 is passed to the `CreateJob` operation as the [maxRetriesPerTask](https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_CreateJob.html#deadlinecloud-CreateJob-request-maxRetriesPerTask "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_CreateJob.html#deadlinecloud-CreateJob-request-maxRetriesPerTask") parameter.
-	+ `deadline:maxWorkercount` â The value must be an integer. It is
+	+ `deadline:maxWorkercount` – The value must be an integer. It is
 	 passed to the `CreateJob` operation as the [maxWorkerCount](https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_CreateJob.html#deadlinecloud-CreateJob-request-maxRetriesPerTask "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_CreateJob.html#deadlinecloud-CreateJob-request-maxRetriesPerTask") parameter.
 A job template is always a template rather than a specific job to run. A parameter values
  file enables a job bundle to either act as a template if some parameters don't have values

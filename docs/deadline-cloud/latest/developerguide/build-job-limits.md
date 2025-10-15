@@ -80,9 +80,9 @@ When you stop or delete the association between a queue and a limit, you have tw
 
 
 
-* *Stop and cancel tasks* â Workers with sessions that
+* *Stop and cancel tasks* – Workers with sessions that
  acquired the limit cancel all tasks.
-* *Stop and finish running tasks* â Workers with sessions
+* *Stop and finish running tasks* – Workers with sessions
  that acquired the limit complete their tasks.
 
 When you delete a limit using the console, workers first stop running tasks immediately

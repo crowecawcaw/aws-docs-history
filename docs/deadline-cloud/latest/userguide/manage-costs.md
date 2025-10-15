@@ -8,12 +8,12 @@ The AWS Deadline Cloud budget manager and usage explorer are cost management too
 To help you manage costs for Deadline Cloud, you can use the following features:
 
 
-* **Budget manager** â With the Deadline Cloud budget
+* **Budget manager** – With the Deadline Cloud budget
  manager, you can create and edit budgets to help manage project costs.
-* **Usage explorer** â With the Deadline Cloud usage
+* **Usage explorer** – With the Deadline Cloud usage
  explorer, you can view how many AWS resources are used and the estimated costs for
  those resources.
-* **AWS cost allocation tags** â With cost
+* **AWS cost allocation tags** – With cost
  allocation tags, you can track detailed costs for all of your AWS services. For
  more information, see [Organizing and
  tracking costs using AWS cost allocation tags](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html "https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html").

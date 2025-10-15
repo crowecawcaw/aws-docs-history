@@ -389,7 +389,7 @@ After downloading Deadline Cloud monitor and verifying the authenticity, use the
 
 
 	* Change the Deadline Cloud monitor profile to log in to a different monitor.
-	* Enable **Autologin** so you donât have to enter your
+	* Enable **Autologin** so you don’t have to enter your
 	 monitor URL on subsequent opens of Deadline Cloud monitor.
 5. Close the Deadline Cloud monitor window. It continues to run in the background and sync your
  credentials every 15 minutes.

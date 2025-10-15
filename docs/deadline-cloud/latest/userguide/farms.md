@@ -13,7 +13,7 @@ With a Deadline Cloud farm, you can manage users and project resources. A
 1. From the [Deadline Cloud 
  console](https://console.aws.amazon.com/deadlinecloud/home "https://console.aws.amazon.com/deadlinecloud/home"), choose **Go to Dashboard**.
 2. In the Farms section of the Deadline Cloud dashboard, choose 
- **Actions** â **Create farm**.
+ **Actions** → **Create farm**.
 
 
 	1. Alternatively, in the left side panel choose 

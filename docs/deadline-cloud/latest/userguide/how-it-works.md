@@ -47,15 +47,15 @@ Before anyone can work on a project, they must have access to that project and t
 
 
 
-* **Viewer**â Permission
+* **Viewer**– Permission
  to see resources in the farms, queues, fleets, and jobs they have access to. A viewer can't
  submit or make changes to jobs.
-* **Contributor**â Same
+* **Contributor**– Same
  as a viewer, but with permission to submit jobs to a queue or farm.
-* **Manager**â Same
+* **Manager**– Same
  as contributor, but with permission to edit jobs in queues they have access to, and grant
  permissions on resources that they have access to.
-* **Owner**â Same
+* **Owner**– Same
  as manager, but can view and create budgets and see usage.
 
 ###### Note

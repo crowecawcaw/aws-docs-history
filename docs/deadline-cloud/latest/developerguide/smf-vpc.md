@@ -5,7 +5,7 @@ With Amazon VPC resource endpoints for Deadline Cloud service-managed fleets (SM
  leverage Deadline Cloud's fully managed platform while integrating with your existing infrastructure within a VPC.
 
 
-![A diagram showing how the Deadline Cloud SMF connects with the VPC Lattice.](/images/deadline-cloud/latest/developerguide/images/vpc-resource-endpoints.png)
+![A diagram showing how the Deadline Cloud SMF connects with the VPC Lattice.](../../../images/deadline-cloud/latest/developerguide/images/vpc-resource-endpoints.png)
 
 ## How VPC resource endpoints work
 
