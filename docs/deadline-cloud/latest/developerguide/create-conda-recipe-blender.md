@@ -153,17 +153,17 @@ When you right click on the task for the package building step and choose **View
 
 
 
-* **Sync attachments** â This action copies the
+* **Sync attachments** – This action copies the
  input job attachments or mounts a virtual file system, depending on the setting used for
  the job attachments file system.
-* **Launch Conda** â This action is from the queue
+* **Launch Conda** – This action is from the queue
  environment added by default when you created the queue. The job doesn't specify any
  conda packages, so it finishes quickly and doesn't create a conda virtual
  environment.
-* **Launch CondaBuild Env** â This action creates a
+* **Launch CondaBuild Env** – This action creates a
  custom conda virtual environment that includes the software needed to build a conda
  package and reindex a channel. It installs from the [conda-forge](https://conda-forge.org/ "https://conda-forge.org/") channel.
-* **Task run** â This action builds the Blender
+* **Task run** – This action builds the Blender
  package and uploads the results to Amazon S3.
 
 As the actions run, they send logs in a structured format to Amazon CloudWatch. When a job is

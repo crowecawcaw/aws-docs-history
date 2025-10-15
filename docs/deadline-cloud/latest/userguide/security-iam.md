@@ -23,20 +23,20 @@ AWS Identity and Access Management (IAM) is an AWS service that helps an adminis
 How you use AWS Identity and Access Management (IAM) differs, depending on the work that you do in Deadline Cloud.
 
 
-**Service user** â If you use the Deadline Cloud service to do your job, then your administrator provides you
+**Service user** – If you use the Deadline Cloud service to do your job, then your administrator provides you
  with the credentials and permissions that you need. As you use more Deadline Cloud features to do your work, you might need additional permissions.
  Understanding how access is managed can help you request the right permissions from your administrator. If you cannot access a feature in
  Deadline Cloud, see [Troubleshooting AWS Deadline Cloud identity and
  access](security_iam_troubleshoot.md "security_iam_troubleshoot.md").
 
 
-**Service administrator** â If you're in charge of Deadline Cloud resources at your company, you probably have
+**Service administrator** – If you're in charge of Deadline Cloud resources at your company, you probably have
  full access to Deadline Cloud. It's your job to determine which Deadline Cloud features and resources your service users should access. You must then
  submit requests to your IAM administrator to change the permissions of your service users. Review the information on this page to understand the
  basic concepts of IAM. To learn more about how your company can use IAM with Deadline Cloud, see [How Deadline Cloud works with IAM](security_iam_service-with-iam.md "security_iam_service-with-iam.md").
 
 
-**IAM administrator** â If you're an IAM administrator, you might want to learn details about how you can
+**IAM administrator** – If you're an IAM administrator, you might want to learn details about how you can
  write policies to manage access to Deadline Cloud. To view example Deadline Cloud identity-based policies that you can use in IAM, see [Identity-based policy examples for
  Deadline Cloud](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
 
@@ -130,22 +130,22 @@ IAM roles with temporary credentials are useful in the following situations:
 
 
 
-* **Federated user access** â 
+* **Federated user access** – 
 
 To assign permissions to a federated identity, you create a role and define permissions for the role. When a federated identity authenticates, the identity is associated with the role and is granted the permissions that are defined by the role. For information about roles for federation, see [Create a role for a third-party identity provider (federation)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-idp.html "https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-idp.html") in the *IAM User Guide*.
 
 If you use IAM Identity Center, you configure a permission set. To control what your identities can access after they authenticate, IAM Identity Center correlates the permission set to a role in IAM. 
 For information about permissions sets, see [Permission sets](https://docs.aws.amazon.com/singlesignon/latest/userguide/permissionsetsconcept.html "https://docs.aws.amazon.com/singlesignon/latest/userguide/permissionsetsconcept.html") in the *AWS IAM Identity Center User Guide*.
-* **Temporary IAM user permissions** â An IAM user or role can assume an IAM role to temporarily take on
+* **Temporary IAM user permissions** – An IAM user or role can assume an IAM role to temporarily take on
  different permissions for a specific task.
-* **Cross-account access** â You can use an
+* **Cross-account access** – You can use an
  IAM role to allow someone (a trusted principal) in a different account to access
  resources in your account. Roles are the primary way to grant cross-account
  access. However, with some AWS services, you can attach a policy directly to a
  resource (instead of using a role as a proxy). To learn the difference between
  roles and resource-based policies for cross-account access, see [Cross account resource access in IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies-cross-account-resource-access.html "https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies-cross-account-resource-access.html") in the
  *IAM User Guide*.
-* **Cross-service access** â
+* **Cross-service access** –
 
  Some AWS services use features in other AWS services. For example, when you make a call in a service, 
  it's common for that service to run applications in Amazon EC2 or store objects in Amazon S3. A service might do this 
@@ -155,24 +155,24 @@ For information about permissions sets, see [Permission sets](https://docs.aws.a
 
 
 
-	+ **Forward access sessions (FAS)** â
+	+ **Forward access sessions (FAS)** –
 	
 	 When you use an IAM user or role to perform actions in AWS, you are considered a principal. When you use some services, you might perform an action that then initiates
 	 another action in a different service. FAS uses the permissions of the principal calling an AWS service, combined with the requesting AWS service to make requests to downstream services.
 	 FAS requests are only made when a service receives a request that requires interactions with other AWS services or resources to complete. In this case, you must have permissions to
 	 perform both actions. For policy details
 	 when making FAS requests, see [Forward access sessions](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_forward_access_sessions.html "https://docs.aws.amazon.com/IAM/latest/UserGuide/access_forward_access_sessions.html").
-	+ **Service role** â
+	+ **Service role** –
 	
 	 A service role is an [IAM role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html "https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html") that a service assumes to perform 
 	 actions on your behalf. An IAM administrator can create, modify, and delete a service role from within IAM. For 
 	 more information, see [Create a role to delegate permissions to an AWS service](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-service.html "https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-service.html") in the *IAM User Guide*.
-	+ **Service-linked role** â
+	+ **Service-linked role** –
 	
 	 A service-linked role is a type of service role that is linked to an AWS service. The service can assume the role to perform an action on your behalf. 
 	 Service-linked roles appear in your AWS account and are owned by the service. An IAM administrator can view, 
 	 but not edit the permissions for service-linked roles.
-* **Applications running on Amazon EC2** â
+* **Applications running on Amazon EC2** –
 
  You can use an IAM role to manage temporary credentials for applications that are running on an EC2 instance and making AWS CLI or AWS API requests. 
  This is preferable to storing access keys within the EC2 instance. To assign an AWS role to an EC2 instance and make it 
@@ -256,7 +256,7 @@ AWS supports additional, less-common policy types. These policy types can set th
 
 
 
-* **Permissions boundaries** â A permissions
+* **Permissions boundaries** – A permissions
  boundary is an advanced feature in which you set the maximum permissions that an
  identity-based policy can grant to an IAM entity (IAM user or role). You can
  set a permissions boundary for an entity. The resulting permissions are the
@@ -266,11 +266,11 @@ AWS supports additional, less-common policy types. These policy types can set th
  explicit deny in any of these policies overrides the allow. For more information
  about permissions boundaries, see [Permissions boundaries for
  IAM entities](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html "https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html") in the *IAM User Guide*.
-* **Service control policies (SCPs)** â SCPs are JSON policies that specify the maximum permissions for
+* **Service control policies (SCPs)** – SCPs are JSON policies that specify the maximum permissions for
  an organization or organizational unit (OU) in AWS Organizations. AWS Organizations is a service for grouping and centrally managing multiple AWS accounts that your business owns. If you enable all features in an organization, then you can apply service control policies (SCPs) to any or all of
  your accounts. The SCP limits permissions for entities in member accounts, including each AWS account root user. For more information about Organizations and
  SCPs, see [Service control policies](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps.html "https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps.html") in the *AWS Organizations User Guide*.
-* **Resource control policies (RCPs)** â RCPs
+* **Resource control policies (RCPs)** – RCPs
  are JSON policies that you can use to set the maximum available permissions for
  resources in your accounts without updating the IAM policies attached to each
  resource that you own. The RCP limits permissions for resources in member accounts
@@ -278,7 +278,7 @@ AWS supports additional, less-common policy types. These policy types can set th
  regardless of whether they belong to your organization. For more information about
  Organizations and RCPs, including a list of AWS services that support RCPs, see [Resource
  control policies (RCPs)](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_rcps.html "https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_rcps.html") in the *AWS Organizations User Guide*.
-* **Session policies** â Session policies are
+* **Session policies** – Session policies are
  advanced policies that you pass as a parameter when you programmatically create a
  temporary session for a role or federated user. The resulting session's
  permissions are the intersection of the user or role's identity-based policies and

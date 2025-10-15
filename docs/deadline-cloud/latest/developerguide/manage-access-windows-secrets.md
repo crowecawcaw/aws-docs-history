@@ -10,14 +10,14 @@ When you configure a queue with a Windows `jobRunAsUser`, you must specify
  "password": "JOB_USER_PASSWORD"
 }`
 ```
-For Workers to run jobs as the queueâs configured `jobRunAsUser`, the fleetâs 
+For Workers to run jobs as the queue’s configured `jobRunAsUser`, the fleet’s 
  IAM role must have permissions to get the value of the secret. If the secret is encrypted
- using a customer-managed KMS key, then the fleetâs IAM role must also have permissions 
+ using a customer-managed KMS key, then the fleet’s IAM role must also have permissions 
  to decrypt using the KMS key.
 
 It is highly recommended to follow the principle of least-privilege for these secrets. 
- This means that access to fetch the secret value of a queueâs `jobRunAsUser` â 
- `windows` â `passwordArn` should be:
+ This means that access to fetch the secret value of a queue’s `jobRunAsUser` → 
+ `windows` → `passwordArn` should be:
 
 
 * granted to a fleet role when a queue-fleet association is created between the 
@@ -30,7 +30,7 @@ Further, the AWS Secrets Manager secret containing the `jobRunAsUser` password
 ## Grant access to a password secret
 
 
-Deadline Cloud fleets require access to the `jobRunAsUser` password stored in the queueâs 
+Deadline Cloud fleets require access to the `jobRunAsUser` password stored in the queue’s 
  password secret when the queue and fleet are associated. We recommend using the AWS 
  Secrets Manager resource policy to grant access to the fleet roles. If you strictly adhere
  to this guideline, it is easier to determine which fleet roles have access to the secret.
@@ -39,7 +39,7 @@ Deadline Cloud fleets require access to the `jobRunAsUser` password stored in th
 **To grant access to the secret**
 
 1. Open the AWS Secret Manager console to the secret.
-2. In the âResource permissionsâ section, add a policy statement of the form:
+2. In the “Resource permissions“ section, add a policy statement of the form:
 
 
 

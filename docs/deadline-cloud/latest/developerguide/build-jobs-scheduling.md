@@ -139,13 +139,13 @@ There are four session action types:
 
 
 
-* `syncInputJobAttachments` â Downloads the input job attachments to
+* `syncInputJobAttachments` – Downloads the input job attachments to
  the worker.
-* `envEnter` â Performs the `onEnter` actions for an
+* `envEnter` – Performs the `onEnter` actions for an
  environment.
-* `taskRun` â Performs the `onRun` actions for a
+* `taskRun` – Performs the `onRun` actions for a
  task.
-* `envExit` â Performs the `onExit` actions for an
+* `envExit` – Performs the `onExit` actions for an
  environment.
 
 The following job template has a step environment. It has an `onEnter`

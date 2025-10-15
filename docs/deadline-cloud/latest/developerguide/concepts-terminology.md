@@ -180,8 +180,8 @@ A tag is a label that you can assign to an AWS resource. Each tag consists
 
 
 With tags, you can categorize your AWS resources in different ways. For
- example, you could define a set of tags for your accountâs Amazon EC2 instances that
- help you track each instanceâs owner and stack level.
+ example, you could define a set of tags for your account’s Amazon EC2 instances that
+ help you track each instance’s owner and stack level.
 
 
 You can also categorize your AWS resources by purpose, owner, or

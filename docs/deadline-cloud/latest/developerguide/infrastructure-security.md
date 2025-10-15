@@ -1,7 +1,7 @@
 # Infrastructure security in Deadline Cloud
 
 As a managed service, AWS Deadline Cloud is protected by AWS global network security. For information about AWS security services and how AWS protects infrastructure, see [AWS Cloud Security](https://aws.amazon.com/security/ "https://aws.amazon.com/security/"). To design your AWS environment using the best practices for infrastructure security, see
- [Infrastructure Protection](https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/infrastructure-protection.html "https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/infrastructure-protection.html") in *Security Pillar AWS WellâArchitected Framework*.
+ [Infrastructure Protection](https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/infrastructure-protection.html "https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/infrastructure-protection.html") in *Security Pillar AWS Well‐Architected Framework*.
 
 You use AWS published API calls to access Deadline Cloud through the network. 
  Clients must support the following:

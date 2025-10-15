@@ -342,6 +342,11 @@ class DeadlineCloudCrawler:
             LOGGER.debug("Skipping %s due to non-HTML content type %s", url, content_type)
             return
 
+        if "charset=" not in content_type.lower():
+            apparent = response.apparent_encoding
+            if apparent:
+                response.encoding = apparent
+
         html = response.text
         soup = BeautifulSoup(html, "html.parser")
         main = extract_main_content(soup)

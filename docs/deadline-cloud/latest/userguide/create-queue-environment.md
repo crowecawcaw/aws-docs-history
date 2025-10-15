@@ -181,10 +181,10 @@ When you submit a job to a queue with the default Conda
 
 
 
-* `CondaPackages` â a space-separated list of [package match specifications](https://docs.conda.io/projects/conda-build/en/stable/resources/package-spec.html#package-match-specifications "https://docs.conda.io/projects/conda-build/en/stable/resources/package-spec.html#package-match-specifications"), such as `blender=3.6`
+* `CondaPackages` – a space-separated list of [package match specifications](https://docs.conda.io/projects/conda-build/en/stable/resources/package-spec.html#package-match-specifications "https://docs.conda.io/projects/conda-build/en/stable/resources/package-spec.html#package-match-specifications"), such as `blender=3.6`
  or `numpy>1.22`. The default is empty to skip creating a virtual
  environment.
-* `CondaChannels` â a space separated list of [Conda channels](https://docs.conda.io/projects/conda/en/latest/user-guide/concepts/channels.html "https://docs.conda.io/projects/conda/en/latest/user-guide/concepts/channels.html") such as
+* `CondaChannels` – a space separated list of [Conda channels](https://docs.conda.io/projects/conda/en/latest/user-guide/concepts/channels.html "https://docs.conda.io/projects/conda/en/latest/user-guide/concepts/channels.html") such as
  `deadline-cloud`, `conda-forge`, or
  `s3://`amzn-s3-demo-bucket`/conda/channel`.
  The default is `deadline-cloud`, a channel available to

@@ -9,7 +9,7 @@
  For example, the [Qt Framework](https://www.qt.io/product/framework "https://www.qt.io/product/framework")
  provides GUI functionality for many desktop applications. When you run these applications on a
  worker host without an interactive display, you may need to set the environment variable
- `QT_QPA_PLATFORM` to `offscreen` so the worker doesnât look for a
+ `QT_QPA_PLATFORM` to `offscreen` so the worker doesn’t look for a
  display. 
 
 In this example, you'll use a sample job bundle from the Deadline Cloud samples directory to set
@@ -56,7 +56,7 @@ deadline bundle submit job_env_vars
  ...`
 ```
 2. In the Deadline Cloud monitor, you can see the new job and monitor its progress. After the
- Linux fleet associated with the queue has a worker available to run the jobâs task,
+ Linux fleet associated with the queue has a worker available to run the job’s task,
  the job completes in a few seconds. Select the task, then choose the **View
  logs** option in the top right menu of the tasks panel. 
 

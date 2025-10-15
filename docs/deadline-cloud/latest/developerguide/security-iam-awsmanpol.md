@@ -35,7 +35,7 @@ This policy includes the following permissions:
 
 
 
-* `deadline` â Allows principals to manage workers in a fleet.
+* `deadline` – Allows principals to manage workers in a fleet.
 
 For a JSON listing of the policy details, see [AWSDeadlineCloud-FleetWorker](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSDeadlineCloud-FleetWorker.html "https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSDeadlineCloud-FleetWorker.html") in the *AWS Managed Policy reference
  guide*.
@@ -61,7 +61,7 @@ This policy includes the following permissions:
 
 
 
-* `deadline` â Allows the user to create workers, assume the fleet
+* `deadline` – Allows the user to create workers, assume the fleet
  role for workers, and apply tags to workers
 
 For a JSON listing of the policy details, see [AWSDeadlineCloud-WorkerHost](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSDeadlineCloud-WorkerHost.html "https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSDeadlineCloud-WorkerHost.html") in the *AWS Managed Policy reference
@@ -87,9 +87,9 @@ This policy includes the following permissions:
 
 
 
-* `deadline` â Allows the user to access farm data.
-* `ec2` â Allows users to see details about Amazon EC2 instance types.
-* `identitystore` â Allows users to see user and group names.
+* `deadline` – Allows the user to access farm data.
+* `ec2` – Allows users to see details about Amazon EC2 instance types.
+* `identitystore` – Allows users to see user and group names.
 
 For a JSON listing of the policy details, see [AWSDeadlineCloud-UserAccessFarms](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSDeadlineCloud-UserAccessFarms.html "https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSDeadlineCloud-UserAccessFarms.html") in the *AWS Managed Policy reference
  guide*.
@@ -114,9 +114,9 @@ This policy includes the following permissions:
 
 
 
-* `deadline` â Allows the user to access farm data.
-* `ec2` â Allows users to see details about Amazon EC2 instance types.
-* `identitystore` â Allows users to see user and group names.
+* `deadline` – Allows the user to access farm data.
+* `ec2` – Allows users to see details about Amazon EC2 instance types.
+* `identitystore` – Allows users to see user and group names.
 
 For a JSON listing of the policy details, see [AWSDeadlineCloud-UserAccessFleets](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSDeadlineCloud-UserAccessFleets.html "https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSDeadlineCloud-UserAccessFleets.html") in the *AWS Managed Policy reference
  guide*.
@@ -141,9 +141,9 @@ This policy includes the following permissions:
 
 
 
-* `deadline` â Allows the user to access farm data.
-* `ec2` â Allows users to see details about Amazon EC2 instance types.
-* `identitystore` â Allows users to see user and group names.
+* `deadline` – Allows the user to access farm data.
+* `ec2` – Allows users to see details about Amazon EC2 instance types.
+* `identitystore` – Allows users to see user and group names.
 
 For a JSON listing of the policy details, see [AWSDeadlineCloud-UserAccessJobs](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSDeadlineCloud-UserAccessJobs.html "https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSDeadlineCloud-UserAccessJobs.html") in the *AWS Managed Policy reference
  guide*.
@@ -168,9 +168,9 @@ This policy includes the following permissions:
 
 
 
-* `deadline` â Allows the user to access farm data.
-* `ec2` â Allows users to see details about Amazon EC2 instance types.
-* `identitystore` â Allows users to see user and group names.
+* `deadline` – Allows the user to access farm data.
+* `ec2` – Allows users to see details about Amazon EC2 instance types.
+* `identitystore` – Allows users to see user and group names.
 
 For a JSON listing of the policy details, see [AWSDeadlineCloud-UserAccessQueues](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSDeadlineCloud-UserAccessQueues.html "https://docs.aws.amazon.com/aws-managed-policy/latest/reference/AWSDeadlineCloud-UserAccessQueues.html") in the *AWS Managed Policy reference
  guide*.
@@ -193,10 +193,10 @@ View details about updates to AWS managed policies for Deadline Cloud since this
 
 | Change | Description | Date |
 | --- | --- | --- |
-| [AWSDeadlineCloud-WorkerHost](#security-iam-awsmanpol-WorkerHost "#security-iam-awsmanpol-WorkerHost") â Change | Deadline Cloud added new actions `deadline:TagResource` and
+| [AWSDeadlineCloud-WorkerHost](#security-iam-awsmanpol-WorkerHost "#security-iam-awsmanpol-WorkerHost") – Change | Deadline Cloud added new actions `deadline:TagResource` and
  `deadline:ListTagsForResource` to allow you to add and view tags
  associated with workers in your fleet. | May 30, 2025 |
-| [AWSDeadlineCloud-UserAccessFarms](#security-iam-awsmanpol-UserAccessFarms "#security-iam-awsmanpol-UserAccessFarms") â Change[AWSDeadlineCloud-UserAccessJobs](#security-iam-awsmanpol-UserAccessJobs "#security-iam-awsmanpol-UserAccessJobs") â Change[AWSDeadlineCloud-UserAccessQueues](#security-iam-awsmanpol-UserAccessQueues "#security-iam-awsmanpol-UserAccessQueues") â Change | Deadline Cloud added new actions `deadline:GetJobTemplate` and
+| [AWSDeadlineCloud-UserAccessFarms](#security-iam-awsmanpol-UserAccessFarms "#security-iam-awsmanpol-UserAccessFarms") – Change[AWSDeadlineCloud-UserAccessJobs](#security-iam-awsmanpol-UserAccessJobs "#security-iam-awsmanpol-UserAccessJobs") – Change[AWSDeadlineCloud-UserAccessQueues](#security-iam-awsmanpol-UserAccessQueues "#security-iam-awsmanpol-UserAccessQueues") – Change | Deadline Cloud added new actions `deadline:GetJobTemplate` and
  `deadline:ListJobParameterDefinitions` to allow you to resubmit
  jobs. | October 7, 2024 |
 | Deadline Cloud started tracking changes | Deadline Cloud started tracking changes to its AWS managed policies. | April 2, 2024 |

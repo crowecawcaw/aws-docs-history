@@ -48,11 +48,11 @@ To create a budget, use the following procedure.
 	
 	
 		* **Stop after finishing current
-		 work** â All work currently running when the
+		 work** – All work currently running when the
 		 threshold amount is met continue to run (and incur costs) until
 		 finished.
 		* **Immediately stop work**
-		 â All work is canceled immediately when the threshold
+		 – All work is canceled immediately when the threshold
 		 amount is met.
 	4. To create additional limit alerts, choose **Add new
 	 action** and repeat the previous steps.

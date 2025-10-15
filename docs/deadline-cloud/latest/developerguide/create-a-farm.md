@@ -193,16 +193,16 @@ deadline config set defaults.queue_id $DEV_QUEUE_ID`
 
 
 
-	* List all farms â `deadline farm list`
-	* List all queues in the default farm â `deadline queue
+	* List all farms – `deadline farm list`
+	* List all queues in the default farm – `deadline queue
 	 list`
-	* List all fleets in the default farm â `deadline fleet
+	* List all fleets in the default farm – `deadline fleet
 	 list`
-	* Get the default farm â `deadline farm
+	* Get the default farm – `deadline farm
 	 get`
-	* Get the default queue â `deadline queue
+	* Get the default queue – `deadline queue
 	 get`
-	* Get all the fleets associated with the default queue â
+	* Get all the fleets associated with the default queue –
 	 `deadline fleet get`
 
 ## Next steps

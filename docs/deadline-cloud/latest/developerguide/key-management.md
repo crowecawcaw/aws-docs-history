@@ -4,12 +4,12 @@ When creating a new farm, you can choose one of the following keys to encrypt yo
  data:
 
 
-* **AWS owned KMS key** â Default encryption
+* **AWS owned KMS key** – Default encryption
  type if you don't specify a key when you create the farm. The KMS key is owned by
  AWS Deadline Cloud. You can't view, manage, or use AWS owned keys. However, you don't need to
  take any action to protect the keys that encrypt your data. For more information, see
  [AWS owned keys](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-owned-cmk "https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-owned-cmk") in the *AWS Key Management Service developer guide*.
-* **Customer managed KMS key** â You specify a
+* **Customer managed KMS key** – You specify a
  customer managed key when you create a farm. All of the content within the farm is
  encrypted with the KMS key. The key is stored in your account and is created, owned, and
  managed by you and AWS KMS charges apply. You have full control over the KMS key. You can
@@ -74,15 +74,15 @@ To use your customer managed key to create farms using the console or the `[Crea
 
 
 * `[kms:CreateGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateGrant.html "https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateGrant.html")`
- â Adds a grant to a customer managed key. Grants console access to a specified
+ – Adds a grant to a customer managed key. Grants console access to a specified
  AWS KMS key. For more informations, see [Using grants](https://docs.aws.amazon.com/kms/latest/developerguide/grants.html "https://docs.aws.amazon.com/kms/latest/developerguide/grants.html") in the
  *AWS Key Management Service developer guide*.
-* `[kms:Decrypt](https://docs.aws.amazon.com/kms/latest/APIReference/API_Decrypt.html "https://docs.aws.amazon.com/kms/latest/APIReference/API_Decrypt.html")` â Allows Deadline Cloud to decrypt data in the
+* `[kms:Decrypt](https://docs.aws.amazon.com/kms/latest/APIReference/API_Decrypt.html "https://docs.aws.amazon.com/kms/latest/APIReference/API_Decrypt.html")` – Allows Deadline Cloud to decrypt data in the
  farm.
 * `[kms:DescribeKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html "https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html")`
- â Provides the customer managed key details to allow Deadline Cloud to validate the
+ – Provides the customer managed key details to allow Deadline Cloud to validate the
  key.
-* `[kms:GenerateDataKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateDataKey.html "https://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateDataKey.html")` â Allows Deadline Cloud to encrypt data using a
+* `[kms:GenerateDataKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateDataKey.html "https://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateDataKey.html")` – Allows Deadline Cloud to encrypt data using a
  unique data key.
 
 The following policy statement grants the necessary permissions for the
@@ -134,10 +134,10 @@ To use your customer managed key for read-only Deadline Cloud operations, such g
 
 
 
-* `[kms:Decrypt](https://docs.aws.amazon.com/kms/latest/APIReference/API_Decrypt.html "https://docs.aws.amazon.com/kms/latest/APIReference/API_Decrypt.html")` â Allows Deadline Cloud to decrypt data in the
+* `[kms:Decrypt](https://docs.aws.amazon.com/kms/latest/APIReference/API_Decrypt.html "https://docs.aws.amazon.com/kms/latest/APIReference/API_Decrypt.html")` – Allows Deadline Cloud to decrypt data in the
  farm.
 * `[kms:DescribeKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html "https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html")`
- â Provides the customer managed key details to allow Deadline Cloud to validate the
+ – Provides the customer managed key details to allow Deadline Cloud to validate the
  key.
 
 The following policy statement grants the necessary permissions for read-only
@@ -187,12 +187,12 @@ To use your customer managed key for read-write Deadline Cloud operations, such 
 
 
 
-* `[kms:Decrypt](https://docs.aws.amazon.com/kms/latest/APIReference/API_Decrypt.html "https://docs.aws.amazon.com/kms/latest/APIReference/API_Decrypt.html")` â Allows Deadline Cloud to decrypt data in the
+* `[kms:Decrypt](https://docs.aws.amazon.com/kms/latest/APIReference/API_Decrypt.html "https://docs.aws.amazon.com/kms/latest/APIReference/API_Decrypt.html")` – Allows Deadline Cloud to decrypt data in the
  farm.
 * `[kms:DescribeKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html "https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html")`
- â Provides the customer managed key details to allow Deadline Cloud to validate the
+ – Provides the customer managed key details to allow Deadline Cloud to validate the
  key.
-* `[kms:GenerateDataKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateDataKey.html "https://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateDataKey.html")` â Allows Deadline Cloud to encrypt data using a
+* `[kms:GenerateDataKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateDataKey.html "https://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateDataKey.html")` – Allows Deadline Cloud to encrypt data using a
  unique data key.
 
 The following policy statement grants the necessary permissions for the
@@ -469,25 +469,25 @@ This is why AWS KMS gives customers a waiting period of up to 30 days before del
 
 
 Because it's destructive and potentially dangerous to delete a customer managed
- KMS key, we require that you set a waiting period of 7â30 days. The default
+ KMS key, we require that you set a waiting period of 7–30 days. The default
  waiting period is 30 days.
 
 
 However, the actual waiting period might be up to 24 hours longer than the period you
  scheduled. To get the actual date and time when the key will be deleted, use the [DescribeKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html "https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html") operation. You can also see the scheduled deletion
  date of a key in the [AWS KMS
- console](https://docs.aws.amazon.com/kms/latest/developerguide/viewing-keys-console.html#viewing-details-navigate "https://docs.aws.amazon.com/kms/latest/developerguide/viewing-keys-console.html#viewing-details-navigate") on the keyâs detail page, in the **General
+ console](https://docs.aws.amazon.com/kms/latest/developerguide/viewing-keys-console.html#viewing-details-navigate "https://docs.aws.amazon.com/kms/latest/developerguide/viewing-keys-console.html#viewing-details-navigate") on the key’s detail page, in the **General
  configuration** section. Notice the time zone.
 
 
-During the waiting period, the customer managed keyâs status and key state is
+During the waiting period, the customer managed key’s status and key state is
  **Pending deletion**.
 
 
 
-* A customer managed KMS key that is pending deletion canât be used in any [cryptographic
+* A customer managed KMS key that is pending deletion can’t be used in any [cryptographic
  operations](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations "https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations").
-* AWS KMS doesnât [rotate the
+* AWS KMS doesn’t [rotate the
  backing keys](https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html#rotate-keys-how-it-works "https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html#rotate-keys-how-it-works") of customer managed KMS keys that are pending
  deletion.
 

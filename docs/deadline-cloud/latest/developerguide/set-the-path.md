@@ -4,7 +4,7 @@ Use OpenJD environments to provide new commands in an environment. First you cre
  directory containing script files, and then add that directory to the `PATH`
  environment variables so that executables in your script can run them without needing to
  specify the directory path each time. The list of variables in an environment definition
- doesnât provide a way to modify the variable, so you do this by running a script instead.
+ doesn’t provide a way to modify the variable, so you do this by running a script instead.
  After the script sets things up and modifies the `PATH`, it exports the variable to
  the OpenJD runtime with the command `echo "openjd_env: PATH=$PATH"`. 
 
@@ -50,7 +50,7 @@ cd deadline-cloud-samples/job_bundles
  ...
 ```
 2. In the Deadline Cloud monitor, you will see the new job and can monitor its progress. Once
- the Linux fleet associated with the queue has a worker available to run the jobâs
+ the Linux fleet associated with the queue has a worker available to run the job’s
  task, the job completes in a few seconds. Select the task, then choose the
  **View logs** option in the top right menu of the tasks panel. 
 

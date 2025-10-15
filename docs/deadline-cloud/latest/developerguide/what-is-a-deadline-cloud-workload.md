@@ -21,7 +21,7 @@ Workloads scale from simple job bundles that users submit to a queue with either
  and more. This content is typically created by a team of artistic or technical specialists
  running a variety of software applications and custom scripting. Members of the team pass data
  between each other using a production pipeline. Many tasks performed by the pipeline involve
- intensive computations that would take days if run on a userâs workstation. 
+ intensive computations that would take days if run on a user’s workstation. 
 
 
  Some examples of tasks in these production pipelines include: 
@@ -43,7 +43,7 @@ Workloads scale from simple job bundles that users submit to a queue with either
  the output quality. Often there is a GUI to select those parameter values with a button or
  menu to run the process locally within the application. When a user runs the process, the
  application and possibly the host computer itself cannot be used to perform other operations
- because it uses the application state in memory and may consume all of the host computerâs CPU
+ because it uses the application state in memory and may consume all of the host computer’s CPU
  and memory resources. 
 
 
@@ -69,7 +69,7 @@ Workloads scale from simple job bundles that users submit to a queue with either
  horizontal scale to complete quickly.
 
  There are times that it is obvious how to make a workload run in parallel. For example,
- each frame of a computer graphics render can be done independently. Itâs important not to get
+ each frame of a computer graphics render can be done independently. It’s important not to get
  stuck on this parallelism, however. Instead, understand that offloading a long-running
  workload to Deadline Cloud provides significant benefits, even when there is no obvious way to split
  the workload up. 
@@ -195,8 +195,8 @@ Workloads scale from simple job bundles that users submit to a queue with either
 	+ You can write portable Python scripts using `pathlib` to handle file
 	 system path differences and avoid operating-specific features. The Python
 	 documentation includes annotations for this, for example in the [signal library
-	 documentation](https://docs.python.org/3/library/signal.html "https://docs.python.org/3/library/signal.html"). Linux-specific feature support is marked as âAvailability:
-	 Linux.â
+	 documentation](https://docs.python.org/3/library/signal.html "https://docs.python.org/3/library/signal.html"). Linux-specific feature support is marked as “Availability:
+	 Linux.”
 * Use job parameters to specify application requirements. Use consistent conventions
  that the farm administrator can apply in [queue
  environments](configure-jobs.md "configure-jobs.md"). 

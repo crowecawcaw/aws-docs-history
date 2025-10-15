@@ -54,7 +54,7 @@ To work with queues, you should already have a monitor and farm set up.
 ###### Important
 
 We strongly recommend specifying users and groups for run-as
- functionality. If you don't, it will degrade your farmâs security posture
+ functionality. If you don't, it will degrade your farm’s security posture
  because the jobs can then do everything the worker's agent can do. For more
  information about the potential security risks, see [Run jobs as users and groups](security-best-practices.md#job-run-as-user "security-best-practices.md#job-run-as-user").
 

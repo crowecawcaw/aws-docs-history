@@ -15,9 +15,9 @@ In addition to a `name` and `description`, each environment contains
  two fields that define the environment on the host. They are:
 
 
-* `script` â The action taken when this environment is run on a
+* `script` – The action taken when this environment is run on a
  worker.
-* `variables` â A set of environment variable name/value pairs that are
+* `variables` – A set of environment variable name/value pairs that are
  set when entering the environment.
 You must set at least one of `script` or `variables`.
 
@@ -32,10 +32,10 @@ The default queue environment for Deadline Cloud uses the conda package manager 
  default environment. They are:
 
 
-* `CondaPackages` â A space-separated list of conda package match
+* `CondaPackages` – A space-separated list of conda package match
  specifications to install for the job. For example, the Blender submitter would add
  `blender=3.6` to render frames in Blender 3.6.
-* `CondaChannels` â A space-separated list of conda channels to install
+* `CondaChannels` – A space-separated list of conda channels to install
  packages from. For service-managed fleets, packages are installed from the
  `deadline-cloud` channel. You can add other channels.
 ###### Topics
