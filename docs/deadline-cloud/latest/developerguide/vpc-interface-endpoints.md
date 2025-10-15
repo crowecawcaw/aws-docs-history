@@ -72,10 +72,10 @@ Deadline Cloud also requires endpoints for the following AWS service endpoints:
 * If you set up your customer-managed fleet in a subnet with no internet
  connection you must create a VPC endpoint for Amazon CloudWatch Logs so that workers can
  write logs. For more information, see [Monitoring
- with CloudWatch](../userguide/monitoring-cloudwatch.md "../userguide/monitoring-cloudwatch.md").
+ with CloudWatch](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/monitoring-cloudwatch.html "https://docs.aws.amazon.com/deadline-cloud/latest/userguide/monitoring-cloudwatch.html").
 * If you use job attachments, you must create a VPC endpoint for Amazon Simple Storage Service (Amazon S3)
  so that workers can access the attachments. For more information, see [Job
- attachments in Deadline Cloud](../userguide/storage-job-attachments.md "../userguide/storage-job-attachments.md").
+ attachments in Deadline Cloud](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/storage-job-attachments.html "https://docs.aws.amazon.com/deadline-cloud/latest/userguide/storage-job-attachments.html").
 
 ## Create endpoints for Deadline Cloud
 

@@ -1,7 +1,7 @@
 # Create a limit
 
 You create a limit using the Deadline Cloud console or the [CreateLimit operation in the
- Deadline Cloud API](https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_CreateLimit.html "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_CreateLimit.html"). Limits are defined for a farm, but associated with queues. After you
+ Deadline Cloud API](../APIReference/API_CreateLimit.md "../APIReference/API_CreateLimit.md"). Limits are defined for a farm, but associated with queues. After you
  create a limit, you can associate it with one or more queues.
 
 ###### To create a limit

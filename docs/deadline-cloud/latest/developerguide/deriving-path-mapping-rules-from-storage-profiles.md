@@ -64,7 +64,7 @@ aws deadline create-job --farm-id $FARM_ID --queue-id $QUEUE1_ID \
 deadline config set settings.storage_profile_id $WSALL_ID
 ```
  To run a customer-managed worker as though it is running in the sample infrastructure,
- follow the procedure in [Run the worker agent](../userguide/run-worker.md "../userguide/run-worker.md") in the
+ follow the procedure in [Run the worker agent](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/run-worker.html "https://docs.aws.amazon.com/deadline-cloud/latest/userguide/run-worker.html") in the
  *Deadline Cloud User Guide* to run a worker with AWS CloudShell. If you
  followed those instructions before, delete the `~/demoenv-logs` and
  `~/demoenv-persist` directories first. Also, set the values of the

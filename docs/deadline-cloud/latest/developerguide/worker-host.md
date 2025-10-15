@@ -168,7 +168,7 @@ You can configure the Deadline Cloud worker agent settings in three ways. We rec
 
 The worker agent does not support running as a domain user on Windows. To run a job as
  a domain user, you can specify a domain user account when you configure a queue user for
- running jobs. For more information, see step 7 in [Deadline Cloud queues](../userguide/queues.md "../userguide/queues.md") in the
+ running jobs. For more information, see step 7 in [Deadline Cloud queues](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/queues.html "https://docs.aws.amazon.com/deadline-cloud/latest/userguide/queues.html") in the
  *AWS Deadline Cloud User Guide*.
 
 
@@ -359,5 +359,5 @@ To use a Windows user as the `jobRunAsUser`, it must meet the following
 * All queue `jobRunAsUser` users must exist.
 * Their passwords must match the value of the secret specified in their queue’s
  `JobRunAsUser` field. For instructions, see step 7 in [Deadline Cloud
- queues](../userguide/queues.md "../userguide/queues.md") in the *AWS Deadline Cloud User Guide*.
+ queues](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/queues.html "https://docs.aws.amazon.com/deadline-cloud/latest/userguide/queues.html") in the *AWS Deadline Cloud User Guide*.
 * The agent-user must be able to log on as those users.

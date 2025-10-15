@@ -43,7 +43,7 @@ In this example you create a Deadline Cloud queue to build the Blender 4.2 appli
  infrastructure components to manage.
 
 
-Follow the instructions in [Create a queue](../userguide/create-queue.md "../userguide/create-queue.md") in the
+Follow the instructions in [Create a queue](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/create-queue.html "https://docs.aws.amazon.com/deadline-cloud/latest/userguide/create-queue.html") in the
  *Deadline Cloud User Guide*. Make the following changes:
 
 

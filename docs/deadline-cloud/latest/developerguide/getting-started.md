@@ -13,7 +13,7 @@ The following sections introduce you to the different features of Deadline Cloud
  workloads and customizations.
 
 For instructions to set up your farm using the console, see [Getting
- started](../userguide/getting-started.md "../userguide/getting-started.md") in the *Deadline Cloud User Guide*.
+ started](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/getting-started.html "https://docs.aws.amazon.com/deadline-cloud/latest/userguide/getting-started.html") in the *Deadline Cloud User Guide*.
 
 ###### Topics
 

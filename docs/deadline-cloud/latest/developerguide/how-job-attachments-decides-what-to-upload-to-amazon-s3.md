@@ -102,7 +102,7 @@ done
     "totalSize": 83
 }
 ```
- Use the [GetJob operation](https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_GetJob.html "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_GetJob.html") for the
+ Use the [GetJob operation](../APIReference/API_GetJob.md "../APIReference/API_GetJob.md") for the
  manifest to see that the `rootPath` is "/". 
 
 
@@ -130,7 +130,7 @@ The files in file system locations `FSCommon`
  `Q1`. 
 
 You can see the file system locations considered `SHARED` for a job that is
- submitted with a particular storage profile with the [GetStorageProfileForQueue operation](https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_GetStorageProfileForQueue.html "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_GetStorageProfileForQueue.html"). To query for storage profile
+ submitted with a particular storage profile with the [GetStorageProfileForQueue operation](../APIReference/API_GetStorageProfileForQueue.md "../APIReference/API_GetStorageProfileForQueue.md"). To query for storage profile
  `WSAll` for queue `Q1` use the following command: 
 
 

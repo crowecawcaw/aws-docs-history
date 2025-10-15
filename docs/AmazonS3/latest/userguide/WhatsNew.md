@@ -1,0 +1,1112 @@
+# Document history
+
+
+* Current API version: 2006-03-01
+The following table describes the important changes in each release of the
+ *Amazon Simple Storage Service API Reference* and the *Amazon S3 User Guide*. For
+ notification about updates to this documentation, you can subscribe to an RSS feed.
+
+
+
+| Change | Description | Date |
+| --- | --- | --- |
+| S3 Object Lambda will no longer be open to new customers starting starting on November 7th, 2025 | S3 Object Lambda will no longer be open to new customers starting November 7, 2025. If you
+ would like to use S3 Object Lambda, sign up prior to that date. Existing customers
+ can continue to use the service as normal. For more information, see [Amazon S3 Object Lambda availability change](amazons3-ol-change.md "amazons3-ol-change.md"). | October 7, 2025 |
+| Amazon S3 now supports conditional deletes in general purpose buckets | Amazon S3 now supports conditional deletes in general purpose buckets. Conditional deletes 
+ verify that an object is unchanged before deleting it. Using conditional deletes helps you 
+ to prevent accidental deletions in high-concurrency, multiple-writer scenarios. You can now 
+ perform conditional deletes using the HTTP `if-match` header with an ETag value. 
+ Amazon S3 only allows your delete request to succeed if the Etag provided matches that of the 
+ object. Additionally, you can use the `s3:if-match` condition key in your S3 bucket 
+ policies to enforce conditional delete operations. For example, you can require clients to use 
+ the HTTP `if-match` header in both `DeleteObject` and 
+ `DeleteObjects` API operation requests, helping you to minimize the risk of 
+ accidentally deleting objects in your bucket. For more information, see [How to perform
+ conditional deletes](conditional-deletes.md "conditional-deletes.md"). | September 16, 2025 |
+| 
+ Amazon S3 Batch Operations now supports managing objects within an S3 bucket, prefix, suffix, or more, in 
+ a single step in the Amazon S3 console
+  | When creating an S3 Batch Operations job, you can specify the objects on which to perform the 
+ operation. With this feature, you can instead specify an entire bucket, prefix, suffix, creation 
+ date, or storage class. Batch Operations will then apply the operation to all the matching objects and 
+ notify you when the job is finished. For more information, see 
+ [Performing object operations in bulk with Batch Operations](batch-ops.md "batch-ops.md").
+  | September 15, 2025 |
+| 
+ Amazon S3 now supports Access Points tags for attribute-based access control (ABAC)
+  | Amazon S3 now supports tagging Access Points for both general purpose and directory buckets. Add 
+ tags to access points and use attribute-based access control (ABAC) to scale access. You can get started 
+ with tagging access points using the AWS Management Console, S3 REST API, AWS CLI, or the AWS SDK. 
+ To learn more about using tags for ABAC, see 
+ [Using tags for attribute-based access control (ABAC)](tagging.md#using-tags-for-abac "tagging.md#using-tags-for-abac"). | July 31, 2025 |
+| Amazon S3 Vectors (Preview) | Amazon S3 Vectors delivers purpose-built, cost-optimized vector storage for your semantic search and AI applications. S3 Vectors introduces a new bucket type, the vector bucket, which is optimized for durable, low-cost vector storage. 
+ For more information, see [Working with S3 Vectors and vector buckets](s3-vectors.md "s3-vectors.md").
+  | July 15, 2025 |
+| Amazon S3 Metadata now supports existing objects | Amazon S3 Metadata creates and manages metadata that provides information about datasets stored in S3,
+ so you can more easily discover and use your S3 data. Previously, S3 Metadata supported new and
+ updated objects. Now, S3 Metadata also creates and manages metadata for all your existing S3 data.
+ S3 Metadata now creates and maintains two Apache Iceberg tables that give you a
+ queryable and continuously updated view of the metadata associated with the objects in a general
+ purpose bucket. A journal table records changes made to your data in near real time, helping you to
+ identify new data uploaded to your bucket, track recently deleted objects, monitor S3 Lifecycle
+ transitions, and more. A new live inventory table provides and maintains an up-to-date view of all
+ objects in your bucket. Both S3 Metadata tables are stored in an AWS managed Iceberg table bucket
+ in your account, and can be queried using standard SQL through AWS analytics services, such as
+ Amazon Athena or Amazon EMR, and open source tooling, such as DuckDB and
+ PyIceberg. For more information, see [Accelerating data discovery with S3
+ Metadata](metadata-tables-overview.md "metadata-tables-overview.md").  | July 15, 2025 |
+| 
+ Amazon S3 Express One Zone now supports tags for cost allocation and attribute-based access control
+  | Amazon S3 Express One Zone, a high performance S3 storage class, now supports tags for cost allocation and attribute-based access control (ABAC). You can add tags to S3 directory buckets to track and organize AWS costs using AWS Billing and Cost Management. Additionally, with ABAC support, you can scale access control to your directory buckets by using tags. S3 Express One Zone supports tags on directory buckets in all AWS Regions where the storage class is available. You can get started with tagging using the AWS Management Console, S3 REST API, AWS CLI, or the AWS SDK. To learn more about using tags to simplify cost allocation or ABAC, see  [Using tags with S3 directory buckets](directory-buckets-tagging.md "directory-buckets-tagging.md"). | July 2, 2025 |
+| 
+ Access points now supports attaching to an FSx for OpenZFS volume
+  | You can create and attach an access point to an FSx for OpenZFS volume using the Amazon FSx
+ console, AWS CLI, or API. Once attached, you can use the S3 object APIs to access your
+ file data. Your data continues to reside on the Amazon FSx file system and continues to be
+ directly accessible for your existing workloads. For 
+ more information, see [Managing access to shared datasets with access points](access-points.md "access-points.md"). | June 25, 2025 |
+| 
+ S3 Tables now supports new compaction strategies for tables
+  | S3 Tables now supports multiple compaction strategies to optimize query performance based on different data access patterns. The new strategies include Sort and Z-order. For more information, see [Compaction Strategies for tables](s3-tables-maintenance.md#s3-tables-maintenance-compaction-strategies "s3-tables-maintenance.md#s3-tables-maintenance-compaction-strategies").
+  | June 18, 2025 |
+| Enhanced access denied error messages for same-organization requests | Amazon S3 now includes additional context in access denied (HTTP `403 Forbidden`) errors for
+ requests made to resources within the same organization in AWS Organizations. This new context includes the
+ type of policy that denied access, the reason for denial, and information about the AWS Identity and Access Management
+ (IAM) user or role that requested access to the resource. This context helps you to troubleshoot
+ access issues, identify the root cause of access denied errors, and fix incorrect access controls by
+ updating the relevant policies. This additional context is also available in AWS CloudTrail logs. Enhanced
+ access denied error messages for same-organization requests are now available in all AWS Regions,
+ including the AWS GovCloud (US) Regions and the China Regions. For more information, see [Troubleshoot
+ access denied (403 Forbidden) errors in Amazon S3.](troubleshoot-403-errors.md "troubleshoot-403-errors.md"). | June 16, 2025 |
+| 
+ S3 Tables adds new AWS managed policy for S3 Tables
+  | S3 Tables added a new AWS-managed policy called `AmazonS3TablesLakeFormationServiceRole`. This policy grants permissions that allows the Lake Formation service role access to Amazon S3 tables and table buckets. For more information, see [AWS managed policies for S3 Tables](s3-tables-security-iam-awsmanpol.md "s3-tables-security-iam-awsmanpol.md").
+  | May 19, 2025 |
+| 
+ S3 Tables now supports SSE-KMS using customer managed keys
+  | S3 Tables now supports server-side encryption with AWS Key Management Service (AWS KMS) keys (SSE-KMS) using customer managed keys. You can apply SSE-KMS encryption at the table bucket and table level. 
+ For more information, see [Using server-side encryption with AWS KMS keys (SSE-KMS) in table buckets](s3-tables-kms-encryption.md "s3-tables-kms-encryption.md").
+  | April 16, 2025 |
+| Access points for directory buckets are available in AWS Local Zones | Directory buckets now support access points to simplify managing data access at scale for shared datasets in Amazon S3. With 
+ this new feature, you can create hundreds of access points per bucket, each with a distinct name and permissions customized for each application. For 
+ more information, see [Managing access to shared datasets in directory buckets with access points](access-points-directory-buckets.md "access-points-directory-buckets.md"). | March 31, 2025 |
+| S3 table bucket integration with Amazon SageMaker Lakehouse is now generally available | You can integrate S3 table buckets with Amazon SageMaker Lakehouse to access tables from AWS analytics services, 
+ such as Amazon Athena, Amazon Redshift, and QuickSight. Amazon SageMaker Lakehouse unifies your data across Amazon S3 data lakes and Amazon Redshift data
+ warehouses, so you can build analytics, machine learning (ML), and generative AI applications on a
+ single copy of data. The integration populates the AWS Glue Data Catalog with your table resources, and
+ federates access to these resources with AWS Lake Formation. The integration enables fine-grained access
+ control through Lake Formation to provide additional security. For more information about integrating, see
+ [Using Amazon S3 Tables with AWS analytics services](s3-tables-integrating-aws.md "s3-tables-integrating-aws.md"). If you set up the integration with the
+ preview release, you can continue to use your current integration. However, the updated integration
+ process provides performance improvements, so we recommend migrating. To migrate to the updated
+ integration, see [Migrating to the updated integration process](s3-tables-integrating-aws.md#migrate-integrate-console "s3-tables-integrating-aws.md#migrate-integrate-console"). | March 13, 2025 |
+| S3 Tables create table and query table support added to the Amazon S3 console | S3 Tables now support create table and query table operations directly from the Amazon S3 console by
+ using Amazon Athena. With this new feature, you can now create a table, populate it with data, and query
+ it with just a few steps in the Amazon S3 console. For more information, see [Creating an Amazon S3
+ table](s3-tables-create.md "s3-tables-create.md") and [Querying Amazon S3 tables with Athena](s3-tables-integrating-athena.md "s3-tables-integrating-athena.md"). | March 13, 2025 |
+| 
+ S3 Tables adds support for adding schemas when creating tables
+  | You can now use the S3 Tables `CreateTable` API operation to create tables with 
+ schemas by adding an optional metadata flag. For more information, see 
+ [Creating tables](s3-tables-create.md "s3-tables-create.md").
+  | January 30, 2025 |
+| 
+ S3 Tables adds support for adding schemas when creating tables
+  | You can now use the S3 Tables `CreateTable` API operation to create tables with schemas by adding an optional metadata flag. For more information, see [Creating tables](s3-tables-create.md "s3-tables-create.md").
+  | January 30, 2025 |
+| S3 Metadata is now generally 
+ available | Amazon S3 Metadata is now generally available. S3 Metadata helps you easily discover and 
+ understand your S3 data with automated, queryable metadata that updates in near real-time. 
+ With S3 Metadata, you can curate, identify, and use your S3 data for business analytics, 
+ artificial intelligence and machine learning (AI/ML) model training, and more. S3 Metadata 
+ supports object metadata, which includes system-defined information like the size and the 
+ source of the object, and custom metadata, such as tags with information like product SKUs, 
+ transaction IDs, or content ratings. For more information, see [Accelerating data discovery 
+ with S3 Metadata](metadata-tables-overview.md "metadata-tables-overview.md").
+  | January 27, 2025 |
+| AWS
+ managed policies – New policies | S3 Tables added two new AWS managed policies.  | December 6, 2024 |
+| S3 Tables | Amazon S3 Tables provide S3 storage that’s optimized for analytics workloads, with features that improve query performance, reduce storage costs for tables, and simplify the operation of data lakes at scale. S3 Tables introduces a new bucket type: table buckets, which are purpose-built for storing Apache Iceberg tables as subresources. Table buckets provide higher transactions per second (TPS) and better query throughput compared to self-managed tables in S3 general purpose buckets. You can automatically integrate your table buckets with AWS analytics services, such as Athena, Amazon Redshift QuickSight, and more. For more information, see [Working with Amazon S3 Tables and table buckets](s3-tables.md "s3-tables.md") .
+  | December 3, 2024 |
+| S3 Metadata preview | Amazon S3 Metadata helps you easily discover and understand your S3 data with automated, 
+ queryable metadata that updates in near real-time. With S3 Metadata, you can curate, 
+ identify, and use your S3 data for business analytics, artificial intelligence and machine 
+ learning (AI/ML) model training, and more. S3 Metadata supports object metadata, which 
+ includes system-defined information like the size and the source of the object, and custom 
+ metadata, such as tags with information like product SKUs, transaction IDs, or content 
+ ratings. For more information, see [Accelerating data discovery 
+ with S3 Metadata](metadata-tables-overview.md "metadata-tables-overview.md").
+  | December 3, 2024 |
+| Storage Browser for S3  | Storage Browser for S3 is an open source component that you can add to your web
+ applications to provide your end users with a simple interface for data stored
+ in S3. For more information, see [Storage Browser for S3](storage-browser.md "storage-browser.md"). | December 1, 2024 |
+| New Amazon S3 checksum
+ algorithm and improved checksum integrity features | Amazon S3 adds the `CRC-64NVME` checksum algorithm and improved checksum integrity features.
+ For more information, see [Checking
+ object integrity in Amazon S3](checking-object-integrity.md "checking-object-integrity.md"). | December 1, 2024 |
+| Data residency workloads | In Dedicated Local Zones, you can create S3 directory buckets to store data for your
+ data residency and isolation use cases. For more information, see [Data
+ residency workloads](directory-bucket-data-residency.md "directory-bucket-data-residency.md").  | December 1, 2024 |
+| New condition keys to enforce conditional writes | Amazon S3 adds new condition keys `s3:if-match` and
+ `s3:if-none-match` to use in bucket policies to force clients to
+ use the `If-None-Match` or `If-Match` HTTP header. For more information, see [Enforce
+ conditional writes on Amazon S3 buckets](conditional-writes-enforce.md "conditional-writes-enforce.md"). | November 25, 2024 |
+| New HTTP header for conditional writes to check if the object has changed | Amazon S3 adds the `If-Match` HTTP header to check an object's entity tag (ETag) before writing an
+ object for some API operations. With this header, Amazon S3 compares the provided ETag value with the
+ ETag value of the object in S3. If the ETag values don't match, the operation
+ fails. For more information, see [How to prevent object overwrites with conditional writes](conditional-writes.md "conditional-writes.md"). | November 25, 2024 |
+| Amazon Redshift now integrates with S3 Access Grants | Amazon Redshift customers can now use S3 Access Grants to scale and manage permissions for
+ their S3 data. This allows Amazon Redshift customers to scale S3 permissions for
+ corporate identities by using AWS IAM Identity Center as well as for IAM users and groups.
+ For more information, see [Amazon Redshift integration with Amazon S3 Access Grants](https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-sso-s3idc.html "https://docs.aws.amazon.com/redshift/latest/mgmt/redshift-iam-access-control-sso-s3idc.html").  | November 15, 2024 |
+| AWS Organizations member accounts can now regain access to accidentally locked Amazon S3
+ buckets | AWS Organizations member accounts can now use a simple process through AWS Identity and Access Management
+ (IAM) to regain access to accidentally locked Amazon S3 buckets. For more
+ information, see [Perform a privileged task on an AWS Organizations member
+ account](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user-privileged-task.html "https://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user-privileged-task.html") in the *AWS Identity and Access Management User
+ Guide*.  | November 14, 2024 |
+| Resource control policies (RCPs), a new type of authorization policy in
+ AWS Organizations is also available for Amazon S3 buckets | Resource control policies (RCPs), a new authorization policy managed in
+ AWS Organizations can be used to set the maximum available permissions on Amazon S3 buckets
+ within your entire organization. For more information, see [Resource
+ control policies (RCPs)](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_rcps.html "https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_rcps.html") in the *AWS Organizations User
+ Guide*. | November 13, 2024 |
+| Amazon S3 now automatically approves bucket quota increases up to 1,000
+ buckets | Amazon S3 now automatically approves bucket quota increases up to 1,000 buckets. To
+ view your bucket utilization or request an increase, visit the [Service Quotas
+ console](https://console.aws.amazon.com/servicequotas/home/services/s3/quotas/ "https://console.aws.amazon.com/servicequotas/home/services/s3/quotas/"). | September 30, 2024 |
+| New default minimum object size transition behavior for Amazon S3 Lifecycle
+ configurations | Amazon S3 now applies a default behavior to S3 Lifecycle configurations that
+ prevents objects smaller than 128 KB from being transitioned to any storage
+ class. To learn how to override this behavior, see [Allowing objects smaller than 128 KB to be transitioned](lifecycle-configuration-examples.md#lc-small-objects "lifecycle-configuration-examples.md#lc-small-objects"). | September 24, 2024 |
+| Directory buckets now support SSE-KMS using customer managed keys. | Directory buckets now supports server-side encryption with AWS Key Management Service (AWS KMS)
+ keys (SSE-KMS) using customer managed keys. You have more options to encrypt and manage
+ the security of your data in directory buckets. For more information, see
+ [Data
+ protection and encryption in directory buckets](s3-express-data-protection.md "s3-express-data-protection.md"). | September 17, 2024 |
+| S3 Access Grants supports an API action that lists the caller's access grants | IAM identities and IAM Identity Center corporate directory identities can now use the
+ `ListCallerAccessGrants` API to list all of the Amazon S3 buckets,
+ prefixes, and objects they can access, as defined by their S3 Access Grants. Use this API
+ to discover all of the S3 data an IAM or corporate directory identity can
+ access through S3 Access Grants, within a particular AWS account. For more information,
+ see [List the
+ caller's access grants](access-grants-list-grants.md "access-grants-list-grants.md"). | September 5, 2024 |
+| Enhanced access denied error messages for same-account requests | Amazon S3 now includes additional context in access denied (HTTP `403
+ Forbidden`) errors for requests made to resources within the same
+ AWS account. This new context includes the type of policy that denied access,
+ the reason for denial, and information about the AWS Identity and Access Management (IAM) user or role
+ that requested access to the resource. This context helps you to troubleshoot
+ access issues, identify the root cause of access denied errors, and fix
+ incorrect access controls by updating the relevant policies. This additional
+ context is also available in AWS CloudTrail logs. Enhanced access denied error
+ messages for same-account requests are now available in all AWS Regions,
+ including the AWS GovCloud (US) Regions and the China Regions. For more
+ information, see [Troubleshoot
+ access denied (403 Forbidden) errors in Amazon S3.](troubleshoot-403-errors.md "troubleshoot-403-errors.md"). | August 21, 2024 |
+| Amazon S3 supports using conditional writes for PutObject and
+ CompleteMultipartUpload | You can check for the existence of an object in your bucket before creating it
+ using a conditional write on upload operations. This can prevent overwrites of existing
+ data. Conditional writes will validate there is no existing object with the same
+ key name already in your bucket. For more information, see [Conditional requests](conditional-requests.md "conditional-requests.md"). | August 20, 2024 |
+| Amazon S3 no longer charges for several HTTP error codes | Amazon S3 has completed a change so unauthorized requests that customers did not
+ initiate are free of charge. For more information, see [Billing for Amazon S3 error responses](ErrorCodeBilling.md "ErrorCodeBilling.md"). | August 19, 2024 |
+|  Amazon S3 Select is no longer available to new customers | Amazon S3 Select is no longer available to new customers. Existing customers of
+ Amazon S3 Select can continue to use the feature as usual. [Learn
+ more](https://aws.amazon.com/blogs/storage/how-to-optimize-querying-your-data-in-amazon-s3/ "https://aws.amazon.com/blogs/storage/how-to-optimize-querying-your-data-in-amazon-s3/"). | July 25, 2024 |
+| Amazon S3 Inventory supports the s3:InventoryAccessibleOptionalFields condition
+ key | Amazon S3 Inventory supports the s3:InventoryAccessibleOptionalFields condition key
+ to control whether users can include optional metadata fields in their reports.
+ For more information, see [Control S3 Inventory report configuration creation](example-bucket-policies.md#example-bucket-policies-s3-inventory "example-bucket-policies.md#example-bucket-policies-s3-inventory"). | February 20, 2024 |
+| IPv6 support for S3 on Outposts | You can now access S3 on Outposts buckets using IPv6 via S3 on Outposts dual-stack
+ endpoints. [IPv6 support for
+ S3 on Outposts](S3OutpostsIPv6-access.md "S3OutpostsIPv6-access.md") allows you to manage your S3 on Outposts buckets and
+ control plane resources over IPv6 networks. | January 16, 2024 |
+| New high-performance, single-zone Amazon S3 storage class –
+ S3 Express One Zone | Amazon S3 Express One Zone is a high-performance, single-zone Amazon S3 storage class that is
+ purpose-built to deliver consistent, single-digit millisecond data access for
+ your most latency-sensitive applications. For more information, see [S3 Express One Zone](s3-express-one-zone.md "s3-express-one-zone.md"). | November 28, 2023 |
+| Mountpoint for Amazon S3 adds support for S3 Express One Zone | You can now mount S3 Express One Zone directory buckets with [Mountpoint](mountpoint.md "mountpoint.md"). | November 28, 2023 |
+| Lambda invocation schema version | Amazon S3 Batch Operations introduces a new Lambda invocation schema version for use with
+ Batch Operations jobs that act on directory buckets. For more information, see [Using Lambda and Amazon S3 batch operations with directory
+ buckets](batch-ops-invoke-lambda.md#batch-ops-invoke-lambda-directory-buckets "batch-ops-invoke-lambda.md#batch-ops-invoke-lambda-directory-buckets"). | November 28, 2023 |
+| Import action for directory buckets | Amazon S3 introduces the import action. Import is a streamlined method for creating
+ Amazon S3 Batch Operations jobs to copy objects from general purpose buckets to directory
+ buckets. For more information, see [Importing objects
+ into a directory bucket](create-import-job.md "create-import-job.md"). | November 28, 2023 |
+| Manage S3 access with S3 Access Grants | Amazon S3 Access Grants enables you to manage data permissions at scale for AWS Identity and Access Management
+ (IAM) principals in addition to directory identities from corporate
+ directories such as Azure AD. You can now enforce least-privilege
+ S3 permissions and easily scale those permissions based on your business needs.
+ For more information, see [Managing access with
+ S3 Access Grants](access-grants.md "access-grants.md"). | November 26, 2023 |
+| Mountpoint for Amazon S3 adds caching feature | With [Mountpoint](mountpoint-usage.md "mountpoint-usage.md"), you can now configure caching for repeatedly
+ accessed data. | November 22, 2023 |
+| Enhanced Amazon S3 Batch Operations manifest generation | You can now direct Amazon S3 Batch Operations to generate a manifest automatically based
+ on object filter criteria that you specify when you create your job. This option
+ is available for batch replication jobs that you create in the Amazon S3 console, or
+ for any job type that you create by using the AWS CLI, AWS SDKs, or Amazon S3 REST
+ API. For more information, see [Creating an Amazon S3
+ Batch Operations job](batch-ops-create-job.md "batch-ops-create-job.md"). | November 22, 2023 |
+| Existing Amazon S3 buckets can now add Object Lock configurations | You can now enable Object Lock on existing Amazon S3 bucket. You may set legal
+ holds and retention periods for new or existing buckets. For more information,
+ see [Using Object Lock](object-lock.md "object-lock.md"). | November 20, 2023 |
+| S3 Storage Lens request metrics for prefixes | S3 Storage Lens introduces request metrics for prefixes within an Amazon S3 bucket. For
+ more information, see [Metrics categories](storage_lens_basics_metrics_recommendations.md#storage_lens_basics_metrics_types "storage_lens_basics_metrics_recommendations.md#storage_lens_basics_metrics_types"). | November 17, 2023 |
+| Amazon S3 Storage Lens groups | S3 Storage Lens introduces Storage Lens groups, a custom defined filter for objects
+ based on object metadata. For more information, see [Working
+ with Amazon S3 Storage Lens groups](storage-lens-groups-overview.md "storage-lens-groups-overview.md"). | November 15, 2023 |
+| New IAM policy | S3 on Outposts introduces `AWSServiceRoleForS3OnOutposts`, a
+ service-linked role to help manage network resources for you. For more
+ information, see [Using
+ service-linked roles for S3 on Outposts](S3OutpostsServiceLinkedRoles.md "S3OutpostsServiceLinkedRoles.md"). | October 3, 2023 |
+| Amazon S3 provides the Last-Modified time for delete markers | Amazon S3 provides the `Last-Modified` time of delete markers in the
+ response headers of S3 `Head` and `Get` API operations.
+ For more information, see [Working with delete
+ markers](DeleteMarker.md "DeleteMarker.md"). | September 27, 2023 |
+| Amazon S3 update to AWS managed policy | Amazon S3 added `s3:Describe*` permissions to
+ `AmazonS3ReadOnlyAccess`. For more information, see [AWS managed
+ policies for Amazon S3](security-iam-awsmanpol.md "security-iam-awsmanpol.md"). | August 11, 2023 |
+| Improved start times for Standard restore requests made through
+ S3 Batch Operations | Standard retrievals for restore requests that are made through S3 Batch Operations
+ now can start within minutes. For more information, see [Archive Retrieval Options](restoring-objects-retrieval-options.md "restoring-objects-retrieval-options.md"). | August 9, 2023 |
+| Added Mountpoint, a high-throughput client for mounting an Amazon S3
+ bucket as a local file system. | With [Mountpoint](mountpoint.md "mountpoint.md"),
+ your applications can access objects stored in Amazon S3 through file operations,
+ giving your applications access to the elastic storage and throughput of Amazon S3
+ through a file interface. | August 9, 2023 |
+| Dual-layer server-side encryption with AWS Key Management Service keys (DSSE-KMS) | Dual-layer server-side encryption with AWS Key Management Service (AWS KMS) keys (DSSE-KMS)
+ applies two layers of encryption to objects when they are uploaded to Amazon S3. For
+ more information, see [Using dual-layer
+ server-side encryption with AWS KMS keys](UsingDSSEncryption.md "UsingDSSEncryption.md"). | June 13, 2023 |
+| Amazon S3 enables S3 Block Public Access and disables S3 access control lists
+ (ACLs) for all new buckets. | Amazon S3 now automatically enables S3 Block Public Access and disables S3 access
+ control lists (ACLs) for all new S3 buckets in all AWS Regions. For more
+ information, see [Blocking public access to your Amazon S3 storage](access-control-block-public-access.md "access-control-block-public-access.md") and [Controlling
+ ownership of objects and disabling ACLs for your bucket](about-object-ownership.md "about-object-ownership.md"). | April 27, 2023 |
+| S3 Replication Operations Failed metric | Amazon S3 adds new Amazon CloudWatch metric to monitor S3 Replication
+ failures. For more information, see [Monitoring progress
+ with replication metrics](replication-metrics.md "replication-metrics.md"). | April 5, 2023 |
+| Private DNS | AWS PrivateLink for Amazon S3 now supports Private DNS. For more information, see
+ [Private DNS](privatelink-interface-endpoints.md#private-dns "privatelink-interface-endpoints.md#private-dns"). | March 14, 2023 |
+| Cross-account access points support in the Amazon S3 console | Amazon S3 now supports creating cross-account access points with the Amazon S3 console. For more
+ information, see [Creating
+ access points](creating-access-points.md "creating-access-points.md"). | March 14, 2023 |
+| Amazon S3 on Outposts supports S3 Replication on Outposts | With local S3 Replication, you can automatically replicate objects to a
+ single Outposts destination bucket or to multiple destination buckets. The
+ destination buckets can be in different AWS Outposts or within the same Outposts as
+ the source bucket. For more information, see [Replicating
+ objects for S3 on Outposts](S3OutpostsReplication.md "S3OutpostsReplication.md"). | March 14, 2023 |
+| Amazon S3 Object Lambda Access Point alias | When you create an Object Lambda Access Point, Amazon S3 automatically generates a unique alias for
+ your Object Lambda Access Point. You can use this alias instead of an Amazon S3 bucket name or the Object Lambda Access Point
+ Amazon Resource Name (ARN) in a request for access point data plane operations. For more
+ information, see [How to
+ use a bucket-style alias for your Object Lambda Access Point](olap-use.md#ol-access-points-alias "olap-use.md#ol-access-points-alias"). | March 14, 2023 |
+| Amazon S3 Multi-Region Access Points cross-account support | Amazon S3 now supports creating cross-account Multi-Region Access Points with the Amazon S3 console. For
+ more information, see [Creating Multi-Region Access Points](CreatingMultiRegionAccessPoints.md "CreatingMultiRegionAccessPoints.md"). | March 14, 2023 |
+| Cross-account access points | Amazon S3 supports creating cross-account access points. You can create a cross-account access point by using the
+ AWS Command Line Interface (AWS CLI) or the REST API `CreateAccessPoint` operation. For
+ more information, see [Creating
+ access points](creating-access-points.md "creating-access-points.md"). | November 30, 2022 |
+| Amazon S3 supports failover controls for Amazon S3 Multi-Region Access Points | Amazon S3 introduces failover control for Multi-Region Access Points. These controls let you shift S3
+ data access request traffic routed through an Amazon S3 Multi-Region Access Point to an alternate
+ AWS Region within minutes to test and build highly available applications. For
+ more information, see [Amazon S3 Multi-Region Access Point failover
+ controls](MrapFailover.md "MrapFailover.md"). | November 28, 2022 |
+| Amazon S3 Storage Lens increases organization-wide visibility with 34 new
+ metrics | S3 Storage Lens introduces 34 additional metrics to uncover deeper cost-optimization
+ opportunities, identify data-protection best practices, and improve the
+ performance of application workflows. For more information, see [S3 Storage Lens
+ metrics](storage-lens-use-cases.md "storage-lens-use-cases.md"). | November 17, 2022 |
+| Amazon S3 supports higher restore request rates for S3 Glacier Flexible Retrieval and
+ S3 Glacier Deep Archive | Amazon S3 supports restore requests at a rate of up to 1,000 transactions per
+ second, per AWS account for the S3 Glacier Flexible Retrieval and
+ S3 Glacier Deep Archive storage classes. | November 15, 2022 |
+| Amazon S3 on Outposts supports additional S3 Lifecycle actions and filters | S3 on Outposts supports additional S3 Lifecycle rules to optimize capacity
+ management. You can expire objects as they age or are replaced with newer
+ versions. You can create a lifecycle rule for a whole bucket or a subset of
+ objects in a bucket by filtering with prefixes, object tags, or object size. For
+ more information, see [Creating
+ and managing a lifecycle configuration](S3OutpostsLifecycleManaging.md "S3OutpostsLifecycleManaging.md"). | November 2, 2022 |
+| S3 Replication support for SSE-C objects |  You can replicate objects that are created using server-side encryption with
+ customer-provided keys. For more information about replicating encrypted
+ objects, see [Replicating objects created with server-side encryption (SSE-C, SSE-S3,
+ SSE-KMS)](replication-config-for-kms-objects.md "replication-config-for-kms-objects.md"). | October 24, 2022 |
+| Amazon S3 on Outposts supports access point aliases | With S3 on Outposts, you must use access points to access any object in an Outposts
+ bucket. Every time you create an access point for a bucket, S3 on Outposts automatically
+ generates an access point alias. You can use this access point alias instead of an access point ARN for any data
+ plane operation. For more information, see [Using a
+ bucket-style alias for your S3 on Outposts bucket access point](https://docs.aws.amazon.com/AmazonS3/latest/s3-outposts/s3-outposts-access-points-alias.html "https://docs.aws.amazon.com/AmazonS3/latest/s3-outposts/s3-outposts-access-points-alias.html"). | October 21, 2022 |
+| S3 Object Lambda supports the HeadObject, ListObjects, and
+ ListObjectsV2 operations | You can use custom code to modify the data returned by standard S3
+ `GET`, `LIST`, or `HEAD` requests to filter
+ rows, dynamically resize images, redact confidential data, and more. For more
+ information, see [Transforming
+ objects with S3 Object Lambda](transforming-objects.md "transforming-objects.md"). | October 4, 2022 |
+| Amazon S3 on Outposts supports S3 Versioning | When enabled, S3 Versioning saves multiple distinct copies of an object in the
+ same bucket. You can use S3 Versioning to preserve, retrieve, and restore every
+ version of every object stored in your Outposts buckets. S3 Versioning helps you
+ recover from unintended user actions and application failures. For more
+ information, see [Managing
+ S3 Versioning for your S3 on Outposts bucket](S3OutpostsManagingVersioning.md "S3OutpostsManagingVersioning.md"). | September 21, 2022 |
+| AWS Backup for Amazon S3 | AWS Backup is a fully managed, policy-based service that you can use to define
+ a central backup policy to protect your Amazon S3 data. For more information, see
+ [Using AWS Backup for
+ Amazon S3](backup-for-s3.md "backup-for-s3.md"). | February 18, 2022 |
+| Use S3 Batch Replication to replicate existing objects | With S3 Batch Replication, you can replicate objects that existed before a
+ replication configuration was in place. Replicating existing objects is done
+ through the use of a Batch Operations job. S3 Batch Replication differs from live
+ replication, which continuously and automatically copies new objects across Amazon S3
+ buckets. For more information, see [Replicating
+ existing objects with S3 Batch Replication](s3-batch-replication-batch.md "s3-batch-replication-batch.md").  | February 8, 2022 |
+| Rename of S3 Glacier Flexible Retrieval | The Glacier storage class has been renamed to S3 Glacier Flexible Retrieval. This
+ change does not impact the API. | November 30, 2021 |
+| New S3 Object Ownership setting to disable ACLs | You can apply the bucket owner enforced setting for Object Ownership to
+ disable ACLs for your bucket and the objects in it and take ownership of every
+ object in your bucket. The bucket owner enforced setting simplifies access
+ management for data stored in Amazon S3. For more information, see [Controlling
+ ownership of objects and disabling ACLs for your bucket](about-object-ownership.md "about-object-ownership.md").  | November 30, 2021 |
+| New S3 Intelligent-Tiering storage class | S3 Intelligent-Tiering Archive Instant Access is an additional storage class under
+ S3 Intelligent-Tiering. For more information, see [How
+ S3 Intelligent-Tiering works](intelligent-tiering-overview.md "intelligent-tiering-overview.md"). | November 30, 2021 |
+| New S3 Glacier Instant Retrieval storage class | You can now place objects in the S3 Glacier Instant Retrieval storage class. For more information
+ about this storage class, see [Using
+ Amazon S3 storage classes](storage-class-intro.md#sc-glacier "storage-class-intro.md#sc-glacier"). | November 30, 2021 |
+| AWS Backup for Amazon S3 Preview | AWS Backup is a fully managed, policy-based service that you can use to define
+ a central backup policy to protect your Amazon S3 data. For more information, see
+ [Using AWS Backup for
+ Amazon S3](backup-for-s3.md "backup-for-s3.md"). | November 30, 2021 |
+| AWS Identity and Access Management Access Analyzer for Amazon S3 | IAM Access Analyzer runs policy checks to validate your policy against IAM policy
+ grammar and best practices. To learn more about validating policies using
+ IAM Access Analyzer, see [IAM Access Analyzer
+ policy validation](https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-policy-validation.html "https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-policy-validation.html") in the *IAM User Guide*. | November 30, 2021 |
+| New event types |  New event types added to Amazon S3 Event Notifications, see [Amazon S3 Event Notifications](EventNotifications.md "EventNotifications.md"). | November 29, 2021 |
+| Enable Amazon EventBridge on buckets |  You can enable EventBridge on Amazon S3 buckets to send events to Amazon EventBridge, see [Using
+ EventBridge](EventBridge.md "EventBridge.md"). | November 29, 2021 |
+| New S3 Lifecycle filters | You can create lifecycle rules based on object size or specify how many
+ noncurrent object versions to keep. For more information, see [Examples of S3 Lifecycle configuration](lifecycle-configuration-examples.md "lifecycle-configuration-examples.md").  | November 23, 2021 |
+| Publish Amazon S3 Storage Lens metrics to Amazon CloudWatch | You can publish S3 Storage Lens usage and activity metrics to Amazon CloudWatch to create a
+ unified view of your operational health in CloudWatch dashboards. You can also use
+ CloudWatch features, like alarms and triggered actions, metric math, and anomaly
+ detection, to monitor and take action on S3 Storage Lens metrics. In addition, the CloudWatch
+ APIs enable applications, including third-party providers, to access your
+ S3 Storage Lens metrics. For more information, see the [Monitor S3 Storage Lens metrics in CloudWatch](storage_lens_view_metrics_cloudwatch.md "storage_lens_view_metrics_cloudwatch.md"). | November 22, 2021 |
+| Multi-Region Access Points |  You can use Multi-Region Access Points to create a global endpoint that applications can use to
+ fulfill requests from Amazon S3 buckets located in multiple AWS Regions. You can
+ use this Multi-Region Access Point to route data to a bucket with the lowest latency. For more
+ information about Multi-Region Access Points and how to use them, see [Multi-Region Access Point in
+ Amazon S3](MultiRegionAccessPoints.md "MultiRegionAccessPoints.md").  | September 2, 2021 |
+| Amazon S3 on Outposts adds direct local access for applications | Run your applications outside the AWS Outposts virtual private cloud (VPC) and access your S3 on Outposts
+ data. You can also access S3 on Outposts objects directly from your on-premises
+ network. For more information about configuring S3 on Outposts endpoints using [customer-owned IP (CoIP) addresses](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html "https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html") and accessing your objects by
+ creating a  [local
+ gateway](https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html "https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html") from your on-premises network, see [Accessing
+ Amazon S3 on Outposts using VPC-only access points](AccessingS3Outposts.md "AccessingS3Outposts.md"). | July 29, 2021 |
+| Amazon S3 access point alias | When you create an access point, Amazon S3 automatically generates an alias that you can
+ use instead of a bucket name for data access. You can use this access point alias
+ instead of an Amazon Resource Name (ARN) for any access point data plane
+ operation. For more information, see [Using a
+ bucket-style alias for your access point](access-points-alias.md "access-points-alias.md"). | July 26, 2021 |
+| Amazon S3 Inventory and S3 Batch Operations support S3 Bucket Key status | Amazon S3 Inventory and Batch Operations support identifying and copying existing objects
+ with S3 Bucket Keys. S3 Bucket Keys accelerate the reduction of server-side encryption costs
+ for existing objects. For more information, see [Amazon S3
+ Inventory](storage-inventory.md "storage-inventory.md") and [Batch Operations Copy
+ object](batch-ops-copy-object.md "batch-ops-copy-object.md"). | June 3, 2021 |
+| Amazon S3 Storage Lens metrics account snapshot | The S3 Storage Lens account snapshot displays your total storage, object count, and
+ average object size on the S3 console home (**Buckets**) page
+ by summarizing metrics from your default dashboard. For more information, see
+  [S3 Storage Lens metrics account snapshot](storage_lens_basics_metrics_recommendations.md#storage_lens_basics_account_snapshot "storage_lens_basics_metrics_recommendations.md#storage_lens_basics_account_snapshot"). | May 5, 2021 |
+| Increased Amazon S3 on Outposts endpoint support | S3 on Outposts now supports up to 100 endpoints per Outpost. For more
+ information, see [S3 on Outposts network restrictions](S3OnOutpostsRestrictionsLimitations.md#S3OnOutpostsConnectivityRestrictions "S3OnOutpostsRestrictionsLimitations.md#S3OnOutpostsConnectivityRestrictions"). | April 29, 2021 |
+| Amazon S3 on Outposts event notifications in Amazon CloudWatch Events | You can use CloudWatch Events to create a rule to capture any S3 on Outposts API event and
+ get notified through all supported CloudWatch targets. For more information, see
+  [Receiving S3 on Outposts event notifications using CloudWatch Events](MonitoringS3Outposts.md#S3OutpostsNotificationsCWE "MonitoringS3Outposts.md#S3OutpostsNotificationsCWE"). | April 19, 2021 |
+| S3 Object Lambda | With S3 Object Lambda, you can add your own code to Amazon S3 `GET` requests to
+ modify and process data as it is returned to an application. You can use custom
+ code to modify the data returned by standard S3 `GET` requests to
+ filter rows, dynamically resize images, redact confidential data, and more. For
+ more information, see [Transforming
+ objects](transforming-objects.md "transforming-objects.md"). | March 18, 2021 |
+| AWS PrivateLink | With AWS PrivateLink for Amazon S3, you can connect directly to S3 by using an
+ interface endpoint in your virtual private cloud (VPC) instead of connecting
+ over the internet. Interface endpoints are directly accessible from applications
+ that are on premises or in a different AWS Region. For more information, see
+ [AWS PrivateLink for Amazon S3](privatelink-interface-endpoints.md "privatelink-interface-endpoints.md"). | February 2, 2021 |
+| Managing Amazon S3 on Outposts capacity with AWS CloudTrail | S3 on Outposts management events are available through CloudTrail logs. For more
+ information, see  [Managing S3 on Outposts capacity with CloudTrail](MonitoringS3Outposts.md#S3OutpostsCloudtrail "MonitoringS3Outposts.md#S3OutpostsCloudtrail"). | December 21, 2020 |
+| Strong consistency | Amazon S3 provides strong read-after-write consistency for `PUT` and
+ `DELETE` requests of objects in your S3 bucket in all
+ AWS Regions. In addition, read operations on Amazon S3 Select, Amazon S3 access control
+ lists, Amazon S3 Object Tags, and object metadata (for example, `HEAD`
+ object) are strongly consistent. For more information, see [Amazon S3 data
+ consistency model](Welcome.md "Welcome.md"). | December 1, 2020 |
+| Amazon S3 replica modification sync | Amazon S3 replica modification sync keeps object metadata, such as tags, ACLs, and
+ Object Lock settings, in sync between source objects and replicas. When this
+ feature is enabled, Amazon S3 replicates metadata changes made to either the source
+ object or the replica copies. For more information, see [Replicating metadata changes with replica modification sync](replication-for-metadata-changes.md "replication-for-metadata-changes.md"). | December 1, 2020 |
+| Amazon S3 Bucket Keys | Amazon S3 Bucket Keys reduce the cost of Amazon S3 server-side encryption with AWS Key Management Service
+ (SSE-KMS). This new bucket-level key for server-side encryption can reduce AWS KMS
+ request costs by up to 99 percent by decreasing the request traffic from Amazon S3 to
+ AWS KMS. For more information, see [Reducing the cost of SSE-KMS
+ by using S3 Bucket Keys](bucket-key.md "bucket-key.md"). | December 1, 2020 |
+| Amazon S3 Storage Lens | S3 Storage Lens aggregates your metrics and displays the information in
+ the **Account snapshot** section on the Amazon S3 console **Buckets** page. S3 Storage Lens also provides an interactive dashboard 
+ that you can use to visualize insights and trends, flag outliers, and receive recommendations for optimizing storage costs and 
+ applying data-protection best practices. Your dashboard has drill-down options to generate and visualize insights at the organization, account, 
+ AWS Region, storage class, bucket, prefix, or Storage Lens group level. You can also send a daily metrics export in CSV or Parquet format to an S3 bucket. For more information, see  [Assessing your storage
+ activity and usage with S3 Storage Lens](storage_lens.md "storage_lens.md").  | November 18, 2020 |
+| Tracing S3 requests using AWS X-Ray | Amazon S3 integrates with X-Ray to propagate the  [trace context](https://www.w3.org/TR/trace-context/#:~:text=Trace%20context%20is%20split%20into,design%20focuses%20on%20fast%20parsing "https://www.w3.org/TR/trace-context/#:~:text=Trace%20context%20is%20split%20into,design%20focuses%20on%20fast%20parsing") and give you one request chain with [upstream
+ and downstream](https://docs.aws.amazon.com/xray/latest/devguide/xray-concepts.html "https://docs.aws.amazon.com/xray/latest/devguide/xray-concepts.html") nodes. For more information, see  [Tracing
+ requests using X-Ray](tracing_requests_using_xray.md "tracing_requests_using_xray.md").  | November 16, 2020 |
+| S3 Replication metrics | S3 Replication metrics provide detailed metrics for the replication rules in your
+ replication configuration. For more information, see [Replication metrics
+ and Amazon S3 event notifications](replication-metrics.md "replication-metrics.md"). | November 9, 2020 |
+| S3 Intelligent-Tiering Archive Access and Deep Archive Access | S3 Intelligent-Tiering Archive Access and Deep Archive Access are additional storage tiers under
+ S3 Intelligent-Tiering. For more information, see [Storage class for automatically optimizing frequently and infrequently
+ accessed objects](storage-class-intro.md#sc-dynamic-data-access "storage-class-intro.md#sc-dynamic-data-access") . | November 9, 2020 |
+| Delete marker replication | With delete marker replication, you can ensure that delete markers are copied
+ to your destination buckets for your replication rules. For more information,
+ see [Using delete
+ marker replication](delete-marker-replication.md "delete-marker-replication.md"). | November 9, 2020 |
+| S3 Object Ownership | Object Ownership is an S3 bucket setting that you can use to control
+ ownership of new objects that are uploaded to your buckets. For more
+ information, see [Using
+ S3 Object Ownership](about-object-ownership.md "about-object-ownership.md"). | October 2, 2020 |
+| Amazon S3 on Outposts | With Amazon S3 on Outposts, you can create S3 buckets on your AWS Outposts resources
+ and easily store and retrieve objects on-premises for applications that require
+ local data access, local data processing, and data residency. You can use
+ S3 on Outposts through the AWS Management Console, AWS CLI, AWS SDKs, or REST API. For more
+ information, see [Using
+ Amazon S3 on Outposts](S3onOutposts.md "S3onOutposts.md"). | September 30, 2020 |
+| Bucket owner condition | You can use the Amazon S3 bucket owner condition to ensure that the buckets you use
+ in your S3 operations belong to the AWS accounts that you expect. For more
+ information, see [Bucket owner
+ condition](bucket-owner-condition.md "bucket-owner-condition.md"). | September 11, 2020 |
+| S3 Batch Operations support for Object Lock Retention  | You can now use Batch Operations with S3 Object Lock to apply retention settings
+ to many Amazon S3 objects at once. For more information, see [Setting
+ S3 Object Lock Retention dates with S3 Batch Operations](batch-ops-retention-date.md "batch-ops-retention-date.md"). | May 4, 2020 |
+| S3 Batch Operations support for Object Lock Legal Hold | You can now use Batch Operations with S3 Object Lock to add a legal hold to many
+ Amazon S3 objects at once. For more information, see [Using
+ S3 Batch Operations for setting S3 Object Lock Legal Hold](batch-ops-legal-hold.md "batch-ops-legal-hold.md"). | May 4, 2020 |
+| Job tags for S3 Batch Operations | You can add tags to your S3 Batch Operations jobs to control and label those jobs.
+ For more information, see [Tags for S3 Batch Operations jobs](batch-ops-managing-jobs.md#batch-ops-job-tags "batch-ops-managing-jobs.md#batch-ops-job-tags"). | March 16, 2020 |
+| Amazon S3 access points | Amazon S3 access points simplify managing data access at scale for shared datasets in S3.
+ Access points are named network endpoints that are attached to buckets that you
+ can use to perform S3 object operations. For more information, see [Managing data access with Amazon S3 access points](access-points.md "access-points.md"). | December 2, 2019 |
+| Access Analyzer for Amazon S3 | Access Analyzer for Amazon S3 alerts you to S3 buckets that are configured to allow
+ access to anyone on the internet or other AWS accounts, including accounts
+ outside of your organization. For more information, see [Using Access Analyzer for Amazon S3](access-analyzer.md "access-analyzer.md"). | December 2, 2019 |
+| S3 Replication Time Control (S3 RTC) | S3 Replication Time Control (S3 RTC) replicates most objects that you upload to Amazon S3 in seconds,
+ and 99.99 percent of those objects within 15 minutes. For more information, see
+ [Replicating
+ objects using S3 Replication Time Control (S3 RTC)](replication-time-control.md "replication-time-control.md"). | November 20, 2019 |
+| Same-Region Replication | You can use Same-Region Replication (SRR) to copy objects across Amazon S3 buckets
+ in the same AWS Region. For information about both Cross-Region Replication
+ (CRR) and Same-Region Replication, see [Replication](replication.md "replication.md"). | September 18, 2019 |
+| Cross-Region Replication support for S3 Object Lock | Cross-Region Replication now supports Object Lock. For more information, see
+ [What does Amazon S3 Replicate?](replication.md#replication-requirements "replication.md#replication-requirements"). | May 28, 2019 |
+| S3 Batch Operations  | By using S3 Batch Operations, you can perform large-scale Batch Operations on Amazon S3
+ objects. S3 Batch Operations can run a single operation on lists of objects that you
+ specify. A single job can perform the specified operation on billions of objects
+ containing exabytes of data. For more information, see [Performing S3 Batch Operations](batch-ops.md "batch-ops.md"). | April 30, 2019 |
+| Asia Pacific (Hong Kong) Region | Amazon S3 is now available in the Asia Pacific (Hong Kong) Region. For more information about Amazon S3
+ Regions and endpoints, see [Regions and
+ endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region "https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region") in the *AWS General Reference*. | April 24, 2019 |
+| Added a new field to the server access logs | Amazon S3 added the following new field to the server access logs: Transport Layer
+ Security (TLS) version. For more information, see [Server access log
+ format](LogFormat.md "LogFormat.md"). | March 28, 2019 |
+| New archive storage class | Amazon S3 now offers a new archive storage class, S3 Glacier Deep Archive
+ (`DEEP_ARCHIVE`), for storing rarely accessed objects. For more
+ information, see [Storage
+ Classes](storage-class-intro.md "storage-class-intro.md").  | March 27, 2019 |
+| Added new fields to the server access logs | Amazon S3 added the following new fields to the server access logs: Host Id,
+ Signature Version, Cipher Suite, Authentication Type, and Host Header. For more
+ information, see [Server access log
+ format](LogFormat.md "LogFormat.md"). | March 5, 2019 |
+| Support for Parquet-formatted Amazon S3 Inventory files | Amazon S3 now supports the [Apache Parquet
+ (Parquet)](https://parquet.apache.org/ "https://parquet.apache.org/") format in addition to the [Apache optimized row columnar (ORC)](https://orc.apache.org/ "https://orc.apache.org/")
+ and comma-separated values (CSV) file formats for inventory output files. For
+ more information, see [Inventory](storage-inventory.md "storage-inventory.md"). | December 4, 2018 |
+| S3 Object Lock | Amazon S3 now offers Object Lock functionality that provides Write Once Read Many
+ (WORM) protections for Amazon S3 objects. For more information, see [Locking Objects](object-lock.md "object-lock.md"). | November 26, 2018 |
+| Restore speed upgrade | Using Amazon S3 restore speed upgrade, you can change the speed of a restoration
+ from the S3 Glacier Flexible Retrieval storage class to a faster speed while the
+ restoration is in progress. For more information, see [Restoring Archived Objects](restoring-objects.md "restoring-objects.md").  | November 26, 2018 |
+| Restore Event Notifications |  Amazon S3 Event Notifications now support initiation and completion events when
+ restoring objects from the S3 Glacier Flexible Retrieval storage class. For more
+ information, see [Event
+ Notifications](EventNotifications.md "EventNotifications.md").  | November 26, 2018 |
+| PUT directly to the S3 Glacier Flexible Retrieval storage
+ class | The Amazon S3 `PUT` operation now supports specifying
+ S3 Glacier Flexible Retrieval as the storage class when creating objects.
+ Previously, you had to transition objects to the S3 Glacier Flexible Retrieval
+ storage class from another Amazon S3 storage class. Also, when using S3 Cross-Region
+ Replication (CRR), you can now specify S3 Glacier Flexible Retrieval as the storage
+ class for replicated objects. For more information about the
+ S3 Glacier Flexible Retrieval storage class, see [Storage
+ Classes](storage-class-intro.md "storage-class-intro.md"). For more information about specifying the storage class for
+ replicated objects, [Replication
+ Configuration Overview](replication-add-config.md "replication-add-config.md"). For more information about the direct
+ `PUT` to S3 Glacier Flexible Retrieval REST API changes, see [Document History: `PUT` directly
+ to S3 Glacier Flexible Retrieval](../API/WhatsNew.md "../API/WhatsNew.md") . | November 26, 2018 |
+| New storage class |  Amazon S3 now offers a new storage class named S3 Intelligent-Tiering
+ (`INTELLIGENT_TIERING`) that is designed for long-lived data with
+ changing or unknown access patterns. For more information, see [Storage
+ Classes](storage-class-intro.md "storage-class-intro.md").  | November 26, 2018 |
+| Amazon S3 Block Public Access |  Amazon S3 now includes the ability to block public access to buckets and objects
+ on a per-bucket or account-wide basis. For more information, see [Using Amazon S3 Block Public Access](access-control-block-public-access.md "access-control-block-public-access.md").  | November 15, 2018 |
+|  Filtering enhancements in Cross-Region Replication (CRR) rules  | In a CRR rule configuration, you can specify an object filter to choose a
+ subset of objects to apply the rule to. Previously, you could filter only on an
+ object key prefix. In this release, you can filter on an object key prefix, one
+ or more object tags, or both. For more information, see [CRR Setup:
+ Replication Configuration Overview](replication-add-config.md "replication-add-config.md").  | September 19, 2018 |
+| New Amazon S3 Select features | Amazon S3 Select now supports Apache Parquet input, queries on nested JSON objects,
+ and two new Amazon CloudWatch monitoring metrics (`SelectScannedBytes` and
+ `SelectReturnedBytes`). | September 5, 2018 |
+| Updates now available over RSS | You can now subscribe to an RSS feed to receive notifications about updates to
+ the *Amazon S3 User Guide*. | June 19, 2018 |
+
+
+## Earlier updates
+
+
+The following table describes the important changes in each release of the
+ *Amazon S3 User Guide* before June 19, 2018. 
+
+
+
+
+| Change | Description | Date |
+| --- | --- | --- |
+| Code examples update | Code examples updated:
+
+* C#—Updated all of the examples to use the
+ task-based asynchronous pattern. For more information, see
+ [Amazon Web Services Asynchronous APIs for .NET](https://docs.aws.amazon.com/sdk-for-net/v3/developer-guide/sdk-net-async-api.html "https://docs.aws.amazon.com/sdk-for-net/v3/developer-guide/sdk-net-async-api.html")
+ in the *AWS SDK for .NET Developer Guide*. Code
+ examples are now compliant with version 3 of the
+ AWS SDK for .NET.
+* Java—Updated all of the examples to use the client
+ builder model. For more information about the client builder
+ model, see [Creating Service Clients](https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/creating-clients.html "https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/creating-clients.html").
+* PHP—Updated all of the examples to use the
+ AWS SDK for PHP 3.0. For more information about the AWS SDK for PHP 3.0,
+ see [AWS SDK for PHP](https://docs.aws.amazon.com/aws-sdk-php/v3/guide/ "https://docs.aws.amazon.com/aws-sdk-php/v3/guide/").
+* Ruby—Updated example code so that the examples work
+ with the AWS SDK for Ruby version 3.
+ | April 30, 2018 |
+| Amazon S3 now reports S3 Glacier Flexible Retrieval and
+ `ONEZONE_IA` storage classes to Amazon CloudWatch Logs storage
+ metrics | In addition to reporting actual bytes, these storage metrics
+ include per-object overhead bytes for applicable storage classes
+ (`ONEZONE_IA`, `STANDARD_IA`, and
+ S3 Glacier Flexible Retrieval ):
+
+* For `ONEZONE_IA` and `STANDARD_IA`
+ storage class objects, Amazon S3 reports objects smaller than 128
+ KB as 128 KB. For more information, see [Understanding and managing Amazon S3 storage classes](storage-class-intro.md "storage-class-intro.md").
+* For S3 Glacier Flexible Retrieval storage class objects, the
+ storage metrics report the following overheads:
+
+
+	+ A 32 KB per-object overhead, charged at
+	 S3 Glacier Flexible Retrieval storage class
+	 pricing
+	+ An 8 KB per-object overhead, charged at
+	 `STANDARD` storage class pricing
+For more information, see [Transitioning objects
+ using Amazon S3 Lifecycle](lifecycle-transition-general-considerations.md "lifecycle-transition-general-considerations.md").
+
+For more information about storage metrics, see [Monitoring metrics with Amazon CloudWatch](cloudwatch-monitoring.md "cloudwatch-monitoring.md"). | April 30, 2018 |
+| New storage class  | Amazon S3 now offers a new storage class, `STANDARD_IA` (IA,
+ for infrequent access) for storing objects. This storage class is
+ optimized for long-lived and less frequently accessed data. For more
+ information, see [Understanding and managing Amazon S3 storage classes](storage-class-intro.md "storage-class-intro.md").  | April 4, 2018 |
+| Amazon S3 Select | a>Amazon S3 now supports retrieving object content based on an SQL
+ expression. For more information, see [Querying data in place with Amazon S3 Select](selecting-content-from-objects.md "selecting-content-from-objects.md"). | April 4, 2018 |
+| Asia Pacific (Osaka-Local) Region | Amazon S3 is now available in the Asia Pacific (Osaka-Local) Region.
+ For more information about Amazon S3 Regions and endpoints, see [Regions and Endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region "https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region")
+ in the *AWS General Reference*.
+ImportantYou can use the Asia Pacific (Osaka-Local) Region only in
+ conjunction with the Asia Pacific (Tokyo) Region. To request
+ access to Asia Pacific (Osaka-Local) Region, contact your sales
+ representative. | February 12, 2018 |
+| Amazon S3 Inventory creation timestamp | Amazon S3 Inventory now includes a timestamp of the date and start time
+ of the creation of the Amazon S3 Inventory report. You can use the
+ timestamp to determine changes in your Amazon S3 storage from the start
+ time of when the inventory report was generated. | January 16, 2018 |
+| Europe (Paris) Region | Amazon S3 is now available in the Europe (Paris) Region. For more
+ information about Amazon S3 Regions and endpoints, see [Regions and Endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region "https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region")
+ in the *AWS General Reference*. | December 18, 2017 |
+| China (Ningxia) Region | Amazon S3 is now available in the China (Ningxia) Region. For
+ more information about Amazon S3 Regions and endpoints, see [Regions and Endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region "https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region")
+ in the *AWS General Reference*. | November 29, 2017 |
+| Support for ORC-formatted Amazon S3 Inventory files | Amazon S3 now supports the [Apache optimized row columnar (ORC)](https://orc.apache.org/ "https://orc.apache.org/") format in addition
+ to comma-separated values (CSV) file format for inventory output
+ files. Also, you can now query Amazon S3 inventory using standard SQL by
+ using Amazon Athena, Amazon Redshift Spectrum, and other tools such as [Presto](https://prestodb.io/ "https://prestodb.io/"), [Apache Hive](https://hive.apache.org/ "https://hive.apache.org/"), and [Apache Spark](https://databricks.com/spark/about/ "https://databricks.com/spark/about/").
+ For more information, see [Cataloging and analyzing your data with S3 Inventory](storage-inventory.md "storage-inventory.md"). | November 17, 2017 |
+| Default encryption for S3 buckets | Amazon S3 default encryption provides a way to set the default
+ encryption behavior for an S3 bucket. You can set default encryption
+ on a bucket so that all objects are encrypted when they are stored
+ in the bucket. The objects are encrypted using server-side
+ encryption with either Amazon S3 managed keys (SSE-S3) or AWS managed
+ keys (SSE-KMS). For more information, see [Setting default server-side encryption behavior for Amazon S3
+ buckets](bucket-encryption.md "bucket-encryption.md"). | November 06, 2017 |
+| Encryption status in Amazon S3 Inventory | Amazon S3 now supports including encryption status in Amazon S3 Inventory
+ so you can see how your objects are encrypted at rest for compliance
+ auditing or other purposes. You can also configure to encrypt Amazon S3
+ Inventory with server-side encryption (SSE) or SSE-KMS so that all
+ inventory files are encrypted accordingly. For more information, see
+ [Cataloging and analyzing your data with S3 Inventory](storage-inventory.md "storage-inventory.md"). | November 06, 2017 |
+| Cross-Region Replication (CRR) enhancements | Cross-Region Replication now supports the following:
+
+* In a cross-account scenario, you can add a CRR
+ configuration to change replica ownership to the
+ AWS account that owns the destination bucket. For more
+ information, see [Changing the replica owner](replication-change-owner.md "replication-change-owner.md").
+* By default, Amazon S3 does not replicate objects in your source
+ bucket that are created using server-side encryption using
+ keys stored in AWS KMS In your CRR configuration, you can now
+ direct Amazon S3 to replicate these objects. For more
+ information, see [Replicating encrypted objects (SSE-S3,
+ SSE-KMS, DSSE-KMS, SSE-C)](replication-config-for-kms-objects.md "replication-config-for-kms-objects.md").
+ | November 06, 2017 |
+| Europe (London) Region | Amazon S3 is now available in the Europe (London) Region. For more
+ information about Amazon S3 Regions and endpoints, see [Regions and Endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region "https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region")
+ in the *AWS General Reference*. | December 13, 2016 |
+| Canada (Central) Region | Amazon S3 is now available in the Canada (Central) Region. For
+ more information about Amazon S3 Regions and endpoints, see [Regions and Endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region "https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region")
+ in the *AWS General Reference*. | December 8, 2016 |
+| Object tagging  | Amazon S3 now supports object tagging. Object tagging enables you to
+ categorize storage. Object key name prefixes also enable you to
+ categorize storage, object tagging adds another dimension to it. 
+There are added benefits tagging offers. These include:
+
+* Object tags enable fine-grained access control of
+ permissions (for example, you could grant an IAM user
+ permissions to read-only objects with specific tags).
+* Fine-grained control in specifying lifecycle
+ configuration. You can specify tags to select a subset of
+ objects to which lifecycle rule applies.
+* If you have Cross-Region Replication (CRR) configured,
+ Amazon S3 can replicate the tags. You must grant necessary
+ permission to the IAM role created for Amazon S3 to assume to
+ replicate objects on your behalf.
+* You can also customize CloudWatch metrics and CloudTrail events to
+ display information by specific tag filters.
+
+For more information, see [Categorizing your objects using tags](object-tagging.md "object-tagging.md"). 
+ | November 29, 2016 |
+| Amazon S3 Lifecycle now supports tag-based filters | Amazon S3 now supports tag-based filtering in lifecycle configuration.
+ You can now specify lifecycle rules in which you can specify a key
+ prefix, one or more object tags, or a combination of both to select
+ a subset of objects to which the lifecycle rule applies. For more
+ information, see [Managing the lifecycle of objects](object-lifecycle-mgmt.md "object-lifecycle-mgmt.md"). | November 29, 2016 |
+| CloudWatch request metrics for buckets  | Amazon S3 now supports CloudWatch metrics for requests made on buckets.
+ When you enable these metrics for a bucket, the metrics report at
+ 1-minute intervals. You can also configure which objects in a bucket
+ will report these request metrics. For more information, see [Monitoring metrics with Amazon CloudWatch](cloudwatch-monitoring.md "cloudwatch-monitoring.md"). | November 29, 2016 |
+| Amazon S3 Inventory | Amazon S3 now supports storage inventory. Amazon S3 Inventory provides a
+ flat-file output of your objects and their corresponding metadata on
+ a daily or weekly basis for an S3 bucket or a shared prefix (that
+ is, objects that have names that begin with a common string).
+For more information, see [Cataloging and analyzing your data with S3 Inventory](storage-inventory.md "storage-inventory.md").  | November 29, 2016 |
+| Amazon S3 Analytics – Storage Class Analysis | The new Amazon S3 analytics – storage class analysis feature
+ observes data access patterns to help you determine when to
+ transition less frequently accessed `STANDARD` storage to
+ the ``STANDARD_IA`` (IA, for infrequent
+ access) storage class. After storage class analysis observes the
+ infrequent access patterns of a filtered set of data over a period
+ of time, you can use the analysis results to help you improve your
+ lifecycle configurations. This feature also includes a detailed
+ daily analysis of your storage usage at the specified bucket,
+ prefix, or tag level that you can export to an S3 bucket. | November 29, 2016 |
+| New Expedited and Bulk data retrievals when restoring archived
+ objects from Amazon Glacier  | Amazon S3 now supports Expedited and Bulk data retrievals in addition
+ to Standard retrievals when restoring objects archived to Amazon Glacier. For
+ more information, see [Restoring an archived object](restoring-objects.md "restoring-objects.md"). | November 21, 2016 |
+| CloudTrail object logging | CloudTrail supports logging Amazon S3 object level API operations such
+ as `GetObject`, `PutObject`, and
+ `DeleteObject`. You can configure your event
+ selectors to log object level API operations. For more information,
+ see [Logging Amazon S3 API calls using AWS CloudTrail](cloudtrail-logging.md "cloudtrail-logging.md"). | November 21, 2016 |
+| US East (Ohio) Region | Amazon S3 is now available in the US East (Ohio) Region. For more
+ information about Amazon S3 Regions and endpoints, see [Regions and Endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region "https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region")
+ in the *AWS General Reference*. | October 17, 2016 |
+| IPv6 support for Amazon S3 Transfer Acceleration  | Amazon S3 now supports Internet Protocol version 6 (IPv6) for Amazon S3 Transfer Acceleration. You can
+ connect to Amazon S3 over IPv6 by using the new dual-stack for
+ Transfer Acceleration endpoint. For more information, see [Getting started with
+ Amazon S3 Transfer Acceleration](transfer-acceleration-getting-started.md "transfer-acceleration-getting-started.md").  | October 6, 2016 |
+| IPv6 support | Amazon S3 now supports Internet Protocol version 6 (IPv6). You can access Amazon S3 over
+ IPv6 by using dual-stack endpoints. For more information, see
+ [Making requests to Amazon S3 over IPv6](https://docs.aws.amazon.com/AmazonS3/latest/API/ipv6-access "https://docs.aws.amazon.com/AmazonS3/latest/API/ipv6-access")  in the *Amazon S3 API Reference*.
+  | August 11, 2016 |
+| Asia Pacific (Mumbai) Region | Amazon S3 is now available in the Asia Pacific (Mumbai) Region. For more
+ information about Amazon S3 Regions and endpoints, see [Regions and Endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region "https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region")
+ in the *AWS General Reference*. | June 27, 2016 |
+| Amazon S3 Transfer Acceleration | Amazon S3 Transfer Acceleration enables fast, easy, and secure transfers
+ of files over long distances between your client and an S3 bucket.
+ Transfer Acceleration takes advantage of Amazon CloudFront globally distributed
+ edge locations. 
+For more information, see [Configuring fast, secure file transfers using
+ Amazon S3 Transfer Acceleration](transfer-acceleration.md "transfer-acceleration.md").  | April 19, 2016 |
+| Lifecycle support to remove expired object delete markers | Lifecycle configuration `Expiration` action now allows
+ you to direct Amazon S3 to remove expired object delete markers in a/
+ versioned bucket. For more information, see [Elements to describe lifecycle
+ actions](intro-lifecycle-rules.md#intro-lifecycle-rules-actions "intro-lifecycle-rules.md#intro-lifecycle-rules-actions").
+ 
+  | March 16, 2016 |
+| Bucket lifecycle configuration now supports action to stop incomplete
+ multipart uploads  | Bucket lifecycle configuration now supports the
+ `AbortIncompleteMultipartUpload` action that you can
+ use to direct Amazon S3 to stop multipart uploads that don't complete
+ within a specified number of days after being initiated. When a
+ multipart upload becomes eligible for a stop operation, Amazon S3 deletes
+ any uploaded parts and stops the multipart upload.
+For conceptual information, see the following topics in the
+ *Amazon S3 User Guide*:
+
+* [Aborting a multipart upload](abort-mpu.md "abort-mpu.md")
+* [Elements to describe lifecycle
+ actions](intro-lifecycle-rules.md#intro-lifecycle-rules-actions "intro-lifecycle-rules.md#intro-lifecycle-rules-actions")
+
+The following API operations have been updated to support the new
+ action:
+
+* [PUT
+ Bucket lifecycle](../API/RESTBucketPUTlifecycle.md "../API/RESTBucketPUTlifecycle.md") – The XML configuration
+ now allows you to specify the
+ `AbortIncompleteMultipartUpload` action in a
+ lifecycle configuration rule.
+* [List
+ Parts](../API/mpUploadListParts.md "../API/mpUploadListParts.md") and [Initiate
+ Multipart Upload](../API/mpUploadInitiate.md "../API/mpUploadInitiate.md") – Both of these API
+ operations now return two additional response headers
+ (`x-amz-abort-date`, and
+ `x-amz-abort-rule-id`) if the bucket has a
+ lifecycle rule that specifies the
+ `AbortIncompleteMultipartUpload` action.
+ These headers in the response indicate when the initiated
+ multipart upload becomes eligible for a stop operation and
+ which lifecycle rule is applicable.
+
+
+
+ | March 16, 2016 |
+| Asia Pacific (Seoul) Region | Amazon S3 is now available in the Asia Pacific (Seoul) Region. For
+ more information about Amazon S3 Regions and endpoints, see [Regions and Endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region "https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region")
+ in the *AWS General Reference*. | January 6, 2016 |
+| New condition key and a multipart upload change | IAM policies now support an Amazon S3
+ `s3:x-amz-storage-class` condition key. For more
+ information, see [Bucket policy examples using condition keys](amazon-s3-policy-keys.md "amazon-s3-policy-keys.md").
+You no longer need to be the initiator of a multipart upload to
+ upload parts and complete the upload. For more information, see
+ [Multipart upload API and permissions](mpuoverview.md#mpuAndPermissions "mpuoverview.md#mpuAndPermissions"). | December 14, 2015 |
+| Renamed the US Standard Region  | Changed the Region name string from "US Standard" to "US East (N.
+ Virginia)." This is only a Region name update, there is no change in the
+ functionality. | December 11, 2015 |
+| New storage class  | Amazon S3 now offers a new storage class, STANDARD\_IA (IA, for
+ infrequent access) for storing objects. This storage class is
+ optimized for long-lived and less frequently accessed data. For more
+ information, see [Understanding and managing Amazon S3 storage classes](storage-class-intro.md "storage-class-intro.md"). 
+Lifecycle configuration feature updates now allow you to
+ transition objects to the STANDARD\_IA storage class. For more
+ information, see [Managing the lifecycle of objects](object-lifecycle-mgmt.md "object-lifecycle-mgmt.md").
+Previously, the Cross-Region Replication feature used the storage
+ class of the source object for object replicas. Now, when you
+ configure Cross-Region Replication, you can specify a storage class
+ for the object replica created in the destination bucket. For more
+ information, see [Replicating objects within and across Regions](replication.md "replication.md"). | September 16, 2015 |
+| AWS CloudTrail integration | New AWS CloudTrail integration allows you to record Amazon S3 API activity in
+ your S3 bucket. You can use CloudTrail to track S3 bucket creations or
+ deletions, access control modifications, or lifecycle configuration
+ changes. For more information, see [Logging Amazon S3 API calls using AWS CloudTrail](cloudtrail-logging.md "cloudtrail-logging.md"). | September 1, 2015 |
+| Bucket limit increase | Amazon S3 now supports bucket limit increases. By default, customers
+ can create up to 100 buckets in their AWS account. Customers who
+ need additional buckets can increase that limit by submitting a
+ service limit increase. For information about how to increase your
+ bucket limit, go to [AWS service
+ quotas](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html "https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html") in the *AWS General
+ Reference*. For more information, see [Using the AWS SDKs](create-bucket-overview.md#create-bucket-intro "create-bucket-overview.md#create-bucket-intro") and [General purpose bucket quotas, limitations, and restrictions](BucketRestrictions.md "BucketRestrictions.md"). | August 4, 2015 |
+| Consistency model update | Amazon S3 now supports read-after-write consistency for new objects
+ added to Amazon S3 in the US East (N. Virginia) Region. Prior to this
+ update, all Regions except US East (N. Virginia) Region supported
+ read-after-write consistency for new objects uploaded to Amazon S3. With
+ this enhancement, Amazon S3 now supports read-after-write consistency in
+ all Regions for new objects added to Amazon S3. Read-after-write
+ consistency allows you to retrieve objects immediately after
+ creation in Amazon S3. For more information, see [Regions](Welcome.md#Regions "Welcome.md#Regions"). | August 4, 2015 |
+| Event notifications | Amazon S3 Event Notifications have been updated to add notifications
+ when objects are deleted and to add filtering on object names with
+ prefix and suffix matching. For more information, see [Amazon S3 Event Notifications](EventNotifications.md "EventNotifications.md"). | July 28, 2015 |
+| Amazon CloudWatch integration | New Amazon CloudWatch integration allows you to monitor and set alarms on
+ your Amazon S3 usage through CloudWatch metrics for Amazon S3. Supported metrics
+ include total bytes for Standard storage, total bytes for
+ Reduced-Redundancy Storage, and total number of objects for a given
+ S3 bucket. For more information, see [Monitoring metrics with Amazon CloudWatch](cloudwatch-monitoring.md "cloudwatch-monitoring.md"). | July 28, 2015 |
+| Support for deleting and emptying non-empty buckets | Amazon S3 now supports deleting and emptying non-empty buckets. For
+ more information, see [Emptying a general purpose bucket](empty-bucket.md "empty-bucket.md"). | July 16, 2015 |
+| Bucket policies for Amazon VPC endpoints | Amazon S3 has added support for bucket policies for virtual private cloud (VPC) (VPC)
+ endpoints. You can use S3 bucket policies to control access to
+ buckets from specific VPC endpoints, or specific VPCs. VPC
+ endpoints are easy to configure, are highly reliable, and provide a
+ secure connection to Amazon S3 without requiring a gateway or a NAT
+ instance. For more information, see [Controlling access from VPC
+ endpoints with bucket policies](example-bucket-policies-vpc-endpoint.md "example-bucket-policies-vpc-endpoint.md"). | April 29, 2015 |
+| Event notifications | Amazon S3 Event Notifications have been updated to support the switch
+ to resource-based permissions for AWS Lambda functions. For more
+ information, see [Amazon S3 Event Notifications](EventNotifications.md "EventNotifications.md"). | April 9, 2015 |
+| Cross-Region Replication | Amazon S3 now supports Cross-Region Replication. Cross-Region
+ Replication is the automatic, asynchronous copying of objects across
+ buckets in different AWS Regions. For more information, see [Replicating objects within and across Regions](replication.md "replication.md"). | March 24, 2015 |
+| Event notifications | Amazon S3 now supports new event types and destinations in a bucket
+ notification configuration. Prior to this release, Amazon S3
+ supported only the *s3:ReducedRedundancyLostObject* event type and an
+ Amazon SNS topic as the destination. For more information about the
+ new event types, see [Amazon S3 Event Notifications](EventNotifications.md "EventNotifications.md"). | November 13, 2014 |
+| Server-side encryption with customer-provided encryption keys | Server-side encryption with AWS Key Management Service (AWS KMS) keys
+ (SSE-KMS)
+Amazon S3 now supports server-side encryption using AWS KMS. This feature
+ allows you to manage the envelope key through AWS KMS, and Amazon S3 calls
+ AWS KMS to access the envelope key within the permissions you set. 
+For more information about server-side encryption with AWS KMS, see
+ [Protecting Data Using Server-Side Encryption with
+ AWS Key Management Service](UsingKMSEncryption.md "UsingKMSEncryption.md").  | November 12, 2014 |
+| Europe (Frankfurt) Region | Amazon S3 is now available in the Europe (Frankfurt) Region. | October 23, 2014 |
+| Server-side encryption with customer-provided encryption keys | Amazon S3 now supports server-side encryption using customer-provided
+ encryption keys (SSE-C). Server-side encryption enables you to
+ request Amazon S3 to encrypt your data at rest. When using SSE-C, Amazon S3
+ encrypts your objects with the custom encryption keys that you
+ provide. Since Amazon S3 performs the encryption for you, you get the
+ benefits of using your own encryption keys without the cost of
+ writing or executing your own encryption code. 
+For more information about SSE-C, see [Server-Side Encryption (Using Customer-Provided Encryption
+ Keys)](ServerSideEncryptionCustomerKeys.md "ServerSideEncryptionCustomerKeys.md"). | June 12, 2014 |
+| Lifecycle support for versioning | Prior to this release, lifecycle configuration was supported only
+ on nonversioned buckets. Now you can configure lifecycle on both
+ nonversioned and versioning-enabled buckets. For more information,
+ see [Managing the lifecycle of objects](object-lifecycle-mgmt.md "object-lifecycle-mgmt.md").  | May 20, 2014 |
+| Access control topics revised | Revised Amazon S3 access control documentation. For more
+ information, see [Identity and Access Management for Amazon S3](security-iam.md "security-iam.md").  | April 15, 2014 |
+| Server access logging topic revised | Revised server access logging documentation. For more information,
+ see [Logging requests with server access logging](ServerLogs.md "ServerLogs.md").  | November 26, 2013 |
+| .NET SDK samples updated to version 2.0 | .NET SDK samples in this guide are now compliant to version
+ 2.0. | November 26, 2013  |
+| SOAP Support Over HTTP deprecated | SOAP support over HTTP is deprecated, but it is still available
+ over HTTPS. New Amazon S3 features will not be supported for SOAP. We
+ recommend that you use either the REST API or the AWS SDKs. | September 20, 2013 |
+| IAM policy variable support | IAM policy language now supports variables. When a policy is
+ evaluated, any policy variables are replaced with values that are
+ supplied by context-based information from the authenticated user’s
+ session. You can use policy variables to define general purpose
+ policies without explicitly listing all the components of the
+ policy. For more information about policy variables, see [IAM Policy
+ Variables Overview](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_variables.html "https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_variables.html") in the
+ *IAM User Guide*. 
+For examples of policy variables in Amazon S3, see [Identity-based policy examples for Amazon S3](example-policies-s3.md "example-policies-s3.md").  | April 3, 2013 |
+| Console support for Requester Pays | You can now configure your bucket for Requester Pays by using the
+ Amazon S3 console. For more information, see [Using Requester Pays general purpose buckets for storage
+ transfers and usage](RequesterPaysBuckets.md "RequesterPaysBuckets.md"). | December 31, 2012  |
+| Root domain support for website hosting | Amazon S3 now supports hosting static websites at the root domain.
+ Visitors to your website can access your site from their browser without
+ specifying **www** in the web address (for
+ example, they can use **example.com**
+ instead of **www.example.com**). Many
+ customers already host static websites on Amazon S3 that are accessible from
+ a **www** subdomain (for example, **www.example.com**). Previously, to support root
+ domain access, you needed to run your own web server to proxy root
+ domain requests from browsers to your website on Amazon S3. Running a web
+ server to proxy requests introduces additional costs, operational
+ burden, and another potential point of failure. Now, you can take
+ advantage of the high availability and durability of Amazon S3 for both
+ **www** and root domain addresses. For
+ more information, see [Hosting a static website using Amazon S3](WebsiteHosting.md "WebsiteHosting.md"). | December 27, 2012  |
+| Console revision | Amazon S3 console has been updated. The documentation topics that refer to
+ the console have been revised accordingly. | December 14, 2012  |
+| Support for Archiving Data to Amazon Glacier  | Amazon S3 now supports a storage option that enables you to utilize
+ Amazon Glacier's low-cost storage service for data archival. To archive
+ objects, you define archival rules identifying objects and a time
+ frame when you want Amazon S3 to archive these objects to Amazon Glacier. You can
+ easily set the rules on a bucket using the Amazon S3 console or
+ programmatically using the Amazon S3 API or AWS SDKs.
+For more information, see [Managing the lifecycle of objects](object-lifecycle-mgmt.md "object-lifecycle-mgmt.md").  | November 13, 2012  |
+| Support for Website Page Redirects | For a bucket that is configured as a website, Amazon S3 now supports
+ redirecting a request for an object to another object in the same
+ bucket or to an external URL. For more information, see [(Optional) Configuring a webpage redirect](how-to-page-redirect.md "how-to-page-redirect.md"). 
+For information about hosting websites, see [Hosting a static website using Amazon S3](WebsiteHosting.md "WebsiteHosting.md").
+  | October 4, 2012  |
+| Support for Cross-Origin Resource Sharing (CORS) | Amazon S3 now supports Cross-Origin Resource Sharing (CORS). CORS
+ defines a way in which client web applications that are loaded in
+ one domain can interact with or access resources in a different
+ domain. With CORS support in Amazon S3, you can build rich
+ client-side web applications on top of Amazon S3 and selectively allow
+ cross-domain access to your Amazon S3 resources. For more information,
+ see [Using cross-origin resource sharing (CORS)](cors.md "cors.md"). | August 31, 2012 |
+| Support for Cost Allocation Tags | Amazon S3 now supports cost allocation tagging, which allows you to
+ label S3 buckets so you can more easily track their cost against
+ projects or other criteria. For more information about using tagging
+ for buckets, see [Using cost allocation S3 bucket tags](CostAllocTagging.md "CostAllocTagging.md"). | August 21, 2012 |
+| Support for MFA-protected API access in bucket policies  | Amazon S3 now supports MFA-protected API access, a feature that can
+ enforce AWS Multi-Factor Authentication for an extra level of
+ security when accessing your Amazon S3 resources. It is a security
+ feature that requires users to prove physical possession of an MFA
+ device by providing a valid MFA code. For more information, go to
+ [AWS Multi-Factor
+ Authentication](https://aws.amazon.com/iam/details/mfa/ "https://aws.amazon.com/iam/details/mfa/"). You can now require MFA authentication
+ for any requests to access your Amazon S3 resources. 
+To enforce MFA authentication, Amazon S3 now supports the
+ `aws:MultiFactorAuthAge` key in a bucket policy. For
+ an example bucket policy, see [Requiring MFA](example-bucket-policies.md#example-bucket-policies-MFA "example-bucket-policies.md#example-bucket-policies-MFA"). | July 10, 2012 |
+| Object Expiration support  | You can use Object Expiration to schedule automatic removal of data
+ after a configured time period. You set object expiration by adding
+ lifecycle configuration to a bucket. | 27 December 2011 
+  |
+| New Region supported | Amazon S3 now supports the South America (São Paulo) Region. For more
+ information, see [Accessing an Amazon S3 general purpose bucket](access-bucket-intro.md "access-bucket-intro.md"). | December 14, 2011 |
+| Multi-Object Delete | Amazon S3 now supports Multi-Object Delete API that enables you to delete
+ multiple objects in a single request. With this feature, you can remove
+ large numbers of objects from Amazon S3 more quickly than using multiple
+ individual DELETE requests. For more information, see [Deleting Amazon S3 objects](DeletingObjects.md "DeletingObjects.md"). | December 7, 2011 |
+| New Region supported | Amazon S3 now supports the US West (Oregon) Region. For more
+ information, see [Buckets and
+ Regions](access-bucket-intro.md "access-bucket-intro.md"). | November 8, 2011 |
+| Documentation Update | Documentation bug fixes. | November 8, 2011 |
+| Documentation Update | In addition to documentation bug fixes, this release includes the
+ following enhancements:
+
+* New server-side encryption sections using the AWS SDK for PHP
+ and the AWS SDK for Ruby (see [Specifying server-side encryption with Amazon S3 managed
+ keys (SSE-S3)](specifying-s3-encryption.md "specifying-s3-encryption.md")).
+ | October 17, 2011 |
+| Server-side encryption support | Amazon S3 now supports server-side encryption. It enables you to
+ request Amazon S3 to encrypt your data at rest, that is, encrypt your
+ object data when Amazon S3 writes your data to disks in its data
+ centers. In addition to REST API updates, the AWS SDK for Java and .NET
+ provide necessary functionality to request server-side encryption.
+ You can also request server-side encryption when uploading objects
+ using the AWS Management Console. To learn more about data encryption, go to
+ [Using Data
+ Encryption](UsingEncryption.md "UsingEncryption.md"). | October 4, 2011 |
+| Documentation Update  | In addition to documentation bug fixes, this release includes the
+ following enhancements:
+
+* Added Ruby and PHP samples to the [Making requests](https://docs.aws.amazon.com/AmazonS3/latest/API/MakingRequests "https://docs.aws.amazon.com/AmazonS3/latest/API/MakingRequests") in the *Amazon S3 API Reference* section.
+* Added sections describing how to generate and use
+ presigned URLs. For more information, see [Sharing objects with presigned URLs](ShareObjectPreSignedURL.md "ShareObjectPreSignedURL.md") and [Sharing objects with presigned URLs](ShareObjectPreSignedURL.md "ShareObjectPreSignedURL.md").
+* Updated an existing section to introduce AWS Explorers
+ for Eclipse and Visual Studio. For more information, see
+ [Developing with Amazon S3 using the AWS SDKs](../API/sdk-general-information-section.md "../API/sdk-general-information-section.md") in the *Amazon S3 API Reference*.
+ | September 22, 2011 |
+| Support for sending requests using temporary security credentials
+  | In addition to using your AWS account and IAM user security
+ credentials to send authenticated requests to Amazon S3, you can now send
+ requests using temporary security credentials you obtain from
+ AWS Identity and Access Management (IAM). You can use the AWS Security Token Service API or the AWS SDK
+ wrapper libraries to request these temporary credentials from IAM.
+ You can request these temporary security credentials for your own
+ use or hand them out to federated users and applications. This
+ feature enables you to manage your users outside AWS and provide
+ them with temporary security credentials to access your AWS
+ resources. 
+For more information, see [Making requests](https://docs.aws.amazon.com/AmazonS3/latest/API/MakingRequests "https://docs.aws.amazon.com/AmazonS3/latest/API/MakingRequests") in the *Amazon S3 API Reference*.
+For more information about IAM support for temporary security
+ credentials, see [Temporary Security Credentials](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html "https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html") in the
+ *IAM User Guide*. | August 3, 2011 |
+| Multipart Upload API extended to enable copying objects up to 5
+ TB | Prior to this release, Amazon S3 API supported copying objects of up to
+ 5 GB in size. To enable copying objects larger than 5 GB, Amazon S3 now
+ extends the multipart upload API with a new operation, `Upload
+ Part (Copy)`. You can use this multipart upload operation
+ to copy objects up to 5 TB in size. For more information, see [Copying, moving, and renaming objects](copy-object.md "copy-object.md"). 
+For conceptual information about multipart upload API, see [Uploading and copying objects using multipart upload in Amazon S3](mpuoverview.md "mpuoverview.md").  | June 21, 2011 |
+| SOAP API calls over HTTP disabled | To increase security, SOAP API calls over HTTP are disabled.
+ Authenticated and anonymous SOAP requests must be sent to Amazon S3 using
+ SSL. | June 6, 2011 |
+| IAM enables cross-account delegation  | Previously, to access an Amazon S3 resource, an IAM user needed
+ permissions from both the parent AWS account and the Amazon S3 resource
+ owner. With cross-account access, the IAM user now only needs
+ permission from the owner account. That is, If a resource owner
+ grants access to an AWS account, the AWS account can now grant
+ its IAM users access to these resources. 
+For more information, see [Creating a
+ role to delegate permissions to an IAM user](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html "https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html") in the
+ *IAM User Guide*. 
+For more information on specifying principals in a bucket policy,
+ see [Principals for bucket policies](security_iam_service-with-iam.md#s3-bucket-user-policy-specifying-principal-intro "security_iam_service-with-iam.md#s3-bucket-user-policy-specifying-principal-intro"). | June 6, 2011 |
+| New link | This service's endpoint information is now located in the
+ *AWS General Reference*. For
+ more information, go to Regions and Endpoints in the [AWS General Reference](https://docs.aws.amazon.com/general/latest/gr/rande.html "https://docs.aws.amazon.com/general/latest/gr/rande.html"). | March 1, 2011 |
+| Support for hosting static websites in Amazon S3 | Amazon S3 introduces enhanced support for hosting static websites. This
+ includes support for index documents and custom error documents.
+ When using these features, requests to the root of your bucket or a
+ subfolder (for example, `http://mywebsite.com/subfolder`)
+ returns your index document instead of the list of objects in your
+ bucket. If an error is encountered, Amazon S3 returns your custom error
+ message instead of an Amazon S3 error message. For more information, see
+ [Hosting a static website using Amazon S3](WebsiteHosting.md "WebsiteHosting.md"). | June 6, 2011 |
+| This service's endpoint information is now located in the
+ *AWS General Reference*. For
+ more information, go to Regions and Endpoints in the [AWS General Reference](https://docs.aws.amazon.com/general/latest/gr/rande.html "https://docs.aws.amazon.com/general/latest/gr/rande.html"). | March 1, 2011 |
+| Support for hosting static websites in Amazon S3 | Amazon S3 introduces enhanced support for hosting static websites. This
+ includes support for index documents and custom error documents.
+ When using these features, requests to the root of your bucket or a
+ subfolder (for example, `http://mywebsite.com/subfolder`)
+ returns your index document instead of the list of objects in your
+ bucket. If an error is encountered, Amazon S3 returns your custom error
+ message instead of an Amazon S3 error message. For more information, see
+ [Hosting a static website using Amazon S3](WebsiteHosting.md "WebsiteHosting.md"). | February 17, 2011 |
+| Response Header API Support | The GET Object REST API now allows you to change the response
+ headers of the REST GET Object request for each request. That is,
+ you can alter object metadata in the response, without altering the
+ object itself. For more information, see [Downloading objects](download-objects.md "download-objects.md"). | January 14, 2011 |
+| Large object support | Amazon S3 has increased the maximum size of an object you can store in
+ an S3 bucket from 5 GB to 5 TB. If you are using the REST API, you
+ can upload objects of up to 5 GB in a single PUT operation. For
+ larger objects, you must use the Multipart Upload REST API to upload
+ objects in parts. For more information, see [Uploading and copying objects using multipart upload in Amazon S3](mpuoverview.md "mpuoverview.md"). | December 9, 2010 |
+| Multipart upload | Multipart upload enables faster, more flexible uploads into Amazon S3.
+ It allows you to upload a single object as a set of parts. For more
+ information, see [Uploading and copying objects using multipart upload in Amazon S3](mpuoverview.md "mpuoverview.md"). | November 10, 2010 |
+| Canonical ID support in bucket policies | You can now specify canonical IDs in bucket policies. For more
+ information, see [Principals for bucket policies](security_iam_service-with-iam.md#s3-bucket-user-policy-specifying-principal-intro "security_iam_service-with-iam.md#s3-bucket-user-policy-specifying-principal-intro")
+ | September 17, 2010 |
+| Amazon S3 works with IAM | This service now integrates with AWS Identity and Access Management (IAM). For more
+ information, go to [AWS services that work with IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html "https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html") in the
+ *IAM User Guide*.  | September 2, 2010 |
+| Notifications | The Amazon S3 notifications feature enables you to configure a bucket so
+ that Amazon S3 publishes a message to an Amazon Simple Notification Service (Amazon SNS) topic when Amazon S3
+ detects a key event on a bucket. For more information, see [Setting Up Notification of Bucket
+ Events](EventNotifications.md "EventNotifications.md"). | July 14, 2010 |
+| Bucket policies | Bucket policies are an access management system that you use to set
+ access permissions across buckets, objects, and sets of objects. This
+ functionality supplements and in many cases replaces access control
+ lists. For more information, see [Bucket policies for Amazon S3](bucket-policies.md "bucket-policies.md"). | July 6, 2010 |
+| Path-style syntax available in all Regions | Amazon S3 now supports the path-style syntax for any bucket in the US
+ Classic Region, or if the bucket is in the same Region as the endpoint
+ of the request. For more information, see [Virtual Hosting](VirtualHosting.md "VirtualHosting.md"). | June 9, 2010 |
+| New endpoint for Europe (Ireland) | Amazon S3 now provides an endpoint for Europe (Ireland):
+ `http://s3-eu-west-1.amazonaws.com`. | June 9, 2010 |
+| Console | You can now use Amazon S3 through the AWS Management Console. You can read about all of
+ the Amazon S3 functionality in the console in the Amazon Simple Storage Service User Guide.  | June 9, 2010 |
+| Reduced Redundancy | Amazon S3 now enables you to reduce your storage costs by storing objects
+ in Amazon S3 with reduced redundancy. For more information, see [Reduced Redundancy Storage](Welcome.md#RRS "Welcome.md#RRS"). | May 12, 2010 |
+| New Region supported | Amazon S3 now supports the Asia Pacific (Singapore) Region. For more
+ information, see [Buckets and
+ Regions](access-bucket-intro.md "access-bucket-intro.md"). | April 28, 2010 |
+| Object Versioning | This release introduces object versioning. All objects now can have a
+ key and a version. If you enable versioning for a bucket, Amazon S3 gives all
+ objects added to a bucket a unique version ID. This feature enables you
+ to recover from unintended overwrites and deletions. For more
+ information, see [Versioning](Welcome.md#Versions "Welcome.md#Versions") and [Using Versioning](Versioning.md "Versioning.md"). | February 8, 2010 |
+| New Region supported | Amazon S3 now supports the US West (N. California) Region. The new endpoint for
+ requests to this Region is `s3-us-west-1.amazonaws.com`. For
+ more information, see [Buckets and
+ Regions](access-bucket-intro.md "access-bucket-intro.md"). | December 2, 2009 |
+| AWS SDK for .NET | AWS now provides libraries, sample code, tutorials, and other
+ resources for software developers who prefer to build applications using
+ .NET language-specific API operations instead of REST or SOAP. These
+ libraries provide basic functions (not included in the REST or SOAP
+ APIs), such as request authentication, request retries, and error
+ handling so that it's easier to get started. For more information about
+ language-specific libraries and resources, see [Developing with Amazon S3 using the AWS SDKs](../API/sdk-general-information-section.md "../API/sdk-general-information-section.md") in the *Amazon S3 API Reference*.  | November 11, 2009 |

@@ -7,7 +7,7 @@ AWS Deadline Cloud uses *queue environments* to configure the software on your
  the queue, and the individual steps for a job.
 
 You define environments as queue environments or job environments. Create queue environments
- with the Deadline Cloud console or with the [deadline:CreateQueueEnvironment](https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_CreateQueueEnvironment.html "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_CreateQueueEnvironment.html") operation and define job environments in the job
+ with the Deadline Cloud console or with the [deadline:CreateQueueEnvironment](../APIReference/API_CreateQueueEnvironment.md "../APIReference/API_CreateQueueEnvironment.md") operation and define job environments in the job
  templates of the jobs you submit. They follow the Open Job Description (OpenJD) specification
  for environments. For details, see [<Environment>](https://github.com/OpenJobDescription/openjd-specifications/wiki/2023-09-Template-Schemas#4-environment "https://github.com/OpenJobDescription/openjd-specifications/wiki/2023-09-Template-Schemas#4-environment") in the OpenJD specification on GitHub.
 

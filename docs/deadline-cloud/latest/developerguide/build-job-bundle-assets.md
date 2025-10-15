@@ -1,6 +1,6 @@
 # Asset references elements for job bundles
 
-You can use Deadline Cloud [job attachments](../userguide/storage-job-attachments.md "../userguide/storage-job-attachments.md")
+You can use Deadline Cloud [job attachments](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/storage-job-attachments.html "https://docs.aws.amazon.com/deadline-cloud/latest/userguide/storage-job-attachments.html")
  to transfer files back and forth between your workstation and Deadline Cloud. The asset reference file
  lists input files and directories, as well as output directories for your attachments. If you
  don't list all of the files and directories in this file, you can select them when you submit
@@ -46,7 +46,7 @@ When selecting the input or output file to upload to Amazon S3, Deadline Cloud c
  shares.
 
 For more information about creating and using storage profiles, see [Shared
- storage in Deadline Cloud](../userguide/storage-shared.md "../userguide/storage-shared.md") in the *AWS Deadline Cloud User Guide*.
+ storage in Deadline Cloud](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/storage-shared.html "https://docs.aws.amazon.com/deadline-cloud/latest/userguide/storage-shared.html") in the *AWS Deadline Cloud User Guide*.
 
 ###### Example - The asset reference file created by the Deadline Cloud GUI
 

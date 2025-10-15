@@ -96,7 +96,7 @@ Workloads scale from simple job bundles that users submit to a queue with either
 
 
 	+ [Configure jobs using queue environments](configure-jobs.md "configure-jobs.md")
-	+ [Connect customer-managed fleets to a license endpoint](../userguide/cmf-ubl.md "../userguide/cmf-ubl.md")
+	+ [Connect customer-managed fleets to a license endpoint](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/cmf-ubl.html "https://docs.aws.amazon.com/deadline-cloud/latest/userguide/cmf-ubl.html")
 * **Job parameter definitions**. The user experience of
  submitting the job is affected greatly by the parameters it provides. Example parameters
  include data files, directories, and application configuration. 

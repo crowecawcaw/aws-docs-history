@@ -5,9 +5,9 @@ To demonstrate using job attachments and storage profiles, set up a test environ
 
 1. If you haven't already, create a test farm. To create a farm, follow the procedure in
  [Create a
- farm](../userguide/farms.md "../userguide/farms.md").
+ farm](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/farms.html "https://docs.aws.amazon.com/deadline-cloud/latest/userguide/farms.html").
 2. Create two queues for jobs in each of the two projects. To create queues, follow the
- procedure in [Create a queue](../userguide/create-queue.md "../userguide/create-queue.md").
+ procedure in [Create a queue](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/create-queue.html "https://docs.aws.amazon.com/deadline-cloud/latest/userguide/create-queue.html").
 
 
 	1. Create the first queue called `Q1`. Use the following
@@ -42,7 +42,7 @@ To demonstrate using job attachments and storage profiles, set up a test environ
 		* Clear the default Conda queue environment checkbox.
 3. Create a single customer-managed fleet that runs the jobs from both queues. To create
  the fleet, follow the procedure in [Create a customer-managed
- fleet](../userguide/create-a-cmf.md "../userguide/create-a-cmf.md"). Use the following configuration:
+ fleet](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/create-a-cmf.html "https://docs.aws.amazon.com/deadline-cloud/latest/userguide/create-a-cmf.html"). Use the following configuration:
 
 
 

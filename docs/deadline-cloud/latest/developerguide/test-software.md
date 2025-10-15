@@ -113,7 +113,7 @@ Get-Content -Tail 25 -Path $env:PROGRAMDATA\Amazon\Deadline\Logs\worker-agent.lo
 ```
 3. Submit jobs to queue associated with your fleet. The jobs should be representative of
  the jobs that the fleet processes.
-4. Monitor the progress of the job [using the Deadline Cloud monitor](../userguide/view-logs.md "../userguide/view-logs.md") or
+4. Monitor the progress of the job [using the Deadline Cloud monitor](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/view-logs.html "https://docs.aws.amazon.com/deadline-cloud/latest/userguide/view-logs.html") or
  CLI. If a job fails, check the session and worker logs.
 5. Update the configuration of the worker host as needed until jobs complete
  successfully.

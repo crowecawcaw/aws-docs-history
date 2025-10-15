@@ -320,7 +320,7 @@ You can add the following statement to your `Queue Role` to access custom
 ]
 ```
 
-For more information about Amazon S3 security best practices, see [Security best practices for Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/security-best-practices.html "https://docs.aws.amazon.com/AmazonS3/latest/userguide/security-best-practices.html") in the *Amazon Simple Storage Service User Guide*.
+For more information about Amazon S3 security best practices, see [Security best practices for Amazon S3](../../../AmazonS3/latest/userguide/security-best-practices.md "../../../AmazonS3/latest/userguide/security-best-practices.md") in the *Amazon Simple Storage Service User Guide*.
 
 
 ## Worker hosts

@@ -55,7 +55,7 @@ A *license endpoint* provides access to license servers for third-party
 
 
 With the appropriate permissions, you can create your license endpoint. For the required 
- policy to create a license endpoint, see [Policy to allow creating a license endpoint](../userguide/security_iam_id-based-policy-examples.md#security_iam-id-based-policy-examples-create-endpoint "../userguide/security_iam_id-based-policy-examples.md#security_iam-id-based-policy-examples-create-endpoint").
+ policy to create a license endpoint, see [Policy to allow creating a license endpoint](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/security_iam_id-based-policy-examples.html#security_iam-id-based-policy-examples-create-endpoint "https://docs.aws.amazon.com/deadline-cloud/latest/userguide/security_iam_id-based-policy-examples.html#security_iam-id-based-policy-examples-create-endpoint").
 
 
 You can create your license endpoint from your dashboard in the Deadline Cloud [console](https://console.aws.amazon.com/deadlinecloud/home "https://console.aws.amazon.com/deadlinecloud/home").

@@ -22,7 +22,7 @@ Use OpenJD environments to provide new commands in an environment. First you cre
  create one with default settings.
 2. If you do not have the Deadline Cloud CLI and Deadline Cloud monitor on your workstation, follow the
  steps in [Set
- up Deadline Cloud submitters](../userguide/submitter.md "../userguide/submitter.md") from the user guide.
+ up Deadline Cloud submitters](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/submitter.html "https://docs.aws.amazon.com/deadline-cloud/latest/userguide/submitter.html") from the user guide.
 3. Use `git` to clone the [Deadline Cloud samples GitHub
  repository](https://github.com/aws-deadline/deadline-cloud-samples "https://github.com/aws-deadline/deadline-cloud-samples"). 
 

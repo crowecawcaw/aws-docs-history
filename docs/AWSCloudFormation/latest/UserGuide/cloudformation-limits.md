@@ -1,0 +1,130 @@
+# Understand CloudFormation quotas
+
+Your AWS account has CloudFormation quotas that you might need to know when authoring templates
+ and creating stacks. By understanding these quotas, you can avoid limitation errors that would
+ require you to redesign your templates or stacks.
+
+The following table shows the CloudFormation quotas.
+
+
+
+| Quotas | Description | Value | Tuning strategy |
+| --- | --- | --- | --- |
+| [cfn-signal wait condition data](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/cfn-signal.html "https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/cfn-signal.html") | The maximum amount of data that `cfn-signal` can pass. | 4,096 bytes | To pass a larger amount, send the data to an Amazon S3 bucket, and then use
+ `cfn-signal` to pass the Amazon S3 URL to that bucket. |
+| [Custom resource response](https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-cloudformation-customresource.html "https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-cloudformation-customresource.html") | The maximum amount of data that a custom resource provider can pass. | 4,096 bytes |  |
+| [Dynamic references per
+ template](dynamic-references.md "dynamic-references.md") | The maximum number of dynamic references allowed in a single CloudFormation stack
+ template. | 60 dynamic references in a stack template |  |
+| [Hooks per
+ account](https://docs.aws.amazon.com/cloudformation-cli/latest/hooks-userguide/what-is-cloudformation-hooks.html "https://docs.aws.amazon.com/cloudformation-cli/latest/hooks-userguide/what-is-cloudformation-hooks.html") | The maximum number of Hooks allowed per account per Region. | 100 hooks |  |
+| [Hooks per
+ resource](https://docs.aws.amazon.com/cloudformation-cli/latest/hooks-userguide/what-is-cloudformation-hooks.html "https://docs.aws.amazon.com/cloudformation-cli/latest/hooks-userguide/what-is-cloudformation-hooks.html") | The maximum number of Hooks that can be configured per resource. | 100 hooks |  |
+| [Hook
+ configuration size](https://docs.aws.amazon.com/cloudformation-cli/latest/hooks-userguide/what-is-cloudformation-hooks.html "https://docs.aws.amazon.com/cloudformation-cli/latest/hooks-userguide/what-is-cloudformation-hooks.html") | The maximum amount of configuration data a Hook can store. | 204.8 KB |  |
+| [Mappings](mappings-section-structure.md "mappings-section-structure.md") | The maximum number of mappings that you can declare in your CloudFormation template. | 200 mappings | To specify more mappings, separate your template into multiple templates by using, for
+ example, [nested stacks](using-cfn-nested-stacks.md "using-cfn-nested-stacks.md"). |
+| [Mapping attributes](mappings-section-structure.md "mappings-section-structure.md") | The maximum number of mapping attributes for each mapping that you can declare in
+ your CloudFormation template. | 200 attributes | To specify more mapping attributes, separate the attributes into multiple
+ mappings. |
+| [Mapping name and mapping attribute
+ name](mappings-section-structure.md "mappings-section-structure.md") | The maximum size of each mapping name. | 255 characters |  |
+| [Modules](modules.md "modules.md") | The maximum number of modules you can register in the CloudFormation registry, per account
+ and Region. | 100 modules |  |
+| [Module versions](modules.md "modules.md") | The maximum number of versions you can register in the CloudFormation registry for a given
+ module. | 100 versions | To register new versions, first use [DeregisterType](../APIReference/API_DeregisterType.md "../APIReference/API_DeregisterType.md")
+ to deregister versions you aren't using anymore. |
+| [Nested stacks](using-cfn-nested-stacks.md "using-cfn-nested-stacks.md") | The maximum number of CloudFormation resources a nested stack can create, update, or
+ delete per operation.
+For example, you can have a nested stack hierarchy with more than 2500 total resources,
+ but you can't create, update, or delete more than 2500 of those resources in a single
+ deployment. | 2500 resources | Split the stack hierarchy into different stacks. |
+| [Outputs](outputs-section-structure.md "outputs-section-structure.md") | The maximum number of outputs that you can declare in your CloudFormation template. | 200 outputs |  |
+| [Output name](outputs-section-structure.md "outputs-section-structure.md") | The maximum size of an output name. | 255 characters |  |
+| [Parameters](parameters-section-structure.md "parameters-section-structure.md") | The maximum number of parameters that you can declare in your CloudFormation
+ template. | 200 parameters | To specify more parameters, you can use mappings or lists in order to assign multiple
+ values to a single parameter. |
+| [Parameter name](parameters-section-structure.md "parameters-section-structure.md") | The maximum size of a parameter name. | 255 characters |  |
+| [Parameter value](parameters-section-structure.md "parameters-section-structure.md") | The maximum size of a parameter value. | 4,096 bytes | To use a larger parameterized value, create multiple parameters and then use the
+ `Fn::Join` function to concatenate the multiple values into a single
+ value. |
+| [Private resources](registry.md "registry.md") | The maximum number of private resources that you can register in the CloudFormation registry
+ per account, per Region. | 50 private resources |  |
+| [Private resource versions](registry.md "registry.md") | The maximum number of versions that you can register in the CloudFormation registry for a
+ given private resource. | 50 private resources | To register new versions, first use [DeregisterType](../APIReference/API_DeregisterType.md "../APIReference/API_DeregisterType.md")
+ to deregister versions you aren't using anymore. |
+| [Resources](resources-section-structure.md "resources-section-structure.md") | The maximum number of resources that you can declare in your CloudFormation template. | 500 resources | To specify more resources, separate your template into multiple templates by using, for
+ example, [nested stacks](using-cfn-nested-stacks.md "using-cfn-nested-stacks.md"). |
+| [Resources in concurrent stack
+ operations](resources-section-structure.md "resources-section-structure.md")
+ | The maximum number of resources you can have involved in stack operations (create,
+ update, or delete operations) in your Region at a given time. | Use the [DescribeAccountLimits](../APIReference/API_DescribeAccountLimits.md "../APIReference/API_DescribeAccountLimits.md") API to determine the current limit for an account in a
+ specific Region. |  |
+| [Resource name](resources-section-structure.md "resources-section-structure.md") | The maximum size of a resource name. | 255 characters |  |
+| [Stacks](stacks.md "stacks.md") | The maximum number of CloudFormation stacks that you can create. | 2000 stacks | To create more stacks, delete stacks that you don't need or request an increase in the
+ maximum number of stacks in your AWS account. For more information, see [AWS service quotas](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html "https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html") in the
+ *AWS General Reference*. |
+| [Stack name](stacks.md "stacks.md") | The maximum size of a stack name. | 128 characters |  |
+| [StackSets](what-is-cfnstacksets.md "what-is-cfnstacksets.md") | The maximum number of CloudFormation stack sets you can create in your administrator
+ account. | 1000 stack sets | To create more stack sets, delete stack sets that you don't need or request an increase
+ in the maximum number of stack sets in your AWS account. For more information, see [AWS service quotas](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html "https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html") in the
+ *AWS General Reference*. |
+| [Stack instances](what-is-cfnstacksets.md "what-is-cfnstacksets.md") | The maximum number of stack instances you can create per stack set. | 100,000 stack instances per stack set | To create more stack instances, delete stack instances that you don't need or request an
+ increase in the maximum number of stack instances in your AWS account. For more
+ information, see [AWS service
+ quotas](https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html "https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html") in the *AWS General Reference*. |
+| [StackSets instance operations](what-is-cfnstacksets.md "what-is-cfnstacksets.md") | The maximum number of stack instances, across all stack sets, that you can run
+ operations on in each Region at the same time, per administrator account. | 10,000 operations | This limit applies across all stack sets involved in a Region. It includes stack
+ instances affected by stack set creation and update operations, as well as creating,
+ updating, or deleting stack instances directly. |
+| StackSets queued operations | The maximum number of queued operations for a stack set at a given time. | 10,000 operations |  |
+| Stacks imported using S3 object per stack set operation | The maximum number of stacks you can import using S3 object per stack set
+ operation. | 200 stacks |  |
+| Stacks imported using inline stack ids per stack set operation | The maximum number of stacks you can import using inline stack IDs per stack set
+ operation. | 10 stacks |  |
+| [Template body size in a request](template-guide.md "template-guide.md") | The maximum size of a template body that you can pass in a `CreateStack`,
+ `UpdateStack`, or `ValidateTemplate` request. | 51,200 bytes | To use a larger template body, separate your template into multiple templates by using,
+ for example, [nested stacks](using-cfn-nested-stacks.md "using-cfn-nested-stacks.md"). Or upload the
+ template to an Amazon S3 bucket. |
+| [Template body size in an Amazon S3 object](template-guide.md "template-guide.md") | The maximum size of a template body that you can pass in an Amazon S3 object for a
+ `CreateStack`, `UpdateStack`, `ValidateTemplate` request
+ with an Amazon S3 template URL. | 1 MB | To use a larger template body, separate your template into multiple templates by using,
+ for example, [nested stacks](using-cfn-nested-stacks.md "using-cfn-nested-stacks.md"). Or use
+ minification to reduce the CloudFormation template size. |
+| [Template description](template-description-structure.md "template-description-structure.md") | The maximum size of a template description. | 1,024 bytes |  |
+| [Versions
+ per hook](https://docs.aws.amazon.com/cloudformation-cli/latest/hooks-userguide/what-is-cloudformation-hooks.html "https://docs.aws.amazon.com/cloudformation-cli/latest/hooks-userguide/what-is-cloudformation-hooks.html") | The maximum number of versions you can create per Hook. | 100 versions |  |
+
+
+## Feature availability
+
+
+Not all features of CloudFormation may be available in every Region. For more information about
+ AWS Regions, see [Global
+ infrastructure Region table](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/ "https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/").
+
+
+
+* [Macros](template-macros.md "template-macros.md") are currently not available in the following
+ Region:
+
+
+
+
+	+ Asia Pacific (Jakarta)
+* [Performing ECS blue/green deployments through CodeDeploy using
+ CloudFormation](blue-green.md "blue-green.md") is currently not available in the following Regions:
+
+
+
+
+	+ Africa (Cape Town)
+	+ Asia Pacific (Osaka)
+	+ Europe (Milan)
+
+## StackSets and macros
+
+
+StackSets does not currently support creating or updating stack sets with
+ service-managed permissions from templates that contain macros. This includes transforms, which
+ are macros hosted by CloudFormation. For more information about macros, see [Template macros](template-macros.md "template-macros.md").

@@ -1,0 +1,46 @@
+# Adding objects to
+ versioning-enabled buckets
+
+After you enable versioning on a bucket, Amazon S3 automatically adds a unique version ID
+ to every object stored (using `PUT`, `POST`, or `CopyObject`)
+ in the bucket. 
+
+The following figure shows that Amazon S3 adds a unique version ID to an object when it is
+ added to a versioning-enabled bucket. 
+
+
+![Illustration that shows a unique version ID added to an object when it is put in a versioning-enabled bucket.](../../../images/AmazonS3/latest/userguide/images/versioning_PUT_versionEnabled.png)
+###### Note
+
+The version ID values that Amazon S3 assigns are URL safe (can be included as part of a
+ URI).
+
+For more information about versioning, see [Retaining multiple versions of objects with S3 Versioning](Versioning.md "Versioning.md"). You can add object versions to a versioning-enabled
+ bucket using the console, AWS SDKs, and REST API.
+
+For instructions, see [Uploading objects](upload-objects.md "upload-objects.md"). 
+
+For examples of uploading objects using the AWS SDKs for Java, .NET, and
+ PHP, see [Uploading objects](upload-objects.md "upload-objects.md"). The
+ examples for uploading objects in nonversioned and versioning-enabled buckets
+ are the same, although in the case of versioning-enabled buckets, Amazon S3 assigns a
+ version number. Otherwise, the version number is null. 
+
+For information about using other AWS SDKs, see the [AWS Developer Center](https://aws.amazon.com/code/ "https://aws.amazon.com/code/"). 
+
+###### To add objects to versioning-enabled buckets
+
+1. Enable versioning on a bucket using a `PutBucketVersioning` request.
+
+
+For more information, see [PutBucketVersioning](../API/RESTBucketPUTVersioningStatus.md "../API/RESTBucketPUTVersioningStatus.md") in the *Amazon Simple Storage Service API Reference*.
+2. Send a `PUT`, `POST`, or `CopyObject`
+ request to store an object in the bucket.
+When you add an object to a versioning-enabled bucket, Amazon S3 returns the
+ version ID of the object in the `x-amz-version-id` response header,
+ as shown in the following example.
+
+
+```
+x-amz-version-id: 3/L4kqtJlcpXroDTDmJ+rmSpXd3dIbrHY
+```

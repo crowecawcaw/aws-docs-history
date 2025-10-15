@@ -2,7 +2,7 @@
  bundles
 
 You can use the parameters file to set the values of some of the job parameters in the job
- template or [CreateJob](https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_CreateJob.html "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_CreateJob.html") operation
+ template or [CreateJob](../APIReference/API_CreateJob.md "../APIReference/API_CreateJob.md") operation
  request arguments in the job bundle so that you don't need to set values when submitting a
  job. The UI for job submission enables you to modify these values.
 
@@ -34,15 +34,15 @@ Each element of the `parameterValues` list must be one of the following:
 
 
 	+ `deadline:priority` – The value must be an integer. It is passed
-	 to the `CreateJob` operation as the [priority](https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_CreateJob.html#deadlinecloud-CreateJob-request-priority "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_CreateJob.html#deadlinecloud-CreateJob-request-priority") parameter.
+	 to the `CreateJob` operation as the [priority](../APIReference/API_CreateJob.md#deadlinecloud-CreateJob-request-priority "../APIReference/API_CreateJob.md#deadlinecloud-CreateJob-request-priority") parameter.
 	+ `deadline:targetTaskRunStatus` – The value must be a string. It
-	 is passed to the `CreateJob` operation as the [targetTaskRunStatus](https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_CreateJob.html#deadlinecloud-CreateJob-request-targetTaskRunStatus "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_CreateJob.html#deadlinecloud-CreateJob-request-targetTaskRunStatus") parameter.
+	 is passed to the `CreateJob` operation as the [targetTaskRunStatus](../APIReference/API_CreateJob.md#deadlinecloud-CreateJob-request-targetTaskRunStatus "../APIReference/API_CreateJob.md#deadlinecloud-CreateJob-request-targetTaskRunStatus") parameter.
 	+ `deadline:maxFailedTasksCount` – The value must be an integer. It
-	 is passed to the `CreateJob` operation as the [maxFailedTasksCount](https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_CreateJob.html#deadlinecloud-CreateJob-request-maxFailedTasksCount "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_CreateJob.html#deadlinecloud-CreateJob-request-maxFailedTasksCount") parameter.
+	 is passed to the `CreateJob` operation as the [maxFailedTasksCount](../APIReference/API_CreateJob.md#deadlinecloud-CreateJob-request-maxFailedTasksCount "../APIReference/API_CreateJob.md#deadlinecloud-CreateJob-request-maxFailedTasksCount") parameter.
 	+ `deadline:maxRetriesPerTask` – The value must be an integer. It
-	 is passed to the `CreateJob` operation as the [maxRetriesPerTask](https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_CreateJob.html#deadlinecloud-CreateJob-request-maxRetriesPerTask "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_CreateJob.html#deadlinecloud-CreateJob-request-maxRetriesPerTask") parameter.
+	 is passed to the `CreateJob` operation as the [maxRetriesPerTask](../APIReference/API_CreateJob.md#deadlinecloud-CreateJob-request-maxRetriesPerTask "../APIReference/API_CreateJob.md#deadlinecloud-CreateJob-request-maxRetriesPerTask") parameter.
 	+ `deadline:maxWorkercount` – The value must be an integer. It is
-	 passed to the `CreateJob` operation as the [maxWorkerCount](https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_CreateJob.html#deadlinecloud-CreateJob-request-maxRetriesPerTask "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_CreateJob.html#deadlinecloud-CreateJob-request-maxRetriesPerTask") parameter.
+	 passed to the `CreateJob` operation as the [maxWorkerCount](../APIReference/API_CreateJob.md#deadlinecloud-CreateJob-request-maxRetriesPerTask "../APIReference/API_CreateJob.md#deadlinecloud-CreateJob-request-maxRetriesPerTask") parameter.
 A job template is always a template rather than a specific job to run. A parameter values
  file enables a job bundle to either act as a template if some parameters don't have values
  defined in this file, or as a specific job submission if all parameters have values.

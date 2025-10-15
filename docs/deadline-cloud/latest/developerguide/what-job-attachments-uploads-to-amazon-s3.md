@@ -145,9 +145,9 @@ This indicates that the file `script.sh` was uploaded, and the hash of that
 
  The full schema for this file is [available in GitHub](https://github.com/aws-deadline/deadline-cloud/blob/mainline/src/deadline/job_attachments/asset_manifests/v2023_03_03/validate.py "https://github.com/aws-deadline/deadline-cloud/blob/mainline/src/deadline/job_attachments/asset_manifests/v2023_03_03/validate.py"). 
 
-When you use the [CreateJob operation](https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_CreateJob.html "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_CreateJob.html")
+When you use the [CreateJob operation](../APIReference/API_CreateJob.md "../APIReference/API_CreateJob.md")
  you can set the location of the manifest objects. You can use the [GetJob
- operation](https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_GetJob.html "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_GetJob.html") to see the location: 
+ operation](../APIReference/API_GetJob.md "../APIReference/API_GetJob.md") to see the location: 
 
 
 ```

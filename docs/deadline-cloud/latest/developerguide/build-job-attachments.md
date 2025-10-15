@@ -5,10 +5,10 @@ Use *job attachments* to make files not in shared directories available
  Job attachments uses Amazon S3 to shuttle files between hosts. Files are stored in S3 buckets, and
  you don't need to upload a file if its content hasn't changed.
 
-You must use job attachments when running jobs on [service-managed fleets](../userguide/smf-manage.md "../userguide/smf-manage.md") because
+You must use job attachments when running jobs on [service-managed fleets](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/smf-manage.html "https://docs.aws.amazon.com/deadline-cloud/latest/userguide/smf-manage.html") because
  hosts don't share file system locations. Job attachments are also useful with [customer-managed
- fleets](../userguide/manage-cmf.md "../userguide/manage-cmf.md") when a job’s input or output files stored on a shared network file system, such
- as when your [job bundle](../userguide/submit-job-bundle.md "../userguide/submit-job-bundle.md") contains shell
+ fleets](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/manage-cmf.html "https://docs.aws.amazon.com/deadline-cloud/latest/userguide/manage-cmf.html") when a job’s input or output files stored on a shared network file system, such
+ as when your [job bundle](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/submit-job-bundle.html "https://docs.aws.amazon.com/deadline-cloud/latest/userguide/submit-job-bundle.html") contains shell
  or Python scripts. 
 
  When you submit a job bundle with either the [Deadline Cloud CLI](https://pypi.org/project/deadline/ "https://pypi.org/project/deadline/") or a Deadline Cloud submitter, job

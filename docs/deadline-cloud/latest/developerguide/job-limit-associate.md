@@ -3,7 +3,7 @@
 After you create a limit, you can associate one or more queues with the limit. Only
  queues that are associated with a limit use the values specified in the limit.
 
-You create an association with a queue using the Deadline Cloud console or the [CreateQueueLimitAssociation operation in the Deadline Cloud API](https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_CreateQueueLimitAssociation.html "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_CreateQueueLimitAssociation.html").
+You create an association with a queue using the Deadline Cloud console or the [CreateQueueLimitAssociation operation in the Deadline Cloud API](../APIReference/API_CreateQueueLimitAssociation.md "../APIReference/API_CreateQueueLimitAssociation.md").
 
 ###### To associate a queue with a limit
 

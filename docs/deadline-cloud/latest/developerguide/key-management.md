@@ -68,7 +68,7 @@ Key policies control access to your customer managed key. Each key must have exa
 ### Minimal IAM policy for CreateFarm
 
 
-To use your customer managed key to create farms using the console or the `[CreateFarm](https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_CreateFarm.html "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_CreateFarm.html")` API operation, the following AWS KMS API operations must be
+To use your customer managed key to create farms using the console or the `[CreateFarm](../APIReference/API_CreateFarm.md "../APIReference/API_CreateFarm.md")` API operation, the following AWS KMS API operations must be
  permitted:
 
 

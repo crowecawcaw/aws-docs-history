@@ -7,10 +7,10 @@
  using any of the following:
 
 
-* [CreateStorageProfile API](https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_CreateStorageProfile.html "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_CreateStorageProfile.html")
-* [AWS::Deadline::StorageProfile](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-storageprofile.html "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-storageprofile.html") AWS CloudFormation resource
+* [CreateStorageProfile API](../APIReference/API_CreateStorageProfile.md "../APIReference/API_CreateStorageProfile.md")
+* [AWS::Deadline::StorageProfile](../../../AWSCloudFormation/latest/UserGuide/aws-resource-deadline-storageprofile.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-deadline-storageprofile.md") AWS CloudFormation resource
 * [AWS
- console](../userguide/storage-shared.md#storage-profile "../userguide/storage-shared.md#storage-profile")
+ console](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/storage-shared.html#storage-profile "https://docs.aws.amazon.com/deadline-cloud/latest/userguide/storage-shared.html#storage-profile")
  A storage profile is made up of a list of file system locations that each tell Deadline Cloud
  the location and type of a file system location that is relevant for jobs submitted from or
  run on a host. A storage profile should only model the locations that are relevant for jobs.
