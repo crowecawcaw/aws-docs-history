@@ -1,10 +1,9 @@
-"""AWS documentation crawler tailored for Deadline Cloud content.
+"""AWS documentation crawler focused on selected services.
 
-This module implements a multi-threaded crawler that downloads AWS Deadline
-Cloud documentation pages and converts the main content of each page to
-Markdown. The crawler is intentionally focused on a single service while the
-project is bootstrapped, but the core pieces (link checker, crawling logic,
-conversion) are written so that the scope can be expanded in the future.
+This module implements a multi-threaded crawler that downloads AWS
+documentation pages and converts the main content of each page to Markdown.
+While it currently focuses on a curated list of services, the building blocks
+are intentionally generic so the crawl scope can be expanded in the future.
 """
 
 from __future__ import annotations
@@ -14,7 +13,8 @@ import logging
 import os
 import queue
 import threading
-from collections.abc import Callable
+from collections.abc import Callable, Iterable, Sequence
+from dataclasses import dataclass
 from pathlib import Path, PurePosixPath
 import posixpath
 from typing import Optional
@@ -94,15 +94,75 @@ ALLOWED_IMAGE_EXTENSIONS = {".png", ".jpg", ".jpeg", ".gif", ".svg"}
 MAX_IMAGE_BYTES = 10 * 1024 * 1024  # 10 MiB safeguard for very large assets
 
 
-def build_deadline_cloud_link_checker() -> Callable[[str], bool]:
+@dataclass(frozen=True)
+class ServiceScope:
+    """Describe the default crawl scope for a single AWS service."""
+
+    start_urls: tuple[str, ...]
+    allowed_prefixes: tuple[str, ...]
+
+
+DEFAULT_SERVICE_SCOPES: dict[str, ServiceScope] = {
+    "deadline-cloud": ServiceScope(
+        start_urls=(
+            "https://docs.aws.amazon.com/deadline-cloud/latest/developerguide/what-is-deadline-cloud.html",
+            "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/Welcome.html",
+        ),
+        allowed_prefixes=(
+            "/deadline-cloud/latest/developerguide/",
+            "/deadline-cloud/latest/APIReference/",
+        ),
+    ),
+    "amazon-s3": ServiceScope(
+        start_urls=(
+            "https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html",
+            "https://docs.aws.amazon.com/AmazonS3/latest/API/Welcome.html",
+        ),
+        allowed_prefixes=(
+            "/AmazonS3/latest/userguide/",
+            "/AmazonS3/latest/API/",
+        ),
+    ),
+    "aws-cloudformation": ServiceScope(
+        start_urls=(
+            "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html",
+            "https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/Welcome.html",
+        ),
+        allowed_prefixes=(
+            "/AWSCloudFormation/latest/UserGuide/",
+            "/AWSCloudFormation/latest/APIReference/",
+        ),
+    ),
+}
+
+
+def _collect_start_urls(scopes: Iterable[ServiceScope]) -> list[str]:
+    start_urls: list[str] = []
+    for scope in scopes:
+        start_urls.extend(scope.start_urls)
+    return start_urls
+
+
+def _collect_allowed_prefixes(scopes: Iterable[ServiceScope]) -> list[str]:
+    prefixes: list[str] = []
+    for scope in scopes:
+        prefixes.extend(scope.allowed_prefixes)
+    return prefixes
+
+
+DEFAULT_START_URLS = _collect_start_urls(DEFAULT_SERVICE_SCOPES.values())
+DEFAULT_ALLOWED_PREFIXES = _collect_allowed_prefixes(DEFAULT_SERVICE_SCOPES.values())
+
+
+def build_link_checker(
+    allowed_prefixes: Optional[Sequence[str]] = None,
+) -> Callable[[str], bool]:
     """Return a predicate that determines whether a link should be crawled.
 
     The checker enforces that links:
     * Stay on the ``docs.aws.amazon.com`` host.
-    * Are scoped to the ``/deadline-cloud/`` prefix while we bootstrap the
-      crawler.
-    * Avoid obvious API reference documentation which lives under the
-      ``APIReference`` path segment.
+    * Reside under one of the configured path prefixes so that the crawler can
+      focus on specific services.
     * Resolve to HTML documents (i.e., ignore in-page anchors, mailto links,
       etc.).
 
@@ -111,7 +171,15 @@ def build_deadline_cloud_link_checker() -> Callable[[str], bool]:
     """
 
     allowed_host = "docs.aws.amazon.com"
-    required_prefix = "/deadline-cloud/"
+    raw_prefixes = (
+        list(allowed_prefixes) if allowed_prefixes is not None else DEFAULT_ALLOWED_PREFIXES
+    )
+    prefixes: list[str] = []
+    for prefix in raw_prefixes:
+        if not prefix:
+            continue
+        normalised = prefix if prefix.startswith("/") else f"/{prefix.lstrip('/')}"
+        prefixes.append(normalised)
 
     def should_visit(url: str) -> bool:
         parsed = urlparse(url)
@@ -126,11 +194,7 @@ def build_deadline_cloud_link_checker() -> Callable[[str], bool]:
         if parsed.netloc != allowed_host:
             return False
 
-        if not parsed.path.startswith(required_prefix):
-            return False
-
-        # Ignore API reference sections to focus on guides.
-        if "apireference" in parsed.path.lower():
+        if prefixes and not any(parsed.path.startswith(prefix) for prefix in prefixes):
             return False
 
         # Skip assets that clearly are not HTML documents and enforce an HTML suffix.
@@ -254,22 +318,29 @@ def rewrite_doc_links(
         anchor["href"] = relative_href
 
 
-class DeadlineCloudCrawler:
-    """Multi-threaded crawler for AWS Deadline Cloud documentation."""
+class AwsDocsCrawler:
+    """Multi-threaded crawler for curated AWS documentation sections."""
 
     def __init__(
         self,
-        start_url: str,
+        start_urls: Sequence[str],
         output_dir: Path,
         max_workers: int = 8,
         session: Optional[requests.Session] = None,
         link_checker: Optional[Callable[[str], bool]] = None,
+        allowed_prefixes: Optional[Sequence[str]] = None,
     ) -> None:
-        self.start_url = start_url
+        self.start_urls = [normalise_url(url) for url in start_urls]
         self.output_dir = output_dir
         self.max_workers = max_workers
         self.session = session or requests.Session()
-        self.link_checker = link_checker or build_deadline_cloud_link_checker()
+        if link_checker and allowed_prefixes is not None:
+            raise ValueError("Provide either link_checker or allowed_prefixes, not both")
+
+        if link_checker is not None:
+            self.link_checker = link_checker
+        else:
+            self.link_checker = build_link_checker(allowed_prefixes)
 
         self.session.headers.setdefault(
             "User-Agent",
@@ -293,18 +364,19 @@ class DeadlineCloudCrawler:
         return list(self._visited_urls)
 
     def crawl(self) -> None:
-        LOGGER.info("Starting crawl at %s", self.start_url)
+        LOGGER.info("Starting crawl at %s", ", ".join(self.start_urls))
         self.output_dir.mkdir(parents=True, exist_ok=True)
 
         with self._known_urls_lock:
-            self._known_urls.add(self.start_url)
+            self._known_urls.update(self.start_urls)
 
         for _ in range(self.max_workers):
             worker = threading.Thread(target=self._worker, daemon=True)
             worker.start()
             self._workers.append(worker)
 
-        self._url_queue.put(self.start_url)
+        for url in self.start_urls:
+            self._url_queue.put(url)
         self._url_queue.join()
 
         for _ in range(self.max_workers):
@@ -557,11 +629,27 @@ class DeadlineCloudCrawler:
 
 
 def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="Crawl AWS Deadline Cloud documentation.")
+    parser = argparse.ArgumentParser(description="Crawl selected AWS documentation.")
     parser.add_argument(
         "--start-url",
-        default="https://docs.aws.amazon.com/deadline-cloud/latest/developerguide/what-is-deadline-cloud.html",
-        help="Root documentation URL to start crawling from.",
+        dest="start_urls",
+        action="append",
+        metavar="URL",
+        help=(
+            "Root documentation URLs to start crawling from. "
+            "Can be provided multiple times."
+        ),
+    )
+    parser.add_argument(
+        "--allowed-prefix",
+        dest="allowed_prefixes",
+        action="append",
+        metavar="PATH",
+        help=(
+            "Restrict crawling to URLs whose path starts with the provided prefix. "
+            "If omitted, a curated set for Deadline Cloud, Amazon S3, and "
+            "AWS CloudFormation is used."
+        ),
     )
     parser.add_argument(
         "--output-dir",
@@ -587,10 +675,14 @@ def main() -> None:
     args = parse_args()
     logging.basicConfig(level=getattr(logging, args.log_level.upper(), logging.INFO))
 
-    crawler = DeadlineCloudCrawler(
-        start_url=args.start_url,
+    start_urls = args.start_urls or DEFAULT_START_URLS
+    allowed_prefixes = args.allowed_prefixes or DEFAULT_ALLOWED_PREFIXES
+
+    crawler = AwsDocsCrawler(
+        start_urls=start_urls,
         output_dir=args.output_dir,
         max_workers=args.max_workers,
+        allowed_prefixes=allowed_prefixes,
     )
     crawler.crawl()
 

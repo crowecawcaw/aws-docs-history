@@ -21,8 +21,8 @@ content to Markdown, and committing the results back into the repository.
 ## Architecture Components
 - **Crawler**
   - Responsible for downloading the target AWS documentation pages.
-  - Accepts a configuration file (list of URLs, services, or sitemaps) to allow
-    new sources to be added without code changes.
+  - Accepts CLI flags for start URLs and allowed path prefixes so additional
+    services can be added without modifying the code.
   - Outputs raw HTML (or intermediate JSON) to a staging directory for
     conversion.
 - **Markdown Conversion Utility**
@@ -48,4 +48,33 @@ content to Markdown, and committing the results back into the repository.
   - Store crawl artifacts to ease debugging (e.g., upload raw HTML as workflow
     artifacts for failed runs).
   - Add basic retry/backoff logic around network requests.
+
+## Running the crawler locally
+
+Install the Python dependencies listed in `requirements.txt` and then execute
+the crawler. The defaults will start at representative entry points for the
+Deadline Cloud, Amazon S3, and AWS CloudFormation developer guides and API
+references while restricting the crawl to the corresponding documentation
+trees:
+
+```bash
+python crawler.py
+```
+
+You can provide your own seed URLs or limit the crawl scope by supplying one or
+more `--start-url` and `--allowed-prefix` arguments:
+
+```bash
+python crawler.py \
+  --start-url https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/Welcome.html \
+  --allowed-prefix /deadline-cloud/latest/APIReference/
+```
+
+Only Markdown output should be committed back to the repository once the crawl
+has completed and the generated docs have been reviewed.
+
+The default crawl scope is defined in `crawler.py` under
+`DEFAULT_SERVICE_SCOPES`. Each entry lists the seed URLs and allowed path
+prefixes for a given service so new services can be added by updating that
+mapping instead of modifying the crawler logic.
 
