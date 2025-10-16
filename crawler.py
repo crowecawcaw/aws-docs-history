@@ -106,10 +106,12 @@ class ServiceScope:
 DEFAULT_SERVICE_SCOPES: dict[str, ServiceScope] = {
     "deadline-cloud": ServiceScope(
         start_urls=(
+            "https://docs.aws.amazon.com/deadline-cloud/latest/userguide/what-is-deadline-cloud.html",
             "https://docs.aws.amazon.com/deadline-cloud/latest/developerguide/what-is-deadline-cloud.html",
             "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/Welcome.html",
         ),
         allowed_prefixes=(
+            "/deadline-cloud/latest/userguide/",
             "/deadline-cloud/latest/developerguide/",
             "/deadline-cloud/latest/APIReference/",
         ),
@@ -383,6 +385,8 @@ class AwsDocsCrawler:
         self._workers: list[threading.Thread] = []
         self._downloaded_images: set[str] = set()
         self._downloaded_images_lock = threading.Lock()
+        self._toc_entries: dict[str, dict] = {}
+        self._toc_entries_lock = threading.Lock()
 
         self.images_root = self.output_dir / "images"
         self._rate_limiter = RequestRateLimiter(requests_per_second)
@@ -413,6 +417,8 @@ class AwsDocsCrawler:
         for worker in self._workers:
             worker.join()
         self._workers.clear()
+
+        self._write_toc_documents()
 
     def _worker(self) -> None:
         while True:
@@ -543,6 +549,9 @@ class AwsDocsCrawler:
 
             self._url_queue.put(candidate_url)
 
+        with self._toc_entries_lock:
+            self._toc_entries[toc_url] = toc_data
+
     @staticmethod
     def _iter_toc_hrefs(node: object) -> list[str]:
         hrefs: list[str] = []
@@ -657,6 +666,155 @@ class AwsDocsCrawler:
             response.close()
 
         return True
+
+    def _write_toc_documents(self) -> None:
+        with self._toc_entries_lock:
+            toc_items = list(self._toc_entries.items())
+
+        if not toc_items:
+            return
+
+        service_guides: dict[tuple[str, str], list[tuple[str, str]]] = {}
+
+        for toc_url, toc_data in toc_items:
+            metadata = self._parse_toc_metadata(toc_url)
+            if metadata is None:
+                continue
+
+            service_slug, service_display, guide_display, readme_path = metadata
+
+            contents = toc_data.get("contents") if isinstance(toc_data, dict) else None
+            if not isinstance(contents, list):
+                continue
+
+            readme_lines = [f"# {service_display} {guide_display} Table of Contents", ""]
+            readme_lines.extend(
+                self._render_toc_markdown(
+                    toc_url,
+                    readme_path,
+                    contents,
+                )
+            )
+
+            readme_text = "\n".join(readme_lines).rstrip() + "\n"
+            readme_path.parent.mkdir(parents=True, exist_ok=True)
+            readme_path.write_text(readme_text, encoding="utf-8")
+            LOGGER.info("Wrote TOC %s", readme_path)
+
+            relative_path = readme_path.relative_to(self.output_dir).as_posix()
+            service_guides.setdefault((service_slug, service_display), []).append(
+                (guide_display, relative_path)
+            )
+
+        if service_guides:
+            self._write_docs_index(service_guides)
+
+    def _render_toc_markdown(
+        self,
+        toc_url: str,
+        readme_path: Path,
+        contents: list[dict],
+        depth: int = 0,
+    ) -> list[str]:
+        lines: list[str] = []
+
+        def _walk(nodes: list[dict], level: int) -> None:
+            for node in nodes:
+                if not isinstance(node, dict):
+                    continue
+
+                title = str(node.get("title", "")).strip()
+                href = node.get("href")
+                indent = "  " * level
+
+                link: Optional[str] = None
+                if isinstance(href, str) and href:
+                    target_url = normalise_url(urljoin(toc_url, href))
+                    target_path = url_to_output_path(target_url, self.output_dir)
+                    relative = os.path.relpath(target_path, start=readme_path.parent)
+                    link = Path(relative).as_posix()
+
+                if title and link:
+                    lines.append(f"{indent}- [{title}]({link})")
+                elif title:
+                    lines.append(f"{indent}- {title}")
+
+                children = node.get("contents")
+                if isinstance(children, list) and children:
+                    _walk(children, level + 1)
+
+        _walk(contents, depth)
+        return lines
+
+    def _parse_toc_metadata(
+        self, toc_url: str
+    ) -> Optional[tuple[str, str, str, Path]]:
+        parsed = urlparse(toc_url)
+        parts = PurePosixPath(parsed.path.lstrip("/")).parts
+
+        if len(parts) < 4 or parts[-1] != "toc-contents.json":
+            return None
+
+        service_segment, version_segment, guide_segment = parts[0], parts[1], parts[2]
+
+        if version_segment.lower() != "latest":
+            return None
+
+        service_slug, service_display = self._service_display(service_segment)
+        guide_display = self._guide_display(guide_segment)
+        readme_path = self.output_dir.joinpath(*parts[:-1], "README.md")
+
+        return service_slug, service_display, guide_display, readme_path
+
+    @staticmethod
+    def _service_display(service_segment: str) -> tuple[str, str]:
+        mapping = {
+            "deadline-cloud": ("deadline-cloud", "Deadline Cloud"),
+            "AmazonS3": ("amazon-s3", "Amazon S3"),
+            "AWSCloudFormation": ("aws-cloudformation", "AWS CloudFormation"),
+        }
+
+        if service_segment in mapping:
+            return mapping[service_segment]
+
+        slug = service_segment.lower().replace("_", "-")
+        display = slug.replace("-", " ").title()
+        return slug, display
+
+    @staticmethod
+    def _guide_display(guide_segment: str) -> str:
+        mapping = {
+            "userguide": "User Guide",
+            "developerguide": "Developer Guide",
+            "apireference": "API Reference",
+            "api": "API Reference",
+        }
+
+        key = guide_segment.lower()
+        return mapping.get(key, guide_segment.replace("-", " ").title())
+
+    def _write_docs_index(
+        self,
+        service_guides: dict[tuple[str, str], list[tuple[str, str]]],
+    ) -> None:
+        index_path = self.output_dir / "README.md"
+
+        guide_order = {"User Guide": 0, "Developer Guide": 1, "Administrator Guide": 2, "API Reference": 3}
+
+        lines = ["# AWS Documentation Archive", "", "Browse the available service documentation using the links below.", ""]
+
+        for (_, service_display), guides in sorted(service_guides.items(), key=lambda item: item[0][1]):
+            lines.append(f"- **{service_display}**")
+            for guide_display, relative_path in sorted(
+                guides,
+                key=lambda item: (guide_order.get(item[0], 99), item[0]),
+            ):
+                lines.append(f"  - [{guide_display}]({relative_path})")
+
+        lines.append("")
+        index_text = "\n".join(lines).rstrip() + "\n"
+        index_path.write_text(index_text, encoding="utf-8")
+        LOGGER.info("Wrote documentation index %s", index_path)
 
 
 def parse_args() -> argparse.Namespace:
