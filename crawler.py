@@ -262,6 +262,17 @@ def convert_html_to_markdown(html: str) -> str:
     return (content.strip() + "\n") if content else ""
 
 
+def _default_link_checker(base_url: str) -> Callable[[str], bool]:
+    """Provide a conservative default link checker for standalone conversion."""
+
+    base_host = urlparse(base_url).netloc
+
+    def checker(candidate: str) -> bool:
+        return urlparse(candidate).netloc == base_host
+
+    return checker
+
+
 def normalise_url(url: str) -> str:
     """Normalise a URL by removing fragments and redundant path segments."""
 
@@ -277,6 +288,12 @@ def normalise_url(url: str) -> str:
 def url_to_output_path(url: str, output_root: Path) -> Path:
     """Translate a documentation URL into a Markdown output path."""
 
+    return output_root / url_to_relative_output_path(url)
+
+
+def url_to_relative_output_path(url: str) -> Path:
+    """Translate a documentation URL into a relative Markdown output path."""
+
     parsed = urlparse(url)
     path = parsed.path.lstrip("/")
 
@@ -287,8 +304,50 @@ def url_to_output_path(url: str, output_root: Path) -> Path:
     if path.endswith(".html"):
         path = path[:-5]
 
-    output_path = output_root.joinpath(*path.split("/"))
-    return output_path.with_suffix(".md")
+    parts = [part for part in path.split("/") if part]
+    if not parts:
+        parts = ["index"]
+
+    return Path(*parts).with_suffix(".md")
+
+
+def convert_tag_to_markdown(
+    url: str,
+    main: Tag,
+    *,
+    output_root: Path,
+    link_checker: Callable[[str], bool],
+) -> tuple[Path, str]:
+    """Convert an extracted HTML fragment into Markdown."""
+
+    rewrite_doc_links(main, url, output_root, link_checker)
+    markdown = convert_html_to_markdown(str(main))
+    output_path = url_to_output_path(url, output_root)
+    return output_path, markdown
+
+
+def convert_page(
+    url: str,
+    html: str,
+    *,
+    output_root: Path | None = None,
+    link_checker: Callable[[str], bool] | None = None,
+) -> tuple[Path, str]:
+    """Convert a documentation page to Markdown without writing to disk."""
+
+    if output_root is None:
+        output_root = Path(".")
+    if link_checker is None:
+        link_checker = _default_link_checker(url)
+
+    soup = BeautifulSoup(html, "html.parser")
+    main = extract_main_content(soup)
+    return convert_tag_to_markdown(
+        url,
+        main,
+        output_root=output_root,
+        link_checker=link_checker,
+    )
 
 
 def rewrite_doc_links(
@@ -448,8 +507,12 @@ class AwsDocsCrawler:
         main = extract_main_content(soup)
         output_path = url_to_output_path(url, self.output_dir)
         self._download_and_rewrite_images(main, url, output_path)
-        rewrite_doc_links(main, url, self.output_dir, self.link_checker)
-        markdown = convert_html_to_markdown(str(main))
+        output_path, markdown = convert_tag_to_markdown(
+            url,
+            main,
+            output_root=self.output_dir,
+            link_checker=self.link_checker,
+        )
 
         output_path.parent.mkdir(parents=True, exist_ok=True)
         output_path.write_text(markdown, encoding="utf-8")
