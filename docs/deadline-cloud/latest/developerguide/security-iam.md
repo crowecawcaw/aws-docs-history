@@ -245,7 +245,7 @@ Access control lists (ACLs) control which principals (account members, users, or
 
 Amazon S3, AWS WAF, and Amazon VPC
  are examples of services that support ACLs. To learn more about ACLs, see [Access control list (ACL)
- overview](../../../AmazonS3/latest/userguide/acl-overview.md "../../../AmazonS3/latest/userguide/acl-overview.md") in the *Amazon Simple Storage Service Developer Guide*.
+ overview](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html "https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html") in the *Amazon Simple Storage Service Developer Guide*.
 
 
 ### Other policy types

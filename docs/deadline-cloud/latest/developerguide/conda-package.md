@@ -1,7 +1,7 @@
 # Create a conda package for an application
 
 You can combine an entire application, including dependencies, into a conda package. The
- packages Deadline Cloud provides in the [deadline-cloud channel](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/create-queue-environment.html#conda-queue-environment "https://docs.aws.amazon.com/deadline-cloud/latest/userguide/create-queue-environment.html#conda-queue-environment") for service-managed fleets use this binary repackaging
+ packages Deadline Cloud provides in the [deadline-cloud channel](../userguide/create-queue-environment.md#conda-queue-environment "../userguide/create-queue-environment.md#conda-queue-environment") for service-managed fleets use this binary repackaging
  approach. This organizes the same files as an installation to fit the conda virtual
  environment.
 

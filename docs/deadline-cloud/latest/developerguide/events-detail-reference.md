@@ -146,7 +146,7 @@ When you configure your fleet to use event-based auto scaling, Deadline Cloud se
  events that you can use to manage your fleets. Each of these events contains
  information about the current size and requested size of a fleet. For an example of
  using an EventBridge event and an example Lambda function to handle the event, see [Auto scale your Amazon EC2 fleet with Deadline Cloud scale recommendation
- feature](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/create-auto-scaling.html#autoscale-ec2-fleet "https://docs.aws.amazon.com/deadline-cloud/latest/userguide/create-auto-scaling.html#autoscale-ec2-fleet").
+ feature](../userguide/create-auto-scaling.md#autoscale-ec2-fleet "../userguide/create-auto-scaling.md#autoscale-ec2-fleet").
 
 
 The fleet size recommendation change event is sent when the following
@@ -354,7 +354,7 @@ The lifecycle state that the job is entering.
 
 A job is composed of many tasks. Each task has a status. The status of all tasks
  are combined to give an overall status for a job. For more information, see [Job
- states in Deadline Cloud](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/jobs-states.html "https://docs.aws.amazon.com/deadline-cloud/latest/userguide/jobs-states.html") in the *AWS Deadline Cloud User Guide*.
+ states in Deadline Cloud](../userguide/jobs-states.md "../userguide/jobs-states.md") in the *AWS Deadline Cloud User Guide*.
 
 
 A job run status change event is sent when:

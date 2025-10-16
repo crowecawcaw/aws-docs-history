@@ -88,7 +88,7 @@ These instructions use git from a bash-compatible shell to get an OpenJD package
  install git.
 * You must have the [Deadline Cloud
  CLI](https://github.com/aws-deadline/deadline-cloud "https://github.com/aws-deadline/deadline-cloud") installed.
-* You must be logged into the [Deadline Cloud monitor](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/working-with-deadline-monitor.html "https://docs.aws.amazon.com/deadline-cloud/latest/userguide/working-with-deadline-monitor.html").
+* You must be logged into the [Deadline Cloud monitor](../userguide/working-with-deadline-monitor.md "../userguide/working-with-deadline-monitor.md").
 
 1. Open the Deadline Cloud configuration GUI using the following command and set the default
  farm and queue to your package building queue.

@@ -61,6 +61,12 @@ The Deadline Cloud monitor uses the
  getting lists of jobs, steps, and tasks.
 
 
+The AWS SDKs and CLI automatically add the `management` and 
+ `scheduling` prefixes to the endpoint. If you want to disable this behavior, see the
+ [host prefix injection](https://docs.aws.amazon.com/sdkref/latest/guide/feature-host-prefix.html "https://docs.aws.amazon.com/sdkref/latest/guide/feature-host-prefix.html")
+ section in the *AWS SDKs and Tools Reference Guide*.
+
+
 Deadline Cloud also requires endpoints for the following AWS service endpoints:
 
 
@@ -72,10 +78,10 @@ Deadline Cloud also requires endpoints for the following AWS service endpoints:
 * If you set up your customer-managed fleet in a subnet with no internet
  connection you must create a VPC endpoint for Amazon CloudWatch Logs so that workers can
  write logs. For more information, see [Monitoring
- with CloudWatch](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/monitoring-cloudwatch.html "https://docs.aws.amazon.com/deadline-cloud/latest/userguide/monitoring-cloudwatch.html").
+ with CloudWatch](../userguide/monitoring-cloudwatch.md "../userguide/monitoring-cloudwatch.md").
 * If you use job attachments, you must create a VPC endpoint for Amazon Simple Storage Service (Amazon S3)
  so that workers can access the attachments. For more information, see [Job
- attachments in Deadline Cloud](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/storage-job-attachments.html "https://docs.aws.amazon.com/deadline-cloud/latest/userguide/storage-job-attachments.html").
+ attachments in Deadline Cloud](../userguide/storage-job-attachments.md "../userguide/storage-job-attachments.md").
 
 ## Create endpoints for Deadline Cloud
 

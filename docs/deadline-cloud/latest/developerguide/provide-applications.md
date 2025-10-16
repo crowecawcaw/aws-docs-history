@@ -95,7 +95,7 @@ The following example shows a job template that gets Blender from the
 
 
 For a list of the software provided by the `deadline-cloud` channel, see
- [Default queue environment](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/create-queue-environment.html#conda-queue-environment "https://docs.aws.amazon.com/deadline-cloud/latest/userguide/create-queue-environment.html#conda-queue-environment") in the *AWS Deadline Cloud User
+ [Default queue environment](../userguide/create-queue-environment.md#conda-queue-environment "../userguide/create-queue-environment.md#conda-queue-environment") in the *AWS Deadline Cloud User
  Guide*.
 
 

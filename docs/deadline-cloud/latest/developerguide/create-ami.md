@@ -47,7 +47,7 @@ Finally, we recommend you enable the worker agent auto shutdown. This allows the
 5. If you are preparing an AMI based on Amazon Linux 2023 to run software compatible
  with the VFX Reference Platform, you need to update several requirements. For
  information, see [VFX Reference Platform
- compatibility](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/smf-vfx.html "https://docs.aws.amazon.com/deadline-cloud/latest/userguide/smf-vfx.html") in the *AWS Deadline Cloud User
+ compatibility](../userguide/smf-vfx.md "../userguide/smf-vfx.md") in the *AWS Deadline Cloud User
  Guide*.
 6. Open a terminal.
 

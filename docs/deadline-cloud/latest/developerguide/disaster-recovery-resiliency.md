@@ -14,4 +14,4 @@ For more information about AWS Regions and Availability Zones, see [AWS Global
 AWS Deadline Cloud does not back up data stored in your job attachments S3 bucket. You can
  enable backups of your job attachments data using any standard Amazon S3 backup mechanism, such
  as [S3
- Versioning](../../../AmazonS3/latest/userguide/Versioning.md "../../../AmazonS3/latest/userguide/Versioning.md") or [AWS Backup](https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html "https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html").
+ Versioning](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Versioning.html "https://docs.aws.amazon.com/AmazonS3/latest/userguide/Versioning.html") or [AWS Backup](https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html "https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html").

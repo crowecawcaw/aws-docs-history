@@ -7,7 +7,7 @@ A service-managed fleet (SMF) is a collection of workers managed by Deadline Clo
 When an SMF is associated with a queue using the default Conda queue environment, Deadline Cloud
  configures the workers in the fleet with the appropriate software package. For supported partner
  applications, see [Default Conda queue
- environment](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/create-queue-environment.html "https://docs.aws.amazon.com/deadline-cloud/latest/userguide/create-queue-environment.html") in the *AWS Deadline Cloud User Guide*.
+ environment](../userguide/create-queue-environment.md "../userguide/create-queue-environment.md") in the *AWS Deadline Cloud User Guide*.
 
 In most cases, you don't need to change an SMF to process your workloads. However, some
  situations may require you make changes to your fleets. These include:
