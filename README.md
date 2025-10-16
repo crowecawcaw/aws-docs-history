@@ -78,3 +78,16 @@ The default crawl scope is defined in `crawler.py` under
 prefixes for a given service so new services can be added by updating that
 mapping instead of modifying the crawler logic.
 
+## Running the test suite
+
+Install the project dependencies and then execute `pytest` from the repository
+root to run the automated tests:
+
+```bash
+python -m pip install -r requirements.txt
+pytest
+```
+
+All pull requests run the test suite automatically through a GitHub Actions
+workflow to prevent regressions.
+
