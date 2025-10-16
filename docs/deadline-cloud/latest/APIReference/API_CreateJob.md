@@ -2,7 +2,7 @@
 
 Creates a job. A job is a set of instructions that Deadline Cloud uses to schedule
  and run work on available workers. For more information, see [Deadline Cloud
- jobs](https://docs.aws.amazon.com/deadline-cloud/latest/userguide/deadline-cloud-jobs.html "https://docs.aws.amazon.com/deadline-cloud/latest/userguide/deadline-cloud-jobs.html").
+ jobs](../userguide/deadline-cloud-jobs.md "../userguide/deadline-cloud-jobs.md").
 
 
 ## Request Syntax
