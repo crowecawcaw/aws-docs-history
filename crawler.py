@@ -13,6 +13,7 @@ import logging
 import os
 import queue
 import threading
+import time
 from collections.abc import Callable, Iterable, Sequence
 from dataclasses import dataclass
 from pathlib import Path, PurePosixPath
@@ -152,6 +153,31 @@ def _collect_allowed_prefixes(scopes: Iterable[ServiceScope]) -> list[str]:
 
 DEFAULT_START_URLS = _collect_start_urls(DEFAULT_SERVICE_SCOPES.values())
 DEFAULT_ALLOWED_PREFIXES = _collect_allowed_prefixes(DEFAULT_SERVICE_SCOPES.values())
+
+
+class RequestRateLimiter:
+    """Coordinate request throttling across multiple worker threads."""
+
+    def __init__(self, requests_per_second: Optional[float]) -> None:
+        if requests_per_second is None or requests_per_second <= 0:
+            self._min_interval = None
+        else:
+            self._min_interval = 1.0 / requests_per_second
+        self._lock = threading.Lock()
+        self._next_allowed = time.monotonic()
+
+    def acquire(self) -> None:
+        if self._min_interval is None:
+            return
+
+        while True:
+            with self._lock:
+                now = time.monotonic()
+                if now >= self._next_allowed:
+                    self._next_allowed = now + self._min_interval
+                    return
+                delay = self._next_allowed - now
+            time.sleep(delay)
 
 
 def build_link_checker(
@@ -329,6 +355,7 @@ class AwsDocsCrawler:
         session: Optional[requests.Session] = None,
         link_checker: Optional[Callable[[str], bool]] = None,
         allowed_prefixes: Optional[Sequence[str]] = None,
+        requests_per_second: Optional[float] = 10.0,
     ) -> None:
         self.start_urls = [normalise_url(url) for url in start_urls]
         self.output_dir = output_dir
@@ -358,6 +385,7 @@ class AwsDocsCrawler:
         self._downloaded_images_lock = threading.Lock()
 
         self.images_root = self.output_dir / "images"
+        self._rate_limiter = RequestRateLimiter(requests_per_second)
 
     @property
     def visited_urls(self) -> list[str]:
@@ -412,6 +440,7 @@ class AwsDocsCrawler:
             return
 
         try:
+            self._rate_limiter.acquire()
             response = self.session.get(url, timeout=30)
             response.raise_for_status()
         except requests.RequestException as exc:
@@ -488,6 +517,7 @@ class AwsDocsCrawler:
         LOGGER.debug("Fetching TOC %s", toc_url)
 
         try:
+            self._rate_limiter.acquire()
             response = self.session.get(toc_url, timeout=30)
             response.raise_for_status()
         except requests.RequestException as exc:
@@ -580,6 +610,7 @@ class AwsDocsCrawler:
             self._downloaded_images.add(image_url)
 
         try:
+            self._rate_limiter.acquire()
             response = self.session.get(image_url, stream=True, timeout=30)
             response.raise_for_status()
         except requests.RequestException as exc:
@@ -664,6 +695,15 @@ def parse_args() -> argparse.Namespace:
         help="Number of worker threads to use for crawling.",
     )
     parser.add_argument(
+        "--requests-per-second",
+        type=float,
+        default=10.0,
+        help=(
+            "Maximum number of HTTP requests to perform per second. "
+            "Set to 0 or a negative value to disable throttling."
+        ),
+    )
+    parser.add_argument(
         "--log-level",
         default="INFO",
         help="Python logging level (e.g. INFO, DEBUG).",
@@ -683,6 +723,7 @@ def main() -> None:
         output_dir=args.output_dir,
         max_workers=args.max_workers,
         allowed_prefixes=allowed_prefixes,
+        requests_per_second=args.requests_per_second,
     )
     crawler.crawl()
 
