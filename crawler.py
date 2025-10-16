@@ -116,26 +116,6 @@ DEFAULT_SERVICE_SCOPES: dict[str, ServiceScope] = {
             "/deadline-cloud/latest/APIReference/",
         ),
     ),
-    "amazon-s3": ServiceScope(
-        start_urls=(
-            "https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html",
-            "https://docs.aws.amazon.com/AmazonS3/latest/API/Welcome.html",
-        ),
-        allowed_prefixes=(
-            "/AmazonS3/latest/userguide/",
-            "/AmazonS3/latest/API/",
-        ),
-    ),
-    "aws-cloudformation": ServiceScope(
-        start_urls=(
-            "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html",
-            "https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/Welcome.html",
-        ),
-        allowed_prefixes=(
-            "/AWSCloudFormation/latest/UserGuide/",
-            "/AWSCloudFormation/latest/APIReference/",
-        ),
-    ),
 }
 
 
