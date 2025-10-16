@@ -61,6 +61,12 @@ The Deadline Cloud monitor uses the
  getting lists of jobs, steps, and tasks.
 
 
+The AWS SDKs and CLI automatically add the `management` and 
+ `scheduling` prefixes to the endpoint. If you want to disable this behavior, see the
+ [host prefix injection](https://docs.aws.amazon.com/sdkref/latest/guide/feature-host-prefix.html "https://docs.aws.amazon.com/sdkref/latest/guide/feature-host-prefix.html")
+ section in the *AWS SDKs and Tools Reference Guide*.
+
+
 Deadline Cloud also requires endpoints for the following AWS service endpoints:
 
 

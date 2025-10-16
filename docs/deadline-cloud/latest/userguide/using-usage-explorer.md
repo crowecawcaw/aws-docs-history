@@ -95,7 +95,7 @@ The chart *only* displays the top five
 
 
 
-![A pie chart showing a breakdown of the time spent running jobs is three different queues in a farm.](/images/deadline-cloud/latest/userguide/images/cost-explorer-graph.png)
+![A pie chart showing a breakdown of the time spent running jobs is three different queues in a farm.](../../../images/deadline-cloud/latest/userguide/images/cost-explorer-graph.png)
 
 ### View a breakdown of metrics
 
@@ -121,4 +121,4 @@ You can also view the approximate runtime of your queues based on different
 
 
 
-![A bar chart showing the approximate runtime of a queue using a daily interval.](/images/deadline-cloud/latest/userguide/images/usage-explorer-approximate-runtime.png)
+![A bar chart showing the approximate runtime of a queue using a daily interval.](../../../images/deadline-cloud/latest/userguide/images/usage-explorer-approximate-runtime.png)

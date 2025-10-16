@@ -26,7 +26,7 @@ Each task in a job or step has a status. The status of a job or step depends on 
  statuses are determined the same as the job status.
 
 
-![The Deadline Cloud monitor showing job statuses, including succeeded, canceled, and failed.](/images/deadline-cloud/latest/userguide/images/monitor-job-status.png)
+![The Deadline Cloud monitor showing job statuses, including succeeded, canceled, and failed.](../../../images/deadline-cloud/latest/userguide/images/monitor-job-status.png)
 The following list describes the statuses:
 
 
