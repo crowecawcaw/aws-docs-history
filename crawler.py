@@ -553,33 +553,94 @@ class AwsDocsCrawler:
         return hrefs
 
     def _download_and_rewrite_images(self, container: Tag, page_url: str, page_output: Path) -> None:
-        for image in container.find_all("img", src=True):
-            raw_src = image.get("src", "").strip()
+        for image in container.find_all("img"):
+            source_attr, raw_src = self._select_image_source(image)
             if not raw_src:
                 continue
 
-            absolute_url = normalise_url(urljoin(page_url, raw_src))
-            parsed = urlparse(absolute_url)
-
-            if parsed.scheme not in {"http", "https"}:
+            rewritten = self._rewrite_single_image(raw_src, page_url, page_output)
+            if not rewritten:
                 continue
 
-            if parsed.netloc != IMAGE_HOST:
+            # Always ensure the ``src`` attribute is updated even if a data attribute
+            # provided the original path so that the Markdown conversion references
+            # the downloaded asset.
+            image["src"] = rewritten
+            if source_attr and source_attr != "src":
+                image[source_attr] = rewritten
+
+            self._rewrite_srcsets(image, page_url, page_output)
+
+    def _select_image_source(self, image: Tag) -> tuple[Optional[str], str]:
+        """Determine the most useful source attribute for an ``img`` tag."""
+
+        for attr in ("src", "data-src", "data-awsdocs-src"):
+            value = image.get(attr)
+            if isinstance(value, str):
+                stripped = value.strip()
+                if stripped:
+                    return attr, stripped
+        return None, ""
+
+    def _rewrite_single_image(self, raw_src: str, page_url: str, page_output: Path) -> Optional[str]:
+        """Download an image and return the rewritten relative path."""
+
+        absolute_url = normalise_url(urljoin(page_url, raw_src))
+        parsed = urlparse(absolute_url)
+
+        if parsed.scheme not in {"http", "https"}:
+            return None
+
+        if parsed.netloc != IMAGE_HOST:
+            return None
+
+        if not parsed.path.startswith(IMAGE_PATH_PREFIX):
+            return None
+
+        extension = Path(parsed.path).suffix.lower()
+        if extension not in ALLOWED_IMAGE_EXTENSIONS:
+            return None
+
+        local_path = self._image_output_path(parsed.path)
+        if not self._download_image(absolute_url, local_path):
+            return None
+
+        relative_path = os.path.relpath(local_path, start=page_output.parent)
+        return Path(relative_path).as_posix()
+
+    def _rewrite_srcsets(self, image: Tag, page_url: str, page_output: Path) -> None:
+        """Rewrite image ``srcset`` style attributes to point at local assets."""
+
+        for attr in ("srcset", "data-srcset", "data-awsdocs-srcset"):
+            value = image.get(attr)
+            if not value or not isinstance(value, str):
                 continue
 
-            if not parsed.path.startswith(IMAGE_PATH_PREFIX):
-                continue
+            rewritten_parts: list[str] = []
+            modified = False
 
-            extension = Path(parsed.path).suffix.lower()
-            if extension not in ALLOWED_IMAGE_EXTENSIONS:
-                continue
+            for part in value.split(","):
+                piece = part.strip()
+                if not piece:
+                    continue
 
-            local_path = self._image_output_path(parsed.path)
-            if not self._download_image(absolute_url, local_path):
-                continue
+                if " " in piece:
+                    url_token, descriptor = piece.split(" ", 1)
+                else:
+                    url_token, descriptor = piece, ""
 
-            relative_path = os.path.relpath(local_path, start=page_output.parent)
-            image["src"] = Path(relative_path).as_posix()
+                new_url = self._rewrite_single_image(url_token, page_url, page_output)
+                if new_url:
+                    url_token = new_url
+                    modified = True
+
+                if descriptor:
+                    rewritten_parts.append(f"{url_token} {descriptor}")
+                else:
+                    rewritten_parts.append(url_token)
+
+            if modified:
+                image[attr] = ", ".join(rewritten_parts)
 
     def _image_output_path(self, image_path: str) -> Path:
         relative_path = image_path[len(IMAGE_PATH_PREFIX) :]
