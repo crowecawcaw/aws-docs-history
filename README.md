@@ -78,3 +78,9 @@ The default crawl scope is defined in `crawler.py` under
 prefixes for a given service so new services can be added by updating that
 mapping instead of modifying the crawler logic.
 
+## Tests
+
+Run `pytest`.
+
+To add another conversion case, drop an HTML/Markdown pair in `tests/data` and reference it from `tests/test_conversion.py`. Use real AWS doc pages so fixtures stay representative.
+
