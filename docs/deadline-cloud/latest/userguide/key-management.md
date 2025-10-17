@@ -38,7 +38,7 @@ To create a customer managed key, follow the steps for [Creating symmetric
 
 
 Deadline Cloud requires a [grant](https://docs.aws.amazon.com/kms/latest/developerguide/grants.html "https://docs.aws.amazon.com/kms/latest/developerguide/grants.html") to use your customer managed key. When you create a farm encrypted with a
- customer managed key, Deadline Cloud creates a grant on your behalf by sending a `[CreateGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateGrant.html "https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateGrant.html")` request to AWS KMS to get access to the KMS key that you
+ customer managed key, Deadline Cloud creates a grant on your behalf by sending a `CreateGrant` request to AWS KMS to get access to the KMS key that you
  specified.
 
 
@@ -68,21 +68,21 @@ Key policies control access to your customer managed key. Each key must have exa
 ### Minimal IAM policy for CreateFarm
 
 
-To use your customer managed key to create farms using the console or the `[CreateFarm](../APIReference/API_CreateFarm.md "../APIReference/API_CreateFarm.md")` API operation, the following AWS KMS API operations must be
+To use your customer managed key to create farms using the console or the `CreateFarm` API operation, the following AWS KMS API operations must be
  permitted:
 
 
 
-* `[kms:CreateGrant](https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateGrant.html "https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateGrant.html")`
+* `kms:CreateGrant`
  – Adds a grant to a customer managed key. Grants console access to a specified
  AWS KMS key. For more informations, see [Using grants](https://docs.aws.amazon.com/kms/latest/developerguide/grants.html "https://docs.aws.amazon.com/kms/latest/developerguide/grants.html") in the
  *AWS Key Management Service developer guide*.
-* `[kms:Decrypt](https://docs.aws.amazon.com/kms/latest/APIReference/API_Decrypt.html "https://docs.aws.amazon.com/kms/latest/APIReference/API_Decrypt.html")` – Allows Deadline Cloud to decrypt data in the
+* `kms:Decrypt` – Allows Deadline Cloud to decrypt data in the
  farm.
-* `[kms:DescribeKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html "https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html")`
+* `kms:DescribeKey`
  – Provides the customer managed key details to allow Deadline Cloud to validate the
  key.
-* `[kms:GenerateDataKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateDataKey.html "https://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateDataKey.html")` – Allows Deadline Cloud to encrypt data using a
+* `kms:GenerateDataKey` – Allows Deadline Cloud to encrypt data using a
  unique data key.
 
 The following policy statement grants the necessary permissions for the
@@ -134,9 +134,9 @@ To use your customer managed key for read-only Deadline Cloud operations, such g
 
 
 
-* `[kms:Decrypt](https://docs.aws.amazon.com/kms/latest/APIReference/API_Decrypt.html "https://docs.aws.amazon.com/kms/latest/APIReference/API_Decrypt.html")` – Allows Deadline Cloud to decrypt data in the
+* `kms:Decrypt` – Allows Deadline Cloud to decrypt data in the
  farm.
-* `[kms:DescribeKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html "https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html")`
+* `kms:DescribeKey`
  – Provides the customer managed key details to allow Deadline Cloud to validate the
  key.
 
@@ -187,12 +187,12 @@ To use your customer managed key for read-write Deadline Cloud operations, such 
 
 
 
-* `[kms:Decrypt](https://docs.aws.amazon.com/kms/latest/APIReference/API_Decrypt.html "https://docs.aws.amazon.com/kms/latest/APIReference/API_Decrypt.html")` – Allows Deadline Cloud to decrypt data in the
+* `kms:Decrypt` – Allows Deadline Cloud to decrypt data in the
  farm.
-* `[kms:DescribeKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html "https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html")`
+* `kms:DescribeKey`
  – Provides the customer managed key details to allow Deadline Cloud to validate the
  key.
-* `[kms:GenerateDataKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateDataKey.html "https://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateDataKey.html")` – Allows Deadline Cloud to encrypt data using a
+* `kms:GenerateDataKey` – Allows Deadline Cloud to encrypt data using a
  unique data key.
 
 The following policy statement grants the necessary permissions for the
