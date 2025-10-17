@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+    <html xmlns="http://www.w3.org/1999/xhtml" lang="en-US"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>Manage compute resources by using nodes - Amazon EKS</title><meta name="viewport" content="width=device-width,initial-scale=1" /><meta name="assets_root" content="/assets" /><meta name="target_state" content="eks-compute" /><meta name="default_state" content="eks-compute" /><link rel="icon" type="image/ico" href="/assets/images/favicon.ico" /><link rel="shortcut icon" type="image/ico" href="/assets/images/favicon.ico" /><link rel="canonical" href="https://docs.aws.amazon.com/eks/latest/userguide/eks-compute.html" /><meta name="description" content="Your Amazon EKS cluster can schedule Pods on any combination of self-managed nodes, Amazon EKS managed node groups, Fargate, and Amazon EKS Hybrid Nodes in the AWS Cloud and hybrid nodes on-premises." /><meta name="deployment_region" content="IAD" /><meta name="product" content="Amazon EKS" /><meta name="guide" content="User Guide" /><meta name="abstract" content="This is official Amazon Web Services (AWS) documentation for Amazon Elastic Kubernetes Service (Amazon EKS). Amazon EKS is a managed service that makes it easy for you to run Kubernetes on AWS without needing to install and operate your own Kubernetes clusters. Kubernetes is an open source system for automating the deployment, scaling, and management of containerized applications." /><meta name="guide-locale" content="en_us" /><meta name="tocs" content="toc-contents.json" /><link rel="canonical" href="https://docs.aws.amazon.com/eks/latest/userguide/eks-compute.html" /><link rel="alternative" href="https://docs.aws.amazon.com/id_id/eks/latest/userguide/eks-compute.html" hreflang="id-id" /><link rel="alternative" href="https://docs.aws.amazon.com/id_id/eks/latest/userguide/eks-compute.html" hreflang="id" /><link rel="alternative" href="https://docs.aws.amazon.com/de_de/eks/latest/userguide/eks-compute.html" hreflang="de-de" /><link rel="alternative" href="https://docs.aws.amazon.com/de_de/eks/latest/userguide/eks-compute.html" hreflang="de" /><link rel="alternative" href="https://docs.aws.amazon.com/eks/latest/userguide/eks-compute.html" hreflang="en-us" /><link rel="alternative" href="https://docs.aws.amazon.com/eks/latest/userguide/eks-compute.html" hreflang="en" /><link rel="alternative" href="https://docs.aws.amazon.com/es_es/eks/latest/userguide/eks-compute.html" hreflang="es-es" /><link rel="alternative" href="https://docs.aws.amazon.com/es_es/eks/latest/userguide/eks-compute.html" hreflang="es" /><link rel="alternative" href="https://docs.aws.amazon.com/fr_fr/eks/latest/userguide/eks-compute.html" hreflang="fr-fr" /><link rel="alternative" href="https://docs.aws.amazon.com/fr_fr/eks/latest/userguide/eks-compute.html" hreflang="fr" /><link rel="alternative" href="https://docs.aws.amazon.com/it_it/eks/latest/userguide/eks-compute.html" hreflang="it-it" /><link rel="alternative" href="https://docs.aws.amazon.com/it_it/eks/latest/userguide/eks-compute.html" hreflang="it" /><link rel="alternative" href="https://docs.aws.amazon.com/ja_jp/eks/latest/userguide/eks-compute.html" hreflang="ja-jp" /><link rel="alternative" href="https://docs.aws.amazon.com/ja_jp/eks/latest/userguide/eks-compute.html" hreflang="ja" /><link rel="alternative" href="https://docs.aws.amazon.com/ko_kr/eks/latest/userguide/eks-compute.html" hreflang="ko-kr" /><link rel="alternative" href="https://docs.aws.amazon.com/ko_kr/eks/latest/userguide/eks-compute.html" hreflang="ko" /><link rel="alternative" href="https://docs.aws.amazon.com/pt_br/eks/latest/userguide/eks-compute.html" hreflang="pt-br" /><link rel="alternative" href="https://docs.aws.amazon.com/pt_br/eks/latest/userguide/eks-compute.html" hreflang="pt" /><link rel="alternative" href="https://docs.aws.amazon.com/zh_cn/eks/latest/userguide/eks-compute.html" hreflang="zh-cn" /><link rel="alternative" href="https://docs.aws.amazon.com/zh_tw/eks/latest/userguide/eks-compute.html" hreflang="zh-tw" /><link rel="alternative" href="https://docs.aws.amazon.com/eks/latest/userguide/eks-compute.html" hreflang="x-default" /><meta name="feedback-item" content="Amazon EKS" /><meta name="this_doc_product" content="Amazon EKS" /><meta name="this_doc_guide" content="User Guide" /><head xmlns="http://www.w3.org/1999/xhtml"> <script defer="" src="/assets/r/awsdocs-doc-page.2.0.0.js"></script><link href="/assets/r/awsdocs-doc-page.2.0.0.css" rel="stylesheet"/></head>
+<script defer="" id="awsc-panorama-bundle" type="text/javascript" src="https://prod.pa.cdn.uis.awsstatic.com/panorama-nav-init.js" data-config="{'appEntity':'aws-documentation','region':'us-east-1','service':'eks'}"></script><meta id="panorama-serviceSubSection" value="User Guide" /><meta id="panorama-serviceConsolePage" value="Manage compute resources by using nodes" /></head><body class="awsdocs awsui"><div class="awsdocs-container"><awsdocs-header></awsdocs-header><awsui-app-layout id="app-layout" class="awsui-util-no-gutters" ng-controller="ContentController as $ctrl" header-selector="awsdocs-header" navigation-hide="false" navigation-width="$ctrl.navWidth" navigation-open="$ctrl.navOpen" navigation-change="$ctrl.onNavChange($event)" tools-hide="$ctrl.hideTools" tools-width="$ctrl.toolsWidth" tools-open="$ctrl.toolsOpen" tools-change="$ctrl.onToolsChange($event)"><div id="guide-toc" dom-region="navigation"><awsdocs-toc></awsdocs-toc></div><div id="main-column" dom-region="content" tabindex="-1"><awsdocs-view class="awsdocs-view"><div id="awsdocs-content"><head><title>Manage compute resources by using nodes - Amazon EKS</title><meta name="pdf" content="/pdfs/eks/latest/userguide/eks-ug.pdf#eks-compute" /><meta name="github" content="https://github.com/awsdocs/amazon-eks-user-guide/tree/mainline/latest/ug/nodes/eks-compute.adoc" /><meta name="rss" content="doc-history.rss" /><meta name="forums" content="https://repost.aws/tags/TA4IvCeWI1TE66q4jEj4Z9zg" /><meta name="feedback" content="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=Amazon%20EKS&amp;topic_url=https://docs.aws.amazon.com/en_us/eks/latest/userguide/eks-compute.html" /><meta name="feedback-yes" content="feedbackyes.html?topic_url=https://docs.aws.amazon.com/en_us/eks/latest/userguide/eks-compute.html" /><meta name="feedback-no" content="feedbackno.html?topic_url=https://docs.aws.amazon.com/en_us/eks/latest/userguide/eks-compute.html" /><script type="application/ld+json">
+{
+    "@context" : "https://schema.org",
+    "@type" : "BreadcrumbList",
+    "itemListElement" : [
+      {
+        "@type" : "ListItem",
+        "position" : 1,
+        "name" : "AWS",
+        "item" : "https://aws.amazon.com"
+      },
+      {
+        "@type" : "ListItem",
+        "position" : 2,
+        "name" : "Amazon EKS",
+        "item" : "https://docs.aws.amazon.com/eks/index.html"
+      },
+      {
+        "@type" : "ListItem",
+        "position" : 3,
+        "name" : "User Guide",
+        "item" : "https://docs.aws.amazon.com/eks/latest/userguide"
+      },
+      {
+        "@type" : "ListItem",
+        "position" : 4,
+        "name" : "Manage compute resources by using nodes",
+        "item" : "https://docs.aws.amazon.com/eks/latest/userguide/eks-compute.html"
+      }
+    ]
+}
+</script></head><body><div id="main"><div style="display: none"><a href="/pdfs/eks/latest/userguide/eks-ug.pdf#eks-compute" target="_blank" rel="noopener noreferrer" title="Open PDF"></a><a href="https://github.com/awsdocs/amazon-eks-user-guide/tree/mainline/latest/ug/nodes/eks-compute.adoc" target="_blank" rel="noopener noreferrer" title="Edit this page on GitHub"></a></div><div id="breadcrumbs" class="breadcrumb"><a href="/index.html">Documentation</a><a href="/eks/index.html">Amazon EKS</a><a href="what-is-eks.html">User Guide</a></div><div id="page-toc-src"><a href="#_compare_compute_options">Compare compute options</a></div><div id="main-content" class="awsui-util-container"><div id="main-col-body"><awsdocs-language-banner data-service="$ctrl.pageService"></awsdocs-language-banner><awsui-alert class="awsdocs-page-banner awsui-util-mb-l"><p>
+         <strong>Help improve this page</strong>
+      </p><p>To contribute to this user guide, choose the <strong>Edit this page on GitHub</strong> link that is located in the right pane of every page.</p></awsui-alert><h1 class="topictitle" id="eks-compute">Manage compute resources by using nodes</h1><div class="awsdocs-page-header-container"><awsdocs-page-header></awsdocs-page-header><awsdocs-filter-selector id="awsdocs-filter-selector"></awsdocs-filter-selector></div><p>A Kubernetes node is a machine that runs containerized applications. Each node has the following components:</p><div class="itemizedlist">
+       
+       
+       
+   <ul class="itemizedlist"><li class="listitem">
+         <p>
+            <strong>
+               <a href="https://kubernetes.io/docs/setup/production-environment/container-runtimes/" rel="noopener noreferrer" target="_blank"><span>Container runtime</span><awsui-icon class="awsdocs-link-icon" name="external"></awsui-icon></a>
+            </strong> – Software that’s responsible for running the containers.</p>
+      </li><li class="listitem">
+         <p>
+            <strong>
+               <a href="https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet/" rel="noopener noreferrer" target="_blank"><span>kubelet</span><awsui-icon class="awsdocs-link-icon" name="external"></awsui-icon></a>
+            </strong> – Makes sure that containers are healthy and running within their associated Pod.</p>
+      </li><li class="listitem">
+         <p>
+            <strong>
+               <a href="https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy/" rel="noopener noreferrer" target="_blank"><span>kube-proxy</span><awsui-icon class="awsdocs-link-icon" name="external"></awsui-icon></a>
+            </strong> – Maintains network rules that allow communication to your Pods.</p>
+      </li></ul></div><p>For more information, see <a href="https://kubernetes.io/docs/concepts/architecture/nodes/" rel="noopener noreferrer" target="_blank"><span>Nodes</span><awsui-icon class="awsdocs-link-icon" name="external"></awsui-icon></a> in the Kubernetes documentation.</p><p>Your Amazon EKS cluster can schedule Pods on any combination of <a href="./automode.html">EKS Auto Mode managed nodes</a>, <a href="./worker.html">self-managed nodes</a>, <a href="./managed-node-groups.html">Amazon EKS managed node groups</a>, <a href="./fargate.html">AWS Fargate</a>, and <a href="./hybrid-nodes-overview.html">Amazon EKS Hybrid Nodes</a>. To learn more about nodes deployed in your cluster, see <a href="./view-kubernetes-resources.html">View Kubernetes resources in the AWS Management Console</a>.</p><div class="awsdocs-note"><div class="awsdocs-note-title"><awsui-icon name="status-info" variant="link"></awsui-icon><h6>Note</h6></div><div class="awsdocs-note-text"><p>Excluding hybrid nodes, nodes must be in the same VPC as the subnets you selected when you created the cluster. However, the nodes don’t have to be in the same subnets.</p></div></div>
+      <h2 id="_compare_compute_options">Compare compute options</h2>
+      <p>The following table provides several criteria to evaluate when deciding which options best meet your requirements. Self-managed nodes are another option which support all of the criteria listed, but they require a lot more manual maintenance. For more information, see <a href="./worker.html">Maintain nodes yourself with self-managed nodes</a>.</p>
+      <div class="awsdocs-note"><div class="awsdocs-note-title"><awsui-icon name="status-info" variant="link"></awsui-icon><h6>Note</h6></div><div class="awsdocs-note-text"><p>Bottlerocket has some specific differences from the general information in this table. For more information, see the Bottlerocket <a href="https://github.com/bottlerocket-os/bottlerocket/blob/develop/README.md" rel="noopener noreferrer" target="_blank"><span>documentation</span><awsui-icon class="awsdocs-link-icon" name="external"></awsui-icon></a> on GitHub.</p></div></div>
+      <div class="table-container"><div class="table-contents disable-scroll"><table id="w825aac23c13b7"><thead>
+               <tr>
+                  <th align="left" style="text-align: left;vertical-align: top;">Criteria</th>
+                  <th align="left" style="text-align: left;vertical-align: top;">EKS managed node groups</th>
+                  <th align="left" style="text-align: left;vertical-align: top;">EKS Auto Mode</th>
+                  <th align="left" style="text-align: left;vertical-align: top;">Amazon EKS Hybrid Nodes</th>
+               </tr>
+            </thead>
+               <tr>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>Can be deployed to <a href="https://docs.aws.amazon.com/outposts/latest/userguide/what-is-outposts.html">AWS Outposts</a>
+                     </p>
+                  </td>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>No</p>
+                  </td>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>No</p>
+                  </td>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>No</p>
+                  </td>
+               </tr>
+               <tr>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>Can be deployed to an <a href="./local-zones.html">AWS Local Zone</a>
+                     </p>
+                  </td>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>Yes</p>
+                  </td>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>No</p>
+                  </td>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>No</p>
+                  </td>
+               </tr>
+               <tr>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>Can run containers that require Windows</p>
+                  </td>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>Yes</p>
+                  </td>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>No</p>
+                  </td>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>No</p>
+                  </td>
+               </tr>
+               <tr>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>Can run containers that require Linux</p>
+                  </td>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>Yes</p>
+                  </td>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>Yes</p>
+                  </td>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>Yes</p>
+                  </td>
+               </tr>
+               <tr>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>Can run workloads that require the Inferentia chip</p>
+                  </td>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>
+                        <a href="./inferentia-support.html">Yes</a> – Amazon Linux nodes only</p>
+                  </td>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>Yes</p>
+                  </td>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>No</p>
+                  </td>
+               </tr>
+               <tr>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>Can run workloads that require a GPU</p>
+                  </td>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>
+                        <a href="./eks-optimized-ami.html#gpu-ami">Yes</a> – Amazon Linux nodes only</p>
+                  </td>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>Yes</p>
+                  </td>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>Yes</p>
+                  </td>
+               </tr>
+               <tr>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>Can run workloads that require Arm processors</p>
+                  </td>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>
+                        <a href="./eks-optimized-ami.html#arm-ami">Yes</a>
+                     </p>
+                  </td>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>Yes</p>
+                  </td>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>Yes</p>
+                  </td>
+               </tr>
+               <tr>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>Can run AWS
+                        <a href="https://aws.amazon.com/bottlerocket/" rel="noopener noreferrer" target="_blank"><span>Bottlerocket</span><awsui-icon class="awsdocs-link-icon" name="external"></awsui-icon></a>
+                     </p>
+                  </td>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>Yes</p>
+                  </td>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>Yes</p>
+                  </td>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>No</p>
+                  </td>
+               </tr>
+               <tr>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>Pods share CPU, memory, storage, and network resources with other Pods.</p>
+                  </td>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>Yes</p>
+                  </td>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>Yes</p>
+                  </td>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>Yes</p>
+                  </td>
+               </tr>
+               <tr>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>Must deploy and manage Amazon EC2 instances</p>
+                  </td>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>Yes</p>
+                  </td>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>No - Learn about <a href="./automode-learn-instances.html">EC2 managed instances</a>
+                     </p>
+                  </td>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>Yes – the on-premises physical or virtual machines are managed by you with your choice of tooling.</p>
+                  </td>
+               </tr>
+               <tr>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>Must secure, maintain, and patch the operating system of Amazon EC2 instances</p>
+                  </td>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>Yes</p>
+                  </td>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>No</p>
+                  </td>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>Yes – the operating system running on your physical or virtual machines are managed by you with your choice of tooling.</p>
+                  </td>
+               </tr>
+               <tr>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>Can provide bootstrap arguments at deployment of a node, such as extra <a href="https://kubernetes.io/docs/reference/command-line-tools-reference/kubelet/" rel="noopener noreferrer" target="_blank"><span>kubelet</span><awsui-icon class="awsdocs-link-icon" name="external"></awsui-icon></a> arguments.</p>
+                  </td>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>Yes – Using <code class="code">eksctl</code> or a <a href="./launch-templates.html">launch template</a> with a custom AMI.</p>
+                  </td>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>No - <a href="./create-node-class.html">Use a NodeClass to configure nodes</a>
+                     </p>
+                  </td>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>Yes - you can customize bootstrap arguments with nodeadm. See <a href="./hybrid-nodes-nodeadm.html">Hybrid nodes nodeadm reference</a>.</p>
+                  </td>
+               </tr>
+               <tr>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>Can assign IP addresses to Pods from a different CIDR block than the IP address assigned to the node.</p>
+                  </td>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>Yes – Using a launch template with a custom AMI. For more information, see <a href="./launch-templates.html">Customize managed nodes with launch templates</a>.</p>
+                  </td>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>No</p>
+                  </td>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>Yes - see <a href="./hybrid-nodes-cni.html">Configure CNI for hybrid nodes</a>.</p>
+                  </td>
+               </tr>
+               <tr>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>Can SSH into node</p>
+                  </td>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>Yes</p>
+                  </td>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>No - <a href="./auto-troubleshoot.html">Learn how to troubleshoot nodes</a>
+                     </p>
+                  </td>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>Yes</p>
+                  </td>
+               </tr>
+               <tr>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>Can deploy your own custom AMI to nodes</p>
+                  </td>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>Yes – Using a <a href="./launch-templates.html">launch template</a>
+                     </p>
+                  </td>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>No</p>
+                  </td>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>Yes</p>
+                  </td>
+               </tr>
+               <tr>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>Can deploy your own custom CNI to nodes</p>
+                  </td>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>Yes – Using a <a href="./launch-templates.html">launch template</a> with a custom AMI</p>
+                  </td>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>No</p>
+                  </td>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>Yes</p>
+                  </td>
+               </tr>
+               <tr>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>Must update node AMI on your own</p>
+                  </td>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>
+                        <a href="./update-managed-node-group.html">Yes</a> – If you deployed an Amazon EKS optimized AMI, you’re notified in the Amazon EKS console when updates are available. You can perform the update with one-click in the console. If you deployed a custom AMI, you’re not notified in the Amazon EKS console when updates are available. You must perform the update on your own.</p>
+                  </td>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>No</p>
+                  </td>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>Yes - the operating system running on your physical or virtual machines is managed by you with your choice of tooling. See <a href="./hybrid-nodes-os.html">Prepare operating system for hybrid nodes</a>.</p>
+                  </td>
+               </tr>
+               <tr>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>Must update node Kubernetes version on your own</p>
+                  </td>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>
+                        <a href="./update-managed-node-group.html">Yes</a> – If you deployed an Amazon EKS optimized AMI, you’re notified in the Amazon EKS console when updates are available. You can perform the update with one-click in the console. If you deployed a custom AMI, you’re not notified in the Amazon EKS console when updates are available. You must perform the update on your own.</p>
+                  </td>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>No</p>
+                  </td>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>Yes - you manage hybrid nodes upgrades with your own choice of tooling or with <code class="code">nodeadm</code>. See <a href="./hybrid-nodes-upgrade.html">Upgrade hybrid nodes for your cluster</a>.</p>
+                  </td>
+               </tr>
+               <tr>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>Can use Amazon EBS storage with Pods</p>
+                  </td>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>
+                        <a href="./ebs-csi.html">Yes</a>
+                     </p>
+                  </td>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>Yes, as an integrated capability. Learn how to <a href="./create-storage-class.html">create a storage class.</a>
+                     </p>
+                  </td>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>No</p>
+                  </td>
+               </tr>
+               <tr>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>Can use Amazon EFS storage with Pods</p>
+                  </td>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>
+                        <a href="./efs-csi.html">Yes</a>
+                     </p>
+                  </td>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>Yes</p>
+                  </td>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>No</p>
+                  </td>
+               </tr>
+               <tr>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>Can use Amazon FSx for Lustre storage with Pods</p>
+                  </td>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>
+                        <a href="./fsx-csi.html">Yes</a>
+                     </p>
+                  </td>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>Yes</p>
+                  </td>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>No</p>
+                  </td>
+               </tr>
+               <tr>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>Can use Network Load Balancer for services</p>
+                  </td>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>
+                        <a href="./network-load-balancing.html">Yes</a>
+                     </p>
+                  </td>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>Yes</p>
+                  </td>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>Yes - must use target type <code class="code">ip</code>.</p>
+                  </td>
+               </tr>
+               <tr>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>Pods can run in a public subnet</p>
+                  </td>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>Yes</p>
+                  </td>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>Yes</p>
+                  </td>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>No - pods run in on-premises environment.</p>
+                  </td>
+               </tr>
+               <tr>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>Can assign different VPC security groups to individual Pods</p>
+                  </td>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>
+                        <a href="./security-groups-for-pods.html">Yes</a> – Linux nodes only</p>
+                  </td>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>No</p>
+                  </td>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>No</p>
+                  </td>
+               </tr>
+               <tr>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>Can run Kubernetes DaemonSets</p>
+                  </td>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>Yes</p>
+                  </td>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>Yes</p>
+                  </td>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>Yes</p>
+                  </td>
+               </tr>
+               <tr>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>Support <code class="code">HostPort</code> and <code class="code">HostNetwork</code> in the Pod manifest</p>
+                  </td>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>Yes</p>
+                  </td>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>Yes</p>
+                  </td>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>Yes</p>
+                  </td>
+               </tr>
+               <tr>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>
+                        AWS Region availability</p>
+                  </td>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>
+                        <a href="https://docs.aws.amazon.com/general/latest/gr/eks.html">All Amazon EKS supported regions</a>
+                     </p>
+                  </td>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>
+                        <a href="https://docs.aws.amazon.com/general/latest/gr/eks.html">All Amazon EKS supported regions</a>
+                     </p>
+                  </td>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>
+                        <a href="https://docs.aws.amazon.com/general/latest/gr/eks.html">All Amazon EKS supported regions</a> except the AWS GovCloud (US) Regions and the China Regions.</p>
+                  </td>
+               </tr>
+               <tr>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>Can run containers on Amazon EC2 dedicated hosts</p>
+                  </td>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>Yes</p>
+                  </td>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>No</p>
+                  </td>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>No</p>
+                  </td>
+               </tr>
+               <tr>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>Pricing</p>
+                  </td>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>Cost of Amazon EC2 instance that runs multiple Pods. For more information, see <a href="https://aws.amazon.com/ec2/pricing/" rel="noopener noreferrer" target="_blank"><span>Amazon EC2 pricing</span><awsui-icon class="awsdocs-link-icon" name="external"></awsui-icon></a>.</p>
+                  </td>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>When EKS Auto Mode is enabled in your cluster, you pay a separate fee, in addition to the standard EC2 instance charges, for the instances launched using Auto Mode’s compute capability. The amount varies with the instance type launched and the AWS region where your cluster is located. For more information, see <a href="https://aws.amazon.com/eks/pricing/" rel="noopener noreferrer" target="_blank"><span>Amazon EKS pricing</span><awsui-icon class="awsdocs-link-icon" name="external"></awsui-icon></a>.</p>
+                  </td>
+                  <td align="left" style="text-align: left;vertical-align: top;" tabindex="-1">
+                     <p>Cost of hybrid nodes vCPU per hour. For more information, see <a href="https://aws.amazon.com/eks/pricing/" rel="noopener noreferrer" target="_blank"><span>Amazon EKS pricing</span><awsui-icon class="awsdocs-link-icon" name="external"></awsui-icon></a>.</p>
+                  </td>
+               </tr>
+            </table></div></div>
+   <awsdocs-copyright class="copyright-print"></awsdocs-copyright><awsdocs-thumb-feedback right-edge="{{$ctrl.thumbFeedbackRightEdge}}"></awsdocs-thumb-feedback></div><noscript><div><div><div><div id="js_error_message"><p><img src="https://d1ge0kk1l5kms0.cloudfront.net/images/G/01/webservices/console/warning.png" alt="Warning" /> <strong>Javascript is disabled or is unavailable in your browser.</strong></p><p>To use the Amazon Web Services Documentation, Javascript must be enabled. Please refer to your browser's Help pages for instructions.</p></div></div></div></div></noscript><div id="main-col-footer" class="awsui-util-font-size-0"><div id="doc-conventions"><a target="_top" href="/general/latest/gr/docconventions.html">Document Conventions</a></div><div class="prev-next"><div id="previous" class="prev-link" accesskey="p" href="./pod-id-role.html">EKS Pod Identity role</div><div id="next" class="next-link" accesskey="n" href="./managed-node-groups.html">Managed node groups</div></div></div><awsdocs-page-utilities></awsdocs-page-utilities></div><div id="quick-feedback-yes" style="display: none;"><div class="title">Did this page help you? - Yes</div><div class="content"><p>Thanks for letting us know we're doing a good job!</p><p>If you've got a moment, please tell us what we did right so we can do more of it.</p><p><awsui-button id="fblink" rel="noopener noreferrer" target="_blank" text="Feedback" click="linkClick($event)" href="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=Amazon EKS&amp;topic_url=https://docs.aws.amazon.com/en_us/eks/latest/userguide/eks-compute.html"></awsui-button></p></div></div><div id="quick-feedback-no" style="display: none;"><div class="title">Did this page help you? - No</div><div class="content"><p>Thanks for letting us know this page needs work. We're sorry we let you down.</p><p>If you've got a moment, please tell us how we can make the documentation better.</p><p><awsui-button id="fblink" rel="noopener noreferrer" target="_blank" text="Feedback" click="linkClick($event)" href="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=Amazon EKS&amp;topic_url=https://docs.aws.amazon.com/en_us/eks/latest/userguide/eks-compute.html"></awsui-button></p></div></div></div></body></div></awsdocs-view><div class="page-loading-indicator" id="page-loading-indicator"><awsui-spinner size="large"></awsui-spinner></div></div><div id="tools-panel" dom-region="tools"><awsdocs-tools-panel id="awsdocs-tools-panel"></awsdocs-tools-panel></div></awsui-app-layout><awsdocs-cookie-banner class="doc-cookie-banner"></awsdocs-cookie-banner></div></body></html>
