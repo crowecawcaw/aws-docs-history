@@ -23,5 +23,3 @@ venv/
 *.tmp
 .DS_Store
 
-# Generated documentation is committed from the docs branch only
-/docs/
