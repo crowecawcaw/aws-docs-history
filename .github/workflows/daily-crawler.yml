@@ -20,13 +20,6 @@ jobs:
           ref: main
           path: main
 
-      - name: Check out docs branch
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-          ref: docs
-          path: docs-repo
-
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
@@ -44,27 +37,18 @@ jobs:
           find docs -mindepth 1 -maxdepth 1 ! -name README.md -exec rm -rf {} +
           python crawler.py --output-dir docs
 
-      - name: Sync markdown docs to docs branch
-        run: |
-          mkdir -p main/docs docs-repo/docs
-          rsync -av --delete --prune-empty-dirs \
-            --include '*/' \
-            --include '*.md' \
-            --exclude '*' \
-            main/docs/ docs-repo/docs/
-
       - name: Configure Git user
-        working-directory: docs-repo
+        working-directory: main
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
       - name: Commit changes
         id: commit
-        working-directory: docs-repo
-        run: python ../main/commit_changes.py
+        working-directory: main
+        run: python commit_changes.py
 
       - name: Push changes
         if: steps.commit.outputs.changes == 'true'
-        working-directory: docs-repo
-        run: git push origin docs
+        working-directory: main
+        run: git push origin main
