@@ -125,10 +125,36 @@ def parse_status() -> List[Tuple[str, str, Optional[str]]]:
     return changes
 
 
+def is_tracked(path: str) -> bool:
+    result = subprocess.run(
+        ["git", "ls-files", "--error-unmatch", path],
+        stdout=subprocess.DEVNULL,
+        stderr=subprocess.DEVNULL,
+    )
+    return result.returncode == 0
+
+
 def stage_paths(paths: Iterable[str]) -> None:
     for path in sorted(set(paths)):
         if not path:
             continue
+        try:
+            run_git(["add", "--", path])
+            continue
+        except subprocess.CalledProcessError:
+            pass
+
+        tracked = is_tracked(path)
+        exists = os.path.lexists(path)
+
+        if tracked and not exists:
+            run_git(["rm", "--cached", "--", path])
+            continue
+
+        if exists or tracked:
+            run_git(["add", "-f", "--", path])
+            continue
+
         run_git(["add", "--", path])
 
 
