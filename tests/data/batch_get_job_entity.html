@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+    <html xmlns="http://www.w3.org/1999/xhtml" lang="en-US"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>BatchGetJobEntity - AWS Deadline Cloud</title><meta name="viewport" content="width=device-width,initial-scale=1" /><meta name="assets_root" content="/assets" /><meta name="target_state" content="API_BatchGetJobEntity" /><meta name="default_state" content="API_BatchGetJobEntity" /><link rel="icon" type="image/ico" href="/assets/images/favicon.ico" /><link rel="shortcut icon" type="image/ico" href="/assets/images/favicon.ico" /><link rel="canonical" href="https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_BatchGetJobEntity.html" /><meta name="description" content="Get batched job details for a worker." /><meta name="deployment_region" content="IAD" /><meta name="product" content="AWS Deadline Cloud" /><meta name="guide" content="API Reference" /><meta name="abstract" content="The AWS Deadline Cloud API provides infrastructure and centralized management for your projects. Use the Deadline Cloud API to onboard users, assign projects, and attach permissions specific to their job function." /><meta name="guide-locale" content="en_us" /><meta name="tocs" content="toc-contents.json" /><link rel="canonical" href="https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_BatchGetJobEntity.html" /><link rel="alternative" href="https://docs.aws.amazon.com/id_id/deadline-cloud/latest/APIReference/API_BatchGetJobEntity.html" hreflang="id-id" /><link rel="alternative" href="https://docs.aws.amazon.com/id_id/deadline-cloud/latest/APIReference/API_BatchGetJobEntity.html" hreflang="id" /><link rel="alternative" href="https://docs.aws.amazon.com/de_de/deadline-cloud/latest/APIReference/API_BatchGetJobEntity.html" hreflang="de-de" /><link rel="alternative" href="https://docs.aws.amazon.com/de_de/deadline-cloud/latest/APIReference/API_BatchGetJobEntity.html" hreflang="de" /><link rel="alternative" href="https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_BatchGetJobEntity.html" hreflang="en-us" /><link rel="alternative" href="https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_BatchGetJobEntity.html" hreflang="en" /><link rel="alternative" href="https://docs.aws.amazon.com/es_es/deadline-cloud/latest/APIReference/API_BatchGetJobEntity.html" hreflang="es-es" /><link rel="alternative" href="https://docs.aws.amazon.com/es_es/deadline-cloud/latest/APIReference/API_BatchGetJobEntity.html" hreflang="es" /><link rel="alternative" href="https://docs.aws.amazon.com/fr_fr/deadline-cloud/latest/APIReference/API_BatchGetJobEntity.html" hreflang="fr-fr" /><link rel="alternative" href="https://docs.aws.amazon.com/fr_fr/deadline-cloud/latest/APIReference/API_BatchGetJobEntity.html" hreflang="fr" /><link rel="alternative" href="https://docs.aws.amazon.com/it_it/deadline-cloud/latest/APIReference/API_BatchGetJobEntity.html" hreflang="it-it" /><link rel="alternative" href="https://docs.aws.amazon.com/it_it/deadline-cloud/latest/APIReference/API_BatchGetJobEntity.html" hreflang="it" /><link rel="alternative" href="https://docs.aws.amazon.com/ja_jp/deadline-cloud/latest/APIReference/API_BatchGetJobEntity.html" hreflang="ja-jp" /><link rel="alternative" href="https://docs.aws.amazon.com/ja_jp/deadline-cloud/latest/APIReference/API_BatchGetJobEntity.html" hreflang="ja" /><link rel="alternative" href="https://docs.aws.amazon.com/ko_kr/deadline-cloud/latest/APIReference/API_BatchGetJobEntity.html" hreflang="ko-kr" /><link rel="alternative" href="https://docs.aws.amazon.com/ko_kr/deadline-cloud/latest/APIReference/API_BatchGetJobEntity.html" hreflang="ko" /><link rel="alternative" href="https://docs.aws.amazon.com/pt_br/deadline-cloud/latest/APIReference/API_BatchGetJobEntity.html" hreflang="pt-br" /><link rel="alternative" href="https://docs.aws.amazon.com/pt_br/deadline-cloud/latest/APIReference/API_BatchGetJobEntity.html" hreflang="pt" /><link rel="alternative" href="https://docs.aws.amazon.com/zh_cn/deadline-cloud/latest/APIReference/API_BatchGetJobEntity.html" hreflang="zh-cn" /><link rel="alternative" href="https://docs.aws.amazon.com/zh_tw/deadline-cloud/latest/APIReference/API_BatchGetJobEntity.html" hreflang="zh-tw" /><link rel="alternative" href="https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_BatchGetJobEntity.html" hreflang="x-default" /><meta name="feedback-item" content="AWS/Documentation/Deadline Cloud" /><meta name="this_doc_product" content="AWS Deadline Cloud" /><meta name="this_doc_guide" content="API Reference" /><head xmlns="http://www.w3.org/1999/xhtml"> <script defer="" src="/assets/r/awsdocs-doc-page.2.0.0.js"></script><link href="/assets/r/awsdocs-doc-page.2.0.0.css" rel="stylesheet"/></head>
+<script defer="" id="awsc-panorama-bundle" type="text/javascript" src="https://prod.pa.cdn.uis.awsstatic.com/panorama-nav-init.js" data-config="{'appEntity':'aws-documentation','region':'us-east-1','service':'deadline-cloud'}"></script><meta id="panorama-serviceSubSection" value="API Reference" /><meta id="panorama-serviceConsolePage" value="BatchGetJobEntity" /></head><body class="awsdocs awsui"><div class="awsdocs-container"><awsdocs-header></awsdocs-header><awsui-app-layout id="app-layout" class="awsui-util-no-gutters" ng-controller="ContentController as $ctrl" header-selector="awsdocs-header" navigation-hide="false" navigation-width="$ctrl.navWidth" navigation-open="$ctrl.navOpen" navigation-change="$ctrl.onNavChange($event)" tools-hide="$ctrl.hideTools" tools-width="$ctrl.toolsWidth" tools-open="$ctrl.toolsOpen" tools-change="$ctrl.onToolsChange($event)"><div id="guide-toc" dom-region="navigation"><awsdocs-toc></awsdocs-toc></div><div id="main-column" dom-region="content" tabindex="-1"><awsdocs-view class="awsdocs-view"><div id="awsdocs-content"><head><title>BatchGetJobEntity - AWS Deadline Cloud</title><meta name="pdf" content="/pdfs/deadline-cloud/latest/APIReference/deadline-cloud-api-reference.pdf#API_BatchGetJobEntity" /><meta name="forums" content="https://repost.aws/" /><meta name="feedback" content="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=AWS%2FDocumentation%2FDeadline%20Cloud&amp;topic_url=https://docs.aws.amazon.com/en_us/deadline-cloud/latest/APIReference/API_BatchGetJobEntity.html" /><meta name="feedback-yes" content="feedbackyes.html?topic_url=https://docs.aws.amazon.com/en_us/deadline-cloud/latest/APIReference/API_BatchGetJobEntity.html" /><meta name="feedback-no" content="feedbackno.html?topic_url=https://docs.aws.amazon.com/en_us/deadline-cloud/latest/APIReference/API_BatchGetJobEntity.html" /><meta name="keywords" content="API,requests,BatchGetJobEntity" /><script type="application/ld+json">
+{
+    "@context" : "https://schema.org",
+    "@type" : "BreadcrumbList",
+    "itemListElement" : [
+      {
+        "@type" : "ListItem",
+        "position" : 1,
+        "name" : "AWS",
+        "item" : "https://aws.amazon.com"
+      },
+      {
+        "@type" : "ListItem",
+        "position" : 2,
+        "name" : "AWS Deadline Cloud",
+        "item" : "https://docs.aws.amazon.com/deadline-cloud/index.html"
+      },
+      {
+        "@type" : "ListItem",
+        "position" : 3,
+        "name" : "API Reference",
+        "item" : "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference"
+      },
+      {
+        "@type" : "ListItem",
+        "position" : 4,
+        "name" : "Actions",
+        "item" : "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_Operations.html"
+      },
+      {
+        "@type" : "ListItem",
+        "position" : 5,
+        "name" : "BatchGetJobEntity",
+        "item" : "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_Operations.html"
+      }
+    ]
+}
+</script></head><body><div id="main"><div style="display: none"><a href="/pdfs/deadline-cloud/latest/APIReference/deadline-cloud-api-reference.pdf#API_BatchGetJobEntity" target="_blank" rel="noopener noreferrer" title="Open PDF"></a></div><div id="breadcrumbs" class="breadcrumb"><a href="/index.html">Documentation</a><a href="/deadline-cloud/index.html">AWS Deadline Cloud</a><a href="Welcome.html">API Reference</a></div><div id="page-toc-src"><a href="#API_BatchGetJobEntity_RequestSyntax">Request Syntax</a><a href="#API_BatchGetJobEntity_RequestParameters">URI Request Parameters</a><a href="#API_BatchGetJobEntity_RequestBody">Request Body</a><a href="#API_BatchGetJobEntity_ResponseSyntax">Response Syntax</a><a href="#API_BatchGetJobEntity_ResponseElements">Response Elements</a><a href="#API_BatchGetJobEntity_Errors">Errors</a><a href="#API_BatchGetJobEntity_SeeAlso">See Also</a></div><div id="main-content" class="awsui-util-container"><div id="main-col-body"><awsdocs-language-banner data-service="$ctrl.pageService"></awsdocs-language-banner><h1 class="topictitle" id="API_BatchGetJobEntity">BatchGetJobEntity</h1><div class="awsdocs-page-header-container"><awsdocs-page-header></awsdocs-page-header><awsdocs-filter-selector id="awsdocs-filter-selector"></awsdocs-filter-selector></div><p>Get batched job details for a worker.</p>
+      <h2 id="API_BatchGetJobEntity_RequestSyntax">Request Syntax</h2>
+      <pre class="programlisting"><div class="code-btn-container"></div><!--DEBUG: cli ()--><code class="nohighlight">POST /2023-10-12/farms/<code class="replaceable">farmId</code>/fleets/<code class="replaceable">fleetId</code>/workers/<code class="replaceable">workerId</code>/batchGetJobEntity HTTP/1.1
+Content-type: application/json
+
+<span>{</span>
+   "<a href="#deadlinecloud-BatchGetJobEntity-request-identifiers">identifiers</a>": [ 
+      <span>{</span> ... }
+   ]
+}</code></pre>
+    
+      <h2 id="API_BatchGetJobEntity_RequestParameters">URI Request Parameters</h2>
+      <p>The request uses the following URI parameters.</p>
+      <div class="variablelist">
+          
+          
+          
+      <dl>
+            <dt id="deadlinecloud-BatchGetJobEntity-request-uri-farmId"><span class="term">
+               <b>
+                  <a href="#API_BatchGetJobEntity_RequestSyntax">farmId</a>
+               </b>
+            </span></dt>
+            <dd>
+               <p>The farm ID of the worker that's fetching job details. The worker must have an
+         assignment on a job to fetch job details.</p>
+               <p>Pattern: <code class="code">farm-[0-9a-f]<span>{</span>32}</code>
+               </p>
+               <p>Required: Yes</p>
+            </dd>
+          
+            <dt id="deadlinecloud-BatchGetJobEntity-request-uri-fleetId"><span class="term">
+               <b>
+                  <a href="#API_BatchGetJobEntity_RequestSyntax">fleetId</a>
+               </b>
+            </span></dt>
+            <dd>
+               <p>The fleet ID of the worker that's fetching job details. The worker must have an
+         assignment on a job to fetch job details.</p>
+               <p>Pattern: <code class="code">fleet-[0-9a-f]<span>{</span>32}</code>
+               </p>
+               <p>Required: Yes</p>
+            </dd>
+          
+            <dt id="deadlinecloud-BatchGetJobEntity-request-uri-workerId"><span class="term">
+               <b>
+                  <a href="#API_BatchGetJobEntity_RequestSyntax">workerId</a>
+               </b>
+            </span></dt>
+            <dd>
+               <p>The worker ID of the worker containing the job details to get.</p>
+               <p>Pattern: <code class="code">worker-[0-9a-f]<span>{</span>32}</code>
+               </p>
+               <p>Required: Yes</p>
+            </dd>
+         </dl></div>
+    
+      <h2 id="API_BatchGetJobEntity_RequestBody">Request Body</h2>
+      <p>The request accepts the following data in JSON format.</p>
+      <div class="variablelist">
+          
+      <dl>
+            <dt id="deadlinecloud-BatchGetJobEntity-request-identifiers"><span class="term">
+               <b>
+                  <a href="#API_BatchGetJobEntity_RequestSyntax">identifiers</a>
+               </b>
+            </span></dt>
+            <dd>
+               <p>The job identifiers to include within the job entity batch details.</p>
+               <p>Type: Array of <a href="./API_JobEntityIdentifiersUnion.html">JobEntityIdentifiersUnion</a> objects</p>
+               <p>Array Members: Minimum number of 1 item. Maximum number of 10 items.</p>
+               <p>Required: Yes</p>
+            </dd>
+         </dl></div>
+    
+      <h2 id="API_BatchGetJobEntity_ResponseSyntax">Response Syntax</h2>
+      <pre class="programlisting"><div class="code-btn-container"></div><!--DEBUG: cli ()--><code class="nohighlight">HTTP/1.1 200
+Content-type: application/json
+
+<span>{</span>
+   "<a href="#deadlinecloud-BatchGetJobEntity-response-entities">entities</a>": [ 
+      <span>{</span> ... }
+   ],
+   "<a href="#deadlinecloud-BatchGetJobEntity-response-errors">errors</a>": [ 
+      <span>{</span> ... }
+   ]
+}</code></pre>
+    
+      <h2 id="API_BatchGetJobEntity_ResponseElements">Response Elements</h2>
+      <p>If the action is successful, the service sends back an HTTP 200 response.</p>
+      <p>The following data is returned in JSON format by the service.</p>
+      <div class="variablelist">
+          
+          
+      <dl>
+            <dt id="deadlinecloud-BatchGetJobEntity-response-entities"><span class="term">
+               <b>
+                  <a href="#API_BatchGetJobEntity_ResponseSyntax">entities</a>
+               </b>
+            </span></dt>
+            <dd>
+               <p>A list of the job entities, or details, in the batch.</p>
+               <p>Type: Array of <a href="./API_JobEntity.html">JobEntity</a> objects</p>
+               <p>Array Members: Minimum number of 0 items. Maximum number of 25 items.</p>
+            </dd>
+          
+            <dt id="deadlinecloud-BatchGetJobEntity-response-errors"><span class="term">
+               <b>
+                  <a href="#API_BatchGetJobEntity_ResponseSyntax">errors</a>
+               </b>
+            </span></dt>
+            <dd>
+               <p>A list of errors from the job error logs for the batch.</p>
+               <p>Type: Array of <a href="./API_GetJobEntityError.html">GetJobEntityError</a> objects</p>
+            </dd>
+         </dl></div>
+    
+      <h2 id="API_BatchGetJobEntity_Errors">Errors</h2>
+      <p>For information about the errors that are common to all actions, see <a href="./CommonErrors.html">Common Errors</a>.</p>
+      <div class="variablelist">
+          
+          
+          
+          
+          
+      <dl>
+            <dt><span class="term">
+               <b>
+                  AccessDeniedException
+               </b>
+            </span></dt>
+            <dd>
+               <p>You don't have permission to perform the action.</p>
+               <div class="variablelist">
+                   
+               <dl>
+                     <dt><span class="term">
+                        <b>
+                           context
+                        </b>
+                     </span></dt>
+                     <dd>
+                        <p>Information about the resources in use when the exception was thrown.</p>
+                     </dd>
+                  </dl></div>
+               <p>HTTP Status Code: 403</p>
+            </dd>
+          
+            <dt><span class="term">
+               <b>
+                  InternalServerErrorException
+               </b>
+            </span></dt>
+            <dd>
+               <p>Deadline Cloud can't process your request right now. Try again later.</p>
+               <div class="variablelist">
+                   
+               <dl>
+                     <dt><span class="term">
+                        <b>
+                           retryAfterSeconds
+                        </b>
+                     </span></dt>
+                     <dd>
+                        <p>The number of seconds a client should wait before retrying the request.</p>
+                     </dd>
+                  </dl></div>
+               <p>HTTP Status Code: 500</p>
+            </dd>
+          
+            <dt><span class="term">
+               <b>
+                  ResourceNotFoundException
+               </b>
+            </span></dt>
+            <dd>
+               <p>The requested resource can't be found.</p>
+               <div class="variablelist">
+                   
+                   
+                   
+               <dl>
+                     <dt><span class="term">
+                        <b>
+                           context
+                        </b>
+                     </span></dt>
+                     <dd>
+                        <p>Information about the resources in use when the exception was thrown.</p>
+                     </dd>
+                   
+                     <dt><span class="term">
+                        <b>
+                           resourceId
+                        </b>
+                     </span></dt>
+                     <dd>
+                        <p>The identifier of the resource that couldn't be found.</p>
+                     </dd>
+                   
+                     <dt><span class="term">
+                        <b>
+                           resourceType
+                        </b>
+                     </span></dt>
+                     <dd>
+                        <p>The type of the resource that couldn't be found.</p>
+                     </dd>
+                  </dl></div>
+               <p>HTTP Status Code: 404</p>
+            </dd>
+          
+            <dt><span class="term">
+               <b>
+                  ThrottlingException
+               </b>
+            </span></dt>
+            <dd>
+               <p>Your request exceeded a request rate quota.</p>
+               <div class="variablelist">
+                   
+                   
+                   
+                   
+               <dl>
+                     <dt><span class="term">
+                        <b>
+                           context
+                        </b>
+                     </span></dt>
+                     <dd>
+                        <p>Information about the resources in use when the exception was thrown.</p>
+                     </dd>
+                   
+                     <dt><span class="term">
+                        <b>
+                           quotaCode
+                        </b>
+                     </span></dt>
+                     <dd>
+                        <p>Identifies the quota that is being throttled.</p>
+                     </dd>
+                   
+                     <dt><span class="term">
+                        <b>
+                           retryAfterSeconds
+                        </b>
+                     </span></dt>
+                     <dd>
+                        <p>The number of seconds a client should wait before retrying the request.</p>
+                     </dd>
+                   
+                     <dt><span class="term">
+                        <b>
+                           serviceCode
+                        </b>
+                     </span></dt>
+                     <dd>
+                        <p>Identifies the service that is being throttled.</p>
+                     </dd>
+                  </dl></div>
+               <p>HTTP Status Code: 429</p>
+            </dd>
+          
+            <dt><span class="term">
+               <b>
+                  ValidationException
+               </b>
+            </span></dt>
+            <dd>
+               <p>The request isn't valid. This can occur if your request contains malformed JSON or
+         unsupported characters.</p>
+               <div class="variablelist">
+                   
+                   
+                   
+               <dl>
+                     <dt><span class="term">
+                        <b>
+                           context
+                        </b>
+                     </span></dt>
+                     <dd>
+                        <p>Information about the resources in use when the exception was thrown.</p>
+                     </dd>
+                   
+                     <dt><span class="term">
+                        <b>
+                           fieldList
+                        </b>
+                     </span></dt>
+                     <dd>
+                        <p>A list of fields that failed validation.</p>
+                     </dd>
+                   
+                     <dt><span class="term">
+                        <b>
+                           reason
+                        </b>
+                     </span></dt>
+                     <dd>
+                        <p>The reason that the request failed validation.</p>
+                     </dd>
+                  </dl></div>
+               <p>HTTP Status Code: 400</p>
+            </dd>
+         </dl></div>
+    
+      <h2 id="API_BatchGetJobEntity_SeeAlso">See Also</h2>
+      <p>For more information about using this API in one of the language-specific AWS SDKs, see the following:</p>
+      <div class="itemizedlist">
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+      <ul class="itemizedlist"><li class="listitem">
+            <p>
+               <a href="https://docs.aws.amazon.com/goto/cli2/deadline-2023-10-12/BatchGetJobEntity">AWS Command Line Interface</a>
+            </p>
+         </li><li class="listitem">
+            <p>
+               <a href="https://docs.aws.amazon.com/goto/DotNetSDKV3/deadline-2023-10-12/BatchGetJobEntity">AWS SDK for .NET</a>
+            </p>
+         </li><li class="listitem">
+            <p>
+               <a href="https://docs.aws.amazon.com/goto/SdkForCpp/deadline-2023-10-12/BatchGetJobEntity">AWS SDK for C++</a>
+            </p>
+         </li><li class="listitem">
+            <p>
+               <a href="https://docs.aws.amazon.com/goto/SdkForGoV2/deadline-2023-10-12/BatchGetJobEntity">AWS SDK for Go v2</a>
+            </p>
+         </li><li class="listitem">
+            <p>
+               <a href="https://docs.aws.amazon.com/goto/SdkForJavaV2/deadline-2023-10-12/BatchGetJobEntity">AWS SDK for Java V2</a>
+            </p>
+         </li><li class="listitem">
+            <p>
+               <a href="https://docs.aws.amazon.com/goto/SdkForJavaScriptV3/deadline-2023-10-12/BatchGetJobEntity">AWS SDK for JavaScript V3</a>
+            </p>
+         </li><li class="listitem">
+            <p>
+               <a href="https://docs.aws.amazon.com/goto/SdkForKotlin/deadline-2023-10-12/BatchGetJobEntity">AWS SDK for Kotlin</a>
+            </p>
+         </li><li class="listitem">
+            <p>
+               <a href="https://docs.aws.amazon.com/goto/SdkForPHPV3/deadline-2023-10-12/BatchGetJobEntity">AWS SDK for PHP V3</a>
+            </p>
+         </li><li class="listitem">
+            <p>
+               <a href="https://docs.aws.amazon.com/goto/boto3/deadline-2023-10-12/BatchGetJobEntity">AWS SDK for Python</a>
+            </p>
+         </li><li class="listitem">
+            <p>
+               <a href="https://docs.aws.amazon.com/goto/SdkForRubyV3/deadline-2023-10-12/BatchGetJobEntity">AWS SDK for Ruby V3</a>
+            </p>
+         </li></ul></div>
+   <awsdocs-copyright class="copyright-print"></awsdocs-copyright><awsdocs-thumb-feedback right-edge="{{$ctrl.thumbFeedbackRightEdge}}"></awsdocs-thumb-feedback></div><noscript><div><div><div><div id="js_error_message"><p><img src="https://d1ge0kk1l5kms0.cloudfront.net/images/G/01/webservices/console/warning.png" alt="Warning" /> <strong>Javascript is disabled or is unavailable in your browser.</strong></p><p>To use the Amazon Web Services Documentation, Javascript must be enabled. Please refer to your browser's Help pages for instructions.</p></div></div></div></div></noscript><div id="main-col-footer" class="awsui-util-font-size-0"><div id="doc-conventions"><a target="_top" href="/general/latest/gr/docconventions.html">Document Conventions</a></div><div class="prev-next"><div id="previous" class="prev-link" accesskey="p" href="./API_AssumeQueueRoleForWorker.html">AssumeQueueRoleForWorker</div><div id="next" class="next-link" accesskey="n" href="./API_CopyJobTemplate.html">CopyJobTemplate</div></div></div><awsdocs-page-utilities></awsdocs-page-utilities></div><div id="quick-feedback-yes" style="display: none;"><div class="title">Did this page help you? - Yes</div><div class="content"><p>Thanks for letting us know we're doing a good job!</p><p>If you've got a moment, please tell us what we did right so we can do more of it.</p><p><awsui-button id="fblink" rel="noopener noreferrer" target="_blank" text="Feedback" click="linkClick($event)" href="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=AWS/Documentation/Deadline Cloud&amp;topic_url=https://docs.aws.amazon.com/en_us/deadline-cloud/latest/APIReference/API_BatchGetJobEntity.html"></awsui-button></p></div></div><div id="quick-feedback-no" style="display: none;"><div class="title">Did this page help you? - No</div><div class="content"><p>Thanks for letting us know this page needs work. We're sorry we let you down.</p><p>If you've got a moment, please tell us how we can make the documentation better.</p><p><awsui-button id="fblink" rel="noopener noreferrer" target="_blank" text="Feedback" click="linkClick($event)" href="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=AWS/Documentation/Deadline Cloud&amp;topic_url=https://docs.aws.amazon.com/en_us/deadline-cloud/latest/APIReference/API_BatchGetJobEntity.html"></awsui-button></p></div></div></div></body></div></awsdocs-view><div class="page-loading-indicator" id="page-loading-indicator"><awsui-spinner size="large"></awsui-spinner></div></div><div id="tools-panel" dom-region="tools"><awsdocs-tools-panel id="awsdocs-tools-panel"></awsdocs-tools-panel></div></awsui-app-layout><awsdocs-cookie-banner class="doc-cookie-banner"></awsdocs-cookie-banner></div></body></html>

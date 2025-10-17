@@ -320,10 +320,19 @@ def convert_tag_to_markdown(
 ) -> tuple[Path, str]:
     """Convert an extracted HTML fragment into Markdown."""
 
+    _strip_code_block_links(main)
     rewrite_doc_links(main, url, output_root, link_checker)
     markdown = convert_html_to_markdown(str(main))
     output_path = url_to_output_path(url, output_root)
     return output_path, markdown
+
+
+def _strip_code_block_links(container: Tag) -> None:
+    """Remove hyperlinks that appear within code or preformatted blocks."""
+
+    for anchor in container.find_all("a"):
+        if anchor.find_parent(["code", "pre"]):
+            anchor.replace_with(anchor.get_text())
 
 
 def convert_page(
