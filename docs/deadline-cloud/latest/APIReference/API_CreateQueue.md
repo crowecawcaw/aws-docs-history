@@ -14,28 +14,28 @@ X-Amz-Client-Token: `clientToken`
 Content-type: application/json
 
 {
-   "[allowedStorageProfileIds](#deadlinecloud-CreateQueue-request-allowedStorageProfileIds "#deadlinecloud-CreateQueue-request-allowedStorageProfileIds")": [ "`string`" ],
-   "[defaultBudgetAction](#deadlinecloud-CreateQueue-request-defaultBudgetAction "#deadlinecloud-CreateQueue-request-defaultBudgetAction")": "`string`",
-   "[description](#deadlinecloud-CreateQueue-request-description "#deadlinecloud-CreateQueue-request-description")": "`string`",
-   "[displayName](#deadlinecloud-CreateQueue-request-displayName "#deadlinecloud-CreateQueue-request-displayName")": "`string`",
-   "[jobAttachmentSettings](#deadlinecloud-CreateQueue-request-jobAttachmentSettings "#deadlinecloud-CreateQueue-request-jobAttachmentSettings")": { 
-      "[rootPrefix](API_JobAttachmentSettings.md#deadlinecloud-Type-JobAttachmentSettings-rootPrefix "API_JobAttachmentSettings.md#deadlinecloud-Type-JobAttachmentSettings-rootPrefix")": "`string`",
-      "[s3BucketName](API_JobAttachmentSettings.md#deadlinecloud-Type-JobAttachmentSettings-s3BucketName "API_JobAttachmentSettings.md#deadlinecloud-Type-JobAttachmentSettings-s3BucketName")": "`string`"
+   "allowedStorageProfileIds": [ "`string`" ],
+   "defaultBudgetAction": "`string`",
+   "description": "`string`",
+   "displayName": "`string`",
+   "jobAttachmentSettings": { 
+      "rootPrefix": "`string`",
+      "s3BucketName": "`string`"
    },
-   "[jobRunAsUser](#deadlinecloud-CreateQueue-request-jobRunAsUser "#deadlinecloud-CreateQueue-request-jobRunAsUser")": { 
-      "[posix](API_JobRunAsUser.md#deadlinecloud-Type-JobRunAsUser-posix "API_JobRunAsUser.md#deadlinecloud-Type-JobRunAsUser-posix")": { 
-         "[group](API_PosixUser.md#deadlinecloud-Type-PosixUser-group "API_PosixUser.md#deadlinecloud-Type-PosixUser-group")": "`string`",
-         "[user](API_PosixUser.md#deadlinecloud-Type-PosixUser-user "API_PosixUser.md#deadlinecloud-Type-PosixUser-user")": "`string`"
+   "jobRunAsUser": { 
+      "posix": { 
+         "group": "`string`",
+         "user": "`string`"
       },
-      "[runAs](API_JobRunAsUser.md#deadlinecloud-Type-JobRunAsUser-runAs "API_JobRunAsUser.md#deadlinecloud-Type-JobRunAsUser-runAs")": "`string`",
-      "[windows](API_JobRunAsUser.md#deadlinecloud-Type-JobRunAsUser-windows "API_JobRunAsUser.md#deadlinecloud-Type-JobRunAsUser-windows")": { 
-         "[passwordArn](API_WindowsUser.md#deadlinecloud-Type-WindowsUser-passwordArn "API_WindowsUser.md#deadlinecloud-Type-WindowsUser-passwordArn")": "`string`",
-         "[user](API_WindowsUser.md#deadlinecloud-Type-WindowsUser-user "API_WindowsUser.md#deadlinecloud-Type-WindowsUser-user")": "`string`"
+      "runAs": "`string`",
+      "windows": { 
+         "passwordArn": "`string`",
+         "user": "`string`"
       }
    },
-   "[requiredFileSystemLocationNames](#deadlinecloud-CreateQueue-request-requiredFileSystemLocationNames "#deadlinecloud-CreateQueue-request-requiredFileSystemLocationNames")": [ "`string`" ],
-   "[roleArn](#deadlinecloud-CreateQueue-request-roleArn "#deadlinecloud-CreateQueue-request-roleArn")": "`string`",
-   "[tags](#deadlinecloud-CreateQueue-request-tags "#deadlinecloud-CreateQueue-request-tags")": { 
+   "requiredFileSystemLocationNames": [ "`string`" ],
+   "roleArn": "`string`",
+   "tags": { 
       "`string`" : "`string`" 
    }
 }
@@ -262,7 +262,7 @@ HTTP/1.1 200
 Content-type: application/json
 
 {
-   "[queueId](#deadlinecloud-CreateQueue-response-queueId "#deadlinecloud-CreateQueue-response-queueId")": "***string***"
+   "queueId": "***string***"
 }
 ```
 

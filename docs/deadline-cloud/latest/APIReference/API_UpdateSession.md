@@ -13,7 +13,7 @@ X-Amz-Client-Token: `clientToken`
 Content-type: application/json
 
 {
-   "[targetLifecycleStatus](#deadlinecloud-UpdateSession-request-targetLifecycleStatus "#deadlinecloud-UpdateSession-request-targetLifecycleStatus")": "`string`"
+   "targetLifecycleStatus": "`string`"
 }
 ```
 

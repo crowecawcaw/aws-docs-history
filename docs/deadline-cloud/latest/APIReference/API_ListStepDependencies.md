@@ -115,13 +115,13 @@ HTTP/1.1 200
 Content-type: application/json
 
 {
-   "[dependencies](#deadlinecloud-ListStepDependencies-response-dependencies "#deadlinecloud-ListStepDependencies-response-dependencies")": [ 
+   "dependencies": [ 
       { 
-         "[status](API_StepDependency.md#deadlinecloud-Type-StepDependency-status "API_StepDependency.md#deadlinecloud-Type-StepDependency-status")": "***string***",
-         "[stepId](API_StepDependency.md#deadlinecloud-Type-StepDependency-stepId "API_StepDependency.md#deadlinecloud-Type-StepDependency-stepId")": "***string***"
+         "status": "***string***",
+         "stepId": "***string***"
       }
    ],
-   "[nextToken](#deadlinecloud-ListStepDependencies-response-nextToken "#deadlinecloud-ListStepDependencies-response-nextToken")": "***string***"
+   "nextToken": "***string***"
 }
 ```
 

@@ -13,9 +13,9 @@ X-Amz-Client-Token: `clientToken`
 Content-type: application/json
 
 {
-   "[priority](#deadlinecloud-UpdateQueueEnvironment-request-priority "#deadlinecloud-UpdateQueueEnvironment-request-priority")": `number`,
-   "[template](#deadlinecloud-UpdateQueueEnvironment-request-template "#deadlinecloud-UpdateQueueEnvironment-request-template")": "`string`",
-   "[templateType](#deadlinecloud-UpdateQueueEnvironment-request-templateType "#deadlinecloud-UpdateQueueEnvironment-request-templateType")": "`string`"
+   "priority": `number`,
+   "template": "`string`",
+   "templateType": "`string`"
 }
 ```
 

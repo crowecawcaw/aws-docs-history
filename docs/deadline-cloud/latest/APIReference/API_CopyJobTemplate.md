@@ -12,9 +12,9 @@ POST /2023-10-12/farms/`farmId`/queues/`queueId`/jobs/`jobId`/template HTTP/1.1
 Content-type: application/json
 
 {
-   "[targetS3Location](#deadlinecloud-CopyJobTemplate-request-targetS3Location "#deadlinecloud-CopyJobTemplate-request-targetS3Location")": { 
-      "[bucketName](API_S3Location.md#deadlinecloud-Type-S3Location-bucketName "API_S3Location.md#deadlinecloud-Type-S3Location-bucketName")": "`string`",
-      "[key](API_S3Location.md#deadlinecloud-Type-S3Location-key "API_S3Location.md#deadlinecloud-Type-S3Location-key")": "`string`"
+   "targetS3Location": { 
+      "bucketName": "`string`",
+      "key": "`string`"
    }
 }
 ```
@@ -106,7 +106,7 @@ HTTP/1.1 200
 Content-type: application/json
 
 {
-   "[templateType](#deadlinecloud-CopyJobTemplate-response-templateType "#deadlinecloud-CopyJobTemplate-response-templateType")": "***string***"
+   "templateType": "***string***"
 }
 ```
 

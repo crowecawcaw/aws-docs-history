@@ -13,24 +13,24 @@ X-Amz-Client-Token: `clientToken`
 Content-type: application/json
 
 {
-   "[actionsToAdd](#deadlinecloud-UpdateBudget-request-actionsToAdd "#deadlinecloud-UpdateBudget-request-actionsToAdd")": [ 
+   "actionsToAdd": [ 
       { 
-         "[description](API_BudgetActionToAdd.md#deadlinecloud-Type-BudgetActionToAdd-description "API_BudgetActionToAdd.md#deadlinecloud-Type-BudgetActionToAdd-description")": "`string`",
-         "[thresholdPercentage](API_BudgetActionToAdd.md#deadlinecloud-Type-BudgetActionToAdd-thresholdPercentage "API_BudgetActionToAdd.md#deadlinecloud-Type-BudgetActionToAdd-thresholdPercentage")": `number`,
-         "[type](API_BudgetActionToAdd.md#deadlinecloud-Type-BudgetActionToAdd-type "API_BudgetActionToAdd.md#deadlinecloud-Type-BudgetActionToAdd-type")": "`string`"
+         "description": "`string`",
+         "thresholdPercentage": `number`,
+         "type": "`string`"
       }
    ],
-   "[actionsToRemove](#deadlinecloud-UpdateBudget-request-actionsToRemove "#deadlinecloud-UpdateBudget-request-actionsToRemove")": [ 
+   "actionsToRemove": [ 
       { 
-         "[thresholdPercentage](API_BudgetActionToRemove.md#deadlinecloud-Type-BudgetActionToRemove-thresholdPercentage "API_BudgetActionToRemove.md#deadlinecloud-Type-BudgetActionToRemove-thresholdPercentage")": `number`,
-         "[type](API_BudgetActionToRemove.md#deadlinecloud-Type-BudgetActionToRemove-type "API_BudgetActionToRemove.md#deadlinecloud-Type-BudgetActionToRemove-type")": "`string`"
+         "thresholdPercentage": `number`,
+         "type": "`string`"
       }
    ],
-   "[approximateDollarLimit](#deadlinecloud-UpdateBudget-request-approximateDollarLimit "#deadlinecloud-UpdateBudget-request-approximateDollarLimit")": `number`,
-   "[description](#deadlinecloud-UpdateBudget-request-description "#deadlinecloud-UpdateBudget-request-description")": "`string`",
-   "[displayName](#deadlinecloud-UpdateBudget-request-displayName "#deadlinecloud-UpdateBudget-request-displayName")": "`string`",
-   "[schedule](#deadlinecloud-UpdateBudget-request-schedule "#deadlinecloud-UpdateBudget-request-schedule")": { ... },
-   "[status](#deadlinecloud-UpdateBudget-request-status "#deadlinecloud-UpdateBudget-request-status")": "`string`"
+   "approximateDollarLimit": `number`,
+   "description": "`string`",
+   "displayName": "`string`",
+   "schedule": { ... },
+   "status": "`string`"
 }
 ```
 

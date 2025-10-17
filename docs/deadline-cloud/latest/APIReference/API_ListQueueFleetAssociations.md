@@ -94,16 +94,16 @@ HTTP/1.1 200
 Content-type: application/json
 
 {
-   "[nextToken](#deadlinecloud-ListQueueFleetAssociations-response-nextToken "#deadlinecloud-ListQueueFleetAssociations-response-nextToken")": "***string***",
-   "[queueFleetAssociations](#deadlinecloud-ListQueueFleetAssociations-response-queueFleetAssociations "#deadlinecloud-ListQueueFleetAssociations-response-queueFleetAssociations")": [ 
+   "nextToken": "***string***",
+   "queueFleetAssociations": [ 
       { 
-         "[createdAt](API_QueueFleetAssociationSummary.md#deadlinecloud-Type-QueueFleetAssociationSummary-createdAt "API_QueueFleetAssociationSummary.md#deadlinecloud-Type-QueueFleetAssociationSummary-createdAt")": "***string***",
-         "[createdBy](API_QueueFleetAssociationSummary.md#deadlinecloud-Type-QueueFleetAssociationSummary-createdBy "API_QueueFleetAssociationSummary.md#deadlinecloud-Type-QueueFleetAssociationSummary-createdBy")": "***string***",
-         "[fleetId](API_QueueFleetAssociationSummary.md#deadlinecloud-Type-QueueFleetAssociationSummary-fleetId "API_QueueFleetAssociationSummary.md#deadlinecloud-Type-QueueFleetAssociationSummary-fleetId")": "***string***",
-         "[queueId](API_QueueFleetAssociationSummary.md#deadlinecloud-Type-QueueFleetAssociationSummary-queueId "API_QueueFleetAssociationSummary.md#deadlinecloud-Type-QueueFleetAssociationSummary-queueId")": "***string***",
-         "[status](API_QueueFleetAssociationSummary.md#deadlinecloud-Type-QueueFleetAssociationSummary-status "API_QueueFleetAssociationSummary.md#deadlinecloud-Type-QueueFleetAssociationSummary-status")": "***string***",
-         "[updatedAt](API_QueueFleetAssociationSummary.md#deadlinecloud-Type-QueueFleetAssociationSummary-updatedAt "API_QueueFleetAssociationSummary.md#deadlinecloud-Type-QueueFleetAssociationSummary-updatedAt")": "***string***",
-         "[updatedBy](API_QueueFleetAssociationSummary.md#deadlinecloud-Type-QueueFleetAssociationSummary-updatedBy "API_QueueFleetAssociationSummary.md#deadlinecloud-Type-QueueFleetAssociationSummary-updatedBy")": "***string***"
+         "createdAt": "***string***",
+         "createdBy": "***string***",
+         "fleetId": "***string***",
+         "queueId": "***string***",
+         "status": "***string***",
+         "updatedAt": "***string***",
+         "updatedBy": "***string***"
       }
    ]
 }

@@ -47,7 +47,7 @@ HTTP/1.1 200
 Content-type: application/json
 
 {
-   "[tags](#deadlinecloud-ListTagsForResource-response-tags "#deadlinecloud-ListTagsForResource-response-tags")": { 
+   "tags": { 
       "***string***" : "***string***" 
    }
 }

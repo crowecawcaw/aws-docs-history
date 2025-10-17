@@ -51,13 +51,13 @@ HTTP/1.1 200
 Content-type: application/json
 
 {
-   "[dnsName](#deadlinecloud-GetLicenseEndpoint-response-dnsName "#deadlinecloud-GetLicenseEndpoint-response-dnsName")": "***string***",
-   "[licenseEndpointId](#deadlinecloud-GetLicenseEndpoint-response-licenseEndpointId "#deadlinecloud-GetLicenseEndpoint-response-licenseEndpointId")": "***string***",
-   "[securityGroupIds](#deadlinecloud-GetLicenseEndpoint-response-securityGroupIds "#deadlinecloud-GetLicenseEndpoint-response-securityGroupIds")": [ "***string***" ],
-   "[status](#deadlinecloud-GetLicenseEndpoint-response-status "#deadlinecloud-GetLicenseEndpoint-response-status")": "***string***",
-   "[statusMessage](#deadlinecloud-GetLicenseEndpoint-response-statusMessage "#deadlinecloud-GetLicenseEndpoint-response-statusMessage")": "***string***",
-   "[subnetIds](#deadlinecloud-GetLicenseEndpoint-response-subnetIds "#deadlinecloud-GetLicenseEndpoint-response-subnetIds")": [ "***string***" ],
-   "[vpcId](#deadlinecloud-GetLicenseEndpoint-response-vpcId "#deadlinecloud-GetLicenseEndpoint-response-vpcId")": "***string***"
+   "dnsName": "***string***",
+   "licenseEndpointId": "***string***",
+   "securityGroupIds": [ "***string***" ],
+   "status": "***string***",
+   "statusMessage": "***string***",
+   "subnetIds": [ "***string***" ],
+   "vpcId": "***string***"
 }
 ```
 

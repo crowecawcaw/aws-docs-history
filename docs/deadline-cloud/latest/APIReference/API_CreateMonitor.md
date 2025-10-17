@@ -15,11 +15,11 @@ X-Amz-Client-Token: `clientToken`
 Content-type: application/json
 
 {
-   "[displayName](#deadlinecloud-CreateMonitor-request-displayName "#deadlinecloud-CreateMonitor-request-displayName")": "`string`",
-   "[identityCenterInstanceArn](#deadlinecloud-CreateMonitor-request-identityCenterInstanceArn "#deadlinecloud-CreateMonitor-request-identityCenterInstanceArn")": "`string`",
-   "[roleArn](#deadlinecloud-CreateMonitor-request-roleArn "#deadlinecloud-CreateMonitor-request-roleArn")": "`string`",
-   "[subdomain](#deadlinecloud-CreateMonitor-request-subdomain "#deadlinecloud-CreateMonitor-request-subdomain")": "`string`",
-   "[tags](#deadlinecloud-CreateMonitor-request-tags "#deadlinecloud-CreateMonitor-request-tags")": { 
+   "displayName": "`string`",
+   "identityCenterInstanceArn": "`string`",
+   "roleArn": "`string`",
+   "subdomain": "`string`",
+   "tags": { 
       "`string`" : "`string`" 
    }
 }
@@ -156,8 +156,8 @@ HTTP/1.1 200
 Content-type: application/json
 
 {
-   "[identityCenterApplicationArn](#deadlinecloud-CreateMonitor-response-identityCenterApplicationArn "#deadlinecloud-CreateMonitor-response-identityCenterApplicationArn")": "***string***",
-   "[monitorId](#deadlinecloud-CreateMonitor-response-monitorId "#deadlinecloud-CreateMonitor-response-monitorId")": "***string***"
+   "identityCenterApplicationArn": "***string***",
+   "monitorId": "***string***"
 }
 ```
 

@@ -12,7 +12,7 @@ POST /2023-10-12/farms/`farmId`/fleets/`fleetId`/workers/`workerId`/batchGetJobE
 Content-type: application/json
 
 {
-   "[identifiers](#deadlinecloud-BatchGetJobEntity-request-identifiers "#deadlinecloud-BatchGetJobEntity-request-identifiers")": [ 
+   "identifiers": [ 
       { ... }
    ]
 }
@@ -109,10 +109,10 @@ HTTP/1.1 200
 Content-type: application/json
 
 {
-   "[entities](#deadlinecloud-BatchGetJobEntity-response-entities "#deadlinecloud-BatchGetJobEntity-response-entities")": [ 
+   "entities": [ 
       { ... }
    ],
-   "[errors](#deadlinecloud-BatchGetJobEntity-response-errors "#deadlinecloud-BatchGetJobEntity-response-errors")": [ 
+   "errors": [ 
       { ... }
    ]
 }

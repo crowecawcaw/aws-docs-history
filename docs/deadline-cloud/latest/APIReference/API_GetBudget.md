@@ -66,28 +66,28 @@ HTTP/1.1 200
 Content-type: application/json
 
 {
-   "[actions](#deadlinecloud-GetBudget-response-actions "#deadlinecloud-GetBudget-response-actions")": [ 
+   "actions": [ 
       { 
-         "[description](API_ResponseBudgetAction.md#deadlinecloud-Type-ResponseBudgetAction-description "API_ResponseBudgetAction.md#deadlinecloud-Type-ResponseBudgetAction-description")": "***string***",
-         "[thresholdPercentage](API_ResponseBudgetAction.md#deadlinecloud-Type-ResponseBudgetAction-thresholdPercentage "API_ResponseBudgetAction.md#deadlinecloud-Type-ResponseBudgetAction-thresholdPercentage")": ***number***,
-         "[type](API_ResponseBudgetAction.md#deadlinecloud-Type-ResponseBudgetAction-type "API_ResponseBudgetAction.md#deadlinecloud-Type-ResponseBudgetAction-type")": "***string***"
+         "description": "***string***",
+         "thresholdPercentage": ***number***,
+         "type": "***string***"
       }
    ],
-   "[approximateDollarLimit](#deadlinecloud-GetBudget-response-approximateDollarLimit "#deadlinecloud-GetBudget-response-approximateDollarLimit")": ***number***,
-   "[budgetId](#deadlinecloud-GetBudget-response-budgetId "#deadlinecloud-GetBudget-response-budgetId")": "***string***",
-   "[createdAt](#deadlinecloud-GetBudget-response-createdAt "#deadlinecloud-GetBudget-response-createdAt")": "***string***",
-   "[createdBy](#deadlinecloud-GetBudget-response-createdBy "#deadlinecloud-GetBudget-response-createdBy")": "***string***",
-   "[description](#deadlinecloud-GetBudget-response-description "#deadlinecloud-GetBudget-response-description")": "***string***",
-   "[displayName](#deadlinecloud-GetBudget-response-displayName "#deadlinecloud-GetBudget-response-displayName")": "***string***",
-   "[queueStoppedAt](#deadlinecloud-GetBudget-response-queueStoppedAt "#deadlinecloud-GetBudget-response-queueStoppedAt")": "***string***",
-   "[schedule](#deadlinecloud-GetBudget-response-schedule "#deadlinecloud-GetBudget-response-schedule")": { ... },
-   "[status](#deadlinecloud-GetBudget-response-status "#deadlinecloud-GetBudget-response-status")": "***string***",
-   "[updatedAt](#deadlinecloud-GetBudget-response-updatedAt "#deadlinecloud-GetBudget-response-updatedAt")": "***string***",
-   "[updatedBy](#deadlinecloud-GetBudget-response-updatedBy "#deadlinecloud-GetBudget-response-updatedBy")": "***string***",
-   "[usages](#deadlinecloud-GetBudget-response-usages "#deadlinecloud-GetBudget-response-usages")": { 
-      "[approximateDollarUsage](API_ConsumedUsages.md#deadlinecloud-Type-ConsumedUsages-approximateDollarUsage "API_ConsumedUsages.md#deadlinecloud-Type-ConsumedUsages-approximateDollarUsage")": ***number***
+   "approximateDollarLimit": ***number***,
+   "budgetId": "***string***",
+   "createdAt": "***string***",
+   "createdBy": "***string***",
+   "description": "***string***",
+   "displayName": "***string***",
+   "queueStoppedAt": "***string***",
+   "schedule": { ... },
+   "status": "***string***",
+   "updatedAt": "***string***",
+   "updatedBy": "***string***",
+   "usages": { 
+      "approximateDollarUsage": ***number***
    },
-   "[usageTrackingResource](#deadlinecloud-GetBudget-response-usageTrackingResource "#deadlinecloud-GetBudget-response-usageTrackingResource")": { ... }
+   "usageTrackingResource": { ... }
 }
 ```
 

@@ -85,12 +85,12 @@ HTTP/1.1 200
 Content-type: application/json
 
 {
-   "[nextToken](#deadlinecloud-ListStorageProfilesForQueue-response-nextToken "#deadlinecloud-ListStorageProfilesForQueue-response-nextToken")": "***string***",
-   "[storageProfiles](#deadlinecloud-ListStorageProfilesForQueue-response-storageProfiles "#deadlinecloud-ListStorageProfilesForQueue-response-storageProfiles")": [ 
+   "nextToken": "***string***",
+   "storageProfiles": [ 
       { 
-         "[displayName](API_StorageProfileSummary.md#deadlinecloud-Type-StorageProfileSummary-displayName "API_StorageProfileSummary.md#deadlinecloud-Type-StorageProfileSummary-displayName")": "***string***",
-         "[osFamily](API_StorageProfileSummary.md#deadlinecloud-Type-StorageProfileSummary-osFamily "API_StorageProfileSummary.md#deadlinecloud-Type-StorageProfileSummary-osFamily")": "***string***",
-         "[storageProfileId](API_StorageProfileSummary.md#deadlinecloud-Type-StorageProfileSummary-storageProfileId "API_StorageProfileSummary.md#deadlinecloud-Type-StorageProfileSummary-storageProfileId")": "***string***"
+         "displayName": "***string***",
+         "osFamily": "***string***",
+         "storageProfileId": "***string***"
       }
    ]
 }

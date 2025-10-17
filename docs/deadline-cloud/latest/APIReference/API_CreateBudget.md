@@ -13,18 +13,18 @@ X-Amz-Client-Token: `clientToken`
 Content-type: application/json
 
 {
-   "[actions](#deadlinecloud-CreateBudget-request-actions "#deadlinecloud-CreateBudget-request-actions")": [ 
+   "actions": [ 
       { 
-         "[description](API_BudgetActionToAdd.md#deadlinecloud-Type-BudgetActionToAdd-description "API_BudgetActionToAdd.md#deadlinecloud-Type-BudgetActionToAdd-description")": "`string`",
-         "[thresholdPercentage](API_BudgetActionToAdd.md#deadlinecloud-Type-BudgetActionToAdd-thresholdPercentage "API_BudgetActionToAdd.md#deadlinecloud-Type-BudgetActionToAdd-thresholdPercentage")": `number`,
-         "[type](API_BudgetActionToAdd.md#deadlinecloud-Type-BudgetActionToAdd-type "API_BudgetActionToAdd.md#deadlinecloud-Type-BudgetActionToAdd-type")": "`string`"
+         "description": "`string`",
+         "thresholdPercentage": `number`,
+         "type": "`string`"
       }
    ],
-   "[approximateDollarLimit](#deadlinecloud-CreateBudget-request-approximateDollarLimit "#deadlinecloud-CreateBudget-request-approximateDollarLimit")": `number`,
-   "[description](#deadlinecloud-CreateBudget-request-description "#deadlinecloud-CreateBudget-request-description")": "`string`",
-   "[displayName](#deadlinecloud-CreateBudget-request-displayName "#deadlinecloud-CreateBudget-request-displayName")": "`string`",
-   "[schedule](#deadlinecloud-CreateBudget-request-schedule "#deadlinecloud-CreateBudget-request-schedule")": { ... },
-   "[usageTrackingResource](#deadlinecloud-CreateBudget-request-usageTrackingResource "#deadlinecloud-CreateBudget-request-usageTrackingResource")": { ... }
+   "approximateDollarLimit": `number`,
+   "description": "`string`",
+   "displayName": "`string`",
+   "schedule": { ... },
+   "usageTrackingResource": { ... }
 }
 ```
 
@@ -195,7 +195,7 @@ HTTP/1.1 200
 Content-type: application/json
 
 {
-   "[budgetId](#deadlinecloud-CreateBudget-response-budgetId "#deadlinecloud-CreateBudget-response-budgetId")": "***string***"
+   "budgetId": "***string***"
 }
 ```
 

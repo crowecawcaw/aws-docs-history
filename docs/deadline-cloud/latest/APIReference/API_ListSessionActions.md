@@ -124,22 +124,22 @@ HTTP/1.1 200
 Content-type: application/json
 
 {
-   "[nextToken](#deadlinecloud-ListSessionActions-response-nextToken "#deadlinecloud-ListSessionActions-response-nextToken")": "***string***",
-   "[sessionActions](#deadlinecloud-ListSessionActions-response-sessionActions "#deadlinecloud-ListSessionActions-response-sessionActions")": [ 
+   "nextToken": "***string***",
+   "sessionActions": [ 
       { 
-         "[definition](API_SessionActionSummary.md#deadlinecloud-Type-SessionActionSummary-definition "API_SessionActionSummary.md#deadlinecloud-Type-SessionActionSummary-definition")": { ... },
-         "[endedAt](API_SessionActionSummary.md#deadlinecloud-Type-SessionActionSummary-endedAt "API_SessionActionSummary.md#deadlinecloud-Type-SessionActionSummary-endedAt")": "***string***",
-         "[manifests](API_SessionActionSummary.md#deadlinecloud-Type-SessionActionSummary-manifests "API_SessionActionSummary.md#deadlinecloud-Type-SessionActionSummary-manifests")": [ 
+         "definition": { ... },
+         "endedAt": "***string***",
+         "manifests": [ 
             { 
-               "[outputManifestHash](API_TaskRunManifestPropertiesResponse.md#deadlinecloud-Type-TaskRunManifestPropertiesResponse-outputManifestHash "API_TaskRunManifestPropertiesResponse.md#deadlinecloud-Type-TaskRunManifestPropertiesResponse-outputManifestHash")": "***string***",
-               "[outputManifestPath](API_TaskRunManifestPropertiesResponse.md#deadlinecloud-Type-TaskRunManifestPropertiesResponse-outputManifestPath "API_TaskRunManifestPropertiesResponse.md#deadlinecloud-Type-TaskRunManifestPropertiesResponse-outputManifestPath")": "***string***"
+               "outputManifestHash": "***string***",
+               "outputManifestPath": "***string***"
             }
          ],
-         "[progressPercent](API_SessionActionSummary.md#deadlinecloud-Type-SessionActionSummary-progressPercent "API_SessionActionSummary.md#deadlinecloud-Type-SessionActionSummary-progressPercent")": ***number***,
-         "[sessionActionId](API_SessionActionSummary.md#deadlinecloud-Type-SessionActionSummary-sessionActionId "API_SessionActionSummary.md#deadlinecloud-Type-SessionActionSummary-sessionActionId")": "***string***",
-         "[startedAt](API_SessionActionSummary.md#deadlinecloud-Type-SessionActionSummary-startedAt "API_SessionActionSummary.md#deadlinecloud-Type-SessionActionSummary-startedAt")": "***string***",
-         "[status](API_SessionActionSummary.md#deadlinecloud-Type-SessionActionSummary-status "API_SessionActionSummary.md#deadlinecloud-Type-SessionActionSummary-status")": "***string***",
-         "[workerUpdatedAt](API_SessionActionSummary.md#deadlinecloud-Type-SessionActionSummary-workerUpdatedAt "API_SessionActionSummary.md#deadlinecloud-Type-SessionActionSummary-workerUpdatedAt")": "***string***"
+         "progressPercent": ***number***,
+         "sessionActionId": "***string***",
+         "startedAt": "***string***",
+         "status": "***string***",
+         "workerUpdatedAt": "***string***"
       }
    ]
 }

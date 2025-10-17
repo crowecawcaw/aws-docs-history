@@ -13,9 +13,9 @@ PATCH /2023-10-12/monitors/`monitorId` HTTP/1.1
 Content-type: application/json
 
 {
-   "[displayName](#deadlinecloud-UpdateMonitor-request-displayName "#deadlinecloud-UpdateMonitor-request-displayName")": "`string`",
-   "[roleArn](#deadlinecloud-UpdateMonitor-request-roleArn "#deadlinecloud-UpdateMonitor-request-roleArn")": "`string`",
-   "[subdomain](#deadlinecloud-UpdateMonitor-request-subdomain "#deadlinecloud-UpdateMonitor-request-subdomain")": "`string`"
+   "displayName": "`string`",
+   "roleArn": "`string`",
+   "subdomain": "`string`"
 }
 ```
 

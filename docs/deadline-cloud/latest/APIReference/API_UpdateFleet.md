@@ -13,16 +13,16 @@ X-Amz-Client-Token: `clientToken`
 Content-type: application/json
 
 {
-   "[configuration](#deadlinecloud-UpdateFleet-request-configuration "#deadlinecloud-UpdateFleet-request-configuration")": { ... },
-   "[description](#deadlinecloud-UpdateFleet-request-description "#deadlinecloud-UpdateFleet-request-description")": "`string`",
-   "[displayName](#deadlinecloud-UpdateFleet-request-displayName "#deadlinecloud-UpdateFleet-request-displayName")": "`string`",
-   "[hostConfiguration](#deadlinecloud-UpdateFleet-request-hostConfiguration "#deadlinecloud-UpdateFleet-request-hostConfiguration")": { 
-      "[scriptBody](API_HostConfiguration.md#deadlinecloud-Type-HostConfiguration-scriptBody "API_HostConfiguration.md#deadlinecloud-Type-HostConfiguration-scriptBody")": "`string`",
-      "[scriptTimeoutSeconds](API_HostConfiguration.md#deadlinecloud-Type-HostConfiguration-scriptTimeoutSeconds "API_HostConfiguration.md#deadlinecloud-Type-HostConfiguration-scriptTimeoutSeconds")": `number`
+   "configuration": { ... },
+   "description": "`string`",
+   "displayName": "`string`",
+   "hostConfiguration": { 
+      "scriptBody": "`string`",
+      "scriptTimeoutSeconds": `number`
    },
-   "[maxWorkerCount](#deadlinecloud-UpdateFleet-request-maxWorkerCount "#deadlinecloud-UpdateFleet-request-maxWorkerCount")": `number`,
-   "[minWorkerCount](#deadlinecloud-UpdateFleet-request-minWorkerCount "#deadlinecloud-UpdateFleet-request-minWorkerCount")": `number`,
-   "[roleArn](#deadlinecloud-UpdateFleet-request-roleArn "#deadlinecloud-UpdateFleet-request-roleArn")": "`string`"
+   "maxWorkerCount": `number`,
+   "minWorkerCount": `number`,
+   "roleArn": "`string`"
 }
 ```
 

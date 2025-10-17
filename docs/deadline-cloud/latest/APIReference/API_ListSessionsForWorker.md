@@ -100,16 +100,16 @@ HTTP/1.1 200
 Content-type: application/json
 
 {
-   "[nextToken](#deadlinecloud-ListSessionsForWorker-response-nextToken "#deadlinecloud-ListSessionsForWorker-response-nextToken")": "***string***",
-   "[sessions](#deadlinecloud-ListSessionsForWorker-response-sessions "#deadlinecloud-ListSessionsForWorker-response-sessions")": [ 
+   "nextToken": "***string***",
+   "sessions": [ 
       { 
-         "[endedAt](API_WorkerSessionSummary.md#deadlinecloud-Type-WorkerSessionSummary-endedAt "API_WorkerSessionSummary.md#deadlinecloud-Type-WorkerSessionSummary-endedAt")": "***string***",
-         "[jobId](API_WorkerSessionSummary.md#deadlinecloud-Type-WorkerSessionSummary-jobId "API_WorkerSessionSummary.md#deadlinecloud-Type-WorkerSessionSummary-jobId")": "***string***",
-         "[lifecycleStatus](API_WorkerSessionSummary.md#deadlinecloud-Type-WorkerSessionSummary-lifecycleStatus "API_WorkerSessionSummary.md#deadlinecloud-Type-WorkerSessionSummary-lifecycleStatus")": "***string***",
-         "[queueId](API_WorkerSessionSummary.md#deadlinecloud-Type-WorkerSessionSummary-queueId "API_WorkerSessionSummary.md#deadlinecloud-Type-WorkerSessionSummary-queueId")": "***string***",
-         "[sessionId](API_WorkerSessionSummary.md#deadlinecloud-Type-WorkerSessionSummary-sessionId "API_WorkerSessionSummary.md#deadlinecloud-Type-WorkerSessionSummary-sessionId")": "***string***",
-         "[startedAt](API_WorkerSessionSummary.md#deadlinecloud-Type-WorkerSessionSummary-startedAt "API_WorkerSessionSummary.md#deadlinecloud-Type-WorkerSessionSummary-startedAt")": "***string***",
-         "[targetLifecycleStatus](API_WorkerSessionSummary.md#deadlinecloud-Type-WorkerSessionSummary-targetLifecycleStatus "API_WorkerSessionSummary.md#deadlinecloud-Type-WorkerSessionSummary-targetLifecycleStatus")": "***string***"
+         "endedAt": "***string***",
+         "jobId": "***string***",
+         "lifecycleStatus": "***string***",
+         "queueId": "***string***",
+         "sessionId": "***string***",
+         "startedAt": "***string***",
+         "targetLifecycleStatus": "***string***"
       }
    ]
 }

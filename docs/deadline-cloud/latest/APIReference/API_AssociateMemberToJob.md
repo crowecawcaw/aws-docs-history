@@ -12,9 +12,9 @@ PUT /2023-10-12/farms/`farmId`/queues/`queueId`/jobs/`jobId`/members/`principalI
 Content-type: application/json
 
 {
-   "[identityStoreId](#deadlinecloud-AssociateMemberToJob-request-identityStoreId "#deadlinecloud-AssociateMemberToJob-request-identityStoreId")": "`string`",
-   "[membershipLevel](#deadlinecloud-AssociateMemberToJob-request-membershipLevel "#deadlinecloud-AssociateMemberToJob-request-membershipLevel")": "`string`",
-   "[principalType](#deadlinecloud-AssociateMemberToJob-request-principalType "#deadlinecloud-AssociateMemberToJob-request-principalType")": "`string`"
+   "identityStoreId": "`string`",
+   "membershipLevel": "`string`",
+   "principalType": "`string`"
 }
 ```
 

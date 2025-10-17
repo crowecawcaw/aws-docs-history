@@ -13,22 +13,22 @@ X-Amz-Client-Token: `clientToken`
 Content-type: application/json
 
 {
-   "[displayName](#deadlinecloud-UpdateStorageProfile-request-displayName "#deadlinecloud-UpdateStorageProfile-request-displayName")": "`string`",
-   "[fileSystemLocationsToAdd](#deadlinecloud-UpdateStorageProfile-request-fileSystemLocationsToAdd "#deadlinecloud-UpdateStorageProfile-request-fileSystemLocationsToAdd")": [ 
+   "displayName": "`string`",
+   "fileSystemLocationsToAdd": [ 
       { 
-         "[name](API_FileSystemLocation.md#deadlinecloud-Type-FileSystemLocation-name "API_FileSystemLocation.md#deadlinecloud-Type-FileSystemLocation-name")": "`string`",
-         "[path](API_FileSystemLocation.md#deadlinecloud-Type-FileSystemLocation-path "API_FileSystemLocation.md#deadlinecloud-Type-FileSystemLocation-path")": "`string`",
-         "[type](API_FileSystemLocation.md#deadlinecloud-Type-FileSystemLocation-type "API_FileSystemLocation.md#deadlinecloud-Type-FileSystemLocation-type")": "`string`"
+         "name": "`string`",
+         "path": "`string`",
+         "type": "`string`"
       }
    ],
-   "[fileSystemLocationsToRemove](#deadlinecloud-UpdateStorageProfile-request-fileSystemLocationsToRemove "#deadlinecloud-UpdateStorageProfile-request-fileSystemLocationsToRemove")": [ 
+   "fileSystemLocationsToRemove": [ 
       { 
-         "[name](API_FileSystemLocation.md#deadlinecloud-Type-FileSystemLocation-name "API_FileSystemLocation.md#deadlinecloud-Type-FileSystemLocation-name")": "`string`",
-         "[path](API_FileSystemLocation.md#deadlinecloud-Type-FileSystemLocation-path "API_FileSystemLocation.md#deadlinecloud-Type-FileSystemLocation-path")": "`string`",
-         "[type](API_FileSystemLocation.md#deadlinecloud-Type-FileSystemLocation-type "API_FileSystemLocation.md#deadlinecloud-Type-FileSystemLocation-type")": "`string`"
+         "name": "`string`",
+         "path": "`string`",
+         "type": "`string`"
       }
    ],
-   "[osFamily](#deadlinecloud-UpdateStorageProfile-request-osFamily "#deadlinecloud-UpdateStorageProfile-request-osFamily")": "`string`"
+   "osFamily": "`string`"
 }
 ```
 

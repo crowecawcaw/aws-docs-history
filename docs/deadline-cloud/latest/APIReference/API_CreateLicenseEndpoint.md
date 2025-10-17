@@ -14,12 +14,12 @@ X-Amz-Client-Token: `clientToken`
 Content-type: application/json
 
 {
-   "[securityGroupIds](#deadlinecloud-CreateLicenseEndpoint-request-securityGroupIds "#deadlinecloud-CreateLicenseEndpoint-request-securityGroupIds")": [ "`string`" ],
-   "[subnetIds](#deadlinecloud-CreateLicenseEndpoint-request-subnetIds "#deadlinecloud-CreateLicenseEndpoint-request-subnetIds")": [ "`string`" ],
-   "[tags](#deadlinecloud-CreateLicenseEndpoint-request-tags "#deadlinecloud-CreateLicenseEndpoint-request-tags")": { 
+   "securityGroupIds": [ "`string`" ],
+   "subnetIds": [ "`string`" ],
+   "tags": { 
       "`string`" : "`string`" 
    },
-   "[vpcId](#deadlinecloud-CreateLicenseEndpoint-request-vpcId "#deadlinecloud-CreateLicenseEndpoint-request-vpcId")": "`string`"
+   "vpcId": "`string`"
 }
 ```
 
@@ -141,7 +141,7 @@ HTTP/1.1 200
 Content-type: application/json
 
 {
-   "[licenseEndpointId](#deadlinecloud-CreateLicenseEndpoint-response-licenseEndpointId "#deadlinecloud-CreateLicenseEndpoint-response-licenseEndpointId")": "***string***"
+   "licenseEndpointId": "***string***"
 }
 ```
 

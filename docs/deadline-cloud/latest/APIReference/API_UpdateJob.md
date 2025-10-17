@@ -21,12 +21,12 @@ X-Amz-Client-Token: `clientToken`
 Content-type: application/json
 
 {
-   "[lifecycleStatus](#deadlinecloud-UpdateJob-request-lifecycleStatus "#deadlinecloud-UpdateJob-request-lifecycleStatus")": "`string`",
-   "[maxFailedTasksCount](#deadlinecloud-UpdateJob-request-maxFailedTasksCount "#deadlinecloud-UpdateJob-request-maxFailedTasksCount")": `number`,
-   "[maxRetriesPerTask](#deadlinecloud-UpdateJob-request-maxRetriesPerTask "#deadlinecloud-UpdateJob-request-maxRetriesPerTask")": `number`,
-   "[maxWorkerCount](#deadlinecloud-UpdateJob-request-maxWorkerCount "#deadlinecloud-UpdateJob-request-maxWorkerCount")": `number`,
-   "[priority](#deadlinecloud-UpdateJob-request-priority "#deadlinecloud-UpdateJob-request-priority")": `number`,
-   "[targetTaskRunStatus](#deadlinecloud-UpdateJob-request-targetTaskRunStatus "#deadlinecloud-UpdateJob-request-targetTaskRunStatus")": "`string`"
+   "lifecycleStatus": "`string`",
+   "maxFailedTasksCount": `number`,
+   "maxRetriesPerTask": `number`,
+   "maxWorkerCount": `number`,
+   "priority": `number`,
+   "targetTaskRunStatus": "`string`"
 }
 ```
 

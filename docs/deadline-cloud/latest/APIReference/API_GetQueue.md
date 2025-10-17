@@ -66,35 +66,35 @@ HTTP/1.1 200
 Content-type: application/json
 
 {
-   "[allowedStorageProfileIds](#deadlinecloud-GetQueue-response-allowedStorageProfileIds "#deadlinecloud-GetQueue-response-allowedStorageProfileIds")": [ "***string***" ],
-   "[blockedReason](#deadlinecloud-GetQueue-response-blockedReason "#deadlinecloud-GetQueue-response-blockedReason")": "***string***",
-   "[createdAt](#deadlinecloud-GetQueue-response-createdAt "#deadlinecloud-GetQueue-response-createdAt")": "***string***",
-   "[createdBy](#deadlinecloud-GetQueue-response-createdBy "#deadlinecloud-GetQueue-response-createdBy")": "***string***",
-   "[defaultBudgetAction](#deadlinecloud-GetQueue-response-defaultBudgetAction "#deadlinecloud-GetQueue-response-defaultBudgetAction")": "***string***",
-   "[description](#deadlinecloud-GetQueue-response-description "#deadlinecloud-GetQueue-response-description")": "***string***",
-   "[displayName](#deadlinecloud-GetQueue-response-displayName "#deadlinecloud-GetQueue-response-displayName")": "***string***",
-   "[farmId](#deadlinecloud-GetQueue-response-farmId "#deadlinecloud-GetQueue-response-farmId")": "***string***",
-   "[jobAttachmentSettings](#deadlinecloud-GetQueue-response-jobAttachmentSettings "#deadlinecloud-GetQueue-response-jobAttachmentSettings")": { 
-      "[rootPrefix](API_JobAttachmentSettings.md#deadlinecloud-Type-JobAttachmentSettings-rootPrefix "API_JobAttachmentSettings.md#deadlinecloud-Type-JobAttachmentSettings-rootPrefix")": "***string***",
-      "[s3BucketName](API_JobAttachmentSettings.md#deadlinecloud-Type-JobAttachmentSettings-s3BucketName "API_JobAttachmentSettings.md#deadlinecloud-Type-JobAttachmentSettings-s3BucketName")": "***string***"
+   "allowedStorageProfileIds": [ "***string***" ],
+   "blockedReason": "***string***",
+   "createdAt": "***string***",
+   "createdBy": "***string***",
+   "defaultBudgetAction": "***string***",
+   "description": "***string***",
+   "displayName": "***string***",
+   "farmId": "***string***",
+   "jobAttachmentSettings": { 
+      "rootPrefix": "***string***",
+      "s3BucketName": "***string***"
    },
-   "[jobRunAsUser](#deadlinecloud-GetQueue-response-jobRunAsUser "#deadlinecloud-GetQueue-response-jobRunAsUser")": { 
-      "[posix](API_JobRunAsUser.md#deadlinecloud-Type-JobRunAsUser-posix "API_JobRunAsUser.md#deadlinecloud-Type-JobRunAsUser-posix")": { 
-         "[group](API_PosixUser.md#deadlinecloud-Type-PosixUser-group "API_PosixUser.md#deadlinecloud-Type-PosixUser-group")": "***string***",
-         "[user](API_PosixUser.md#deadlinecloud-Type-PosixUser-user "API_PosixUser.md#deadlinecloud-Type-PosixUser-user")": "***string***"
+   "jobRunAsUser": { 
+      "posix": { 
+         "group": "***string***",
+         "user": "***string***"
       },
-      "[runAs](API_JobRunAsUser.md#deadlinecloud-Type-JobRunAsUser-runAs "API_JobRunAsUser.md#deadlinecloud-Type-JobRunAsUser-runAs")": "***string***",
-      "[windows](API_JobRunAsUser.md#deadlinecloud-Type-JobRunAsUser-windows "API_JobRunAsUser.md#deadlinecloud-Type-JobRunAsUser-windows")": { 
-         "[passwordArn](API_WindowsUser.md#deadlinecloud-Type-WindowsUser-passwordArn "API_WindowsUser.md#deadlinecloud-Type-WindowsUser-passwordArn")": "***string***",
-         "[user](API_WindowsUser.md#deadlinecloud-Type-WindowsUser-user "API_WindowsUser.md#deadlinecloud-Type-WindowsUser-user")": "***string***"
+      "runAs": "***string***",
+      "windows": { 
+         "passwordArn": "***string***",
+         "user": "***string***"
       }
    },
-   "[queueId](#deadlinecloud-GetQueue-response-queueId "#deadlinecloud-GetQueue-response-queueId")": "***string***",
-   "[requiredFileSystemLocationNames](#deadlinecloud-GetQueue-response-requiredFileSystemLocationNames "#deadlinecloud-GetQueue-response-requiredFileSystemLocationNames")": [ "***string***" ],
-   "[roleArn](#deadlinecloud-GetQueue-response-roleArn "#deadlinecloud-GetQueue-response-roleArn")": "***string***",
-   "[status](#deadlinecloud-GetQueue-response-status "#deadlinecloud-GetQueue-response-status")": "***string***",
-   "[updatedAt](#deadlinecloud-GetQueue-response-updatedAt "#deadlinecloud-GetQueue-response-updatedAt")": "***string***",
-   "[updatedBy](#deadlinecloud-GetQueue-response-updatedBy "#deadlinecloud-GetQueue-response-updatedBy")": "***string***"
+   "queueId": "***string***",
+   "requiredFileSystemLocationNames": [ "***string***" ],
+   "roleArn": "***string***",
+   "status": "***string***",
+   "updatedAt": "***string***",
+   "updatedBy": "***string***"
 }
 ```
 

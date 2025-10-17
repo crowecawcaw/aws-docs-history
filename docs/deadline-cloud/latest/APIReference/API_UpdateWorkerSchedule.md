@@ -12,21 +12,21 @@ PATCH /2023-10-12/farms/`farmId`/fleets/`fleetId`/workers/`workerId`/schedule HT
 Content-type: application/json
 
 {
-   "[updatedSessionActions](#deadlinecloud-UpdateWorkerSchedule-request-updatedSessionActions "#deadlinecloud-UpdateWorkerSchedule-request-updatedSessionActions")": { 
+   "updatedSessionActions": { 
       "`string`" : { 
-         "[completedStatus](API_UpdatedSessionActionInfo.md#deadlinecloud-Type-UpdatedSessionActionInfo-completedStatus "API_UpdatedSessionActionInfo.md#deadlinecloud-Type-UpdatedSessionActionInfo-completedStatus")": "`string`",
-         "[endedAt](API_UpdatedSessionActionInfo.md#deadlinecloud-Type-UpdatedSessionActionInfo-endedAt "API_UpdatedSessionActionInfo.md#deadlinecloud-Type-UpdatedSessionActionInfo-endedAt")": "`string`",
-         "[manifests](API_UpdatedSessionActionInfo.md#deadlinecloud-Type-UpdatedSessionActionInfo-manifests "API_UpdatedSessionActionInfo.md#deadlinecloud-Type-UpdatedSessionActionInfo-manifests")": [ 
+         "completedStatus": "`string`",
+         "endedAt": "`string`",
+         "manifests": [ 
             { 
-               "[outputManifestHash](API_TaskRunManifestPropertiesRequest.md#deadlinecloud-Type-TaskRunManifestPropertiesRequest-outputManifestHash "API_TaskRunManifestPropertiesRequest.md#deadlinecloud-Type-TaskRunManifestPropertiesRequest-outputManifestHash")": "`string`",
-               "[outputManifestPath](API_TaskRunManifestPropertiesRequest.md#deadlinecloud-Type-TaskRunManifestPropertiesRequest-outputManifestPath "API_TaskRunManifestPropertiesRequest.md#deadlinecloud-Type-TaskRunManifestPropertiesRequest-outputManifestPath")": "`string`"
+               "outputManifestHash": "`string`",
+               "outputManifestPath": "`string`"
             }
          ],
-         "[processExitCode](API_UpdatedSessionActionInfo.md#deadlinecloud-Type-UpdatedSessionActionInfo-processExitCode "API_UpdatedSessionActionInfo.md#deadlinecloud-Type-UpdatedSessionActionInfo-processExitCode")": `number`,
-         "[progressMessage](API_UpdatedSessionActionInfo.md#deadlinecloud-Type-UpdatedSessionActionInfo-progressMessage "API_UpdatedSessionActionInfo.md#deadlinecloud-Type-UpdatedSessionActionInfo-progressMessage")": "`string`",
-         "[progressPercent](API_UpdatedSessionActionInfo.md#deadlinecloud-Type-UpdatedSessionActionInfo-progressPercent "API_UpdatedSessionActionInfo.md#deadlinecloud-Type-UpdatedSessionActionInfo-progressPercent")": `number`,
-         "[startedAt](API_UpdatedSessionActionInfo.md#deadlinecloud-Type-UpdatedSessionActionInfo-startedAt "API_UpdatedSessionActionInfo.md#deadlinecloud-Type-UpdatedSessionActionInfo-startedAt")": "`string`",
-         "[updatedAt](API_UpdatedSessionActionInfo.md#deadlinecloud-Type-UpdatedSessionActionInfo-updatedAt "API_UpdatedSessionActionInfo.md#deadlinecloud-Type-UpdatedSessionActionInfo-updatedAt")": "`string`"
+         "processExitCode": `number`,
+         "progressMessage": "`string`",
+         "progressPercent": `number`,
+         "startedAt": "`string`",
+         "updatedAt": "`string`"
       }
    }
 }
@@ -122,33 +122,33 @@ HTTP/1.1 200
 Content-type: application/json
 
 {
-   "[assignedSessions](#deadlinecloud-UpdateWorkerSchedule-response-assignedSessions "#deadlinecloud-UpdateWorkerSchedule-response-assignedSessions")": { 
+   "assignedSessions": { 
       "***string***" : { 
-         "[jobId](API_AssignedSession.md#deadlinecloud-Type-AssignedSession-jobId "API_AssignedSession.md#deadlinecloud-Type-AssignedSession-jobId")": "***string***",
-         "[logConfiguration](API_AssignedSession.md#deadlinecloud-Type-AssignedSession-logConfiguration "API_AssignedSession.md#deadlinecloud-Type-AssignedSession-logConfiguration")": { 
-            "[error](API_LogConfiguration.md#deadlinecloud-Type-LogConfiguration-error "API_LogConfiguration.md#deadlinecloud-Type-LogConfiguration-error")": "***string***",
-            "[logDriver](API_LogConfiguration.md#deadlinecloud-Type-LogConfiguration-logDriver "API_LogConfiguration.md#deadlinecloud-Type-LogConfiguration-logDriver")": "***string***",
-            "[options](API_LogConfiguration.md#deadlinecloud-Type-LogConfiguration-options "API_LogConfiguration.md#deadlinecloud-Type-LogConfiguration-options")": { 
+         "jobId": "***string***",
+         "logConfiguration": { 
+            "error": "***string***",
+            "logDriver": "***string***",
+            "options": { 
                "***string***" : "***string***" 
             },
-            "[parameters](API_LogConfiguration.md#deadlinecloud-Type-LogConfiguration-parameters "API_LogConfiguration.md#deadlinecloud-Type-LogConfiguration-parameters")": { 
+            "parameters": { 
                "***string***" : "***string***" 
             }
          },
-         "[queueId](API_AssignedSession.md#deadlinecloud-Type-AssignedSession-queueId "API_AssignedSession.md#deadlinecloud-Type-AssignedSession-queueId")": "***string***",
-         "[sessionActions](API_AssignedSession.md#deadlinecloud-Type-AssignedSession-sessionActions "API_AssignedSession.md#deadlinecloud-Type-AssignedSession-sessionActions")": [ 
+         "queueId": "***string***",
+         "sessionActions": [ 
             { 
-               "[definition](API_AssignedSessionAction.md#deadlinecloud-Type-AssignedSessionAction-definition "API_AssignedSessionAction.md#deadlinecloud-Type-AssignedSessionAction-definition")": { ... },
-               "[sessionActionId](API_AssignedSessionAction.md#deadlinecloud-Type-AssignedSessionAction-sessionActionId "API_AssignedSessionAction.md#deadlinecloud-Type-AssignedSessionAction-sessionActionId")": "***string***"
+               "definition": { ... },
+               "sessionActionId": "***string***"
             }
          ]
       }
    },
-   "[cancelSessionActions](#deadlinecloud-UpdateWorkerSchedule-response-cancelSessionActions "#deadlinecloud-UpdateWorkerSchedule-response-cancelSessionActions")": { 
+   "cancelSessionActions": { 
       "***string***" : [ "***string***" ]
    },
-   "[desiredWorkerStatus](#deadlinecloud-UpdateWorkerSchedule-response-desiredWorkerStatus "#deadlinecloud-UpdateWorkerSchedule-response-desiredWorkerStatus")": "***string***",
-   "[updateIntervalSeconds](#deadlinecloud-UpdateWorkerSchedule-response-updateIntervalSeconds "#deadlinecloud-UpdateWorkerSchedule-response-updateIntervalSeconds")": ***number***
+   "desiredWorkerStatus": "***string***",
+   "updateIntervalSeconds": ***number***
 }
 ```
 

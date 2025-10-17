@@ -81,33 +81,33 @@ HTTP/1.1 200
 Content-type: application/json
 
 {
-   "[createdAt](#deadlinecloud-GetWorker-response-createdAt "#deadlinecloud-GetWorker-response-createdAt")": "***string***",
-   "[createdBy](#deadlinecloud-GetWorker-response-createdBy "#deadlinecloud-GetWorker-response-createdBy")": "***string***",
-   "[farmId](#deadlinecloud-GetWorker-response-farmId "#deadlinecloud-GetWorker-response-farmId")": "***string***",
-   "[fleetId](#deadlinecloud-GetWorker-response-fleetId "#deadlinecloud-GetWorker-response-fleetId")": "***string***",
-   "[hostProperties](#deadlinecloud-GetWorker-response-hostProperties "#deadlinecloud-GetWorker-response-hostProperties")": { 
-      "[ec2InstanceArn](API_HostPropertiesResponse.md#deadlinecloud-Type-HostPropertiesResponse-ec2InstanceArn "API_HostPropertiesResponse.md#deadlinecloud-Type-HostPropertiesResponse-ec2InstanceArn")": "***string***",
-      "[ec2InstanceType](API_HostPropertiesResponse.md#deadlinecloud-Type-HostPropertiesResponse-ec2InstanceType "API_HostPropertiesResponse.md#deadlinecloud-Type-HostPropertiesResponse-ec2InstanceType")": "***string***",
-      "[hostName](API_HostPropertiesResponse.md#deadlinecloud-Type-HostPropertiesResponse-hostName "API_HostPropertiesResponse.md#deadlinecloud-Type-HostPropertiesResponse-hostName")": "***string***",
-      "[ipAddresses](API_HostPropertiesResponse.md#deadlinecloud-Type-HostPropertiesResponse-ipAddresses "API_HostPropertiesResponse.md#deadlinecloud-Type-HostPropertiesResponse-ipAddresses")": { 
-         "[ipV4Addresses](API_IpAddresses.md#deadlinecloud-Type-IpAddresses-ipV4Addresses "API_IpAddresses.md#deadlinecloud-Type-IpAddresses-ipV4Addresses")": [ "***string***" ],
-         "[ipV6Addresses](API_IpAddresses.md#deadlinecloud-Type-IpAddresses-ipV6Addresses "API_IpAddresses.md#deadlinecloud-Type-IpAddresses-ipV6Addresses")": [ "***string***" ]
+   "createdAt": "***string***",
+   "createdBy": "***string***",
+   "farmId": "***string***",
+   "fleetId": "***string***",
+   "hostProperties": { 
+      "ec2InstanceArn": "***string***",
+      "ec2InstanceType": "***string***",
+      "hostName": "***string***",
+      "ipAddresses": { 
+         "ipV4Addresses": [ "***string***" ],
+         "ipV6Addresses": [ "***string***" ]
       }
    },
-   "[log](#deadlinecloud-GetWorker-response-log "#deadlinecloud-GetWorker-response-log")": { 
-      "[error](API_LogConfiguration.md#deadlinecloud-Type-LogConfiguration-error "API_LogConfiguration.md#deadlinecloud-Type-LogConfiguration-error")": "***string***",
-      "[logDriver](API_LogConfiguration.md#deadlinecloud-Type-LogConfiguration-logDriver "API_LogConfiguration.md#deadlinecloud-Type-LogConfiguration-logDriver")": "***string***",
-      "[options](API_LogConfiguration.md#deadlinecloud-Type-LogConfiguration-options "API_LogConfiguration.md#deadlinecloud-Type-LogConfiguration-options")": { 
+   "log": { 
+      "error": "***string***",
+      "logDriver": "***string***",
+      "options": { 
          "***string***" : "***string***" 
       },
-      "[parameters](API_LogConfiguration.md#deadlinecloud-Type-LogConfiguration-parameters "API_LogConfiguration.md#deadlinecloud-Type-LogConfiguration-parameters")": { 
+      "parameters": { 
          "***string***" : "***string***" 
       }
    },
-   "[status](#deadlinecloud-GetWorker-response-status "#deadlinecloud-GetWorker-response-status")": "***string***",
-   "[updatedAt](#deadlinecloud-GetWorker-response-updatedAt "#deadlinecloud-GetWorker-response-updatedAt")": "***string***",
-   "[updatedBy](#deadlinecloud-GetWorker-response-updatedBy "#deadlinecloud-GetWorker-response-updatedBy")": "***string***",
-   "[workerId](#deadlinecloud-GetWorker-response-workerId "#deadlinecloud-GetWorker-response-workerId")": "***string***"
+   "status": "***string***",
+   "updatedAt": "***string***",
+   "updatedBy": "***string***",
+   "workerId": "***string***"
 }
 ```
 

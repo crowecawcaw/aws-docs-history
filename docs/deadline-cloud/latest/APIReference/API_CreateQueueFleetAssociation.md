@@ -12,8 +12,8 @@ PUT /2023-10-12/farms/`farmId`/queue-fleet-associations HTTP/1.1
 Content-type: application/json
 
 {
-   "[fleetId](#deadlinecloud-CreateQueueFleetAssociation-request-fleetId "#deadlinecloud-CreateQueueFleetAssociation-request-fleetId")": "`string`",
-   "[queueId](#deadlinecloud-CreateQueueFleetAssociation-request-queueId "#deadlinecloud-CreateQueueFleetAssociation-request-queueId")": "`string`"
+   "fleetId": "`string`",
+   "queueId": "`string`"
 }
 ```
 

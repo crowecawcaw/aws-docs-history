@@ -12,9 +12,9 @@ PUT /2023-10-12/farms/`farmId`/queues/`queueId`/members/`principalId` HTTP/1.1
 Content-type: application/json
 
 {
-   "[identityStoreId](#deadlinecloud-AssociateMemberToQueue-request-identityStoreId "#deadlinecloud-AssociateMemberToQueue-request-identityStoreId")": "`string`",
-   "[membershipLevel](#deadlinecloud-AssociateMemberToQueue-request-membershipLevel "#deadlinecloud-AssociateMemberToQueue-request-membershipLevel")": "`string`",
-   "[principalType](#deadlinecloud-AssociateMemberToQueue-request-principalType "#deadlinecloud-AssociateMemberToQueue-request-principalType")": "`string`"
+   "identityStoreId": "`string`",
+   "membershipLevel": "`string`",
+   "principalType": "`string`"
 }
 ```
 

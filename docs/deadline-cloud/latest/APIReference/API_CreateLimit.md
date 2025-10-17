@@ -18,10 +18,10 @@ X-Amz-Client-Token: `clientToken`
 Content-type: application/json
 
 {
-   "[amountRequirementName](#deadlinecloud-CreateLimit-request-amountRequirementName "#deadlinecloud-CreateLimit-request-amountRequirementName")": "`string`",
-   "[description](#deadlinecloud-CreateLimit-request-description "#deadlinecloud-CreateLimit-request-description")": "`string`",
-   "[displayName](#deadlinecloud-CreateLimit-request-displayName "#deadlinecloud-CreateLimit-request-displayName")": "`string`",
-   "[maxCount](#deadlinecloud-CreateLimit-request-maxCount "#deadlinecloud-CreateLimit-request-maxCount")": `number`
+   "amountRequirementName": "`string`",
+   "description": "`string`",
+   "displayName": "`string`",
+   "maxCount": `number`
 }
 ```
 
@@ -165,7 +165,7 @@ HTTP/1.1 200
 Content-type: application/json
 
 {
-   "[limitId](#deadlinecloud-CreateLimit-response-limitId "#deadlinecloud-CreateLimit-response-limitId")": "***string***"
+   "limitId": "***string***"
 }
 ```
 

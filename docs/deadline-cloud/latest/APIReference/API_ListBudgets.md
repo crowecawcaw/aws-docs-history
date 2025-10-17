@@ -82,24 +82,24 @@ HTTP/1.1 200
 Content-type: application/json
 
 {
-   "[budgets](#deadlinecloud-ListBudgets-response-budgets "#deadlinecloud-ListBudgets-response-budgets")": [ 
+   "budgets": [ 
       { 
-         "[approximateDollarLimit](API_BudgetSummary.md#deadlinecloud-Type-BudgetSummary-approximateDollarLimit "API_BudgetSummary.md#deadlinecloud-Type-BudgetSummary-approximateDollarLimit")": ***number***,
-         "[budgetId](API_BudgetSummary.md#deadlinecloud-Type-BudgetSummary-budgetId "API_BudgetSummary.md#deadlinecloud-Type-BudgetSummary-budgetId")": "***string***",
-         "[createdAt](API_BudgetSummary.md#deadlinecloud-Type-BudgetSummary-createdAt "API_BudgetSummary.md#deadlinecloud-Type-BudgetSummary-createdAt")": "***string***",
-         "[createdBy](API_BudgetSummary.md#deadlinecloud-Type-BudgetSummary-createdBy "API_BudgetSummary.md#deadlinecloud-Type-BudgetSummary-createdBy")": "***string***",
-         "[description](API_BudgetSummary.md#deadlinecloud-Type-BudgetSummary-description "API_BudgetSummary.md#deadlinecloud-Type-BudgetSummary-description")": "***string***",
-         "[displayName](API_BudgetSummary.md#deadlinecloud-Type-BudgetSummary-displayName "API_BudgetSummary.md#deadlinecloud-Type-BudgetSummary-displayName")": "***string***",
-         "[status](API_BudgetSummary.md#deadlinecloud-Type-BudgetSummary-status "API_BudgetSummary.md#deadlinecloud-Type-BudgetSummary-status")": "***string***",
-         "[updatedAt](API_BudgetSummary.md#deadlinecloud-Type-BudgetSummary-updatedAt "API_BudgetSummary.md#deadlinecloud-Type-BudgetSummary-updatedAt")": "***string***",
-         "[updatedBy](API_BudgetSummary.md#deadlinecloud-Type-BudgetSummary-updatedBy "API_BudgetSummary.md#deadlinecloud-Type-BudgetSummary-updatedBy")": "***string***",
-         "[usages](API_BudgetSummary.md#deadlinecloud-Type-BudgetSummary-usages "API_BudgetSummary.md#deadlinecloud-Type-BudgetSummary-usages")": { 
-            "[approximateDollarUsage](API_ConsumedUsages.md#deadlinecloud-Type-ConsumedUsages-approximateDollarUsage "API_ConsumedUsages.md#deadlinecloud-Type-ConsumedUsages-approximateDollarUsage")": ***number***
+         "approximateDollarLimit": ***number***,
+         "budgetId": "***string***",
+         "createdAt": "***string***",
+         "createdBy": "***string***",
+         "description": "***string***",
+         "displayName": "***string***",
+         "status": "***string***",
+         "updatedAt": "***string***",
+         "updatedBy": "***string***",
+         "usages": { 
+            "approximateDollarUsage": ***number***
          },
-         "[usageTrackingResource](API_BudgetSummary.md#deadlinecloud-Type-BudgetSummary-usageTrackingResource "API_BudgetSummary.md#deadlinecloud-Type-BudgetSummary-usageTrackingResource")": { ... }
+         "usageTrackingResource": { ... }
       }
    ],
-   "[nextToken](#deadlinecloud-ListBudgets-response-nextToken "#deadlinecloud-ListBudgets-response-nextToken")": "***string***"
+   "nextToken": "***string***"
 }
 ```
 

@@ -96,41 +96,41 @@ HTTP/1.1 200
 Content-type: application/json
 
 {
-   "[endedAt](#deadlinecloud-GetSession-response-endedAt "#deadlinecloud-GetSession-response-endedAt")": "***string***",
-   "[fleetId](#deadlinecloud-GetSession-response-fleetId "#deadlinecloud-GetSession-response-fleetId")": "***string***",
-   "[hostProperties](#deadlinecloud-GetSession-response-hostProperties "#deadlinecloud-GetSession-response-hostProperties")": { 
-      "[ec2InstanceArn](API_HostPropertiesResponse.md#deadlinecloud-Type-HostPropertiesResponse-ec2InstanceArn "API_HostPropertiesResponse.md#deadlinecloud-Type-HostPropertiesResponse-ec2InstanceArn")": "***string***",
-      "[ec2InstanceType](API_HostPropertiesResponse.md#deadlinecloud-Type-HostPropertiesResponse-ec2InstanceType "API_HostPropertiesResponse.md#deadlinecloud-Type-HostPropertiesResponse-ec2InstanceType")": "***string***",
-      "[hostName](API_HostPropertiesResponse.md#deadlinecloud-Type-HostPropertiesResponse-hostName "API_HostPropertiesResponse.md#deadlinecloud-Type-HostPropertiesResponse-hostName")": "***string***",
-      "[ipAddresses](API_HostPropertiesResponse.md#deadlinecloud-Type-HostPropertiesResponse-ipAddresses "API_HostPropertiesResponse.md#deadlinecloud-Type-HostPropertiesResponse-ipAddresses")": { 
-         "[ipV4Addresses](API_IpAddresses.md#deadlinecloud-Type-IpAddresses-ipV4Addresses "API_IpAddresses.md#deadlinecloud-Type-IpAddresses-ipV4Addresses")": [ "***string***" ],
-         "[ipV6Addresses](API_IpAddresses.md#deadlinecloud-Type-IpAddresses-ipV6Addresses "API_IpAddresses.md#deadlinecloud-Type-IpAddresses-ipV6Addresses")": [ "***string***" ]
+   "endedAt": "***string***",
+   "fleetId": "***string***",
+   "hostProperties": { 
+      "ec2InstanceArn": "***string***",
+      "ec2InstanceType": "***string***",
+      "hostName": "***string***",
+      "ipAddresses": { 
+         "ipV4Addresses": [ "***string***" ],
+         "ipV6Addresses": [ "***string***" ]
       }
    },
-   "[lifecycleStatus](#deadlinecloud-GetSession-response-lifecycleStatus "#deadlinecloud-GetSession-response-lifecycleStatus")": "***string***",
-   "[log](#deadlinecloud-GetSession-response-log "#deadlinecloud-GetSession-response-log")": { 
-      "[error](API_LogConfiguration.md#deadlinecloud-Type-LogConfiguration-error "API_LogConfiguration.md#deadlinecloud-Type-LogConfiguration-error")": "***string***",
-      "[logDriver](API_LogConfiguration.md#deadlinecloud-Type-LogConfiguration-logDriver "API_LogConfiguration.md#deadlinecloud-Type-LogConfiguration-logDriver")": "***string***",
-      "[options](API_LogConfiguration.md#deadlinecloud-Type-LogConfiguration-options "API_LogConfiguration.md#deadlinecloud-Type-LogConfiguration-options")": { 
+   "lifecycleStatus": "***string***",
+   "log": { 
+      "error": "***string***",
+      "logDriver": "***string***",
+      "options": { 
          "***string***" : "***string***" 
       },
-      "[parameters](API_LogConfiguration.md#deadlinecloud-Type-LogConfiguration-parameters "API_LogConfiguration.md#deadlinecloud-Type-LogConfiguration-parameters")": { 
+      "parameters": { 
          "***string***" : "***string***" 
       }
    },
-   "[sessionId](#deadlinecloud-GetSession-response-sessionId "#deadlinecloud-GetSession-response-sessionId")": "***string***",
-   "[startedAt](#deadlinecloud-GetSession-response-startedAt "#deadlinecloud-GetSession-response-startedAt")": "***string***",
-   "[targetLifecycleStatus](#deadlinecloud-GetSession-response-targetLifecycleStatus "#deadlinecloud-GetSession-response-targetLifecycleStatus")": "***string***",
-   "[updatedAt](#deadlinecloud-GetSession-response-updatedAt "#deadlinecloud-GetSession-response-updatedAt")": "***string***",
-   "[updatedBy](#deadlinecloud-GetSession-response-updatedBy "#deadlinecloud-GetSession-response-updatedBy")": "***string***",
-   "[workerId](#deadlinecloud-GetSession-response-workerId "#deadlinecloud-GetSession-response-workerId")": "***string***",
-   "[workerLog](#deadlinecloud-GetSession-response-workerLog "#deadlinecloud-GetSession-response-workerLog")": { 
-      "[error](API_LogConfiguration.md#deadlinecloud-Type-LogConfiguration-error "API_LogConfiguration.md#deadlinecloud-Type-LogConfiguration-error")": "***string***",
-      "[logDriver](API_LogConfiguration.md#deadlinecloud-Type-LogConfiguration-logDriver "API_LogConfiguration.md#deadlinecloud-Type-LogConfiguration-logDriver")": "***string***",
-      "[options](API_LogConfiguration.md#deadlinecloud-Type-LogConfiguration-options "API_LogConfiguration.md#deadlinecloud-Type-LogConfiguration-options")": { 
+   "sessionId": "***string***",
+   "startedAt": "***string***",
+   "targetLifecycleStatus": "***string***",
+   "updatedAt": "***string***",
+   "updatedBy": "***string***",
+   "workerId": "***string***",
+   "workerLog": { 
+      "error": "***string***",
+      "logDriver": "***string***",
+      "options": { 
          "***string***" : "***string***" 
       },
-      "[parameters](API_LogConfiguration.md#deadlinecloud-Type-LogConfiguration-parameters "API_LogConfiguration.md#deadlinecloud-Type-LogConfiguration-parameters")": { 
+      "parameters": { 
          "***string***" : "***string***" 
       }
    }

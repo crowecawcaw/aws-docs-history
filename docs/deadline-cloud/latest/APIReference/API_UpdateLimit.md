@@ -12,9 +12,9 @@ PATCH /2023-10-12/farms/`farmId`/limits/`limitId` HTTP/1.1
 Content-type: application/json
 
 {
-   "[description](#deadlinecloud-UpdateLimit-request-description "#deadlinecloud-UpdateLimit-request-description")": "`string`",
-   "[displayName](#deadlinecloud-UpdateLimit-request-displayName "#deadlinecloud-UpdateLimit-request-displayName")": "`string`",
-   "[maxCount](#deadlinecloud-UpdateLimit-request-maxCount "#deadlinecloud-UpdateLimit-request-maxCount")": `number`
+   "description": "`string`",
+   "displayName": "`string`",
+   "maxCount": `number`
 }
 ```
 

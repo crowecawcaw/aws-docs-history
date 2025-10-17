@@ -52,17 +52,17 @@ HTTP/1.1 200
 Content-type: application/json
 
 {
-   "[createdAt](#deadlinecloud-GetMonitor-response-createdAt "#deadlinecloud-GetMonitor-response-createdAt")": "***string***",
-   "[createdBy](#deadlinecloud-GetMonitor-response-createdBy "#deadlinecloud-GetMonitor-response-createdBy")": "***string***",
-   "[displayName](#deadlinecloud-GetMonitor-response-displayName "#deadlinecloud-GetMonitor-response-displayName")": "***string***",
-   "[identityCenterApplicationArn](#deadlinecloud-GetMonitor-response-identityCenterApplicationArn "#deadlinecloud-GetMonitor-response-identityCenterApplicationArn")": "***string***",
-   "[identityCenterInstanceArn](#deadlinecloud-GetMonitor-response-identityCenterInstanceArn "#deadlinecloud-GetMonitor-response-identityCenterInstanceArn")": "***string***",
-   "[monitorId](#deadlinecloud-GetMonitor-response-monitorId "#deadlinecloud-GetMonitor-response-monitorId")": "***string***",
-   "[roleArn](#deadlinecloud-GetMonitor-response-roleArn "#deadlinecloud-GetMonitor-response-roleArn")": "***string***",
-   "[subdomain](#deadlinecloud-GetMonitor-response-subdomain "#deadlinecloud-GetMonitor-response-subdomain")": "***string***",
-   "[updatedAt](#deadlinecloud-GetMonitor-response-updatedAt "#deadlinecloud-GetMonitor-response-updatedAt")": "***string***",
-   "[updatedBy](#deadlinecloud-GetMonitor-response-updatedBy "#deadlinecloud-GetMonitor-response-updatedBy")": "***string***",
-   "[url](#deadlinecloud-GetMonitor-response-url "#deadlinecloud-GetMonitor-response-url")": "***string***"
+   "createdAt": "***string***",
+   "createdBy": "***string***",
+   "displayName": "***string***",
+   "identityCenterApplicationArn": "***string***",
+   "identityCenterInstanceArn": "***string***",
+   "monitorId": "***string***",
+   "roleArn": "***string***",
+   "subdomain": "***string***",
+   "updatedAt": "***string***",
+   "updatedBy": "***string***",
+   "url": "***string***"
 }
 ```
 

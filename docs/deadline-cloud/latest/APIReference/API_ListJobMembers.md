@@ -100,18 +100,18 @@ HTTP/1.1 200
 Content-type: application/json
 
 {
-   "[members](#deadlinecloud-ListJobMembers-response-members "#deadlinecloud-ListJobMembers-response-members")": [ 
+   "members": [ 
       { 
-         "[farmId](API_JobMember.md#deadlinecloud-Type-JobMember-farmId "API_JobMember.md#deadlinecloud-Type-JobMember-farmId")": "***string***",
-         "[identityStoreId](API_JobMember.md#deadlinecloud-Type-JobMember-identityStoreId "API_JobMember.md#deadlinecloud-Type-JobMember-identityStoreId")": "***string***",
-         "[jobId](API_JobMember.md#deadlinecloud-Type-JobMember-jobId "API_JobMember.md#deadlinecloud-Type-JobMember-jobId")": "***string***",
-         "[membershipLevel](API_JobMember.md#deadlinecloud-Type-JobMember-membershipLevel "API_JobMember.md#deadlinecloud-Type-JobMember-membershipLevel")": "***string***",
-         "[principalId](API_JobMember.md#deadlinecloud-Type-JobMember-principalId "API_JobMember.md#deadlinecloud-Type-JobMember-principalId")": "***string***",
-         "[principalType](API_JobMember.md#deadlinecloud-Type-JobMember-principalType "API_JobMember.md#deadlinecloud-Type-JobMember-principalType")": "***string***",
-         "[queueId](API_JobMember.md#deadlinecloud-Type-JobMember-queueId "API_JobMember.md#deadlinecloud-Type-JobMember-queueId")": "***string***"
+         "farmId": "***string***",
+         "identityStoreId": "***string***",
+         "jobId": "***string***",
+         "membershipLevel": "***string***",
+         "principalId": "***string***",
+         "principalType": "***string***",
+         "queueId": "***string***"
       }
    ],
-   "[nextToken](#deadlinecloud-ListJobMembers-response-nextToken "#deadlinecloud-ListJobMembers-response-nextToken")": "***string***"
+   "nextToken": "***string***"
 }
 ```
 

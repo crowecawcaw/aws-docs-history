@@ -12,9 +12,9 @@ PUT /2023-10-12/farms/`farmId`/fleets/`fleetId`/members/`principalId` HTTP/1.1
 Content-type: application/json
 
 {
-   "[identityStoreId](#deadlinecloud-AssociateMemberToFleet-request-identityStoreId "#deadlinecloud-AssociateMemberToFleet-request-identityStoreId")": "`string`",
-   "[membershipLevel](#deadlinecloud-AssociateMemberToFleet-request-membershipLevel "#deadlinecloud-AssociateMemberToFleet-request-membershipLevel")": "`string`",
-   "[principalType](#deadlinecloud-AssociateMemberToFleet-request-principalType "#deadlinecloud-AssociateMemberToFleet-request-principalType")": "`string`"
+   "identityStoreId": "`string`",
+   "membershipLevel": "`string`",
+   "principalType": "`string`"
 }
 ```
 

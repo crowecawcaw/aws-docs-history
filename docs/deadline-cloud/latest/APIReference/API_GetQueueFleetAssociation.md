@@ -81,13 +81,13 @@ HTTP/1.1 200
 Content-type: application/json
 
 {
-   "[createdAt](#deadlinecloud-GetQueueFleetAssociation-response-createdAt "#deadlinecloud-GetQueueFleetAssociation-response-createdAt")": "***string***",
-   "[createdBy](#deadlinecloud-GetQueueFleetAssociation-response-createdBy "#deadlinecloud-GetQueueFleetAssociation-response-createdBy")": "***string***",
-   "[fleetId](#deadlinecloud-GetQueueFleetAssociation-response-fleetId "#deadlinecloud-GetQueueFleetAssociation-response-fleetId")": "***string***",
-   "[queueId](#deadlinecloud-GetQueueFleetAssociation-response-queueId "#deadlinecloud-GetQueueFleetAssociation-response-queueId")": "***string***",
-   "[status](#deadlinecloud-GetQueueFleetAssociation-response-status "#deadlinecloud-GetQueueFleetAssociation-response-status")": "***string***",
-   "[updatedAt](#deadlinecloud-GetQueueFleetAssociation-response-updatedAt "#deadlinecloud-GetQueueFleetAssociation-response-updatedAt")": "***string***",
-   "[updatedBy](#deadlinecloud-GetQueueFleetAssociation-response-updatedBy "#deadlinecloud-GetQueueFleetAssociation-response-updatedBy")": "***string***"
+   "createdAt": "***string***",
+   "createdBy": "***string***",
+   "fleetId": "***string***",
+   "queueId": "***string***",
+   "status": "***string***",
+   "updatedAt": "***string***",
+   "updatedBy": "***string***"
 }
 ```
 

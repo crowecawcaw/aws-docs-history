@@ -55,15 +55,15 @@ HTTP/1.1 200
 Content-type: application/json
 
 {
-   "[licenseEndpoints](#deadlinecloud-ListLicenseEndpoints-response-licenseEndpoints "#deadlinecloud-ListLicenseEndpoints-response-licenseEndpoints")": [ 
+   "licenseEndpoints": [ 
       { 
-         "[licenseEndpointId](API_LicenseEndpointSummary.md#deadlinecloud-Type-LicenseEndpointSummary-licenseEndpointId "API_LicenseEndpointSummary.md#deadlinecloud-Type-LicenseEndpointSummary-licenseEndpointId")": "***string***",
-         "[status](API_LicenseEndpointSummary.md#deadlinecloud-Type-LicenseEndpointSummary-status "API_LicenseEndpointSummary.md#deadlinecloud-Type-LicenseEndpointSummary-status")": "***string***",
-         "[statusMessage](API_LicenseEndpointSummary.md#deadlinecloud-Type-LicenseEndpointSummary-statusMessage "API_LicenseEndpointSummary.md#deadlinecloud-Type-LicenseEndpointSummary-statusMessage")": "***string***",
-         "[vpcId](API_LicenseEndpointSummary.md#deadlinecloud-Type-LicenseEndpointSummary-vpcId "API_LicenseEndpointSummary.md#deadlinecloud-Type-LicenseEndpointSummary-vpcId")": "***string***"
+         "licenseEndpointId": "***string***",
+         "status": "***string***",
+         "statusMessage": "***string***",
+         "vpcId": "***string***"
       }
    ],
-   "[nextToken](#deadlinecloud-ListLicenseEndpoints-response-nextToken "#deadlinecloud-ListLicenseEndpoints-response-nextToken")": "***string***"
+   "nextToken": "***string***"
 }
 ```
 

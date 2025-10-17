@@ -12,17 +12,17 @@ POST /2023-10-12/farms/`farmId`/search/tasks HTTP/1.1
 Content-type: application/json
 
 {
-   "[filterExpressions](#deadlinecloud-SearchTasks-request-filterExpressions "#deadlinecloud-SearchTasks-request-filterExpressions")": { 
-      "[filters](API_SearchGroupedFilterExpressions.md#deadlinecloud-Type-SearchGroupedFilterExpressions-filters "API_SearchGroupedFilterExpressions.md#deadlinecloud-Type-SearchGroupedFilterExpressions-filters")": [ 
+   "filterExpressions": { 
+      "filters": [ 
          { ... }
       ],
-      "[operator](API_SearchGroupedFilterExpressions.md#deadlinecloud-Type-SearchGroupedFilterExpressions-operator "API_SearchGroupedFilterExpressions.md#deadlinecloud-Type-SearchGroupedFilterExpressions-operator")": "`string`"
+      "operator": "`string`"
    },
-   "[itemOffset](#deadlinecloud-SearchTasks-request-itemOffset "#deadlinecloud-SearchTasks-request-itemOffset")": `number`,
-   "[jobId](#deadlinecloud-SearchTasks-request-jobId "#deadlinecloud-SearchTasks-request-jobId")": "`string`",
-   "[pageSize](#deadlinecloud-SearchTasks-request-pageSize "#deadlinecloud-SearchTasks-request-pageSize")": `number`,
-   "[queueIds](#deadlinecloud-SearchTasks-request-queueIds "#deadlinecloud-SearchTasks-request-queueIds")": [ "`string`" ],
-   "[sortExpressions](#deadlinecloud-SearchTasks-request-sortExpressions "#deadlinecloud-SearchTasks-request-sortExpressions")": [ 
+   "itemOffset": `number`,
+   "jobId": "`string`",
+   "pageSize": `number`,
+   "queueIds": [ "`string`" ],
+   "sortExpressions": [ 
       { ... }
    ]
 }
@@ -177,26 +177,26 @@ HTTP/1.1 200
 Content-type: application/json
 
 {
-   "[nextItemOffset](#deadlinecloud-SearchTasks-response-nextItemOffset "#deadlinecloud-SearchTasks-response-nextItemOffset")": ***number***,
-   "[tasks](#deadlinecloud-SearchTasks-response-tasks "#deadlinecloud-SearchTasks-response-tasks")": [ 
+   "nextItemOffset": ***number***,
+   "tasks": [ 
       { 
-         "[endedAt](API_TaskSearchSummary.md#deadlinecloud-Type-TaskSearchSummary-endedAt "API_TaskSearchSummary.md#deadlinecloud-Type-TaskSearchSummary-endedAt")": "***string***",
-         "[failureRetryCount](API_TaskSearchSummary.md#deadlinecloud-Type-TaskSearchSummary-failureRetryCount "API_TaskSearchSummary.md#deadlinecloud-Type-TaskSearchSummary-failureRetryCount")": ***number***,
-         "[jobId](API_TaskSearchSummary.md#deadlinecloud-Type-TaskSearchSummary-jobId "API_TaskSearchSummary.md#deadlinecloud-Type-TaskSearchSummary-jobId")": "***string***",
-         "[parameters](API_TaskSearchSummary.md#deadlinecloud-Type-TaskSearchSummary-parameters "API_TaskSearchSummary.md#deadlinecloud-Type-TaskSearchSummary-parameters")": { 
+         "endedAt": "***string***",
+         "failureRetryCount": ***number***,
+         "jobId": "***string***",
+         "parameters": { 
             "***string***" : { ... }
          },
-         "[queueId](API_TaskSearchSummary.md#deadlinecloud-Type-TaskSearchSummary-queueId "API_TaskSearchSummary.md#deadlinecloud-Type-TaskSearchSummary-queueId")": "***string***",
-         "[runStatus](API_TaskSearchSummary.md#deadlinecloud-Type-TaskSearchSummary-runStatus "API_TaskSearchSummary.md#deadlinecloud-Type-TaskSearchSummary-runStatus")": "***string***",
-         "[startedAt](API_TaskSearchSummary.md#deadlinecloud-Type-TaskSearchSummary-startedAt "API_TaskSearchSummary.md#deadlinecloud-Type-TaskSearchSummary-startedAt")": "***string***",
-         "[stepId](API_TaskSearchSummary.md#deadlinecloud-Type-TaskSearchSummary-stepId "API_TaskSearchSummary.md#deadlinecloud-Type-TaskSearchSummary-stepId")": "***string***",
-         "[targetRunStatus](API_TaskSearchSummary.md#deadlinecloud-Type-TaskSearchSummary-targetRunStatus "API_TaskSearchSummary.md#deadlinecloud-Type-TaskSearchSummary-targetRunStatus")": "***string***",
-         "[taskId](API_TaskSearchSummary.md#deadlinecloud-Type-TaskSearchSummary-taskId "API_TaskSearchSummary.md#deadlinecloud-Type-TaskSearchSummary-taskId")": "***string***",
-         "[updatedAt](API_TaskSearchSummary.md#deadlinecloud-Type-TaskSearchSummary-updatedAt "API_TaskSearchSummary.md#deadlinecloud-Type-TaskSearchSummary-updatedAt")": "***string***",
-         "[updatedBy](API_TaskSearchSummary.md#deadlinecloud-Type-TaskSearchSummary-updatedBy "API_TaskSearchSummary.md#deadlinecloud-Type-TaskSearchSummary-updatedBy")": "***string***"
+         "queueId": "***string***",
+         "runStatus": "***string***",
+         "startedAt": "***string***",
+         "stepId": "***string***",
+         "targetRunStatus": "***string***",
+         "taskId": "***string***",
+         "updatedAt": "***string***",
+         "updatedBy": "***string***"
       }
    ],
-   "[totalResults](#deadlinecloud-SearchTasks-response-totalResults "#deadlinecloud-SearchTasks-response-totalResults")": ***number***
+   "totalResults": ***number***
 }
 ```
 

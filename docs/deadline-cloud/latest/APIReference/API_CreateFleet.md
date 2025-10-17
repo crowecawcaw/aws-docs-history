@@ -15,17 +15,17 @@ X-Amz-Client-Token: `clientToken`
 Content-type: application/json
 
 {
-   "[configuration](#deadlinecloud-CreateFleet-request-configuration "#deadlinecloud-CreateFleet-request-configuration")": { ... },
-   "[description](#deadlinecloud-CreateFleet-request-description "#deadlinecloud-CreateFleet-request-description")": "`string`",
-   "[displayName](#deadlinecloud-CreateFleet-request-displayName "#deadlinecloud-CreateFleet-request-displayName")": "`string`",
-   "[hostConfiguration](#deadlinecloud-CreateFleet-request-hostConfiguration "#deadlinecloud-CreateFleet-request-hostConfiguration")": { 
-      "[scriptBody](API_HostConfiguration.md#deadlinecloud-Type-HostConfiguration-scriptBody "API_HostConfiguration.md#deadlinecloud-Type-HostConfiguration-scriptBody")": "`string`",
-      "[scriptTimeoutSeconds](API_HostConfiguration.md#deadlinecloud-Type-HostConfiguration-scriptTimeoutSeconds "API_HostConfiguration.md#deadlinecloud-Type-HostConfiguration-scriptTimeoutSeconds")": `number`
+   "configuration": { ... },
+   "description": "`string`",
+   "displayName": "`string`",
+   "hostConfiguration": { 
+      "scriptBody": "`string`",
+      "scriptTimeoutSeconds": `number`
    },
-   "[maxWorkerCount](#deadlinecloud-CreateFleet-request-maxWorkerCount "#deadlinecloud-CreateFleet-request-maxWorkerCount")": `number`,
-   "[minWorkerCount](#deadlinecloud-CreateFleet-request-minWorkerCount "#deadlinecloud-CreateFleet-request-minWorkerCount")": `number`,
-   "[roleArn](#deadlinecloud-CreateFleet-request-roleArn "#deadlinecloud-CreateFleet-request-roleArn")": "`string`",
-   "[tags](#deadlinecloud-CreateFleet-request-tags "#deadlinecloud-CreateFleet-request-tags")": { 
+   "maxWorkerCount": `number`,
+   "minWorkerCount": `number`,
+   "roleArn": "`string`",
+   "tags": { 
       "`string`" : "`string`" 
    }
 }
@@ -238,7 +238,7 @@ HTTP/1.1 200
 Content-type: application/json
 
 {
-   "[fleetId](#deadlinecloud-CreateFleet-response-fleetId "#deadlinecloud-CreateFleet-response-fleetId")": "***string***"
+   "fleetId": "***string***"
 }
 ```
 

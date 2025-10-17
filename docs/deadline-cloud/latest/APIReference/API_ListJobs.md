@@ -100,32 +100,32 @@ HTTP/1.1 200
 Content-type: application/json
 
 {
-   "[jobs](#deadlinecloud-ListJobs-response-jobs "#deadlinecloud-ListJobs-response-jobs")": [ 
+   "jobs": [ 
       { 
-         "[createdAt](API_JobSummary.md#deadlinecloud-Type-JobSummary-createdAt "API_JobSummary.md#deadlinecloud-Type-JobSummary-createdAt")": "***string***",
-         "[createdBy](API_JobSummary.md#deadlinecloud-Type-JobSummary-createdBy "API_JobSummary.md#deadlinecloud-Type-JobSummary-createdBy")": "***string***",
-         "[endedAt](API_JobSummary.md#deadlinecloud-Type-JobSummary-endedAt "API_JobSummary.md#deadlinecloud-Type-JobSummary-endedAt")": "***string***",
-         "[jobId](API_JobSummary.md#deadlinecloud-Type-JobSummary-jobId "API_JobSummary.md#deadlinecloud-Type-JobSummary-jobId")": "***string***",
-         "[lifecycleStatus](API_JobSummary.md#deadlinecloud-Type-JobSummary-lifecycleStatus "API_JobSummary.md#deadlinecloud-Type-JobSummary-lifecycleStatus")": "***string***",
-         "[lifecycleStatusMessage](API_JobSummary.md#deadlinecloud-Type-JobSummary-lifecycleStatusMessage "API_JobSummary.md#deadlinecloud-Type-JobSummary-lifecycleStatusMessage")": "***string***",
-         "[maxFailedTasksCount](API_JobSummary.md#deadlinecloud-Type-JobSummary-maxFailedTasksCount "API_JobSummary.md#deadlinecloud-Type-JobSummary-maxFailedTasksCount")": ***number***,
-         "[maxRetriesPerTask](API_JobSummary.md#deadlinecloud-Type-JobSummary-maxRetriesPerTask "API_JobSummary.md#deadlinecloud-Type-JobSummary-maxRetriesPerTask")": ***number***,
-         "[maxWorkerCount](API_JobSummary.md#deadlinecloud-Type-JobSummary-maxWorkerCount "API_JobSummary.md#deadlinecloud-Type-JobSummary-maxWorkerCount")": ***number***,
-         "[name](API_JobSummary.md#deadlinecloud-Type-JobSummary-name "API_JobSummary.md#deadlinecloud-Type-JobSummary-name")": "***string***",
-         "[priority](API_JobSummary.md#deadlinecloud-Type-JobSummary-priority "API_JobSummary.md#deadlinecloud-Type-JobSummary-priority")": ***number***,
-         "[sourceJobId](API_JobSummary.md#deadlinecloud-Type-JobSummary-sourceJobId "API_JobSummary.md#deadlinecloud-Type-JobSummary-sourceJobId")": "***string***",
-         "[startedAt](API_JobSummary.md#deadlinecloud-Type-JobSummary-startedAt "API_JobSummary.md#deadlinecloud-Type-JobSummary-startedAt")": "***string***",
-         "[targetTaskRunStatus](API_JobSummary.md#deadlinecloud-Type-JobSummary-targetTaskRunStatus "API_JobSummary.md#deadlinecloud-Type-JobSummary-targetTaskRunStatus")": "***string***",
-         "[taskFailureRetryCount](API_JobSummary.md#deadlinecloud-Type-JobSummary-taskFailureRetryCount "API_JobSummary.md#deadlinecloud-Type-JobSummary-taskFailureRetryCount")": ***number***,
-         "[taskRunStatus](API_JobSummary.md#deadlinecloud-Type-JobSummary-taskRunStatus "API_JobSummary.md#deadlinecloud-Type-JobSummary-taskRunStatus")": "***string***",
-         "[taskRunStatusCounts](API_JobSummary.md#deadlinecloud-Type-JobSummary-taskRunStatusCounts "API_JobSummary.md#deadlinecloud-Type-JobSummary-taskRunStatusCounts")": { 
+         "createdAt": "***string***",
+         "createdBy": "***string***",
+         "endedAt": "***string***",
+         "jobId": "***string***",
+         "lifecycleStatus": "***string***",
+         "lifecycleStatusMessage": "***string***",
+         "maxFailedTasksCount": ***number***,
+         "maxRetriesPerTask": ***number***,
+         "maxWorkerCount": ***number***,
+         "name": "***string***",
+         "priority": ***number***,
+         "sourceJobId": "***string***",
+         "startedAt": "***string***",
+         "targetTaskRunStatus": "***string***",
+         "taskFailureRetryCount": ***number***,
+         "taskRunStatus": "***string***",
+         "taskRunStatusCounts": { 
             "***string***" : ***number*** 
          },
-         "[updatedAt](API_JobSummary.md#deadlinecloud-Type-JobSummary-updatedAt "API_JobSummary.md#deadlinecloud-Type-JobSummary-updatedAt")": "***string***",
-         "[updatedBy](API_JobSummary.md#deadlinecloud-Type-JobSummary-updatedBy "API_JobSummary.md#deadlinecloud-Type-JobSummary-updatedBy")": "***string***"
+         "updatedAt": "***string***",
+         "updatedBy": "***string***"
       }
    ],
-   "[nextToken](#deadlinecloud-ListJobs-response-nextToken "#deadlinecloud-ListJobs-response-nextToken")": "***string***"
+   "nextToken": "***string***"
 }
 ```
 

@@ -25,14 +25,14 @@ X-Amz-Client-Token: `clientToken`
 Content-type: application/json
 
 {
-   "[hostProperties](#deadlinecloud-CreateWorker-request-hostProperties "#deadlinecloud-CreateWorker-request-hostProperties")": { 
-      "[hostName](API_HostPropertiesRequest.md#deadlinecloud-Type-HostPropertiesRequest-hostName "API_HostPropertiesRequest.md#deadlinecloud-Type-HostPropertiesRequest-hostName")": "`string`",
-      "[ipAddresses](API_HostPropertiesRequest.md#deadlinecloud-Type-HostPropertiesRequest-ipAddresses "API_HostPropertiesRequest.md#deadlinecloud-Type-HostPropertiesRequest-ipAddresses")": { 
-         "[ipV4Addresses](API_IpAddresses.md#deadlinecloud-Type-IpAddresses-ipV4Addresses "API_IpAddresses.md#deadlinecloud-Type-IpAddresses-ipV4Addresses")": [ "`string`" ],
-         "[ipV6Addresses](API_IpAddresses.md#deadlinecloud-Type-IpAddresses-ipV6Addresses "API_IpAddresses.md#deadlinecloud-Type-IpAddresses-ipV6Addresses")": [ "`string`" ]
+   "hostProperties": { 
+      "hostName": "`string`",
+      "ipAddresses": { 
+         "ipV4Addresses": [ "`string`" ],
+         "ipV6Addresses": [ "`string`" ]
       }
    },
-   "[tags](#deadlinecloud-CreateWorker-request-tags "#deadlinecloud-CreateWorker-request-tags")": { 
+   "tags": { 
       "`string`" : "`string`" 
    }
 }
@@ -134,7 +134,7 @@ HTTP/1.1 200
 Content-type: application/json
 
 {
-   "[workerId](#deadlinecloud-CreateWorker-response-workerId "#deadlinecloud-CreateWorker-response-workerId")": "***string***"
+   "workerId": "***string***"
 }
 ```
 

@@ -15,8 +15,8 @@ PUT /2023-10-12/farms/`farmId`/queue-limit-associations HTTP/1.1
 Content-type: application/json
 
 {
-   "[limitId](#deadlinecloud-CreateQueueLimitAssociation-request-limitId "#deadlinecloud-CreateQueueLimitAssociation-request-limitId")": "`string`",
-   "[queueId](#deadlinecloud-CreateQueueLimitAssociation-request-queueId "#deadlinecloud-CreateQueueLimitAssociation-request-queueId")": "`string`"
+   "limitId": "`string`",
+   "queueId": "`string`"
 }
 ```
 

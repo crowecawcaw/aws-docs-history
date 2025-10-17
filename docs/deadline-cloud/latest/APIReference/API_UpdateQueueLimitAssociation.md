@@ -14,7 +14,7 @@ PATCH /2023-10-12/farms/`farmId`/queue-limit-associations/`queueId`/`limitId` HT
 Content-type: application/json
 
 {
-   "[status](#deadlinecloud-UpdateQueueLimitAssociation-request-status "#deadlinecloud-UpdateQueueLimitAssociation-request-status")": "`string`"
+   "status": "`string`"
 }
 ```
 

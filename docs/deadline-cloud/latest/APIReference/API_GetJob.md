@@ -81,45 +81,45 @@ HTTP/1.1 200
 Content-type: application/json
 
 {
-   "[attachments](#deadlinecloud-GetJob-response-attachments "#deadlinecloud-GetJob-response-attachments")": { 
-      "[fileSystem](API_Attachments.md#deadlinecloud-Type-Attachments-fileSystem "API_Attachments.md#deadlinecloud-Type-Attachments-fileSystem")": "***string***",
-      "[manifests](API_Attachments.md#deadlinecloud-Type-Attachments-manifests "API_Attachments.md#deadlinecloud-Type-Attachments-manifests")": [ 
+   "attachments": { 
+      "fileSystem": "***string***",
+      "manifests": [ 
          { 
-            "[fileSystemLocationName](API_ManifestProperties.md#deadlinecloud-Type-ManifestProperties-fileSystemLocationName "API_ManifestProperties.md#deadlinecloud-Type-ManifestProperties-fileSystemLocationName")": "***string***",
-            "[inputManifestHash](API_ManifestProperties.md#deadlinecloud-Type-ManifestProperties-inputManifestHash "API_ManifestProperties.md#deadlinecloud-Type-ManifestProperties-inputManifestHash")": "***string***",
-            "[inputManifestPath](API_ManifestProperties.md#deadlinecloud-Type-ManifestProperties-inputManifestPath "API_ManifestProperties.md#deadlinecloud-Type-ManifestProperties-inputManifestPath")": "***string***",
-            "[outputRelativeDirectories](API_ManifestProperties.md#deadlinecloud-Type-ManifestProperties-outputRelativeDirectories "API_ManifestProperties.md#deadlinecloud-Type-ManifestProperties-outputRelativeDirectories")": [ "***string***" ],
-            "[rootPath](API_ManifestProperties.md#deadlinecloud-Type-ManifestProperties-rootPath "API_ManifestProperties.md#deadlinecloud-Type-ManifestProperties-rootPath")": "***string***",
-            "[rootPathFormat](API_ManifestProperties.md#deadlinecloud-Type-ManifestProperties-rootPathFormat "API_ManifestProperties.md#deadlinecloud-Type-ManifestProperties-rootPathFormat")": "***string***"
+            "fileSystemLocationName": "***string***",
+            "inputManifestHash": "***string***",
+            "inputManifestPath": "***string***",
+            "outputRelativeDirectories": [ "***string***" ],
+            "rootPath": "***string***",
+            "rootPathFormat": "***string***"
          }
       ]
    },
-   "[createdAt](#deadlinecloud-GetJob-response-createdAt "#deadlinecloud-GetJob-response-createdAt")": "***string***",
-   "[createdBy](#deadlinecloud-GetJob-response-createdBy "#deadlinecloud-GetJob-response-createdBy")": "***string***",
-   "[description](#deadlinecloud-GetJob-response-description "#deadlinecloud-GetJob-response-description")": "***string***",
-   "[endedAt](#deadlinecloud-GetJob-response-endedAt "#deadlinecloud-GetJob-response-endedAt")": "***string***",
-   "[jobId](#deadlinecloud-GetJob-response-jobId "#deadlinecloud-GetJob-response-jobId")": "***string***",
-   "[lifecycleStatus](#deadlinecloud-GetJob-response-lifecycleStatus "#deadlinecloud-GetJob-response-lifecycleStatus")": "***string***",
-   "[lifecycleStatusMessage](#deadlinecloud-GetJob-response-lifecycleStatusMessage "#deadlinecloud-GetJob-response-lifecycleStatusMessage")": "***string***",
-   "[maxFailedTasksCount](#deadlinecloud-GetJob-response-maxFailedTasksCount "#deadlinecloud-GetJob-response-maxFailedTasksCount")": ***number***,
-   "[maxRetriesPerTask](#deadlinecloud-GetJob-response-maxRetriesPerTask "#deadlinecloud-GetJob-response-maxRetriesPerTask")": ***number***,
-   "[maxWorkerCount](#deadlinecloud-GetJob-response-maxWorkerCount "#deadlinecloud-GetJob-response-maxWorkerCount")": ***number***,
-   "[name](#deadlinecloud-GetJob-response-name "#deadlinecloud-GetJob-response-name")": "***string***",
-   "[parameters](#deadlinecloud-GetJob-response-parameters "#deadlinecloud-GetJob-response-parameters")": { 
+   "createdAt": "***string***",
+   "createdBy": "***string***",
+   "description": "***string***",
+   "endedAt": "***string***",
+   "jobId": "***string***",
+   "lifecycleStatus": "***string***",
+   "lifecycleStatusMessage": "***string***",
+   "maxFailedTasksCount": ***number***,
+   "maxRetriesPerTask": ***number***,
+   "maxWorkerCount": ***number***,
+   "name": "***string***",
+   "parameters": { 
       "***string***" : { ... }
    },
-   "[priority](#deadlinecloud-GetJob-response-priority "#deadlinecloud-GetJob-response-priority")": ***number***,
-   "[sourceJobId](#deadlinecloud-GetJob-response-sourceJobId "#deadlinecloud-GetJob-response-sourceJobId")": "***string***",
-   "[startedAt](#deadlinecloud-GetJob-response-startedAt "#deadlinecloud-GetJob-response-startedAt")": "***string***",
-   "[storageProfileId](#deadlinecloud-GetJob-response-storageProfileId "#deadlinecloud-GetJob-response-storageProfileId")": "***string***",
-   "[targetTaskRunStatus](#deadlinecloud-GetJob-response-targetTaskRunStatus "#deadlinecloud-GetJob-response-targetTaskRunStatus")": "***string***",
-   "[taskFailureRetryCount](#deadlinecloud-GetJob-response-taskFailureRetryCount "#deadlinecloud-GetJob-response-taskFailureRetryCount")": ***number***,
-   "[taskRunStatus](#deadlinecloud-GetJob-response-taskRunStatus "#deadlinecloud-GetJob-response-taskRunStatus")": "***string***",
-   "[taskRunStatusCounts](#deadlinecloud-GetJob-response-taskRunStatusCounts "#deadlinecloud-GetJob-response-taskRunStatusCounts")": { 
+   "priority": ***number***,
+   "sourceJobId": "***string***",
+   "startedAt": "***string***",
+   "storageProfileId": "***string***",
+   "targetTaskRunStatus": "***string***",
+   "taskFailureRetryCount": ***number***,
+   "taskRunStatus": "***string***",
+   "taskRunStatusCounts": { 
       "***string***" : ***number*** 
    },
-   "[updatedAt](#deadlinecloud-GetJob-response-updatedAt "#deadlinecloud-GetJob-response-updatedAt")": "***string***",
-   "[updatedBy](#deadlinecloud-GetJob-response-updatedBy "#deadlinecloud-GetJob-response-updatedBy")": "***string***"
+   "updatedAt": "***string***",
+   "updatedBy": "***string***"
 }
 ```
 

@@ -67,11 +67,11 @@ HTTP/1.1 200
 Content-type: application/json
 
 {
-   "[credentials](#deadlinecloud-AssumeQueueRoleForRead-response-credentials "#deadlinecloud-AssumeQueueRoleForRead-response-credentials")": { 
-      "[accessKeyId](API_AwsCredentials.md#deadlinecloud-Type-AwsCredentials-accessKeyId "API_AwsCredentials.md#deadlinecloud-Type-AwsCredentials-accessKeyId")": "***string***",
-      "[expiration](API_AwsCredentials.md#deadlinecloud-Type-AwsCredentials-expiration "API_AwsCredentials.md#deadlinecloud-Type-AwsCredentials-expiration")": "***string***",
-      "[secretAccessKey](API_AwsCredentials.md#deadlinecloud-Type-AwsCredentials-secretAccessKey "API_AwsCredentials.md#deadlinecloud-Type-AwsCredentials-secretAccessKey")": "***string***",
-      "[sessionToken](API_AwsCredentials.md#deadlinecloud-Type-AwsCredentials-sessionToken "API_AwsCredentials.md#deadlinecloud-Type-AwsCredentials-sessionToken")": "***string***"
+   "credentials": { 
+      "accessKeyId": "***string***",
+      "expiration": "***string***",
+      "secretAccessKey": "***string***",
+      "sessionToken": "***string***"
    }
 }
 ```

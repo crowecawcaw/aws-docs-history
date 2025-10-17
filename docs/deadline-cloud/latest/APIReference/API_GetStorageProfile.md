@@ -66,20 +66,20 @@ HTTP/1.1 200
 Content-type: application/json
 
 {
-   "[createdAt](#deadlinecloud-GetStorageProfile-response-createdAt "#deadlinecloud-GetStorageProfile-response-createdAt")": "***string***",
-   "[createdBy](#deadlinecloud-GetStorageProfile-response-createdBy "#deadlinecloud-GetStorageProfile-response-createdBy")": "***string***",
-   "[displayName](#deadlinecloud-GetStorageProfile-response-displayName "#deadlinecloud-GetStorageProfile-response-displayName")": "***string***",
-   "[fileSystemLocations](#deadlinecloud-GetStorageProfile-response-fileSystemLocations "#deadlinecloud-GetStorageProfile-response-fileSystemLocations")": [ 
+   "createdAt": "***string***",
+   "createdBy": "***string***",
+   "displayName": "***string***",
+   "fileSystemLocations": [ 
       { 
-         "[name](API_FileSystemLocation.md#deadlinecloud-Type-FileSystemLocation-name "API_FileSystemLocation.md#deadlinecloud-Type-FileSystemLocation-name")": "***string***",
-         "[path](API_FileSystemLocation.md#deadlinecloud-Type-FileSystemLocation-path "API_FileSystemLocation.md#deadlinecloud-Type-FileSystemLocation-path")": "***string***",
-         "[type](API_FileSystemLocation.md#deadlinecloud-Type-FileSystemLocation-type "API_FileSystemLocation.md#deadlinecloud-Type-FileSystemLocation-type")": "***string***"
+         "name": "***string***",
+         "path": "***string***",
+         "type": "***string***"
       }
    ],
-   "[osFamily](#deadlinecloud-GetStorageProfile-response-osFamily "#deadlinecloud-GetStorageProfile-response-osFamily")": "***string***",
-   "[storageProfileId](#deadlinecloud-GetStorageProfile-response-storageProfileId "#deadlinecloud-GetStorageProfile-response-storageProfileId")": "***string***",
-   "[updatedAt](#deadlinecloud-GetStorageProfile-response-updatedAt "#deadlinecloud-GetStorageProfile-response-updatedAt")": "***string***",
-   "[updatedBy](#deadlinecloud-GetStorageProfile-response-updatedBy "#deadlinecloud-GetStorageProfile-response-updatedBy")": "***string***"
+   "osFamily": "***string***",
+   "storageProfileId": "***string***",
+   "updatedAt": "***string***",
+   "updatedBy": "***string***"
 }
 ```
 

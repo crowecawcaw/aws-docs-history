@@ -12,16 +12,16 @@ POST /2023-10-12/farms/`farmId`/search/jobs HTTP/1.1
 Content-type: application/json
 
 {
-   "[filterExpressions](#deadlinecloud-SearchJobs-request-filterExpressions "#deadlinecloud-SearchJobs-request-filterExpressions")": { 
-      "[filters](API_SearchGroupedFilterExpressions.md#deadlinecloud-Type-SearchGroupedFilterExpressions-filters "API_SearchGroupedFilterExpressions.md#deadlinecloud-Type-SearchGroupedFilterExpressions-filters")": [ 
+   "filterExpressions": { 
+      "filters": [ 
          { ... }
       ],
-      "[operator](API_SearchGroupedFilterExpressions.md#deadlinecloud-Type-SearchGroupedFilterExpressions-operator "API_SearchGroupedFilterExpressions.md#deadlinecloud-Type-SearchGroupedFilterExpressions-operator")": "`string`"
+      "operator": "`string`"
    },
-   "[itemOffset](#deadlinecloud-SearchJobs-request-itemOffset "#deadlinecloud-SearchJobs-request-itemOffset")": `number`,
-   "[pageSize](#deadlinecloud-SearchJobs-request-pageSize "#deadlinecloud-SearchJobs-request-pageSize")": `number`,
-   "[queueIds](#deadlinecloud-SearchJobs-request-queueIds "#deadlinecloud-SearchJobs-request-queueIds")": [ "`string`" ],
-   "[sortExpressions](#deadlinecloud-SearchJobs-request-sortExpressions "#deadlinecloud-SearchJobs-request-sortExpressions")": [ 
+   "itemOffset": `number`,
+   "pageSize": `number`,
+   "queueIds": [ "`string`" ],
+   "sortExpressions": [ 
       { ... }
    ]
 }
@@ -158,37 +158,37 @@ HTTP/1.1 200
 Content-type: application/json
 
 {
-   "[jobs](#deadlinecloud-SearchJobs-response-jobs "#deadlinecloud-SearchJobs-response-jobs")": [ 
+   "jobs": [ 
       { 
-         "[createdAt](API_JobSearchSummary.md#deadlinecloud-Type-JobSearchSummary-createdAt "API_JobSearchSummary.md#deadlinecloud-Type-JobSearchSummary-createdAt")": "***string***",
-         "[createdBy](API_JobSearchSummary.md#deadlinecloud-Type-JobSearchSummary-createdBy "API_JobSearchSummary.md#deadlinecloud-Type-JobSearchSummary-createdBy")": "***string***",
-         "[endedAt](API_JobSearchSummary.md#deadlinecloud-Type-JobSearchSummary-endedAt "API_JobSearchSummary.md#deadlinecloud-Type-JobSearchSummary-endedAt")": "***string***",
-         "[jobId](API_JobSearchSummary.md#deadlinecloud-Type-JobSearchSummary-jobId "API_JobSearchSummary.md#deadlinecloud-Type-JobSearchSummary-jobId")": "***string***",
-         "[jobParameters](API_JobSearchSummary.md#deadlinecloud-Type-JobSearchSummary-jobParameters "API_JobSearchSummary.md#deadlinecloud-Type-JobSearchSummary-jobParameters")": { 
+         "createdAt": "***string***",
+         "createdBy": "***string***",
+         "endedAt": "***string***",
+         "jobId": "***string***",
+         "jobParameters": { 
             "***string***" : { ... }
          },
-         "[lifecycleStatus](API_JobSearchSummary.md#deadlinecloud-Type-JobSearchSummary-lifecycleStatus "API_JobSearchSummary.md#deadlinecloud-Type-JobSearchSummary-lifecycleStatus")": "***string***",
-         "[lifecycleStatusMessage](API_JobSearchSummary.md#deadlinecloud-Type-JobSearchSummary-lifecycleStatusMessage "API_JobSearchSummary.md#deadlinecloud-Type-JobSearchSummary-lifecycleStatusMessage")": "***string***",
-         "[maxFailedTasksCount](API_JobSearchSummary.md#deadlinecloud-Type-JobSearchSummary-maxFailedTasksCount "API_JobSearchSummary.md#deadlinecloud-Type-JobSearchSummary-maxFailedTasksCount")": ***number***,
-         "[maxRetriesPerTask](API_JobSearchSummary.md#deadlinecloud-Type-JobSearchSummary-maxRetriesPerTask "API_JobSearchSummary.md#deadlinecloud-Type-JobSearchSummary-maxRetriesPerTask")": ***number***,
-         "[maxWorkerCount](API_JobSearchSummary.md#deadlinecloud-Type-JobSearchSummary-maxWorkerCount "API_JobSearchSummary.md#deadlinecloud-Type-JobSearchSummary-maxWorkerCount")": ***number***,
-         "[name](API_JobSearchSummary.md#deadlinecloud-Type-JobSearchSummary-name "API_JobSearchSummary.md#deadlinecloud-Type-JobSearchSummary-name")": "***string***",
-         "[priority](API_JobSearchSummary.md#deadlinecloud-Type-JobSearchSummary-priority "API_JobSearchSummary.md#deadlinecloud-Type-JobSearchSummary-priority")": ***number***,
-         "[queueId](API_JobSearchSummary.md#deadlinecloud-Type-JobSearchSummary-queueId "API_JobSearchSummary.md#deadlinecloud-Type-JobSearchSummary-queueId")": "***string***",
-         "[sourceJobId](API_JobSearchSummary.md#deadlinecloud-Type-JobSearchSummary-sourceJobId "API_JobSearchSummary.md#deadlinecloud-Type-JobSearchSummary-sourceJobId")": "***string***",
-         "[startedAt](API_JobSearchSummary.md#deadlinecloud-Type-JobSearchSummary-startedAt "API_JobSearchSummary.md#deadlinecloud-Type-JobSearchSummary-startedAt")": "***string***",
-         "[targetTaskRunStatus](API_JobSearchSummary.md#deadlinecloud-Type-JobSearchSummary-targetTaskRunStatus "API_JobSearchSummary.md#deadlinecloud-Type-JobSearchSummary-targetTaskRunStatus")": "***string***",
-         "[taskFailureRetryCount](API_JobSearchSummary.md#deadlinecloud-Type-JobSearchSummary-taskFailureRetryCount "API_JobSearchSummary.md#deadlinecloud-Type-JobSearchSummary-taskFailureRetryCount")": ***number***,
-         "[taskRunStatus](API_JobSearchSummary.md#deadlinecloud-Type-JobSearchSummary-taskRunStatus "API_JobSearchSummary.md#deadlinecloud-Type-JobSearchSummary-taskRunStatus")": "***string***",
-         "[taskRunStatusCounts](API_JobSearchSummary.md#deadlinecloud-Type-JobSearchSummary-taskRunStatusCounts "API_JobSearchSummary.md#deadlinecloud-Type-JobSearchSummary-taskRunStatusCounts")": { 
+         "lifecycleStatus": "***string***",
+         "lifecycleStatusMessage": "***string***",
+         "maxFailedTasksCount": ***number***,
+         "maxRetriesPerTask": ***number***,
+         "maxWorkerCount": ***number***,
+         "name": "***string***",
+         "priority": ***number***,
+         "queueId": "***string***",
+         "sourceJobId": "***string***",
+         "startedAt": "***string***",
+         "targetTaskRunStatus": "***string***",
+         "taskFailureRetryCount": ***number***,
+         "taskRunStatus": "***string***",
+         "taskRunStatusCounts": { 
             "***string***" : ***number*** 
          },
-         "[updatedAt](API_JobSearchSummary.md#deadlinecloud-Type-JobSearchSummary-updatedAt "API_JobSearchSummary.md#deadlinecloud-Type-JobSearchSummary-updatedAt")": "***string***",
-         "[updatedBy](API_JobSearchSummary.md#deadlinecloud-Type-JobSearchSummary-updatedBy "API_JobSearchSummary.md#deadlinecloud-Type-JobSearchSummary-updatedBy")": "***string***"
+         "updatedAt": "***string***",
+         "updatedBy": "***string***"
       }
    ],
-   "[nextItemOffset](#deadlinecloud-SearchJobs-response-nextItemOffset "#deadlinecloud-SearchJobs-response-nextItemOffset")": ***number***,
-   "[totalResults](#deadlinecloud-SearchJobs-response-totalResults "#deadlinecloud-SearchJobs-response-totalResults")": ***number***
+   "nextItemOffset": ***number***,
+   "totalResults": ***number***
 }
 ```
 

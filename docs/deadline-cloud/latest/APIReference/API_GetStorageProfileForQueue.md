@@ -81,16 +81,16 @@ HTTP/1.1 200
 Content-type: application/json
 
 {
-   "[displayName](#deadlinecloud-GetStorageProfileForQueue-response-displayName "#deadlinecloud-GetStorageProfileForQueue-response-displayName")": "***string***",
-   "[fileSystemLocations](#deadlinecloud-GetStorageProfileForQueue-response-fileSystemLocations "#deadlinecloud-GetStorageProfileForQueue-response-fileSystemLocations")": [ 
+   "displayName": "***string***",
+   "fileSystemLocations": [ 
       { 
-         "[name](API_FileSystemLocation.md#deadlinecloud-Type-FileSystemLocation-name "API_FileSystemLocation.md#deadlinecloud-Type-FileSystemLocation-name")": "***string***",
-         "[path](API_FileSystemLocation.md#deadlinecloud-Type-FileSystemLocation-path "API_FileSystemLocation.md#deadlinecloud-Type-FileSystemLocation-path")": "***string***",
-         "[type](API_FileSystemLocation.md#deadlinecloud-Type-FileSystemLocation-type "API_FileSystemLocation.md#deadlinecloud-Type-FileSystemLocation-type")": "***string***"
+         "name": "***string***",
+         "path": "***string***",
+         "type": "***string***"
       }
    ],
-   "[osFamily](#deadlinecloud-GetStorageProfileForQueue-response-osFamily "#deadlinecloud-GetStorageProfileForQueue-response-osFamily")": "***string***",
-   "[storageProfileId](#deadlinecloud-GetStorageProfileForQueue-response-storageProfileId "#deadlinecloud-GetStorageProfileForQueue-response-storageProfileId")": "***string***"
+   "osFamily": "***string***",
+   "storageProfileId": "***string***"
 }
 ```
 

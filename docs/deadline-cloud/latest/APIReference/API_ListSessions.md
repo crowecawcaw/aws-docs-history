@@ -100,18 +100,18 @@ HTTP/1.1 200
 Content-type: application/json
 
 {
-   "[nextToken](#deadlinecloud-ListSessions-response-nextToken "#deadlinecloud-ListSessions-response-nextToken")": "***string***",
-   "[sessions](#deadlinecloud-ListSessions-response-sessions "#deadlinecloud-ListSessions-response-sessions")": [ 
+   "nextToken": "***string***",
+   "sessions": [ 
       { 
-         "[endedAt](API_SessionSummary.md#deadlinecloud-Type-SessionSummary-endedAt "API_SessionSummary.md#deadlinecloud-Type-SessionSummary-endedAt")": "***string***",
-         "[fleetId](API_SessionSummary.md#deadlinecloud-Type-SessionSummary-fleetId "API_SessionSummary.md#deadlinecloud-Type-SessionSummary-fleetId")": "***string***",
-         "[lifecycleStatus](API_SessionSummary.md#deadlinecloud-Type-SessionSummary-lifecycleStatus "API_SessionSummary.md#deadlinecloud-Type-SessionSummary-lifecycleStatus")": "***string***",
-         "[sessionId](API_SessionSummary.md#deadlinecloud-Type-SessionSummary-sessionId "API_SessionSummary.md#deadlinecloud-Type-SessionSummary-sessionId")": "***string***",
-         "[startedAt](API_SessionSummary.md#deadlinecloud-Type-SessionSummary-startedAt "API_SessionSummary.md#deadlinecloud-Type-SessionSummary-startedAt")": "***string***",
-         "[targetLifecycleStatus](API_SessionSummary.md#deadlinecloud-Type-SessionSummary-targetLifecycleStatus "API_SessionSummary.md#deadlinecloud-Type-SessionSummary-targetLifecycleStatus")": "***string***",
-         "[updatedAt](API_SessionSummary.md#deadlinecloud-Type-SessionSummary-updatedAt "API_SessionSummary.md#deadlinecloud-Type-SessionSummary-updatedAt")": "***string***",
-         "[updatedBy](API_SessionSummary.md#deadlinecloud-Type-SessionSummary-updatedBy "API_SessionSummary.md#deadlinecloud-Type-SessionSummary-updatedBy")": "***string***",
-         "[workerId](API_SessionSummary.md#deadlinecloud-Type-SessionSummary-workerId "API_SessionSummary.md#deadlinecloud-Type-SessionSummary-workerId")": "***string***"
+         "endedAt": "***string***",
+         "fleetId": "***string***",
+         "lifecycleStatus": "***string***",
+         "sessionId": "***string***",
+         "startedAt": "***string***",
+         "targetLifecycleStatus": "***string***",
+         "updatedAt": "***string***",
+         "updatedBy": "***string***",
+         "workerId": "***string***"
       }
    ]
 }

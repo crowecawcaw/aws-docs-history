@@ -81,15 +81,15 @@ HTTP/1.1 200
 Content-type: application/json
 
 {
-   "[createdAt](#deadlinecloud-GetQueueEnvironment-response-createdAt "#deadlinecloud-GetQueueEnvironment-response-createdAt")": "***string***",
-   "[createdBy](#deadlinecloud-GetQueueEnvironment-response-createdBy "#deadlinecloud-GetQueueEnvironment-response-createdBy")": "***string***",
-   "[name](#deadlinecloud-GetQueueEnvironment-response-name "#deadlinecloud-GetQueueEnvironment-response-name")": "***string***",
-   "[priority](#deadlinecloud-GetQueueEnvironment-response-priority "#deadlinecloud-GetQueueEnvironment-response-priority")": ***number***,
-   "[queueEnvironmentId](#deadlinecloud-GetQueueEnvironment-response-queueEnvironmentId "#deadlinecloud-GetQueueEnvironment-response-queueEnvironmentId")": "***string***",
-   "[template](#deadlinecloud-GetQueueEnvironment-response-template "#deadlinecloud-GetQueueEnvironment-response-template")": "***string***",
-   "[templateType](#deadlinecloud-GetQueueEnvironment-response-templateType "#deadlinecloud-GetQueueEnvironment-response-templateType")": "***string***",
-   "[updatedAt](#deadlinecloud-GetQueueEnvironment-response-updatedAt "#deadlinecloud-GetQueueEnvironment-response-updatedAt")": "***string***",
-   "[updatedBy](#deadlinecloud-GetQueueEnvironment-response-updatedBy "#deadlinecloud-GetQueueEnvironment-response-updatedBy")": "***string***"
+   "createdAt": "***string***",
+   "createdBy": "***string***",
+   "name": "***string***",
+   "priority": ***number***,
+   "queueEnvironmentId": "***string***",
+   "template": "***string***",
+   "templateType": "***string***",
+   "updatedAt": "***string***",
+   "updatedBy": "***string***"
 }
 ```
 

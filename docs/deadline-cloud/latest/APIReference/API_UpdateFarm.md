@@ -12,8 +12,8 @@ PATCH /2023-10-12/farms/`farmId` HTTP/1.1
 Content-type: application/json
 
 {
-   "[description](#deadlinecloud-UpdateFarm-request-description "#deadlinecloud-UpdateFarm-request-description")": "`string`",
-   "[displayName](#deadlinecloud-UpdateFarm-request-displayName "#deadlinecloud-UpdateFarm-request-displayName")": "`string`"
+   "description": "`string`",
+   "displayName": "`string`"
 }
 ```
 

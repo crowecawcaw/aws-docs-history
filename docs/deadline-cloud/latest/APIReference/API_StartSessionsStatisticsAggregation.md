@@ -18,13 +18,13 @@ POST /2023-10-12/farms/`farmId`/sessions-statistics-aggregation HTTP/1.1
 Content-type: application/json
 
 {
-   "[endTime](#deadlinecloud-StartSessionsStatisticsAggregation-request-endTime "#deadlinecloud-StartSessionsStatisticsAggregation-request-endTime")": "`string`",
-   "[groupBy](#deadlinecloud-StartSessionsStatisticsAggregation-request-groupBy "#deadlinecloud-StartSessionsStatisticsAggregation-request-groupBy")": [ "`string`" ],
-   "[period](#deadlinecloud-StartSessionsStatisticsAggregation-request-period "#deadlinecloud-StartSessionsStatisticsAggregation-request-period")": "`string`",
-   "[resourceIds](#deadlinecloud-StartSessionsStatisticsAggregation-request-resourceIds "#deadlinecloud-StartSessionsStatisticsAggregation-request-resourceIds")": { ... },
-   "[startTime](#deadlinecloud-StartSessionsStatisticsAggregation-request-startTime "#deadlinecloud-StartSessionsStatisticsAggregation-request-startTime")": "`string`",
-   "[statistics](#deadlinecloud-StartSessionsStatisticsAggregation-request-statistics "#deadlinecloud-StartSessionsStatisticsAggregation-request-statistics")": [ "`string`" ],
-   "[timezone](#deadlinecloud-StartSessionsStatisticsAggregation-request-timezone "#deadlinecloud-StartSessionsStatisticsAggregation-request-timezone")": "`string`"
+   "endTime": "`string`",
+   "groupBy": [ "`string`" ],
+   "period": "`string`",
+   "resourceIds": { ... },
+   "startTime": "`string`",
+   "statistics": [ "`string`" ],
+   "timezone": "`string`"
 }
 ```
 
@@ -198,7 +198,7 @@ HTTP/1.1 200
 Content-type: application/json
 
 {
-   "[aggregationId](#deadlinecloud-StartSessionsStatisticsAggregation-response-aggregationId "#deadlinecloud-StartSessionsStatisticsAggregation-response-aggregationId")": "***string***"
+   "aggregationId": "***string***"
 }
 ```
 

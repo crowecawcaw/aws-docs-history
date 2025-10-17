@@ -13,29 +13,29 @@ X-Amz-Client-Token: `clientToken`
 Content-type: application/json
 
 {
-   "[allowedStorageProfileIdsToAdd](#deadlinecloud-UpdateQueue-request-allowedStorageProfileIdsToAdd "#deadlinecloud-UpdateQueue-request-allowedStorageProfileIdsToAdd")": [ "`string`" ],
-   "[allowedStorageProfileIdsToRemove](#deadlinecloud-UpdateQueue-request-allowedStorageProfileIdsToRemove "#deadlinecloud-UpdateQueue-request-allowedStorageProfileIdsToRemove")": [ "`string`" ],
-   "[defaultBudgetAction](#deadlinecloud-UpdateQueue-request-defaultBudgetAction "#deadlinecloud-UpdateQueue-request-defaultBudgetAction")": "`string`",
-   "[description](#deadlinecloud-UpdateQueue-request-description "#deadlinecloud-UpdateQueue-request-description")": "`string`",
-   "[displayName](#deadlinecloud-UpdateQueue-request-displayName "#deadlinecloud-UpdateQueue-request-displayName")": "`string`",
-   "[jobAttachmentSettings](#deadlinecloud-UpdateQueue-request-jobAttachmentSettings "#deadlinecloud-UpdateQueue-request-jobAttachmentSettings")": { 
-      "[rootPrefix](API_JobAttachmentSettings.md#deadlinecloud-Type-JobAttachmentSettings-rootPrefix "API_JobAttachmentSettings.md#deadlinecloud-Type-JobAttachmentSettings-rootPrefix")": "`string`",
-      "[s3BucketName](API_JobAttachmentSettings.md#deadlinecloud-Type-JobAttachmentSettings-s3BucketName "API_JobAttachmentSettings.md#deadlinecloud-Type-JobAttachmentSettings-s3BucketName")": "`string`"
+   "allowedStorageProfileIdsToAdd": [ "`string`" ],
+   "allowedStorageProfileIdsToRemove": [ "`string`" ],
+   "defaultBudgetAction": "`string`",
+   "description": "`string`",
+   "displayName": "`string`",
+   "jobAttachmentSettings": { 
+      "rootPrefix": "`string`",
+      "s3BucketName": "`string`"
    },
-   "[jobRunAsUser](#deadlinecloud-UpdateQueue-request-jobRunAsUser "#deadlinecloud-UpdateQueue-request-jobRunAsUser")": { 
-      "[posix](API_JobRunAsUser.md#deadlinecloud-Type-JobRunAsUser-posix "API_JobRunAsUser.md#deadlinecloud-Type-JobRunAsUser-posix")": { 
-         "[group](API_PosixUser.md#deadlinecloud-Type-PosixUser-group "API_PosixUser.md#deadlinecloud-Type-PosixUser-group")": "`string`",
-         "[user](API_PosixUser.md#deadlinecloud-Type-PosixUser-user "API_PosixUser.md#deadlinecloud-Type-PosixUser-user")": "`string`"
+   "jobRunAsUser": { 
+      "posix": { 
+         "group": "`string`",
+         "user": "`string`"
       },
-      "[runAs](API_JobRunAsUser.md#deadlinecloud-Type-JobRunAsUser-runAs "API_JobRunAsUser.md#deadlinecloud-Type-JobRunAsUser-runAs")": "`string`",
-      "[windows](API_JobRunAsUser.md#deadlinecloud-Type-JobRunAsUser-windows "API_JobRunAsUser.md#deadlinecloud-Type-JobRunAsUser-windows")": { 
-         "[passwordArn](API_WindowsUser.md#deadlinecloud-Type-WindowsUser-passwordArn "API_WindowsUser.md#deadlinecloud-Type-WindowsUser-passwordArn")": "`string`",
-         "[user](API_WindowsUser.md#deadlinecloud-Type-WindowsUser-user "API_WindowsUser.md#deadlinecloud-Type-WindowsUser-user")": "`string`"
+      "runAs": "`string`",
+      "windows": { 
+         "passwordArn": "`string`",
+         "user": "`string`"
       }
    },
-   "[requiredFileSystemLocationNamesToAdd](#deadlinecloud-UpdateQueue-request-requiredFileSystemLocationNamesToAdd "#deadlinecloud-UpdateQueue-request-requiredFileSystemLocationNamesToAdd")": [ "`string`" ],
-   "[requiredFileSystemLocationNamesToRemove](#deadlinecloud-UpdateQueue-request-requiredFileSystemLocationNamesToRemove "#deadlinecloud-UpdateQueue-request-requiredFileSystemLocationNamesToRemove")": [ "`string`" ],
-   "[roleArn](#deadlinecloud-UpdateQueue-request-roleArn "#deadlinecloud-UpdateQueue-request-roleArn")": "`string`"
+   "requiredFileSystemLocationNamesToAdd": [ "`string`" ],
+   "requiredFileSystemLocationNamesToRemove": [ "`string`" ],
+   "roleArn": "`string`"
 }
 ```
 

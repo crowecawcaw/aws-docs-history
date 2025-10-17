@@ -85,17 +85,17 @@ HTTP/1.1 200
 Content-type: application/json
 
 {
-   "[members](#deadlinecloud-ListQueueMembers-response-members "#deadlinecloud-ListQueueMembers-response-members")": [ 
+   "members": [ 
       { 
-         "[farmId](API_QueueMember.md#deadlinecloud-Type-QueueMember-farmId "API_QueueMember.md#deadlinecloud-Type-QueueMember-farmId")": "***string***",
-         "[identityStoreId](API_QueueMember.md#deadlinecloud-Type-QueueMember-identityStoreId "API_QueueMember.md#deadlinecloud-Type-QueueMember-identityStoreId")": "***string***",
-         "[membershipLevel](API_QueueMember.md#deadlinecloud-Type-QueueMember-membershipLevel "API_QueueMember.md#deadlinecloud-Type-QueueMember-membershipLevel")": "***string***",
-         "[principalId](API_QueueMember.md#deadlinecloud-Type-QueueMember-principalId "API_QueueMember.md#deadlinecloud-Type-QueueMember-principalId")": "***string***",
-         "[principalType](API_QueueMember.md#deadlinecloud-Type-QueueMember-principalType "API_QueueMember.md#deadlinecloud-Type-QueueMember-principalType")": "***string***",
-         "[queueId](API_QueueMember.md#deadlinecloud-Type-QueueMember-queueId "API_QueueMember.md#deadlinecloud-Type-QueueMember-queueId")": "***string***"
+         "farmId": "***string***",
+         "identityStoreId": "***string***",
+         "membershipLevel": "***string***",
+         "principalId": "***string***",
+         "principalType": "***string***",
+         "queueId": "***string***"
       }
    ],
-   "[nextToken](#deadlinecloud-ListQueueMembers-response-nextToken "#deadlinecloud-ListQueueMembers-response-nextToken")": "***string***"
+   "nextToken": "***string***"
 }
 ```
 

@@ -115,13 +115,13 @@ HTTP/1.1 200
 Content-type: application/json
 
 {
-   "[consumers](#deadlinecloud-ListStepConsumers-response-consumers "#deadlinecloud-ListStepConsumers-response-consumers")": [ 
+   "consumers": [ 
       { 
-         "[status](API_StepConsumer.md#deadlinecloud-Type-StepConsumer-status "API_StepConsumer.md#deadlinecloud-Type-StepConsumer-status")": "***string***",
-         "[stepId](API_StepConsumer.md#deadlinecloud-Type-StepConsumer-stepId "API_StepConsumer.md#deadlinecloud-Type-StepConsumer-stepId")": "***string***"
+         "status": "***string***",
+         "stepId": "***string***"
       }
    ],
-   "[nextToken](#deadlinecloud-ListStepConsumers-response-nextToken "#deadlinecloud-ListStepConsumers-response-nextToken")": "***string***"
+   "nextToken": "***string***"
 }
 ```
 

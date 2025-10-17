@@ -85,36 +85,36 @@ HTTP/1.1 200
 Content-type: application/json
 
 {
-   "[nextToken](#deadlinecloud-ListWorkers-response-nextToken "#deadlinecloud-ListWorkers-response-nextToken")": "***string***",
-   "[workers](#deadlinecloud-ListWorkers-response-workers "#deadlinecloud-ListWorkers-response-workers")": [ 
+   "nextToken": "***string***",
+   "workers": [ 
       { 
-         "[createdAt](API_WorkerSummary.md#deadlinecloud-Type-WorkerSummary-createdAt "API_WorkerSummary.md#deadlinecloud-Type-WorkerSummary-createdAt")": "***string***",
-         "[createdBy](API_WorkerSummary.md#deadlinecloud-Type-WorkerSummary-createdBy "API_WorkerSummary.md#deadlinecloud-Type-WorkerSummary-createdBy")": "***string***",
-         "[farmId](API_WorkerSummary.md#deadlinecloud-Type-WorkerSummary-farmId "API_WorkerSummary.md#deadlinecloud-Type-WorkerSummary-farmId")": "***string***",
-         "[fleetId](API_WorkerSummary.md#deadlinecloud-Type-WorkerSummary-fleetId "API_WorkerSummary.md#deadlinecloud-Type-WorkerSummary-fleetId")": "***string***",
-         "[hostProperties](API_WorkerSummary.md#deadlinecloud-Type-WorkerSummary-hostProperties "API_WorkerSummary.md#deadlinecloud-Type-WorkerSummary-hostProperties")": { 
-            "[ec2InstanceArn](API_HostPropertiesResponse.md#deadlinecloud-Type-HostPropertiesResponse-ec2InstanceArn "API_HostPropertiesResponse.md#deadlinecloud-Type-HostPropertiesResponse-ec2InstanceArn")": "***string***",
-            "[ec2InstanceType](API_HostPropertiesResponse.md#deadlinecloud-Type-HostPropertiesResponse-ec2InstanceType "API_HostPropertiesResponse.md#deadlinecloud-Type-HostPropertiesResponse-ec2InstanceType")": "***string***",
-            "[hostName](API_HostPropertiesResponse.md#deadlinecloud-Type-HostPropertiesResponse-hostName "API_HostPropertiesResponse.md#deadlinecloud-Type-HostPropertiesResponse-hostName")": "***string***",
-            "[ipAddresses](API_HostPropertiesResponse.md#deadlinecloud-Type-HostPropertiesResponse-ipAddresses "API_HostPropertiesResponse.md#deadlinecloud-Type-HostPropertiesResponse-ipAddresses")": { 
-               "[ipV4Addresses](API_IpAddresses.md#deadlinecloud-Type-IpAddresses-ipV4Addresses "API_IpAddresses.md#deadlinecloud-Type-IpAddresses-ipV4Addresses")": [ "***string***" ],
-               "[ipV6Addresses](API_IpAddresses.md#deadlinecloud-Type-IpAddresses-ipV6Addresses "API_IpAddresses.md#deadlinecloud-Type-IpAddresses-ipV6Addresses")": [ "***string***" ]
+         "createdAt": "***string***",
+         "createdBy": "***string***",
+         "farmId": "***string***",
+         "fleetId": "***string***",
+         "hostProperties": { 
+            "ec2InstanceArn": "***string***",
+            "ec2InstanceType": "***string***",
+            "hostName": "***string***",
+            "ipAddresses": { 
+               "ipV4Addresses": [ "***string***" ],
+               "ipV6Addresses": [ "***string***" ]
             }
          },
-         "[log](API_WorkerSummary.md#deadlinecloud-Type-WorkerSummary-log "API_WorkerSummary.md#deadlinecloud-Type-WorkerSummary-log")": { 
-            "[error](API_LogConfiguration.md#deadlinecloud-Type-LogConfiguration-error "API_LogConfiguration.md#deadlinecloud-Type-LogConfiguration-error")": "***string***",
-            "[logDriver](API_LogConfiguration.md#deadlinecloud-Type-LogConfiguration-logDriver "API_LogConfiguration.md#deadlinecloud-Type-LogConfiguration-logDriver")": "***string***",
-            "[options](API_LogConfiguration.md#deadlinecloud-Type-LogConfiguration-options "API_LogConfiguration.md#deadlinecloud-Type-LogConfiguration-options")": { 
+         "log": { 
+            "error": "***string***",
+            "logDriver": "***string***",
+            "options": { 
                "***string***" : "***string***" 
             },
-            "[parameters](API_LogConfiguration.md#deadlinecloud-Type-LogConfiguration-parameters "API_LogConfiguration.md#deadlinecloud-Type-LogConfiguration-parameters")": { 
+            "parameters": { 
                "***string***" : "***string***" 
             }
          },
-         "[status](API_WorkerSummary.md#deadlinecloud-Type-WorkerSummary-status "API_WorkerSummary.md#deadlinecloud-Type-WorkerSummary-status")": "***string***",
-         "[updatedAt](API_WorkerSummary.md#deadlinecloud-Type-WorkerSummary-updatedAt "API_WorkerSummary.md#deadlinecloud-Type-WorkerSummary-updatedAt")": "***string***",
-         "[updatedBy](API_WorkerSummary.md#deadlinecloud-Type-WorkerSummary-updatedBy "API_WorkerSummary.md#deadlinecloud-Type-WorkerSummary-updatedBy")": "***string***",
-         "[workerId](API_WorkerSummary.md#deadlinecloud-Type-WorkerSummary-workerId "API_WorkerSummary.md#deadlinecloud-Type-WorkerSummary-workerId")": "***string***"
+         "status": "***string***",
+         "updatedAt": "***string***",
+         "updatedBy": "***string***",
+         "workerId": "***string***"
       }
    ]
 }

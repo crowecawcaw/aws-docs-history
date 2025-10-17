@@ -12,17 +12,17 @@ POST /2023-10-12/farms/`farmId`/search/steps HTTP/1.1
 Content-type: application/json
 
 {
-   "[filterExpressions](#deadlinecloud-SearchSteps-request-filterExpressions "#deadlinecloud-SearchSteps-request-filterExpressions")": { 
-      "[filters](API_SearchGroupedFilterExpressions.md#deadlinecloud-Type-SearchGroupedFilterExpressions-filters "API_SearchGroupedFilterExpressions.md#deadlinecloud-Type-SearchGroupedFilterExpressions-filters")": [ 
+   "filterExpressions": { 
+      "filters": [ 
          { ... }
       ],
-      "[operator](API_SearchGroupedFilterExpressions.md#deadlinecloud-Type-SearchGroupedFilterExpressions-operator "API_SearchGroupedFilterExpressions.md#deadlinecloud-Type-SearchGroupedFilterExpressions-operator")": "`string`"
+      "operator": "`string`"
    },
-   "[itemOffset](#deadlinecloud-SearchSteps-request-itemOffset "#deadlinecloud-SearchSteps-request-itemOffset")": `number`,
-   "[jobId](#deadlinecloud-SearchSteps-request-jobId "#deadlinecloud-SearchSteps-request-jobId")": "`string`",
-   "[pageSize](#deadlinecloud-SearchSteps-request-pageSize "#deadlinecloud-SearchSteps-request-pageSize")": `number`,
-   "[queueIds](#deadlinecloud-SearchSteps-request-queueIds "#deadlinecloud-SearchSteps-request-queueIds")": [ "`string`" ],
-   "[sortExpressions](#deadlinecloud-SearchSteps-request-sortExpressions "#deadlinecloud-SearchSteps-request-sortExpressions")": [ 
+   "itemOffset": `number`,
+   "jobId": "`string`",
+   "pageSize": `number`,
+   "queueIds": [ "`string`" ],
+   "sortExpressions": [ 
       { ... }
    ]
 }
@@ -177,39 +177,39 @@ HTTP/1.1 200
 Content-type: application/json
 
 {
-   "[nextItemOffset](#deadlinecloud-SearchSteps-response-nextItemOffset "#deadlinecloud-SearchSteps-response-nextItemOffset")": ***number***,
-   "[steps](#deadlinecloud-SearchSteps-response-steps "#deadlinecloud-SearchSteps-response-steps")": [ 
+   "nextItemOffset": ***number***,
+   "steps": [ 
       { 
-         "[createdAt](API_StepSearchSummary.md#deadlinecloud-Type-StepSearchSummary-createdAt "API_StepSearchSummary.md#deadlinecloud-Type-StepSearchSummary-createdAt")": "***string***",
-         "[createdBy](API_StepSearchSummary.md#deadlinecloud-Type-StepSearchSummary-createdBy "API_StepSearchSummary.md#deadlinecloud-Type-StepSearchSummary-createdBy")": "***string***",
-         "[endedAt](API_StepSearchSummary.md#deadlinecloud-Type-StepSearchSummary-endedAt "API_StepSearchSummary.md#deadlinecloud-Type-StepSearchSummary-endedAt")": "***string***",
-         "[jobId](API_StepSearchSummary.md#deadlinecloud-Type-StepSearchSummary-jobId "API_StepSearchSummary.md#deadlinecloud-Type-StepSearchSummary-jobId")": "***string***",
-         "[lifecycleStatus](API_StepSearchSummary.md#deadlinecloud-Type-StepSearchSummary-lifecycleStatus "API_StepSearchSummary.md#deadlinecloud-Type-StepSearchSummary-lifecycleStatus")": "***string***",
-         "[lifecycleStatusMessage](API_StepSearchSummary.md#deadlinecloud-Type-StepSearchSummary-lifecycleStatusMessage "API_StepSearchSummary.md#deadlinecloud-Type-StepSearchSummary-lifecycleStatusMessage")": "***string***",
-         "[name](API_StepSearchSummary.md#deadlinecloud-Type-StepSearchSummary-name "API_StepSearchSummary.md#deadlinecloud-Type-StepSearchSummary-name")": "***string***",
-         "[parameterSpace](API_StepSearchSummary.md#deadlinecloud-Type-StepSearchSummary-parameterSpace "API_StepSearchSummary.md#deadlinecloud-Type-StepSearchSummary-parameterSpace")": { 
-            "[combination](API_ParameterSpace.md#deadlinecloud-Type-ParameterSpace-combination "API_ParameterSpace.md#deadlinecloud-Type-ParameterSpace-combination")": "***string***",
-            "[parameters](API_ParameterSpace.md#deadlinecloud-Type-ParameterSpace-parameters "API_ParameterSpace.md#deadlinecloud-Type-ParameterSpace-parameters")": [ 
+         "createdAt": "***string***",
+         "createdBy": "***string***",
+         "endedAt": "***string***",
+         "jobId": "***string***",
+         "lifecycleStatus": "***string***",
+         "lifecycleStatusMessage": "***string***",
+         "name": "***string***",
+         "parameterSpace": { 
+            "combination": "***string***",
+            "parameters": [ 
                { 
-                  "[name](API_StepParameter.md#deadlinecloud-Type-StepParameter-name "API_StepParameter.md#deadlinecloud-Type-StepParameter-name")": "***string***",
-                  "[type](API_StepParameter.md#deadlinecloud-Type-StepParameter-type "API_StepParameter.md#deadlinecloud-Type-StepParameter-type")": "***string***"
+                  "name": "***string***",
+                  "type": "***string***"
                }
             ]
          },
-         "[queueId](API_StepSearchSummary.md#deadlinecloud-Type-StepSearchSummary-queueId "API_StepSearchSummary.md#deadlinecloud-Type-StepSearchSummary-queueId")": "***string***",
-         "[startedAt](API_StepSearchSummary.md#deadlinecloud-Type-StepSearchSummary-startedAt "API_StepSearchSummary.md#deadlinecloud-Type-StepSearchSummary-startedAt")": "***string***",
-         "[stepId](API_StepSearchSummary.md#deadlinecloud-Type-StepSearchSummary-stepId "API_StepSearchSummary.md#deadlinecloud-Type-StepSearchSummary-stepId")": "***string***",
-         "[targetTaskRunStatus](API_StepSearchSummary.md#deadlinecloud-Type-StepSearchSummary-targetTaskRunStatus "API_StepSearchSummary.md#deadlinecloud-Type-StepSearchSummary-targetTaskRunStatus")": "***string***",
-         "[taskFailureRetryCount](API_StepSearchSummary.md#deadlinecloud-Type-StepSearchSummary-taskFailureRetryCount "API_StepSearchSummary.md#deadlinecloud-Type-StepSearchSummary-taskFailureRetryCount")": ***number***,
-         "[taskRunStatus](API_StepSearchSummary.md#deadlinecloud-Type-StepSearchSummary-taskRunStatus "API_StepSearchSummary.md#deadlinecloud-Type-StepSearchSummary-taskRunStatus")": "***string***",
-         "[taskRunStatusCounts](API_StepSearchSummary.md#deadlinecloud-Type-StepSearchSummary-taskRunStatusCounts "API_StepSearchSummary.md#deadlinecloud-Type-StepSearchSummary-taskRunStatusCounts")": { 
+         "queueId": "***string***",
+         "startedAt": "***string***",
+         "stepId": "***string***",
+         "targetTaskRunStatus": "***string***",
+         "taskFailureRetryCount": ***number***,
+         "taskRunStatus": "***string***",
+         "taskRunStatusCounts": { 
             "***string***" : ***number*** 
          },
-         "[updatedAt](API_StepSearchSummary.md#deadlinecloud-Type-StepSearchSummary-updatedAt "API_StepSearchSummary.md#deadlinecloud-Type-StepSearchSummary-updatedAt")": "***string***",
-         "[updatedBy](API_StepSearchSummary.md#deadlinecloud-Type-StepSearchSummary-updatedBy "API_StepSearchSummary.md#deadlinecloud-Type-StepSearchSummary-updatedBy")": "***string***"
+         "updatedAt": "***string***",
+         "updatedBy": "***string***"
       }
    ],
-   "[totalResults](#deadlinecloud-SearchSteps-response-totalResults "#deadlinecloud-SearchSteps-response-totalResults")": ***number***
+   "totalResults": ***number***
 }
 ```
 

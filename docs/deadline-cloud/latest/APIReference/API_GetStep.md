@@ -96,55 +96,55 @@ HTTP/1.1 200
 Content-type: application/json
 
 {
-   "[createdAt](#deadlinecloud-GetStep-response-createdAt "#deadlinecloud-GetStep-response-createdAt")": "***string***",
-   "[createdBy](#deadlinecloud-GetStep-response-createdBy "#deadlinecloud-GetStep-response-createdBy")": "***string***",
-   "[dependencyCounts](#deadlinecloud-GetStep-response-dependencyCounts "#deadlinecloud-GetStep-response-dependencyCounts")": { 
-      "[consumersResolved](API_DependencyCounts.md#deadlinecloud-Type-DependencyCounts-consumersResolved "API_DependencyCounts.md#deadlinecloud-Type-DependencyCounts-consumersResolved")": ***number***,
-      "[consumersUnresolved](API_DependencyCounts.md#deadlinecloud-Type-DependencyCounts-consumersUnresolved "API_DependencyCounts.md#deadlinecloud-Type-DependencyCounts-consumersUnresolved")": ***number***,
-      "[dependenciesResolved](API_DependencyCounts.md#deadlinecloud-Type-DependencyCounts-dependenciesResolved "API_DependencyCounts.md#deadlinecloud-Type-DependencyCounts-dependenciesResolved")": ***number***,
-      "[dependenciesUnresolved](API_DependencyCounts.md#deadlinecloud-Type-DependencyCounts-dependenciesUnresolved "API_DependencyCounts.md#deadlinecloud-Type-DependencyCounts-dependenciesUnresolved")": ***number***
+   "createdAt": "***string***",
+   "createdBy": "***string***",
+   "dependencyCounts": { 
+      "consumersResolved": ***number***,
+      "consumersUnresolved": ***number***,
+      "dependenciesResolved": ***number***,
+      "dependenciesUnresolved": ***number***
    },
-   "[description](#deadlinecloud-GetStep-response-description "#deadlinecloud-GetStep-response-description")": "***string***",
-   "[endedAt](#deadlinecloud-GetStep-response-endedAt "#deadlinecloud-GetStep-response-endedAt")": "***string***",
-   "[lifecycleStatus](#deadlinecloud-GetStep-response-lifecycleStatus "#deadlinecloud-GetStep-response-lifecycleStatus")": "***string***",
-   "[lifecycleStatusMessage](#deadlinecloud-GetStep-response-lifecycleStatusMessage "#deadlinecloud-GetStep-response-lifecycleStatusMessage")": "***string***",
-   "[name](#deadlinecloud-GetStep-response-name "#deadlinecloud-GetStep-response-name")": "***string***",
-   "[parameterSpace](#deadlinecloud-GetStep-response-parameterSpace "#deadlinecloud-GetStep-response-parameterSpace")": { 
-      "[combination](API_ParameterSpace.md#deadlinecloud-Type-ParameterSpace-combination "API_ParameterSpace.md#deadlinecloud-Type-ParameterSpace-combination")": "***string***",
-      "[parameters](API_ParameterSpace.md#deadlinecloud-Type-ParameterSpace-parameters "API_ParameterSpace.md#deadlinecloud-Type-ParameterSpace-parameters")": [ 
+   "description": "***string***",
+   "endedAt": "***string***",
+   "lifecycleStatus": "***string***",
+   "lifecycleStatusMessage": "***string***",
+   "name": "***string***",
+   "parameterSpace": { 
+      "combination": "***string***",
+      "parameters": [ 
          { 
-            "[name](API_StepParameter.md#deadlinecloud-Type-StepParameter-name "API_StepParameter.md#deadlinecloud-Type-StepParameter-name")": "***string***",
-            "[type](API_StepParameter.md#deadlinecloud-Type-StepParameter-type "API_StepParameter.md#deadlinecloud-Type-StepParameter-type")": "***string***"
+            "name": "***string***",
+            "type": "***string***"
          }
       ]
    },
-   "[requiredCapabilities](#deadlinecloud-GetStep-response-requiredCapabilities "#deadlinecloud-GetStep-response-requiredCapabilities")": { 
-      "[amounts](API_StepRequiredCapabilities.md#deadlinecloud-Type-StepRequiredCapabilities-amounts "API_StepRequiredCapabilities.md#deadlinecloud-Type-StepRequiredCapabilities-amounts")": [ 
+   "requiredCapabilities": { 
+      "amounts": [ 
          { 
-            "[max](API_StepAmountCapability.md#deadlinecloud-Type-StepAmountCapability-max "API_StepAmountCapability.md#deadlinecloud-Type-StepAmountCapability-max")": ***number***,
-            "[min](API_StepAmountCapability.md#deadlinecloud-Type-StepAmountCapability-min "API_StepAmountCapability.md#deadlinecloud-Type-StepAmountCapability-min")": ***number***,
-            "[name](API_StepAmountCapability.md#deadlinecloud-Type-StepAmountCapability-name "API_StepAmountCapability.md#deadlinecloud-Type-StepAmountCapability-name")": "***string***",
-            "[value](API_StepAmountCapability.md#deadlinecloud-Type-StepAmountCapability-value "API_StepAmountCapability.md#deadlinecloud-Type-StepAmountCapability-value")": ***number***
+            "max": ***number***,
+            "min": ***number***,
+            "name": "***string***",
+            "value": ***number***
          }
       ],
-      "[attributes](API_StepRequiredCapabilities.md#deadlinecloud-Type-StepRequiredCapabilities-attributes "API_StepRequiredCapabilities.md#deadlinecloud-Type-StepRequiredCapabilities-attributes")": [ 
+      "attributes": [ 
          { 
-            "[allOf](API_StepAttributeCapability.md#deadlinecloud-Type-StepAttributeCapability-allOf "API_StepAttributeCapability.md#deadlinecloud-Type-StepAttributeCapability-allOf")": [ "***string***" ],
-            "[anyOf](API_StepAttributeCapability.md#deadlinecloud-Type-StepAttributeCapability-anyOf "API_StepAttributeCapability.md#deadlinecloud-Type-StepAttributeCapability-anyOf")": [ "***string***" ],
-            "[name](API_StepAttributeCapability.md#deadlinecloud-Type-StepAttributeCapability-name "API_StepAttributeCapability.md#deadlinecloud-Type-StepAttributeCapability-name")": "***string***"
+            "allOf": [ "***string***" ],
+            "anyOf": [ "***string***" ],
+            "name": "***string***"
          }
       ]
    },
-   "[startedAt](#deadlinecloud-GetStep-response-startedAt "#deadlinecloud-GetStep-response-startedAt")": "***string***",
-   "[stepId](#deadlinecloud-GetStep-response-stepId "#deadlinecloud-GetStep-response-stepId")": "***string***",
-   "[targetTaskRunStatus](#deadlinecloud-GetStep-response-targetTaskRunStatus "#deadlinecloud-GetStep-response-targetTaskRunStatus")": "***string***",
-   "[taskFailureRetryCount](#deadlinecloud-GetStep-response-taskFailureRetryCount "#deadlinecloud-GetStep-response-taskFailureRetryCount")": ***number***,
-   "[taskRunStatus](#deadlinecloud-GetStep-response-taskRunStatus "#deadlinecloud-GetStep-response-taskRunStatus")": "***string***",
-   "[taskRunStatusCounts](#deadlinecloud-GetStep-response-taskRunStatusCounts "#deadlinecloud-GetStep-response-taskRunStatusCounts")": { 
+   "startedAt": "***string***",
+   "stepId": "***string***",
+   "targetTaskRunStatus": "***string***",
+   "taskFailureRetryCount": ***number***,
+   "taskRunStatus": "***string***",
+   "taskRunStatusCounts": { 
       "***string***" : ***number*** 
    },
-   "[updatedAt](#deadlinecloud-GetStep-response-updatedAt "#deadlinecloud-GetStep-response-updatedAt")": "***string***",
-   "[updatedBy](#deadlinecloud-GetStep-response-updatedBy "#deadlinecloud-GetStep-response-updatedBy")": "***string***"
+   "updatedAt": "***string***",
+   "updatedBy": "***string***"
 }
 ```
 

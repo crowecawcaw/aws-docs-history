@@ -55,15 +55,15 @@ HTTP/1.1 200
 Content-type: application/json
 
 {
-   "[meteredProducts](#deadlinecloud-ListAvailableMeteredProducts-response-meteredProducts "#deadlinecloud-ListAvailableMeteredProducts-response-meteredProducts")": [ 
+   "meteredProducts": [ 
       { 
-         "[family](API_MeteredProductSummary.md#deadlinecloud-Type-MeteredProductSummary-family "API_MeteredProductSummary.md#deadlinecloud-Type-MeteredProductSummary-family")": "***string***",
-         "[port](API_MeteredProductSummary.md#deadlinecloud-Type-MeteredProductSummary-port "API_MeteredProductSummary.md#deadlinecloud-Type-MeteredProductSummary-port")": ***number***,
-         "[productId](API_MeteredProductSummary.md#deadlinecloud-Type-MeteredProductSummary-productId "API_MeteredProductSummary.md#deadlinecloud-Type-MeteredProductSummary-productId")": "***string***",
-         "[vendor](API_MeteredProductSummary.md#deadlinecloud-Type-MeteredProductSummary-vendor "API_MeteredProductSummary.md#deadlinecloud-Type-MeteredProductSummary-vendor")": "***string***"
+         "family": "***string***",
+         "port": ***number***,
+         "productId": "***string***",
+         "vendor": "***string***"
       }
    ],
-   "[nextToken](#deadlinecloud-ListAvailableMeteredProducts-response-nextToken "#deadlinecloud-ListAvailableMeteredProducts-response-nextToken")": "***string***"
+   "nextToken": "***string***"
 }
 ```
 

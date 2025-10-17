@@ -115,23 +115,23 @@ HTTP/1.1 200
 Content-type: application/json
 
 {
-   "[nextToken](#deadlinecloud-ListTasks-response-nextToken "#deadlinecloud-ListTasks-response-nextToken")": "***string***",
-   "[tasks](#deadlinecloud-ListTasks-response-tasks "#deadlinecloud-ListTasks-response-tasks")": [ 
+   "nextToken": "***string***",
+   "tasks": [ 
       { 
-         "[createdAt](API_TaskSummary.md#deadlinecloud-Type-TaskSummary-createdAt "API_TaskSummary.md#deadlinecloud-Type-TaskSummary-createdAt")": "***string***",
-         "[createdBy](API_TaskSummary.md#deadlinecloud-Type-TaskSummary-createdBy "API_TaskSummary.md#deadlinecloud-Type-TaskSummary-createdBy")": "***string***",
-         "[endedAt](API_TaskSummary.md#deadlinecloud-Type-TaskSummary-endedAt "API_TaskSummary.md#deadlinecloud-Type-TaskSummary-endedAt")": "***string***",
-         "[failureRetryCount](API_TaskSummary.md#deadlinecloud-Type-TaskSummary-failureRetryCount "API_TaskSummary.md#deadlinecloud-Type-TaskSummary-failureRetryCount")": ***number***,
-         "[latestSessionActionId](API_TaskSummary.md#deadlinecloud-Type-TaskSummary-latestSessionActionId "API_TaskSummary.md#deadlinecloud-Type-TaskSummary-latestSessionActionId")": "***string***",
-         "[parameters](API_TaskSummary.md#deadlinecloud-Type-TaskSummary-parameters "API_TaskSummary.md#deadlinecloud-Type-TaskSummary-parameters")": { 
+         "createdAt": "***string***",
+         "createdBy": "***string***",
+         "endedAt": "***string***",
+         "failureRetryCount": ***number***,
+         "latestSessionActionId": "***string***",
+         "parameters": { 
             "***string***" : { ... }
          },
-         "[runStatus](API_TaskSummary.md#deadlinecloud-Type-TaskSummary-runStatus "API_TaskSummary.md#deadlinecloud-Type-TaskSummary-runStatus")": "***string***",
-         "[startedAt](API_TaskSummary.md#deadlinecloud-Type-TaskSummary-startedAt "API_TaskSummary.md#deadlinecloud-Type-TaskSummary-startedAt")": "***string***",
-         "[targetRunStatus](API_TaskSummary.md#deadlinecloud-Type-TaskSummary-targetRunStatus "API_TaskSummary.md#deadlinecloud-Type-TaskSummary-targetRunStatus")": "***string***",
-         "[taskId](API_TaskSummary.md#deadlinecloud-Type-TaskSummary-taskId "API_TaskSummary.md#deadlinecloud-Type-TaskSummary-taskId")": "***string***",
-         "[updatedAt](API_TaskSummary.md#deadlinecloud-Type-TaskSummary-updatedAt "API_TaskSummary.md#deadlinecloud-Type-TaskSummary-updatedAt")": "***string***",
-         "[updatedBy](API_TaskSummary.md#deadlinecloud-Type-TaskSummary-updatedBy "API_TaskSummary.md#deadlinecloud-Type-TaskSummary-updatedBy")": "***string***"
+         "runStatus": "***string***",
+         "startedAt": "***string***",
+         "targetRunStatus": "***string***",
+         "taskId": "***string***",
+         "updatedAt": "***string***",
+         "updatedBy": "***string***"
       }
    ]
 }

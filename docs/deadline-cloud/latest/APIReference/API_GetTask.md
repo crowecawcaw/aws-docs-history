@@ -111,20 +111,20 @@ HTTP/1.1 200
 Content-type: application/json
 
 {
-   "[createdAt](#deadlinecloud-GetTask-response-createdAt "#deadlinecloud-GetTask-response-createdAt")": "***string***",
-   "[createdBy](#deadlinecloud-GetTask-response-createdBy "#deadlinecloud-GetTask-response-createdBy")": "***string***",
-   "[endedAt](#deadlinecloud-GetTask-response-endedAt "#deadlinecloud-GetTask-response-endedAt")": "***string***",
-   "[failureRetryCount](#deadlinecloud-GetTask-response-failureRetryCount "#deadlinecloud-GetTask-response-failureRetryCount")": ***number***,
-   "[latestSessionActionId](#deadlinecloud-GetTask-response-latestSessionActionId "#deadlinecloud-GetTask-response-latestSessionActionId")": "***string***",
-   "[parameters](#deadlinecloud-GetTask-response-parameters "#deadlinecloud-GetTask-response-parameters")": { 
+   "createdAt": "***string***",
+   "createdBy": "***string***",
+   "endedAt": "***string***",
+   "failureRetryCount": ***number***,
+   "latestSessionActionId": "***string***",
+   "parameters": { 
       "***string***" : { ... }
    },
-   "[runStatus](#deadlinecloud-GetTask-response-runStatus "#deadlinecloud-GetTask-response-runStatus")": "***string***",
-   "[startedAt](#deadlinecloud-GetTask-response-startedAt "#deadlinecloud-GetTask-response-startedAt")": "***string***",
-   "[targetRunStatus](#deadlinecloud-GetTask-response-targetRunStatus "#deadlinecloud-GetTask-response-targetRunStatus")": "***string***",
-   "[taskId](#deadlinecloud-GetTask-response-taskId "#deadlinecloud-GetTask-response-taskId")": "***string***",
-   "[updatedAt](#deadlinecloud-GetTask-response-updatedAt "#deadlinecloud-GetTask-response-updatedAt")": "***string***",
-   "[updatedBy](#deadlinecloud-GetTask-response-updatedBy "#deadlinecloud-GetTask-response-updatedBy")": "***string***"
+   "runStatus": "***string***",
+   "startedAt": "***string***",
+   "targetRunStatus": "***string***",
+   "taskId": "***string***",
+   "updatedAt": "***string***",
+   "updatedBy": "***string***"
 }
 ```
 

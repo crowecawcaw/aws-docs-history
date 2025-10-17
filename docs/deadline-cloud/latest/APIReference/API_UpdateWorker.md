@@ -12,28 +12,28 @@ PATCH /2023-10-12/farms/`farmId`/fleets/`fleetId`/workers/`workerId` HTTP/1.1
 Content-type: application/json
 
 {
-   "[capabilities](#deadlinecloud-UpdateWorker-request-capabilities "#deadlinecloud-UpdateWorker-request-capabilities")": { 
-      "[amounts](API_WorkerCapabilities.md#deadlinecloud-Type-WorkerCapabilities-amounts "API_WorkerCapabilities.md#deadlinecloud-Type-WorkerCapabilities-amounts")": [ 
+   "capabilities": { 
+      "amounts": [ 
          { 
-            "[name](API_WorkerAmountCapability.md#deadlinecloud-Type-WorkerAmountCapability-name "API_WorkerAmountCapability.md#deadlinecloud-Type-WorkerAmountCapability-name")": "`string`",
-            "[value](API_WorkerAmountCapability.md#deadlinecloud-Type-WorkerAmountCapability-value "API_WorkerAmountCapability.md#deadlinecloud-Type-WorkerAmountCapability-value")": `number`
+            "name": "`string`",
+            "value": `number`
          }
       ],
-      "[attributes](API_WorkerCapabilities.md#deadlinecloud-Type-WorkerCapabilities-attributes "API_WorkerCapabilities.md#deadlinecloud-Type-WorkerCapabilities-attributes")": [ 
+      "attributes": [ 
          { 
-            "[name](API_WorkerAttributeCapability.md#deadlinecloud-Type-WorkerAttributeCapability-name "API_WorkerAttributeCapability.md#deadlinecloud-Type-WorkerAttributeCapability-name")": "`string`",
-            "[values](API_WorkerAttributeCapability.md#deadlinecloud-Type-WorkerAttributeCapability-values "API_WorkerAttributeCapability.md#deadlinecloud-Type-WorkerAttributeCapability-values")": [ "`string`" ]
+            "name": "`string`",
+            "values": [ "`string`" ]
          }
       ]
    },
-   "[hostProperties](#deadlinecloud-UpdateWorker-request-hostProperties "#deadlinecloud-UpdateWorker-request-hostProperties")": { 
-      "[hostName](API_HostPropertiesRequest.md#deadlinecloud-Type-HostPropertiesRequest-hostName "API_HostPropertiesRequest.md#deadlinecloud-Type-HostPropertiesRequest-hostName")": "`string`",
-      "[ipAddresses](API_HostPropertiesRequest.md#deadlinecloud-Type-HostPropertiesRequest-ipAddresses "API_HostPropertiesRequest.md#deadlinecloud-Type-HostPropertiesRequest-ipAddresses")": { 
-         "[ipV4Addresses](API_IpAddresses.md#deadlinecloud-Type-IpAddresses-ipV4Addresses "API_IpAddresses.md#deadlinecloud-Type-IpAddresses-ipV4Addresses")": [ "`string`" ],
-         "[ipV6Addresses](API_IpAddresses.md#deadlinecloud-Type-IpAddresses-ipV6Addresses "API_IpAddresses.md#deadlinecloud-Type-IpAddresses-ipV6Addresses")": [ "`string`" ]
+   "hostProperties": { 
+      "hostName": "`string`",
+      "ipAddresses": { 
+         "ipV4Addresses": [ "`string`" ],
+         "ipV6Addresses": [ "`string`" ]
       }
    },
-   "[status](#deadlinecloud-UpdateWorker-request-status "#deadlinecloud-UpdateWorker-request-status")": "`string`"
+   "status": "`string`"
 }
 ```
 
@@ -155,17 +155,17 @@ HTTP/1.1 200
 Content-type: application/json
 
 {
-   "[hostConfiguration](#deadlinecloud-UpdateWorker-response-hostConfiguration "#deadlinecloud-UpdateWorker-response-hostConfiguration")": { 
-      "[scriptBody](API_HostConfiguration.md#deadlinecloud-Type-HostConfiguration-scriptBody "API_HostConfiguration.md#deadlinecloud-Type-HostConfiguration-scriptBody")": "***string***",
-      "[scriptTimeoutSeconds](API_HostConfiguration.md#deadlinecloud-Type-HostConfiguration-scriptTimeoutSeconds "API_HostConfiguration.md#deadlinecloud-Type-HostConfiguration-scriptTimeoutSeconds")": ***number***
+   "hostConfiguration": { 
+      "scriptBody": "***string***",
+      "scriptTimeoutSeconds": ***number***
    },
-   "[log](#deadlinecloud-UpdateWorker-response-log "#deadlinecloud-UpdateWorker-response-log")": { 
-      "[error](API_LogConfiguration.md#deadlinecloud-Type-LogConfiguration-error "API_LogConfiguration.md#deadlinecloud-Type-LogConfiguration-error")": "***string***",
-      "[logDriver](API_LogConfiguration.md#deadlinecloud-Type-LogConfiguration-logDriver "API_LogConfiguration.md#deadlinecloud-Type-LogConfiguration-logDriver")": "***string***",
-      "[options](API_LogConfiguration.md#deadlinecloud-Type-LogConfiguration-options "API_LogConfiguration.md#deadlinecloud-Type-LogConfiguration-options")": { 
+   "log": { 
+      "error": "***string***",
+      "logDriver": "***string***",
+      "options": { 
          "***string***" : "***string***" 
       },
-      "[parameters](API_LogConfiguration.md#deadlinecloud-Type-LogConfiguration-parameters "API_LogConfiguration.md#deadlinecloud-Type-LogConfiguration-parameters")": { 
+      "parameters": { 
          "***string***" : "***string***" 
       }
    }

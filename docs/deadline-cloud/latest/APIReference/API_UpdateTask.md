@@ -13,7 +13,7 @@ X-Amz-Client-Token: `clientToken`
 Content-type: application/json
 
 {
-   "[targetRunStatus](#deadlinecloud-UpdateTask-request-targetRunStatus "#deadlinecloud-UpdateTask-request-targetRunStatus")": "`string`"
+   "targetRunStatus": "`string`"
 }
 ```
 

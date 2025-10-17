@@ -12,16 +12,16 @@ POST /2023-10-12/farms/`farmId`/search/workers HTTP/1.1
 Content-type: application/json
 
 {
-   "[filterExpressions](#deadlinecloud-SearchWorkers-request-filterExpressions "#deadlinecloud-SearchWorkers-request-filterExpressions")": { 
-      "[filters](API_SearchGroupedFilterExpressions.md#deadlinecloud-Type-SearchGroupedFilterExpressions-filters "API_SearchGroupedFilterExpressions.md#deadlinecloud-Type-SearchGroupedFilterExpressions-filters")": [ 
+   "filterExpressions": { 
+      "filters": [ 
          { ... }
       ],
-      "[operator](API_SearchGroupedFilterExpressions.md#deadlinecloud-Type-SearchGroupedFilterExpressions-operator "API_SearchGroupedFilterExpressions.md#deadlinecloud-Type-SearchGroupedFilterExpressions-operator")": "`string`"
+      "operator": "`string`"
    },
-   "[fleetIds](#deadlinecloud-SearchWorkers-request-fleetIds "#deadlinecloud-SearchWorkers-request-fleetIds")": [ "`string`" ],
-   "[itemOffset](#deadlinecloud-SearchWorkers-request-itemOffset "#deadlinecloud-SearchWorkers-request-itemOffset")": `number`,
-   "[pageSize](#deadlinecloud-SearchWorkers-request-pageSize "#deadlinecloud-SearchWorkers-request-pageSize")": `number`,
-   "[sortExpressions](#deadlinecloud-SearchWorkers-request-sortExpressions "#deadlinecloud-SearchWorkers-request-sortExpressions")": [ 
+   "fleetIds": [ "`string`" ],
+   "itemOffset": `number`,
+   "pageSize": `number`,
+   "sortExpressions": [ 
       { ... }
    ]
 }
@@ -158,26 +158,26 @@ HTTP/1.1 200
 Content-type: application/json
 
 {
-   "[nextItemOffset](#deadlinecloud-SearchWorkers-response-nextItemOffset "#deadlinecloud-SearchWorkers-response-nextItemOffset")": ***number***,
-   "[totalResults](#deadlinecloud-SearchWorkers-response-totalResults "#deadlinecloud-SearchWorkers-response-totalResults")": ***number***,
-   "[workers](#deadlinecloud-SearchWorkers-response-workers "#deadlinecloud-SearchWorkers-response-workers")": [ 
+   "nextItemOffset": ***number***,
+   "totalResults": ***number***,
+   "workers": [ 
       { 
-         "[createdAt](API_WorkerSearchSummary.md#deadlinecloud-Type-WorkerSearchSummary-createdAt "API_WorkerSearchSummary.md#deadlinecloud-Type-WorkerSearchSummary-createdAt")": "***string***",
-         "[createdBy](API_WorkerSearchSummary.md#deadlinecloud-Type-WorkerSearchSummary-createdBy "API_WorkerSearchSummary.md#deadlinecloud-Type-WorkerSearchSummary-createdBy")": "***string***",
-         "[fleetId](API_WorkerSearchSummary.md#deadlinecloud-Type-WorkerSearchSummary-fleetId "API_WorkerSearchSummary.md#deadlinecloud-Type-WorkerSearchSummary-fleetId")": "***string***",
-         "[hostProperties](API_WorkerSearchSummary.md#deadlinecloud-Type-WorkerSearchSummary-hostProperties "API_WorkerSearchSummary.md#deadlinecloud-Type-WorkerSearchSummary-hostProperties")": { 
-            "[ec2InstanceArn](API_HostPropertiesResponse.md#deadlinecloud-Type-HostPropertiesResponse-ec2InstanceArn "API_HostPropertiesResponse.md#deadlinecloud-Type-HostPropertiesResponse-ec2InstanceArn")": "***string***",
-            "[ec2InstanceType](API_HostPropertiesResponse.md#deadlinecloud-Type-HostPropertiesResponse-ec2InstanceType "API_HostPropertiesResponse.md#deadlinecloud-Type-HostPropertiesResponse-ec2InstanceType")": "***string***",
-            "[hostName](API_HostPropertiesResponse.md#deadlinecloud-Type-HostPropertiesResponse-hostName "API_HostPropertiesResponse.md#deadlinecloud-Type-HostPropertiesResponse-hostName")": "***string***",
-            "[ipAddresses](API_HostPropertiesResponse.md#deadlinecloud-Type-HostPropertiesResponse-ipAddresses "API_HostPropertiesResponse.md#deadlinecloud-Type-HostPropertiesResponse-ipAddresses")": { 
-               "[ipV4Addresses](API_IpAddresses.md#deadlinecloud-Type-IpAddresses-ipV4Addresses "API_IpAddresses.md#deadlinecloud-Type-IpAddresses-ipV4Addresses")": [ "***string***" ],
-               "[ipV6Addresses](API_IpAddresses.md#deadlinecloud-Type-IpAddresses-ipV6Addresses "API_IpAddresses.md#deadlinecloud-Type-IpAddresses-ipV6Addresses")": [ "***string***" ]
+         "createdAt": "***string***",
+         "createdBy": "***string***",
+         "fleetId": "***string***",
+         "hostProperties": { 
+            "ec2InstanceArn": "***string***",
+            "ec2InstanceType": "***string***",
+            "hostName": "***string***",
+            "ipAddresses": { 
+               "ipV4Addresses": [ "***string***" ],
+               "ipV6Addresses": [ "***string***" ]
             }
          },
-         "[status](API_WorkerSearchSummary.md#deadlinecloud-Type-WorkerSearchSummary-status "API_WorkerSearchSummary.md#deadlinecloud-Type-WorkerSearchSummary-status")": "***string***",
-         "[updatedAt](API_WorkerSearchSummary.md#deadlinecloud-Type-WorkerSearchSummary-updatedAt "API_WorkerSearchSummary.md#deadlinecloud-Type-WorkerSearchSummary-updatedAt")": "***string***",
-         "[updatedBy](API_WorkerSearchSummary.md#deadlinecloud-Type-WorkerSearchSummary-updatedBy "API_WorkerSearchSummary.md#deadlinecloud-Type-WorkerSearchSummary-updatedBy")": "***string***",
-         "[workerId](API_WorkerSearchSummary.md#deadlinecloud-Type-WorkerSearchSummary-workerId "API_WorkerSearchSummary.md#deadlinecloud-Type-WorkerSearchSummary-workerId")": "***string***"
+         "status": "***string***",
+         "updatedAt": "***string***",
+         "updatedBy": "***string***",
+         "workerId": "***string***"
       }
    ]
 }

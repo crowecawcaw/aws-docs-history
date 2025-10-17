@@ -51,14 +51,14 @@ HTTP/1.1 200
 Content-type: application/json
 
 {
-   "[createdAt](#deadlinecloud-GetFarm-response-createdAt "#deadlinecloud-GetFarm-response-createdAt")": "***string***",
-   "[createdBy](#deadlinecloud-GetFarm-response-createdBy "#deadlinecloud-GetFarm-response-createdBy")": "***string***",
-   "[description](#deadlinecloud-GetFarm-response-description "#deadlinecloud-GetFarm-response-description")": "***string***",
-   "[displayName](#deadlinecloud-GetFarm-response-displayName "#deadlinecloud-GetFarm-response-displayName")": "***string***",
-   "[farmId](#deadlinecloud-GetFarm-response-farmId "#deadlinecloud-GetFarm-response-farmId")": "***string***",
-   "[kmsKeyArn](#deadlinecloud-GetFarm-response-kmsKeyArn "#deadlinecloud-GetFarm-response-kmsKeyArn")": "***string***",
-   "[updatedAt](#deadlinecloud-GetFarm-response-updatedAt "#deadlinecloud-GetFarm-response-updatedAt")": "***string***",
-   "[updatedBy](#deadlinecloud-GetFarm-response-updatedBy "#deadlinecloud-GetFarm-response-updatedBy")": "***string***"
+   "createdAt": "***string***",
+   "createdBy": "***string***",
+   "description": "***string***",
+   "displayName": "***string***",
+   "farmId": "***string***",
+   "kmsKeyArn": "***string***",
+   "updatedAt": "***string***",
+   "updatedBy": "***string***"
 }
 ```
 

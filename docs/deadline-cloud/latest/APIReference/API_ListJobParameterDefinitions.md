@@ -100,8 +100,8 @@ HTTP/1.1 200
 Content-type: application/json
 
 {
-   "[jobParameterDefinitions](#deadlinecloud-ListJobParameterDefinitions-response-jobParameterDefinitions "#deadlinecloud-ListJobParameterDefinitions-response-jobParameterDefinitions")": [ ***JSON value*** ],
-   "[nextToken](#deadlinecloud-ListJobParameterDefinitions-response-nextToken "#deadlinecloud-ListJobParameterDefinitions-response-nextToken")": "***string***"
+   "jobParameterDefinitions": [ ***JSON value*** ],
+   "nextToken": "***string***"
 }
 ```
 

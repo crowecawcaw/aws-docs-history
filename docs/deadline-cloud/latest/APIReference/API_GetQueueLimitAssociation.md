@@ -81,13 +81,13 @@ HTTP/1.1 200
 Content-type: application/json
 
 {
-   "[createdAt](#deadlinecloud-GetQueueLimitAssociation-response-createdAt "#deadlinecloud-GetQueueLimitAssociation-response-createdAt")": "***string***",
-   "[createdBy](#deadlinecloud-GetQueueLimitAssociation-response-createdBy "#deadlinecloud-GetQueueLimitAssociation-response-createdBy")": "***string***",
-   "[limitId](#deadlinecloud-GetQueueLimitAssociation-response-limitId "#deadlinecloud-GetQueueLimitAssociation-response-limitId")": "***string***",
-   "[queueId](#deadlinecloud-GetQueueLimitAssociation-response-queueId "#deadlinecloud-GetQueueLimitAssociation-response-queueId")": "***string***",
-   "[status](#deadlinecloud-GetQueueLimitAssociation-response-status "#deadlinecloud-GetQueueLimitAssociation-response-status")": "***string***",
-   "[updatedAt](#deadlinecloud-GetQueueLimitAssociation-response-updatedAt "#deadlinecloud-GetQueueLimitAssociation-response-updatedAt")": "***string***",
-   "[updatedBy](#deadlinecloud-GetQueueLimitAssociation-response-updatedBy "#deadlinecloud-GetQueueLimitAssociation-response-updatedBy")": "***string***"
+   "createdAt": "***string***",
+   "createdBy": "***string***",
+   "limitId": "***string***",
+   "queueId": "***string***",
+   "status": "***string***",
+   "updatedAt": "***string***",
+   "updatedBy": "***string***"
 }
 ```
 

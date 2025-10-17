@@ -113,26 +113,26 @@ HTTP/1.1 200
 Content-type: application/json
 
 {
-   "[fleets](#deadlinecloud-ListFleets-response-fleets "#deadlinecloud-ListFleets-response-fleets")": [ 
+   "fleets": [ 
       { 
-         "[autoScalingStatus](API_FleetSummary.md#deadlinecloud-Type-FleetSummary-autoScalingStatus "API_FleetSummary.md#deadlinecloud-Type-FleetSummary-autoScalingStatus")": "***string***",
-         "[configuration](API_FleetSummary.md#deadlinecloud-Type-FleetSummary-configuration "API_FleetSummary.md#deadlinecloud-Type-FleetSummary-configuration")": { ... },
-         "[createdAt](API_FleetSummary.md#deadlinecloud-Type-FleetSummary-createdAt "API_FleetSummary.md#deadlinecloud-Type-FleetSummary-createdAt")": "***string***",
-         "[createdBy](API_FleetSummary.md#deadlinecloud-Type-FleetSummary-createdBy "API_FleetSummary.md#deadlinecloud-Type-FleetSummary-createdBy")": "***string***",
-         "[displayName](API_FleetSummary.md#deadlinecloud-Type-FleetSummary-displayName "API_FleetSummary.md#deadlinecloud-Type-FleetSummary-displayName")": "***string***",
-         "[farmId](API_FleetSummary.md#deadlinecloud-Type-FleetSummary-farmId "API_FleetSummary.md#deadlinecloud-Type-FleetSummary-farmId")": "***string***",
-         "[fleetId](API_FleetSummary.md#deadlinecloud-Type-FleetSummary-fleetId "API_FleetSummary.md#deadlinecloud-Type-FleetSummary-fleetId")": "***string***",
-         "[maxWorkerCount](API_FleetSummary.md#deadlinecloud-Type-FleetSummary-maxWorkerCount "API_FleetSummary.md#deadlinecloud-Type-FleetSummary-maxWorkerCount")": ***number***,
-         "[minWorkerCount](API_FleetSummary.md#deadlinecloud-Type-FleetSummary-minWorkerCount "API_FleetSummary.md#deadlinecloud-Type-FleetSummary-minWorkerCount")": ***number***,
-         "[status](API_FleetSummary.md#deadlinecloud-Type-FleetSummary-status "API_FleetSummary.md#deadlinecloud-Type-FleetSummary-status")": "***string***",
-         "[statusMessage](API_FleetSummary.md#deadlinecloud-Type-FleetSummary-statusMessage "API_FleetSummary.md#deadlinecloud-Type-FleetSummary-statusMessage")": "***string***",
-         "[targetWorkerCount](API_FleetSummary.md#deadlinecloud-Type-FleetSummary-targetWorkerCount "API_FleetSummary.md#deadlinecloud-Type-FleetSummary-targetWorkerCount")": ***number***,
-         "[updatedAt](API_FleetSummary.md#deadlinecloud-Type-FleetSummary-updatedAt "API_FleetSummary.md#deadlinecloud-Type-FleetSummary-updatedAt")": "***string***",
-         "[updatedBy](API_FleetSummary.md#deadlinecloud-Type-FleetSummary-updatedBy "API_FleetSummary.md#deadlinecloud-Type-FleetSummary-updatedBy")": "***string***",
-         "[workerCount](API_FleetSummary.md#deadlinecloud-Type-FleetSummary-workerCount "API_FleetSummary.md#deadlinecloud-Type-FleetSummary-workerCount")": ***number***
+         "autoScalingStatus": "***string***",
+         "configuration": { ... },
+         "createdAt": "***string***",
+         "createdBy": "***string***",
+         "displayName": "***string***",
+         "farmId": "***string***",
+         "fleetId": "***string***",
+         "maxWorkerCount": ***number***,
+         "minWorkerCount": ***number***,
+         "status": "***string***",
+         "statusMessage": "***string***",
+         "targetWorkerCount": ***number***,
+         "updatedAt": "***string***",
+         "updatedBy": "***string***",
+         "workerCount": ***number***
       }
    ],
-   "[nextToken](#deadlinecloud-ListFleets-response-nextToken "#deadlinecloud-ListFleets-response-nextToken")": "***string***"
+   "nextToken": "***string***"
 }
 ```
 

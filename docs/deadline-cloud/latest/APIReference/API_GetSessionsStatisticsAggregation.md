@@ -91,36 +91,36 @@ HTTP/1.1 200
 Content-type: application/json
 
 {
-   "[nextToken](#deadlinecloud-GetSessionsStatisticsAggregation-response-nextToken "#deadlinecloud-GetSessionsStatisticsAggregation-response-nextToken")": "***string***",
-   "[statistics](#deadlinecloud-GetSessionsStatisticsAggregation-response-statistics "#deadlinecloud-GetSessionsStatisticsAggregation-response-statistics")": [ 
+   "nextToken": "***string***",
+   "statistics": [ 
       { 
-         "[aggregationEndTime](API_Statistics.md#deadlinecloud-Type-Statistics-aggregationEndTime "API_Statistics.md#deadlinecloud-Type-Statistics-aggregationEndTime")": "***string***",
-         "[aggregationStartTime](API_Statistics.md#deadlinecloud-Type-Statistics-aggregationStartTime "API_Statistics.md#deadlinecloud-Type-Statistics-aggregationStartTime")": "***string***",
-         "[costInUsd](API_Statistics.md#deadlinecloud-Type-Statistics-costInUsd "API_Statistics.md#deadlinecloud-Type-Statistics-costInUsd")": { 
-            "[avg](API_Stats.md#deadlinecloud-Type-Stats-avg "API_Stats.md#deadlinecloud-Type-Stats-avg")": ***number***,
-            "[max](API_Stats.md#deadlinecloud-Type-Stats-max "API_Stats.md#deadlinecloud-Type-Stats-max")": ***number***,
-            "[min](API_Stats.md#deadlinecloud-Type-Stats-min "API_Stats.md#deadlinecloud-Type-Stats-min")": ***number***,
-            "[sum](API_Stats.md#deadlinecloud-Type-Stats-sum "API_Stats.md#deadlinecloud-Type-Stats-sum")": ***number***
+         "aggregationEndTime": "***string***",
+         "aggregationStartTime": "***string***",
+         "costInUsd": { 
+            "avg": ***number***,
+            "max": ***number***,
+            "min": ***number***,
+            "sum": ***number***
          },
-         "[count](API_Statistics.md#deadlinecloud-Type-Statistics-count "API_Statistics.md#deadlinecloud-Type-Statistics-count")": ***number***,
-         "[fleetId](API_Statistics.md#deadlinecloud-Type-Statistics-fleetId "API_Statistics.md#deadlinecloud-Type-Statistics-fleetId")": "***string***",
-         "[instanceType](API_Statistics.md#deadlinecloud-Type-Statistics-instanceType "API_Statistics.md#deadlinecloud-Type-Statistics-instanceType")": "***string***",
-         "[jobId](API_Statistics.md#deadlinecloud-Type-Statistics-jobId "API_Statistics.md#deadlinecloud-Type-Statistics-jobId")": "***string***",
-         "[jobName](API_Statistics.md#deadlinecloud-Type-Statistics-jobName "API_Statistics.md#deadlinecloud-Type-Statistics-jobName")": "***string***",
-         "[licenseProduct](API_Statistics.md#deadlinecloud-Type-Statistics-licenseProduct "API_Statistics.md#deadlinecloud-Type-Statistics-licenseProduct")": "***string***",
-         "[queueId](API_Statistics.md#deadlinecloud-Type-Statistics-queueId "API_Statistics.md#deadlinecloud-Type-Statistics-queueId")": "***string***",
-         "[runtimeInSeconds](API_Statistics.md#deadlinecloud-Type-Statistics-runtimeInSeconds "API_Statistics.md#deadlinecloud-Type-Statistics-runtimeInSeconds")": { 
-            "[avg](API_Stats.md#deadlinecloud-Type-Stats-avg "API_Stats.md#deadlinecloud-Type-Stats-avg")": ***number***,
-            "[max](API_Stats.md#deadlinecloud-Type-Stats-max "API_Stats.md#deadlinecloud-Type-Stats-max")": ***number***,
-            "[min](API_Stats.md#deadlinecloud-Type-Stats-min "API_Stats.md#deadlinecloud-Type-Stats-min")": ***number***,
-            "[sum](API_Stats.md#deadlinecloud-Type-Stats-sum "API_Stats.md#deadlinecloud-Type-Stats-sum")": ***number***
+         "count": ***number***,
+         "fleetId": "***string***",
+         "instanceType": "***string***",
+         "jobId": "***string***",
+         "jobName": "***string***",
+         "licenseProduct": "***string***",
+         "queueId": "***string***",
+         "runtimeInSeconds": { 
+            "avg": ***number***,
+            "max": ***number***,
+            "min": ***number***,
+            "sum": ***number***
          },
-         "[usageType](API_Statistics.md#deadlinecloud-Type-Statistics-usageType "API_Statistics.md#deadlinecloud-Type-Statistics-usageType")": "***string***",
-         "[userId](API_Statistics.md#deadlinecloud-Type-Statistics-userId "API_Statistics.md#deadlinecloud-Type-Statistics-userId")": "***string***"
+         "usageType": "***string***",
+         "userId": "***string***"
       }
    ],
-   "[status](#deadlinecloud-GetSessionsStatisticsAggregation-response-status "#deadlinecloud-GetSessionsStatisticsAggregation-response-status")": "***string***",
-   "[statusMessage](#deadlinecloud-GetSessionsStatisticsAggregation-response-statusMessage "#deadlinecloud-GetSessionsStatisticsAggregation-response-statusMessage")": "***string***"
+   "status": "***string***",
+   "statusMessage": "***string***"
 }
 ```
 

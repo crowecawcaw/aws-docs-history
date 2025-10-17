@@ -12,7 +12,7 @@ PATCH /2023-10-12/farms/`farmId`/queue-fleet-associations/`queueId`/`fleetId` HT
 Content-type: application/json
 
 {
-   "[status](#deadlinecloud-UpdateQueueFleetAssociation-request-status "#deadlinecloud-UpdateQueueFleetAssociation-request-status")": "`string`"
+   "status": "`string`"
 }
 ```
 

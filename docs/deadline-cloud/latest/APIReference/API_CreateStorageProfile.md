@@ -14,15 +14,15 @@ X-Amz-Client-Token: `clientToken`
 Content-type: application/json
 
 {
-   "[displayName](#deadlinecloud-CreateStorageProfile-request-displayName "#deadlinecloud-CreateStorageProfile-request-displayName")": "`string`",
-   "[fileSystemLocations](#deadlinecloud-CreateStorageProfile-request-fileSystemLocations "#deadlinecloud-CreateStorageProfile-request-fileSystemLocations")": [ 
+   "displayName": "`string`",
+   "fileSystemLocations": [ 
       { 
-         "[name](API_FileSystemLocation.md#deadlinecloud-Type-FileSystemLocation-name "API_FileSystemLocation.md#deadlinecloud-Type-FileSystemLocation-name")": "`string`",
-         "[path](API_FileSystemLocation.md#deadlinecloud-Type-FileSystemLocation-path "API_FileSystemLocation.md#deadlinecloud-Type-FileSystemLocation-path")": "`string`",
-         "[type](API_FileSystemLocation.md#deadlinecloud-Type-FileSystemLocation-type "API_FileSystemLocation.md#deadlinecloud-Type-FileSystemLocation-type")": "`string`"
+         "name": "`string`",
+         "path": "`string`",
+         "type": "`string`"
       }
    ],
-   "[osFamily](#deadlinecloud-CreateStorageProfile-request-osFamily "#deadlinecloud-CreateStorageProfile-request-osFamily")": "`string`"
+   "osFamily": "`string`"
 }
 ```
 
@@ -136,7 +136,7 @@ HTTP/1.1 200
 Content-type: application/json
 
 {
-   "[storageProfileId](#deadlinecloud-CreateStorageProfile-response-storageProfileId "#deadlinecloud-CreateStorageProfile-response-storageProfileId")": "***string***"
+   "storageProfileId": "***string***"
 }
 ```
 

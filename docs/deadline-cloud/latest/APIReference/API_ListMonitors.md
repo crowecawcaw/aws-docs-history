@@ -55,22 +55,22 @@ HTTP/1.1 200
 Content-type: application/json
 
 {
-   "[monitors](#deadlinecloud-ListMonitors-response-monitors "#deadlinecloud-ListMonitors-response-monitors")": [ 
+   "monitors": [ 
       { 
-         "[createdAt](API_MonitorSummary.md#deadlinecloud-Type-MonitorSummary-createdAt "API_MonitorSummary.md#deadlinecloud-Type-MonitorSummary-createdAt")": "***string***",
-         "[createdBy](API_MonitorSummary.md#deadlinecloud-Type-MonitorSummary-createdBy "API_MonitorSummary.md#deadlinecloud-Type-MonitorSummary-createdBy")": "***string***",
-         "[displayName](API_MonitorSummary.md#deadlinecloud-Type-MonitorSummary-displayName "API_MonitorSummary.md#deadlinecloud-Type-MonitorSummary-displayName")": "***string***",
-         "[identityCenterApplicationArn](API_MonitorSummary.md#deadlinecloud-Type-MonitorSummary-identityCenterApplicationArn "API_MonitorSummary.md#deadlinecloud-Type-MonitorSummary-identityCenterApplicationArn")": "***string***",
-         "[identityCenterInstanceArn](API_MonitorSummary.md#deadlinecloud-Type-MonitorSummary-identityCenterInstanceArn "API_MonitorSummary.md#deadlinecloud-Type-MonitorSummary-identityCenterInstanceArn")": "***string***",
-         "[monitorId](API_MonitorSummary.md#deadlinecloud-Type-MonitorSummary-monitorId "API_MonitorSummary.md#deadlinecloud-Type-MonitorSummary-monitorId")": "***string***",
-         "[roleArn](API_MonitorSummary.md#deadlinecloud-Type-MonitorSummary-roleArn "API_MonitorSummary.md#deadlinecloud-Type-MonitorSummary-roleArn")": "***string***",
-         "[subdomain](API_MonitorSummary.md#deadlinecloud-Type-MonitorSummary-subdomain "API_MonitorSummary.md#deadlinecloud-Type-MonitorSummary-subdomain")": "***string***",
-         "[updatedAt](API_MonitorSummary.md#deadlinecloud-Type-MonitorSummary-updatedAt "API_MonitorSummary.md#deadlinecloud-Type-MonitorSummary-updatedAt")": "***string***",
-         "[updatedBy](API_MonitorSummary.md#deadlinecloud-Type-MonitorSummary-updatedBy "API_MonitorSummary.md#deadlinecloud-Type-MonitorSummary-updatedBy")": "***string***",
-         "[url](API_MonitorSummary.md#deadlinecloud-Type-MonitorSummary-url "API_MonitorSummary.md#deadlinecloud-Type-MonitorSummary-url")": "***string***"
+         "createdAt": "***string***",
+         "createdBy": "***string***",
+         "displayName": "***string***",
+         "identityCenterApplicationArn": "***string***",
+         "identityCenterInstanceArn": "***string***",
+         "monitorId": "***string***",
+         "roleArn": "***string***",
+         "subdomain": "***string***",
+         "updatedAt": "***string***",
+         "updatedBy": "***string***",
+         "url": "***string***"
       }
    ],
-   "[nextToken](#deadlinecloud-ListMonitors-response-nextToken "#deadlinecloud-ListMonitors-response-nextToken")": "***string***"
+   "nextToken": "***string***"
 }
 ```
 

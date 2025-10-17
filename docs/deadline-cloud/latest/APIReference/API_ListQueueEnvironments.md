@@ -85,14 +85,14 @@ HTTP/1.1 200
 Content-type: application/json
 
 {
-   "[environments](#deadlinecloud-ListQueueEnvironments-response-environments "#deadlinecloud-ListQueueEnvironments-response-environments")": [ 
+   "environments": [ 
       { 
-         "[name](API_QueueEnvironmentSummary.md#deadlinecloud-Type-QueueEnvironmentSummary-name "API_QueueEnvironmentSummary.md#deadlinecloud-Type-QueueEnvironmentSummary-name")": "***string***",
-         "[priority](API_QueueEnvironmentSummary.md#deadlinecloud-Type-QueueEnvironmentSummary-priority "API_QueueEnvironmentSummary.md#deadlinecloud-Type-QueueEnvironmentSummary-priority")": ***number***,
-         "[queueEnvironmentId](API_QueueEnvironmentSummary.md#deadlinecloud-Type-QueueEnvironmentSummary-queueEnvironmentId "API_QueueEnvironmentSummary.md#deadlinecloud-Type-QueueEnvironmentSummary-queueEnvironmentId")": "***string***"
+         "name": "***string***",
+         "priority": ***number***,
+         "queueEnvironmentId": "***string***"
       }
    ],
-   "[nextToken](#deadlinecloud-ListQueueEnvironments-response-nextToken "#deadlinecloud-ListQueueEnvironments-response-nextToken")": "***string***"
+   "nextToken": "***string***"
 }
 ```
 

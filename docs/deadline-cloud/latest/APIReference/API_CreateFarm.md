@@ -16,10 +16,10 @@ X-Amz-Client-Token: `clientToken`
 Content-type: application/json
 
 {
-   "[description](#deadlinecloud-CreateFarm-request-description "#deadlinecloud-CreateFarm-request-description")": "`string`",
-   "[displayName](#deadlinecloud-CreateFarm-request-displayName "#deadlinecloud-CreateFarm-request-displayName")": "`string`",
-   "[kmsKeyArn](#deadlinecloud-CreateFarm-request-kmsKeyArn "#deadlinecloud-CreateFarm-request-kmsKeyArn")": "`string`",
-   "[tags](#deadlinecloud-CreateFarm-request-tags "#deadlinecloud-CreateFarm-request-tags")": { 
+   "description": "`string`",
+   "displayName": "`string`",
+   "kmsKeyArn": "`string`",
+   "tags": { 
       "`string`" : "`string`" 
    }
 }
@@ -139,7 +139,7 @@ HTTP/1.1 200
 Content-type: application/json
 
 {
-   "[farmId](#deadlinecloud-CreateFarm-response-farmId "#deadlinecloud-CreateFarm-response-farmId")": "***string***"
+   "farmId": "***string***"
 }
 ```
 

@@ -12,7 +12,7 @@ POST /2023-10-12/tags/`resourceArn` HTTP/1.1
 Content-type: application/json
 
 {
-   "[tags](#deadlinecloud-TagResource-request-tags "#deadlinecloud-TagResource-request-tags")": { 
+   "tags": { 
       "`string`" : "`string`" 
    }
 }

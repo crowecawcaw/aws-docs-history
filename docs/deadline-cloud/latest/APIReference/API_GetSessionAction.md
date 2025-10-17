@@ -96,28 +96,28 @@ HTTP/1.1 200
 Content-type: application/json
 
 {
-   "[acquiredLimits](#deadlinecloud-GetSessionAction-response-acquiredLimits "#deadlinecloud-GetSessionAction-response-acquiredLimits")": [ 
+   "acquiredLimits": [ 
       { 
-         "[count](API_AcquiredLimit.md#deadlinecloud-Type-AcquiredLimit-count "API_AcquiredLimit.md#deadlinecloud-Type-AcquiredLimit-count")": ***number***,
-         "[limitId](API_AcquiredLimit.md#deadlinecloud-Type-AcquiredLimit-limitId "API_AcquiredLimit.md#deadlinecloud-Type-AcquiredLimit-limitId")": "***string***"
+         "count": ***number***,
+         "limitId": "***string***"
       }
    ],
-   "[definition](#deadlinecloud-GetSessionAction-response-definition "#deadlinecloud-GetSessionAction-response-definition")": { ... },
-   "[endedAt](#deadlinecloud-GetSessionAction-response-endedAt "#deadlinecloud-GetSessionAction-response-endedAt")": "***string***",
-   "[manifests](#deadlinecloud-GetSessionAction-response-manifests "#deadlinecloud-GetSessionAction-response-manifests")": [ 
+   "definition": { ... },
+   "endedAt": "***string***",
+   "manifests": [ 
       { 
-         "[outputManifestHash](API_TaskRunManifestPropertiesResponse.md#deadlinecloud-Type-TaskRunManifestPropertiesResponse-outputManifestHash "API_TaskRunManifestPropertiesResponse.md#deadlinecloud-Type-TaskRunManifestPropertiesResponse-outputManifestHash")": "***string***",
-         "[outputManifestPath](API_TaskRunManifestPropertiesResponse.md#deadlinecloud-Type-TaskRunManifestPropertiesResponse-outputManifestPath "API_TaskRunManifestPropertiesResponse.md#deadlinecloud-Type-TaskRunManifestPropertiesResponse-outputManifestPath")": "***string***"
+         "outputManifestHash": "***string***",
+         "outputManifestPath": "***string***"
       }
    ],
-   "[processExitCode](#deadlinecloud-GetSessionAction-response-processExitCode "#deadlinecloud-GetSessionAction-response-processExitCode")": ***number***,
-   "[progressMessage](#deadlinecloud-GetSessionAction-response-progressMessage "#deadlinecloud-GetSessionAction-response-progressMessage")": "***string***",
-   "[progressPercent](#deadlinecloud-GetSessionAction-response-progressPercent "#deadlinecloud-GetSessionAction-response-progressPercent")": ***number***,
-   "[sessionActionId](#deadlinecloud-GetSessionAction-response-sessionActionId "#deadlinecloud-GetSessionAction-response-sessionActionId")": "***string***",
-   "[sessionId](#deadlinecloud-GetSessionAction-response-sessionId "#deadlinecloud-GetSessionAction-response-sessionId")": "***string***",
-   "[startedAt](#deadlinecloud-GetSessionAction-response-startedAt "#deadlinecloud-GetSessionAction-response-startedAt")": "***string***",
-   "[status](#deadlinecloud-GetSessionAction-response-status "#deadlinecloud-GetSessionAction-response-status")": "***string***",
-   "[workerUpdatedAt](#deadlinecloud-GetSessionAction-response-workerUpdatedAt "#deadlinecloud-GetSessionAction-response-workerUpdatedAt")": "***string***"
+   "processExitCode": ***number***,
+   "progressMessage": "***string***",
+   "progressPercent": ***number***,
+   "sessionActionId": "***string***",
+   "sessionId": "***string***",
+   "startedAt": "***string***",
+   "status": "***string***",
+   "workerUpdatedAt": "***string***"
 }
 ```
 

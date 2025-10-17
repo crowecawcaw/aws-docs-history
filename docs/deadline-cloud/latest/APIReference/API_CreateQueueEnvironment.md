@@ -13,9 +13,9 @@ X-Amz-Client-Token: `clientToken`
 Content-type: application/json
 
 {
-   "[priority](#deadlinecloud-CreateQueueEnvironment-request-priority "#deadlinecloud-CreateQueueEnvironment-request-priority")": `number`,
-   "[template](#deadlinecloud-CreateQueueEnvironment-request-template "#deadlinecloud-CreateQueueEnvironment-request-template")": "`string`",
-   "[templateType](#deadlinecloud-CreateQueueEnvironment-request-templateType "#deadlinecloud-CreateQueueEnvironment-request-templateType")": "`string`"
+   "priority": `number`,
+   "template": "`string`",
+   "templateType": "`string`"
 }
 ```
 
@@ -141,7 +141,7 @@ HTTP/1.1 200
 Content-type: application/json
 
 {
-   "[queueEnvironmentId](#deadlinecloud-CreateQueueEnvironment-response-queueEnvironmentId "#deadlinecloud-CreateQueueEnvironment-response-queueEnvironmentId")": "***string***"
+   "queueEnvironmentId": "***string***"
 }
 ```
 

@@ -66,17 +66,17 @@ HTTP/1.1 200
 Content-type: application/json
 
 {
-   "[amountRequirementName](#deadlinecloud-GetLimit-response-amountRequirementName "#deadlinecloud-GetLimit-response-amountRequirementName")": "***string***",
-   "[createdAt](#deadlinecloud-GetLimit-response-createdAt "#deadlinecloud-GetLimit-response-createdAt")": "***string***",
-   "[createdBy](#deadlinecloud-GetLimit-response-createdBy "#deadlinecloud-GetLimit-response-createdBy")": "***string***",
-   "[currentCount](#deadlinecloud-GetLimit-response-currentCount "#deadlinecloud-GetLimit-response-currentCount")": ***number***,
-   "[description](#deadlinecloud-GetLimit-response-description "#deadlinecloud-GetLimit-response-description")": "***string***",
-   "[displayName](#deadlinecloud-GetLimit-response-displayName "#deadlinecloud-GetLimit-response-displayName")": "***string***",
-   "[farmId](#deadlinecloud-GetLimit-response-farmId "#deadlinecloud-GetLimit-response-farmId")": "***string***",
-   "[limitId](#deadlinecloud-GetLimit-response-limitId "#deadlinecloud-GetLimit-response-limitId")": "***string***",
-   "[maxCount](#deadlinecloud-GetLimit-response-maxCount "#deadlinecloud-GetLimit-response-maxCount")": ***number***,
-   "[updatedAt](#deadlinecloud-GetLimit-response-updatedAt "#deadlinecloud-GetLimit-response-updatedAt")": "***string***",
-   "[updatedBy](#deadlinecloud-GetLimit-response-updatedBy "#deadlinecloud-GetLimit-response-updatedBy")": "***string***"
+   "amountRequirementName": "***string***",
+   "createdAt": "***string***",
+   "createdBy": "***string***",
+   "currentCount": ***number***,
+   "description": "***string***",
+   "displayName": "***string***",
+   "farmId": "***string***",
+   "limitId": "***string***",
+   "maxCount": ***number***,
+   "updatedAt": "***string***",
+   "updatedBy": "***string***"
 }
 ```
 

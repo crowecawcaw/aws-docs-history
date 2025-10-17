@@ -66,42 +66,42 @@ HTTP/1.1 200
 Content-type: application/json
 
 {
-   "[autoScalingStatus](#deadlinecloud-GetFleet-response-autoScalingStatus "#deadlinecloud-GetFleet-response-autoScalingStatus")": "***string***",
-   "[capabilities](#deadlinecloud-GetFleet-response-capabilities "#deadlinecloud-GetFleet-response-capabilities")": { 
-      "[amounts](API_FleetCapabilities.md#deadlinecloud-Type-FleetCapabilities-amounts "API_FleetCapabilities.md#deadlinecloud-Type-FleetCapabilities-amounts")": [ 
+   "autoScalingStatus": "***string***",
+   "capabilities": { 
+      "amounts": [ 
          { 
-            "[max](API_FleetAmountCapability.md#deadlinecloud-Type-FleetAmountCapability-max "API_FleetAmountCapability.md#deadlinecloud-Type-FleetAmountCapability-max")": ***number***,
-            "[min](API_FleetAmountCapability.md#deadlinecloud-Type-FleetAmountCapability-min "API_FleetAmountCapability.md#deadlinecloud-Type-FleetAmountCapability-min")": ***number***,
-            "[name](API_FleetAmountCapability.md#deadlinecloud-Type-FleetAmountCapability-name "API_FleetAmountCapability.md#deadlinecloud-Type-FleetAmountCapability-name")": "***string***"
+            "max": ***number***,
+            "min": ***number***,
+            "name": "***string***"
          }
       ],
-      "[attributes](API_FleetCapabilities.md#deadlinecloud-Type-FleetCapabilities-attributes "API_FleetCapabilities.md#deadlinecloud-Type-FleetCapabilities-attributes")": [ 
+      "attributes": [ 
          { 
-            "[name](API_FleetAttributeCapability.md#deadlinecloud-Type-FleetAttributeCapability-name "API_FleetAttributeCapability.md#deadlinecloud-Type-FleetAttributeCapability-name")": "***string***",
-            "[values](API_FleetAttributeCapability.md#deadlinecloud-Type-FleetAttributeCapability-values "API_FleetAttributeCapability.md#deadlinecloud-Type-FleetAttributeCapability-values")": [ "***string***" ]
+            "name": "***string***",
+            "values": [ "***string***" ]
          }
       ]
    },
-   "[configuration](#deadlinecloud-GetFleet-response-configuration "#deadlinecloud-GetFleet-response-configuration")": { ... },
-   "[createdAt](#deadlinecloud-GetFleet-response-createdAt "#deadlinecloud-GetFleet-response-createdAt")": "***string***",
-   "[createdBy](#deadlinecloud-GetFleet-response-createdBy "#deadlinecloud-GetFleet-response-createdBy")": "***string***",
-   "[description](#deadlinecloud-GetFleet-response-description "#deadlinecloud-GetFleet-response-description")": "***string***",
-   "[displayName](#deadlinecloud-GetFleet-response-displayName "#deadlinecloud-GetFleet-response-displayName")": "***string***",
-   "[farmId](#deadlinecloud-GetFleet-response-farmId "#deadlinecloud-GetFleet-response-farmId")": "***string***",
-   "[fleetId](#deadlinecloud-GetFleet-response-fleetId "#deadlinecloud-GetFleet-response-fleetId")": "***string***",
-   "[hostConfiguration](#deadlinecloud-GetFleet-response-hostConfiguration "#deadlinecloud-GetFleet-response-hostConfiguration")": { 
-      "[scriptBody](API_HostConfiguration.md#deadlinecloud-Type-HostConfiguration-scriptBody "API_HostConfiguration.md#deadlinecloud-Type-HostConfiguration-scriptBody")": "***string***",
-      "[scriptTimeoutSeconds](API_HostConfiguration.md#deadlinecloud-Type-HostConfiguration-scriptTimeoutSeconds "API_HostConfiguration.md#deadlinecloud-Type-HostConfiguration-scriptTimeoutSeconds")": ***number***
+   "configuration": { ... },
+   "createdAt": "***string***",
+   "createdBy": "***string***",
+   "description": "***string***",
+   "displayName": "***string***",
+   "farmId": "***string***",
+   "fleetId": "***string***",
+   "hostConfiguration": { 
+      "scriptBody": "***string***",
+      "scriptTimeoutSeconds": ***number***
    },
-   "[maxWorkerCount](#deadlinecloud-GetFleet-response-maxWorkerCount "#deadlinecloud-GetFleet-response-maxWorkerCount")": ***number***,
-   "[minWorkerCount](#deadlinecloud-GetFleet-response-minWorkerCount "#deadlinecloud-GetFleet-response-minWorkerCount")": ***number***,
-   "[roleArn](#deadlinecloud-GetFleet-response-roleArn "#deadlinecloud-GetFleet-response-roleArn")": "***string***",
-   "[status](#deadlinecloud-GetFleet-response-status "#deadlinecloud-GetFleet-response-status")": "***string***",
-   "[statusMessage](#deadlinecloud-GetFleet-response-statusMessage "#deadlinecloud-GetFleet-response-statusMessage")": "***string***",
-   "[targetWorkerCount](#deadlinecloud-GetFleet-response-targetWorkerCount "#deadlinecloud-GetFleet-response-targetWorkerCount")": ***number***,
-   "[updatedAt](#deadlinecloud-GetFleet-response-updatedAt "#deadlinecloud-GetFleet-response-updatedAt")": "***string***",
-   "[updatedBy](#deadlinecloud-GetFleet-response-updatedBy "#deadlinecloud-GetFleet-response-updatedBy")": "***string***",
-   "[workerCount](#deadlinecloud-GetFleet-response-workerCount "#deadlinecloud-GetFleet-response-workerCount")": ***number***
+   "maxWorkerCount": ***number***,
+   "minWorkerCount": ***number***,
+   "roleArn": "***string***",
+   "status": "***string***",
+   "statusMessage": "***string***",
+   "targetWorkerCount": ***number***,
+   "updatedAt": "***string***",
+   "updatedBy": "***string***",
+   "workerCount": ***number***
 }
 ```
 

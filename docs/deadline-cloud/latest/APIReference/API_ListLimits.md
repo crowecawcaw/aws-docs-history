@@ -70,21 +70,21 @@ HTTP/1.1 200
 Content-type: application/json
 
 {
-   "[limits](#deadlinecloud-ListLimits-response-limits "#deadlinecloud-ListLimits-response-limits")": [ 
+   "limits": [ 
       { 
-         "[amountRequirementName](API_LimitSummary.md#deadlinecloud-Type-LimitSummary-amountRequirementName "API_LimitSummary.md#deadlinecloud-Type-LimitSummary-amountRequirementName")": "***string***",
-         "[createdAt](API_LimitSummary.md#deadlinecloud-Type-LimitSummary-createdAt "API_LimitSummary.md#deadlinecloud-Type-LimitSummary-createdAt")": "***string***",
-         "[createdBy](API_LimitSummary.md#deadlinecloud-Type-LimitSummary-createdBy "API_LimitSummary.md#deadlinecloud-Type-LimitSummary-createdBy")": "***string***",
-         "[currentCount](API_LimitSummary.md#deadlinecloud-Type-LimitSummary-currentCount "API_LimitSummary.md#deadlinecloud-Type-LimitSummary-currentCount")": ***number***,
-         "[displayName](API_LimitSummary.md#deadlinecloud-Type-LimitSummary-displayName "API_LimitSummary.md#deadlinecloud-Type-LimitSummary-displayName")": "***string***",
-         "[farmId](API_LimitSummary.md#deadlinecloud-Type-LimitSummary-farmId "API_LimitSummary.md#deadlinecloud-Type-LimitSummary-farmId")": "***string***",
-         "[limitId](API_LimitSummary.md#deadlinecloud-Type-LimitSummary-limitId "API_LimitSummary.md#deadlinecloud-Type-LimitSummary-limitId")": "***string***",
-         "[maxCount](API_LimitSummary.md#deadlinecloud-Type-LimitSummary-maxCount "API_LimitSummary.md#deadlinecloud-Type-LimitSummary-maxCount")": ***number***,
-         "[updatedAt](API_LimitSummary.md#deadlinecloud-Type-LimitSummary-updatedAt "API_LimitSummary.md#deadlinecloud-Type-LimitSummary-updatedAt")": "***string***",
-         "[updatedBy](API_LimitSummary.md#deadlinecloud-Type-LimitSummary-updatedBy "API_LimitSummary.md#deadlinecloud-Type-LimitSummary-updatedBy")": "***string***"
+         "amountRequirementName": "***string***",
+         "createdAt": "***string***",
+         "createdBy": "***string***",
+         "currentCount": ***number***,
+         "displayName": "***string***",
+         "farmId": "***string***",
+         "limitId": "***string***",
+         "maxCount": ***number***,
+         "updatedAt": "***string***",
+         "updatedBy": "***string***"
       }
    ],
-   "[nextToken](#deadlinecloud-ListLimits-response-nextToken "#deadlinecloud-ListLimits-response-nextToken")": "***string***"
+   "nextToken": "***string***"
 }
 ```
 

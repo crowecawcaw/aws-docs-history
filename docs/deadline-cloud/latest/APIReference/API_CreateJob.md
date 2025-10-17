@@ -15,31 +15,31 @@ X-Amz-Client-Token: `clientToken`
 Content-type: application/json
 
 {
-   "[attachments](#deadlinecloud-CreateJob-request-attachments "#deadlinecloud-CreateJob-request-attachments")": { 
-      "[fileSystem](API_Attachments.md#deadlinecloud-Type-Attachments-fileSystem "API_Attachments.md#deadlinecloud-Type-Attachments-fileSystem")": "`string`",
-      "[manifests](API_Attachments.md#deadlinecloud-Type-Attachments-manifests "API_Attachments.md#deadlinecloud-Type-Attachments-manifests")": [ 
+   "attachments": { 
+      "fileSystem": "`string`",
+      "manifests": [ 
          { 
-            "[fileSystemLocationName](API_ManifestProperties.md#deadlinecloud-Type-ManifestProperties-fileSystemLocationName "API_ManifestProperties.md#deadlinecloud-Type-ManifestProperties-fileSystemLocationName")": "`string`",
-            "[inputManifestHash](API_ManifestProperties.md#deadlinecloud-Type-ManifestProperties-inputManifestHash "API_ManifestProperties.md#deadlinecloud-Type-ManifestProperties-inputManifestHash")": "`string`",
-            "[inputManifestPath](API_ManifestProperties.md#deadlinecloud-Type-ManifestProperties-inputManifestPath "API_ManifestProperties.md#deadlinecloud-Type-ManifestProperties-inputManifestPath")": "`string`",
-            "[outputRelativeDirectories](API_ManifestProperties.md#deadlinecloud-Type-ManifestProperties-outputRelativeDirectories "API_ManifestProperties.md#deadlinecloud-Type-ManifestProperties-outputRelativeDirectories")": [ "`string`" ],
-            "[rootPath](API_ManifestProperties.md#deadlinecloud-Type-ManifestProperties-rootPath "API_ManifestProperties.md#deadlinecloud-Type-ManifestProperties-rootPath")": "`string`",
-            "[rootPathFormat](API_ManifestProperties.md#deadlinecloud-Type-ManifestProperties-rootPathFormat "API_ManifestProperties.md#deadlinecloud-Type-ManifestProperties-rootPathFormat")": "`string`"
+            "fileSystemLocationName": "`string`",
+            "inputManifestHash": "`string`",
+            "inputManifestPath": "`string`",
+            "outputRelativeDirectories": [ "`string`" ],
+            "rootPath": "`string`",
+            "rootPathFormat": "`string`"
          }
       ]
    },
-   "[maxFailedTasksCount](#deadlinecloud-CreateJob-request-maxFailedTasksCount "#deadlinecloud-CreateJob-request-maxFailedTasksCount")": `number`,
-   "[maxRetriesPerTask](#deadlinecloud-CreateJob-request-maxRetriesPerTask "#deadlinecloud-CreateJob-request-maxRetriesPerTask")": `number`,
-   "[maxWorkerCount](#deadlinecloud-CreateJob-request-maxWorkerCount "#deadlinecloud-CreateJob-request-maxWorkerCount")": `number`,
-   "[parameters](#deadlinecloud-CreateJob-request-parameters "#deadlinecloud-CreateJob-request-parameters")": { 
+   "maxFailedTasksCount": `number`,
+   "maxRetriesPerTask": `number`,
+   "maxWorkerCount": `number`,
+   "parameters": { 
       "`string`" : { ... }
    },
-   "[priority](#deadlinecloud-CreateJob-request-priority "#deadlinecloud-CreateJob-request-priority")": `number`,
-   "[sourceJobId](#deadlinecloud-CreateJob-request-sourceJobId "#deadlinecloud-CreateJob-request-sourceJobId")": "`string`",
-   "[storageProfileId](#deadlinecloud-CreateJob-request-storageProfileId "#deadlinecloud-CreateJob-request-storageProfileId")": "`string`",
-   "[targetTaskRunStatus](#deadlinecloud-CreateJob-request-targetTaskRunStatus "#deadlinecloud-CreateJob-request-targetTaskRunStatus")": "`string`",
-   "[template](#deadlinecloud-CreateJob-request-template "#deadlinecloud-CreateJob-request-template")": "`string`",
-   "[templateType](#deadlinecloud-CreateJob-request-templateType "#deadlinecloud-CreateJob-request-templateType")": "`string`"
+   "priority": `number`,
+   "sourceJobId": "`string`",
+   "storageProfileId": "`string`",
+   "targetTaskRunStatus": "`string`",
+   "template": "`string`",
+   "templateType": "`string`"
 }
 ```
 
@@ -312,7 +312,7 @@ HTTP/1.1 201
 Content-type: application/json
 
 {
-   "[jobId](#deadlinecloud-CreateJob-response-jobId "#deadlinecloud-CreateJob-response-jobId")": "***string***"
+   "jobId": "***string***"
 }
 ```
 
