@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+    <html xmlns="http://www.w3.org/1999/xhtml" lang="en-US"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>What is Amazon EC2 Auto Scaling? - Amazon EC2 Auto Scaling</title><meta name="viewport" content="width=device-width,initial-scale=1" /><meta name="assets_root" content="/assets" /><meta name="target_state" content="what-is-amazon-ec2-auto-scaling" /><meta name="default_state" content="what-is-amazon-ec2-auto-scaling" /><link rel="icon" type="image/ico" href="/assets/images/favicon.ico" /><link rel="shortcut icon" type="image/ico" href="/assets/images/favicon.ico" /><link rel="canonical" href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/what-is-amazon-ec2-auto-scaling.html" /><meta name="description" content="Automatically launch or terminate EC2 instances based on user-defined policies, health status checks, and schedules using Amazon EC2 Auto Scaling." /><meta name="deployment_region" content="IAD" /><meta name="product" content="Amazon EC2 Auto Scaling" /><meta name="guide" content="User Guide" /><meta name="abstract" content="Use Amazon EC2 Auto Scaling to launch or terminate EC2 instances based on automatic scaling and health status." /><meta name="guide-locale" content="en_us" /><meta name="tocs" content="toc-contents.json" /><link rel="canonical" href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/what-is-amazon-ec2-auto-scaling.html" /><link rel="alternative" href="https://docs.aws.amazon.com/id_id/autoscaling/ec2/userguide/what-is-amazon-ec2-auto-scaling.html" hreflang="id-id" /><link rel="alternative" href="https://docs.aws.amazon.com/id_id/autoscaling/ec2/userguide/what-is-amazon-ec2-auto-scaling.html" hreflang="id" /><link rel="alternative" href="https://docs.aws.amazon.com/de_de/autoscaling/ec2/userguide/what-is-amazon-ec2-auto-scaling.html" hreflang="de-de" /><link rel="alternative" href="https://docs.aws.amazon.com/de_de/autoscaling/ec2/userguide/what-is-amazon-ec2-auto-scaling.html" hreflang="de" /><link rel="alternative" href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/what-is-amazon-ec2-auto-scaling.html" hreflang="en-us" /><link rel="alternative" href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/what-is-amazon-ec2-auto-scaling.html" hreflang="en" /><link rel="alternative" href="https://docs.aws.amazon.com/es_es/autoscaling/ec2/userguide/what-is-amazon-ec2-auto-scaling.html" hreflang="es-es" /><link rel="alternative" href="https://docs.aws.amazon.com/es_es/autoscaling/ec2/userguide/what-is-amazon-ec2-auto-scaling.html" hreflang="es" /><link rel="alternative" href="https://docs.aws.amazon.com/fr_fr/autoscaling/ec2/userguide/what-is-amazon-ec2-auto-scaling.html" hreflang="fr-fr" /><link rel="alternative" href="https://docs.aws.amazon.com/fr_fr/autoscaling/ec2/userguide/what-is-amazon-ec2-auto-scaling.html" hreflang="fr" /><link rel="alternative" href="https://docs.aws.amazon.com/it_it/autoscaling/ec2/userguide/what-is-amazon-ec2-auto-scaling.html" hreflang="it-it" /><link rel="alternative" href="https://docs.aws.amazon.com/it_it/autoscaling/ec2/userguide/what-is-amazon-ec2-auto-scaling.html" hreflang="it" /><link rel="alternative" href="https://docs.aws.amazon.com/ja_jp/autoscaling/ec2/userguide/what-is-amazon-ec2-auto-scaling.html" hreflang="ja-jp" /><link rel="alternative" href="https://docs.aws.amazon.com/ja_jp/autoscaling/ec2/userguide/what-is-amazon-ec2-auto-scaling.html" hreflang="ja" /><link rel="alternative" href="https://docs.aws.amazon.com/ko_kr/autoscaling/ec2/userguide/what-is-amazon-ec2-auto-scaling.html" hreflang="ko-kr" /><link rel="alternative" href="https://docs.aws.amazon.com/ko_kr/autoscaling/ec2/userguide/what-is-amazon-ec2-auto-scaling.html" hreflang="ko" /><link rel="alternative" href="https://docs.aws.amazon.com/pt_br/autoscaling/ec2/userguide/what-is-amazon-ec2-auto-scaling.html" hreflang="pt-br" /><link rel="alternative" href="https://docs.aws.amazon.com/pt_br/autoscaling/ec2/userguide/what-is-amazon-ec2-auto-scaling.html" hreflang="pt" /><link rel="alternative" href="https://docs.aws.amazon.com/zh_cn/autoscaling/ec2/userguide/what-is-amazon-ec2-auto-scaling.html" hreflang="zh-cn" /><link rel="alternative" href="https://docs.aws.amazon.com/zh_tw/autoscaling/ec2/userguide/what-is-amazon-ec2-auto-scaling.html" hreflang="zh-tw" /><link rel="alternative" href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/what-is-amazon-ec2-auto-scaling.html" hreflang="x-default" /><meta name="feedback-item" content="Auto Scaling" /><meta name="this_doc_product" content="Amazon EC2 Auto Scaling" /><meta name="this_doc_guide" content="User Guide" /><head xmlns="http://www.w3.org/1999/xhtml"> <script defer="" src="/assets/r/awsdocs-doc-page.2.0.0.js"></script><link href="/assets/r/awsdocs-doc-page.2.0.0.css" rel="stylesheet"/></head>
+<script defer="" id="awsc-panorama-bundle" type="text/javascript" src="https://prod.pa.cdn.uis.awsstatic.com/panorama-nav-init.js" data-config="{'appEntity':'aws-documentation','region':'us-east-1','service':'autoscaling'}"></script><meta id="panorama-serviceSubSection" value="User Guide" /><meta id="panorama-serviceConsolePage" value="What is Amazon EC2 Auto Scaling?" /></head><body class="awsdocs awsui"><div class="awsdocs-container"><awsdocs-header></awsdocs-header><awsui-app-layout id="app-layout" class="awsui-util-no-gutters" ng-controller="ContentController as $ctrl" header-selector="awsdocs-header" navigation-hide="false" navigation-width="$ctrl.navWidth" navigation-open="$ctrl.navOpen" navigation-change="$ctrl.onNavChange($event)" tools-hide="$ctrl.hideTools" tools-width="$ctrl.toolsWidth" tools-open="$ctrl.toolsOpen" tools-change="$ctrl.onToolsChange($event)"><div id="guide-toc" dom-region="navigation"><awsdocs-toc></awsdocs-toc></div><div id="main-column" dom-region="content" tabindex="-1"><awsdocs-view class="awsdocs-view"><div id="awsdocs-content"><head><title>What is Amazon EC2 Auto Scaling? - Amazon EC2 Auto Scaling</title><meta name="pdf" content="/pdfs/autoscaling/ec2/userguide/as-dg.pdf#what-is-amazon-ec2-auto-scaling" /><meta name="rss" content="CHAP_DocumentHistory.rss" /><meta name="forums" content="https://repost.aws/tags/TAm15uGCYNR4KH3wwKSlujOQ" /><meta name="feedback" content="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=Auto%20Scaling&amp;topic_url=https://docs.aws.amazon.com/en_us/autoscaling/ec2/userguide/what-is-amazon-ec2-auto-scaling.html" /><meta name="feedback-yes" content="feedbackyes.html?topic_url=https://docs.aws.amazon.com/en_us/autoscaling/ec2/userguide/what-is-amazon-ec2-auto-scaling.html" /><meta name="feedback-no" content="feedbackno.html?topic_url=https://docs.aws.amazon.com/en_us/autoscaling/ec2/userguide/what-is-amazon-ec2-auto-scaling.html" /><meta name="keywords" content="scaling,auto scaling,Amazon EC2,Auto Scaling group,auto scaling group,scaling policies,scheduled scaling,Amazon EC2 Auto Scaling,Automatically launch or terminate Amazon EC2 instances,Auto Scaling,autoscaler,scaling policy" /><script type="application/ld+json">
+{
+    "@context" : "https://schema.org",
+    "@type" : "BreadcrumbList",
+    "itemListElement" : [
+      {
+        "@type" : "ListItem",
+        "position" : 1,
+        "name" : "AWS",
+        "item" : "https://aws.amazon.com"
+      },
+      {
+        "@type" : "ListItem",
+        "position" : 2,
+        "name" : "Auto Scaling",
+        "item" : "https://docs.aws.amazon.com/autoscaling/index.html"
+      },
+      {
+        "@type" : "ListItem",
+        "position" : 3,
+        "name" : "User Guide",
+        "item" : "https://docs.aws.amazon.com/autoscaling/ec2/userguide"
+      },
+      {
+        "@type" : "ListItem",
+        "position" : 4,
+        "name" : "What is Amazon EC2 Auto Scaling?",
+        "item" : "https://docs.aws.amazon.com/autoscaling/ec2/userguide/what-is-amazon-ec2-auto-scaling.html"
+      }
+    ]
+}
+</script></head><body><div id="main"><div style="display: none"><a href="/pdfs/autoscaling/ec2/userguide/as-dg.pdf#what-is-amazon-ec2-auto-scaling" target="_blank" rel="noopener noreferrer" title="Open PDF"></a></div><div id="breadcrumbs" class="breadcrumb"><a href="/index.html">Documentation</a><a href="/autoscaling/index.html">Auto Scaling</a><a href="what-is-amazon-ec2-auto-scaling.html">User Guide</a></div><div id="page-toc-src"><a href="#ec2-auto-scaling-features">Features of Amazon EC2 Auto Scaling</a><a href="#as-pricing">Pricing for Amazon EC2 Auto Scaling</a><a href="#what-is-auto-scaling-next-steps">Get started</a><a href="#auto-scaling-group-interfaces">Work with Auto Scaling groups</a></div><awsdocs-doc-page-banner></awsdocs-doc-page-banner><div id="main-content" class="awsui-util-container"><div id="main-col-body"><awsdocs-language-banner data-service="$ctrl.pageService"></awsdocs-language-banner><h1 class="topictitle" id="what-is-amazon-ec2-auto-scaling">What is Amazon EC2 Auto Scaling?</h1><div class="awsdocs-page-header-container"><awsdocs-page-header></awsdocs-page-header><awsdocs-filter-selector id="awsdocs-filter-selector"></awsdocs-filter-selector></div><p>Amazon EC2 Auto Scaling helps you ensure that you have the correct number of Amazon EC2 instances available to
+		handle the load for your application. You create collections of EC2 instances, called
+			<em>Auto Scaling groups</em>. You can specify the minimum number of instances in
+		each Auto Scaling group, and Amazon EC2 Auto Scaling ensures that your group never goes below this size. You can
+		specify the maximum number of instances in each Auto Scaling group, and Amazon EC2 Auto Scaling ensures that your
+		group never goes above this size. If you specify the desired capacity, either when you
+		create the group or at any time thereafter, Amazon EC2 Auto Scaling ensures that your group has this many
+		instances. If you specify scaling policies, then Amazon EC2 Auto Scaling can launch or terminate instances
+		as demand on your application increases or decreases.</p><p>For example, the following Auto Scaling group has a minimum size of four instances, a desired
+		capacity of six instances, and a maximum size of twelve instances. The scaling policies that
+		you define adjust the number of instances, within your minimum and maximum number of
+		instances, based on the criteria that you specify.</p><div class="mediaobject">
+		 
+			<img src="/images/autoscaling/ec2/userguide/images/asg-basic-arch.png" class="aws-docs-img-whiteBg aws-docs-img-padding" alt="A basic architecture diagram of an Auto Scaling group within a VPC." style="max-width:100%" />
+		 
+		 
+	</div>
+		<h2 id="ec2-auto-scaling-features">Features of Amazon EC2 Auto Scaling</h2>
+
+		<p>With Amazon EC2 Auto Scaling, your EC2 instances are organized into Auto Scaling groups so that they can be
+			treated as a logical unit for the purposes of scaling and management. Auto Scaling groups use
+			launch templates (or launch configurations) as configuration templates for their EC2
+			instances. </p>
+		<p>The following are key features of Amazon EC2 Auto Scaling:</p>
+
+		<div class="variablelist">
+			 
+			 
+			 
+			 
+			 
+			 
+			 
+			 
+			 
+			 
+		<dl>
+				<dt><b><span class="term">Monitoring the health of running instances</span></b></dt>
+				<dd>
+					<p>Amazon EC2 Auto Scaling automatically monitors the health and availability of your
+						instances using EC2 health checks and replaces terminated or impaired
+						instances to maintain your desired capacity. </p>
+				</dd>
+			
+				<dt><b><span class="term">Custom health checks</span></b></dt>
+				<dd>
+					<p>In addition to the built-in health checks, you can define custom health
+						checks that are specific to your application to verify that it's responding
+						as expected. If an instance fails your custom health check, it's
+						automatically replaced to maintain your desired capacity.</p>
+				</dd>
+			
+				<dt><b><span class="term">Balancing capacity across Availability Zones</span></b></dt>
+				<dd>
+					<p>You can specify multiple Availability Zones for your Auto Scaling group, and
+						Amazon EC2 Auto Scaling balances your instances evenly across the Availability Zones as the
+						group scales. This provides high availability and resiliency by protecting
+						your applications from failures in a single location. </p>
+				</dd>
+			
+				<dt><b><span class="term">Multiple instance types and purchase options</span></b></dt>
+				<dd>
+					<p>Within a single Auto Scaling group, you can launch multiple instance types and
+						purchase options (Spot and On-Demand Instances), allowing you to optimize
+						costs through Spot Instance usage. You can also take advantage of Reserved
+						Instance and Savings Plans discounts by using them in conjunction with
+						On-Demand Instances in the group. </p>
+				</dd>
+			
+				<dt><b><span class="term">Automated replacement of Spot Instances</span></b></dt>
+				<dd>
+					<p>If your group includes Spot Instances, Amazon EC2 Auto Scaling can automatically request
+						replacement Spot capacity if your Spot Instances are interrupted. Through
+						Capacity Rebalancing, Amazon EC2 Auto Scaling can also monitor and proactively replace your
+						Spot Instances that are at an elevated risk of interruption.</p>
+				</dd>
+			
+				<dt><b><span class="term">Load balancing</span></b></dt>
+				<dd>
+					<p>You can use Elastic Load Balancing load balancing and health checks to ensure an even
+						distribution of application traffic to your healthy instances. Whenever
+						instances are launched or terminated, Amazon EC2 Auto Scaling automatically registers and
+						deregisters the instances from the load balancer. </p>
+				</dd>
+			
+				<dt><b><span class="term">Scalability</span></b></dt>
+				<dd>
+					<p>Amazon EC2 Auto Scaling also provides several ways for you to scale your Auto Scaling groups.
+						Using auto scaling allows you to maintain application availability and
+						reduce costs by adding capacity to handle peak loads and removing capacity
+						when demand is lower. You can also manually adjust the size of your Auto Scaling
+						group as needed.</p>
+				</dd>
+			
+				<dt><b><span class="term">Instance refresh</span></b></dt>
+				<dd>
+					<p>The instance refresh feature provides a mechanism to update instances in a
+						rolling fashion when you update your AMI or launch template. You can also
+						use a phased approach, known as a canary deployment, to test a new AMI or
+						launch template on a small set of instances before rolling it out to the
+						whole group.</p>
+				</dd>
+			
+				<dt><b><span class="term">Lifecycle hooks</span></b></dt>
+				<dd>
+					<p>Lifecycle hooks are useful for defining custom actions that are invoked as
+						new instances launch or before instances are terminated. This feature is
+						particularly useful for building event-driven architectures, but it also
+						helps you manage instances through their lifecycle.</p>
+				</dd>
+			
+				<dt><b><span class="term">Support for stateful workloads</span></b></dt>
+				<dd>
+					<p>Lifecycle hooks also offer a mechanism for persisting state on shut down.
+						To ensure continuity for stateful applications, you can also use scale-in
+						protection or custom termination policies to prevent instances with
+						long-running processes from terminating early.</p>
+				</dd>
+			</dl></div>
+		<p>For more information about the benefits of Amazon EC2 Auto Scaling, see <a href="./auto-scaling-benefits.html">Auto Scaling benefits for application architecture</a>.</p>
+	 
+		<h2 id="as-pricing">Pricing for Amazon EC2 Auto Scaling</h2>
+
+		<p>There are no additional fees with Amazon EC2 Auto Scaling, so it's easy to try it out and see how it
+			can benefit your AWS architecture. You only pay for the AWS resources (for example,
+			EC2 instances, EBS volumes, and CloudWatch alarms) that you use.</p>
+	 
+		<h2 id="what-is-auto-scaling-next-steps">Get started</h2>
+		<p>To begin, complete the <a href="./create-your-first-auto-scaling-group.html">Create
+				your first Auto Scaling group</a> tutorial to create an Auto Scaling group and see how it
+			responds when an instance in that group terminates.</p>
+	 
+		<h2 id="auto-scaling-group-interfaces">Work with Auto Scaling groups</h2>
+		<p>You can create, access, and manage your Auto Scaling groups using any of the following
+			interfaces:</p>
+		<div class="itemizedlist">
+			 
+			 
+			 
+			 
+			 
+			 
+		<ul class="itemizedlist"><li class="listitem">
+				<p><b>AWS Management Console</b> â Provides a web interface
+					that you can use to access your Auto Scaling groups. If you've signed up for an
+					AWS account, you can access your Auto Scaling groups by signing into the AWS Management Console,
+					using the search box on the navigation bar to search for <b>Auto Scaling
+						groups</b>, and then choosing <b>Auto Scaling
+						groups</b>.</p>
+			</li><li class="listitem">
+				<p><b>AWS Command Line Interface (AWS CLI)</b> â Provides commands
+					for a broad set of AWS services, and is supported on Windows, macOS, and
+					Linux. To get started, see <a href="./setting-up.html#set-up-cli">Prepare to use the AWS CLI</a>. For more information, see <a href="https://awscli.amazonaws.com/v2/documentation/api/latest/reference/autoscaling/" rel="noopener noreferrer" target="_blank"><span>autoscaling</span><awsui-icon class="awsdocs-link-icon" name="external"></awsui-icon></a> in the <em>AWS CLI Command Reference</em>.</p>
+			</li><li class="listitem">
+				<p><b>AWS Tools for Windows PowerShell</b> â Provides commands for a
+					broad set of AWS products for those who script in the PowerShell environment.
+					To get started, see the <a href="https://docs.aws.amazon.com/powershell/latest/userguide/">AWS Tools for PowerShell User Guide</a>. For more information, see the <a href="https://docs.aws.amazon.com/powershell/latest/reference/Index.html">AWS Tools for PowerShell Cmdlet Reference</a>.</p>
+			</li><li class="listitem">
+				<p><b>AWS SDKs</b> â Provides
+					language-specific API operations and takes care of many of the connection
+					details, such as calculating signatures, handling request retries, and handling
+					errors. For more information, see <a href="https://aws.amazon.com/developer/tools/#SDKs" rel="noopener noreferrer" target="_blank"><span>AWS SDKs</span><awsui-icon class="awsdocs-link-icon" name="external"></awsui-icon></a>.</p>
+			</li><li class="listitem">
+				<p><b>Query API</b> â Provides low-level API
+					actions that you call using HTTPS requests. Using the Query API is the most
+					direct way to access AWS services. However, it requires your application to
+					handle low-level details such as generating the hash to sign the request, and
+					handling errors. For more information, see the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/">Amazon EC2 Auto Scaling API Reference</a>.</p>
+			</li><li class="listitem">
+				<p><b>AWS CloudFormation</b> â Supports creating Auto Scaling groups
+					using CloudFormation templates. For more information, see <a href="./creating-auto-scaling-groups-with-cloudformation.html">Create Auto Scaling groups with
+            AWS CloudFormation</a>.</p>
+			</li></ul></div>
+		<p>To connect programmatically to an AWS service, you use an endpoint. For information
+			about endpoints for calls to Amazon EC2 Auto Scaling, see <span><a href="https://docs.aws.amazon.com/general/latest/gr/as.html">Amazon EC2 Auto Scaling endpoints and
+					quotas</a> in the <em>AWS General Reference</em></span>. </p>
+	<awsdocs-copyright class="copyright-print"></awsdocs-copyright><awsdocs-thumb-feedback right-edge="{{$ctrl.thumbFeedbackRightEdge}}"></awsdocs-thumb-feedback></div><noscript><div><div><div><div id="js_error_message"><p><img src="https://d1ge0kk1l5kms0.cloudfront.net/images/G/01/webservices/console/warning.png" alt="Warning" /> <strong>Javascript is disabled or is unavailable in your browser.</strong></p><p>To use the Amazon Web Services Documentation, Javascript must be enabled. Please refer to your browser's Help pages for instructions.</p></div></div></div></div></noscript><div id="main-col-footer" class="awsui-util-font-size-0"><div id="doc-conventions"><a target="_top" href="/general/latest/gr/docconventions.html">Document Conventions</a></div><div class="prev-next"><div id="next" class="next-link" accesskey="n" href="./auto-scaling-benefits.html">Auto Scaling benefits</div></div></div><awsdocs-page-utilities></awsdocs-page-utilities></div><div id="quick-feedback-yes" style="display: none;"><div class="title">Did this page help you? - Yes</div><div class="content"><p>Thanks for letting us know we're doing a good job!</p><p>If you've got a moment, please tell us what we did right so we can do more of it.</p><p><awsui-button id="fblink" rel="noopener noreferrer" target="_blank" text="Feedback" click="linkClick($event)" href="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=Auto Scaling&amp;topic_url=https://docs.aws.amazon.com/en_us/autoscaling/ec2/userguide/what-is-amazon-ec2-auto-scaling.html"></awsui-button></p></div></div><div id="quick-feedback-no" style="display: none;"><div class="title">Did this page help you? - No</div><div class="content"><p>Thanks for letting us know this page needs work. We're sorry we let you down.</p><p>If you've got a moment, please tell us how we can make the documentation better.</p><p><awsui-button id="fblink" rel="noopener noreferrer" target="_blank" text="Feedback" click="linkClick($event)" href="https://docs.aws.amazon.com/forms/aws-doc-feedback?hidden_service_name=Auto Scaling&amp;topic_url=https://docs.aws.amazon.com/en_us/autoscaling/ec2/userguide/what-is-amazon-ec2-auto-scaling.html"></awsui-button></p></div></div></div></body></div></awsdocs-view><div class="page-loading-indicator" id="page-loading-indicator"><awsui-spinner size="large"></awsui-spinner></div></div><div id="tools-panel" dom-region="tools"><awsdocs-tools-panel id="awsdocs-tools-panel"></awsdocs-tools-panel></div></awsui-app-layout><awsdocs-cookie-banner class="doc-cookie-banner"></awsdocs-cookie-banner></div></body></html>
