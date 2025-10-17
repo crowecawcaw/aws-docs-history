@@ -17,6 +17,9 @@ PAGE_FIXTURES: dict[str, dict[str, str]] = {
     "sample": {
         "url": "https://docs.aws.amazon.com/deadline-cloud/latest/userguide/what-is-deadline-cloud.html",
     },
+    "batch_get_job_entity": {
+        "url": "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_BatchGetJobEntity.html",
+    },
     "auto_scaling_image": {
         "url": "https://docs.aws.amazon.com/autoscaling/ec2/userguide/what-is-amazon-ec2-auto-scaling.html",
     },
