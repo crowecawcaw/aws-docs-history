@@ -7,7 +7,7 @@ You can configure a fleet to include a storage profile that models
  system configurations must be in separate fleets. 
 
 To set your fleet's configuration to use the `WorkerConfig` storage profile
- use the [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html "https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html") in [AWS CloudShell](https://docs.aws.amazon.com/cloudshell/latest/userguide/welcome.html "https://docs.aws.amazon.com/cloudshell/latest/userguide/welcome.html"): 
+ use the [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html "https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html") in [AWS CloudShell](../../../cloudshell/latest/userguide/welcome.md "../../../cloudshell/latest/userguide/welcome.md"): 
 
 
 ```

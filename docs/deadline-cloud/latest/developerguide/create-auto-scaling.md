@@ -11,7 +11,7 @@ You should review and update the list of instance types to fit your rendering ne
 
 For a complete explanation of the resources and parameters used in the CloudFormation YAML
  template, see the [Deadline Cloud resource type
- reference](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Deadline.html "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Deadline.html") in the *AWS CloudFormation User Guide*.
+ reference](../../../AWSCloudFormation/latest/UserGuide/AWS_Deadline.md "../../../AWSCloudFormation/latest/UserGuide/AWS_Deadline.md") in the *AWS CloudFormation User Guide*.
 
 **To create an Amazon EC2 Auto Scaling fleet**
 
@@ -211,7 +211,7 @@ Resources:
 
 Use the AWS CloudFormation console to create a stack using the instructions for uploading the
  template file that you created. For more information, see [Creating a stack on
- the AWS CloudFormation console](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.html "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.html") in the *AWS CloudFormation User Guide*.
+ the AWS CloudFormation console](../../../AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.md "../../../AWSCloudFormation/latest/UserGuide/cfn-console-create-stack.md") in the *AWS CloudFormation User Guide*.
 ###### Note
 
 

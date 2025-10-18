@@ -73,11 +73,4 @@ When your job is running on a Deadline Cloud worker, it has access to environmen
 | DEADLINE\_JOB\_ID | All actions |
 | DEADLINE\_SESSION\_ID | All actions |
 | DEADLINE\_SESSIONACTION\_ID | All actions |
-| DEADLINE\_TASK\_ID | Task actions |
-
-###### Topics
-
-* [Job template elements for job bundles](build-job-bundle-template.md "build-job-bundle-template.md")
-* [Parameter values elements for job
- bundles](build-job-bundle-parameters.md "build-job-bundle-parameters.md")
-* [Asset references elements for job bundles](build-job-bundle-assets.md "build-job-bundle-assets.md")
+| DEADLINE\_TASK\_ID | Task actions | ###### Topics <br>• [Job template elements for job bundles](build-job-bundle-template.md "build-job-bundle-template.md") <br>• [Parameter values elements for job bundles](build-job-bundle-parameters.md "build-job-bundle-parameters.md") <br>• [Asset references elements for job bundles](build-job-bundle-assets.md "build-job-bundle-assets.md")

@@ -15,7 +15,7 @@ For data protection purposes, we recommend that you protect AWS account
 
 * Use multi-factor authentication (MFA) with each account.
 * Use SSL/TLS to communicate with AWS resources. We require TLS 1.2 and recommend TLS 1.3.
-* Set up API and user activity logging with AWS CloudTrail. For information about using CloudTrail trails to capture AWS activities, see [Working with CloudTrail trails](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-trails.html "https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-trails.html") in the *AWS CloudTrail User Guide*.
+* Set up API and user activity logging with AWS CloudTrail. For information about using CloudTrail trails to capture AWS activities, see [Working with CloudTrail trails](../../../awscloudtrail/latest/userguide/cloudtrail-trails.md "../../../awscloudtrail/latest/userguide/cloudtrail-trails.md") in the *AWS CloudTrail User Guide*.
 * Use AWS encryption solutions, along with all default security controls within AWS services.
 * Use advanced managed security services such as Amazon Macie, which assists in discovering
  and securing sensitive data that is stored in Amazon S3.

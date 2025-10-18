@@ -7,7 +7,7 @@ Amazon CloudWatch (CloudWatch) collects raw data and processes it into readable,
 These statistics are kept for 15 months so you can access historical information to gain a
  better perspective on how your web application or service is performing. You can also set
  alarms that watch for certain thresholds, and send notifications or take actions when those
- thresholds are met. For more information, see the [Amazon CloudWatch User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/").
+ thresholds are met. For more information, see the [Amazon CloudWatch User Guide](../../../AmazonCloudWatch/latest/monitoring.md "../../../AmazonCloudWatch/latest/monitoring.md").
 
 Deadline Cloud has two kinds of logs – task logs and worker logs. A task log is when you run
  execution logs as a script or as DCC runs. A task log might show events such as assets

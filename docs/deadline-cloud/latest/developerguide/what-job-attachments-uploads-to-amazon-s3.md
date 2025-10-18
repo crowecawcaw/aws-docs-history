@@ -6,7 +6,7 @@ This example shows how Deadline Cloud uploads files from your workstation or wor
  submit jobs.
 
  Start by cloning the [Deadline Cloud samples GitHub
- repository](https://github.com/aws-deadline/deadline-cloud-samples "https://github.com/aws-deadline/deadline-cloud-samples") into your [AWS CloudShell](https://docs.aws.amazon.com/cloudshell/latest/userguide/welcome.html "https://docs.aws.amazon.com/cloudshell/latest/userguide/welcome.html") environment, then copy the
+ repository](https://github.com/aws-deadline/deadline-cloud-samples "https://github.com/aws-deadline/deadline-cloud-samples") into your [AWS CloudShell](../../../cloudshell/latest/userguide/welcome.md "../../../cloudshell/latest/userguide/welcome.md") environment, then copy the
  `job_attachments_devguide` job bundle into your home directory: 
 
 

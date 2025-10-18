@@ -8,7 +8,7 @@
 
 
 * [CreateStorageProfile API](../APIReference/API_CreateStorageProfile.md "../APIReference/API_CreateStorageProfile.md")
-* [AWS::Deadline::StorageProfile](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-storageprofile.html "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-storageprofile.html") AWS CloudFormation resource
+* [AWS::Deadline::StorageProfile](../../../AWSCloudFormation/latest/UserGuide/aws-resource-deadline-storageprofile.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-deadline-storageprofile.md") AWS CloudFormation resource
 * [AWS
  console](../userguide/storage-shared.md#storage-profile "../userguide/storage-shared.md#storage-profile")
  A storage profile is made up of a list of file system locations that each tell Deadline Cloud
@@ -27,7 +27,7 @@
 ```
  Use the following commands to create the storage profile for workstation configurations
  `WS1`, `WS2`, and `WS3` and the worker configuration
- `WorkerConfig` using the [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html "https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html") in [AWS CloudShell](https://docs.aws.amazon.com/cloudshell/latest/userguide/welcome.html "https://docs.aws.amazon.com/cloudshell/latest/userguide/welcome.html"): 
+ `WorkerConfig` using the [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html "https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html") in [AWS CloudShell](../../../cloudshell/latest/userguide/welcome.md "../../../cloudshell/latest/userguide/welcome.md"): 
 
 
 ```
