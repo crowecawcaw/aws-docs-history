@@ -1,0 +1,512 @@
+# PutCompositeAlarm
+
+Creates or updates a *composite alarm*. When you create a composite
+ alarm, you specify a rule expression for the alarm that takes into account the alarm
+ states of other alarms that you have created. The composite alarm goes into ALARM state
+ only if all conditions of the rule are met.
+
+The alarms specified in a composite alarm's rule expression can include metric alarms
+ and other composite alarms. The rule expression of a composite alarm can include as many
+ as 100 underlying alarms. Any single alarm can be included in the rule expressions of as
+ many as 150 composite alarms.
+
+Using composite alarms can reduce alarm noise. You can create multiple metric alarms,
+ and also create a composite alarm and set up alerts only for the composite alarm. For
+ example, you could create a composite alarm that goes into ALARM state only when more
+ than one of the underlying metric alarms are in ALARM state.
+
+Composite alarms can take the following actions:
+
+
+* Notify Amazon SNS topics.
+* Invoke Lambda functions.
+* Create OpsItems in Systems Manager Ops Center.
+* Create incidents in Systems Manager Incident Manager.
+###### Note
+
+It is possible to create a loop or cycle of composite alarms, where composite
+ alarm A depends on composite alarm B, and composite alarm B also depends on
+ composite alarm A. In this scenario, you can't delete any composite alarm that is
+ part of the cycle because there is always still a composite alarm that depends on
+ that alarm that you want to delete.
+
+To get out of such a situation, you must break the cycle by changing the rule of
+ one of the composite alarms in the cycle to remove a dependency that creates the
+ cycle. The simplest change to make to break a cycle is to change the
+ `AlarmRule` of one of the alarms to `false`. 
+
+Additionally, the evaluation of composite alarms stops if CloudWatch detects a
+ cycle in the evaluation path. 
+
+When this operation creates an alarm, the alarm state is immediately set to
+ `INSUFFICIENT_DATA`. The alarm is then evaluated and its state is set
+ appropriately. Any actions associated with the new state are then executed. For a
+ composite alarm, this initial time after creation is the only time that the alarm can be
+ in `INSUFFICIENT_DATA` state.
+
+When you update an existing alarm, its state is left unchanged, but the update
+ completely overwrites the previous configuration of the alarm.
+
+To use this operation, you must be signed on with the
+ `cloudwatch:PutCompositeAlarm` permission that is scoped to
+ `*`. You can't create a composite alarms if your
+ `cloudwatch:PutCompositeAlarm` permission has a narrower scope.
+
+If you are an IAM user, you must have
+ `iam:CreateServiceLinkedRole` to create a composite alarm that has
+ Systems Manager OpsItem actions.
+
+
+## Request Parameters
+
+
+
+
+
+**ActionsEnabled** 
+
+
+Indicates whether actions should be executed during any changes to the alarm state of
+ the composite alarm. The default is `TRUE`.
+
+
+Type: Boolean
+
+
+Required: No
+
+
+
+
+**ActionsSuppressor** 
+
+
+ Actions will be suppressed if the suppressor alarm is in the `ALARM`
+ state. `ActionsSuppressor` can be an AlarmName or an Amazon Resource Name
+ (ARN) from an existing alarm. 
+
+
+Type: String
+
+
+Length Constraints: Minimum length of 1. Maximum length of 1600.
+
+
+Required: No
+
+
+
+
+**ActionsSuppressorExtensionPeriod** 
+
+
+ The maximum time in seconds that the composite alarm waits after suppressor alarm
+ goes out of the `ALARM` state. After this time, the composite alarm performs
+ its actions. 
+
+
+###### Important
+
+
+`ExtensionPeriod` is required only when `ActionsSuppressor` is
+ specified. 
+
+
+Type: Integer
+
+
+Required: No
+
+
+
+
+**ActionsSuppressorWaitPeriod** 
+
+
+ The maximum time in seconds that the composite alarm waits for the suppressor alarm
+ to go into the `ALARM` state. After this time, the composite alarm performs
+ its actions. 
+
+
+###### Important
+
+
+`WaitPeriod` is required only when `ActionsSuppressor` is
+ specified. 
+
+
+Type: Integer
+
+
+Required: No
+
+
+
+
+**AlarmActions** 
+
+
+The actions to execute when this alarm transitions to the `ALARM` state
+ from any other state. Each action is specified as an Amazon Resource Name
+ (ARN).
+
+
+Valid Values: ]
+
+
+
+**Amazon SNS actions:**
+
+
+
+
+`arn:aws:sns:*region*:*account-id*:*sns-topic-name*`
+
+
+
+
+**Lambda actions:**
+
+
+
+
+* Invoke the latest version of a Lambda function:
+ `arn:aws:lambda:*region*:*account-id*:function:*function-name*`
+* Invoke a specific version of a Lambda function:
+ `arn:aws:lambda:*region*:*account-id*:function:*function-name*:*version-number*`
+* Invoke a function by using an alias Lambda function:
+ `arn:aws:lambda:*region*:*account-id*:function:*function-name*:*alias-name*`
+
+
+**Systems Manager actions:**
+
+
+
+
+`arn:aws:ssm:*region*:*account-id*:opsitem:*severity*`
+
+
+
+
+**Start a Amazon Q Developer operational investigation**
+
+
+
+
+`arn:aws:aiops:*region*:*account-id*:investigation-group:*investigation-group-id*`
+
+
+
+Type: Array of strings
+
+
+Array Members: Maximum number of 5 items.
+
+
+Length Constraints: Minimum length of 1. Maximum length of 1024.
+
+
+Required: No
+
+
+
+
+**AlarmDescription** 
+
+
+The description for the composite alarm.
+
+
+Type: String
+
+
+Length Constraints: Minimum length of 0. Maximum length of 1024.
+
+
+Required: No
+
+
+
+
+**AlarmName** 
+
+
+The name for the composite alarm. This name must be unique within the
+ Region.
+
+
+Type: String
+
+
+Length Constraints: Minimum length of 1. Maximum length of 255.
+
+
+Required: Yes
+
+
+
+
+**AlarmRule** 
+
+
+An expression that specifies which other alarms are to be evaluated to determine this
+ composite alarm's state. For each alarm that you reference, you designate a function
+ that specifies whether that alarm needs to be in ALARM state, OK state, or
+ INSUFFICIENT\_DATA state. You can use operators (AND, OR and NOT) to combine multiple
+ functions in a single expression. You can use parenthesis to logically group the
+ functions in your expression.
+
+
+You can use either alarm names or ARNs to reference the other alarms that are to be
+ evaluated.
+
+
+Functions can include the following:
+
+
+
+* `ALARM("*alarm-name* or
+ *alarm-ARN*")` is TRUE if the named alarm is in
+ ALARM state.
+* `OK("*alarm-name* or
+ *alarm-ARN*")` is TRUE if the named alarm is in OK
+ state.
+* `INSUFFICIENT_DATA("*alarm-name* or
+ *alarm-ARN*")` is TRUE if the named alarm is in
+ INSUFFICIENT\_DATA state.
+* `TRUE` always evaluates to TRUE.
+* `FALSE` always evaluates to FALSE.
+
+TRUE and FALSE are useful for testing a complex `AlarmRule` structure, and
+ for testing your alarm actions.
+
+
+Alarm names specified in `AlarmRule` can be surrounded with double-quotes
+ ("), but do not have to be.
+
+
+The following are some examples of `AlarmRule`:
+
+
+
+* `ALARM(CPUUtilizationTooHigh) AND ALARM(DiskReadOpsTooHigh)`
+ specifies that the composite alarm goes into ALARM state only if both
+ CPUUtilizationTooHigh and DiskReadOpsTooHigh alarms are in ALARM state.
+* `ALARM(CPUUtilizationTooHigh) AND NOT ALARM(DeploymentInProgress)`
+ specifies that the alarm goes to ALARM state if CPUUtilizationTooHigh is in
+ ALARM state and DeploymentInProgress is not in ALARM state. This example reduces
+ alarm noise during a known deployment window.
+* `(ALARM(CPUUtilizationTooHigh) OR ALARM(DiskReadOpsTooHigh)) AND
+ OK(NetworkOutTooHigh)` goes into ALARM state if CPUUtilizationTooHigh
+ OR DiskReadOpsTooHigh is in ALARM state, and if NetworkOutTooHigh is in OK
+ state. This provides another example of using a composite alarm to prevent
+ noise. This rule ensures that you are not notified with an alarm action on high
+ CPU or disk usage if a known network problem is also occurring.
+
+The `AlarmRule` can specify as many as 100 "children" alarms. The
+ `AlarmRule` expression can have as many as 500 elements. Elements are
+ child alarms, TRUE or FALSE statements, and parentheses.
+
+
+Type: String
+
+
+Length Constraints: Minimum length of 1. Maximum length of 10240.
+
+
+Required: Yes
+
+
+
+
+**InsufficientDataActions** 
+
+
+The actions to execute when this alarm transitions to the
+ `INSUFFICIENT_DATA` state from any other state. Each action is specified
+ as an Amazon Resource Name (ARN).
+
+
+Valid Values: ]
+
+
+
+**Amazon SNS actions:**
+
+
+
+
+`arn:aws:sns:*region*:*account-id*:*sns-topic-name*`
+
+
+
+
+**Lambda actions:**
+
+
+
+
+* Invoke the latest version of a Lambda function:
+ `arn:aws:lambda:*region*:*account-id*:function:*function-name*`
+* Invoke a specific version of a Lambda function:
+ `arn:aws:lambda:*region*:*account-id*:function:*function-name*:*version-number*`
+* Invoke a function by using an alias Lambda function:
+ `arn:aws:lambda:*region*:*account-id*:function:*function-name*:*alias-name*`
+
+Type: Array of strings
+
+
+Array Members: Maximum number of 5 items.
+
+
+Length Constraints: Minimum length of 1. Maximum length of 1024.
+
+
+Required: No
+
+
+
+
+**OKActions** 
+
+
+The actions to execute when this alarm transitions to an `OK` state from
+ any other state. Each action is specified as an Amazon Resource Name (ARN).
+
+
+Valid Values: ]
+
+
+
+**Amazon SNS actions:**
+
+
+
+
+`arn:aws:sns:*region*:*account-id*:*sns-topic-name*`
+
+
+
+
+**Lambda actions:**
+
+
+
+
+* Invoke the latest version of a Lambda function:
+ `arn:aws:lambda:*region*:*account-id*:function:*function-name*`
+* Invoke a specific version of a Lambda function:
+ `arn:aws:lambda:*region*:*account-id*:function:*function-name*:*version-number*`
+* Invoke a function by using an alias Lambda function:
+ `arn:aws:lambda:*region*:*account-id*:function:*function-name*:*alias-name*`
+
+Type: Array of strings
+
+
+Array Members: Maximum number of 5 items.
+
+
+Length Constraints: Minimum length of 1. Maximum length of 1024.
+
+
+Required: No
+
+
+
+
+**Tags** 
+
+
+A list of key-value pairs to associate with the alarm. You can associate as many as
+ 50 tags with an alarm. To be able to associate tags with the alarm when you create the
+ alarm, you must have the `cloudwatch:TagResource` permission.
+
+
+Tags can help you organize and categorize your resources. You can also use them to
+ scope user permissions by granting a user permission to access or change only resources
+ with certain tag values.
+
+
+If you are using this operation to update an existing alarm, any tags you specify in
+ this parameter are ignored. To change the tags of an existing alarm, use [TagResource](API_TagResource.md "API_TagResource.md") or [UntagResource](API_UntagResource.md "API_UntagResource.md").
+
+
+Type: Array of [Tag](API_Tag.md "API_Tag.md") objects
+
+
+Required: No
+
+
+
+
+## Errors
+
+
+For information about the errors that are common to all actions, see [Common Errors](CommonErrors.md "CommonErrors.md").
+
+
+
+
+
+**LimitExceeded** 
+
+
+The quota for alarms for this customer has already been reached.
+
+
+
+
+
+**message** 
+
+
+
+
+
+HTTP Status Code: 400
+
+
+
+
+## Examples
+
+
+### Composite alarm example
+
+
+The following example creates an alarm that notifies an SNS group when
+ either of two specified metric alarms exceeds its threshold.
+
+
+#### Sample Request
+
+
+
+```
+{
+    "AlarmDescription": "The host is experiencing problems",
+    "AlarmRule": "ALARM(CPUUtilizationTooHigh) OR ALARM(DiskReadOpsTooHigh)",
+    "AlarmName": "overall-health-alarm",
+    "AlarmActions": [
+        "arn:aws:sns:us-west-1:123456789012:my_sns_topic"
+    ]
+}
+```
+
+## See Also
+
+
+For more information about using this API in one of the language-specific AWS SDKs, see the following:
+
+
+
+* [AWS Command Line Interface](https://docs.aws.amazon.com/goto/cli2/monitoring-2010-08-01/PutCompositeAlarm "https://docs.aws.amazon.com/goto/cli2/monitoring-2010-08-01/PutCompositeAlarm")
+* [AWS SDK for .NET](https://docs.aws.amazon.com/goto/DotNetSDKV3/monitoring-2010-08-01/PutCompositeAlarm "https://docs.aws.amazon.com/goto/DotNetSDKV3/monitoring-2010-08-01/PutCompositeAlarm")
+* [AWS SDK for C++](https://docs.aws.amazon.com/goto/SdkForCpp/monitoring-2010-08-01/PutCompositeAlarm "https://docs.aws.amazon.com/goto/SdkForCpp/monitoring-2010-08-01/PutCompositeAlarm")
+* [AWS SDK for Go v2](https://docs.aws.amazon.com/goto/SdkForGoV2/monitoring-2010-08-01/PutCompositeAlarm "https://docs.aws.amazon.com/goto/SdkForGoV2/monitoring-2010-08-01/PutCompositeAlarm")
+* [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/monitoring-2010-08-01/PutCompositeAlarm "https://docs.aws.amazon.com/goto/SdkForJavaV2/monitoring-2010-08-01/PutCompositeAlarm")
+* [AWS SDK for JavaScript V3](https://docs.aws.amazon.com/goto/SdkForJavaScriptV3/monitoring-2010-08-01/PutCompositeAlarm "https://docs.aws.amazon.com/goto/SdkForJavaScriptV3/monitoring-2010-08-01/PutCompositeAlarm")
+* [AWS SDK for Kotlin](https://docs.aws.amazon.com/goto/SdkForKotlin/monitoring-2010-08-01/PutCompositeAlarm "https://docs.aws.amazon.com/goto/SdkForKotlin/monitoring-2010-08-01/PutCompositeAlarm")
+* [AWS SDK for PHP V3](https://docs.aws.amazon.com/goto/SdkForPHPV3/monitoring-2010-08-01/PutCompositeAlarm "https://docs.aws.amazon.com/goto/SdkForPHPV3/monitoring-2010-08-01/PutCompositeAlarm")
+* [AWS SDK for Python](https://docs.aws.amazon.com/goto/boto3/monitoring-2010-08-01/PutCompositeAlarm "https://docs.aws.amazon.com/goto/boto3/monitoring-2010-08-01/PutCompositeAlarm")
+* [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/monitoring-2010-08-01/PutCompositeAlarm "https://docs.aws.amazon.com/goto/SdkForRubyV3/monitoring-2010-08-01/PutCompositeAlarm")
