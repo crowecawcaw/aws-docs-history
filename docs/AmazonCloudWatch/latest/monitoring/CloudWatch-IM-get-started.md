@@ -1,22 +1,77 @@
-# Publish internet measurements to Amazon S3 in Internet Monitor
+# Add
+ an Internet Monitor monitor with Amazon VPC
 
-You can choose to have Internet Monitor publish internet measurements to Amazon S3 for your internet-facing traffic to the monitored city-networks (client locations
- and ASNs, typically internet service providers) in your monitor, up to the 500,000 city-networks service limit. Internet Monitor automatically publishes internet
- measurements to CloudWatch Logs every five minutes for the top 500 (by traffic volume) city-networks for each monitor. Measurements that it publishes to S3
- include the top 500 that are published to CloudWatch Logs.
+When you create a Amazon Virtual Private Cloud VPC in the AWS Management Console, you can optionally choose to also set up monitoring for it in Internet Monitor. 
+ You can add the VPC to an existing monitor, or you can opt to create a new monitor for the VPC in the Amazon VPC console.
 
-You can choose the option to publish to S3, and specify the bucket to publish the measurements, to when you create or update your monitor. 
- The bucket must already be created in S3 before you can specify it in Internet Monitor. There's a service limit of 500,000 city-networks for internet 
- measurements published to S3. Internet Monitor publishes internet measurements to S3 as events, a series of compressed log file objects that are 
- stored in the bucket.
+By using Internet Monitor with your VPC, you can view and evaluate measurements and metrics about availability, performance, monitored 
+ bytes transferred, and round-trip times that are specific to your application's client locations and ASNs (typically internet
+ service providers). Internet Monitor also determines when there are anomalies in performance and availability and creates health events in
+ your monitor, which you can choose to be notified about. To learn more about how you can use a monitor to manage and improve your clients'
+ experience with your application, see [Use a monitor in Internet Monitor](IMWhyCreateMonitor.md "IMWhyCreateMonitor.md").
 
-When you create the S3 bucket for Internet Monitor to publish measurements to, make sure that you follow the permissions guidance provided by CloudWatch Logs. Doing so
- ensures that Internet Monitor can publish logs directly to S3, and that AWS can, if needed, create and change the resource policies associated with the log group
- receiving the logs. For more information, see  [Logs sent to CloudWatch Logs](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.html#AWS-logs-infrastructure-CWL "https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.html#AWS-logs-infrastructure-CWL") in the Amazon CloudWatch Logs User
- Guide.
+###### Important
 
-The published log files are compressed. If you open the log files using the Amazon S3 console, they are decompressed and the internet measurement events 
- are displayed. If you download the files, you must decompress them to view the events.
+To create a monitor, or add a VPC to an existing monitor, you must have the correct permissions in place. 
+ For more information,
+ see [Identity and Access Management for Internet Monitor](security-iam.md "security-iam.md").
 
-You can also query the internet measurements in the log files using Amazon Athena. Amazon Athena is an interactive query service that 
- makes it easier to analyze data in Amazon S3, by using standard SQL. For more information, see [Use Amazon Athena to query internet measurements in Amazon S3 log files](CloudWatch-IM-view-cw-tools.md "CloudWatch-IM-view-cw-tools.md").
+## 
+ Add a VPC to an existing monitor
+
+
+You can choose to have Internet Monitor add a new VPC to an existing monitor for you when you create the VPC in the AWS Management Console.
+ After you add the VPC, wait a few minutes, and then metrics for the VPC will start being shown on the Internet Monitor console.
+
+
+You can edit the monitor at any time, to remove the VPC or add another VPC or other resources.
+ You can also change the percentage of traffic that you're monitoring, or make other changes.
+ If you choose to remove the VPC from the monitor, traffic from clients to that VPC is no longer monitored by Internet Monitor.
+
+
+To learn more about updating a monitor, see 
+ [Edit a monitor in Internet Monitor](CloudWatch-IM-get-started.md "CloudWatch-IM-get-started.md"). 
+
+
+## 
+ Create a monitor for a VPC
+
+
+If you opt to create a monitor for a VPC, the **Create monitor** wizard walks you through the steps. 
+ You add the VPC as a monitored resource when you create the monitor. If you like, you can also choose a
+ percentage of client traffic that you want to monitor for your application (the default is 100%).
+
+
+You can learn more by reviewing the information in 
+ [Step 1: Create a monitor](CloudWatch-IM-get-started.md#CloudWatch-IM-get-started.create "CloudWatch-IM-get-started.md#CloudWatch-IM-get-started.create"). 
+
+
+## 
+ Pricing
+
+
+With Internet Monitor, you pay only for what you use. Pricing for Internet Monitor has two components: a per monitored resource fee and a per 
+ city-network fee. A city-network is the location that clients access your application resources from and the network (an ASN, 
+ such as an internet service provider or ISP) that clients access the resources through.
+
+
+For more information, including pricing examples, see 
+ [Pricing for Internet Monitor](CloudWatch-InternetMonitor.md "CloudWatch-InternetMonitor.md")
+
+## 
+ Stop monitoring a VPC
+
+
+If you'd like to stop monitoring your VPC resource with Internet Monitor, do the following in the Internet Monitor console:
+
+
+###### To remove a resource from a monitor
+
+1. Open the CloudWatch console at
+ [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
+2. In the left navigation pane, under **Network Monitoring**, choose **Internet monitors**.
+3. Choose your monitor, and then choose the **Action** menu.
+4. Choose **Update monitor**.
+5. Under **Added resources**, choose **Remove resources**.
+6. Choose the VPC to remove, and then choose **Remove**.
+7. Choose **Update**.
