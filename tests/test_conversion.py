@@ -23,6 +23,12 @@ PAGE_FIXTURES: dict[str, dict[str, str]] = {
     "auto_scaling_image": {
         "url": "https://docs.aws.amazon.com/autoscaling/ec2/userguide/what-is-amazon-ec2-auto-scaling.html",
     },
+    "doc_history": {
+        "url": "https://docs.aws.amazon.com/deadline-cloud/latest/userguide/doc-history.html",
+    },
+    "doc_history_developerguide": {
+        "url": "https://docs.aws.amazon.com/deadline-cloud/latest/developerguide/doc-history.html",
+    },
 }
 
 
