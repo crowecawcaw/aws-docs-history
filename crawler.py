@@ -211,6 +211,30 @@ DEFAULT_SERVICE_SCOPES: dict[str, ServiceScope] = {
             "/cloudshell/latest/userguide/",
         ),
     ),
+    "identity-center": ServiceScope(
+        start_urls=(
+            "https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html",
+            "https://docs.aws.amazon.com/singlesignon/latest/developerguide/WhatIs.html",
+            "https://docs.aws.amazon.com/singlesignon/latest/APIReference/Welcome.html",
+            "https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/Welcome.html",
+            "https://docs.aws.amazon.com/singlesignon/latest/PortalAPIReference/Welcome.html",
+        ),
+        allowed_prefixes=(
+            "/singlesignon/latest/userguide/",
+            "/singlesignon/latest/developerguide/",
+            "/singlesignon/latest/APIReference/",
+            "/singlesignon/latest/OIDCAPIReference/",
+            "/singlesignon/latest/PortalAPIReference/",
+        ),
+    ),
+    "identity-store": ServiceScope(
+        start_urls=(
+            "https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/Welcome.html",
+        ),
+        allowed_prefixes=(
+            "/singlesignon/latest/IdentityStoreAPIReference/",
+        ),
+    ),
     "cloud-map": ServiceScope(
         start_urls=(
             "https://docs.aws.amazon.com/cloud-map/latest/dg/what-is-cloud-map.html",
