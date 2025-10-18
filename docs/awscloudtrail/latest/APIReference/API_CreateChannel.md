@@ -1,0 +1,409 @@
+# CreateChannel
+
+Creates a channel for CloudTrail to ingest events from a partner or external source. 
+ After you create a channel, a CloudTrail Lake event data store can log events 
+ from the partner or source that you specify.
+
+
+## Request Syntax
+
+
+
+```
+{
+   "Destinations": [ 
+      { 
+         "Location": "`string`",
+         "Type": "`string`"
+      }
+   ],
+   "Name": "`string`",
+   "Source": "`string`",
+   "Tags": [ 
+      { 
+         "Key": "`string`",
+         "Value": "`string`"
+      }
+   ]
+}
+```
+
+## Request Parameters
+
+
+For information about the parameters that are common to all actions, see [Common Parameters](CommonParameters.md "CommonParameters.md").
+
+
+The request accepts the following data in JSON format.
+
+
+
+
+
+**[Destinations](#API_CreateChannel_RequestSyntax "#API_CreateChannel_RequestSyntax")**
+
+
+One or more event data stores to which events arriving through a channel will be logged.
+
+
+Type: Array of [Destination](API_Destination.md "API_Destination.md") objects
+
+
+Array Members: Minimum number of 1 item. Maximum number of 200 items.
+
+
+Required: Yes
+
+
+
+
+**[Name](#API_CreateChannel_RequestSyntax "#API_CreateChannel_RequestSyntax")**
+
+
+The name of the channel.
+
+
+Type: String
+
+
+Length Constraints: Minimum length of 3. Maximum length of 128.
+
+
+Pattern: `^[a-zA-Z0-9._\-]+$`
+
+
+
+Required: Yes
+
+
+
+
+**[Source](#API_CreateChannel_RequestSyntax "#API_CreateChannel_RequestSyntax")**
+
+
+The name of the partner or external event source. You cannot change this name after you create the 
+ channel. A maximum of one channel is allowed per source.
+
+
+
+ A source can be either `Custom` for all valid non-AWS
+ events, or the name of a partner event source. For information about the source names for available partners, see [Additional information about integration partners](../userguide/query-event-data-store-integration.md#cloudtrail-lake-partner-information "../userguide/query-event-data-store-integration.md#cloudtrail-lake-partner-information") in the CloudTrail User Guide.
+ 
+
+
+Type: String
+
+
+Length Constraints: Minimum length of 1. Maximum length of 256.
+
+
+Pattern: `.*`
+
+
+
+Required: Yes
+
+
+
+
+**[Tags](#API_CreateChannel_RequestSyntax "#API_CreateChannel_RequestSyntax")**
+
+
+A list of tags.
+
+
+Type: Array of [Tag](API_Tag.md "API_Tag.md") objects
+
+
+Array Members: Maximum number of 200 items.
+
+
+Required: No
+
+
+
+
+## Response Syntax
+
+
+
+```
+{
+   "ChannelArn": "***string***",
+   "Destinations": [ 
+      { 
+         "Location": "***string***",
+         "Type": "***string***"
+      }
+   ],
+   "Name": "***string***",
+   "Source": "***string***",
+   "Tags": [ 
+      { 
+         "Key": "***string***",
+         "Value": "***string***"
+      }
+   ]
+}
+```
+
+## Response Elements
+
+
+If the action is successful, the service sends back an HTTP 200 response.
+
+
+The following data is returned in JSON format by the service.
+
+
+
+
+
+**[ChannelArn](#API_CreateChannel_ResponseSyntax "#API_CreateChannel_ResponseSyntax")**
+
+
+The Amazon Resource Name (ARN) of the new channel.
+
+
+Type: String
+
+
+Length Constraints: Minimum length of 3. Maximum length of 256.
+
+
+Pattern: `^[a-zA-Z0-9._/\-:]+$`
+
+
+
+
+
+**[Destinations](#API_CreateChannel_ResponseSyntax "#API_CreateChannel_ResponseSyntax")**
+
+
+The event data stores that log the events arriving through the channel.
+
+
+Type: Array of [Destination](API_Destination.md "API_Destination.md") objects
+
+
+Array Members: Minimum number of 1 item. Maximum number of 200 items.
+
+
+
+
+**[Name](#API_CreateChannel_ResponseSyntax "#API_CreateChannel_ResponseSyntax")**
+
+
+The name of the new channel.
+
+
+Type: String
+
+
+Length Constraints: Minimum length of 3. Maximum length of 128.
+
+
+Pattern: `^[a-zA-Z0-9._\-]+$`
+
+
+
+
+
+**[Source](#API_CreateChannel_ResponseSyntax "#API_CreateChannel_ResponseSyntax")**
+
+
+The partner or external event source name.
+
+
+Type: String
+
+
+Length Constraints: Minimum length of 1. Maximum length of 256.
+
+
+Pattern: `.*`
+
+
+
+
+
+**[Tags](#API_CreateChannel_ResponseSyntax "#API_CreateChannel_ResponseSyntax")**
+
+
+A list of tags.
+
+
+Type: Array of [Tag](API_Tag.md "API_Tag.md") objects
+
+
+Array Members: Maximum number of 200 items.
+
+
+
+
+## Errors
+
+
+For information about the errors that are common to all actions, see [Common Errors](CommonErrors.md "CommonErrors.md").
+
+
+
+
+
+**ChannelAlreadyExistsException** 
+
+
+
+ This exception is thrown when the provided channel already exists.
+ 
+
+
+HTTP Status Code: 400
+
+
+
+
+**ChannelMaxLimitExceededException** 
+
+
+
+ This exception is thrown when the maximum number of channels limit is exceeded.
+ 
+
+
+HTTP Status Code: 400
+
+
+
+
+**EventDataStoreARNInvalidException** 
+
+
+The specified event data store ARN is not valid or does not map to an event data store
+ in your account.
+
+
+HTTP Status Code: 400
+
+
+
+
+**EventDataStoreNotFoundException** 
+
+
+The specified event data store was not found.
+
+
+HTTP Status Code: 400
+
+
+
+
+**InactiveEventDataStoreException** 
+
+
+The event data store is inactive.
+
+
+HTTP Status Code: 400
+
+
+
+
+**InvalidEventDataStoreCategoryException** 
+
+
+This exception is thrown when event categories of specified event data stores are not
+ valid.
+
+
+HTTP Status Code: 400
+
+
+
+
+**InvalidParameterException** 
+
+
+The request includes a parameter that is not valid.
+
+
+HTTP Status Code: 400
+
+
+
+
+**InvalidSourceException** 
+
+
+This exception is thrown when the specified value of `Source` is not valid.
+
+
+HTTP Status Code: 400
+
+
+
+
+**InvalidTagParameterException** 
+
+
+This exception is thrown when the specified tag key or values are not valid. It can also
+ occur if there are duplicate tags or too many tags on the resource.
+
+
+HTTP Status Code: 400
+
+
+
+
+**OperationNotPermittedException** 
+
+
+This exception is thrown when the requested operation is not permitted.
+
+
+HTTP Status Code: 400
+
+
+
+
+**TagsLimitExceededException** 
+
+
+The number of tags per trail, event data store, dashboard, or channel has exceeded the permitted amount. Currently, the limit is
+ 50.
+
+
+HTTP Status Code: 400
+
+
+
+
+**UnsupportedOperationException** 
+
+
+This exception is thrown when the requested operation is not supported.
+
+
+HTTP Status Code: 400
+
+
+
+
+## See Also
+
+
+For more information about using this API in one of the language-specific AWS SDKs, see the following:
+
+
+
+* [AWS Command Line Interface](https://docs.aws.amazon.com/goto/cli2/cloudtrail-2013-11-01/CreateChannel "https://docs.aws.amazon.com/goto/cli2/cloudtrail-2013-11-01/CreateChannel")
+* [AWS SDK for .NET](https://docs.aws.amazon.com/goto/DotNetSDKV3/cloudtrail-2013-11-01/CreateChannel "https://docs.aws.amazon.com/goto/DotNetSDKV3/cloudtrail-2013-11-01/CreateChannel")
+* [AWS SDK for C++](https://docs.aws.amazon.com/goto/SdkForCpp/cloudtrail-2013-11-01/CreateChannel "https://docs.aws.amazon.com/goto/SdkForCpp/cloudtrail-2013-11-01/CreateChannel")
+* [AWS SDK for Go v2](https://docs.aws.amazon.com/goto/SdkForGoV2/cloudtrail-2013-11-01/CreateChannel "https://docs.aws.amazon.com/goto/SdkForGoV2/cloudtrail-2013-11-01/CreateChannel")
+* [AWS SDK for Java V2](https://docs.aws.amazon.com/goto/SdkForJavaV2/cloudtrail-2013-11-01/CreateChannel "https://docs.aws.amazon.com/goto/SdkForJavaV2/cloudtrail-2013-11-01/CreateChannel")
+* [AWS SDK for JavaScript V3](https://docs.aws.amazon.com/goto/SdkForJavaScriptV3/cloudtrail-2013-11-01/CreateChannel "https://docs.aws.amazon.com/goto/SdkForJavaScriptV3/cloudtrail-2013-11-01/CreateChannel")
+* [AWS SDK for Kotlin](https://docs.aws.amazon.com/goto/SdkForKotlin/cloudtrail-2013-11-01/CreateChannel "https://docs.aws.amazon.com/goto/SdkForKotlin/cloudtrail-2013-11-01/CreateChannel")
+* [AWS SDK for PHP V3](https://docs.aws.amazon.com/goto/SdkForPHPV3/cloudtrail-2013-11-01/CreateChannel "https://docs.aws.amazon.com/goto/SdkForPHPV3/cloudtrail-2013-11-01/CreateChannel")
+* [AWS SDK for Python](https://docs.aws.amazon.com/goto/boto3/cloudtrail-2013-11-01/CreateChannel "https://docs.aws.amazon.com/goto/boto3/cloudtrail-2013-11-01/CreateChannel")
+* [AWS SDK for Ruby V3](https://docs.aws.amazon.com/goto/SdkForRubyV3/cloudtrail-2013-11-01/CreateChannel "https://docs.aws.amazon.com/goto/SdkForRubyV3/cloudtrail-2013-11-01/CreateChannel")
