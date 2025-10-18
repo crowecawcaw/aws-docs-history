@@ -1,0 +1,84 @@
+# Log AWS Cloud Map API calls using AWS CloudTrail
+
+AWS Cloud Map is integrated with [AWS CloudTrail](../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md "../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md"), a service
+ that provides a record of actions taken by a user, role, or an AWS service. CloudTrail captures
+ all
+ API calls for AWS Cloud Map as events. The calls captured include calls from the AWS Cloud Map console
+ and code calls to the AWS Cloud Map API operations. Using the information collected by CloudTrail, you can
+ determine the request that was made to AWS Cloud Map, the IP address from which the request was
+ made, when it was made, and additional details.
+
+Every event or log entry contains information about who generated the request. The identity
+ information helps you determine the following:
+
+
+* Whether the request was made with root user or user credentials.
+* Whether the request was made on behalf of an IAM Identity Center user.
+* Whether the request was made with temporary security credentials for a role or federated
+ user.
+* Whether the request was made by another AWS service.
+CloudTrail is active in your AWS account when you create the account and you automatically have
+ access to the CloudTrail **Event history**. The CloudTrail **Event
+ history** provides a viewable, searchable, downloadable, and immutable record of the
+ past 90 days of recorded management events in an AWS Region. For more information, see [Working
+ with CloudTrail Event history](../../../awscloudtrail/latest/userguide/view-cloudtrail-events.md "../../../awscloudtrail/latest/userguide/view-cloudtrail-events.md") in the *AWS CloudTrail User Guide*. There are no CloudTrail
+ charges for viewing the **Event history**.
+
+For an ongoing record of events in your AWS account past 90 days, create a trail or a
+ [CloudTrail
+ Lake](../../../awscloudtrail/latest/userguide/cloudtrail-lake.md "../../../awscloudtrail/latest/userguide/cloudtrail-lake.md") event data store.
+
+
+
+**CloudTrail trails**
+
+A *trail* enables CloudTrail to deliver log files to an Amazon S3 bucket. All trails created using the AWS Management Console are multi-Region. You can create a single-Region or a multi-Region trail by using the AWS CLI. Creating a multi-Region trail is recommended because you capture activity in all AWS Regions in your account. If you create a single-Region trail, you can view only the events logged in the trail's AWS Region. For more information about trails, see [Creating a trail for your AWS account](../../../awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.md "../../../awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.md") and [Creating a trail for an organization](../../../awscloudtrail/latest/userguide/creating-trail-organization.md "../../../awscloudtrail/latest/userguide/creating-trail-organization.md") in the *AWS CloudTrail User Guide*.
+
+
+You can deliver one copy of your ongoing management events to your Amazon S3 bucket at no charge from CloudTrail by creating a trail, however, there are Amazon S3 storage charges. For more information about CloudTrail pricing, see [AWS CloudTrail Pricing](https://aws.amazon.com/cloudtrail/pricing/ "https://aws.amazon.com/cloudtrail/pricing/"). For information about Amazon S3 pricing, see [Amazon S3 Pricing](https://aws.amazon.com/s3/pricing/ "https://aws.amazon.com/s3/pricing/").
+
+
+
+**CloudTrail Lake event data stores**
+
+*CloudTrail Lake* lets you run SQL-based queries on your events. CloudTrail Lake converts existing events in row-based JSON format to  [Apache ORC](https://orc.apache.org/ "https://orc.apache.org/") format. ORC is a columnar storage format that is optimized for fast retrieval of data. Events are aggregated into *event data stores*, which are immutable collections of events based on criteria that you select by applying [advanced event selectors](../../../awscloudtrail/latest/userguide/cloudtrail-lake-concepts.md#adv-event-selectors "../../../awscloudtrail/latest/userguide/cloudtrail-lake-concepts.md#adv-event-selectors"). The selectors that you apply to an event data store control which events persist and are available for you to query. For more information about CloudTrail Lake, see [Working with AWS CloudTrail Lake](../../../awscloudtrail/latest/userguide/cloudtrail-lake.md "../../../awscloudtrail/latest/userguide/cloudtrail-lake.md") in the *AWS CloudTrail User Guide*.
+
+
+CloudTrail Lake event data stores and queries incur costs. When you create an event data store, you choose the [pricing option](../../../awscloudtrail/latest/userguide/cloudtrail-lake-manage-costs.md#cloudtrail-lake-manage-costs-pricing-option "../../../awscloudtrail/latest/userguide/cloudtrail-lake-manage-costs.md#cloudtrail-lake-manage-costs-pricing-option") you want to use for the event data store. The pricing option determines the cost for ingesting and storing events, and the default and maximum retention period for the event data store. For more information about CloudTrail pricing, see [AWS CloudTrail Pricing](https://aws.amazon.com/cloudtrail/pricing/ "https://aws.amazon.com/cloudtrail/pricing/").
+
+
+
+
+## AWS Cloud Map data events in CloudTrail
+
+
+[Data events](../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md#logging-data-events "../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md#logging-data-events") provide information about the resource operations performed on or in a
+ resource (for example, discovering a registered instance in a
+ namespace). These are also known as data
+ plane operations. Data events are often high-volume activities. By default, CloudTrail doesn’t log
+ data events. The CloudTrail **Event history** doesn't record data events.
+
+
+Additional charges apply for data events. For more information about CloudTrail pricing, see
+ [AWS CloudTrail Pricing](https://aws.amazon.com/cloudtrail/pricing/ "https://aws.amazon.com/cloudtrail/pricing/").
+
+
+You can log data events for the AWS Cloud Map resource types by using the CloudTrail console, AWS CLI,
+ or CloudTrail API operations. For more information about how to log data events, see [Logging data events with the AWS Management Console](../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md#logging-data-events-console "../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md#logging-data-events-console") and [Logging data events with the AWS Command Line Interface](../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md#creating-data-event-selectors-with-the-AWS-CLI "../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md#creating-data-event-selectors-with-the-AWS-CLI") in the
+ *AWS CloudTrail User Guide*.
+
+
+The following table lists the AWS Cloud Map resource types for which you can log data events.
+ The **Data event type (console)** column shows the value to
+ choose from the **Data event type** list on the CloudTrail console. The **resources.type value** column shows the `resources.type`
+ value, which you would specify when configuring advanced event selectors using the AWS CLI or
+ CloudTrail APIs. The **Data APIs logged to CloudTrail** column shows the API
+ calls logged to CloudTrail for the resource type. 
+
+
+
+
+| Data event type (console) | resources.type value | Data APIs logged to CloudTrail |
+| --- | --- | --- |
+| **AwsApiCall** | `AWS::ServiceDiscovery::Namespace` | <br>• [DiscoverInstances](https://docs.aws.amazon.com/cloud-map/latest/api/API_DiscoverInstances.html "https://docs.aws.amazon.com/cloud-map/latest/api/API_DiscoverInstances.html") <br>• [DiscoverInstancesRevision](https://docs.aws.amazon.com/cloud-map/latest/api/API_DiscoverInstancesRevision.html "https://docs.aws.amazon.com/cloud-map/latest/api/API_DiscoverInstancesRevision.html") |
+| **AwsApiCall** | `AWS::ServiceDiscovery::Service` | <br>• [DiscoverInstances](https://docs.aws.amazon.com/cloud-map/latest/api/API_DiscoverInstances.html "https://docs.aws.amazon.com/cloud-map/latest/api/API_DiscoverInstances.html") <br>• [DiscoverInstancesRevision](https://docs.aws.amazon.com/cloud-map/latest/api/API_DiscoverInstancesRevision.html "https://docs.aws.amazon.com/cloud-map/latest/api/API_DiscoverInstancesRevision.html") <br>• [GetServiceAttributes](https://docs.aws.amazon.com/cloud-map/latest/api/API_GetServiceAttributes.html "https://docs.aws.amazon.com/cloud-map/latest/api/API_GetServiceAttributes.html") | You can configure advanced event selectors to filter on the `eventName`, `readOnly`, and `resources.ARN` fields to log only those events that are important to you. For more information about these fields, see [AdvancedFieldSelector](../../../awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.md "../../../awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.md") in the *AWS CloudTrail API Reference*. The following example shows how to configure advanced event selectors to log all AWS Cloud Map data events. ``` "AdvancedEventSelectors": [ { "Name": "Log all AWS Cloud Map data events", "FieldSelectors": [ { "Field": "eventCategory", "Equals": ["Data"] }, { "Field": "resources.type", "Equals": ["AWS::ServiceDiscovery::Namespace"] } ] } ] ``` ## AWS Cloud Map management events in CloudTrail [Management events](../../../awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.md#logging-management-events "../../../awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.md#logging-management-events") provide information about management operations that are performed on resources in your AWS account. These are also known as control plane operations. By default, CloudTrail logs management events. AWS Cloud Map logs all AWS Cloud Map control plane operations as management events. For a list of the AWS Cloud Map control plane operations that AWS Cloud Map logs to CloudTrail, see the [AWS Cloud Map API Reference](https://docs.aws.amazon.com/cloud-map/latest/api/Welcome.html "https://docs.aws.amazon.com/cloud-map/latest/api/Welcome.html"). ## AWS Cloud Map event examples An event represents a single request from any source and includes information about the requested API operation, the date and time of the operation, request parameters, and so on. CloudTrail log files aren't an ordered stack trace of the public API calls, so events don't appear in any specific order. The following example shows a CloudTrail management event that demonstrates the `CreateHTTPNamespace` operation. ``` { "eventVersion": "1.09", "userIdentity": { "type": "AssumedRole", "principalId": "AIDACKCEVSQ6C2EXAMPLE:alejandro_rosalez", "arn": "arn:aws:sts::111122223333:assumed-role/users/alejandro_rosalez", "accountId": "111122223333", "accessKeyId": "AIDACKCEVSQ6C2EXAMPLE", "sessionContext": { "sessionIssuer": { "type": "Role", "principalId": "AROA123456789EXAMPLE", "arn": "arn:aws:iam::111122223333:role/readonly-role", "accountId": "111122223333", "userName": "alejandro_rosalez" }, "attributes": { "creationDate": "2024-03-19T16:15:37Z", "mfaAuthenticated": "false" } } }, "eventTime": "2024-03-19T19:23:13Z", "eventSource": "servicediscovery.amazonaws.com", "eventName": "CreateHttpNamespace", "awsRegion": "eu-west-3", "sourceIPAddress": "192.0.2.0", "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36", "requestParameters": { "name": "example-namespace", "creatorRequestId": "eda8b524-ca14-4f68-a176-dc4dfd165c26", "tags": [] }, "responseElements": { "operationId": "7xm4i7ghhkaalma666nrg6itf2eylcbp-gwipo38o" }, "requestID": "641274d0-dbbe-4e64-9b53-685769a086c7", "eventID": "4a1ab076-ef1b-4bcf-aa95-cec5fb64f2bd", "readOnly": false, "eventType": "AwsApiCall", "managementEvent": true, "recipientAccountId": "111122223333", "eventCategory": "Management", "tlsDetails": { "tlsVersion": "TLSv1.3", "cipherSuite": "TLS_AES_128_GCM_SHA256", "clientProvidedHostHeader": "servicediscovery.eu-west-3.amazonaws.com" }, "sessionCredentialFromConsole": "true" } ``` The following example shows a CloudTrail data event that demonstrates the `DiscoverInstances` operation. ``` { "eventVersion": "1.09", "userIdentity": { "type": "AssumedRole", "principalId": "AIDACKCEVSQ6C2EXAMPLE:alejandro_rosalez", "arn": "arn:aws:sts::111122223333:assumed-role/role/Admin", "accountId": "111122223333", "accessKeyId": "AIDACKCEVSQ6C2EXAMPLE", "sessionContext": { "sessionIssuer": { "type": "Role", "principalId": "AROA123456789EXAMPLE", "arn": "arn:aws:iam::"111122223333":role/Admin", "accountId": "111122223333", "userName": "Admin" }, "attributes": { "creationDate": "2024-03-19T16:15:37Z", "mfaAuthenticated": "false" } } }, "eventTime": "2024-03-19T21:19:12Z", "eventSource": "servicediscovery.amazonaws.com", "eventName": "DiscoverInstances", "awsRegion": "eu-west-3", "sourceIPAddress": "13.38.34.79", "userAgent": "Boto3/1.20.34 md/Botocore#1.34.60 ua/2.0 os/linux#6.5.0-1014-aws md/arch#x86_64 lang/python#3.10.12 md/pyimpl#CPython cfg/retry-mode#legacy Botocore/1.34.60", "requestParameters": { "namespaceName": "example-namespace", "serviceName": "example-service", "queryParameters": {"example-key": "example-value"} }, "responseElements": null, "requestID": "e5ee36f1-edb0-4814-a4ba-2e8c97621c79", "eventID": "503cedb6-9906-4ee5-83e0-a64dde27bab0", "readOnly": true, "resources": [ { "accountId": "111122223333", "type": "AWS::ServiceDiscovery::Namespace", "ARN": "arn:aws:servicediscovery:eu-west-3:111122223333:namespace/ns-vh4nbmhEXAMPLE" }, { "accountId": "111122223333", "type": "AWS::ServiceDiscovery::Service", "ARN": "arn:aws:servicediscovery:eu-west-3:111122223333:service/srv-h46op6ylEXAMPLE" } ], "eventType": "AwsApiCall", "managementEvent": false, "recipientAccountId": "111122223333", "eventCategory": "Data", "tlsDetails": { "tlsVersion": "TLSv1.3", "cipherSuite": "TLS_AES_128_GCM_SHA256", "clientProvidedHostHeader": "data-servicediscovery.eu-west-3.amazonaws.com" }, "sessionCredentialFromConsole": "true" } ``` For information about CloudTrail record contents, see [CloudTrail record contents](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-record-contents.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-record-contents.md") in the *AWS CloudTrail User Guide*.
