@@ -47,7 +47,7 @@ In this example, the UI widget for inputting a value for the `BlenderSceneFile`
  parameter is a file-selection dialog that shows only `.blend` files.
 
 
-![A user-interface widget for entering the scene file parameter for an OpenJD job template.](../../../images/deadline-cloud/latest/developerguide/images/blender_submit_scene_file_widget.png)
+![A user-interface widget for entering the scene file parameter for an OpenJD job template.](images/blender_submit_scene_file_widget.png)
 For more examples of using the `userInteface` element, see the [gui\_control\_showcase](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/gui_control_showcase "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline/job_bundles/gui_control_showcase") sample in the [deadline-cloud-samples](https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline "https://github.com/aws-deadline/deadline-cloud-samples/tree/mainline") repository on GitHub.
 
 The `objectType` and `dataFlow` properties control the behavior of

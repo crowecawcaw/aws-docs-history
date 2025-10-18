@@ -60,7 +60,7 @@ Add some additional files to the job on the **Job attachments**
  tab:
 
 
-![The job attachments pane of the Deadline Cloud job submission GUI. Add the input file /private/tmp/bundle_demo/a_texture.png and the input directory /private/tmp/bundle_demo/assets.](../../../images/deadline-cloud/latest/developerguide/images/blender_submit_add_job_attachments.png)
+![The job attachments pane of the Deadline Cloud job submission GUI. Add the input file /private/tmp/bundle_demo/a_texture.png and the input directory /private/tmp/bundle_demo/assets.](images/blender_submit_add_job_attachments.png)
 After you submit the job, you can look at the `asset_references.yaml` file in
  the job bundle in the job history directory to see the assets in the YAML file:
 

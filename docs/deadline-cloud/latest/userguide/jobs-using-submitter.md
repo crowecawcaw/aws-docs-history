@@ -46,7 +46,7 @@ The submitter has four tabs:
 
 
 
-![The shared job settings tab of the Blender submitter. The settings in the tab are the defaults.](../../../images/deadline-cloud/latest/userguide/images/submitter-shared.png)
+![The shared job settings tab of the Blender submitter. The settings in the tab are the defaults.](images/submitter-shared.png)
 
 The shared job settings tab contains the settings that are common to all jobs sent to
  Deadline Cloud using the submitter. The three sections are:
@@ -66,7 +66,7 @@ The shared job settings tab contains the settings that are common to all jobs se
 
 
 
-![The job-specific settings tab of the Blender submitter.](../../../images/deadline-cloud/latest/userguide/images/submitter-job-settings.png)
+![The job-specific settings tab of the Blender submitter.](images/submitter-job-settings.png)
 
 The job-specific settings tab contains the setting specific to your DCC application.
  Specify these settings based on the options available in your application.
@@ -77,7 +77,7 @@ The job-specific settings tab contains the setting specific to your DCC applicat
 
 
 
-![The shared job attachments tab of the Blender submitter.](../../../images/deadline-cloud/latest/userguide/images/submitter-attachments.png)
+![The shared job attachments tab of the Blender submitter.](images/submitter-attachments.png)
 
 The job attachments tab shows all of the files needed to complete a render. The
  submitter tries to find all of the files required for the render. The files that it
@@ -96,7 +96,7 @@ If your job writes files to multiple output directories, you must specify the
 
 
 
-![The shared host requirements tab of the Blender submitter.](../../../images/deadline-cloud/latest/userguide/images/submitter-host.png)
+![The shared host requirements tab of the Blender submitter.](images/submitter-host.png)
 
 The host requirements tabs sets the fleet capabilities required to process the job.
  Capabilities are specified for the entire fleet, not individual workers in the fleet.

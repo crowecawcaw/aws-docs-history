@@ -140,7 +140,7 @@ The lower left of the monitor shows the two steps of the job, building the packa
 
 
 
-![The Deadline Cloud monitor showing the progress and status of a job building the Blender package.](../../../images/deadline-cloud/latest/developerguide/images/Conda-Figure3.png)
+![The Deadline Cloud monitor showing the progress and status of a job building the Blender package.](images/Conda-Figure3.png)
 
 In the lower left of the monitor are the two steps of the job, building the package and
  then reindexing the conda channel. In the lower right are the individual tasks for each

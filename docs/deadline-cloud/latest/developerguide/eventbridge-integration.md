@@ -16,7 +16,7 @@ As with many AWS services, Deadline Cloud generates and sends events to the Even
  bus sends the event to the specified target(s).
 
 
-![AWS services send events to the EventBridge default event bus. If the event matches a rule's event pattern, EventBridge sends the event to the targets specified for that rule.](../../../images/deadline-cloud/latest/developerguide/images/eventbridge-integration-how-it-works.png)
+![AWS services send events to the EventBridge default event bus. If the event matches a rule's event pattern, EventBridge sends the event to the targets specified for that rule.](images/eventbridge-integration-how-it-works.png)
 ###### Topics
 
 * [Deadline Cloud events](#supported-events "#supported-events")
