@@ -1,0 +1,37 @@
+# Limits
+
+## Description
+
+
+No action documentation available.
+
+
+## Contents
+
+
+
+
+
+**MaximumPartitionCount**
+
+
+Type: 
+ Integer
+
+
+
+ Required: Yes
+ 
+
+
+
+
+**MaximumReplicationCount**
+
+
+Type: 
+ Integer
+
+
+
+ Required: Yes
