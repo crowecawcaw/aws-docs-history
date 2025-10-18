@@ -1,0 +1,27 @@
+# Document history for the AWS CloudShell User Guide
+
+**Recent updates**
+
+The following table describes important changes to the *AWS CloudShell User
+ Guide*.
+
+
+
+| Change | Description | Date |
+| --- | --- | --- |
+|  Amazon Q CLI in AWS CloudShell | Added support for using Amazon Q CLI features in AWS CloudShell. | October 2, 2024 |
+|  Amazon VPC support for AWS CloudShell in certain Regions | Added support for creating and using AWS CloudShell VPC environments in certain Regions. | June 13, 2024 |
+| New tutorials have been added to the AWS CloudShell User Guide | Two new tutorials have been added that details how to build a Docker container inside AWS CloudShell and push it to an Amazon ECR repository, and how to deploy a Lambda function via AWS CDK. | December 27, 2023 |
+| Docker containers supported with AWS CloudShell in certain Regions | Support for Docker containers with AWS CloudShell has been added in certain Regions. | December 27, 2023 |
+| AWS CloudShell has migrated to now use Amazon Linux 2023 (AL2023) | AWS CloudShell now uses AL2023 and has migrated from Amazon Linux 2. | December 4, 2023 |
+| New AWS Regions for AWS CloudShell | AWS CloudShell is now generally available in the following AWS Regions: <br>• US West (N. California) <br>• Africa (Cape Town) <br>• Asia Pacific (Hong Kong) <br>• Asia Pacific (Osaka) <br>• Asia Pacific (Seoul) <br>• Asia Pacific (Jakarta) <br>• Asia Pacific (Singapore) <br>• Europe (Paris) <br>• Europe (Stockholm) <br>• Europe (Milan) <br>• Middle East (Bahrain) <br>• Middle East (UAE) | June 16, 2023 |
+| Launch AWS CloudShell on the Console Toolbar | Launch CloudShell on the Console Toolbar, on the lower left of the console by choosing CloudShell. | March 28, 2023 |
+| New AWS Regions for AWS CloudShell | AWS CloudShell is now available in the following AWS Regions: <br>• Canada (Central) <br>• Europe (London) <br>• South America (São Paulo) | October 6, 2022 |
+| AWS CloudShell supported in US AWS GovCloud | AWS CloudShell is now supported in the AWS GovCloud (US) Region. | June 29, 2022 |
+| [Security FAQs](cloudshell-security-faqs.md "cloudshell-security-faqs.md") | Additional FAQs focused on security issues. | April 14, 2022 |
+| [Web Sockets](vm-specs.md#cloudshell-network-requirements "vm-specs.md#cloudshell-network-requirements") | Added section to network requirements that explains CloudShell's use of the WebSocket protocol. | March 21, 2022 |
+| [Troubleshooting arrow keys in PowerShell](troubleshooting.md#pwsh-arrow-keys "troubleshooting.md#pwsh-arrow-keys") | Follow the steps to fix arrow keys that incorrectly output letters when pressed. | February 7, 2022 |
+| Tab key autocomplete | New documentation that explains how to use bash-completion, which allows the autocompletion of partially typed commands or arguments by pressing the **Tab** key. | September 24, 2021 |
+| [Specifying AWS Regions](working-with-aws-cloudshell.md#environment-variaiables-regions "working-with-aws-cloudshell.md#environment-variaiables-regions")  | Documentation on specifying default AWS Region for AWS CLI commands. | May 11, 2021 |
+| Formatting in PDF and Kindle versions | Fixed image sizes and text in table cells. | March 10, 2021 |
+| General availability (GA) release of AWS CloudShell in selected AWS Regions | AWS CloudShell is now generally available in the following AWS Regions: <br>• US East (Ohio) <br>• US East (N. Virginia) <br>• US West (Oregon) <br>• Asia Pacific (Tokyo) <br>• Europe (Ireland) <br>• Asia Pacific (Mumbai) <br>• Asia Pacific (Sydney) <br>• Europe (Frankfurt) | December 15, 2020 |
