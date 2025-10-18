@@ -475,7 +475,7 @@ If you use basic event selectors to log data events, you're limited
 
 
 
-![Basic event selectors for data events on a trail](/images/awscloudtrail/latest/userguide/images/cloudtrail-data-basic-selectors.png)
+![Basic event selectors for data events on a trail](images/cloudtrail-data-basic-selectors.png)
 
 Use the following procedure to configure data event settings using basic event selectors. 
 
