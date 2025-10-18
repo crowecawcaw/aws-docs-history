@@ -1,0 +1,29 @@
+# AWS CloudHSM performance information
+
+For production AWS CloudHSM clusters, you should have at least two hardware security module (HSM)
+ instances spread across different availability zones in a region. We recommend load testing
+ your cluster to determine the peak load you should anticipate, and then add one more HSM to
+ it to ensure high availability. For applications requiring durability of newly generated
+ keys, we recommend at least three HSM instances spread across different availability zones
+ in a region.
+
+
+## Performance data
+
+
+The performance of AWS CloudHSM clusters vary based on specific workload. To increase performance, you can add additional HSM instances to your clusters. 
+ Performance can vary based on configuration, data size, and additional application load on your EC2 instances. We encourage load testing your application to determine scaling needs.
+
+
+The following table shows approximate performance for common cryptographic algorithms running on an EC2 instance with hsm1.medium instances.
+
+
+
+
+Performance data for hsm1.medium| Operation | Two-HSM cluster[1](#performance1 "#performance1") | Three-HSM cluster[2](#performance2 "#performance2") | Six-HSM cluster[3](#performance3 "#performance3") |
+| --- | --- | --- | --- |
+| RSA 2048-bit sign  | 2,000 ops/sec | 3,000 ops/sec | 5,000 ops/sec |
+| EC P256 sign  | 500 ops/sec | 750 ops/sec | 1,500 ops/sec | The following table shows approximate performance for common cryptographic algorithms running on an EC2 instance with hsm2m.medium. Performance data for hsm2m.medium| Operation | Two-HSM cluster[1](#performance1 "#performance1") | Three-HSM cluster[2](#performance2 "#performance2") | Six-HSM cluster[3](#performance3 "#performance3") |
+| --- | --- | --- | --- |
+| RSA 2048-bit sign | 2000 ops/sec | 3000 ops/sec | 5000 ops/sec |
+| EC P256 sign | 3000 ops/sec | 4500 ops/sec | 7000 ops/sec | <br>• [1] A two-HSM cluster with the Java multi-threaded application running on one [c4.large EC2 instance](https://aws.amazon.com/ec2/instance-types/ "https://aws.amazon.com/ec2/instance-types/") with one HSM in the same AZ as the EC2 instance. <br>• [2] A three-HSM cluster with the Java multi-threaded application running on one [c4.large EC2 instance](https://aws.amazon.com/ec2/instance-types/ "https://aws.amazon.com/ec2/instance-types/") with one HSM in the same AZ as the EC2 instance. <br>• [3] A six-HSM cluster with the Java multi-threaded application running on one [c4.large EC2 instance](https://aws.amazon.com/ec2/instance-types/ "https://aws.amazon.com/ec2/instance-types/") with two HSMs in the same AZ as the EC2 instance. ## HSM throttling When your workload exceeds your cluster’s HSM capacity, you will receive error messages stating HSMs are busy or throttled. For details on what to do when this happens, see [HSM throttling](troubleshoot-hsm-throttling.md "troubleshoot-hsm-throttling.md")
