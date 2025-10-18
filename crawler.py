@@ -95,6 +95,25 @@ ALLOWED_IMAGE_EXTENSIONS = {".png", ".jpg", ".jpeg", ".gif", ".svg"}
 MAX_IMAGE_BYTES = 10 * 1024 * 1024  # 10 MiB safeguard for very large assets
 
 
+def build_local_image_path(image_path: str, output_root: Path) -> Path:
+    """Translate an AWS Docs image path into a local filesystem destination."""
+
+    if not image_path.startswith(IMAGE_PATH_PREFIX):
+        raise ValueError(f"Image path must start with {IMAGE_PATH_PREFIX!r}: {image_path!r}")
+
+    relative_path = image_path[len(IMAGE_PATH_PREFIX) :]
+    safe_parts = [
+        part
+        for part in PurePosixPath(relative_path).parts
+        if part not in {"..", "."}
+    ]
+
+    if not safe_parts:
+        raise ValueError(f"Image path did not contain any usable segments: {image_path!r}")
+
+    return output_root.joinpath(*safe_parts)
+
+
 @dataclass(frozen=True)
 class ServiceScope:
     """Describe the default crawl scope for a single AWS service."""
@@ -436,7 +455,6 @@ class AwsDocsCrawler:
         self._toc_entries: dict[str, dict] = {}
         self._toc_entries_lock = threading.Lock()
 
-        self.images_root = self.output_dir / "images"
         self._rate_limiter = RequestRateLimiter(requests_per_second)
 
     @property
@@ -715,10 +733,7 @@ class AwsDocsCrawler:
                 image[attr] = ", ".join(rewritten_parts)
 
     def _image_output_path(self, image_path: str) -> Path:
-        relative_path = image_path[len(IMAGE_PATH_PREFIX) :]
-        safe_parts = [part for part in PurePosixPath(relative_path).parts if part not in {"..", "."}]
-        local_path = self.images_root.joinpath(*safe_parts)
-        return local_path
+        return build_local_image_path(image_path, self.output_dir)
 
     def _download_image(self, image_url: str, destination: Path) -> bool:
         destination.parent.mkdir(parents=True, exist_ok=True)

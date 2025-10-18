@@ -48,7 +48,7 @@ Virtual file system support (VFS) is enabled for each job. A job falls back to t
 
 
 
-![The Deadline Cloud submitter showing the options for the job attachments file system.](../../../images/deadline-cloud/latest/userguide/images/submitter-vfs.png)
+![The Deadline Cloud submitter showing the options for the job attachments file system.](images/submitter-vfs.png)
 3. To save your changes, choose **OK**.
 ###### To enable virtual file system support using the AWS CLI
 
