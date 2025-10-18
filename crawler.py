@@ -135,6 +135,118 @@ DEFAULT_SERVICE_SCOPES: dict[str, ServiceScope] = {
             "/deadline-cloud/latest/APIReference/",
         ),
     ),
+    "cloudformation": ServiceScope(
+        start_urls=(
+            "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html",
+            "https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/Welcome.html",
+        ),
+        allowed_prefixes=(
+            "/AWSCloudFormation/latest/UserGuide/",
+            "/AWSCloudFormation/latest/APIReference/",
+        ),
+    ),
+    "cloudfront": ServiceScope(
+        start_urls=(
+            "https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Introduction.html",
+            "https://docs.aws.amazon.com/cloudfront/latest/APIReference/Welcome.html",
+        ),
+        allowed_prefixes=(
+            "/AmazonCloudFront/latest/DeveloperGuide/",
+            "/cloudfront/latest/APIReference/",
+        ),
+    ),
+    "cloudsearch": ServiceScope(
+        start_urls=(
+            "https://docs.aws.amazon.com/cloudsearch/latest/developerguide/what-is-cloudsearch.html",
+        ),
+        allowed_prefixes=(
+            "/cloudsearch/latest/developerguide/",
+        ),
+    ),
+    "cloudtrail": ServiceScope(
+        start_urls=(
+            "https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html",
+            "https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/Welcome.html",
+        ),
+        allowed_prefixes=(
+            "/awscloudtrail/latest/userguide/",
+            "/awscloudtrail/latest/APIReference/",
+        ),
+    ),
+    "cloudwatch": ServiceScope(
+        start_urls=(
+            "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html",
+            "https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/Welcome.html",
+        ),
+        allowed_prefixes=(
+            "/AmazonCloudWatch/latest/monitoring/",
+            "/AmazonCloudWatch/latest/APIReference/",
+        ),
+    ),
+    "cloudhsm": ServiceScope(
+        start_urls=(
+            "https://docs.aws.amazon.com/cloudhsm/latest/userguide/introduction.html",
+            "https://docs.aws.amazon.com/cloudhsm/latest/APIReference/Welcome.html",
+        ),
+        allowed_prefixes=(
+            "/cloudhsm/latest/userguide/",
+            "/cloudhsm/latest/APIReference/",
+        ),
+    ),
+    "cloud9": ServiceScope(
+        start_urls=(
+            "https://docs.aws.amazon.com/cloud9/latest/user-guide/welcome.html",
+            "https://docs.aws.amazon.com/cloud9/latest/APIReference/Welcome.html",
+        ),
+        allowed_prefixes=(
+            "/cloud9/latest/user-guide/",
+            "/cloud9/latest/APIReference/",
+        ),
+    ),
+    "cloudshell": ServiceScope(
+        start_urls=(
+            "https://docs.aws.amazon.com/cloudshell/latest/userguide/welcome.html",
+        ),
+        allowed_prefixes=(
+            "/cloudshell/latest/userguide/",
+        ),
+    ),
+    "cloud-map": ServiceScope(
+        start_urls=(
+            "https://docs.aws.amazon.com/cloud-map/latest/dg/what-is-cloud-map.html",
+        ),
+        allowed_prefixes=(
+            "/cloud-map/latest/dg/",
+        ),
+    ),
+    "cloudcontrolapi": ServiceScope(
+        start_urls=(
+            "https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/what-is-cloudcontrolapi.html",
+        ),
+        allowed_prefixes=(
+            "/cloudcontrolapi/latest/userguide/",
+        ),
+    ),
+    "cloudwan": ServiceScope(
+        start_urls=(
+            "https://docs.aws.amazon.com/network-manager/latest/cloudwan/what-is-cloudwan.html",
+            "https://docs.aws.amazon.com/networkmanager/latest/APIReference/Welcome.html",
+        ),
+        allowed_prefixes=(
+            "/network-manager/latest/cloudwan/",
+            "/networkmanager/latest/APIReference/",
+        ),
+    ),
+    "clouddirectory": ServiceScope(
+        start_urls=(
+            "https://docs.aws.amazon.com/clouddirectory/latest/developerguide/what_is_cloud_directory.html",
+            "https://docs.aws.amazon.com/clouddirectory/latest/APIReference/welcome.html",
+        ),
+        allowed_prefixes=(
+            "/clouddirectory/latest/developerguide/",
+            "/clouddirectory/latest/APIReference/",
+        ),
+    ),
 }
 
 
