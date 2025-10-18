@@ -1,0 +1,54 @@
+# CloudWatch metrics in AWS Cloud WAN
+
+You can use the following features to monitor your Cloud WAN network, analyze traffic
+ patterns, and troubleshoot issues with your Cloud WAN global network.
+
+
+## Cloud WAN metrics and dimensions
+
+
+You can use metrics to verify that your system is performing as expected. For example,
+ you can create a CloudWatch alarm to monitor a specified metric and initiate an action (such
+ as sending a notification to an email address) if the metric goes outside what you
+ consider an acceptable range.
+
+
+Amazon VPC measures and sends its metrics to CloudWatch in 60-second intervals.
+
+
+For more information, see the [Amazon CloudWatch User Guide](../../../AmazonCloudWatch/latest/monitoring.md "../../../AmazonCloudWatch/latest/monitoring.md").
+
+
+The `AWS/NetworkManager` namespace includes the following metrics. All
+ metrics are always reported. 
+
+
+
+
+| Metric | Description |
+| --- | --- |
+| `BytesDropCountBlackhole` | The number of bytes dropped because they matched a `blackhole` route. **Statistics**: The only meaningful statistic is `Sum`. |
+| `BytesDropCountNoRoute` | The number of bytes dropped because they did not match a route. **Statistics**: The only meaningful statistic is `Sum`. |
+| `BytesIn` | The number of bytes received by the core network. **Statistics**: The only meaningful statistic is `Sum`. |
+| `BytesOut` | The number of bytes sent from the core network. **Statistics**: The only meaningful statistic is `Sum`. |
+| `PacketsIn` | The number of packets received by the core network. **Statistics**: The only meaningful statistic is `Sum`. |
+| `PacketsOut` | The number of packets sent by the core network. **Statistics**: The only meaningful statistic is `Sum`. |
+| `PacketDropCountBlackhole` | The number of packets dropped because they matched a `blackhole` route. **Statistics**: The only meaningful statistic is `Sum`. |
+| `PacketDropCountNoRoute` | The number of packets dropped because they did not match a route. **Statistics**: The only meaningful statistic is `Sum`. |
+| `PacketDropTTLExpired` | The number of packets dropped because the TTL expired. **Statistics**: The only meaningful statistic is `Sum`. | ### Cloud WAN metric dimensions Filter metric data by a combination of the following Cloud WAN core network metric dimensions.
+| Dimension | Description |
+| --- | --- |
+| `CoreNetwork`, `EdgeLocation` | Filters the metric data by core network. |
+| `Attachment`, `CoreNetwork` | Filters the metric data by core network attachment. |
+| `AvailabilityZone`, `CoreNetwork`, `EdgeLocation` | Filters the metric data by availability zone. This is only applicable for Direct Connect. |
+| `Attachment`, `AvailabilityZone`, `CoreNetwork` | Filters the metric data by both core network attachment and availability zone. | ## AWS Cloud WAN usage metrics Cloud WAN usage metrics correspond to AWS service quotas for Cloud WAN. You can configure alarms that alert you when your usage approaches a service quota. For more information about CloudWatch integration with service quotas, see [CloudWatch usage metrics](../../../AmazonCloudWatch/latest/monitoring/CloudWatch-Usage-Metrics.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch-Usage-Metrics.md") in the *Amazon CloudWatch User Guide*. The `AWS/Usage` namespace reports the following metric for Cloud WAN:
+| Metric | Description |
+| --- | --- |
+| `ResourceCount` | The number of the specified resources running in your account. The resources are defined by the dimensions associated with the metric.**Statistics**: The only meaningful statistic is `MAXIMUM`. | ### AWS Cloud WAN metric dimensions The following dimensions are used to refine the usage metrics that are published by Cloud WAN.
+| Dimension | Description |
+| --- | --- |
+| `Service` | The name of the AWS service containing the resource. For Cloud WAN usage metrics, the value for this dimension is `NetworkManager`. |
+| `Type` | The type of entity that is being reported. Currently, the only valid value for Cloud WAN usage metrics is `Resource`. |
+| `Resource` | The type of resource that is running. Currently, valid values for Cloud WAN usage metrics include `RoutesPropagated/Inbound` and `RoutesPropagated/Outbound`, which return the number of routes advertised and learnt over Direct Connect attachments. |
+| `ResourceID` | The unique identifier for the resource, such as a core network attachmentId, and might include a region code prefix for region-specific resources. |
+| `Class` | This dimension is reserved for future use. |
