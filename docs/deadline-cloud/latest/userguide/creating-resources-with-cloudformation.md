@@ -16,17 +16,17 @@ When you use AWS CloudFormation, you can reuse your template to set up your Dead
 
 
 To provision and configure resources for Deadline Cloud and related services, you must
- understand [AWS CloudFormation templates](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-guide.html "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-guide.html"). Templates
+ understand [AWS CloudFormation templates](../../../AWSCloudFormation/latest/UserGuide/template-guide.md "../../../AWSCloudFormation/latest/UserGuide/template-guide.md"). Templates
  are formatted text files in JSON or YAML. These templates describe the resources that you want to
  provision in your AWS CloudFormation stacks. If you're unfamiliar with JSON or YAML, you can use AWS CloudFormation
  Designer to help you get started with AWS CloudFormation templates. For more information, see [What is AWS CloudFormation
- Designer?](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/working-with-templates-cfn-designer.html "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/working-with-templates-cfn-designer.html") in the *AWS CloudFormation User Guide*.
+ Designer?](../../../AWSCloudFormation/latest/UserGuide/working-with-templates-cfn-designer.md "../../../AWSCloudFormation/latest/UserGuide/working-with-templates-cfn-designer.md") in the *AWS CloudFormation User Guide*.
 
 
 Deadline Cloud supports creating farms, queues, and fleets
  
  in AWS CloudFormation. For more information, including examples of JSON and YAML templates for
- farms, queues, and fleets, see the [AWS Deadline Cloud](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Deadline.html "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Deadline.html") in the
+ farms, queues, and fleets, see the [AWS Deadline Cloud](../../../AWSCloudFormation/latest/UserGuide/AWS_Deadline.md "../../../AWSCloudFormation/latest/UserGuide/AWS_Deadline.md") in the
  *AWS CloudFormation User Guide*.
 
 
@@ -38,7 +38,7 @@ To learn more about AWS CloudFormation, see the following resources:
 
 
 * [AWS CloudFormation](https://aws.amazon.com/cloudformation/ "https://aws.amazon.com/cloudformation/")
-* [AWS CloudFormation User Guide](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html")
-* [AWS CloudFormation API Reference](https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/Welcome.html "https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/Welcome.html")
+* [AWS CloudFormation User Guide](../../../AWSCloudFormation/latest/UserGuide/Welcome.md "../../../AWSCloudFormation/latest/UserGuide/Welcome.md")
+* [AWS CloudFormation API Reference](../../../AWSCloudFormation/latest/APIReference/Welcome.md "../../../AWSCloudFormation/latest/APIReference/Welcome.md")
 * [AWS CloudFormation Command
  Line Interface User Guide](https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html "https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/what-is-cloudformation-cli.html")

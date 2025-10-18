@@ -193,10 +193,6 @@ View details about updates to AWS managed policies for Deadline Cloud since this
 
 | Change | Description | Date |
 | --- | --- | --- |
-| [AWSDeadlineCloud-WorkerHost](#security-iam-awsmanpol-WorkerHost "#security-iam-awsmanpol-WorkerHost") – Change | Deadline Cloud added new actions `deadline:TagResource` and
- `deadline:ListTagsForResource` to allow you to add and view tags
- associated with workers in your fleet. | May 30, 2025 |
-| [AWSDeadlineCloud-UserAccessFarms](#security-iam-awsmanpol-UserAccessFarms "#security-iam-awsmanpol-UserAccessFarms") – Change[AWSDeadlineCloud-UserAccessJobs](#security-iam-awsmanpol-UserAccessJobs "#security-iam-awsmanpol-UserAccessJobs") – Change[AWSDeadlineCloud-UserAccessQueues](#security-iam-awsmanpol-UserAccessQueues "#security-iam-awsmanpol-UserAccessQueues") – Change | Deadline Cloud added new actions `deadline:GetJobTemplate` and
- `deadline:ListJobParameterDefinitions` to allow you to resubmit
- jobs. | October 7, 2024 |
+| [AWSDeadlineCloud-WorkerHost](#security-iam-awsmanpol-WorkerHost "#security-iam-awsmanpol-WorkerHost") – Change | Deadline Cloud added new actions `deadline:TagResource` and `deadline:ListTagsForResource` to allow you to add and view tags associated with workers in your fleet. | May 30, 2025 |
+| [AWSDeadlineCloud-UserAccessFarms](#security-iam-awsmanpol-UserAccessFarms "#security-iam-awsmanpol-UserAccessFarms") – Change[AWSDeadlineCloud-UserAccessJobs](#security-iam-awsmanpol-UserAccessJobs "#security-iam-awsmanpol-UserAccessJobs") – Change[AWSDeadlineCloud-UserAccessQueues](#security-iam-awsmanpol-UserAccessQueues "#security-iam-awsmanpol-UserAccessQueues") – Change | Deadline Cloud added new actions `deadline:GetJobTemplate` and `deadline:ListJobParameterDefinitions` to allow you to resubmit jobs. | October 7, 2024 |
 | Deadline Cloud started tracking changes | Deadline Cloud started tracking changes to its AWS managed policies. | April 2, 2024 |

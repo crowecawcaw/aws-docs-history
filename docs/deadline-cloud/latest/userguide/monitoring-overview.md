@@ -23,7 +23,7 @@ AWS and Deadline Cloud provide tools that you can use to monitor your resources 
  set alarms that notify you or take actions when a specified metric reaches a threshold that
  you specify. For example, you can have CloudWatch track CPU usage or other metrics of your Amazon EC2
  instances and automatically launch new instances when needed. For more information, see the
- [Amazon CloudWatch User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/").
+ [Amazon CloudWatch User Guide](../../../AmazonCloudWatch/latest/monitoring.md "../../../AmazonCloudWatch/latest/monitoring.md").
 
 
 Deadline Cloud has three CloudWatch metrics.
@@ -39,7 +39,7 @@ Deadline Cloud has three CloudWatch metrics.
 * *AWS CloudTrail* captures API calls and related events made by or on behalf
  of your AWS account and delivers the log files to an Amazon S3 bucket that you specify. You can
  identify which users and accounts called AWS, the source IP address from which the calls
- were made, and when the calls occurred. For more information, see the [AWS CloudTrail User Guide](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/ "https://docs.aws.amazon.com/awscloudtrail/latest/userguide/").
+ were made, and when the calls occurred. For more information, see the [AWS CloudTrail User Guide](../../../awscloudtrail/latest/userguide.md "../../../awscloudtrail/latest/userguide.md").
 For more information, see the following topics in the *Deadline Cloud Developer
  Guide*:
 
