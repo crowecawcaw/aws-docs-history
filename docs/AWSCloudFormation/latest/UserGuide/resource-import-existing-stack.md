@@ -135,7 +135,7 @@ The CloudFormation console doesn't support the use of the intrinsic function
 
 
 
-![The Import resources into stack option in the console.](/images/AWSCloudFormation/latest/UserGuide/images/stack-actions-import.png)
+![The Import resources into stack option in the console.](images/stack-actions-import.png)
 4. Review the **Import overview** page, and then choose
  **Next**.
 5. On the **Specify template** page, provide your updated template using
