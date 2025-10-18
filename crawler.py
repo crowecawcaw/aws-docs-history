@@ -278,7 +278,88 @@ def convert_html_to_markdown(html: str) -> str:
         strip=TAGS_TO_STRIP,
     )
 
-    return (content.strip() + "\n") if content else ""
+    if not content:
+        return ""
+
+    cleaned = _reflow_markdown_tables(content)
+    return cleaned.strip() + "\n"
+
+
+def _reflow_markdown_tables(markdown: str) -> str:
+    """Join wrapped table rows produced by ``markdownify``.
+
+    The AWS documentation frequently includes multi-paragraph or list content
+    inside table cells. ``markdownify`` represents these structures using
+    normal Markdown constructs, which introduces newline characters that break
+    the table layout. This helper collapses continuation lines back into the
+    table row and inserts HTML ``<br>`` elements for list items so that the
+    rendered tables remain readable.
+    """
+
+    lines = markdown.splitlines()
+    result: list[str] = []
+    pending_row: str | None = None
+    in_table = False
+    expected_pipe_count: int | None = None
+
+    def flush_row() -> None:
+        nonlocal pending_row
+        if pending_row is not None:
+            result.append(pending_row.rstrip())
+            pending_row = None
+
+    for line in lines:
+        stripped_leading = line.lstrip()
+
+        if stripped_leading.startswith("|"):
+            pipe_count = stripped_leading.count("|")
+
+            if (
+                in_table
+                and pending_row is not None
+                and expected_pipe_count
+                and pipe_count < expected_pipe_count
+                and pending_row.count("|") < expected_pipe_count
+            ):
+                pending_row += " " + stripped_leading.strip()
+                continue
+
+            if in_table:
+                flush_row()
+            else:
+                in_table = True
+
+            pending_row = stripped_leading.rstrip()
+            if expected_pipe_count is None or pipe_count > expected_pipe_count:
+                expected_pipe_count = pipe_count
+            continue
+
+        if in_table and pending_row is not None:
+            stripped = line.strip()
+            if not stripped:
+                continue
+
+            if stripped.startswith("* "):
+                addition = f" <br>• {stripped[2:].strip()}"
+            elif stripped.startswith("- "):
+                addition = f" <br>• {stripped[2:].strip()}"
+            else:
+                addition = " " + stripped
+
+            pending_row += addition
+            continue
+
+        if in_table:
+            flush_row()
+            in_table = False
+            expected_pipe_count = None
+
+        result.append(line)
+
+    if in_table:
+        flush_row()
+
+    return "\n".join(result)
 
 
 def _default_link_checker(base_url: str) -> Callable[[str], bool]:
