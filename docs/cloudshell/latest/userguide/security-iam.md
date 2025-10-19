@@ -69,7 +69,7 @@ in the *IAM User Guide*.
 
 Regardless of the authentication method that you use, you might be required to provide
 additional security information. For example, AWS recommends that you use multi-factor
-authentication (MFA) to increase the security of your account. To learn more, see [Multi-factor authentication](https://docs.aws.amazon.com/singlesignon/latest/userguide/enable-mfa.html "https://docs.aws.amazon.com/singlesignon/latest/userguide/enable-mfa.html") in the
+authentication (MFA) to increase the security of your account. To learn more, see [Multi-factor authentication](../../../singlesignon/latest/userguide/enable-mfa.md "../../../singlesignon/latest/userguide/enable-mfa.md") in the
 *AWS IAM Identity Center User Guide* and [AWS Multi-factor authentication in IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa.html "https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa.html") in the *IAM User Guide*.
 
 
@@ -98,7 +98,7 @@ accesses AWS services by using credentials provided through an identity source. 
 
 For centralized access management, we recommend that you use AWS IAM Identity Center. You can create users and groups in IAM Identity Center, or you can connect and synchronize 
 to a set of users and groups in your own identity source for use across all your AWS accounts and applications. For information 
-about IAM Identity Center, see [What is IAM Identity Center?](https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html "https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html") in the *AWS IAM Identity Center User Guide*.
+about IAM Identity Center, see [What is IAM Identity Center?](../../../singlesignon/latest/userguide/what-is.md "../../../singlesignon/latest/userguide/what-is.md") in the *AWS IAM Identity Center User Guide*.
 
 
 ### IAM users and groups
@@ -136,7 +136,7 @@ IAM roles with temporary credentials are useful in the following situations:
 To assign permissions to a federated identity, you create a role and define permissions for the role. When a federated identity authenticates, the identity is associated with the role and is granted the permissions that are defined by the role. For information about roles for federation, see [Create a role for a third-party identity provider (federation)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-idp.html "https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-idp.html") in the *IAM User Guide*.
 
 If you use IAM Identity Center, you configure a permission set. To control what your identities can access after they authenticate, IAM Identity Center correlates the permission set to a role in IAM. 
-For information about permissions sets, see [Permission sets](https://docs.aws.amazon.com/singlesignon/latest/userguide/permissionsetsconcept.html "https://docs.aws.amazon.com/singlesignon/latest/userguide/permissionsetsconcept.html") in the *AWS IAM Identity Center User Guide*.
+For information about permissions sets, see [Permission sets](../../../singlesignon/latest/userguide/permissionsetsconcept.md "../../../singlesignon/latest/userguide/permissionsetsconcept.md") in the *AWS IAM Identity Center User Guide*.
 * **Temporary IAM user permissions** – An IAM user or role can assume an IAM role to temporarily take on
  different permissions for a specific task.
 * **Cross-account access** – You can use an
