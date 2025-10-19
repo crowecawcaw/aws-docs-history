@@ -19,7 +19,7 @@ You can start an investigation from a CloudWatch Application Signals Service Lev
 
 Alternatively, in the visualization of the metric you want to investigate,
  next to the more 
-![Vertical ellipsis used to display more options.](images/vmore.png)
+![Vertical ellipsis used to display more options.](/images/AmazonCloudWatch/latest/monitoring/images/vmore.png)
  menu, select the AI 
 ![Icon used to represent a feature that uses artificial intelligence .](images/cw-ai-icon.png)
  icon to start an investigation.

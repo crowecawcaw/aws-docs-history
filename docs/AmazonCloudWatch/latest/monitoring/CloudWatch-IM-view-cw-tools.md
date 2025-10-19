@@ -1,26 +1,212 @@
-# Exploring your data with CloudWatch tools and the Internet Monitor query interface
+# Use Amazon Athena to query internet measurements in Amazon S3 log files
 
-In addition to visualizing your performance and availability for your application with the Internet Monitor dashboard,
- there are several methods that you can use to dive deeper into the data that Internet Monitor generates for you. These methods
- include using CloudWatch tools with Internet Monitor data stored in CloudWatch Log files and using the Internet Monitor query interface. The tools 
- that you can use include CloudWatch Logs Insights, CloudWatch Metrics, CloudWatch Contributor Insights, and Amazon Athena. You can use some
- or all these tools, as well as the dashboard, to explore Internet Monitor data, depending on your needs. 
+You can use Amazon Athena to query and view the internet measurements that Internet Monitor publishes to an Amazon S3 bucket. There's an option in Internet Monitor to publish
+ internet measurements for your application to an S3 bucket for internet-facing traffic for your monitored city-networks (client locations and ASNs,
+ typically internet service providers or ISPs). Regardless of whether you choose to publish measurements to S3, Internet Monitor automatically publishes internet
+ measurements to CloudWatch Logs every five minutes for the top 500 (by traffic volume) city-networks for each monitor. 
 
-Internet Monitor aggregates CloudWatch metrics about traffic to your application and to each AWS Region, and includes 
- data such as total traffic impact, availability, and round-trip time. This data is published to CloudWatch Logs
- and is also available to use with the Internet Monitor query interface. Details about geo-granularity and other aspects
- of the information available to explore for each one varies.
-
-Internet Monitor publishes data for your monitor at 5 minute intervals, and then makes the data available
- in several ways. The following table lists scenarios for accessing Internet Monitor data, and describes features of
- the data that is collected for each one.
+This chapter includes steps for how to create a table in Athena for internet measurements located in an S3 log file, and then
+ provides [example queries](#CloudWatch-IM-view-cw-tools.S3_athena.athena-sample-queries "#CloudWatch-IM-view-cw-tools.S3_athena.athena-sample-queries") to see different views 
+ of the measurements. For example, you can query for your top 10 impacted city-networks by latency impact. 
 
 
+## Using Amazon Athena to create a table for internet measurements in Internet Monitor
 
-| Feature | CloudWatch Logs | Export to S3 | Query interface | CloudWatch dashboard |
-| --- | --- | --- | --- | --- |
-| Enabled by default | Yes | No | Yes | Yes |
-| Number of city-networks that data is collected for | Top 500 (see note below) | All | All | All |
-| Data retention | User controlled | User controlled | 30 days | 30 days |
-| Geo-granularities that data is collected for | All (city-network, metro+network, subdivision+network, country+network) | City-network | All (city-network, metro+network, subdivision+network, country+network) | All (city-network, metro+network, subdivision+network, country+network) |
-| How to query and filter data | [Use CloudWatch Logs Insights to explore Internet Monitor measurements](CloudWatch-IM-view-cw-tools-logs-insights.md "CloudWatch-IM-view-cw-tools-logs-insights.md") | [Use Amazon Athena to query internet measurements in Amazon S3 log files](CloudWatch-IM-view-cw-tools.md "CloudWatch-IM-view-cw-tools.md") | [Use the Internet Monitor query interface](CloudWatch-IM-view-cw-tools-cwim-query.md "CloudWatch-IM-view-cw-tools-cwim-query.md") | [Monitor and optimize with the Internet Monitor dashboard](CloudWatch-IM-monitor-and-optimize.md "CloudWatch-IM-monitor-and-optimize.md") | Note: Top 500 measurements are captured for city-networks; top 250 for metro+networks, top 100 for subdivision+networks, top 50 for country+networks. This chapter describes how to query and explore your data by using CloudWatch tools or the Internet Monitor query interface, together with examples for each method. ###### Contents <br>• [CloudWatch Logs Insights](CloudWatch-IM-view-cw-tools-logs-insights.md "CloudWatch-IM-view-cw-tools-logs-insights.md") <br>• [CloudWatch Contributor Insights](CloudWatch-IM-view-cw-tools-contributor-insights.md "CloudWatch-IM-view-cw-tools-contributor-insights.md") <br>• [CloudWatch Metrics](CloudWatch-IM-view-cw-tools-metrics-dashboard.md "CloudWatch-IM-view-cw-tools-metrics-dashboard.md") <br>• [Athena with S3 logs](CloudWatch-IM-view-cw-tools.md "CloudWatch-IM-view-cw-tools.md") <br>• [Internet Monitor query interface](CloudWatch-IM-view-cw-tools-cwim-query.md "CloudWatch-IM-view-cw-tools-cwim-query.md")
+
+To start using Athena with your Internet Monitor S3 log files, you first create a table for the internet measurements.
+
+
+Follow the steps in this procedure to create a table in Athena based on the S3 log files. Then, you can run Athena queries on the table, such as 
+ [these example internet measurements queries](#CloudWatch-IM-view-cw-tools.S3_athena.athena-sample-queries "#CloudWatch-IM-view-cw-tools.S3_athena.athena-sample-queries"), to get
+ information about your measurements.
+
+
+**To create an Athena table**
+
+
+1. Open the Athena console at [https://console.aws.amazon.com/athena/](https://console.aws.amazon.com/athena/ "https://console.aws.amazon.com/athena/").
+2. In the Athena query editor, enter a query statement to generate a table with Internet Monitor internet measurements.
+ Replace the value for the LOCATION parameter with the location of S3 bucket where your Internet Monitor internet measurements are stored. 
+ 
+
+
+
+```
+CREATE EXTERNAL TABLE internet_measurements (
+    version INT,
+    timestamp INT,
+    clientlocation STRING,
+    servicelocation STRING,
+    percentageoftotaltraffic DOUBLE,
+    bytesin INT,
+    bytesout INT,
+    clientconnectioncount INT,
+    internethealth STRING,
+    trafficinsights STRING
+)
+PARTITIONED BY (year STRING, month STRING, day STRING)
+ROW FORMAT SERDE 'org.openx.data.jsonserde.JsonSerDe'
+LOCATION
+'s3://`amzn-s3-demo-bucket`/`bucket_prefix`/AWSLogs/`account_id`/internetmonitor/`AWS_Region`/'
+TBLPROPERTIES ('skip.header.line.count' = '1');
+```
+3. Enter a statement to create a partition to read the data. For example, the following query creates a single partition for a specified date and location:
+
+
+
+```
+ALTER TABLE internet_measurements
+ADD PARTITION (year = 'YYYY', month = 'MM', day = 'dd')
+LOCATION
+'s3://`amzn-s3-demo-bucket`/`bucket_prefix`/AWSLogs/`account_id`/internetmonitor/`AWS_Region`/`YYYY/MM/DD`';
+```
+4. Choose **Run**.
+
+**Example Athena statements for internet measurements**
+
+
+The following is an example of a statement to generate a table:
+
+
+
+```
+CREATE EXTERNAL TABLE internet_measurements (
+    version INT,
+    timestamp INT,
+    clientlocation STRING,
+    servicelocation STRING,
+    percentageoftotaltraffic DOUBLE,
+    bytesin INT,
+    bytesout INT,
+    clientconnectioncount INT,
+    internethealth STRING,
+    trafficinsights STRING
+)
+PARTITIONED BY (year STRING, month STRING, day STRING)
+ROW FORMAT SERDE 'org.openx.data.jsonserde.JsonSerDe'
+LOCATION 's3://internet-measurements/TestMonitor/AWSLogs/1111222233332/internetmonitor/us-east-2/'
+TBLPROPERTIES ('skip.header.line.count' = '1');
+```
+
+The following is an example of a statement to create a partition to read the data:
+
+
+
+```
+ALTER TABLE internet_measurements
+ADD PARTITION (year = '2023', month = '04', day = '07')
+LOCATION 's3://internet-measurements/TestMonitor/AWSLogs/1111222233332/internetmonitor/us-east-2/2023/04/07/'
+```
+
+## Sample Amazon Athena queries to use with internet measurements in Internet Monitor
+
+
+This section includes example queries that you can use with Amazon Athena to get information about your application's internet measurements 
+ published to Amazon S3.
+
+
+**Query your top 10 impacted (by total percentage of
+ traffic) client locations and ASNs**
+
+
+Run this Athena query to return your top 10 impacted (by total percentage of traffic) city-networks—that is, client locations and ASNs,
+ typically internet service providers. 
+
+
+
+```
+SELECT json_extract_scalar(clientLocation, '$.city') as city,
+    json_extract_scalar(clientLocation, '$.networkname') as networkName,
+    sum(percentageoftotaltraffic) as percentageoftotaltraffic
+FROM internet_measurements
+GROUP BY json_extract_scalar(clientLocation, '$.city'),
+    json_extract_scalar(clientLocation, '$.networkname')
+ORDER BY percentageoftotaltraffic desc
+limit 10
+```
+
+**Query your top 10 impacted (by availability)
+ client locations and ASNs** 
+
+
+Run this Athena query to return your top 10 impacted (by total percentage of traffic) city-networks—that is, client locations and ASNs,
+ typically internet service providers. 
+
+
+
+```
+SELECT json_extract_scalar(clientLocation, '$.city') as city,
+    json_extract_scalar(clientLocation, '$.networkname') as networkName,
+    sum(
+        cast(
+            json_extract_scalar(
+                internetHealth,
+                '$.availability.percentageoftotaltrafficimpacted'
+            )
+        as double ) 
+    ) as percentageOfTotalTrafficImpacted
+FROM internet_measurements
+GROUP BY json_extract_scalar(clientLocation, '$.city'),
+    json_extract_scalar(clientLocation, '$.networkname')
+ORDER BY percentageOfTotalTrafficImpacted desc
+limit 10
+```
+
+**Query your top 10 impacted (by latency)
+ client locations and ASNs** 
+
+
+Run this Athena query to return your top 10 impacted (by latency impact) city-networks—that is, client locations and ASNs,
+ typically internet service providers. 
+
+
+
+```
+SELECT json_extract_scalar(clientLocation, '$.city') as city,
+    json_extract_scalar(clientLocation, '$.networkname') as networkName,
+    sum(
+        cast(
+            json_extract_scalar(
+                internetHealth,
+                '$.performance.percentageoftotaltrafficimpacted'
+            )
+        as double ) 
+    ) as percentageOfTotalTrafficImpacted
+FROM internet_measurements
+GROUP BY json_extract_scalar(clientLocation, '$.city'),
+    json_extract_scalar(clientLocation, '$.networkname')
+ORDER BY percentageOfTotalTrafficImpacted desc
+limit 10
+```
+
+**Query traffic highlights for your 
+ client locations and ASNs** 
+
+
+Run this Athena query to return traffic highlights, including availability score, performance score, and time to first byte
+ for your city-networks—that is, client locations and ASNs, typically internet service providers. .
+
+
+
+```
+
+SELECT json_extract_scalar(clientLocation, '$.city') as city,
+    json_extract_scalar(clientLocation, '$.subdivision') as subdivision,
+    json_extract_scalar(clientLocation, '$.country') as country,
+    avg(cast(json_extract_scalar(internetHealth, '$.availability.experiencescore') as double)) as availabilityScore,
+    avg(cast(json_extract_scalar(internetHealth, '$.performance.experiencescore') as double)) performanceScore,
+    avg(cast(json_extract_scalar(trafficinsights, '$.timetofirstbyte.currentexperience.value') as double)) as averageTTFB,
+    sum(bytesIn) as bytesIn,
+    sum(bytesOut) as bytesOut,
+    sum(bytesIn + bytesOut) as totalBytes
+FROM internet_measurements
+where json_extract_scalar(clientLocation, '$.city') != 'N/A'
+GROUP BY 
+json_extract_scalar(clientLocation, '$.city'),
+    json_extract_scalar(clientLocation, '$.subdivision'),
+    json_extract_scalar(clientLocation, '$.country')
+ORDER BY totalBytes desc
+limit 100
+```
+
+For more information about using Athena, see the [Amazon Athena User Guide](https://docs.aws.amazon.com/athena/latest/ug/ "https://docs.aws.amazon.com/athena/latest/ug/").
