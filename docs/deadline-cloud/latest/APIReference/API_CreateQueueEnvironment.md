@@ -418,7 +418,7 @@ For more information about using this API in one of the language-specific AWS SD
 
 
 
-* [AWS Command Line Interface](https://docs.aws.amazon.com/goto/cli2/deadline-2023-10-12/CreateQueueEnvironment "https://docs.aws.amazon.com/goto/cli2/deadline-2023-10-12/CreateQueueEnvironment")
+* [AWS Command Line Interface V2](https://docs.aws.amazon.com/goto/cli2/deadline-2023-10-12/CreateQueueEnvironment "https://docs.aws.amazon.com/goto/cli2/deadline-2023-10-12/CreateQueueEnvironment")
 * [AWS SDK for .NET](https://docs.aws.amazon.com/goto/DotNetSDKV3/deadline-2023-10-12/CreateQueueEnvironment "https://docs.aws.amazon.com/goto/DotNetSDKV3/deadline-2023-10-12/CreateQueueEnvironment")
 * [AWS SDK for C++](https://docs.aws.amazon.com/goto/SdkForCpp/deadline-2023-10-12/CreateQueueEnvironment "https://docs.aws.amazon.com/goto/SdkForCpp/deadline-2023-10-12/CreateQueueEnvironment")
 * [AWS SDK for Go v2](https://docs.aws.amazon.com/goto/SdkForGoV2/deadline-2023-10-12/CreateQueueEnvironment "https://docs.aws.amazon.com/goto/SdkForGoV2/deadline-2023-10-12/CreateQueueEnvironment")
