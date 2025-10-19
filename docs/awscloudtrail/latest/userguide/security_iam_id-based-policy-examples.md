@@ -489,7 +489,7 @@ To provide access, add permissions to your users, groups, or roles:
 * Users and groups in AWS IAM Identity Center:
 
 
-Create a permission set. Follow the instructions in [Create a permission set](https://docs.aws.amazon.com/singlesignon/latest/userguide/howtocreatepermissionset.html "https://docs.aws.amazon.com/singlesignon/latest/userguide/howtocreatepermissionset.html") in the *AWS IAM Identity Center User Guide*.
+Create a permission set. Follow the instructions in [Create a permission set](../../../singlesignon/latest/userguide/howtocreatepermissionset.md "../../../singlesignon/latest/userguide/howtocreatepermissionset.md") in the *AWS IAM Identity Center User Guide*.
 * Users managed in IAM through an identity provider:
 
 
