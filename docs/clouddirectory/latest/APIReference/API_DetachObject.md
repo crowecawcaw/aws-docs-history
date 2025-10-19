@@ -293,7 +293,7 @@ For more information about using this API in one of the language-specific AWS SD
 
 
 
-* [AWS Command Line Interface](https://docs.aws.amazon.com/goto/cli2/clouddirectory-2017-01-11/DetachObject "https://docs.aws.amazon.com/goto/cli2/clouddirectory-2017-01-11/DetachObject")
+* [AWS Command Line Interface V2](https://docs.aws.amazon.com/goto/cli2/clouddirectory-2017-01-11/DetachObject "https://docs.aws.amazon.com/goto/cli2/clouddirectory-2017-01-11/DetachObject")
 * [AWS SDK for .NET](https://docs.aws.amazon.com/goto/DotNetSDKV3/clouddirectory-2017-01-11/DetachObject "https://docs.aws.amazon.com/goto/DotNetSDKV3/clouddirectory-2017-01-11/DetachObject")
 * [AWS SDK for C++](https://docs.aws.amazon.com/goto/SdkForCpp/clouddirectory-2017-01-11/DetachObject "https://docs.aws.amazon.com/goto/SdkForCpp/clouddirectory-2017-01-11/DetachObject")
 * [AWS SDK for Go v2](https://docs.aws.amazon.com/goto/SdkForGoV2/clouddirectory-2017-01-11/DetachObject "https://docs.aws.amazon.com/goto/SdkForGoV2/clouddirectory-2017-01-11/DetachObject")
