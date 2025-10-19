@@ -176,7 +176,7 @@ For more information about using this API in one of the language-specific AWS SD
 
 
 
-* [AWS Command Line Interface](https://docs.aws.amazon.com/goto/cli2/monitoring-2010-08-01/GetMetricWidgetImage "https://docs.aws.amazon.com/goto/cli2/monitoring-2010-08-01/GetMetricWidgetImage")
+* [AWS Command Line Interface V2](https://docs.aws.amazon.com/goto/cli2/monitoring-2010-08-01/GetMetricWidgetImage "https://docs.aws.amazon.com/goto/cli2/monitoring-2010-08-01/GetMetricWidgetImage")
 * [AWS SDK for .NET](https://docs.aws.amazon.com/goto/DotNetSDKV3/monitoring-2010-08-01/GetMetricWidgetImage "https://docs.aws.amazon.com/goto/DotNetSDKV3/monitoring-2010-08-01/GetMetricWidgetImage")
 * [AWS SDK for C++](https://docs.aws.amazon.com/goto/SdkForCpp/monitoring-2010-08-01/GetMetricWidgetImage "https://docs.aws.amazon.com/goto/SdkForCpp/monitoring-2010-08-01/GetMetricWidgetImage")
 * [AWS SDK for Go v2](https://docs.aws.amazon.com/goto/SdkForGoV2/monitoring-2010-08-01/GetMetricWidgetImage "https://docs.aws.amazon.com/goto/SdkForGoV2/monitoring-2010-08-01/GetMetricWidgetImage")
