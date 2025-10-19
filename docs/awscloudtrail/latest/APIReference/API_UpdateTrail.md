@@ -934,7 +934,7 @@ For more information about using this API in one of the language-specific AWS SD
 
 
 
-* [AWS Command Line Interface](https://docs.aws.amazon.com/goto/cli2/cloudtrail-2013-11-01/UpdateTrail "https://docs.aws.amazon.com/goto/cli2/cloudtrail-2013-11-01/UpdateTrail")
+* [AWS Command Line Interface V2](https://docs.aws.amazon.com/goto/cli2/cloudtrail-2013-11-01/UpdateTrail "https://docs.aws.amazon.com/goto/cli2/cloudtrail-2013-11-01/UpdateTrail")
 * [AWS SDK for .NET](https://docs.aws.amazon.com/goto/DotNetSDKV3/cloudtrail-2013-11-01/UpdateTrail "https://docs.aws.amazon.com/goto/DotNetSDKV3/cloudtrail-2013-11-01/UpdateTrail")
 * [AWS SDK for C++](https://docs.aws.amazon.com/goto/SdkForCpp/cloudtrail-2013-11-01/UpdateTrail "https://docs.aws.amazon.com/goto/SdkForCpp/cloudtrail-2013-11-01/UpdateTrail")
 * [AWS SDK for Go v2](https://docs.aws.amazon.com/goto/SdkForGoV2/cloudtrail-2013-11-01/UpdateTrail "https://docs.aws.amazon.com/goto/SdkForGoV2/cloudtrail-2013-11-01/UpdateTrail")
