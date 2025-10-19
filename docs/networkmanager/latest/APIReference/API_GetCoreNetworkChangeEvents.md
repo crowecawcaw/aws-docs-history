@@ -291,7 +291,7 @@ For more information about using this API in one of the language-specific AWS SD
 
 
 
-* [AWS Command Line Interface](https://docs.aws.amazon.com/goto/cli2/networkmanager-2019-07-05/GetCoreNetworkChangeEvents "https://docs.aws.amazon.com/goto/cli2/networkmanager-2019-07-05/GetCoreNetworkChangeEvents")
+* [AWS Command Line Interface V2](https://docs.aws.amazon.com/goto/cli2/networkmanager-2019-07-05/GetCoreNetworkChangeEvents "https://docs.aws.amazon.com/goto/cli2/networkmanager-2019-07-05/GetCoreNetworkChangeEvents")
 * [AWS SDK for .NET](https://docs.aws.amazon.com/goto/DotNetSDKV3/networkmanager-2019-07-05/GetCoreNetworkChangeEvents "https://docs.aws.amazon.com/goto/DotNetSDKV3/networkmanager-2019-07-05/GetCoreNetworkChangeEvents")
 * [AWS SDK for C++](https://docs.aws.amazon.com/goto/SdkForCpp/networkmanager-2019-07-05/GetCoreNetworkChangeEvents "https://docs.aws.amazon.com/goto/SdkForCpp/networkmanager-2019-07-05/GetCoreNetworkChangeEvents")
 * [AWS SDK for Go v2](https://docs.aws.amazon.com/goto/SdkForGoV2/networkmanager-2019-07-05/GetCoreNetworkChangeEvents "https://docs.aws.amazon.com/goto/SdkForGoV2/networkmanager-2019-07-05/GetCoreNetworkChangeEvents")
