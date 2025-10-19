@@ -190,7 +190,7 @@ For more information about using this API in one of the language-specific AWS SD
 
 
 
-* [AWS Command Line Interface](https://docs.aws.amazon.com/goto/cli2/cloudfront-keyvaluestore-2022-07-26/GetKey "https://docs.aws.amazon.com/goto/cli2/cloudfront-keyvaluestore-2022-07-26/GetKey")
+* [AWS Command Line Interface V2](https://docs.aws.amazon.com/goto/cli2/cloudfront-keyvaluestore-2022-07-26/GetKey "https://docs.aws.amazon.com/goto/cli2/cloudfront-keyvaluestore-2022-07-26/GetKey")
 * [AWS SDK for .NET](https://docs.aws.amazon.com/goto/DotNetSDKV3/cloudfront-keyvaluestore-2022-07-26/GetKey "https://docs.aws.amazon.com/goto/DotNetSDKV3/cloudfront-keyvaluestore-2022-07-26/GetKey")
 * [AWS SDK for C++](https://docs.aws.amazon.com/goto/SdkForCpp/cloudfront-keyvaluestore-2022-07-26/GetKey "https://docs.aws.amazon.com/goto/SdkForCpp/cloudfront-keyvaluestore-2022-07-26/GetKey")
 * [AWS SDK for Go v2](https://docs.aws.amazon.com/goto/SdkForGoV2/cloudfront-keyvaluestore-2022-07-26/GetKey "https://docs.aws.amazon.com/goto/SdkForGoV2/cloudfront-keyvaluestore-2022-07-26/GetKey")

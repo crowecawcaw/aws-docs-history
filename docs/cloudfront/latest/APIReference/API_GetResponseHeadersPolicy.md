@@ -244,7 +244,7 @@ For more information about using this API in one of the language-specific AWS SD
 
 
 
-* [AWS Command Line Interface](https://docs.aws.amazon.com/goto/cli2/cloudfront-2020-05-31/GetResponseHeadersPolicy "https://docs.aws.amazon.com/goto/cli2/cloudfront-2020-05-31/GetResponseHeadersPolicy")
+* [AWS Command Line Interface V2](https://docs.aws.amazon.com/goto/cli2/cloudfront-2020-05-31/GetResponseHeadersPolicy "https://docs.aws.amazon.com/goto/cli2/cloudfront-2020-05-31/GetResponseHeadersPolicy")
 * [AWS SDK for .NET](https://docs.aws.amazon.com/goto/DotNetSDKV3/cloudfront-2020-05-31/GetResponseHeadersPolicy "https://docs.aws.amazon.com/goto/DotNetSDKV3/cloudfront-2020-05-31/GetResponseHeadersPolicy")
 * [AWS SDK for C++](https://docs.aws.amazon.com/goto/SdkForCpp/cloudfront-2020-05-31/GetResponseHeadersPolicy "https://docs.aws.amazon.com/goto/SdkForCpp/cloudfront-2020-05-31/GetResponseHeadersPolicy")
 * [AWS SDK for Go v2](https://docs.aws.amazon.com/goto/SdkForGoV2/cloudfront-2020-05-31/GetResponseHeadersPolicy "https://docs.aws.amazon.com/goto/SdkForGoV2/cloudfront-2020-05-31/GetResponseHeadersPolicy")
