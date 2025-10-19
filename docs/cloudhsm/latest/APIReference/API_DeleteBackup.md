@@ -175,7 +175,7 @@ For more information about using this API in one of the language-specific AWS SD
 
 
 
-* [AWS Command Line Interface](https://docs.aws.amazon.com/goto/cli2/cloudhsmv2-2017-04-28/DeleteBackup "https://docs.aws.amazon.com/goto/cli2/cloudhsmv2-2017-04-28/DeleteBackup")
+* [AWS Command Line Interface V2](https://docs.aws.amazon.com/goto/cli2/cloudhsmv2-2017-04-28/DeleteBackup "https://docs.aws.amazon.com/goto/cli2/cloudhsmv2-2017-04-28/DeleteBackup")
 * [AWS SDK for .NET](https://docs.aws.amazon.com/goto/DotNetSDKV3/cloudhsmv2-2017-04-28/DeleteBackup "https://docs.aws.amazon.com/goto/DotNetSDKV3/cloudhsmv2-2017-04-28/DeleteBackup")
 * [AWS SDK for C++](https://docs.aws.amazon.com/goto/SdkForCpp/cloudhsmv2-2017-04-28/DeleteBackup "https://docs.aws.amazon.com/goto/SdkForCpp/cloudhsmv2-2017-04-28/DeleteBackup")
 * [AWS SDK for Go v2](https://docs.aws.amazon.com/goto/SdkForGoV2/cloudhsmv2-2017-04-28/DeleteBackup "https://docs.aws.amazon.com/goto/SdkForGoV2/cloudhsmv2-2017-04-28/DeleteBackup")
