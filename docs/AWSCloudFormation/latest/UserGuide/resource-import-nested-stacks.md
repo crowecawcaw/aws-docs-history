@@ -170,7 +170,7 @@ The import operation fails if you modify existing parameters that initiate a
 
 
 
-![The Events tab in the console.](images/import-events.png)
+![The Events tab in the console.](/images/AWSCloudFormation/latest/UserGuide/images/import-events.png)
 
 ###### Note
 
