@@ -40,3 +40,7 @@ Browse the available service documentation using the links below.
   - [Cloudwan](network-manager/latest/cloudwan/README.md)
 - **Networkmanager**
   - [API Reference](networkmanager/latest/APIReference/README.md)
+- **Singlesignon**
+  - [User Guide](singlesignon/latest/userguide/README.md)
+  - [Oidcapireference](singlesignon/latest/OIDCAPIReference/README.md)
+  - [Portalapireference](singlesignon/latest/PortalAPIReference/README.md)
