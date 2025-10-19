@@ -79,12 +79,12 @@ For instructions, see [Enable a virtual MFA device for your AWS account root use
 
 
 For instructions, see [Enabling
- AWS IAM Identity Center](https://docs.aws.amazon.com/singlesignon/latest/userguide/get-set-up-for-idc.html "https://docs.aws.amazon.com/singlesignon/latest/userguide/get-set-up-for-idc.html") in the
+ AWS IAM Identity Center](../../../singlesignon/latest/userguide/get-set-up-for-idc.md "../../../singlesignon/latest/userguide/get-set-up-for-idc.md") in the
  *AWS IAM Identity Center User Guide*.
 2. In IAM Identity Center, grant administrative access to a user.
 
 
-For a tutorial about using the IAM Identity Center directory as your identity source, see [Configure user access with the default IAM Identity Center directory](https://docs.aws.amazon.com/singlesignon/latest/userguide/quick-start-default-idc.html "https://docs.aws.amazon.com/singlesignon/latest/userguide/quick-start-default-idc.html") in the
+For a tutorial about using the IAM Identity Center directory as your identity source, see [Configure user access with the default IAM Identity Center directory](../../../singlesignon/latest/userguide/quick-start-default-idc.md "../../../singlesignon/latest/userguide/quick-start-default-idc.md") in the
  *AWS IAM Identity Center User Guide*.
 
 ###### Sign in as the user with administrative access
@@ -99,10 +99,10 @@ For help signing in using an IAM Identity Center user, see [Signing in to the AW
 1. In IAM Identity Center, create a permission set that follows the best practice of applying least-privilege permissions.
 
 
-For instructions, see [Create a permission set](https://docs.aws.amazon.com/singlesignon/latest/userguide/get-started-create-a-permission-set.html "https://docs.aws.amazon.com/singlesignon/latest/userguide/get-started-create-a-permission-set.html") in the *AWS IAM Identity Center User Guide*.
+For instructions, see [Create a permission set](../../../singlesignon/latest/userguide/get-started-create-a-permission-set.md "../../../singlesignon/latest/userguide/get-started-create-a-permission-set.md") in the *AWS IAM Identity Center User Guide*.
 2. Assign users to a group, and then assign single sign-on access to the group.
 
 
-For instructions, see [Add groups](https://docs.aws.amazon.com/singlesignon/latest/userguide/addgroups.html "https://docs.aws.amazon.com/singlesignon/latest/userguide/addgroups.html") in the *AWS IAM Identity Center User Guide*.
+For instructions, see [Add groups](../../../singlesignon/latest/userguide/addgroups.md "../../../singlesignon/latest/userguide/addgroups.md") in the *AWS IAM Identity Center User Guide*.
 
 For example policies for AWS CloudHSM that you can attach to your IAM user group, see [Identity and access management for AWS CloudHSM](identity-access-management.md "identity-access-management.md").
