@@ -197,7 +197,7 @@ For more information about using this API in one of the language-specific AWS SD
 
 
 
-* [AWS Command Line Interface](https://docs.aws.amazon.com/goto/cli2/cloudformation-2010-05-15/SetTypeDefaultVersion "https://docs.aws.amazon.com/goto/cli2/cloudformation-2010-05-15/SetTypeDefaultVersion")
+* [AWS Command Line Interface V2](https://docs.aws.amazon.com/goto/cli2/cloudformation-2010-05-15/SetTypeDefaultVersion "https://docs.aws.amazon.com/goto/cli2/cloudformation-2010-05-15/SetTypeDefaultVersion")
 * [AWS SDK for .NET](https://docs.aws.amazon.com/goto/DotNetSDKV3/cloudformation-2010-05-15/SetTypeDefaultVersion "https://docs.aws.amazon.com/goto/DotNetSDKV3/cloudformation-2010-05-15/SetTypeDefaultVersion")
 * [AWS SDK for C++](https://docs.aws.amazon.com/goto/SdkForCpp/cloudformation-2010-05-15/SetTypeDefaultVersion "https://docs.aws.amazon.com/goto/SdkForCpp/cloudformation-2010-05-15/SetTypeDefaultVersion")
 * [AWS SDK for Go v2](https://docs.aws.amazon.com/goto/SdkForGoV2/cloudformation-2010-05-15/SetTypeDefaultVersion "https://docs.aws.amazon.com/goto/SdkForGoV2/cloudformation-2010-05-15/SetTypeDefaultVersion")
