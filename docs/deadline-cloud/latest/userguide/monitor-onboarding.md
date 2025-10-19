@@ -79,7 +79,7 @@ AWS IAM Identity Center is a cloud-based single sign-on service for managing use
 
 Deadline Cloud enables IAM Identity Center by default, and it is required to set up and use
  Deadline Cloud. The IAM Identity Center instance that you use for Deadline Cloud must be in the same
- AWS Region as the monitor. For more information, see  [What is AWS IAM Identity Center](https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html "https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html").
+ AWS Region as the monitor. For more information, see  [What is AWS IAM Identity Center](../../../singlesignon/latest/userguide/what-is.md "../../../singlesignon/latest/userguide/what-is.md").
 
 
 #### Configure service access role

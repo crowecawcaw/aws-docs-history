@@ -6,7 +6,7 @@ AWS Deadline Cloud uses AWS IAM Identity Center to manage users and groups. IAM 
 
 Deadline Cloud enables IAM Identity Center by default, and it is required to set up and use Deadline Cloud. For more
  information, see  [Manage your
- identity source](https://docs.aws.amazon.com/singlesignon/latest/userguide/manage-your-identity-source.html "https://docs.aws.amazon.com/singlesignon/latest/userguide/manage-your-identity-source.html"). 
+ identity source](../../../singlesignon/latest/userguide/manage-your-identity-source.md "../../../singlesignon/latest/userguide/manage-your-identity-source.md"). 
 
 An organization owner for your AWS Organizations is responsible for managing the users and groups
  that have access to your Deadline Cloud monitor. You can create and manage these users and groups
