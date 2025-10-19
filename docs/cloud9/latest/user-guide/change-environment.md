@@ -56,7 +56,7 @@ The following steps outline how to update the timeout period for an Amazon EC2 e
 
 
 
-![AWS Region selector in the AWS Cloud9 console](/images/cloud9/latest/user-guide/images/consolas_region_new_UX.png)
+![AWS Region selector in the AWS Cloud9 console](images/consolas_region_new_UX.png)
 3. In the list of environments, for the environment whose settings you want to change, do one of the following.
 
 

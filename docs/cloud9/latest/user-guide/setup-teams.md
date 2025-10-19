@@ -40,7 +40,7 @@ You can create a customer managed policy using the [AWS Management Console](#set
 
 This step covers creating a customer managed policy for IAM groups only. To create a
  custom permission set for groups in AWS IAM Identity Center, skip this step and follow the instructions in
- [Create Permission Set](https://docs.aws.amazon.com/singlesignon/latest/userguide/permissionsets.html#howtocreatepermissionset "https://docs.aws.amazon.com/singlesignon/latest/userguide/permissionsets.html#howtocreatepermissionset") in the *AWS IAM Identity Center User Guide*. In this
+ [Create Permission Set](../../../singlesignon/latest/userguide/permissionsets.md#howtocreatepermissionset "../../../singlesignon/latest/userguide/permissionsets.md#howtocreatepermissionset") in the *AWS IAM Identity Center User Guide*. In this
  topic, follow the instructions to create a custom permission set. For related custom
  permissions policies, see [Customer managed
  policy examples for teams using AWS Cloud9](setup-teams-policy-examples.md "setup-teams-policy-examples.md") later in this topic.
@@ -133,7 +133,7 @@ You can add customer managed policies to a group by using the [AWS Management Co
 This step covers adding customer managed policies to IAM groups only. To add custom
  permission sets to groups in AWS IAM Identity Center, skip this step and follow the
  instructions in [Assign
- User Access](https://docs.aws.amazon.com/singlesignon/latest/userguide/useraccess.html#assignusers "https://docs.aws.amazon.com/singlesignon/latest/userguide/useraccess.html#assignusers") in the *AWS IAM Identity Center User Guide*
+ User Access](../../../singlesignon/latest/userguide/useraccess.md#assignusers "../../../singlesignon/latest/userguide/useraccess.md#assignusers") in the *AWS IAM Identity Center User Guide*
  instead.
 
 
