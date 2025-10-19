@@ -147,4 +147,4 @@ aws_secret_access_key=`SECRET_ACCESS_KEY`
 
 When you no longer need this IAM user, we recommend that you remove it
  to align with the [AWS security best practice](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials "https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#lock-away-credentials"). We recommend that you require
- your human users to use temporary credentials through [AWS IAM Identity Center](https://docs.aws.amazon.com/singlesignon/latest/userguide/getting-started.html "https://docs.aws.amazon.com/singlesignon/latest/userguide/getting-started.html") when accessing AWS.
+ your human users to use temporary credentials through [AWS IAM Identity Center](../../../singlesignon/latest/userguide/getting-started.md "../../../singlesignon/latest/userguide/getting-started.md") when accessing AWS.
