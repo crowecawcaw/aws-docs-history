@@ -1,23 +1,26 @@
-# Using Internet Monitor
+# Global internet weather map in Internet Monitor
 
-Internet Monitor provides visibility into how internet issues impact the performance and availability 
- between your applications hosted on AWS and your end users. It can reduce the time it takes for you to diagnose 
- internet issues from days to minutes. Internet Monitor uses the connectivity data that AWS captures from its global 
- networking footprint to calculate a baseline of performance and availability for internet-facing traffic. This 
- is the same data that AWS uses to monitor internet uptime and availability. With those measurements 
- as a baseline, Internet Monitor raises awareness for you when there are significant problems for your 
- end users (clients) in the different geographic locations where your application runs.
+Internet Monitor displays a global internet weather map that is available to all AWS customers. To view the map, in the
+ Amazon CloudWatch console, navigate to **Network Monitoring**, and then choose **Internet
+ monitors**.
 
-In the Amazon CloudWatch console, you can see a global view of traffic patterns and health events, and easily 
- drill down into information about events, at different geographic granularities (locations). You can clearly 
- visualize impact, and pinpoint the client locations and networks (ASNs, typically internet service providers or ISPs)
- that are affected. If Internet Monitor determines that an internet availability or performance issue is caused by a specific 
- ASN or by the AWS network, it provides that information.
+The internet weather map highlights internet events ("outages") all over the world that affect AWS customers, with the 
+ specific cities and networks (ASNs, typically internet service providers) where there are issues with performance 
+ or availability. The map includes internet events from the past 24 hours.
 
-To get started, create a monitor that includes one or more resources, so Internet Monitor can create a traffic profile
- for your AWS application. Then, view information in the Internet Monitor dashboard to visualize data and get insights and suggestions
- about your application's internet traffic.
+You don't need to create a monitor in Internet Monitor to view the internet weather map. Unlike health events in Internet Monitor, internet events 
+ are not specific to individual customers or their application traffic. 
 
-For information about Regional support, pricing, how Internet Monitor works, and other overview content, see 
- [What is Internet Monitor?](CloudWatch-InternetMonitor.md "CloudWatch-InternetMonitor.md"). 
- To begin working with Internet Monitor, see [Getting started with Internet Monitor using the console](CloudWatch-IM-get-started.md "CloudWatch-IM-get-started.md").
+On the internet weather map, you can choose an internet event to learn details about it. For an internet event,
+ you can see the start time, end time (if the event is over), the current status (Active or Resolved), 
+ and the outage issue type (Availability or Performance). To learn more about how the internet weather 
+ map is created and what is included, see the [global
+ internet weather map FAQ](CloudWatch-IM-inside-internet-monitor.md#IMGlobalOutagesFAQ "CloudWatch-IM-inside-internet-monitor.md#IMGlobalOutagesFAQ").
+
+To view and work with detailed information that is specific to your application traffic and client locations, 
+ you can create a monitor in Internet Monitor for your application. Then, you'll see performance and availability patterns 
+ and events, current and historical, as well as get health event alerts, tailored to just your application footprint 
+ and customers. The internet weather map gives you an overall view, while a specific monitor filters the information to 
+ just the measurements and details that are relevant to your application. With a monitor, you 
+ can also explore historical metrics and get recommendations for improving client experience for your application. 
+ To learn more, see [Getting started with Internet Monitor using the console](CloudWatch-IM-get-started.md "CloudWatch-IM-get-started.md").
