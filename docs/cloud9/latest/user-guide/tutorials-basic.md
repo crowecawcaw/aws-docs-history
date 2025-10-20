@@ -86,7 +86,7 @@ If you already have AWS Cloud9 environments, the button is shown as follows.
 
 
 
-![Create environment button in the AWS Cloud9 console](/images/cloud9/latest/user-guide/images/console_create_env_new_UX.png)
+![Create environment button in the AWS Cloud9 console](images/console_create_env_new_UX.png)
 4. On the **Create environment** page, for **Name**,
  enter a name for your environment.
 5. For **Description**, enter something about your environment. For
@@ -543,7 +543,7 @@ Delete the Environment by using the AWS Cloud9
 	
 	
 	
-	![Deleting an environment in the environments list](images/console-delete-env-card.png)
+	![Deleting an environment in the environments list](/images/cloud9/latest/user-guide/images/console-delete-env-card.png)
 3. In the **Delete** dialog box, enter `Delete`, and
  then choose **Delete**. The delete operation takes a few
  minutes.
