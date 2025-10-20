@@ -135,7 +135,7 @@ The CloudFormation console doesn't support the use of the intrinsic function
 
 
 
-![The Import resources into stack option in the console.](/images/AWSCloudFormation/latest/UserGuide/images/stack-actions-import.png)
+![The Import resources into stack option in the console.](images/stack-actions-import.png)
 4. Review the **Import overview** page, and then choose
  **Next**.
 5. On the **Specify template** page, provide your updated template using
@@ -177,7 +177,7 @@ The **Events** page for the stack displays.
 
 
 
-![The Events tab in the console.](/images/AWSCloudFormation/latest/UserGuide/images/import-events.png)
+![The Events tab in the console.](images/import-events.png)
 9. (Optional) Run drift detection on the stack to make sure the template and actual
  configuration of the imported resources match. For more information about detecting drift, see
  [Detect drift on an entire CloudFormation stack](detect-drift-stack.md "detect-drift-stack.md").
