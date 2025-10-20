@@ -196,7 +196,7 @@ signtool.exe sign /v /fd sha256 /sha1 `<thumbprint>` /sm C:\Users\Administrator\
 ```
 
 
-![The .ps1 file was successfully signed.](/images/cloudhsm/latest/userguide/images/signtool-last-command.png)
+![The .ps1 file was successfully signed.](images/signtool-last-command.png)
 4. (Optional) To verify the signature on the file, use the following command:
 
 
