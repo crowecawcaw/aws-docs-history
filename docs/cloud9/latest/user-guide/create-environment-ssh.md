@@ -60,7 +60,7 @@ To connect to an existing AWS Cloud compute instance, see one or more of
 
 
 
-![Region selector in the AWS Cloud9 console](images/consolas_region_new_UX.png)
+![Region selector in the AWS Cloud9 console](/images/cloud9/latest/user-guide/images/consolas_region_new_UX.png)
 5. If this is the first time that you're creating a development environment, a
  welcome page is displayed. In the **New AWS Cloud9 environment** panel,
  choose **Create environment**.
@@ -75,7 +75,7 @@ In the **welcome** page:
 
 
 
-![Choose the Create environment button if the welcome page is displayed](/images/cloud9/latest/user-guide/images/create_welcome_env_new_UX.png)
+![Choose the Create environment button if the welcome page is displayed](images/create_welcome_env_new_UX.png)
 
 Or in the **Your environments** page:
 
