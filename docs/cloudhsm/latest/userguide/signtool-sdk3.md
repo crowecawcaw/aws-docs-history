@@ -182,7 +182,7 @@ Copy the `Thumbprint` that is returned.
 
 
 
-![The certificate's hash is returned as the thumbprint](images/signtool-hash.png)
+![The certificate's hash is returned as the thumbprint](/images/cloudhsm/latest/userguide/images/signtool-hash.png)
 2. Navigate to the directory within PowerShell that contains
  `SignTool.exe`. The default location is `C:\Program Files
  (x86)\Windows Kits\10\bin\10.0.17763.0\x64`.

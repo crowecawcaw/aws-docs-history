@@ -94,7 +94,7 @@ Console###### To get the CSR and HSM certificates (console)
 
 
 
-![The download certificate signing request page in the AWS CloudHSM console.](/images/cloudhsm/latest/userguide/images/download-csr-hsm-cert.png)
+![The download certificate signing request page in the AWS CloudHSM console.](images/download-csr-hsm-cert.png)
 6. Choose each link to download and save the CSR and certificates. To simplify the
  subsequent steps, save all of the files to the same directory and use the default file
  names.
