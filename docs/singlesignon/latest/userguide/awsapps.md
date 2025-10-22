@@ -57,7 +57,7 @@ If you’re an IAM Identity Center administrator, you can use the IAM Identity C
  that it controls.
 
 AWS managed applications provide an administrative user interface that you can
- use to manage access to application resources. For example, QuickSight administrators
+ use to manage access to application resources. For example, Quick Suite administrators
  can assign users to access dashboards based on their group membership. Most AWS
  managed applications also provide an AWS Management Console experience that enables you to
  assign users to the application. The console experience for these applications might

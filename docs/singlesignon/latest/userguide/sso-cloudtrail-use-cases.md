@@ -122,7 +122,7 @@ You can't use `credentialId` to correlate sign-in events to the subsequent event
 The following CloudTrail event captures the process of OAuth 2.0 token exchange, in which an existing access token (the `subjectToken`) that represents the user's interactive session is exchanged for a refresh token (the `requestedTokenType`). The refresh token allows any user initiated long-running jobs to continue running with the user's permissions, even after the user signs out. 
 
 
-For IAM Identity Center [user background sessions](user-background-sessions.md "user-background-sessions.md"), the CloudTrail event includes an additional element called `resource` in the `requestParameters` element. The `resource` parameter contains the Amazon Resource Name (ARN) of the job that runs in the background. This element is only present in CloudTrail event records and is not included in IAM Identity Center API or SDK responses.
+For IAM Identity Center [user background sessions](user-background-sessions.md "user-background-sessions.md"), the CloudTrail event includes an additional element called `resource` in the `requestParameters` element. The `resource` parameter contains the Amazon Resource Name (ARN) of the job that runs in the background. This element is present only in CloudTrail event records and is not included in the IAM Identity Center [CreateTokenWithIAM](../OIDCAPIReference/API_CreateTokenWithIAM.md "../OIDCAPIReference/API_CreateTokenWithIAM.md") API or SDK responses.
 
 
 

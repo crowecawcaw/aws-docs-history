@@ -23,6 +23,7 @@ Any identity provider (IdP) that implements these standard protocols is expected
 	+ The metadata must contain an entityId, X509 certificate, and SingleSignOnService
 	 as part of the sign-in URL.
 	+ An encryption key is not supported.
+	+ IAM Identity Center does not support signing SAML authentication requests that it sends to external IdPs.
 
 * **SCIM**
 

@@ -20,6 +20,11 @@ SAML 2.0 is an industry standard used for securely exchanging SAML assertions
  users who are authorized to use applications within the AWS access portal. 
 
 
+###### Note
+
+IAM Identity Center does not support validating signatures of incoming SAML authentication requests from SAML applications.
+
+
 ## OAuth 2.0
 
 

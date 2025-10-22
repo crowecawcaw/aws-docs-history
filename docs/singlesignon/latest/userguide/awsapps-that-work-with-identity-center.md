@@ -21,6 +21,7 @@ AWS managed applications that integrate with IAM Identity Center| AWS managed ap
 | Amazon Connect |  No |  No |  No |
 | Amazon DataZone |  Yes |  Yes |  No |
 | Amazon EMR on Amazon EC2 |  Yes |  Yes |  Yes |
+| Amazon EMR Serverless |  Yes |  Yes |  No |
 | Amazon EMR Studio |  Yes |  Yes |  Yes |
 | Amazon Kendra |  No |  No |  Yes |
 | Amazon Managed Grafana |  No |  No |  No |
@@ -29,7 +30,7 @@ AWS managed applications that integrate with IAM Identity Center| AWS managed ap
 | Amazon OpenSearch Service Serverless Service |  Yes |  Yes |  Yes |
 | OpenSearch user interface (Dashboards) |  Yes |  Yes |  Yes |
 | Amazon Q Business |  Yes |  Yes |  Yes |
-| Amazon Q Developer |  Yes\* |  No |  No |
+| Amazon Q Developer |  Yes\* |  Yes |  No |
 | Amazon Quick Suite |  Yes |  Yes |  Yes |
 | Amazon Redshift |  Yes |  Yes |  No |
 | Amazon S3 Access Grants |  Yes |  Yes |  No |
@@ -42,7 +43,7 @@ AWS managed applications that integrate with IAM Identity Center| AWS managed ap
 | AWS Client VPN |  No |  No |  No |
 | AWS CLI |  No |  No |  No |
 | AWS Deadline Cloud |  Yes |  No |  No |
-| AWS Glue |  Yes |  Yes |
+| AWS Glue |  Yes |  Yes |  No |
 | AWS IoT Events |  No |  No |  No |
 | AWS IoT Fleet Hub |  No |  No |  No |
 | AWS IoT SiteWise |  No |  No |  No |

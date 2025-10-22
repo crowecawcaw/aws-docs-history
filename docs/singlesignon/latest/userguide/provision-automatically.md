@@ -18,6 +18,7 @@ IAM Identity Center supports automatic provisioning (synchronization) of user an
 * [Delete an access token](delete-token.md "delete-token.md")
 * [Disable automatic provisioning](disable-provisioning.md "disable-provisioning.md")
 * [Rotate an access token](rotate-token.md "rotate-token.md")
+* [Audit and reconcile auto-provisioned resources](reconcile-auto-provisioning.md "reconcile-auto-provisioning.md")
 * [Manual provisioning](#provision-manually "#provision-manually")
 
 ## Considerations for using automatic

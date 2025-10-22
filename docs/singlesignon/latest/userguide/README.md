@@ -48,6 +48,7 @@
           - [Delete an access token](delete-token.md)
           - [Disable automatic provisioning](disable-provisioning.md)
           - [Rotate an access token](rotate-token.md)
+          - [Audit and reconcile auto-provisioned resources](reconcile-auto-provisioning.md)
         - [Rotate SAML 2.0 certificates](managesamlcerts.md)
           - [Rotate a SAML 2.0 certificate](rotatesamlcert.md)
           - [Certificate expiration status indicators](samlcertexpirationindicators.md)
