@@ -10,4 +10,4 @@ With Deadline Cloud, content production teams can deploy resources for their wor
  they need, such as scalable high-speed storage, licenses, and cost management
  services.
 
-This document was last published on October 18, 2025.
+This document was last published on October 21, 2025.
