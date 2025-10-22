@@ -23,6 +23,11 @@ Segment sharing is bidirectional by default. When you create a segment share bet
  For more information on creating the deny list for a segment, see [Add a segment to an AWS Cloud WAN core network policy version](cloudwan-policy-segments.md "cloudwan-policy-segments.md").
 
 
+###### Static route propagation in segment sharing
+
+Static routes are not propagated between shared segments when using attachment-route mode. Only attachment routes (routes to directly connected attachments) are shared between segments. If there are static routes or routes shared from other segments, those will not be shared through the attachment-route mode. Static routes remain within their intended segment boundaries and must be explicitly created in each segment where they're needed using multiple create-route statements.
+
+
 ###### To create a shared segment
 
 1. Access the Network Manager console at [https://console.aws.amazon.com/networkmanager/home/](https://console.aws.amazon.com/networkmanager/home "https://console.aws.amazon.com/networkmanager/home").
