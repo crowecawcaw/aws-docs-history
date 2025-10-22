@@ -39,4 +39,4 @@ For more information about AWS Cloud9, see the [AWS Cloud9 User Guide](https://d
  environment.
 * `UpdateEnvironmentMembership`: Changes the settings of an existing
  environment member for an environment.
-This document was last published on October 18, 2025.
+This document was last published on October 21, 2025.
