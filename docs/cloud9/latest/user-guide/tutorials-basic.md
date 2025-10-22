@@ -70,7 +70,7 @@ Create an EC2 Environment with the
 
 
 
-![AWS Region selector in the AWS Cloud9 console](/images/cloud9/latest/user-guide/images/consolas_region_new_UX.png)
+![AWS Region selector in the AWS Cloud9 console](images/consolas_region_new_UX.png)
 3. Choose the large **Create environment** button in one of the locations
  shown.
 
@@ -80,13 +80,13 @@ If you don't already have AWS Cloud9 environments, the button is shown on a welc
 
 
 
-![Welcome page in the AWS Cloud9 console](/images/cloud9/latest/user-guide/images/create_welcome_env_new_UX.png)
+![Welcome page in the AWS Cloud9 console](images/create_welcome_env_new_UX.png)
 
 If you already have AWS Cloud9 environments, the button is shown as follows.
 
 
 
-![Create environment button in the AWS Cloud9 console](images/console_create_env_new_UX.png)
+![Create environment button in the AWS Cloud9 console](/images/cloud9/latest/user-guide/images/console_create_env_new_UX.png)
 4. On the **Create environment** page, for **Name**,
  enter a name for your environment.
 5. For **Description**, enter something about your environment. For
@@ -537,7 +537,7 @@ Delete the Environment by using the AWS Cloud9
 	
 	
 	
-	![Deleting an environment in the environment details page](images/console-delete-env.png)
+	![Deleting an environment in the environment details page](/images/cloud9/latest/user-guide/images/console-delete-env.png)
 	* Select the **my-demo-environment** card, and then choose
 	 **Delete**.
 	

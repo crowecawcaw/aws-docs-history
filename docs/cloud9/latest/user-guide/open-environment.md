@@ -30,7 +30,7 @@ If you [sign out of
 
 
 
-![AWS Region selector in the AWS Cloud9 console](/images/cloud9/latest/user-guide/images/consolas_region_new_UX.png)
+![AWS Region selector in the AWS Cloud9 console](images/consolas_region_new_UX.png)
 3. In the list of environments, for the environment that you want to open, do one of the
  following actions:
 
