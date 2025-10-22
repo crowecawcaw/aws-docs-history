@@ -285,8 +285,14 @@ After your cluster returns to the `ACTIVE` state, limited-write mode is lifted. 
  that key or user won't be present in your rolled back cluster.
 
 
-To resolve this, use the CloudHSM CLI's [key replicate](cloudhsm_cli-key-replicate.md "cloudhsm_cli-key-replicate.md") command to replicate a key between two clusters. 
- If you haven't installed it, see the instructions in [Getting started with AWS CloudHSM Command Line
+To address user synchronization, use [user management](manage-hsm-users-chsm-cli.md "manage-hsm-users-chsm-cli.md") with CloudHSM CLI to recreate the missing users on your rolled back cluster.
+ The users must be manually recreated because the `user replicate` command does not support syncing users from hsm2m.medium to hsm1.medium.
+ See user replicate [known issues](troubleshoot-sdk5-user-replicate-failures.md#troubleshoot-sdk5-user-replicate-failures-hsm2m-to-hsm1 "troubleshoot-sdk5-user-replicate-failures.md#troubleshoot-sdk5-user-replicate-failures-hsm2m-to-hsm1").
+ 
+
+
+To address key synchronization, use the [key replicate](cloudhsm_cli-key-replicate.md "cloudhsm_cli-key-replicate.md") command to replicate a key between two clusters. 
+ If you haven't installed CloudHSM CLI, see the instructions in [Getting started with AWS CloudHSM Command Line
  Interface (CLI)](cloudhsm_cli-getting-started.md "cloudhsm_cli-getting-started.md").
 
 

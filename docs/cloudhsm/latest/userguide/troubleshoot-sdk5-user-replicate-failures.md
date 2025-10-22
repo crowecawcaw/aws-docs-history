@@ -97,3 +97,21 @@ To check for user desynchronization in the source cluster:
 2. Delete the unwanted user in the appropirate cluster by running the `user delete` command.
  See [Delete an AWS CloudHSM user with CloudHSM CLI](cloudhsm_cli-user-delete.md "cloudhsm_cli-user-delete.md") for more information.
 3. Replicate the user by running the `user replicate` command.
+
+## Problem: User replicate from hsm2m.medium to hsm1.medium fails
+
+
+User replicate from hsm2m.medium to hsm1.medium is not supported. If replicating a user from a hsm2m.medium source cluster to a hsm1.medium destination cluster, the following error will occur: 
+
+
+
+```
+{
+  "error_code": 1,
+  "data": "User replicate failed on 1 of 1 connections"
+}
+```
+
+###### Resolution
+
+* Use [user management](manage-hsm-users-chsm-cli.md "manage-hsm-users-chsm-cli.md") with CloudHSM CLI to manually recreate the missing users.
