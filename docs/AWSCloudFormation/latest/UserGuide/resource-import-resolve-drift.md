@@ -325,7 +325,7 @@ Resources:
 
 
 
-![The Import resources into stack option in the console.](/images/AWSCloudFormation/latest/UserGuide/images/stack-actions-import.png)
+![The Import resources into stack option in the console.](images/stack-actions-import.png)
 2. Review the **Import overview** page for a list of
  things you're required to provide during this operation, and then choose
  **Next**.

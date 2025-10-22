@@ -177,7 +177,7 @@ The **Events** page for the stack displays.
 
 
 
-![The Events tab in the console.](/images/AWSCloudFormation/latest/UserGuide/images/import-events.png)
+![The Events tab in the console.](images/import-events.png)
 9. (Optional) Run drift detection on the stack to make sure the template and actual
  configuration of the imported resources match. For more information about detecting drift, see
  [Detect drift on an entire CloudFormation stack](detect-drift-stack.md "detect-drift-stack.md").
