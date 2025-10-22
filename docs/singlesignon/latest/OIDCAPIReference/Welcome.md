@@ -37,4 +37,4 @@ Before you begin using this guide, we recommend that you first review the follow
 For general information about IAM Identity Center, see [What is
  IAM Identity Center?](../userguide/what-is.md "../userguide/what-is.md") in the *IAM Identity Center User Guide*.
 
-This document was last published on October 18, 2025.
+This document was last published on October 21, 2025.
