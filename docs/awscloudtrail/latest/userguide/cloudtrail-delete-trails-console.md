@@ -3,6 +3,20 @@
 You can delete trails with the CloudTrail console. If an organization's management account or delegated administrator 
  account deletes an organization trail, the trail is removed from all member accounts of the organization.
 
+###### Important
+
+
+ While deleting a CloudTrail trail is an irreversible action, CloudTrail does not
+ delete log files in the Amazon S3 bucket for that trail, the Amazon S3 bucket itself, or the
+ CloudWatch log group to which the trail delivers events. Deleting a multi-Region trail
+ will stop logging of events in all AWS Regions enabled in your AWS account. Deleting a
+ single-Region trail will stop logging of events in that Region only. It will not stop
+ logging of events in other Regions even if the trails in those other Regions have
+ identical names to the deleted trail.
+ 
+
+For information about account closure and deletion of CloudTrail trails, see [AWS account closure and trails](cloudtrail-account-closure.md "cloudtrail-account-closure.md").
+
 If you've enabled CloudTrail management events in Amazon Security Lake, you are required to maintain at least one
  organizational trail that is multi-Region and logs both `read` and
  `write` management events. You cannot delete a trail if it is the only trail

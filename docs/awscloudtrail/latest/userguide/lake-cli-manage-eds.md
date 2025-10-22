@@ -233,71 +233,9 @@ The following example runs the `get-resource-policy` command on an organization 
 aws cloudtrail get-resource-policy --resource-arn arn:aws:cloudtrail:us-east-1:888888888888:eventdatastore/example6-d493-4914-9182-e52a7934b207
 ```
 
-Because the command was run on an organization event data store, the output shows both the provided resource-based policy and the [DelegatedAdminResourcePolicy](cloudtrail-lake-organizations.md#cloudtrail-lake-organizations-eds-rbp "cloudtrail-lake-organizations.md#cloudtrail-lake-organizations-eds-rbp") generated 
- for the delegated administrator accounts `333333333333` and `111111111111`.
+Because the command was run on an organization event data store, the output will show both the provided resource-based policy and the [DelegatedAdminResourcePolicy](cloudtrail-lake-organizations.md#cloudtrail-lake-organizations-eds-rbp "cloudtrail-lake-organizations.md#cloudtrail-lake-organizations-eds-rbp") generated 
+ for the delegated administrator accounts.
 
-
-
-```
-{
-  "ResourceArn": "arn:aws:cloudtrail:us-east-1:888888888888:eventdatastore/example6-d493-4914-9182-e52a7934b207",
-  "ResourcePolicy": {
-    "Version": "2012-10-17",		 	 	 
-    "Statement": [{
-      "Sid": "EdsPolicyA",
-      "Effect": "Allow",
-      "Principal": {
-        "AWS": "arn:aws:iam::666666666666:root"
-      },
-      "Action": [
-        "cloudtrail:geteventdatastore",
-        "cloudtrail:startquery",
-        "cloudtrail:describequery",
-        "cloudtrail:cancelquery",
-        "cloudtrail:generatequery",
-        "cloudtrail:generatequeryresultssummary"
-      ],
-      "Resource": "arn:aws:cloudtrail:us-east-1:888888888888:eventdatastore/example6-d493-4914-9182-e52a7934b207"
-    }]
-  },
-  "DelegatedAdminResourcePolicy": {
-    "Version": "2012-10-17",		 	 	 
-    "Statement": [{
-      "Sid": "Organization-EventDataStore-Auto-Generated-Delegated-Admin-Statement",
-      "Effect": "Allow",
-      "Principal": {
-        "AWS": ["333333333333", "111111111111"]
-      },
-      "Action": [
-        "cloudtrail:AddTags",
-        "cloudtrail:CancelQuery",
-        "cloudtrail:CreateEventDataStore",
-        "cloudtrail:DeleteEventDataStore",
-        "cloudtrail:DescribeQuery",
-        "cloudtrail:DisableFederation",
-        "cloudtrail:EnableFederation",
-        "cloudtrail:GenerateQuery",
-        "cloudtrail:GenerateQueryResultsSummary",
-        "cloudtrail:GetEventConfiguration",
-        "cloudtrail:GetEventDataStore",
-        "cloudtrail:GetInsightSelectors",
-        "cloudtrail:GetQueryResults",
-        "cloudtrail:ListEventDataStores",
-        "cloudtrail:ListQueries",
-        "cloudtrail:ListTags",
-        "cloudtrail:RemoveTags",
-        "cloudtrail:RestoreEventDataStore",
-        "cloudtrail:UpdateEventDataStore",
-        "cloudtrail:StartEventDataStoreIngestion",
-        "cloudtrail:StartQuery",
-        "cloudtrail:StopEventDataStoreIngestion",
-        "cloudtrail:UpdateEventDataStore"
-      ],
-      "Resource": "arn:aws:cloudtrail:us-east-1:888888888888:eventdatastore/example6-d493-4914-9182-e52a7934b207"
-    }]
-  }
-}
-```
 
 ## Attach a resource-based policy to
  an event data store with the AWS CLI

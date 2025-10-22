@@ -1130,6 +1130,21 @@ You can delete a trail with the following command. You can delete a trail only i
  the Region it was created (the Home Region).
 
 
+###### Important
+
+
+ While deleting a CloudTrail trail is an irreversible action, CloudTrail does not
+ delete log files in the Amazon S3 bucket for that trail, the Amazon S3 bucket itself, or the
+ CloudWatch log group to which the trail delivers events. Deleting a multi-Region trail
+ will stop logging of events in all AWS Regions enabled in your AWS account. Deleting a
+ single-Region trail will stop logging of events in that Region only. It will not stop
+ logging of events in other Regions even if the trails in those other Regions have
+ identical names to the deleted trail.
+ 
+
+For information about account closure and deletion of CloudTrail trails, see [AWS account closure and trails](cloudtrail-account-closure.md "cloudtrail-account-closure.md").
+
+
 
 ```
 aws cloudtrail delete-trail --name `awscloudtrail-example`
