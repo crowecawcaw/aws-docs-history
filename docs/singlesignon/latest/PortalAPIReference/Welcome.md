@@ -20,4 +20,4 @@ This reference guide describes the AWS access portal operations that you can cal
  convenient way to programmatically access IAM Identity Center and other AWS services. For more
  information about the AWS SDKs, including how to download and install them, see [Tools for Amazon Web Services](http://aws.amazon.com/tools/ "http://aws.amazon.com/tools/").
 
-This document was last published on October 18, 2025.
+This document was last published on October 21, 2025.
