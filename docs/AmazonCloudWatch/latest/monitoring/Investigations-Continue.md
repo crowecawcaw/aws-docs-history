@@ -54,7 +54,7 @@ You have several options:
 	 CloudWatch Logs Insights query result, the query itself is displayed as part of
 	 the observation. You can edit the query and re-run it. To do so, choose
 	 the vertical ellipsis menu icon 
-	![An example of a CloudWatch overview home page, showing alarms and their current state, and examples of other metrics graph widgets that might appear on the overview home page.](/images/AmazonCloudWatch/latest/monitoring/images/vmore.png)
+	![An example of a CloudWatch overview home page, showing alarms and their current state, and examples of other metrics graph widgets that might appear on the overview home page.](images/vmore.png)
 	 by the results, and then choose **Open in
 	 Logs Insights**. For more information, see [Analyzing
 	 log data with CloudWatch Logs Insights](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AnalyzingLogData.html "https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AnalyzingLogData.html").
@@ -70,7 +70,7 @@ You have several options:
 		2. In the **Monitor** section, find the
 		 metric.
 		3. Open the vertical ellipsis context menu 
-		![An example of a CloudWatch overview home page, showing alarms and their current state, and examples of other metrics graph widgets that might appear on the overview home page.](/images/AmazonCloudWatch/latest/monitoring/images/vmore.png)
+		![An example of a CloudWatch overview home page, showing alarms and their current state, and examples of other metrics graph widgets that might appear on the overview home page.](images/vmore.png)
 		 for the metric, choose
 		 **Investigate**, **Add to
 		 investigation** Then, in the

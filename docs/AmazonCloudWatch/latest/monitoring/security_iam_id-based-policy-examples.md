@@ -2,8 +2,8 @@
  for Amazon CloudWatch
 
 By default, users and roles don't have permission to create or modify CloudWatch
- resources. They also can't perform tasks by using the AWS Management Console, AWS Command Line Interface (AWS CLI), or AWS API. To grant users permission to perform actions on the 
- resources that they need, an IAM administrator can create IAM policies. The administrator can then add the IAM policies to roles, and users can assume the roles.
+ resources. To grant users permission to perform actions on the 
+ resources that they need, an IAM administrator can create IAM policies.
 
 To learn how to create an IAM identity-based policy by using these example JSON policy
  documents, see [Create IAM policies (console)](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create-console.html "https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create-console.html") in the

@@ -12,7 +12,7 @@ You can start an investigation from several AWS consoles, including (but not lim
 
 
 Otherwise, choose the vertical ellipsis menu icon 
-![Depicts the appearance of the vertical ellipsis icon on the console](images/vmore.png)
+![Depicts the appearance of the vertical ellipsis icon on the console](/images/AmazonCloudWatch/latest/monitoring/images/vmore.png)
  for the metric, and choose
  **Investigate**, **Start a new
  investigation**.

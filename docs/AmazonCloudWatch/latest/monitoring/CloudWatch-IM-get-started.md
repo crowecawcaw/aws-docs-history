@@ -1,40 +1,32 @@
 # Add
- a monitor with a Network Load Balancer
+ an Internet Monitor monitor with Amazon VPC
 
-When you create a Network Load Balancer in the AWS Management Console, you can optionally choose to also set up monitoring for traffic to
- and from the Network Load Balancer using a monitor in Internet Monitor. You can add the Network Load Balancer to an existing monitor, or you can opt to 
- create a new monitor for your Network Load Balancer traffic.
+When you create a Amazon Virtual Private Cloud VPC in the AWS Management Console, you can optionally choose to also set up monitoring for it in Internet Monitor. 
+ You can add the VPC to an existing monitor, or you can opt to create a new monitor for the VPC in the Amazon VPC console.
 
-By using Internet Monitor with your Network Load Balancer, you can view and evaluate measurements and metrics about availability, performance, monitored 
- bytes transferred, and round-trip times that are specific to your application's client locations and ASNs (typically, internet
- service providers). Internet Monitor also determines when there are anomalies in performance and availability, and then creates health events in
+By using Internet Monitor with your VPC, you can view and evaluate measurements and metrics about availability, performance, monitored 
+ bytes transferred, and round-trip times that are specific to your application's client locations and ASNs (typically internet
+ service providers). Internet Monitor also determines when there are anomalies in performance and availability and creates health events in
  your monitor, which you can choose to be notified about. To learn more about how you can use a monitor to manage and improve your clients'
  experience with your application, see [Use a monitor in Internet Monitor](IMWhyCreateMonitor.md "IMWhyCreateMonitor.md").
 
 ###### Important
 
-To create a monitor, or add a Network Load Balancer to an existing monitor, you must have the correct permissions in place. 
- For more information, see [Identity and Access Management for Internet Monitor](security-iam.md "security-iam.md").
+To create a monitor, or add a VPC to an existing monitor, you must have the correct permissions in place. 
+ For more information,
+ see [Identity and Access Management for Internet Monitor](security-iam.md "security-iam.md").
 
 ## 
- Add a Network Load Balancer to an existing monitor
+ Add a VPC to an existing monitor
 
 
-When you create the Network Load Balancer in the AWS Management Console, you can choose to have Internet Monitor add the new Network Load Balancer to an existing monitor.
- Under **Integrations**, choose Internet Monitor, and then choose **Add monitor**.
- Choose **Select an existing monitor**, and then enter a monitor name. Or choose **View 
- monitors** to go to the Internet Monitor console, and then scroll down to see a list of available monitors.
+You can choose to have Internet Monitor add a new VPC to an existing monitor for you when you create the VPC in the AWS Management Console.
+ After you add the VPC, wait a few minutes, and then metrics for the VPC will start being shown on the Internet Monitor console.
 
 
-After you add the Network Load Balancer to a monitor, wait a few minutes, and then metrics for traffic to and from the load
- balancer will start being shown on the Internet Monitor console. To learn more about the **Status**
- and **Data processing status** values, see 
- [Monitoring details in Internet Monitor (Configure page)](CloudWatch-IM-configure.md "CloudWatch-IM-configure.md").
-
-
-You can edit the monitor at any time, to remove the load balancer or add another Network Load Balancer, or other resources.
+You can edit the monitor at any time, to remove the VPC or add another VPC or other resources.
  You can also change the percentage of traffic that you're monitoring, or make other changes.
- If you choose to remove the Network Load Balancer from the monitor, traffic from clients to that load balancer is no longer monitored by Internet Monitor.
+ If you choose to remove the VPC from the monitor, traffic from clients to that VPC is no longer monitored by Internet Monitor.
 
 
 To learn more about updating a monitor, see 
@@ -42,16 +34,11 @@ To learn more about updating a monitor, see
 
 
 ## 
- Create a monitor for a Network Load Balancer
+ Create a monitor for a VPC
 
 
-Under **Integrations**, choose Internet Monitor, and then choose **Monitor resource traffic**.
- Choose **Create a new monitor**, and then enter a monitor name. Leave the default traffic
- percentage to monitor, 100%, or specify a custom percentage, and then choose **Create monitor**.
-
-
-After you create the monitor, wait a few minutes, and then metrics for traffic to and from the Network Load Balancer will start being shown on 
- the Internet Monitor console. If you like, you can also choose a
+If you opt to create a monitor for a VPC, the **Create monitor** wizard walks you through the steps. 
+ You add the VPC as a monitored resource when you create the monitor. If you like, you can also choose a
  percentage of client traffic that you want to monitor for your application (the default is 100%).
 
 
@@ -69,13 +56,13 @@ With Internet Monitor, you pay only for what you use. Pricing for Internet Monit
 
 
 For more information, including pricing examples, see 
- [Pricing for Internet Monitor](CloudWatch-InternetMonitor.md "CloudWatch-InternetMonitor.md").
+ [Pricing for Internet Monitor](CloudWatch-InternetMonitor.md "CloudWatch-InternetMonitor.md")
 
 ## 
- Stop monitoring a Network Load Balancer
+ Stop monitoring a VPC
 
 
-If you'd like to stop monitoring your Network Load Balancer resource with Internet Monitor, do the following in the Internet Monitor console:
+If you'd like to stop monitoring your VPC resource with Internet Monitor, do the following in the Internet Monitor console:
 
 
 ###### To remove a resource from a monitor
@@ -86,5 +73,5 @@ If you'd like to stop monitoring your Network Load Balancer resource with Intern
 3. Choose your monitor, and then choose the **Action** menu.
 4. Choose **Update monitor**.
 5. Under **Added resources**, choose **Remove resources**.
-6. Choose the Network Load Balancer to remove, and then choose **Remove**.
+6. Choose the VPC to remove, and then choose **Remove**.
 7. Choose **Update**.
