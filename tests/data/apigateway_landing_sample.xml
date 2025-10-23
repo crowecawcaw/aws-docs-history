@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<landing-page version="2.0">
+  <sections>
+    <section id="user-guides">
+      <cards>
+        <simple-card href="/apigateway/latest/developerguide/welcome.html" guide="true">
+          <title>Amazon API Gateway Developer Guide</title>
+        </simple-card>
+        <simple-card href="/apigateway/latest/apireference/welcome.html" guide="true">
+          <title>Amazon API Gateway API Reference</title>
+        </simple-card>
+      </cards>
+    </section>
+  </sections>
+</landing-page>

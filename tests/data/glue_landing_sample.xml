@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<landing-page version="2.0">
+  <sections>
+    <section id="user-guides">
+      <cards>
+        <simple-card href="/glue/latest/dg/what-is-glue.html" guide="true">
+          <title>AWS Glue Developer Guide</title>
+        </simple-card>
+        <simple-card href="/glue/latest/dg/workflows_overview.html" guide="true">
+          <title>Automate with workflows</title>
+        </simple-card>
+        <simple-card href="/glue/latest/APIReference/Welcome.html" guide="true">
+          <title>API Reference</title>
+        </simple-card>
+      </cards>
+    </section>
+  </sections>
+</landing-page>

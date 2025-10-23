@@ -22,6 +22,7 @@ from typing import Optional
 from urllib.parse import urljoin, urlparse, urlunparse
 
 import requests
+
 from bs4 import BeautifulSoup, Tag
 import markdownify
 
@@ -114,6 +115,12 @@ def build_local_image_path(image_path: str, output_root: Path) -> Path:
     return output_root.joinpath(*safe_parts)
 
 
+DOCS_BASE_URL = "https://docs.aws.amazon.com"
+DEFAULT_LOCALE = "en_us"
+MAIN_LANDING_PAGE_URL = f"{DOCS_BASE_URL}/{DEFAULT_LOCALE}/main-landing-page.xml"
+DOCS_NETLOC = urlparse(DOCS_BASE_URL).netloc
+
+
 @dataclass(frozen=True)
 class ServiceScope:
     """Describe the default crawl scope for a single AWS service."""
@@ -122,156 +129,141 @@ class ServiceScope:
     allowed_prefixes: tuple[str, ...]
 
 
-DEFAULT_SERVICE_SCOPES: dict[str, ServiceScope] = {
-    "deadline-cloud": ServiceScope(
-        start_urls=(
-            "https://docs.aws.amazon.com/deadline-cloud/latest/userguide/what-is-deadline-cloud.html",
-            "https://docs.aws.amazon.com/deadline-cloud/latest/developerguide/what-is-deadline-cloud.html",
-            "https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/Welcome.html",
-        ),
-        allowed_prefixes=(
-            "/deadline-cloud/latest/userguide/",
-            "/deadline-cloud/latest/developerguide/",
-            "/deadline-cloud/latest/APIReference/",
-        ),
-    ),
-    "cloudformation": ServiceScope(
-        start_urls=(
-            "https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html",
-            "https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/Welcome.html",
-        ),
-        allowed_prefixes=(
-            "/AWSCloudFormation/latest/UserGuide/",
-            "/AWSCloudFormation/latest/APIReference/",
-        ),
-    ),
-    "cloudfront": ServiceScope(
-        start_urls=(
-            "https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Introduction.html",
-            "https://docs.aws.amazon.com/cloudfront/latest/APIReference/Welcome.html",
-        ),
-        allowed_prefixes=(
-            "/AmazonCloudFront/latest/DeveloperGuide/",
-            "/cloudfront/latest/APIReference/",
-        ),
-    ),
-    "cloudsearch": ServiceScope(
-        start_urls=(
-            "https://docs.aws.amazon.com/cloudsearch/latest/developerguide/what-is-cloudsearch.html",
-        ),
-        allowed_prefixes=(
-            "/cloudsearch/latest/developerguide/",
-        ),
-    ),
-    "cloudtrail": ServiceScope(
-        start_urls=(
-            "https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html",
-            "https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/Welcome.html",
-        ),
-        allowed_prefixes=(
-            "/awscloudtrail/latest/userguide/",
-            "/awscloudtrail/latest/APIReference/",
-        ),
-    ),
-    "cloudwatch": ServiceScope(
-        start_urls=(
-            "https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html",
-            "https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/Welcome.html",
-        ),
-        allowed_prefixes=(
-            "/AmazonCloudWatch/latest/monitoring/",
-            "/AmazonCloudWatch/latest/APIReference/",
-        ),
-    ),
-    "cloudhsm": ServiceScope(
-        start_urls=(
-            "https://docs.aws.amazon.com/cloudhsm/latest/userguide/introduction.html",
-            "https://docs.aws.amazon.com/cloudhsm/latest/APIReference/Welcome.html",
-        ),
-        allowed_prefixes=(
-            "/cloudhsm/latest/userguide/",
-            "/cloudhsm/latest/APIReference/",
-        ),
-    ),
-    "cloud9": ServiceScope(
-        start_urls=(
-            "https://docs.aws.amazon.com/cloud9/latest/user-guide/welcome.html",
-            "https://docs.aws.amazon.com/cloud9/latest/APIReference/Welcome.html",
-        ),
-        allowed_prefixes=(
-            "/cloud9/latest/user-guide/",
-            "/cloud9/latest/APIReference/",
-        ),
-    ),
-    "cloudshell": ServiceScope(
-        start_urls=(
-            "https://docs.aws.amazon.com/cloudshell/latest/userguide/welcome.html",
-        ),
-        allowed_prefixes=(
-            "/cloudshell/latest/userguide/",
-        ),
-    ),
-    "identity-center": ServiceScope(
-        start_urls=(
-            "https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html",
-            "https://docs.aws.amazon.com/singlesignon/latest/developerguide/WhatIs.html",
-            "https://docs.aws.amazon.com/singlesignon/latest/APIReference/Welcome.html",
-            "https://docs.aws.amazon.com/singlesignon/latest/OIDCAPIReference/Welcome.html",
-            "https://docs.aws.amazon.com/singlesignon/latest/PortalAPIReference/Welcome.html",
-        ),
-        allowed_prefixes=(
-            "/singlesignon/latest/userguide/",
-            "/singlesignon/latest/developerguide/",
-            "/singlesignon/latest/APIReference/",
-            "/singlesignon/latest/OIDCAPIReference/",
-            "/singlesignon/latest/PortalAPIReference/",
-        ),
-    ),
-    "identity-store": ServiceScope(
-        start_urls=(
-            "https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/Welcome.html",
-        ),
-        allowed_prefixes=(
-            "/singlesignon/latest/IdentityStoreAPIReference/",
-        ),
-    ),
-    "cloud-map": ServiceScope(
-        start_urls=(
-            "https://docs.aws.amazon.com/cloud-map/latest/dg/what-is-cloud-map.html",
-        ),
-        allowed_prefixes=(
-            "/cloud-map/latest/dg/",
-        ),
-    ),
-    "cloudcontrolapi": ServiceScope(
-        start_urls=(
-            "https://docs.aws.amazon.com/cloudcontrolapi/latest/userguide/what-is-cloudcontrolapi.html",
-        ),
-        allowed_prefixes=(
-            "/cloudcontrolapi/latest/userguide/",
-        ),
-    ),
-    "cloudwan": ServiceScope(
-        start_urls=(
-            "https://docs.aws.amazon.com/network-manager/latest/cloudwan/what-is-cloudwan.html",
-            "https://docs.aws.amazon.com/networkmanager/latest/APIReference/Welcome.html",
-        ),
-        allowed_prefixes=(
-            "/network-manager/latest/cloudwan/",
-            "/networkmanager/latest/APIReference/",
-        ),
-    ),
-    "clouddirectory": ServiceScope(
-        start_urls=(
-            "https://docs.aws.amazon.com/clouddirectory/latest/developerguide/what_is_cloud_directory.html",
-            "https://docs.aws.amazon.com/clouddirectory/latest/APIReference/welcome.html",
-        ),
-        allowed_prefixes=(
-            "/clouddirectory/latest/developerguide/",
-            "/clouddirectory/latest/APIReference/",
-        ),
-    ),
-}
+@dataclass(frozen=True)
+class ServiceGuide:
+    """Represent a single documentation guide for a service."""
+
+    title: str
+    url: str
+    allowed_prefix: str
+
+
+_DISCOVERED_SCOPES: Optional[dict[str, ServiceScope]] = None
+
+
+def _normalise_service_href(raw_href: str) -> Optional[str]:
+    """Normalise the ``href`` from the main landing page to a service root."""
+
+    if not raw_href:
+        return None
+
+    absolute = urljoin(DOCS_BASE_URL, raw_href)
+    parsed = urlparse(absolute)
+
+    if parsed.scheme not in {"http", "https"}:
+        return None
+
+    if parsed.netloc and parsed.netloc != urlparse(DOCS_BASE_URL).netloc:
+        return None
+
+    path = parsed.path.strip("/")
+    if not path:
+        return None
+
+    service_segment = path.split("/", 1)[0]
+    if not service_segment:
+        return None
+
+    return f"/{service_segment.strip('/')}/"
+
+
+def parse_main_landing_page(xml_text: str) -> dict[str, str]:
+    """Parse the AWS docs main landing XML into service roots."""
+
+    soup = BeautifulSoup(xml_text, "html.parser")
+    services: dict[str, str] = {}
+
+    for item in soup.find_all("list-card-item"):
+        href = item.get("href")
+        service_root = _normalise_service_href(href or "")
+        if not service_root:
+            continue
+
+        identifier = item.get("id") or service_root.strip("/")
+        identifier = identifier.strip().lower()
+        if not identifier:
+            continue
+
+        services.setdefault(identifier, service_root)
+
+    return services
+
+
+def _looks_like_api_doc(title: str, href: str) -> bool:
+    title_lower = title.lower()
+    href_lower = href.lower()
+
+    api_title_markers = (
+        "api reference",
+        "rest api reference",
+        "http api reference",
+        "websocket api reference",
+        "sdk api reference",
+    )
+
+    if any(marker in title_lower for marker in api_title_markers):
+        return True
+
+    if any(token in href_lower for token in ("apireference", "api-reference", "/api/")):
+        return True
+
+    return False
+
+
+def _derive_allowed_prefix(url: str) -> str:
+    parsed = urlparse(url)
+    path = parsed.path
+
+    if not path:
+        return "/"
+
+    if path.endswith("/"):
+        return path if path.startswith("/") else f"/{path}"
+
+    if "/" in path:
+        directory = path.rsplit("/", 1)[0]
+    else:
+        directory = ""
+
+    if not directory:
+        return "/"
+
+    if not directory.startswith("/"):
+        directory = f"/{directory}"
+
+    return directory.rstrip("/") + "/"
+
+
+def parse_service_landing_page(xml_text: str) -> list[ServiceGuide]:
+    """Extract discoverable guides from a service landing page XML."""
+
+    soup = BeautifulSoup(xml_text, "html.parser")
+    guides: dict[str, ServiceGuide] = {}
+
+    for element in soup.find_all(
+        lambda tag: (tag.get("guide") or "").lower() == "true"
+    ):
+        href = (element.get("href") or "").strip()
+        if not href:
+            continue
+
+        title_tag = element.find("title")
+        title_text = title_tag.get_text(strip=True) if title_tag else href
+
+        if _looks_like_api_doc(title_text, href):
+            continue
+
+        absolute_url = normalise_url(urljoin(DOCS_BASE_URL, href))
+        if urlparse(absolute_url).netloc != DOCS_NETLOC:
+            continue
+        allowed_prefix = _derive_allowed_prefix(absolute_url)
+
+        guides.setdefault(
+            absolute_url,
+            ServiceGuide(title=title_text, url=absolute_url, allowed_prefix=allowed_prefix),
+        )
+
+    return sorted(guides.values(), key=lambda guide: guide.url)
 
 
 def _collect_start_urls(scopes: Iterable[ServiceScope]) -> list[str]:
@@ -288,8 +280,66 @@ def _collect_allowed_prefixes(scopes: Iterable[ServiceScope]) -> list[str]:
     return prefixes
 
 
-DEFAULT_START_URLS = _collect_start_urls(DEFAULT_SERVICE_SCOPES.values())
-DEFAULT_ALLOWED_PREFIXES = _collect_allowed_prefixes(DEFAULT_SERVICE_SCOPES.values())
+def discover_service_scopes(
+    *,
+    session: Optional[requests.Session] = None,
+    main_landing_url: str = MAIN_LANDING_PAGE_URL,
+) -> dict[str, ServiceScope]:
+    """Discover crawl scopes for all AWS services with user or developer guides."""
+
+    owns_session = session is None
+    http = session or requests.Session()
+
+    response = http.get(main_landing_url, timeout=30)
+    response.raise_for_status()
+
+    services = parse_main_landing_page(response.text)
+    scopes: dict[str, ServiceScope] = {}
+
+    for service_id, service_root in sorted(services.items()):
+        landing_url = urljoin(DOCS_BASE_URL, f"{service_root}{DEFAULT_LOCALE}/landing-page.xml")
+
+        landing_response = http.get(landing_url, timeout=30)
+        if landing_response.status_code == 404:
+            LOGGER.debug("Skipping %s because %s returned 404", service_id, landing_url)
+            continue
+        landing_response.raise_for_status()
+
+        guides = parse_service_landing_page(landing_response.text)
+        if not guides:
+            LOGGER.debug("No guides discovered for %s", service_id)
+            continue
+
+        start_urls = tuple(guide.url for guide in guides)
+        allowed_prefixes = tuple({guide.allowed_prefix for guide in guides})
+
+        scopes[service_id] = ServiceScope(
+            start_urls=start_urls,
+            allowed_prefixes=tuple(sorted(allowed_prefixes)),
+        )
+
+    if owns_session:
+        http.close()
+
+    if not scopes:
+        raise RuntimeError("No AWS documentation guides were discovered")
+
+    return scopes
+
+
+def get_default_service_scopes() -> dict[str, ServiceScope]:
+    global _DISCOVERED_SCOPES
+    if _DISCOVERED_SCOPES is None:
+        _DISCOVERED_SCOPES = discover_service_scopes()
+    return _DISCOVERED_SCOPES
+
+
+def get_default_start_urls() -> list[str]:
+    return _collect_start_urls(get_default_service_scopes().values())
+
+
+def get_default_allowed_prefixes() -> list[str]:
+    return _collect_allowed_prefixes(get_default_service_scopes().values())
 
 
 class RequestRateLimiter:
@@ -335,7 +385,9 @@ def build_link_checker(
 
     allowed_host = "docs.aws.amazon.com"
     raw_prefixes = (
-        list(allowed_prefixes) if allowed_prefixes is not None else DEFAULT_ALLOWED_PREFIXES
+        list(allowed_prefixes)
+        if allowed_prefixes is not None
+        else get_default_allowed_prefixes()
     )
     prefixes: list[str] = []
     for prefix in raw_prefixes:
@@ -1218,8 +1270,18 @@ def main() -> None:
     args = parse_args()
     logging.basicConfig(level=getattr(logging, args.log_level.upper(), logging.INFO))
 
-    start_urls = args.start_urls or DEFAULT_START_URLS
-    allowed_prefixes = args.allowed_prefixes or DEFAULT_ALLOWED_PREFIXES
+    if args.start_urls or args.allowed_prefixes:
+        start_urls = args.start_urls or get_default_start_urls()
+        allowed_prefixes = args.allowed_prefixes or get_default_allowed_prefixes()
+    else:
+        scopes = get_default_service_scopes()
+        start_urls = _collect_start_urls(scopes.values())
+        allowed_prefixes = _collect_allowed_prefixes(scopes.values())
+        LOGGER.info(
+            "Discovered %d services spanning %d guides",
+            len(scopes),
+            len(start_urls),
+        )
 
     crawler = AwsDocsCrawler(
         start_urls=start_urls,
