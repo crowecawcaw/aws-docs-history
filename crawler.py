@@ -489,17 +489,6 @@ def _reflow_markdown_tables(markdown: str) -> str:
     return "\n".join(result)
 
 
-def _default_link_checker(base_url: str) -> Callable[[str], bool]:
-    """Provide a conservative default link checker for standalone conversion."""
-
-    base_host = urlparse(base_url).netloc
-
-    def checker(candidate: str) -> bool:
-        return urlparse(candidate).netloc == base_host
-
-    return checker
-
-
 def normalise_url(url: str) -> str:
     """Normalise a URL by removing fragments and redundant path segments."""
 
@@ -544,11 +533,13 @@ def convert_tag_to_markdown(
     *,
     output_path: Path,
     output_root: Path,
-    link_checker: Callable[[str], bool],
+    link_checker: Callable[[str], bool] | None = None,
 ) -> str:
     """Convert an extracted HTML fragment into Markdown."""
 
-    _strip_code_block_links(main)
+    for anchor in main.find_all("a"):
+        if anchor.find_parent(["code", "pre"]):
+            anchor.replace_with(anchor.get_text())
     rewrite_doc_links(
         main,
         url,
@@ -560,27 +551,16 @@ def convert_tag_to_markdown(
     return markdown
 
 
-def _strip_code_block_links(container: Tag) -> None:
-    """Remove hyperlinks that appear within code or preformatted blocks."""
-
-    for anchor in container.find_all("a"):
-        if anchor.find_parent(["code", "pre"]):
-            anchor.replace_with(anchor.get_text())
-
-
 def convert_page(
     url: str,
     html: str,
     *,
     output_root: Path | None = None,
-    link_checker: Callable[[str], bool] | None = None,
 ) -> tuple[Path, str]:
     """Convert a documentation page to Markdown without writing to disk."""
 
     if output_root is None:
         output_root = Path(".")
-    if link_checker is None:
-        link_checker = _default_link_checker(url)
 
     soup = BeautifulSoup(html, "html.parser")
     main = extract_main_content(soup)
@@ -590,7 +570,6 @@ def convert_page(
         main,
         output_path=output_path,
         output_root=output_root,
-        link_checker=link_checker,
     )
     return output_path, markdown
 
@@ -601,9 +580,17 @@ def rewrite_doc_links(
     *,
     base_output: Path,
     output_root: Path,
-    link_checker: Callable[[str], bool],
+    link_checker: Callable[[str], bool] | None = None,
 ) -> None:
     """Rewrite internal documentation links so they point at local Markdown files."""
+
+    if link_checker is None:
+        base_host = urlparse(base_url).netloc
+
+        def should_rewrite(candidate: str) -> bool:
+            return urlparse(candidate).netloc == base_host
+    else:
+        should_rewrite: Callable[[str], bool] = link_checker
 
     for anchor in container.find_all("a", href=True):
         href = anchor["href"].strip()
@@ -617,7 +604,7 @@ def rewrite_doc_links(
         cleaned = urlunparse(parsed._replace(fragment="", query=""))
         cleaned = normalise_url(cleaned)
 
-        if not link_checker(cleaned):
+        if not should_rewrite(cleaned):
             continue
 
         target_output = url_to_output_path(cleaned, output_root)
