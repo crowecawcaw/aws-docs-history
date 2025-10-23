@@ -9,6 +9,7 @@ import sys
 from collections import OrderedDict
 from typing import Iterable, List, Optional, Sequence, Set, Tuple
 
+
 SPECIAL_SLUGS = {
     "apireference": "API reference",
     "api-reference": "API reference",
@@ -134,7 +135,21 @@ def is_tracked(path: str) -> bool:
     return result.returncode == 0
 
 
+def run_prettier(_: Iterable[str]) -> None:
+    command = [
+        "npx",
+        "--yes",
+        "prettier",
+        "--write",
+        "docs/**/*.md",
+    ]
+
+    subprocess.run(command, check=True)
+
+
 def stage_paths(paths: Iterable[str]) -> None:
+    run_prettier(paths)
+
     for path in sorted(set(paths)):
         if not path:
             continue
