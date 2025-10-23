@@ -19,7 +19,7 @@ from dataclasses import dataclass
 from pathlib import Path, PurePosixPath
 import posixpath
 from typing import Optional
-from urllib.parse import urljoin, urlparse, urlunparse
+from urllib.parse import ParseResult, urljoin, urlparse, urlunparse
 
 import requests
 
@@ -147,24 +147,14 @@ def _normalise_service_href(raw_href: str) -> Optional[str]:
     if not raw_href:
         return None
 
-    absolute = urljoin(DOCS_BASE_URL, raw_href)
-    parsed = urlparse(absolute)
-
-    if parsed.scheme not in {"http", "https"}:
+    parsed = urlparse(urljoin(DOCS_BASE_URL, raw_href))
+    if parsed.scheme not in {"http", "https"} or (
+        parsed.netloc and parsed.netloc != DOCS_NETLOC
+    ):
         return None
 
-    if parsed.netloc and parsed.netloc != urlparse(DOCS_BASE_URL).netloc:
-        return None
-
-    path = parsed.path.strip("/")
-    if not path:
-        return None
-
-    service_segment = path.split("/", 1)[0]
-    if not service_segment:
-        return None
-
-    return f"/{service_segment.strip('/')}/"
+    service_segment = parsed.path.strip("/").split("/", 1)[0].strip("/")
+    return f"/{service_segment}/" if service_segment else None
 
 
 def parse_main_landing_page(xml_text: str) -> dict[str, str]:
@@ -174,17 +164,14 @@ def parse_main_landing_page(xml_text: str) -> dict[str, str]:
     services: dict[str, str] = {}
 
     for item in soup.find_all("list-card-item"):
-        href = item.get("href")
-        service_root = _normalise_service_href(href or "")
-        if not service_root:
+        if not (
+            service_root := _normalise_service_href((item.get("href") or ""))
+        ):
             continue
 
-        identifier = item.get("id") or service_root.strip("/")
-        identifier = identifier.strip().lower()
-        if not identifier:
-            continue
-
-        services.setdefault(identifier, service_root)
+        identifier = (item.get("id") or service_root.strip("/")).strip().lower()
+        if identifier:
+            services.setdefault(identifier, service_root)
 
     return services
 
@@ -211,25 +198,15 @@ def _looks_like_api_doc(title: str, href: str) -> bool:
 
 
 def _derive_allowed_prefix(url: str) -> str:
-    parsed = urlparse(url)
-    path = parsed.path
+    path = urlparse(url).path or "/"
+    normalized = "/" + path.lstrip("/")
 
-    if not path:
+    if normalized.endswith("/"):
+        return normalized
+
+    directory = posixpath.dirname(normalized)
+    if not directory or directory == "/":
         return "/"
-
-    if path.endswith("/"):
-        return path if path.startswith("/") else f"/{path}"
-
-    if "/" in path:
-        directory = path.rsplit("/", 1)[0]
-    else:
-        directory = ""
-
-    if not directory:
-        return "/"
-
-    if not directory.startswith("/"):
-        directory = f"/{directory}"
 
     return directory.rstrip("/") + "/"
 
@@ -243,8 +220,7 @@ def parse_service_landing_page(xml_text: str) -> list[ServiceGuide]:
     for element in soup.find_all(
         lambda tag: (tag.get("guide") or "").lower() == "true"
     ):
-        href = (element.get("href") or "").strip()
-        if not href:
+        if not (href := (element.get("href") or "").strip()):
             continue
 
         title_tag = element.find("title")
@@ -256,28 +232,21 @@ def parse_service_landing_page(xml_text: str) -> list[ServiceGuide]:
         absolute_url = normalise_url(urljoin(DOCS_BASE_URL, href))
         if urlparse(absolute_url).netloc != DOCS_NETLOC:
             continue
-        allowed_prefix = _derive_allowed_prefix(absolute_url)
 
         guides.setdefault(
             absolute_url,
-            ServiceGuide(title=title_text, url=absolute_url, allowed_prefix=allowed_prefix),
+            ServiceGuide(
+                title=title_text,
+                url=absolute_url,
+                allowed_prefix=_derive_allowed_prefix(absolute_url),
+            ),
         )
 
     return sorted(guides.values(), key=lambda guide: guide.url)
 
 
-def _collect_start_urls(scopes: Iterable[ServiceScope]) -> list[str]:
-    start_urls: list[str] = []
-    for scope in scopes:
-        start_urls.extend(scope.start_urls)
-    return start_urls
-
-
-def _collect_allowed_prefixes(scopes: Iterable[ServiceScope]) -> list[str]:
-    prefixes: list[str] = []
-    for scope in scopes:
-        prefixes.extend(scope.allowed_prefixes)
-    return prefixes
+def _collect_scope_values(scopes: Iterable[ServiceScope], attribute: str) -> list[str]:
+    return [value for scope in scopes for value in getattr(scope, attribute)]
 
 
 def discover_service_scopes(
@@ -310,12 +279,11 @@ def discover_service_scopes(
             LOGGER.debug("No guides discovered for %s", service_id)
             continue
 
-        start_urls = tuple(guide.url for guide in guides)
-        allowed_prefixes = tuple({guide.allowed_prefix for guide in guides})
-
         scopes[service_id] = ServiceScope(
-            start_urls=start_urls,
-            allowed_prefixes=tuple(sorted(allowed_prefixes)),
+            start_urls=tuple(guide.url for guide in guides),
+            allowed_prefixes=tuple(
+                sorted({guide.allowed_prefix for guide in guides})
+            ),
         )
 
     if owns_session:
@@ -335,11 +303,13 @@ def get_default_service_scopes() -> dict[str, ServiceScope]:
 
 
 def get_default_start_urls() -> list[str]:
-    return _collect_start_urls(get_default_service_scopes().values())
+    return _collect_scope_values(get_default_service_scopes().values(), "start_urls")
 
 
 def get_default_allowed_prefixes() -> list[str]:
-    return _collect_allowed_prefixes(get_default_service_scopes().values())
+    return _collect_scope_values(
+        get_default_service_scopes().values(), "allowed_prefixes"
+    )
 
 
 class RequestRateLimiter:
@@ -370,63 +340,44 @@ class RequestRateLimiter:
 def build_link_checker(
     allowed_prefixes: Optional[Sequence[str]] = None,
 ) -> Callable[[str], bool]:
-    """Return a predicate that determines whether a link should be crawled.
+    """Return a predicate that determines whether a link should be crawled."""
 
-    The checker enforces that links:
-    * Stay on the ``docs.aws.amazon.com`` host.
-    * Reside under one of the configured path prefixes so that the crawler can
-      focus on specific services.
-    * Resolve to HTML documents (i.e., ignore in-page anchors, mailto links,
-      etc.).
-
-    The function is intentionally self-contained and easy to modify as new
-    services are added or the crawl scope changes.
-    """
-
-    allowed_host = "docs.aws.amazon.com"
+    allowed_schemes = {"http", "https"}
+    disallowed_suffixes = {".png", ".jpg", ".jpeg", ".gif", ".pdf", ".zip", ".svg", ".xml"}
+    html_suffixes = ("/", ".html", ".htm")
     raw_prefixes = (
         list(allowed_prefixes)
         if allowed_prefixes is not None
         else get_default_allowed_prefixes()
     )
-    prefixes: list[str] = []
-    for prefix in raw_prefixes:
-        if not prefix:
-            continue
-        normalised = prefix if prefix.startswith("/") else f"/{prefix.lstrip('/')}"
-        prefixes.append(normalised)
+    prefixes = [
+        prefix if prefix.startswith("/") else f"/{prefix.lstrip('/')}"
+        for prefix in raw_prefixes
+        if prefix
+    ]
+
+    def has_allowed_host(parsed_url: ParseResult) -> bool:
+        return bool(parsed_url.netloc) and parsed_url.netloc == DOCS_NETLOC
+
+    def in_allowed_scope(path: str) -> bool:
+        return not prefixes or any(path.startswith(prefix) for prefix in prefixes)
+
+    def has_html_suffix(path: str) -> bool:
+        lower_path = path.lower()
+        if any(lower_path.endswith(suffix) for suffix in disallowed_suffixes):
+            return False
+        return not lower_path or lower_path.endswith(html_suffixes)
 
     def should_visit(url: str) -> bool:
         parsed = urlparse(url)
-
-        # Reject links without a network location or supported scheme.
-        if parsed.scheme == "mailto":
+        if parsed.scheme not in allowed_schemes:
             return False
-
-        if parsed.scheme not in {"http", "https"} or not parsed.netloc:
+        if not has_allowed_host(parsed):
             return False
-
-        if parsed.netloc != allowed_host:
+        if not in_allowed_scope(parsed.path):
             return False
-
-        if prefixes and not any(parsed.path.startswith(prefix) for prefix in prefixes):
+        if not has_html_suffix(parsed.path):
             return False
-
-        # Skip assets that clearly are not HTML documents and enforce an HTML suffix.
-        lower_path = parsed.path.lower()
-        if lower_path.endswith(
-            (".png", ".jpg", ".jpeg", ".gif", ".pdf", ".zip", ".svg", ".xml")
-        ):
-            return False
-
-        if lower_path and not lower_path.endswith("/"):
-            if not lower_path.endswith((".html", ".htm")):
-                return False
-
-        # Allow the service root (no explicit path) and directory listings.
-        if not lower_path and parsed.path == "":
-            return True
-
         return True
 
     return should_visit
@@ -435,15 +386,18 @@ def build_link_checker(
 def extract_main_content(soup: BeautifulSoup) -> Tag:
     """Extract the main documentation content from the parsed HTML page."""
 
-    main: Tag | None = None
-    for selector in CONTENT_SELECTORS:
-        candidate = soup.select_one(selector)
-        if candidate is not None:
-            main = candidate
-            break
-
-    if main is None:
-        main = soup.body or soup
+    main = (
+        next(
+            (
+                candidate
+                for selector in CONTENT_SELECTORS
+                if (candidate := soup.select_one(selector))
+            ),
+            None,
+        )
+        or soup.body
+        or soup
+    )
 
     for selector in NAVIGATION_SELECTORS:
         for element in main.select(selector):
@@ -821,30 +775,19 @@ class AwsDocsCrawler:
 
     def _enqueue_links(self, soup: Tag, base_url: str) -> None:
         for link in soup.find_all("a", href=True):
-            href = link["href"].strip()
-            if not href:
+            if not (href := link["href"].strip()):
                 continue
 
-            absolute_url = urljoin(base_url, href)
-            absolute_url = normalise_url(absolute_url)
+            absolute_url = normalise_url(urljoin(base_url, href))
 
-            if not self.link_checker(absolute_url):
-                continue
-
-            with self._known_urls_lock:
-                if absolute_url in self._known_urls:
-                    continue
-                self._known_urls.add(absolute_url)
-            self._url_queue.put(absolute_url)
+            if self.link_checker(absolute_url):
+                self._enqueue_url_if_new(absolute_url)
 
         self._enqueue_toc_links(soup, base_url)
 
     def _enqueue_toc_links(self, soup: Tag, base_url: str) -> None:
         for meta in soup.find_all("meta", attrs={"name": "tocs"}):
             raw_content = meta.get("content", "")
-            if not raw_content:
-                continue
-
             for toc_entry in (part.strip() for part in raw_content.split(",")):
                 if not toc_entry:
                     continue
@@ -878,42 +821,50 @@ class AwsDocsCrawler:
         for href in self._iter_toc_hrefs(toc_data):
             candidate_url = normalise_url(urljoin(toc_url, href))
 
-            if not self.link_checker(candidate_url):
-                continue
-
-            with self._known_urls_lock:
-                if candidate_url in self._known_urls:
-                    continue
-                self._known_urls.add(candidate_url)
-
-            self._url_queue.put(candidate_url)
+            if self.link_checker(candidate_url):
+                self._enqueue_url_if_new(candidate_url)
 
         with self._toc_entries_lock:
             self._toc_entries[toc_url] = toc_data
 
+    def _enqueue_url_if_new(self, url: str) -> bool:
+        with self._known_urls_lock:
+            if url in self._known_urls:
+                return False
+            self._known_urls.add(url)
+
+        self._url_queue.put(url)
+        return True
+
     @staticmethod
-    def _iter_toc_hrefs(node: object) -> list[str]:
-        hrefs: list[str] = []
+    def _iter_toc_hrefs(node: object) -> Iterable[str]:
+        if isinstance(node, dict):
+            href = node.get("href")
+            if isinstance(href, str) and href:
+                yield href
 
-        def _walk(value: object) -> None:
-            if isinstance(value, dict):
-                href = value.get("href")
-                if isinstance(href, str):
-                    hrefs.append(href)
-                contents = value.get("contents")
-                if isinstance(contents, list):
-                    for item in contents:
-                        _walk(item)
-            elif isinstance(value, list):
-                for item in value:
-                    _walk(item)
+            contents = node.get("contents")
+            if isinstance(contents, list):
+                for item in contents:
+                    yield from AwsDocsCrawler._iter_toc_hrefs(item)
+            return
 
-        _walk(node)
-        return hrefs
+        if isinstance(node, list):
+            for item in node:
+                yield from AwsDocsCrawler._iter_toc_hrefs(item)
 
     def _download_and_rewrite_images(self, container: Tag, page_url: str, page_output: Path) -> None:
         for image in container.find_all("img"):
-            source_attr, raw_src = self._select_image_source(image)
+            sources: list[str] = []
+            raw_src = ""
+            for attr in ("src", "data-src", "data-awsdocs-src"):
+                value = image.get(attr)
+                if isinstance(value, str):
+                    stripped = value.strip()
+                    if stripped:
+                        raw_src = raw_src or stripped
+                        sources.append(attr)
+
             if not raw_src:
                 continue
 
@@ -921,25 +872,10 @@ class AwsDocsCrawler:
             if not rewritten:
                 continue
 
-            # Always ensure the ``src`` attribute is updated even if a data attribute
-            # provided the original path so that the Markdown conversion references
-            # the downloaded asset.
-            image["src"] = rewritten
-            if source_attr and source_attr != "src":
-                image[source_attr] = rewritten
+            for attr in sources or ["src"]:
+                image[attr] = rewritten
 
             self._rewrite_srcsets(image, page_url, page_output)
-
-    def _select_image_source(self, image: Tag) -> tuple[Optional[str], str]:
-        """Determine the most useful source attribute for an ``img`` tag."""
-
-        for attr in ("src", "data-src", "data-awsdocs-src"):
-            value = image.get(attr)
-            if isinstance(value, str):
-                stripped = value.strip()
-                if stripped:
-                    return attr, stripped
-        return None, ""
 
     def _rewrite_single_image(self, raw_src: str, page_url: str, page_output: Path) -> Optional[str]:
         """Download an image and return the rewritten relative path."""
@@ -1275,8 +1211,8 @@ def main() -> None:
         allowed_prefixes = args.allowed_prefixes or get_default_allowed_prefixes()
     else:
         scopes = get_default_service_scopes()
-        start_urls = _collect_start_urls(scopes.values())
-        allowed_prefixes = _collect_allowed_prefixes(scopes.values())
+        start_urls = _collect_scope_values(scopes.values(), "start_urls")
+        allowed_prefixes = _collect_scope_values(scopes.values(), "allowed_prefixes")
         LOGGER.info(
             "Discovered %d services spanning %d guides",
             len(scopes),
