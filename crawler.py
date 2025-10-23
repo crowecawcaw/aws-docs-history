@@ -200,15 +200,13 @@ def _looks_like_api_doc(title: str, href: str) -> bool:
 def _derive_allowed_prefix(url: str) -> str:
     path = urlparse(url).path or "/"
     normalized = "/" + path.lstrip("/")
+    directory = normalized if normalized.endswith("/") else posixpath.dirname(normalized)
+    directory = directory or "/"
 
-    if normalized.endswith("/"):
-        return normalized
+    if directory != "/" and not directory.endswith("/"):
+        directory = directory.rstrip("/") + "/"
 
-    directory = posixpath.dirname(normalized)
-    if not directory or directory == "/":
-        return "/"
-
-    return directory.rstrip("/") + "/"
+    return directory
 
 
 def parse_service_landing_page(xml_text: str) -> list[ServiceGuide]:
@@ -356,27 +354,18 @@ def build_link_checker(
         if prefix
     ]
 
-    def has_allowed_host(parsed_url: ParseResult) -> bool:
-        return bool(parsed_url.netloc) and parsed_url.netloc == DOCS_NETLOC
-
-    def in_allowed_scope(path: str) -> bool:
-        return not prefixes or any(path.startswith(prefix) for prefix in prefixes)
-
-    def has_html_suffix(path: str) -> bool:
-        lower_path = path.lower()
-        if any(lower_path.endswith(suffix) for suffix in disallowed_suffixes):
-            return False
-        return not lower_path or lower_path.endswith(html_suffixes)
-
     def should_visit(url: str) -> bool:
         parsed = urlparse(url)
         if parsed.scheme not in allowed_schemes:
             return False
-        if not has_allowed_host(parsed):
+        if not parsed.netloc or parsed.netloc != DOCS_NETLOC:
             return False
-        if not in_allowed_scope(parsed.path):
+        if prefixes and not any(parsed.path.startswith(prefix) for prefix in prefixes):
             return False
-        if not has_html_suffix(parsed.path):
+        lower_path = parsed.path.lower()
+        if any(lower_path.endswith(suffix) for suffix in disallowed_suffixes):
+            return False
+        if lower_path and not lower_path.endswith(html_suffixes):
             return False
         return True
 
@@ -557,16 +546,22 @@ def convert_tag_to_markdown(
     url: str,
     main: Tag,
     *,
+    output_path: Path,
     output_root: Path,
     link_checker: Callable[[str], bool],
-) -> tuple[Path, str]:
+) -> str:
     """Convert an extracted HTML fragment into Markdown."""
 
     _strip_code_block_links(main)
-    rewrite_doc_links(main, url, output_root, link_checker)
+    rewrite_doc_links(
+        main,
+        url,
+        base_output=output_path,
+        output_root=output_root,
+        link_checker=link_checker,
+    )
     markdown = convert_html_to_markdown(str(main))
-    output_path = url_to_output_path(url, output_root)
-    return output_path, markdown
+    return markdown
 
 
 def _strip_code_block_links(container: Tag) -> None:
@@ -593,23 +588,26 @@ def convert_page(
 
     soup = BeautifulSoup(html, "html.parser")
     main = extract_main_content(soup)
-    return convert_tag_to_markdown(
+    output_path = url_to_output_path(url, output_root)
+    markdown = convert_tag_to_markdown(
         url,
         main,
+        output_path=output_path,
         output_root=output_root,
         link_checker=link_checker,
     )
+    return output_path, markdown
 
 
 def rewrite_doc_links(
     container: Tag,
     base_url: str,
+    *,
+    base_output: Path,
     output_root: Path,
     link_checker: Callable[[str], bool],
 ) -> None:
     """Rewrite internal documentation links so they point at local Markdown files."""
-
-    base_output = url_to_output_path(base_url, output_root)
 
     for anchor in container.find_all("a", href=True):
         href = anchor["href"].strip()
@@ -757,9 +755,10 @@ class AwsDocsCrawler:
         main = extract_main_content(soup)
         output_path = url_to_output_path(url, self.output_dir)
         self._download_and_rewrite_images(main, url, output_path)
-        output_path, markdown = convert_tag_to_markdown(
+        markdown = convert_tag_to_markdown(
             url,
             main,
+            output_path=output_path,
             output_root=self.output_dir,
             link_checker=self.link_checker,
         )
@@ -774,32 +773,32 @@ class AwsDocsCrawler:
         self._enqueue_links(soup, url)
 
     def _enqueue_links(self, soup: Tag, base_url: str) -> None:
-        for link in soup.find_all("a", href=True):
-            if not (href := link["href"].strip()):
-                continue
+        def handle_candidate(raw_value: str, *, is_toc: bool = False) -> None:
+            candidate = raw_value.strip()
+            if not candidate:
+                return
 
-            absolute_url = normalise_url(urljoin(base_url, href))
+            absolute_url = normalise_url(urljoin(base_url, candidate))
+
+            if is_toc:
+                with self._known_urls_lock:
+                    if absolute_url in self._known_tocs:
+                        return
+                    self._known_tocs.add(absolute_url)
+
+                self._process_toc(absolute_url)
+                return
 
             if self.link_checker(absolute_url):
                 self._enqueue_url_if_new(absolute_url)
 
-        self._enqueue_toc_links(soup, base_url)
+        for link in soup.find_all("a", href=True):
+            handle_candidate(link["href"])
 
-    def _enqueue_toc_links(self, soup: Tag, base_url: str) -> None:
         for meta in soup.find_all("meta", attrs={"name": "tocs"}):
             raw_content = meta.get("content", "")
-            for toc_entry in (part.strip() for part in raw_content.split(",")):
-                if not toc_entry:
-                    continue
-
-                toc_url = normalise_url(urljoin(base_url, toc_entry))
-
-                with self._known_urls_lock:
-                    if toc_url in self._known_tocs:
-                        continue
-                    self._known_tocs.add(toc_url)
-
-                self._process_toc(toc_url)
+            for toc_entry in raw_content.split(","):
+                handle_candidate(toc_entry, is_toc=True)
 
     def _process_toc(self, toc_url: str) -> None:
         LOGGER.debug("Fetching TOC %s", toc_url)
@@ -868,7 +867,16 @@ class AwsDocsCrawler:
             if not raw_src:
                 continue
 
-            rewritten = self._rewrite_single_image(raw_src, page_url, page_output)
+            rewritten = next(
+                (
+                    rewritten
+                    for _, rewritten, _ in self._iter_image_rewrites(
+                        raw_src, page_url, page_output
+                    )
+                    if rewritten
+                ),
+                None,
+            )
             if not rewritten:
                 continue
 
@@ -876,6 +884,23 @@ class AwsDocsCrawler:
                 image[attr] = rewritten
 
             self._rewrite_srcsets(image, page_url, page_output)
+
+    def _iter_image_rewrites(
+        self, raw_value: str, page_url: str, page_output: Path
+    ) -> Iterable[tuple[str, Optional[str], str]]:
+        for part in raw_value.split(","):
+            piece = part.strip()
+            if not piece:
+                continue
+
+            if " " in piece:
+                url_token, descriptor = piece.split(None, 1)
+                descriptor = descriptor.strip()
+            else:
+                url_token, descriptor = piece, ""
+
+            rewritten = self._rewrite_single_image(url_token, page_url, page_output)
+            yield piece, rewritten, descriptor
 
     def _rewrite_single_image(self, raw_src: str, page_url: str, page_output: Path) -> Optional[str]:
         """Download an image and return the rewritten relative path."""
@@ -914,25 +939,15 @@ class AwsDocsCrawler:
             rewritten_parts: list[str] = []
             modified = False
 
-            for part in value.split(","):
-                piece = part.strip()
-                if not piece:
-                    continue
-
-                if " " in piece:
-                    url_token, descriptor = piece.split(" ", 1)
-                else:
-                    url_token, descriptor = piece, ""
-
-                new_url = self._rewrite_single_image(url_token, page_url, page_output)
-                if new_url:
-                    url_token = new_url
+            for piece, rewritten, descriptor in self._iter_image_rewrites(
+                value, page_url, page_output
+            ):
+                if rewritten:
                     modified = True
-
-                if descriptor:
-                    rewritten_parts.append(f"{url_token} {descriptor}")
+                    token = f"{rewritten} {descriptor}" if descriptor else rewritten
                 else:
-                    rewritten_parts.append(url_token)
+                    token = piece
+                rewritten_parts.append(token)
 
             if modified:
                 image[attr] = ", ".join(rewritten_parts)
@@ -1202,22 +1217,28 @@ def parse_args() -> argparse.Namespace:
     return parser.parse_args()
 
 
+def _resolve_cli_scope(args: argparse.Namespace) -> tuple[list[str], list[str]]:
+    if args.start_urls or args.allowed_prefixes:
+        start_urls = args.start_urls or get_default_start_urls()
+        allowed_prefixes = args.allowed_prefixes or get_default_allowed_prefixes()
+        return start_urls, allowed_prefixes
+
+    scopes = get_default_service_scopes()
+    start_urls = _collect_scope_values(scopes.values(), "start_urls")
+    allowed_prefixes = _collect_scope_values(scopes.values(), "allowed_prefixes")
+    LOGGER.info(
+        "Discovered %d services spanning %d guides",
+        len(scopes),
+        len(start_urls),
+    )
+    return start_urls, allowed_prefixes
+
+
 def main() -> None:
     args = parse_args()
     logging.basicConfig(level=getattr(logging, args.log_level.upper(), logging.INFO))
 
-    if args.start_urls or args.allowed_prefixes:
-        start_urls = args.start_urls or get_default_start_urls()
-        allowed_prefixes = args.allowed_prefixes or get_default_allowed_prefixes()
-    else:
-        scopes = get_default_service_scopes()
-        start_urls = _collect_scope_values(scopes.values(), "start_urls")
-        allowed_prefixes = _collect_scope_values(scopes.values(), "allowed_prefixes")
-        LOGGER.info(
-            "Discovered %d services spanning %d guides",
-            len(scopes),
-            len(start_urls),
-        )
+    start_urls, allowed_prefixes = _resolve_cli_scope(args)
 
     crawler = AwsDocsCrawler(
         start_urls=start_urls,
