@@ -18,6 +18,7 @@ from collections.abc import Callable, Iterable, Sequence
 from dataclasses import dataclass
 from pathlib import Path, PurePosixPath
 import posixpath
+from functools import lru_cache
 from typing import Optional
 from urllib.parse import ParseResult, urljoin, urlparse, urlunparse
 
@@ -136,9 +137,6 @@ class ServiceGuide:
     title: str
     url: str
     allowed_prefix: str
-
-
-_DISCOVERED_SCOPES: Optional[dict[str, ServiceScope]] = None
 
 
 def _normalise_service_href(raw_href: str) -> Optional[str]:
@@ -293,11 +291,9 @@ def discover_service_scopes(
     return scopes
 
 
+@lru_cache(maxsize=1)
 def get_default_service_scopes() -> dict[str, ServiceScope]:
-    global _DISCOVERED_SCOPES
-    if _DISCOVERED_SCOPES is None:
-        _DISCOVERED_SCOPES = discover_service_scopes()
-    return _DISCOVERED_SCOPES
+    return discover_service_scopes()
 
 
 def get_default_start_urls() -> list[str]:
