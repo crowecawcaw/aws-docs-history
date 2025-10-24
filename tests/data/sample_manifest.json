@@ -1,0 +1,30 @@
+{
+  "generated_at": "2024-01-01T00:00:00Z",
+  "services": [
+    {
+      "id": "glue",
+      "guides": [
+        {
+          "title": "AWS Glue Developer Guide",
+          "url": "https://docs.aws.amazon.com/glue/latest/developerguide/index.html",
+          "allowed_prefix": "/glue/latest/developerguide/"
+        },
+        {
+          "title": "AWS Glue User Guide",
+          "url": "https://docs.aws.amazon.com/glue/latest/userguide/what-is-glue.html",
+          "allowed_prefix": "/glue/latest/userguide/"
+        }
+      ]
+    },
+    {
+      "id": "cloudfront",
+      "guides": [
+        {
+          "title": "Amazon CloudFront Developer Guide",
+          "url": "https://docs.aws.amazon.com/cloudfront/latest/developerguide/Introduction.html",
+          "allowed_prefix": "/cloudfront/latest/developerguide/"
+        }
+      ]
+    }
+  ]
+}
