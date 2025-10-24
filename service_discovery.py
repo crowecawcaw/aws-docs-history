@@ -25,6 +25,7 @@ from aws_docs import (
 
 
 LOGGER = logging.getLogger(__name__)
+MODULE_ROOT = Path(__file__).resolve().parent
 
 _NON_SERVICE_IDENTIFIERS = {
     "abap-sdk",
@@ -280,7 +281,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--output",
         type=Path,
-        default=Path("docs/service-manifest.json"),
+        default=MODULE_ROOT / "docs/service-manifest.json",
         help="Where the manifest JSON file should be written.",
     )
     parser.add_argument(
