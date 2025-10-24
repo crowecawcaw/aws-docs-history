@@ -1,0 +1,53 @@
+name: Docs crawler
+
+on:
+  workflow_dispatch:
+  workflow_call:
+
+permissions:
+  contents: write
+
+jobs:
+  crawl:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out main branch
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: main
+          path: main
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        working-directory: main
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run crawler
+        working-directory: main
+        run: |
+          find docs -mindepth 1 -maxdepth 1 ! -name README.md -exec rm -rf {} +
+          python crawler.py --output-dir docs
+
+      - name: Configure Git user
+        working-directory: main
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Commit changes
+        id: commit
+        working-directory: main
+        run: python commit_changes.py
+
+      - name: Push changes
+        if: steps.commit.outputs.changes == 'true'
+        working-directory: main
+        run: git push origin main
