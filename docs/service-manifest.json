@@ -37,21 +37,6 @@
       ]
     },
     {
-      "id": "abap-sdk",
-      "guides": [
-        {
-          "title": "Code Library",
-          "url": "https://docs.aws.amazon.com/code-library/latest/ug/",
-          "allowed_prefix": "/code-library/latest/ug/"
-        },
-        {
-          "title": "AWS SDK for SAP ABAP Developer Guide",
-          "url": "https://docs.aws.amazon.com/sdk-for-sapabap/latest/developer-guide/home.html",
-          "allowed_prefix": "/sdk-for-sapabap/latest/developer-guide/"
-        }
-      ]
-    },
-    {
       "id": "account",
       "guides": [
         {
@@ -922,26 +907,6 @@
       ]
     },
     {
-      "id": "aws-toolkit-visual-studio",
-      "guides": [
-        {
-          "title": "Code Sample Catalog",
-          "url": "https://docs.aws.amazon.com/code-samples/latest/catalog/welcome.html",
-          "allowed_prefix": "/code-samples/latest/catalog/"
-        },
-        {
-          "title": "AWS Tools and SDKs Shared Configuration and Credentials Reference\n              Guide",
-          "url": "https://docs.aws.amazon.com/credref/latest/refdocs/",
-          "allowed_prefix": "/credref/latest/refdocs/"
-        },
-        {
-          "title": "User Guide",
-          "url": "https://docs.aws.amazon.com/toolkit-for-visual-studio/latest/user-guide/",
-          "allowed_prefix": "/toolkit-for-visual-studio/latest/user-guide/"
-        }
-      ]
-    },
-    {
       "id": "awsbillingconsole",
       "guides": [
         {
@@ -1392,36 +1357,6 @@
       ]
     },
     {
-      "id": "cli",
-      "guides": [
-        {
-          "title": "Command Reference",
-          "url": "https://docs.aws.amazon.com/cli/latest/reference/",
-          "allowed_prefix": "/cli/latest/reference/"
-        },
-        {
-          "title": "User Guide",
-          "url": "https://docs.aws.amazon.com/cli/latest/userguide/",
-          "allowed_prefix": "/cli/latest/userguide/"
-        },
-        {
-          "title": "Version 1 Command Reference",
-          "url": "https://docs.aws.amazon.com/cli/v1/reference/",
-          "allowed_prefix": "/cli/v1/reference/"
-        },
-        {
-          "title": "User Guide",
-          "url": "https://docs.aws.amazon.com/cli/v1/userguide/",
-          "allowed_prefix": "/cli/v1/userguide/"
-        },
-        {
-          "title": "AWS SDKs and Tools Reference Guide",
-          "url": "https://docs.aws.amazon.com/sdkref/latest/guide/",
-          "allowed_prefix": "/sdkref/latest/guide/"
-        }
-      ]
-    },
-    {
       "id": "cloud9",
       "guides": [
         {
@@ -1868,21 +1803,6 @@
           "title": "/corretto/latest/corretto-8-ug/",
           "url": "https://docs.aws.amazon.com/corretto/latest/corretto-8-ug/",
           "allowed_prefix": "/corretto/latest/corretto-8-ug/"
-        }
-      ]
-    },
-    {
-      "id": "cpp",
-      "guides": [
-        {
-          "title": "Developer Guide",
-          "url": "https://docs.aws.amazon.com/sdk-for-cpp/v1/developer-guide/",
-          "allowed_prefix": "/sdk-for-cpp/v1/developer-guide/"
-        },
-        {
-          "title": "AWS SDKs and Tools Reference Guide",
-          "url": "https://docs.aws.amazon.com/sdkref/latest/guide/",
-          "allowed_prefix": "/sdkref/latest/guide/"
         }
       ]
     },
@@ -2977,31 +2897,6 @@
       ]
     },
     {
-      "id": "go",
-      "guides": [
-        {
-          "title": "Developer Guide",
-          "url": "https://docs.aws.amazon.com/sdk-for-go/v1/developer-guide/",
-          "allowed_prefix": "/sdk-for-go/v1/developer-guide/"
-        },
-        {
-          "title": "Migration Guide",
-          "url": "https://docs.aws.amazon.com/sdk-for-go/v2/developer-guide/migrate-gosdk.html",
-          "allowed_prefix": "/sdk-for-go/v2/developer-guide/"
-        },
-        {
-          "title": "Developer Guide",
-          "url": "https://docs.aws.amazon.com/sdk-for-go/v2/developer-guide/welcome.html",
-          "allowed_prefix": "/sdk-for-go/v2/developer-guide/"
-        },
-        {
-          "title": "AWS SDKs and Tools Reference Guide",
-          "url": "https://docs.aws.amazon.com/sdkref/latest/guide/",
-          "allowed_prefix": "/sdkref/latest/guide/"
-        }
-      ]
-    },
-    {
       "id": "govcloud-us",
       "guides": [
         {
@@ -3368,46 +3263,6 @@
           "title": "Real-Time Streaming User Guide",
           "url": "https://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/",
           "allowed_prefix": "/ivs/latest/RealTimeUserGuide/"
-        }
-      ]
-    },
-    {
-      "id": "java",
-      "guides": [
-        {
-          "title": "AWS SDKs and Tools Reference Guide",
-          "url": "https://docs.aws.amazon.com/credref/latest/refdocs/",
-          "allowed_prefix": "/credref/latest/refdocs/"
-        },
-        {
-          "title": "Developer Guide",
-          "url": "https://docs.aws.amazon.com/sdk-for-java/latest/developer-guide/",
-          "allowed_prefix": "/sdk-for-java/latest/developer-guide/"
-        },
-        {
-          "title": "Migration Guide",
-          "url": "https://docs.aws.amazon.com/sdk-for-java/latest/developer-guide/migration.html",
-          "allowed_prefix": "/sdk-for-java/latest/developer-guide/"
-        },
-        {
-          "title": "Developer Guide",
-          "url": "https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/",
-          "allowed_prefix": "/sdk-for-java/v1/developer-guide/"
-        }
-      ]
-    },
-    {
-      "id": "jbidetoolkit",
-      "guides": [
-        {
-          "title": "AWS Tools and SDKs Shared Configuration and Credentials Reference Guide",
-          "url": "https://docs.aws.amazon.com/credref/latest/refdocs/",
-          "allowed_prefix": "/credref/latest/refdocs/"
-        },
-        {
-          "title": "/toolkit-for-jetbrains/latest/userguide/",
-          "url": "https://docs.aws.amazon.com/toolkit-for-jetbrains/latest/userguide/",
-          "allowed_prefix": "/toolkit-for-jetbrains/latest/userguide/"
         }
       ]
     },
@@ -4137,26 +3992,6 @@
       ]
     },
     {
-      "id": "net",
-      "guides": [
-        {
-          "title": "/sdk-for-net/v3/developer-guide/",
-          "url": "https://docs.aws.amazon.com/sdk-for-net/v3/developer-guide/",
-          "allowed_prefix": "/sdk-for-net/v3/developer-guide/"
-        },
-        {
-          "title": "/sdk-for-net/v4/developer-guide/",
-          "url": "https://docs.aws.amazon.com/sdk-for-net/v4/developer-guide/",
-          "allowed_prefix": "/sdk-for-net/v4/developer-guide/"
-        },
-        {
-          "title": "AWS SDKs and Tools Reference Guide",
-          "url": "https://docs.aws.amazon.com/sdkref/latest/guide/",
-          "allowed_prefix": "/sdkref/latest/guide/"
-        }
-      ]
-    },
-    {
       "id": "nice-dcv",
       "guides": [
         {
@@ -4372,31 +4207,6 @@
       ]
     },
     {
-      "id": "php",
-      "guides": [
-        {
-          "title": "Developer Guide",
-          "url": "https://docs.aws.amazon.com/aws-sdk-php/v2/guide/",
-          "allowed_prefix": "/aws-sdk-php/v2/guide/"
-        },
-        {
-          "title": "Migration Guide",
-          "url": "https://docs.aws.amazon.com/sdk-for-php/v3/developer-guide/getting-started_migration.html",
-          "allowed_prefix": "/sdk-for-php/v3/developer-guide/"
-        },
-        {
-          "title": "Developer Guide",
-          "url": "https://docs.aws.amazon.com/sdk-for-php/v3/developer-guide/welcome.html",
-          "allowed_prefix": "/sdk-for-php/v3/developer-guide/"
-        },
-        {
-          "title": "AWS SDKs and Tools Reference Guide",
-          "url": "https://docs.aws.amazon.com/sdkref/latest/guide/",
-          "allowed_prefix": "/sdkref/latest/guide/"
-        }
-      ]
-    },
-    {
       "id": "pinpoint",
       "guides": [
         {
@@ -4437,41 +4247,6 @@
       ]
     },
     {
-      "id": "powershell",
-      "guides": [
-        {
-          "title": "AWS SDK Code Examples Code Library",
-          "url": "https://docs.aws.amazon.com/code-library/latest/ug/",
-          "allowed_prefix": "/code-library/latest/ug/"
-        },
-        {
-          "title": "Reference",
-          "url": "https://docs.aws.amazon.com/powershell/v4/reference/",
-          "allowed_prefix": "/powershell/v4/reference/"
-        },
-        {
-          "title": "/powershell/v4/userguide/",
-          "url": "https://docs.aws.amazon.com/powershell/v4/userguide/",
-          "allowed_prefix": "/powershell/v4/userguide/"
-        },
-        {
-          "title": "Reference",
-          "url": "https://docs.aws.amazon.com/powershell/v5/reference/",
-          "allowed_prefix": "/powershell/v5/reference/"
-        },
-        {
-          "title": "/powershell/v5/userguide/",
-          "url": "https://docs.aws.amazon.com/powershell/v5/userguide/",
-          "allowed_prefix": "/powershell/v5/userguide/"
-        },
-        {
-          "title": "AWS SDKs and Tools Reference Guide",
-          "url": "https://docs.aws.amazon.com/sdkref/latest/guide/",
-          "allowed_prefix": "/sdkref/latest/guide/"
-        }
-      ]
-    },
-    {
       "id": "pro",
       "guides": [
         {
@@ -4493,26 +4268,6 @@
           "title": "User Guide",
           "url": "https://docs.aws.amazon.com/evs/latest/userguide/",
           "allowed_prefix": "/evs/latest/userguide/"
-        }
-      ]
-    },
-    {
-      "id": "python3",
-      "guides": [
-        {
-          "title": "AWS SDKs and Tools Reference Guide",
-          "url": "https://docs.aws.amazon.com/sdkref/latest/guide/overview.html",
-          "allowed_prefix": "/sdkref/latest/guide/"
-        }
-      ]
-    },
-    {
-      "id": "pythonsdk",
-      "guides": [
-        {
-          "title": "AWS SDKs and Tools Reference Guide",
-          "url": "https://docs.aws.amazon.com/sdkref/latest/guide/overview.html",
-          "allowed_prefix": "/sdkref/latest/guide/"
         }
       ]
     },
@@ -4922,26 +4677,6 @@
       ]
     },
     {
-      "id": "ruby",
-      "guides": [
-        {
-          "title": "AWS Code Examples Library",
-          "url": "https://docs.aws.amazon.com/code-library/latest/ug/ruby_3_code_examples.html",
-          "allowed_prefix": "/code-library/latest/ug/"
-        },
-        {
-          "title": "Developer Guide",
-          "url": "https://docs.aws.amazon.com/sdk-for-ruby/v3/developer-guide/",
-          "allowed_prefix": "/sdk-for-ruby/v3/developer-guide/"
-        },
-        {
-          "title": "AWS SDKs and Tools Reference Guide",
-          "url": "https://docs.aws.amazon.com/sdkref/latest/guide/",
-          "allowed_prefix": "/sdkref/latest/guide/"
-        }
-      ]
-    },
-    {
       "id": "runtime.lex",
       "guides": [
         {
@@ -5078,246 +4813,6 @@
           "title": "Savings Plans User Guide",
           "url": "https://docs.aws.amazon.com/savingsplans/latest/userguide/",
           "allowed_prefix": "/savingsplans/latest/userguide/"
-        }
-      ]
-    },
-    {
-      "id": "sdk-for-cpp",
-      "guides": [
-        {
-          "title": "Developer Guide",
-          "url": "https://docs.aws.amazon.com/sdk-for-cpp/v1/developer-guide/",
-          "allowed_prefix": "/sdk-for-cpp/v1/developer-guide/"
-        },
-        {
-          "title": "AWS SDKs and Tools Reference Guide",
-          "url": "https://docs.aws.amazon.com/sdkref/latest/guide/",
-          "allowed_prefix": "/sdkref/latest/guide/"
-        }
-      ]
-    },
-    {
-      "id": "sdk-for-go",
-      "guides": [
-        {
-          "title": "Developer Guide",
-          "url": "https://docs.aws.amazon.com/sdk-for-go/v1/developer-guide/",
-          "allowed_prefix": "/sdk-for-go/v1/developer-guide/"
-        },
-        {
-          "title": "Migration Guide",
-          "url": "https://docs.aws.amazon.com/sdk-for-go/v2/developer-guide/migrate-gosdk.html",
-          "allowed_prefix": "/sdk-for-go/v2/developer-guide/"
-        },
-        {
-          "title": "Developer Guide",
-          "url": "https://docs.aws.amazon.com/sdk-for-go/v2/developer-guide/welcome.html",
-          "allowed_prefix": "/sdk-for-go/v2/developer-guide/"
-        },
-        {
-          "title": "AWS SDKs and Tools Reference Guide",
-          "url": "https://docs.aws.amazon.com/sdkref/latest/guide/",
-          "allowed_prefix": "/sdkref/latest/guide/"
-        }
-      ]
-    },
-    {
-      "id": "sdk-for-java",
-      "guides": [
-        {
-          "title": "AWS SDKs and Tools Reference Guide",
-          "url": "https://docs.aws.amazon.com/credref/latest/refdocs/",
-          "allowed_prefix": "/credref/latest/refdocs/"
-        },
-        {
-          "title": "Developer Guide",
-          "url": "https://docs.aws.amazon.com/sdk-for-java/latest/developer-guide/",
-          "allowed_prefix": "/sdk-for-java/latest/developer-guide/"
-        },
-        {
-          "title": "Migration Guide",
-          "url": "https://docs.aws.amazon.com/sdk-for-java/latest/developer-guide/migration.html",
-          "allowed_prefix": "/sdk-for-java/latest/developer-guide/"
-        },
-        {
-          "title": "Developer Guide",
-          "url": "https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/",
-          "allowed_prefix": "/sdk-for-java/v1/developer-guide/"
-        }
-      ]
-    },
-    {
-      "id": "sdk-for-javascript",
-      "guides": [
-        {
-          "title": "AWS SDKs and Tools Reference Guide",
-          "url": "https://docs.aws.amazon.com/credref/latest/refdocs/",
-          "allowed_prefix": "/credref/latest/refdocs/"
-        },
-        {
-          "title": "Developer Guide",
-          "url": "https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/",
-          "allowed_prefix": "/sdk-for-javascript/v2/developer-guide/"
-        },
-        {
-          "title": "Developer Guide",
-          "url": "https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/",
-          "allowed_prefix": "/sdk-for-javascript/v3/developer-guide/"
-        },
-        {
-          "title": "Migration Guide",
-          "url": "https://docs.aws.amazon.com/sdk-for-javascript/v3/developer-guide/migrating.html",
-          "allowed_prefix": "/sdk-for-javascript/v3/developer-guide/"
-        }
-      ]
-    },
-    {
-      "id": "sdk-for-kotlin",
-      "guides": [
-        {
-          "title": "Developer Guide",
-          "url": "https://docs.aws.amazon.com/sdk-for-kotlin/latest/developer-guide/",
-          "allowed_prefix": "/sdk-for-kotlin/latest/developer-guide/"
-        },
-        {
-          "title": "AWS SDKs and Tools Reference Guide",
-          "url": "https://docs.aws.amazon.com/sdkref/latest/guide/",
-          "allowed_prefix": "/sdkref/latest/guide/"
-        }
-      ]
-    },
-    {
-      "id": "sdk-for-net",
-      "guides": [
-        {
-          "title": "/sdk-for-net/v3/developer-guide/",
-          "url": "https://docs.aws.amazon.com/sdk-for-net/v3/developer-guide/",
-          "allowed_prefix": "/sdk-for-net/v3/developer-guide/"
-        },
-        {
-          "title": "/sdk-for-net/v4/developer-guide/",
-          "url": "https://docs.aws.amazon.com/sdk-for-net/v4/developer-guide/",
-          "allowed_prefix": "/sdk-for-net/v4/developer-guide/"
-        },
-        {
-          "title": "AWS SDKs and Tools Reference Guide",
-          "url": "https://docs.aws.amazon.com/sdkref/latest/guide/",
-          "allowed_prefix": "/sdkref/latest/guide/"
-        }
-      ]
-    },
-    {
-      "id": "sdk-for-php",
-      "guides": [
-        {
-          "title": "Developer Guide",
-          "url": "https://docs.aws.amazon.com/aws-sdk-php/v2/guide/",
-          "allowed_prefix": "/aws-sdk-php/v2/guide/"
-        },
-        {
-          "title": "Migration Guide",
-          "url": "https://docs.aws.amazon.com/sdk-for-php/v3/developer-guide/getting-started_migration.html",
-          "allowed_prefix": "/sdk-for-php/v3/developer-guide/"
-        },
-        {
-          "title": "Developer Guide",
-          "url": "https://docs.aws.amazon.com/sdk-for-php/v3/developer-guide/welcome.html",
-          "allowed_prefix": "/sdk-for-php/v3/developer-guide/"
-        },
-        {
-          "title": "AWS SDKs and Tools Reference Guide",
-          "url": "https://docs.aws.amazon.com/sdkref/latest/guide/",
-          "allowed_prefix": "/sdkref/latest/guide/"
-        }
-      ]
-    },
-    {
-      "id": "sdk-for-ruby",
-      "guides": [
-        {
-          "title": "AWS Code Examples Library",
-          "url": "https://docs.aws.amazon.com/code-library/latest/ug/ruby_3_code_examples.html",
-          "allowed_prefix": "/code-library/latest/ug/"
-        },
-        {
-          "title": "Developer Guide",
-          "url": "https://docs.aws.amazon.com/sdk-for-ruby/v3/developer-guide/",
-          "allowed_prefix": "/sdk-for-ruby/v3/developer-guide/"
-        },
-        {
-          "title": "AWS SDKs and Tools Reference Guide",
-          "url": "https://docs.aws.amazon.com/sdkref/latest/guide/",
-          "allowed_prefix": "/sdkref/latest/guide/"
-        }
-      ]
-    },
-    {
-      "id": "sdk-for-rust",
-      "guides": [
-        {
-          "title": "AWS SDK for Rust Developer Guide",
-          "url": "https://docs.aws.amazon.com/sdk-for-rust/latest/dg",
-          "allowed_prefix": "/sdk-for-rust/latest/"
-        },
-        {
-          "title": "AWS SDKs and Tools Reference Guide",
-          "url": "https://docs.aws.amazon.com/sdkref/latest/guide/",
-          "allowed_prefix": "/sdkref/latest/guide/"
-        }
-      ]
-    },
-    {
-      "id": "sdk-for-sapabap",
-      "guides": [
-        {
-          "title": "Code Library",
-          "url": "https://docs.aws.amazon.com/code-library/latest/ug/",
-          "allowed_prefix": "/code-library/latest/ug/"
-        },
-        {
-          "title": "AWS SDK for SAP ABAP Developer Guide",
-          "url": "https://docs.aws.amazon.com/sdk-for-sapabap/latest/developer-guide/home.html",
-          "allowed_prefix": "/sdk-for-sapabap/latest/developer-guide/"
-        }
-      ]
-    },
-    {
-      "id": "sdk-for-swift",
-      "guides": [
-        {
-          "title": "Developer Guide",
-          "url": "https://docs.aws.amazon.com/sdk-for-swift/latest/developer-guide/home.html",
-          "allowed_prefix": "/sdk-for-swift/latest/developer-guide/"
-        },
-        {
-          "title": "AWS SDKs and Tools Reference Guide",
-          "url": "https://docs.aws.amazon.com/sdkref/latest/guide/",
-          "allowed_prefix": "/sdkref/latest/guide/"
-        }
-      ]
-    },
-    {
-      "id": "sdk-for-unity",
-      "guides": [
-        {
-          "title": "Developer Guide",
-          "url": "https://docs.aws.amazon.com/mobile/sdkforunity/developerguide/",
-          "allowed_prefix": "/mobile/sdkforunity/developerguide/"
-        }
-      ]
-    },
-    {
-      "id": "sdkforkotlin",
-      "guides": [
-        {
-          "title": "Developer Guide",
-          "url": "https://docs.aws.amazon.com/sdk-for-kotlin/latest/developer-guide/",
-          "allowed_prefix": "/sdk-for-kotlin/latest/developer-guide/"
-        },
-        {
-          "title": "AWS SDKs and Tools Reference Guide",
-          "url": "https://docs.aws.amazon.com/sdkref/latest/guide/",
-          "allowed_prefix": "/sdkref/latest/guide/"
         }
       ]
     },
@@ -5762,46 +5257,6 @@
       ]
     },
     {
-      "id": "tk-dotnet-refactoring",
-      "guides": [
-        {
-          "title": "/tk-dotnet-refactoring/latest/userguide/",
-          "url": "https://docs.aws.amazon.com/tk-dotnet-refactoring/latest/userguide/",
-          "allowed_prefix": "/tk-dotnet-refactoring/latest/userguide/"
-        }
-      ]
-    },
-    {
-      "id": "toolkit-for-jetbrains",
-      "guides": [
-        {
-          "title": "AWS Tools and SDKs Shared Configuration and Credentials Reference Guide",
-          "url": "https://docs.aws.amazon.com/credref/latest/refdocs/",
-          "allowed_prefix": "/credref/latest/refdocs/"
-        },
-        {
-          "title": "/toolkit-for-jetbrains/latest/userguide/",
-          "url": "https://docs.aws.amazon.com/toolkit-for-jetbrains/latest/userguide/",
-          "allowed_prefix": "/toolkit-for-jetbrains/latest/userguide/"
-        }
-      ]
-    },
-    {
-      "id": "toolkit-for-vscode",
-      "guides": [
-        {
-          "title": "AWS Tools and SDKs Shared Configuration and Credentials Reference Guide",
-          "url": "https://docs.aws.amazon.com/credref/latest/refdocs/",
-          "allowed_prefix": "/credref/latest/refdocs/"
-        },
-        {
-          "title": "/toolkit-for-vscode/latest/userguide",
-          "url": "https://docs.aws.amazon.com/toolkit-for-vscode/latest/userguide",
-          "allowed_prefix": "/toolkit-for-vscode/latest/"
-        }
-      ]
-    },
-    {
       "id": "transcribe",
       "guides": [
         {
@@ -6148,21 +5603,6 @@
           "title": "AWS Site-to-Site VPN Customer Gateway Device Guide",
           "url": "https://docs.aws.amazon.com/vpn/latest/s2svpn/your-cgw.html",
           "allowed_prefix": "/vpn/latest/s2svpn/"
-        }
-      ]
-    },
-    {
-      "id": "vscidetoolkitshort",
-      "guides": [
-        {
-          "title": "AWS Tools and SDKs Shared Configuration and Credentials Reference Guide",
-          "url": "https://docs.aws.amazon.com/credref/latest/refdocs/",
-          "allowed_prefix": "/credref/latest/refdocs/"
-        },
-        {
-          "title": "/toolkit-for-vscode/latest/userguide",
-          "url": "https://docs.aws.amazon.com/toolkit-for-vscode/latest/userguide",
-          "allowed_prefix": "/toolkit-for-vscode/latest/"
         }
       ]
     },
