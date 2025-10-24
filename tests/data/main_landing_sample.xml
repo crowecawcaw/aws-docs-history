@@ -11,8 +11,14 @@
             <list-card-item href="/glue/?icmpid=docs_homepage_analytics" id="glue">
               <title>AWS Glue</title>
             </list-card-item>
+            <list-card-item href="/sdk-for-php/v3/developer-guide/welcome.html" id="php">
+              <title>AWS SDK for PHP</title>
+            </list-card-item>
             <list-card-item href="https://aws.amazon.com/whitepapers/">
               <title>AWS Whitepapers</title>
+            </list-card-item>
+            <list-card-item href="/powershell/v4/userguide/" id="powershell">
+              <title>AWS Tools for PowerShell</title>
             </list-card-item>
             <list-card-item href="/signin/latest/userguide/what-is-sign-in.html?icmpid=docs_homepage_console" id="signin">
               <title>AWS Sign-In</title>

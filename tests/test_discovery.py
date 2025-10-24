@@ -22,6 +22,8 @@ def test_parse_main_landing_page_extracts_service_roots() -> None:
     assert services["glue"] == "/glue/"
     assert services["signin"] == "/signin/"
     assert "whitepapers" not in services
+    assert "php" not in services
+    assert "powershell" not in services
 
 
 def test_parse_service_landing_page_filters_api_docs() -> None:
