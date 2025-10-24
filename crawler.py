@@ -9,16 +9,15 @@ are intentionally generic so the crawl scope can be expanded in the future.
 from __future__ import annotations
 
 import argparse
+import json
 import logging
 import os
 import queue
 import threading
 import time
 from collections.abc import Callable, Iterable, Sequence
-from dataclasses import dataclass
 from pathlib import Path, PurePosixPath
 import posixpath
-from functools import lru_cache
 from typing import Optional
 from urllib.parse import ParseResult, urljoin, urlparse, urlunparse
 
@@ -26,6 +25,15 @@ import requests
 
 from bs4 import BeautifulSoup, Tag
 import markdownify
+
+from aws_docs import (
+    DOCS_BASE_URL,
+    DOCS_NETLOC,
+    ServiceGuide,
+    ServiceScope,
+    derive_allowed_prefix,
+    normalise_url,
+)
 
 CONTENT_SELECTORS = [
     "main",
@@ -116,194 +124,50 @@ def build_local_image_path(image_path: str, output_root: Path) -> Path:
     return output_root.joinpath(*safe_parts)
 
 
-DOCS_BASE_URL = "https://docs.aws.amazon.com"
-DEFAULT_LOCALE = "en_us"
-MAIN_LANDING_PAGE_URL = f"{DOCS_BASE_URL}/{DEFAULT_LOCALE}/main-landing-page.xml"
-DOCS_NETLOC = urlparse(DOCS_BASE_URL).netloc
-
-
-@dataclass(frozen=True)
-class ServiceScope:
-    """Describe the default crawl scope for a single AWS service."""
-
-    start_urls: tuple[str, ...]
-    allowed_prefixes: tuple[str, ...]
-
-
-@dataclass(frozen=True)
-class ServiceGuide:
-    """Represent a single documentation guide for a service."""
-
-    title: str
-    url: str
-    allowed_prefix: str
-
-
-def _normalise_service_href(raw_href: str) -> Optional[str]:
-    """Normalise the ``href`` from the main landing page to a service root."""
-
-    if not raw_href:
-        return None
-
-    parsed = urlparse(urljoin(DOCS_BASE_URL, raw_href))
-    if parsed.scheme not in {"http", "https"} or (
-        parsed.netloc and parsed.netloc != DOCS_NETLOC
-    ):
-        return None
-
-    service_segment = parsed.path.strip("/").split("/", 1)[0].strip("/")
-    return f"/{service_segment}/" if service_segment else None
-
-
-def parse_main_landing_page(xml_text: str) -> dict[str, str]:
-    """Parse the AWS docs main landing XML into service roots."""
-
-    soup = BeautifulSoup(xml_text, "html.parser")
-    services: dict[str, str] = {}
-
-    for item in soup.find_all("list-card-item"):
-        if not (
-            service_root := _normalise_service_href((item.get("href") or ""))
-        ):
-            continue
-
-        identifier = (item.get("id") or service_root.strip("/")).strip().lower()
-        if identifier:
-            services.setdefault(identifier, service_root)
-
-    return services
-
-
-def _looks_like_api_doc(title: str, href: str) -> bool:
-    title_lower = title.lower()
-    href_lower = href.lower()
-
-    api_title_markers = (
-        "api reference",
-        "rest api reference",
-        "http api reference",
-        "websocket api reference",
-        "sdk api reference",
-    )
-
-    if any(marker in title_lower for marker in api_title_markers):
-        return True
-
-    if any(token in href_lower for token in ("apireference", "api-reference", "/api/")):
-        return True
-
-    return False
-
-
-def _derive_allowed_prefix(url: str) -> str:
-    path = urlparse(url).path or "/"
-    normalized = "/" + path.lstrip("/")
-    directory = normalized if normalized.endswith("/") else posixpath.dirname(normalized)
-    directory = directory or "/"
-
-    if directory != "/" and not directory.endswith("/"):
-        directory = directory.rstrip("/") + "/"
-
-    return directory
-
-
-def parse_service_landing_page(xml_text: str) -> list[ServiceGuide]:
-    """Extract discoverable guides from a service landing page XML."""
-
-    soup = BeautifulSoup(xml_text, "html.parser")
-    guides: dict[str, ServiceGuide] = {}
-
-    for element in soup.find_all(
-        lambda tag: (tag.get("guide") or "").lower() == "true"
-    ):
-        if not (href := (element.get("href") or "").strip()):
-            continue
-
-        title_tag = element.find("title")
-        title_text = title_tag.get_text(strip=True) if title_tag else href
-
-        if _looks_like_api_doc(title_text, href):
-            continue
-
-        absolute_url = normalise_url(urljoin(DOCS_BASE_URL, href))
-        if urlparse(absolute_url).netloc != DOCS_NETLOC:
-            continue
-
-        guides.setdefault(
-            absolute_url,
-            ServiceGuide(
-                title=title_text,
-                url=absolute_url,
-                allowed_prefix=_derive_allowed_prefix(absolute_url),
-            ),
-        )
-
-    return sorted(guides.values(), key=lambda guide: guide.url)
-
-
 def _collect_scope_values(scopes: Iterable[ServiceScope], attribute: str) -> list[str]:
     return [value for scope in scopes for value in getattr(scope, attribute)]
 
 
-def discover_service_scopes(
-    *,
-    session: Optional[requests.Session] = None,
-    main_landing_url: str = MAIN_LANDING_PAGE_URL,
-) -> dict[str, ServiceScope]:
-    """Discover crawl scopes for all AWS services with user or developer guides."""
+def load_service_manifest(path: Path) -> dict[str, ServiceScope]:
+    """Load a previously generated service manifest."""
 
-    owns_session = session is None
-    http = session or requests.Session()
+    with path.open("r", encoding="utf-8") as handle:
+        data = json.load(handle)
 
-    response = http.get(main_landing_url, timeout=30)
-    response.raise_for_status()
-
-    services = parse_main_landing_page(response.text)
+    services_raw = data.get("services", [])
     scopes: dict[str, ServiceScope] = {}
 
-    for service_id, service_root in sorted(services.items()):
-        landing_url = urljoin(DOCS_BASE_URL, f"{service_root}{DEFAULT_LOCALE}/landing-page.xml")
-
-        landing_response = http.get(landing_url, timeout=30)
-        if landing_response.status_code == 404:
-            LOGGER.debug("Skipping %s because %s returned 404", service_id, landing_url)
+    for entry in services_raw:
+        service_id = (entry.get("id") or "").strip()
+        if not service_id:
             continue
-        landing_response.raise_for_status()
 
-        guides = parse_service_landing_page(landing_response.text)
+        guides_raw = entry.get("guides", [])
+        guides: list[ServiceGuide] = []
+
+        for guide_data in guides_raw:
+            url = (guide_data.get("url") or "").strip()
+            if not url:
+                continue
+
+            title = (guide_data.get("title") or "").strip() or url
+            allowed_prefix = (
+                (guide_data.get("allowed_prefix") or "").strip()
+                or derive_allowed_prefix(url)
+            )
+
+            guides.append(
+                ServiceGuide(title=title, url=normalise_url(url), allowed_prefix=allowed_prefix)
+            )
+
         if not guides:
-            LOGGER.debug("No guides discovered for %s", service_id)
             continue
 
         scopes[service_id] = ServiceScope(
-            start_urls=tuple(guide.url for guide in guides),
-            allowed_prefixes=tuple(
-                sorted({guide.allowed_prefix for guide in guides})
-            ),
+            guides=tuple(sorted(guides, key=lambda guide: guide.url))
         )
 
-    if owns_session:
-        http.close()
-
-    if not scopes:
-        raise RuntimeError("No AWS documentation guides were discovered")
-
     return scopes
-
-
-@lru_cache(maxsize=1)
-def get_default_service_scopes() -> dict[str, ServiceScope]:
-    return discover_service_scopes()
-
-
-def get_default_start_urls() -> list[str]:
-    return _collect_scope_values(get_default_service_scopes().values(), "start_urls")
-
-
-def get_default_allowed_prefixes() -> list[str]:
-    return _collect_scope_values(
-        get_default_service_scopes().values(), "allowed_prefixes"
-    )
 
 
 class RequestRateLimiter:
@@ -339,11 +203,7 @@ def build_link_checker(
     allowed_schemes = {"http", "https"}
     disallowed_suffixes = {".png", ".jpg", ".jpeg", ".gif", ".pdf", ".zip", ".svg", ".xml"}
     html_suffixes = ("/", ".html", ".htm")
-    raw_prefixes = (
-        list(allowed_prefixes)
-        if allowed_prefixes is not None
-        else get_default_allowed_prefixes()
-    )
+    raw_prefixes = list(allowed_prefixes or [])
     prefixes = [
         prefix if prefix.startswith("/") else f"/{prefix.lstrip('/')}"
         for prefix in raw_prefixes
@@ -487,18 +347,6 @@ def _reflow_markdown_tables(markdown: str) -> str:
         flush_row()
 
     return "\n".join(result)
-
-
-def normalise_url(url: str) -> str:
-    """Normalise a URL by removing fragments and redundant path segments."""
-
-    parsed = urlparse(url)
-    cleaned_path = posixpath.normpath(parsed.path or "/")
-    if parsed.path.endswith("/") and not cleaned_path.endswith("/"):
-        cleaned_path += "/"
-
-    cleaned = parsed._replace(path=cleaned_path, fragment="", query="")
-    return urlunparse(cleaned)
 
 
 def url_to_output_path(url: str, output_root: Path) -> Path:
@@ -1193,6 +1041,16 @@ def parse_args() -> argparse.Namespace:
         ),
     )
     parser.add_argument(
+        "--manifest",
+        type=Path,
+        default=Path("docs/service-manifest.json"),
+        help=(
+            "Path to the service manifest JSON file generated by the discovery "
+            "workflow. The manifest must exist unless explicit start URLs are "
+            "provided."
+        ),
+    )
+    parser.add_argument(
         "--log-level",
         default="INFO",
         help="Python logging level (e.g. INFO, DEBUG).",
@@ -1202,17 +1060,34 @@ def parse_args() -> argparse.Namespace:
 
 def _resolve_cli_scope(args: argparse.Namespace) -> tuple[list[str], list[str]]:
     if args.start_urls or args.allowed_prefixes:
-        start_urls = args.start_urls or get_default_start_urls()
-        allowed_prefixes = args.allowed_prefixes or get_default_allowed_prefixes()
+        start_urls = [normalise_url(url) for url in args.start_urls or []]
+        allowed_prefixes = list(args.allowed_prefixes or [])
+        if not allowed_prefixes and start_urls:
+            allowed_prefixes = [derive_allowed_prefix(url) for url in start_urls]
         return start_urls, allowed_prefixes
 
-    scopes = get_default_service_scopes()
-    start_urls = _collect_scope_values(scopes.values(), "start_urls")
-    allowed_prefixes = _collect_scope_values(scopes.values(), "allowed_prefixes")
+    manifest_path = args.manifest
+    if not manifest_path:
+        raise ValueError("Manifest path must be provided when no start URLs are supplied")
+
+    try:
+        manifest_scopes = load_service_manifest(manifest_path)
+    except FileNotFoundError as exc:
+        LOGGER.error("Manifest %s not found", manifest_path)
+        raise
+    except ValueError as exc:
+        LOGGER.error("Failed to load manifest %s (%s)", manifest_path, exc)
+        raise
+
+    start_urls = _collect_scope_values(manifest_scopes.values(), "start_urls")
+    allowed_prefixes = _collect_scope_values(
+        manifest_scopes.values(), "allowed_prefixes"
+    )
     LOGGER.info(
-        "Discovered %d services spanning %d guides",
-        len(scopes),
+        "Loaded %d services spanning %d guides from manifest %s",
+        len(manifest_scopes),
         len(start_urls),
+        manifest_path,
     )
     return start_urls, allowed_prefixes
 
