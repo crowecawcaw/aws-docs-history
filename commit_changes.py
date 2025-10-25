@@ -7,7 +7,10 @@ import re
 import subprocess
 import sys
 from collections import OrderedDict
-from typing import Iterable, List, Optional, Sequence, Set, Tuple
+from typing import Iterable, List, Optional, Set, Tuple
+
+from git import Repo
+from git.exc import GitCommandError
 
 
 SPECIAL_SLUGS = {
@@ -32,10 +35,6 @@ VERSION_MARKERS = {
     "prerelease",
     "prod",
 }
-
-
-def run_git(args: Sequence[str], *, check: bool = True) -> subprocess.CompletedProcess:
-    return subprocess.run(["git", *args], check=check, text=True)
 
 
 def prettify_slug(slug: Optional[str]) -> str:
@@ -101,12 +100,14 @@ def determine_group(path: str) -> Tuple[Optional[str], Optional[str]]:
     return (service, guide)
 
 
-def parse_status() -> List[Tuple[str, str, Optional[str]]]:
-    result = subprocess.check_output(["git", "status", "--porcelain=1", "-z"])
+def parse_status(repo: Repo) -> List[Tuple[str, str, Optional[str]]]:
+    """Parse git status using GitPython."""
+    # Use git status --porcelain=1 -z for consistent output
+    result = repo.git.status(porcelain=True, z=True)
     if not result:
         return []
 
-    entries = result.split(b"\0")
+    entries = result.encode().split(b"\0")
     changes: List[Tuple[str, str, Optional[str]]] = []
     i = 0
     while i < len(entries):
@@ -126,13 +127,13 @@ def parse_status() -> List[Tuple[str, str, Optional[str]]]:
     return changes
 
 
-def is_tracked(path: str) -> bool:
-    result = subprocess.run(
-        ["git", "ls-files", "--error-unmatch", path],
-        stdout=subprocess.DEVNULL,
-        stderr=subprocess.DEVNULL,
-    )
-    return result.returncode == 0
+def is_tracked(repo: Repo, path: str) -> bool:
+    """Check if a path is tracked by git."""
+    try:
+        repo.git.ls_files(path, error_unmatch=True)
+        return True
+    except GitCommandError:
+        return False
 
 
 def run_prettier(_: Iterable[str]) -> None:
@@ -147,35 +148,36 @@ def run_prettier(_: Iterable[str]) -> None:
     subprocess.run(command, check=True)
 
 
-def stage_paths(paths: Iterable[str]) -> None:
+def stage_paths(repo: Repo, paths: Iterable[str]) -> None:
+    """Stage paths for commit using GitPython."""
     run_prettier(paths)
 
     for path in sorted(set(paths)):
         if not path:
             continue
         try:
-            run_git(["add", "--", path])
+            repo.index.add([path])
             continue
-        except subprocess.CalledProcessError:
+        except GitCommandError:
             pass
 
-        tracked = is_tracked(path)
+        tracked = is_tracked(repo, path)
         exists = os.path.lexists(path)
 
         if tracked and not exists:
-            run_git(["rm", "--cached", "--", path])
+            repo.index.remove([path], cached=True)
             continue
 
         if exists or tracked:
-            run_git(["add", "-f", "--", path])
+            repo.index.add([path], force=True)
             continue
 
-        run_git(["add", "--", path])
+        repo.index.add([path])
 
 
-def has_staged_changes() -> bool:
-    diff = subprocess.run(["git", "diff", "--cached", "--quiet"])
-    return diff.returncode == 1
+def has_staged_changes(repo: Repo) -> bool:
+    """Check if there are staged changes."""
+    return len(repo.index.diff("HEAD")) > 0
 
 
 def set_output(changes: bool) -> None:
@@ -186,13 +188,16 @@ def set_output(changes: bool) -> None:
 
 
 def main() -> int:
-    changes = parse_status()
+    """Main function to process and commit documentation changes."""
+    repo = Repo(".")
+
+    changes = parse_status(repo)
     if not changes:
         print("No changes detected.")
         set_output(False)
         return 0
 
-    run_git(["reset", "HEAD"])
+    repo.index.reset()
 
     grouped: OrderedDict[Tuple[Optional[str], Optional[str]], Set[str]] = OrderedDict()
     for status, original_path, new_path in changes:
@@ -212,9 +217,9 @@ def main() -> int:
             deferred.append((key, paths))
             continue
         service_slug, guide_slug = key
-        stage_paths(paths)
-        if not has_staged_changes():
-            run_git(["reset", "HEAD"])
+        stage_paths(repo, paths)
+        if not has_staged_changes(repo):
+            repo.index.reset()
             continue
         service = prettify_slug(service_slug)
         guide = format_guide(guide_slug)
@@ -224,15 +229,15 @@ def main() -> int:
             message = f"Update to {service} docs"
         else:
             message = "Update documentation"
-        run_git(["commit", "-m", message])
+        repo.index.commit(message)
         total_commits += 1
 
     for key, paths in deferred:
-        stage_paths(paths)
-        if not has_staged_changes():
-            run_git(["reset", "HEAD"])
+        stage_paths(repo, paths)
+        if not has_staged_changes(repo):
+            repo.index.reset()
             continue
-        run_git(["commit", "-m", "Update repository files"])
+        repo.index.commit("Update repository files")
         total_commits += 1
 
     if total_commits == 0:
