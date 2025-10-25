@@ -964,7 +964,10 @@ class AwsDocsCrawler:
                 self._url_queue.task_done()
 
     def _process_url(self, url: str) -> None:
-        LOGGER.debug("Fetching %s", url)
+        with self._known_urls_lock:
+            crawled = len(self._visited_urls) + 1
+            total = len(self._known_urls)
+        LOGGER.debug("Fetching [%d/%d] %s", crawled, total, url)
 
         if not self.link_checker(url):
             LOGGER.debug("Skipping %s because it does not look like an HTML page", url)
@@ -1003,10 +1006,13 @@ class AwsDocsCrawler:
 
         output_path.parent.mkdir(parents=True, exist_ok=True)
         output_path.write_text(markdown, encoding="utf-8")
-        LOGGER.info("Wrote %s", output_path)
 
         with self._known_urls_lock:
             self._visited_urls.append(url)
+            crawled = len(self._visited_urls)
+            total = len(self._known_urls)
+
+        LOGGER.info("Wrote [%d/%d] %s", crawled, total, output_path)
 
         self._enqueue_links(soup, url)
 
