@@ -41,7 +41,7 @@ jobs:
       - name: Run crawler
         working-directory: main
         run: |
-          find docs -mindepth 1 -maxdepth 1 ! -name README.md -exec rm -rf {} +
+          find docs -mindepth 1 -maxdepth 1 ! -name README.md ! -name service-manifest.json -exec rm -rf {} +
           python crawler.py --output-dir docs
 
       - name: Configure Git user
