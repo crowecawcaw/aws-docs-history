@@ -1003,9 +1003,11 @@ class AwsDocsCrawler:
 
         output_path.parent.mkdir(parents=True, exist_ok=True)
         output_path.write_text(markdown, encoding="utf-8")
-        LOGGER.info("Wrote %s", output_path)
 
         with self._known_urls_lock:
+            crawled = len(self._visited_urls) + 1
+            total = len(self._known_urls)
+            LOGGER.info("Wrote [%d/%d] %s", crawled, total, output_path)
             self._visited_urls.append(url)
 
         self._enqueue_links(soup, url)
