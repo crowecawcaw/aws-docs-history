@@ -27,54 +27,49 @@ from aws_docs import (
 LOGGER = logging.getLogger(__name__)
 MODULE_ROOT = Path(__file__).resolve().parent
 
-_NON_SERVICE_IDENTIFIERS = {
-    "abap-sdk",
-    "cli",
-    "cpp",
-    "go",
-    "java",
-    "net",
-    "php",
-    "powershell",
-    "python3",
-    "pythonsdk",
-    "ruby",
-    "sdk-for-cpp",
-    "sdk-for-go",
-    "sdk-for-java",
-    "sdk-for-javascript",
-    "sdk-for-kotlin",
-    "sdk-for-net",
-    "sdk-for-php",
-    "sdk-for-ruby",
-    "sdk-for-rust",
-    "sdk-for-sapabap",
-    "sdk-for-swift",
-    "sdk-for-unity",
-    "sdkforkotlin",
+_NON_SERVICE_PATTERNS = {
+    "identifiers": {
+        "abap-sdk",
+        "cli",
+        "cpp",
+        "go",
+        "java",
+        "net",
+        "php",
+        "powershell",
+        "python3",
+        "pythonsdk",
+        "ruby",
+        "sdk-for-cpp",
+        "sdk-for-go",
+        "sdk-for-java",
+        "sdk-for-javascript",
+        "sdk-for-kotlin",
+        "sdk-for-net",
+        "sdk-for-php",
+        "sdk-for-ruby",
+        "sdk-for-rust",
+        "sdk-for-sapabap",
+        "sdk-for-swift",
+        "sdk-for-unity",
+        "sdkforkotlin",
+    },
+    "prefixes": ("sdk-for-", "aws-sdk-", "tk-"),
+    "substrings": ("toolkit",),
 }
-
-_NON_SERVICE_PREFIXES = ("sdk-for-", "aws-sdk-", "tk-")
-_NON_SERVICE_SUBSTRINGS = ("toolkit",)
 
 
 def _looks_like_non_service(identifier: str) -> bool:
     """Return ``True`` when the manifest identifier is not an AWS service."""
-
     normalised = identifier.strip().lower()
     if not normalised:
         return False
 
-    if normalised in _NON_SERVICE_IDENTIFIERS:
-        return True
-
-    if any(normalised.startswith(prefix) for prefix in _NON_SERVICE_PREFIXES):
-        return True
-
-    if any(substring in normalised for substring in _NON_SERVICE_SUBSTRINGS):
-        return True
-
-    return False
+    return (
+        normalised in _NON_SERVICE_PATTERNS["identifiers"]
+        or any(normalised.startswith(p) for p in _NON_SERVICE_PATTERNS["prefixes"])
+        or any(s in normalised for s in _NON_SERVICE_PATTERNS["substrings"])
+    )
 
 
 def _normalise_service_href(raw_href: str) -> Optional[str]:

@@ -7,7 +7,7 @@ if str(PROJECT_ROOT) not in sys.path:
 
 import pytest
 
-from crawler import convert_page, url_to_relative_output_path
+from crawler import convert_page, url_to_output_path
 
 
 DATA_DIR = Path(__file__).parent / "data"
@@ -51,5 +51,5 @@ def page_data(request: pytest.FixtureRequest) -> dict[str, str]:
 def test_page_conversion(page_data: dict[str, str]) -> None:
     output_path, markdown = convert_page(page_data["url"], page_data["html"])
 
-    assert output_path == url_to_relative_output_path(page_data["url"])
+    assert output_path == url_to_output_path(page_data["url"])
     assert markdown == page_data["expected_markdown"]
