@@ -106,23 +106,26 @@ def parse_status() -> List[Tuple[str, str, Optional[str]]]:
     if not result:
         return []
 
-    entries = result.split(b"\0")
+    entries = iter(result.split(b"\0"))
     changes: List[Tuple[str, str, Optional[str]]] = []
-    i = 0
-    while i < len(entries):
-        entry = entries[i]
+
+    for entry in entries:
         if not entry:
             break
+
         status = entry[:2].decode()
         path = entry[3:].decode()
         new_path: Optional[str] = None
+
+        # Renamed or copied files have the new path in the next entry
         if status and status[0] in {"R", "C"}:
-            i += 1
-            if i < len(entries):
-                new_entry = entries[i]
-                new_path = new_entry.decode()
+            try:
+                new_path = next(entries).decode()
+            except StopIteration:
+                pass
+
         changes.append((status, path, new_path))
-        i += 1
+
     return changes
 
 
