@@ -2,7 +2,17 @@ name: Docs crawler
 
 on:
   workflow_dispatch:
+    inputs:
+      service:
+        description: 'Service ID to crawl (leave empty to crawl all services)'
+        required: false
+        type: string
   workflow_call:
+    inputs:
+      service:
+        description: 'Service ID to crawl (leave empty to crawl all services)'
+        required: false
+        type: string
 
 permissions:
   contents: write
@@ -42,7 +52,14 @@ jobs:
         working-directory: main
         run: |
           find docs -mindepth 1 -maxdepth 1 ! -name README.md ! -name service-manifest.json -exec rm -rf {} +
-          python crawler.py --output-dir docs
+
+          if [ -z "${{ inputs.service }}" ]; then
+            echo "Crawling all services..."
+            python crawler.py --output-dir docs
+          else
+            echo "Crawling service: ${{ inputs.service }}"
+            python crawler.py --output-dir docs --service "${{ inputs.service }}"
+          fi
 
       - name: Configure Git user
         working-directory: main

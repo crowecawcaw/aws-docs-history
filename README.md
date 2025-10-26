@@ -49,6 +49,20 @@ content to Markdown, and committing the results back into the repository.
     artifacts for failed runs).
   - Add basic retry/backoff logic around network requests.
 
+## Manually triggering the GitHub Actions workflow
+
+The documentation crawler workflow can be triggered manually from the GitHub Actions UI:
+
+1. Go to the "Actions" tab in the repository
+2. Select the "Docs crawler" workflow
+3. Click "Run workflow"
+4. Optionally specify a service ID to crawl only that service (e.g., `a2c`, `account`, `s3`)
+5. Leave the service field empty to crawl all services
+
+When a specific service ID is provided, the workflow will only crawl documentation for that service. When left empty, it will crawl all services defined in the manifest.
+
+The daily scheduled crawler will always crawl all services regardless of this setting.
+
 ## Running the crawler locally
 
 Install the Python dependencies listed in `requirements.txt` and then execute
@@ -61,7 +75,13 @@ trees:
 python crawler.py
 ```
 
-You can provide your own seed URLs or limit the crawl scope by supplying one or
+You can crawl a specific service by providing the service ID from the manifest:
+
+```bash
+python crawler.py --service a2c
+```
+
+You can also provide your own seed URLs or limit the crawl scope by supplying one or
 more `--start-url` and `--allowed-prefix` arguments:
 
 ```bash

@@ -1105,6 +1105,15 @@ def parse_args() -> argparse.Namespace:
         ),
     )
     parser.add_argument(
+        "--service",
+        type=str,
+        help=(
+            "Service ID to crawl from the manifest (e.g., 'a2c', 's3'). "
+            "If provided, only this service will be crawled. "
+            "Cannot be used with --start-url or --allowed-prefix."
+        ),
+    )
+    parser.add_argument(
         "--log-level",
         default="INFO",
         help="Python logging level (e.g. INFO, DEBUG).",
@@ -1113,6 +1122,12 @@ def parse_args() -> argparse.Namespace:
 
 
 def _resolve_cli_scope(args: argparse.Namespace) -> tuple[list[str], list[str]]:
+    # Check for conflicting arguments
+    if args.service and (args.start_urls or args.allowed_prefixes):
+        raise ValueError(
+            "--service cannot be used with --start-url or --allowed-prefix"
+        )
+
     if args.start_urls or args.allowed_prefixes:
         start_urls = [normalise_url(url) for url in args.start_urls or []]
         allowed_prefixes = list(args.allowed_prefixes or [])
@@ -1135,6 +1150,30 @@ def _resolve_cli_scope(args: argparse.Namespace) -> tuple[list[str], list[str]]:
         LOGGER.error("Failed to load manifest %s (%s)", manifest_path, exc)
         raise
 
+    # If a specific service is requested, filter to just that service
+    if args.service:
+        service_id = args.service
+        if service_id not in manifest_scopes:
+            available_services = ", ".join(sorted(manifest_scopes.keys()))
+            LOGGER.error(
+                "Service '%s' not found in manifest. Available services: %s",
+                service_id,
+                available_services,
+            )
+            raise ValueError(f"Service '{service_id}' not found in manifest")
+
+        scope = manifest_scopes[service_id]
+        start_urls = scope.start_urls
+        allowed_prefixes = scope.allowed_prefixes
+        LOGGER.info(
+            "Loaded service '%s' with %d guides from manifest %s",
+            service_id,
+            len(start_urls),
+            manifest_path,
+        )
+        return start_urls, allowed_prefixes
+
+    # No service specified, load all services
     start_urls = _collect_scope_values(manifest_scopes.values(), "start_urls")
     allowed_prefixes = _collect_scope_values(
         manifest_scopes.values(), "allowed_prefixes"
