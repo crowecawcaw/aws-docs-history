@@ -921,7 +921,8 @@ class AwsDocsCrawler:
         self._known_urls: set[str] = set()
         self._known_urls_lock = threading.Lock()
         self._known_tocs: set[str] = set()
-        self._visited_urls: list[str] = []
+        self._visited_urls: set[str] = set()  # Changed to set for O(1) lookup
+        self._queued_urls: set[str] = set()  # Track which URLs have been enqueued
 
         self._rate_limiter = RequestRateLimiter(requests_per_second)
         self._image_handler = ImageHandler(output_dir, self.session, self._rate_limiter)
@@ -931,27 +932,51 @@ class AwsDocsCrawler:
 
     @property
     def visited_urls(self) -> list[str]:
-        return list(self._visited_urls)
+        with self._known_urls_lock:
+            return list(self._visited_urls)
 
     def crawl(self) -> None:
         LOGGER.info("Starting crawl at %s", ", ".join(self.start_urls))
         self.output_dir.mkdir(parents=True, exist_ok=True)
 
+        # Phase 1: Discover all pages from TOC files
+        LOGGER.info("Phase 1: Discovering pages from TOC files")
+        self._discover_all_tocs()
+
+        # Phase 2: Crawl all discovered pages
         with self._known_urls_lock:
-            self._known_urls.update(self.start_urls)
+            page_count = len(self._known_urls)
+        LOGGER.info("Phase 2: Crawling %d discovered pages", page_count)
 
         with ThreadPoolExecutor(max_workers=self.max_workers) as executor:
             for _ in range(self.max_workers):
                 executor.submit(self._worker)
 
-            for url in self.start_urls:
-                self._url_queue.put(url)
+            # Enqueue all discovered URLs (excluding already queued and start URLs)
+            with self._known_urls_lock:
+                for url in self._known_urls:
+                    # Skip if already queued or if it's a start URL (landing page)
+                    if url in self._queued_urls or url in self.start_urls:
+                        continue
+                    self._queued_urls.add(url)
+                    self._url_queue.put(url)
+
             self._url_queue.join()
 
             for _ in range(self.max_workers):
                 self._url_queue.put(None)
 
         self._toc_manager.write_toc_documents()
+
+    def _discover_all_tocs(self) -> None:
+        """Discover and process all TOC files from start URLs.
+
+        This method processes guide landing pages to find their TOC files,
+        which are then parsed to discover all documentation pages.
+        """
+        for url in self.start_urls:
+            # Auto-discover TOC from guide landing pages
+            self._auto_discover_toc(url)
 
     def _worker(self) -> None:
         while True:
@@ -972,6 +997,12 @@ class AwsDocsCrawler:
                 self._url_queue.task_done()
 
     def _process_url(self, url: str) -> None:
+        # Check if already visited
+        with self._known_urls_lock:
+            if url in self._visited_urls:
+                LOGGER.debug("Skipping already visited URL: %s", url)
+                return
+
         LOGGER.debug("Fetching %s", url)
 
         if not self.link_checker(url):
@@ -998,10 +1029,6 @@ class AwsDocsCrawler:
 
         html = response.text
         soup = BeautifulSoup(html, "html.parser")
-
-        # Check if this is a guide landing page and auto-discover TOC
-        self._auto_discover_toc(url)
-
         main = extract_main_content(soup)
         output_path = url_to_output_path(url, self.output_dir)
         self._image_handler.download_and_rewrite_images(main, url, output_path)
@@ -1017,54 +1044,12 @@ class AwsDocsCrawler:
         output_path.write_text(markdown, encoding="utf-8")
 
         with self._known_urls_lock:
-            crawled = len(self._visited_urls) + 1
+            self._visited_urls.add(url)
+            crawled = len(self._visited_urls)
             total = len(self._known_urls)
             LOGGER.info("Wrote [%d/%d] %s", crawled, total, output_path)
-            self._visited_urls.append(url)
 
-        self._enqueue_links(soup, url)
-
-    def _enqueue_links(self, soup: Tag, base_url: str) -> None:
-        def handle_candidate(raw_value: str, *, is_toc: bool = False) -> None:
-            candidate = raw_value.strip()
-            if not candidate:
-                return
-
-            absolute_url = normalise_url(urljoin(base_url, candidate))
-
-            if is_toc:
-                with self._known_urls_lock:
-                    if absolute_url in self._known_tocs:
-                        return
-                    self._known_tocs.add(absolute_url)
-
-                LOGGER.debug("Processing TOC: %s", absolute_url)
-                self._toc_manager.process_toc(absolute_url)
-                return
-
-            if self.link_checker(absolute_url):
-                enqueued = self._enqueue_url_if_new(absolute_url)
-                if enqueued:
-                    LOGGER.debug("Enqueued new URL: %s", absolute_url)
-            else:
-                LOGGER.debug("Rejected URL: %s (from %s)", absolute_url, base_url)
-
-        link_count = 0
-        for link in soup.find_all("a", href=True):
-            link_count += 1
-            handle_candidate(link["href"])
-
-        LOGGER.debug("Found %d <a> links on page %s", link_count, base_url)
-
-        toc_count = 0
-        for meta in soup.find_all("meta", attrs={"name": "tocs"}):
-            raw_content = meta.get("content", "")
-            LOGGER.debug("Found TOC meta tag with content: %s", raw_content)
-            for toc_entry in raw_content.split(","):
-                toc_count += 1
-                handle_candidate(toc_entry, is_toc=True)
-
-        LOGGER.debug("Found %d TOC entries on page %s", toc_count, base_url)
+        # Link discovery is skipped - all pages are discovered from TOC files during Phase 1
 
     def _auto_discover_toc(self, url: str) -> None:
         """Automatically discover and process TOC file for guide landing pages.
