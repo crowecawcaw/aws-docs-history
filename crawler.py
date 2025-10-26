@@ -206,6 +206,7 @@ class LinkChecker:
         self.allowed_schemes = {"http", "https"}
         self.disallowed_suffixes = {".png", ".jpg", ".jpeg", ".gif", ".pdf", ".zip", ".svg", ".xml"}
         self.html_suffixes = ("/", ".html", ".htm")
+        self.guide_patterns = ("userguide", "developerguide", "apireference", "api")
         raw_prefixes = list(allowed_prefixes or [])
         self.prefixes = [
             prefix if prefix.startswith("/") else f"/{prefix.lstrip('/')}"
@@ -225,6 +226,12 @@ class LinkChecker:
         lower_path = parsed.path.lower()
         if any(lower_path.endswith(suffix) for suffix in self.disallowed_suffixes):
             return False
+
+        # Allow guide directory URLs (e.g., /userguide, /developerguide)
+        path_parts = [part for part in lower_path.split('/') if part]
+        if path_parts and any(pattern in path_parts[-1] for pattern in self.guide_patterns):
+            return True
+
         if lower_path and not lower_path.endswith(self.html_suffixes):
             return False
         return True
@@ -991,6 +998,10 @@ class AwsDocsCrawler:
 
         html = response.text
         soup = BeautifulSoup(html, "html.parser")
+
+        # Check if this is a guide landing page and auto-discover TOC
+        self._auto_discover_toc(url)
+
         main = extract_main_content(soup)
         output_path = url_to_output_path(url, self.output_dir)
         self._image_handler.download_and_rewrite_images(main, url, output_path)
@@ -1027,19 +1038,71 @@ class AwsDocsCrawler:
                         return
                     self._known_tocs.add(absolute_url)
 
+                LOGGER.debug("Processing TOC: %s", absolute_url)
                 self._toc_manager.process_toc(absolute_url)
                 return
 
             if self.link_checker(absolute_url):
-                self._enqueue_url_if_new(absolute_url)
+                enqueued = self._enqueue_url_if_new(absolute_url)
+                if enqueued:
+                    LOGGER.debug("Enqueued new URL: %s", absolute_url)
+            else:
+                LOGGER.debug("Rejected URL: %s (from %s)", absolute_url, base_url)
 
+        link_count = 0
         for link in soup.find_all("a", href=True):
+            link_count += 1
             handle_candidate(link["href"])
 
+        LOGGER.debug("Found %d <a> links on page %s", link_count, base_url)
+
+        toc_count = 0
         for meta in soup.find_all("meta", attrs={"name": "tocs"}):
             raw_content = meta.get("content", "")
+            LOGGER.debug("Found TOC meta tag with content: %s", raw_content)
             for toc_entry in raw_content.split(","):
+                toc_count += 1
                 handle_candidate(toc_entry, is_toc=True)
+
+        LOGGER.debug("Found %d TOC entries on page %s", toc_count, base_url)
+
+    def _auto_discover_toc(self, url: str) -> None:
+        """Automatically discover and process TOC file for guide landing pages.
+
+        AWS docs guides typically have a toc-contents.json file in the guide directory.
+        This method attempts to find and process it for URLs that look like guide landing pages.
+        """
+        parsed = urlparse(url)
+        path = parsed.path.rstrip('/')
+
+        # Check if this looks like a guide directory (e.g., /service/latest/userguide/)
+        # Common patterns: /userguide/, /developerguide/, /apireference/, /api/
+        guide_patterns = ['userguide', 'developerguide', 'apireference', 'api']
+
+        # Split path into parts and check if the last part matches a guide pattern
+        path_parts = [part for part in path.split('/') if part]
+        if not path_parts:
+            return
+
+        last_part = path_parts[-1].lower()
+        is_guide_landing = any(pattern in last_part for pattern in guide_patterns)
+
+        if not is_guide_landing:
+            return
+
+        # Construct TOC URL by appending toc-contents.json to the guide directory
+        toc_path = f"{path}/toc-contents.json"
+        toc_url = urlunparse(parsed._replace(path=toc_path, fragment='', query=''))
+        toc_url = normalise_url(toc_url)
+
+        # Check if we've already processed this TOC
+        with self._known_urls_lock:
+            if toc_url in self._known_tocs:
+                return
+            self._known_tocs.add(toc_url)
+
+        LOGGER.debug("Auto-discovered TOC: %s", toc_url)
+        self._toc_manager.process_toc(toc_url)
 
     def _enqueue_url_if_new(self, url: str) -> bool:
         with self._known_urls_lock:
