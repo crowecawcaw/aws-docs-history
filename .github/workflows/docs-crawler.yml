@@ -51,8 +51,6 @@ jobs:
       - name: Run crawler
         working-directory: main
         run: |
-          find docs -mindepth 1 -maxdepth 1 ! -name README.md ! -name service-manifest.json -exec rm -rf {} +
-
           if [ -z "${{ inputs.service }}" ]; then
             echo "Crawling all services..."
             python crawler.py --output-dir docs

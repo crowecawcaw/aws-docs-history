@@ -14,6 +14,7 @@ import json
 import logging
 import os
 import queue
+import shutil
 import threading
 import time
 from collections.abc import Callable, Iterable, Sequence
@@ -1121,7 +1122,44 @@ def parse_args() -> argparse.Namespace:
     return parser.parse_args()
 
 
-def _resolve_cli_scope(args: argparse.Namespace) -> tuple[list[str], list[str]]:
+def clean_service_directories(
+    output_dir: Path, service_scope: ServiceScope
+) -> None:
+    """Delete existing documentation directories for a specific service.
+
+    This ensures a clean slate when recrawling a service without affecting
+    other services' documentation.
+
+    Args:
+        output_dir: Root documentation directory
+        service_scope: The service scope containing guides to clean
+    """
+    directories_to_clean: set[Path] = set()
+
+    # For each guide in the service, determine which directories to clean
+    for guide in service_scope.guides:
+        # Parse the URL to get the path structure
+        parsed = urlparse(guide.url)
+        path_parts = [part for part in parsed.path.strip('/').split('/') if part]
+
+        # Build the directory path from the URL structure
+        # e.g., /deadline-cloud/latest/userguide/ -> docs/deadline-cloud/latest/
+        if len(path_parts) >= 2:
+            # Get the service directory (e.g., deadline-cloud/latest/)
+            service_dir = output_dir / path_parts[0] / path_parts[1]
+            if service_dir.exists() and service_dir.is_dir():
+                directories_to_clean.add(service_dir)
+
+    # Delete the identified directories
+    for directory in directories_to_clean:
+        try:
+            LOGGER.info("Cleaning directory %s for recrawl", directory)
+            shutil.rmtree(directory)
+        except Exception as exc:
+            LOGGER.warning("Failed to clean directory %s: %s", directory, exc)
+
+
+def _resolve_cli_scope(args: argparse.Namespace) -> tuple[list[str], list[str], Optional[ServiceScope]]:
     # Check for conflicting arguments
     if args.service and (args.start_urls or args.allowed_prefixes):
         raise ValueError(
@@ -1133,7 +1171,7 @@ def _resolve_cli_scope(args: argparse.Namespace) -> tuple[list[str], list[str]]:
         allowed_prefixes = list(args.allowed_prefixes or [])
         if not allowed_prefixes and start_urls:
             allowed_prefixes = [derive_allowed_prefix(url) for url in start_urls]
-        return start_urls, allowed_prefixes
+        return start_urls, allowed_prefixes, None
 
     manifest_path = args.manifest
     if not manifest_path:
@@ -1171,7 +1209,7 @@ def _resolve_cli_scope(args: argparse.Namespace) -> tuple[list[str], list[str]]:
             len(start_urls),
             manifest_path,
         )
-        return start_urls, allowed_prefixes
+        return start_urls, allowed_prefixes, scope
 
     # No service specified, load all services
     start_urls = _collect_scope_values(manifest_scopes.values(), "start_urls")
@@ -1184,14 +1222,18 @@ def _resolve_cli_scope(args: argparse.Namespace) -> tuple[list[str], list[str]]:
         len(start_urls),
         manifest_path,
     )
-    return start_urls, allowed_prefixes
+    return start_urls, allowed_prefixes, None
 
 
 def main() -> None:
     args = parse_args()
     logging.basicConfig(level=getattr(logging, args.log_level.upper(), logging.INFO))
 
-    start_urls, allowed_prefixes = _resolve_cli_scope(args)
+    start_urls, allowed_prefixes, service_scope = _resolve_cli_scope(args)
+
+    # If crawling a specific service, clean its existing directories first
+    if service_scope is not None:
+        clean_service_directories(args.output_dir, service_scope)
 
     crawler = AwsDocsCrawler(
         start_urls=start_urls,
