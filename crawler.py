@@ -206,7 +206,6 @@ class LinkChecker:
         self.allowed_schemes = {"http", "https"}
         self.disallowed_suffixes = {".png", ".jpg", ".jpeg", ".gif", ".pdf", ".zip", ".svg", ".xml"}
         self.html_suffixes = ("/", ".html", ".htm")
-        self.guide_patterns = ("userguide", "developerguide", "apireference", "api")
         raw_prefixes = list(allowed_prefixes or [])
         self.prefixes = [
             prefix if prefix.startswith("/") else f"/{prefix.lstrip('/')}"
@@ -226,12 +225,6 @@ class LinkChecker:
         lower_path = parsed.path.lower()
         if any(lower_path.endswith(suffix) for suffix in self.disallowed_suffixes):
             return False
-
-        # Allow guide directory URLs (e.g., /userguide, /developerguide)
-        path_parts = [part for part in lower_path.split('/') if part]
-        if path_parts and any(pattern in path_parts[-1] for pattern in self.guide_patterns):
-            return True
-
         if lower_path and not lower_path.endswith(self.html_suffixes):
             return False
         return True
@@ -922,12 +915,11 @@ class AwsDocsCrawler:
         self._known_urls_lock = threading.Lock()
         self._known_tocs: set[str] = set()
         self._visited_urls: set[str] = set()  # Changed to set for O(1) lookup
-        self._queued_urls: set[str] = set()  # Track which URLs have been enqueued
 
         self._rate_limiter = RequestRateLimiter(requests_per_second)
         self._image_handler = ImageHandler(output_dir, self.session, self._rate_limiter)
         self._toc_manager = TocManager(
-            output_dir, self.session, self._rate_limiter, self.link_checker, self._enqueue_url_if_new
+            output_dir, self.session, self._rate_limiter, self.link_checker, self._add_url_to_known
         )
 
     @property
@@ -952,14 +944,11 @@ class AwsDocsCrawler:
             for _ in range(self.max_workers):
                 executor.submit(self._worker)
 
-            # Enqueue all discovered URLs (excluding already queued and start URLs)
+            # Enqueue all discovered URLs (skip already visited to prevent duplicates)
             with self._known_urls_lock:
                 for url in self._known_urls:
-                    # Skip if already queued or if it's a start URL (landing page)
-                    if url in self._queued_urls or url in self.start_urls:
-                        continue
-                    self._queued_urls.add(url)
-                    self._url_queue.put(url)
+                    if url not in self._visited_urls:
+                        self._url_queue.put(url)
 
             self._url_queue.join()
 
@@ -1089,13 +1078,12 @@ class AwsDocsCrawler:
         LOGGER.debug("Auto-discovered TOC: %s", toc_url)
         self._toc_manager.process_toc(toc_url)
 
-    def _enqueue_url_if_new(self, url: str) -> bool:
+    def _add_url_to_known(self, url: str) -> bool:
+        """Add URL to known set for later processing. Does not enqueue."""
         with self._known_urls_lock:
             if url in self._known_urls:
                 return False
             self._known_urls.add(url)
-
-        self._url_queue.put(url)
         return True
 
 
