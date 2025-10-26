@@ -50,43 +50,15 @@ jobs:
 
       - name: Run crawler
         working-directory: main
-        env:
-          SERVICE_ID: ${{ inputs.service }}
         run: |
           find docs -mindepth 1 -maxdepth 1 ! -name README.md ! -name service-manifest.json -exec rm -rf {} +
 
-          if [ -z "$SERVICE_ID" ]; then
-            # No service specified, crawl all services
+          if [ -z "${{ inputs.service }}" ]; then
             echo "Crawling all services..."
             python crawler.py --output-dir docs
           else
-            # Crawl specific service
-            echo "Crawling service: $SERVICE_ID"
-
-            # Extract service URLs from manifest
-            SERVICE_DATA=$(python scripts/get_service_urls.py docs/service-manifest.json "$SERVICE_ID")
-
-            if [ $? -ne 0 ]; then
-              echo "Error: Failed to find service '$SERVICE_ID' in manifest"
-              exit 1
-            fi
-
-            # Parse the output
-            eval "$SERVICE_DATA"
-
-            # Build crawler command with start URLs and allowed prefixes
-            CRAWLER_CMD="python crawler.py --output-dir docs"
-
-            for url in $START_URLS; do
-              CRAWLER_CMD="$CRAWLER_CMD --start-url $url"
-            done
-
-            for prefix in $ALLOWED_PREFIXES; do
-              CRAWLER_CMD="$CRAWLER_CMD --allowed-prefix $prefix"
-            done
-
-            echo "Running: $CRAWLER_CMD"
-            eval "$CRAWLER_CMD"
+            echo "Crawling service: ${{ inputs.service }}"
+            python crawler.py --output-dir docs --service "${{ inputs.service }}"
           fi
 
       - name: Configure Git user

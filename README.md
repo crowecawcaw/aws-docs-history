@@ -75,7 +75,13 @@ trees:
 python crawler.py
 ```
 
-You can provide your own seed URLs or limit the crawl scope by supplying one or
+You can crawl a specific service by providing the service ID from the manifest:
+
+```bash
+python crawler.py --service a2c
+```
+
+You can also provide your own seed URLs or limit the crawl scope by supplying one or
 more `--start-url` and `--allowed-prefix` arguments:
 
 ```bash
