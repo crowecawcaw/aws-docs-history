@@ -919,7 +919,7 @@ class AwsDocsCrawler:
         self._rate_limiter = RequestRateLimiter(requests_per_second)
         self._image_handler = ImageHandler(output_dir, self.session, self._rate_limiter)
         self._toc_manager = TocManager(
-            output_dir, self.session, self._rate_limiter, self.link_checker, self._enqueue_url_if_new
+            output_dir, self.session, self._rate_limiter, self.link_checker, self._add_url_to_known
         )
 
     @property
@@ -1078,13 +1078,12 @@ class AwsDocsCrawler:
         LOGGER.debug("Auto-discovered TOC: %s", toc_url)
         self._toc_manager.process_toc(toc_url)
 
-    def _enqueue_url_if_new(self, url: str) -> bool:
+    def _add_url_to_known(self, url: str) -> bool:
+        """Add URL to known set for later processing. Does not enqueue."""
         with self._known_urls_lock:
             if url in self._known_urls:
                 return False
             self._known_urls.add(url)
-
-        self._url_queue.put(url)
         return True
 
 
