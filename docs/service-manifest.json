@@ -1,8 +1,12 @@
 {
-  "generated_at": "2025-10-26T05:09:38.892131Z",
+  "generated_at": "2025-10-26T22:00:10.664674Z",
   "services": [
     {
       "id": "a2c",
+      "name": "AWS App2Container",
+      "segments": [
+        "app2container"
+      ],
       "guides": [
         {
           "title": "AWS App2Container User Guide",
@@ -13,6 +17,12 @@
     },
     {
       "id": "a2ishort",
+      "name": "Amazon A2I Using Amazon Rekognition",
+      "segments": [
+        "rekognition",
+        "sagemaker",
+        "textract"
+      ],
       "guides": [
         {
           "title": "Reviewing Unsafe Content with Amazon A2I Using Amazon Rekognition",
@@ -38,6 +48,13 @@
     },
     {
       "id": "account",
+      "name": "AWS Account Management",
+      "segments": [
+        "accounts",
+        "cli",
+        "mpa",
+        "organizations"
+      ],
       "guides": [
         {
           "title": "AWS Account Management Reference Guide",
@@ -73,6 +90,11 @@
     },
     {
       "id": "acmprivateca",
+      "name": "AWS Private CA Connector",
+      "segments": [
+        "cli",
+        "privateca"
+      ],
       "guides": [
         {
           "title": "AWS Private CA in the AWS CLI Reference",
@@ -108,6 +130,12 @@
     },
     {
       "id": "afd",
+      "name": "AWS CloudFormation Resource Type Reference",
+      "segments": [
+        "AWSCloudFormation",
+        "AWSJavaScriptSDK",
+        "frauddetector"
+      ],
       "guides": [
         {
           "title": "AWS CloudFormation Resource Type Reference",
@@ -203,6 +231,10 @@
     },
     {
       "id": "airflow",
+      "name": "mwaa",
+      "segments": [
+        "mwaa"
+      ],
       "guides": [
         {
           "title": "Migration Guide",
@@ -218,6 +250,14 @@
     },
     {
       "id": "ak",
+      "name": "Amazon Kinesis Data Streams",
+      "segments": [
+        "cli",
+        "kinesis-agent-windows",
+        "kinesisvideostreams",
+        "kinesisvideostreams-webrtc-dg",
+        "streams"
+      ],
       "guides": [
         {
           "title": "Amazon Kinesis Data Streams section of the AWS CLI Reference",
@@ -248,6 +288,11 @@
     },
     {
       "id": "alshort",
+      "name": "Amazon Location SDKs",
+      "segments": [
+        "cli",
+        "location"
+      ],
       "guides": [
         {
           "title": "CLI reference",
@@ -313,6 +358,11 @@
     },
     {
       "id": "amazondocdb",
+      "name": "Amazon DocumentDB",
+      "segments": [
+        "cli",
+        "documentdb"
+      ],
       "guides": [
         {
           "title": "Amazon DocumentDB section of the AWS CLI Reference",
@@ -328,6 +378,11 @@
     },
     {
       "id": "amazonmq",
+      "name": "Amazon MQ",
+      "segments": [
+        "amazon-mq",
+        "cli"
+      ],
       "guides": [
         {
           "title": "Developer Guide",
@@ -348,6 +403,11 @@
     },
     {
       "id": "amazonq",
+      "name": "Amazon Q",
+      "segments": [
+        "amazonq",
+        "chatbot"
+      ],
       "guides": [
         {
           "title": "Amazon Q Detector Library",
@@ -373,6 +433,10 @@
     },
     {
       "id": "amb",
+      "name": "Managed Blockchain",
+      "segments": [
+        "managed-blockchain"
+      ],
       "guides": [
         {
           "title": "Bitcoin Developer Guide",
@@ -403,6 +467,10 @@
     },
     {
       "id": "amplify",
+      "name": "amplify",
+      "segments": [
+        "amplify"
+      ],
       "guides": [
         {
           "title": "Amplify Hosting User Guide",
@@ -413,6 +481,11 @@
     },
     {
       "id": "ams",
+      "name": "EDI",
+      "segments": [
+        "EDI",
+        "managedservices"
+      ],
       "guides": [
         {
           "title": "ECO Support Guide",
@@ -448,6 +521,11 @@
     },
     {
       "id": "apc",
+      "name": "AWS Pricing Calculator",
+      "segments": [
+        "cost-management",
+        "pricing-calculator"
+      ],
       "guides": [
         {
           "title": "In-Console AWS Pricing Calculator User Guide",
@@ -463,6 +541,11 @@
     },
     {
       "id": "apfl",
+      "name": "Amazon AppFlow",
+      "segments": [
+        "AWSCloudFormation",
+        "appflow"
+      ],
       "guides": [
         {
           "title": "Amazon AppFlow in the AWS CloudFormation User Guide",
@@ -478,6 +561,11 @@
     },
     {
       "id": "apigateway",
+      "name": "apigateway",
+      "segments": [
+        "apigateway",
+        "cli"
+      ],
       "guides": [
         {
           "title": "Developer Guide",
@@ -498,6 +586,10 @@
     },
     {
       "id": "appconfig",
+      "name": "appconfig",
+      "segments": [
+        "appconfig"
+      ],
       "guides": [
         {
           "title": "User Guide",
@@ -508,6 +600,10 @@
     },
     {
       "id": "applicationdiscoveryservice",
+      "name": "Application Discovery",
+      "segments": [
+        "application-discovery"
+      ],
       "guides": [
         {
           "title": "User Guide",
@@ -518,6 +614,11 @@
     },
     {
       "id": "apprunner",
+      "name": "apprunner",
+      "segments": [
+        "apprunner",
+        "cli"
+      ],
       "guides": [
         {
           "title": "/apprunner/latest/dg/",
@@ -538,6 +639,11 @@
     },
     {
       "id": "appstream2",
+      "name": "appstream2",
+      "segments": [
+        "appstream2",
+        "cli"
+      ],
       "guides": [
         {
           "title": "Administration Guide",
@@ -558,6 +664,10 @@
     },
     {
       "id": "appstudio",
+      "name": "appstudio",
+      "segments": [
+        "appstudio"
+      ],
       "guides": [
         {
           "title": "User Guide",
@@ -568,6 +678,10 @@
     },
     {
       "id": "appsync",
+      "name": "AWS AppSync GraphQL",
+      "segments": [
+        "appsync"
+      ],
       "guides": [
         {
           "title": "AWS AppSync GraphQL Developer Guide",
@@ -583,6 +697,14 @@
     },
     {
       "id": "arg",
+      "name": "AWS Resource Groups",
+      "segments": [
+        "ARG",
+        "cli",
+        "ram",
+        "resource-explorer",
+        "tag-editor"
+      ],
       "guides": [
         {
           "title": "AWS Resource Groups User Guide",
@@ -628,6 +750,10 @@
     },
     {
       "id": "artifact",
+      "name": "artifact",
+      "segments": [
+        "artifact"
+      ],
       "guides": [
         {
           "title": "User Guide",
@@ -638,6 +764,11 @@
     },
     {
       "id": "arw",
+      "name": "AWS Proton",
+      "segments": [
+        "cli",
+        "proton"
+      ],
       "guides": [
         {
           "title": "AWS Proton section of AWS CLI Reference",
@@ -653,6 +784,10 @@
     },
     {
       "id": "athena",
+      "name": "athena",
+      "segments": [
+        "athena"
+      ],
       "guides": [
         {
           "title": "User Guide",
@@ -663,6 +798,11 @@
     },
     {
       "id": "auditmanager",
+      "name": "AWS CloudFormation User Guide",
+      "segments": [
+        "AWSCloudFormation",
+        "audit-manager"
+      ],
       "guides": [
         {
           "title": "AWS CloudFormation User Guide for AWS Audit Manager",
@@ -678,6 +818,12 @@
     },
     {
       "id": "aurora",
+      "name": "Amazon RDS",
+      "segments": [
+        "AmazonRDS",
+        "aurora-dsql",
+        "cli"
+      ],
       "guides": [
         {
           "title": "Release Notes for Aurora MySQL",
@@ -738,6 +884,11 @@
     },
     {
       "id": "autoscaling",
+      "name": "AWS Auto Scaling Plans",
+      "segments": [
+        "autoscaling",
+        "cli"
+      ],
       "guides": [
         {
           "title": "User Guide",
@@ -773,6 +924,10 @@
     },
     {
       "id": "aws-cdk",
+      "name": "cdk",
+      "segments": [
+        "cdk"
+      ],
       "guides": [
         {
           "title": "Developer Guide",
@@ -788,6 +943,12 @@
     },
     {
       "id": "aws-crypto-tools",
+      "name": "Amazon S3 Encryption Client",
+      "segments": [
+        "amazon-s3-encryption-client",
+        "database-encryption-sdk",
+        "encryption-sdk"
+      ],
       "guides": [
         {
           "title": "Amazon S3 Encryption Client Developer Guide",
@@ -808,6 +969,10 @@
     },
     {
       "id": "aws-fabric",
+      "name": "appfabric",
+      "segments": [
+        "appfabric"
+      ],
       "guides": [
         {
           "title": "Administration Guide",
@@ -818,6 +983,10 @@
     },
     {
       "id": "aws-iq",
+      "name": "Aws Iq",
+      "segments": [
+        "aws-iq"
+      ],
       "guides": [
         {
           "title": "/aws-iq/latest/experts-user-guide/",
@@ -833,6 +1002,11 @@
     },
     {
       "id": "aws-outposts",
+      "name": "AWS CLI Reference",
+      "segments": [
+        "cli",
+        "outposts"
+      ],
       "guides": [
         {
           "title": "AWS CLI Reference",
@@ -863,6 +1037,10 @@
     },
     {
       "id": "aws-parallelcluster",
+      "name": "parallelcluster",
+      "segments": [
+        "parallelcluster"
+      ],
       "guides": [
         {
           "title": "User Guide (v3)",
@@ -878,6 +1056,12 @@
     },
     {
       "id": "aws-support",
+      "name": "AWS Support App Documentation",
+      "segments": [
+        "IDR",
+        "awssupport",
+        "cli"
+      ],
       "guides": [
         {
           "title": "User Guide",
@@ -908,6 +1092,14 @@
     },
     {
       "id": "awsbillingconsole",
+      "name": "AWS Billing",
+      "segments": [
+        "awsaccountbilling",
+        "billingconductor",
+        "ccft",
+        "cost-management",
+        "cur"
+      ],
       "guides": [
         {
           "title": "AWS Billing User Guide",
@@ -943,6 +1135,11 @@
     },
     {
       "id": "awsconfig",
+      "name": "config",
+      "segments": [
+        "cli",
+        "config"
+      ],
       "guides": [
         {
           "title": "CLI Reference",
@@ -958,6 +1155,11 @@
     },
     {
       "id": "awshealth",
+      "name": "AWS Health",
+      "segments": [
+        "cli",
+        "health"
+      ],
       "guides": [
         {
           "title": "AWS Health in the AWS CLI Reference",
@@ -973,6 +1175,10 @@
     },
     {
       "id": "awsmanagementconsole",
+      "name": "AWS Management Console",
+      "segments": [
+        "awsconsolehelpdocs"
+      ],
       "guides": [
         {
           "title": "Getting Started with the AWS Management Console",
@@ -983,6 +1189,10 @@
     },
     {
       "id": "awssct",
+      "name": "Schema Conversion Tool",
+      "segments": [
+        "SchemaConversionTool"
+      ],
       "guides": [
         {
           "title": "User Guide",
@@ -993,6 +1203,10 @@
     },
     {
       "id": "b2bi",
+      "name": "AWS B2B Data Interchange",
+      "segments": [
+        "b2bi"
+      ],
       "guides": [
         {
           "title": "AWS B2B Data Interchange User Guide",
@@ -1003,6 +1217,10 @@
     },
     {
       "id": "batch",
+      "name": "batch",
+      "segments": [
+        "batch"
+      ],
       "guides": [
         {
           "title": "User Guide",
@@ -1013,6 +1231,12 @@
     },
     {
       "id": "bedrock",
+      "name": "Amazon Bedrock",
+      "segments": [
+        "bedrock",
+        "nova",
+        "sagemaker-unified-studio"
+      ],
       "guides": [
         {
           "title": "Amazon Bedrock User Guide",
@@ -1148,6 +1372,10 @@
     },
     {
       "id": "bedrock-agentcore",
+      "name": "Bedrock Agentcore",
+      "segments": [
+        "bedrock-agentcore"
+      ],
       "guides": [
         {
           "title": "AgentCore Developer Guide",
@@ -1238,6 +1466,10 @@
     },
     {
       "id": "blockchain-templates",
+      "name": "AWS Blockchain Templates",
+      "segments": [
+        "blockchain-templates"
+      ],
       "guides": [
         {
           "title": "AWS Blockchain Templates Developer Guide",
@@ -1248,6 +1480,10 @@
     },
     {
       "id": "braket",
+      "name": "braket",
+      "segments": [
+        "braket"
+      ],
       "guides": [
         {
           "title": "/braket/latest/developerguide/",
@@ -1258,6 +1494,10 @@
     },
     {
       "id": "cdi-sdk",
+      "name": "AWS Cloud Digital Interface Software Development Kit",
+      "segments": [
+        "CDI-SDK"
+      ],
       "guides": [
         {
           "title": "AWS Cloud Digital Interface Software Development Kit User Guide",
@@ -1268,6 +1508,10 @@
     },
     {
       "id": "cdk",
+      "name": "cdk",
+      "segments": [
+        "cdk"
+      ],
       "guides": [
         {
           "title": "Developer Guide",
@@ -1283,6 +1527,11 @@
     },
     {
       "id": "certificatemanager",
+      "name": "acm",
+      "segments": [
+        "acm",
+        "cli"
+      ],
       "guides": [
         {
           "title": "User Guide",
@@ -1298,6 +1547,10 @@
     },
     {
       "id": "chatbot",
+      "name": "chatbot",
+      "segments": [
+        "chatbot"
+      ],
       "guides": [
         {
           "title": "Administrator Guide",
@@ -1308,6 +1561,11 @@
     },
     {
       "id": "chime",
+      "name": "Amazon Chime",
+      "segments": [
+        "chime",
+        "cli"
+      ],
       "guides": [
         {
           "title": "Administrator Guide",
@@ -1328,6 +1586,10 @@
     },
     {
       "id": "chime-sdk",
+      "name": "Chime Sdk",
+      "segments": [
+        "chime-sdk"
+      ],
       "guides": [
         {
           "title": "Administrator Guide",
@@ -1343,6 +1605,10 @@
     },
     {
       "id": "cleanrooms",
+      "name": "AWS Clean Rooms SQL Reference",
+      "segments": [
+        "clean-rooms"
+      ],
       "guides": [
         {
           "title": "AWS Clean Rooms SQL Reference",
@@ -1358,6 +1624,11 @@
     },
     {
       "id": "cloud9",
+      "name": "AWS CLI Reference",
+      "segments": [
+        "cli",
+        "cloud9"
+      ],
       "guides": [
         {
           "title": "AWS CLI Reference for AWS Cloud9",
@@ -1373,6 +1644,12 @@
     },
     {
       "id": "cloudcontrolapi",
+      "name": "AWS Cloud Control API User Guide",
+      "segments": [
+        "cli",
+        "cloudcontrolapi",
+        "cloudformation-cli"
+      ],
       "guides": [
         {
           "title": "Cloud Control API in the AWS CLI Reference",
@@ -1403,6 +1680,11 @@
     },
     {
       "id": "clouddirectory-pod-0",
+      "name": "Amazon Cloud Directory",
+      "segments": [
+        "cli",
+        "clouddirectory"
+      ],
       "guides": [
         {
           "title": "Amazon Cloud Directory in the AWS CLI Reference",
@@ -1418,6 +1700,13 @@
     },
     {
       "id": "cloudformation",
+      "name": "AWS CloudFormation",
+      "segments": [
+        "AWSCloudFormation",
+        "cfn-guard",
+        "cli",
+        "cloudformation-cli"
+      ],
       "guides": [
         {
           "title": "/AWSCloudFormation/latest/TemplateReference/",
@@ -1453,6 +1742,10 @@
     },
     {
       "id": "cloudfront",
+      "name": "Amazon CloudFront",
+      "segments": [
+        "AmazonCloudFront"
+      ],
       "guides": [
         {
           "title": "Developer Guide",
@@ -1463,6 +1756,11 @@
     },
     {
       "id": "cloudhsmv2",
+      "name": "AWS CloudHSM",
+      "segments": [
+        "cli",
+        "cloudhsm"
+      ],
       "guides": [
         {
           "title": "AWS CloudHSM in the AWS CLI Reference",
@@ -1478,6 +1776,10 @@
     },
     {
       "id": "cloudsearch",
+      "name": "cloudsearch",
+      "segments": [
+        "cloudsearch"
+      ],
       "guides": [
         {
           "title": "Developer Guide",
@@ -1488,6 +1790,10 @@
     },
     {
       "id": "cloudshell",
+      "name": "cloudshell",
+      "segments": [
+        "cloudshell"
+      ],
       "guides": [
         {
           "title": "User Guide",
@@ -1498,6 +1804,10 @@
     },
     {
       "id": "cloudtrail",
+      "name": "awscloudtrail",
+      "segments": [
+        "awscloudtrail"
+      ],
       "guides": [
         {
           "title": "Partner Onboarding Guide",
@@ -1513,6 +1823,12 @@
     },
     {
       "id": "cloudwatch",
+      "name": "Amazon CloudWatch",
+      "segments": [
+        "AmazonCloudWatch",
+        "cli",
+        "eventbridge"
+      ],
       "guides": [
         {
           "title": "CloudWatch CLI Reference",
@@ -1563,6 +1879,10 @@
     },
     {
       "id": "cma",
+      "name": "consolemobileapp",
+      "segments": [
+        "consolemobileapp"
+      ],
       "guides": [
         {
           "title": "/consolemobileapp/latest/userguide/",
@@ -1573,6 +1893,10 @@
     },
     {
       "id": "co",
+      "name": "Compute Optimizer",
+      "segments": [
+        "compute-optimizer"
+      ],
       "guides": [
         {
           "title": "User Guide",
@@ -1583,6 +1907,10 @@
     },
     {
       "id": "codeartifact",
+      "name": "codeartifact",
+      "segments": [
+        "codeartifact"
+      ],
       "guides": [
         {
           "title": "User Guide",
@@ -1593,6 +1921,11 @@
     },
     {
       "id": "codebuild",
+      "name": "AWS CLI",
+      "segments": [
+        "cli",
+        "codebuild"
+      ],
       "guides": [
         {
           "title": "AWS CLI reference for AWS CodeBuild",
@@ -1608,6 +1941,10 @@
     },
     {
       "id": "codecatalyst",
+      "name": "codecatalyst",
+      "segments": [
+        "codecatalyst"
+      ],
       "guides": [
         {
           "title": "Action Developer Guide",
@@ -1633,6 +1970,11 @@
     },
     {
       "id": "codedeploy",
+      "name": "AWS CLI Reference",
+      "segments": [
+        "cli",
+        "codedeploy"
+      ],
       "guides": [
         {
           "title": "AWS CLI Reference for AWS CodeDeploy",
@@ -1648,6 +1990,11 @@
     },
     {
       "id": "codepipeline",
+      "name": "AWS CLI Reference",
+      "segments": [
+        "cli",
+        "codepipeline"
+      ],
       "guides": [
         {
           "title": "AWS CLI Reference for AWS CodePipeline",
@@ -1663,6 +2010,11 @@
     },
     {
       "id": "cognito",
+      "name": "AWS CLI Reference",
+      "segments": [
+        "cli",
+        "cognito"
+      ],
       "guides": [
         {
           "title": "AWS CLI Reference",
@@ -1698,6 +2050,15 @@
     },
     {
       "id": "commander",
+      "name": "AWS Systems Manager",
+      "segments": [
+        "appconfig",
+        "cli",
+        "incident-manager",
+        "ssm-sap",
+        "systems-manager",
+        "systems-manager-automation-runbooks"
+      ],
       "guides": [
         {
           "title": "User Guide",
@@ -1738,6 +2099,10 @@
     },
     {
       "id": "comprehend",
+      "name": "comprehend",
+      "segments": [
+        "comprehend"
+      ],
       "guides": [
         {
           "title": "Developer Guide",
@@ -1748,6 +2113,10 @@
     },
     {
       "id": "comprehendmedical",
+      "name": "Comprehend Medical",
+      "segments": [
+        "comprehend-medical"
+      ],
       "guides": [
         {
           "title": "Developer Guide",
@@ -1758,6 +2127,11 @@
     },
     {
       "id": "controltower",
+      "name": "controlcatalog",
+      "segments": [
+        "controlcatalog",
+        "controltower"
+      ],
       "guides": [
         {
           "title": "/controlcatalog/latest/userguide",
@@ -1778,6 +2152,10 @@
     },
     {
       "id": "corretto",
+      "name": "corretto",
+      "segments": [
+        "corretto"
+      ],
       "guides": [
         {
           "title": "/corretto/latest/corretto-11-ug/",
@@ -1808,6 +2186,10 @@
     },
     {
       "id": "cryo",
+      "name": "Aws Backup",
+      "segments": [
+        "aws-backup"
+      ],
       "guides": [
         {
           "title": "/aws-backup/latest/devguide/",
@@ -1818,6 +2200,11 @@
     },
     {
       "id": "databasemigrationservice",
+      "name": "AWS DMS",
+      "segments": [
+        "cli",
+        "dms"
+      ],
       "guides": [
         {
           "title": "AWS DMS section of the AWS CLI Reference",
@@ -1848,6 +2235,10 @@
     },
     {
       "id": "dataexchange",
+      "name": "AWS Data Exchange",
+      "segments": [
+        "data-exchange"
+      ],
       "guides": [
         {
           "title": "AWS Data Exchange User Guide",
@@ -1858,6 +2249,10 @@
     },
     {
       "id": "datapipeline",
+      "name": "datapipeline",
+      "segments": [
+        "datapipeline"
+      ],
       "guides": [
         {
           "title": "Developer Guide",
@@ -1868,6 +2263,10 @@
     },
     {
       "id": "datasync",
+      "name": "AWS DataSync",
+      "segments": [
+        "datasync"
+      ],
       "guides": [
         {
           "title": "AWS DataSync User Guide",
@@ -1878,6 +2277,10 @@
     },
     {
       "id": "datatransferterminal",
+      "name": "AWS Data Transfer Terminal",
+      "segments": [
+        "datatransferterminal"
+      ],
       "guides": [
         {
           "title": "AWS Data Transfer Terminal User Guide",
@@ -1888,6 +2291,10 @@
     },
     {
       "id": "datazone",
+      "name": "Amazon DataZone",
+      "segments": [
+        "datazone"
+      ],
       "guides": [
         {
           "title": "Amazon DataZone User Guide",
@@ -1898,6 +2305,10 @@
     },
     {
       "id": "deadline",
+      "name": "Deadline Cloud",
+      "segments": [
+        "deadline-cloud"
+      ],
       "guides": [
         {
           "title": "Developer Guide",
@@ -1913,6 +2324,10 @@
     },
     {
       "id": "deep-learning-containers",
+      "name": "Deep Learning Containers",
+      "segments": [
+        "deep-learning-containers"
+      ],
       "guides": [
         {
           "title": "Developer Guide",
@@ -1923,6 +2338,10 @@
     },
     {
       "id": "deepracer",
+      "name": "deepracer",
+      "segments": [
+        "deepracer"
+      ],
       "guides": [
         {
           "title": "/deepracer/latest/developerguide/",
@@ -1938,6 +2357,10 @@
     },
     {
       "id": "det",
+      "name": "detective",
+      "segments": [
+        "detective"
+      ],
       "guides": [
         {
           "title": "/detective/latest/userguide/",
@@ -1948,6 +2371,10 @@
     },
     {
       "id": "devicefarm",
+      "name": "devicefarm",
+      "segments": [
+        "devicefarm"
+      ],
       "guides": [
         {
           "title": "Developer Guide",
@@ -1963,6 +2390,11 @@
     },
     {
       "id": "devops-guru",
+      "name": "AWS CLI Reference",
+      "segments": [
+        "cli",
+        "devops-guru"
+      ],
       "guides": [
         {
           "title": "AWS CLI Reference for Amazon DevOps Guru",
@@ -1978,6 +2410,10 @@
     },
     {
       "id": "diagnostic-tools",
+      "name": "AWS Diagnostic Tools",
+      "segments": [
+        "diagnostic-tools"
+      ],
       "guides": [
         {
           "title": "AWS Diagnostic Tools User Guide",
@@ -1988,6 +2424,11 @@
     },
     {
       "id": "directconnect",
+      "name": "directconnect",
+      "segments": [
+        "cli",
+        "directconnect"
+      ],
       "guides": [
         {
           "title": "Direct Connect section of the AWS CLI Reference",
@@ -2003,6 +2444,11 @@
     },
     {
       "id": "directoryservice",
+      "name": "AWS Directory Service",
+      "segments": [
+        "cli",
+        "directoryservice"
+      ],
       "guides": [
         {
           "title": "AWS Directory Service in the AWS CLI",
@@ -2018,6 +2464,10 @@
     },
     {
       "id": "dla",
+      "name": "dlami",
+      "segments": [
+        "dlami"
+      ],
       "guides": [
         {
           "title": "Developer Guide",
@@ -2028,6 +2478,11 @@
     },
     {
       "id": "dlm",
+      "name": "Amazon Data Lifecycle Manager",
+      "segments": [
+        "AWSEC2",
+        "cli"
+      ],
       "guides": [
         {
           "title": "Amazon Data Lifecycle Manager",
@@ -2043,6 +2498,10 @@
     },
     {
       "id": "drs",
+      "name": "drs",
+      "segments": [
+        "drs"
+      ],
       "guides": [
         {
           "title": "User Guide",
@@ -2053,6 +2512,10 @@
     },
     {
       "id": "dsql",
+      "name": "Amazon Aurora DSQL",
+      "segments": [
+        "latest"
+      ],
       "guides": [
         {
           "title": "Getting started with Amazon Aurora DSQL",
@@ -2068,6 +2531,10 @@
     },
     {
       "id": "dynamodb",
+      "name": "Amazon DynamoDB",
+      "segments": [
+        "amazondynamodb"
+      ],
       "guides": [
         {
           "title": "Developer Guide",
@@ -2108,6 +2575,12 @@
     },
     {
       "id": "ebs",
+      "name": "AWS CLI Reference",
+      "segments": [
+        "AWSEC2",
+        "cli",
+        "ebs"
+      ],
       "guides": [
         {
           "title": "User Guide",
@@ -2143,6 +2616,10 @@
     },
     {
       "id": "ec",
+      "name": "portingassistant",
+      "segments": [
+        "portingassistant"
+      ],
       "guides": [
         {
           "title": "Porting Assistant for .NET Documentation",
@@ -2153,6 +2630,16 @@
     },
     {
       "id": "ec2",
+      "name": "Amazon EC2",
+      "segments": [
+        "AWSCloudFormation",
+        "AWSEC2",
+        "cli",
+        "ec2",
+        "enclaves",
+        "sql-server-ec2",
+        "vm-import"
+      ],
       "guides": [
         {
           "title": "AWS CloudFormation resources for Amazon EC2",
@@ -2203,6 +2690,11 @@
     },
     {
       "id": "ec2containerregistry",
+      "name": "Amazon ECR Public",
+      "segments": [
+        "AmazonECR",
+        "cli"
+      ],
       "guides": [
         {
           "title": "User Guide",
@@ -2228,6 +2720,22 @@
     },
     {
       "id": "ec2containerservice",
+      "name": "AWS SDK",
+      "segments": [
+        "AmazonECS",
+        "cdk",
+        "cli",
+        "pythonsdk",
+        "sdk-for-cpp",
+        "sdk-for-go",
+        "sdk-for-java",
+        "sdk-for-javascript",
+        "sdk-for-net",
+        "sdk-for-php",
+        "sdk-for-ruby",
+        "sdk-for-rust",
+        "sdk-for-swift"
+      ],
       "guides": [
         {
           "title": "Developer Guide",
@@ -2303,6 +2811,15 @@
     },
     {
       "id": "ec2simplesystemsmanager",
+      "name": "AWS Systems Manager",
+      "segments": [
+        "appconfig",
+        "cli",
+        "incident-manager",
+        "ssm-sap",
+        "systems-manager",
+        "systems-manager-automation-runbooks"
+      ],
       "guides": [
         {
           "title": "User Guide",
@@ -2343,6 +2860,11 @@
     },
     {
       "id": "eks",
+      "name": "Amazon EKS",
+      "segments": [
+        "cli",
+        "eks"
+      ],
       "guides": [
         {
           "title": "Amazon EKS section of AWS CLI Reference",
@@ -2378,6 +2900,11 @@
     },
     {
       "id": "elasticache",
+      "name": "Amazon ElastiCache",
+      "segments": [
+        "AmazonElastiCache",
+        "cli"
+      ],
       "guides": [
         {
           "title": "ElastiCache User Guide",
@@ -2393,6 +2920,10 @@
     },
     {
       "id": "elasticbeanstalk",
+      "name": "elasticbeanstalk",
+      "segments": [
+        "elasticbeanstalk"
+      ],
       "guides": [
         {
           "title": "/elasticbeanstalk/latest/dg/",
@@ -2418,6 +2949,10 @@
     },
     {
       "id": "elasticfilesystem",
+      "name": "efs",
+      "segments": [
+        "efs"
+      ],
       "guides": [
         {
           "title": "User Guide",
@@ -2428,6 +2963,11 @@
     },
     {
       "id": "elasticsearchservice",
+      "name": "Amazon OpenSearch Service",
+      "segments": [
+        "cli",
+        "opensearch-service"
+      ],
       "guides": [
         {
           "title": "OpenSearch Service CLI Reference",
@@ -2503,6 +3043,10 @@
     },
     {
       "id": "elastictranscoder",
+      "name": "elastictranscoder",
+      "segments": [
+        "elastictranscoder"
+      ],
       "guides": [
         {
           "title": "Developer Guide",
@@ -2513,6 +3057,11 @@
     },
     {
       "id": "elb",
+      "name": "AWS CLI Reference",
+      "segments": [
+        "cli",
+        "elasticloadbalancing"
+      ],
       "guides": [
         {
           "title": "AWS CLI Reference",
@@ -2553,6 +3102,12 @@
     },
     {
       "id": "elemental-on-premises",
+      "name": "AWS Elemental Appliances",
+      "segments": [
+        "elemental-appliances-software",
+        "elemental-live",
+        "elemental-server"
+      ],
       "guides": [
         {
           "title": "AWS Elemental Appliances and Software Quote Confirmation",
@@ -2573,6 +3128,10 @@
     },
     {
       "id": "emr",
+      "name": "emr",
+      "segments": [
+        "emr"
+      ],
       "guides": [
         {
           "title": "User Guide",
@@ -2598,6 +3157,12 @@
     },
     {
       "id": "end-user-messaging",
+      "name": "Push Notifications",
+      "segments": [
+        "push-notifications",
+        "sms-voice",
+        "social-messaging"
+      ],
       "guides": [
         {
           "title": "User Guide",
@@ -2618,6 +3183,10 @@
     },
     {
       "id": "entityresolution",
+      "name": "AWS Entity Resolution",
+      "segments": [
+        "entityresolution"
+      ],
       "guides": [
         {
           "title": "AWS Entity Resolution User Guide",
@@ -2628,6 +3197,12 @@
     },
     {
       "id": "eventbridge",
+      "name": "eventbridge",
+      "segments": [
+        "cli",
+        "eventbridge",
+        "scheduler"
+      ],
       "guides": [
         {
           "title": "EventBridge section of AWS CLI Reference",
@@ -2663,6 +3238,10 @@
     },
     {
       "id": "finspace",
+      "name": "finspace",
+      "segments": [
+        "finspace"
+      ],
       "guides": [
         {
           "title": "/finspace/latest/userguide/",
@@ -2673,6 +3252,10 @@
     },
     {
       "id": "fms",
+      "name": "waf",
+      "segments": [
+        "waf"
+      ],
       "guides": [
         {
           "title": "Developer Guide",
@@ -2683,6 +3266,10 @@
     },
     {
       "id": "for",
+      "name": "forecast",
+      "segments": [
+        "forecast"
+      ],
       "guides": [
         {
           "title": "/forecast/latest/dg/",
@@ -2693,6 +3280,10 @@
     },
     {
       "id": "freertosota",
+      "name": "freertos",
+      "segments": [
+        "freertos"
+      ],
       "guides": [
         {
           "title": "FreeRTOS Porting Guide",
@@ -2713,6 +3304,11 @@
     },
     {
       "id": "fsx",
+      "name": "Amazon FSx",
+      "segments": [
+        "cli",
+        "fsx"
+      ],
       "guides": [
         {
           "title": "Amazon FSx section of the AWS CLI Reference",
@@ -2748,6 +3344,11 @@
     },
     {
       "id": "gamelift",
+      "name": "AWS CLI Reference",
+      "segments": [
+        "cli",
+        "gameliftservers"
+      ],
       "guides": [
         {
           "title": "AWS CLI Reference for Amazon GameLift Servers",
@@ -2778,6 +3379,11 @@
     },
     {
       "id": "gameliftstreams",
+      "name": "Amazon GameLift Streams",
+      "segments": [
+        "AWSJavaScriptSDK",
+        "gameliftstreams"
+      ],
       "guides": [
         {
           "title": "Amazon GameLift Streams in the AWS SDK for JavaScript v3",
@@ -2793,6 +3399,10 @@
     },
     {
       "id": "gax",
+      "name": "Global Accelerator",
+      "segments": [
+        "global-accelerator"
+      ],
       "guides": [
         {
           "title": "Developer Guide",
@@ -2803,6 +3413,11 @@
     },
     {
       "id": "glacier",
+      "name": "Amazon S3",
+      "segments": [
+        "AmazonS3",
+        "amazonglacier"
+      ],
       "guides": [
         {
           "title": "User Guide",
@@ -2823,6 +3438,12 @@
     },
     {
       "id": "glue",
+      "name": "AWS Glue",
+      "segments": [
+        "cli",
+        "databrew",
+        "glue"
+      ],
       "guides": [
         {
           "title": "AWS Glue section of the AWS CLI Reference",
@@ -2898,6 +3519,10 @@
     },
     {
       "id": "govcloud-us",
+      "name": "Govcloud Us",
+      "segments": [
+        "govcloud-us"
+      ],
       "guides": [
         {
           "title": "/govcloud-us/latest/UserGuide/",
@@ -2908,6 +3533,11 @@
     },
     {
       "id": "gra",
+      "name": "Amazon Managed Grafana",
+      "segments": [
+        "cli",
+        "grafana"
+      ],
       "guides": [
         {
           "title": "Amazon Managed Grafana section of the AWS CLI Reference",
@@ -2923,6 +3553,10 @@
     },
     {
       "id": "greengrass",
+      "name": "greengrass",
+      "segments": [
+        "greengrass"
+      ],
       "guides": [
         {
           "title": "Developer Guide",
@@ -2938,6 +3572,11 @@
     },
     {
       "id": "grs",
+      "name": "AWS Ground Station",
+      "segments": [
+        "cli",
+        "ground-station"
+      ],
       "guides": [
         {
           "title": "AWS Ground Station in the AWS CLI Reference",
@@ -2958,6 +3597,11 @@
     },
     {
       "id": "guardduty",
+      "name": "Amazon GuardDuty",
+      "segments": [
+        "cli",
+        "guardduty"
+      ],
       "guides": [
         {
           "title": "Amazon GuardDuty section of the AWS CLI Reference",
@@ -2973,6 +3617,10 @@
     },
     {
       "id": "guruallshort",
+      "name": "codeguru",
+      "segments": [
+        "codeguru"
+      ],
       "guides": [
         {
           "title": "Detector Library",
@@ -2998,6 +3646,10 @@
     },
     {
       "id": "healthlake",
+      "name": "healthlake",
+      "segments": [
+        "healthlake"
+      ],
       "guides": [
         {
           "title": "Developer Guide",
@@ -3008,6 +3660,10 @@
     },
     {
       "id": "hog",
+      "name": "Lookout For Equipment",
+      "segments": [
+        "lookout-for-equipment"
+      ],
       "guides": [
         {
           "title": "/lookout-for-equipment/latest/ug/",
@@ -3018,6 +3674,11 @@
     },
     {
       "id": "ib",
+      "name": "imagebuilder",
+      "segments": [
+        "cli",
+        "imagebuilder"
+      ],
       "guides": [
         {
           "title": "EC2 Image Builder CLI Reference",
@@ -3033,6 +3694,10 @@
     },
     {
       "id": "indra",
+      "name": "Security Ir",
+      "segments": [
+        "security-ir"
+      ],
       "guides": [
         {
           "title": "User Guide",
@@ -3043,6 +3708,10 @@
     },
     {
       "id": "infrastructure-composer",
+      "name": "Infrastructure Composer",
+      "segments": [
+        "infrastructure-composer"
+      ],
       "guides": [
         {
           "title": "Developer Guide",
@@ -3053,6 +3722,11 @@
     },
     {
       "id": "inspector2",
+      "name": "Amazon Inspector Classic",
+      "segments": [
+        "cli",
+        "inspector"
+      ],
       "guides": [
         {
           "title": "Amazon Inspector Classic section of the AWS CLI Reference",
@@ -3073,6 +3747,11 @@
     },
     {
       "id": "iot",
+      "name": "AWS IoT",
+      "segments": [
+        "cli",
+        "iot"
+      ],
       "guides": [
         {
           "title": "AWS IoT sections of the AWS CLI Reference",
@@ -3093,6 +3772,10 @@
     },
     {
       "id": "iot-expresslink",
+      "name": "AWS IoT ExpressLink Getting Started Guide",
+      "segments": [
+        "iot-expresslink"
+      ],
       "guides": [
         {
           "title": "AWS IoT ExpressLink Getting Started Guide",
@@ -3113,6 +3796,11 @@
     },
     {
       "id": "iotanalytics",
+      "name": "AWS IoT Analytics",
+      "segments": [
+        "cli",
+        "iotanalytics"
+      ],
       "guides": [
         {
           "title": "AWS IoT Analytics in the AWS CLI Reference",
@@ -3128,6 +3816,11 @@
     },
     {
       "id": "iotdevicedefender",
+      "name": "AWS IoT",
+      "segments": [
+        "cli",
+        "iot-device-defender"
+      ],
       "guides": [
         {
           "title": "AWS IoT sections of the AWS CLI Reference",
@@ -3143,6 +3836,11 @@
     },
     {
       "id": "iotdevicemanagement",
+      "name": "iot",
+      "segments": [
+        "iot",
+        "iot-mi"
+      ],
       "guides": [
         {
           "title": "Developer Guide",
@@ -3158,6 +3856,11 @@
     },
     {
       "id": "iotevents",
+      "name": "AWS IoT Events",
+      "segments": [
+        "cli",
+        "iotevents"
+      ],
       "guides": [
         {
           "title": "AWS IoT Events in the AWS CLI Reference",
@@ -3173,6 +3876,10 @@
     },
     {
       "id": "iotfleetwise",
+      "name": "Iot Fleetwise",
+      "segments": [
+        "iot-fleetwise"
+      ],
       "guides": [
         {
           "title": "Developer Guide",
@@ -3183,6 +3890,11 @@
     },
     {
       "id": "iotsitewise",
+      "name": "AWS IoT SiteWise",
+      "segments": [
+        "cli",
+        "iot-sitewise"
+      ],
       "guides": [
         {
           "title": "AWS IoT SiteWise in the AWS CLI Reference",
@@ -3203,6 +3915,10 @@
     },
     {
       "id": "iottwinmaker",
+      "name": "Iot Twinmaker",
+      "segments": [
+        "iot-twinmaker"
+      ],
       "guides": [
         {
           "title": "User Guide",
@@ -3213,6 +3929,10 @@
     },
     {
       "id": "iotwireless",
+      "name": "AWS IoT Core",
+      "segments": [
+        "iot-wireless"
+      ],
       "guides": [
         {
           "title": "Developer Guide",
@@ -3233,6 +3953,10 @@
     },
     {
       "id": "ip-scdv",
+      "name": "Aws Supply Chain",
+      "segments": [
+        "aws-supply-chain"
+      ],
       "guides": [
         {
           "title": "Administrator Guide",
@@ -3248,6 +3972,10 @@
     },
     {
       "id": "ivs",
+      "name": "ivs",
+      "segments": [
+        "ivs"
+      ],
       "guides": [
         {
           "title": "Chat User Guide",
@@ -3268,6 +3996,11 @@
     },
     {
       "id": "jsb",
+      "name": "AWS SDKs",
+      "segments": [
+        "credref",
+        "sdk-for-javascript"
+      ],
       "guides": [
         {
           "title": "AWS SDKs and Tools Reference Guide",
@@ -3293,6 +4026,10 @@
     },
     {
       "id": "ken",
+      "name": "kendra",
+      "segments": [
+        "kendra"
+      ],
       "guides": [
         {
           "title": "Developer Guide",
@@ -3303,6 +4040,10 @@
     },
     {
       "id": "key",
+      "name": "keyspaces",
+      "segments": [
+        "keyspaces"
+      ],
       "guides": [
         {
           "title": "/keyspaces/latest/devguide/",
@@ -3318,6 +4059,11 @@
     },
     {
       "id": "kinesisanalytics",
+      "name": "Managed Flink",
+      "segments": [
+        "cli",
+        "managed-flink"
+      ],
       "guides": [
         {
           "title": "Managed Service for Apache Flink section of the AWS CLI Reference",
@@ -3333,6 +4079,11 @@
     },
     {
       "id": "kinesisfirehose",
+      "name": "Amazon Data Firehose",
+      "segments": [
+        "cli",
+        "firehose"
+      ],
       "guides": [
         {
           "title": "Amazon Data Firehose section of the AWS CLI Reference",
@@ -3348,6 +4099,11 @@
     },
     {
       "id": "kms",
+      "name": "AWS KMS",
+      "segments": [
+        "cli",
+        "kms"
+      ],
       "guides": [
         {
           "title": "AWS KMS in the AWS CLI Reference",
@@ -3363,6 +4119,11 @@
     },
     {
       "id": "lakeformation",
+      "name": "AWS Lake",
+      "segments": [
+        "cli",
+        "lake-formation"
+      ],
       "guides": [
         {
           "title": "CLI Guide",
@@ -3418,6 +4179,11 @@
     },
     {
       "id": "lambda",
+      "name": "AWS Lambda",
+      "segments": [
+        "lambda",
+        "serverless"
+      ],
       "guides": [
         {
           "title": "Developer Guide",
@@ -3433,6 +4199,10 @@
     },
     {
       "id": "lattice",
+      "name": "App Mesh",
+      "segments": [
+        "app-mesh"
+      ],
       "guides": [
         {
           "title": "/app-mesh/latest/userguide/",
@@ -3443,6 +4213,10 @@
     },
     {
       "id": "launchwizard",
+      "name": "launchwizard",
+      "segments": [
+        "launchwizard"
+      ],
       "guides": [
         {
           "title": "Active Directory User Guide",
@@ -3468,6 +4242,10 @@
     },
     {
       "id": "lfm",
+      "name": "Amazon Lookout",
+      "segments": [
+        "lookoutmetrics"
+      ],
       "guides": [
         {
           "title": "Amazon Lookout for Metrics Developer Guide",
@@ -3478,6 +4256,11 @@
     },
     {
       "id": "license-manager",
+      "name": "License Manager",
+      "segments": [
+        "cli",
+        "license-manager"
+      ],
       "guides": [
         {
           "title": "Linux subscriptions section of the AWS CLI Reference",
@@ -3503,6 +4286,11 @@
     },
     {
       "id": "lightsail",
+      "name": "lightsail",
+      "segments": [
+        "lightsail",
+        "lightsail-for-research"
+      ],
       "guides": [
         {
           "title": "User Guide",
@@ -3518,6 +4306,11 @@
     },
     {
       "id": "lily",
+      "name": "Amazon Connect Agent Workspace Developer Guide",
+      "segments": [
+        "agentworkspace",
+        "connect"
+      ],
       "guides": [
         {
           "title": "Amazon Connect Agent Workspace Developer Guide for Third-party Apps",
@@ -3533,6 +4326,11 @@
     },
     {
       "id": "linux",
+      "name": "Amazon Linux",
+      "segments": [
+        "AL2",
+        "linux"
+      ],
       "guides": [
         {
           "title": "Amazon Linux 2 Release Notes",
@@ -3563,6 +4361,10 @@
     },
     {
       "id": "local-zones",
+      "name": "Local Zones",
+      "segments": [
+        "local-zones"
+      ],
       "guides": [
         {
           "title": "User Guide",
@@ -3573,6 +4375,10 @@
     },
     {
       "id": "lyra",
+      "name": "Lookout For Vision",
+      "segments": [
+        "lookout-for-vision"
+      ],
       "guides": [
         {
           "title": "Developer Guide",
@@ -3583,6 +4389,10 @@
     },
     {
       "id": "m2",
+      "name": "m2",
+      "segments": [
+        "m2"
+      ],
       "guides": [
         {
           "title": "User Guide",
@@ -3593,6 +4403,40 @@
     },
     {
       "id": "machinelearning",
+      "name": "Amazon Lookout",
+      "segments": [
+        "augmented-ai",
+        "codeguru",
+        "comprehend",
+        "comprehend-medical",
+        "deep-learning-containers",
+        "deepcomposer",
+        "deeplens",
+        "deepracer",
+        "devops-guru",
+        "dlami",
+        "elastic-inference",
+        "forecast",
+        "frauddetector",
+        "healthlake",
+        "kendra",
+        "lex",
+        "lookout-for-equipment",
+        "lookout-for-metrics",
+        "lookout-for-vision",
+        "machine-learning",
+        "monitron",
+        "mxnet",
+        "omics",
+        "panorama",
+        "personalize",
+        "polly",
+        "rekognition",
+        "sagemaker",
+        "textract",
+        "transcribe",
+        "translate"
+      ],
       "guides": [
         {
           "title": "Amazon A2I",
@@ -3753,6 +4597,10 @@
     },
     {
       "id": "macie",
+      "name": "macie",
+      "segments": [
+        "macie"
+      ],
       "guides": [
         {
           "title": "User Guide",
@@ -3763,6 +4611,10 @@
     },
     {
       "id": "marketplace",
+      "name": "marketplace",
+      "segments": [
+        "marketplace"
+      ],
       "guides": [
         {
           "title": "/marketplace/latest/buyerguide/",
@@ -3778,6 +4630,10 @@
     },
     {
       "id": "mediaconnect",
+      "name": "mediaconnect",
+      "segments": [
+        "mediaconnect"
+      ],
       "guides": [
         {
           "title": "/mediaconnect/latest/ug/",
@@ -3788,6 +4644,11 @@
     },
     {
       "id": "mediaconvert",
+      "name": "mediaconvert",
+      "segments": [
+        "mediaconvert",
+        "speke"
+      ],
       "guides": [
         {
           "title": "User Guide",
@@ -3803,6 +4664,10 @@
     },
     {
       "id": "medialive",
+      "name": "medialive",
+      "segments": [
+        "medialive"
+      ],
       "guides": [
         {
           "title": "User Guide",
@@ -3813,6 +4678,11 @@
     },
     {
       "id": "mediapackage",
+      "name": "mediapackage",
+      "segments": [
+        "mediapackage",
+        "speke"
+      ],
       "guides": [
         {
           "title": "User Guide",
@@ -3833,6 +4703,10 @@
     },
     {
       "id": "mediastore",
+      "name": "mediastore",
+      "segments": [
+        "mediastore"
+      ],
       "guides": [
         {
           "title": "User Guide",
@@ -3843,6 +4717,10 @@
     },
     {
       "id": "mediatailor",
+      "name": "mediatailor",
+      "segments": [
+        "mediatailor"
+      ],
       "guides": [
         {
           "title": "User Guide",
@@ -3853,6 +4731,10 @@
     },
     {
       "id": "medical-imaging",
+      "name": "healthimaging",
+      "segments": [
+        "healthimaging"
+      ],
       "guides": [
         {
           "title": "Developer Guide",
@@ -3863,6 +4745,11 @@
     },
     {
       "id": "memorydb",
+      "name": "memorydb",
+      "segments": [
+        "cli",
+        "memorydb"
+      ],
       "guides": [
         {
           "title": "MemoryDB section of the AWS CLI Reference",
@@ -3878,6 +4765,10 @@
     },
     {
       "id": "mgn",
+      "name": "mgn",
+      "segments": [
+        "mgn"
+      ],
       "guides": [
         {
           "title": "User Guide",
@@ -3888,6 +4779,10 @@
     },
     {
       "id": "microservice-extractor",
+      "name": "AWS Microservice Extractor",
+      "segments": [
+        "microservice-extractor"
+      ],
       "guides": [
         {
           "title": "AWS Microservice Extractor for .NET User Guide",
@@ -3898,6 +4793,14 @@
     },
     {
       "id": "migrationhub",
+      "name": "AWS Migration Hub Journeys",
+      "segments": [
+        "mhj",
+        "migrationhub",
+        "migrationhub-orchestrator",
+        "migrationhub-refactor-spaces",
+        "migrationhub-strategy"
+      ],
       "guides": [
         {
           "title": "AWS Migration Hub Journeys User Guide",
@@ -3933,6 +4836,10 @@
     },
     {
       "id": "mon",
+      "name": "Monitron",
+      "segments": [
+        "Monitron"
+      ],
       "guides": [
         {
           "title": "/Monitron/latest/getting-started-guide/",
@@ -3948,6 +4855,10 @@
     },
     {
       "id": "msk",
+      "name": "msk",
+      "segments": [
+        "msk"
+      ],
       "guides": [
         {
           "title": "Developer Guide",
@@ -3958,6 +4869,10 @@
     },
     {
       "id": "mxnet",
+      "name": "mxnet",
+      "segments": [
+        "mxnet"
+      ],
       "guides": [
         {
           "title": "Developer Guide",
@@ -3968,6 +4883,11 @@
     },
     {
       "id": "neptune",
+      "name": "neptune",
+      "segments": [
+        "neptune",
+        "neptune-analytics"
+      ],
       "guides": [
         {
           "title": "Graph algorithms in Neptune Analytics",
@@ -3993,6 +4913,10 @@
     },
     {
       "id": "nice-dcv",
+      "name": "dcv",
+      "segments": [
+        "dcv"
+      ],
       "guides": [
         {
           "title": "Access Console Guide",
@@ -4043,6 +4967,10 @@
     },
     {
       "id": "notifications",
+      "name": "AWS User Notifications",
+      "segments": [
+        "notifications"
+      ],
       "guides": [
         {
           "title": "AWS User Notifications User Guide",
@@ -4053,6 +4981,12 @@
     },
     {
       "id": "nova",
+      "name": "Amazon Nova",
+      "segments": [
+        "bedrock",
+        "latest",
+        "nova"
+      ],
       "guides": [
         {
           "title": "Get started with Amazon Bedrock",
@@ -4073,6 +5007,10 @@
     },
     {
       "id": "nwfw",
+      "name": "Network Firewall",
+      "segments": [
+        "network-firewall"
+      ],
       "guides": [
         {
           "title": "Developer Guide",
@@ -4083,6 +5021,11 @@
     },
     {
       "id": "odb",
+      "name": "odb",
+      "segments": [
+        "cli",
+        "odb"
+      ],
       "guides": [
         {
           "title": "Oracle Database@AWS in the AWS CLI Reference",
@@ -4098,6 +5041,10 @@
     },
     {
       "id": "omics",
+      "name": "AWS HealthOmics",
+      "segments": [
+        "omics"
+      ],
       "guides": [
         {
           "title": "AWS HealthOmics User Guide",
@@ -4108,6 +5055,13 @@
     },
     {
       "id": "organizations",
+      "name": "AWS Account Management",
+      "segments": [
+        "accounts",
+        "cli",
+        "mpa",
+        "organizations"
+      ],
       "guides": [
         {
           "title": "AWS Account Management Reference Guide",
@@ -4143,6 +5097,10 @@
     },
     {
       "id": "pan",
+      "name": "panorama",
+      "segments": [
+        "panorama"
+      ],
       "guides": [
         {
           "title": "Developer Guide",
@@ -4153,6 +5111,10 @@
     },
     {
       "id": "partner-central",
+      "name": "Partner Central",
+      "segments": [
+        "partner-central"
+      ],
       "guides": [
         {
           "title": "Builder Guide",
@@ -4178,6 +5140,10 @@
     },
     {
       "id": "payment-cryptography",
+      "name": "Payment Cryptography",
+      "segments": [
+        "payment-cryptography"
+      ],
       "guides": [
         {
           "title": "User Guide",
@@ -4188,6 +5154,10 @@
     },
     {
       "id": "pcs",
+      "name": "pcs",
+      "segments": [
+        "pcs"
+      ],
       "guides": [
         {
           "title": "User Guide",
@@ -4198,6 +5168,10 @@
     },
     {
       "id": "personalize",
+      "name": "personalize",
+      "segments": [
+        "personalize"
+      ],
       "guides": [
         {
           "title": "/personalize/latest/dg/",
@@ -4208,6 +5182,10 @@
     },
     {
       "id": "pinpoint",
+      "name": "pinpoint",
+      "segments": [
+        "pinpoint"
+      ],
       "guides": [
         {
           "title": "Resilient Architecture Guide",
@@ -4228,6 +5206,10 @@
     },
     {
       "id": "pinpoint-sms-voice-v2",
+      "name": "Sms Voice",
+      "segments": [
+        "sms-voice"
+      ],
       "guides": [
         {
           "title": "User Guide",
@@ -4238,6 +5220,10 @@
     },
     {
       "id": "polly",
+      "name": "polly",
+      "segments": [
+        "polly"
+      ],
       "guides": [
         {
           "title": "Developer Guide",
@@ -4248,6 +5234,10 @@
     },
     {
       "id": "pro",
+      "name": "Amazon Managed Service",
+      "segments": [
+        "prometheus"
+      ],
       "guides": [
         {
           "title": "Amazon Managed Service for Prometheus User \n                            Guide",
@@ -4258,6 +5248,11 @@
     },
     {
       "id": "promenade",
+      "name": "AWS CloudFormation",
+      "segments": [
+        "AWSCloudFormation",
+        "evs"
+      ],
       "guides": [
         {
           "title": "AWS CloudFormation resources for Amazon EVS",
@@ -4273,6 +5268,12 @@
     },
     {
       "id": "quicksight",
+      "name": "Amazon Quick Sight",
+      "segments": [
+        "cli",
+        "quicksight",
+        "quicksuite"
+      ],
       "guides": [
         {
           "title": "Amazon Quick Sight in the AWS CLI Reference",
@@ -4293,6 +5294,11 @@
     },
     {
       "id": "r53",
+      "name": "Amazon Route",
+      "segments": [
+        "Route53",
+        "cli"
+      ],
       "guides": [
         {
           "title": "Developer Guide",
@@ -4323,6 +5329,14 @@
     },
     {
       "id": "ram",
+      "name": "AWS Resource Groups",
+      "segments": [
+        "ARG",
+        "cli",
+        "ram",
+        "resource-explorer",
+        "tag-editor"
+      ],
       "guides": [
         {
           "title": "AWS Resource Groups User Guide",
@@ -4368,6 +5382,12 @@
     },
     {
       "id": "rds",
+      "name": "Amazon RDS",
+      "segments": [
+        "AmazonRDS",
+        "aurora-dsql",
+        "cli"
+      ],
       "guides": [
         {
           "title": "Release Notes for Aurora MySQL",
@@ -4428,6 +5448,11 @@
     },
     {
       "id": "redshift",
+      "name": "Amazon Redshift Serverless",
+      "segments": [
+        "cli",
+        "redshift"
+      ],
       "guides": [
         {
           "title": "Redshift Data Service CLI Guide",
@@ -4483,6 +5508,10 @@
     },
     {
       "id": "rekognition",
+      "name": "rekognition",
+      "segments": [
+        "rekognition"
+      ],
       "guides": [
         {
           "title": "Custom Labels Developer Guide",
@@ -4543,6 +5572,10 @@
     },
     {
       "id": "repostspace",
+      "name": "repostprivate",
+      "segments": [
+        "repostprivate"
+      ],
       "guides": [
         {
           "title": "Administration Guide",
@@ -4563,6 +5596,10 @@
     },
     {
       "id": "res",
+      "name": "res",
+      "segments": [
+        "res"
+      ],
       "guides": [
         {
           "title": "Research and Engineering Studio on AWS",
@@ -4573,6 +5610,10 @@
     },
     {
       "id": "resiliencehub",
+      "name": "Resilience Hub",
+      "segments": [
+        "resilience-hub"
+      ],
       "guides": [
         {
           "title": "User Guide",
@@ -4583,6 +5624,14 @@
     },
     {
       "id": "resource-explorer-2",
+      "name": "AWS Resource Groups",
+      "segments": [
+        "ARG",
+        "cli",
+        "ram",
+        "resource-explorer",
+        "tag-editor"
+      ],
       "guides": [
         {
           "title": "AWS Resource Groups User Guide",
@@ -4628,6 +5677,10 @@
     },
     {
       "id": "rosa",
+      "name": "rosa",
+      "segments": [
+        "rosa"
+      ],
       "guides": [
         {
           "title": "/rosa/latest/userguide",
@@ -4638,6 +5691,11 @@
     },
     {
       "id": "route53-application-recovery-controller",
+      "name": "r53recovery",
+      "segments": [
+        "cli",
+        "r53recovery"
+      ],
       "guides": [
         {
           "title": "Zonal Shift in the AWS CLI Reference",
@@ -4668,6 +5726,10 @@
     },
     {
       "id": "rtbfabric",
+      "name": "Rtb Fabric",
+      "segments": [
+        "rtb-fabric"
+      ],
       "guides": [
         {
           "title": "User Guide",
@@ -4678,6 +5740,11 @@
     },
     {
       "id": "runtime.lex",
+      "name": "lex",
+      "segments": [
+        "lex",
+        "lexv2"
+      ],
       "guides": [
         {
           "title": "Lex V1 Developer Guide",
@@ -4693,6 +5760,11 @@
     },
     {
       "id": "s3",
+      "name": "Amazon S3",
+      "segments": [
+        "AmazonS3",
+        "amazonglacier"
+      ],
       "guides": [
         {
           "title": "User Guide",
@@ -4713,6 +5785,10 @@
     },
     {
       "id": "sagemaker",
+      "name": "Amazon SageMaker AI",
+      "segments": [
+        "sagemaker"
+      ],
       "guides": [
         {
           "title": "Label Data with a Human-in-the-loop",
@@ -4793,6 +5869,10 @@
     },
     {
       "id": "sam",
+      "name": "Serverless Application Model",
+      "segments": [
+        "serverless-application-model"
+      ],
       "guides": [
         {
           "title": "/serverless-application-model/latest/developerguide/",
@@ -4808,6 +5888,10 @@
     },
     {
       "id": "savings-plans",
+      "name": "savingsplans",
+      "segments": [
+        "savingsplans"
+      ],
       "guides": [
         {
           "title": "Savings Plans User Guide",
@@ -4818,6 +5902,10 @@
     },
     {
       "id": "secretsmanager",
+      "name": "secretsmanager",
+      "segments": [
+        "secretsmanager"
+      ],
       "guides": [
         {
           "title": "User Guide",
@@ -4828,6 +5916,10 @@
     },
     {
       "id": "securityhub",
+      "name": "AWS Security Hub Partner Integration Guide",
+      "segments": [
+        "securityhub"
+      ],
       "guides": [
         {
           "title": "AWS Security Hub Partner Integration Guide",
@@ -4843,6 +5935,10 @@
     },
     {
       "id": "securitylake",
+      "name": "Amazon Security Lake",
+      "segments": [
+        "security-lake"
+      ],
       "guides": [
         {
           "title": "Amazon Security Lake User Guide",
@@ -4853,6 +5949,15 @@
     },
     {
       "id": "serverless",
+      "name": "AWS SAM",
+      "segments": [
+        "IAM",
+        "amazondynamodb",
+        "apigateway",
+        "lambda",
+        "serverless",
+        "serverless-application-model"
+      ],
       "guides": [
         {
           "title": "IAM User Guide",
@@ -4888,6 +5993,10 @@
     },
     {
       "id": "serverlessrepo",
+      "name": "serverlessrepo",
+      "segments": [
+        "serverlessrepo"
+      ],
       "guides": [
         {
           "title": "Developer Guide",
@@ -4898,6 +6007,12 @@
     },
     {
       "id": "servicecatalog",
+      "name": "AWS Service Catalog",
+      "segments": [
+        "cli",
+        "servicecatalog",
+        "smc"
+      ],
       "guides": [
         {
           "title": "AWS CLI Reference",
@@ -4933,6 +6048,11 @@
     },
     {
       "id": "servicediscovery",
+      "name": "AWS Cloud Map",
+      "segments": [
+        "cli",
+        "cloud-map"
+      ],
       "guides": [
         {
           "title": "AWS Cloud Map (service discovery) in the AWS CLI Reference",
@@ -4948,6 +6068,11 @@
     },
     {
       "id": "servicequotas",
+      "name": "AWS CLI\n                            Reference",
+      "segments": [
+        "cli",
+        "servicequotas"
+      ],
       "guides": [
         {
           "title": "Service Quotas section of the AWS CLI\n                            Reference",
@@ -4963,6 +6088,12 @@
     },
     {
       "id": "ses",
+      "name": "AWS AWS CLI Reference",
+      "segments": [
+        "cli",
+        "ses",
+        "workmail"
+      ],
       "guides": [
         {
           "title": "AWS\n                            AWS CLI Reference for Amazon SES Mail Manager",
@@ -5003,6 +6134,10 @@
     },
     {
       "id": "shield",
+      "name": "waf",
+      "segments": [
+        "waf"
+      ],
       "guides": [
         {
           "title": "Developer Guide",
@@ -5013,6 +6148,11 @@
     },
     {
       "id": "signer",
+      "name": "AWS Signer",
+      "segments": [
+        "cli",
+        "signer"
+      ],
       "guides": [
         {
           "title": "AWS Signer section of AWS CLI Reference",
@@ -5028,6 +6168,10 @@
     },
     {
       "id": "signin",
+      "name": "AWS Sign",
+      "segments": [
+        "signin"
+      ],
       "guides": [
         {
           "title": "AWS Sign-In User Guide",
@@ -5038,6 +6182,10 @@
     },
     {
       "id": "simspaceweaver",
+      "name": "simspaceweaver",
+      "segments": [
+        "simspaceweaver"
+      ],
       "guides": [
         {
           "title": "Guide Catalog",
@@ -5053,6 +6201,10 @@
     },
     {
       "id": "slk",
+      "name": "silk",
+      "segments": [
+        "silk"
+      ],
       "guides": [
         {
           "title": "Developer Guide",
@@ -5063,6 +6215,10 @@
     },
     {
       "id": "smc",
+      "name": "AWS Service Management Connector Documentation",
+      "segments": [
+        "smc"
+      ],
       "guides": [
         {
           "title": "AWS Service Management Connector Documentation",
@@ -5073,6 +6229,10 @@
     },
     {
       "id": "snowballedge",
+      "name": "AWS Snowball Edge",
+      "segments": [
+        "snowball"
+      ],
       "guides": [
         {
           "title": "AWS Snowball Edge Developer Guide",
@@ -5083,6 +6243,10 @@
     },
     {
       "id": "sns",
+      "name": "sns",
+      "segments": [
+        "sns"
+      ],
       "guides": [
         {
           "title": "Developer Guide",
@@ -5093,6 +6257,12 @@
     },
     {
       "id": "social-messaging",
+      "name": "Push Notifications",
+      "segments": [
+        "push-notifications",
+        "sms-voice",
+        "social-messaging"
+      ],
       "guides": [
         {
           "title": "User Guide",
@@ -5113,6 +6283,11 @@
     },
     {
       "id": "sqs",
+      "name": "Amazon SQS",
+      "segments": [
+        "AWSSimpleQueueService",
+        "cli"
+      ],
       "guides": [
         {
           "title": "Developer Guide",
@@ -5128,6 +6303,10 @@
     },
     {
       "id": "sso",
+      "name": "singlesignon",
+      "segments": [
+        "singlesignon"
+      ],
       "guides": [
         {
           "title": "IAM Identity Center SCIM Implementation Developer Guide",
@@ -5143,6 +6322,10 @@
     },
     {
       "id": "states",
+      "name": "Step Functions",
+      "segments": [
+        "step-functions"
+      ],
       "guides": [
         {
           "title": "Developer Guide",
@@ -5153,6 +6336,11 @@
     },
     {
       "id": "storagegateway",
+      "name": "filegateway",
+      "segments": [
+        "filegateway",
+        "storagegateway"
+      ],
       "guides": [
         {
           "title": "User Guide for Amazon FSx File Gateway",
@@ -5178,6 +6366,12 @@
     },
     {
       "id": "support",
+      "name": "AWS Support App Documentation",
+      "segments": [
+        "IDR",
+        "awssupport",
+        "cli"
+      ],
       "guides": [
         {
           "title": "User Guide",
@@ -5208,6 +6402,10 @@
     },
     {
       "id": "swf",
+      "name": "Amazon Swf",
+      "segments": [
+        "amazonswf"
+      ],
       "guides": [
         {
           "title": "Developer Guide",
@@ -5223,6 +6421,10 @@
     },
     {
       "id": "telconetworkbuilder",
+      "name": "tnb",
+      "segments": [
+        "tnb"
+      ],
       "guides": [
         {
           "title": "User Guide",
@@ -5233,6 +6435,10 @@
     },
     {
       "id": "textract",
+      "name": "textract",
+      "segments": [
+        "textract"
+      ],
       "guides": [
         {
           "title": "/textract/latest/dg/",
@@ -5243,6 +6449,10 @@
     },
     {
       "id": "time",
+      "name": "timestream",
+      "segments": [
+        "timestream"
+      ],
       "guides": [
         {
           "title": "Developer Guide",
@@ -5258,6 +6468,11 @@
     },
     {
       "id": "transcribe",
+      "name": "Amazon Transcribe",
+      "segments": [
+        "cli",
+        "transcribe"
+      ],
       "guides": [
         {
           "title": "CLI Reference",
@@ -5288,6 +6503,10 @@
     },
     {
       "id": "transfer",
+      "name": "AWS Transfer Family",
+      "segments": [
+        "transfer"
+      ],
       "guides": [
         {
           "title": "AWS Transfer Family User Guide",
@@ -5303,6 +6522,10 @@
     },
     {
       "id": "transform",
+      "name": "AWS Transform",
+      "segments": [
+        "transform"
+      ],
       "guides": [
         {
           "title": "AWS  Transform User Guide",
@@ -5313,6 +6536,10 @@
     },
     {
       "id": "translate",
+      "name": "translate",
+      "segments": [
+        "translate"
+      ],
       "guides": [
         {
           "title": "Developer Guide",
@@ -5323,6 +6550,12 @@
     },
     {
       "id": "trustedadvisor",
+      "name": "AWS Support App Documentation",
+      "segments": [
+        "IDR",
+        "awssupport",
+        "cli"
+      ],
       "guides": [
         {
           "title": "User Guide",
@@ -5353,6 +6586,10 @@
     },
     {
       "id": "tts",
+      "name": "vsts",
+      "segments": [
+        "vsts"
+      ],
       "guides": [
         {
           "title": "User Guide",
@@ -5363,6 +6600,12 @@
     },
     {
       "id": "tvs",
+      "name": "AWS Tools",
+      "segments": [
+        "code-samples",
+        "credref",
+        "toolkit-for-visual-studio"
+      ],
       "guides": [
         {
           "title": "Code Sample Catalog",
@@ -5383,6 +6626,12 @@
     },
     {
       "id": "twpall",
+      "name": "AWS SDK Code Examples Code Library",
+      "segments": [
+        "code-library",
+        "powershell",
+        "sdkref"
+      ],
       "guides": [
         {
           "title": "AWS SDK Code Examples Code Library",
@@ -5418,6 +6667,11 @@
     },
     {
       "id": "valkyrie",
+      "name": "AWS FIS",
+      "segments": [
+        "cli",
+        "fis"
+      ],
       "guides": [
         {
           "title": "AWS FIS section of the AWS CLI Reference",
@@ -5433,6 +6687,15 @@
     },
     {
       "id": "vector-databases",
+      "name": "Amazon Aurora PostgreSQL",
+      "segments": [
+        "AmazonRDS",
+        "amazondynamodb",
+        "documentdb",
+        "memorydb",
+        "neptune-analytics",
+        "opensearch-service"
+      ],
       "guides": [
         {
           "title": "Amazon Aurora PostgreSQL",
@@ -5468,6 +6731,11 @@
     },
     {
       "id": "verified-access",
+      "name": "Verified Access",
+      "segments": [
+        "cli",
+        "verified-access"
+      ],
       "guides": [
         {
           "title": "EC2 section of the AWS CLI Reference",
@@ -5483,6 +6751,10 @@
     },
     {
       "id": "verifiedpermissions",
+      "name": "Amazon Verified Permissions",
+      "segments": [
+        "verifiedpermissions"
+      ],
       "guides": [
         {
           "title": "Amazon Verified Permissions User Guide",
@@ -5493,6 +6765,13 @@
     },
     {
       "id": "vpc",
+      "name": "AWS Cloud WAN",
+      "segments": [
+        "cli",
+        "network-manager",
+        "vpc",
+        "vpc-lattice"
+      ],
       "guides": [
         {
           "title": "CLI Reference",
@@ -5563,6 +6842,11 @@
     },
     {
       "id": "vpc-lattice",
+      "name": "Vpc Lattice",
+      "segments": [
+        "cli",
+        "vpc-lattice"
+      ],
       "guides": [
         {
           "title": "CLI Reference",
@@ -5578,6 +6862,11 @@
     },
     {
       "id": "vpnvpc",
+      "name": "AWS Site",
+      "segments": [
+        "cli",
+        "vpn"
+      ],
       "guides": [
         {
           "title": "EC2 section of the AWS CLI Reference",
@@ -5608,6 +6897,10 @@
     },
     {
       "id": "vsts",
+      "name": "vsts",
+      "segments": [
+        "vsts"
+      ],
       "guides": [
         {
           "title": "User Guide",
@@ -5618,6 +6911,10 @@
     },
     {
       "id": "waf",
+      "name": "waf",
+      "segments": [
+        "waf"
+      ],
       "guides": [
         {
           "title": "Developer Guide",
@@ -5628,6 +6925,10 @@
     },
     {
       "id": "wat",
+      "name": "wellarchitected",
+      "segments": [
+        "wellarchitected"
+      ],
       "guides": [
         {
           "title": "/wellarchitected/latest/userguide/",
@@ -5638,6 +6939,11 @@
     },
     {
       "id": "wave",
+      "name": "wavelength",
+      "segments": [
+        "cli",
+        "wavelength"
+      ],
       "guides": [
         {
           "title": "EC2 section of the AWS CLI Reference",
@@ -5653,6 +6959,10 @@
     },
     {
       "id": "wickr",
+      "name": "wickr",
+      "segments": [
+        "wickr"
+      ],
       "guides": [
         {
           "title": "Administration Guide",
@@ -5698,6 +7008,10 @@
     },
     {
       "id": "workmail",
+      "name": "workmail",
+      "segments": [
+        "workmail"
+      ],
       "guides": [
         {
           "title": "Administrator Guide",
@@ -5713,6 +7027,11 @@
     },
     {
       "id": "workspaces",
+      "name": "workspaces",
+      "segments": [
+        "cli",
+        "workspaces"
+      ],
       "guides": [
         {
           "title": "WorkSpaces section of the AWS CLI Reference",
@@ -5738,6 +7057,10 @@
     },
     {
       "id": "workspaces-core",
+      "name": "Workspaces Core",
+      "segments": [
+        "workspaces-core"
+      ],
       "guides": [
         {
           "title": "Administration Guide",
@@ -5753,6 +7076,10 @@
     },
     {
       "id": "workspaces-thin-client",
+      "name": "Workspaces Thin Client",
+      "segments": [
+        "workspaces-thin-client"
+      ],
       "guides": [
         {
           "title": "Administrator Guide",
@@ -5768,6 +7095,10 @@
     },
     {
       "id": "workspaces-web",
+      "name": "Workspaces Web",
+      "segments": [
+        "workspaces-web"
+      ],
       "guides": [
         {
           "title": "Administration Guide",
@@ -5778,6 +7109,10 @@
     },
     {
       "id": "xray",
+      "name": "xray",
+      "segments": [
+        "xray"
+      ],
       "guides": [
         {
           "title": "Developer Guide",

@@ -267,26 +267,32 @@ def _derive_service_name(service_id: str, guides: Sequence[ServiceGuide]) -> str
 
         # Handle camelCase segments (e.g., "AmazonS3" -> "Amazon S3", "AWSCloudFormation" -> "AWS CloudFormation")
         if not re.search(r'[-_]', segment):
-            # First, handle the AWS/Amazon prefix
+            # First, handle the AWS/Amazon prefix (case-insensitive)
             if segment.startswith('AWS'):
-                # Extract "AWS" and process the rest
+                # Extract "AWS" and keep the rest as-is (AWS uses proper formatting in URLs)
                 rest = segment[3:]
-                if rest:
-                    # Insert spaces before capital letters in the rest
-                    rest_spaced = re.sub(r'([a-z0-9])([A-Z])', r'\1 \2', rest)
-                    return f'AWS {rest_spaced}'
-                return 'AWS'
+                return f'AWS {rest}' if rest else 'AWS'
             elif segment.startswith('Amazon'):
-                # Extract "Amazon" and process the rest
+                # Extract "Amazon" and keep the rest as-is
+                rest = segment[6:]
+                return f'Amazon {rest}' if rest else 'Amazon'
+            elif segment.lower().startswith('amazon'):
+                # Handle lowercase "amazon" prefix (e.g., "amazondynamodb" -> "Amazon DynamoDB")
                 rest = segment[6:]
                 if rest:
-                    # Insert spaces before capital letters in the rest
-                    rest_spaced = re.sub(r'([a-z0-9])([A-Z])', r'\1 \2', rest)
-                    return f'Amazon {rest_spaced}'
+                    # Special cases for known service names
+                    if rest.lower() == 'dynamodb':
+                        return 'Amazon DynamoDB'
+                    # Capitalize the rest properly
+                    rest_title = rest.title()
+                    return f'Amazon {rest_title}'
                 return 'Amazon'
+            elif segment.lower() == 'lambda':
+                # Special case for AWS Lambda
+                return 'AWS Lambda'
             else:
-                # General case: insert spaces before capital letters
-                return re.sub(r'([a-z0-9])([A-Z])', r'\1 \2', segment)
+                # General case: insert spaces at lowercase-to-uppercase boundaries
+                return re.sub(r'([a-z])([A-Z])', r'\1 \2', segment)
 
         # Handle hyphenated/underscored segments (e.g., "deadline-cloud" -> "Deadline Cloud")
         return segment.replace("-", " ").replace("_", " ").title()
