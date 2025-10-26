@@ -2,12 +2,13 @@
 """Commit documentation changes grouped by service and guide."""
 from __future__ import annotations
 
+import json
 import os
 import re
 import subprocess
 import sys
-from collections import OrderedDict
-from typing import Iterable, List, Optional, Sequence, Set, Tuple
+from pathlib import Path
+from typing import List, Optional, Sequence
 
 
 SPECIAL_SLUGS = {
@@ -23,14 +24,6 @@ SPECIAL_SLUGS = {
     "faqs": "FAQs",
     "faq": "FAQ",
     "cli": "CLI",
-}
-
-VERSION_MARKERS = {
-    "latest",
-    "current",
-    "preview",
-    "prerelease",
-    "prod",
 }
 
 
@@ -62,83 +55,8 @@ def prettify_slug(slug: Optional[str]) -> str:
     return " ".join(words)
 
 
-def format_guide(slug: Optional[str]) -> str:
-    pretty = prettify_slug(slug)
-    if not pretty:
-        return ""
-    words = []
-    for word in pretty.split():
-        if re.fullmatch(r"[A-Z0-9]+", word):
-            words.append(word)
-        else:
-            words.append(word.lower())
-    return " ".join(words)
-
-
-def determine_group(path: str) -> Tuple[Optional[str], Optional[str]]:
-    if not path.startswith("docs/"):
-        return (None, None)
-
-    parts = path.split("/")
-    if len(parts) < 2:
-        return (None, None)
-
-    service = parts[1]
-    guide: Optional[str] = None
-
-    if len(parts) > 2:
-        candidate = parts[2]
-        candidate_lower = candidate.lower()
-        if (
-            candidate_lower in VERSION_MARKERS
-            or bool(re.search(r"\d", candidate_lower))
-            or candidate_lower.startswith("v")
-        ):
-            if len(parts) > 3:
-                guide = parts[3]
-        else:
-            guide = candidate
-    return (service, guide)
-
-
-def parse_status() -> List[Tuple[str, str, Optional[str]]]:
-    result = subprocess.check_output(["git", "status", "--porcelain=1", "-z"])
-    if not result:
-        return []
-
-    entries = iter(result.split(b"\0"))
-    changes: List[Tuple[str, str, Optional[str]]] = []
-
-    for entry in entries:
-        if not entry:
-            break
-
-        status = entry[:2].decode()
-        path = entry[3:].decode()
-        new_path: Optional[str] = None
-
-        # Renamed or copied files have the new path in the next entry
-        if status and status[0] in {"R", "C"}:
-            try:
-                new_path = next(entries).decode()
-            except StopIteration:
-                pass
-
-        changes.append((status, path, new_path))
-
-    return changes
-
-
-def is_tracked(path: str) -> bool:
-    result = subprocess.run(
-        ["git", "ls-files", "--error-unmatch", path],
-        stdout=subprocess.DEVNULL,
-        stderr=subprocess.DEVNULL,
-    )
-    return result.returncode == 0
-
-
-def run_prettier(_: Iterable[str]) -> None:
+def run_prettier_once() -> None:
+    """Run prettier once on all markdown files in docs/."""
     command = [
         "npx",
         "--yes",
@@ -146,34 +64,14 @@ def run_prettier(_: Iterable[str]) -> None:
         "--write",
         "docs/**/*.md",
     ]
-
+    print("Running Prettier on all documentation files...")
     subprocess.run(command, check=True)
 
 
-def stage_paths(paths: Iterable[str]) -> None:
-    run_prettier(paths)
-
-    for path in sorted(set(paths)):
-        if not path:
-            continue
-        try:
-            run_git(["add", "--", path])
-            continue
-        except subprocess.CalledProcessError:
-            pass
-
-        tracked = is_tracked(path)
-        exists = os.path.lexists(path)
-
-        if tracked and not exists:
-            run_git(["rm", "--cached", "--", path])
-            continue
-
-        if exists or tracked:
-            run_git(["add", "-f", "--", path])
-            continue
-
-        run_git(["add", "--", path])
+def stage_service_by_pattern(service_id: str) -> None:
+    """Stage all changes for a service using a file pattern."""
+    pattern = f"docs/{service_id}/**"
+    run_git(["add", "-A", "--", pattern])
 
 
 def has_staged_changes() -> bool:
@@ -188,55 +86,70 @@ def set_output(changes: bool) -> None:
             handle.write(f"changes={'true' if changes else 'false'}\n")
 
 
+def load_service_ids(manifest_path: Path) -> List[str]:
+    """Load service IDs from the service manifest."""
+    if not manifest_path.exists():
+        print(f"Warning: Service manifest not found at {manifest_path}")
+        return []
+
+    with open(manifest_path, "r", encoding="utf-8") as handle:
+        data = json.load(handle)
+
+    services = data.get("services", [])
+    service_ids = [s.get("id") for s in services if s.get("id")]
+    return service_ids
+
+
 def main() -> int:
-    changes = parse_status()
-    if not changes:
-        print("No changes detected.")
+    manifest_path = Path("docs/service-manifest.json")
+
+    # Reset any staged changes
+    run_git(["reset", "HEAD"], check=False)
+
+    # Run prettier once on all markdown files
+    run_prettier_once()
+
+    # Load service IDs from manifest
+    service_ids = load_service_ids(manifest_path)
+    if not service_ids:
+        print("No services found in manifest.")
         set_output(False)
         return 0
 
-    run_git(["reset", "HEAD"])
-
-    grouped: OrderedDict[Tuple[Optional[str], Optional[str]], Set[str]] = OrderedDict()
-    for status, original_path, new_path in changes:
-        reference_path = new_path or original_path
-        group_key = determine_group(reference_path)
-        if group_key not in grouped:
-            grouped[group_key] = set()
-        grouped[group_key].add(original_path)
-        if new_path:
-            grouped[group_key].add(new_path)
-
+    print(f"Processing {len(service_ids)} services...")
     total_commits = 0
-    deferred: List[Tuple[Tuple[Optional[str], Optional[str]], Set[str]]] = []
 
-    for key, paths in grouped.items():
-        if key == (None, None):
-            deferred.append((key, paths))
-            continue
-        service_slug, guide_slug = key
-        stage_paths(paths)
-        if not has_staged_changes():
-            run_git(["reset", "HEAD"])
-            continue
-        service = prettify_slug(service_slug)
-        guide = format_guide(guide_slug)
-        if service and guide:
-            message = f"Update to {service} {guide}"
-        elif service:
-            message = f"Update to {service} docs"
-        else:
-            message = "Update documentation"
-        run_git(["commit", "-m", message])
-        total_commits += 1
+    # Process each service
+    for service_id in service_ids:
+        # Stage all changes for this service
+        stage_service_by_pattern(service_id)
 
-    for key, paths in deferred:
-        stage_paths(paths)
+        # Check if there are changes to commit
         if not has_staged_changes():
-            run_git(["reset", "HEAD"])
             continue
-        run_git(["commit", "-m", "Update repository files"])
-        total_commits += 1
+
+        # Create commit message
+        service_name = prettify_slug(service_id)
+        message = f"Update to {service_name} docs"
+
+        try:
+            run_git(["commit", "-m", message])
+            total_commits += 1
+            print(f"Committed changes for {service_name}")
+        except subprocess.CalledProcessError:
+            # No changes to commit or commit failed
+            run_git(["reset", "HEAD"], check=False)
+            continue
+
+    # Commit any remaining non-docs files
+    run_git(["add", "-A", "."], check=False)
+    if has_staged_changes():
+        try:
+            run_git(["commit", "-m", "Update repository files"])
+            total_commits += 1
+            print("Committed non-documentation files")
+        except subprocess.CalledProcessError:
+            run_git(["reset", "HEAD"], check=False)
 
     if total_commits == 0:
         print("No commits created.")
