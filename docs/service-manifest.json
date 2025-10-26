@@ -1,5 +1,5 @@
 {
-  "generated_at": "2025-10-25T03:20:14.867240Z",
+  "generated_at": "2025-10-26T05:09:38.892131Z",
   "services": [
     {
       "id": "a2c",
@@ -1902,7 +1902,7 @@
         {
           "title": "Developer Guide",
           "url": "https://docs.aws.amazon.com/deadline-cloud/latest/developerguide",
-          "allowed_prefix": "/deadline-cloud/latest/developerguide/"
+          "allowed_prefix": "/deadline-cloud/latest/"
         },
         {
           "title": "User Guide",
