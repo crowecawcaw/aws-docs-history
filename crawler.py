@@ -200,12 +200,22 @@ class RequestRateLimiter:
 
 
 class LinkChecker:
-    """Determine whether a link should be crawled."""
+    """Validate URLs for crawling and link rewriting.
+
+    Used to:
+    1. Filter URLs extracted from TOC files during discovery
+    2. Determine which links in HTML should be rewritten to local .md files
+
+    Ensures URLs are:
+    - Within allowed path prefixes (for service-specific crawls)
+    - On the correct host and scheme
+    - Not pointing to non-HTML resources (PDFs, archives, etc.)
+    """
 
     def __init__(self, allowed_prefixes: Optional[Sequence[str]] = None) -> None:
         self.allowed_schemes = {"http", "https"}
-        self.disallowed_suffixes = {".png", ".jpg", ".jpeg", ".gif", ".pdf", ".zip", ".svg", ".xml"}
-        self.html_suffixes = ("/", ".html", ".htm")
+        # Filter out non-HTML resources (for link rewriting)
+        self.disallowed_suffixes = {".pdf", ".zip", ".xml"}
         raw_prefixes = list(allowed_prefixes or [])
         self.prefixes = [
             prefix if prefix.startswith("/") else f"/{prefix.lstrip('/')}"
@@ -214,7 +224,7 @@ class LinkChecker:
         ]
 
     def __call__(self, url: str) -> bool:
-        """Check if the URL should be visited."""
+        """Check if the URL should be visited or rewritten."""
         parsed = urlparse(url)
         if parsed.scheme not in self.allowed_schemes:
             return False
@@ -224,8 +234,6 @@ class LinkChecker:
             return False
         lower_path = parsed.path.lower()
         if any(lower_path.endswith(suffix) for suffix in self.disallowed_suffixes):
-            return False
-        if lower_path and not lower_path.endswith(self.html_suffixes):
             return False
         return True
 
@@ -994,9 +1002,7 @@ class AwsDocsCrawler:
 
         LOGGER.debug("Fetching %s", url)
 
-        if not self.link_checker(url):
-            LOGGER.debug("Skipping %s because it does not look like an HTML page", url)
-            return
+        # Note: URL has already been validated by link_checker during TOC processing
 
         try:
             self._rate_limiter.acquire()
