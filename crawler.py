@@ -206,6 +206,7 @@ class LinkChecker:
         self.allowed_schemes = {"http", "https"}
         self.disallowed_suffixes = {".png", ".jpg", ".jpeg", ".gif", ".pdf", ".zip", ".svg", ".xml"}
         self.html_suffixes = ("/", ".html", ".htm")
+        self.guide_patterns = ("userguide", "developerguide", "apireference", "api")
         raw_prefixes = list(allowed_prefixes or [])
         self.prefixes = [
             prefix if prefix.startswith("/") else f"/{prefix.lstrip('/')}"
@@ -225,6 +226,12 @@ class LinkChecker:
         lower_path = parsed.path.lower()
         if any(lower_path.endswith(suffix) for suffix in self.disallowed_suffixes):
             return False
+
+        # Allow guide directory URLs (e.g., /userguide, /developerguide)
+        path_parts = [part for part in lower_path.split('/') if part]
+        if path_parts and any(pattern in path_parts[-1] for pattern in self.guide_patterns):
+            return True
+
         if lower_path and not lower_path.endswith(self.html_suffixes):
             return False
         return True
@@ -914,7 +921,8 @@ class AwsDocsCrawler:
         self._known_urls: set[str] = set()
         self._known_urls_lock = threading.Lock()
         self._known_tocs: set[str] = set()
-        self._visited_urls: list[str] = []
+        self._visited_urls: set[str] = set()  # Changed to set for O(1) lookup
+        self._queued_urls: set[str] = set()  # Track which URLs have been enqueued
 
         self._rate_limiter = RequestRateLimiter(requests_per_second)
         self._image_handler = ImageHandler(output_dir, self.session, self._rate_limiter)
@@ -924,27 +932,51 @@ class AwsDocsCrawler:
 
     @property
     def visited_urls(self) -> list[str]:
-        return list(self._visited_urls)
+        with self._known_urls_lock:
+            return list(self._visited_urls)
 
     def crawl(self) -> None:
         LOGGER.info("Starting crawl at %s", ", ".join(self.start_urls))
         self.output_dir.mkdir(parents=True, exist_ok=True)
 
+        # Phase 1: Discover all pages from TOC files
+        LOGGER.info("Phase 1: Discovering pages from TOC files")
+        self._discover_all_tocs()
+
+        # Phase 2: Crawl all discovered pages
         with self._known_urls_lock:
-            self._known_urls.update(self.start_urls)
+            page_count = len(self._known_urls)
+        LOGGER.info("Phase 2: Crawling %d discovered pages", page_count)
 
         with ThreadPoolExecutor(max_workers=self.max_workers) as executor:
             for _ in range(self.max_workers):
                 executor.submit(self._worker)
 
-            for url in self.start_urls:
-                self._url_queue.put(url)
+            # Enqueue all discovered URLs (excluding already queued and start URLs)
+            with self._known_urls_lock:
+                for url in self._known_urls:
+                    # Skip if already queued or if it's a start URL (landing page)
+                    if url in self._queued_urls or url in self.start_urls:
+                        continue
+                    self._queued_urls.add(url)
+                    self._url_queue.put(url)
+
             self._url_queue.join()
 
             for _ in range(self.max_workers):
                 self._url_queue.put(None)
 
         self._toc_manager.write_toc_documents()
+
+    def _discover_all_tocs(self) -> None:
+        """Discover and process all TOC files from start URLs.
+
+        This method processes guide landing pages to find their TOC files,
+        which are then parsed to discover all documentation pages.
+        """
+        for url in self.start_urls:
+            # Auto-discover TOC from guide landing pages
+            self._auto_discover_toc(url)
 
     def _worker(self) -> None:
         while True:
@@ -965,6 +997,12 @@ class AwsDocsCrawler:
                 self._url_queue.task_done()
 
     def _process_url(self, url: str) -> None:
+        # Check if already visited
+        with self._known_urls_lock:
+            if url in self._visited_urls:
+                LOGGER.debug("Skipping already visited URL: %s", url)
+                return
+
         LOGGER.debug("Fetching %s", url)
 
         if not self.link_checker(url):
@@ -1006,40 +1044,50 @@ class AwsDocsCrawler:
         output_path.write_text(markdown, encoding="utf-8")
 
         with self._known_urls_lock:
-            crawled = len(self._visited_urls) + 1
+            self._visited_urls.add(url)
+            crawled = len(self._visited_urls)
             total = len(self._known_urls)
             LOGGER.info("Wrote [%d/%d] %s", crawled, total, output_path)
-            self._visited_urls.append(url)
 
-        self._enqueue_links(soup, url)
+        # Link discovery is skipped - all pages are discovered from TOC files during Phase 1
 
-    def _enqueue_links(self, soup: Tag, base_url: str) -> None:
-        def handle_candidate(raw_value: str, *, is_toc: bool = False) -> None:
-            candidate = raw_value.strip()
-            if not candidate:
+    def _auto_discover_toc(self, url: str) -> None:
+        """Automatically discover and process TOC file for guide landing pages.
+
+        AWS docs guides typically have a toc-contents.json file in the guide directory.
+        This method attempts to find and process it for URLs that look like guide landing pages.
+        """
+        parsed = urlparse(url)
+        path = parsed.path.rstrip('/')
+
+        # Check if this looks like a guide directory (e.g., /service/latest/userguide/)
+        # Common patterns: /userguide/, /developerguide/, /apireference/, /api/
+        guide_patterns = ['userguide', 'developerguide', 'apireference', 'api']
+
+        # Split path into parts and check if the last part matches a guide pattern
+        path_parts = [part for part in path.split('/') if part]
+        if not path_parts:
+            return
+
+        last_part = path_parts[-1].lower()
+        is_guide_landing = any(pattern in last_part for pattern in guide_patterns)
+
+        if not is_guide_landing:
+            return
+
+        # Construct TOC URL by appending toc-contents.json to the guide directory
+        toc_path = f"{path}/toc-contents.json"
+        toc_url = urlunparse(parsed._replace(path=toc_path, fragment='', query=''))
+        toc_url = normalise_url(toc_url)
+
+        # Check if we've already processed this TOC
+        with self._known_urls_lock:
+            if toc_url in self._known_tocs:
                 return
+            self._known_tocs.add(toc_url)
 
-            absolute_url = normalise_url(urljoin(base_url, candidate))
-
-            if is_toc:
-                with self._known_urls_lock:
-                    if absolute_url in self._known_tocs:
-                        return
-                    self._known_tocs.add(absolute_url)
-
-                self._toc_manager.process_toc(absolute_url)
-                return
-
-            if self.link_checker(absolute_url):
-                self._enqueue_url_if_new(absolute_url)
-
-        for link in soup.find_all("a", href=True):
-            handle_candidate(link["href"])
-
-        for meta in soup.find_all("meta", attrs={"name": "tocs"}):
-            raw_content = meta.get("content", "")
-            for toc_entry in raw_content.split(","):
-                handle_candidate(toc_entry, is_toc=True)
+        LOGGER.debug("Auto-discovered TOC: %s", toc_url)
+        self._toc_manager.process_toc(toc_url)
 
     def _enqueue_url_if_new(self, url: str) -> bool:
         with self._known_urls_lock:
