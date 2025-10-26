@@ -17,7 +17,6 @@ from bs4 import BeautifulSoup
 from aws_docs import (
     DOCS_BASE_URL,
     DOCS_NETLOC,
-    DEFAULT_LOCALE,
     ServiceGuide,
     derive_allowed_prefix,
     normalise_url,
@@ -26,6 +25,9 @@ from aws_docs import (
 
 LOGGER = logging.getLogger(__name__)
 MODULE_ROOT = Path(__file__).resolve().parent
+
+# Sitemap URLs
+SITEMAP_INDEX_URL = f"{DOCS_BASE_URL}/sitemap_index.xml"
 
 _NON_SERVICE_PATTERNS = {
     "identifiers": {
@@ -58,6 +60,15 @@ _NON_SERVICE_PATTERNS = {
     "substrings": ("toolkit",),
 }
 
+# Guide types we want to include (excluding API references)
+_INCLUDED_GUIDE_TYPES = {
+    "userguide",
+    "developerguide",
+    "adminguide",
+    "dg",
+    "ug",
+}
+
 
 def _looks_like_non_service(identifier: str) -> bool:
     """Return ``True`` when the manifest identifier is not an AWS service."""
@@ -72,134 +83,213 @@ def _looks_like_non_service(identifier: str) -> bool:
     )
 
 
-def _normalise_service_href(raw_href: str) -> Optional[str]:
-    """Normalise the ``href`` from the main landing page to a service root."""
+def _looks_like_api_doc(guide_segment: str) -> bool:
+    """Check if a guide segment looks like an API reference."""
+    guide_lower = guide_segment.lower()
 
-    if not raw_href:
-        return None
-
-    parsed = urlparse(urljoin(DOCS_BASE_URL, raw_href))
-    if parsed.scheme not in {"http", "https"} or (
-        parsed.netloc and parsed.netloc != DOCS_NETLOC
-    ):
-        return None
-
-    service_segment = parsed.path.strip("/").split("/", 1)[0].strip("/")
-    return f"/{service_segment}/" if service_segment else None
-
-
-def parse_main_landing_page(xml_text: str) -> dict[str, str]:
-    """Parse the AWS docs main landing XML into service roots."""
-
-    soup = BeautifulSoup(xml_text, "html.parser")
-    services: dict[str, str] = {}
-
-    for item in soup.find_all("list-card-item"):
-        if not (
-            service_root := _normalise_service_href((item.get("href") or "").strip())
-        ):
-            continue
-
-        identifier = (item.get("id") or service_root.strip("/")).strip().lower()
-        if not identifier or _looks_like_non_service(identifier):
-            continue
-
-        services.setdefault(identifier, service_root)
-
-    return services
-
-
-def _looks_like_api_doc(title: str, href: str) -> bool:
-    title_lower = title.lower()
-    href_lower = href.lower()
-
-    api_title_markers = (
-        "api reference",
-        "rest api reference",
-        "http api reference",
-        "websocket api reference",
-        "sdk api reference",
+    api_markers = (
+        "apireference",
+        "api-reference",
+        "apiref",
+        "api",
     )
 
-    if any(marker in title_lower for marker in api_title_markers):
-        return True
-
-    if any(token in href_lower for token in ("apireference", "api-reference", "/api/")):
-        return True
-
-    return False
+    return any(marker in guide_lower for marker in api_markers)
 
 
-def parse_service_landing_page(xml_text: str) -> list[ServiceGuide]:
-    """Extract discoverable guides from a service landing page XML."""
+def _parse_sitemap_url(sitemap_url: str) -> Optional[tuple[str, str, str, str]]:
+    """Parse a sitemap URL to extract service, version, guide type.
 
-    soup = BeautifulSoup(xml_text, "html.parser")
-    guides: dict[str, ServiceGuide] = {}
+    Returns: (service_id, version, guide_type, base_url) or None
+    """
+    parsed = urlparse(sitemap_url)
+    if parsed.netloc != DOCS_NETLOC:
+        return None
 
-    for element in soup.find_all(
-        lambda tag: (tag.get("guide") or "").lower() == "true"
-    ):
-        if not (href := (element.get("href") or "").strip()):
-            continue
+    # Expected pattern: /service/version/guide-type/sitemap.xml
+    parts = [p for p in parsed.path.strip("/").split("/") if p]
 
-        title_tag = element.find("title")
-        title_text = title_tag.get_text(strip=True) if title_tag else href
+    if len(parts) < 4 or parts[-1] != "sitemap.xml":
+        return None
 
-        if _looks_like_api_doc(title_text, href):
-            continue
+    service_segment = parts[0]
+    version = parts[1]
+    guide_segment = parts[2]
 
-        absolute_url = normalise_url(urljoin(DOCS_BASE_URL, href))
-        if urlparse(absolute_url).netloc != DOCS_NETLOC:
-            continue
+    # Only include "latest" versions for now
+    if version.lower() != "latest":
+        return None
 
-        guides.setdefault(
-            absolute_url,
-            ServiceGuide(
-                title=title_text,
-                url=absolute_url,
-                allowed_prefix=derive_allowed_prefix(absolute_url),
-            ),
-        )
+    # Filter out API references
+    if _looks_like_api_doc(guide_segment):
+        return None
 
-    return sorted(guides.values(), key=lambda guide: guide.url)
+    # Filter out SDKs and toolkits
+    if _looks_like_non_service(service_segment):
+        return None
+
+    # Build the base URL for this guide
+    base_url = f"{DOCS_BASE_URL}/{service_segment}/{version}/{guide_segment}/"
+
+    # Normalize service ID
+    service_id = service_segment.lower().replace("_", "-")
+
+    return service_id, version, guide_segment, base_url
 
 
-def discover_service_guides(
+def _derive_guide_title(service_id: str, guide_segment: str) -> str:
+    """Generate a human-readable guide title."""
+    guide_type_map = {
+        "userguide": "User Guide",
+        "developerguide": "Developer Guide",
+        "adminguide": "Administrator Guide",
+        "dg": "Developer Guide",
+        "ug": "User Guide",
+    }
+
+    guide_type = guide_type_map.get(guide_segment.lower(), guide_segment.title())
+    service_name = service_id.replace("-", " ").title()
+
+    return f"{service_name} {guide_type}"
+
+
+def discover_service_guides_from_sitemap(
     *,
     session: Optional[requests.Session] = None,
-    main_landing_url: str = f"{DOCS_BASE_URL}/{DEFAULT_LOCALE}/main-landing-page.xml",
+    sitemap_index_url: str = SITEMAP_INDEX_URL,
 ) -> dict[str, tuple[ServiceGuide, ...]]:
-    """Discover documentation guides for all AWS services."""
+    """Discover documentation guides for all AWS services from sitemap index."""
 
     owns_session = session is None
     http = session or requests.Session()
 
-    response = http.get(main_landing_url, timeout=30)
-    response.raise_for_status()
+    try:
+        LOGGER.info("Fetching sitemap index from %s", sitemap_index_url)
+        response = http.get(sitemap_index_url, timeout=30)
+        response.raise_for_status()
 
-    services = parse_main_landing_page(response.text)
-    guides_by_service: dict[str, tuple[ServiceGuide, ...]] = {}
+        # Parse sitemap index XML
+        soup = BeautifulSoup(response.text, "xml")
 
-    for service_id, service_root in sorted(services.items()):
-        landing_url = urljoin(DOCS_BASE_URL, f"{service_root}{DEFAULT_LOCALE}/landing-page.xml")
+        guides_by_service: dict[str, list[ServiceGuide]] = {}
 
-        landing_response = http.get(landing_url, timeout=30)
-        if landing_response.status_code == 404:
-            LOGGER.debug("Skipping %s because %s returned 404", service_id, landing_url)
-            continue
-        landing_response.raise_for_status()
+        # Extract all sitemap URLs
+        for loc in soup.find_all("loc"):
+            sitemap_url = loc.get_text().strip()
 
-        guides = parse_service_landing_page(landing_response.text)
-        if not guides:
-            LOGGER.debug("No guides discovered for %s", service_id)
-            continue
+            parsed = _parse_sitemap_url(sitemap_url)
+            if not parsed:
+                continue
 
-        guides_by_service[service_id] = tuple(guides)
+            service_id, version, guide_segment, base_url = parsed
 
-    if owns_session:
-        http.close()
+            # Create a ServiceGuide for this guide
+            guide = ServiceGuide(
+                title=_derive_guide_title(service_id, guide_segment),
+                url=normalise_url(base_url),
+                allowed_prefix=derive_allowed_prefix(base_url),
+            )
 
-    return guides_by_service
+            guides_by_service.setdefault(service_id, []).append(guide)
+
+        # Convert lists to sorted tuples
+        result: dict[str, tuple[ServiceGuide, ...]] = {}
+        for service_id, guides in guides_by_service.items():
+            result[service_id] = tuple(sorted(guides, key=lambda g: g.url))
+
+        LOGGER.info("Discovered %d services with %d total guides",
+                   len(result), sum(len(guides) for guides in result.values()))
+
+        return result
+
+    finally:
+        if owns_session:
+            http.close()
+
+
+def discover_pages_from_sitemap(
+    sitemap_url: str,
+    *,
+    session: Optional[requests.Session] = None,
+) -> list[str]:
+    """Discover all HTML page URLs from a service sitemap.
+
+    Args:
+        sitemap_url: URL to the sitemap.xml file for a service guide
+        session: Optional requests session to reuse
+
+    Returns:
+        List of normalized HTML page URLs
+    """
+    owns_session = session is None
+    http = session or requests.Session()
+
+    try:
+        LOGGER.debug("Fetching sitemap from %s", sitemap_url)
+        response = http.get(sitemap_url, timeout=30)
+        response.raise_for_status()
+
+        # Parse sitemap XML
+        soup = BeautifulSoup(response.text, "xml")
+
+        pages: list[str] = []
+
+        # Extract all URLs from <loc> tags
+        for loc in soup.find_all("loc"):
+            url = loc.get_text().strip()
+            if not url:
+                continue
+
+            # Validate and normalize the URL
+            parsed = urlparse(url)
+            if parsed.netloc != DOCS_NETLOC:
+                continue
+
+            # Only include HTML pages
+            if url.endswith((".html", ".htm")) or url.endswith("/"):
+                pages.append(normalise_url(url))
+
+        LOGGER.info("Discovered %d pages from %s", len(pages), sitemap_url)
+        return pages
+
+    except requests.RequestException as exc:
+        LOGGER.warning("Failed to fetch sitemap %s: %s", sitemap_url, exc)
+        return []
+
+    finally:
+        if owns_session:
+            http.close()
+
+
+def build_sitemap_url_from_guide(guide_url: str) -> str:
+    """Build the sitemap URL from a guide's base URL.
+
+    Args:
+        guide_url: Base URL of a guide (e.g., https://docs.aws.amazon.com/service/latest/userguide/)
+
+    Returns:
+        URL to the guide's sitemap.xml
+    """
+    parsed = urlparse(guide_url)
+    path = parsed.path.rstrip("/")
+    sitemap_path = f"{path}/sitemap.xml"
+
+    return urlunparse(parsed._replace(path=sitemap_path))
+
+
+# Keep the old function for backward compatibility but mark as deprecated
+def discover_service_guides(
+    *,
+    session: Optional[requests.Session] = None,
+    main_landing_url: str = None,
+) -> dict[str, tuple[ServiceGuide, ...]]:
+    """Discover documentation guides for all AWS services.
+
+    DEPRECATED: Use discover_service_guides_from_sitemap() instead.
+    This function is maintained for backward compatibility only.
+    """
+    LOGGER.warning("discover_service_guides() is deprecated, use discover_service_guides_from_sitemap()")
+    return discover_service_guides_from_sitemap(session=session)
 
 
 def _format_timestamp(timestamp: datetime) -> str:
@@ -296,8 +386,8 @@ def main() -> None:
     args = parse_args()
     logging.basicConfig(level=getattr(logging, args.log_level.upper(), logging.INFO))
 
-    LOGGER.info("Discovering AWS documentation services...")
-    guides = discover_service_guides()
+    LOGGER.info("Discovering AWS documentation services from sitemap...")
+    guides = discover_service_guides_from_sitemap()
     LOGGER.info("Discovered %d services", len(guides))
 
     manifest = _build_manifest(guides)

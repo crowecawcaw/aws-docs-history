@@ -913,7 +913,7 @@ class AwsDocsCrawler:
         self._url_queue: queue.Queue[str | None] = queue.Queue()
         self._known_urls: set[str] = set()
         self._known_urls_lock = threading.Lock()
-        self._known_tocs: set[str] = set()
+        self._known_sitemaps: set[str] = set()
         self._visited_urls: set[str] = set()  # Changed to set for O(1) lookup
 
         self._rate_limiter = RequestRateLimiter(requests_per_second)
@@ -931,9 +931,9 @@ class AwsDocsCrawler:
         LOGGER.info("Starting crawl at %s", ", ".join(self.start_urls))
         self.output_dir.mkdir(parents=True, exist_ok=True)
 
-        # Phase 1: Discover all pages from TOC files
-        LOGGER.info("Phase 1: Discovering pages from TOC files")
-        self._discover_all_tocs()
+        # Phase 1: Discover all pages from sitemap files
+        LOGGER.info("Phase 1: Discovering pages from sitemap files")
+        self._discover_all_sitemaps()
 
         # Phase 2: Crawl all discovered pages
         with self._known_urls_lock:
@@ -957,15 +957,15 @@ class AwsDocsCrawler:
 
         self._toc_manager.write_toc_documents()
 
-    def _discover_all_tocs(self) -> None:
-        """Discover and process all TOC files from start URLs.
+    def _discover_all_sitemaps(self) -> None:
+        """Discover and process all sitemap files from start URLs.
 
-        This method processes guide landing pages to find their TOC files,
+        This method processes guide landing pages to find their sitemap files,
         which are then parsed to discover all documentation pages.
         """
         for url in self.start_urls:
-            # Auto-discover TOC from guide landing pages
-            self._auto_discover_toc(url)
+            # Auto-discover sitemap from guide landing pages
+            self._auto_discover_sitemap(url)
 
     def _worker(self) -> None:
         while True:
@@ -1038,12 +1038,43 @@ class AwsDocsCrawler:
             total = len(self._known_urls)
             LOGGER.info("Wrote [%d/%d] %s", crawled, total, output_path)
 
-        # Link discovery is skipped - all pages are discovered from TOC files during Phase 1
+        # Link discovery is skipped - all pages are discovered from sitemap files during Phase 1
 
-    def _auto_discover_toc(self, url: str) -> None:
-        """Automatically discover and process TOC file for guide landing pages.
+    def _process_sitemap(self, sitemap_url: str) -> None:
+        """Fetch and process a sitemap XML file to discover all pages."""
+        LOGGER.debug("Fetching sitemap %s", sitemap_url)
 
-        AWS docs guides typically have a toc-contents.json file in the guide directory.
+        try:
+            self._rate_limiter.acquire()
+            response = self.session.get(sitemap_url, timeout=30)
+            response.raise_for_status()
+        except requests.RequestException as exc:
+            LOGGER.warning("Failed to fetch sitemap %s: %s", sitemap_url, exc)
+            return
+
+        try:
+            soup = BeautifulSoup(response.text, "xml")
+        except Exception as exc:
+            LOGGER.warning("Failed to parse sitemap XML from %s: %s", sitemap_url, exc)
+            return
+
+        # Extract all <loc> URLs from the sitemap
+        for loc in soup.find_all("loc"):
+            url = loc.get_text().strip()
+            if not url:
+                continue
+
+            # Normalize and validate the URL
+            candidate_url = normalise_url(url)
+
+            # Check if it's an HTML page we should crawl
+            if self.link_checker(candidate_url):
+                self._add_url_to_known(candidate_url)
+
+    def _auto_discover_sitemap(self, url: str) -> None:
+        """Automatically discover and process sitemap file for guide landing pages.
+
+        AWS docs guides have a sitemap.xml file in the guide directory.
         This method attempts to find and process it for URLs that look like guide landing pages.
         """
         parsed = urlparse(url)
@@ -1051,7 +1082,7 @@ class AwsDocsCrawler:
 
         # Check if this looks like a guide directory (e.g., /service/latest/userguide/)
         # Common patterns: /userguide/, /developerguide/, /apireference/, /api/
-        guide_patterns = ['userguide', 'developerguide', 'apireference', 'api']
+        guide_patterns = ['userguide', 'developerguide', 'adminguide', 'dg', 'ug']
 
         # Split path into parts and check if the last part matches a guide pattern
         path_parts = [part for part in path.split('/') if part]
@@ -1064,19 +1095,19 @@ class AwsDocsCrawler:
         if not is_guide_landing:
             return
 
-        # Construct TOC URL by appending toc-contents.json to the guide directory
-        toc_path = f"{path}/toc-contents.json"
-        toc_url = urlunparse(parsed._replace(path=toc_path, fragment='', query=''))
-        toc_url = normalise_url(toc_url)
+        # Construct sitemap URL by appending sitemap.xml to the guide directory
+        sitemap_path = f"{path}/sitemap.xml"
+        sitemap_url = urlunparse(parsed._replace(path=sitemap_path, fragment='', query=''))
+        sitemap_url = normalise_url(sitemap_url)
 
-        # Check if we've already processed this TOC
+        # Check if we've already processed this sitemap
         with self._known_urls_lock:
-            if toc_url in self._known_tocs:
+            if sitemap_url in self._known_sitemaps:
                 return
-            self._known_tocs.add(toc_url)
+            self._known_sitemaps.add(sitemap_url)
 
-        LOGGER.debug("Auto-discovered TOC: %s", toc_url)
-        self._toc_manager.process_toc(toc_url)
+        LOGGER.debug("Auto-discovered sitemap: %s", sitemap_url)
+        self._process_sitemap(sitemap_url)
 
     def _add_url_to_known(self, url: str) -> bool:
         """Add URL to known set for later processing. Does not enqueue."""
