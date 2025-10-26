@@ -1063,17 +1063,6 @@ def parse_args() -> argparse.Namespace:
         ),
     )
     parser.add_argument(
-        "--allowed-prefix",
-        dest="allowed_prefixes",
-        action="append",
-        metavar="PATH",
-        help=(
-            "Restrict crawling to URLs whose path starts with the provided prefix. "
-            "If omitted, a curated set for Deadline Cloud, Amazon S3, and "
-            "AWS CloudFormation is used."
-        ),
-    )
-    parser.add_argument(
         "--output-dir",
         default="docs",
         type=Path,
@@ -1123,16 +1112,14 @@ def parse_args() -> argparse.Namespace:
 
 def _resolve_cli_scope(args: argparse.Namespace) -> tuple[list[str], list[str]]:
     # Check for conflicting arguments
-    if args.service and (args.start_urls or args.allowed_prefixes):
+    if args.service and args.start_urls:
         raise ValueError(
-            "--service cannot be used with --start-url or --allowed-prefix"
+            "--service cannot be used with --start-url"
         )
 
-    if args.start_urls or args.allowed_prefixes:
-        start_urls = [normalise_url(url) for url in args.start_urls or []]
-        allowed_prefixes = list(args.allowed_prefixes or [])
-        if not allowed_prefixes and start_urls:
-            allowed_prefixes = [derive_allowed_prefix(url) for url in start_urls]
+    if args.start_urls:
+        start_urls = [normalise_url(url) for url in args.start_urls]
+        allowed_prefixes = [derive_allowed_prefix(url) for url in start_urls]
         return start_urls, allowed_prefixes
 
     manifest_path = args.manifest
