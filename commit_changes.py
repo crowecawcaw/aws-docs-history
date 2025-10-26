@@ -71,6 +71,10 @@ def run_prettier_once() -> None:
 def stage_service_by_pattern(directories: List[str]) -> None:
     """Stage all changes for a service's directories using file patterns."""
     for directory in directories:
+        dir_path = Path(f"docs/{directory}")
+        if not dir_path.exists():
+            # Skip directories that don't exist (e.g., when crawling single service)
+            continue
         pattern = f"docs/{directory}/**"
         run_git(["add", "-A", "--", pattern])
 
