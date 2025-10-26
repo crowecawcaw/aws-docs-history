@@ -1901,8 +1901,8 @@
       "guides": [
         {
           "title": "Developer Guide",
-          "url": "https://docs.aws.amazon.com/deadline-cloud/latest/developerguide",
-          "allowed_prefix": "/deadline-cloud/latest/"
+          "url": "https://docs.aws.amazon.com/deadline-cloud/latest/developerguide/what-is-deadline-cloud.html",
+          "allowed_prefix": "/deadline-cloud/latest/developerguide/"
         },
         {
           "title": "User Guide",
