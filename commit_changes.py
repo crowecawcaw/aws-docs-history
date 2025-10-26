@@ -8,7 +8,7 @@ import re
 import subprocess
 import sys
 from pathlib import Path
-from typing import List, Optional, Sequence
+from typing import List, Optional, Sequence, Tuple
 
 
 SPECIAL_SLUGS = {
@@ -68,10 +68,11 @@ def run_prettier_once() -> None:
     subprocess.run(command, check=True)
 
 
-def stage_service_by_pattern(service_id: str) -> None:
-    """Stage all changes for a service using a file pattern."""
-    pattern = f"docs/{service_id}/**"
-    run_git(["add", "-A", "--", pattern])
+def stage_service_by_pattern(directories: List[str]) -> None:
+    """Stage all changes for a service's directories using file patterns."""
+    for directory in directories:
+        pattern = f"docs/{directory}/**"
+        run_git(["add", "-A", "--", pattern])
 
 
 def has_staged_changes() -> bool:
@@ -86,8 +87,12 @@ def set_output(changes: bool) -> None:
             handle.write(f"changes={'true' if changes else 'false'}\n")
 
 
-def load_service_ids(manifest_path: Path) -> List[str]:
-    """Load service IDs from the service manifest."""
+def load_services(manifest_path: Path) -> List[Tuple[str, List[str]]]:
+    """Load services with their directory paths from the manifest.
+
+    Returns:
+        List of tuples (service_id, [directory_names])
+    """
     if not manifest_path.exists():
         print(f"Warning: Service manifest not found at {manifest_path}")
         return []
@@ -96,8 +101,27 @@ def load_service_ids(manifest_path: Path) -> List[str]:
         data = json.load(handle)
 
     services = data.get("services", [])
-    service_ids = [s.get("id") for s in services if s.get("id")]
-    return service_ids
+    result = []
+
+    for service in services:
+        service_id = service.get("id")
+        if not service_id:
+            continue
+
+        # Extract unique directory names from guide paths
+        directories = set()
+        for guide in service.get("guides", []):
+            prefix = guide.get("allowed_prefix", "")
+            if prefix and prefix.startswith("/"):
+                # Get first segment: /app2container/... -> app2container
+                parts = prefix.lstrip("/").split("/")
+                if parts and parts[0]:
+                    directories.add(parts[0])
+
+        if directories:
+            result.append((service_id, sorted(directories)))
+
+    return result
 
 
 def main() -> int:
@@ -109,20 +133,20 @@ def main() -> int:
     # Run prettier once on all markdown files
     run_prettier_once()
 
-    # Load service IDs from manifest
-    service_ids = load_service_ids(manifest_path)
-    if not service_ids:
+    # Load services and their directories from manifest
+    services = load_services(manifest_path)
+    if not services:
         print("No services found in manifest.")
         set_output(False)
         return 0
 
-    print(f"Processing {len(service_ids)} services...")
+    print(f"Processing {len(services)} services...")
     total_commits = 0
 
     # Process each service
-    for service_id in service_ids:
-        # Stage all changes for this service
-        stage_service_by_pattern(service_id)
+    for service_id, directories in services:
+        # Stage all changes for this service's directories
+        stage_service_by_pattern(directories)
 
         # Check if there are changes to commit
         if not has_staged_changes():
@@ -135,7 +159,7 @@ def main() -> int:
         try:
             run_git(["commit", "-m", message])
             total_commits += 1
-            print(f"Committed changes for {service_name}")
+            print(f"Committed changes for {service_name} ({', '.join(directories)})")
         except subprocess.CalledProcessError:
             # No changes to commit or commit failed
             run_git(["reset", "HEAD"], check=False)
