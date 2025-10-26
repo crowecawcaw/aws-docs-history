@@ -216,6 +216,85 @@ def _guide_to_dict(guide: ServiceGuide) -> dict[str, str]:
     }
 
 
+def _extract_service_segment(url: str) -> Optional[str]:
+    """Extract the service segment from a documentation URL."""
+    path = urlparse(url).path.strip("/")
+    parts = path.split("/")
+    return parts[0] if parts else None
+
+
+def _derive_service_name(service_id: str, guides: Sequence[ServiceGuide]) -> str:
+    """Derive a display name for the service from guide titles."""
+    import re
+    from collections import Counter
+
+    titles = [guide.title for guide in guides]
+    service_names = []
+
+    # Try to find AWS/Amazon service name in titles
+    for title in titles:
+        # Remove common suffixes that aren't part of the service name
+        clean_title = re.sub(
+            r'\s+(User Guide|Developer Guide|Reference Guide|API Reference|section of.*|in the.*|for.*)$',
+            '',
+            title,
+            flags=re.IGNORECASE
+        )
+
+        # Match patterns like "AWS X" or "Amazon X"
+        match = re.search(
+            r'\b(AWS|Amazon)\s+([A-Z][A-Za-z0-9]+(?:\s+[A-Z][A-Za-z0-9]+)*)',
+            clean_title
+        )
+        if match:
+            service_names.append(f"{match.group(1)} {match.group(2)}")
+
+    # Use the most common service name
+    if service_names:
+        return Counter(service_names).most_common(1)[0][0]
+
+    # Fallback: derive from the primary service segment
+    segments = [_extract_service_segment(guide.url) for guide in guides]
+
+    # Skip generic segments that don't represent the service
+    preferred_segments = [
+        seg for seg in segments
+        if seg and seg not in {'cli'}
+    ]
+
+    if preferred_segments:
+        segment = sorted(preferred_segments)[0]
+
+        # Handle camelCase segments (e.g., "AmazonS3" -> "Amazon S3", "AWSCloudFormation" -> "AWS CloudFormation")
+        if not re.search(r'[-_]', segment):
+            # First, handle the AWS/Amazon prefix
+            if segment.startswith('AWS'):
+                # Extract "AWS" and process the rest
+                rest = segment[3:]
+                if rest:
+                    # Insert spaces before capital letters in the rest
+                    rest_spaced = re.sub(r'([a-z0-9])([A-Z])', r'\1 \2', rest)
+                    return f'AWS {rest_spaced}'
+                return 'AWS'
+            elif segment.startswith('Amazon'):
+                # Extract "Amazon" and process the rest
+                rest = segment[6:]
+                if rest:
+                    # Insert spaces before capital letters in the rest
+                    rest_spaced = re.sub(r'([a-z0-9])([A-Z])', r'\1 \2', rest)
+                    return f'Amazon {rest_spaced}'
+                return 'Amazon'
+            else:
+                # General case: insert spaces before capital letters
+                return re.sub(r'([a-z0-9])([A-Z])', r'\1 \2', segment)
+
+        # Handle hyphenated/underscored segments (e.g., "deadline-cloud" -> "Deadline Cloud")
+        return segment.replace("-", " ").replace("_", " ").title()
+
+    # Final fallback: capitalize the service ID
+    return service_id.replace("-", " ").replace("_", " ").title()
+
+
 def _build_manifest(
     guides_by_service: Mapping[str, Sequence[ServiceGuide]],
 ) -> dict[str, object]:
@@ -225,7 +304,20 @@ def _build_manifest(
         serialised_guides = [
             _guide_to_dict(guide) for guide in sorted(guides, key=lambda guide: guide.url)
         ]
-        services.append({"id": service_id, "guides": serialised_guides})
+
+        # Extract service name and segments
+        service_name = _derive_service_name(service_id, guides)
+        segments = sorted(set(
+            seg for guide in guides
+            if (seg := _extract_service_segment(guide.url)) is not None
+        ))
+
+        services.append({
+            "id": service_id,
+            "name": service_name,
+            "segments": segments,
+            "guides": serialised_guides,
+        })
 
     manifest = {
         "generated_at": _format_timestamp(datetime.now(timezone.utc)),

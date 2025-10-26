@@ -132,8 +132,44 @@ def _collect_scope_values(scopes: Iterable[ServiceScope], attribute: str) -> lis
     return [value for scope in scopes for value in getattr(scope, attribute)]
 
 
-def load_service_manifest(path: Path) -> dict[str, ServiceScope]:
-    """Load a previously generated service manifest."""
+def build_segment_display_map(manifest_data: dict) -> dict[str, tuple[str, str]]:
+    """Build a mapping from URL segment to (slug, display_name).
+
+    Args:
+        manifest_data: The loaded service manifest dictionary
+
+    Returns:
+        A dict mapping segment -> (slug, display_name)
+    """
+    segment_map: dict[str, tuple[str, str]] = {}
+
+    for entry in manifest_data.get("services", []):
+        service_name = entry.get("name", "")
+        segments = entry.get("segments", [])
+
+        if not service_name or not segments:
+            continue
+
+        # Create slug from service name
+        slug = service_name.lower().replace(" ", "-")
+
+        # Map each segment to the same service name and slug
+        for segment in segments:
+            # Only set if not already present (first service wins for shared segments)
+            if segment not in segment_map:
+                segment_map[segment] = (slug, service_name)
+
+    return segment_map
+
+
+def load_service_manifest(path: Path) -> tuple[dict[str, ServiceScope], dict[str, tuple[str, str]]]:
+    """Load a previously generated service manifest.
+
+    Returns:
+        A tuple of (service_scopes, segment_display_map) where:
+        - service_scopes: dict mapping service_id -> ServiceScope
+        - segment_display_map: dict mapping URL segment -> (slug, display_name)
+    """
 
     with path.open("r", encoding="utf-8") as handle:
         data = json.load(handle)
@@ -171,7 +207,10 @@ def load_service_manifest(path: Path) -> dict[str, ServiceScope]:
             guides=tuple(sorted(guides, key=lambda guide: guide.url))
         )
 
-    return scopes
+    # Build the segment display map
+    segment_display_map = build_segment_display_map(data)
+
+    return scopes, segment_display_map
 
 
 class RequestRateLimiter:
@@ -629,18 +668,13 @@ class TocManager:
 
         return service_slug, service_display, guide_display, readme_path
 
-    @staticmethod
-    def _service_display(service_segment: str) -> tuple[str, str]:
+    def _service_display(self, service_segment: str) -> tuple[str, str]:
         """Convert service segment to slug and display name."""
-        mapping = {
-            "deadline-cloud": ("deadline-cloud", "Deadline Cloud"),
-            "AmazonS3": ("amazon-s3", "Amazon S3"),
-            "AWSCloudFormation": ("aws-cloudformation", "AWS CloudFormation"),
-        }
+        # Use the manifest-based mapping if available
+        if service_segment in self.segment_display_map:
+            return self.segment_display_map[service_segment]
 
-        if service_segment in mapping:
-            return mapping[service_segment]
-
+        # Fallback: derive from segment
         slug = service_segment.lower().replace("_", "-")
         display = slug.replace("-", " ").title()
         return slug, display
@@ -891,11 +925,13 @@ class AwsDocsCrawler:
         link_checker: Optional[Callable[[str], bool]] = None,
         allowed_prefixes: Optional[Sequence[str]] = None,
         requests_per_second: Optional[float] = 10.0,
+        segment_display_map: Optional[dict[str, tuple[str, str]]] = None,
     ) -> None:
         self.start_urls = [normalise_url(url) for url in start_urls]
         self.output_dir = output_dir
         self.max_workers = max_workers
         self.session = session or requests.Session()
+        self.segment_display_map = segment_display_map or {}
         if link_checker and allowed_prefixes is not None:
             raise ValueError("Provide either link_checker or allowed_prefixes, not both")
 
@@ -1195,7 +1231,14 @@ def clean_service_directories(
             LOGGER.warning("Failed to clean directory %s: %s", directory, exc)
 
 
-def _resolve_cli_scope(args: argparse.Namespace) -> tuple[list[str], list[str], Optional[ServiceScope]]:
+def _resolve_cli_scope(
+    args: argparse.Namespace
+) -> tuple[list[str], list[str], Optional[ServiceScope], dict[str, tuple[str, str]]]:
+    """Resolve the crawl scope from CLI arguments.
+
+    Returns:
+        A tuple of (start_urls, allowed_prefixes, service_scope, segment_display_map)
+    """
     # Check for conflicting arguments
     if args.service and (args.start_urls or args.allowed_prefixes):
         raise ValueError(
@@ -1207,7 +1250,7 @@ def _resolve_cli_scope(args: argparse.Namespace) -> tuple[list[str], list[str], 
         allowed_prefixes = list(args.allowed_prefixes or [])
         if not allowed_prefixes and start_urls:
             allowed_prefixes = [derive_allowed_prefix(url) for url in start_urls]
-        return start_urls, allowed_prefixes, None
+        return start_urls, allowed_prefixes, None, {}
 
     manifest_path = args.manifest
     if not manifest_path:
@@ -1216,7 +1259,7 @@ def _resolve_cli_scope(args: argparse.Namespace) -> tuple[list[str], list[str], 
     manifest_path = Path(manifest_path)
 
     try:
-        manifest_scopes = load_service_manifest(manifest_path)
+        manifest_scopes, segment_display_map = load_service_manifest(manifest_path)
     except FileNotFoundError as exc:
         LOGGER.error("Manifest %s not found", manifest_path)
         raise
@@ -1245,7 +1288,7 @@ def _resolve_cli_scope(args: argparse.Namespace) -> tuple[list[str], list[str], 
             len(start_urls),
             manifest_path,
         )
-        return start_urls, allowed_prefixes, scope
+        return start_urls, allowed_prefixes, scope, segment_display_map
 
     # No service specified, load all services
     start_urls = _collect_scope_values(manifest_scopes.values(), "start_urls")
@@ -1258,14 +1301,14 @@ def _resolve_cli_scope(args: argparse.Namespace) -> tuple[list[str], list[str], 
         len(start_urls),
         manifest_path,
     )
-    return start_urls, allowed_prefixes, None
+    return start_urls, allowed_prefixes, None, segment_display_map
 
 
 def main() -> None:
     args = parse_args()
     logging.basicConfig(level=getattr(logging, args.log_level.upper(), logging.INFO))
 
-    start_urls, allowed_prefixes, service_scope = _resolve_cli_scope(args)
+    start_urls, allowed_prefixes, service_scope, segment_display_map = _resolve_cli_scope(args)
 
     # If crawling a specific service, clean its existing directories first
     if service_scope is not None:
@@ -1277,6 +1320,7 @@ def main() -> None:
         max_workers=args.max_workers,
         allowed_prefixes=allowed_prefixes,
         requests_per_second=args.requests_per_second,
+        segment_display_map=segment_display_map,
     )
     crawler.crawl()
 
