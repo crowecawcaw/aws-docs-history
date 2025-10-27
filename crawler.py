@@ -14,6 +14,7 @@ import queue
 import shutil
 import threading
 import time
+import xml.etree.ElementTree as ET
 from pathlib import Path, PurePosixPath
 from typing import Optional
 from urllib.parse import urljoin, urlparse, urlunparse
@@ -597,15 +598,23 @@ class AwsDocsCrawler:
             return
 
         try:
-            soup = BeautifulSoup(response.text, "xml")
-        except Exception as exc:
+            root = ET.fromstring(response.text)
+        except ET.ParseError as exc:
             LOGGER.error("Failed to parse sitemap index XML: %s", exc)
             return
 
         # Extract all sitemap URLs and process them
+        # Sitemap namespace
+        ns = {"sm": "http://www.sitemaps.org/schemas/sitemap/0.9"}
         sitemap_urls: list[str] = []
-        for loc in soup.find_all("loc"):
-            sitemap_url = loc.get_text().strip()
+
+        # Try with namespace first, then without
+        locs = root.findall(".//sm:loc", ns)
+        if not locs:
+            locs = root.findall(".//loc")
+
+        for loc in locs:
+            sitemap_url = (loc.text or "").strip()
             if not sitemap_url:
                 continue
 
@@ -670,14 +679,22 @@ class AwsDocsCrawler:
             return
 
         try:
-            soup = BeautifulSoup(response.text, "xml")
-        except Exception as exc:
+            root = ET.fromstring(response.text)
+        except ET.ParseError as exc:
             LOGGER.warning("Failed to parse sitemap XML from %s: %s", sitemap_url, exc)
             return
 
         # Extract all <loc> URLs from the sitemap
-        for loc in soup.find_all("loc"):
-            url = loc.get_text().strip()
+        # Sitemap namespace
+        ns = {"sm": "http://www.sitemaps.org/schemas/sitemap/0.9"}
+
+        # Try with namespace first, then without
+        locs = root.findall(".//sm:loc", ns)
+        if not locs:
+            locs = root.findall(".//loc")
+
+        for loc in locs:
+            url = (loc.text or "").strip()
             if not url:
                 continue
 
