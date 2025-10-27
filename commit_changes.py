@@ -2,13 +2,12 @@
 """Commit documentation changes grouped by service and guide."""
 from __future__ import annotations
 
-import json
 import os
 import re
 import subprocess
 import sys
 from pathlib import Path
-from typing import List, Optional, Sequence, Tuple
+from typing import List, Sequence
 
 
 SPECIAL_SLUGS = {
@@ -31,7 +30,7 @@ def run_git(args: Sequence[str], *, check: bool = True) -> subprocess.CompletedP
     return subprocess.run(["git", *args], check=check, text=True)
 
 
-def prettify_slug(slug: Optional[str]) -> str:
+def prettify_slug(slug: str | None) -> str:
     if not slug:
         return ""
 
@@ -68,17 +67,6 @@ def run_prettier_once() -> None:
     subprocess.run(command, check=True)
 
 
-def stage_service_by_pattern(directories: List[str]) -> None:
-    """Stage all changes for a service's directories using file patterns."""
-    for directory in directories:
-        dir_path = Path(f"docs/{directory}")
-        if not dir_path.exists():
-            # Skip directories that don't exist (e.g., when crawling single service)
-            continue
-        pattern = f"docs/{directory}/**"
-        run_git(["add", "-A", "--", pattern])
-
-
 def has_staged_changes() -> bool:
     diff = subprocess.run(["git", "diff", "--cached", "--quiet"])
     return diff.returncode == 1
@@ -91,45 +79,27 @@ def set_output(changes: bool) -> None:
             handle.write(f"changes={'true' if changes else 'false'}\n")
 
 
-def load_services(manifest_path: Path) -> List[Tuple[str, List[str]]]:
-    """Load services with their directory paths from the manifest.
+def discover_service_directories(docs_path: Path) -> List[str]:
+    """Discover service directories by scanning the docs/ folder.
 
     Returns:
-        List of tuples (service_id, [directory_names])
+        List of service directory names (relative to docs/)
     """
-    if not manifest_path.exists():
-        print(f"Warning: Service manifest not found at {manifest_path}")
+    if not docs_path.exists() or not docs_path.is_dir():
         return []
 
-    with open(manifest_path, "r", encoding="utf-8") as handle:
-        data = json.load(handle)
+    services = []
+    for item in docs_path.iterdir():
+        if item.is_dir() and item.name != "." and not item.name.startswith("."):
+            # Skip README.md and other files
+            if item.name not in ["README.md", "service-manifest.json"]:
+                services.append(item.name)
 
-    services = data.get("services", [])
-    result = []
-
-    for service in services:
-        service_id = service.get("id")
-        if not service_id:
-            continue
-
-        # Extract unique directory names from guide paths
-        directories = set()
-        for guide in service.get("guides", []):
-            prefix = guide.get("allowed_prefix", "")
-            if prefix and prefix.startswith("/"):
-                # Get first segment: /app2container/... -> app2container
-                parts = prefix.lstrip("/").split("/")
-                if parts and parts[0]:
-                    directories.add(parts[0])
-
-        if directories:
-            result.append((service_id, sorted(directories)))
-
-    return result
+    return sorted(services)
 
 
 def main() -> int:
-    manifest_path = Path("docs/service-manifest.json")
+    docs_path = Path("docs")
 
     # Reset any staged changes
     run_git(["reset", "HEAD"], check=False)
@@ -137,40 +107,47 @@ def main() -> int:
     # Run prettier once on all markdown files
     run_prettier_once()
 
-    # Load services and their directories from manifest
-    services = load_services(manifest_path)
+    # Discover service directories
+    services = discover_service_directories(docs_path)
     if not services:
-        print("No services found in manifest.")
-        set_output(False)
-        return 0
+        print("No service directories found in docs/.")
+    else:
+        print(f"Found {len(services)} service directories: {', '.join(services)}")
 
-    print(f"Processing {len(services)} services...")
     total_commits = 0
 
-    # Process each service
-    for service_id, directories in services:
-        # Stage all changes for this service's directories
-        stage_service_by_pattern(directories)
+    # Process each service directory
+    for service_dir in services:
+        # Stage all changes for this service directory
+        service_path = docs_path / service_dir
+        pattern = f"docs/{service_dir}/**"
+
+        # Stage the service directory
+        run_git(["add", "-A", "--", pattern], check=False)
 
         # Check if there are changes to commit
         if not has_staged_changes():
+            print(f"No changes for {service_dir}, skipping...")
             continue
 
         # Create commit message
-        service_name = prettify_slug(service_id)
-        message = f"Update to {service_name} docs"
+        service_name = prettify_slug(service_dir)
+        message = f"Add {service_name} documentation"
 
         try:
             run_git(["commit", "-m", message])
             total_commits += 1
-            print(f"Committed changes for {service_name} ({', '.join(directories)})")
+            print(f"Committed changes for {service_name}")
         except subprocess.CalledProcessError:
             # No changes to commit or commit failed
             run_git(["reset", "HEAD"], check=False)
             continue
 
-    # Commit any remaining non-docs files
+    # Commit any non-docs repository files (code, config, etc.)
+    # Stage everything except docs/
     run_git(["add", "-A", "."], check=False)
+    run_git(["reset", "HEAD", "docs/"], check=False)
+
     if has_staged_changes():
         try:
             run_git(["commit", "-m", "Update repository files"])
