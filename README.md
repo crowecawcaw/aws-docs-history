@@ -56,10 +56,10 @@ The documentation crawler workflow can be triggered manually from the GitHub Act
 1. Go to the "Actions" tab in the repository
 2. Select the "Docs crawler" workflow
 3. Click "Run workflow"
-4. Optionally specify a service ID to crawl only that service (e.g., `a2c`, `account`, `s3`)
-5. Leave the service field empty to crawl all services
+4. Optionally specify a service guide URL to crawl only that guide (e.g., `https://docs.aws.amazon.com/AmazonS3/latest/userguide/` or `/AmazonS3/latest/userguide/`)
+5. Leave the service URL field empty to crawl all services
 
-When a specific service ID is provided, the workflow will only crawl documentation for that service. When left empty, it will crawl all services defined in the manifest.
+When a specific service guide URL is provided, the workflow will only crawl documentation for that guide. When left empty, it will crawl all services.
 
 The daily scheduled crawler will always crawl all services regardless of this setting.
 
@@ -75,28 +75,26 @@ trees:
 python crawler.py
 ```
 
-You can crawl a specific service by providing the service ID from the manifest:
+You can crawl a specific service guide by providing the guide URL:
 
 ```bash
-python crawler.py --service a2c
+python crawler.py --service-url "https://docs.aws.amazon.com/AmazonS3/latest/userguide/"
 ```
 
-You can also provide your own seed URLs or limit the crawl scope by supplying one or
-more `--start-url` and `--allowed-prefix` arguments:
+Or using just the path:
 
 ```bash
-python crawler.py \
-  --start-url https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/Welcome.html \
-  --allowed-prefix /deadline-cloud/latest/APIReference/
+python crawler.py --service-url "/AmazonS3/latest/userguide/"
+```
+
+You can also limit the crawl scope by supplying one or more `--allowed-prefix` arguments:
+
+```bash
+python crawler.py --allowed-prefix /deadline-cloud/latest/APIReference/
 ```
 
 Only Markdown output should be committed back to the repository once the crawl
 has completed and the generated docs have been reviewed.
-
-The default crawl scope is defined in `crawler.py` under
-`DEFAULT_SERVICE_SCOPES`. Each entry lists the seed URLs and allowed path
-prefixes for a given service so new services can be added by updating that
-mapping instead of modifying the crawler logic.
 
 ## Running the test suite
 
