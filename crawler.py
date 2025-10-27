@@ -694,9 +694,9 @@ class AwsDocsCrawler:
 
     def _print_dry_run_summary(self) -> None:
         """Print a summary of what would be crawled in dry-run mode."""
-        print("\n" + "=" * 80)
-        print("DRY RUN SUMMARY")
-        print("=" * 80)
+        print("\n" + "=" * 100)
+        print("DRY RUN SUMMARY - Pages to Download by Guide")
+        print("=" * 100)
 
         # Sort sitemaps by page count (descending)
         sorted_sitemaps = sorted(
@@ -708,16 +708,21 @@ class AwsDocsCrawler:
         total_pages = sum(self._sitemap_pages.values())
         total_guides = len(self._sitemap_pages)
 
-        print(f"\nTotal guides to crawl: {total_guides}")
-        print(f"Total pages to crawl: {total_pages:,}")
-        print("\nGuide breakdown (sorted by page count):\n")
+        print(f"\nTotal guides to crawl: {total_guides:,}")
+        print(f"Total pages to download: {total_pages:,}")
+        print(f"\nGuides sorted by page count (largest contributors first):\n")
 
-        # Print header
-        print(f"{'Pages':>7}  {'Guide URL'}")
-        print("-" * 80)
+        # Print header with percentage column
+        print(f"{'Pages':>8}  {'% of Total':>10}  {'Cumulative %':>13}  {'Guide URL'}")
+        print("-" * 100)
 
-        # Print each sitemap with its page count
+        # Print each sitemap with its page count, percentage, and cumulative percentage
+        cumulative_pages = 0
         for sitemap_url, page_count in sorted_sitemaps:
+            cumulative_pages += page_count
+            percentage = (page_count / total_pages) * 100
+            cumulative_pct = (cumulative_pages / total_pages) * 100
+
             # Extract a readable guide name from the URL
             # e.g., /AmazonS3/latest/userguide/sitemap.xml -> AmazonS3/latest/userguide
             parsed = urlparse(sitemap_url)
@@ -727,11 +732,22 @@ class AwsDocsCrawler:
             else:
                 guide_path = path
 
-            print(f"{page_count:7,}  {guide_path}")
+            print(f"{page_count:8,}  {percentage:9.2f}%  {cumulative_pct:12.1f}%  {guide_path}")
 
-        print("\n" + "=" * 80)
-        print(f"Total: {total_guides} guides, {total_pages:,} pages")
-        print("=" * 80 + "\n")
+        # Summary statistics
+        print("\n" + "=" * 100)
+        print(f"SUMMARY: {total_guides:,} guides, {total_pages:,} total pages to download")
+
+        # Show top contributors
+        top_10_pages = sum(count for _, count in sorted_sitemaps[:10])
+        top_10_pct = (top_10_pages / total_pages) * 100 if total_pages > 0 else 0
+        print(f"Top 10 guides: {top_10_pages:,} pages ({top_10_pct:.1f}% of total)")
+
+        top_20_pages = sum(count for _, count in sorted_sitemaps[:20])
+        top_20_pct = (top_20_pages / total_pages) * 100 if total_pages > 0 else 0
+        print(f"Top 20 guides: {top_20_pages:,} pages ({top_20_pct:.1f}% of total)")
+
+        print("=" * 100 + "\n")
 
     def _should_include_sitemap(self, sitemap_url: str) -> bool:
         """Determine if a sitemap should be processed."""
