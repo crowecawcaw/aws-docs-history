@@ -9,11 +9,6 @@ permissions:
   contents: write
 
 jobs:
-  discovery:
-    uses: ./.github/workflows/service-discovery.yml
-    secrets: inherit
-
   crawl:
-    needs: discovery
     uses: ./.github/workflows/docs-crawler.yml
     secrets: inherit
