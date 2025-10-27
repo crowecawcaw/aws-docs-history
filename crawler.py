@@ -550,6 +550,7 @@ class AwsDocsCrawler:
         allowed_prefixes: Optional[list[str]] = None,
         requests_per_second: Optional[float] = 10.0,
         service_url_filter: Optional[str] = None,
+        dry_run: bool = False,
     ) -> None:
         self.output_dir = output_dir
         self.max_workers = max_workers
@@ -557,6 +558,7 @@ class AwsDocsCrawler:
         self.link_checker = LinkChecker(allowed_prefixes)
         self.service_url_filter = service_url_filter
         self.service_url_prefix = self._extract_url_prefix(service_url_filter) if service_url_filter else None
+        self.dry_run = dry_run
 
         self.session.headers.setdefault(
             "User-Agent",
@@ -568,6 +570,7 @@ class AwsDocsCrawler:
         self._known_urls: set[str] = set()
         self._known_urls_lock = threading.Lock()
         self._visited_urls: set[str] = set()
+        self._sitemap_pages: dict[str, int] = {}  # Track pages per sitemap
 
         self._rate_limiter = RequestRateLimiter(requests_per_second)
         self._image_handler = ImageHandler(output_dir, self.session, self._rate_limiter)
@@ -604,21 +607,28 @@ class AwsDocsCrawler:
 
     def crawl(self) -> None:
         """Main crawl entry point."""
-        LOGGER.info("Starting crawl")
-        self.output_dir.mkdir(parents=True, exist_ok=True)
+        LOGGER.info("Starting crawl" + (" (DRY RUN)" if self.dry_run else ""))
+        if not self.dry_run:
+            self.output_dir.mkdir(parents=True, exist_ok=True)
 
         # Phase 1: Discover all pages from sitemap index
         LOGGER.info("Phase 1: Discovering pages from AWS sitemap index")
         self._discover_from_sitemap_index()
 
-        # Phase 2: Crawl all discovered pages
         with self._known_urls_lock:
             page_count = len(self._known_urls)
-        LOGGER.info("Phase 2: Crawling %d discovered pages", page_count)
 
         if page_count == 0:
             LOGGER.warning("No pages discovered to crawl")
             return
+
+        # If dry-run, print summary and exit
+        if self.dry_run:
+            self._print_dry_run_summary()
+            return
+
+        # Phase 2: Crawl all discovered pages
+        LOGGER.info("Phase 2: Crawling %d discovered pages", page_count)
 
         with ThreadPoolExecutor(max_workers=self.max_workers) as executor:
             for _ in range(self.max_workers):
@@ -679,6 +689,47 @@ class AwsDocsCrawler:
         # Process each service sitemap
         for sitemap_url in sitemap_urls:
             self._process_sitemap(sitemap_url)
+
+    def _print_dry_run_summary(self) -> None:
+        """Print a summary of what would be crawled in dry-run mode."""
+        print("\n" + "=" * 80)
+        print("DRY RUN SUMMARY")
+        print("=" * 80)
+
+        # Sort sitemaps by page count (descending)
+        sorted_sitemaps = sorted(
+            self._sitemap_pages.items(),
+            key=lambda x: x[1],
+            reverse=True
+        )
+
+        total_pages = sum(self._sitemap_pages.values())
+        total_guides = len(self._sitemap_pages)
+
+        print(f"\nTotal guides to crawl: {total_guides}")
+        print(f"Total pages to crawl: {total_pages:,}")
+        print("\nGuide breakdown (sorted by page count):\n")
+
+        # Print header
+        print(f"{'Pages':>7}  {'Guide URL'}")
+        print("-" * 80)
+
+        # Print each sitemap with its page count
+        for sitemap_url, page_count in sorted_sitemaps:
+            # Extract a readable guide name from the URL
+            # e.g., /AmazonS3/latest/userguide/sitemap.xml -> AmazonS3/latest/userguide
+            parsed = urlparse(sitemap_url)
+            path = parsed.path.strip("/")
+            if path.endswith("/sitemap.xml"):
+                guide_path = path[:-len("/sitemap.xml")]
+            else:
+                guide_path = path
+
+            print(f"{page_count:7,}  {guide_path}")
+
+        print("\n" + "=" * 80)
+        print(f"Total: {total_guides} guides, {total_pages:,} pages")
+        print("=" * 80 + "\n")
 
     def _should_include_sitemap(self, sitemap_url: str) -> bool:
         """Determine if a sitemap should be processed."""
@@ -755,6 +806,7 @@ class AwsDocsCrawler:
         if not locs:
             locs = root.findall(".//loc")
 
+        page_count = 0
         for loc in locs:
             url = (loc.text or "").strip()
             if not url:
@@ -766,6 +818,11 @@ class AwsDocsCrawler:
             # Check if it's an HTML page we should crawl
             if self.link_checker(candidate_url):
                 self._add_url_to_known(candidate_url)
+                page_count += 1
+
+        # Track pages per sitemap for dry-run reporting
+        if page_count > 0:
+            self._sitemap_pages[sitemap_url] = page_count
 
     def _add_url_to_known(self, url: str) -> bool:
         """Add URL to known set for later processing."""
@@ -885,6 +942,11 @@ def parse_args() -> argparse.Namespace:
         default="INFO",
         help="Python logging level (e.g. INFO, DEBUG).",
     )
+    parser.add_argument(
+        "--dry-run",
+        action="store_true",
+        help="Discover and list all guides with page counts without actually crawling them.",
+    )
     return parser.parse_args()
 
 
@@ -919,8 +981,8 @@ def main() -> None:
     args = parse_args()
     logging.basicConfig(level=getattr(logging, args.log_level.upper(), logging.INFO))
 
-    # Clean guide directory if crawling a specific guide
-    if args.service_url:
+    # Clean guide directory if crawling a specific guide (skip in dry-run mode)
+    if args.service_url and not args.dry_run:
         clean_guide_directory(args.output_dir, args.service_url)
 
     crawler = AwsDocsCrawler(
@@ -929,10 +991,12 @@ def main() -> None:
         allowed_prefixes=args.allowed_prefixes,
         requests_per_second=args.requests_per_second,
         service_url_filter=args.service_url,
+        dry_run=args.dry_run,
     )
     crawler.crawl()
 
-    LOGGER.info("Crawled %d pages", len(crawler.visited_urls))
+    if not args.dry_run:
+        LOGGER.info("Crawled %d pages", len(crawler.visited_urls))
 
 
 if __name__ == "__main__":

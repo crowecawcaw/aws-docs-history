@@ -7,12 +7,22 @@ on:
         description: 'Service guide URL to crawl (e.g., https://docs.aws.amazon.com/AmazonS3/latest/userguide/ or /AmazonS3/latest/userguide/). Leave empty to crawl all services.'
         required: false
         type: string
+      dry_run:
+        description: 'Run in dry-run mode (list guides without crawling)'
+        required: false
+        type: boolean
+        default: false
   workflow_call:
     inputs:
       service_url:
         description: 'Service guide URL to crawl (e.g., https://docs.aws.amazon.com/AmazonS3/latest/userguide/ or /AmazonS3/latest/userguide/). Leave empty to crawl all services.'
         required: false
         type: string
+      dry_run:
+        description: 'Run in dry-run mode (list guides without crawling)'
+        required: false
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -51,12 +61,18 @@ jobs:
       - name: Run crawler
         working-directory: main
         run: |
+          DRY_RUN_FLAG=""
+          if [ "${{ inputs.dry_run }}" = "true" ]; then
+            DRY_RUN_FLAG="--dry-run"
+            echo "Running in dry-run mode..."
+          fi
+
           if [ -z "${{ inputs.service_url }}" ]; then
             echo "Crawling all services..."
-            python crawler.py --output-dir docs
+            python crawler.py --output-dir docs $DRY_RUN_FLAG
           else
             echo "Crawling guide: ${{ inputs.service_url }}"
-            python crawler.py --output-dir docs --service-url "${{ inputs.service_url }}"
+            python crawler.py --output-dir docs --service-url "${{ inputs.service_url }}" $DRY_RUN_FLAG
           fi
 
       - name: Configure Git user
@@ -66,11 +82,12 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
       - name: Commit changes
+        if: inputs.dry_run != true
         id: commit
         working-directory: main
         run: python commit_changes.py
 
       - name: Push changes
-        if: steps.commit.outputs.changes == 'true'
+        if: inputs.dry_run != true && steps.commit.outputs.changes == 'true'
         working-directory: main
         run: git push origin main

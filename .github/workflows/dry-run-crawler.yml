@@ -1,0 +1,40 @@
+name: Dry run crawler
+
+on:
+  workflow_dispatch:
+    inputs:
+      service_url:
+        description: 'Service guide URL to analyze (e.g., https://docs.aws.amazon.com/AmazonS3/latest/userguide/ or /AmazonS3/latest/userguide/). Leave empty to analyze all services.'
+        required: false
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  dry-run:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run dry-run crawler
+        run: |
+          if [ -z "${{ inputs.service_url }}" ]; then
+            echo "Analyzing all services..."
+            python crawler.py --dry-run
+          else
+            echo "Analyzing guide: ${{ inputs.service_url }}"
+            python crawler.py --dry-run --service-url "${{ inputs.service_url }}"
+          fi
