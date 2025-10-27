@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import argparse
 from concurrent.futures import ThreadPoolExecutor
+import json
 import logging
 import os
 import queue
@@ -26,6 +27,8 @@ import markdownify
 from aws_docs import (
     DOCS_BASE_URL,
     DOCS_NETLOC,
+    ServiceGuide,
+    ServiceScope,
     derive_allowed_prefix,
     normalise_url,
 )
@@ -151,6 +154,48 @@ def looks_like_api_doc(guide_segment: str) -> bool:
     guide_lower = guide_segment.lower()
     api_markers = ("apireference", "api-reference", "apiref", "api")
     return any(marker in guide_lower for marker in api_markers)
+
+
+def load_service_manifest(path: Path) -> dict[str, ServiceScope]:
+    """Load a previously generated service manifest."""
+
+    with path.open("r", encoding="utf-8") as handle:
+        data = json.load(handle)
+
+    services_raw = data.get("services", [])
+    scopes: dict[str, ServiceScope] = {}
+
+    for entry in services_raw:
+        service_id = (entry.get("id") or "").strip()
+        if not service_id:
+            continue
+
+        guides_raw = entry.get("guides", [])
+        guides: list[ServiceGuide] = []
+
+        for guide_data in guides_raw:
+            url = (guide_data.get("url") or "").strip()
+            if not url:
+                continue
+
+            title = (guide_data.get("title") or "").strip() or url
+            allowed_prefix = (
+                (guide_data.get("allowed_prefix") or "").strip()
+                or derive_allowed_prefix(url)
+            )
+
+            guides.append(
+                ServiceGuide(title=title, url=normalise_url(url), allowed_prefix=allowed_prefix)
+            )
+
+        if not guides:
+            continue
+
+        scopes[service_id] = ServiceScope(
+            guides=tuple(sorted(guides, key=lambda guide: guide.url))
+        )
+
+    return scopes
 
 
 class RequestRateLimiter:
@@ -334,6 +379,29 @@ def url_to_output_path(url: str, output_root: Optional[Path] = None) -> Path:
 
     relative_path = Path(*parts).with_suffix(".md")
     return output_root / relative_path if output_root else relative_path
+
+
+def convert_page(
+    url: str,
+    html: str,
+    *,
+    output_root: Optional[Path] = None,
+) -> tuple[Path, str]:
+    """Convert a documentation page to Markdown without writing to disk."""
+
+    if output_root is None:
+        output_root = Path(".")
+
+    soup = BeautifulSoup(html, "html.parser")
+    main = extract_main_content(soup)
+    output_path = url_to_output_path(url, output_root)
+    markdown = convert_tag_to_markdown(
+        url,
+        main,
+        output_path=output_path,
+        output_root=output_root,
+    )
+    return output_path, markdown
 
 
 def convert_tag_to_markdown(
