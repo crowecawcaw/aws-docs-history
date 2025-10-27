@@ -10,6 +10,7 @@ import argparse
 from concurrent.futures import ThreadPoolExecutor
 import logging
 import os
+import posixpath
 import queue
 import shutil
 import threading
@@ -23,12 +24,20 @@ import requests
 from bs4 import BeautifulSoup, Tag
 import markdownify
 
-from aws_docs import (
-    DOCS_BASE_URL,
-    DOCS_NETLOC,
-    derive_allowed_prefix,
-    normalise_url,
-)
+# AWS documentation constants
+DOCS_BASE_URL = "https://docs.aws.amazon.com"
+DOCS_NETLOC = urlparse(DOCS_BASE_URL).netloc
+
+
+def normalise_url(url: str) -> str:
+    """Normalise a URL by removing fragments and redundant path segments."""
+    parsed = urlparse(url)
+    cleaned_path = posixpath.normpath(parsed.path or "/")
+    if parsed.path.endswith("/") and not cleaned_path.endswith("/"):
+        cleaned_path += "/"
+
+    cleaned = parsed._replace(path=cleaned_path, fragment="", query="")
+    return urlunparse(cleaned)
 
 CONTENT_SELECTORS = [
     "main",
