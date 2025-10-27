@@ -10,6 +10,7 @@ import argparse
 from concurrent.futures import ThreadPoolExecutor
 import logging
 import os
+import posixpath
 import queue
 import shutil
 import threading
@@ -525,13 +526,14 @@ class AwsDocsCrawler:
         session: Optional[requests.Session] = None,
         allowed_prefixes: Optional[list[str]] = None,
         requests_per_second: Optional[float] = 10.0,
-        service_filter: Optional[str] = None,
+        service_url_filter: Optional[str] = None,
     ) -> None:
         self.output_dir = output_dir
         self.max_workers = max_workers
         self.session = session or requests.Session()
         self.link_checker = LinkChecker(allowed_prefixes)
-        self.service_filter = service_filter
+        self.service_url_filter = service_url_filter
+        self.service_url_prefix = self._extract_url_prefix(service_url_filter) if service_url_filter else None
 
         self.session.headers.setdefault(
             "User-Agent",
@@ -546,6 +548,31 @@ class AwsDocsCrawler:
 
         self._rate_limiter = RequestRateLimiter(requests_per_second)
         self._image_handler = ImageHandler(output_dir, self.session, self._rate_limiter)
+
+    def _extract_url_prefix(self, url_or_path: str) -> str:
+        """Extract the path prefix from a URL or path string."""
+        # Handle full URLs
+        if url_or_path.startswith(("http://", "https://")):
+            parsed = urlparse(url_or_path)
+            path = parsed.path
+        else:
+            # Treat as a path
+            path = url_or_path
+
+        # Normalize the path
+        path = path.strip()
+        if not path.startswith("/"):
+            path = "/" + path
+
+        # Remove trailing filename if present (e.g., /path/to/page.html -> /path/to/)
+        if path.endswith((".html", ".htm")):
+            path = posixpath.dirname(path)
+
+        # Ensure it ends with / for prefix matching
+        if not path.endswith("/"):
+            path = path + "/"
+
+        return path
 
     @property
     def visited_urls(self) -> list[str]:
@@ -658,10 +685,18 @@ class AwsDocsCrawler:
         if looks_like_non_service(service_segment):
             return False
 
-        # Apply service filter if specified
-        if self.service_filter:
-            service_id = service_segment.lower().replace("_", "-")
-            if service_id != self.service_filter.lower():
+        # Apply service URL filter if specified
+        if self.service_url_prefix:
+            # Extract the path up to and including the guide segment
+            # e.g., /AmazonS3/latest/userguide/sitemap.xml -> /AmazonS3/latest/userguide/
+            sitemap_path = parsed.path.rstrip("/")
+            if sitemap_path.endswith("/sitemap.xml"):
+                sitemap_path = sitemap_path[:-len("/sitemap.xml")]
+
+            sitemap_prefix = sitemap_path + "/"
+
+            # Check if the sitemap path starts with the filter prefix
+            if not sitemap_prefix.startswith(self.service_url_prefix):
                 return False
 
         return True
@@ -807,9 +842,9 @@ def parse_args() -> argparse.Namespace:
         help="Maximum number of HTTP requests per second. Set to 0 to disable throttling.",
     )
     parser.add_argument(
-        "--service",
+        "--service-url",
         type=str,
-        help="Service ID to crawl (e.g., 'deadline-cloud', 's3'). If not provided, all services will be crawled.",
+        help="Service guide URL to crawl (e.g., 'https://docs.aws.amazon.com/AmazonS3/latest/userguide/' or '/AmazonS3/latest/userguide/'). If not provided, all services will be crawled.",
     )
     parser.add_argument(
         "--allowed-prefix",
@@ -826,33 +861,47 @@ def parse_args() -> argparse.Namespace:
     return parser.parse_args()
 
 
-def clean_service_directories(output_dir: Path, service_id: str) -> None:
-    """Delete existing documentation directories for a specific service."""
-    # Construct the service directory path
-    service_dir = output_dir / service_id
+def clean_guide_directory(output_dir: Path, service_url: str) -> None:
+    """Delete existing documentation directory for a specific guide."""
+    # Extract the path from the URL
+    if service_url.startswith(("http://", "https://")):
+        parsed = urlparse(service_url)
+        path = parsed.path
+    else:
+        path = service_url
 
-    if service_dir.exists() and service_dir.is_dir():
+    # Normalize the path
+    path = path.strip().strip("/")
+
+    if not path:
+        LOGGER.warning("Cannot clean directory: empty path from URL %s", service_url)
+        return
+
+    # Construct the guide directory path
+    guide_dir = output_dir / path
+
+    if guide_dir.exists() and guide_dir.is_dir():
         try:
-            LOGGER.info("Cleaning directory %s for recrawl", service_dir)
-            shutil.rmtree(service_dir)
+            LOGGER.info("Cleaning directory %s for recrawl", guide_dir)
+            shutil.rmtree(guide_dir)
         except Exception as exc:
-            LOGGER.warning("Failed to clean directory %s: %s", service_dir, exc)
+            LOGGER.warning("Failed to clean directory %s: %s", guide_dir, exc)
 
 
 def main() -> None:
     args = parse_args()
     logging.basicConfig(level=getattr(logging, args.log_level.upper(), logging.INFO))
 
-    # Clean service directories if crawling a specific service
-    if args.service:
-        clean_service_directories(args.output_dir, args.service)
+    # Clean guide directory if crawling a specific guide
+    if args.service_url:
+        clean_guide_directory(args.output_dir, args.service_url)
 
     crawler = AwsDocsCrawler(
         output_dir=args.output_dir,
         max_workers=args.max_workers,
         allowed_prefixes=args.allowed_prefixes,
         requests_per_second=args.requests_per_second,
-        service_filter=args.service,
+        service_url_filter=args.service_url,
     )
     crawler.crawl()
 

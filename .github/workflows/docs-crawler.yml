@@ -3,14 +3,14 @@ name: Docs crawler
 on:
   workflow_dispatch:
     inputs:
-      service:
-        description: 'Service ID to crawl (leave empty to crawl all services)'
+      service_url:
+        description: 'Service guide URL to crawl (e.g., https://docs.aws.amazon.com/AmazonS3/latest/userguide/ or /AmazonS3/latest/userguide/). Leave empty to crawl all services.'
         required: false
         type: string
   workflow_call:
     inputs:
-      service:
-        description: 'Service ID to crawl (leave empty to crawl all services)'
+      service_url:
+        description: 'Service guide URL to crawl (e.g., https://docs.aws.amazon.com/AmazonS3/latest/userguide/ or /AmazonS3/latest/userguide/). Leave empty to crawl all services.'
         required: false
         type: string
 
@@ -51,12 +51,12 @@ jobs:
       - name: Run crawler
         working-directory: main
         run: |
-          if [ -z "${{ inputs.service }}" ]; then
+          if [ -z "${{ inputs.service_url }}" ]; then
             echo "Crawling all services..."
             python crawler.py --output-dir docs
           else
-            echo "Crawling service: ${{ inputs.service }}"
-            python crawler.py --output-dir docs --service "${{ inputs.service }}"
+            echo "Crawling guide: ${{ inputs.service_url }}"
+            python crawler.py --output-dir docs --service-url "${{ inputs.service_url }}"
           fi
 
       - name: Configure Git user
