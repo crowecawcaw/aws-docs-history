@@ -1,38 +1,30 @@
-"""AWS documentation crawler focused on selected services.
+"""AWS documentation crawler using sitemap-based discovery.
 
-This module implements a multi-threaded crawler that downloads AWS
-documentation pages and converts the main content of each page to Markdown.
-While it currently focuses on a curated list of services, the building blocks
-are intentionally generic so the crawl scope can be expanded in the future.
+This crawler downloads AWS documentation pages and converts them to Markdown.
+It uses AWS's sitemap.xml files to discover all services and pages.
 """
 
 from __future__ import annotations
 
 import argparse
 from concurrent.futures import ThreadPoolExecutor
-import json
 import logging
 import os
 import queue
 import shutil
 import threading
 import time
-from collections.abc import Callable, Iterable, Sequence
 from pathlib import Path, PurePosixPath
-import posixpath
 from typing import Optional
-from urllib.parse import ParseResult, urljoin, urlparse, urlunparse
+from urllib.parse import urljoin, urlparse, urlunparse
 
 import requests
-
 from bs4 import BeautifulSoup, Tag
 import markdownify
 
 from aws_docs import (
     DOCS_BASE_URL,
     DOCS_NETLOC,
-    ServiceGuide,
-    ServiceScope,
     derive_allowed_prefix,
     normalise_url,
 )
@@ -98,7 +90,6 @@ TAGS_TO_STRIP = [
     "terms-section",
 ]
 
-
 LOGGER = logging.getLogger(__name__)
 
 MODULE_ROOT = Path(__file__).resolve().parent
@@ -106,19 +97,32 @@ MODULE_ROOT = Path(__file__).resolve().parent
 IMAGE_HOST = "docs.aws.amazon.com"
 IMAGE_PATH_PREFIX = "/images/"
 ALLOWED_IMAGE_EXTENSIONS = {".png", ".jpg", ".jpeg", ".gif", ".svg"}
-MAX_IMAGE_BYTES = 10 * 1024 * 1024  # 10 MiB safeguard for very large assets
+MAX_IMAGE_BYTES = 10 * 1024 * 1024  # 10 MiB safeguard
+
+SITEMAP_INDEX_URL = f"{DOCS_BASE_URL}/sitemap_index.xml"
+
+# Patterns to exclude
+NON_SERVICE_PATTERNS = {
+    "identifiers": {
+        "abap-sdk", "cli", "cpp", "go", "java", "net", "php", "powershell",
+        "python3", "pythonsdk", "ruby", "sdk-for-cpp", "sdk-for-go",
+        "sdk-for-java", "sdk-for-javascript", "sdk-for-kotlin", "sdk-for-net",
+        "sdk-for-php", "sdk-for-ruby", "sdk-for-rust", "sdk-for-sapabap",
+        "sdk-for-swift", "sdk-for-unity", "sdkforkotlin",
+    },
+    "prefixes": ("sdk-for-", "aws-sdk-", "tk-"),
+    "substrings": ("toolkit",),
+}
 
 
 def build_local_image_path(image_path: str, output_root: Path) -> Path:
     """Translate an AWS Docs image path into a local filesystem destination."""
-
     if not image_path.startswith(IMAGE_PATH_PREFIX):
         raise ValueError(f"Image path must start with {IMAGE_PATH_PREFIX!r}: {image_path!r}")
 
-    relative_path = image_path[len(IMAGE_PATH_PREFIX) :]
+    relative_path = image_path[len(IMAGE_PATH_PREFIX):]
     safe_parts = [
-        part
-        for part in PurePosixPath(relative_path).parts
+        part for part in PurePosixPath(relative_path).parts
         if part not in {"..", "."}
     ]
 
@@ -128,50 +132,24 @@ def build_local_image_path(image_path: str, output_root: Path) -> Path:
     return output_root.joinpath(*safe_parts)
 
 
-def _collect_scope_values(scopes: Iterable[ServiceScope], attribute: str) -> list[str]:
-    return [value for scope in scopes for value in getattr(scope, attribute)]
+def looks_like_non_service(identifier: str) -> bool:
+    """Return True when the identifier is not an AWS service."""
+    normalised = identifier.strip().lower()
+    if not normalised:
+        return False
+
+    return (
+        normalised in NON_SERVICE_PATTERNS["identifiers"]
+        or any(normalised.startswith(p) for p in NON_SERVICE_PATTERNS["prefixes"])
+        or any(s in normalised for s in NON_SERVICE_PATTERNS["substrings"])
+    )
 
 
-def load_service_manifest(path: Path) -> dict[str, ServiceScope]:
-    """Load a previously generated service manifest."""
-
-    with path.open("r", encoding="utf-8") as handle:
-        data = json.load(handle)
-
-    services_raw = data.get("services", [])
-    scopes: dict[str, ServiceScope] = {}
-
-    for entry in services_raw:
-        service_id = (entry.get("id") or "").strip()
-        if not service_id:
-            continue
-
-        guides_raw = entry.get("guides", [])
-        guides: list[ServiceGuide] = []
-
-        for guide_data in guides_raw:
-            url = (guide_data.get("url") or "").strip()
-            if not url:
-                continue
-
-            title = (guide_data.get("title") or "").strip() or url
-            allowed_prefix = (
-                (guide_data.get("allowed_prefix") or "").strip()
-                or derive_allowed_prefix(url)
-            )
-
-            guides.append(
-                ServiceGuide(title=title, url=normalise_url(url), allowed_prefix=allowed_prefix)
-            )
-
-        if not guides:
-            continue
-
-        scopes[service_id] = ServiceScope(
-            guides=tuple(sorted(guides, key=lambda guide: guide.url))
-        )
-
-    return scopes
+def looks_like_api_doc(guide_segment: str) -> bool:
+    """Check if a guide segment looks like an API reference."""
+    guide_lower = guide_segment.lower()
+    api_markers = ("apireference", "api-reference", "apiref", "api")
+    return any(marker in guide_lower for marker in api_markers)
 
 
 class RequestRateLimiter:
@@ -202,15 +180,14 @@ class RequestRateLimiter:
 class LinkChecker:
     """Determine whether a link should be crawled."""
 
-    def __init__(self, allowed_prefixes: Optional[Sequence[str]] = None) -> None:
+    def __init__(self, allowed_prefixes: Optional[list[str]] = None) -> None:
         self.allowed_schemes = {"http", "https"}
         self.disallowed_suffixes = {".png", ".jpg", ".jpeg", ".gif", ".pdf", ".zip", ".svg", ".xml"}
         self.html_suffixes = ("/", ".html", ".htm")
         raw_prefixes = list(allowed_prefixes or [])
         self.prefixes = [
             prefix if prefix.startswith("/") else f"/{prefix.lstrip('/')}"
-            for prefix in raw_prefixes
-            if prefix
+            for prefix in raw_prefixes if prefix
         ]
 
     def __call__(self, url: str) -> bool:
@@ -232,7 +209,6 @@ class LinkChecker:
 
 def extract_main_content(soup: BeautifulSoup) -> Tag:
     """Extract the main documentation content from the parsed HTML page."""
-
     main = (
         next(
             (
@@ -254,8 +230,7 @@ def extract_main_content(soup: BeautifulSoup) -> Tag:
 
 
 def convert_html_to_markdown(html: str) -> str:
-    """Convert the relevant HTML content to Markdown using ``markdownify``."""
-
+    """Convert the relevant HTML content to Markdown using markdownify."""
     content = markdownify.markdownify(
         html,
         heading_style=markdownify.ATX,
@@ -275,16 +250,7 @@ def convert_html_to_markdown(html: str) -> str:
 
 
 def _reflow_markdown_tables(markdown: str) -> str:
-    """Join wrapped table rows produced by ``markdownify``.
-
-    The AWS documentation frequently includes multi-paragraph or list content
-    inside table cells. ``markdownify`` represents these structures using
-    normal Markdown constructs, which introduces newline characters that break
-    the table layout. This helper collapses continuation lines back into the
-    table row and inserts HTML ``<br>`` elements for list items so that the
-    rendered tables remain readable.
-    """
-
+    """Join wrapped table rows produced by markdownify."""
     lines = markdown.splitlines()
     result: list[str] = []
     pending_row: str | None = None
@@ -352,16 +318,7 @@ def _reflow_markdown_tables(markdown: str) -> str:
 
 
 def url_to_output_path(url: str, output_root: Optional[Path] = None) -> Path:
-    """Translate a documentation URL into a Markdown output path.
-
-    Args:
-        url: The URL to convert
-        output_root: Optional root directory. If provided, returns absolute path,
-                     otherwise returns relative path.
-
-    Returns:
-        Path object pointing to the Markdown file
-    """
+    """Translate a documentation URL into a Markdown output path."""
     parsed = urlparse(url)
     path = parsed.path.lstrip("/").rstrip("/")
 
@@ -384,45 +341,15 @@ def convert_tag_to_markdown(
     *,
     output_path: Path,
     output_root: Path,
-    link_checker: Callable[[str], bool] | None = None,
 ) -> str:
     """Convert an extracted HTML fragment into Markdown."""
-
     for anchor in main.find_all("a"):
         if anchor.find_parent(["code", "pre"]):
             anchor.replace_with(anchor.get_text())
-    rewrite_doc_links(
-        main,
-        url,
-        base_output=output_path,
-        output_root=output_root,
-        link_checker=link_checker,
-    )
+
+    rewrite_doc_links(main, url, base_output=output_path, output_root=output_root)
     markdown = convert_html_to_markdown(str(main))
     return markdown
-
-
-def convert_page(
-    url: str,
-    html: str,
-    *,
-    output_root: Path | None = None,
-) -> tuple[Path, str]:
-    """Convert a documentation page to Markdown without writing to disk."""
-
-    if output_root is None:
-        output_root = Path(".")
-
-    soup = BeautifulSoup(html, "html.parser")
-    main = extract_main_content(soup)
-    output_path = url_to_output_path(url, output_root)
-    markdown = convert_tag_to_markdown(
-        url,
-        main,
-        output_path=output_path,
-        output_root=output_root,
-    )
-    return output_path, markdown
 
 
 def rewrite_doc_links(
@@ -431,17 +358,9 @@ def rewrite_doc_links(
     *,
     base_output: Path,
     output_root: Path,
-    link_checker: Callable[[str], bool] | None = None,
 ) -> None:
-    """Rewrite internal documentation links so they point at local Markdown files."""
-
-    if link_checker is None:
-        base_host = urlparse(base_url).netloc
-
-        def should_rewrite(candidate: str) -> bool:
-            return urlparse(candidate).netloc == base_host
-    else:
-        should_rewrite: Callable[[str], bool] = link_checker
+    """Rewrite internal documentation links to point at local Markdown files."""
+    base_host = urlparse(base_url).netloc
 
     for anchor in container.find_all("a", href=True):
         href = anchor["href"].strip()
@@ -451,12 +370,13 @@ def rewrite_doc_links(
 
         absolute = urljoin(base_url, href)
         parsed = urlparse(absolute)
+
+        if parsed.netloc != base_host:
+            continue
+
         fragment = parsed.fragment
         cleaned = urlunparse(parsed._replace(fragment="", query=""))
         cleaned = normalise_url(cleaned)
-
-        if not should_rewrite(cleaned):
-            continue
 
         target_output = url_to_output_path(cleaned, output_root)
         relative_path = os.path.relpath(target_output, start=base_output.parent)
@@ -466,233 +386,6 @@ def rewrite_doc_links(
             relative_href = f"{relative_href}#{fragment}"
 
         anchor["href"] = relative_href
-
-
-class TocManager:
-    """Handle table of contents processing and document generation."""
-
-    def __init__(
-        self,
-        output_dir: Path,
-        session: requests.Session,
-        rate_limiter: RequestRateLimiter,
-        link_checker: Callable[[str], bool],
-        enqueue_callback: Callable[[str], bool],
-    ) -> None:
-        self.output_dir = output_dir
-        self.session = session
-        self.rate_limiter = rate_limiter
-        self.link_checker = link_checker
-        self.enqueue_callback = enqueue_callback
-        self._toc_entries: dict[str, dict] = {}
-        self._lock = threading.Lock()
-
-    def process_toc(self, toc_url: str) -> None:
-        """Fetch and process a table of contents JSON file."""
-        LOGGER.debug("Fetching TOC %s", toc_url)
-
-        try:
-            self.rate_limiter.acquire()
-            response = self.session.get(toc_url, timeout=30)
-            response.raise_for_status()
-        except requests.RequestException as exc:
-            LOGGER.warning("Failed to fetch TOC %s: %s", toc_url, exc)
-            return
-
-        try:
-            toc_data = response.json()
-        except ValueError as exc:  # pragma: no cover - defensive logging
-            LOGGER.warning("Failed to parse TOC JSON from %s: %s", toc_url, exc)
-            return
-
-        for href in self._iter_toc_hrefs(toc_data):
-            candidate_url = normalise_url(urljoin(toc_url, href))
-            if self.link_checker(candidate_url):
-                self.enqueue_callback(candidate_url)
-
-        with self._lock:
-            self._toc_entries[toc_url] = toc_data
-
-    @staticmethod
-    def _iter_toc_hrefs(node: object) -> Iterable[str]:
-        """Recursively extract href values from TOC JSON structure."""
-        if isinstance(node, dict):
-            href = node.get("href")
-            if isinstance(href, str) and href:
-                yield href
-
-            contents = node.get("contents")
-            if isinstance(contents, list):
-                for item in contents:
-                    yield from TocManager._iter_toc_hrefs(item)
-            return
-
-        if isinstance(node, list):
-            for item in node:
-                yield from TocManager._iter_toc_hrefs(item)
-
-    def write_toc_documents(self) -> None:
-        """Generate README files for each TOC and a main index."""
-        with self._lock:
-            toc_items = list(self._toc_entries.items())
-
-        if not toc_items:
-            return
-
-        service_guides: dict[tuple[str, str], list[tuple[str, str]]] = {}
-
-        for toc_url, toc_data in toc_items:
-            metadata = self._parse_toc_metadata(toc_url)
-            if metadata is None:
-                continue
-
-            service_slug, service_display, guide_display, readme_path = metadata
-
-            contents = toc_data.get("contents") if isinstance(toc_data, dict) else None
-            if not isinstance(contents, list):
-                continue
-
-            readme_lines = [f"# {service_display} {guide_display} Table of Contents", ""]
-            readme_lines.extend(
-                self._render_toc_markdown(toc_url, readme_path, contents)
-            )
-
-            readme_text = "\n".join(readme_lines).rstrip() + "\n"
-            readme_path.parent.mkdir(parents=True, exist_ok=True)
-            readme_path.write_text(readme_text, encoding="utf-8")
-            LOGGER.info("Wrote TOC %s", readme_path)
-
-            relative_path = readme_path.relative_to(self.output_dir).as_posix()
-            service_guides.setdefault((service_slug, service_display), []).append(
-                (guide_display, relative_path)
-            )
-
-        if service_guides:
-            self._write_docs_index(service_guides)
-
-    def _render_toc_markdown(
-        self,
-        toc_url: str,
-        readme_path: Path,
-        contents: list[dict],
-        depth: int = 0,
-    ) -> list[str]:
-        """Render TOC entries as Markdown list items."""
-        lines: list[str] = []
-
-        def _walk(nodes: list[dict], level: int) -> None:
-            for node in nodes:
-                if not isinstance(node, dict):
-                    continue
-
-                title = str(node.get("title", "")).strip()
-                href = node.get("href")
-                indent = "  " * level
-
-                link: Optional[str] = None
-                if isinstance(href, str) and href:
-                    target_url = normalise_url(urljoin(toc_url, href))
-                    target_path = url_to_output_path(target_url, self.output_dir)
-                    relative = os.path.relpath(target_path, start=readme_path.parent)
-                    link = Path(relative).as_posix()
-
-                if title and link:
-                    lines.append(f"{indent}- [{title}]({link})")
-                elif title:
-                    lines.append(f"{indent}- {title}")
-
-                children = node.get("contents")
-                if isinstance(children, list) and children:
-                    _walk(children, level + 1)
-
-        _walk(contents, depth)
-        return lines
-
-    def _parse_toc_metadata(
-        self, toc_url: str
-    ) -> Optional[tuple[str, str, str, Path]]:
-        """Extract service and guide information from TOC URL."""
-        parsed = urlparse(toc_url)
-        parts = PurePosixPath(parsed.path.lstrip("/")).parts
-
-        if len(parts) < 4 or parts[-1] != "toc-contents.json":
-            return None
-
-        service_segment, version_segment, guide_segment = parts[0], parts[1], parts[2]
-
-        if version_segment.lower() != "latest":
-            return None
-
-        service_slug, service_display = self._service_display(service_segment)
-        guide_display = self._guide_display(guide_segment)
-        readme_path = self.output_dir.joinpath(*parts[:-1], "README.md")
-
-        return service_slug, service_display, guide_display, readme_path
-
-    @staticmethod
-    def _service_display(service_segment: str) -> tuple[str, str]:
-        """Convert service segment to slug and display name."""
-        mapping = {
-            "deadline-cloud": ("deadline-cloud", "Deadline Cloud"),
-            "AmazonS3": ("amazon-s3", "Amazon S3"),
-            "AWSCloudFormation": ("aws-cloudformation", "AWS CloudFormation"),
-        }
-
-        if service_segment in mapping:
-            return mapping[service_segment]
-
-        slug = service_segment.lower().replace("_", "-")
-        display = slug.replace("-", " ").title()
-        return slug, display
-
-    @staticmethod
-    def _guide_display(guide_segment: str) -> str:
-        """Convert guide segment to display name."""
-        mapping = {
-            "userguide": "User Guide",
-            "developerguide": "Developer Guide",
-            "apireference": "API Reference",
-            "api": "API Reference",
-        }
-
-        key = guide_segment.lower()
-        return mapping.get(key, guide_segment.replace("-", " ").title())
-
-    def _write_docs_index(
-        self,
-        service_guides: dict[tuple[str, str], list[tuple[str, str]]],
-    ) -> None:
-        """Write the main documentation index README."""
-        index_path = self.output_dir / "README.md"
-
-        guide_order = {
-            "User Guide": 0,
-            "Developer Guide": 1,
-            "Administrator Guide": 2,
-            "API Reference": 3,
-        }
-
-        lines = [
-            "# AWS Documentation Archive",
-            "",
-            "Browse the available service documentation using the links below.",
-            "",
-        ]
-
-        for (_, service_display), guides in sorted(
-            service_guides.items(), key=lambda item: item[0][1]
-        ):
-            lines.append(f"- **{service_display}**")
-            for guide_display, relative_path in sorted(
-                guides,
-                key=lambda item: (guide_order.get(item[0], 99), item[0]),
-            ):
-                lines.append(f"  - [{guide_display}]({relative_path})")
-
-        lines.append("")
-        index_text = "\n".join(lines).rstrip() + "\n"
-        index_path.write_text(index_text, encoding="utf-8")
-        LOGGER.info("Wrote documentation index %s", index_path)
 
 
 class ImageHandler:
@@ -728,40 +421,10 @@ class ImageHandler:
             if not raw_src:
                 continue
 
-            rewritten = next(
-                (
-                    rewritten
-                    for _, rewritten, _ in self._iter_image_rewrites(
-                        raw_src, page_url, page_output
-                    )
-                    if rewritten
-                ),
-                None,
-            )
-            if not rewritten:
-                continue
-
-            for attr in sources or ["src"]:
-                image[attr] = rewritten
-
-            self._rewrite_srcsets(image, page_url, page_output)
-
-    def _iter_image_rewrites(
-        self, raw_value: str, page_url: str, page_output: Path
-    ) -> Iterable[tuple[str, Optional[str], str]]:
-        for part in raw_value.split(","):
-            piece = part.strip()
-            if not piece:
-                continue
-
-            if " " in piece:
-                url_token, descriptor = piece.split(None, 1)
-                descriptor = descriptor.strip()
-            else:
-                url_token, descriptor = piece, ""
-
-            rewritten = self._rewrite_single_image(url_token, page_url, page_output)
-            yield piece, rewritten, descriptor
+            rewritten = self._rewrite_single_image(raw_src, page_url, page_output)
+            if rewritten:
+                for attr in sources or ["src"]:
+                    image[attr] = rewritten
 
     def _rewrite_single_image(
         self, raw_src: str, page_url: str, page_output: Path
@@ -772,10 +435,8 @@ class ImageHandler:
 
         if parsed.scheme not in {"http", "https"}:
             return None
-
         if parsed.netloc != IMAGE_HOST:
             return None
-
         if not parsed.path.startswith(IMAGE_PATH_PREFIX):
             return None
 
@@ -783,38 +444,12 @@ class ImageHandler:
         if extension not in ALLOWED_IMAGE_EXTENSIONS:
             return None
 
-        local_path = self._image_output_path(parsed.path)
+        local_path = build_local_image_path(parsed.path, self.output_dir)
         if not self._download_image(absolute_url, local_path):
             return None
 
         relative_path = os.path.relpath(local_path, start=page_output.parent)
         return Path(relative_path).as_posix()
-
-    def _rewrite_srcsets(self, image: Tag, page_url: str, page_output: Path) -> None:
-        """Rewrite image ``srcset`` style attributes to point at local assets."""
-        for attr in ("srcset", "data-srcset", "data-awsdocs-srcset"):
-            value = image.get(attr)
-            if not value or not isinstance(value, str):
-                continue
-
-            rewritten_parts: list[str] = []
-            modified = False
-
-            for piece, rewritten, descriptor in self._iter_image_rewrites(
-                value, page_url, page_output
-            ):
-                if rewritten:
-                    modified = True
-                    token = f"{rewritten} {descriptor}" if descriptor else rewritten
-                else:
-                    token = piece
-                rewritten_parts.append(token)
-
-            if modified:
-                image[attr] = ", ".join(rewritten_parts)
-
-    def _image_output_path(self, image_path: str) -> Path:
-        return build_local_image_path(image_path, self.output_dir)
 
     def _download_image(self, image_url: str, destination: Path) -> bool:
         destination.parent.mkdir(parents=True, exist_ok=True)
@@ -880,29 +515,22 @@ class ImageHandler:
 
 
 class AwsDocsCrawler:
-    """Multi-threaded crawler for curated AWS documentation sections."""
+    """Multi-threaded crawler for AWS documentation using sitemaps."""
 
     def __init__(
         self,
-        start_urls: Sequence[str],
         output_dir: Path,
         max_workers: int = 8,
         session: Optional[requests.Session] = None,
-        link_checker: Optional[Callable[[str], bool]] = None,
-        allowed_prefixes: Optional[Sequence[str]] = None,
+        allowed_prefixes: Optional[list[str]] = None,
         requests_per_second: Optional[float] = 10.0,
+        service_filter: Optional[str] = None,
     ) -> None:
-        self.start_urls = [normalise_url(url) for url in start_urls]
         self.output_dir = output_dir
         self.max_workers = max_workers
         self.session = session or requests.Session()
-        if link_checker and allowed_prefixes is not None:
-            raise ValueError("Provide either link_checker or allowed_prefixes, not both")
-
-        if link_checker is not None:
-            self.link_checker = link_checker
-        else:
-            self.link_checker = LinkChecker(allowed_prefixes)
+        self.link_checker = LinkChecker(allowed_prefixes)
+        self.service_filter = service_filter
 
         self.session.headers.setdefault(
             "User-Agent",
@@ -913,14 +541,10 @@ class AwsDocsCrawler:
         self._url_queue: queue.Queue[str | None] = queue.Queue()
         self._known_urls: set[str] = set()
         self._known_urls_lock = threading.Lock()
-        self._known_tocs: set[str] = set()
-        self._visited_urls: set[str] = set()  # Changed to set for O(1) lookup
+        self._visited_urls: set[str] = set()
 
         self._rate_limiter = RequestRateLimiter(requests_per_second)
         self._image_handler = ImageHandler(output_dir, self.session, self._rate_limiter)
-        self._toc_manager = TocManager(
-            output_dir, self.session, self._rate_limiter, self.link_checker, self._add_url_to_known
-        )
 
     @property
     def visited_urls(self) -> list[str]:
@@ -928,23 +552,28 @@ class AwsDocsCrawler:
             return list(self._visited_urls)
 
     def crawl(self) -> None:
-        LOGGER.info("Starting crawl at %s", ", ".join(self.start_urls))
+        """Main crawl entry point."""
+        LOGGER.info("Starting crawl")
         self.output_dir.mkdir(parents=True, exist_ok=True)
 
-        # Phase 1: Discover all pages from TOC files
-        LOGGER.info("Phase 1: Discovering pages from TOC files")
-        self._discover_all_tocs()
+        # Phase 1: Discover all pages from sitemap index
+        LOGGER.info("Phase 1: Discovering pages from AWS sitemap index")
+        self._discover_from_sitemap_index()
 
         # Phase 2: Crawl all discovered pages
         with self._known_urls_lock:
             page_count = len(self._known_urls)
         LOGGER.info("Phase 2: Crawling %d discovered pages", page_count)
 
+        if page_count == 0:
+            LOGGER.warning("No pages discovered to crawl")
+            return
+
         with ThreadPoolExecutor(max_workers=self.max_workers) as executor:
             for _ in range(self.max_workers):
                 executor.submit(self._worker)
 
-            # Enqueue all discovered URLs (skip already visited to prevent duplicates)
+            # Enqueue all discovered URLs
             with self._known_urls_lock:
                 for url in self._known_urls:
                     if url not in self._visited_urls:
@@ -955,19 +584,120 @@ class AwsDocsCrawler:
             for _ in range(self.max_workers):
                 self._url_queue.put(None)
 
-        self._toc_manager.write_toc_documents()
+    def _discover_from_sitemap_index(self) -> None:
+        """Fetch the sitemap index and discover all service sitemaps."""
+        LOGGER.info("Fetching sitemap index from %s", SITEMAP_INDEX_URL)
 
-    def _discover_all_tocs(self) -> None:
-        """Discover and process all TOC files from start URLs.
+        try:
+            self._rate_limiter.acquire()
+            response = self.session.get(SITEMAP_INDEX_URL, timeout=30)
+            response.raise_for_status()
+        except requests.RequestException as exc:
+            LOGGER.error("Failed to fetch sitemap index: %s", exc)
+            return
 
-        This method processes guide landing pages to find their TOC files,
-        which are then parsed to discover all documentation pages.
-        """
-        for url in self.start_urls:
-            # Auto-discover TOC from guide landing pages
-            self._auto_discover_toc(url)
+        try:
+            soup = BeautifulSoup(response.text, "xml")
+        except Exception as exc:
+            LOGGER.error("Failed to parse sitemap index XML: %s", exc)
+            return
+
+        # Extract all sitemap URLs and process them
+        sitemap_urls: list[str] = []
+        for loc in soup.find_all("loc"):
+            sitemap_url = loc.get_text().strip()
+            if not sitemap_url:
+                continue
+
+            # Parse the sitemap URL to filter services
+            if not self._should_include_sitemap(sitemap_url):
+                continue
+
+            sitemap_urls.append(sitemap_url)
+
+        LOGGER.info("Found %d service sitemaps to process", len(sitemap_urls))
+
+        # Process each service sitemap
+        for sitemap_url in sitemap_urls:
+            self._process_sitemap(sitemap_url)
+
+    def _should_include_sitemap(self, sitemap_url: str) -> bool:
+        """Determine if a sitemap should be processed."""
+        parsed = urlparse(sitemap_url)
+        if parsed.netloc != DOCS_NETLOC:
+            return False
+
+        # Expected pattern: /service/version/guide-type/sitemap.xml
+        parts = [p for p in parsed.path.strip("/").split("/") if p]
+
+        if len(parts) < 4 or parts[-1] != "sitemap.xml":
+            return False
+
+        service_segment = parts[0]
+        version = parts[1]
+        guide_segment = parts[2]
+
+        # Only include "latest" versions
+        if version.lower() != "latest":
+            return False
+
+        # Filter out API references
+        if looks_like_api_doc(guide_segment):
+            return False
+
+        # Filter out SDKs and toolkits
+        if looks_like_non_service(service_segment):
+            return False
+
+        # Apply service filter if specified
+        if self.service_filter:
+            service_id = service_segment.lower().replace("_", "-")
+            if service_id != self.service_filter.lower():
+                return False
+
+        return True
+
+    def _process_sitemap(self, sitemap_url: str) -> None:
+        """Fetch and process a service sitemap XML file to discover all pages."""
+        LOGGER.debug("Fetching sitemap %s", sitemap_url)
+
+        try:
+            self._rate_limiter.acquire()
+            response = self.session.get(sitemap_url, timeout=30)
+            response.raise_for_status()
+        except requests.RequestException as exc:
+            LOGGER.warning("Failed to fetch sitemap %s: %s", sitemap_url, exc)
+            return
+
+        try:
+            soup = BeautifulSoup(response.text, "xml")
+        except Exception as exc:
+            LOGGER.warning("Failed to parse sitemap XML from %s: %s", sitemap_url, exc)
+            return
+
+        # Extract all <loc> URLs from the sitemap
+        for loc in soup.find_all("loc"):
+            url = loc.get_text().strip()
+            if not url:
+                continue
+
+            # Normalize and validate the URL
+            candidate_url = normalise_url(url)
+
+            # Check if it's an HTML page we should crawl
+            if self.link_checker(candidate_url):
+                self._add_url_to_known(candidate_url)
+
+    def _add_url_to_known(self, url: str) -> bool:
+        """Add URL to known set for later processing."""
+        with self._known_urls_lock:
+            if url in self._known_urls:
+                return False
+            self._known_urls.add(url)
+        return True
 
     def _worker(self) -> None:
+        """Worker thread that processes URLs from the queue."""
         while True:
             try:
                 url = self._url_queue.get(timeout=1.0)
@@ -980,12 +710,13 @@ class AwsDocsCrawler:
 
             try:
                 self._process_url(url)
-            except Exception as exc:  # pragma: no cover - defensive logging
+            except Exception as exc:
                 LOGGER.exception("Unhandled error processing %s: %s", url, exc)
             finally:
                 self._url_queue.task_done()
 
     def _process_url(self, url: str) -> None:
+        """Process a single URL: fetch, convert, and save."""
         # Check if already visited
         with self._known_urls_lock:
             if url in self._visited_urls:
@@ -1026,7 +757,6 @@ class AwsDocsCrawler:
             main,
             output_path=output_path,
             output_root=self.output_dir,
-            link_checker=self.link_checker,
         )
 
         output_path.parent.mkdir(parents=True, exist_ok=True)
@@ -1038,78 +768,9 @@ class AwsDocsCrawler:
             total = len(self._known_urls)
             LOGGER.info("Wrote [%d/%d] %s", crawled, total, output_path)
 
-        # Link discovery is skipped - all pages are discovered from TOC files during Phase 1
-
-    def _auto_discover_toc(self, url: str) -> None:
-        """Automatically discover and process TOC file for guide landing pages.
-
-        AWS docs guides typically have a toc-contents.json file in the guide directory.
-        This method attempts to find and process it for URLs that look like guide landing pages.
-        """
-        parsed = urlparse(url)
-        path = parsed.path.rstrip('/')
-
-        # Check if this looks like a guide directory (e.g., /service/latest/userguide/)
-        # Common patterns: /userguide/, /developerguide/, /apireference/, /api/
-        guide_patterns = ['userguide', 'developerguide', 'apireference', 'api']
-
-        # Split path into parts and check if the last part matches a guide pattern
-        path_parts = [part for part in path.split('/') if part]
-        if not path_parts:
-            return
-
-        last_part = path_parts[-1].lower()
-        is_guide_landing = any(pattern in last_part for pattern in guide_patterns)
-
-        if not is_guide_landing:
-            return
-
-        # Construct TOC URL by appending toc-contents.json to the guide directory
-        toc_path = f"{path}/toc-contents.json"
-        toc_url = urlunparse(parsed._replace(path=toc_path, fragment='', query=''))
-        toc_url = normalise_url(toc_url)
-
-        # Check if we've already processed this TOC
-        with self._known_urls_lock:
-            if toc_url in self._known_tocs:
-                return
-            self._known_tocs.add(toc_url)
-
-        LOGGER.debug("Auto-discovered TOC: %s", toc_url)
-        self._toc_manager.process_toc(toc_url)
-
-    def _add_url_to_known(self, url: str) -> bool:
-        """Add URL to known set for later processing. Does not enqueue."""
-        with self._known_urls_lock:
-            if url in self._known_urls:
-                return False
-            self._known_urls.add(url)
-        return True
-
 
 def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="Crawl selected AWS documentation.")
-    parser.add_argument(
-        "--start-url",
-        dest="start_urls",
-        action="append",
-        metavar="URL",
-        help=(
-            "Root documentation URLs to start crawling from. "
-            "Can be provided multiple times."
-        ),
-    )
-    parser.add_argument(
-        "--allowed-prefix",
-        dest="allowed_prefixes",
-        action="append",
-        metavar="PATH",
-        help=(
-            "Restrict crawling to URLs whose path starts with the provided prefix. "
-            "If omitted, a curated set for Deadline Cloud, Amazon S3, and "
-            "AWS CloudFormation is used."
-        ),
-    )
+    parser = argparse.ArgumentParser(description="Crawl AWS documentation using sitemaps.")
     parser.add_argument(
         "--output-dir",
         default="docs",
@@ -1126,29 +787,19 @@ def parse_args() -> argparse.Namespace:
         "--requests-per-second",
         type=float,
         default=10.0,
-        help=(
-            "Maximum number of HTTP requests to perform per second. "
-            "Set to 0 or a negative value to disable throttling."
-        ),
-    )
-    parser.add_argument(
-        "--manifest",
-        type=Path,
-        default=MODULE_ROOT / "docs/service-manifest.json",
-        help=(
-            "Path to the service manifest JSON file generated by the discovery "
-            "workflow. The manifest must exist unless explicit start URLs are "
-            "provided."
-        ),
+        help="Maximum number of HTTP requests per second. Set to 0 to disable throttling.",
     )
     parser.add_argument(
         "--service",
         type=str,
-        help=(
-            "Service ID to crawl from the manifest (e.g., 'a2c', 's3'). "
-            "If provided, only this service will be crawled. "
-            "Cannot be used with --start-url or --allowed-prefix."
-        ),
+        help="Service ID to crawl (e.g., 'deadline-cloud', 's3'). If not provided, all services will be crawled.",
+    )
+    parser.add_argument(
+        "--allowed-prefix",
+        dest="allowed_prefixes",
+        action="append",
+        metavar="PATH",
+        help="Restrict crawling to URLs with this path prefix. Can be provided multiple times.",
     )
     parser.add_argument(
         "--log-level",
@@ -1158,125 +809,33 @@ def parse_args() -> argparse.Namespace:
     return parser.parse_args()
 
 
-def clean_service_directories(
-    output_dir: Path, service_scope: ServiceScope
-) -> None:
-    """Delete existing documentation directories for a specific service.
+def clean_service_directories(output_dir: Path, service_id: str) -> None:
+    """Delete existing documentation directories for a specific service."""
+    # Construct the service directory path
+    service_dir = output_dir / service_id
 
-    This ensures a clean slate when recrawling a service without affecting
-    other services' documentation.
-
-    Args:
-        output_dir: Root documentation directory
-        service_scope: The service scope containing guides to clean
-    """
-    directories_to_clean: set[Path] = set()
-
-    # For each guide in the service, determine which directories to clean
-    for guide in service_scope.guides:
-        # Parse the URL to get the path structure
-        parsed = urlparse(guide.url)
-        path_parts = [part for part in parsed.path.strip('/').split('/') if part]
-
-        # Build the directory path from the URL structure
-        # e.g., /deadline-cloud/latest/userguide/ -> docs/deadline-cloud/latest/
-        if len(path_parts) >= 2:
-            # Get the service directory (e.g., deadline-cloud/latest/)
-            service_dir = output_dir / path_parts[0] / path_parts[1]
-            if service_dir.exists() and service_dir.is_dir():
-                directories_to_clean.add(service_dir)
-
-    # Delete the identified directories
-    for directory in directories_to_clean:
+    if service_dir.exists() and service_dir.is_dir():
         try:
-            LOGGER.info("Cleaning directory %s for recrawl", directory)
-            shutil.rmtree(directory)
+            LOGGER.info("Cleaning directory %s for recrawl", service_dir)
+            shutil.rmtree(service_dir)
         except Exception as exc:
-            LOGGER.warning("Failed to clean directory %s: %s", directory, exc)
-
-
-def _resolve_cli_scope(args: argparse.Namespace) -> tuple[list[str], list[str], Optional[ServiceScope]]:
-    # Check for conflicting arguments
-    if args.service and (args.start_urls or args.allowed_prefixes):
-        raise ValueError(
-            "--service cannot be used with --start-url or --allowed-prefix"
-        )
-
-    if args.start_urls or args.allowed_prefixes:
-        start_urls = [normalise_url(url) for url in args.start_urls or []]
-        allowed_prefixes = list(args.allowed_prefixes or [])
-        if not allowed_prefixes and start_urls:
-            allowed_prefixes = [derive_allowed_prefix(url) for url in start_urls]
-        return start_urls, allowed_prefixes, None
-
-    manifest_path = args.manifest
-    if not manifest_path:
-        raise ValueError("Manifest path must be provided when no start URLs are supplied")
-
-    manifest_path = Path(manifest_path)
-
-    try:
-        manifest_scopes = load_service_manifest(manifest_path)
-    except FileNotFoundError as exc:
-        LOGGER.error("Manifest %s not found", manifest_path)
-        raise
-    except ValueError as exc:
-        LOGGER.error("Failed to load manifest %s (%s)", manifest_path, exc)
-        raise
-
-    # If a specific service is requested, filter to just that service
-    if args.service:
-        service_id = args.service
-        if service_id not in manifest_scopes:
-            available_services = ", ".join(sorted(manifest_scopes.keys()))
-            LOGGER.error(
-                "Service '%s' not found in manifest. Available services: %s",
-                service_id,
-                available_services,
-            )
-            raise ValueError(f"Service '{service_id}' not found in manifest")
-
-        scope = manifest_scopes[service_id]
-        start_urls = scope.start_urls
-        allowed_prefixes = scope.allowed_prefixes
-        LOGGER.info(
-            "Loaded service '%s' with %d guides from manifest %s",
-            service_id,
-            len(start_urls),
-            manifest_path,
-        )
-        return start_urls, allowed_prefixes, scope
-
-    # No service specified, load all services
-    start_urls = _collect_scope_values(manifest_scopes.values(), "start_urls")
-    allowed_prefixes = _collect_scope_values(
-        manifest_scopes.values(), "allowed_prefixes"
-    )
-    LOGGER.info(
-        "Loaded %d services spanning %d guides from manifest %s",
-        len(manifest_scopes),
-        len(start_urls),
-        manifest_path,
-    )
-    return start_urls, allowed_prefixes, None
+            LOGGER.warning("Failed to clean directory %s: %s", service_dir, exc)
 
 
 def main() -> None:
     args = parse_args()
     logging.basicConfig(level=getattr(logging, args.log_level.upper(), logging.INFO))
 
-    start_urls, allowed_prefixes, service_scope = _resolve_cli_scope(args)
-
-    # If crawling a specific service, clean its existing directories first
-    if service_scope is not None:
-        clean_service_directories(args.output_dir, service_scope)
+    # Clean service directories if crawling a specific service
+    if args.service:
+        clean_service_directories(args.output_dir, args.service)
 
     crawler = AwsDocsCrawler(
-        start_urls=start_urls,
         output_dir=args.output_dir,
         max_workers=args.max_workers,
-        allowed_prefixes=allowed_prefixes,
+        allowed_prefixes=args.allowed_prefixes,
         requests_per_second=args.requests_per_second,
+        service_filter=args.service,
     )
     crawler.crawl()
 
