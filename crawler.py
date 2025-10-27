@@ -122,6 +122,8 @@ NON_SERVICE_PATTERNS = {
         "cli", "aws-cli",
         # Non-service documentation types
         "prescriptive-guidance", "solutions", "whitepapers", "decision-guides",
+        # Code examples and reference implementations (high volume, low value)
+        "freertos", "code-library",
     },
     "prefixes": ("sdk-for-", "aws-sdk-", "tk-", "toolkit-"),
     "substrings": ("toolkit", "-sdk", "-cli"),

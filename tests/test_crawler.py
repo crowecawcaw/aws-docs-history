@@ -71,6 +71,8 @@ class TestServiceFiltering(unittest.TestCase):
         self.assertTrue(looks_like_non_service("toolkit-for-vscode"))
         self.assertTrue(looks_like_non_service("prescriptive-guidance"))
         self.assertTrue(looks_like_non_service("solutions"))
+        self.assertTrue(looks_like_non_service("freertos"))
+        self.assertTrue(looks_like_non_service("code-library"))
 
         # Should not detect actual services
         self.assertFalse(looks_like_non_service("s3"))
