@@ -1,13 +1,16 @@
 # AWS Docs History Automation
 
 ## Overview
-This repository will host the automation for capturing, converting, and archiving
-AWS documentation on a daily schedule. A GitHub Actions workflow will
-orchestrate crawling the latest AWS documentation pages, converting the raw
-content to Markdown, and committing the results back into the repository.
+This repository hosts the automation for capturing, converting, and archiving
+AWS documentation on a weekly schedule. A GitHub Actions workflow orchestrates
+crawling the latest AWS documentation pages, converting the raw content to
+Markdown, and committing the results back into the repository. The crawler
+discovers AWS services and their documentation automatically by fetching and
+parsing AWS sitemap files, which provide a comprehensive index of all available
+documentation pages across all services.
 
 ## High-Level Workflow
-1. **Schedule trigger** &mdash; A GitHub Actions workflow runs once per day.
+1. **Schedule trigger** &mdash; A GitHub Actions workflow runs once per week.
 2. **Documentation crawl** &mdash; The workflow executes a crawler that pulls the
    desired set of AWS documentation pages (HTML or JSON sources).
 3. **Conversion to Markdown** &mdash; Retrieved documents are converted to Markdown
@@ -61,7 +64,7 @@ The documentation crawler workflow can be triggered manually from the GitHub Act
 
 When a specific service guide URL is provided, the workflow will only crawl documentation for that guide. When left empty, it will crawl all services.
 
-The daily scheduled crawler will always crawl all services regardless of this setting.
+The weekly scheduled crawler will always crawl all services regardless of this setting.
 
 ## Running the crawler locally
 
