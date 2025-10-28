@@ -1,0 +1,4 @@
+# Resource tagging support
+
+You can use the AWS Command Line Interface to tag Amplify resources. For more information, see the [AWS CLI tag-resource
+documentation.](../../../cli/latest/reference/amplify/tag-resource.md "../../../cli/latest/reference/amplify/tag-resource.md")
