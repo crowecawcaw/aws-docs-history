@@ -1,0 +1,8 @@
+# Additional metrics for Amazon ECS Managed Instances
+
+The following table lists the additional metrics available for Amazon ECS Managed Instances when using Container Insights.
+
+| Metric                              | Description                                                    | Dimensions                                                                                                                                                                                                                                            | Unit    |
+| ----------------------------------- | -------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
+| `InstanceOSFilesystemUtilization`   | The percentage of total disk space that is used (os volume).   | `ClusterName` - when ContainerInsights is enabled `ClusterName`, `CapacityProviderName` - when ContainerInsights is enabled `ClusterName`, `CapacityProviderName`, `ContainerInstanceId`, `EC2InstanceId` - when EnhancedContainerInsights is enabled | Percent |
+| `InstanceDataFilesystemUtilization` | The percentage of total disk space that is used (data volume). | `ClusterName` - when ContainerInsights is enabled `ClusterName`, `CapacityProviderName` - when ContainerInsights is enabled `ClusterName`, `CapacityProviderName`, `ContainerInstanceId`, `EC2InstanceId` - when EnhancedContainerInsights is enabled | Percent |
