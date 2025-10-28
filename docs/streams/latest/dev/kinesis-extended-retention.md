@@ -1,0 +1,46 @@
+# Change the data retention period
+
+Amazon Kinesis Data Streams supports changes to the data record retention period of your data stream. A
+Kinesis data stream is an ordered sequence of data records meant to be written to and read from
+in real time. Data records are therefore stored in shards in your stream temporarily.
+The time period from when a record is added to when it is no longer accessible is called
+the _retention period_. A Kinesis data stream stores records from 24 hours by
+default, up to 8760 hours (365 days).
+
+You can update the retention period via the Kinesis Data Streams console or by using the
+[IncreaseStreamRetentionPeriod](../../../kinesis/latest/APIReference/API_IncreaseStreamRetentionPeriod.md "../../../kinesis/latest/APIReference/API_IncreaseStreamRetentionPeriod.md") and the [DecreaseStreamRetentionPeriod](../../../kinesis/latest/APIReference/API_DecreaseStreamRetentionPeriod.md "../../../kinesis/latest/APIReference/API_DecreaseStreamRetentionPeriod.md")
+operations. With the Kinesis Data Streams console, you can bulk edit the retention period of more than
+one data stream at the same time. You can increase the retention period up to a maximum
+of 8760 hours (365 days) using the [IncreaseStreamRetentionPeriod](../../../kinesis/latest/APIReference/API_IncreaseStreamRetentionPeriod.md "../../../kinesis/latest/APIReference/API_IncreaseStreamRetentionPeriod.md") operation or the
+Kinesis Data Streams console. You can decrease the retention period down to a minimum of 24 hours using
+the [DecreaseStreamRetentionPeriod](../../../kinesis/latest/APIReference/API_DecreaseStreamRetentionPeriod.md "../../../kinesis/latest/APIReference/API_DecreaseStreamRetentionPeriod.md") operation or the Kinesis Data Streams console. The request
+syntax for both operations includes the stream name and the retention period in hours.
+Finally, you can check the current retention period of a stream by calling the
+[DescribeStream](../../../kinesis/latest/APIReference/API_DescribeStream.md "../../../kinesis/latest/APIReference/API_DescribeStream.md") operation.
+
+The following is an example of changing the retention period using the AWS CLI:
+
+```
+`aws kinesis increase-stream-retention-period --stream-name retentionPeriodDemo --retention-period-hours 72`
+```
+
+Kinesis Data Streams stops making records inaccessible at the
+old
+retention period within several minutes of increasing the retention period. For example,
+changing the retention period from 24 hours to 48 hours means that records added to the
+stream 23 hours 55 minutes prior are still available after 24 hours.
+
+Kinesis Data Streams almost immediately makes records older than the new retention period
+inaccessible upon decreasing the retention period. Therefore, take great care when
+calling the [DecreaseStreamRetentionPeriod](../../../kinesis/latest/APIReference/API_DecreaseStreamRetentionPeriod.md "../../../kinesis/latest/APIReference/API_DecreaseStreamRetentionPeriod.md") operation.
+
+Set your data retention period to ensure that your consumers are able to read data
+before it expires, if problems occur. You should carefully consider all possibilities,
+such as an issue with your record processing logic or a downstream dependency being down
+for a long period of time. Think of the retention period as a safety net to allow more
+time for your data consumers to recover. The retention period API operations allow you
+to set this up proactively or to respond to operational events reactively.
+
+Additional charges apply for streams with a retention period set above 24 hours. For
+more information, see [Amazon
+Kinesis Data Streams Pricing](https://aws.amazon.com/kinesis/data-streams/pricing/ "https://aws.amazon.com/kinesis/data-streams/pricing/").
