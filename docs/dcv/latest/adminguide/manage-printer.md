@@ -1,0 +1,100 @@
+# Configuring the printer on a Linux Amazon DCV Server
+
+Amazon DCV allows you to print either to a local redirected printer or to a virtual Amazon DCV printer.
+
+If you're using a supported Linux distribution, you must configure the Amazon DCV server to support printing.
+
+If you're using a Windows Amazon DCV server, no additional configuration is required.
+
+###### To enable printer redirection on your Linux Amazon DCV server
+
+1. Install `CUPS` service on your server.
+   - Amazon Linux 2, RHEL, and CentOS
+
+   ```
+   `$` sudo yum install cups
+   ```
+
+   - Ubuntu
+
+   ```
+   `$` sudo apt-get install cups
+   ```
+
+   - SUSE Linux Enterprise
+
+   ```
+   `$` sudo zypper install cups
+   ```
+
+2. Add the `dcv` user to the printer administrator group. The name of the printer administrator group can vary by operating system.
+   For example, if your printer administrator group is named `lpadmin`, run the following command:
+
+```
+`$` usermod -a -G lpadmin dcv
+```
+
+3. Make sure that the printer administrator group is referenced in the `SystemGroup` parameter in the cups configuration file. For
+   example, if your printer administrator group is named `lpadmin`, use a text editor to open `/etc/cups/cups-files.conf` and
+   look for the following line.
+
+```
+SystemGroup lpadmin
+```
+
+If the line appears in the configuration file, the installation is complete. Continue to the next step.
+
+If the line doesn't appear in the configuration file, add it manually in the following format and then save and close the file.
+
+```
+SystemGroup `printer_admin_groupname`
+```
+
+4. (SUSE Linux Enterprise only) Make sure that the printer administrator group has permission to read the cups local certificate. This
+   certificate is located in the following directory: `/var/run/cups/certs/`. For example, if your printer administrator group is named
+   `lpadmin`, run the following command:
+
+```
+`$` sudo chgrp -R lpadmin /var/run/cups/certs/ && chmod g+x /var/run/cups/certs
+```
+
+5. Restart the `cups` service.
+
+```
+`$` sudo systemctl restart cups
+```
+
+6. [Stop](manage-stop.md "manage-stop.md") and [restart](manage-start.md "manage-start.md") the Amazon DCV server.
+
+## Troubleshooting printer issues
+
+SUSE Linux Enterprise and RHEL 8 might prevent connections to the printer socket. If you're running one of these operating systems and have
+printing issues, check the log file to determine if this is the cause.
+
+Using a text editor, open `/var/log/audit/audit.log` and check if you log has a line that's similar to the following:
+
+```
+type=AVC msg=audit(1617716179.487:504): avc:  denied  { connectto } for  pid=33933 comm="dcvcupsbackend" path=002F636F6D2F6E696365736F6674776172652F6463762F637570732F636F6E736F6C65 scontext=system_u:system_r:cupsd_t:s0-s0:c0.c1023 tcontext=unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023 tclass=unix_stream_socket permissive=0
+```
+
+If a similar line appears in your log file, then the operating system is preventing access to the printer socket.
+
+To resolve the issue, you must create a cups policy that allows access to the printer socket. To do this, perform the following steps:
+
+1. Create the required policy file. Using your preferred text editor, create a new file that's named `cupsd_policy` and add the
+   following content.
+
+```
+#============= cupsd_t ==============
+allow cupsd_t unconfined_t:unix_stream_socket connectto;
+```
+
+2. Install the policy.
+
+```
+`$` ausearch -c 'dcvcupsbackend' --raw | audit2allow -M dcv-printer-policy
+```
+
+```
+`$` semodule -X 300 -i dcv-printer-policy.pp
+```
