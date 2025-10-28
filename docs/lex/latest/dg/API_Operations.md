@@ -1,0 +1,58 @@
+End of support notice: On September 15, 2025, AWS
+will discontinue support for Amazon Lex V1. After September 15, 2025, you will
+no longer be able to access the Amazon Lex V1 console or Amazon Lex V1 resources. If you are using Amazon Lex V2, refer to the [Amazon Lex V2 guide](../../../lexv2/latest/dg/what-is.md "../../../lexv2/latest/dg/what-is.md") instead.
+.
+
+# Actions
+
+The following actions are supported by Amazon Lex Model Building Service:
+
+- [CreateBotVersion](API_CreateBotVersion.md "API_CreateBotVersion.md")
+- [CreateIntentVersion](API_CreateIntentVersion.md "API_CreateIntentVersion.md")
+- [CreateSlotTypeVersion](API_CreateSlotTypeVersion.md "API_CreateSlotTypeVersion.md")
+- [DeleteBot](API_DeleteBot.md "API_DeleteBot.md")
+- [DeleteBotAlias](API_DeleteBotAlias.md "API_DeleteBotAlias.md")
+- [DeleteBotChannelAssociation](API_DeleteBotChannelAssociation.md "API_DeleteBotChannelAssociation.md")
+- [DeleteBotVersion](API_DeleteBotVersion.md "API_DeleteBotVersion.md")
+- [DeleteIntent](API_DeleteIntent.md "API_DeleteIntent.md")
+- [DeleteIntentVersion](API_DeleteIntentVersion.md "API_DeleteIntentVersion.md")
+- [DeleteSlotType](API_DeleteSlotType.md "API_DeleteSlotType.md")
+- [DeleteSlotTypeVersion](API_DeleteSlotTypeVersion.md "API_DeleteSlotTypeVersion.md")
+- [DeleteUtterances](API_DeleteUtterances.md "API_DeleteUtterances.md")
+- [GetBot](API_GetBot.md "API_GetBot.md")
+- [GetBotAlias](API_GetBotAlias.md "API_GetBotAlias.md")
+- [GetBotAliases](API_GetBotAliases.md "API_GetBotAliases.md")
+- [GetBotChannelAssociation](API_GetBotChannelAssociation.md "API_GetBotChannelAssociation.md")
+- [GetBotChannelAssociations](API_GetBotChannelAssociations.md "API_GetBotChannelAssociations.md")
+- [GetBots](API_GetBots.md "API_GetBots.md")
+- [GetBotVersions](API_GetBotVersions.md "API_GetBotVersions.md")
+- [GetBuiltinIntent](API_GetBuiltinIntent.md "API_GetBuiltinIntent.md")
+- [GetBuiltinIntents](API_GetBuiltinIntents.md "API_GetBuiltinIntents.md")
+- [GetBuiltinSlotTypes](API_GetBuiltinSlotTypes.md "API_GetBuiltinSlotTypes.md")
+- [GetExport](API_GetExport.md "API_GetExport.md")
+- [GetImport](API_GetImport.md "API_GetImport.md")
+- [GetIntent](API_GetIntent.md "API_GetIntent.md")
+- [GetIntents](API_GetIntents.md "API_GetIntents.md")
+- [GetIntentVersions](API_GetIntentVersions.md "API_GetIntentVersions.md")
+- [GetMigration](API_GetMigration.md "API_GetMigration.md")
+- [GetMigrations](API_GetMigrations.md "API_GetMigrations.md")
+- [GetSlotType](API_GetSlotType.md "API_GetSlotType.md")
+- [GetSlotTypes](API_GetSlotTypes.md "API_GetSlotTypes.md")
+- [GetSlotTypeVersions](API_GetSlotTypeVersions.md "API_GetSlotTypeVersions.md")
+- [GetUtterancesView](API_GetUtterancesView.md "API_GetUtterancesView.md")
+- [ListTagsForResource](API_ListTagsForResource.md "API_ListTagsForResource.md")
+- [PutBot](API_PutBot.md "API_PutBot.md")
+- [PutBotAlias](API_PutBotAlias.md "API_PutBotAlias.md")
+- [PutIntent](API_PutIntent.md "API_PutIntent.md")
+- [PutSlotType](API_PutSlotType.md "API_PutSlotType.md")
+- [StartImport](API_StartImport.md "API_StartImport.md")
+- [StartMigration](API_StartMigration.md "API_StartMigration.md")
+- [TagResource](API_TagResource.md "API_TagResource.md")
+- [UntagResource](API_UntagResource.md "API_UntagResource.md")
+  The following actions are supported by Amazon Lex Runtime Service:
+
+- [DeleteSession](API_runtime_DeleteSession.md "API_runtime_DeleteSession.md")
+- [GetSession](API_runtime_GetSession.md "API_runtime_GetSession.md")
+- [PostContent](API_runtime_PostContent.md "API_runtime_PostContent.md")
+- [PostText](API_runtime_PostText.md "API_runtime_PostText.md")
+- [PutSession](API_runtime_PutSession.md "API_runtime_PutSession.md")

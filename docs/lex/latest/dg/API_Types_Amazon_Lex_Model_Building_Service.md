@@ -1,0 +1,43 @@
+End of support notice: On September 15, 2025, AWS
+will discontinue support for Amazon Lex V1. After September 15, 2025, you will
+no longer be able to access the Amazon Lex V1 console or Amazon Lex V1 resources. If you are using Amazon Lex V2, refer to the [Amazon Lex V2 guide](../../../lexv2/latest/dg/what-is.md "../../../lexv2/latest/dg/what-is.md") instead.
+.
+
+# Amazon Lex Model Building Service
+
+The following data types are supported by Amazon Lex Model Building Service:
+
+- [BotAliasMetadata](API_BotAliasMetadata.md "API_BotAliasMetadata.md")
+- [BotChannelAssociation](API_BotChannelAssociation.md "API_BotChannelAssociation.md")
+- [BotMetadata](API_BotMetadata.md "API_BotMetadata.md")
+- [BuiltinIntentMetadata](API_BuiltinIntentMetadata.md "API_BuiltinIntentMetadata.md")
+- [BuiltinIntentSlot](API_BuiltinIntentSlot.md "API_BuiltinIntentSlot.md")
+- [BuiltinSlotTypeMetadata](API_BuiltinSlotTypeMetadata.md "API_BuiltinSlotTypeMetadata.md")
+- [CodeHook](API_CodeHook.md "API_CodeHook.md")
+- [ConversationLogsRequest](API_ConversationLogsRequest.md "API_ConversationLogsRequest.md")
+- [ConversationLogsResponse](API_ConversationLogsResponse.md "API_ConversationLogsResponse.md")
+- [EnumerationValue](API_EnumerationValue.md "API_EnumerationValue.md")
+- [FollowUpPrompt](API_FollowUpPrompt.md "API_FollowUpPrompt.md")
+- [FulfillmentActivity](API_FulfillmentActivity.md "API_FulfillmentActivity.md")
+- [InputContext](API_InputContext.md "API_InputContext.md")
+- [Intent](API_Intent.md "API_Intent.md")
+- [IntentMetadata](API_IntentMetadata.md "API_IntentMetadata.md")
+- [KendraConfiguration](API_KendraConfiguration.md "API_KendraConfiguration.md")
+- [LogSettingsRequest](API_LogSettingsRequest.md "API_LogSettingsRequest.md")
+- [LogSettingsResponse](API_LogSettingsResponse.md "API_LogSettingsResponse.md")
+- [Message](API_Message.md "API_Message.md")
+- [MigrationAlert](API_MigrationAlert.md "API_MigrationAlert.md")
+- [MigrationSummary](API_MigrationSummary.md "API_MigrationSummary.md")
+- [OutputContext](API_OutputContext.md "API_OutputContext.md")
+- [Prompt](API_Prompt.md "API_Prompt.md")
+- [ResourceReference](API_ResourceReference.md "API_ResourceReference.md")
+- [Slot](API_Slot.md "API_Slot.md")
+- [SlotDefaultValue](API_SlotDefaultValue.md "API_SlotDefaultValue.md")
+- [SlotDefaultValueSpec](API_SlotDefaultValueSpec.md "API_SlotDefaultValueSpec.md")
+- [SlotTypeConfiguration](API_SlotTypeConfiguration.md "API_SlotTypeConfiguration.md")
+- [SlotTypeMetadata](API_SlotTypeMetadata.md "API_SlotTypeMetadata.md")
+- [SlotTypeRegexConfiguration](API_SlotTypeRegexConfiguration.md "API_SlotTypeRegexConfiguration.md")
+- [Statement](API_Statement.md "API_Statement.md")
+- [Tag](API_Tag.md "API_Tag.md")
+- [UtteranceData](API_UtteranceData.md "API_UtteranceData.md")
+- [UtteranceList](API_UtteranceList.md "API_UtteranceList.md")
