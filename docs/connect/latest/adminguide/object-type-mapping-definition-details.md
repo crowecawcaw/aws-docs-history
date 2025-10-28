@@ -1,0 +1,112 @@
+# Object type mapping
+
+definition details in Amazon Connect Customer Profiles
+
+The object type mapping definition has two parts: the field definition and the key
+definition.
+
+###### Tip
+
+To learn how to create an object type mapper, see this blog post: [Unify and organize customer information with Amazon Connect Customer Profiles with
+the pre-built Amazon S3 connector](https://aws.amazon.com/blogs/contact-center/unify-and-organize-customer-information-with-amazon-connect-customer-profiles-with-the-pre-built-amazon-s3-connector/ "https://aws.amazon.com/blogs/contact-center/unify-and-organize-customer-information-with-amazon-connect-customer-profiles-with-the-pre-built-amazon-s3-connector/"). Or, check out this video on YouTube:
+[How to
+Integrate Customer Profile Data into your Contact Center
+Experiences](https://www.youtube.com/watch?v=LLIEwFel_7c&t=1767s "https://www.youtube.com/watch?v=LLIEwFel_7c&t=1767s").
+
+## Field definition details
+
+The field definition defines the source, destination (target), and type of
+field. For example:
+
+```
+"Fields": {
+        "{fieldName}": {
+            "Source": "{source}",
+            "Target": "{target}",
+            "ContentType": "{contentType}"
+        }, ...
+    }, ...
+```
+
+- `Source`: This can be a JSON accessor for the field or a
+  Handlebar macro for generating the value of the field.
+
+The source object being parsed is named `_source` so all
+fields in the source fields need to be prefaced by this string. Only the
+`_source` object is supported.
+
+Use the Handlebar macro solution for generating constants and
+combining multiple source object fields into a single field. This is
+useful for indexing.
+
+- `Target`: Specifies where in a standard object type the
+  data of this field should be mapped.
+
+Populating the standard profile allows you to use data ingested from
+any data source with applications built on top of Customer Profiles without any
+specific knowledge of the format of the data being ingested.
+
+This field is optional. You might want to define fields solely for the
+purpose of including them in a key.
+
+The format of this field is always a JSON accessor. The only supported
+target object is `_profile`.
+
+- `ContentType`: The following values are supported STRING,
+  NUMBER, PHONE_NUMBER, EMAIL_ADDRESS, NAME. If no
+  `ContentType` is specified STRING is assumed.
+
+`ContentType` is used to determine how to index the value
+so agents can search for it. For example, if `ContentType` is
+set to PHONE_NUMBER, a phone number is processed so agents can search
+for it in any format: the string "+15551234567" matches
+"(555)-123-4567".
+
+## Key definition details
+
+A key contains one or more fields that together define a key that can be used
+to search for objects (or the profiles they belong to) using the [SearchProfiles](../../../customerprofiles/latest/APIReference/API_SearchProfiles.md "../../../customerprofiles/latest/APIReference/API_SearchProfiles.md") API. The key can also be defined to uniquely
+identify a profile or uniquely identify the object itself.
+
+```
+"Keys": {
+        "{keyName}": [{
+            "StandardIdentifiers": [...],
+            "FieldNames": [ "{fieldname}", ...]
+        }], ...
+    }, ...
+```
+
+Key names are global to a domain. If you have two keys, with the same name in
+two different object type mappings:
+
+- Those keys should occupy the same namespace
+- They can be used to potentially link profiles together between
+  different objects. If they match between the objects, Customer Profiles
+  places the two objects in the same profile.
+
+To phrase this in another way: keys should have the same key name in a domain
+if, and only if, the same value means that they are related. For example, a
+phone number specified in one type of object would be related to the same phone
+number specified in another type of object. An internal identifier specified for
+an imported object from Salesforce might not be related to another object
+imported from Marketo, even if they have exactly the same value.
+
+Keys definitions are used in two ways:
+
+- Inside of Customer Profiles during ingestion, they are used to figure out what
+  profile the object should be assigned to.
+- They allow you to use the [SearchProfiles](../../../customerprofiles/latest/APIReference/API_SearchProfiles.md "../../../customerprofiles/latest/APIReference/API_SearchProfiles.md") API to search for the key value and find the
+  profile.
+
+## Default search
+
+keys
+
+Default search keys, such as `_phone` and `_email`, are
+predefined by the [Standard
+Profile](standard-profile-definition.md "standard-profile-definition.md"), [Standard
+Asset](standard-asset-definition.md "standard-asset-definition.md"), [Standard
+Order](standard-order-definition.md "standard-order-definition.md"), and [Standard
+Case](standard-case-definition.md "standard-case-definition.md") object template. You can use the default search keys as a key
+name with the [SearchProfiles API](../../../customerprofiles/latest/APIReference/API_SearchProfiles.md "../../../customerprofiles/latest/APIReference/API_SearchProfiles.md") to find a profile.

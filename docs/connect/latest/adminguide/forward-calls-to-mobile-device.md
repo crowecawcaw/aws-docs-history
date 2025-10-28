@@ -1,0 +1,19 @@
+# Forward calls in the Amazon Connect CCP to a
+
+mobile device (iPhone, Android)
+
+You can take the audio portion of a call on your mobile device, and at the same time
+use your computer to access the Contact Control Panel. This topic explains how to
+forward calls to your mobile device.
+
+1. In your Contact Control Panel (CCP), open Settings.
+2. Under **Phone type**, choose **Desk
+   phone**.
+3. Enter the phone number for your mobile device, and choose
+   **Save**.
+
+![The settings page, the desk phone option, an example phone number.](images/ccp-forward-calls-mobile-device.png)
+
+When a contact calls, the audio portion of the call goes to your mobile
+device. At the same time, on your computer you can manage the call using the
+CCP.

@@ -1,0 +1,68 @@
+# Create a real-time metrics report for your
+
+contact center
+
+You can create a real-time metrics report to view real-time or near-real time
+metrics data for activity in your contact center. You must have permission to access
+metric data. The **CallCenterManager** and
+**QualityAnalyst** security profiles include this permission.
+For more information, see [Security profiles for Amazon Connect and Contact Control
+Panel (CCP) access](connect-security-profiles.md "connect-security-profiles.md").
+
+###### To create a real-time metrics report
+
+1. Log in to the Amazon Connect admin website at https://`instance name`.my.connect.aws/.
+2. Choose **Analytics and optimization**,
+   **Real-time metrics**.
+3. Choose one of the following report types. They group and order the data in
+   different ways and include different metrics by default.
+   - **Queues**
+   - **Agents**
+   - **Routing profiles**
+
+4. To add another report to the page, choose **New table**
+   and then choose a report type. You can add multiple reports of the same
+   report type.
+
+There's no limit to the number of tables you can add, but you might start
+experiencing performance issues if you add a lot of them. 5. To customize a report, choose the gear icon from its table. 6. On the **Time Range** tab, do the following:
+
+    1. For **Trailing windows for time**, select the
+     time range, in hours, for the data to include in the report.
+    2. (Optional) If you select **Midnight to now**, the
+     time range is from midnight to the current time, based on the
+     **Time Zone** that you select. If you select a
+     time zone other than the one you are currently in, the time range
+     starts at midnight for the calendar day in that time zone, not your
+     current time zone.
+
+7. (Optional) On the **Filters** tab, specify filters to
+   scope the data to be included in the report. The available filters depend on
+   the report type. The following are the possible filters:
+   - **Queues**—Includes data only for the
+     queues that you select from **Include**.
+   - **Routing profiles**—Includes data only
+     for the routing profiles that you select from
+     **Include**.
+   - **Agents**—Includes data only for the
+     agents that you select from **Include**.
+   - **Agent Hierarchies**—Includes data only
+     for the agent hierarchies that you select from
+     **Include**.
+   - **Channel**—Available for Queues and
+     Routing Profile report type. Includes data only for Channels you
+     select.
+
+8. On the **Metrics** tab, choose the metrics and fields to
+   include in the report. The available metrics and fields depend on the report
+   type and filters that you select. For more information, see [Metric definitions in Amazon Connect](metrics-definitions.md "metrics-definitions.md").
+9. When you are finished customizing the report, choose
+   **Apply**.
+10. (Optional) To save your report for future reference, choose
+    **Save**, provide a name for the report, and then
+    choose **Save**.
+
+To view your saved real-time metrics reports, choose **Analytics
+and optimization**, **Dashboards and
+reports**, and then choose the **Real-time
+metrics** tab.
