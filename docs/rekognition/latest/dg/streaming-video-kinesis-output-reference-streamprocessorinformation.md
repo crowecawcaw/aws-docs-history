@@ -1,0 +1,9 @@
+# StreamProcessorInformation
+
+Status information about the stream processor.
+
+**Status**
+
+The current status of the stream processor. The one possible value is RUNNING.
+
+Type: String

@@ -1,0 +1,19 @@
+# Amazon Rekognition Security
+
+Cloud security at AWS is the highest priority. As an AWS customer, you benefit from a
+data center and network architecture that are built to meet the requirements of the most
+security-sensitive organizations.
+
+Use the following topics to learn how to secure your Amazon Rekognition resources.
+
+###### Topics
+
+- [Identity and access management for Amazon Rekognition](security-iam.md "security-iam.md")
+- [Data protection in Amazon Rekognition](data-protection.md "data-protection.md")
+- [Using Amazon Rekognition with Amazon VPC endpoints](vpc.md "vpc.md")
+- [Compliance validation for Amazon Rekognition](rekognition-compliance.md "rekognition-compliance.md")
+- [Resilience in Amazon Rekognition](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
+- [Configuration and vulnerability analysis in Amazon Rekognition](vulnerability-analysis-and-management.md "vulnerability-analysis-and-management.md")
+- [Cross-service confused deputy
+  prevention](cross-service-confused-deputy-prevention.md "cross-service-confused-deputy-prevention.md")
+- [Infrastructure security in Amazon Rekognition](infrastructure-security.md "infrastructure-security.md")
