@@ -1,0 +1,211 @@
+# Tutorial: Create an active/passive Region switch plan
+
+This tutorial guides you through creating an active/passive Region switch plan for an application running in us-east-1 and
+recovering into us-west-2. The example includes Amazon EC2 instances for compute, Amazon Aurora Global Database for storage, and
+Amazon Route 53 for DNS.
+
+In this tutorial, you'll complete the following steps:
+
+- Create a Region switch plan
+- Build the plan's workflows and execution blocks
+- Build an EC2 Auto Scaling group execution block
+- Build two manual approval execution blocks
+- Build two custom action Lambda execution blocks
+- Build an Amazon Aurora Global Database execution block
+- Build an ARC routing control block
+- Execute the Region switch plan
+
+## Prerequisites
+
+Before you begin this tutorial, verify that you have the following prerequisites in both Regions:
+
+- IAM roles with appropriate permissions
+- EC2 Auto Scaling groups
+- Lambda functions for maintenance page and fencing
+- Aurora Global Database
+- ARC routing controls
+
+## Step 1: Create the Region switch plan
+
+1. From the Region switch console, choose **Create Region switch plan**.
+2. Provide the following details:
+   - **Primary Region**: Choose us-east-1
+   - **Standby Region**: Choose us-west-2
+   - **Desired recovery time objective (RTO)** (optional)
+   - **IAM role**: Enter the plan execution IAM role. This IAM role allows Region switch to call AWS services during execution.
+
+3. Choose **Create**.
+
+(Optional) Add resources from different AWS accounts to your Region switch plan:
+
+1. Create the cross-account role:
+   - In the account hosting the resource, create an IAM role.
+   - Add permissions for the specific resources that the plan will access.
+   - Add a trust policy that allows the execution role to assume the new role.
+   - Enter and take note of an external ID that you will use as a shared secret.
+
+2. Configure the resource in your plan:
+   - When you add the resource to your plan, specify two additional fields:
+     - **crossAccountRole**: The ARN of the role that you created in step 1
+     - **externalId**: The external ID that you entered in step 1
+
+Example configuration for an EC2 Auto Scaling execution block accessing resources in account 987654321:
+
+```
+
+{
+  "executionBlock": "EC2AutoScaling",
+  "name": "ASG",
+  "crossAccountRole": "arn:aws:iam::987654321:role/RegionSwitchCrossAccountRole",
+  "externalId": "unique-external-id-123",
+  "autoScalingGroupArn": "arn:aws:autoscaling:us-west-2:987654321:autoScalingGroup:*:autoScalingGroupName/CrossAccountASG"
+}
+
+```
+
+Required permissions:
+
+- The execution role must have sts:AssumeRole permission for the cross-account role.
+- The cross-account role must have permissions only for the specific resources being accessed.
+- The cross-account role's trust policy must include:
+  - The execution role's account as a trusted entity.
+  - The external ID condition.
+
+Before executing the plan, Region switch will verify the following:
+
+- The execution role can assume the cross-account role.
+- The cross-account role has the required permissions.
+- The external ID matches the trust policy.
+
+## Step 2: Build the plan's workflows and execution blocks
+
+1. From the Region switch plan details page, choose **Build workflows**.
+2. Select **Build the same activation workflow for all Regions**.
+3. Enter a Region activation workflow description (optional). This will be used to easily identify the workflow when executing the plan.
+4. Choose **Save and continue**.
+5. Choose **Add a step**, and then select **Run in sequence**.
+6. Select the **EC2 Auto Scaling execution block**, and then choose **Add and edit**. This block will allow you to start increasing capacity in the passive Region.
+7. In the right panel, configure the block:
+   - **Step name**: Enter "Scale"
+   - **Step description** (optional)
+   - **Auto Scaling group ARN for us-east-1**: The ARN of your ASG in us-east-1
+   - **Auto Scaling group ARN for us-west-2**: The ARN of your ASG in us-west-2
+   - **Percent to match the source Region's capacity**: Enter 100
+   - **Capacity monitoring approach**: Leave as "Most recent"
+   - **Timeout** (optional)
+
+8. Choose **Save step**.
+9. Choose **Add a step**.
+10. Select the **Manual approval execution block** and add it to the design window. This block
+    allows for human verification before proceeding.
+11. In the right panel, configure the block:
+    - **Step name**: Enter "Manual approval before setup"
+    - **Step description** (optional)
+    - **IAM approval role**: The role a user must assume in order to approve the execution
+    - **Timeout** (optional). After timeout, execution pauses and you can choose to
+      retry, skip, or cancel.
+
+12. Choose **Save step**.
+13. Choose **Add a step**.
+14. Select the **Custom action Lambda execution block**, and then choose **Add and edit**.
+    This block publishes a maintenance page in the Region that is activating.
+15. In the right panel, configure the block:
+    - **Step name**: Enter "Display maintenance page"
+    - **Step description** (optional)
+    - **Lambda ARN for activating us-east-1**: The ARN of the maintenance page Lambda
+      function deployed in us-east-1
+    - **Lambda ARN for activating us-west-2**: The ARN of the maintenance page Lambda
+      function deployed in us-west-2
+    - **Region to run the Lambda function**: Choose **Run in activating Region**
+    - **Timeout** (optional)
+    - **Retry interval** (optional)
+
+16. Choose **Save step**.
+17. Choose **Add a step**.
+18. Select a second **Custom action Lambda execution block**, and then choose **Add and edit**.
+    This block triggers a fencing mechanism in the active Region that ensures that the deactivating Region can no longer accept
+    traffic.
+19. In the right panel, configure the block:
+    - **Step name**: Enter "Fencing"
+    - **Step description** (optional)
+    - **Lambda ARN for activating us-east-1**: The ARN of the fencing Lambda function
+      deployed in us-east-1
+    - **Lambda ARN for activating us-west-2**: The ARN of the fencing Lambda function
+      deployed in us-west-2
+    - **Region to run Lambda function**: Choose **Run in deactivating Region**
+    - **Timeout** (optional)
+    - **Retry interval** (optional)
+
+20. Choose **Save step**.
+21. Choose **Add a step**.
+22. Select **Manual approval execution block**, and then choose **Add and edit**.
+    This block requests approval from a team member.
+23. In the right panel, configure the block:
+    - **Step name**: Enter **Manual approval before Database and DNS change**
+    - **Step description** (optional)
+    - **IAM approval role**: The role a user must assume so that they can approve the execution
+    - **Timeout** (optional)
+
+24. Choose **Save step**.
+25. Choose **Add a step**.
+26. Select the **Aurora Global Database execution block**, and then choose **Add and edit**.
+    This block triggers an Aurora global database switchover (no data loss). For more information, see
+    [Using switchover
+    or failover for Aurora Global Database](../../../AmazonRDS/latest/AuroraUserGuide/aurora-global-database-disaster-recovery.md "../../../AmazonRDS/latest/AuroraUserGuide/aurora-global-database-disaster-recovery.md") in the _Aurora User Guide_.
+27. In the right panel, configure the block:
+    - **Step name**: Enter **Aurora switchover**
+    - **Step description** (optional)
+    - **Aurora global database identifier**: The name of the Aurora cluster
+    - **Cluster ARN used for activating us-east-1**: The Aurora cluster ARN in us-east-1
+    - **Cluster ARN used for activating us-west-2**: The Aurora cluster ARN in us-west-2
+    - **Select the option for Aurora database**: Choose **Switchover**
+    - **Timeout** (optional)
+
+28. Choose **Save step**.
+29. Choose **Add a step**.
+30. Select **ARC routing control execution block**, and then choose **Add and edit**. This block
+    performs a DNS failover to shift traffic to the passive Region.
+31. In the right panel, configure the block:
+    - **Step name**: Enter **Toggle DNS**
+    - **Step description** (optional)
+    - **Routing controls used in activating us-east-1**: Choose
+      **Add routing controls**
+    - **Timeout**: Enter a timeout value.
+
+32. Choose **Add routing control**:
+    - **Routing control ARN**: The ARN of the routing control that controls us-east-1
+    - **Routing control state**: Choose **On**
+
+33. Choose **Add routing control** again:
+    - **Routing control ARN**: The ARN of the routing control that controls us-west-2
+    - **Routing control state**: Choose **Off**
+
+34. Choose **Save**.
+35. **Routing controls used in activating us-west-2**: Choose **Add routing controls**
+36. Choose **Add routing control**:
+    - **Routing control ARN**: The ARN of the routing control that controls us-west-2
+    - **Routing control state**: Choose **On**
+
+37. Choose **Add routing control** again:
+    - **Routing control ARN**: The ARN of the routing control that controls us-east-1
+    - **Routing control state**: Choose **Off**
+
+38. Choose **Save**.
+39. Choose **Save step**.
+40. Choose **Save**.
+
+## Step 3: Execute the plan
+
+1. On the Region switch plan details page, in the top right, choose **Execute**.
+2. Enter the execution details:
+   - Select the Region to activate.
+   - Select the plan execution mode.
+   - (Optional) View the execution steps.
+   - Acknowledge the plan execution.
+
+3. Choose **Start**.
+4. You can view detailed steps as the plan executes on the execution details page. You can see each step in the plan
+   execution, including start time, end time, resource ARN, and log messages.
+
+When the impaired Region has recovered, you can execute the plan again (changing the parameters that you provide) to
+activate the original Region, to switch back your application operations to the original primary Region.

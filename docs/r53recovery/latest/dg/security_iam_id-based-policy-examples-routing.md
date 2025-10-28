@@ -1,0 +1,228 @@
+# Identity-based policy
+
+examples for routing control in ARC
+
+By default, users and roles don't have permission to create or modify ARC
+resources. To grant users permission to perform actions on the
+resources that they need, an IAM administrator can create IAM policies.
+
+To learn how to create an IAM identity-based policy by using these example JSON policy
+documents, see [Create IAM policies (console)](../../../IAM/latest/UserGuide/access_policies_create-console.md "../../../IAM/latest/UserGuide/access_policies_create-console.md") in the
+_IAM User Guide_.
+
+For details about actions and resource types defined by ARC, including the format of the ARNs for each of the resource types, see [Actions, resources, and condition keys for Amazon Application Recovery Controller (ARC)](../../../service-authorization/latest/reference/list_amazonroute53recoverycontrols.md "../../../service-authorization/latest/reference/list_amazonroute53recoverycontrols.md") in the _Service Authorization Reference_.
+
+###### Topics
+
+- [Policy best
+  practices](#security_iam_service-with-iam-policy-best-practices-zonal "#security_iam_service-with-iam-policy-best-practices-zonal")
+- [Example: ARC
+  console access for routing control](#security_iam_id-based-policy-examples-console-routing "#security_iam_id-based-policy-examples-console-routing")
+- [Examples: ARC
+  API actions for routing control configuration](#security_iam_id-based-policy-examples-api-routing "#security_iam_id-based-policy-examples-api-routing")
+
+## Policy best
+
+practices
+
+Identity-based policies determine whether someone can create, access, or delete ARC resources in your
+account. These actions can incur costs for your AWS account. When you create or edit identity-based policies, follow these guidelines and
+recommendations:
+
+- **Get started with AWS managed policies and move toward least-privilege permissions**
+  – To get started granting permissions to your users and workloads, use the _AWS
+  managed policies_ that grant permissions for many common use cases. They are
+  available in your AWS account. We recommend that you reduce permissions further by
+  defining AWS customer managed policies that are specific to your use cases. For more information, see
+  [AWS managed policies](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies") or [AWS managed policies for job functions](../../../IAM/latest/UserGuide/access_policies_job-functions.md "../../../IAM/latest/UserGuide/access_policies_job-functions.md") in the _IAM User Guide_.
+- **Apply least-privilege permissions** –
+  When you set permissions with IAM policies, grant only the permissions required to
+  perform a task. You do this by defining the actions that can be taken on specific resources
+  under specific conditions, also known as _least-privilege permissions_.
+  For more information about using IAM to apply permissions, see [Policies and permissions in IAM](../../../IAM/latest/UserGuide/access_policies.md "../../../IAM/latest/UserGuide/access_policies.md") in the _IAM User Guide_.
+- **Use conditions in IAM policies to further restrict access**
+  – You can add a condition to your policies to limit access to actions and resources. For example, you can write a policy condition to specify that all requests must
+  be sent using SSL. You can also use conditions to grant access to service actions
+  if they are used through a specific AWS service, such as AWS CloudFormation. For more information, see
+  [IAM JSON policy elements: Condition](../../../IAM/latest/UserGuide/reference_policies_elements_condition.md "../../../IAM/latest/UserGuide/reference_policies_elements_condition.md") in the _IAM User Guide_.
+- **Use IAM Access Analyzer to validate your IAM policies to ensure secure and functional permissions**
+  – IAM Access Analyzer validates new and existing policies so that the policies adhere to the IAM policy language (JSON) and IAM best practices.
+  IAM Access Analyzer provides more than 100 policy checks and actionable recommendations to help
+  you author secure and functional policies. For more information, see [Validate policies with IAM Access Analyzer](../../../IAM/latest/UserGuide/access-analyzer-policy-validation.md "../../../IAM/latest/UserGuide/access-analyzer-policy-validation.md") in the _IAM User Guide_.
+- **Require multi-factor authentication (MFA)** –
+  If you have a scenario that requires IAM users or a root user in your AWS account, turn on MFA for additional security. To require
+  MFA when API operations are called, add MFA conditions to your policies. For
+  more information, see [Secure API access with MFA](../../../IAM/latest/UserGuide/id_credentials_mfa_configure-api-require.md "../../../IAM/latest/UserGuide/id_credentials_mfa_configure-api-require.md") in the _IAM User Guide_.
+
+For more information about best practices in IAM, see [Security best practices in IAM](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/latest/UserGuide/best-practices.md") in the _IAM User Guide_.
+
+## Example: ARC
+
+console access for routing control
+
+To access the Amazon Application Recovery Controller (ARC) console, you must have a minimum set of permissions.
+These permissions must allow you to list and view details about the ARC resources
+in your AWS account. If you create an identity-based policy that is more restrictive
+than the minimum required permissions, the console won't function as intended for
+entities (users or roles) with that policy.
+
+You don't need to allow minimum console permissions for users that are making calls
+only to the AWS CLI or the AWS API. Instead, allow access to only the actions that match
+the API operation that they're trying to perform.
+
+To ensure that users and roles can still use the ARC console when you allow access to
+only specific API operations, also attach a `ReadOnly` AWS managed policy for ARC to
+the entities. For more information, see the ARC [ARC
+managed policies page](security-iam-awsmanpol.md "security-iam-awsmanpol.md") or [Adding permissions to a user](../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console "../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console") in the _IAM User Guide_.
+
+To give users full access to use ARC routing control features through the console, attach a policy like the following to
+the user, to give the user full permissions to configure ARC routing control resources and operations:
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": [
+ "route53-recovery-cluster:GetRoutingControlState",
+ "route53-recovery-cluster:UpdateRoutingControlState",
+ "route53-recovery-cluster:UpdateRoutingControlStates",
+ "route53-recovery-control-config:CreateCluster",
+ "route53-recovery-control-config:CreateControlPanel",
+ "route53-recovery-control-config:CreateRoutingControl",
+ "route53-recovery-control-config:CreateSafetyRule",
+ "route53-recovery-control-config:DeleteCluster",
+ "route53-recovery-control-config:DeleteControlPanel",
+ "route53-recovery-control-config:DeleteRoutingControl",
+ "route53-recovery-control-config:DeleteSafetyRule",
+ "route53-recovery-control-config:DescribeCluster",
+ "route53-recovery-control-config:DescribeControlPanel",
+ "route53-recovery-control-config:DescribeSafetyRule",
+ "route53-recovery-control-config:DescribeRoutingControl",
+ "route53-recovery-control-config:ListAssociatedRoute53HealthChecks",
+ "route53-recovery-control-config:ListClusters",
+ "route53-recovery-control-config:ListControlPanels",
+ "route53-recovery-control-config:ListRoutingControls",
+ "route53-recovery-control-config:ListSafetyRules",
+ "route53-recovery-control-config:UpdateControlPanel",
+ "route53-recovery-control-config:UpdateRoutingControl",
+ "route53-recovery-control-config:UpdateSafetyRule"
+ ],
+ "Resource": "*"
+ },
+ {
+ "Effect": "Allow",
+ "Action": [
+ "route53:GetHealthCheck",
+ "route53:CreateHealthCheck",
+ "route53:DeleteHealthCheck",
+ "route53:ChangeTagsForResource"
+ ],
+ "Resource": "*"
+ }
+ ]
+}`
+
+```
+
+## Examples: ARC
+
+API actions for routing control configuration
+
+To ensure that a user can use ARC API actions to work with ARC routing control configuration,
+attach a policy that corresponds to the API operations that the user needs to work with, as described below.
+
+To work with API operations for recovery control configuration, attach a policy like the following to the user:
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": [
+ "route53-recovery-control-config:CreateCluster",
+ "route53-recovery-control-config:CreateControlPanel",
+ "route53-recovery-control-config:CreateRoutingControl",
+ "route53-recovery-control-config:CreateSafetyRule",
+ "route53-recovery-control-config:DeleteCluster",
+ "route53-recovery-control-config:DeleteControlPanel",
+ "route53-recovery-control-config:DeleteRoutingControl",
+ "route53-recovery-control-config:DeleteSafetyRule",
+ "route53-recovery-control-config:DescribeCluster",
+ "route53-recovery-control-config:DescribeControlPanel",
+ "route53-recovery-control-config:DescribeSafetyRule",
+ "route53-recovery-control-config:DescribeRoutingControl",
+ "route53-recovery-control-config:GetResourcePolicy",
+ "route53-recovery-control-config:ListAssociatedRoute53HealthChecks",
+ "route53-recovery-control-config:ListClusters",
+ "route53-recovery-control-config:ListControlPanels",
+ "route53-recovery-control-config:ListRoutingControls",
+ "route53-recovery-control-config:ListSafetyRules",
+ "route53-recovery-control-config:ListTagsForResource",
+ "route53-recovery-control-config:UpdateControlPanel",
+ "route53-recovery-control-config:UpdateRoutingControl",
+ "route53-recovery-control-config:UpdateSafetyRule",
+ "route53-recovery-control-config:TagResource",
+ "route53-recovery-control-config:UntagResource"
+ ],
+ "Resource": "*"
+ }
+ ]
+}`
+
+```
+
+To perform tasks in ARC routing control with the recovery cluster data plane API, for example, updating
+routing control states to fail over during a disaster event, you can attach a ARC IAM policy
+such as the following to your IAM user.
+
+The `AllowSafetyRuleOverride` boolean gives permission to override safety rules that you've
+configured as safeguards for routing controls. This permission might be required in "break glass" scenarios to
+bypass the safeguards in disasters or other urgent failover scenarios. For example, an operator might need to
+fail over quickly for disaster recovery, and one or more safety rules might unexpectedly prevent a routing control
+state update required to reroute traffic. This permission allows the operator to specify safety rules to override
+when making API calls to update routing control states. For more information, see [Overriding safety rules
+to reroute traffic](routing-control.md "routing-control.md").
+
+If you want to allow an operator to use the recovery cluster data plane API but _prevent_
+overriding safety rules, you can attach a policy such as the following, with `AllowSafetyRuleOverrides`
+boolean to `false`. To allow the operator to override safety rules, set the `AllowSafetyRuleOverrides`
+boolean to `true`.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": [
+ "route53-recovery-cluster:GetRoutingControlState",
+ "route53-recovery-cluster:ListRoutingControls"
+ ],
+ "Resource": "*"
+ },
+ {
+ "Effect": "Allow",
+ "Action": [
+ "route53-recovery-cluster:UpdateRoutingControlStates",
+ "route53-recovery-cluster:UpdateRoutingControlState"
+ ],
+ "Resource": "*",
+ "Condition": {
+ "Bool": {
+ "route53-recovery-cluster:AllowSafetyRulesOverrides": "false"
+ }
+ }
+ }
+ ]
+}`
+
+```

@@ -1,0 +1,11 @@
+# Quotas for Region switch
+
+Region switch in Amazon Application Recovery Controller (ARC) is subject to the following quotas.
+
+| Entity                                                 | Quota                                                                                                                                                                                                                                                   |
+| ------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Number of plans per account                            | 10 You can [request a quota increase](https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/arc-region-switch/quotas "https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/arc-region-switch/quotas"). |
+| Number of execution blocks per plan                    | 100                                                                                                                                                                                                                                                     |
+| Number of Region switch plan execution blocks per plan | 25                                                                                                                                                                                                                                                      |
+| Number of parallel execution blocks per step           | 20                                                                                                                                                                                                                                                      |
+| Number of CloudWatch alarms per trigger condition      | 10                                                                                                                                                                                                                                                      |
