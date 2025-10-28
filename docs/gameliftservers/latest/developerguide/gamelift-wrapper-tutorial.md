@@ -1,0 +1,300 @@
+# Tutorial: Quick onboarding with the Amazon GameLift Servers wrapper
+
+Welcome to the onboarding tutorial for Amazon GameLift Servers. In this tutorial, you rapidly deploy
+your game server to be hosted on a fleet of cloud-based compute resources. Use this tutorial
+to skip the work of integrating the server SDK for Amazon GameLift Servers into your game code, and instead
+deploy your game with the minimal functionality to communicate with the Amazon GameLift Servers service and
+run game sessions. You will set up a basic hosting solution and use it to experience the
+full range of features such as automatic scaling and matchmaking. It's also a great way to
+host a prototype of your game as part of a live demo or for testing.
+
+Key benefits of this onboarding method:
+
+- Quickly deploy your game server for hosting fast.
+- Zero game code changes and no modifications required.
+- Use this method with any game executable, regardless of game engine.
+- Explore all Amazon GameLift Servers management tools, including monitoring for game session activity and hosting health.
+
+###### Note
+
+The wrapper is intended for evaluation and basic production use. Advanced features such as detailed player session management require a full server SDK integration.
+
+## Prerequisites
+
+Before you begin, ensure you have:
+
+- An AWS account with appropriate permissions
+- AWS CLI installed
+- Go 1.18+
+- A multiplayer game server executable
+- Make (Linux/Mac)
+- Git installed with an active account
+
+## Overview
+
+In this tutorial you will:
+
+1. Get and build the wrapper
+2. Prepare the game build
+3. Configure the wrapper
+4. Upload the game server build
+5. Create the managed EC2 fleet
+6. Create and connect to a game session
+7. Monitor and manage your game servers
+8. Scale your game servers
+
+## Step 1: Get and build the game server wrapper
+
+Use the following commands to get the game server wrapper source and build the wrapper. These commands use SSH, but you can also go to the Github repository directly.
+
+### Windows
+
+```
+
+> git clone git@github.com:amazon-gamelift/amazon-gamelift-servers-game-server-wrapper.git
+> cd amazon-gamelift-servers-game-server-wrapper
+> powershell -file .\build.ps1
+
+```
+
+### Mac and Linux
+
+```
+
+$ git clone git@github.com:amazon-gamelift/amazon-gamelift-servers-game-server-wrapper.git
+$ cd amazon-gamelift-servers-game-server-wrapper
+$ make
+
+```
+
+On a successful build, an "out" directory is added to `amazon-gamelift-servers-game-server-wrapper`. In this directory are three folders, one for each supported hosting fleet option, that contain a set of build artifacts. For this tutorial, you're deploying to managed EC2 fleets, so you'll use the folder `gamelift-servers-managed-ec2`.
+
+## Step 2: Prepare your game server build
+
+In this step, you prepare your game server build files for uploading to the Amazon GameLift Servers.
+
+### Create the game directory
+
+Now, prepare a game directory on your local machine. This directory must contain all the files you need to run your game server with Amazon GameLift Servers. This includes the game server wrapper, your game server build and the config.yaml that makes the wrapper work with your game server.
+
+Use the following steps:
+
+1. Managed EC2 fleet. In the game server wrapper output folder, find the build artifact for deploying to a Managed EC2 fleet. The build will be written to an out directory as indicated here: `out\linux\amd64\gamelift-servers-managed-ec2`.
+2. Copy your game server executable and all associated files that it requires to run into the `gamelift-servers-managed-ec2` folder. You can have nested directories as needed.
+
+An example directory structure will look like this:
+
+```
+
+gamelift-servers-managed-ec2
+│-- config.yaml
+│-- amazon-gamelift-servers-game-server-wrapper
+│-- MyGame
+│   │-- server-executable.exe
+│   │-- my-game-settings
+│   │ ......
+
+```
+
+## Step 3: Configure the wrapper for your fleet
+
+Amazon GameLift Servers manages the lifecycle of a fleet's compute instances, spinning up new instances with your server build installed and recycling instances as needed. The service manages the game server process lifecycle that runs on each instance. A Managed EC2 fleet can have instances in multiple locations to support players wherever they are.
+
+Edit the config.yaml file to configure the wrapper for logging, port setup, and server initialization.
+
+1. **Configure the logging settings**. The game server wrapper generates log messages for each game server process. By default, the log level is set to debug for maximum verbosity. This is really useful during setup and troubleshooting and determines how detailed the log messages are - in this case, the most verbose. Options include debug, info, warn, and error (least verbose).
+2. **Specify the path to the game server log directory**. The default path for game server logs is `./game-server-logs`. This directory contains all the logs generated by your game server and each instance has them. The logs are automatically uploaded to Amazon GameLift Servers where they are accessed from the **Events** tab. View the Troubleshooting section for more details.
+3. **Define network port configuration**. Set the game port to whatever you prefer. For this tutorial, specify one port only, as you'll create a fleet that runs only one concurrent game server process per instance. If you decide to run multiple processes at a time, you'll need to configure enough ports for each concurrent process. The default value is 37016 as shown in the config file, but in general, for fleets using Linux builds use ports 22 and 1026-60000. For fleets using Windows builds, use ports 1026-60000.
+4. **Set up the path to the game server executable**. For `./MyGame/my-server-executable.exe` customize the path to your game server executable with the actual name and location for it. This is the entry point for launching your game server.
+5. **Configure the game server arguments**. At a minimum, specify a -port argument and use the same game port value you defined before. The "pos" value 0 indicates this is the first argument. Add other arguments as needed. These arguments are passed to your game server when it's launched, allowing you to configure its runtime behavior.
+   1. Argument: `"--port"`
+   2. Value: `"{{.port number here}}"`
+   3. Position: `0` (First argument in the list)
+
+Example configuration:
+
+```
+
+log-config:
+  wrapper-log-level: debug
+game-server-logs-dir: ./game-server-logs
+ports:
+  gamePort: 37016
+game-server-details:
+  executable-file-path: ./MyGame/my-server-executable
+game-server-args:
+  - arg: "--port"
+    val: "{{.gameport}}"
+    pos: 0
+
+```
+
+## Step 4: Upload the game server build
+
+You've now completed all the required elements of your game server build (game server wrapper, config.yaml, and your game server files), and you're ready to upload your game build to Amazon GameLift Servers for hosting. The quickest way to upload your game build is by using the AWS CLI command `upload-build` as shown in the following example.
+
+Uploading a game build with Windows:
+
+```
+
+aws gamelift upload-build \
+    --name gamelift-test-2025-03-11-1 \
+    --build-version gamelift-test-2025-03-11-1 \
+    --build-root out/windows/amd64/gamelift-servers-managed-ec2 \
+    --operating-system WINDOWS_2016 \
+    --server-sdk-version 5.3.0 \
+    --region us-west-2
+
+```
+
+###### Note
+
+For Mac and Linux builds, use --operating-system AMAZON_LINUX_2023
+
+When you create the build, record the build ID from the API response to use it for fleet creation.
+
+## Step 5: Create the managed EC2 fleet
+
+The following steps describe a minimal fleet configuration, so you can be up and running as soon as possible.
+
+To create your fleet:
+
+1. Log into the AWS Management Console and navigate to Amazon GameLift Servers.
+2. On the menu bar at the top of the console window, check to make sure what region your build is in. Make note of it because your fleet needs to be in the same region or you won't be able to find or choose your build.
+3. In the navigation pane in the **Managed EC2** section, choose **Builds**.
+4. Select the build you uploaded previously to display the **Build details page**.
+5. In the Fleets section choose **Create Fleet** which displays the Define Managed EC2 fleet details page from which you are able to track status for your fleet as well as view fleet creation events on the **Events** tab.
+6. Fill out the name and description and choose **Next**.
+7. In the Define instance details page the build's region is shown by default. Choose any additional regions you want to add.
+8. For **Fleet type** choose **On-Demand**.
+9. Under **Instance types** choose **c5.large** and choose **Next**.
+10. Under **Runtime configuration**, Because your uploaded game build uses the wrapper, you need to point to the wrapper executable instead. For Windows game servers this is `C:\game\amazon-gamelift-servers-game-server-wrapper.exe` . For Linux game servers, this is `/local/game/amazon-gamelift-servers-game-server-wrapper`.
+
+For example: `LaunchPath": "/local/game/amazon-gamelift-servers-game-server-wrapper", "ConcurrentExecutions": 1, "Parameters": "—port 37016`
+
+Also, configure the game port values with a range that allows for the port that was set in the `config.yaml` and the runtime config launch parameters. The port in `config.yaml` does not need to match the one specified in the fleet's runtime configuration, but at runtime if the configuration specifies a different port, that value overrides what is in the `config.yaml`. Launch parameters entered in the runtime config also override what is in the `config.yaml`. 11. On the **Review and create** page, double-check all configurations, then choose **Submit** to create your fleet. The fleet status will change as it spins up capacity to host the game server, and very soon shows a status of **Active**. Once activation is complete and the fleet deployed, the service launches the wrapper which is ready to receive a game session request.
+
+## Step 6: Create and connect to a game session
+
+When your fleet status shows **Active**, this means that game servers are ready and waiting to host a game session. To start a game session, make a game session request to the Amazon GameLift Servers service. Here, you will use the AWS CLI to make this request.
+
+###### Note
+
+Keep in mind that creating a game session using the AWS CLI is useful for testing and becoming familiar with the process. At some point, you'll add programmatic AWS SDK calls to to your game backend service as part of your game's matchmaking or game session placement system.
+
+Use the following to create a game session:
+
+```
+
+aws gamelift create-game-session \
+--fleet-id <FLEET_ID> \
+--game-properties '[{"Key": "exampleProperty", "Value": "exampleValue"}]' \
+--maximum-player-session-count 3 \
+--region us-west-2
+
+```
+
+You can also pass customized game properties to your server executable. See the Game Server Arguments in the README for details. When it receives the create-game-session call, the Amazon GameLift Servers inform the wrapper to launch the game server executable and start a game session. What is in the `config.yaml` affects the game server's configuration, and the launch parameters that are set in the console determine the configuration of the game session itself.
+
+Example format for adding game properties:
+
+```
+
+defaultArgs:
+        - arg: "--port"
+          val: "{{.GamePort}}"
+          pos: 0
+        - arg: "--ipAddress"
+          val: "{{.IpAddress}}"
+          pos: 1
+        - arg: "--gameSessionId"
+          val: "{{.GameSessionId}}"
+          pos: 2
+
+```
+
+## Step 7: Manage and monitor your fleet
+
+Now that your game server fleet is set up and a game session started, you can manage and monitor it from the Amazon GameLift Servers console. The best way to accomplish this is from the Fleet details page where you can edit fleet details or change fleet scaling and capacity on the **Scaling** tab. See the following section about scaling your game servers.
+
+Choose the **Metrics** tab to view graphs depicting monitoring for Activity and Hardware metrics. For details about the metrics graphs, choose the **Info** link next to your fleet's ID. Additionally, while you can closely monitor your game servers from the **Metrics** tab, you can also add alarms to these metrics in the CloudWatch dashboard.
+
+To navigate to the CloudWatch dashboard from the console:
+
+1. Type "CloudWatch" in the search bar and choose it from the search results list to display the CloudWatch Overview.
+2. Scroll down and choose **View GameLift dashboard** to see graphs based on key metrics for your fleets and game sessions.
+
+## Step 8: Scale your game servers
+
+For the next step, you set up auto scaling. With auto scaling you dynamically scale your fleet capacity in response to game server activity. As players arrive and start game sessions, auto scaling adds more instances, and as player demand decreases, auto scaling releases unused instances. This is an effective way to minimize your hosting resources and costs while still providing a smooth, fast player experience.
+
+As you prepare for game launch, you'll want to set up auto scaling for your fleets. Auto scaling is recommended as an effective way to minimize your hosting resources and costs while still providing a smooth, fast player experience.
+
+### To manually set up fleet capacity
+
+To manually set up fleet capacity
+
+1. Go to the **Scaling** tab in the details page for your fleet.
+2. Select a location and choose **Edit**.
+3. Change the **Desired instances** value and change the
+   **Min** and **Max** size settings in
+   order to scale beyond their current values, and choose **Confirm**.
+
+###### Note
+
+Use the max instances setting as a stop gap to prevent excessive scaling and costs.
+
+### To use target-based auto scaling
+
+To use target-based auto scaling
+
+Target-based autoscaling (target tracking) links fleet scaling to the percentage of available game sessions. As players surge to play your game and available game sessions decrease, it responds by automatically adding more instances to the fleet.
+
+1. Under **Target-based auto scaling policy**, choose **Add policy** and set the fleet's capacity to change automatically when it reaches the threshold of the percentage of available game sessions that you set. A larger buffer can better handle surges, getting new players get into games fast, but it may also lead to higher hosting costs.
+2. Choose **Confirm** to accept the changes.
+
+Rule-based auto scaling gives you more granular control, such as the ability to link scaling to other fleet metrics and set custom thresholds and scaling responses. It offers powerful options, but it also requires using the CLI and significant testing to understand how custom rules behave in action. This tutorial focuses on first setting up the target-based approach.
+
+## Troubleshoot common issues
+
+The following are common issues you may encounter while getting your game servers and game sessions running. When either the server or the game session isn't running properly, the first step is to check the logs which may reveal one of the issues described below for new deployments or games in production.
+
+The following is often revealed in the logs:
+
+- Game server process can't launch. This might be an error in the wrapper config—verify the file has the right launch path and correct launch parameters and arguments.
+- Game server build isn't runnable. This is likely an error in the game code.
+- Players can't connect to game sessions. This is likely a port configuration error.
+- Lag or slow connections. Review scaling policies and thresholds.
+- No connection. Verify the port rules and configuration for your fleet.
+
+### To view the event logs for your Amazon GameLift Servers fleet
+
+To view the event logs for your Amazon GameLift Servers fleet
+
+1. Open the Amazon GameLift Servers console.
+2. On the Fleet Details page choose the **Events** tab and download the log. You can also monitor activity and hardware metrics for game server health and game session activations from the **Metrics** tab.
+
+### To view game session logs
+
+To view game session logs
+
+1. From the console, open your fleet and open the **Game sessions** tab.
+2. Choose a game session ID from the list to display the Overview page for it.
+3. Choose **Download logs** to download a log file locally.
+
+To view game session logs with the CLI use the `GetGameSessionLogURL` API. Amazon GameLift Servers automatically stores the logs for 14 days.
+
+You can also configure Amazon CloudWatch logs for your fleet. This provides additional logging capabilities and integration with other AWS monitoring services.
+
+For real-time log access or extended retention periods through CloudWatch:
+
+1. At the top of your Amazon GameLift Servers console dashboard type "CloudWatch" in the search bar and choose it from the results drop-down.
+2. Go to the CloudWatch Log Groups and search for specific sessions. The easiest method is to click **Search All** and filter using gameSessionId or clientId.
+
+## Next steps
+
+- [Create a multi-location fleet to add hosting in additional locations](gamelift-regions.md#gamelift-regions-hosting "gamelift-regions.md#gamelift-regions-hosting")
+- [Add a game session queue to make the best possible placements for game sessions across multiple locations](queues-intro.md "queues-intro.md")
+- [Experiment with FlexMatch matchmaking by creating a matchmaker and rule set for your game](../flexmatchguide/match-intro.md "../flexmatchguide/match-intro.md")
+- [Start working on functionality for your game client and backend service components, so players can make join requests and directly connect to game sessions](gamelift-sdk-client.md "gamelift-sdk-client.md")
+- [When ready, move to a fully-integrated solution](gamelift-roadmap-managed.md "gamelift-roadmap-managed.md")
