@@ -1,0 +1,81 @@
+# Downloading reports in AWS Artifact
+
+You can download reports from the AWS Artifact console. When you download a report from AWS Artifact,
+the report is generated specifically for you, and every report has a unique watermark. For
+this reason, you should share the reports only with those you trust. Don't email the reports
+as attachments, and don't share them online. To share a report, use a secure sharing service
+such as Amazon WorkDocs. Some reports require you to accept the **Terms and
+conditions** before you can download them.
+
+###### Contents
+
+- [Downloading a report](#artifact-download-report "#artifact-download-report")
+- [Viewing attachments in PDF documents](#view-attachments-in-pdf "#view-attachments-in-pdf")
+- [Securing your documents](#artifact-best-practices "#artifact-best-practices")
+- [Troubleshooting](#artifact-troubleshooting "#artifact-troubleshooting")
+
+## Downloading a report
+
+To download a report, you must have the required permissions. For more information,
+see [Identity and access management in AWS Artifact](security-iam.md "security-iam.md").
+
+When you sign up for AWS Artifact, your account is automatically granted permissions to
+download some reports. If you are having trouble accessing AWS Artifact, follow the
+guidance on [AWS Artifact Service Authorization Reference](../../../service-authorization/latest/reference/list_awsartifact.md "../../../service-authorization/latest/reference/list_awsartifact.md") page.
+
+###### To download a report
+
+1. Open the AWS Artifact console at [https://console.aws.amazon.com/artifact/](https://console.aws.amazon.com/artifact/ "https://console.aws.amazon.com/artifact/").
+2. On the AWS Artifact home page, choose **View reports**.
+
+On the **Reports** page, on the **AWS reports** tab, you can
+access AWS reports (for example, SOC 1/2/3, PCI, C5, and so on). On the **Third-party reports**
+tab, you can access reports from independent software vendors (ISVs) who sell their products on AWS Marketplace. 3. (Optional) To find a report, enter a keyword in the search field. You can also perform targeted searches
+for reports based on individual columns, including report title, category, series, and description. For example,
+to find the Cloud Computing Compliance Controls Catalogue (C5) report, you can search the **Title**
+column using "Title", the "contains" operator (:), and the term "C5" (`Title : C5`). 4. (Optional) For more information about a report, choose the title of the report to open its details page. 5. Select a report, and then choose **Download report**. 6. You might be prompted to accept terms and conditions (**Accept terms to download report**)
+for the specific report that you're downloading. We recommend that you read the terms and conditions closely.
+When you're finished reading, select **I have read and agree to the terms**,
+and then choose **Accept terms and download report**. 7. Open the downloaded file via a PDF viewer. Review the terms and conditions for acceptance and scroll
+down to find the audit report. Reports could have additional information embedded as attachments within the PDF document,
+so make sure to check for attachments within the PDF file for supporting documentation. For instructions on how to view attachments, see [Viewing attachments in PDF documents](#view-attachments-in-pdf "#view-attachments-in-pdf").
+
+## Viewing attachments in PDF documents
+
+We recommend the following applications that currently support viewing PDF attachments:
+
+**Adobe Acrobat Reader**
+
+Download the latest version of Adobe Acrobat Reader from the Adobe website at [https://get.adobe.com/reader/](https://get.adobe.com/reader/ "https://get.adobe.com/reader/").
+
+For instructions on how to view PDF attachments in Acrobat Reader, see
+[Links and attachments in PDFs](https://helpx.adobe.com/in/acrobat/using/links-attachments-pdfs.html "https://helpx.adobe.com/in/acrobat/using/links-attachments-pdfs.html")
+on the Adobe Support website.
+
+###### Firefox Browser
+
+1. Download the latest Firefox web browser from the Mozilla website at
+   [https://www.mozilla.org/en-US/firefox/new/](https://www.mozilla.org/en-US/firefox/new/ "https://www.mozilla.org/en-US/firefox/new/").
+2. Open the PDF file in Firefox's built-in PDF viewer. For instructions, see
+   [View PDF files in Firefox or choose another viewer](https://support.mozilla.org/kb/view-pdf-files-firefox-or-choose-another-viewer "https://support.mozilla.org/kb/view-pdf-files-firefox-or-choose-another-viewer") on the Mozilla Support website.
+3. To view PDF attachments in Firefox's built-in PDF viewer, choose **Toggle Sidebar**, **Show Attachments**.
+
+## Securing your documents
+
+AWS Artifact documents are confidential and should be kept secure at all times. AWS Artifact uses
+the AWS shared responsibility model for its documents. This means that AWS is
+responsible for keeping documents secure while they are in the AWS Cloud, but you are
+responsible for keeping them secure after you download them. AWS Artifact might require you to
+accept the **Terms and conditions** before you can download
+documents. Each document download has a unique, traceable watermark.
+
+You are only permitted to share documents marked as confidential within your company,
+with your regulators, and with your auditors. You aren't permitted to share these
+documents with your customers or on your website. We strongly recommend that you use a
+secure document sharing service, such as Amazon WorkDocs, to share documents with others. Do
+not send the documents through email or upload them to a site that is not secure.
+
+## Troubleshooting
+
+If you cannot download a document or receive an error message, see [Troubleshooting](https://aws.amazon.com/artifact/faq/#Troubleshooting "https://aws.amazon.com/artifact/faq/#Troubleshooting") in the
+AWS Artifact FAQ.
