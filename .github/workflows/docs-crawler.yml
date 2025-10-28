@@ -1,25 +1,14 @@
-name: Docs crawler
+name: Crawl Single Guide
 
 on:
   workflow_dispatch:
     inputs:
       service_url:
-        description: 'Service guide URL to crawl (e.g., https://docs.aws.amazon.com/AmazonS3/latest/userguide/ or /AmazonS3/latest/userguide/). Leave empty to crawl all services.'
-        required: false
+        description: 'Service guide URL (e.g., /AmazonS3/latest/userguide/ or https://docs.aws.amazon.com/AmazonS3/latest/userguide/)'
+        required: true
         type: string
       dry_run:
-        description: 'Run in dry-run mode (list guides without crawling)'
-        required: false
-        type: boolean
-        default: false
-  workflow_call:
-    inputs:
-      service_url:
-        description: 'Service guide URL to crawl (e.g., https://docs.aws.amazon.com/AmazonS3/latest/userguide/ or /AmazonS3/latest/userguide/). Leave empty to crawl all services.'
-        required: false
-        type: string
-      dry_run:
-        description: 'Run in dry-run mode (list guides without crawling)'
+        description: 'Run in dry-run mode (show what would be crawled without crawling)'
         required: false
         type: boolean
         default: false
@@ -28,7 +17,7 @@ permissions:
   contents: write
 
 jobs:
-  crawl:
+  crawl-guide:
     runs-on: ubuntu-latest
 
     steps:
@@ -58,7 +47,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Run crawler
+      - name: Crawl guide
         working-directory: main
         run: |
           DRY_RUN_FLAG=""
@@ -67,15 +56,11 @@ jobs:
             echo "Running in dry-run mode..."
           fi
 
-          if [ -z "${{ inputs.service_url }}" ]; then
-            echo "Crawling all services..."
-            python crawler.py --output-dir docs $DRY_RUN_FLAG
-          else
-            echo "Crawling guide: ${{ inputs.service_url }}"
-            python crawler.py --output-dir docs --service-url "${{ inputs.service_url }}" $DRY_RUN_FLAG
-          fi
+          echo "Crawling guide: ${{ inputs.service_url }}"
+          python crawler.py crawl-guide "${{ inputs.service_url }}" --output-dir docs $DRY_RUN_FLAG
 
       - name: Configure Git user
+        if: inputs.dry_run != true
         working-directory: main
         run: |
           git config user.name "github-actions[bot]"
