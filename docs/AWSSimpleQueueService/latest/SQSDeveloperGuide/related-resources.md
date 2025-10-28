@@ -1,0 +1,13 @@
+# Related Amazon SQS resources
+
+The following table lists related resources that you might find useful as you work with
+this service.
+
+| Resource                                                                                                                                 | Description                                                                                                                                                                        |
+| ---------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| _[Amazon Simple Queue Service API Reference](../APIReference.md "../APIReference.md")_                                                   | Descriptions of actions, parameters, and data types and a list of errors that the service returns.                                                                                 |
+| [Amazon SQS in the _AWS CLI Command Reference_](../../../cli/latest/reference/sqs/index.md "../../../cli/latest/reference/sqs/index.md") | Descriptions of the AWS CLI commands that you can use to work with queues.                                                                                                         |
+| [Regions and Endpoints](../../../general/latest/gr/rande.md#sqs_region "../../../general/latest/gr/rande.md#sqs_region")                 | Information about Amazon SQS regions and endpoints                                                                                                                                 |
+| [Product Page](https://aws.amazon.com/sqs "https://aws.amazon.com/sqs")                                                                  | The primary web page for information about Amazon SQS.                                                                                                                             |
+| [Discussion Forum](https://forums.aws.amazon.com/forum.jspa?forumID=12 "https://forums.aws.amazon.com/forum.jspa?forumID=12")            | A community-based forum for developers to discuss technical questions related to Amazon SQS.                                                                                       |
+| [AWS Premium Support Information](https://aws.amazon.com/premiumsupport/ "https://aws.amazon.com/premiumsupport/")                       | The primary web page for information about AWS Premium Support, a one-on-one, fast-response support channel to help you build and run applications on AWS infrastructure services. |
