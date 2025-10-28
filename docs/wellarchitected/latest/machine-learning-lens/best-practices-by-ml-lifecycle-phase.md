@@ -1,0 +1,233 @@
+# Best practices by ML lifecycle phase
+
+There are six phases in the machine learning lifecycle and within
+each there are six pillars of the Well-Architected Framework. The
+following index lists the best practices by lifecycle phase.
+
+## Business goal identification phase
+
+### Operational excellence pillar
+
+- [MLOE-01: Develop the right skills with
+  accountability and empowerment](mloe-01.md "mloe-01.md")
+- [MLOE-02: Discuss and agree on the level of model explainability](mloe-02.md "mloe-02.md")
+- [MLOE-03: Monitor model compliance to business requirements](mloe-03.md "mloe-03.md")
+
+### Security pillar
+
+- [MLSEC-01: Validate ML data permissions, privacy, software, and license terms](mlsec-01.md "mlsec-01.md")
+
+### Reliability pillar
+
+There are no reliability pillar best practices for business goal identification.
+
+### Performance efficiency pillar
+
+- [MLPER-01: Determine key performance indicators](mlper-01.md "mlper-01.md")
+
+### Cost optimization pillar
+
+- [MLCOST-01: Define overall return on investment (ROI) and opportunity cost](mlcost-01.md "mlcost-01.md")
+- [MLCOST-02: Use managed services to reduce total cost of ownership (TCO)](mlcost-02.md "mlcost-02.md")
+
+### Sustainability pillar
+
+- [MLSUS-01: Define the overall environmental impact or benefit](mlsus-01.md "mlsus-01.md")
+
+## ML problem framing phase
+
+### Operational excellence pillar
+
+- [MLOE-04: Establish ML roles and responsibilities](mloe-04.md "mloe-04.md")
+- [MLOE-05: Prepare an ML profile template](mloe-05.md "mloe-05.md")
+- [MLOE-06: Establish model improvement strategies](mloe-06.md "mloe-06.md")
+- [MLOE-07: Establish a lineage tracker system](mloe-07.md "mloe-07.md")
+- [MLOE-08: Establish feedback loops across ML lifecycle phases](mloe-08.md "mloe-08.md")
+- [MLOE-09: Review fairness and explainability](mloe-09.md "mloe-09.md")
+
+### Security pillar
+
+- [MLSEC-02: Design data encryption and obfuscation](mlsec-02.md "mlsec-02.md")
+
+### Reliability pillar
+
+- [MLREL-01: Use APIs to abstract change from model consuming applications](mlrel-01.md "mlrel-01.md")
+- [MLREL-02: Adopt a machine learning microservice strategy](mlrel-02.md "mlrel-02.md")
+
+### Performance efficiency pillar
+
+- [MLPER-02: Use purpose-built AI and ML services and resources](mlper-02.md "mlper-02.md")
+- [MLPER-03: Define relevant evaluation metrics](mlper-03.md "mlper-03.md")
+
+### Cost optimization pillar
+
+- [MLCOST-03: Identify if machine learning is the right solution](mlcost-03.md "mlcost-03.md")
+- [MLCOST-04: Tradeoff analysis on custom versus pre-trained models](mlcost-04.md "mlcost-04.md")
+
+### Sustainability pillar
+
+- [MLSUS-02: Consider AI services and pre-trained models](mlsus-02.md "mlsus-02.md")
+- [MLSUS-03: Select sustainable Regions](mlsus-03.md "mlsus-03.md")
+
+## Data processing phase
+
+### Operational excellence pillar
+
+- [MLOE-10: Profile data to improve quality](mloe-10.md "mloe-10.md")
+- [MLOE-11: Create tracking and version control mechanisms](mloe-11.md "mloe-11.md")
+
+### Security pillar
+
+- [MLSEC-03: Ensure least privilege access](mlsec-03.md "mlsec-03.md")
+- [MLSEC-04: Secure data and modeling environment](mlsec-04.md "mlsec-04.md")
+- [MLSEC-05: Protect sensitive data privacy](mlsec-05.md "mlsec-05.md")
+- [MLSEC-06: Enforce data lineage](mlsec-06.md "mlsec-06.md")
+- [MLSEC-07: Keep only relevant data](mlsec-07.md "mlsec-07.md")
+
+### Reliability pillar
+
+- [MLREL-03: Use a data catalog](mlrel-03.md "mlrel-03.md")
+- [MLREL-04: Use a data pipeline](mlrel-04.md "mlrel-04.md")
+- [MLREL-05: Automate managing data changes](mlrel-05.md "mlrel-05.md")
+
+### Performance efficiency pillar
+
+- [MLPER-04: Use a modern data architecture](mlper-04.md "mlper-04.md")
+
+### Cost optimization pillar
+
+- [MLCOST-05: Use managed data labeling](mlcost-05.md "mlcost-05.md")
+- [MLCOST-06: Use data wrangler tools for interactive analysis](mlcost-06.md "mlcost-06.md")
+- [MLCOST-07: Use managed data processing capabilities](mlcost-07.md "mlcost-07.md")
+- [MLCOST-08: Enable feature reusability](mlcost-08.md "mlcost-08.md")
+
+### Sustainability pillar
+
+- [MLSUS-04: Minimize idle resources](mlsus-04.md "mlsus-04.md")
+- [MLSUS-05: Implement data lifecycle policies aligned with your sustainability goals](mlsus-05.md "mlsus-05.md")
+- [MLSUS-06: Adopt sustainable storage options](mlsus-06.md "mlsus-06.md")
+
+## Model development phase
+
+### Operational excellence pillar
+
+- [MLOE-12: Automate operations through MLOps and CI/CD](mloe-12.md "mloe-12.md")
+- [MLOE-13: Establish reliable packaging patterns to access approved public libraries](mloe-13.md "mloe-13.md")
+
+### Security pillar
+
+- [MLSEC-08: Secure governed ML environment](mlsec-08.md "mlsec-08.md")
+- [MLSEC-09: Secure inter-node cluster communications](mlsec-09.md "mlsec-09.md")
+- [MLSEC-10: Protect against data poisoning threats](mlsec-10.md "mlsec-10.md")
+
+### Reliability pillar
+
+- [MLREL-06: Enable CI/CD/CT automation with traceability](mlrel-06.md "mlrel-06.md")
+- [MLREL-07: Ensure feature consistency across training and inference](mlrel-07.md "mlrel-07.md")
+- [MLREL-08: Ensure model validation with relevant data](mlrel-08.md "mlrel-08.md")
+- [MLREL-09: Establish data bias
+  detection and mitigation](mlrel-09.md "mlrel-09.md")
+
+### Performance efficiency pillar
+
+- [MLPER-05: Optimize training and inference instance types](mlper-05.md "mlper-05.md")
+- [MLPER-06: Explore alternatives for performance improvement](mlper-06.md "mlper-06.md")
+- [MLPER-07: Establish a model performance evaluation pipeline](mlper-07.md "mlper-07.md")
+- [MLPER-08: Establish feature statistics](mlper-08.md "mlper-08.md")
+- [MLPER-09: Perform a performance trade-off analysis](mlper-09.md "mlper-09.md")
+- [MLPER-10: Detect performance issues when using transfer learning](mlper-10.md "mlper-10.md")
+
+### Cost optimization pillar
+
+- [MLCOST-09: Select optimal computing instance size](mlcost-09.md "mlcost-09.md")
+- [MLCOST-10: Use managed build environments](mlcost-10.md "mlcost-10.md")
+- [MLCOST-11: Select local training for small scale experiments](mlcost-11.md "mlcost-11.md")
+- [MLCOST-12: Select an optimal ML framework](mlcost-12.md "mlcost-12.md")
+- [MLCOST-13: Use automated machine learning](mlcost-13.md "mlcost-13.md")
+- [MLCOST-14: Use managed training capabilities](mlcost-14.md "mlcost-14.md")
+- [MLCOST-15: Use distributed training](mlcost-15.md "mlcost-15.md")
+- [MLCOST-16: Stop resources when not in use](mlcost-16.md "mlcost-16.md")
+- [MLCOST-17: Start training with small datasets](mlcost-17.md "mlcost-17.md")
+- [MLCOST-18: Use warm-start and checkpointing hyperparameter tuning](mlcost-18.md "mlcost-18.md")
+- [MLCOST-19: Use hyperparameter optimization technologies](mlcost-19.md "mlcost-19.md")
+- [MLCOST-20 - Setup budget and use resource tagging to track costs](mlcost-20.md "mlcost-20.md")
+- [MLCOST-21: Enable data and compute proximity](mlcost-21.md "mlcost-21.md")
+- [MLCOST-22: Select optimal algorithms](mlcost-22.md "mlcost-22.md")
+- [MLCOST-23: Enable debugging and logging](mlcost-23.md "mlcost-23.md")
+
+### Sustainability pillar
+
+- [MLSUS-07: Define sustainable performance criteria](mlsus-07.md "mlsus-07.md")
+- [MLSUS-08: Select energy-efficient algorithms](mlsus-08.md "mlsus-08.md")
+- [MLSUS-09: Archive or delete unnecessary training artifacts](mlsus-09.md "mlsus-09.md")
+- [MLSUS-10: Use efficient model tuning methods](mlsus-10.md "mlsus-10.md")
+
+## Model deployment phase
+
+### Operational excellence pillar
+
+- [MLOE-14: Establish deployment environment metrics](mloe-14.md "mloe-14.md")
+
+### Security pillar
+
+- [MLSEC-11: Protect against adversarial and malicious activities](mlsec-11.md "mlsec-11.md")
+
+### Reliability pillar
+
+- [MLREL-10: Automate endpoint changes through a pipeline](mlrel-10.md "mlrel-10.md")
+- [MLREL-11: Use an appropriate deployment and testing strategy](mlrel-11.md "mlrel-11.md")
+
+### Performance efficiency pillar
+
+- [MLPER-11: Evaluate cloud versus edge options for machine learning deployment](mlper-11.md "mlper-11.md")
+- [MLPER-12: Choose an optimal deployment option in the cloud](mlper-12.md "mlper-12.md")
+
+### Cost optimization pillar
+
+- [MLCOST-24: Use appropriate deployment option](mlcost-24.md "mlcost-24.md")
+- [MLCOST-25: Explore cost effective hardware options](mlcost-25.md "mlcost-25.md")
+- [MLCOST-26: Right-size the model hosting instance fleet](mlcost-26.md "mlcost-26.md")
+
+### Sustainability pillar
+
+- [MLSUS-11: Align SLAs with sustainability goals](mlsus-11.md "mlsus-11.md")
+- [MLSUS-12: Use efficient silicon](mlsus-12.md "mlsus-12.md")
+- [MLSUS-13: Optimize models for inference](mlsus-13.md "mlsus-13.md")
+- [MLSUS-14: Deploy multiple models behind a single endpoint](mlsus-14.md "mlsus-14.md")
+
+## Model monitoring phase
+
+### Operational excellence pillar
+
+- [MLOE-15: Enable model observability and tracking](mloe-15.md "mloe-15.md")
+- [MLOE-16: Synchronize architecture and configuration, and check for skew across environments](mloe-16.md "mloe-16.md")
+
+### Security pillar
+
+- [MLSEC-12: Restrict access to intended legitimate consumers](mlsec-12.md "mlsec-12.md")
+- [MLSEC-13: Monitor human interactions with data for anomalous activity](mlsec-13.md "mlsec-13.md")
+
+### Reliability pillar
+
+- [MLREL-12: Allow automatic scaling of the model endpoint](mlrel-12.md "mlrel-12.md")
+- [MLREL-13: Ensure a recoverable endpoint with a managed version control strategy](mlrel-13.md "mlrel-13.md")
+
+### Performance efficiency pillar
+
+- [MLPER-13: Evaluate model explainability](mlper-13.md "mlper-13.md")
+- [MLPER-14: Evaluate data drift](mlper-14.md "mlper-14.md")
+- [MLPER-15: Monitor, detect, and handle model performance degradation](mlper-15.md "mlper-15.md")
+- [MLPER-16: Establish an automated re-training framework](mlper-16.md "mlper-16.md")
+- [MLPER-17: Review for updated data/features for retraining](mlper-17.md "mlper-17.md")
+- [MLPER-18: Include human-in-the-loop monitoring](mlper-18.md "mlper-18.md")
+
+### Cost optimization pillar
+
+- [MLCOST-27: Monitor usage and cost by ML activity](mlcost-27.md "mlcost-27.md")
+- [MLCOST-28: Monitor Return on Investment for ML models](mlcost-28.md "mlcost-28.md")
+- [MLCOST-29: Monitor endpoint usage and right-size the instance fleet](mlcost-29.md "mlcost-29.md")
+
+### Sustainability pillar
+
+- [MLSUS-15: Measure material efficiency](mlsus-15.md "mlsus-15.md")
+- [MLSUS-16: Retrain only when necessary](mlsus-16.md "mlsus-16.md")
