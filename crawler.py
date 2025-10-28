@@ -554,18 +554,11 @@ class AwsDocsCrawler:
         output_dir: Path,
         max_workers: int = 8,
         session: Optional[requests.Session] = None,
-        allowed_prefixes: Optional[list[str]] = None,
         requests_per_second: Optional[float] = 10.0,
-        service_url_filter: Optional[str] = None,
-        dry_run: bool = False,
     ) -> None:
         self.output_dir = output_dir
         self.max_workers = max_workers
         self.session = session or requests.Session()
-        self.link_checker = LinkChecker(allowed_prefixes)
-        self.service_url_filter = service_url_filter
-        self.service_url_prefix = self._extract_url_prefix(service_url_filter) if service_url_filter else None
-        self.dry_run = dry_run
 
         self.session.headers.setdefault(
             "User-Agent",
@@ -577,80 +570,18 @@ class AwsDocsCrawler:
         self._known_urls: set[str] = set()
         self._known_urls_lock = threading.Lock()
         self._visited_urls: set[str] = set()
-        self._sitemap_pages: dict[str, int] = {}  # Track pages per sitemap
 
         self._rate_limiter = RequestRateLimiter(requests_per_second)
         self._image_handler = ImageHandler(output_dir, self.session, self._rate_limiter)
 
-    def _extract_url_prefix(self, url_or_path: str) -> str:
-        """Extract the path prefix from a URL or path string."""
-        # Handle full URLs
-        if url_or_path.startswith(("http://", "https://")):
-            parsed = urlparse(url_or_path)
-            path = parsed.path
-        else:
-            # Treat as a path
-            path = url_or_path
-
-        # Normalize the path
-        path = path.strip()
-        if not path.startswith("/"):
-            path = "/" + path
-
-        # Remove trailing filename if present (e.g., /path/to/page.html -> /path/to/)
-        if path.endswith((".html", ".htm")):
-            path = posixpath.dirname(path)
-
-        # Ensure it ends with / for prefix matching
-        if not path.endswith("/"):
-            path = path + "/"
-
-        return path
+        # Link checker and service URL filter (set per-guide during processing)
+        self._link_checker: Optional[LinkChecker] = None
+        self._service_url_prefix: Optional[str] = None
 
     @property
     def visited_urls(self) -> list[str]:
         with self._known_urls_lock:
             return list(self._visited_urls)
-
-    def crawl(self) -> None:
-        """Main crawl entry point."""
-        LOGGER.info("Starting crawl" + (" (DRY RUN)" if self.dry_run else ""))
-        if not self.dry_run:
-            self.output_dir.mkdir(parents=True, exist_ok=True)
-
-        # Phase 1: Discover all pages from sitemap index
-        LOGGER.info("Phase 1: Discovering pages from AWS sitemap index")
-        self._discover_from_sitemap_index()
-
-        with self._known_urls_lock:
-            page_count = len(self._known_urls)
-
-        if page_count == 0:
-            LOGGER.warning("No pages discovered to crawl")
-            return
-
-        # If dry-run, print summary and exit
-        if self.dry_run:
-            self._print_dry_run_summary()
-            return
-
-        # Phase 2: Crawl all discovered pages
-        LOGGER.info("Phase 2: Crawling %d discovered pages", page_count)
-
-        with ThreadPoolExecutor(max_workers=self.max_workers) as executor:
-            for _ in range(self.max_workers):
-                executor.submit(self._worker)
-
-            # Enqueue all discovered URLs
-            with self._known_urls_lock:
-                for url in self._known_urls:
-                    if url not in self._visited_urls:
-                        self._url_queue.put(url)
-
-            self._url_queue.join()
-
-            for _ in range(self.max_workers):
-                self._url_queue.put(None)
 
     def discover_services(self) -> list[dict]:
         """Discover all services from sitemap index and return metadata."""
@@ -715,7 +646,7 @@ class AwsDocsCrawler:
         return services
 
     def _count_sitemap_pages(self, sitemap_url: str) -> int:
-        """Count the number of pages in a sitemap."""
+        """Count the number of pages in a sitemap by fetching and parsing it."""
         try:
             self._rate_limiter.acquire()
             response = self.session.get(sitemap_url, timeout=30)
@@ -735,10 +666,11 @@ class AwsDocsCrawler:
         if not locs:
             locs = root.findall(".//loc")
 
+        # Count valid URLs (we can't use link_checker here as it's not set up yet)
         count = 0
         for loc in locs:
             url = (loc.text or "").strip()
-            if url and self.link_checker(normalise_url(url)):
+            if url:
                 count += 1
 
         return count
@@ -788,63 +720,6 @@ class AwsDocsCrawler:
         for sitemap_url in sitemap_urls:
             self._process_sitemap(sitemap_url)
 
-    def _print_dry_run_summary(self) -> None:
-        """Print a summary of what would be crawled in dry-run mode."""
-        print("\n" + "=" * 100)
-        print("DRY RUN SUMMARY - Pages to Download by Guide")
-        print("=" * 100)
-
-        # Sort sitemaps by page count (descending)
-        sorted_sitemaps = sorted(
-            self._sitemap_pages.items(),
-            key=lambda x: x[1],
-            reverse=True
-        )
-
-        total_pages = sum(self._sitemap_pages.values())
-        total_guides = len(self._sitemap_pages)
-
-        print(f"\nTotal guides to crawl: {total_guides:,}")
-        print(f"Total pages to download: {total_pages:,}")
-        print(f"\nGuides sorted by page count (largest contributors first):\n")
-
-        # Print header with percentage column
-        print(f"{'Pages':>8}  {'% of Total':>10}  {'Cumulative %':>13}  {'Guide URL'}")
-        print("-" * 100)
-
-        # Print each sitemap with its page count, percentage, and cumulative percentage
-        cumulative_pages = 0
-        for sitemap_url, page_count in sorted_sitemaps:
-            cumulative_pages += page_count
-            percentage = (page_count / total_pages) * 100
-            cumulative_pct = (cumulative_pages / total_pages) * 100
-
-            # Extract a readable guide name from the URL
-            # e.g., /AmazonS3/latest/userguide/sitemap.xml -> AmazonS3/latest/userguide
-            parsed = urlparse(sitemap_url)
-            path = parsed.path.strip("/")
-            if path.endswith("/sitemap.xml"):
-                guide_path = path[:-len("/sitemap.xml")]
-            else:
-                guide_path = path
-
-            print(f"{page_count:8,}  {percentage:9.2f}%  {cumulative_pct:12.1f}%  {guide_path}")
-
-        # Summary statistics
-        print("\n" + "=" * 100)
-        print(f"SUMMARY: {total_guides:,} guides, {total_pages:,} total pages to download")
-
-        # Show top contributors
-        top_10_pages = sum(count for _, count in sorted_sitemaps[:10])
-        top_10_pct = (top_10_pages / total_pages) * 100 if total_pages > 0 else 0
-        print(f"Top 10 guides: {top_10_pages:,} pages ({top_10_pct:.1f}% of total)")
-
-        top_20_pages = sum(count for _, count in sorted_sitemaps[:20])
-        top_20_pct = (top_20_pages / total_pages) * 100 if total_pages > 0 else 0
-        print(f"Top 20 guides: {top_20_pages:,} pages ({top_20_pct:.1f}% of total)")
-
-        print("=" * 100 + "\n")
-
     def _should_include_sitemap(self, sitemap_url: str) -> bool:
         """Determine if a sitemap should be processed."""
         parsed = urlparse(sitemap_url)
@@ -878,7 +753,7 @@ class AwsDocsCrawler:
             return False
 
         # Apply service URL filter if specified
-        if self.service_url_prefix:
+        if self._service_url_prefix:
             # Extract the path up to and including the guide segment
             # e.g., /AmazonS3/latest/userguide/sitemap.xml -> /AmazonS3/latest/userguide/
             sitemap_path = parsed.path.rstrip("/")
@@ -888,7 +763,7 @@ class AwsDocsCrawler:
             sitemap_prefix = sitemap_path + "/"
 
             # Check if the sitemap path starts with the filter prefix
-            if not sitemap_prefix.startswith(self.service_url_prefix):
+            if not sitemap_prefix.startswith(self._service_url_prefix):
                 return False
 
         return True
@@ -930,13 +805,11 @@ class AwsDocsCrawler:
             candidate_url = normalise_url(url)
 
             # Check if it's an HTML page we should crawl
-            if self.link_checker(candidate_url):
+            if self._link_checker and self._link_checker(candidate_url):
                 self._add_url_to_known(candidate_url)
                 page_count += 1
 
-        # Track pages per sitemap for dry-run reporting
-        if page_count > 0:
-            self._sitemap_pages[sitemap_url] = page_count
+        LOGGER.debug("Found %d pages in sitemap %s", page_count, sitemap_url)
 
     def _add_url_to_known(self, url: str) -> bool:
         """Add URL to known set for later processing."""
@@ -975,7 +848,7 @@ class AwsDocsCrawler:
 
         LOGGER.debug("Fetching %s", url)
 
-        if not self.link_checker(url):
+        if not self._link_checker or not self._link_checker(url):
             LOGGER.debug("Skipping %s because it does not look like an HTML page", url)
             return
 
@@ -1018,6 +891,31 @@ class AwsDocsCrawler:
             total = len(self._known_urls)
             LOGGER.info("Wrote [%d/%d] %s", crawled, total, output_path)
 
+    def _extract_url_prefix(self, url_or_path: str) -> str:
+        """Extract the path prefix from a URL or path string."""
+        # Handle full URLs
+        if url_or_path.startswith(("http://", "https://")):
+            parsed = urlparse(url_or_path)
+            path = parsed.path
+        else:
+            # Treat as a path
+            path = url_or_path
+
+        # Normalize the path
+        path = path.strip()
+        if not path.startswith("/"):
+            path = "/" + path
+
+        # Remove trailing filename if present (e.g., /path/to/page.html -> /path/to/)
+        if path.endswith((".html", ".htm")):
+            path = posixpath.dirname(path)
+
+        # Ensure it ends with / for prefix matching
+        if not path.endswith("/"):
+            path = path + "/"
+
+        return path
+
     def process_single_guide(
         self,
         service_url: str,
@@ -1036,7 +934,12 @@ class AwsDocsCrawler:
         # Step 1: Delete previous guide directory
         clean_guide_directory(self.output_dir, service_url)
 
-        # Step 2: Discover pages from sitemap and crawl
+        # Step 2: Set up link checker and URL filter for this guide
+        self._service_url_prefix = self._extract_url_prefix(service_url)
+        allowed_prefix = self._service_url_prefix.rstrip("/")
+        self._link_checker = LinkChecker([allowed_prefix])
+
+        # Step 3: Discover pages from sitemap and crawl
         LOGGER.info("Phase 1: Discovering pages for %s", service_url)
         self._discover_from_sitemap_index()
 
@@ -1049,7 +952,7 @@ class AwsDocsCrawler:
 
         LOGGER.info("Phase 2: Crawling %d pages for %s", page_count, service_url)
 
-        # Crawl all pages
+        # Step 4: Crawl all pages using thread pool (pages processed in parallel within guide)
         with ThreadPoolExecutor(max_workers=self.max_workers) as executor:
             for _ in range(self.max_workers):
                 executor.submit(self._worker)
@@ -1068,17 +971,17 @@ class AwsDocsCrawler:
         pages_crawled = len(self.visited_urls)
         LOGGER.info("Crawled %d pages for %s", pages_crawled, service_url)
 
-        # Step 3: Get guide directory path
+        # Step 5: Get guide directory path
         parsed = urlparse(service_url) if service_url.startswith(("http://", "https://")) else None
         path = parsed.path if parsed else service_url
         path = path.strip().strip("/")
         guide_dir = self.output_dir / path
 
-        # Step 4: Run prettier on the guide
+        # Step 6: Run prettier on the guide
         LOGGER.info("Formatting markdown files with prettier...")
         run_prettier_on_guide(guide_dir)
 
-        # Step 5: Commit if enabled
+        # Step 7: Commit if enabled
         commit_success = False
         if enable_commit:
             LOGGER.info("Committing changes for %s...", service_url)
@@ -1168,7 +1071,6 @@ class AwsDocsCrawler:
                 with self._known_urls_lock:
                     self._known_urls.clear()
                     self._visited_urls.clear()
-                    self._sitemap_pages.clear()
 
                 # Process the guide
                 pages_crawled, committed = self.process_single_guide(
@@ -1230,74 +1132,6 @@ def parse_args() -> argparse.Namespace:
         type=float,
         default=10.0,
         help="Maximum number of HTTP requests per second. Set to 0 to disable throttling.",
-    )
-    discover_parser.add_argument(
-        "--dry-run",
-        action="store_true",
-        help="Print discovered services without saving to file.",
-    )
-
-    # Crawl-services command
-    crawl_services_parser = subparsers.add_parser(
-        "crawl-services",
-        help="Crawl multiple specific services by URL"
-    )
-    crawl_services_parser.add_argument(
-        "services",
-        type=str,
-        help="Comma-separated list of service URLs (e.g., '/AmazonS3/latest/userguide/,/AmazonEC2/latest/userguide/')",
-    )
-    crawl_services_parser.add_argument(
-        "--output-dir",
-        default="docs",
-        type=Path,
-        help="Directory where Markdown files should be written.",
-    )
-    crawl_services_parser.add_argument(
-        "--max-workers",
-        type=int,
-        default=8,
-        help="Number of worker threads to use for crawling.",
-    )
-    crawl_services_parser.add_argument(
-        "--requests-per-second",
-        type=float,
-        default=10.0,
-        help="Maximum number of HTTP requests per second. Set to 0 to disable throttling.",
-    )
-
-    # Crawl-guide command (for manually crawling a single guide)
-    crawl_guide_parser = subparsers.add_parser(
-        "crawl-guide",
-        help="Crawl a single service guide"
-    )
-    crawl_guide_parser.add_argument(
-        "service_url",
-        type=str,
-        help="Service guide URL (e.g., '/AmazonS3/latest/userguide/' or 'https://docs.aws.amazon.com/AmazonS3/latest/userguide/')",
-    )
-    crawl_guide_parser.add_argument(
-        "--output-dir",
-        default="docs",
-        type=Path,
-        help="Directory where Markdown files should be written.",
-    )
-    crawl_guide_parser.add_argument(
-        "--max-workers",
-        type=int,
-        default=8,
-        help="Number of worker threads to use for crawling.",
-    )
-    crawl_guide_parser.add_argument(
-        "--requests-per-second",
-        type=float,
-        default=10.0,
-        help="Maximum number of HTTP requests per second. Set to 0 to disable throttling.",
-    )
-    crawl_guide_parser.add_argument(
-        "--dry-run",
-        action="store_true",
-        help="Show what would be crawled without actually crawling.",
     )
 
     # Process-guides command (new simplified workflow)
@@ -1512,97 +1346,9 @@ def cmd_discover(args: argparse.Namespace) -> None:
         "services": services,
     }
 
-    if args.dry_run:
-        # Print to stdout
-        print(json.dumps(output_data, indent=2))
-    else:
-        # Write to file
-        args.output.write_text(json.dumps(output_data, indent=2), encoding="utf-8")
-        LOGGER.info("Discovered %d services, saved to %s", len(services), args.output)
-
-
-def cmd_crawl_services(args: argparse.Namespace) -> None:
-    """Crawl multiple specific services."""
-    # Parse service URLs from comma-separated list
-    service_urls = [s.strip() for s in args.services.split(",") if s.strip()]
-
-    if not service_urls:
-        LOGGER.error("No service URLs provided")
-        sys.exit(1)
-
-    LOGGER.info("Will crawl %d services: %s", len(service_urls), service_urls)
-
-    args.output_dir.mkdir(parents=True, exist_ok=True)
-
-    # Track overall success
-    all_succeeded = True
-    failed_services = []
-
-    # Crawl each service sequentially
-    for service_url in service_urls:
-        LOGGER.info("=" * 80)
-        LOGGER.info("Starting crawl for service: %s", service_url)
-        LOGGER.info("=" * 80)
-
-        # Clean the guide directory before crawling
-        clean_guide_directory(args.output_dir, service_url)
-
-        try:
-            # Create a crawler for this specific service
-            crawler = AwsDocsCrawler(
-                output_dir=args.output_dir,
-                max_workers=args.max_workers,
-                requests_per_second=args.requests_per_second,
-                service_url_filter=service_url,
-                dry_run=False,
-            )
-
-            crawler.crawl()
-
-            page_count = len(crawler.visited_urls)
-            if page_count > 0:
-                LOGGER.info("Successfully crawled %d pages for %s", page_count, service_url)
-            else:
-                LOGGER.warning("No pages crawled for %s", service_url)
-                all_succeeded = False
-                failed_services.append(service_url)
-
-        except Exception as exc:
-            LOGGER.error("Failed to crawl service %s: %s", service_url, exc)
-            all_succeeded = False
-            failed_services.append(service_url)
-
-    # Summary
-    LOGGER.info("=" * 80)
-    LOGGER.info("Crawl summary:")
-    LOGGER.info("  Total services: %d", len(service_urls))
-    LOGGER.info("  Succeeded: %d", len(service_urls) - len(failed_services))
-    LOGGER.info("  Failed: %d", len(failed_services))
-    if failed_services:
-        LOGGER.info("  Failed services: %s", failed_services)
-    LOGGER.info("=" * 80)
-
-    if not all_succeeded:
-        sys.exit(1)
-
-
-def cmd_crawl_guide(args: argparse.Namespace) -> None:
-    """Crawl a single service guide."""
-    # Clean guide directory before crawling (skip in dry-run mode)
-    if not args.dry_run:
-        clean_guide_directory(args.output_dir, args.service_url)
-
-    crawler = AwsDocsCrawler(
-        output_dir=args.output_dir,
-        max_workers=args.max_workers,
-        requests_per_second=args.requests_per_second,
-        service_url_filter=args.service_url,
-        dry_run=args.dry_run,
-    )
-    crawler.crawl()
-
-    if not args.dry_run:
-        LOGGER.info("Crawled %d pages", len(crawler.visited_urls))
+    # Write to file
+    args.output.write_text(json.dumps(output_data, indent=2), encoding="utf-8")
+    LOGGER.info("Discovered %d services, saved to %s", len(services), args.output)
 
 
 def cmd_process_guides(args: argparse.Namespace) -> None:
@@ -1629,10 +1375,6 @@ def main() -> None:
     # Route to appropriate command handler
     if args.command == "discover":
         cmd_discover(args)
-    elif args.command == "crawl-services":
-        cmd_crawl_services(args)
-    elif args.command == "crawl-guide":
-        cmd_crawl_guide(args)
     elif args.command == "process-guides":
         cmd_process_guides(args)
     else:
