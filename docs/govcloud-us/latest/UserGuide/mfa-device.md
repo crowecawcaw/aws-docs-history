@@ -1,0 +1,66 @@
+# Enabling Multi-Factor Authentication (MFA) for
+
+users
+
+For increased security, we recommend that you configure multi-factor authentication
+(MFA) to help protect your AWS GovCloud (US) resources. MFA adds extra security because it
+requires users to enter a unique authentication code from an approved authentication
+device when they access AWS websites or services.
+
+AWS GovCloud (US) allows you to assign a hardware-based token device, a virtual MFA
+device, or a FIDO security key with FIPS-validated options to an IAM user or to your
+GovCloud administrator. A virtual or hardware token-based device generates a six-digit
+numeric code based on a time-synchronized, one-time password algorithm. The user must
+enter a valid code from the device on a second web page during sign-in.
+
+FIDO2 is an open authentication standard and an extension of FIDO U2F, based on public
+key cryptography, which enables strong, phishing-resistant authentication. To learn more
+about the FIDO2 standard, see [FIDO Alliance](https://en.wikipedia.org/wiki/FIDO_Alliance "https://en.wikipedia.org/wiki/FIDO_Alliance"). Based on your security and compliance needs, you can use
+both FIPS and non-FIPS FIDO security keys. You can also specify what kinds of
+authenticators your users can register in your IAM policies based on your preferred
+certification type and level. For more information about FIDO certifications, see [Device certifications](../../../IAM/latest/UserGuide/id_credentials_mfa_fido_supported_configurations.md#id_credentials_mfa_fido_certifications "../../../IAM/latest/UserGuide/id_credentials_mfa_fido_supported_configurations.md#id_credentials_mfa_fido_certifications").
+
+The following high-level procedure describes how to set up and use MFA in
+AWS GovCloud (US) and provides links to related information.
+
+1. MFA devices are supported for IAM users. MFA devices are not supported for
+   the AWS GovCloud (US) account root user. For more information, see [AWS
+   Management Console documentation](govcloud-console.md "govcloud-console.md").
+2. Get an MFA device. You can enable only one MFA device per user. The device can
+   be used by the specified user only.
+   - A hardware-based token device, supported by AWS, such as [OTP token](https://www.hypersecu.com/awsgovcloud-order "https://www.hypersecu.com/awsgovcloud-order").
+     This device has its unique token seeds shared securely with AWS. Token
+     seeds are secret keys generated at the time of token production. Tokens
+     purchased from other sources will not function with IAM.
+   - A virtual token device, which is a software application that is
+     compliant with [RFC
+     6238](https://tools.ietf.org/html/rfc6238 "https://tools.ietf.org/html/rfc6238"), a standards-based, time-based one-time password (TOTP)
+     algorithm. You can install the application on a mobile device, such as a
+     tablet or smartphone. For a list of apps you can use as virtual MFA
+     devices, see the "Virtual MFA Applications" section of the [Multi-Factor Authentication
+     page](https://aws.amazon.com/iam/details/mfa/ "https://aws.amazon.com/iam/details/mfa/").
+   - A FIDO2 security key creates a new key pair for use with only AWS.
+     FIDO-certified hardware security keys are provided by third-party
+     providers such as Yubico, which include FIPS-validated options like
+     [YubiKey
+     FIPS devices](https://www.yubico.com/products/yubikey-fips/ "https://www.yubico.com/products/yubikey-fips/"). For a full list, see [FIDO devices supported by AWS](../../../IAM/latest/UserGuide/id_credentials_mfa_fido_supported_configurations.md#id_credentials_mfa_fido_supported_devices "../../../IAM/latest/UserGuide/id_credentials_mfa_fido_supported_configurations.md#id_credentials_mfa_fido_supported_devices"). To use a FIDO2 security key,
+     your browser must support FIDO2. For a list, see [Browsers that support FIDO2](../../../IAM/latest/UserGuide/id_credentials_mfa_fido_supported_configurations.md#id_credentials_mfa_fido_browsers "../../../IAM/latest/UserGuide/id_credentials_mfa_fido_supported_configurations.md#id_credentials_mfa_fido_browsers").
+
+3. Enable the MFA device. There are two steps to enabling a device. First, you
+   create an MFA device entity in IAM. Second, you associate the MFA device entity
+   with the IAM user. You can perform these tasks in the AWS Management Console, AWS CLI, AWS
+   Tools for Windows PowerShell, or the IAM API.
+
+For information about enabling MFA devices, see the following topics:
+
+    * Hardware TOTP token: [Enabling
+     a hardware TOTP token (console)](../../../IAM/latest/UserGuide/id_credentials_mfa_enable_physical.md "../../../IAM/latest/UserGuide/id_credentials_mfa_enable_physical.md")
+    * Virtual MFA device: [Enabling
+     a Virtual Multi-Factor Authentication (MFA) Device](../../../IAM/latest/UserGuide/id_credentials_mfa_enable_virtual.md "../../../IAM/latest/UserGuide/id_credentials_mfa_enable_virtual.md")
+    * FIDO security key: [Enabling a
+     FIDO security key (console)](../../../IAM/latest/UserGuide/id_credentials_mfa_enable_fido.md "../../../IAM/latest/UserGuide/id_credentials_mfa_enable_fido.md")
+
+4. Use the MFA device when you sign in to or access AWS resources.
+   For more information, see [Using
+   MFA Devices with Your IAM Sign-in Page](../../../IAM/latest/UserGuide/console_sign-in-mfa.md "../../../IAM/latest/UserGuide/console_sign-in-mfa.md") and [Enabling a Virtual
+   Multi-Factor Authentication (MFA) Device](../../../IAM/latest/UserGuide/id_credentials_mfa_enable_virtual.md "../../../IAM/latest/UserGuide/id_credentials_mfa_enable_virtual.md").
