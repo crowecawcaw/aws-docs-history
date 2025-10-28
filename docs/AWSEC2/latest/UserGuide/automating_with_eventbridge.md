@@ -1,0 +1,45 @@
+# Automate Amazon EC2 using EventBridge
+
+You can use Amazon EventBridge to automate your AWS services and respond automatically to system
+events, such as application availability issues or resource changes. Events from AWS
+services are delivered to EventBridge in near real time. You can create rules to indicate which
+events you're interested in, and the actions to take when an event matches a rule. The
+actions that can be automatically triggered include the following:
+
+- Invoke an AWS Lambda function
+- Invoke Amazon EC2 Run Command
+- Relay the event to Amazon Kinesis Data Streams
+- Activate an AWS Step Functions state machine
+- Notify an Amazon SNS topic
+- Notify an Amazon SQS queue
+  The following are examples of how you can use EventBridge with Amazon EC2:
+
+- Activate a Lambda function whenever an instance enters the running state.
+- Notify an Amazon SNS topic when an Amazon EBS volume is created or modified.
+- Send a command to one or more Amazon EC2 instances using Amazon EC2 Run Command
+  whenever a certain event in another AWS service occurs.
+  For more information, see the [Amazon EventBridge User Guide](../../../eventbridge/latest/userguide.md "../../../eventbridge/latest/userguide.md").
+
+## Amazon EC2 event types
+
+Amazon EC2 supports the following event types:
+
+- [EC2 AMI State Change](monitor-ami-events.md#ami-events "monitor-ami-events.md#ami-events")
+- [EC2 Fast Launch State-change Notification](win-fast-launch-monitor.md#win-monitor-fast-launch-events "win-fast-launch-monitor.md#win-monitor-fast-launch-events")
+- [EC2 Fleet Error](monitor-ec2-fleet-using-eventbridge.md#ec2-fleet-config-not-valid "monitor-ec2-fleet-using-eventbridge.md#ec2-fleet-config-not-valid")
+- [EC2 Fleet Information](monitor-ec2-fleet-using-eventbridge.md#ec2-fleet-info "monitor-ec2-fleet-using-eventbridge.md#ec2-fleet-info")
+- [EC2 Fleet Instance Change](monitor-ec2-fleet-using-eventbridge.md#ec2-fleet-instance-change "monitor-ec2-fleet-using-eventbridge.md#ec2-fleet-instance-change")
+- [EC2 Fleet Spot Instance Request Change](monitor-ec2-fleet-using-eventbridge.md#ec2-fleet-spot-instance-request-change "monitor-ec2-fleet-using-eventbridge.md#ec2-fleet-spot-instance-request-change")
+- [EC2 Fleet State Change](monitor-ec2-fleet-using-eventbridge.md#ec2-fleet-state-change "monitor-ec2-fleet-using-eventbridge.md#ec2-fleet-state-change")
+- [EC2 Instance Rebalance Recommendation](rebalance-recommendations.md#cp-eventbridge "rebalance-recommendations.md#cp-eventbridge")
+- [EC2 Instance State-change Notification](monitoring-instance-state-changes.md "monitoring-instance-state-changes.md")
+- [EC2 Spot Fleet Error](monitor-ec2-fleet-using-eventbridge.md#spot-fleet-config-not-valid "monitor-ec2-fleet-using-eventbridge.md#spot-fleet-config-not-valid")
+- [EC2 Spot Fleet Information](monitor-ec2-fleet-using-eventbridge.md#spot-fleet-info "monitor-ec2-fleet-using-eventbridge.md#spot-fleet-info")
+- [EC2 Spot Fleet Instance Change](monitor-ec2-fleet-using-eventbridge.md#spot-fleet-instance-change "monitor-ec2-fleet-using-eventbridge.md#spot-fleet-instance-change")
+- [EC2 Spot Fleet Spot Instance Request Change](monitor-ec2-fleet-using-eventbridge.md#spot-fleet-spot-instance-request-change "monitor-ec2-fleet-using-eventbridge.md#spot-fleet-spot-instance-request-change")
+- [EC2 Spot Fleet State Change](monitor-ec2-fleet-using-eventbridge.md#spot-fleet-state-change "monitor-ec2-fleet-using-eventbridge.md#spot-fleet-state-change")
+- [EC2 Spot Instance Interruption Warning](spot-instance-termination-notices.md#ec2-spot-instance-interruption-warning-event "spot-instance-termination-notices.md#ec2-spot-instance-interruption-warning-event")
+- [EC2 Spot Instance Request Fulfillment](spot-request-status.md#spot-request-fulfillment-event "spot-request-status.md#spot-request-fulfillment-event")
+- [EC2 ODCR Underutilization Notification](cr-eventbridge.md "cr-eventbridge.md")
+
+For information about the event types supported by Amazon EBS, see [Amazon EventBridge for Amazon EBS](../../../ebs/latest/userguide/ebs-cloud-watch-events.md "../../../ebs/latest/userguide/ebs-cloud-watch-events.md").

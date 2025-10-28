@@ -1,0 +1,126 @@
+# Spot Instance request example launch specifications
+
+The following examples show launch configurations that you can use with the [request-spot-instances](../../../cli/latest/reference/ec2/request-spot-instances.md "../../../cli/latest/reference/ec2/request-spot-instances.md") command to create a Spot Instance request. For more
+information, see [Manage your Spot Instances](using-spot-instances-request.md "using-spot-instances-request.md").
+
+###### Important
+
+We strongly discourage using the [request-spot-instances](../../../cli/latest/reference/ec2/request-spot-instances.md "../../../cli/latest/reference/ec2/request-spot-instances.md") command to request a Spot Instance because it
+is a legacy API with no planned investment. For more information, see
+[Which is the best Spot request method to use?](spot-best-practices.md#which-spot-request-method-to-use "spot-best-practices.md#which-spot-request-method-to-use")
+
+###### Examples
+
+- [Example 1: Launch Spot Instances](#spot-launch-specification1 "#spot-launch-specification1")
+- [Example 2: Launch Spot Instances in the specified
+  Availability Zone](#spot-launch-specification2 "#spot-launch-specification2")
+- [Example 3: Launch Spot Instances in the specified
+  subnet](#spot-launch-specification3 "#spot-launch-specification3")
+- [Example 4: Launch a Dedicated
+  Spot Instance](#spot-launch-specification4 "#spot-launch-specification4")
+
+## Example 1: Launch Spot Instances
+
+The following example does not include an Availability Zone or subnet. Amazon EC2
+selects an Availability Zone for you. Amazon EC2 launches the instances in the
+default subnet of the selected Availability Zone.
+
+```
+{
+  "ImageId": "ami-0abcdef1234567890",
+  "KeyName": "my-key-pair",
+  "SecurityGroupIds": [ "sg-1a2b3c4d5e6f7g8h9" ],
+  "InstanceType": "m5.medium",
+  "IamInstanceProfile": {
+      "Arn": "arn:aws:iam::123456789012:instance-profile/my-iam-role"
+  }
+}
+```
+
+## Example 2: Launch Spot Instances in the specified
+
+Availability Zone
+
+The following example includes an Availability Zone. Amazon EC2 launches the
+instances in the default subnet of the specified Availability Zone.
+
+```
+{
+  "ImageId": "ami-0abcdef1234567890",
+  "KeyName": "my-key-pair",
+  "SecurityGroupIds": [ "sg-1a2b3c4d5e6f7g8h9" ],
+  "InstanceType": "m5.medium",
+  "Placement": {
+    "AvailabilityZone": "us-west-2a"
+  },
+  "IamInstanceProfile": {
+      "Arn": "arn:aws:iam::123456789012:instance-profile/my-iam-role"
+  }
+}
+```
+
+## Example 3: Launch Spot Instances in the specified
+
+subnet
+
+The following example includes a subnet. Amazon EC2 launches the instances in the
+specified subnet. If the VPC is a nondefault VPC, the instance does not receive
+a public IPv4 address by default.
+
+```
+{
+  "ImageId": "ami-0abcdef1234567890",
+  "SecurityGroupIds": [ "sg-1a2b3c4d5e6f7g8h9" ],
+  "InstanceType": "m5.medium",
+  "SubnetId": "subnet-1a2b3c4d",
+  "IamInstanceProfile": {
+      "Arn": "arn:aws:iam::123456789012:instance-profile/my-iam-role"
+  }
+}
+```
+
+To assign a public IPv4 address to an instance in a nondefault VPC, specify the
+`AssociatePublicIpAddress` field as shown in the following
+example. When you specify a network interface, you must include the subnet ID
+and security group ID using the network interface, rather than using the
+`SubnetId` and `SecurityGroupIds` fields shown in the
+previous code block.
+
+```
+{
+  "ImageId": "ami-0abcdef1234567890",
+  "KeyName": "my-key-pair",
+  "InstanceType": "m5.medium",
+  "NetworkInterfaces": [
+    {
+      "DeviceIndex": 0,
+      "SubnetId": "subnet-1a2b3c4d5e6f7g8h9",
+      "Groups": [ "sg-1a2b3c4d5e6f7g8h9" ],
+      "AssociatePublicIpAddress": true
+    }
+  ],
+  "IamInstanceProfile": {
+      "Arn": "arn:aws:iam::123456789012:instance-profile/my-iam-role"
+  }
+}
+```
+
+## Example 4: Launch a Dedicated
+
+Spot Instance
+
+The following example requests Spot Instance with a tenancy of `dedicated`.
+A Dedicated Spot Instance must be launched in a VPC.
+
+```
+{
+  "ImageId": "ami-0abcdef1234567890",
+  "KeyName": "my-key-pair",
+  "SecurityGroupIds": [ "sg-1a2b3c4d5e6f7g8h9" ],
+  "InstanceType": "c5.8xlarge",
+  "SubnetId": "subnet-1a2b3c4d5e6f7g8h9",
+  "Placement": {
+    "Tenancy": "dedicated"
+  }
+}
+```
