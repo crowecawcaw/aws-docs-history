@@ -1,0 +1,14 @@
+Amazon Fraud Detector will no longer be open to new customers starting November 7, 2025. If you would like to use Amazon Fraud Detector,
+sign up prior to that date. For capabilities similar to Amazon Fraud Detector, explore Amazon SageMaker, AutoGluon, and AWS WAF.
+
+# Amazon Fraud Detector availability change
+
+Thank you for your interest in Amazon Fraud Detector. After careful consideration, we have made the decision to no longer accept new customers after November 7th, 2025.
+
+If you're looking for a fraud detection solution, we recommend AutoGluon, which is an open-source automated machine learning (AutoML) library. More details are available at the [AutoGluon website](https://auto.gluon.ai/stable/index.html "https://auto.gluon.ai/stable/index.html") and the [AWS Open Source Blog](https://aws.amazon.com/blogs/opensource/machine-learning-with-autogluon-an-open-source-automl-library/ "https://aws.amazon.com/blogs/opensource/machine-learning-with-autogluon-an-open-source-automl-library/"). The AutoGluon Fraud Detection notebook can be found [here](https://www.kaggle.com/code/jaquelinenoonan/autogluon-on-fraud-detection/notebook "https://www.kaggle.com/code/jaquelinenoonan/autogluon-on-fraud-detection/notebook") on Kaggle. A general framework notebook is [here](../../../sagemaker/latest/dg/autogluon-tabular.md "../../../sagemaker/latest/dg/autogluon-tabular.md") for Amazon SageMaker AI notebook. After training AutoGluon models, you can use SageMaker AI for deploying models (more information [here](https://auto.gluon.ai/dev/tutorials/cloud_fit_deploy/cloud-aws-sagemaker-deployment.html "https://auto.gluon.ai/dev/tutorials/cloud_fit_deploy/cloud-aws-sagemaker-deployment.html")). AWS also has a [workshop](https://catalog.us-east-1.prod.workshops.aws/workshops/f440a5f2-c806-4a9f-b472-aab4cecf1391/en-US "https://catalog.us-east-1.prod.workshops.aws/workshops/f440a5f2-c806-4a9f-b472-aab4cecf1391/en-US") built to help you set up real-time payment processing architecture.
+
+If you're using Amazon Fraud Detector for account creation fraud use cases, can also consider using [AWS WAF](https://aws.amazon.com/waf/ "https://aws.amazon.com/waf/") Fraud Control. This feature helps protect login and sign-up pages against attacks, such as credential stuffing, credential cracking, and fake account creation attacks. The current fraud-detection capability of WAF is based on managed rules and not machine Learning models.
+
+If you have additional questions, contact [AWS Support](https://aws.amazon.com/support "https://aws.amazon.com/support").
+
+For information on migration, see [Migrating event data stored in Amazon Fraud Detector](storing-event-data-afd.md "storing-event-data-afd.md").
