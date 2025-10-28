@@ -1,0 +1,34 @@
+# Understanding Savings Plans recommendations
+
+To help you save money, AWS provides customized Savings Plans recommendations based on your past
+usage. You can use these recommendations to understand what you can save, how the commitment
+will be used, and more.
+
+You can view the recommendations for your AWS account. If you're using AWS Organizations, you can
+view recommendations from the management account or member account level.
+
+###### To access your Savings Plans recommendations
+
+1. Open the Billing and Cost Management console at [https://console.aws.amazon.com/costmanagement/](https://console.aws.amazon.com/costmanagement/ "https://console.aws.amazon.com/costmanagement/").
+2. In the navigation pane, under **Savings Plans**, choose
+   **Recommendations**.
+   The **Recommended Savings Plans** section on the
+   **Recommendations** page shows a detailed breakdown of your Savings Plans
+   selection. Your recommendations include the following summary metrics:
+
+- **Monthly On-Demand spend** – The estimated On-Demand
+  spend based on your usage over the selected time period. This includes all active
+  Savings Plans that you own at the time of computation. This value represents what your
+  On-Demand spend would be on a monthly basis, based on your past usage and current
+  Savings Plan commitments.
+- **Estimated monthly spend** – The projected spend based on
+  the recommended Savings Plans commitments. This value consists of the recommended commitment
+  and any usage projected to remain on On-Demand due to hour-to-hour variations in
+  usage.
+- **Estimated monthly savings** – The monthly net savings
+  amount based on the usage over the selected time period, if you purchased the
+  recommended Savings Plans.
+
+###### Note
+
+You can also receive your Savings Plans recommendations via the [AWS Cost Explorer API](../../../aws-cost-management/latest/APIReference/API_GetSavingsPlansPurchaseRecommendation.md "../../../aws-cost-management/latest/APIReference/API_GetSavingsPlansPurchaseRecommendation.md").
