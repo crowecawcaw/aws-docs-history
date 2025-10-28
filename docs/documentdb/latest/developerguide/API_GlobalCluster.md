@@ -1,0 +1,102 @@
+# GlobalCluster
+
+A data type representing an Amazon DocumentDB global cluster.
+
+## Contents
+
+###### Note
+
+In the following list, the required parameters are described first.
+
+**DatabaseName**
+
+The default database name within the new global cluster.
+
+Type: String
+
+Required: No
+
+**DeletionProtection**
+
+The deletion protection setting for the new global cluster.
+
+Type: Boolean
+
+Required: No
+
+**Engine**
+
+The Amazon DocumentDB database engine used by the global cluster.
+
+Type: String
+
+Required: No
+
+**EngineVersion**
+
+Indicates the database engine version.
+
+Type: String
+
+Required: No
+
+**GlobalClusterArn**
+
+The Amazon Resource Name (ARN) for the global cluster.
+
+Type: String
+
+Required: No
+
+**GlobalClusterIdentifier**
+
+Contains a user-supplied global cluster identifier. This identifier is the unique key that identifies a global cluster.
+
+Type: String
+
+Length Constraints: Minimum length of 1. Maximum length of 255.
+
+Pattern: `[A-Za-z][0-9A-Za-z-:._]*`
+
+Required: No
+
+**GlobalClusterMembers.GlobalClusterMember.N**
+
+The list of cluster IDs for secondary clusters within the global cluster. Currently limited to one item.
+
+Type: Array of [GlobalClusterMember](API_GlobalClusterMember.md "API_GlobalClusterMember.md") objects
+
+Required: No
+
+**GlobalClusterResourceId**
+
+The AWS RegionRegion-unique, immutable identifier for the global database cluster.
+This identifier is found in AWS CloudTrail log entries whenever the AWS KMS customer master key (CMK) for the cluster is accessed.
+
+Type: String
+
+Required: No
+
+**Status**
+
+Specifies the current state of this global cluster.
+
+Type: String
+
+Required: No
+
+**StorageEncrypted**
+
+The storage encryption setting for the global cluster.
+
+Type: Boolean
+
+Required: No
+
+## See Also
+
+For more information about using this API in one of the language-specific AWS SDKs, see the following:
+
+- [AWS SDK for C++](../../../goto/SdkForCpp/docdb-2014-10-31/GlobalCluster.md "../../../goto/SdkForCpp/docdb-2014-10-31/GlobalCluster.md")
+- [AWS SDK for Java V2](../../../goto/SdkForJavaV2/docdb-2014-10-31/GlobalCluster.md "../../../goto/SdkForJavaV2/docdb-2014-10-31/GlobalCluster.md")
+- [AWS SDK for Ruby V3](../../../goto/SdkForRubyV3/docdb-2014-10-31/GlobalCluster.md "../../../goto/SdkForRubyV3/docdb-2014-10-31/GlobalCluster.md")

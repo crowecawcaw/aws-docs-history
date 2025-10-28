@@ -1,0 +1,66 @@
+# StopDBCluster
+
+Stops the running cluster that is specified by `DBClusterIdentifier`. The
+cluster must be in the _available_ state. For more information, see
+[Stopping and
+Starting an Amazon DocumentDB Cluster](db-cluster-stop-start.md "db-cluster-stop-start.md").
+
+## Request Parameters
+
+For information about the parameters that are common to all actions, see [Common Parameters](CommonParameters.md "CommonParameters.md").
+
+**DBClusterIdentifier**
+
+The identifier of the cluster to stop. Example:
+`docdb-2019-05-28-15-24-52`
+
+Type: String
+
+Required: Yes
+
+## Response Elements
+
+The following element is returned by the service.
+
+**DBCluster**
+
+Detailed information about a cluster.
+
+Type: [DBCluster](API_DBCluster.md "API_DBCluster.md") object
+
+## Errors
+
+For information about the errors that are common to all actions, see [Common Errors](CommonErrors.md "CommonErrors.md").
+
+**DBClusterNotFoundFault**
+
+`DBClusterIdentifier` doesn't refer to an existing cluster.
+
+HTTP Status Code: 404
+
+**InvalidDBClusterStateFault**
+
+The cluster isn't in a valid state.
+
+HTTP Status Code: 400
+
+**InvalidDBInstanceState**
+
+The specified instance isn't in the _available_ state.
+
+HTTP Status Code: 400
+
+## See Also
+
+For more information about using this API in one of the language-specific AWS SDKs, see the following:
+
+- [AWS Command Line Interface V2](../../../goto/cli2/docdb-2014-10-31/StopDBCluster.md "../../../goto/cli2/docdb-2014-10-31/StopDBCluster.md")
+- [AWS SDK for .NET](../../../goto/DotNetSDKV3/docdb-2014-10-31/StopDBCluster.md "../../../goto/DotNetSDKV3/docdb-2014-10-31/StopDBCluster.md")
+- [AWS SDK for C++](../../../goto/SdkForCpp/docdb-2014-10-31/StopDBCluster.md "../../../goto/SdkForCpp/docdb-2014-10-31/StopDBCluster.md")
+- [AWS SDK for Go v2](../../../goto/SdkForGoV2/docdb-2014-10-31/StopDBCluster.md "../../../goto/SdkForGoV2/docdb-2014-10-31/StopDBCluster.md")
+- [AWS SDK for Java V2](../../../goto/SdkForJavaV2/docdb-2014-10-31/StopDBCluster.md "../../../goto/SdkForJavaV2/docdb-2014-10-31/StopDBCluster.md")
+- [AWS SDK for JavaScript V3](../../../goto/SdkForJavaScriptV3/docdb-2014-10-31/StopDBCluster.md "../../../goto/SdkForJavaScriptV3/docdb-2014-10-31/StopDBCluster.md")
+- [AWS SDK for Kotlin](../../../goto/SdkForKotlin/docdb-2014-10-31/StopDBCluster.md "../../../goto/SdkForKotlin/docdb-2014-10-31/StopDBCluster.md")
+- [AWS SDK for PHP V3](../../../goto/SdkForPHPV3/docdb-2014-10-31/StopDBCluster.md "../../../goto/SdkForPHPV3/docdb-2014-10-31/StopDBCluster.md")
+- [AWS SDK for Python](../../../goto/boto3/docdb-2014-10-31/StopDBCluster.md "../../../goto/boto3/docdb-2014-10-31/StopDBCluster.md")
+- [AWS SDK for Ruby V3](../../../goto/SdkForRubyV3/docdb-2014-10-31/StopDBCluster.md "../../../goto/SdkForRubyV3/docdb-2014-10-31/StopDBCluster.md")
