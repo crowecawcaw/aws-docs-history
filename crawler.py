@@ -1267,7 +1267,7 @@ def prettify_slug(slug: str | None) -> str:
 
 
 def commit_guide_directory(guide_dir: Path, service_url: str) -> bool:
-    """Commit changes for a specific guide directory."""
+    """Commit changes for a specific guide directory and push to remote."""
     if not guide_dir.exists():
         LOGGER.warning("Cannot commit: guide directory does not exist: %s", guide_dir)
         return False
@@ -1315,7 +1315,67 @@ def commit_guide_directory(guide_dir: Path, service_url: str) -> bool:
         )
 
         LOGGER.info("Committed changes for %s: %s", guide_dir, message)
-        return True
+
+        # Push to remote with retry logic (exponential backoff)
+        # Get current branch
+        branch_result = subprocess.run(
+            ["git", "branch", "--show-current"],
+            check=True,
+            capture_output=True,
+            text=True,
+        )
+        branch = branch_result.stdout.strip()
+
+        if not branch:
+            LOGGER.warning("Could not determine current branch, skipping push")
+            return True
+
+        LOGGER.info("Pushing commit to remote branch %s...", branch)
+
+        # Retry push up to 4 times with exponential backoff
+        max_retries = 4
+        retry_delays = [2, 4, 8, 16]  # seconds
+
+        for attempt in range(max_retries):
+            try:
+                subprocess.run(
+                    ["git", "push", "-u", "origin", branch],
+                    check=True,
+                    capture_output=True,
+                    text=True,
+                    timeout=60,
+                )
+                LOGGER.info("Successfully pushed commit for %s", guide_dir)
+                return True
+            except subprocess.CalledProcessError as push_exc:
+                if attempt < max_retries - 1:
+                    delay = retry_delays[attempt]
+                    LOGGER.warning(
+                        "Push failed (attempt %d/%d): %s. Retrying in %ds...",
+                        attempt + 1,
+                        max_retries,
+                        push_exc,
+                        delay,
+                    )
+                    time.sleep(delay)
+                else:
+                    LOGGER.error("Push failed after %d attempts: %s", max_retries, push_exc)
+                    return False
+            except subprocess.TimeoutExpired:
+                if attempt < max_retries - 1:
+                    delay = retry_delays[attempt]
+                    LOGGER.warning(
+                        "Push timed out (attempt %d/%d). Retrying in %ds...",
+                        attempt + 1,
+                        max_retries,
+                        delay,
+                    )
+                    time.sleep(delay)
+                else:
+                    LOGGER.error("Push timed out after %d attempts", max_retries)
+                    return False
+
+        return False
 
     except subprocess.CalledProcessError as exc:
         LOGGER.warning("Failed to commit %s: %s", guide_dir, exc)
