@@ -1,0 +1,216 @@
+# Understanding how State Manager works
+
+State Manager, a tool in AWS Systems Manager, is a secure and scalable service that automates the
+process of keeping managed nodes in a [hybrid and multicloud](operating-systems-and-machine-types.md#supported-machine-types "operating-systems-and-machine-types.md#supported-machine-types") infrastructure in a state that you
+define.
+
+Here's how State Manager works:
+
+**1. Determine the state you want to apply to your AWS resources.**
+
+Do you want to guarantee that your managed nodes are configured with
+specific applications, such as antivirus or malware applications? Do you
+want to automate the process of updating the SSM Agent or other AWS
+packages such as `AWSPVDriver`? Do you need to guarantee
+that specific ports are closed or open? To get started with State Manager,
+determine the state that you want to apply to your AWS resources. The
+state that you want to apply determines which SSM document you use to
+create a State Manager association.
+
+A State Manager _association_ is a configuration that you
+assign to your AWS resources. The configuration defines the state that you
+want to maintain on your resources. For example, an association can specify
+that antivirus software must be installed and running on a managed node, or
+that certain ports must be closed.
+
+An association specifies a schedule for when to apply the configuration
+and the targets for the association. For example, an association for
+antivirus software might run once a day on all managed nodes in an
+AWS account. If the software isn't installed on a node, then the
+association could instruct State Manager to install it. If the software is
+installed, but the service isn't running, then the association could
+instruct State Manager to start the service.
+
+**2. Determine if a preconfigured SSM document can help you create the desired
+state on your AWS resources.**
+
+Systems Manager includes dozens of preconfigured SSM documents that you can use to
+create an association. Preconfigured documents are ready to perform common
+tasks like installing applications, configuring Amazon CloudWatch, running AWS Systems Manager
+automations, running PowerShell and Shell scripts, and joining managed nodes
+to a directory service domain for Active Directory.
+
+You can view all SSM documents in the [Systems Manager
+console](https://console.aws.amazon.com/systems-manager/documents "https://console.aws.amazon.com/systems-manager/documents"). Choose the name of a document to learn more about each
+one. Here are two examples: [`AWS-ConfigureAWSPackage`](https://console.aws.amazon.com/systems-manager/documents/AWS-ConfigureAWSPackage/description "https://console.aws.amazon.com/systems-manager/documents/AWS-ConfigureAWSPackage/description") and [`AWS-InstallApplication`](https://console.aws.amazon.com/systems-manager/documents/AWS-InstallApplication/description "https://console.aws.amazon.com/systems-manager/documents/AWS-InstallApplication/description").
+
+**3. Create an association.**
+
+You can create an association by using the Systems Manager console, the AWS Command Line Interface
+(AWS CLI), AWS Tools for Windows PowerShell (Tools for Windows PowerShell), or the Systems Manager API. When you create an
+association, you specify the following information:
+
+- A name for the association.
+- The parameters for the SSM document (for example, the path to
+  the application to install or the script to run on the
+  nodes).
+- Targets for the association. You can target managed nodes by
+  specifying tags, by choosing individual node IDs, or by choosing a
+  group in AWS Resource Groups. You can also target _all_
+  managed nodes in the current AWS Region and AWS account. If your
+  targets include more than 1,000 nodes, the system uses an hourly
+  throttling mechanism. This means you might see inaccuracies in your
+  status aggregation count since the aggregation process runs hourly
+  and only when the execution status for a node changes.
+- A schedule for when or how often to apply the state. You can
+  specify a cron or rate expression. For more information about
+  creating schedules by using cron and rate expressions, see [Cron and rate
+  expressions for associations](reference-cron-and-rate-expressions.md#reference-cron-and-rate-expressions-association "reference-cron-and-rate-expressions.md#reference-cron-and-rate-expressions-association").
+
+###### Note
+
+State Manager doesn't currently support specifying months in cron
+expressions for associations.
+
+When you run the command to create the association, Systems Manager binds the
+information you specified (schedule, targets, SSM document, and
+parameters) to the targeted resources. The status of the association
+initially shows "Pending" as the system attempts to reach all targets and
+_immediately_ apply the state specified in the
+association.
+
+###### Note
+
+If you create a new association that is scheduled to run while an
+earlier association is still running, the earlier association times out
+and the new association runs.
+
+Systems Manager reports the status of the request to create associations on the
+resources. You can view status details in the console or (for managed nodes)
+by using the [DescribeInstanceAssociationsStatus](../APIReference/API_DescribeInstanceAssociationsStatus.md "../APIReference/API_DescribeInstanceAssociationsStatus.md") API operation. If you choose
+to write the output of the command to Amazon Simple Storage Service (Amazon S3) when you create an
+association, you can also view the output in the Amazon S3 bucket you
+specified.
+
+For more information, see [Working with associations in Systems Manager](state-manager-associations.md "state-manager-associations.md").
+
+###### Note
+
+API operations that are initiated by the SSM document during an
+association run are not logged in AWS CloudTrail.
+
+**4. Monitor and update.**
+
+After you create the association, State Manager reapplies the configuration
+according to the schedule that you defined in the association. You can view
+the status of your associations on the [State Manager
+page](https://console.aws.amazon.com/systems-manager/state-manager "https://console.aws.amazon.com/systems-manager/state-manager") in the console or by directly calling the association ID
+generated by Systems Manager when you created the association. For more information,
+see [Viewing association
+histories](state-manager-associations-history.md "state-manager-associations-history.md"). You can update
+your association documents and reapply them as necessary. You can also
+create multiple versions of an association. For more information, see [Editing and creating a new version
+of an association](state-manager-associations-edit.md "state-manager-associations-edit.md").
+
+## Understanding when associations are
+
+applied to resources
+
+When you create an association, you specify an SSM document that defines the
+configuration, a list of target resources, and a schedule for applying the
+configuration. By default, State Manager runs the association when you create it and then
+according to your schedule. State Manager also attempts to run the association in the
+following situations:
+
+- **Association edit** – State Manager runs
+  the association after a user edits and saves their changes to any of the
+  following association fields: `DOCUMENT_VERSION`,
+  `PARAMETERS`, `SCHEDULE_EXPRESSION`,
+  `OUTPUT_S3_LOCATION`.
+- **Document edit** – State Manager runs the
+  association after a user edits and saves changes to the SSM document that
+  defines the association's configuration state. Specifically, the association
+  runs after the following edits to the document:
+  - A user specifies a new `$DEFAULT` document version and
+    the association was created using the `$DEFAULT` version.
+  - A user updates a document and the association was created using
+    the `$LATEST` version.
+  - A user deletes the document that was specified when the
+    association was created.
+
+- **Manual start** – State Manager runs the
+  association when initiated by the user from either the Systems Manager console or
+  programmatically.
+- **Target changes** – State Manager runs the
+  association after any of the following activity occurs on a target
+  node:
+  - A managed node comes online for the first time.
+  - A managed node comes online after missing a scheduled association
+    run.
+  - A managed node comes online after being stopped for more than 30
+    days.
+
+###### Note
+
+State Manager doesn't monitor documents or packages used in associations
+across AWS accounts. If you update a document or package in one
+account, the update won't cause the association to run in the second
+account. You must manually run the association in the second
+account.
+
+###### Preventing associations from running when a target changes
+
+In some cases, you might not want an association to run when a target
+that consists of managed nodes changes, but only according to its
+specified schedule.
+
+###### Note
+
+Running an Automation runbook incurs a cost. If an association with an
+Automation runbook targets all instances in your account and you
+regularly launch a large number of instances, the runbook is run on each
+of the instances when it launches. This can lead to elevated automation
+charges.
+
+To prevent an association from running when the targets for that
+association change, select the **Apply association only at the next
+specified cron interval check box**. This check box is located
+in the **Specify schedule** area of the **Create
+association** and **Edit association**
+pages.
+
+This option applies to associations that incorporate either an Automation
+runbook or an SSM document.
+
+## About target updates with Automation
+
+runbooks
+
+In order for associations that are created with Automation runbooks to be applied
+when new target nodes are detected, the following conditions must be true:
+
+- The association must have been created by a [Quick Setup](systems-manager-quick-setup.md "systems-manager-quick-setup.md") configuration.
+  Quick Setup is a tool in AWS Systems Manager. Associations created by other processes are
+  not currently supported.
+- The Automation runbook must explicitly target the resource type
+  `AWS::EC2::Instance` or
+  `AWS::SSM::ManagedInstance`.
+- The association must specify both parameters and targets.
+
+In the console, the **Parameter** and
+**Targets** fields are displayed when you choose a rate
+control execution.
+
+![Parameter and target options are presented in the console for rate control executions](images/sm_Rate_control_execution_options.png)
+
+When you use the [CreateAssociation](../APIReference/API_CreateAssociation.md "../APIReference/API_CreateAssociation.md"), [CreateAssociationBatch](../APIReference/API_CreateAssociationBatch.md "../APIReference/API_CreateAssociationBatch.md"),
+or [UpdateAssociation](../APIReference/API_UpdateAssociation.md "../APIReference/API_UpdateAssociation.md") API actions, you can specify these values using
+the `AutomationTargetParameterName` and `Targets`
+inputs. In each of these API actions, you can also prevent the association
+from running each time a target changes by setting the
+`ApplyOnlyAtCronInterval` parameter to `true`.
+
+For information about using the console to control when associations run,
+including details for avoiding unexpectedly high costs for Automation
+executions, see [Understanding when associations are
+applied to resources](#state-manager-about-scheduling "#state-manager-about-scheduling").
