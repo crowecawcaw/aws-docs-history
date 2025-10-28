@@ -1,0 +1,5 @@
+# Architecture capacity
+
+| ADVREL06: How does the architecture handle challenges involved with tens to hundreds of partners running in a hybrid environment? |
+| --------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|                                                                                                                                   | Identify the components in your workload which are outside your control, and the mechanisms which you have implemented to maintain your workload's availability when operations with those dependencies are disrupted. ###### Best practices <br>• [ADVREL06-BP01 Architect defensively against failures](advrel06-bp01.md "advrel06-bp01.md") |
