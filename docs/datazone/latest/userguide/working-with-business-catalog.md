@@ -1,0 +1,42 @@
+# Amazon DataZone data catalog
+
+You can use the Amazon DataZone business data catalog to catalog data across your organization
+with business context and thus enable everyone in your organization to ﬁnd and understand data
+quickly.
+
+In order to use Amazon DataZone to catalog your data, you must first bring your data (assets) as
+inventory of your project in Amazon DataZone. Creating inventory for a project, makes the assets
+discoverable only to that project’s members. Project inventory assets are not available to all
+domain users in search/browse unless explicitly published.
+
+After creating a project inventory, data owners can curate their inventory assets with the
+required business metadata by adding or updating business names (asset and schema), descriptions
+(asset and schema), read me, glossary terms (asset and schema), and metadata forms.
+
+The next step of using Amazon DataZone to catalog your data, is to make your project’s inventory
+assets discoverable by the domain users. You can do this by publishing the inventory assets to
+the Amazon DataZone catalog. Only the latest version of the inventory asset can be published to the
+catalog and only the latest published version is active in the discovery catalog. If an
+inventory asset is updated after it's been published into the Amazon DataZone catalog, you must
+explicitly publish it again in order for the latest version to be in the discovery catalog.
+
+For more information, see [Amazon DataZone terminology and concepts](datazone-concepts.md "datazone-concepts.md").
+
+###### Topics
+
+- [Create a business glossary in
+  Amazon DataZone](create-maintain-business-glossary.md "create-maintain-business-glossary.md")
+- [Edit a business glossary in Amazon DataZone](edit-business-glossary.md "edit-business-glossary.md")
+- [Delete a business glossary in Amazon DataZone](delete-business-glossary.md "delete-business-glossary.md")
+- [Create a term in a glossary in Amazon DataZone](create-maintain-term.md "create-maintain-term.md")
+- [Edit a term in a glossary in Amazon DataZone](edit-term.md "edit-term.md")
+- [Delete a term in a glossary in Amazon DataZone](delete-term.md "delete-term.md")
+- [Create a metadata form in Amazon DataZone](create-metadata-form.md "create-metadata-form.md")
+- [Edit a metadata form in Amazon DataZone](edit-metadata-form.md "edit-metadata-form.md")
+- [Delete a metadata form in Amazon DataZone](delete-metadata-form.md "delete-metadata-form.md")
+- [Create a field in a metadata form in
+  Amazon DataZone](create-field-in-metadata-form.md "create-field-in-metadata-form.md")
+- [Edit a field in a metadata form in
+  Amazon DataZone](edit-field-in-metadata-form.md "edit-field-in-metadata-form.md")
+- [Delete a field in a metadata form in
+  Amazon DataZone](delete-field-in-metadata-form.md "delete-field-in-metadata-form.md")
