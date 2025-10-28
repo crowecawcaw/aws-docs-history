@@ -1,0 +1,146 @@
+# Getting started with IAM Roles Anywhere
+
+To use AWS Identity and Access Management Roles Anywhere for authentication to AWS from your workloads that run outside of AWS
+such as servers, containers, and applications, you first create a trust anchor and profile through
+the IAM Roles Anywhere console.
+
+You establish trust between IAM Roles Anywhere and your certificate authority (CA)
+by creating a _trust anchor_. A trust anchor is a reference to
+either [AWS Private Certificate Authority (AWS Private CA)](../../../acm-pca/latest/userguide/PcaWelcome.md "../../../acm-pca/latest/userguide/PcaWelcome.md") or
+an external CA certificate. You can create trust anchors for each certificate
+authority you want to trust.
+
+To specify which roles IAM Roles Anywhere assumes and what your workloads can do with the temporary
+credentials, you create a profile. In a profile, you can define permissions with IAM managed
+policies.
+
+###### Topics
+
+- [Step 1: Establish trust](#getting-started-step1 "#getting-started-step1")
+- [Step 2: Configure roles](#getting-started-step2 "#getting-started-step2")
+- [Next steps](#getting-started-step3 "#getting-started-step3")
+
+## Step 1: Establish trust
+
+The first step of using IAM Roles Anywhere is creating a trust anchor, which requires you to
+reference a certificate authority (CA) that IAM Roles Anywhere will use to validate your
+authentication requests. Both root and intermediate CAs can be used as trust anchors. You will have to
+use either a AWS Private CA resource in your account or upload your external CA certificate. Note that CA
+certificates that are used as trust anchors have to satisfy certain constraints. For more information, see
+[Signature validation](trust-model.md#signature-verification "trust-model.md#signature-verification").
+
+###### To set up a certificate authority (CA)
+
+- Do one of the following:
+  - To use a AWS Private CA resource, open the [AWS Private CA
+    console](https://console.aws.amazon.com/acm-pca/home "https://console.aws.amazon.com/acm-pca/home"). Follow the instructions in the [AWS Private CA User Guide](../../../acm-pca/latest/userguide/PcaWelcome.md "../../../acm-pca/latest/userguide/PcaWelcome.md").
+
+  ###### Important
+
+  For AWS Private CA trust anchors, only the validity period can be modified after creation. When the validity period changes, you must call UpdateTrustAnchor to register this change. IAM Roles Anywhere honors certificates based on the validity period found during the most recent TrustAnchor Create/Update event.
+  - To use an external CA, follow the instructions provided by the CA. You provide the
+    certificate body in a later step.
+
+  ###### Important
+
+  Certificates issued from public CAs cannot be used as trust anchors.
+
+###### To create a trust anchor
+
+1. Sign in to the [IAM Roles Anywhere
+   console](https://console.aws.amazon.com/rolesanywhere/home "https://console.aws.amazon.com/rolesanywhere/home").
+2. Choose **Create a trust anchor**.
+3. In **Trust anchor name**, enter a name for the trust
+   anchor.
+4. For **Certificate authority (CA) source**,
+   do one of the following:
+   - To use an AWS Private CA resource, choose **AWS Private CA**.
+     In the **AWS Private CA** table, choose the AWS Private CA
+     resource.
+   - To use another CA, choose **External certificate
+     bundle**. In **External certificate bundle**,
+     paste your CA certificate body. The certificate must be in Privacy Enhanced Mail (PEM)
+     format.
+
+5. (Optional) Customize notification settings based on your public key infrastructure.
+   For more information, see [customize notification settings](customize-notification-settings.md "customize-notification-settings.md")
+6. (Optional) Add metadata to the trust anchor by attaching tags as key-value pairs. For
+   more information, see [Tagging AWS
+   resources](../../../general/latest/gr/aws_tagging.md "../../../general/latest/gr/aws_tagging.md").
+7. Choose **Create a trust anchor**.
+
+## Step 2: Configure roles
+
+Before you can create an IAM Roles Anywhere profile, you need at least one IAM role
+that trusts the IAM Roles Anywhere service principal. Then you can create a profile that lists the roles IAM Roles Anywhere assumes. In a profile, you can also limit the permissions for a created session with IAM
+managed policies.
+
+###### To configure a role to trust IAM Roles Anywhere
+
+1. Sign in to the AWS Management Console and open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
+2. On the IAM roles page, choose the role you want to use.
+3. On the **Trust relationships** tab, choose **Edit trust policy**.
+4. Update the trust policy to include `rolesanywhere.amazonaws.com` as shown
+   below.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Principal": {
+ "Service": [
+ "rolesanywhere.amazonaws.com"
+ ]
+ },
+ "Action": [
+ "sts:AssumeRole",
+ "sts:TagSession",
+ "sts:SetSourceIdentity"
+ ],
+ "Condition": {
+ "ArnEquals": {
+ "aws:SourceArn": [
+ "arn:aws:rolesanywhere:`us-east-1`:`123456789012`:trust-anchor/`TA_ID`"
+ ]
+ },
+ "StringEquals": {
+ "aws:PrincipalTag/x509Issuer/CN": "`YourCN`"
+ }
+ }
+ }
+ ]
+}`
+
+```
+
+###### Important
+
+Without a `Condition` statement present in a role trust policy,
+any valid certificate from the CA used as the trust anchor, or CAs subordinate to that trust
+anchor may be used to assume a role via IAM roles anywhere. We recommend you use `Condition` statements
+on both the subject and issuer attributes to ensure that only certificates that you intend to be able to assume a role can do so.
+For examples, see [Trust policy](trust-model.md#trust-policy "trust-model.md#trust-policy").
+
+For information about editing role trust policies, see [Modifying a role (console)](../../../IAM/latest/UserGuide/roles-managingrole-editing-console.md#roles-managingrole_edit-trust-policy "../../../IAM/latest/UserGuide/roles-managingrole-editing-console.md#roles-managingrole_edit-trust-policy") in the _IAM User Guide_.
+
+###### To create a profile
+
+1. Sign in to the [IAM Roles Anywhere console](https://console.aws.amazon.com/rolesanywhere/home "https://console.aws.amazon.com/rolesanywhere/home").
+2. Choose **Create a profile**.
+3. In **Profile name**, enter a name for the profile.
+4. Under **Role**, choose the role you updated the trust
+   policy for.
+5. (Optional) Configure session policies by choosing up to 10 managed policies or write
+   an inline policy.
+
+Session policies limit the permissions for a created session, but do not grant
+permissions. For more information, see [Session policies](../../../IAM/latest/UserGuide/access_policies.md#policies_session "../../../IAM/latest/UserGuide/access_policies.md#policies_session"). 6. (Optional) Add metadata to the profile by attaching tags as key–value pairs. For more
+information, see [Tagging AWS resources](../../../general/latest/gr/aws_tagging.md "../../../general/latest/gr/aws_tagging.md"). 7. Choose **Create a profile**.
+
+## Next steps
+
+You can now authenticate with IAM Roles Anywhere. Follow the instructions in [Get temporary security credentials](credential-helper.md "credential-helper.md"). Also consider [Monitoring with IAM Roles Anywhere subjects](monitoring-subjects.md "monitoring-subjects.md").
