@@ -1,0 +1,76 @@
+Amazon Redshift will no longer support the creation of new Python UDFs starting November 1, 2025.
+If you would like to use Python UDFs, create the UDFs prior to that date.
+Existing Python UDFs will continue to function as normal. For more information, see the
+[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
+
+# Querying a data lake
+
+You can query data in an Amazon S3 data lake by following the set of tasks in this tutorial. First, you create an external schema to reference the external database in the [AWS Glue Data Catalog](../../../glue/latest/dg/components-overview.md#data-catalog-intro "../../../glue/latest/dg/components-overview.md#data-catalog-intro").
+Then, you can query data in the Amazon S3 data lake.
+
+## Demo: Query a data lake
+
+To learn how to query a data lake, watch the following video.
+
+## Prerequisites
+
+Before you work with your data lake in query editor v2, confirm the following was set up in your Amazon Redshift environment:
+
+- Crawl your Amazon S3 data using AWS Glue and enable your Data Catalog for AWS Lake Formation.
+- Create an IAM role for Amazon Redshift using the AWS Glue enabled Data Catalog for AWS Lake Formation. For details on this procedure, see
+  [To create an IAM role for Amazon Redshift using an AWS Glue Data Catalog enabled for AWS Lake Formation](../dg/c-getting-started-using-spectrum-create-role.md#spectrum-get-stared-create-role-lake-formation "../dg/c-getting-started-using-spectrum-create-role.md#spectrum-get-stared-create-role-lake-formation").
+  For more information about using Redshift Spectrum and Lake Formation, see
+  [Using Redshift Spectrum with AWS Lake Formation](../dg/spectrum-lake-formation.md "../dg/spectrum-lake-formation.md").
+- Grant SELECT permissions on the table to query in the Lake Formation database. For details on this procedure, see
+  [To grant SELECT permissions on the table to query in the Lake Formation database](../dg/c-getting-started-using-spectrum-create-role.md#spectrum-get-started-grant-lake-formation-table "../dg/c-getting-started-using-spectrum-create-role.md#spectrum-get-started-grant-lake-formation-table").
+
+You can verify in the Lake Formation console (https://console.aws.amazon.com/lakeformation/), **Permissions** section, **Data lake permissions** page, that the IAM role, AWS Glue database,
+and tables have the proper permissions.
+
+- Confirm your connected user has permission to create schemas in the Amazon Redshift database and access data in your data lake.
+  When you connect to a database in query editor v2, you choose an authentication method that includes credentials, which can be a database user or IAM user.
+  The connected user must have the proper permissions and database privileges, such as a `superuser`.
+  The Amazon Redshift `admin` user who created the cluster or workgroup has `superuser` privileges and can create schemas and manage the Redshift database.
+  For more information about connecting to a database with query editor v2, see
+  [Connecting to an Amazon Redshift database](query-editor-v2-connecting.md "query-editor-v2-connecting.md").
+
+## Creating an external schema
+
+To query data in an Amazon S3 data lake, first create an external schema. The external schema references the external database in the [AWS Glue Data Catalog](../../../glue/latest/dg/components-overview.md#data-catalog-intro "../../../glue/latest/dg/components-overview.md#data-catalog-intro").
+
+1. In the **Editor** view of query editor v2, choose
+   ![Create](images/qev2-add.png)**Create**, and then choose
+   **Schema**.
+2. Enter a **Schema** name.
+3. For **Schema type**, choose **External**.
+4. Within **Data Catalog** details, the **Region** defaults to the AWS Region where
+   your Redshift database is located.
+5. Choose the **AWS Glue database** that the external schema will map to and that contains references to the AWS Glue tables.
+6. Choose an **IAM role** for Amazon Redshift that has the required permissions to query data on Amazon S3.
+7. Optionally, choose an **IAM role** that has permission to the Data Catalog.
+8. Choose **Create schema**.
+
+The schema appears under your database in the tree-view panel.
+
+When creating the schema, if you receive a permission denied error for your database, check if the connected user has the database privilege to create a schema.
+
+## Querying data in your Amazon S3 data lake
+
+You use the schema that you created in the previous procedure.
+
+1. In the tree-view panel, choose the schema.
+2. To view a table definition, choose a table. The table columns and data types display.
+3. To query a table, choose the table and in the context menu (right-click), choose **Select table** to generate a query.
+4. Run the query in the **Editor**.
+
+The following example SQL was generated by query editor v2 to query all the rows in AWS Glue table named `flightscsv`. The columns and rows shown in the output are truncated for simplicity.
+
+```
+`SELECT * FROM "dev"."mydatalake_schema"."flightscsv";`
+                        `year quarter month dom day_of_week fl_date unique_carrier airline_id carrier tail_num fl_num
+2016 4 10 19 3 10/19/16 OO 20304 OO N753SK 3086
+2016 4 10 19 3 10/19/16 OO 20304 OO N753SK 3086
+2016 4 10 19 3 10/19/16 OO 20304 OO N778SK 3087
+2016 4 10 19 3 10/19/16 OO 20304 OO N778SK 3087
+...`
+```

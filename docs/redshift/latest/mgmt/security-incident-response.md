@@ -1,0 +1,25 @@
+Amazon Redshift will no longer support the creation of new Python UDFs starting November 1, 2025.
+If you would like to use Python UDFs, create the UDFs prior to that date.
+Existing Python UDFs will continue to function as normal. For more information, see the
+[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
+
+# Logging and monitoring in Amazon Redshift
+
+Monitoring is an important part of maintaining the reliability, availability, and performance of Amazon Redshift and your AWS solutions.
+You can collect monitoring data from all of the parts of your AWS solution so that you can more easily debug a multi-point failure if one occurs.
+AWS provides several tools for monitoring your Amazon Redshift resources and responding to potential incidents:
+
+**Amazon CloudWatch Alarms**
+Using Amazon CloudWatch alarms, you watch a single
+metric over a time period that you specify. If the metric exceeds a given threshold, a notification is sent to an Amazon SNS topic or AWS Auto Scaling policy.
+CloudWatch alarms do not invoke actions because they are in a particular state.
+Rather the state must have changed and been maintained for a specified number of periods.
+For more information, see [Creating an alarm](performance-metrics-alarms.md "performance-metrics-alarms.md").
+For a list of metrics, see [Performance data in Amazon Redshift](metrics-listing.md "metrics-listing.md").
+
+**AWS CloudTrail Logs**
+CloudTrail provides a record of API operations taken by a user, an IAM role, or an AWS service in
+Amazon Redshift. Using the information collected by CloudTrail, you can determine the
+request that was made to Amazon Redshift, the IP address from which the request
+was made, who made the request, when it was made, and additional details. For
+more information, see [Logging with CloudTrail](logging-with-cloudtrail.md "logging-with-cloudtrail.md").

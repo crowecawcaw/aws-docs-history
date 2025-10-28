@@ -1,0 +1,23 @@
+Amazon Redshift will no longer support the creation of new Python UDFs starting November 1, 2025.
+If you would like to use Python UDFs, create the UDFs prior to that date.
+Existing Python UDFs will continue to function as normal. For more information, see the
+[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
+
+# Using log files
+
+Only turn on logging long enough to capture an issue. Logging decreases
+performance and can consume a large quantity of disk space.
+
+Set the LogLevel key in your connection URL to turn on logging and specify the
+amount of detail included in log files. The following table lists the logging levels
+provided by the Amazon Redshift JDBC driver version 2.x, in order from least verbose to
+most verbose.
+
+| LogLevel value | Description                                                                                                                                                    |
+| -------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1              | Log severe error events that will lead the driver to abort.                                                                                                    |
+| 2              | Log error events that might allow the driver to continue running.                                                                                              |
+| 3              | Log events that might result in an error if action is not taken. This level of logging and the levels of logging above this level also log the user's queries. |
+| 4              | Log general information that describes the progress of the driver.                                                                                             |
+| 5              | Log detailed information that is useful for debugging the driver.                                                                                              |
+| 6              | Log all driver activity.                                                                                                                                       | ###### To set up logging that uses log files 1. Set the LogLevel property to the desired level of information to include in log files. 2. Set the LogPath property to the full path to the folder where you want to save log files. For example, the following connection URL enables logging level 3 and saves the log files in the C:\temp folder: `jdbc:redshift://redshift.company.us-west- 1.redshift.amazonaws.com:9000/Default;DSILogLevel=3;LogPath=C:\temp` 3. To make sure that the new settings take effect, restart your JDBC application and reconnect to the server. The Amazon Redshift JDBC driver produces the following log files in the location specified in the LogPath property: <br>• redshift_jdbc.log file that logs driver activity that is not specific to a connection. <br>• redshift_jdbc_connection\_[Number].log file for each connection made to the database, where [Number] is a number that identifies each log file. This file logs driver activity that is specific to the connection. If the LogPath value is invalid, then the driver sends the logged information to the standard output stream (`System.out`) |
