@@ -1,0 +1,95 @@
+# DisassociateProductFromPortfolio
+
+Disassociates the specified product from the specified portfolio.
+
+A delegated admin is authorized to invoke this command.
+
+## Request Syntax
+
+```
+{
+   "AcceptLanguage": "`string`",
+   "PortfolioId": "`string`",
+   "ProductId": "`string`"
+}
+```
+
+## Request Parameters
+
+The request accepts the following data in JSON format.
+
+**[AcceptLanguage](#API_DisassociateProductFromPortfolio_RequestSyntax "#API_DisassociateProductFromPortfolio_RequestSyntax")**
+
+The language code.
+
+- `jp` - Japanese
+- `zh` - Chinese
+
+Type: String
+
+Length Constraints: Maximum length of 100.
+
+Required: No
+
+**[PortfolioId](#API_DisassociateProductFromPortfolio_RequestSyntax "#API_DisassociateProductFromPortfolio_RequestSyntax")**
+
+The portfolio identifier.
+
+Type: String
+
+Length Constraints: Minimum length of 1. Maximum length of 100.
+
+Pattern: `^[a-zA-Z0-9_\-]*`
+
+Required: Yes
+
+**[ProductId](#API_DisassociateProductFromPortfolio_RequestSyntax "#API_DisassociateProductFromPortfolio_RequestSyntax")**
+
+The product identifier.
+
+Type: String
+
+Length Constraints: Minimum length of 1. Maximum length of 100.
+
+Pattern: `^[a-zA-Z0-9_\-]*`
+
+Required: Yes
+
+## Response Elements
+
+If the action is successful, the service sends back an HTTP 200 response with an empty HTTP body.
+
+## Errors
+
+**InvalidParametersException**
+
+One or more parameters provided to the operation are not valid.
+
+HTTP Status Code: 400
+
+**ResourceInUseException**
+
+A resource that is currently in use. Ensure that the resource is not in use and retry the operation.
+
+HTTP Status Code: 400
+
+**ResourceNotFoundException**
+
+The specified resource was not found.
+
+HTTP Status Code: 400
+
+## See Also
+
+For more information about using this API in one of the language-specific AWS SDKs, see the following:
+
+- [AWS Command Line Interface V2](../../../goto/cli2/servicecatalog-2015-12-10/DisassociateProductFromPortfolio.md "../../../goto/cli2/servicecatalog-2015-12-10/DisassociateProductFromPortfolio.md")
+- [AWS SDK for .NET](../../../goto/DotNetSDKV3/servicecatalog-2015-12-10/DisassociateProductFromPortfolio.md "../../../goto/DotNetSDKV3/servicecatalog-2015-12-10/DisassociateProductFromPortfolio.md")
+- [AWS SDK for C++](../../../goto/SdkForCpp/servicecatalog-2015-12-10/DisassociateProductFromPortfolio.md "../../../goto/SdkForCpp/servicecatalog-2015-12-10/DisassociateProductFromPortfolio.md")
+- [AWS SDK for Go v2](../../../goto/SdkForGoV2/servicecatalog-2015-12-10/DisassociateProductFromPortfolio.md "../../../goto/SdkForGoV2/servicecatalog-2015-12-10/DisassociateProductFromPortfolio.md")
+- [AWS SDK for Java V2](../../../goto/SdkForJavaV2/servicecatalog-2015-12-10/DisassociateProductFromPortfolio.md "../../../goto/SdkForJavaV2/servicecatalog-2015-12-10/DisassociateProductFromPortfolio.md")
+- [AWS SDK for JavaScript V3](../../../goto/SdkForJavaScriptV3/servicecatalog-2015-12-10/DisassociateProductFromPortfolio.md "../../../goto/SdkForJavaScriptV3/servicecatalog-2015-12-10/DisassociateProductFromPortfolio.md")
+- [AWS SDK for Kotlin](../../../goto/SdkForKotlin/servicecatalog-2015-12-10/DisassociateProductFromPortfolio.md "../../../goto/SdkForKotlin/servicecatalog-2015-12-10/DisassociateProductFromPortfolio.md")
+- [AWS SDK for PHP V3](../../../goto/SdkForPHPV3/servicecatalog-2015-12-10/DisassociateProductFromPortfolio.md "../../../goto/SdkForPHPV3/servicecatalog-2015-12-10/DisassociateProductFromPortfolio.md")
+- [AWS SDK for Python](../../../goto/boto3/servicecatalog-2015-12-10/DisassociateProductFromPortfolio.md "../../../goto/boto3/servicecatalog-2015-12-10/DisassociateProductFromPortfolio.md")
+- [AWS SDK for Ruby V3](../../../goto/SdkForRubyV3/servicecatalog-2015-12-10/DisassociateProductFromPortfolio.md "../../../goto/SdkForRubyV3/servicecatalog-2015-12-10/DisassociateProductFromPortfolio.md")
