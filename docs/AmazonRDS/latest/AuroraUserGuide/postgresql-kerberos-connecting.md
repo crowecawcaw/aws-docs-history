@@ -1,0 +1,120 @@
+# Connecting to PostgreSQL with Kerberos
+
+authentication
+
+You can connect to PostgreSQL with Kerberos authentication with the pgAdmin interface
+or with a command-line interface such as psql. For more information about connecting,
+see
+
+[Connecting to an Amazon Aurora PostgreSQL
+DB cluster](Aurora.md#Aurora.Connecting.AuroraPostgreSQL "Aurora.md#Aurora.Connecting.AuroraPostgreSQL"). For
+information about obtaining the endpoint, port number, and other details needed for
+connection, see [Viewing the endpoints for an Aurora
+cluster](Aurora.Overview.md#Aurora.Endpoints.Viewing "Aurora.Overview.md#Aurora.Endpoints.Viewing").
+
+###### Note
+
+GSSAPI authentication and encryption in PostgreSQL are implemented by the Kerberos
+library `libkrb5.so`. Features such as `postgres_fdw` and
+`dblink` also rely on this same library for outbound connections with
+Kerberos authentication or encryption.
+
+To use pgAdmin to connect to PostgreSQL with Kerberos authentication, take the
+following steps:
+
+1. Launch the pgAdmin application on your client computer.
+2. On the **Dashboard** tab, choose **Add New
+   Server**.
+3. In the **Create - Server** dialog box, enter a name
+   on the **General** tab to identify the server in
+   pgAdmin.
+4. On the **Connection** tab, enter the following
+   information from your Aurora PostgreSQL
+   database.
+   - For **Host**, enter the endpoint for the
+     Writer instance of your
+     Aurora PostgreSQL DB cluster.
+     An endpoint looks similar to the
+     following:
+
+   ```
+   `AUR-cluster-instance`.`111122223333`.`aws-region`.rds.amazonaws.com
+   ```
+
+   To connect to an on-premises Microsoft Active Directory from a
+   Windows client, you use the domain name of the AWS Managed
+   Active Directory instead of `rds.amazonaws.com` in
+   the host endpoint. For example, suppose that the domain name for
+   the AWS Managed Active Directory is
+   `corp.example.com`. Then for
+   **Host**, the endpoint would be specified
+   as follows:
+
+   ```
+   `AUR-cluster-instance`.`111122223333`.`aws-region`.corp.example.com
+   ```
+
+   - For **Port**, enter the assigned port.
+   - For **Maintenance database**, enter the name
+     of the initial database to which the client will connect.
+   - For **Username**, enter the user name that
+     you entered for Kerberos authentication in [Step 7: Create
+     PostgreSQL users for your Kerberos principals](postgresql-kerberos-setting-up.md#postgresql-kerberos-setting-up.create-logins "postgresql-kerberos-setting-up.md#postgresql-kerberos-setting-up.create-logins") .
+
+5. Choose **Save**.
+   To use psql to connect to PostgreSQL with Kerberos authentication, take the
+   following steps:
+
+6. At a command prompt, run the following command.
+
+```
+kinit `username`
+```
+
+Replace `username` with the user
+name. At the prompt, enter the password stored in the Microsoft Active
+Directory for the user. 2. If the PostgreSQL DB cluster
+is using a publicly
+accessible VPC, put IP address for your DB cluster
+endpoint in your
+`/etc/hosts` file on the EC2 client. For example, the
+following commands obtain the IP address and then put it in the
+`/etc/hosts` file.
+
+```
+% dig +short `PostgreSQL-endpoint`.`AWS-Region`.rds.amazonaws.com
+;; Truncated, retrying in TCP mode.
+ec2-34-210-197-118.`AWS-Region`.compute.amazonaws.com.
+34.210.197.118
+
+% echo " 34.210.197.118  `PostgreSQL-endpoint`.`AWS-Region`.rds.amazonaws.com" >> /etc/hosts
+```
+
+If you're using an on-premises Microsoft Active Directory from a
+Windows client, then you need to connect using a specialized endpoint.
+Instead of using the Amazon domain `rds.amazonaws.com` in the
+host endpoint, use the domain name of the AWS Managed Active
+Directory.
+
+For example, suppose that the domain name for your AWS Managed
+Active Directory is `corp.example.com`. Then use the format
+``PostgreSQL-endpoint`.`AWS-Region`_.corp.example.com_` for the endpoint and put it in the`/etc/hosts` file.
+
+```
+% echo " 34.210.197.118  `PostgreSQL-endpoint`.`AWS-Region`.corp.example.com" >> /etc/hosts
+```
+
+3. Use the following psql command to log in to a PostgreSQL DB cluster that is integrated with Active Directory. Use a cluster or instance endpoint.
+
+```
+psql -U `username`@`CORP.EXAMPLE.COM` -p 5432 -h `PostgreSQL-endpoint`.`AWS-Region`.rds.amazonaws.com postgres
+```
+
+To log in to the PostgreSQL DB cluster from a Windows client using an
+on-premises Active Directory, use the following psql command with the
+domain name from the previous step
+(`corp.example.com`):
+
+```
+psql -U `username`@`CORP.EXAMPLE.COM` -p 5432 -h `PostgreSQL-endpoint`.`AWS-Region`.corp.example.com postgres
+```
