@@ -1,0 +1,3 @@
+# Summary
+
+SAP customers can now deploy SAP BusinessObjects BI Platform solution and landscapes on the scalable, on-demand Amazon EC2 platform in a highly available manner without having to invest in costly capital expenditures for the underlying infrastructure. By combining the flexibility of the AWS platform with SAP installation techniques, SAP customers can greatly improve the availability of their deployments. For further information, including case studies of customers who have deployed SAP systems on AWS, see [SAP Case Studies](https://aws.amazon.com/sap/case-studies/ "https://aws.amazon.com/sap/case-studies/") on the AWS website.
