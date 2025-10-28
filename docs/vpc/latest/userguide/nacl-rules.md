@@ -1,0 +1,45 @@
+# Network ACL rules
+
+You can add or remove rules from the default network ACL, or create additional network
+ACLs for your VPC. When you add or remove rules from a network ACL, the changes are
+automatically applied to the subnets that it's associated with.
+
+The following are the parts of a network ACL rule:
+
+- **Rule number**. Rules are evaluated starting with the
+  lowest numbered rule. As soon as a rule matches traffic, it's applied regardless of any
+  higher-numbered rule that might contradict it.
+- **Type**. The type of traffic; for example, SSH.
+  You can also specify all traffic or a custom range.
+- **Protocol**. You can specify any protocol that
+  has a standard protocol number. For more information, see [Protocol Numbers](http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml "http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml"). If you specify ICMP as the protocol, you can
+  specify any or all of the ICMP types and codes.
+- **Port range**. The listening port or port range
+  for the traffic. For example, 80 for HTTP traffic.
+- **Source**. [Inbound rules only] The source of the
+  traffic (CIDR range).
+- **Destination**. [Outbound rules only] The destination
+  for the traffic (CIDR range).
+- **Allow/Deny**. Whether to _allow_ or _deny_ the specified
+  traffic.
+  For example rules, see [Example: Control access to instances in a subnet](nacl-examples.md "nacl-examples.md").
+
+## Considerations
+
+- There are quotas (also known as limits) for the number of rules per network ACLs.
+  For more information, see [Amazon VPC quotas](amazon-vpc-limits.md "amazon-vpc-limits.md").
+- When you add or delete a rule from an ACL, any subnets that are associated with the ACL
+  are subject to the change. The changes take effect after a short period.
+- If you add a rule using a command line tool or the Amazon EC2 API, the CIDR range is
+  automatically modified to its canonical form. For example, if you specify
+  `100.68.0.18/18` for the CIDR range, we create a rule with a
+  `100.68.0.0/18` CIDR range.
+- You might want to add a deny rule in a situation where you must open a wide range
+  of ports, but there are certain ports within the range that you want to deny. Be sure
+  to give the deny rule a lower number than the rule that allows the wider range of port
+  traffic.
+- If you add and delete rules from a network ACL at the same time, be careful.
+  If you delete inbound or outbound rules and then add more new entries than are allowed
+  (see [Amazon VPC quotas](amazon-vpc-limits.md "amazon-vpc-limits.md"), the entries
+  selected for deletion are removed and new entries _are not added_.
+  This can cause unexpected connectivity issues and prevent access to and from your VPC.
