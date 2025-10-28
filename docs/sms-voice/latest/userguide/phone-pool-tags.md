@@ -1,0 +1,60 @@
+# Manage AWS End User Messaging SMS tags for phone pools
+
+Tags are pairs of keys and values that you can optionally apply to your AWS resources to
+control access or usage. To change the name of a Pool by editing the value of the Name key/value pair.
+
+Manage tags (Console)
+Use the AWS End User Messaging SMS console to add or edit a Tag in your pool.
+
+###### Manage tags (Console)
+
+1. Open the AWS End User Messaging SMS console at
+   [https://console.aws.amazon.com/sms-voice/](https://console.aws.amazon.com/sms-voice/ "https://console.aws.amazon.com/sms-voice/").
+2. In the navigation pane, under **Configurations**, choose **Phone
+   pools**.
+3. On the **Phone Pools** page, choose the phone pool to add a tag to.
+4. On the **Tags** tab, choose **Manage tags**.
+   - **Add a tag** – In **Manage tags**, choose **Add new tag** to create a new blank key/value pair.
+   - **Delete a tag** – In **Manage tags**, choose **Remove** next to the key/value pair.
+   - **Edit a tag** – In **Manage tags**, choose the **Key** or **Value** and edit the text.
+
+5. Choose **Save changes**.
+
+Manage tags (AWS CLI)
+Use the AWS CLI to add or edit a Tag.
+
+```
+`$` aws pinpoint-sms-voice-v2 tag-resource \
+  --resource-arn `resource-arn` \
+  --tags tags={`key1`=`value1`,`key2`=`value2`}
+```
+
+In the preceding example, do the following:
+
+- Replace `resource-arn` with the Amazon Resource Name (ARN) that you
+  want to add the tags to.
+- Replace `key1` and
+  `key2` with the keys of the tags that you
+  want to add to the resource.
+- Replace `value1` and
+  `value2` with the values of the tags that
+  you want to add for the respective keys.
+
+Use the AWS CLI to delete a Tag.
+
+```
+`$` aws pinpoint-sms-voice-v2 untag-resource \
+  --resource-arn `resource-arn` \
+  --tag-keys tags={`key1`=`value1`,`key2`=`value2`}
+```
+
+In the preceding example, do the following:
+
+- Replace `resource-arn` with the Amazon Resource Name (ARN) that you
+  want to remove the tag from.
+- Replace `key1` and
+  `key2` with the keys of the tags that you
+  want to remove.
+- Replace `value1` and
+  `value2` with the values of the tags that
+  you want to remove.
