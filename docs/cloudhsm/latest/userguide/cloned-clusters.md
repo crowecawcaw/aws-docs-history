@@ -1,0 +1,106 @@
+# Cloned clusters in AWS CloudHSM
+
+Use AWS CloudHSM Management Utility (CMU) to synchronize a cluster in a remote region,
+_if the cluster in that region was originally created from the backup
+of a cluster in another region_. Let's say you copied a cluster to another region
+(destination) and then later you want to synchronize changes from the original cluster (source).
+In scenarios like this, you use CMU to synchronize the clusters. You do this by creating a new
+CMU configuration file, specifying hardware security modules (HSM) from both clusters in the new
+file, and then using CMU to connect to the cluster with that file.
+
+###### To use CMU across cloned clusters
+
+1. Create a copy of your current configuration file and change the name of the copy to
+   something else.
+
+For example, use the following file locations to locate and create a copy of your
+current configuration file, then change the name of the copy from
+`cloudhsm_mgmt_config.cfg` to
+`syncConfig.cfg`.
+
+    * Linux: `/opt/cloudhsm/etc/cloudhsm_mgmt_config.cfg`
+    * Windows:
+     `C:\ProgramData\Amazon\CloudHSM\data\cloudhsm_mgmt_config.cfg`
+
+2. In the renamed copy, add the Elastic Network Interface (ENI) IP of the destination HSM
+   (the HSM in the foreign region that needs to be synced). We recommend that you add the
+   destination HSM _below_ the source HSM.
+
+```
+{
+    ...
+    "servers": [
+        {
+            ...
+            "hostname": "`<ENI Source IP>`",
+            ...
+        },
+        {
+            ...
+            "hostname": "`<ENI Destination IP>`",
+            ...
+        }
+    ]
+}
+
+```
+
+For more information about how to get the IP address, see [Get an IP address for an HSM](#get-ip-clone-cluster "#get-ip-clone-cluster"). 3. Initialize CMU with the new configuration file:
+
+Linux
+
+```
+`$` `/opt/cloudhsm/bin/cloudhsm_mgmt_util /opt/cloudhsm/etc/userSync.cfg`
+```
+
+Windows
+
+```
+`PS C:\>` `& "C:\Program Files\Amazon\CloudHSM\cloudhsm_mgmt_util.exe" C:\ProgramData\Amazon\CloudHSM\data\userSync.cfg`
+```
+
+4. Check the status messages returned to ensure that the CMU is connected to all
+   desired HSMs and determine which of the returned ENI IPs corresponds to each cluster. Use
+   syncUser and syncKey to manually synchronize users and keys. For more information, see [syncUser](cloudhsm_mgmt_util-syncUser.md "cloudhsm_mgmt_util-syncUser.md") and [syncKey](cloudhsm_mgmt_util-syncKey.md "cloudhsm_mgmt_util-syncKey.md").
+
+## Get an IP address for an HSM
+
+Use this section to obtain an IP address for an HSM.
+
+###### To get an IP address for an HSM (console)
+
+1. Open the AWS CloudHSM console at
+   [https://console.aws.amazon.com/cloudhsm/home](https://console.aws.amazon.com/cloudhsm/home "https://console.aws.amazon.com/cloudhsm/home").
+2. To change the AWS Region, use the Region selector in the upper-right corner of the
+   page.
+3. To open the cluster detail page, in the cluster table, choose the cluster ID.
+4. To get the IP address, go to the HSMs tab. For IPv4 clusters, choose an address listed under **ENI IPv4 address**. For dual-stack clusters use either the ENI IPv4 or the **ENI IPv6 address**.
+
+###### To get an IP address for an HSM (AWS CLI)
+
+- Get the IP address of an HSM by using the **[describe-clusters](../../../cli/latest/reference/cloudhsmv2/describe-clusters.md "../../../cli/latest/reference/cloudhsmv2/describe-clusters.md")** command from the AWS CLI. In the output from the command,
+  the IP address of the HSMs are the values of `EniIp` and `EniIpV6` (if it is a dual-stack cluster).
+
+```
+`$` `aws cloudhsmv2 describe-clusters`
+`{
+ "Clusters": [
+ { ... }
+ "Hsms": [
+ {
+...
+ "EniIp": "10.0.0.9",
+...
+ },
+ {
+...
+ "EniIp": "10.0.1.6",
+ "EniIpV6": "2600:113f:404:be09:310e:ed34:3412:f733",
+...`
+```
+
+## Related topics
+
+- [syncUser](cloudhsm_mgmt_util-syncUser.md "cloudhsm_mgmt_util-syncUser.md")
+- [syncKey](cloudhsm_mgmt_util-syncKey.md "cloudhsm_mgmt_util-syncKey.md")
+- [Copying Backups Across Regions](copy-backup-to-region.md "copy-backup-to-region.md")

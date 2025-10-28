@@ -1,0 +1,86 @@
+# List the attributes of an AWS CloudHSM key
+
+using CMU
+
+Use the **listAttributes** command in the AWS CloudHSM cloudhsm_mgmt_util (CMU) to list the
+attributes of an AWS CloudHSM key and the constants that represent them. You use these constants to
+identify the attributes in [getAttribute](cloudhsm_mgmt_util-getAttribute.md "cloudhsm_mgmt_util-getAttribute.md")
+and [setAttribute](cloudhsm_mgmt_util-setAttribute.md "cloudhsm_mgmt_util-setAttribute.md") commands.
+
+For help interpreting the key attributes, see the [AWS CloudHSM key attribute reference for KMU](key-attribute-table.md "key-attribute-table.md").
+
+Before you run any key_mgmt_util command, you must [start
+key_mgmt_util](key_mgmt_util-setup.md#key_mgmt_util-start "key_mgmt_util-setup.md#key_mgmt_util-start") and [log in](key_mgmt_util-log-in.md "key_mgmt_util-log-in.md") to the HSM as a crypto user
+(CU).
+
+## User
+
+type
+
+The following users can run this command.
+
+- All users. You do not have to be logged in to run this command.
+
+## Syntax
+
+```
+listAttributes [-h]
+```
+
+## Example
+
+This command lists the key attributes that you can get and change in key_mgmt_util and the
+constants that represent them. For help interpreting the key attributes, see the [AWS CloudHSM key attribute reference for KMU](key-attribute-table.md "key-attribute-table.md"). To represent all attributes, use
+`512`.
+
+```
+`Command:` `listAttributes`
+
+    `Description
+===========
+The following are all of the possible attribute values for getAttribute.
+
+ OBJ_ATTR_CLASS = 0
+ OBJ_ATTR_TOKEN = 1
+ OBJ_ATTR_PRIVATE = 2
+ OBJ_ATTR_LABEL = 3
+ OBJ_ATTR_TRUSTED = 134
+ OBJ_ATTR_KEY_TYPE = 256
+ OBJ_ATTR_ID = 258
+ OBJ_ATTR_SENSITIVE = 259
+ OBJ_ATTR_ENCRYPT = 260
+ OBJ_ATTR_DECRYPT = 261
+ OBJ_ATTR_WRAP = 262
+ OBJ_ATTR_UNWRAP = 263
+ OBJ_ATTR_SIGN = 264
+ OBJ_ATTR_VERIFY = 266
+ OBJ_ATTR_DERIVE = 268
+ OBJ_ATTR_LOCAL = 355
+ OBJ_ATTR_MODULUS = 288
+ OBJ_ATTR_MODULUS_BITS = 289
+ OBJ_ATTR_PUBLIC_EXPONENT = 290
+ OBJ_ATTR_VALUE_LEN = 353
+ OBJ_ATTR_EXTRACTABLE = 354
+ OBJ_ATTR_NEVER_EXTRACTABLE = 356
+ OBJ_ATTR_ALWAYS_SENSITIVE = 357
+ OBJ_ATTR_DESTROYABLE = 370
+ OBJ_ATTR_KCV = 371
+ OBJ_ATTR_WRAP_WITH_TRUSTED = 528
+ OBJ_ATTR_WRAP_TEMPLATE = 1073742353
+ OBJ_ATTR_UNWRAP_TEMPLATE = 1073742354
+ OBJ_ATTR_ALL = 512`
+```
+
+## Parameters
+
+**-h**
+
+Displays help for the command.
+
+Required: Yes
+
+## Related topics
+
+- [getAttribute](cloudhsm_mgmt_util-getAttribute.md "cloudhsm_mgmt_util-getAttribute.md")
+- [setAttribute](cloudhsm_mgmt_util-setAttribute.md "cloudhsm_mgmt_util-setAttribute.md")
+- [Key Attribute Reference](key-attribute-table.md "key-attribute-table.md")

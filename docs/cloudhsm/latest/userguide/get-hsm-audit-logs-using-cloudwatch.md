@@ -1,0 +1,21 @@
+# Working with Amazon CloudWatch Logs and AWS CloudHSM Audit Logs
+
+When an HSM in your account receives a command from the AWS CloudHSM [command line tools](command-line-tools.md "command-line-tools.md") or [software
+libraries](use-hsm.md "use-hsm.md"), it records its execution of the command in audit log form. The HSM audit logs
+include all client-initiated [management
+commands](cloudhsm-audit-log-reference.md "cloudhsm-audit-log-reference.md"), including those that create and delete the HSM, log into and out of the HSM,
+and manage users and keys. These logs provide a reliable record of actions that have changed the
+state of the HSM.
+
+AWS CloudHSM collects your HSM audit logs and sends them to [Amazon CloudWatch Logs](../../../AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.md "../../../AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.md") on your behalf. You can use
+the features of CloudWatch Logs to manage your AWS CloudHSM Audit Logs, including searching and filtering the
+logs and exporting log data to Amazon S3. You can work with your HSM audit logs in the [Amazon CloudWatch console](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/") or use the CloudWatch Logs commands in
+the [AWS CLI](../../../cli/latest/reference/logs/index.md "../../../cli/latest/reference/logs/index.md") and [CloudWatch Logs
+SDKs](../../../AmazonCloudWatchLogs/latest/APIReference.md "../../../AmazonCloudWatchLogs/latest/APIReference.md").
+
+###### Topics
+
+- [How HSM audit logging works](get-audit-logs-from-cloudwatch.md "get-audit-logs-from-cloudwatch.md")
+- [Viewing AWS CloudHSM audit logs in CloudWatch Logs](understand-audit-logs.md "understand-audit-logs.md")
+- [Interpreting AWS CloudHSM audit logs](interpreting-audit-logs.md "interpreting-audit-logs.md")
+- [AWS CloudHSM audit log reference](cloudhsm-audit-log-reference.md "cloudhsm-audit-log-reference.md")
