@@ -1,0 +1,34 @@
+This is version 2.18 of the AWS Elemental Server documentation.
+This is the latest version. For prior versions, see
+the _Previous Versions_ section of [AWS Elemental Conductor File and AWS Elemental Server Documentation](../../../elemental-server.md "../../../elemental-server.md").
+
+# Example Manifests for Apple HLS
+
+This section lists example manifests for the Apple HLS manifest styles that
+AWS Elemental Server supports. These manifests include a range of types.
+
+## Example Manifest for Adobe Ad
+
+Marker
+
+Inserts a CUE: DURATION for each ad avail. Does not insert any CUE-OUT CONT
+(continuation tags) to indicate to a player joining mid-break that there is a current
+avail. Does not insert a CUE-IN tag at the end of the avail.
+
+**Structure**
+
+| Segment                               | Tag                 | Tag Count |
+| ------------------------------------- | ------------------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Segment in which the ad avail starts. | 1 CUE: DURATION tag | 1         | **Tag Contents** <br>• CUE:DURATION containing: + `duration`: Duration in fractional seconds. + `id`: An identifier, unique among all ad avails CUE tags. + `type`: SpliceOut. + `time`: The PTS time for the ad avail in fractional seconds. **Example** The following is the tag for an ad avail lasting 414.171 PTS. `#EXT-X-CUE:DURATION="201.467",ID="0",TYPE="SpliceOut",TIME="414.171"` ## Example Manifest for AWS Elemental Ad Marker **Structure**                                                                                                                                                                                                                                                                                                                                                                                                |
+| Segment                               | Tag                 | Tag Count |
+| ---                                   | ---                 | ---       |
+| Segment in which the ad avail starts. | CUE-OUT             | 1         |
+| Each succeeding segment.              | CUE-OUT-CONT        | 0-n       |
+| Segment in which the ad avail ends.   | CUE-IN              | 1         | **Tag Contents** <br>• CUE-OUT contains `Duration`. <br>• CUE-OUT-CONT contains `Elapsed time` and `Duration`. <br>• CUE-IN has no content. **Example** `#EXT-X-CUE-OUT:30.000 . . . # EXT-X-CUE-OUT-CONT: 8.308/30 . . . # EXT-X-CUE-OUT-CONT: 20.391/30 . . . # EXT-X-CUE-IN` ## Example Manifest for SCTE-35 Enhanced Ad Marker **Structure**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| Segment                               | Tag                 | Tag Count |
+| ---                                   | ---                 | ---       |
+| Segment in which the ad avail starts. | OATCLS-SCTE35       | 1         |
+| Segment in which the ad avail starts. | ASSET               | 1         |
+| Segment in which the ad avail starts. | CUE-OUT             | 1         |
+| Each succeeding segment.              | CUE-OUT-CONT        | 0-n       |
+| Segment in which the ad avail ends.   | CUE-IN              | 1         | **Tag Contents** <br>• OATCLS-SCTE35 containing the base-64 encoded raw bytes of the original SCTE-35 ad avail message. <br>• ASSET containing the CAID or UPID as specified in the original SCTE-35 message. <br>• 1 CUE-OUT per ad avail. <br>• CUE-OUT-CONT containing: + The elapsed time of the avail. + The duration declared in the original SCTE-35 message. + SCTE35 containing the base-64 encoded raw bytes of the original SCTE-35 ad avail message. These lines repeat until the ad avail ends. <br>• CUE-IN to indicate the end of the avail. **Example** `#EXT-OATCLS-SCTE35:/DA0AAAAAAAAAAAABQb+ADAQ6QAeAhxDVUVJQAAAO3/PAAEUrEoICAAAAAAg+2UBNAAANvrtoQ== #EXT-X-ASSET:CAID=0x0000000020FB6501 #EXT-X-CUE-OUT:201.467 . . . #EXT-X-CUE-OUT-CONT:ElapsedTime=5.939,Duration=201.467,SCTE35=/DA0AAAA+…AAg+2UBNAAANvrtoQ== . . . #EXT-X-CUE-IN` |
