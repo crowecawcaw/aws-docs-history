@@ -1,0 +1,44 @@
+# AWS Glue Scala job APIs
+
+**Package: com.amazonaws.services.glue.util**
+
+## Job object
+
+**Job**
+
+```
+object Job
+```
+
+### Job def methods
+
+```
+def commit
+```
+
+```
+def init( jobName : String,
+          glueContext : GlueContext,
+          args : java.util.Map[String, String] = Map[String, String]().asJava
+        ) : this.type
+```
+
+```
+def init( jobName : String,
+          glueContext : GlueContext,
+          endpoint : String,
+          args : java.util.Map[String, String]
+        ) : this.type
+```
+
+```
+def isInitialized
+```
+
+```
+def reset
+```
+
+```
+def runId
+```

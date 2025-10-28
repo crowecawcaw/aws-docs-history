@@ -1,0 +1,20 @@
+# Limitations and notes for Adobe Marketo Engage connector
+
+The following are limitations or notes for the Adobe Marketo Engage connector:
+
+- 'sinceDatetime' and 'activityTypeId' are mandatory filter parameters for the Sync Activities entity.
+- Subscriptions are allocated 50,000 API calls per day (which resets daily at 12:00AM CST). Additional daily capacity may be purchased as part of a Adobe Marketo Engage subscription. For reference, see [Adobe Marketo Rest API](https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/rest/rest-api "https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/rest/rest-api").
+- The maximum time span for the date range filter (`createdAt` or `updatedAt`) is 31 days. For reference, see [Bulk Extract - Marketo Developers](https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/rest/bulk-extract/bulk-extract "https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/rest/bulk-extract/bulk-extract").
+- Subscriptions are allocated a maximum of 10 bulk extract jobs in the queue at any given time. For reference, see [Bulk Extract - Marketo Developers](https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/rest/bulk-extract/bulk-extract "https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/rest/bulk-extract/bulk-extract").
+- By default, extract jobs are limited to 500 MB per day (which resets daily at 12:00AM CST). Additional daily capacity may be purchased as part of a Adobe Marketo Engage subscription. For reference, see [Bulk Extract - Marketo Developers](https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/rest/bulk-extract/bulk-extract "https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/rest/bulk-extract/bulk-extract").
+- The maximum number of concurrent export jobs is 2. For reference, see [Bulk Extract - Marketo Developers](https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/rest/bulk-extract/bulk-extract "https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/rest/bulk-extract/bulk-extract").
+- The maximum number of queued export jobs (inclusive of currently exporting jobs) is 10. For reference, see [Bulk Extract - Marketo Developers](https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/rest/bulk-extract/bulk-extract "https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/rest/bulk-extract/bulk-extract").
+- The maximum allowed file size is 1 GB to extract from a Bulk job.
+- Once an asynchronous job is created, the file retention period will be 7 days before expiring. For reference, see [Bulk Extract - Marketo Developers](https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/rest/bulk-extract/bulk-extract "https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/rest/bulk-extract/bulk-extract").
+- `createdAt` or `updatedAt` are mandatory filter parameters for the Async Leads entity.
+- `createdAt` is a mandatory filter parameter for the Async Activities entity.
+- `updatedAt` is a mandatory filter parameter for the Async Custom Object entity.
+- When using AWS Glue SaaS connectors, users cannot identify which specific records failed during a write operation to destination SaaS platforms in cases of partial failures.
+- When using Sync write operations, any fields with null values in the input file will be automatically dropped and not sent to the SaaS platform.
+- You can create or update up to 300 records in a batch for Sync write.
+  For more information, see [Adobe Marketo Engage Integration Best Practices](https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/rest/marketo-integration-best-practices "https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/rest/marketo-integration-best-practices") and [Bulk Extract](https://https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/rest/bulk-extract/bulk-activity-extract "https://https://experienceleague.adobe.com/en/docs/marketo-developer/marketo/rest/bulk-extract/bulk-activity-extract") .

@@ -1,0 +1,10 @@
+# Migrating from AWS Glue DataBrew to AWS Glue Studio
+
+If you have recipes in AWS Glue DataBrew, use the following checklist to migrate your recipes to
+AWS Glue Studio.
+
+| If you want to                                                                               | Then do this                                                                                                                                                                                                                                                                                         |
+| -------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Allow users to retrieve AWS Glue DataBrew recipes, recipe versions, and recipe descriptions. | Add IAM permissions to a policy that allows your role to access the necessary actions. See [IAM permissions for AWS Glue DataBrew](glue-studio-data-preparation-import-recipe.md#glue-studio-databrew-permissions "glue-studio-data-preparation-import-recipe.md#glue-studio-databrew-permissions"). |
+| Import an existing AWS Glue DataBrew recipe into AWS Glue Studio.                            | Follow the steps in [Importing an AWS Glue DataBrew recipe](glue-studio-data-preparation-import-recipe.md#glue-studio-databrew-import-steps "glue-studio-data-preparation-import-recipe.md#glue-studio-databrew-import-steps") .                                                                     |
+| Import a recipe with JOIN and UNION.                                                         | Recipes with UNION and JOIN transforms are not supported. Use the **Join** and **Union** transforms in AWS Glue Studio before or after a Data Preparation Recipe node.                                                                                                                               |
