@@ -1,0 +1,295 @@
+# AWSApplicationMigrationFullAccess
+
+**Description**: This policy provides permissions to all public APIs of AWS Application Migration Service (MGN), as well as permissions to read KMS key information. Attach this policy to your IAM users or roles.
+
+`AWSApplicationMigrationFullAccess` is an [AWS managed policy](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies").
+
+## Using this policy
+
+You can attach `AWSApplicationMigrationFullAccess` to your users, groups, and roles.
+
+## Policy
+
+details
+
+- **Type**: AWS managed policy
+- **Creation time**: April 07, 2021, 06:56 UTC
+- **Edited time:** July 02, 2025, 15:37 UTC
+- **ARN**:
+  `arn:aws:iam::aws:policy/AWSApplicationMigrationFullAccess`
+
+## Policy version
+
+**Policy version:** v9 (default)
+
+The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
+request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
+
+## JSON policy document
+
+```
+{
+  "Version" : "2012-10-17",
+  "Statement" : [
+    {
+      "Sid" : "VisualEditor0",
+      "Effect" : "Allow",
+      "Action" : [
+        "mgn:*"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "VisualEditor1",
+      "Effect" : "Allow",
+      "Action" : [
+        "kms:ListAliases",
+        "kms:DescribeKey"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "VisualEditor2",
+      "Effect" : "Allow",
+      "Action" : [
+        "ec2:DescribeKeyPairs",
+        "ec2:DescribeTags",
+        "ec2:DescribeNetworkInterfaces",
+        "ec2:DescribePlacementGroups",
+        "ec2:DescribeAccountAttributes",
+        "ec2:DescribeAvailabilityZones",
+        "ec2:DescribeImages",
+        "ec2:DescribeInstances",
+        "ec2:DescribeInstanceTypes",
+        "ec2:DescribeInstanceAttribute",
+        "ec2:DescribeInstanceStatus",
+        "ec2:DescribeInstanceTypeOfferings",
+        "ec2:DescribeLaunchTemplateVersions",
+        "ec2:DescribeLaunchTemplates",
+        "ec2:DescribeSecurityGroups",
+        "ec2:DescribeSnapshots",
+        "ec2:DescribeSubnets",
+        "ec2:DescribeVolumes",
+        "ec2:GetEbsEncryptionByDefault",
+        "ec2:GetEbsDefaultKmsKeyId"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "VisualEditor3",
+      "Effect" : "Allow",
+      "Action" : "license-manager:ListLicenseConfigurations",
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "VisualEditor4",
+      "Effect" : "Allow",
+      "Action" : "elasticloadbalancing:DescribeLoadBalancers",
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "VisualEditor5",
+      "Effect" : "Allow",
+      "Action" : "iam:ListInstanceProfiles",
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "VisualEditor6",
+      "Effect" : "Allow",
+      "Action" : "iam:PassRole",
+      "Resource" : [
+        "arn:aws:iam::*:role/service-role/AWSApplicationMigrationLaunchInstanceWithSsmRole",
+        "arn:aws:iam::*:role/service-role/AWSApplicationMigrationLaunchInstanceWithDrsRole"
+      ],
+      "Condition" : {
+        "StringEquals" : {
+          "iam:PassedToService" : "ec2.amazonaws.com"
+        },
+        "Bool" : {
+          "aws:ViaAWSService" : "true"
+        }
+      }
+    },
+    {
+      "Sid" : "VisualEditor7",
+      "Effect" : "Allow",
+      "Action" : [
+        "drs:DescribeSourceServers"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "VisualEditor8",
+      "Effect" : "Allow",
+      "Action" : [
+        "ssm:SendCommand"
+      ],
+      "Resource" : [
+        "arn:aws:ec2:*:*:instance/*"
+      ],
+      "Condition" : {
+        "Bool" : {
+          "aws:ViaAWSService" : "true"
+        },
+        "Null" : {
+          "aws:ResourceTag/AWSApplicationMigrationServiceManaged" : "false"
+        }
+      }
+    },
+    {
+      "Sid" : "VisualEditor9",
+      "Effect" : "Allow",
+      "Action" : [
+        "ssm:ListCommandInvocations"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "VisualEditor10",
+      "Effect" : "Allow",
+      "Action" : [
+        "ssm:DescribeInstanceInformation",
+        "ssm:GetCommandInvocation"
+      ],
+      "Resource" : "*",
+      "Condition" : {
+        "Bool" : {
+          "aws:ViaAWSService" : "true"
+        }
+      }
+    },
+    {
+      "Sid" : "VisualEditor11",
+      "Effect" : "Allow",
+      "Action" : [
+        "ssm:DescribeDocument",
+        "ssm:SendCommand"
+      ],
+      "Resource" : [
+        "arn:aws:ssm:*:*:document/AWSDisasterRecovery-InstallDRAgentOnInstance",
+        "arn:aws:ssm:*:*:document/AWSMigration-*"
+      ],
+      "Condition" : {
+        "Bool" : {
+          "aws:ViaAWSService" : "true"
+        }
+      }
+    },
+    {
+      "Sid" : "VisualEditor12",
+      "Effect" : "Allow",
+      "Action" : [
+        "drs:DisconnectSourceServer"
+      ],
+      "Resource" : "arn:aws:drs:*:*:source-server/*",
+      "Condition" : {
+        "Bool" : {
+          "aws:ViaAWSService" : "true"
+        },
+        "Null" : {
+          "aws:ResourceTag/AWSApplicationMigrationServiceConfiguredDR" : "false"
+        }
+      }
+    },
+    {
+      "Sid" : "VisualEditor13",
+      "Effect" : "Allow",
+      "Action" : [
+        "ssm:GetParameter",
+        "ssm:PutParameter"
+      ],
+      "Resource" : "arn:aws:ssm:*:*:parameter/ManagedByAWSApplicationMigrationService-*"
+    },
+    {
+      "Sid" : "VisualEditor14",
+      "Effect" : "Allow",
+      "Action" : [
+        "servicequotas:GetServiceQuota"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "VisualEditor15",
+      "Effect" : "Allow",
+      "Action" : [
+        "ssm:GetAutomationExecution"
+      ],
+      "Resource" : "arn:aws:ssm:*:*:automation-execution/*"
+    },
+    {
+      "Sid" : "VisualEditor16",
+      "Effect" : "Allow",
+      "Action" : [
+        "ssm:GetDocument"
+      ],
+      "Resource" : [
+        "arn:aws:ssm:*:*:document/AWSDisasterRecovery-InstallDRAgentOnInstance",
+        "arn:aws:ssm:*:*:document/AWSMigration-*"
+      ]
+    },
+    {
+      "Sid" : "VisualEditor17",
+      "Effect" : "Allow",
+      "Action" : [
+        "ssm:GetParameters"
+      ],
+      "Resource" : "arn:aws:ssm:*:*:parameter/ManagedByAWSApplicationMigrationService-*",
+      "Condition" : {
+        "ForAnyValue:StringEquals" : {
+          "aws:CalledVia" : "ssm.amazonaws.com"
+        }
+      }
+    },
+    {
+      "Sid" : "VisualEditor18",
+      "Effect" : "Allow",
+      "Action" : [
+        "ssm:StartAutomationExecution"
+      ],
+      "Resource" : [
+        "arn:aws:ssm:*:*:document/AWSMigration-*",
+        "arn:aws:ssm:*:*:automation-execution/*",
+        "arn:aws:ssm:*:*:automation-definition/AWSMigration-*:$DEFAULT"
+      ],
+      "Condition" : {
+        "ForAnyValue:StringEquals" : {
+          "aws:CalledVia" : "mgn.amazonaws.com"
+        }
+      }
+    },
+    {
+      "Sid" : "VisualEditor19",
+      "Effect" : "Allow",
+      "Action" : "ssm:ListCommands",
+      "Resource" : "*",
+      "Condition" : {
+        "ForAnyValue:StringEquals" : {
+          "aws:CalledVia" : "ssm.amazonaws.com"
+        }
+      }
+    },
+    {
+      "Sid" : "VisualEditor20",
+      "Effect" : "Allow",
+      "Action" : [
+        "ssm:DescribeParameters"
+      ],
+      "Resource" : "*",
+      "Condition" : {
+        "ForAnyValue:StringEquals" : {
+          "aws:CalledVia" : [
+            "mgn.amazonaws.com"
+          ]
+        }
+      }
+    }
+  ]
+}
+```
+
+## Learn more
+
+- [Create a permission set using AWS managed policies in IAM Identity Center](../../../singlesignon/latest/userguide/howtocreatepermissionset.md "../../../singlesignon/latest/userguide/howtocreatepermissionset.md")
+- [Adding and removing IAM identity permissions](../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md "../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md")
+- [Understand versioning for IAM policies](../../../IAM/latest/UserGuide/access_policies_managed-versioning.md "../../../IAM/latest/UserGuide/access_policies_managed-versioning.md")
+- [Get started with AWS managed policies and move toward least-privilege permissions](../../../IAM/latest/UserGuide/best-practices.md#bp-use-aws-defined-policies "../../../IAM/latest/UserGuide/best-practices.md#bp-use-aws-defined-policies")

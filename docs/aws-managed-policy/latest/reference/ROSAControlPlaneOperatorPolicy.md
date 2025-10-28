@@ -1,0 +1,226 @@
+# ROSAControlPlaneOperatorPolicy
+
+**Description**: Allows Red Hat OpenShift Service on AWS (ROSA) control plane to manage ROSA cluster Amazon EC2 and Amazon Route 53 resources.
+
+`ROSAControlPlaneOperatorPolicy` is an [AWS managed policy](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies").
+
+## Using this policy
+
+You can attach `ROSAControlPlaneOperatorPolicy` to your users, groups, and roles.
+
+## Policy
+
+details
+
+- **Type**: Service role policy
+- **Creation time**: April 24, 2023, 23:02 UTC
+- **Edited time:** April 10, 2025, 23:52 UTC
+- **ARN**:
+  `arn:aws:iam::aws:policy/service-role/ROSAControlPlaneOperatorPolicy`
+
+## Policy version
+
+**Policy version:** v3 (default)
+
+The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
+request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
+
+## JSON policy document
+
+```
+{
+  "Version" : "2012-10-17",
+  "Statement" : [
+    {
+      "Sid" : "ReadPermissions",
+      "Effect" : "Allow",
+      "Action" : [
+        "ec2:DescribeVpcEndpoints",
+        "ec2:DescribeVpcs",
+        "ec2:DescribeSecurityGroups",
+        "route53:ListHostedZones"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "CreateSecurityGroups",
+      "Effect" : "Allow",
+      "Action" : [
+        "ec2:CreateSecurityGroup"
+      ],
+      "Resource" : [
+        "arn:aws:ec2:*:*:security-group*/*"
+      ],
+      "Condition" : {
+        "StringEquals" : {
+          "aws:RequestTag/red-hat-managed" : "true"
+        }
+      }
+    },
+    {
+      "Sid" : "DeleteSecurityGroup",
+      "Effect" : "Allow",
+      "Action" : [
+        "ec2:DeleteSecurityGroup"
+      ],
+      "Resource" : [
+        "arn:aws:ec2:*:*:security-group*/*"
+      ],
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceTag/red-hat-managed" : "true"
+        }
+      }
+    },
+    {
+      "Sid" : "SecurityGroupIngressEgress",
+      "Effect" : "Allow",
+      "Action" : [
+        "ec2:AuthorizeSecurityGroupIngress",
+        "ec2:AuthorizeSecurityGroupEgress",
+        "ec2:RevokeSecurityGroupIngress",
+        "ec2:RevokeSecurityGroupEgress"
+      ],
+      "Resource" : [
+        "arn:aws:ec2:*:*:security-group*/*"
+      ],
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceTag/red-hat-managed" : "true"
+        }
+      }
+    },
+    {
+      "Sid" : "CreateSecurityGroupsVPCNoCondition",
+      "Effect" : "Allow",
+      "Action" : [
+        "ec2:CreateSecurityGroup"
+      ],
+      "Resource" : [
+        "arn:aws:ec2:*:*:vpc/*"
+      ]
+    },
+    {
+      "Sid" : "ListResourceRecordSets",
+      "Effect" : "Allow",
+      "Action" : [
+        "route53:ListResourceRecordSets"
+      ],
+      "Resource" : [
+        "*"
+      ]
+    },
+    {
+      "Sid" : "ChangeResourceRecordSetsRestrictedRecordNames",
+      "Effect" : "Allow",
+      "Action" : [
+        "route53:ChangeResourceRecordSets"
+      ],
+      "Resource" : [
+        "*"
+      ],
+      "Condition" : {
+        "ForAllValues:StringLike" : {
+          "route53:ChangeResourceRecordSetsNormalizedRecordNames" : [
+            "*.hypershift.local"
+          ]
+        }
+      }
+    },
+    {
+      "Sid" : "VPCEndpointWithCondition",
+      "Effect" : "Allow",
+      "Action" : [
+        "ec2:CreateVpcEndpoint"
+      ],
+      "Resource" : [
+        "arn:aws:ec2:*:*:vpc-endpoint/*"
+      ],
+      "Condition" : {
+        "StringEquals" : {
+          "aws:RequestTag/red-hat-managed" : "true"
+        }
+      }
+    },
+    {
+      "Sid" : "VPCEndpointResourceTagCondition",
+      "Effect" : "Allow",
+      "Action" : [
+        "ec2:CreateVpcEndpoint"
+      ],
+      "Resource" : [
+        "arn:aws:ec2:*:*:security-group*/*"
+      ],
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceTag/red-hat-managed" : "true"
+        }
+      }
+    },
+    {
+      "Sid" : "VPCEndpointNoCondition",
+      "Effect" : "Allow",
+      "Action" : [
+        "ec2:CreateVpcEndpoint"
+      ],
+      "Resource" : [
+        "arn:aws:ec2:*:*:vpc/*",
+        "arn:aws:ec2:*:*:subnet/*",
+        "arn:aws:ec2:*:*:route-table/*"
+      ]
+    },
+    {
+      "Sid" : "ManageVPCEndpointWithCondition",
+      "Effect" : "Allow",
+      "Action" : [
+        "ec2:ModifyVpcEndpoint",
+        "ec2:DeleteVpcEndpoints"
+      ],
+      "Resource" : [
+        "arn:aws:ec2:*:*:vpc-endpoint/*"
+      ],
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceTag/red-hat-managed" : "true"
+        }
+      }
+    },
+    {
+      "Sid" : "ModifyVPCEndpoingNoCondition",
+      "Effect" : "Allow",
+      "Action" : [
+        "ec2:ModifyVpcEndpoint"
+      ],
+      "Resource" : [
+        "arn:aws:ec2:*:*:subnet/*"
+      ]
+    },
+    {
+      "Sid" : "CreateTagsRestrictedActions",
+      "Effect" : "Allow",
+      "Action" : [
+        "ec2:CreateTags"
+      ],
+      "Resource" : [
+        "arn:aws:ec2:*:*:vpc-endpoint/*",
+        "arn:aws:ec2:*:*:security-group/*"
+      ],
+      "Condition" : {
+        "StringEquals" : {
+          "ec2:CreateAction" : [
+            "CreateVpcEndpoint",
+            "CreateSecurityGroup"
+          ]
+        }
+      }
+    }
+  ]
+}
+```
+
+## Learn more
+
+- [Create a permission set using AWS managed policies in IAM Identity Center](../../../singlesignon/latest/userguide/howtocreatepermissionset.md "../../../singlesignon/latest/userguide/howtocreatepermissionset.md")
+- [Adding and removing IAM identity permissions](../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md "../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md")
+- [Understand versioning for IAM policies](../../../IAM/latest/UserGuide/access_policies_managed-versioning.md "../../../IAM/latest/UserGuide/access_policies_managed-versioning.md")
+- [Get started with AWS managed policies and move toward least-privilege permissions](../../../IAM/latest/UserGuide/best-practices.md#bp-use-aws-defined-policies "../../../IAM/latest/UserGuide/best-practices.md#bp-use-aws-defined-policies")

@@ -1,0 +1,405 @@
+# AWSBackupOperatorAccess
+
+**Description**: This policy grants users permissions to assign AWS resources to backup plans, create on-demand backups, and restore backups. This policy does not allow the user to create or edit backup plans or to delete scheduled backups after they are created.
+
+`AWSBackupOperatorAccess` is an [AWS managed policy](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies").
+
+## Using this policy
+
+You can attach `AWSBackupOperatorAccess` to your users, groups, and roles.
+
+## Policy
+
+details
+
+- **Type**: AWS managed policy
+- **Creation time**: November 18, 2019, 22:23 UTC
+- **Edited time:** May 22, 2025, 00:37 UTC
+- **ARN**:
+  `arn:aws:iam::aws:policy/AWSBackupOperatorAccess`
+
+## Policy version
+
+**Policy version:** v18 (default)
+
+The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
+request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
+
+## JSON policy document
+
+```
+{
+  "Version" : "2012-10-17",
+  "Statement" : [
+    {
+      "Sid" : "AwsBackupAllAccess",
+      "Effect" : "Allow",
+      "Action" : [
+        "backup:Get*",
+        "backup:List*",
+        "backup:Describe*",
+        "backup:CreateBackupSelection",
+        "backup:DeleteBackupSelection",
+        "backup:StartBackupJob",
+        "backup:StartRestoreJob",
+        "backup:StartCopyJob"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "RDSDescribeAccess",
+      "Effect" : "Allow",
+      "Action" : [
+        "rds:DescribeDBSnapshots",
+        "rds:ListTagsForResource",
+        "rds:DescribeDBInstances",
+        "rds:describeDBEngineVersions",
+        "rds:describeOptionGroups",
+        "rds:describeOrderableDBInstanceOptions",
+        "rds:describeDBSubnetGroups",
+        "rds:DescribeDBClusterSnapshots",
+        "rds:DescribeDBClusters",
+        "rds:DescribeDBParameterGroups",
+        "rds:DescribeDBClusterParameterGroups",
+        "rds:DescribeDBInstanceAutomatedBackups",
+        "rds:DescribeDBClusterAutomatedBackups"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "DynamoDBAccess",
+      "Effect" : "Allow",
+      "Action" : [
+        "dynamodb:ListBackups",
+        "dynamodb:ListTables"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "EFSAccess",
+      "Effect" : "Allow",
+      "Action" : [
+        "elasticfilesystem:DescribeFilesystems"
+      ],
+      "Resource" : "arn:aws:elasticfilesystem:*:*:file-system/*"
+    },
+    {
+      "Sid" : "EC2Access",
+      "Effect" : "Allow",
+      "Action" : [
+        "ec2:DescribeSnapshots",
+        "ec2:DescribeVolumes",
+        "ec2:describeAvailabilityZones",
+        "ec2:DescribeVpcs",
+        "ec2:DescribeAccountAttributes",
+        "ec2:DescribeSecurityGroups",
+        "ec2:DescribeImages",
+        "ec2:DescribeSubnets",
+        "ec2:DescribePlacementGroups",
+        "ec2:DescribeInstances",
+        "ec2:DescribeInstanceTypes",
+        "ec2:DescribeVpcEndpoints",
+        "ec2:DescribeAddresses"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "TagReadAccess",
+      "Effect" : "Allow",
+      "Action" : [
+        "tag:GetTagKeys",
+        "tag:GetTagValues",
+        "tag:GetResources"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "StorageGatewaySCSIAccess",
+      "Effect" : "Allow",
+      "Action" : [
+        "storagegateway:DescribeCachediSCSIVolumes",
+        "storagegateway:DescribeStorediSCSIVolumes"
+      ],
+      "Resource" : "arn:aws:storagegateway:*:*:gateway/*/volume/*"
+    },
+    {
+      "Sid" : "StorageGatewayReadAccess",
+      "Effect" : "Allow",
+      "Action" : [
+        "storagegateway:ListGateways"
+      ],
+      "Resource" : "arn:aws:storagegateway:*:*:*"
+    },
+    {
+      "Sid" : "StorageGatewayDiskReadAccess",
+      "Effect" : "Allow",
+      "Action" : [
+        "storagegateway:DescribeGatewayInformation",
+        "storagegateway:ListLocalDisks"
+      ],
+      "Resource" : "arn:aws:storagegateway:*:*:gateway/*"
+    },
+    {
+      "Sid" : "StorageGatewayVolumeReadAccess",
+      "Effect" : "Allow",
+      "Action" : [
+        "storagegateway:ListVolumes"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "IAMRoleAccess",
+      "Effect" : "Allow",
+      "Action" : [
+        "iam:ListRoles",
+        "iam:GetRole"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "PassRoleAccess",
+      "Effect" : "Allow",
+      "Action" : "iam:PassRole",
+      "Resource" : [
+        "arn:aws:iam::*:role/*AwsBackup*",
+        "arn:aws:iam::*:role/*AWSBackup*"
+      ],
+      "Condition" : {
+        "StringLike" : {
+          "iam:PassedToService" : "backup.amazonaws.com"
+        }
+      }
+    },
+    {
+      "Sid" : "OrganizationsAccess",
+      "Effect" : "Allow",
+      "Action" : "organizations:DescribeOrganization",
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "SSMReadAccess",
+      "Effect" : "Allow",
+      "Action" : [
+        "ssm:CancelCommand",
+        "ssm:GetCommandInvocation"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "SSMComandAccess",
+      "Effect" : "Allow",
+      "Action" : "ssm:SendCommand",
+      "Resource" : [
+        "arn:aws:ssm:*:*:document/AWSEC2-CreateVssSnapshot",
+        "arn:aws:ec2:*:*:instance/*"
+      ]
+    },
+    {
+      "Sid" : "FSXDescribeAccess",
+      "Effect" : "Allow",
+      "Action" : "fsx:DescribeBackups",
+      "Resource" : "arn:aws:fsx:*:*:backup/*"
+    },
+    {
+      "Sid" : "FSxFileAccess",
+      "Effect" : "Allow",
+      "Action" : "fsx:DescribeFileSystems",
+      "Resource" : "arn:aws:fsx:*:*:file-system/*"
+    },
+    {
+      "Sid" : "FSxVolumeAccess",
+      "Effect" : "Allow",
+      "Action" : "fsx:DescribeVolumes",
+      "Resource" : "arn:aws:fsx:*:*:volume/*/*"
+    },
+    {
+      "Sid" : "FSxMachineAccess",
+      "Effect" : "Allow",
+      "Action" : "fsx:DescribeStorageVirtualMachines",
+      "Resource" : "arn:aws:fsx:*:*:storage-virtual-machine/*/*"
+    },
+    {
+      "Sid" : "DirectoryServiceAccess",
+      "Effect" : "Allow",
+      "Action" : "ds:DescribeDirectories",
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "BackupGatewayListAccess",
+      "Effect" : "Allow",
+      "Action" : [
+        "backup-gateway:ListGateways",
+        "backup-gateway:ListHypervisors",
+        "backup-gateway:ListTagsForResource",
+        "backup-gateway:ListVirtualMachines"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "BackupGatewayHypervisorAccess",
+      "Effect" : "Allow",
+      "Action" : [
+        "backup-gateway:GetHypervisor",
+        "backup-gateway:GetHypervisorPropertyMappings"
+      ],
+      "Resource" : "arn:aws:backup-gateway:*:*:hypervisor/*"
+    },
+    {
+      "Sid" : "BackupGatewayMachineAccess",
+      "Effect" : "Allow",
+      "Action" : [
+        "backup-gateway:GetVirtualMachine"
+      ],
+      "Resource" : "arn:aws:backup-gateway:*:*:vm/*"
+    },
+    {
+      "Sid" : "BackupGatewayAccess",
+      "Effect" : "Allow",
+      "Action" : [
+        "backup-gateway:GetBandwidthRateLimitSchedule",
+        "backup-gateway:GetGateway"
+      ],
+      "Resource" : "arn:aws:backup-gateway:*:*:gateway/*"
+    },
+    {
+      "Sid" : "CloudWatchAccess",
+      "Effect" : "Allow",
+      "Action" : "cloudwatch:GetMetricData",
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "TimestreamListAccess",
+      "Effect" : "Allow",
+      "Action" : [
+        "timestream:ListDatabases",
+        "timestream:ListTables"
+      ],
+      "Resource" : [
+        "arn:aws:timestream:*:*:database/*"
+      ]
+    },
+    {
+      "Sid" : "TimestreamDescribeAccess",
+      "Effect" : "Allow",
+      "Action" : [
+        "timestream:DescribeEndpoints"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "S3ListAccess",
+      "Effect" : "Allow",
+      "Action" : [
+        "s3:ListAllMyBuckets"
+      ],
+      "Resource" : "arn:aws:s3:::*"
+    },
+    {
+      "Sid" : "RedshiftAccess",
+      "Effect" : "Allow",
+      "Action" : [
+        "redshift:DescribeClusters",
+        "redshift:DescribeClusterSubnetGroups",
+        "redshift:DescribeClusterSnapshots",
+        "redshift:DescribeSnapshotSchedules"
+      ],
+      "Resource" : [
+        "arn:aws:redshift:*:*:cluster:*",
+        "arn:aws:redshift:*:*:subnetgroup:*",
+        "arn:aws:redshift:*:*:snapshot:*/*",
+        "arn:aws:redshift:*:*:snapshotschedule:*"
+      ]
+    },
+    {
+      "Sid" : "RedshiftOptionsAccess",
+      "Effect" : "Allow",
+      "Action" : [
+        "redshift:DescribeNodeConfigurationOptions",
+        "redshift:DescribeOrderableClusterOptions",
+        "redshift:DescribeClusterParameterGroups",
+        "redshift:DescribeClusterTracks"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "RedshiftServerlessListPermissions",
+      "Effect" : "Allow",
+      "Action" : [
+        "redshift-serverless:ListNamespaces",
+        "redshift-serverless:ListSnapshots",
+        "redshift-serverless:ListWorkgroups"
+      ],
+      "Resource" : [
+        "*"
+      ]
+    },
+    {
+      "Sid" : "RedshiftServerlessGetPermissions",
+      "Effect" : "Allow",
+      "Action" : [
+        "redshift-serverless:GetNamespace",
+        "redshift-serverless:GetSnapshot",
+        "redshift-serverless:GetWorkgroup"
+      ],
+      "Resource" : [
+        "arn:aws:redshift-serverless:*:*:namespace/*",
+        "arn:aws:redshift-serverless:*:*:workgroup/*",
+        "arn:aws:redshift-serverless:*:*:snapshot/*"
+      ]
+    },
+    {
+      "Sid" : "CloudFormationAccess",
+      "Effect" : "Allow",
+      "Action" : [
+        "cloudformation:ListStacks"
+      ],
+      "Resource" : [
+        "arn:aws:cloudformation:*:*:stack/*"
+      ]
+    },
+    {
+      "Sid" : "SAPAccess",
+      "Effect" : "Allow",
+      "Action" : [
+        "ssm-sap:GetOperation",
+        "ssm-sap:ListDatabases"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "SAPDatabaseAccess",
+      "Effect" : "Allow",
+      "Action" : [
+        "ssm-sap:GetDatabase",
+        "ssm-sap:ListTagsForResource"
+      ],
+      "Resource" : "arn:aws:ssm-sap:*:*:*"
+    },
+    {
+      "Sid" : "RAMAccess",
+      "Effect" : "Allow",
+      "Action" : [
+        "ram:GetResourceShareAssociations"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "DSQLDescribePermissions",
+      "Effect" : "Allow",
+      "Action" : [
+        "dsql:GetCluster",
+        "dsql:ListClusters",
+        "dsql:ListTagsForResource"
+      ],
+      "Resource" : "*"
+    }
+  ]
+}
+```
+
+## Learn more
+
+- [Create a permission set using AWS managed policies in IAM Identity Center](../../../singlesignon/latest/userguide/howtocreatepermissionset.md "../../../singlesignon/latest/userguide/howtocreatepermissionset.md")
+- [Adding and removing IAM identity permissions](../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md "../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md")
+- [Understand versioning for IAM policies](../../../IAM/latest/UserGuide/access_policies_managed-versioning.md "../../../IAM/latest/UserGuide/access_policies_managed-versioning.md")
+- [Get started with AWS managed policies and move toward least-privilege permissions](../../../IAM/latest/UserGuide/best-practices.md#bp-use-aws-defined-policies "../../../IAM/latest/UserGuide/best-practices.md#bp-use-aws-defined-policies")

@@ -1,0 +1,162 @@
+# CloudWatchFullAccessV2
+
+**Description**: Provides full access to CloudWatch.
+
+`CloudWatchFullAccessV2` is an [AWS managed policy](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies").
+
+## Using this policy
+
+You can attach `CloudWatchFullAccessV2` to your users, groups, and roles.
+
+## Policy
+
+details
+
+- **Type**: AWS managed policy
+- **Creation time**: August 01, 2023, 11:32 UTC
+- **Edited time:** October 16, 2025, 21:49 UTC
+- **ARN**:
+  `arn:aws:iam::aws:policy/CloudWatchFullAccessV2`
+
+## Policy version
+
+**Policy version:** v5 (default)
+
+The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
+request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
+
+## JSON policy document
+
+```
+{
+  "Version" : "2012-10-17",
+  "Statement" : [
+    {
+      "Sid" : "CloudWatchFullAccessPermissions",
+      "Effect" : "Allow",
+      "Action" : [
+        "application-autoscaling:DescribeScalingPolicies",
+        "application-signals:*",
+        "autoscaling:DescribeAutoScalingGroups",
+        "autoscaling:DescribePolicies",
+        "cloudwatch:*",
+        "logs:*",
+        "sns:CreateTopic",
+        "sns:ListSubscriptions",
+        "sns:ListSubscriptionsByTopic",
+        "sns:ListTopics",
+        "sns:Subscribe",
+        "iam:GetPolicy",
+        "iam:GetPolicyVersion",
+        "iam:GetRole",
+        "oam:ListSinks",
+        "observabilityadmin:GetCentralizationRuleForOrganization",
+        "observabilityadmin:ListCentralizationRulesForOrganization",
+        "observabilityadmin:CreateCentralizationRuleForOrganization",
+        "observabilityadmin:UpdateCentralizationRuleForOrganization",
+        "observabilityadmin:DeleteCentralizationRuleForOrganization",
+        "observabilityadmin:StartTelemetryEvaluation",
+        "observabilityadmin:GetTelemetryEvaluationStatus",
+        "observabilityadmin:ListResourceTelemetry",
+        "observabilityadmin:StopTelemetryEvaluation",
+        "observabilityadmin:StartTelemetryEvaluationForOrganization",
+        "observabilityadmin:GetTelemetryEvaluationStatusForOrganization",
+        "observabilityadmin:ListResourceTelemetryForOrganization",
+        "observabilityadmin:StopTelemetryEvaluationForOrganization",
+        "observabilityadmin:CreateTelemetryRule",
+        "observabilityadmin:GetTelemetryRule",
+        "observabilityadmin:ListTelemetryRules",
+        "observabilityadmin:UpdateTelemetryRule",
+        "observabilityadmin:DeleteTelemetryRule",
+        "observabilityadmin:CreateTelemetryRuleForOrganization",
+        "observabilityadmin:GetTelemetryRuleForOrganization",
+        "observabilityadmin:ListTelemetryRulesForOrganization",
+        "observabilityadmin:UpdateTelemetryRuleForOrganization",
+        "observabilityadmin:DeleteTelemetryRuleForOrganization",
+        "observabilityadmin:GetTelemetryEnrichmentStatus",
+        "observabilityadmin:StartTelemetryEnrichment",
+        "observabilityadmin:StopTelemetryEnrichment",
+        "observabilityadmin:TagResource",
+        "observabilityadmin:UntagResource",
+        "observabilityadmin:ListTagsForResource",
+        "rum:*",
+        "synthetics:*",
+        "xray:*"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "CloudWatchApplicationSignalsServiceLinkedRolePermissions",
+      "Effect" : "Allow",
+      "Action" : "iam:CreateServiceLinkedRole",
+      "Resource" : "arn:aws:iam::*:role/aws-service-role/application-signals.cloudwatch.amazonaws.com/AWSServiceRoleForCloudWatchApplicationSignals",
+      "Condition" : {
+        "StringLike" : {
+          "iam:AWSServiceName" : "application-signals.cloudwatch.amazonaws.com"
+        }
+      }
+    },
+    {
+      "Sid" : "EventsServicePermissions",
+      "Effect" : "Allow",
+      "Action" : "iam:CreateServiceLinkedRole",
+      "Resource" : "arn:aws:iam::*:role/aws-service-role/events.amazonaws.com/AWSServiceRoleForCloudWatchEvents*",
+      "Condition" : {
+        "StringLike" : {
+          "iam:AWSServiceName" : "events.amazonaws.com"
+        }
+      }
+    },
+    {
+      "Sid" : "OAMReadPermissions",
+      "Effect" : "Allow",
+      "Action" : [
+        "oam:ListAttachedLinks"
+      ],
+      "Resource" : "arn:aws:oam:*:*:sink/*"
+    },
+    {
+      "Sid" : "CloudWatchCloudTrailPermissions",
+      "Effect" : "Allow",
+      "Action" : [
+        "cloudtrail:CreateServiceLinkedChannel",
+        "cloudtrail:GetChannel"
+      ],
+      "Resource" : "arn:aws:cloudtrail:*:*:channel/aws-service-channel/application-signals/*"
+    },
+    {
+      "Sid" : "CloudWatchApplicationSignalsCloudTrailListPermissions",
+      "Effect" : "Allow",
+      "Action" : [
+        "cloudtrail:ListChannels"
+      ],
+      "Resource" : "*"
+    },
+    {
+      "Sid" : "CloudWatchServiceQuotaPermissions",
+      "Effect" : "Allow",
+      "Action" : [
+        "servicequotas:GetServiceQuota"
+      ],
+      "Resource" : [
+        "arn:aws:servicequotas:*:*:s3/*",
+        "arn:aws:servicequotas:*:*:dynamodb/*",
+        "arn:aws:servicequotas:*:*:kinesis/*",
+        "arn:aws:servicequotas:*:*:sns/*",
+        "arn:aws:servicequotas:*:*:bedrock/*",
+        "arn:aws:servicequotas:*:*:lambda/*",
+        "arn:aws:servicequotas:*:*:fargate/*",
+        "arn:aws:servicequotas:*:*:elasticloadbalancing/*",
+        "arn:aws:servicequotas:*:*:ec2/*"
+      ]
+    }
+  ]
+}
+```
+
+## Learn more
+
+- [Create a permission set using AWS managed policies in IAM Identity Center](../../../singlesignon/latest/userguide/howtocreatepermissionset.md "../../../singlesignon/latest/userguide/howtocreatepermissionset.md")
+- [Adding and removing IAM identity permissions](../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md "../../../IAM/latest/UserGuide/access_policies_manage-attach-detach.md")
+- [Understand versioning for IAM policies](../../../IAM/latest/UserGuide/access_policies_managed-versioning.md "../../../IAM/latest/UserGuide/access_policies_managed-versioning.md")
+- [Get started with AWS managed policies and move toward least-privilege permissions](../../../IAM/latest/UserGuide/best-practices.md#bp-use-aws-defined-policies "../../../IAM/latest/UserGuide/best-practices.md#bp-use-aws-defined-policies")
