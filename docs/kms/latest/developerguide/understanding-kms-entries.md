@@ -1,0 +1,65 @@
+# Examples of AWS KMS log entries
+
+AWS KMS writes entries to your CloudTrail log when you call an AWS KMS operation and when an AWS
+service calls an operation on your behalf. AWS KMS also writes an entry when it calls an
+operation for you. For example, it writes an entry when it [deletes a KMS key](ct-delete-key.md "ct-delete-key.md") that you scheduled for deletion.
+
+The following topics display examples of CloudTrail log entries for AWS KMS operations.
+
+For examples of CloudTrail log entries of requests to AWS KMS from attested platforms, see [Monitoring attested requests](ct-attestation.md "ct-attestation.md").
+
+###### Topics
+
+- [CancelKeyDeletion](ct-cancel-key-deletion.md "ct-cancel-key-deletion.md")
+- [ConnectCustomKeyStore](ct-connect-keystore.md "ct-connect-keystore.md")
+- [CreateAlias](ct-createalias.md "ct-createalias.md")
+- [CreateCustomKeyStore](ct-create-keystore.md "ct-create-keystore.md")
+- [CreateGrant](ct-creategrant.md "ct-creategrant.md")
+- [CreateKey](ct-createkey.md "ct-createkey.md")
+- [Decrypt](ct-decrypt.md "ct-decrypt.md")
+- [DeleteAlias](ct-deletealias.md "ct-deletealias.md")
+- [DeleteCustomKeyStore](ct-delete-keystore.md "ct-delete-keystore.md")
+- [DeleteExpiredKeyMaterial](ct-deleteexpiredkeymaterial.md "ct-deleteexpiredkeymaterial.md")
+- [DeleteImportedKeyMaterial](ct-deleteimportedkeymaterial.md "ct-deleteimportedkeymaterial.md")
+- [DeleteKey](ct-delete-key.md "ct-delete-key.md")
+- [DescribeCustomKeyStores](ct-describe-keystores.md "ct-describe-keystores.md")
+- [DescribeKey](ct-describekey.md "ct-describekey.md")
+- [DisableKey](ct-disablekey.md "ct-disablekey.md")
+- [DisableKeyRotation](ct-disable-key-rotation.md "ct-disable-key-rotation.md")
+- [DisconnectCustomKeyStore](ct-disconnect-keystore.md "ct-disconnect-keystore.md")
+- [EnableKey](ct-enablekey.md "ct-enablekey.md")
+- [EnableKeyRotation](ct-enablekeyrotation.md "ct-enablekeyrotation.md")
+- [Encrypt](ct-encrypt.md "ct-encrypt.md")
+- [GenerateDataKey](ct-generatedatakey.md "ct-generatedatakey.md")
+- [GenerateDataKeyPair](ct-generatedatakeypair.md "ct-generatedatakeypair.md")
+- [GenerateDataKeyPairWithoutPlaintext](ct-generatedatakeypairwithoutplaintext.md "ct-generatedatakeypairwithoutplaintext.md")
+- [GenerateDataKeyWithoutPlaintext](ct-generatedatakeyplaintext.md "ct-generatedatakeyplaintext.md")
+- [GenerateMac](ct-generatemac.md "ct-generatemac.md")
+- [GenerateRandom](ct-generaterandom.md "ct-generaterandom.md")
+- [GetKeyPolicy](ct-getkeypolicy.md "ct-getkeypolicy.md")
+- [GetKeyRotationStatus](ct-getkeyrotationstatus.md "ct-getkeyrotationstatus.md")
+- [GetParametersForImport](ct-getparametersforimport.md "ct-getparametersforimport.md")
+- [ImportKeyMaterial](ct-importkeymaterial.md "ct-importkeymaterial.md")
+- [ListAliases](ct-listaliases.md "ct-listaliases.md")
+- [ListGrants](ct-listgrants.md "ct-listgrants.md")
+- [ListKeyRotations](ct-listkeyrotations.md "ct-listkeyrotations.md")
+- [PutKeyPolicy](ct-put-key-policy.md "ct-put-key-policy.md")
+- [ReEncrypt](ct-reencrypt.md "ct-reencrypt.md")
+- [ReplicateKey](ct-replicate-key.md "ct-replicate-key.md")
+- [RetireGrant](ct-retire-grant.md "ct-retire-grant.md")
+- [RevokeGrant](ct-revoke-grant.md "ct-revoke-grant.md")
+- [RotateKey](ct-rotatekey.md "ct-rotatekey.md")
+- [RotateKeyOnDemand](ct-rotatekeyondemand.md "ct-rotatekeyondemand.md")
+- [ScheduleKeyDeletion](ct-schedule-key-deletion.md "ct-schedule-key-deletion.md")
+- [Sign](ct-sign.md "ct-sign.md")
+- [SynchronizeMultiRegionKey](ct-synchronize-multi-region-key.md "ct-synchronize-multi-region-key.md")
+- [TagResource](ct-tagresource.md "ct-tagresource.md")
+- [UntagResource](ct-untagresource.md "ct-untagresource.md")
+- [UpdateAlias](ct-updatealias.md "ct-updatealias.md")
+- [UpdateCustomKeyStore](ct-update-keystore.md "ct-update-keystore.md")
+- [UpdateKeyDescription](ct-update-key-description.md "ct-update-key-description.md")
+- [UpdatePrimaryRegion](ct-update-primary-region.md "ct-update-primary-region.md")
+- [VerifyMac](ct-verifymac.md "ct-verifymac.md")
+- [Verify](ct-verify.md "ct-verify.md")
+- [Amazon EC2 example one](ct-ec2one.md "ct-ec2one.md")
+- [Amazon EC2 example two](ct-ec2two.md "ct-ec2two.md")
