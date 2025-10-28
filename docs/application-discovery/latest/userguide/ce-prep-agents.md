@@ -1,0 +1,75 @@
+AWS Application Discovery Service will discontinue onboarding new customers starting November 7, 2025. If you would like to use the service, please sign up prior to November 7, 2025. Alternatively, use AWS Transform which provides similar capabilities. For more information, see [AWS Application Discovery Service availability change](application-discovery-service-availability-change.md "application-discovery-service-availability-change.md").
+
+# Turning on data exploration in Amazon Athena
+
+Data exploration in Amazon Athena is enabled by turning on Continuous Export using the Migration Hub console
+or an API call from the AWS CLI. You must turn on data exploration before you can see and
+start exploring your discovered data in Amazon Athena.
+
+When you turn on Continuous Export the service-linked role
+`AWSServiceRoleForApplicationDiscoveryServiceContinuousExport` is
+automatically used by your account. For more information about this service-linked role,
+see [Service-linked role permissions for
+Application Discovery Service](service-linked-role-permissions.md "service-linked-role-permissions.md").
+
+The following instructions show how to turn on data exploration in Amazon Athena by using
+the console and the AWS CLI.
+
+Turn on with the console
+Data exploration in Amazon Athena is enabled by Continuous Export implicitly being turned
+on when you choose "Start data collection", or click the toggle labeled,
+"Data exploration in Amazon Athena" on the **Data Collectors**
+page of the Migration Hub console.
+
+###### To turn on data exploration in Amazon Athena from the console
+
+1. In the navigation pane, choose **Data
+   Collectors**.
+2. Choose the **Agents** tab.
+3. Choose **Start data collection**, or if you
+   already have data collection turned on, click the **Data
+   exploration in Amazon Athena** toggle.
+4. In the dialog box generated from the previous step, click the
+   checkbox agreeing to associated costs and choose
+   **Continue** or
+   **Enable**.
+
+###### Note
+
+Your agents are now running in "continuous export" mode which will
+enable you to see and work with your discovered data in Amazon Athena. The
+first time this is enable it may take up to 30 minutes for your data to
+appear in Amazon Athena.
+
+Enable with the AWS CLI
+Data exploration in Amazon Athena is enabled by Continuous Export explicitly being turned
+on through an API call from the AWS CLI. To do this, the AWS CLI must first be
+installed in your environment.
+
+###### To install the AWS CLI and turn on data exploration in
+
+Amazon Athena
+
+1. Install the AWS CLI for your operating system (Linux, macOS, or
+   Windows). See the [AWS Command Line Interface User Guide](../../../cli/latest/userguide.md "../../../cli/latest/userguide.md") for instructions.
+2. Open the Command prompt (Windows) or Terminal (Linux or
+   macOS).
+   1. Type `aws configure` and press Enter.
+   2. Enter your AWS Access Key Id and AWS Secret Access
+      Key.
+   3. Enter `us-west-2` for the Default Region
+      Name.
+   4. Enter `text` for Default Output Format.
+
+3. Type the following command:
+
+```
+aws discovery start-continuous-export
+```
+
+###### Note
+
+Your agents are now running in "continuous export" mode which will
+enable you to see and work with your discovered data in Amazon Athena. The
+first time this is enable it may take up to 30 minutes for your data to
+appear in Amazon Athena.
