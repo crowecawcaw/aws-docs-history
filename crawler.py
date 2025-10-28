@@ -1018,6 +1018,16 @@ class AwsDocsCrawler:
 
 
 def parse_args() -> argparse.Namespace:
+    # Check if first argument is a known command
+    known_commands = {"crawl", "discover", "crawl-services"}
+    has_command = len(sys.argv) > 1 and sys.argv[1] in known_commands
+
+    # For backward compatibility, if no command is provided, insert 'crawl'
+    if not has_command and len(sys.argv) > 1:
+        # Check if it looks like old-style arguments (starts with --)
+        if sys.argv[1].startswith("--"):
+            sys.argv.insert(1, "crawl")
+
     parser = argparse.ArgumentParser(description="Crawl AWS documentation using sitemaps.")
 
     # Global arguments
@@ -1119,11 +1129,23 @@ def parse_args() -> argparse.Namespace:
 
     args = parser.parse_args()
 
-    # If no command specified, default to crawl for backward compatibility
+    # If no command specified after parsing, default to crawl
     if not args.command:
-        # Parse again with crawl as default
-        sys.argv.insert(1, "crawl")
-        return parser.parse_args()
+        # This shouldn't happen now due to the pre-insertion, but just in case
+        args.command = "crawl"
+        # Set default values for crawl command
+        if not hasattr(args, 'output_dir'):
+            args.output_dir = Path("docs")
+        if not hasattr(args, 'max_workers'):
+            args.max_workers = 8
+        if not hasattr(args, 'requests_per_second'):
+            args.requests_per_second = 10.0
+        if not hasattr(args, 'service_url'):
+            args.service_url = None
+        if not hasattr(args, 'allowed_prefixes'):
+            args.allowed_prefixes = None
+        if not hasattr(args, 'dry_run'):
+            args.dry_run = False
 
     return args
 
