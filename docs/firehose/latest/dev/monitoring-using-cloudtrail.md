@@ -1,0 +1,268 @@
+# Log Amazon Data Firehose API calls with
+
+AWS CloudTrail
+
+Amazon Data Firehose is integrated with AWS CloudTrail, a service that provides a record of actions
+taken by a user, role, or an AWS service in Amazon Data Firehose. CloudTrail captures all API calls for
+Amazon Data Firehose as events. The calls captured include calls from the Amazon Data Firehose console and code
+calls to the Amazon Data Firehose API operations. If you create a trail, you can enable continuous
+delivery of CloudTrail events to an Amazon S3 bucket, including events for Amazon Data Firehose. If you don't
+configure a trail, you can still view the most recent events in the CloudTrail console in
+**Event history**. Using the information collected by CloudTrail, you
+can determine the request that was made to Amazon Data Firehose, the IP address from which the
+request was made, who made the request, when it was made, and additional details.
+
+To learn more about CloudTrail, including how to configure and enable it, see the [AWS CloudTrail User Guide](../../../awscloudtrail/latest/userguide.md "../../../awscloudtrail/latest/userguide.md").
+
+## Firehose information in
+
+CloudTrail
+
+CloudTrail is enabled on your AWS account when you create the account. When
+supported event activity occurs in Amazon Data Firehose, that activity is recorded in a CloudTrail
+event along with other AWS service events in **Event
+history**. You can view, search, and download recent events in your
+AWS account. For more information, see [Viewing Events with CloudTrail
+Event History](../../../awscloudtrail/latest/userguide/view-cloudtrail-events.md "../../../awscloudtrail/latest/userguide/view-cloudtrail-events.md").
+
+For an ongoing record of events in your AWS account, including events for
+Amazon Data Firehose, create a trail. A _trail_ enables CloudTrail to deliver log
+files to an Amazon S3 bucket. By default, when you create a trail in the console, the
+trail applies to all AWS Regions. The trail logs events from all Regions in
+the AWS partition and delivers the log files to the Amazon S3 bucket that you
+specify. Additionally, you can configure other AWS services to further analyze
+and act upon the event data collected in CloudTrail logs. For more information, see
+the following:
+
+- [Overview for Creating a Trail](../../../awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.md "../../../awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.md")
+- [CloudTrail Supported Services and Integrations](../../../awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.md#cloudtrail-aws-service-specific-topics-integrations "../../../awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.md#cloudtrail-aws-service-specific-topics-integrations")
+- [Configuring Amazon SNS Notifications for CloudTrail](../../../awscloudtrail/latest/userguide/getting_notifications_top_level.md "../../../awscloudtrail/latest/userguide/getting_notifications_top_level.md")
+- [Receiving CloudTrail Log Files from Multiple Regions](../../../awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.md "../../../awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.md") and [Receiving CloudTrail Log Files from Multiple Accounts](../../../awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.md "../../../awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.md")
+
+Amazon Data Firehose supports logging the following actions as events in CloudTrail log
+files:
+
+- [CreateDeliveryStream](../APIReference/API_CreateDeliveryStream.md "../APIReference/API_CreateDeliveryStream.md")
+- [DeleteDeliveryStream](../APIReference/API_DeleteDeliveryStream.md "../APIReference/API_DeleteDeliveryStream.md")
+- [DescribeDeliveryStream](../APIReference/API_DescribeDeliveryStream.md "../APIReference/API_DescribeDeliveryStream.md")
+- [ListDeliveryStreams](../APIReference/API_ListDeliveryStreams.md "../APIReference/API_ListDeliveryStreams.md")
+- [ListTagsForDeliveryStream](../APIReference/API_ListTagsForDeliveryStream.md "../APIReference/API_ListTagsForDeliveryStream.md")
+- [TagDeliveryStream](../APIReference/API_TagDeliveryStream.md "../APIReference/API_TagDeliveryStream.md")
+- [StartDeliveryStreamEncryption](../APIReference/API_StartDeliveryStreamEncryption.md "../APIReference/API_StartDeliveryStreamEncryption.md")
+- [StopDeliveryStreamEncryption](../APIReference/API_StopDeliveryStreamEncryption.md "../APIReference/API_StopDeliveryStreamEncryption.md")
+- [UntagDeliveryStream](../APIReference/API_UntagDeliveryStream.md "../APIReference/API_UntagDeliveryStream.md")
+- [UpdateDestination](../APIReference/API_UpdateDestination.md "../APIReference/API_UpdateDestination.md")
+
+Every event or log entry contains information about who generated the request.
+The identity information helps you determine the following:
+
+- Whether the request was made with root or AWS Identity and Access Management (IAM) user
+  credentials.
+- Whether the request was made with temporary security credentials for a
+  role or federated user.
+- Whether the request was made by another AWS service.
+
+For more information, see the [CloudTrail
+userIdentity Element](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md").
+
+## Example: Firehose log file
+
+entries
+
+A trail is a configuration that enables delivery of events as log files to an
+Amazon S3 bucket that you specify. CloudTrail log files contain one or more log entries. An
+event represents a single request from any source and includes information about the
+requested action, the date and time of the action, request parameters, and so on.
+CloudTrail log files aren't an ordered stack trace of the public API calls, so they don't
+appear in any specific order.
+
+The following example shows a CloudTrail log entry that demonstrates the
+`CreateDeliveryStream`, `DescribeDeliveryStream`,
+`ListDeliveryStreams`, `UpdateDestination`, and
+`DeleteDeliveryStream` actions.
+
+```
+{
+  "Records":[
+        {
+            "eventVersion":"1.02",
+            "userIdentity":{
+                "type":"IAMUser",
+                "principalId":"AKIAIOSFODNN7EXAMPLE",
+                "arn":"arn:aws:iam::111122223333:user/CloudTrail_Test_User",
+                "accountId":"111122223333",
+                "accessKeyId":"AKIAI44QH8DHBEXAMPLE",
+                "userName":"CloudTrail_Test_User"
+            },
+            "eventTime":"2016-02-24T18:08:22Z",
+            "eventSource":"firehose.amazonaws.com",
+            "eventName":"CreateDeliveryStream",
+            "awsRegion":"us-east-1",
+            "sourceIPAddress":"127.0.0.1",
+            "userAgent":"aws-internal/3",
+            "requestParameters":{
+                "deliveryStreamName":"TestRedshiftStream",
+                "redshiftDestinationConfiguration":{
+                "s3Configuration":{
+                    "compressionFormat":"GZIP",
+                    "prefix":"prefix",
+                    "bucketARN":"arn:aws:s3:::amzn-s3-demo-bucket",
+                    "roleARN":"arn:aws:iam::111122223333:role/Firehose",
+                    "bufferingHints":{
+                        "sizeInMBs":3,
+                        "intervalInSeconds":900
+                    },
+                    "encryptionConfiguration":{
+                        "kMSEncryptionConfig":{
+                            "aWSKMSKeyARN":"arn:aws:kms:us-east-1:key"
+                        }
+                    }
+                },
+                "clusterJDBCURL":"jdbc:redshift://example.abc123.us-west-2.redshift.amazonaws.com:5439/dev",
+                "copyCommand":{
+                    "copyOptions":"copyOptions",
+                    "dataTableName":"dataTable"
+                },
+                "password":"",
+                "username":"",
+                "roleARN":"arn:aws:iam::111122223333:role/Firehose"
+            }
+        },
+        "responseElements":{
+            "deliveryStreamARN":"arn:aws:firehose:us-east-1:111122223333:deliverystream/TestRedshiftStream"
+        },
+        "requestID":"958abf6a-db21-11e5-bb88-91ae9617edf5",
+        "eventID":"875d2d68-476c-4ad5-bbc6-d02872cfc884",
+        "eventType":"AwsApiCall",
+        "recipientAccountId":"111122223333"
+    },
+    {
+        "eventVersion":"1.02",
+        "userIdentity":{
+            "type":"IAMUser",
+            "principalId":"AKIAIOSFODNN7EXAMPLE",
+            "arn":"arn:aws:iam::111122223333:user/CloudTrail_Test_User",
+            "accountId":"111122223333",
+            "accessKeyId":"AKIAI44QH8DHBEXAMPLE",
+            "userName":"CloudTrail_Test_User"
+        },
+        "eventTime":"2016-02-24T18:08:54Z",
+        "eventSource":"firehose.amazonaws.com",
+        "eventName":"DescribeDeliveryStream",
+        "awsRegion":"us-east-1",
+        "sourceIPAddress":"127.0.0.1",
+        "userAgent":"aws-internal/3",
+        "requestParameters":{
+            "deliveryStreamName":"TestRedshiftStream"
+        },
+        "responseElements":null,
+        "requestID":"aa6ea5ed-db21-11e5-bb88-91ae9617edf5",
+        "eventID":"d9b285d8-d690-4d5c-b9fe-d1ad5ab03f14",
+        "eventType":"AwsApiCall",
+        "recipientAccountId":"111122223333"
+    },
+    {
+        "eventVersion":"1.02",
+        "userIdentity":{
+            "type":"IAMUser",
+            "principalId":"AKIAIOSFODNN7EXAMPLE",
+            "arn":"arn:aws:iam::111122223333:user/CloudTrail_Test_User",
+            "accountId":"111122223333",
+            "accessKeyId":"AKIAI44QH8DHBEXAMPLE",
+            "userName":"CloudTrail_Test_User"
+        },
+        "eventTime":"2016-02-24T18:10:00Z",
+        "eventSource":"firehose.amazonaws.com",
+        "eventName":"ListDeliveryStreams",
+        "awsRegion":"us-east-1",
+        "sourceIPAddress":"127.0.0.1",
+        "userAgent":"aws-internal/3",
+        "requestParameters":{
+            "limit":10
+        },
+        "responseElements":null,
+        "requestID":"d1bf7f86-db21-11e5-bb88-91ae9617edf5",
+        "eventID":"67f63c74-4335-48c0-9004-4ba35ce00128",
+        "eventType":"AwsApiCall",
+        "recipientAccountId":"111122223333"
+    },
+    {
+        "eventVersion":"1.02",
+        "userIdentity":{
+            "type":"IAMUser",
+            "principalId":"AKIAIOSFODNN7EXAMPLE",
+            "arn":"arn:aws:iam::111122223333:user/CloudTrail_Test_User",
+            "accountId":"111122223333",
+            "accessKeyId":"AKIAI44QH8DHBEXAMPLE",
+            "userName":"CloudTrail_Test_User"
+        },
+        "eventTime":"2016-02-24T18:10:09Z",
+        "eventSource":"firehose.amazonaws.com",
+        "eventName":"UpdateDestination",
+        "awsRegion":"us-east-1",
+        "sourceIPAddress":"127.0.0.1",
+        "userAgent":"aws-internal/3",
+        "requestParameters":{
+            "destinationId":"destinationId-000000000001",
+            "deliveryStreamName":"TestRedshiftStream",
+            "currentDeliveryStreamVersionId":"1",
+            "redshiftDestinationUpdate":{
+                "roleARN":"arn:aws:iam::111122223333:role/Firehose",
+                "clusterJDBCURL":"jdbc:redshift://example.abc123.us-west-2.redshift.amazonaws.com:5439/dev",
+                "password":"",
+                "username":"",
+                "copyCommand":{
+                    "copyOptions":"copyOptions",
+                    "dataTableName":"dataTable"
+                },
+                "s3Update":{
+                    "bucketARN":"arn:aws:s3:::amzn-s3-demo-bucket-update",
+                    "roleARN":"arn:aws:iam::111122223333:role/Firehose",
+                    "compressionFormat":"GZIP",
+                    "bufferingHints":{
+                        "sizeInMBs":3,
+                        "intervalInSeconds":900
+                    },
+                    "encryptionConfiguration":{
+                        "kMSEncryptionConfig":{
+                            "aWSKMSKeyARN":"arn:aws:kms:us-east-1:key"
+                        }
+                    },
+                    "prefix":"arn:aws:s3:::amzn-s3-demo-bucket"
+                }
+            }
+        },
+        "responseElements":null,
+        "requestID":"d549428d-db21-11e5-bb88-91ae9617edf5",
+        "eventID":"1cb21e0b-416a-415d-bbf9-769b152a6585",
+        "eventType":"AwsApiCall",
+        "recipientAccountId":"111122223333"
+    },
+    {
+        "eventVersion":"1.02",
+        "userIdentity":{
+            "type":"IAMUser",
+            "principalId":"AKIAIOSFODNN7EXAMPLE",
+            "arn":"arn:aws:iam::111122223333:user/CloudTrail_Test_User",
+            "accountId":"111122223333",
+            "accessKeyId":"AKIAI44QH8DHBEXAMPLE",
+            "userName":"CloudTrail_Test_User"
+        },
+        "eventTime":"2016-02-24T18:10:12Z",
+        "eventSource":"firehose.amazonaws.com",
+        "eventName":"DeleteDeliveryStream",
+        "awsRegion":"us-east-1",
+        "sourceIPAddress":"127.0.0.1",
+        "userAgent":"aws-internal/3",
+        "requestParameters":{
+            "deliveryStreamName":"TestRedshiftStream"
+        },
+        "responseElements":null,
+        "requestID":"d85968c1-db21-11e5-bb88-91ae9617edf5",
+        "eventID":"dd46bb98-b4e9-42ff-a6af-32d57e636ad1",
+        "eventType":"AwsApiCall",
+        "recipientAccountId":"111122223333"
+    }
+  ]
+}
+```
