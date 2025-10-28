@@ -1,0 +1,23 @@
+# EUCCOST01-BP01 Evaluate EUC specific cost model awareness in your cloud business
+
+You may have a cloud business office, Cloud Center of
+Excellence, or a FinOps team that is responsible for
+establishing and maintaining cost awareness across your
+organization. However, AWS EUC services often use many other
+services and may require a solid understanding of Microsoft
+licensing to optimize the cost. If you are using the ITIL
+framework, you may already have defined service owners for
+individual services who own the financials for their services.
+
+**Level of risk exposed if this best practice is not
+established:** Low
+
+## Implementation guidance
+
+Evaluate the required domain knowledge in your cloud business office. We recommend
+you evaluate the required EUC domain knowledge in your cloud business office to understand
+if the team is ready to support cost optimization for EUC services. These individuals need
+to be intimately familiar with the cost optimization levers specific to EUC services, such
+as Microsoft licensing, WorkSpaces running modes, WorkSpaces bundles, AppStream 2.0 Fleet types, and
+AppStream 2.0instances. Provide EUC-specific cloud financial training to them if there is a
+knowledge gap.
