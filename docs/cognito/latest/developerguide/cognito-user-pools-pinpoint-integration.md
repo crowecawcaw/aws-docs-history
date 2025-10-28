@@ -1,0 +1,88 @@
+# Using Amazon Pinpoint for user pool
+
+analytics
+
+###### Note
+
+**End of support notice:** On October
+30, 2026, AWS will end support for Amazon Pinpoint. After October 30, 2026, you will no
+longer be able to access the Amazon Pinpoint console or Amazon Pinpoint resources (endpoints,
+segments, campaigns, journeys, and analytics). For more information, see [Amazon Pinpoint end of
+support](../../../console/pinpoint/migration-guide.md "../../../console/pinpoint/migration-guide.md"). **Note:** APIs related to SMS, voice,
+mobile push, OTP, and phone number validate are not impacted by this change and are
+supported by AWS End User Messaging.
+
+Amazon Cognito user pools are integrated with Amazon Pinpoint to provide analytics for Amazon Cognito user pools and to enrich
+the user data for Amazon Pinpoint campaigns. Amazon Pinpoint provides analytics and targeted campaigns to drive
+user engagement in mobile apps using push notifications. With Amazon Pinpoint analytics support in
+Amazon Cognito user pools, you can track user pool sign-ups, sign-ins, failed authentications, daily
+active users (DAUs), and monthly active users (MAUs) in the Amazon Pinpoint console. You can drill
+into the data for different date ranges or attributes, such as device platform, device
+locale, and app version.
+
+You can also set up custom attributes for your app. Those can then be used to segment your
+users on Amazon Pinpoint and send them targeted push notifications. If you choose **Share user
+attribute data with Amazon Pinpoint** in the **Analytics** configuration
+for your app client in the **App clients** menu in the Amazon Cognito console, Amazon Pinpoint
+creates additional endpoints for user email addresses and phone numbers.
+
+When you activate Amazon Pinpoint analytics in your user pool with the Amazon Cognito console, you also
+create a [service-linked role](../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions "../../../IAM/latest/UserGuide/using-service-linked-roles.md#service-linked-role-permissions") that Amazon Cognito assumes when it makes an API request to Amazon Pinpoint
+for your user pool. The IAM principal that adds your analytics configuration must have
+[CreateServiceLinkedRole](../../../IAM/latest/APIReference/API_CreateServiceLinkedRole.md "../../../IAM/latest/APIReference/API_CreateServiceLinkedRole.md") permissions. The service-linked role is [AWSServiceRoleForAmazonCognitoIdp](https://console.aws.amazon.com/iamv2/home?region=us-east-1#/roles/details/AWSServiceRoleForAmazonCognitoIdp "https://console.aws.amazon.com/iamv2/home?region=us-east-1#/roles/details/AWSServiceRoleForAmazonCognitoIdp"). For more information, see [Using service-linked roles for
+Amazon Cognito](using-service-linked-roles.md "using-service-linked-roles.md").
+
+When you apply an `AnalyticsConfiguration` to your app client in the Amazon Cognito API,
+you can assign a custom IAM role for Amazon Pinpoint and an external ID to assume the role. The role
+must trust the `cognito-idp` service principal, and if the role trust policy
+requires an external ID, it must match your `AnalyticsConfiguration`. You must
+grant the role `cognito-idp:Describe*` permissions, and the following permissions
+for your **Amazon Pinpoint project**.
+
+- `mobiletargeting:UpdateEndpoint`
+- `mobiletargeting:PutEvents`
+
+## Amazon Cognito and Amazon Pinpoint Region
+
+availability
+
+The following table shows the AWS Region mappings between Amazon Cognito and Amazon Pinpoint that meet
+one of the following conditions.
+
+- You can only use an Amazon Pinpoint project in the US East (N. Virginia) (us-east-1)
+  Region.
+- You can use an Amazon Pinpoint project in the same Region _or_ in the US East (N. Virginia) (us-east-1) Region
+
+By default, Amazon Cognito can only send analytics to a Amazon Pinpoint project in the same AWS Region.
+The exceptions to this rule are the Regions in the following table, and Regions where
+Amazon Pinpoint in unavailable.
+
+Amazon Pinpoint isn't available in the following Regions. Amazon Cognito user pools in these Regions don't support
+analytics.
+
+- Europe (Milan)
+- Middle East (Bahrain)
+- Asia Pacific (Osaka)
+- Israel (Tel Aviv)
+- Africa (Cape Town)
+- Asia Pacific (Jakarta)
+- Asia Pacific (Malaysia)
+
+The table shows the relation between the Region where you built your Amazon Cognito user pool
+and the corresponding Region in Amazon Pinpoint. You must configure your Amazon Pinpoint project in an
+available Region to integrate it with Amazon Cognito.
+
+| Amazon Cognito user pool Region | Region for Amazon Pinpoint project |
+| ------------------------------- | ---------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ap-northeast-1                  | us-east-1                          |
+| ap-northeast-2                  | us-east-1                          |
+| ap-south-1                      | us-east-1, ap-south-1              |
+| ap-southeast-1                  | us-east-1                          |
+| ap-southeast-2                  | us-east-1, ap-southeast-2          |
+| ca-central-1                    | us-east-1                          |
+| eu-central-1                    | us-east-1, eu-central-1            |
+| eu-west-1                       | us-east-1, eu-west-1               |
+| eu-west-2                       | us-east-1                          |
+| us-east-1                       | us-east-1                          |
+| us-east-2                       | us-east-1                          |
+| us-west-2                       | us-east-1, us-west-2               | **Region mapping examples** <br>• If you create a user pool in ap-northeast-1, you can create your Amazon Pinpoint project in us-east-1. <br>• If you create a user pool in ap-south-1, you can create your Amazon Pinpoint project in either us-east-1 or ap-south-1. ###### Note For all AWS Regions except those in the preceding table, Amazon Cognito can only use an Amazon Pinpoint project in the same Region as your user pool. If Amazon Pinpoint isn't available in the Region where you built your user pool, and it's not listed in the table, then Amazon Cognito doesn't support Amazon Pinpoint analytics in that Region. For detailed AWS Region information, see [Amazon Pinpoint endpoints and quotas](../../../general/latest/gr/pinpoint.md "../../../general/latest/gr/pinpoint.md"). ### Specifying Amazon Pinpoint analytics settings (AWS Management Console) You can configure your Amazon Cognito user pool to send analytics data to Amazon Pinpoint. Amazon Cognito only sends analytics data to Amazon Pinpoint for local users. After you configure your user pool to associate with a Amazon Pinpoint project, you must include `AnalyticsMetadata` in your API requests. For more information, see [Integrating your app with Amazon Pinpoint](#cognito-user-pools-pinpoint-integration-client "#cognito-user-pools-pinpoint-integration-client"). ###### To specify analytics settings 1. Go to the [Amazon Cognito console](https://console.aws.amazon.com/cognito/home "https://console.aws.amazon.com/cognito/home"). You might be prompted for your AWS credentials. 2. Select **User Pools** and choose an existing user pool from the list. 3. Choose the **App clients** menu and select the app client that you want to update. 4. In the **Analytics** tab under **Pinpoint analytics**, choose **Enable**. 5. Choose a **Pinpoint Region**. 6. Choose an **Amazon Pinpoint project** or select **Create Amazon Pinpoint project**. ###### Note The Amazon Pinpoint project ID is a 32-character string that is unique to your Amazon Pinpoint project. It is listed in the Amazon Pinpoint console. You can map multiple Amazon Cognito apps to a single Amazon Pinpoint project. However, each Amazon Cognito app can only be mapped to one Amazon Pinpoint project. In Amazon Pinpoint, each project should be a single app. For example, if a game developer has two games, each game should be a separate Amazon Pinpoint project, even if both games use the same Amazon Cognito user pool. For more information on Amazon Pinpoint projects, see [Create a project in Amazon Pinpoint](../../../push-notifications/latest/userguide/mobile-push.md#mobile-push-create-project "../../../push-notifications/latest/userguide/mobile-push.md#mobile-push-create-project"). 7. Under **User data sharing**, choose **Share user data with Amazon Pinpoint** if you want Amazon Cognito to send email addresses and phone numbers to Amazon Pinpoint and create additional endpoints for users. After your users verify their email address and phone number, Amazon Cognito only shares them with Amazon Pinpoint if they are available to the user account. ###### Note An _endpoint_ uniquely identifies a user device to which you can send push notifications with Amazon Pinpoint. For more information about endpoints, see [Adding endpoints](../../../pinpoint/latest/developerguide/endpoints.md "../../../pinpoint/latest/developerguide/endpoints.md") in the _Amazon Pinpoint Developer Guide_. 8. Choose **Save changes**. ### Specifying Amazon Pinpoint analytics settings (AWS CLI and AWS API) Use the following commands to specify Amazon Pinpoint analytics settings for your user pool. ###### To specify the analytics settings for your user pool's existing client app at app creation time <br>• AWS CLI: `aws cognito-idp create-user-pool-client` <br>• AWS API: [CreateUserPoolClient](../../../cognito-user-identity-pools/latest/APIReference/API_CreateUserPoolClient.md "../../../cognito-user-identity-pools/latest/APIReference/API_CreateUserPoolClient.md") ###### To update the analytics settings for your user pool's existing client app <br>• AWS CLI: `aws cognito-idp update-user-pool-client` <br>• AWS API: [UpdateUserPoolClient](../../../cognito-user-identity-pools/latest/APIReference/API_UpdateUserPoolClient.md "../../../cognito-user-identity-pools/latest/APIReference/API_UpdateUserPoolClient.md") ###### Note Amazon Cognito supports in-Region integrations when you use `ApplicationArn` ## Integrating your app with Amazon Pinpoint You can publish analytics metadata to Amazon Pinpoint for Amazon Cognito _local users_ in the _user pools API_. **Local users** Users who signed up for an account or were created in your user pool instead of signing in through a third-party identity provider (IdP). **User pools API** The operations that you can integrate with an AWS SDK, using an app with a custom user interface (UI). You can't pass analytics metadata for federated or local users who sign in through managed login. See the [Amazon Cognito API Reference](../../../cognito-user-identity-pools/latest/APIReference/Welcome.md "../../../cognito-user-identity-pools/latest/APIReference/Welcome.md") for a list of user pools API operations. After you configure your user pool to publish to a campaign, Amazon Cognito passes metadata to Amazon Pinpoint for the following API operations. <br>• `AdminInitiateAuth` <br>• `AdminRespondToAuthChallenge` <br>• `ConfirmForgotPassword` <br>• `ConfirmSignUp` <br>• `ForgotPassword` <br>• `InitiateAuth` <br>• `ResendConfirmationCode` <br>• `RespondToAuthChallenge` <br>• `SignUp` To pass metadata about your user's session to your Amazon Pinpoint campaign, include an `AnalyticsEndpointId` value in the `AnalyticsMetadata` parameter of your API request. For a JavaScript example, see [Why aren't my Amazon Cognito user pool analytics appearing on my Amazon Pinpoint dashboard?](https://aws.amazon.com/premiumsupport/knowledge-center/pinpoint-cognito-user-pool-analytics/ "https://aws.amazon.com/premiumsupport/knowledge-center/pinpoint-cognito-user-pool-analytics/") in the _AWS Knowledge Center_. |
