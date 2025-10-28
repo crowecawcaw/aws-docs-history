@@ -1,0 +1,20 @@
+Amazon Lookout for Metrics is no longer available to new customers. Existing Amazon Lookout for Metrics customers will be able to use the service until September 12, 2025, when we will end support for Amazon Lookout for Metrics. To help transition off of Amazon Lookout for Metrics, please read [Transitioning off Amazon Lookout for Metrics](https://aws.amazon.com/blogs/machine-learning/transitioning-off-amazon-lookout-for-metrics/ "https://aws.amazon.com/blogs/machine-learning/transitioning-off-amazon-lookout-for-metrics/").
+
+# Amazon Lookout for Metrics permissions
+
+You can use AWS Identity and Access Management (IAM) to manage access to the Lookout for Metrics API and resources like detectors and datasets. For
+users and applications in your account that use Lookout for Metrics, you manage permissions in a permissions policy that you can
+apply to users, groups, or roles.
+
+Lookout for Metrics uses IAM [service roles](permissions-service.md "permissions-service.md") to access other services on your
+behalf. You create or choose a service role when you create a dataset that reads data from Amazon S3 or another service.
+You also pass service roles to Lookout for Metrics when you configure an alert that targets a Lambda function or an Amazon SNS topic.
+The Lookout for Metrics console can create these roles for you if you have the required IAM permissions.
+
+For more information about IAM, see [What is IAM?](../../../IAM/latest/UserGuide/introduction.md "../../../IAM/latest/UserGuide/introduction.md") in the
+_IAM User Guide_.
+
+###### Topics
+
+- [Identity-based IAM policies for Lookout for Metrics](permissions-user.md "permissions-user.md")
+- [Service roles for Amazon Lookout for Metrics](permissions-service.md "permissions-service.md")
