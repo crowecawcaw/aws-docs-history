@@ -1,0 +1,23 @@
+# Popularity-Count recipe
+
+Popularity-Count recommends the most popular items based your interactions data. The most popular items are the items with
+the most interactions data from unique users.
+The recipe returns the same popular items for all users.
+Popularity-Count is a good baseline for comparing with other recipes using the evaluation metrics Amazon Personalize generates when you
+create a solution version. For more information, see [Evaluating an Amazon Personalize solution version with metrics](working-with-training-metrics.md "working-with-training-metrics.md").
+
+After you create a solution version, make sure you keep your solution version and data up to date. With Popularity-Count, you must
+manually create a new solution version (retrain the model) for Amazon Personalize to consider new items for recommendations and update the model with your user’s most recent behavior. Then you must update any campaign using
+the solution version. For more
+information, see [Maintaining recommendation relevance](maintaining-relevance.md "maintaining-relevance.md").
+
+This predefined recipe has the following properties:
+
+- Name – `aws-popularity-count`
+- Recipe ARN – `arn:aws:personalize:::recipe/aws-popularity-count`
+- Algorithm ARN –
+  `arn:aws:personalize:::algorithm/aws-popularity-count`
+- Feature transformation ARN –
+  `arn:aws:personalize:::feature-transformation/sims`
+- Recipe type – `USER_PERSONALIZATION`
+  Popularity-Count has no exposed hyperparameters.

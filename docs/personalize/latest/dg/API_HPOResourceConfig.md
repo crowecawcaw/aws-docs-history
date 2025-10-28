@@ -1,0 +1,43 @@
+# HPOResourceConfig
+
+Describes the resource configuration for hyperparameter optimization (HPO).
+
+## Contents
+
+**maxNumberOfTrainingJobs**
+
+The maximum number of training
+jobs when you create a
+solution
+version.
+The maximum value for `maxNumberOfTrainingJobs` is
+`40`.
+
+Type: String
+
+Length Constraints: Maximum length of 256.
+
+Required: No
+
+**maxParallelTrainingJobs**
+
+The maximum number of parallel training
+jobs when you create a
+solution
+version.
+The maximum value for `maxParallelTrainingJobs` is
+`10`.
+
+Type: String
+
+Length Constraints: Maximum length of 256.
+
+Required: No
+
+## See Also
+
+For more information about using this API in one of the language-specific AWS SDKs, see the following:
+
+- [AWS SDK for C++](../../../goto/SdkForCpp/personalize-2018-05-22/HPOResourceConfig.md "../../../goto/SdkForCpp/personalize-2018-05-22/HPOResourceConfig.md")
+- [AWS SDK for Java V2](../../../goto/SdkForJavaV2/personalize-2018-05-22/HPOResourceConfig.md "../../../goto/SdkForJavaV2/personalize-2018-05-22/HPOResourceConfig.md")
+- [AWS SDK for Ruby V3](../../../goto/SdkForRubyV3/personalize-2018-05-22/HPOResourceConfig.md "../../../goto/SdkForRubyV3/personalize-2018-05-22/HPOResourceConfig.md")

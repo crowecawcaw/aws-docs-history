@@ -1,0 +1,42 @@
+# User
+
+Represents user metadata added to a Users dataset using the
+`PutUsers` API. For more information see
+[Importing users individually](importing-users.md "importing-users.md").
+
+## Contents
+
+**userId**
+
+The ID associated with the user.
+
+Type: String
+
+Length Constraints: Minimum length of 1. Maximum length of 256.
+
+Required: Yes
+
+**properties**
+
+A string map of user-specific metadata. Each element in the map consists of a key-value pair.
+For example, `{"numberOfVideosWatched": "45"}`.
+
+The keys use camel case names that match the fields in the schema for the Users
+dataset. In the previous example, the `numberOfVideosWatched` matches the
+'NUMBER_OF_VIDEOS_WATCHED' field defined in the Users schema. For categorical string data,
+to include multiple categories for a single user, separate each category with a pipe separator (`|`).
+For example, `\"Member|Frequent shopper\"`.
+
+Type: String
+
+Length Constraints: Minimum length of 1. Maximum length of 24000.
+
+Required: No
+
+## See Also
+
+For more information about using this API in one of the language-specific AWS SDKs, see the following:
+
+- [AWS SDK for C++](../../../goto/SdkForCpp/personalize-events-2018-03-22/User.md "../../../goto/SdkForCpp/personalize-events-2018-03-22/User.md")
+- [AWS SDK for Java V2](../../../goto/SdkForJavaV2/personalize-events-2018-03-22/User.md "../../../goto/SdkForJavaV2/personalize-events-2018-03-22/User.md")
+- [AWS SDK for Ruby V3](../../../goto/SdkForRubyV3/personalize-events-2018-03-22/User.md "../../../goto/SdkForRubyV3/personalize-events-2018-03-22/User.md")
