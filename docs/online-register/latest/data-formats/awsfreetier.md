@@ -1,0 +1,11 @@
+# Data retrieval APIs for AWS Free Tier
+
+AWS Free Tier provides the following APIs for data retrieval.
+
+| Actions                                                                                                                                                                                                  | Description                                                                              | Access level |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ------------ |
+| [GetAccountActivity](../../../aws-cost-management/latest/APIReference/API_freetier_GetAccountActivity.md "../../../aws-cost-management/latest/APIReference/API_freetier_GetAccountActivity.md")          | Get a specific activity record                                                           | Read         |
+| [GetAccountPlanState](../../../aws-cost-management/latest/APIReference/API_freetier_GetAccountPlanState.md "../../../aws-cost-management/latest/APIReference/API_freetier_GetAccountPlanState.md")       | Get all of the information related to the state of the account plan related to Free Tier | Read         |
+| [GetFreeTierAlertPreference](../../../awsaccountbilling/latest/aboutv2/tracking-free-tier-usage.md "../../../awsaccountbilling/latest/aboutv2/tracking-free-tier-usage.md")                              | Get free tier alert preference (email address)                                           | Read         |
+| [GetFreeTierUsage](../../../awsaccountbilling/latest/aboutv2/tracking-free-tier-usage.md "../../../awsaccountbilling/latest/aboutv2/tracking-free-tier-usage.md")                                        | Get free tier usage limits and MTD usage status                                          | Read         |
+| [ListAccountActivities](../../../aws-cost-management/latest/APIReference/API_freetier_ListAccountActivities.md "../../../aws-cost-management/latest/APIReference/API_freetier_ListAccountActivities.md") | List available activities                                                                | List         |

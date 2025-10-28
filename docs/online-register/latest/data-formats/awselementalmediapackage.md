@@ -1,0 +1,13 @@
+# Data retrieval APIs for AWS Elemental MediaPackage
+
+AWS Elemental MediaPackage provides the following APIs for data retrieval.
+
+| Actions                                                                                                                                                                                                     | Description                                                     | Access level |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------- | ------------ |
+| [DescribeChannel](../../../mediapackage/latest/apireference/channels-id.md#channels-idget "../../../mediapackage/latest/apireference/channels-id.md#channels-idget")                                        | View the details of a channel in AWS Elemental MediaPackage     | Read         |
+| [DescribeHarvestJob](../../../mediapackage/latest/apireference/harvest_jobs-id.md#harvest_jobs-idget "../../../mediapackage/latest/apireference/harvest_jobs-id.md#harvest_jobs-idget")                     | View the details of a harvest job in AWS Elemental MediaPackage | Read         |
+| [DescribeOriginEndpoint](../../../mediapackage/latest/apireference/origin_endpoints-id.md#origin_endpoints-idget "../../../mediapackage/latest/apireference/origin_endpoints-id.md#origin_endpoints-idget") | View the details of an endpoint in AWS Elemental MediaPackage   | Read         |
+| [ListChannels](../../../mediapackage/latest/apireference/channels.md#channelsget "../../../mediapackage/latest/apireference/channels.md#channelsget")                                                       | View a list of channels in AWS Elemental MediaPackage           | Read         |
+| [ListHarvestJobs](../../../mediapackage/latest/apireference/harvest_jobs.md#harvest_jobsget "../../../mediapackage/latest/apireference/harvest_jobs.md#harvest_jobsget")                                    | View a list of harvest jobs in AWS Elemental MediaPackage       | Read         |
+| [ListOriginEndpoints](../../../mediapackage/latest/apireference/origin_endpoints.md#origin_endpointsget "../../../mediapackage/latest/apireference/origin_endpoints.md#origin_endpointsget")                | View a list of endpoints in AWS Elemental MediaPackage          | Read         |
+| [ListTagsForResource](../../../mediapackage/latest/apireference/tags-resource-arn.md#tags-resource-arnget "../../../mediapackage/latest/apireference/tags-resource-arn.md#tags-resource-arnget")            | List the tags assigned to a Channel or OriginEndpoint           | Read         |

@@ -1,0 +1,13 @@
+# Data retrieval APIs for AWS Systems Manager Quick Setup
+
+AWS Systems Manager Quick Setup provides the following APIs for data retrieval.
+
+| Actions                                                                                                                                                                            | Description                                                                          | Access level |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ | ------------ |
+| [GetConfiguration](../../../quick-setup/latest/APIReference/API_GetConfiguration.md "../../../quick-setup/latest/APIReference/API_GetConfiguration.md")                            | Get Quick Setup configuration                                                        | Read         |
+| [GetConfigurationManager](../../../quick-setup/latest/APIReference/API_GetConfigurationManager.md "../../../quick-setup/latest/APIReference/API_GetConfigurationManager.md")       | Get a configuration manager                                                          | Read         |
+| [GetServiceSettings](../../../quick-setup/latest/APIReference/API_GetServiceSettings.md "../../../quick-setup/latest/APIReference/API_GetServiceSettings.md")                      | Get settings configured for Quick Setup in the requesting AWS account and AWS Region | Read         |
+| [ListConfigurationManagers](../../../quick-setup/latest/APIReference/API_ListConfigurationManagers.md "../../../quick-setup/latest/APIReference/API_ListConfigurationManagers.md") | List Quick Setup configuration managers                                              | List         |
+| [ListConfigurations](../../../quick-setup/latest/APIReference/API_ListConfigurations.md "../../../quick-setup/latest/APIReference/API_ListConfigurations.md")                      | List Quick Setup configurations                                                      | List         |
+| [ListQuickSetupTypes](../../../quick-setup/latest/APIReference/API_ListQuickSetupTypes.md "../../../quick-setup/latest/APIReference/API_ListQuickSetupTypes.md")                   | List the available Quick Setup types                                                 | Read         |
+| [ListTagsForResource](../../../quick-setup/latest/APIReference/API_ListTagsForResource.md "../../../quick-setup/latest/APIReference/API_ListTagsForResource.md")                   | List tags assigned to the resource                                                   | Read         |

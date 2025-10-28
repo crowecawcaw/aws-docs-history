@@ -1,0 +1,22 @@
+# Data retrieval APIs for AWS Ground Station
+
+AWS Ground Station provides the following APIs for data retrieval.
+
+| Actions                                                                                                                                                                                     | Description                          | Access level |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------ | ------------ |
+| [DescribeContact](../../../ground-station/latest/APIReference/API_DescribeContact.md "../../../ground-station/latest/APIReference/API_DescribeContact.md")                                  | Describe a contact                   | Read         |
+| [DescribeEphemeris](../../../ground-station/latest/APIReference/API_DescribeEphemeris.md "../../../ground-station/latest/APIReference/API_DescribeEphemeris.md")                            | Describe an ephemeris item           | Read         |
+| [GetAgentConfiguration](../../../ground-station/latest/APIReference/API_GetAgentConfiguration.md "../../../ground-station/latest/APIReference/API_GetAgentConfiguration.md")                | Get the configuration of an agent    | Read         |
+| [GetConfig](../../../ground-station/latest/APIReference/API_GetConfig.md "../../../ground-station/latest/APIReference/API_GetConfig.md")                                                    | Return a configuration               | Read         |
+| [GetDataflowEndpointGroup](../../../ground-station/latest/APIReference/API_GetDataflowEndpointGroup.md "../../../ground-station/latest/APIReference/API_GetDataflowEndpointGroup.md")       | Return a data flow endpoint group    | Read         |
+| [GetMinuteUsage](../../../ground-station/latest/APIReference/API_GetMinuteUsage.md "../../../ground-station/latest/APIReference/API_GetMinuteUsage.md")                                     | Return minutes usage                 | Read         |
+| [GetMissionProfile](../../../ground-station/latest/APIReference/API_GetMissionProfile.md "../../../ground-station/latest/APIReference/API_GetMissionProfile.md")                            | Retrieve a mission profile           | Read         |
+| [GetSatellite](../../../ground-station/latest/APIReference/API_GetSatellite.md "../../../ground-station/latest/APIReference/API_GetSatellite.md")                                           | Return information about a satellite | Read         |
+| [ListConfigs](../../../ground-station/latest/APIReference/API_ListConfigs.md "../../../ground-station/latest/APIReference/API_ListConfigs.md")                                              | Return a list of past configurations | List         |
+| [ListContacts](../../../ground-station/latest/APIReference/API_ListContacts.md "../../../ground-station/latest/APIReference/API_ListContacts.md")                                           | Return a list of contacts            | List         |
+| [ListDataflowEndpointGroups](../../../ground-station/latest/APIReference/API_ListDataflowEndpointGroups.md "../../../ground-station/latest/APIReference/API_ListDataflowEndpointGroups.md") | List data flow endpoint groups       | List         |
+| [ListEphemerides](../../../ground-station/latest/APIReference/API_ListEphemerides.md "../../../ground-station/latest/APIReference/API_ListEphemerides.md")                                  | List ephemerides                     | List         |
+| [ListGroundStations](../../../ground-station/latest/APIReference/API_ListGroundStations.md "../../../ground-station/latest/APIReference/API_ListGroundStations.md")                         | List ground stations                 | List         |
+| [ListMissionProfiles](../../../ground-station/latest/APIReference/API_ListMissionProfiles.md "../../../ground-station/latest/APIReference/API_ListMissionProfiles.md")                      | Return a list of mission profiles    | List         |
+| [ListSatellites](../../../ground-station/latest/APIReference/API_ListSatellites.md "../../../ground-station/latest/APIReference/API_ListSatellites.md")                                     | List satellites                      | List         |
+| [ListTagsForResource](../../../ground-station/latest/APIReference/API_ListTagsForResource.md "../../../ground-station/latest/APIReference/API_ListTagsForResource.md")                      | List tags for a resource             | Read         |

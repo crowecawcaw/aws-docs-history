@@ -1,0 +1,18 @@
+# Data retrieval APIs for Amazon S3 Object Lambda
+
+Amazon S3 Object Lambda provides the following APIs for data retrieval.
+
+| Actions                                                                                                                                                          | Description                                                            | Access level |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------- | ------------ |
+| [GetObject](../../../AmazonS3/latest/API/API_GetObject.md "../../../AmazonS3/latest/API/API_GetObject.md")                                                       | Retrieve objects from Amazon S3                                        | Read         |
+| [GetObjectAcl](../../../AmazonS3/latest/API/API_GetObjectAcl.md "../../../AmazonS3/latest/API/API_GetObjectAcl.md")                                              | Return the access control list (ACL) of an object                      | Read         |
+| [GetObjectLegalHold](../../../AmazonS3/latest/API/API_GetObjectLegalHold.md "../../../AmazonS3/latest/API/API_GetObjectLegalHold.md")                            | Get an object's current Legal Hold status                              | Read         |
+| [GetObjectRetention](../../../AmazonS3/latest/API/API_GetObjectRetention.md "../../../AmazonS3/latest/API/API_GetObjectRetention.md")                            | Retrieve the retention settings for an object                          | Read         |
+| [GetObjectTagging](../../../AmazonS3/latest/API/API_GetObjectTagging.md "../../../AmazonS3/latest/API/API_GetObjectTagging.md")                                  | Return the tag set of an object                                        | Read         |
+| [GetObjectVersion](../../../AmazonS3/latest/API/API_GetObject.md "../../../AmazonS3/latest/API/API_GetObject.md")                                                | Retrieve a specific version of an object                               | Read         |
+| [GetObjectVersionAcl](../../../AmazonS3/latest/API/API_GetObjectAcl.md "../../../AmazonS3/latest/API/API_GetObjectAcl.md")                                       | Return the access control list (ACL) of a specific object version      | Read         |
+| [GetObjectVersionTagging](../../../AmazonS3/latest/dev/setting-repl-config-perm-overview.md "../../../AmazonS3/latest/dev/setting-repl-config-perm-overview.md") | Return the tag set for a specific version of the object                | Read         |
+| [ListBucket](../../../AmazonS3/latest/API/API_ListObjectsV2.md "../../../AmazonS3/latest/API/API_ListObjectsV2.md")                                              | List some or all of the objects in an Amazon S3 bucket (up to 1000)    | List         |
+| [ListBucketMultipartUploads](../../../AmazonS3/latest/API/API_ListMultipartUploads.md "../../../AmazonS3/latest/API/API_ListMultipartUploads.md")                | List in-progress multipart uploads                                     | List         |
+| [ListBucketVersions](../../../AmazonS3/latest/API/API_ListObjectVersions.md "../../../AmazonS3/latest/API/API_ListObjectVersions.md")                            | List metadata about all the versions of objects in an Amazon S3 bucket | List         |
+| [ListMultipartUploadParts](../../../AmazonS3/latest/API/API_ListParts.md "../../../AmazonS3/latest/API/API_ListParts.md")                                        | List the parts that have been uploaded for a specific multipart upload | List         |

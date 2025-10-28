@@ -1,0 +1,27 @@
+# Data retrieval APIs for AWS Mainframe Modernization Service
+
+AWS Mainframe Modernization Service provides the following APIs for data retrieval.
+
+| Actions                                                                                                                                                          | Description                                    | Access level |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------- | ------------ |
+| [GetApplication](../../../m2/latest/APIReference/API_GetApplication.md "../../../m2/latest/APIReference/API_GetApplication.md")                                  | Retrieve an application                        | Read         |
+| [GetApplicationVersion](../../../m2/latest/APIReference/API_GetApplicationVersion.md "../../../m2/latest/APIReference/API_GetApplicationVersion.md")             | Retrieve an application version                | Read         |
+| [GetBatchJobExecution](../../../m2/latest/APIReference/API_GetBatchJobExecution.md "../../../m2/latest/APIReference/API_GetBatchJobExecution.md")                | Retrieve a batch job execution                 | Read         |
+| [GetDataSetDetails](../../../m2/latest/APIReference/API_GetDataSetDetails.md "../../../m2/latest/APIReference/API_GetDataSetDetails.md")                         | Retrieve data set details                      | Read         |
+| [GetDataSetExportTask](../../../m2/latest/APIReference/API_GetDataSetExportTask.md "../../../m2/latest/APIReference/API_GetDataSetExportTask.md")                | Export a data set at the specified S3 location | Read         |
+| [GetDataSetImportTask](../../../m2/latest/APIReference/API_GetDataSetImportTask.md "../../../m2/latest/APIReference/API_GetDataSetImportTask.md")                | Retrieve a data set import task                | Read         |
+| [GetDeployment](../../../m2/latest/APIReference/API_GetDeployment.md "../../../m2/latest/APIReference/API_GetDeployment.md")                                     | Retrieve a deployment                          | Read         |
+| [GetEnvironment](../../../m2/latest/APIReference/API_GetEnvironment.md "../../../m2/latest/APIReference/API_GetEnvironment.md")                                  | Retrieve a runtime environment                 | Read         |
+| [GetSignedBluinsightsUrl](../../../m2/latest/APIReference/API_GetSignedBluinsightsUrl.md "../../../m2/latest/APIReference/API_GetSignedBluinsightsUrl.md")       | Create a signed Bluinsights url                | Read         |
+| [ListApplicationVersions](../../../m2/latest/APIReference/API_ListApplicationVersions.md "../../../m2/latest/APIReference/API_ListApplicationVersions.md")       | List the versions of an application            | Read         |
+| [ListApplications](../../../m2/latest/APIReference/API_ListApplications.md "../../../m2/latest/APIReference/API_ListApplications.md")                            | List applications                              | List         |
+| [ListBatchJobDefinitions](../../../m2/latest/APIReference/API_ListBatchJobDefinitions.md "../../../m2/latest/APIReference/API_ListBatchJobDefinitions.md")       | List batch job definitions                     | Read         |
+| [ListBatchJobExecutions](../../../m2/latest/APIReference/API_ListBatchJobExecutions.md "../../../m2/latest/APIReference/API_ListBatchJobExecutions.md")          | List executions for a batch job                | Read         |
+| [ListBatchJobRestartPoints](../../../m2/latest/APIReference/API_ListBatchJobRestartPoints.md "../../../m2/latest/APIReference/API_ListBatchJobRestartPoints.md") | Retrieve a batch job execution                 | Read         |
+| [ListDataSetExportHistory](../../../m2/latest/APIReference/API_ListDataSetExportHistory.md "../../../m2/latest/APIReference/API_ListDataSetExportHistory.md")    | List data set export history                   | Read         |
+| [ListDataSetImportHistory](../../../m2/latest/APIReference/API_ListDataSetImportHistory.md "../../../m2/latest/APIReference/API_ListDataSetImportHistory.md")    | List data set import history                   | Read         |
+| [ListDataSets](../../../m2/latest/APIReference/API_ListDataSets.md "../../../m2/latest/APIReference/API_ListDataSets.md")                                        | List data sets                                 | Read         |
+| [ListDeployments](../../../m2/latest/APIReference/API_ListDeployments.md "../../../m2/latest/APIReference/API_ListDeployments.md")                               | List deployments                               | Read         |
+| [ListEngineVersions](../../../m2/latest/APIReference/API_ListEngineVersions.md "../../../m2/latest/APIReference/API_ListEngineVersions.md")                      | List engine versions                           | Read         |
+| [ListEnvironments](../../../m2/latest/APIReference/API_ListEnvironments.md "../../../m2/latest/APIReference/API_ListEnvironments.md")                            | List runtime environments                      | List         |
+| [ListTagsForResource](../../../m2/latest/APIReference/API_ListTagsForResource.md "../../../m2/latest/APIReference/API_ListTagsForResource.md")                   | List tags for a resource                       | Read         |

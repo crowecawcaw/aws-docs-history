@@ -1,0 +1,11 @@
+# Data retrieval APIs for Amazon Resource Group Tagging API
+
+Amazon Resource Group Tagging API provides the following APIs for data retrieval.
+
+| Actions                                                                                                                                                                                       | Description                                                                                               | Access level |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- | ------------ |
+| [DescribeReportCreation](../../../resourcegroupstagging/latest/APIReference/API_DescribeReportCreation.md "../../../resourcegroupstagging/latest/APIReference/API_DescribeReportCreation.md") | Describe the status of the StartReportCreation operation                                                  | Read         |
+| [GetComplianceSummary](../../../resourcegroupstagging/latest/APIReference/API_GetComplianceSummary.md "../../../resourcegroupstagging/latest/APIReference/API_GetComplianceSummary.md")       | Retrieve a summary of how many resources are noncompliant with their effective tag policies               | Read         |
+| [GetResources](../../../resourcegroupstagging/latest/APIReference/API_GetResources.md "../../../resourcegroupstagging/latest/APIReference/API_GetResources.md")                               | Return tagged or previously tagged resources in the specified AWS Region for the calling account          | Read         |
+| [GetTagKeys](../../../resourcegroupstagging/latest/APIReference/API_GetTagKeys.md "../../../resourcegroupstagging/latest/APIReference/API_GetTagKeys.md")                                     | Returns tag keys currently in use in the specified AWS Region for the calling account                     | Read         |
+| [GetTagValues](../../../resourcegroupstagging/latest/APIReference/API_GetTagValues.md "../../../resourcegroupstagging/latest/APIReference/API_GetTagValues.md")                               | Return tag values for the specified key that are used in the specified AWS Region for the calling account | Read         |

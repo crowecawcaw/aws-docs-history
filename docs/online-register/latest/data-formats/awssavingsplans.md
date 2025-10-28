@@ -1,0 +1,11 @@
+# Data retrieval APIs for AWS Savings Plans
+
+AWS Savings Plans provides the following APIs for data retrieval.
+
+| Actions                                                                                                                                                                                                      | Description                                                                | Access level |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------- | ------------ |
+| [DescribeSavingsPlanRates](../../../savingsplans/latest/APIReference/API_DescribeSavingsPlanRates.md "../../../savingsplans/latest/APIReference/API_DescribeSavingsPlanRates.md")                            | Describe the rates associated with customers savings plan                  | Read         |
+| [DescribeSavingsPlans](../../../savingsplans/latest/APIReference/API_DescribeSavingsPlans.md "../../../savingsplans/latest/APIReference/API_DescribeSavingsPlans.md")                                        | Describe the savings plans associated with customers account               | Read         |
+| [DescribeSavingsPlansOfferingRates](../../../savingsplans/latest/APIReference/API_DescribeSavingsPlansOfferingRates.md "../../../savingsplans/latest/APIReference/API_DescribeSavingsPlansOfferingRates.md") | Describe the rates assciated with savings plans offerings                  | Read         |
+| [DescribeSavingsPlansOfferings](../../../savingsplans/latest/APIReference/API_DescribeSavingsPlansOfferings.md "../../../savingsplans/latest/APIReference/API_DescribeSavingsPlansOfferings.md")             | Describe the savings plans offerings that customer is eligible to purchase | Read         |
+| [ListTagsForResource](../../../savingsplans/latest/APIReference/API_ListTagsForResource.md "../../../savingsplans/latest/APIReference/API_ListTagsForResource.md")                                           | List tags for a savings plan                                               | List         |

@@ -1,0 +1,12 @@
+# Data retrieval APIs for AWS Application Transformation Service
+
+AWS Application Transformation Service provides the following APIs for data retrieval.
+
+| Actions                                                                                                                                                                                                       | Description                                                      | Access level |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- | ------------ |
+| [GetContainerization](../../../tk-dotnet-refactoring/latest/userguide/what-is-tk-dotnet-refactoring.md "../../../tk-dotnet-refactoring/latest/userguide/what-is-tk-dotnet-refactoring.md")                    | Get the details of all Containerization jobs                     | Read         |
+| [GetDeployment](../../../tk-dotnet-refactoring/latest/userguide/what-is-tk-dotnet-refactoring.md "../../../tk-dotnet-refactoring/latest/userguide/what-is-tk-dotnet-refactoring.md")                          | Get the details of all Deployment jobs                           | Read         |
+| [GetGroupingAssessment](../../../microservice-extractor/latest/userguide/what-is-microservice-extractor.md "../../../microservice-extractor/latest/userguide/what-is-microservice-extractor.md")              | Get the details of a Grouping Assessment Operation               | Read         |
+| [GetPortingCompatibilityAssessment](../../../microservice-extractor/latest/userguide/what-is-microservice-extractor.md "../../../microservice-extractor/latest/userguide/what-is-microservice-extractor.md")  | Get Porting Compatibility Operation                              | Read         |
+| [GetPortingRecommendationAssessment](../../../microservice-extractor/latest/userguide/what-is-microservice-extractor.md "../../../microservice-extractor/latest/userguide/what-is-microservice-extractor.md") | Get the details of a Porting Recommendation Assessment Operation | Read         |
+| [GetRuntimeAssessment](../../../microservice-extractor/latest/userguide/what-is-microservice-extractor.md "../../../microservice-extractor/latest/userguide/what-is-microservice-extractor.md")               | Get the details of a Runtime Assessment Operation                | Read         |

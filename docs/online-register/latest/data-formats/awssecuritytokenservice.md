@@ -1,0 +1,11 @@
+# Data retrieval APIs for AWS Security Token Service
+
+AWS Security Token Service provides the following APIs for data retrieval.
+
+| Actions                                                                                                                                       | Description                                                                                                                                               | Access level |
+| --------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ |
+| [GetAccessKeyInfo](../../../STS/latest/APIReference/API_GetAccessKeyInfo.md "../../../STS/latest/APIReference/API_GetAccessKeyInfo.md")       | Obtain details about the access key id passed as a parameter to the request                                                                               | Read         |
+| [GetCallerIdentity](../../../STS/latest/APIReference/API_GetCallerIdentity.md "../../../STS/latest/APIReference/API_GetCallerIdentity.md")    | Obtain details about the IAM identity whose credentials are used to call the API                                                                          | Read         |
+| [GetFederationToken](../../../STS/latest/APIReference/API_GetFederationToken.md "../../../STS/latest/APIReference/API_GetFederationToken.md") | Obtain a set of temporary security credentials (consisting of an access key ID, a secret access key, and a security token) for a federated user           | Read         |
+| [GetServiceBearerToken](../../../IAM/latest/UserGuide/id_credentials_bearer.md "../../../IAM/latest/UserGuide/id_credentials_bearer.md")      | Obtain a STS bearer token for an AWS root user, IAM role, or an IAM user                                                                                  | Read         |
+| [GetSessionToken](../../../STS/latest/APIReference/API_GetSessionToken.md "../../../STS/latest/APIReference/API_GetSessionToken.md")          | Obtain a set of temporary security credentials (consisting of an access key ID, a secret access key, and a security token) for an AWS account or IAM user | Read         |

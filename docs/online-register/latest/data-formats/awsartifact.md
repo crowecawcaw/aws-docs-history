@@ -1,0 +1,16 @@
+# Data retrieval APIs for AWS Artifact
+
+AWS Artifact provides the following APIs for data retrieval.
+
+| Actions                                                                                                                                                             | Description                                                                       | Access level |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | ------------ |
+| [GetAccountSettings](../../../artifact/latest/APIReference/API_GetAccountSettings.md "../../../artifact/latest/APIReference/API_GetAccountSettings.md")             | Get the account settings for Artifact                                             | Read         |
+| [GetAgreement](../../../artifact/latest/APIReference/API_GetAgreement.md "../../../artifact/latest/APIReference/API_GetAgreement.md")                               | Get an AWS agreement that has not yet been accepted by the customer account       | Read         |
+| [GetCustomerAgreement](../../../artifact/latest/APIReference/API_GetCustomerAgreement.md "../../../artifact/latest/APIReference/API_GetCustomerAgreement.md")       | Get an AWS agreement that has been accepted by the customer account               | Read         |
+| [GetNdaForAgreement](../../../artifact/latest/APIReference/API_GetNdaForAgreement.md "../../../artifact/latest/APIReference/API_GetNdaForAgreement.md")             | Retrieve the NDA Document for a given agreement resource                          | Read         |
+| [GetReport](../../../artifact/latest/APIReference/API_GetReport.md "../../../artifact/latest/APIReference/API_GetReport.md")                                        | Download a report                                                                 | Read         |
+| [GetReportMetadata](../../../artifact/latest/APIReference/API_GetReportMetadata.md "../../../artifact/latest/APIReference/API_GetReportMetadata.md")                | Download metadata associated with a report                                        | Read         |
+| [GetTermForReport](../../../artifact/latest/APIReference/API_GetTermForReport.md "../../../artifact/latest/APIReference/API_GetTermForReport.md")                   | Download a term associated with a report                                          | Read         |
+| [ListAgreements](../../../artifact/latest/APIReference/API_ListAgreements.md "../../../artifact/latest/APIReference/API_ListAgreements.md")                         | List AWS agreements                                                               | List         |
+| [ListCustomerAgreements](../../../artifact/latest/APIReference/API_ListCustomerAgreements.md "../../../artifact/latest/APIReference/API_ListCustomerAgreements.md") | List customer-agreement resources that have been accepted by the customer account | List         |
+| [ListReports](../../../artifact/latest/APIReference/API_ListReports.md "../../../artifact/latest/APIReference/API_ListReports.md")                                  | List reports in your account                                                      | List         |

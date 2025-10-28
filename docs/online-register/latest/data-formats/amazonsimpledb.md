@@ -1,0 +1,10 @@
+# Data retrieval APIs for Amazon SimpleDB
+
+Amazon SimpleDB provides the following APIs for data retrieval.
+
+| Actions                                                                                                                                                             | Description                                                                                                                                                 | Access level |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ |
+| [DomainMetadata](../../../AmazonSimpleDB/latest/DeveloperGuide/SDB_API_DomainMetadata.md "../../../AmazonSimpleDB/latest/DeveloperGuide/SDB_API_DomainMetadata.md") | Returns information about the domain, including when the domain was created, the number of items and attributes, and the size of attribute names and values | Read         |
+| [GetAttributes](../../../AmazonSimpleDB/latest/DeveloperGuide/SDB_API_GetAttributes.md "../../../AmazonSimpleDB/latest/DeveloperGuide/SDB_API_GetAttributes.md")    | Returns all of the attributes associated with the item                                                                                                      | Read         |
+| [ListDomains](../../../AmazonSimpleDB/latest/DeveloperGuide/SDB_API_ListDomains.md "../../../AmazonSimpleDB/latest/DeveloperGuide/SDB_API_ListDomains.md")          | Description for ListDomains                                                                                                                                 | List         |
+| [Select](../../../AmazonSimpleDB/latest/DeveloperGuide/SDB_API_Select.md "../../../AmazonSimpleDB/latest/DeveloperGuide/SDB_API_Select.md")                         | Description for Select                                                                                                                                      | Read         |

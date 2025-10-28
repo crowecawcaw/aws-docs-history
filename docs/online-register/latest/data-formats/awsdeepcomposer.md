@@ -1,0 +1,14 @@
+# Data retrieval APIs for AWS DeepComposer
+
+AWS DeepComposer provides the following APIs for data retrieval.
+
+| Actions                                                                                                                                                                                     | Description                                                                 | Access level |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------- | ------------ |
+| [GetComposition](../../../deepcomposer/latest/devguide/get-started-learn-from-pre-trained-models.md "../../../deepcomposer/latest/devguide/get-started-learn-from-pre-trained-models.md")   | Get information about the composition                                       | Read         |
+| [GetModel](../../../deepcomposer/latest/devguide/get-started-custom-model.md "../../../deepcomposer/latest/devguide/get-started-custom-model.md")                                           | Get information about the model                                             | Read         |
+| [GetSampleModel](../../../deepcomposer/latest/devguide/get-started-learn-from-pre-trained-models.md "../../../deepcomposer/latest/devguide/get-started-learn-from-pre-trained-models.md")   | Get information about the sample/pre-trained DeepComposer model             | Read         |
+| [ListCompositions](../../../deepcomposer/latest/devguide/get-started-learn-from-pre-trained-models.md "../../../deepcomposer/latest/devguide/get-started-learn-from-pre-trained-models.md") | List all the compositions owned by the sender of the request                | List         |
+| [ListModels](../../../deepcomposer/latest/devguide/get-started-custom-model.md "../../../deepcomposer/latest/devguide/get-started-custom-model.md")                                         | List all the models owned by the sender of the request                      | List         |
+| [ListSampleModels](../../../deepcomposer/latest/devguide/get-started-learn-from-pre-trained-models.md "../../../deepcomposer/latest/devguide/get-started-learn-from-pre-trained-models.md") | List all the sample/pre-trained models provided by the DeepComposer service | List         |
+| [ListTagsForResource](../../../deepcomposer/latest/devguide/deepcomposer-tagging.md "../../../deepcomposer/latest/devguide/deepcomposer-tagging.md")                                        | List tags for a resource                                                    | List         |
+| [ListTrainingTopics](../../../deepcomposer/latest/devguide/get-started-custom-model.md "../../../deepcomposer/latest/devguide/get-started-custom-model.md")                                 | List all the training options or topic for creating/training a model        | List         |
