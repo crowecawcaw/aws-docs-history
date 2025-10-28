@@ -1,0 +1,68 @@
+# Data encryption in Amazon Quick Suite
+
+Amazon Quick Suite uses the following data encryption features:
+
+- Encryption at rest
+- Encryption in transit
+- Key management
+  You can find more details about data encryption at rest and data encryption in transit in
+  the following topics. For more information about key management in Amazon Quick Suite see [Encrypting
+  Amazon Quick Suite SPICE datasets with AWS KMS customer-managed keys](customer-managed-keys.md "customer-managed-keys.md").
+
+###### Topics
+
+- [Encryption at rest](#data-encryption-at-rest "#data-encryption-at-rest")
+- [Encryption in transit](#data-encryption-in-transit "#data-encryption-in-transit")
+
+## Encryption at rest
+
+Amazon Quick Suite securely stores your Amazon Quick Suite metadata. This includes the following:
+
+- Amazon Quick Suite user data, including Amazon Quick Suite user names, email addresses, and passwords. Amazon Quick Suite
+  administrators can view user names and emails, but each user's password is completely
+  private to each user.
+- Minimal data necessary to coordinate user identification with your Microsoft Active
+  Directory or identity federation implementation (Federated Single Sign-On (IAM Identity Center)
+  through Security Assertion Markup Language 2.0 (SAML 2.0)).
+- Data source connection data.
+- Amazon Quick Suite data source credentials (username and password) or OAuth tokens to establish a
+  data source connection are encrypted with the customers default CMK when customer
+  registers a CMK with Amazon Quick Suite. If the customer does not register a CMK with Amazon Quick Suite, we will
+  continue to encrypt the information using a Amazon Quick Suite owned AWS KMS key.
+- Names of your uploaded files, data source names, and data set names.
+- Statistics that Amazon Quick Suite uses to populate machine learning (ML) insights.
+- Data indexed to support Amazon Q in Quick Suite. This includes the following:
+  - Topics
+  - Metadata related to your dashboards
+  - Your first index capacity purchase
+  - Your first chat
+  - Your first space creation
+  - Your first knowledge base creation
+
+###### Note
+
+Configure a CMK prior to creating the above. Otherwise, Q data will be encrypted by an
+AWS–owned key and cannot be changed later.
+
+Amazon Quick Suite securely stores your Amazon Quick Suite data. This includes the following:
+
+- Data-at-rest in SPICE is encrypted using hardware block-level
+  encryption with AWS-managed keys.
+- Data-at-rest other than SPICE is encrypted using Amazon-managed KMS
+  keys. This includes the following:
+  - Email reports
+  - Sample value for filters
+
+When you delete a user, all of that user's metadata is permanently deleted. If you don't
+transfer that user's Amazon Quick Suite objects to another user, all of the deleted user's Amazon Quick Suite objects
+(data sources, datasets, analyses, and so on) are also deleted. When you unsubscribe from
+Amazon Quick Suite, all metadata and any data you have in SPICE is completely and
+permanently deleted.
+
+## Encryption in transit
+
+Amazon Quick Suite supports encryption for all data transfers. This includes transfers from the data
+source to SPICE, or from SPICE to the user interface. However,
+encryption isn't mandatory. For some databases, you can choose whether transfers from the
+data source are encrypted or not. Amazon Quick Suite secures all encrypted transfers by using Secure
+Sockets Layer (SSL).

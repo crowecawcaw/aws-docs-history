@@ -1,0 +1,326 @@
+# Encrypting your Amazon Quick Suite data with
+
+AWS Key Management Service customer-managed keys
+
+Amazon Quick Suite enables you to encrypt your Amazon Quick Suite data with the keys you have
+stored in AWS Key Management Service. This provides you with the tools to audit access to data and satisfy
+regulatory security requirements. If you need to do so, you have the option to immediately
+lock down access to your data by revoking access to AWS KMS keys. All data access to encrypted
+resources in Amazon Quick Suite is logged in AWS CloudTrail. Administrators or auditors can trace data
+access in CloudTrail to identify when and where data was accessed.
+
+To create customer-managed keys (CMKs), you use AWS Key Management Service (AWS KMS) in the
+same AWS account and AWS Region as the Amazon Quick Suite resource. A Amazon Quick Suite administrator can
+then use a CMK to encrypt your Amazon Quick Suite data and control access.
+
+You can create and manage CMKs in the Amazon Quick Suite console or with the Amazon Quick Suite APIs. For
+more information about creating and managing CMKs with the Amazon Quick Suite APIs, see [Key
+management operations](../../../quicksight/latest/developerguide/cmk-operations.md "../../../quicksight/latest/developerguide/cmk-operations.md").
+
+The following rules apply to using CMKs with Amazon Quick Suite resources:
+
+- Amazon Quick Suite doesn't support asymmetric AWS KMS keys.
+- You can have multiple CMKs and one default CMK per AWS account per
+  AWS Region.
+- By default, Amazon Quick Suite resources are encrypted with Amazon Quick Suite–native
+  encryption strategies.
+- Data currently encrypted by a CMK key will stay encrypted by the key.
+
+###### Note
+
+If you use AWS Key Management Service with Amazon Quick Suite, you are billed for access and maintenance as
+described in the [AWS Key Management Service Pricing
+page](https://aws.amazon.com/kms/pricing "https://aws.amazon.com/kms/pricing"). In your billing statement, the costs are itemized under AWS KMS and not
+under Amazon Quick Suite.
+
+###### Note
+
+Amazon Q data is encrypted by an AWS managed key, not the default AWS KMS key.
+
+The key that is currently the default CMK is automatically used to encrypt
+the following:
+
+- New SPICE datasets. Existing datasets need to be fully refreshed to be encrypted
+  by the new default key.
+- New report artifacts generated through the dashboard snapshot API, scheduled
+  reports and exports, or dashboards.
+  All non-customer managed keys associated with Amazon Quick Suite are managed by AWS.
+
+Database server certificates that are not managed by AWS are the responsibility of the
+customer and should be signed by a trusted CA. For more information, see [Network and
+database configuration requirements](configure-access.md "configure-access.md").
+
+Use the following topics to learn more about using CMKs with Amazon Quick Suite. To learn more
+about data encryption in Amazon Quick Suite see [Data
+protection in Amazon Quick Suite](sec-data-protection.md "sec-data-protection.md").
+
+###### Topics
+
+- [Add a CMK to your account](#customer-managed-keys-create-key "#customer-managed-keys-create-key")
+- [Verify the key used by
+  Amazon Quick Suite](#customer-managed-keys-verify-key "#customer-managed-keys-verify-key")
+- [Changing the default
+  CMK](#customer-managed-keys-change-default-key "#customer-managed-keys-change-default-key")
+- [Removing CMK encryption on your Amazon Quick Suite
+  account](#customer-managed-keys-remove-cmks "#customer-managed-keys-remove-cmks")
+- [Auditing CMK usage in CloudTrail](#customer-managed-key-audit "#customer-managed-key-audit")
+- [Revoking access to a
+  CMK](#customer-managed-key-revoke-access "#customer-managed-key-revoke-access")
+- [Recovering encrypted
+  Amazon Quick Suite data](#customer-managed-key-recovery "#customer-managed-key-recovery")
+
+## Add a CMK to your account
+
+Before you begin, make sure that you have an IAM role that grants the admin user
+access to the Amazon Quick Suite admin key management console. For more information on the
+required permissions, see [IAM identity-based policies for Amazon Quick Suite: using the admin
+key management console](../../../quicksight/latest/user/iam-policy-examples.md#security_iam_id-based-policy-examples-admin-key-management-console "../../../quicksight/latest/user/iam-policy-examples.md#security_iam_id-based-policy-examples-admin-key-management-console").
+
+You can add keys that already exist in AWS KMS to your Amazon Quick Suite account,
+so that you can encrypt your Amazon Quick Suite data.
+
+To learn more about how you can create a key to use in Amazon Quick Suite, see the [AWS Key
+Management Service Developer Guide](../../../kms/latest/developerguide/overview.md "../../../kms/latest/developerguide/overview.md").
+
+###### To add a new CMK to your Amazon Quick Suite account.
+
+1. On the Amazon Quick Suite start page, choose **Manage Amazon Quick Suite**, and
+   then choose **KMS keys**.
+2. On the **KMS keys** page, choose **Manage**.
+   The **KMS keys** dashboard opens.
+3. On the **KMS Keys** dashboard, choose **Select
+   key**.
+4. On the **Select key** pop-up box, choose
+   **Key** to open the list. Then, select the key that you
+   want to add.
+
+If your key isn't in the list, you can manually enter the key's ARN. 5. (Optional) Select the **Use as default encryption key
+for all new data in the current region of this Amazon Quick Suite account**
+to set the selected key as your default key. A badge appears next to the default
+key to indicate its status.
+
+When you choose a default key, all new data that is created in
+the region that hosts your Amazon Quick Suite account is encrypted with the default
+key. 6. (Optional) Add more keys by repeating the previous steps in this procedure.
+While you can add as many keys as you want, you can only have one default key at
+one time.
+
+## Verify the key used by
+
+Amazon Quick Suite
+
+When a key is used, an audit log is created in AWS CloudTrail. You can use the
+log to track the key's usage. If you need to know which key the Amazon Quick Suite data is
+encrypted by, you can find this information in CloudTrail.
+
+To learn more about which data can be managed with the key, see [Encrypting your Amazon Quick Suite data with
+AWS Key Management Service customer-managed keys](customer-managed-keys.md "customer-managed-keys.md").
+
+###### Verify the CMK that's currently used by a SPICE
+
+dataset
+
+1. Navigate to your CloudTrail log. For more information, see [Logging Amazon Quick Suite information with CloudTrail](../../../quicksight/latest/user/logging-using-cloudtrail.md "../../../quicksight/latest/user/logging-using-cloudtrail.md").
+2. Locate the most recent grant events for the SPICE
+   dataset, using the following search arguments:
+   - The event name (`eventName`) contains
+     `Grant`.
+   - The request parameters `requestParameters` contain the
+     Amazon Quick Suite ARN for the dataset.
+
+```
+{
+"eventVersion": "1.08",
+"userIdentity": {
+"type": "AWSService",
+"invokedBy": "quicksight.amazonaws.com"
+},
+"eventTime": "2022-10-26T00:11:08Z",
+"eventSource": "kms.amazonaws.com",
+"eventName": "`CreateGrant`",
+"awsRegion": "us-west-2",
+"sourceIPAddress": "quicksight.amazonaws.com",
+"userAgent": "quicksight.amazonaws.com",
+"requestParameters": {
+"constraints": {
+    "encryptionContextSubset": {
+        "aws:quicksight:arn": "arn:aws:quicksight:us-west-2:111122223333:`dataset/12345678-1234-1234-1234-123456789012`"
+    }
+},
+"retiringPrincipal": "quicksight.amazonaws.com",
+"keyId": "arn:aws:kms:us-west-2:111122223333:`key/87654321-4321-4321-4321-210987654321`",
+"granteePrincipal": "quicksight.amazonaws.com",
+"operations": [
+    "Encrypt",
+    "Decrypt",
+    "DescribeKey",
+    "GenerateDataKey"
+]
+},
+....
+}
+```
+
+3. Depending on the event type, one of the following applies:
+
+`CreateGrant` –
+You can find the most recently used CMK in the key ID (`keyID`) for
+the last `CreateGrant` event for the SPICE dataset.
+
+`RetireGrant` –
+If latest CloudTrail event of the SPICE datasets is
+`RetireGrant`, there is no key ID and the resource is no longer
+CMK encrypted.
+
+###### Verify the CMK that's currently used when generating report artifacts
+
+1. Navigate to your CloudTrail log. For more information, see [Logging Amazon Quick Sight information with
+   AWS CloudTrail](incident-response-logging-and-monitoring-qs.md#logging-using-cloudtrail "incident-response-logging-and-monitoring-qs.md#logging-using-cloudtrail").
+2. Locate the most recent `GenerateDataKey` events for the report
+   execution, using the following search arguments:
+   - The event name (`eventName`) contains
+     `GenerateDataKey` or `Decrypt`.
+   - The request parameters (`requestParameters`) contain the
+     Amazon Quick Suite ARN for the analysis or dashboard the report was generated
+     for.
+
+```
+{
+    "eventVersion": "1.11",
+    "userIdentity": {
+        "type": "AWSService",
+        "invokedBy": "quicksight.amazonaws.com"
+    },
+    "eventTime": "2025-07-23T23:33:46Z",
+    "eventSource": "kms.amazonaws.com",
+    "eventName": "`GenerateDataKey`",
+    "awsRegion": "us-west-2",
+    "sourceIPAddress": "quicksight.amazonaws.com",
+    "userAgent": "quicksight.amazonaws.com",
+    "requestParameters": {
+        "keyId": "arn:aws:kms:us-west-2:111122223333`:key/87654321-4321-4321-4321-210987654321`",
+        "keySpec": "AES_256",
+        "encryptionContext": {
+            "aws:quicksight:arn": "arn:aws:quicksight:us-west-2:111122223333:`dashboard/1ca456fe-eb34-4250-805c-b1b9350bd164`",
+            "aws:s3:arn": "arn:aws:s3:::sn-imagegen.prod.us-west-2"
+        }
+    },
+    ...
+}
+```
+
+3. `aws:s3:arn` is the Amazon Quick Suite owned S3 bucket where your report
+   artifacts are stored.
+4. If you no longer see `GenerateDataKey`, then new report executions
+   are no longer CMK encrypted. Exisiting report artifacts will remain
+   encrypted.
+
+## Changing the default
+
+CMK
+
+You can change the default key to another key that already exists in the
+**KMS keys** dashboard. When you change the default key, all new
+Amazon Quick Suite data is encrypted on the new key. The new default key changes how new
+Amazon Quick Suite data is encrypted. However, existing Amazon Quick Suite data will continue to use the
+previous default key.
+
+To learn more about which data can be managed with the key, see [Encrypting your Amazon Quick Suite data with
+AWS Key Management Service customer-managed keys](customer-managed-keys.md "customer-managed-keys.md").
+
+###### To change the default key to an existing key
+
+1. On the Amazon Quick Suite start page, choose **Manage Amazon Quick Suite**, and
+   then choose **KMS keys**.
+2. Choose **MANAGE** to open the **KMS keys**
+   dashboard.
+3. Navigate to the key that you want to set as your new default. Choose
+   **Actions** (three dots) on the row of the key that you
+   want to open the key's menu.
+4. Choose **Set as default**, and then choose
+   **Set**.
+
+###### Note
+
+The Q data key cannot be changed. Q data will remain encrypted with the current
+default key. In the event that this key is compromised, you can [revoke access to it](#customer-managed-key-revoke-access "#customer-managed-key-revoke-access").
+
+The selected key is now your default key.
+
+## Removing CMK encryption on your Amazon Quick Suite
+
+account
+
+You can remove the default key to disable data encryption in your
+Amazon Quick Suite account. Removing the key prevents new resources from encrypting on a CMK.
+
+###### To remove CMK encryption for new Amazon Quick Suite data
+
+1. On the Amazon Quick Suite start page, choose **Manage Amazon Quick Suite**, and
+   then choose **KMS keys**.
+2. On the **KMS keys** page, choose **Manage**
+   to open the **KMS keys** dashboard.
+3. Choose **Actions** (three dots) on the row of the default
+   key, and then choose **Delete**.
+4. In the pop-up box that appears, choose **Remove**.
+
+After you delete the default key from your account, Amazon Quick Suite stops
+encrypting new Amazon Quick Suite data. Any existing encrypted data will remain encrypted. Q data
+remains encrypted because the Q data key cannot be changed. In the event that the
+deleted key is compromised, you can [revoke access to it](#customer-managed-key-revoke-access "#customer-managed-key-revoke-access").
+
+## Auditing CMK usage in CloudTrail
+
+You can audit your account's CMK usage in AWS CloudTrail. To audit your key usage, log in to
+your AWS account, open CloudTrail, and choose **Event history**.
+
+## Revoking access to a
+
+CMK
+
+You can revoke access to your CMKs. When you revoke access to a key that
+is used to encrypt your Amazon Quick Suite data, access to it is denied until you undo the
+revoke. The following methods are examples of how you can revoke access:
+
+- Turn off the key in AWS KMS.
+- Add a `Deny` policy to your Amazon Quick Suite AWS KMS policy in IAM.
+
+To learn more about which data can be managed with the key, see [Encrypting your Amazon Quick Suite data with
+AWS Key Management Service customer-managed keys](customer-managed-keys.md "customer-managed-keys.md").
+
+Use the following procedure to revoke access to your CMKs in
+AWS KMS.
+
+###### To turn off a CMK in AWS Key Management Service
+
+1. Log in to your AWS account, open AWS KMS, and choose **Customer
+   managed keys**.
+2. Select the key that you want to turn off.
+3. Open the **Key actions** menu and choose
+   **Disable**.
+
+To prevent further use of the CMK, you could add a `Deny` policy in
+AWS Identity and Access Management (IAM). Use `"Service": "quicksight.amazonaws.com"` as the
+principal and the ARN of the key as the resource. Deny the following actions:
+`"kms:Encrypt", "kms:Decrypt", "kms:ReEncrypt*", "kms:GenerateDataKey*",
+ "kms:DescribeKey"`.
+
+###### Important
+
+After you revoke access by using any method, it can take up to 15
+minutes for the data to become inaccessible.
+
+## Recovering encrypted
+
+Amazon Quick Suite data
+
+###### To recover Amazon Quick Suite data while its access is revoked
+
+1. Restore access to the CMK. Usually, this is enough to recover
+   the Amazon Quick Suite data.
+2. Test the Amazon Quick Suite data to check if you can see it.
+3. (Optional) If the data is not fully recovered, even after you
+   restored its access to the CMK, perform a full refresh on the data.
+
+To learn more about which data can be managed with the key, see [Encrypting your Amazon Quick Suite data with
+AWS Key Management Service customer-managed keys](customer-managed-keys.md "customer-managed-keys.md").

@@ -1,0 +1,66 @@
+# periodToDatePercentileCont
+
+The `periodToDatePercentileCont` function calculates percentile based on a
+continuous distribution of the numbers in the measure for a given time granularity (for
+instance, a quarter) up to a point in time in that period. It uses the grouping and
+sorting that are applied in the field wells.
+
+To return an exact percentile value that might not be present in your dataset, use
+`periodToDatePercentileCont`. To return the nearest percentile value that
+is present in your dataset, use `periodToDatePercentile` instead.
+
+## Syntax
+
+```
+periodToDatePercentileCont(*measure,
+ percentile,
+ dateTime,
+ period,
+ endDate (optional)*)
+```
+
+## Arguments
+
+_measure_
+
+The argument must be a field. Null values are omitted from the
+results. Literal values don't work.
+
+_percentile_
+
+The percentile value can be any numeric constant 0-100. A percentile
+of 50 computes the median value of the measure.
+
+_dateTime_
+
+The Date dimension over which you're computing PeriodToDate
+aggregations.
+
+_period_
+
+The time period across which you're computing the computation.
+Granularity of `YEAR` means `YearToDate`
+computation, `Quarter` means `QuarterToDate`, and
+so on. Valid granularities include `YEAR`,
+`QUARTER`, `MONTH`, `WEEK`,
+`DAY`, `HOUR`, `MINUTE`, and
+`SECONDS`.
+
+_endDate_
+
+(Optional) The date dimension that you're ending computing
+periodToDate aggregations. It defaults to `now()` if
+omitted.
+
+## Example
+
+The following example calculates the week-to-date, 90th percentile of fare amount
+per payment type for the week of 06-30-21. For simplicity in the example, we
+filtered out only a single payment. 06-30-21 is Wednesday. Quick Suite begins
+the week on Sundays. In our example, that is 06-27-21.
+
+```
+periodToDatePercentileCont(fare_amount, 90, pickupDatetime, WEEK, parseDate("06-30-2021", "MM-dd-yyyy"))
+```
+
+![This is an image of the return from the example calculation.](images/PTDContPercentileResults.png)
