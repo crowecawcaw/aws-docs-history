@@ -1,0 +1,168 @@
+# Create a permission set
+
+Use this procedure to create a predefined permission set that uses a single
+AWS managed policy, or a custom permission set that uses up to 10 AWS
+managed or customer managed policies and an inline policy. You can request an
+adjustment to the maximum number of 10 policies in the [Service Quotas console](https://console.aws.amazon.com/servicequotas "https://console.aws.amazon.com/servicequotas") for IAM. You can create a
+permission set in the IAM Identity Center console.
+
+###### Note
+
+To use permission sets, you'll need to use an Organization instance of
+IAM Identity Center. For more information, see [Organization and account instances of IAM Identity Center](identity-center-instances.md "identity-center-instances.md").
+
+###### To create a permission set
+
+1. Open the [IAM Identity Center console](https://console.aws.amazon.com/singlesignon "https://console.aws.amazon.com/singlesignon").
+2. Under **Multi-account permissions**, choose
+   **Permission sets**.
+3. Choose **Create permission set**.
+4. On the **Select permission set type** page, under
+   **Permission set type**, select a permission set
+   type.
+5. Choose one or more policies that you want to use for the permission
+   set, based on the permission set type:
+   - **Predefined permission set**
+     1. Under **Policy for predefined permission
+        set**, select one of the IAM
+        **Job function policies** or
+        **Common permission policies** in
+        the list, and then choose **Next**. For
+        more information, see [AWS managed policies for job functions](../../../IAM/latest/UserGuide/access_policies_job-functions.md "../../../IAM/latest/UserGuide/access_policies_job-functions.md")
+        and [AWS managed policies](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies") in the _AWS Identity and Access Management User
+        Guide_.
+     2. Go to Step 6 to complete the **Specify permission set details**
+        page.
+
+   - **Custom permission set**
+     1. Choose **Next**.
+     2. On the **Specify policies and permission
+        boundary** page, choose the types of IAM
+        policies that you want to apply to your new permission
+        set. By default, you can add any combination of up to 10
+        **AWS managed policies** and
+        **Customer managed policies** to
+        your permission set. This quota is set by IAM. To
+        raise it, request an increase to the IAM quota
+        _Managed policies attached to an IAM
+        role_ in the Service Quotas console in each
+        AWS account where you want to assign the permission
+        set.
+        - Expand **AWS managed
+          policies** to add policies from IAM
+          that AWS builds and maintains. For more
+          information, see [AWS managed policies](permissionsetcustom.md#permissionsetsampconcept "permissionsetcustom.md#permissionsetsampconcept").
+          1. Search for and choose **AWS
+             managed policies** that you want to apply
+             to your users in the permission set.
+          2. If you want to add another type of policy,
+             choose its container and make your selection.
+             Choose **Next** when you've
+             chosen all the policies that you want to apply. Go
+             to Step 6 to complete the **Specify permission set details**
+             page.
+
+        - Expand **Customer managed
+          policies** to add policies from IAM
+          that you build and maintain. For more information,
+          see [Customer managed policies](permissionsetcustom.md#permissionsetscmpconcept "permissionsetcustom.md#permissionsetscmpconcept").
+          1. Choose **Attach policies**
+             and enter the name of a policy that you want to
+             add to your permission set. In each account where
+             you want to assign the permission set, create a
+             policy with the name you entered. As a best
+             practice, assign the same permissions to the
+             policy in each account.
+          2. Choose **Attach more** to
+             add another policy.
+          3. If you want to add another type of policy,
+             choose its container and make your selection.
+             Choose **Next** when you've
+             chosen all the policies that you want to apply. Go
+             to Step 6 to complete the **Specify permission set details**
+             page.
+
+        - Expand **Inline policy** to
+          add custom JSON-formatted policy text. Inline
+          policies do not correspond to existing IAM
+          resources. To create an inline policy, enter
+          custom policy language in the provided form. IAM Identity Center
+          adds the policy to the IAM resources that it
+          creates in your member accounts. For more
+          information, see [Inline policies](permissionsetcustom.md#permissionsetsinlineconcept "permissionsetcustom.md#permissionsetsinlineconcept").
+          1. Add your desired actions and resources
+             within the interactive editor to your inline
+             policy. Additional statements can be added with
+             **Add new statement**.
+          2. If you want to add another type of policy,
+             choose its container and make your selection.
+             Choose **Next** when you've
+             chosen all the policies that you want to apply. Go
+             to Step 6 to complete the **Specify permission set details**
+             page.
+
+        - Expand **Permissions
+          boundary** to add an AWS managed or
+          customer managed IAM policy as the maximum
+          permissions that your other policies in the
+          permission set can assign. For more information,
+          see [Permissions boundaries](permissionsetcustom.md#permissionsetsboundaryconcept "permissionsetcustom.md#permissionsetsboundaryconcept").
+          1. Choose **Use a permissions boundary
+             to control the maximum
+             permissions**.
+          2. Choose **AWS managed
+             policy** to set a policy from IAM that
+             _AWS_ builds and maintains as
+             your permissions boundary. Chose
+             **Customer managed policies** to
+             set a policy from IAM that _you_ build and maintain as
+             your permissions boundary.
+          3. If you want to add another type of policy,
+             choose its container and make your selection.
+             Choose **Next** when you've
+             chosen all the policies that you want to apply. Go
+             to Step 6 to complete the **Specify permission set details**
+             page.
+
+6. On the **Specify permission set details** page, do
+   the following:
+   1. Under **Permission set name**, type a name to
+      identify this permission set in IAM Identity Center. The name that you specify
+      for this permission set appears in the AWS access portal as an
+      available role. Users sign into the AWS access portal, choose an
+      AWS account, and then choose the role.
+
+   ###### Note
+
+   Permission set names must be unique within your IAM Identity Center
+   instance. 2. (Optional) You can also type a description. The description
+   appears in the IAM Identity Center console only, not the AWS access portal. 3. (Optional) Specify the value for **Session
+   duration**. This value determines the length of
+   time that a user can be logged on before the console logs them
+   out of their session. For more information, see [Set session duration for
+   AWS accounts](howtosessionduration.md "howtosessionduration.md"). 4. (Optional) Specify the value for **Relay
+   state**. This value is used in the federation
+   process to redirect users within the account. For more
+   information, see [Set relay state for quick access to the
+   AWS Management Console](howtopermrelaystate.md "howtopermrelaystate.md").
+
+   ###### Note
+
+   The relay state URL must be within the AWS Management Console. For
+   example:
+
+   `https://console.aws.amazon.com/ec2/` 5. Expand **Tags (optional)**, choose
+   **Add tag**, and then specify values for
+   **Key** and **Value
+   (optional)**.
+
+   For information about tags, see [Tagging AWS IAM Identity Center resources](tagging.md "tagging.md"). 6. Choose **Next**.
+
+7. On the **Review and create** page, review the
+   selections that you made, and then choose
+   **Create**.
+8. By default, when you create a permission set, the permission set isn't
+   provisioned (used in any AWS accounts). To provision a permission set
+   in an AWS account, you must assign IAM Identity Center access to users and groups in
+   the account, and then apply the permission set to those users and
+   groups. For more information, see [Assign user or group access to AWS accounts](assignusers.md "assignusers.md").
