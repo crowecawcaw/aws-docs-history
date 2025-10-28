@@ -1,0 +1,133 @@
+# Customize IAM roles with Amazon EMR
+
+You may want to customize the IAM service roles and permissions to limit privileges
+according to your security requirements. To customize permissions, we recommend that you
+create new roles and policies. Begin with the permissions in the managed policies for
+the default roles (for example, `AmazonElasticMapReduceforEC2Role` and
+`AmazonElasticMapReduceRole`). Then, copy and paste the contents to new
+policy statements, modify the permissions as appropriate, and attach the modified
+permissions policies to the roles that you create. You must have the appropriate IAM
+permissions to work with roles and policies. For more information, see [Allow users and groups to create and
+modify roles](emr-iam-roles-create-permissions.md "emr-iam-roles-create-permissions.md").
+
+If you create a custom EMR role for EC2, follow the basic work flow, which automatically creates an instance profile of the same name. Amazon EC2 allows you to create instance profiles and roles with different names, but Amazon EMR does not support this configuration, and it results in an "invalid instance profile" error when you create the cluster.
+
+###### Important
+
+Inline policies are not automatically updated when service requirements change. If you create and attach inline policies, be aware that service updates might occur that suddenly cause permissions errors. For more
+information, see [Managed
+Policies and Inline Policies](../../../IAM/latest/UserGuide/policies_managed-vs-inline.md "../../../IAM/latest/UserGuide/policies_managed-vs-inline.md") in the _IAM User Guide_
+and [Specify custom IAM roles when you
+create a cluster](#emr-iam-roles-launch-jobflow "#emr-iam-roles-launch-jobflow").
+
+For more information about working with IAM roles, see the
+following topics in the _IAM User Guide_:
+
+- [Creating a role to
+  delegate permissions to an AWS service](../../../IAM/latest/UserGuide/id_roles_create_for-service.md "../../../IAM/latest/UserGuide/id_roles_create_for-service.md")
+- [Modifying a role](../../../IAM/latest/UserGuide/modifying-role.md "../../../IAM/latest/UserGuide/modifying-role.md")
+- [Deleting a role](../../../IAM/latest/UserGuide/deleting-roles.md "../../../IAM/latest/UserGuide/deleting-roles.md")
+
+## Specify custom IAM roles when you
+
+create a cluster
+
+You specify the service role for Amazon EMR and the role for the Amazon EC2 instance profile
+when you create a cluster. The user who is creating clusters needs permissions to
+retrieve and assign roles to Amazon EMR and EC2 instances. Otherwise, a **account
+is not authorized to call EC2** error occurs. For more information, see
+[Allow users and groups to create and
+modify roles](emr-iam-roles-create-permissions.md "emr-iam-roles-create-permissions.md").
+
+### Use the console to specify custom
+
+roles
+
+When you create a cluster, you can specify a custom service role for Amazon EMR, a
+custom role for the EC2 instance profile, and a custom Auto Scaling role using
+**Advanced options**. When you use **Quick
+options**, the default service role and the default role for the
+EC2 instance profile are specified. For more information, see [IAM service roles used by Amazon EMR](emr-iam-service-roles.md "emr-iam-service-roles.md").
+
+Console
+
+###### To specify custom IAM roles with the console
+
+When you create a cluster with the console, you must
+specify a custom service role for Amazon EMR and a custom role for
+the EC2 instance profile. For more information, see [IAM service roles used by Amazon EMR](emr-iam-service-roles.md "emr-iam-service-roles.md").
+
+1. Sign in to the AWS Management Console, and open the Amazon EMR console at
+   [https://console.aws.amazon.com/emr](https://console.aws.amazon.com/emr "https://console.aws.amazon.com/emr").
+2. Under **EMR on EC2** in the left
+   navigation pane, choose **Clusters**, and
+   then choose **Create cluster**.
+3. Under **Security configuration and
+   permissions**, find the **IAM role
+   for instance profile** and **Service
+   role for Amazon EMR** fields. For each role type,
+   select a role from the list. Only roles within your account
+   that have the appropriate trust policy for that role type
+   are listed.
+4. Choose any other options that apply to your cluster.
+5. To launch your cluster, choose **Create
+   cluster**.
+
+### Use the AWS CLI to specify custom
+
+roles
+
+You can specify a service role for Amazon EMR and a service role for cluster EC2 instances explicitly
+using options with the `create-cluster` command from the AWS CLI. Use the
+`--service-role` option to specify the service role. Use the
+`InstanceProfile` argument of the `--ec2-attributes`
+option to specify the role for the EC2 instance profile.
+
+The Auto Scaling role is specified using a separate option,
+`--auto-scaling-role`. For more information, see [Using automatic scaling with a custom policy for
+instance groups in Amazon EMR](emr-automatic-scaling.md "emr-automatic-scaling.md").
+
+###### To specify custom IAM roles using the AWS CLI
+
+- The following command specifies the custom service role,
+  `MyCustomServiceRoleForEMR`,
+  and a custom role for the EC2 instance profile,
+  `MyCustomServiceRoleForClusterEC2Instances`,
+  when launching a cluster. This example uses the default Amazon EMR role.
+
+###### Note
+
+Linux line continuation characters (\) are included for readability. They can be removed or used in Linux commands. For Windows, remove them or replace with a caret (^).
+
+```
+aws emr create-cluster --name "Test cluster" --release-label `emr-7.10.0` \
+--applications Name=Hive Name=Pig --service-role `MyCustomServiceRoleForEMR` \
+--ec2-attributes InstanceProfile=`MyCustomServiceRoleForClusterEC2Instances`,\
+KeyName=myKey --instance-type m5.xlarge --instance-count 3
+```
+
+You can use these options to specify default roles explicitly rather than using
+the `--use-default-roles` option. The `--use-default-roles`
+option specifies the service role and the role for the EC2 instance profile defined
+in the `config` file for the AWS CLI.
+
+The following example demonstrates the contents of a `config` file for
+the AWS CLI the specifies custom roles for Amazon EMR. With this configuration file, when
+the `--use-default-roles` option is specified, the cluster is created
+using the `MyCustomServiceRoleForEMR` and
+`MyCustomServiceRoleForClusterEC2Instances`.
+By default, the `config` file specifies the default
+`service_role` as `AmazonElasticMapReduceRole` and the
+default `instance_profile` as `EMR_EC2_DefaultRole`.
+
+```
+[default]
+output = json
+region = us-west-1
+aws_access_key_id = `myAccessKeyID`
+aws_secret_access_key = `mySecretAccessKey`
+emr =
+     service_role = `MyCustomServiceRoleForEMR`
+     instance_profile = `MyCustomServiceRoleForClusterEC2Instances`
+
+```
