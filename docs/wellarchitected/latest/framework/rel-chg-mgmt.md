@@ -1,0 +1,26 @@
+# Change management
+
+Changes to your workload or its environment must be anticipated
+and accommodated to achieve reliable operation of the workload.
+Changes include those imposed on your workload, such as spikes in
+demand, and also those from within, such as feature deployments
+and security patches.
+
+Using AWS, you can monitor the behavior of a workload and automate
+the response to KPIs. For example, your workload can add
+additional servers as a workload gains more users. You can control
+who has permission to make workload changes and audit the history
+of these changes.
+
+The following questions focus on these considerations for
+reliability.
+
+| REL 6:  How do you monitor workload resources?                                                                                                                                                                                                                                                                                                                                             |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Logs and metrics are powerful tools to gain insight into the health of your workload. You can configure your workload to monitor logs and metrics and send notifications when thresholds are crossed or significant events occur. Monitoring allows your workload to recognize when low-performance thresholds are crossed or failures occur, so it can recover automatically in response. |
+| REL 7:  How do you design your workload to adapt to changes in demand?                                                                                                                                                                                                                                                                                                                     |
+| ---                                                                                                                                                                                                                                                                                                                                                                                        |
+| A scalable workload provides elasticity to add or remove resources automatically so that they closely match the current demand at any given point in time.                                                                                                                                                                                                                                 |
+| REL 8:  How do you implement change?                                                                                                                                                                                                                                                                                                                                                       |
+| ---                                                                                                                                                                                                                                                                                                                                                                                        |
+| Controlled changes are necessary to deploy new functionality, and to verify that the workloads and the operating environment are running known software and can be patched or replaced in a predictable manner. If these changes are uncontrolled, then it makes it difficult to predict the effect of these changes, or to address issues that arise because of them.                     | When you architect a workload to automatically add and remove resources in response to changes in demand, this not only increases reliability but also validates that business success doesn't become a burden. With monitoring in place, your team will be automatically alerted when KPIs deviate from expected norms. Automatic logging of changes to your environment permits you to audit and quickly identify actions that might have impacted reliability. Controls on change management certify that you can enforce the rules that deliver the reliability you need. |
