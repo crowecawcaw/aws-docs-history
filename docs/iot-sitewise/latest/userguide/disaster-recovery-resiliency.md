@@ -1,0 +1,27 @@
+# Resilience in AWS IoT SiteWise
+
+The AWS global infrastructure is built around AWS Regions and Availability Zones.
+AWS Regions provide multiple physically separated and isolated Availability Zones, which
+are connected with low-latency, high-throughput, and highly redundant networking. With
+Availability Zones, you can design and operate applications and databases that automatically
+fail over between zones without interruption. Availability Zones are more highly available,
+fault tolerant, and scalable than traditional single or multiple data center
+infrastructures.
+
+AWS IoT SiteWise is fully managed and uses highly available and durable AWS services, such as Amazon S3 and Amazon EC2.
+To ensure availability in the event of an availability zone disruption, AWS IoT SiteWise operates across multiple availability zones.
+
+For more information about AWS Regions and Availability Zones, see [AWS Global
+Infrastructure](https://aws.amazon.com/about-aws/global-infrastructure/ "https://aws.amazon.com/about-aws/global-infrastructure/").
+
+In addition to the AWS global infrastructure, AWS IoT SiteWise offers several features to
+help support your data resiliency and backup needs:
+
+- You can publish property value updates to AWS IoT Core through MQTT messages, then
+  configure rules to act upon that data. With this feature, you can back up data in
+  other AWS services such as Amazon S3 and Amazon DynamoDB. For more information, see [Interact with other AWS services](interact-with-other-services.md "interact-with-other-services.md") and [Export data to Amazon S3 with asset property notifications](export-to-s3.md "export-to-s3.md").
+- You can use the AWS IoT SiteWise `Get*` APIs to retrieve and backup historical
+  asset property data. For more information, see [Query historical asset property values in AWS IoT SiteWise](historical-values.md "historical-values.md").
+- You can use the AWS IoT SiteWise `Describe*` APIs to retrieve the definitions for
+  your resources, such as assets and models. You can backup these definitions and
+  later use them to recreate your resources. For more information, see the [_AWS IoT SiteWise API Reference_](../APIReference.md "../APIReference.md").
