@@ -1,0 +1,22 @@
+# Security
+
+## Security and Compliance
+
+### Consider S3 with KMS for encryption-compliant storage
+
+Unless you specify otherwise, all S3 buckets use [SSE-S3](../../../AmazonS3/latest/userguide/UsingServerSideEncryption.md "../../../AmazonS3/latest/userguide/UsingServerSideEncryption.md") by default to encrypt objects at rest.
+However, you can choose to configure buckets to use server-side encryption with AWS Key Management Service (AWS KMS) keys (SSE-KMS) instead. The security controls in AWS KMS can help you meet encryption-related compliance requirements. You can use these KMS keys to protect your data in Amazon S3 buckets. When you use SSE-KMS encryption with an S3 bucket, the AWS KMS keys must be in the same Region as the bucket.
+
+Configure your [general purpose buckets](../../../AmazonS3/latest/userguide/UsingBucket.md "../../../AmazonS3/latest/userguide/UsingBucket.md") to use [S3 Bucket Keys for SSE-KMS](../../../AmazonS3/latest/userguide/UsingKMSEncryption.md#sse-kms-bucket-keys "../../../AmazonS3/latest/userguide/UsingKMSEncryption.md#sse-kms-bucket-keys"), to reduce your AWS KMS request costs by up to 99 percent by decreasing the request traffic from Amazon S3 to AWS KMS. S3 Bucket Keys [are always enabled](../../../AmazonS3/latest/userguide/s3-express-UsingKMSEncryption.md#s3-express-sse-kms-bucket-keys "../../../AmazonS3/latest/userguide/s3-express-UsingKMSEncryption.md#s3-express-sse-kms-bucket-keys") for `GET` and `PUT` operations in a directory bucket and can’t be disabled.
+
+Note that [Amazon S3 Express One Zone](https://aws.amazon.com/s3/storage-classes/express-one-zone/ "https://aws.amazon.com/s3/storage-classes/express-one-zone/") uses a specific type of bucket called an _S3 directory bucket_. Directory buckets are exclusively for the S3 Express One Zone storage class and enable high-performance, low-latency access.
+To [configure default bucket encryption on an S3 directory bucket](../../../AmazonS3/latest/userguide/s3-express-specifying-kms-encryption.md "../../../AmazonS3/latest/userguide/s3-express-specifying-kms-encryption.md"), use the AWS CLI, and specify the KMS key ID or ARN, not the alias, as in the following example:
+
+```
+aws s3api put-bucket-encryption --bucket my-directory-bucket --server-side-encryption-configuration \
+   '{"Rules": [{"ApplyServerSideEncryptionByDefault": {"SSEAlgorithm": "aws:kms", "KMSMasterKeyID": "1234abcd-12ab-34cd-56ef-1234567890ab"}}]}'
+```
+
+Ensure your EKS pod’s IAM role has KMS permissions (e.g., `kms:Decrypt`) to access encrypted objects.
+Test this in a staging environment by uploading a sample model to the bucket, mounting it in a pod (e.g., via the Mountpoint S3 CSI driver), and verifying the pod can read the encrypted data without errors.
+Audit logs via AWS CloudTrail to confirm compliance with encryption requirements. See the [KMS Documentation](../../../kms/latest/developerguide.md "../../../kms/latest/developerguide.md") for setup details and key management.

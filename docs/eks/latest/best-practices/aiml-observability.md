@@ -1,0 +1,372 @@
+# Observability
+
+## Monitoring and Observability
+
+### Target high GPU utilization
+
+Underutilized GPUs indicate that the allocated GPU resources are not being fully leveraged by the workloads, leading to wasted compute capacity. For AI/ML workloads on Amazon EKS, we recommend monitoring GPU utilization to target high GPU usage and optimize resource efficiency. Underutilized GPUs waste compute capacity and increase costs, while over-scheduling can lead to contention and performance degradation.
+
+We recommend setting up [Cloudwatch Container Insights on Amazon EKS](../../../AmazonCloudWatch/latest/monitoring/deploy-container-insights-EKS.md "../../../AmazonCloudWatch/latest/monitoring/deploy-container-insights-EKS.md") to identify specific pods, nodes, or workloads with low GPU utilization [metrics](../../../AmazonCloudWatch/latest/monitoring/Container-Insights-metrics-enhanced-EKS.md "../../../AmazonCloudWatch/latest/monitoring/Container-Insights-metrics-enhanced-EKS.md"). It is easily integrated with Amazon EKS, enabling you to monitor GPU utilization and adjust pod scheduling or instance types if utilization falls below target levels. Alternatively, if this does not meet your specific requirements (e.g., advanced visualization), consider using NVIDIA’s DCGM-Exporter alongside Prometheus and Grafana for Kubernetes-native monitoring. Both approaches provide insights into GPU metrics, enabling you to adjust pod scheduling or instance types if utilization falls below target levels. Check [NVIDIA metrics](../../../AmazonCloudWatch/latest/monitoring/CloudWatch-Agent-NVIDIA-GPU.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch-Agent-NVIDIA-GPU.md") like `nvidia_smi_utilization_gpu` (GPU compute usage) and `nvidia_smi_utilization_memory` (GPU memory usage) via DCGM-Exporter or CloudWatch. Look for trends, such as consistently low utilization during certain hours or for specific jobs.
+
+Static resource limits in Kubernetes (e.g., CPU, memory, and GPU counts) can lead to over-provisioning or underutilization, particularly for dynamic AI/ML workloads like inference. We recommend analyzing utilization trends and consolidate workloads onto fewer GPUs, ensuring each GPU is fully utilized before allocating new ones.
+If GPUs are underutilized, consider the following strategies to optimize scheduling and sharing. To learn more, see the [EKS Compute and Autoscaling](aiml-compute.md "aiml-compute.md") best practices for details.
+
+## Observability and Metrics
+
+### Using Monitoring and Observability Tools for your AI/ML Workloads
+
+Modern AI/ML services operate at the intersection of infrastructure, modeling, and application logic. Platform engineers manage the infrastructure, observability stack and ensure metrics are collected, stored and visualized. AI/ML Engineers define model specific metrics and focus on performance under varying load and distribution. Application developers consume api, route requests and track service-level metrics and user interactions. Success depends on establishing unified observability practices across environments that give all stakeholders visibility into system health and performance.
+
+Optimizing Amazon EKS clusters for AI/ML workloads presents unique monitoring challenges, particularly around GPU memory management. Without proper monitoring, organizations often face out-of-memory (OOM) errors, resource inefficiencies, and unnecessary costs. For EKS customers, effective monitoring ensures better performance, resilience, and lower costs. A holistic approach that combines granular GPU monitoring using
+[NVIDIA DCGM Exporter](https://docs.nvidia.com/datacenter/dcgm/latest/gpu-telemetry/dcgm-exporter.html "https://docs.nvidia.com/datacenter/dcgm/latest/gpu-telemetry/dcgm-exporter.html") (e.g., GPU memory used, free GPU memory), monitoring and optimizing inference serving for distributed workload insights with their native metrics using frameworks like
+[Ray](https://docs.ray.io/en/latest/serve/monitoring.html "https://docs.ray.io/en/latest/serve/monitoring.html"), [vLLM](https://docs.vllm.ai/en/v0.8.5/design/v1/metrics.html "https://docs.vllm.ai/en/v0.8.5/design/v1/metrics.html"), and application level insights for custom metrics.
+
+#### Tools and frameworks
+
+Certain tools and frameworks offer native, out-of-the-box metrics for monitoring AI/ML workloads, enabling easier integration without additional custom setup.
+These focus on performance aspects such as latency, throughput, and token generation, which are critical for inference serving and benchmarking. Examples include:
+
+- **vLLM**: A high-throughput serving engine for large language models (LLMs) that provides native metrics such as request latency and memory usage.
+- **Ray**: A distributed computing framework that emits metrics for scalable AI workloads, including task execution times and resource utilization.
+- **Hugging Face Text Generation Inference (TGI)**: A toolkit for deploying and serving LLMs, with built-in metrics for inference performance.
+- **NVIDIA genai-perf**: A command-line tool for benchmarking generative AI models, measuring throughput, latency, and LLM-specific metrics, such as requests completed in specific time intervals.
+
+#### Observability methods
+
+We recommend implementing any additional observability mechanisms in one of the following ways.
+
+**CloudWatch Container Insights**
+If your organization prefers AWS-native tools with minimal setup, we recommend [CloudWatch Container Insights](../../../AmazonCloudWatch/latest/monitoring/deploy-container-insights-EKS.md "../../../AmazonCloudWatch/latest/monitoring/deploy-container-insights-EKS.md"). It integrates with the [NVIDIA DCGM Exporter](https://docs.nvidia.com/datacenter/dcgm/latest/gpu-telemetry/dcgm-exporter.html "https://docs.nvidia.com/datacenter/dcgm/latest/gpu-telemetry/dcgm-exporter.html") to collect GPU metrics and offers pre-built dashboards for quick insights. Enabled by installing the [CloudWatch Observability add-on](../../../AmazonCloudWatch/latest/monitoring/Container-Insights-setup-EKS-addon.md "../../../AmazonCloudWatch/latest/monitoring/Container-Insights-setup-EKS-addon.md") on your cluster, Container Insights deploys and manages the lifecycle of the [NVIDIA DCGM Exporter](https://docs.nvidia.com/datacenter/dcgm/latest/gpu-telemetry/dcgm-exporter.html "https://docs.nvidia.com/datacenter/dcgm/latest/gpu-telemetry/dcgm-exporter.html") which collects GPU metrics from Nvidia’s drivers and exposes them to CloudWatch.
+
+Once onboarded to Container Insights, CloudWatch automatically detects NVIDIA GPUs in your environment, collects the critical health and performance metrics of your NVIDIA GPUs as CloudWatch metrics and makes them available on curated out-of-the-box dashboards. Additionally, [Ray](https://docs.ray.io/en/latest/cluster/vms/user-guides/launching-clusters/aws.html "https://docs.ray.io/en/latest/cluster/vms/user-guides/launching-clusters/aws.html") and [vLLM](https://docs.vllm.ai/en/latest/ "https://docs.vllm.ai/en/latest/") can be integrated with CloudWatch using the [Unified CloudWatch Agent](../../../AmazonCloudWatch/latest/logs/UseCloudWatchUnifiedAgent.md "../../../AmazonCloudWatch/latest/logs/UseCloudWatchUnifiedAgent.md") to send metrics. This simplifies observability in EKS environments, allowing teams to focus on performance tuning and cost optimization.
+
+For more information, to view a complete list of metrics available, see [Amazon EKS and Kubernetes Container Insights metrics.](../../../AmazonCloudWatch/latest/monitoring/Container-Insights-metrics-EKS.md#Container-Insights-metrics-EKS-GPU "../../../AmazonCloudWatch/latest/monitoring/Container-Insights-metrics-EKS.md#Container-Insights-metrics-EKS-GPU") Refer to
+[Gain operational insights for NVIDIA GPU workloads using Amazon CloudWatch Container Insights](https://aws.amazon.com/blogs/mt/gain-operational-insights-for-nvidia-gpu-workloads-using-amazon-cloudwatch-container-insights/ "https://aws.amazon.com/blogs/mt/gain-operational-insights-for-nvidia-gpu-workloads-using-amazon-cloudwatch-container-insights/") and [Optimizing AI responsiveness: A practical guide to Amazon Bedrock latency-optimized inference](https://aws.amazon.com/blogs/machine-learning/optimizing-ai-responsiveness-a-practical-guide-to-amazon-bedrock-latency-optimized-inference/ "https://aws.amazon.com/blogs/machine-learning/optimizing-ai-responsiveness-a-practical-guide-to-amazon-bedrock-latency-optimized-inference/") for detailed implementations.
+
+**Managed Prometheus and Grafana**
+If your organization is comfortable with open-source tools and customized dashboards, we recommend deploying Prometheus with the
+[NVIDIA DCGM-Exporter](https://catalog.ngc.nvidia.com/orgs/nvidia/teams/k8s/containers/dcgm-exporter "https://catalog.ngc.nvidia.com/orgs/nvidia/teams/k8s/containers/dcgm-exporter") and Grafana for Kubernetes-native monitoring with advanced visualizations. Prometheus scrapes metrics, and Grafana creates advanced visualizations.
+
+Additionally, you can use open source frameworks like
+[Ray and vLLM](https://awslabs.github.io/ai-on-eks/docs/blueprints/inference/GPUs/vLLM-rayserve "https://awslabs.github.io/ai-on-eks/docs/blueprints/inference/GPUs/vLLM-rayserve") to export metrics to Prometheus (which can be visualized using Grafana), or you can
+[Connect to an AWS X-Ray data source](../../../grafana/latest/userguide/x-ray-data-source.md "../../../grafana/latest/userguide/x-ray-data-source.md"), then build dashboards to look at analytics, insights, or traces.
+
+For more information, refer to
+[Monitoring GPU workloads on Amazon EKS using AWS managed open-source services](https://aws.amazon.com/blogs/mt/monitoring-gpu-workloads-on-amazon-eks-using-aws-managed-open-source-services/ "https://aws.amazon.com/blogs/mt/monitoring-gpu-workloads-on-amazon-eks-using-aws-managed-open-source-services/") for a detailed implementation.
+
+### Consider Monitoring Core Training & Fine-Tuning Metrics
+
+For core training metrics for AI/ML workloads on EKS, consider a combination of metrics that indicate the health and performance of your Amazon EKS cluster and the machine learning workloads running on it. Refer to [Introduction to observing machine learning workloads on Amazon EKS](https://aws.amazon.com/blogs/containers/part-1-introduction-to-observing-machine-learning-workloads-on-amazon-eks/ "https://aws.amazon.com/blogs/containers/part-1-introduction-to-observing-machine-learning-workloads-on-amazon-eks/") for a detailed implementation. Below, we break down the metrics we recommend monitoring.
+
+**Resource Usage Metrics**:
+
+- **GPU and GPU Memory Usage** — Measure GPU and GPU memory utilization metrics to flag basic issues like idle resources or initial health checks in the cluster, but complement them with more precise saturation and usage metrics from the [NVIDIA DCGM Exporter](https://docs.nvidia.com/datacenter/dcgm/latest/gpu-telemetry/dcgm-exporter.html "https://docs.nvidia.com/datacenter/dcgm/latest/gpu-telemetry/dcgm-exporter.html"). Augment GPU utilization with Power Usage to help highlight if the GPU is doing work. For a comprehensive approach, consider three levels of observability to ensure optimal GPU performance: 1) the topmost level checks if the GPU is active, 2) the middle level assesses Streaming Multiprocessor (SM) usage, 3) and the bottommost level evaluates workload efficiency on the SMs. Always view the system holistically, as bottlenecks may arise in CPU, memory, I/O, or network components rather than the GPU itself.
+- **Node and Pod Resource Utilization** — Tracking resource usage at the node and pod level helps you identify resource contention and potential bottlenecks. For example, check if any nodes are over-utilized, which could affect pod scheduling.
+- **Comparison of Resource Utilization with Requests and Limits** — This provides insight into whether your cluster can handle current workloads and accommodate future ones. For example, compare actual memory usage against limits to avoid out-of-memory errors.
+- **Internal Metrics from ML Frameworks** — Capture internal training and convergence metrics from ML frameworks (TensorFlow, PyTorch), such as loss curves, learning rate, batch processing time, and training step duration—often visualized with TensorBoard or similar.
+
+**Model Performance Metrics**:
+
+- **Accuracy, Precision, Recall, and F1-score** — These are vital for understanding the performance of your ML models. For example, after training, calculate the F1-score on a validation set to assess performance.
+- **Business-Specific Metrics and KPIs** — Define and track metrics directly linked to the business value of your AI/ML initiatives. For example, in a recommendation system, track increased user engagement.
+- **Tracking these metrics over time** — This helps identify any degradation in model performance. For example, compare performance metrics across model versions to spot trends.
+
+**Data Quality and Drift Metrics**:
+
+- **Statistical Properties of Input Data** — Monitor these over time to detect data drift or anomalies that could impact model performance. For example, track the mean of input features to detect shifts.
+- **Data Drift Detection and Alerts** — Implement mechanisms to automatically detect and alert on data quality issues. For example, use tests to compare current data with training data and alert on significant drift.
+
+**Latency and Throughput Metrics**:
+
+- **End-to-End Latency of ML Training Pipelines** — Monitor the time it takes for data to flow through the entire training pipeline. For example, measure total time from data ingestion to model update.
+- **Training Throughput and Processing Rate** — Track the volume of data processed during training to ensure efficiency. For example, monitor positive and negative samples processed per second.
+- **Checkpoint Restore Latency** – Monitor the time taken to load a saved model checkpoint from a storage location (S3, EFS, FSx etc) back to GPU/CPU memory when resuming a job, recovering from failure, or initializing. This metric directly impacts job recovery time, cold start performance, and overall efficiency of interference pipelines. In auto-scaling inference services, slow checkpoint loading can cause cold start delays and a degrading user experience. These related metrics are also commonly used to improve model checkpointing: checkpoint downtime latency, model deserialization time, checkpoint size, and checkpoint restore failure count.
+- **Inference Request Duration** – Monitor the time it takes to complete an inference request. This is the time from initial request received to completed response from the model.
+- **Token Throughput** - Monitor token processing time to gauge model performance and optimize scaling decisions. Slow processing can indicate inefficiencies or underutilized resources, impacting cost-effectiveness. Tracking metrics like tokens in per second and tokens out per second, alongside processing time, can help identify performance bottlenecks, slowdowns, and cost drivers.
+- **Identifying Performance Bottlenecks** — Use these metrics to pinpoint areas for optimization in the training process. For example, analyze time spent in data loading versus model computation.
+
+**Error Rates and Failures**:
+
+- **Monitoring errors throughout the ML pipeline** — This includes data preprocessing, model training, and inference. For example, log errors in preprocessing to quickly identify issues.
+- **Identifying and investigating recurring errors** — This helps maintain a high-quality model and ensure consistent performance. For example, analyze logs to find patterns like specific data causing failures.
+
+**Kubernetes and EKS Specific Metrics**:
+
+- **Kubernetes Cluster State Metrics** — Monitor the health and status of various Kubernetes objects, including pods, nodes, and the control plane. For example, use tools like `kubectl` to check pod statuses.
+- **Success / Failed Pipeline Runs** — Track successful/failed pipeline runs, job durations, step completion times, and orchestration errors (e.g., using Kubeflow/Mlflow/Argo events).
+- **AWS Service Metrics** — Track metrics for other AWS services that support your EKS infrastructure and the applications running on it. For example, if using Amazon S3, monitor bucket size to track storage usage.
+- **Kubernetes Control Plane Metrics** — Monitor the API server, scheduler, controller manager, and etcd database for performance issues or failures. For example, track API server request latency for responsiveness.
+
+In subsequent topics, we demonstrate gathering data for a few of the metrics mentioned above. We will provide examples with the two AWS recommended approaches: [AWS-native CloudWatch Container Insights](../../../AmazonCloudWatch/latest/monitoring/deploy-container-insights-EKS.md "../../../AmazonCloudWatch/latest/monitoring/deploy-container-insights-EKS.md") and open-source [Amazon Managed Prometheus](../../../prometheus/latest/userguide/AMP-getting-started.md "../../../prometheus/latest/userguide/AMP-getting-started.md") with [Amazon Managed Grafana](../../../grafana/latest/userguide/getting-started-with-AMG.md "../../../grafana/latest/userguide/getting-started-with-AMG.md"). You would choose one of these solutions based on your overall observability needs. See [Amazon EKS and Kubernetes Container Insights metrics](../../../AmazonCloudWatch/latest/monitoring/Container-Insights-metrics-enhanced-EKS.md "../../../AmazonCloudWatch/latest/monitoring/Container-Insights-metrics-enhanced-EKS.md") for the complete list of Container Insights metrics.
+
+### Consider Monitoring Real-time Online Inference Metrics
+
+In real-time systems, low latency is critical for providing timely responses to users or other dependent systems. High latency can degrade user experience or violate performance requirements. Components that influence inference latency include model loading time, pre-processing time, actual prediction time, post-processing time, network transmission time. We recommend monitoring inference latency to ensure low-latency responses that meet service-level agreements (SLAs) and developing custom metrics for the following. Test under expected load, include network latency, account for concurrent requests, and test with varying batch sizes.
+
+- **Time to First Token (TTFT)** — Amount of time from when a user submits a request until they receive the beginning of a response (the first word, token, or chunk). For example, in chatbots, you’d check how long it takes to generate the first piece of output (token) after the user asks a question.
+- **End-to-End Latency** — This is the total time from when a request is received to when the response is sent back. For example, measure time from request to response.
+- **Output Tokens Per Second (TPS)** — Indicates how quickly your model generates new tokens after it starts responding. For example, in chatbots, you’d track generation speed for language models for a baseline text.
+- **Error Rate** — Tracks failed requests, which can indicate performance issues. For example, monitor failed requests for large documents or certain characters.
+- **Throughput** — Measure the number of requests or operations the system can handle per unit of time. For example, track requests per second to handle peak loads.
+
+K/V (Key/Value) cache can be a powerful optimization technique for inference latency, particularly relevant for transformer-based models. K/V cache stores the key and value tensors from previous transformer layer computations, reducing redundant computations during autoregressive inference, particularly in large language models (LLMs). Cache Efficiency Metrics (specifically for K/V or a session cache use):
+
+- **Cache hit/miss ratio** — For inference setups leveraging caching (K/V or embedding caches), measure how often cache is helping. Low hit rates may indicate suboptimal cache config or workload changes, both of which can increase latency.
+
+In subsequent topics, we demonstrate gathering data for a few of the metrics mentioned above. We will provide examples with the two AWS recommended approaches: [AWS-native CloudWatch Container Insights](../../../AmazonCloudWatch/latest/monitoring/deploy-container-insights-EKS.md "../../../AmazonCloudWatch/latest/monitoring/deploy-container-insights-EKS.md") and open-source [Amazon Managed Prometheus](../../../prometheus/latest/userguide/AMP-getting-started.md "../../../prometheus/latest/userguide/AMP-getting-started.md") with [Amazon Managed Grafana](../../../grafana/latest/userguide/getting-started-with-AMG.md "../../../grafana/latest/userguide/getting-started-with-AMG.md"). You would choose one of these solutions based on your overall observability needs. See [Amazon EKS and Kubernetes Container Insights metrics](../../../AmazonCloudWatch/latest/monitoring/Container-Insights-metrics-enhanced-EKS.md "../../../AmazonCloudWatch/latest/monitoring/Container-Insights-metrics-enhanced-EKS.md") for the complete list of Container Insights metrics.
+
+### Tracking GPU Memory Usage
+
+As discussed in the [Consider Monitoring Core Training & Fine-Tuning Metrics](#aiml-consider-monitor-fine-tuning-metrics "#aiml-consider-monitor-fine-tuning-metrics") topic, GPU memory usage is essential to prevent out-of-memory (OOM) errors and ensure efficient resource utilization. The following examples show how to instrument your training application to expose a custom histogram metric, `gpu_memory_usage_bytes`, and calculate the P95 memory usage to identify peak consumption. Be sure to test with a sample training job (e.g., fine-tuning a transformer model) in a staging environment.
+
+**AWS-Native CloudWatch Container Insights Example**
+
+This sample demonstrates how to instrument your training application to expose `gpu_memory_usage_bytes` as a histogram using the AWS-native approach. Note that your AI/ML container must be configured to emit structured logs in CloudWatch [Embedded Metrics Format (EMF)](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Embedded_Metric_Format_Specification.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Embedded_Metric_Format_Specification.md") format. CloudWatch logs parses EMF and publishes the metrics. Use [aws_embedded_metrics](https://github.com/awslabs/aws-embedded-metrics-python "https://github.com/awslabs/aws-embedded-metrics-python") in your training application to send structured logs in EMF format to CloudWatch Logs, which extracts GPU metrics.
+
+```
+from aws_embedded_metrics import metric_scope
+import torch
+import numpy as np
+
+memory_usage = []
+
+@metric_scope
+def log_gpu_memory(metrics):
+    # Record current GPU memory usage
+    mem = torch.cuda.memory_allocated()
+    memory_usage.append(mem)
+
+    # Log as histogram metric
+    metrics.set_namespace("MLTraining/GPUMemory")
+    metrics.put_metric("gpu_memory_usage_bytes", mem, "Bytes", "Histogram")
+
+    # Calculate and log P95 if we have enough data points
+    if len(memory_usage) >= 10:
+        p95 = np.percentile(memory_usage, 95)
+        metrics.put_metric("gpu_memory_p95_bytes", p95, "Bytes")
+        print(f"Current memory: {mem} bytes, P95: {p95} bytes")
+
+# Example usage in training loop
+for epoch in range(20):
+    # Your model training code would go here
+    log_gpu_memory()
+```
+
+**Prometheus and Grafana Example**
+
+This sample demonstrates how to instrument your training application to expose `gpu_memory_usage_bytes`` as a histogram using the Prometheus client library in Python.
+
+```
+from prometheus_client import Histogram
+from prometheus_client import start_http_server
+import pynvml
+
+start_http_server(8080)
+memory_usage = Histogram(
+    'gpu_memory_usage_bytes',
+    'GPU memory usage during training',
+    ['gpu_index'],
+    buckets=[1e9, 2e9, 4e9, 8e9, 16e9, 32e9]
+)
+
+# Function to get GPU memory usage
+def get_gpu_memory_usage():
+    if torch.cuda.is_available():
+        # Get the current GPU device
+        device = torch.cuda.current_device()
+
+        # Get memory usage in bytes
+        memory_allocated = torch.cuda.memory_allocated(device)
+        memory_reserved = torch.cuda.memory_reserved(device)
+
+        # Total memory usage (allocated + reserved)
+        total_memory = memory_allocated + memory_reserved
+
+        return device, total_memory
+    else:
+        return None, 0
+
+# Get GPU memory usage
+gpu_index, memory_used = get_gpu_memory_usage()
+```
+
+### Track Inference Request Duration for Real-Time Online Inference
+
+As discussed in the [Consider Monitoring Core Training & Fine-Tuning Metrics](#aiml-consider-monitor-fine-tuning-metrics "#aiml-consider-monitor-fine-tuning-metrics") topic, low latency is critical for providing timely responses to users or other dependent systems. The following examples show how to track a custom histogram metric, `inference_request_duration_seconds`, exposed by your inference application. Calculate the 95th percentile (P95) latency to focus on worst-case scenarios, test with synthetic inference requests (e.g., via Locust) in a staging environment, and set alert thresholds (e.g., >500ms) to detect SLA violations.
+
+**AWS-Native CloudWatch Container Insights Example**
+
+This sample demonstrates how to create a custom histogram metric in your inference application for inference_request_duration_seconds using AWS CloudWatch Embedded Metric Format.
+
+```
+import boto3
+import time
+from aws_embedded_metrics import metric_scope, MetricsLogger
+
+cloudwatch = boto3.client('cloudwatch')
+
+@metric_scope
+def log_inference_duration(metrics: MetricsLogger, duration: float):
+    metrics.set_namespace("ML/Inference")
+    metrics.put_metric("inference_request_duration_seconds", duration, "Seconds", "Histogram")
+    metrics.set_property("Buckets", [0.1, 0.5, 1, 2, 5])
+
+@metric_scope
+def process_inference_request(metrics: MetricsLogger):
+    start_time = time.time()
+
+    # Your inference processing code here
+    # For example:
+    # result = model.predict(input_data)
+
+    duration = time.time() - start_time
+    log_inference_duration(metrics, duration)
+
+    print(f"Inference request processed in {duration} seconds")
+
+# Example usage
+process_inference_request()
+```
+
+**Prometheus and Grafana Example**
+
+This sample demonstrates how to create a custom histogram metric in your inference application for inference_request_duration_seconds using the Prometheus client library in Python:
+
+```
+from prometheus_client import Histogram
+from prometheus_client import start_http_server
+import time
+
+start_http_server(8080)
+request_duration = Histogram(
+    'inference_request_duration_seconds',
+    'Inference request latency',
+    buckets=[0.1, 0.5, 1, 2, 5]
+)
+start_time = time.time()
+# Process inference request
+request_duration.observe(time.time() - start_time)
+```
+
+In Grafana, use the query `histogram_quantile(0.95, sum(rate(inference_request_duration_seconds_bucket[5m])) by (le, pod))` to visualize P95 latency trends. To learn more, see [Prometheus Histogram Documentation](https://prometheus.io/docs/practices/histograms/ "https://prometheus.io/docs/practices/histograms/") and [Prometheus Client Documentation](https://github.com/prometheus/client_python "https://github.com/prometheus/client_python").
+
+### Track Token Throughput for Real-Time Online Inference
+
+As discussed in the [Consider Monitoring Core Training & Fine-Tuning Metrics](#aiml-consider-monitor-fine-tuning-metrics "#aiml-consider-monitor-fine-tuning-metrics") topic, we recommend monitoring token processing time to gauge model performance and optimize scaling decisions. The following examples show how to track a custom histogram metric, `token_processing_duration_seconds`, exposed by your inference application. Calculate the 95th percentile (P95) duration to analyze processing efficiency, test with simulated request loads (e.g., 100 to 1000 requests/second) in a non-production cluster, and adjust KEDA triggers to optimize scaling.
+
+**AWS-Native CloudWatch Container Insights Example**
+
+This sample demonstrates how to create a custom histogram metric in your inference application for token_processing_duration_seconds using AWS CloudWatch Embedded Metric Format. It uses dimensions (`set\_dimension`) with a custom `get_duration_bucket` function to categorize durations into buckets (e.g., "⇐0.01", ">1").
+
+```
+import boto3
+import time
+from aws_embedded_metrics import metric_scope, MetricsLogger
+
+cloudwatch = boto3.client('cloudwatch')
+
+@metric_scope
+def log_token_processing(metrics: MetricsLogger, duration: float, token_count: int):
+    metrics.set_namespace("ML/TokenProcessing")
+    metrics.put_metric("token_processing_duration_seconds", duration, "Seconds")
+    metrics.set_dimension("ProcessingBucket", get_duration_bucket(duration))
+    metrics.set_property("TokenCount", token_count)
+
+def get_duration_bucket(duration):
+    buckets = [0.01, 0.05, 0.1, 0.5, 1]
+    for bucket in buckets:
+        if duration <= bucket:
+            return f"<={bucket}"
+    return f">{buckets[-1]}"
+
+@metric_scope
+def process_tokens(input_text: str, model, tokenizer, metrics: MetricsLogger):
+    tokens = tokenizer.encode(input_text)
+    token_count = len(tokens)
+
+    start_time = time.time()
+    # Process tokens (replace with your actual processing logic)
+    output = model(tokens)
+    duration = time.time() - start_time
+
+    log_token_processing(metrics, duration, token_count)
+    print(f"Processed {token_count} tokens in {duration} seconds")
+    return output
+```
+
+**Prometheus and Grafana Example**
+
+This sample demonstrates how to create a custom histogram metric in your inference application for token_processing_duration_seconds using the Prometheus client library in Python.
+
+```
+from prometheus_client import Histogram
+from prometheus_client import start_http_server
+import time
+
+start_http_server(8080)
+token_duration = Histogram(
+    'token_processing_duration_seconds',
+    'Token processing time per request',
+    buckets=[0.01, 0.05, 0.1, 0.5, 1]
+)
+start_time = time.time()
+# Process tokens
+token_duration.observe(time.time() - start_time)
+```
+
+In Grafana, use the query `histogram_quantile(0.95, sum(rate(token_processing_duration_seconds_bucket[5m])) by (le, pod))`` to visualize P95 processing time trends. To learn more, see [Prometheus Histogram Documentation](https://github.com/prometheus/client_python "https://github.com/prometheus/client_python") and [Prometheus Client Documentation](https://github.com/prometheus/client_python "https://github.com/prometheus/client_python").
+
+**Measure Checkpoint Restore Latency**
+
+As discussed in the [Consider Monitoring Core Training & Fine-Tuning Metrics](#aiml-consider-monitor-fine-tuning-metrics "#aiml-consider-monitor-fine-tuning-metrics") topic, checkpoint latency is a critical metric during multiple phases of the model lifecycle. The following examples show how to track a custom histogram metric, `checkpoint_restore_duration_seconds``, exposed by your application. Calculate the 95th percentile (P95) duration to monitor restore performance, test with Spot interruptions in a non-production cluster, and set alert thresholds (e.g., <30 seconds) to detect delays.
+
+**AWS-Native CloudWatch Container Insights Example**
+
+This sample demonstrates how to instrument your batch application to expose checkpoint_restore_duration_seconds as a histogram using CloudWatch Insights:
+
+```
+import boto3
+import time
+import torch
+from aws_embedded_metrics import metric_scope, MetricsLogger
+
+@metric_scope
+def log_checkpoint_restore(metrics: MetricsLogger, duration: float):
+    metrics.set_namespace("ML/ModelOperations")
+    metrics.put_metric("checkpoint_restore_duration_seconds", duration, "Seconds", "Histogram")
+    metrics.set_property("Buckets", [1, 5, 10, 30, 60])
+    metrics.set_property("CheckpointSource", "s3://my-bucket/checkpoint.pt")
+
+@metric_scope
+def load_checkpoint(model, checkpoint_path: str, metrics: MetricsLogger):
+    start_time = time.time()
+
+    # Load model checkpoint
+    model.load_state_dict(torch.load(checkpoint_path))
+
+    duration = time.time() - start_time
+    log_checkpoint_restore(metrics, duration)
+
+    print(f"Checkpoint restored in {duration} seconds")
+```
+
+**Prometheus and Grafana Example**
+
+This sample demonstrates how to instrument your batch application to expose `checkpoint_restore_duration_seconds` as a histogram using the Prometheus client library in Python:
+
+```
+from prometheus_client import Histogram
+from prometheus_client import start_http_server
+import torch
+
+start_http_server(8080)
+restore_duration = Histogram(
+    'checkpoint_restore_duration_seconds',
+    'Time to restore checkpoint',
+    buckets=[1, 5, 10, 30, 60]
+)
+with restore_duration.time():
+    model.load_state_dict(torch.load("s3://my-bucket/checkpoint.pt"))
+```
+
+In Grafana, use the query `histogram_quantile(0.95, sum(rate(checkpoint_restore_duration_seconds_bucket[5m]) by (le))` to visualize P95 restore latency trends. To learn more, see [Prometheus Histogram Documentation](https://prometheus.io/docs/practices/histograms/ "https://prometheus.io/docs/practices/histograms/") and [Prometheus Client Documentation](https://github.com/prometheus/client_python "https://github.com/prometheus/client_python").

@@ -1,0 +1,44 @@
+# Networking
+
+## Consider Higher Network Bandwidth or Elastic Fabric Adapter For Applications with High Inter-Node Communication
+
+For distributed training workloads on Amazon EKS with high inter-node communication demands, consider selecting instances with higher network bandwidth or [Elastic Fabric Adapter](../userguide/node-efa.md "../userguide/node-efa.md") (EFA). Insufficient network performance can bottleneck data transfer, slowing down machine learning tasks like distributed multi-GPU training. Note that inference workloads don’t typically have high inter-node communication.
+
+**Example**
+
+For example, using Karpenter:
+
+```
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ml-workload
+spec:
+  nodeSelector:
+    karpenter.k8s.aws/instance-network-bandwidth: "100000"  # 100 Gbps in Mbps
+    node.kubernetes.io/instance-type: p5.48xlarge  # EFA-enabled instance
+  containers:
+  - name: training-job
+    image: `763104351884.dkr.ecr.us-west-2.amazonaws.com/pytorch-inference:2.6.0-gpu-py312-cu124-ubuntu22.04-ec2-v1.6`
+    resources:
+      limits:
+        vpc.amazonaws.com/efa: 1  # Requires EFA device plugin
+```
+
+Ensure tools like MPI and NCCL are installed in your container image to leverage EFA for training jobs.
+
+## Increase the number of IP addresses available to enable faster pod launch times
+
+In EKS, each pod needs an IP address from the VPC CIDR block. As your cluster scales with more nodes and pods, you risk IP address exhaustion or slower performance, but enabling prefix delegation can mitigate these issues by pre-allocating IP ranges and reducing EC2 API calls, resulting in faster pod launch times and improved scalability.
+
+Enabling prefix delegation after creating your cluster allows the VPC Container Network Interface (CNI) to assign IP prefixes (/28, each giving 16 IP addresses) to network interfaces on EC2 instances. This means each node can support more pods, reducing the risk of IP shortages. For example, on a `c5.4xlarge` instance, you can support up to 110 pods with prefix delegation.
+
+While prefix delegation is crucial for optimizing IP usage in environments with many small pods, AI/ML workloads often use fewer, larger pods (e.g., one pod per GPU). Enabling prefix delegation allows the VPC CNI to pre-allocate a prefix for faster pod startup by maintaining a warm pool. This means IP addresses are readily available, reducing the time needed for pod initialization compared to on-demand allocation in non-prefix mode. In such cases, the IP savings from enabling prefix delegation offers performance benefits for AI/ML workloads. By reducing the number of EC2 API calls required for IP address configuration and pre-allocating IP ranges, using prefix delegation enables faster pod launch times, which is particularly beneficial for quickly scaling AI/ML workloads.
+
+To enable prefix delegation:
+
+```
+kubectl set env daemonset/aws-node -n kube-system ENABLE_PREFIX_DELEGATION=true
+```
+
+Ensure proper planning for VPC subnets to avoid IP address exhaustion, especially in large deployments, and manage CIDR blocks to avoid overlaps across VPCs. To learn more, see [Optimizing IP Address Utilization](ip-opt.md "ip-opt.md") and [Assign more IP addresses to Amazon EKS nodes with prefixes](ip-opt.md#_plan_for_growth "ip-opt.md#_plan_for_growth").
