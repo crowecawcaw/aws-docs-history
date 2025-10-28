@@ -1,0 +1,248 @@
+# Amazon DynamoDB Transactions: How it works
+
+With Amazon DynamoDB transactions, you can group multiple actions together and submit them as a
+single all-or-nothing `TransactWriteItems` or `TransactGetItems`
+operation. The following sections describe API operations, capacity management, best
+practices, and other details about using transactional operations in DynamoDB.
+
+###### Topics
+
+- [TransactWriteItems API](#transaction-apis-txwriteitems "#transaction-apis-txwriteitems")
+- [TransactGetItems API](#transaction-apis-txgetitems "#transaction-apis-txgetitems")
+- [Isolation levels for DynamoDB transactions](#transaction-isolation "#transaction-isolation")
+- [Transaction conflict handling in
+  DynamoDB](#transaction-conflict-handling "#transaction-conflict-handling")
+- [Using transactional APIs in DynamoDB Accelerator (DAX)](#transaction-apis-dax "#transaction-apis-dax")
+- [Capacity management for transactions](#transaction-capacity-handling "#transaction-capacity-handling")
+- [Best practices for transactions](#transaction-best-practices "#transaction-best-practices")
+- [Using transactional APIs with global
+  tables](#transaction-integration "#transaction-integration")
+- [DynamoDB Transactions vs. the AWSLabs transactions
+  client library](#transaction-vs-library "#transaction-vs-library")
+
+## TransactWriteItems API
+
+`TransactWriteItems` is a synchronous and idempotent write operation that
+groups up to 100 write actions in a single all-or-nothing operation. These actions can
+target up to 100 distinct items in one or more DynamoDB tables within the same AWS account
+and in the same Region. The aggregate size of the items in the transaction cannot exceed 4
+MB. The actions are completed atomically so that either all of them succeed or none of them
+succeeds.
+
+###### Note
+
+- A `TransactWriteItems` operation differs from a
+  `BatchWriteItem` operation in that all the actions it contains must be
+  completed successfully, or no changes are made at all. With a
+  `BatchWriteItem` operation, it is possible that only some of the actions
+  in the batch succeed while the others do not.
+- Transactions cannot be performed using indexes.
+
+You can't target the same item with multiple operations within the same transaction. For
+example, you can't perform a `ConditionCheck` and also an `Update`
+action on the same item in the same transaction.
+
+You can add the following types of actions to a transaction:
+
+- `Put` — Initiates a `PutItem` operation to
+  create a new item or replace an old item with a new item, conditionally or without
+  specifying any condition.
+- `Update` — Initiates an `UpdateItem`
+  operation to edit an existing item's attributes or add a new item to the table if it
+  does not already exist. Use this action to add, delete, or update attributes on an
+  existing item conditionally or without a condition.
+- `Delete` — Initiates a `DeleteItem` operation
+  to delete a single item in a table identified by its primary key.
+- `ConditionCheck` — Checks that an item exists or checks
+  the condition of specific attributes of the item.
+
+When a transaction completes in DynamoDB, its changes start propagating to global secondary
+indexes (GSIs), streams, and backups. This propagation occurs gradually: stream records from the
+same transaction might appear at different times and could be interleaved with records from other
+transactions. Stream consumers shouldn't assume transaction atomicity or ordering guarantees.
+
+To ensure an atomic snapshot of items modified in a transaction, use the TransactGetItems operation
+to read all relevant items together. This operation provides a consistent view of the data, ensuring you
+see either all changes from a completed transaction or none at all.
+
+Because propagation isn't immediate, if a table is restored from backup ([RestoreTableFromBackup](../APIReference/API_RestoreTableFromBackup.md "../APIReference/API_RestoreTableFromBackup.md")) or exported to a point in time ([ExportTableToPointInTime](../APIReference/API_ExportTableToPointInTime.md "../APIReference/API_ExportTableToPointInTime.md")) mid-propagation,, it can contain only some
+of the changes made during a recent transaction.
+
+### Idempotency
+
+You can optionally include a client token when you make a
+`TransactWriteItems` call to ensure that the request is
+_idempotent_. Making your transactions idempotent helps prevent
+application errors if the same operation is submitted multiple times due to a connection
+time-out or other connectivity issue.
+
+If the original `TransactWriteItems` call was successful, then subsequent
+`TransactWriteItems` calls with the same client token return successfully
+without making any changes. If the `ReturnConsumedCapacity` parameter is set,
+the initial `TransactWriteItems` call returns the number of write capacity
+units consumed in making the changes. Subsequent `TransactWriteItems` calls
+with the same client token return the number of read capacity units consumed in reading
+the item.
+
+###### Important points about idempotency
+
+- A client token is valid for 10 minutes after the request that uses it finishes.
+  After 10 minutes, any request that uses the same client token is treated as a new
+  request. You should not reuse the same client token for the same request after 10
+  minutes.
+- If you repeat a request with the same client token within the 10-minute
+  idempotency window but change some other request parameter, DynamoDB returns an
+  `IdempotentParameterMismatch` exception.
+
+### Error handling for writing
+
+Write transactions don't succeed under the following circumstances:
+
+- When a condition in one of the condition expressions is not met.
+- When a transaction validation error occurs because more than one action in the
+  same `TransactWriteItems` operation targets the same item.
+- When a `TransactWriteItems` request conflicts with an ongoing
+  `TransactWriteItems` operation on one or more items in the
+  `TransactWriteItems` request. In this case, the request fails with a
+  `TransactionCanceledException`.
+- When there is insufficient provisioned capacity for the transaction to be
+  completed.
+- When an item size becomes too large (larger than 400 KB), or a local secondary
+  index (LSI) becomes too large, or a similar validation error occurs because of changes
+  made by the transaction.
+- When there is a user error, such as an invalid data format.
+
+For more information about how conflicts with `TransactWriteItems`
+operations are handled, see [Transaction conflict handling in
+DynamoDB](#transaction-conflict-handling "#transaction-conflict-handling").
+
+## TransactGetItems API
+
+`TransactGetItems` is a synchronous read operation that groups up to 100
+`Get` actions together. These actions can target up to 100 distinct items in
+one or more DynamoDB tables within the same AWS account and Region. The aggregate size of the
+items in the transaction can't exceed 4 MB.
+
+The `Get` actions are performed atomically so that either all of them succeed
+or all of them fail:
+
+- `Get` — Initiates a `GetItem` operation to
+  retrieve a set of attributes for the item with the given primary key. If no matching
+  item is found, `Get` does not return any data.
+
+### Error handling for reading
+
+Read transactions don't succeed under the following circumstances:
+
+- When a `TransactGetItems` request conflicts with an ongoing
+  `TransactWriteItems` operation on one or more items in the
+  `TransactGetItems` request. In this case, the request fails with a
+  `TransactionCanceledException`.
+- When there is insufficient provisioned capacity for the transaction to be
+  completed.
+- When there is a user error, such as an invalid data format.
+
+For more information about how conflicts with `TransactGetItems`
+operations are handled, see [Transaction conflict handling in
+DynamoDB](#transaction-conflict-handling "#transaction-conflict-handling").
+
+## Isolation levels for DynamoDB transactions
+
+The isolation levels of transactional operations (`TransactWriteItems` or
+`TransactGetItems`) and other operations are as follows.
+
+### SERIALIZABLE
+
+_Serializable_ isolation ensures that the results of multiple
+concurrent operations are the same as if no operation begins until the previous one has
+finished.
+
+There is serializable isolation between the following types of operation:
+
+- Between any transactional operation and any standard write operation
+  (`PutItem`, `UpdateItem`, or `DeleteItem`).
+- Between any transactional operation and any standard read operation
+  (`GetItem`).
+- Between a `TransactWriteItems` operation and a
+  `TransactGetItems` operation.
+
+Although there is serializable isolation between transactional operations, and each
+individual standard write in a `BatchWriteItem` operation, there is no
+serializable isolation between the transaction and the `BatchWriteItem`
+operation as a unit.
+
+Similarly, the isolation level between a transactional operation and individual
+`GetItems` in a `BatchGetItem` operation is serializable. But the
+isolation level between the transaction and the `BatchGetItem` operation as a
+unit is _read-committed_.
+
+A single `GetItem` request is serializable with respect to a
+`TransactWriteItems` request in one of two ways, either before or after the
+`TransactWriteItems` request. Multiple `GetItem` requests, against
+keys in a concurrent `TransactWriteItems` requests can be run in any order, and
+therefore the results are _read-committed_.
+
+For example, if `GetItem` requests for item A and item B are run
+concurrently with a `TransactWriteItems` request that modifies both item A and
+item B, there are four possibilities:
+
+- Both `GetItem` requests are run before the
+  `TransactWriteItems` request.
+- Both `GetItem` requests are run after the
+  `TransactWriteItems` request.
+- `GetItem` request for item A is run before the
+  `TransactWriteItems` request. For item B the `GetItem` is run
+  after `TransactWriteItems`.
+- `GetItem` request for item B is run before the
+  `TransactWriteItems` request. For item A the `GetItem` is run
+  after `TransactWriteItems`.
+
+You should use `TransactGetItems` if you prefer serializable isolation
+level for multiple `GetItem` requests.
+
+If a non-transactional read is made on multiple items that were part of the same
+transaction write request in-flight, it's possible that you'll be able to read the new
+state of some of the items and the old state of the other items. You'll be able to read
+the new state of all items that were part of the transaction write request only when a
+successful response is received for the transactional write, indicating that the
+transaction has been completed.
+
+Once the transaction is successfully completed and a response is received, subsequent
+_eventually consistent_ read operations may still return the old
+state for a short period due to DynamoDB's eventual consistency model. To guarantee reading
+the most up-to-date data immediately after a transaction, you should use [strongly consistent](HowItWorks.md#HowItWorks.ReadConsistency.Strongly "HowItWorks.md#HowItWorks.ReadConsistency.Strongly") reads by setting
+`ConsistentRead` to true.
+
+### READ-COMMITTED
+
+_Read-committed_ isolation ensures that read operations always
+return committed values for an item - the read will never present a view to the item
+representing a state from a transactional write which did not ultimately succeed.
+Read-committed isolation does not prevent modifications of the item immediately after the
+read operation.
+
+The isolation level is read-committed between any transactional operation and any read
+operation that involves multiple standard reads (`BatchGetItem`,
+`Query`, or `Scan`). If a transactional write updates an item in
+the middle of a `BatchGetItem`, `Query`, or `Scan`
+operation, the subsequent part of the read operation returns the newly committed value
+(with `ConsistentRead)` or possibly a prior committed value (eventually
+consistent reads).
+
+### Operation summary
+
+To summarize, the following table shows the isolation levels between a transaction
+operation (`TransactWriteItems` or `TransactGetItems`) and other
+operations.
+
+| Operation                     | Isolation Level      |
+| ----------------------------- | -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `DeleteItem`                  | _Serializable_       |
+| `PutItem`                     | _Serializable_       |
+| `UpdateItem`                  | _Serializable_       |
+| `GetItem`                     | _Serializable_       |
+| `BatchGetItem`                | _Read-committed_\*   |
+| `BatchWriteItem`              | _NOT Serializable_\* |
+| `Query`                       | _Read-committed_     |
+| `Scan`                        | _Read-committed_     |
+| Other transactional operation | _Serializable_       | Levels marked with an asterisk (\*) apply to the operation as a unit. However, individual actions within those operations have a _serializable_ isolation level. ## Transaction conflict handling in DynamoDB A transactional conflict can occur during concurrent item-level requests on an item within a transaction. Transaction conflicts can occur in the following scenarios: <br>• A `PutItem`, `UpdateItem`, or `DeleteItem` request for an item conflicts with an ongoing `TransactWriteItems` request that includes the same item. <br>• An item within a `TransactWriteItems` request is part of another ongoing `TransactWriteItems` request. <br>• An item within a `TransactGetItems` request is part of an ongoing `TransactWriteItems`, `BatchWriteItem`, `PutItem`, `UpdateItem`, or `DeleteItem` request. ###### Note <br>• When a `PutItem`, `UpdateItem`, or `DeleteItem` request is rejected, the request fails with a `TransactionConflictException`. <br>• If any item-level request within `TransactWriteItems` or `TransactGetItems` is rejected, the request fails with a `TransactionCanceledException`. If that request fails, AWS SDKs do not retry the request. If you are using the AWS SDK for Java, the exception contains the list of [CancellationReasons](../APIReference/API_CancellationReason.md "../APIReference/API_CancellationReason.md"), ordered according to the list of items in the `TransactItems` request parameter. For other languages, a string representation of the list is included in the exception’s error message. <br>• If an ongoing `TransactWriteItems` or `TransactGetItems` operation conflicts with a concurrent `GetItem` request, both operations can succeed. The [TransactionConflict CloudWatch metric](metrics-dimensions.md "metrics-dimensions.md") is incremented for each failed item-level request. ## Using transactional APIs in DynamoDB Accelerator (DAX) `TransactWriteItems` and `TransactGetItems` are both supported in DynamoDB Accelerator (DAX) with the same isolation levels as in DynamoDB. `TransactWriteItems` writes through DAX. DAX passes a `TransactWriteItems` call to DynamoDB and returns the response. To populate the cache after the write, DAX calls `TransactGetItems` in the background for each item in the `TransactWriteItems` operation, which consumes additional read capacity units. (For more information, see [Capacity management for transactions](#transaction-capacity-handling "#transaction-capacity-handling").) This functionality enables you to keep your application logic simple and use DAX for both transactional operations and nontransactional ones. `TransactGetItems` calls are passed through DAX without the items being cached locally. This is the same behavior as for strongly consistent read APIs in DAX. ## Capacity management for transactions There is no additional cost to enable transactions for your DynamoDB tables. You pay only for the reads or writes that are part of your transaction. DynamoDB performs two underlying reads or writes of every item in the transaction: one to prepare the transaction and one to commit the transaction. The two underlying read/write operations are visible in your Amazon CloudWatch metrics. Plan for the additional reads and writes that are required by transactional APIs when you are provisioning capacity to your tables. For example, suppose that your application runs one transaction per second, and each transaction writes three 500-byte items in your table. Each item requires two write capacity units (WCUs): one to prepare the transaction and one to commit the transaction. Therefore, you would need to provision six WCUs to the table. If you were using DynamoDB Accelerator (DAX) in the previous example, you would also use two read capacity units (RCUs) for each item in the `TransactWriteItems` call. So you would need to provision six additional RCUs to the table. Similarly, if your application runs one read transaction per second, and each transaction reads three 500-byte items in your table, you would need to provision six read capacity units (RCUs) to the table. Reading each item requires two RCUs: one to prepare the transaction and one to commit the transaction. Also, default SDK behavior is to retry transactions in case of a `TransactionInProgressException` exception. Plan for the additional read-capacity units (RCUs) that these retries consume. The same is true if you are retrying transactions in your own code using a `ClientRequestToken`. ## Best practices for transactions Consider the following recommended practices when using DynamoDB transactions. <br>• Enable automatic scaling on your tables, or ensure that you have provisioned enough throughput capacity to perform the two read or write operations for every item in your transaction. <br>• If you are not using an AWS provided SDK, include a `ClientRequestToken` attribute when you make a `TransactWriteItems` call to ensure that the request is idempotent. <br>• Don't group operations together in a transaction if it's not necessary. For example, if a single transaction with 10 operations can be broken up into multiple transactions without compromising the application correctness, we recommend splitting up the transaction. Simpler transactions improve throughput and are more likely to succeed. <br>• Multiple transactions updating the same items simultaneously can cause conflicts that cancel the transactions. We recommend following DynamoDB best practices for data modeling to minimize such conflicts. <br>• If a set of attributes is often updated across multiple items as part of a single transaction, consider grouping the attributes into a single item to reduce the scope of the transaction. <br>• Avoid using transactions for ingesting data in bulk. For bulk writes, it is better to use `BatchWriteItem`. ## Using transactional APIs with global tables Transactional operations provide atomicity, consistency, isolation, and durability (ACID) guarantees only within the AWS Region where the write API was invoked. Transactions aren't supported across Regions in global tables. For example, suppose that you have a global table with replicas in the US East (Ohio) and US West (Oregon) Regions and you perform a `TransactWriteItems` operation in the US East (N. Virginia) Region. You may observe partially completed transactions in the US West (Oregon) Region as changes are replicated. Changes are replicated to other Regions only after they've been committed in the source Region. ## DynamoDB Transactions vs. the AWSLabs transactions client library DynamoDB transactions provide a more cost-effective, robust, and performant replacement for the [AWSLabs](https://github.com/awslabs "https://github.com/awslabs") transactions client library. We suggest that you update your applications to use the native, server-side transaction APIs. |
