@@ -1,0 +1,97 @@
+On November 20, 2025, AWS will discontinue support for Amazon CodeGuru Security. After
+November 20, 2025, you will no longer be able to access the /codeguru/security console, service
+resources, or documentation. For more information, see [End of support for CodeGuru Security](end-of-support.md "end-of-support.md").
+
+# Create code scans with the AWS CLI and AWS SDKs
+
+This section explains how to upload code resources and create a scan with the AWS CLI and
+AWS SDKs. You use the
+[`CreateUploadUrl`](../security-api/API_CreateUploadUrl.md "../security-api/API_CreateUploadUrl.md") and
+[`CreateScan`](../security-api/API_CreateScan.md "../security-api/API_CreateScan.md") operations, in addition to an HTTP client
+to upload your code resources. You can also specify the type of analysis to perform in the
+scan. For information on analysis types, see [Types of code scans](scan-types.md "scan-types.md").
+
+###### Topics
+
+- [Create a scan with the AWS CLI](#create-scan-cli "#create-scan-cli")
+- [Create a scan with AWS SDKs](#create-scan-sdk "#create-scan-sdk")
+- [Upload code resources](#upload-code-resources "#upload-code-resources")
+
+## Create a scan with the AWS CLI
+
+###### Note
+
+You can automate this process using a shell script provided by CodeGuru Security on the
+Integrations page in the console. For more information, see
+[Automate scans with the AWS CLI](get-started-cli.md "get-started-cli.md").
+
+1. To upload a code resource to scan, you first run the `create-upload-url`
+   command and specify the name of the scan you will run on the code. If this is the first time
+   you are scanning these resources, create a new, unique scan name that you will also use when
+   you create the scan. If you are uploading revised code files to be scanned, use the name of
+   the scan you previously ran on these resources.
+
+Replace `scan-name` with the name of your scan and run the following command:
+
+```
+aws codeguru-security create-upload-url \
+--scan-name `scan-name`
+```
+
+This command outputs a URL, a set of headers, and a `codeArtifactId` that you will use in the
+following steps. 2. Before you create the scan, you need to upload your code to the presigned URL generated
+in the previous step. You can use any HTTP client to upload code resources, which must be in
+a zipped code file. For an example, see [Upload code resources](#upload-code-resources "#upload-code-resources"). 3. After uploading your code to the URL, call run the `create-scan` command to
+scan your code. For `scan-name`, use the same scan name you specified in the first
+step. For `resource-id`, use the `codeArtifactId` that was returned in
+the first step. You can also add the `--analysis-type` option with either
+`Security` or `All` to specify the type of analysis to perform in the
+scan.
+
+```
+aws codeguru-security create-scan \
+--scan-name `scan-name`
+--resource-id '{"codeArtifactId":"`codeArtifactId`"}'
+```
+
+This command outputs a scan state of `InProgress` while CodeGuru Security scans your
+code. It also returns a `runId` that you can use to run the `get-scan`
+command to monitor when the scan is complete, and get additional
+information about the scan.
+
+For more information about using the AWS CLI with CodeGuru Security, see the
+[CodeGuru Security section of the AWS CLI Command Reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/codeguru-security/index.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/codeguru-security/index.html").
+
+## Create a scan with AWS SDKs
+
+To upload code resources to scan with the AWS SDKs, first use the [`CreateUploadUrl`](../security-api/API_CreateUploadUrl.md "../security-api/API_CreateUploadUrl.md") operation to generate an upload URL, request headers,
+and a code artifact ID. Then, use the request headers to upload your zipped code file to the
+URL with an HTTP client. For an example, see [Upload code resources](#upload-code-resources "#upload-code-resources").
+
+To create the scan, call [`CreateScan`](../security-api/API_CreateScan.md "../security-api/API_CreateScan.md") with
+the same scan name you used for CreateUploadUrl and the `codeArtifactId` generated
+by CreateUploadUrl. You can also specify the `analysisType` option with either
+`Security` or `All` to specify the type of analysis to perform in the
+scan. For more information, see [Types of code scans](scan-types.md "scan-types.md").
+
+If you are uploading revised code files to be scanned, use the name of the scan you
+previously ran on these resources for CreateUploadUrl and CreateScan.
+
+## Upload code resources
+
+The following is an example of how to upload your zip file with the request headers using
+the `curl` command. Replace `your-zip-file` with the name of the file
+that contains your code. Replace `header0 key` and `header0 value` with
+the first header key and value returned by `CreateUploadUrl`. Add all additional
+headers using this format. Replace `s3Url` with the URL generated by
+`CreateUploadUrl`.
+
+```
+curl -X PUT \
+-T `your-zip-file` \
+-v \
+-k \
+-H `header0 key`:`header0 value` \
+-H `header1 key`:`header1 value`
+`s3Url`
+```
