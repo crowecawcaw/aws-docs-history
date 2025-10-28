@@ -1,0 +1,7 @@
+# Document history for EDI Cloud Operations Support Guide
+
+| Change                                                                                                                                  | Description                                                                                                   | Date              |
+| --------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ----------------- |
+| [Updated EDI version support policy section](eco-supported-configs.md#eco-sup-config-eks "eco-supported-configs.md#eco-sup-config-eks") | Updated the **EDI version support policy for Amazon EKS versions** section to reflect the latest EDI version. | September 8, 2025 |
+| [Additional supported AWS Regions](eco-supported-configs.md "eco-supported-configs.md")                                                 | The Asia Pacific (Mumbai) and Asia Pacific (Sydney) AWS Regions are now supported.                            | September 8, 2025 |
+| [EDI Cloud Operations initial publishing.](what-is-eco.md "what-is-eco.md")                                                             | Introducing the EDI Cloud Operations service.                                                                 | July 24, 2025     |
