@@ -1,0 +1,55 @@
+# Vector Search Overview
+
+ElastiCache for Valkey provides capabilities to index, search, and update billions of high-dimensional vector embeddings. Vector search allows you to create, maintain and use secondary indexes for efficient and scalable search. Each vector search operation applies to a single index. Index operations apply only to the specified index. Any number of operations may be issued against any index at any time with the exception of index creation and deletion operations. At the cluster level, multiple operations against multiple indexes may be in progress simultaneously.
+
+Within this document the terms key, row, and record are identical and used interchangeably. Similarly, the terms column, field, path and member are also used interchangeably.
+
+The `FT.CREATE` command can be used to create an index for a subset of keys with the specified index types. `FT.SEARCH` performs queries on indexes created, and `FT.DROPINDEX` removes an existing index and all associated data. There are no special commands to add, delete or modify indexed data. The existing `HASH` or `JSON` commands that modify a key that is in an index automatically update the index.
+
+###### Topics
+
+- [Indexes and the Valkey OSS keyspace](#indexes-keyspace "#indexes-keyspace")
+- [Index field types](#index-field-types "#index-field-types")
+- [Vector index algorithms](#vector-index-algorithms "#vector-index-algorithms")
+- [Vector search security](#vector-search-security "#vector-search-security")
+
+## Indexes and the Valkey OSS keyspace
+
+Indexes are constructed and maintained over a subset of the Valkey OSS keyspace. The keyspace for each index is defined by a list of key prefixes that are provided when the index is created. The list of prefixes is optional and if omitted, the entire keyspace will be part of that index. Multiple indexes may choose disjoint or overlapping subsets of the keyspace without limitation.
+
+Indexes are also typed in that they only cover keys that have a matching type. Currently, indexes are supported only on `JSON` and `HASH` types. A `HASH` index only indexes `HASH` keys covered by its prefix list and similarly a `JSON` index only indexes `JSON` keys that are covered by its prefix list. Keys within an index's keyspace prefix list that do not have the designated type are ignored and do not affect search operations.
+
+An index is updated when a command modifies any key that is within the keyspace of the index. Valkey automatically extracts the declared fields for each index and updates the index with the new value. The update process has three steps. In the first step, the HASH or JSON key is modified and the requesting client is blocked. The second step is performed in the background and updates each of the indexes that contain the modified key. In the third step, the client is unblocked. Thus for query operations performed on the same connection as a mutation, that change is immediately visible in the search results.
+
+The creation of an index is a multi-step process. The first step is to execute the FT.CREATE command which defines the index. Successful execution of a create automatically initiates the second step – backfilling. The backfill process runs in a background thread and scans the key space for keys that are within the new index’s prefix list. Each key that is found is added to the index. Eventually the entire keyspace is scanned, completing the index creation process. Note that while the backfill process is running, mutations of indexed keys are permitted, there is no restriction, and the index backfill process will not complete until all keys are properly indexed. Query operations attempted while an index is undergoing backfill are not allowed and are terminated with an error. The FT.INFO command returns the backfill process status in the 'backfill_status' field.
+
+## Index field types
+
+Each index has a specific type that is declared when the index is created along with the location of a field (column) to be indexed. For `HASH` keys the location is the field name within the `HASH`. For `JSON` keys the location is a JSON path description. When a key is modified the data associated with the declared fields is extracted, converted to the declared type and stored in the index. If the data is missing or cannot be successfully converted to the declared type, then that field is omitted from the index. There are three types of fields, as explained following:
+
+- **Vector fields** contain a vector of numbers also known as vector embedding. Vector fields can be used to filter vectors based on specified distance metrics that measure similarity. For `HASH` indexes, the field should contain the entire vector encoded in binary format (little-endian IEEE 754). For `JSON` keys the path should reference an array of the correct size filled with numbers. Note that when a JSON array is used as a vector field, the internal representation of the array within the JSON key is converted into the format required by the selected algorithm, reducing memory consumption and precision. Subsequent read operations using the JSON commands will yield the reduced precision value.
+- **Number fields** contain a single number. Number fields can be used with the range search operator. For `HASH`, the field is expected to contain the ASCII text of a number written in the standard format of fixed- or floating-point numbers. For `JSON` fields, the numeric rules of JSON numbers must be followed. Regardless of the representation within the key, this field is converted to a 64-bit floating point number for storage within the index. Because the underlying numbers are stored in floating point with its precision limitations, the usual rules about numeric comparisons for floating point numbers apply.
+- **Tag fields** contain zero or more tag values coded as a single UTF-8 string. Tag fields can be used to filter queries for tag value equivalence with either case-sensitive or case-insensitive comparison. The string is parsed into tag values using a separator character (default is a comma but can be overridden) with leading and trailing white space removed. Any number of tag values can be contained in a single tag field.
+
+## Vector index algorithms
+
+Two vector index algorithms are supported in Valkey:
+
+- **Flat** – The Flat algorithm is a brute force linear processing of each vector in the index, yielding exact answers within the bounds of the precision of the distance computations. Because of the linear processing of the index, run times for this algorithm can be very high for large indexes. Flat indexes support higher ingestion speeds.
+- **Hierarchical Navigable Small Worlds (HNSW)** – The HNSW algorithm is an alternative that provides an approximate closest vector matches in exchange for substantially lower execution times. The algorithm is controlled by three parameters `M`, `EF_CONSTRUCTION` and `EF_RUNTIME`. The first two parameters are specified at index creation time and cannot be changed. The `EF_RUNTIME` parameter has a default value that is specified at index creation but can be overridden on any individual query operation afterward. These three parameters interact to balance memory and CPU consumption during ingestion and query operations as well as control the quality of the approximation of an exact KNN search (known as recall ratio).
+
+In HNSW, the parameter M controls the maximum number of neighbors each node can connect to, shaping the index density. A higher M, such as 32 and above, produces a more connected graph, improving recall and query speed because more paths exist to reach relevant neighbors. However, it increases index size, memory use, and slows down indexing. A lower M, such as 8 and below, yields a smaller, faster-to-build index with lower memory use, but recall decreases and queries may take longer due to fewer connections.
+
+The parameter EF_construction dictates how many candidate connections are evaluated when building the index. A higher EF_construction, such as 400 and above, means the indexer considers more paths before selecting neighbors, leading to a graph that improves both recall and query efficiency later, but at the cost of slower indexing and higher CPU and memory use during construction. A low EF_construction, such as 64-120, speeds up indexing and reduces resource use, but the resulting graph may reduce recall and slow queries even if EF_runtime is set high.
+
+Finally, EF_runtime governs the breadth of the search during querying, controlling how many candidate neighbors are explored at runtime. Setting it high increases recall and accuracy, but at the cost of query latency and CPU use. A low EF_runtime makes queries faster and lighter, but with reduced recall. Unlike M or EF_construction, this parameter does not affect index size or build time, making it the parameter to tune recall versus latency trade-offs after an index is built.
+
+Both vector search algorithms (Flat and HNSW) support an optional `INITIAL_CAP` parameter. When specified, this parameter pre-allocates memory for the indexes, resulting in reduced memory management overhead and increased vector ingestion rates. Flat indexes support better ingestion speeds than HNSW.
+
+Vector search algorithms like HNSW may not efficiently handle deleting or overwriting of previously inserted vectors. Use of these operations can result in excess index memory consumption and/or degraded recall quality. Reindexing is one method for restoring optimal memory usage and/or recall.
+
+## Vector search security
+
+[Valkey ACL (Access Control Lists)](https://valkey.io/topics/acl/ "https://valkey.io/topics/acl/") security mechanisms for both command and data access are extended to control the search facility. ACL control of individual search commands is fully supported. A new ACL category, `@search`, is provided and many of the existing categories (`@fast`, `@read`, `@write`, etc.) are updated to include the new commands. Search commands do not modify key data, meaning that the existing ACL machinery for write access is preserved. The access rules for `HASH` and `JSON` operations are not modified by the presence of an index; normal key-level access control is still applied to those commands.
+
+Search commands with an index also have their access controlled through ACL. Access checks are performed at the whole-index level, not at the per-key level. This means that access to an index is granted to a user only if that user has permission to access all possible keys within the keyspace prefix list of that index. In other words, the actual contents of an index don't control the access. Rather, it is the theoretical contents of an index as defined by the prefix list which is used for the security check. Situations where a user has read and/or write access to a key but is unable to access an index containing that key are possible. Note that only read access to the keyspace is required to create or use an index – the presence or absence of write access is not considered
