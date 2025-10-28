@@ -1,0 +1,36 @@
+# AWS DeepRacer vehicle LED indicators
+
+Your AWS DeepRacer vehicle has two sets of LED indicators for the vehicle status and for customizable visual
+identification of your vehicle, respectively.
+
+![Image: AWS DeepRacer vehicle LED indicators.](images/deepracer-vehicle-led-indicators.png)
+
+The details are discussed as follows.
+
+###### Topics
+
+- [AWS DeepRacer vehicle system LED indicators](#deepracer-vehicle-led-indicators-system "#deepracer-vehicle-led-indicators-system")
+- [AWS DeepRacer vehicle identification LEDs](#deepracer-vehicle-led-indicators-custom "#deepracer-vehicle-led-indicators-custom")
+
+## AWS DeepRacer vehicle system LED indicators
+
+The AWS DeepRacer vehicle system LED indicators are located on the left side of the vehicle chassis
+when the vehicle is in the forward position in front of you.
+
+The three system LEDs are positioned after
+the **RESET** button. The first LED (on the left side of your field of view)
+shows the status of the system power. The second (middle) LED is reserved for future use.
+The last (right) LED shows the status of the Wi-Fi connection.
+
+| LED type | Color                                 | Status                                                                                       |
+| -------- | ------------------------------------- | -------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Power    | Off                                   | There is no power supply.                                                                    |
+|          | Blinking yellow                       | BIOS and OS are being loaded.                                                                |
+|          | Steady yellow                         | OS is loaded.                                                                                |
+|          | Steady blue                           | An application is running.                                                                   |
+|          | Blinking blue                         | A software update is in progress.                                                            |
+|          | Steady red                            | An error is encountered while the system is being booted or an application is being started. |
+| Wi-Fi    | Off                                   | There is no Wi-Fi connection.                                                                |
+|          | Blinking blue                         | The vehicle is connecting to the Wi-Fi network.                                              |
+|          | Steady red for 2 seconds and then off | The Wi-Fi connection failed.                                                                 |
+|          | Steady blue                           | The Wi-Fi connection is established.                                                         | ## AWS DeepRacer vehicle identification LEDs The AWS DeepRacer vehicle custom LEDs are located at the tail of the vehicle. They're used to help identifying your vehicle in races when multiple vehicles are present. You can use the AWS DeepRacer device console to [set them a supported color](deepracer-manage-vehicle-settings.md "deepracer-manage-vehicle-settings.md") of your choosing. |
