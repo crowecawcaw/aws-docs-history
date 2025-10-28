@@ -1,0 +1,155 @@
+# Using Amazon FSx with Amazon AppStream 2.0
+
+By supporting the Server Message Block (SMB) protocol, Amazon FSx for Windows File Server supports accessing your file system from Amazon EC2,
+VMware Cloud on AWS, Amazon WorkSpaces, and Amazon AppStream 2.0 instances. AppStream 2.0 is a fully managed application
+streaming service. You centrally manage your desktop applications on AppStream 2.0 and securely deliver
+them to a browser on any computer. For more information on AppStream 2.0, see the [_Amazon AppStream 2.0 Administration Guide_](../../../appstream2/latest/developerguide.md "../../../appstream2/latest/developerguide.md"). For instructions on how you can
+streamline the management of your Amazon AppStream 2.0 images and fleets, see the AWS blog post [Automatically create customized AppStream 2.0 Windows images](https://aws.amazon.com/blogs/desktop-and-application-streaming/automatically-create-customized-appstream-2-0-windows-images/ "https://aws.amazon.com/blogs/desktop-and-application-streaming/automatically-create-customized-appstream-2-0-windows-images/").
+
+The following procedures show you how to use Amazon FSx with AppStream 2.0 to provide
+personal persistent storage to each user, and to provide a shared folder so that multiple users
+can access common files.
+
+## Providing personal persistent storage to each
+
+user
+
+You can use Amazon FSx to provide every user in your organization a unique storage drive within
+AppStream 2.0 streaming sessions. A user will have permissions to access only their folder. The drive is
+automatically mounted at the start of a streaming session and files added or updated to the drive
+are automatically persisted between streaming sessions.
+
+There are three procedures you'll need to perform to complete this task.
+
+###### To create home folders for domain users using Amazon FSx
+
+1. Create an Amazon FSx file system. For more information, see [Getting started with Amazon FSx for Windows File Server](getting-started.md "getting-started.md").
+2. After the file system is available, create a folder for every domain AppStream 2.0 user within
+   your Amazon FSx file system. The example following uses the domain user name of the user as the name
+   of the corresponding folder. Doing this means that you can build the UNC name of the file share
+   to map easily using the Windows environment variable `%username%`.
+3. Share each of these folders out as a shared folder. For more information, see [Creating, updating, removing file shares](managing-file-shares.md "managing-file-shares.md").
+
+###### To launch a domain-joined AppStream 2.0 image builder
+
+1. Sign into the AppStream 2.0 console: [https://console.aws.amazon.com/appstream2](https://console.aws.amazon.com/appstream2 "https://console.aws.amazon.com/appstream2")
+2. Choose **Directory Configs** from the navigation menu, and create a
+   Directory Config object. For more information, see [Using Active Directory with AppStream 2.0](../../../appstream2/latest/developerguide/active-directory.md "../../../appstream2/latest/developerguide/active-directory.md") in the
+   _Amazon AppStream 2.0 Administration Guide_.
+3. Choose **Images**, **Image Builder**, and launch a new
+   image builder.
+4. Choose the directory config object created earlier in the image builder launch wizard to
+   join the image builder to your Active Directory domain.
+5. Launch the image builder in the same VPC as that of your Amazon FSx file system. Make sure to
+   associate the image builder with the same AWS Managed Microsoft AD directory to which your Amazon FSx file
+   system is joined. The VPC security groups that you associate with the image builder must allow
+   access to your Amazon FSx file system.
+6. Once the image builder is available, connect to the image builder and login using your
+   domain administrator account.
+7. Install your applications.
+
+###### To link Amazon FSx file shares with AppStream 2.0
+
+1. In the image builder, create a batch script with the following command and store it in a
+   known file location (for example: C:\Scripts\map-fs.bat). The following example uses S: as the
+   drive letter to map the shared folder on your Amazon FSx file system. You use the DNS name of your
+   Amazon FSx file system or a DNS alias associated with the file system in this script,
+   which you can get from the file system details view in the Amazon FSx console.
+
+If you're using the file system's DNS name:
+
+```
+@echo off
+net use S: /delete
+net use S: \\`file-system-DNS-name`\users\%username%
+
+```
+
+If you're using a DNS alias associated with the file system:
+
+```
+@echo off
+net use S: /delete
+net use S: \\`fqdn-DNS-alias`\users\%username%
+
+```
+
+2. Open a PowerShell prompt and run `gpedit.msc`.
+3. From **User Configuration** choose **Windows Settings**
+   and then **Logon**.
+4. Navigate to the batch script that you created in the first step of this procedure, and
+   choose it.
+5. From **Computer Configuration**, choose **Windows Administrative
+   Templates**, **System**, and then **Group
+   Policy**.
+6. Choose the policy **Configure Logon Script delay**. Enable the policy and
+   reduce the time delay to `0`. This setting helps to ensure that the user logon
+   script is executed immediately when the user starts a streaming session.
+7. Create your image and assign it to an AppStream 2.0 fleet. Ensure that you also join the AppStream 2.0
+   fleet to the same Active Directory domain that you used for image builder. Launch the fleet in
+   the same VPC that is used by your Amazon FSx file system. The VPC security groups that you associate
+   with the fleet must provide access to your Amazon FSx file system.
+8. Launch a streaming session using SAML SSO. To connect to an fleet that is joined to Active Directory,
+   configure single sign-on federation using a SAML provider. For more information,
+   see [Single Sign-on Access to
+   AppStream 2.0 Using SAML 2.0](../../../appstream2/latest/developerguide/external-identity-providers.md "../../../appstream2/latest/developerguide/external-identity-providers.md") in the _Amazon AppStream 2.0 Administration Guide_.
+9. Your Amazon FSx file share is mapped to the S: drive letter within the streaming
+   session.
+
+## Providing a shared folder across users
+
+You can use Amazon FSx to provide a shared folder to users in your organization. A shared
+folder can be used to maintain common files (for example, demo files, code examples, instruction
+manuals, etc.) needed by all users.
+
+There are three procedures you'll need to perform to complete this task.
+
+###### To create a shared folder using Amazon FSx
+
+1. Create an Amazon FSx file system. For more information, see [Getting started with Amazon FSx for Windows File Server](getting-started.md "getting-started.md").
+2. Every Amazon FSx file system includes a shared folder by default that you can access using the
+   address \\`file-system-DNS-name`\share, or \\`fqdn-DNS-alias`\share
+   if you are using DNS aliases. You can use the default share
+   or create a different shared folder. For more information, see [Creating, updating, removing file shares](managing-file-shares.md "managing-file-shares.md").
+
+###### To launch an AppStream 2.0 image builder
+
+1. From the AppStream 2.0 console, launch a new image builder or connect to an existing image
+   builder. Launch the image builder in the same VPC that is used by your Amazon FSx file system. The
+   VPC security groups that you associate with the image builder must allow access to your Amazon FSx
+   file system.
+2. Once the image builder is available, connect to the image builder as the Administrator
+   user.
+3. Install or update your applications as Administrator.
+
+###### To link the shared folder with AppStream 2.0
+
+1. Create a batch script, as described in the previous procedure, to automatically mount the
+   shared folder whenever a user launches a streaming session. To complete the script, you need
+   the file system's DNS name or a DNS alias that is associated with the file system (which you
+   can obtain from the file system details view in the Amazon FSx Console), and credentials for
+   accessing the shared folder.
+
+If you're using the file system's DNS name:
+
+```
+@echo off
+net use S: /delete
+net use S: \\`file-system-DNS-name`\share /user:`username` `password`
+
+```
+
+If you're using a DNS alias associated with the file system:
+
+```
+@echo off
+net use S: /delete
+net use S: \\`fqdn-DNS-alias`\share /user:`username` `password`
+
+```
+
+2. Create a Group Policy to execute this batch script at every user logon. You can follow the
+   same instructions as described in the previous section.
+3. Create your image and assign it to your fleet.
+4. Launch a streaming session. You should now see the shared folder automatically mapped to
+   the drive letter.
