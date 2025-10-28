@@ -1,0 +1,39 @@
+# Building AI agents with Amazon Nova
+
+An AI agent helps your end-users complete actions based on organization data and user
+input. Agents orchestrate interactions between foundation models (FMs), data sources,
+software applications, and user conversations. In addition, agents automatically call APIs
+to take actions and invoke knowledge bases to supplement information for these actions.
+Developers can save weeks of development effort by integrating agents to accelerate the
+delivery of generative artificial intelligence (generative AI) applications .
+
+With agents, you can automate tasks for your customers and answer questions for them. For
+example, you can create an agent that helps customers process insurance claims or an agent
+that helps customers make travel reservations. You don't have to provision capacity, manage
+infrastructure, or write custom code. Amazon Nova manages prompt engineering, memory,
+monitoring, encryption, user permissions, and API invocation.
+
+For information on building AI agents in Amazon Bedrock, see [Bedrock
+Agents](../../../bedrock/latest/userguide/agents.md "../../../bedrock/latest/userguide/agents.md").
+
+Agents perform the following tasks:
+
+- Extend foundation models to understand user requests and break down the tasks that
+  the agent must perform into smaller steps.
+- Collect additional information from a user through natural conversation.
+- Take actions to fulfill a customer's request by making API calls to your company
+  systems.
+- Augment performance and accuracy by querying data sources.
+
+###### Topics
+
+- [Using Amazon Nova as a foundation model in an AI
+  agent](agents-use-nova.md "agents-use-nova.md")
+- [Additional Resources](#agents-resources "#agents-resources")
+
+## Additional Resources
+
+1. [Automate tasks in your application using agents](../../../bedrock/latest/userguide/agents.md "../../../bedrock/latest/userguide/agents.md")
+2. [Tool use (function calling) with Amazon Nova](tool-use.md "tool-use.md")
+3. [Text understanding prompting best
+   practices](prompting-text-understanding.md "prompting-text-understanding.md")
