@@ -1,0 +1,12 @@
+# Security
+
+In the AWS Cloud Adoption Framework (CAF), security is a perspective that focuses on subjects such as account governance, account ownership, control frameworks, change and access management, and other security best practices. We recommend that you become familiar with these security processes when planning any type of migration. In some cases, you might need to get sign-off from your internal IT audit and security teams before you start your migration project or during migration. See the [CAF security whitepaper](https://d1.awsstatic.com/whitepapers/AWS_CAF_Security_Perspective.pdf "https://d1.awsstatic.com/whitepapers/AWS_CAF_Security_Perspective.pdf") for a deeper dive into each of these topic areas.
+
+Additionally, there are AWS services that help you secure your systems in AWS. For example, [AWS CloudTrail](https://aws.amazon.com/cloudtrail/ "https://aws.amazon.com/cloudtrail/"), [Amazon CloudWatch](https://aws.amazon.com/cloudwatch/ "https://aws.amazon.com/cloudwatch/"), and [AWS Config](https://aws.amazon.com/config/ "https://aws.amazon.com/config/") can help you secure your AWS environment.
+
+See the following AWS blog posts for help analyzing and evaluating architectures and design patterns for the VPC setup and configuration of your SAP landscape.
+
+- [VPC Subnet Zoning Patterns for SAP on AWS](https://aws.amazon.com/blogs/awsforsap/vpc-subnet-zoning-patterns-for-sap-on-aws/ "https://aws.amazon.com/blogs/awsforsap/vpc-subnet-zoning-patterns-for-sap-on-aws/")
+- [VPC Subnet Zoning Patterns for SAP on AWS](https://aws.amazon.com/blogs/awsforsap/vpc-subnet-zoning-patterns-for-sap-on-aws-part-2-network-zoning/ "https://aws.amazon.com/blogs/awsforsap/vpc-subnet-zoning-patterns-for-sap-on-aws-part-2-network-zoning/")
+- [VPC Subnet Zoning Patterns for SAP on AWS](https://aws.amazon.com/blogs/awsforsap/vpc-subnet-zoning-patterns-for-sap-on-aws-part-3-internal-and-external-access/ "https://aws.amazon.com/blogs/awsforsap/vpc-subnet-zoning-patterns-for-sap-on-aws-part-3-internal-and-external-access/")
+  Beyond VPC and network security, SAP HANA systems require routine maintenance to remain secure, reliable, and available; see the [SAP HANA operations overview](https://d1.awsstatic.com/enterprise-marketing/SAP/SAP_HANA_on_AWS_Implementation_and_Operations_Guide.pdf "https://d1.awsstatic.com/enterprise-marketing/SAP/SAP_HANA_on_AWS_Implementation_and_Operations_Guide.pdf") for specific recommendations in this topic area.

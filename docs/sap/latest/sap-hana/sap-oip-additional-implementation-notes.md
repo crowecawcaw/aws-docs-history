@@ -1,0 +1,5 @@
+# Additional Implementation Notes
+
+- If other applications outside the VPC need to connect to the SAP system via the ASCS, create additional listeners with the ports on which these applications communicate.
+- For customers using SAP Gateway Service (GW) and have designed HA for this service, create a target group for the GW service as well (33<instance-number>). Point the health check port for the GW target group to the message server port (36<instance-number>).
+- You can use the corporate DNS or Amazon Route 53 Public Data Plane to create a user friendly CNAME for the Network Load Balancer DNS name. If you use an alias for connecting to the SAP GUI on-premises, the alias can be created as the CNAME for the Network Load Balancer DNS name. With this approach, there are no changes required on your SAP GUI configuration post migration to AWS. If other systems, such as SAP Landscape Management that requires a reverse lookup to function, are connecting to the highly available system, use A and PTR records instead of CNAME.
