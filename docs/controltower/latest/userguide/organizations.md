@@ -1,0 +1,36 @@
+# Manage Accounts Through AWS Organizations
+
+AWS Organizations is an account management service that lets you consolidate multiple AWS
+accounts into an organization that you create and centrally manage. With Organizations, you can
+create member accounts and invite existing accounts to join your organization. You can
+organize those accounts into groups and attach policy-based controls. For more
+information, see _[AWS Organizations User Guide](../../../organizations/latest/userguide.md "../../../organizations/latest/userguide.md")_.
+
+In AWS Control Tower, Organizations helps centrally manage billing; control access, compliance, and
+security; and share resources across your member AWS accounts. Accounts are grouped
+into logical groups, called organizational units (OUs). For more information on Organizations,
+see _[AWS Organizations User Guide](../../../organizations/latest/userguide.md "../../../organizations/latest/userguide.md")_.
+
+AWS Control Tower uses the following OUs:
+
+- **Root** – The parent container for all
+  accounts and all other OUs in your landing zone.
+- **Security** – This OU contains the log
+  archive account, the audit account, and the resources they own.
+- **Sandbox** – This OU is created when you
+  set up your landing zone. It and other child OUs in your landing zone contain your member
+  accounts. These are the accounts that your end users access to perform work on
+  AWS resources.
+
+###### Note
+
+You can add additional OUs in your landing zone through the AWS Control Tower console on the
+**Organizational units** page.
+
+## Considerations
+
+OUs created through AWS Control Tower can have controls applied to them. OUs created
+outside of AWS Control Tower cannot, by default. You can, however, register such OUs. Once
+you have registered an OU, you can apply controls to it and its accounts. For
+information on registering an OU, see [Register an
+existing organizational unit with AWS Control Tower](importing-existing.md "importing-existing.md").

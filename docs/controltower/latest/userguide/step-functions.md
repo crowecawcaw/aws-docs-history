@@ -1,0 +1,6 @@
+# Build Distributed Applications with AWS Step Functions
+
+AWS Step Functions makes it easy to coordinate the components of distributed applications as a
+series of steps in a visual workflow. You can quickly build and run state machines to
+execute the steps of your application in a reliable and scalable fashion. For more
+information, see _[AWS Step Functions Developer Guide](../../../step-functions/latest/dg.md "../../../step-functions/latest/dg.md")_.
