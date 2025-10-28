@@ -1,0 +1,255 @@
+AWS CodeCommit is no longer available to new customers. Existing customers of
+AWS CodeCommit can continue to use the service as normal.
+[Learn more"](https://aws.amazon.com/blogs/devops/how-to-migrate-your-aws-codecommit-repository-to-another-git-provider "https://aws.amazon.com/blogs/devops/how-to-migrate-your-aws-codecommit-repository-to-another-git-provider")
+
+# Manage approval rule templates
+
+You can manage the approval rule templates in an AWS Region to help understand how
+they are being used and what they are for. For example, you can edit the names and
+descriptions of approval rule templates to help others understand their purpose. You can
+list all the approval rule templates in an AWS Region, and get information about the
+content and structure of a template. You can review which templates are associated with
+a repository, and which repositories are associated with a template.
+
+For more information about managed policies and permissions for approval rule
+templates, see [Permissions for actions on approval rule templates](auth-and-access-control-permissions-reference.md#aa-art "auth-and-access-control-permissions-reference.md#aa-art") and [AWS managed policies for
+CodeCommit](security-iam-awsmanpol.md "security-iam-awsmanpol.md").
+
+## Manage approval rule templates
+
+(console)
+
+You can view and manage your approval rule templates in the CodeCommit console.
+
+## To manage approval rule templates
+
+1. Open the CodeCommit console at [https://console.aws.amazon.com/codesuite/codecommit/home](https://console.aws.amazon.com/codesuite/codecommit/home "https://console.aws.amazon.com/codesuite/codecommit/home").
+2. Choose **Approval rule templates** to view the list of
+   approval rule templates in the AWS Region where you are signed in.
+
+###### Note
+
+Approval rule templates are only available in the AWS Region where
+they were created. 3. If you want to make changes to a template, choose it from the list, and
+then choose **Edit**. 4. Make your changes, and then choose **Save**.
+
+## Manage approval rule templates
+
+(AWS CLI)
+
+You can manage your approval rule templates with the following AWS CLI
+commands:
+
+- [list-approval-rule-templates](#list-templates "#list-templates"), to view a
+  list of all approval rule templates in an AWS Region
+- [get-approval-rule-template](#get-template "#get-template"), to view the
+  content of an approval rule template
+- [update-approval-rule-template-content](#update-template-content "#update-template-content"), to
+  change the content of an approval rule template
+- [update-approval-rule-template-name](#update-template-name "#update-template-name"), to
+  change the name of an approval rule template
+- [update-approval-rule-template-description](#update-template-description "#update-template-description"),
+  to change the description of an approval rule template
+- [list-repositories-for-approval-rule-template](#list-associated-repositories "#list-associated-repositories"),
+  to view all repositories associated with an approval rule template
+- [list-associated-approval-rule-templates-for-repository](#list-associated-templates "#list-associated-templates"),
+  to view all approval rule templates associated with a repository
+
+## To list all approval rule templates in an
+
+AWS Region
+
+1. At the terminal or command line, run the
+   **list-approval-rule-templates** command. For example, to
+   list all approval rule templates in the US East (Ohio) Region:
+
+```
+aws codecommit list-approval-rule-templates --region us-east-2
+```
+
+2. If successful, this command returns output similar to the
+   following:
+
+```
+{
+    "approvalRuleTemplateNames": [
+        "2-approver-rule-for-main",
+        "1-approver-rule-for-all-pull-requests"
+    ]
+}
+```
+
+## To get the content of an approval rule
+
+template
+
+1. At the terminal or command line, run the
+   **get-approval-rule-template** command, specifying the
+   name of the approval rule template:
+
+```
+aws codecommit get-approval-rule-template --approval-rule-template-name 1-approver-rule-for-all-pull-requests
+```
+
+2. If successful, this command returns output similar to the
+   following:
+
+```
+{
+    "approvalRuleTemplate": {
+        "approvalRuleTemplateContent": "{\"Version\": \"2018-11-08\",\"Statements\": [{\"Type\": \"Approvers\",\"NumberOfApprovalsNeeded\": 1,\"ApprovalPoolMembers\": [\"arn:aws:sts::123456789012:assumed-role/CodeCommitReview/*\"]}]}",
+        "ruleContentSha256": "621181bbEXAMPLE",
+        "lastModifiedDate": 1571356106.936,
+        "creationDate": 1571356106.936,
+        "approvalRuleTemplateName": "1-approver-rule-for-all-pull-requests",
+        "lastModifiedUser": "arn:aws:iam::123456789012:user/Li_Juan",
+        "approvalRuleTemplateId": "a29abb15-EXAMPLE",
+        "approvalRuleTemplateDescription": "All pull requests must be approved by one developer on the team."
+    }
+}
+```
+
+## To update the content of an approval
+
+rule template
+
+1. At the terminal or command prompt, run the
+   **update-approval-rule-template-content** command,
+   specifying the name of the template and the changed content. For example, to
+   change the content of an approval rule template named
+   `1-approver-rule` to redefine the approval pool to
+   users who assume the role of `CodeCommitReview`:
+
+```
+aws codecommit update-approval-rule-template-content --approval-rule-template-name 1-approver-rule --new-rule-content "{\"Version\": \"2018-11-08\",\"DestinationReferences\": [\"refs/heads/main\"],\"Statements\": [{\"Type\": \"Approvers\",\"NumberOfApprovalsNeeded\": 2,\"ApprovalPoolMembers\": [\"arn:aws:sts::123456789012:assumed-role/CodeCommitReview/*\"]}]}"
+```
+
+2. If successful, this command returns output similar to the
+   following:
+
+```
+{
+    "approvalRuleTemplate": {
+        "creationDate": 1571352720.773,
+        "approvalRuleTemplateDescription": "Requires 1 approval for all pull requests from the CodeCommitReview pool",
+        "lastModifiedDate": 1571358728.41,
+        "approvalRuleTemplateId": "41de97b7-EXAMPLE",
+        "approvalRuleTemplateContent": "{\"Version\": \"2018-11-08\",\"Statements\": [{\"Type\": \"Approvers\",\"NumberOfApprovalsNeeded\": 1,\"ApprovalPoolMembers\": [\"arn:aws:sts::123456789012:assumed-role/CodeCommitReview/*\"]}]}",
+        "approvalRuleTemplateName": "1-approver-rule-for-all-pull-requests",
+        "ruleContentSha256": "2f6c21a5EXAMPLE",
+        "lastModifiedUser": "arn:aws:iam::123456789012:user/Li_Juan"
+    }
+}
+```
+
+## To update the name of an approval rule
+
+template
+
+1. At the terminal or command prompt, run the
+   **update-approval-rule-template-name** command,
+   specifying the current name and the name you want to change it to. For
+   example, to change the name of an approval rule template from
+   `1-approver-rule` to
+   `1-approver-rule-for-all-pull-requests`:
+
+```
+aws codecommit update-approval-rule-template-name --old-approval-rule-template-name "1-approver-rule" --new-approval-rule-template-name "1-approver-rule-for-all-pull-requests"
+```
+
+2. If successful, this command returns output similar to the
+   following:
+
+```
+{
+    "approvalRuleTemplate": {
+        "approvalRuleTemplateName": "1-approver-rule-for-all-pull-requests",
+        "lastModifiedDate": 1571358241.619,
+        "approvalRuleTemplateId": "41de97b7-EXAMPLE",
+        "approvalRuleTemplateContent": "{\"Version\": \"2018-11-08\",\"Statements\": [{\"Type\": \"Approvers\",\"NumberOfApprovalsNeeded\": 1,\"ApprovalPoolMembers\": [\"arn:aws:sts::123456789012:assumed-role/CodeCommitReview/*\"]}]}",
+        "creationDate": 1571352720.773,
+        "lastModifiedUser": "arn:aws:iam::123456789012:user/Mary_Major",
+        "approvalRuleTemplateDescription": "All pull requests must be approved by one developer on the team.",
+        "ruleContentSha256": "2f6c21a5cEXAMPLE"
+    }
+}
+```
+
+## To update the description of an
+
+approval rule template
+
+1. At the terminal or command line, run the
+   **update-approval-rule-template-description** command,
+   specifying the name of the approval rule template and the new
+   description:
+
+```
+aws codecommit update-approval-rule-template-description --approval-rule-template-name "1-approver-rule-for-all-pull-requests" --approval-rule-template-description "Requires 1 approval for all pull requests from the CodeCommitReview pool"
+```
+
+2. If successful, this command produces output similar to the
+   following:
+
+```
+{
+    "approvalRuleTemplate": {
+        "creationDate": 1571352720.773,
+        "approvalRuleTemplateDescription": "Requires 1 approval for all pull requests from the CodeCommitReview pool",
+        "lastModifiedDate": 1571358728.41,
+        "approvalRuleTemplateId": "41de97b7-EXAMPLE",
+        "approvalRuleTemplateContent": "{\"Version\": \"2018-11-08\",\"Statements\": [{\"Type\": \"Approvers\",\"NumberOfApprovalsNeeded\": 1,\"ApprovalPoolMembers\": [\"arn:aws:sts::123456789012:assumed-role/CodeCommitReview/*\"]}]}",
+        "approvalRuleTemplateName": "1-approver-rule-for-all-pull-requests",
+        "ruleContentSha256": "2f6c21a5EXAMPLE",
+        "lastModifiedUser": "arn:aws:iam::123456789012:user/Li_Juan"
+    }
+}
+```
+
+## To list all repositories
+
+associated with a template
+
+1. At the command line or terminal, run the
+   **list-repositories-for-approval-rule-template** command,
+   specifying the name of the template:
+
+```
+aws codecommit list-repositories-for-approval-rule-template --approval-rule-template-name 2-approver-rule-for-main
+```
+
+2. If successful, this command returns output similar to the
+   following:
+
+```
+{
+    "repositoryNames": [
+        "MyDemoRepo",
+        "MyClonedRepo"
+    ]
+}
+```
+
+## To list all templates associated
+
+with a repository
+
+1. At the command line or terminal, run the
+   **list-associated-approval-rule-templates-for-repository**
+   command, specifying the name of the repository:
+
+```
+aws codecommit list-associated-approval-rule-templates-for-repository --repository-name MyDemoRepo
+```
+
+2. If successful, this command returns output similar to the
+   following:
+
+```
+{
+    "approvalRuleTemplateNames": [
+        "2-approver-rule-for-main",
+        "1-approver-rule-for-all-pull-requests"
+    ]
+}
+```
