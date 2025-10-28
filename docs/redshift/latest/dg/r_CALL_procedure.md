@@ -1,0 +1,154 @@
+Amazon Redshift will no longer support the creation of new Python UDFs starting November 1, 2025.
+If you would like to use Python UDFs, create the UDFs prior to that date.
+Existing Python UDFs will continue to function as normal. For more information, see the
+[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
+
+# CALL
+
+Runs a stored procedure. The CALL command must include the procedure name and the input
+argument values. You must call a stored procedure by using the CALL statement.
+
+###### Note
+
+CALL can't be part of any regular queries.
+
+## Syntax
+
+```
+CALL sp_name ( [ argument ] [, ...] )
+
+```
+
+## Parameters
+
+_sp_name_
+
+The name of the procedure to run.
+
+_argument_
+
+The value of the input argument. This parameter can also be a function name,
+for example `pg_last_query_id()`. You can't use queries as CALL
+arguments.
+
+## Usage notes
+
+Amazon Redshift stored procedures support nested and recursive calls, as described following. In
+addition, make sure your driver support is up-to-date, also described following.
+
+###### Topics
+
+- [Nested calls](#r_CALL_procedure-nested-calls "#r_CALL_procedure-nested-calls")
+- [Driver support](#r_CALL_procedure-driver-support "#r_CALL_procedure-driver-support")
+
+### Nested calls
+
+Amazon Redshift stored procedures support nested and recursive calls. The maximum number of
+nesting levels allowed is 16. Nested calls can encapsulate business logic into
+smaller procedures, which can be shared by multiple callers.
+
+If you call a nested procedure that has output parameters, the inner procedure
+must define INOUT arguments. In this case, the inner procedure is passed in a
+nonconstant variable. OUT arguments aren't allowed. This behavior occurs because
+a variable is needed to hold the output of the inner call.
+
+The relationship between inner and outer procedures is logged in the
+`from_sp_call` column of [SVL_STORED_PROC_CALL](r_SVL_STORED_PROC_CALL.md "r_SVL_STORED_PROC_CALL.md").
+
+The following example shows passing variables to a nested procedure call through
+INOUT arguments.
+
+```
+CREATE OR REPLACE PROCEDURE inner_proc(INOUT a int, b int, INOUT c int) LANGUAGE plpgsql
+AS $$
+BEGIN
+  a := b * a;
+  c := b * c;
+END;
+$$;
+
+CREATE OR REPLACE PROCEDURE outer_proc(multiplier int) LANGUAGE plpgsql
+AS $$
+DECLARE
+  x int := 3;
+  y int := 4;
+BEGIN
+  DROP TABLE IF EXISTS test_tbl;
+  CREATE TEMP TABLE test_tbl(a int, b varchar(256));
+  CALL inner_proc(x, multiplier, y);
+  insert into test_tbl values (x, y::varchar);
+END;
+$$;
+
+CALL outer_proc(5);
+
+SELECT * from test_tbl;
+ a  | b
+----+----
+ 15 | 20
+(1 row)
+
+```
+
+### Driver support
+
+We recommend that you upgrade your Java Database Connectivity (JDBC) and Open
+Database Connectivity (ODBC) drivers to the latest version that has support for Amazon Redshift
+stored procedures.
+
+You might be able to use your existing driver if your client tool uses driver API
+operations that pass through the CALL statement to the server. Output parameters, if
+any, are returned as a result set of one row.
+
+The latest versions of Amazon Redshift JDBC and ODBC drivers have metadata support for stored
+procedure discovery. They also have `CallableStatement` support for custom
+Java applications. For more information on drivers, see [Connecting to an Amazon Redshift
+Cluster Using SQL Client Tools](../mgmt/connecting-to-cluster.md "../mgmt/connecting-to-cluster.md") in the
+_Amazon Redshift Management Guide._
+
+The following examples show how to use different API operations of the JDBC driver
+for stored procedure calls.
+
+```
+void statement_example(Connection conn) throws SQLException {
+  statement.execute("CALL sp_statement_example(1)");
+}
+
+void prepared_statement_example(Connection conn) throws SQLException {
+  String sql = "CALL sp_prepared_statement_example(42, 84)";
+  PreparedStatement pstmt = conn.prepareStatement(sql);
+  pstmt.execute();
+}
+
+void callable_statement_example(Connection conn) throws SQLException {
+  CallableStatement cstmt = conn.prepareCall("CALL sp_create_out_in(?,?)");
+  cstmt.registerOutParameter(1, java.sql.Types.INTEGER);
+  cstmt.setInt(2, 42);
+  cstmt.executeQuery();
+  Integer out_value = cstmt.getInt(1);
+}
+
+```
+
+## Examples
+
+The following example calls the procedure name `test_spl`.
+
+```
+call test_sp1(3,'book');
+INFO:  Table "tmp_tbl" does not exist and will be skipped
+INFO:  min_val = 3, f2 = book
+
+```
+
+The following example calls the procedure name `test_spl2`.
+
+```
+call test_sp2(2,'2019');
+
+         f2          | column2
+---------------------+---------
+ 2019+2019+2019+2019 | 2
+(1 row)
+
+```

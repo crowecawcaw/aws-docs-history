@@ -1,0 +1,31 @@
+Amazon Redshift will no longer support the creation of new Python UDFs starting November 1, 2025.
+If you would like to use Python UDFs, create the UDFs prior to that date.
+Existing Python UDFs will continue to function as normal. For more information, see the
+[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
+
+# Mapping the query plan to the query summary
+
+When analyzing the query summary, you can get further details by mapping the operations from the query plan to the steps (identified by the
+label field values) in the query summary. The following table maps query plan operations to query summary steps.
+
+| Query plan operation                                                           | Label field value   | Description                                                                                                                                         |
+| ------------------------------------------------------------------------------ | ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| AggregateHashAggregateGroupAggregate                                           | AGGR                | Evaluates aggregate functions and GROUP BY conditions.                                                                                              |
+| DS_BCAST_INNER                                                                 | BCAST (broadcast)   | Broadcasts an entire table or some set of rows (such as a filtered set of rows from a table) to all nodes.                                          |
+| Doesn’t appear in query plan                                                   | DELETE              | Deletes rows from tables.                                                                                                                           |
+| DS_DIST_NONE DS_DIST_ALL_NONE DS_DIST_INNER DS_DIST_ALL_INNER DS_DIST_ALL_BOTH | DIST (distribute)   | Distributes rows to nodes for parallel joining purposes or other parallel processing.                                                               |
+| HASH                                                                           | HASH                | Builds hash table for use in hash joins.                                                                                                            |
+| Hash Join                                                                      | HJOIN (hash join)   | Performs a hash join of two tables or intermediate result sets.                                                                                     |
+| Doesn’t appear in query plan                                                   | INSERT              | Inserts rows into tables.                                                                                                                           |
+| Limit                                                                          | LIMIT               | Applies a LIMIT clause to result sets.                                                                                                              |
+| Merge                                                                          | MERGE               | Merges rows derived from parallel sort or join operations.                                                                                          |
+| Merge Join                                                                     | MJOIN (merge join)  | Performs a merge join of two tables or intermediate result sets.                                                                                    |
+| Nested Loop                                                                    | NLOOP (nested loop) | Performs a nested loop join of two tables or intermediate result sets.                                                                              |
+| Doesn’t appear in query plan                                                   | PARSE               | Parses strings into binary values for loading.                                                                                                      |
+| Project                                                                        | PROJECT             | Evaluates expressions.                                                                                                                              |
+| Network                                                                        | RETURN              | Returns rows to the leader or the client.                                                                                                           |
+| Doesn’t appear in query plan                                                   | SAVE                | Materializes rows for use in the next processing step.                                                                                              |
+| Seq Scan                                                                       | SCAN                | Scans tables or intermediate result sets.                                                                                                           |
+| Sort                                                                           | SORT                | Sorts rows or intermediate result sets as required by other subsequent operations (such as joins or aggregations) or to satisfy an ORDER BY clause. |
+| Unique                                                                         | UNIQUE              | Applies a SELECT DISTINCT clause or removes duplicates as required by other operations.                                                             |
+| Window                                                                         | WINDOW              | Computes aggregate and ranking window functions.                                                                                                    |

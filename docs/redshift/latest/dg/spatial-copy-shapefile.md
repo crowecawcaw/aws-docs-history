@@ -1,0 +1,63 @@
+Amazon Redshift will no longer support the creation of new Python UDFs starting November 1, 2025.
+If you would like to use Python UDFs, create the UDFs prior to that date.
+Existing Python UDFs will continue to function as normal. For more information, see the
+[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
+
+# Loading a shapefile into Amazon Redshift
+
+You can use the COPY command to ingest Esri shapefiles stored in Amazon S3 into Amazon Redshift tables.
+A _shapefile_
+stores the geometric location and attribute information of geographic features in a vector format.
+The shapefile format can spatially describe spatial objects such as points, lines, and
+polygons. For more information about a shapefile, see [Shapefile](https://en.wikipedia.org/wiki/Shapefile "https://en.wikipedia.org/wiki/Shapefile") in Wikipedia.
+
+The COPY command supports the data format parameter `SHAPEFILE`.
+By default, the first column of the shapefile is either a `GEOMETRY` or `IDENTITY` column.
+All subsequent columns follow the order specified in the shapefile.
+However, the target table doesn't need to be in this exact layout because you can use COPY column mapping to define the order.
+For information about the COPY command shapefile support, see
+[SHAPEFILE](copy-parameters-data-format.md#copy-shapefile "copy-parameters-data-format.md#copy-shapefile").
+
+In some cases, the resulting geometry size might be greater than the maximum for storing
+a geometry in Amazon Redshift. If so, you can use the COPY option `SIMPLIFY` or
+`SIMPLIFY AUTO` to simplify the geometries during ingestion as
+follows:
+
+- Specify `SIMPLIFY *tolerance*` to simplify all geometries
+  during ingestion using the Ramer-Douglas-Peucker algorithm and the given tolerance.
+- Specify `SIMPLIFY AUTO` without tolerance to simplify only geometries that are
+  larger than the maximum size using the Ramer-Douglas-Peucker algorithm. This approach
+  calculates the minimum tolerance that is large enough to store the object within the
+  maximum size limit.
+- Specify `SIMPLIFY AUTO *max\_tolerance*` to simplify only
+  geometries that are larger than the maximum size using the Ramer-Douglas-Peucker
+  algorithm and the automatically calculated tolerance. This approach makes sure that
+  the tolerance doesn't exceed the maximum tolerance.
+  For information about the maximum size of a `GEOMETRY` data value, see
+  [Considerations when using spatial data with Amazon Redshift](spatial-limitations.md "spatial-limitations.md").
+
+In some cases, the tolerance is low enough that the record can't shrink below the
+maximum size of a `GEOMETRY` data value. In these cases, you can use the
+`MAXERROR` option of the COPY command to ignore all or up to a certain number
+of ingestion errors.
+
+The COPY command also supports loading GZIP shapefiles. To do this, specify the COPY
+GZIP parameter. With this option, all shapefile components must be independently compressed
+and share the same compression suffix.
+
+If a projection description file (.prj) exists with the shapefile, Redshift
+uses it to determine the spatial reference system id (SRID). If the SRID is valid, the resulting
+geometry has this SRID assigned. If the SRID value associated
+with the input geometry does not exist, the resulting geometry has the SRID value zero. You can disable automatic detection of
+the spatial reference system id at the session level by using `SET read_srid_on_shapefile_ingestion` to `OFF`.
+
+Query the `SYS_SPATIAL_SIMPLIFY` or `SVL_SPATIAL_SIMPLIFY` system views to view which records have been
+simplified, along with the calculated tolerance. When you specify `SIMPLIFY
+ *tolerance*`, this view contains a record for each COPY
+operation. Otherwise, it contains a record for each simplified geometry. For more
+information, see
+[SYS_SPATIAL_SIMPLIFY](SYS_SPATIAL_SIMPLIFY.md "SYS_SPATIAL_SIMPLIFY.md") or
+[SVL_SPATIAL_SIMPLIFY](r_SVL_SPATIAL_SIMPLIFY.md "r_SVL_SPATIAL_SIMPLIFY.md").
+
+For examples of loading a shapefile, see
+[Loading a shapefile into Amazon Redshift](r_COPY_command_examples.md#copy-example-spatial-copy-shapefile "r_COPY_command_examples.md#copy-example-spatial-copy-shapefile").

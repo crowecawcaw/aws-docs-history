@@ -1,0 +1,65 @@
+Amazon Redshift will no longer support the creation of new Python UDFs starting November 1, 2025.
+If you would like to use Python UDFs, create the UDFs prior to that date.
+Existing Python UDFs will continue to function as normal. For more information, see the
+[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
+
+# Integer and floating-point
+
+literals
+
+Literals or constants that represent numbers can be integer or
+floating-point.
+
+## Integer
+
+literals
+
+An integer constant is a sequence of the digits 0-9, with an optional
+positive (+) or negative (-) sign preceding the digits.
+
+## Syntax
+
+```
+[ + | - ] digit ...
+```
+
+## Examples
+
+Valid integers include the following:
+
+```
+23
+-555
++17
+```
+
+## Floating-point literals
+
+Floating-point literals (also referred to as decimal, numeric, or
+fractional literals) are sequences of digits that can include a decimal
+point, and optionally the exponent marker (e).
+
+## Syntax
+
+```
+[ + | - ] digit ... [ . ] [ digit ...]
+[ e | E [ + | - ] digit ... ]
+```
+
+## Arguments
+
+e | E
+
+e or E indicates that the number is specified in scientific
+notation.
+
+## Examples
+
+Valid floating-point literals include the following:
+
+```
+3.14159
+-37.
+2.0e19
+-2E-19
+```

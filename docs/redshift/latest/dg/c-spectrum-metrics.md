@@ -1,0 +1,29 @@
+Amazon Redshift will no longer support the creation of new Python UDFs starting November 1, 2025.
+If you would like to use Python UDFs, create the UDFs prior to that date.
+Existing Python UDFs will continue to function as normal. For more information, see the
+[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
+
+# Metrics in Amazon Redshift Spectrum
+
+This topic describes system views that you can use to monitor Redshift Spectrum queries.
+
+You can monitor Amazon Redshift Spectrum queries using the following system views:
+
+- [SVL_S3QUERY](r_SVL_S3QUERY.md "r_SVL_S3QUERY.md")
+
+Use the SVL_S3QUERY view to get details about Redshift Spectrum queries (S3
+queries) at the segment and node slice level.
+
+- [SVL_S3QUERY_SUMMARY](r_SVL_S3QUERY_SUMMARY.md "r_SVL_S3QUERY_SUMMARY.md")
+
+Use the SVL_S3QUERY_SUMMARY view to get a summary of all Amazon Redshift Spectrum queries (S3
+queries) that have been run on the system.
+The following are some things to look for in SVL_S3QUERY_SUMMARY:
+
+- The number of files that were processed by the Redshift Spectrum query.
+- The number of bytes scanned from Amazon S3. The cost of a Redshift Spectrum query is
+  reflected in the amount of data scanned from Amazon S3.
+- The number of bytes returned from the Redshift Spectrum layer to the cluster. A
+  large amount of data returned might affect system performance.
+- The maximum duration and average duration of Redshift Spectrum requests.
+  Long-running requests might indicate a bottleneck.

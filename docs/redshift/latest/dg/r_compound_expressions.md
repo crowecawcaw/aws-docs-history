@@ -1,0 +1,78 @@
+Amazon Redshift will no longer support the creation of new Python UDFs starting November 1, 2025.
+If you would like to use Python UDFs, create the UDFs prior to that date.
+Existing Python UDFs will continue to function as normal. For more information, see the
+[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
+
+# Compound expressions
+
+A compound expression is a series of simple expressions joined by arithmetic
+operators. A simple expression used in a compound expression must return a numeric
+value.
+
+## Syntax
+
+```
+*expression*
+*operator*
+*expression* | (*compound\_expression*)
+```
+
+## Arguments
+
+_expression_
+
+A simple expression that evaluates to a value.
+
+_operator_
+
+A compound arithmetic expression can be constructed using the
+following operators, in this order of precedence:
+
+- ( ) : parentheses to control the order of evaluation
+- - , - : positive and negative sign/operator
+- ^ , |/ , ||/ : exponentiation, square root, cube root
+- \* , / , % : multiplication, division, and modulo
+  operators
+- @ : absolute value
+- - , - : addition and subtraction
+- & , |, #, ~, <<, >> : AND, OR, NOT, shift left,
+  shift right bitwise operators
+- ||: concatenation
+
+_(compound_expression)_
+
+Compound expressions can be nested using parentheses.
+
+## Examples
+
+Examples of compound expressions include the following.
+
+```
+('SMITH' || 'JONES')
+sum(x) / y
+sqrt(256) * avg(column)
+rank() over (order by qtysold) / 100
+(select (pricepaid - commission) from sales where dateid = 1882) * (qtysold)
+```
+
+Some functions can also be nested within other functions. For example, any
+scalar function can nest within another scalar function. The following example
+returns the sum of the absolute values of a set of numbers:
+
+```
+sum(abs(qtysold))
+```
+
+Window functions cannot be used as arguments for aggregate functions or other
+window functions. The following expression would return an error:
+
+```
+avg(rank() over (order by qtysold))
+```
+
+Window functions can have a nested aggregate function. The following expression
+sums sets of values and then ranks them:
+
+```
+rank() over (order by sum(qtysold))
+```

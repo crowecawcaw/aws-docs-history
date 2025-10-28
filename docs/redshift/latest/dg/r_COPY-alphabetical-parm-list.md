@@ -1,0 +1,55 @@
+Amazon Redshift will no longer support the creation of new Python UDFs starting November 1, 2025.
+If you would like to use Python UDFs, create the UDFs prior to that date.
+Existing Python UDFs will continue to function as normal. For more information, see the
+[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
+
+# Alphabetical parameter list
+
+The following list provides links to each COPY command parameter description, sorted
+alphabetically.
+
+- [ACCEPTANYDATE](copy-parameters-data-conversion.md#copy-acceptanydate "copy-parameters-data-conversion.md#copy-acceptanydate")
+- [ACCEPTINVCHARS](copy-parameters-data-conversion.md#copy-acceptinvchars "copy-parameters-data-conversion.md#copy-acceptinvchars")
+- [ACCESS_KEY_ID, SECRET_ACCESS_KEY](copy-parameters-authorization.md#copy-access-key-id-access "copy-parameters-authorization.md#copy-access-key-id-access")
+- [AVRO](copy-parameters-data-format.md#copy-avro "copy-parameters-data-format.md#copy-avro")
+- [BLANKSASNULL](copy-parameters-data-conversion.md#copy-blanksasnull "copy-parameters-data-conversion.md#copy-blanksasnull")
+- [BZIP2](copy-parameters-file-compression.md#copy-bzip2 "copy-parameters-file-compression.md#copy-bzip2")
+- [COMPROWS](copy-parameters-data-load.md#copy-comprows "copy-parameters-data-load.md#copy-comprows")
+- [COMPUPDATE](copy-parameters-data-load.md#copy-compupdate "copy-parameters-data-load.md#copy-compupdate")
+- [CREDENTIALS](copy-parameters-authorization.md#copy-credentials-cred "copy-parameters-authorization.md#copy-credentials-cred")
+- [CSV](copy-parameters-data-format.md#copy-csv "copy-parameters-data-format.md#copy-csv")
+- [DATEFORMAT](copy-parameters-data-conversion.md#copy-dateformat "copy-parameters-data-conversion.md#copy-dateformat")
+- [DELIMITER](copy-parameters-data-format.md#copy-delimiter "copy-parameters-data-format.md#copy-delimiter")
+- [EMPTYASNULL](copy-parameters-data-conversion.md#copy-emptyasnull "copy-parameters-data-conversion.md#copy-emptyasnull")
+- [ENCODING](copy-parameters-data-conversion.md#copy-encoding "copy-parameters-data-conversion.md#copy-encoding")
+- [ENCRYPTED](copy-parameters-data-source-s3.md#copy-encrypted "copy-parameters-data-source-s3.md#copy-encrypted")
+- [ESCAPE](copy-parameters-data-conversion.md#copy-escape "copy-parameters-data-conversion.md#copy-escape")
+- [EXPLICIT_IDS](copy-parameters-data-conversion.md#copy-explicit-ids "copy-parameters-data-conversion.md#copy-explicit-ids")
+- [FILLRECORD](copy-parameters-data-conversion.md#copy-fillrecord "copy-parameters-data-conversion.md#copy-fillrecord")
+- [FIXEDWIDTH](copy-parameters-data-format.md#copy-fixedwidth "copy-parameters-data-format.md#copy-fixedwidth")
+- [FORMAT](copy-parameters-data-format.md#copy-format "copy-parameters-data-format.md#copy-format")
+- [FROM](copy-parameters-data-source-s3.md#copy-parameters-from "copy-parameters-data-source-s3.md#copy-parameters-from")
+- [GZIP](copy-parameters-file-compression.md#copy-gzip "copy-parameters-file-compression.md#copy-gzip")
+- [IAM_ROLE](copy-parameters-authorization.md#copy-iam-role-iam "copy-parameters-authorization.md#copy-iam-role-iam")
+- [IGNOREALLERRORS](copy-parameters-data-load.md#copy-ignoreallerrors "copy-parameters-data-load.md#copy-ignoreallerrors")
+- [IGNOREBLANKLINES](copy-parameters-data-conversion.md#copy-ignoreblanklines "copy-parameters-data-conversion.md#copy-ignoreblanklines")
+- [IGNOREHEADER](copy-parameters-data-conversion.md#copy-ignoreheader "copy-parameters-data-conversion.md#copy-ignoreheader")
+- [JSON format for COPY](copy-parameters-data-format.md#copy-json "copy-parameters-data-format.md#copy-json")
+- [LZOP](copy-parameters-file-compression.md#copy-lzop "copy-parameters-file-compression.md#copy-lzop")
+- [MANIFEST](copy-parameters-data-source-s3.md#copy-manifest "copy-parameters-data-source-s3.md#copy-manifest")
+- [MASTER_SYMMETRIC_KEY](copy-parameters-data-source-s3.md#copy-master-symmetric-key "copy-parameters-data-source-s3.md#copy-master-symmetric-key")
+- [MAXERROR](copy-parameters-data-load.md#copy-maxerror "copy-parameters-data-load.md#copy-maxerror")
+- [NOLOAD](copy-parameters-data-load.md#copy-noload "copy-parameters-data-load.md#copy-noload")
+- [NULL AS](copy-parameters-data-conversion.md#copy-null-as "copy-parameters-data-conversion.md#copy-null-as")
+- [READRATIO](copy-parameters-data-source-dynamodb.md#copy-readratio "copy-parameters-data-source-dynamodb.md#copy-readratio")
+- [REGION](copy-parameters-data-source-s3.md#copy-region "copy-parameters-data-source-s3.md#copy-region")
+- [REMOVEQUOTES](copy-parameters-data-conversion.md#copy-removequotes "copy-parameters-data-conversion.md#copy-removequotes")
+- [ROUNDEC](copy-parameters-data-conversion.md#copy-roundec "copy-parameters-data-conversion.md#copy-roundec")
+- [SESSION_TOKEN](copy-parameters-authorization.md#copy-token "copy-parameters-authorization.md#copy-token")
+- [SHAPEFILE](copy-parameters-data-format.md#copy-shapefile "copy-parameters-data-format.md#copy-shapefile")
+- [SSH](copy-parameters-data-source-ssh.md#copy-ssh "copy-parameters-data-source-ssh.md#copy-ssh")
+- [STATUPDATE](copy-parameters-data-load.md#copy-statupdate "copy-parameters-data-load.md#copy-statupdate")
+- [TIMEFORMAT](copy-parameters-data-conversion.md#copy-timeformat "copy-parameters-data-conversion.md#copy-timeformat")
+- [TRIMBLANKS](copy-parameters-data-conversion.md#copy-trimblanks "copy-parameters-data-conversion.md#copy-trimblanks")
+- [TRUNCATECOLUMNS](copy-parameters-data-conversion.md#copy-truncatecolumns "copy-parameters-data-conversion.md#copy-truncatecolumns")
+- [ZSTD](copy-parameters-file-compression.md#copy-zstd "copy-parameters-file-compression.md#copy-zstd")

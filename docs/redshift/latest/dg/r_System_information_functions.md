@@ -1,0 +1,42 @@
+Amazon Redshift will no longer support the creation of new Python UDFs starting November 1, 2025.
+If you would like to use Python UDFs, create the UDFs prior to that date.
+Existing Python UDFs will continue to function as normal. For more information, see the
+[blog post](https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/ "https://aws.amazon.com/blogs/big-data/amazon-redshift-python-user-defined-functions-will-reach-end-of-support-after-june-30-2026/") .
+
+# System information functions
+
+Amazon Redshift supports numerous system information functions.
+
+###### Topics
+
+- [CURRENT_AWS_ACCOUNT](r_CURRENT_AWS_ACCOUNT.md "r_CURRENT_AWS_ACCOUNT.md")
+- [CURRENT_DATABASE](r_CURRENT_DATABASE.md "r_CURRENT_DATABASE.md")
+- [CURRENT_NAMESPACE](r_CURRENT_NAMESPACE.md "r_CURRENT_NAMESPACE.md")
+- [CURRENT_SCHEMA](r_CURRENT_SCHEMA.md "r_CURRENT_SCHEMA.md")
+- [CURRENT_SCHEMAS](r_CURRENT_SCHEMAS.md "r_CURRENT_SCHEMAS.md")
+- [CURRENT_SESSION_ARN](r_CURRENT_SESSION_ARN.md "r_CURRENT_SESSION_ARN.md")
+- [CURRENT_USER](r_CURRENT_USER.md "r_CURRENT_USER.md")
+- [CURRENT_USER_ID](r_CURRENT_USER_ID.md "r_CURRENT_USER_ID.md")
+- [DEFAULT_IAM_ROLE](r_DEFAULT_IAM_ROLE.md "r_DEFAULT_IAM_ROLE.md")
+- [GET_MOUNTED_ROLE](GET_MOUNTED_ROLE.md "GET_MOUNTED_ROLE.md")
+- [HAS_ASSUMEROLE_PRIVILEGE](r_HAS_ASSUMEROLE_PRIVILEGE.md "r_HAS_ASSUMEROLE_PRIVILEGE.md")
+- [HAS_DATABASE_PRIVILEGE](r_HAS_DATABASE_PRIVILEGE.md "r_HAS_DATABASE_PRIVILEGE.md")
+- [HAS_SCHEMA_PRIVILEGE](r_HAS_SCHEMA_PRIVILEGE.md "r_HAS_SCHEMA_PRIVILEGE.md")
+- [HAS_TABLE_PRIVILEGE](r_HAS_TABLE_PRIVILEGE.md "r_HAS_TABLE_PRIVILEGE.md")
+- [LAST_USER_QUERY_ID](LAST_USER_QUERY_ID.md "LAST_USER_QUERY_ID.md")
+- [PG_BACKEND_PID](PG_BACKEND_PID.md "PG_BACKEND_PID.md")
+- [PG_GET_COLS](PG_GET_COLS.md "PG_GET_COLS.md")
+- [PG_GET_GRANTEE_BY_IAM_ROLE](PG_GET_GRANTEE_BY_IAMROLE.md "PG_GET_GRANTEE_BY_IAMROLE.md")
+- [PG_GET_IAM_ROLE_BY_USER](PG_GET_IAM_ROLE_BY_USER.md "PG_GET_IAM_ROLE_BY_USER.md")
+- [PG_GET_LATE_BINDING_VIEW_COLS](PG_GET_LATE_BINDING_VIEW_COLS.md "PG_GET_LATE_BINDING_VIEW_COLS.md")
+- [PG_GET_SESSION_ROLES](PG_GET_SESSION_ROLES.md "PG_GET_SESSION_ROLES.md")
+- [PG_LAST_COPY_COUNT](PG_LAST_COPY_COUNT.md "PG_LAST_COPY_COUNT.md")
+- [PG_LAST_COPY_ID](PG_LAST_COPY_ID.md "PG_LAST_COPY_ID.md")
+- [PG_LAST_UNLOAD_ID](PG_LAST_UNLOAD_ID.md "PG_LAST_UNLOAD_ID.md")
+- [PG_LAST_QUERY_ID](PG_LAST_QUERY_ID.md "PG_LAST_QUERY_ID.md")
+- [PG_LAST_UNLOAD_COUNT](PG_LAST_UNLOAD_COUNT.md "PG_LAST_UNLOAD_COUNT.md")
+- [SLICE_NUM Function](r_SLICE_NUM.md "r_SLICE_NUM.md")
+- [USER](r_USER.md "r_USER.md")
+- [ROLE_IS_MEMBER_OF](r_ROLE_IS_MEMBER_OF.md "r_ROLE_IS_MEMBER_OF.md")
+- [USER_IS_MEMBER_OF](r_USER_IS_MEMBER_OF.md "r_USER_IS_MEMBER_OF.md")
+- [VERSION](r_VERSION.md "r_VERSION.md")
