@@ -1,0 +1,50 @@
+# Generative voices
+
+Amazon Polly's **generative** text-to-speech (TTS) engine offers
+the most human-like, emotionally engaged, and adaptive conversational voices available
+for the use via the Amazon Polly console.
+
+The **Generative engine** is the largest Amazon Polly TTS model
+to-date. It deploys a
+billion-parameter transformer that converts raw text into speech codes, followed by a
+convolution-based decoder that converts these speech codes into waveforms in an
+incremental, streamable manner. This method shows the widely-reported emergent abilities
+of Large Language Models (LLMs) when trained on increasing volumes of publicly available
+and proprietary data comprising a variety of voices, languages, and styles.
+
+The Generative engine creates synthetic speech which is emotionally engaged, assertive,
+and highly colloquial in a way that is remarkably similar to a human voice. You can use
+these voices as a knowledgeable customer assistant, a virtual trainer, or an advertiser
+with a near-human synthetic speech.
+
+###### Note
+
+The state-of-the-art technology underlying these voices falls within the paradigm
+of generative AI for language and voice modelling. A side effect of the technology is
+that any updates to the training data and the model could result in slight variations
+to the way the voices sound, even in case when their overall quality improves with model
+updates. This could have an impact on use cases with different content parts synthesized
+over a long time period – for example, a season of podcasts.
+
+## Available generative voices
+
+Amazon Polly currently offers 27 voices in a generative
+variant. These generative voices are also available in a conversational NTTS
+variant.
+
+|     | Language                    | Language code | Name/ID                                    | Gender                                |
+| --- | --------------------------- | ------------- | ------------------------------------------ | ------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1   | **English (Australian)**    | en-AU         | Olivia                                     | Female                                |
+| 2   | **English (Indian)**        | en-IN         | Kajal                                      | Female                                |
+| 3   | **English (South African)** | en-ZA         | Ayanda                                     | Female                                |
+| 4   | **English (UK)**            | en-GB         | Amy                                        | Female                                |
+| 5   | **English (US)**            | en-US         | Danielle Joanna Matthew Ruth Salli Stephen | Female Female Male Female Female Male |
+| 6   | **French (Belgian)**        | fr-BE         | Isabelle                                   | Female                                |
+| 7   | **French (Canadian)**       | fr-CA         | Gabrielle Liam                             | Female Male                           |
+| 8   | **French (France)**         | fr-FR         | Céline Léa Rémi                            | Female Female Male                    |
+| 9   | **German (Germany)**        | de-DE         | Daniel Vicki                               | Male Female                           |
+| 10  | **Italian (Italy)**         | it-IT         | Bianca                                     | Female                                |
+| 11  | **Polish (Poland)**         | pl-PL         | Ewa Ola                                    | Female Female                         |
+| 12  | **Spanish (Mexican)**       | es-MX         | Andrés Mía                                 | Male Female                           |
+| 13  | **Spanish (Spain)**         | es-ES         | Lucia Sergio                               | Female Male                           |
+| 14  | **Spanish (US)**            | es-US         | Lupe Pedro                                 | Female Male                           | ###### Note Generative voices cost is specified on the [Amazon Polly pricing information page](https://aws.amazon.com/polly/pricing/ "https://aws.amazon.com/polly/pricing/"). ## Feature and region compatibility Amazon Polly generative voices are available in the following regions: <br>• US East (N. Virginia): us-east-1 <br>• Europe (Frankfurt): eu-central-1 <br>• US West (Oregon): us-west-2 <br>• Other Regions are not available **The following features are supported for generative voices:** <br>• Real-time and asynchronous speech synthesis operations. <br>• Newscaster speaking style is not supported in the **Generative** engine. <br>• Many (but not all) SSML tags are supported by Amazon Polly. For more information about NTTS-supported SSML tags, see [Supported SSML tags](supportedtags.md "supportedtags.md") <br>• As with standard voices, you can choose from various sampling rates to optimize the bandwidth and audio quality for your application. Valid sampling rates for standard and neural voices are 8 kHz, 16 kHz, 22 kHz, or 24 kHz. The default for standard voices is 22 kHz. The default for generative voices is 24 kHz. Amazon Polly supports MP3, OGG (Vorbis), and raw PCM audio stream formats. _Support for generating speech marks is currently not available._ ###### Note In the unlikely event of model hallucination, (and with the Generative engine's model behavior of rendering the speech token by token) an imposed emergency stop mechanism is in place. The built-in mechanism stops the model from rendering speech any further. This safety feature is based on data analysis where the model has the potential to hallucinate, usually at the end of the sentence. There could be cases where the model thinks it is going to hallucinate and then might end up cutting a word during a generation step, thus rendering half the word. This could potentially generate inappropriate results. |
