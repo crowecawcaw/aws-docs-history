@@ -1,0 +1,22 @@
+**Introducing a new console experience for AWS WAF**
+
+You can now use the updated experience to access AWS WAF functionality anywhere in the console.
+For more details, see [Working with the updated console experience](working-with-console.md "working-with-console.md").
+
+# Logging and monitoring in Shield
+
+This section explains how to use AWS tools for monitoring and responding to events in AWS Shield.
+
+Monitoring is an important part of maintaining the reliability, availability, and
+performance of Shield and your AWS solutions. You should collect monitoring data from all
+parts of your AWS solution so that you can more easily debug a multi-point failure if one
+occurs. AWS provides several tools for monitoring your Shield resources and responding to
+potential events:
+
+**Amazon CloudWatch Alarms**
+Using CloudWatch alarms, you watch a single metric over a time period that you specify. If the
+metric exceeds a given threshold, CloudWatch sends a notification to an Amazon SNS topic or
+AWS Auto Scaling policy. For more information, see [Monitoring with Amazon CloudWatch](monitoring-cloudwatch.md "monitoring-cloudwatch.md").
+
+**AWS CloudTrail Logs**
+CloudTrail provides a record of actions taken by a user, role, or an AWS service in Shield. Using the information collected by CloudTrail, you can determine the request that was made to Shield, the IP address from which the request was made, who made the request, when it was made, and additional details. For more information, see [Logging API calls with AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md").

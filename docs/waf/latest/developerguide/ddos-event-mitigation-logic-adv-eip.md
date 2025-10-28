@@ -1,0 +1,24 @@
+**Introducing a new console experience for AWS WAF**
+
+You can now use the updated experience to access AWS WAF functionality anywhere in the console.
+For more details, see [Working with the updated console experience](working-with-console.md "working-with-console.md").
+
+# AWS Shield Advanced mitigation logic
+
+for Elastic IPs
+
+This page explains how Shield event mitigation logic works for Elastic IPs with AWS Shield Advanced.
+When you protect an Elastic IP (EIP) with AWS Shield Advanced, Shield Advanced enhances the mitigations
+that Shield places during a DDoS event.
+
+Shield Advanced DDoS mitigation systems replicate
+the Network ACL (NACL) configuration for the public subnet to which the EIP is
+associated. For example, if your NACL is configured to block all UDP traffic,
+Shield Advanced merges that rule into the mitigations that Shield places.
+
+This additional functionality can help you to avoid availability risks due to traffic
+that's not valid for your application. You can also use NACLs to block individual source
+IP addresses or source IP address CIDR ranges. This can be a useful mitigation tool for
+DDoS attacks that aren't distributed. It also lets you easily manage your own allow
+lists or to block IP addresses that shouldn't communicate with your application, without
+relying on intervention by AWS engineers.

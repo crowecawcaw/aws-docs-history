@@ -1,0 +1,48 @@
+**Introducing a new console experience for AWS WAF**
+
+You can now use the updated experience to access AWS WAF functionality anywhere in the console.
+For more details, see [Working with the updated console experience](working-with-console.md "working-with-console.md").
+
+# Key concepts in network security director
+
+###### Note
+
+AWS Shield network security director is in public preview release and is subject to change.
+
+**Resources**
+
+The compute, networking, and security resources that handle your application traffic:
+
+- _Compute_ – Amazon Elastic Compute Cloud instances
+- _Networking_ – Application Load Balancers, Amazon API Gateways, Amazon CloudFront distributions, VPC subnets, and VPC elastic network interfaces (ENIs)
+- _Security_ – AWS WAF web ACLs, VPC security groups, and VPC network access control lists (NACLs)
+
+**Findings**
+
+Alerts about missing or misconfigured network security services, with severity levels of NONE, INFORMATIONAL, LOW, MEDIUM, HIGH, or CRITICAL. network security director generates findings by evaluating configuration settings and threat intelligence for each resource.
+
+**Severity**
+
+A measure of a resource's vulnerability to potential security events, based on AWS best practices and threat intelligence. Severity assessment considers both potential vulnerabilities and existing protections. A resource's severity level matches its most severe finding, or shows as none if there are no findings.
+
+**Network topology**
+
+A visual representation of your network that shows resource connections, internet exposure, and tag-based relationships. Use the topology view to investigate resources and their findings.
+
+## Understanding network security director findings
+
+###### Note
+
+AWS Shield network security director is in public preview release and is subject to change.
+
+Network security director generates specific findings for each type of resource it analyzes. These findings help you identify security issues and take appropriate action. The following table lists all possible findings by resource type.
+
+| network security director findings by resource type | Resource type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Finding description |
+| --------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- |
+| Application Load Balancer                           | <br>• is behind a CloudFront distribution but is also exposed to the internet <br>• is missing protection from bots <br>• has DDoS activity <br>• is missing firewall protection <br>• has a misconfigured firewall <br>• has an unconfigured firewall <br>• is not protected from request floods <br>• is not protected from web vulnerabilities                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| Amazon API Gateway                                  | <br>• is missing protection from bots <br>• is missing firewall protection <br>• has a misconfigured firewall <br>• has an unconfigured firewall <br>• is not protected from request floods <br>• is not protected from web vulnerabilities                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| Amazon CloudFront                                   | <br>• is missing protection from bots <br>• has DDoS activity <br>• is missing firewall protection <br>• has a misconfigured firewall <br>• has an unconfigured firewall <br>• is not protected from request floods <br>• is not protected from web vulnerabilities                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| Amazon Elastic Compute Cloud (EC2) instance         | <br>• allows inbound access from all IP ranges on all ports <br>• allows inbound access from all IP ranges on Remote Desktop Protocol port (port 3389) <br>• allows inbound access from all IP ranges on SSH port (port 22) <br>• allows outbound access to all IP ranges on all ports <br>• is behind an Application Load Balancer that has no firewall protection <br>• is behind an Application Load Balancer that is behind a CloudFront distribution but is also exposed to the internet <br>• is behind a CloudFront distribution that has no firewall protection <br>• is missing protection from bots <br>• is not protected from request floods <br>• is behind a misconfigured firewall <br>• is behind an unconfigured firewall <br>• is behind a resource that is not protected from web vulnerabilities |
+| VPC security group                                  | <br>• allows inbound access from all IP ranges on all ports <br>• allows inbound access from all IP ranges on Remote Desktop Protocol port (port 3389) <br>• allows inbound access from all IP ranges on SSH port (port 22) <br>• allows outbound access to all IP ranges on all ports                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| VPC network access control list (NACL)              | <br>• allows inbound access from all IP ranges on all ports <br>• allows inbound access from all IP ranges on Remote Desktop Protocol port (port 3389) <br>• allows inbound access from all IP ranges on SSH port (port 22) <br>• allows outbound access to all IP ranges on all ports                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| AWS WAF web ACL                                     | <br>• has bot activity <br>• is missing protection from bots <br>• is misconfigured <br>• is not attached to any resource <br>• is not configured to protect from request floods <br>• has no rules <br>• is not configured to protect from web vulnerabilities                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |

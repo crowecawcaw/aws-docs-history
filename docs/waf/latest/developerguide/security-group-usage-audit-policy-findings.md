@@ -1,0 +1,33 @@
+**Introducing a new console experience for AWS WAF**
+
+You can now use the updated experience to access AWS WAF functionality anywhere in the console.
+For more details, see [Working with the updated console experience](working-with-console.md "working-with-console.md").
+
+# Security group usage audit policy Firewall Manager findings
+
+This page explains Firewall Manager findings for security group usage audit policies.
+
+For information about security group usage audit policies, see [Using security group policies in Firewall Manager to manage Amazon VPC security groups](security-group-policies.md "security-group-policies.md").
+
+###### Firewall Manager found redundant security group.
+
+The Firewall Manager security group usage audit has identified a redundant security group. This is a
+security group with an identical rules set as another security group within the same
+Amazon Virtual Private Cloud instance. You can enable Firewall Manager automatic remediation on the usage audit
+policy, which replaces redundant security groups and with a single security
+group.
+
+- Severity – 30
+- Status settings – None
+- Updates – Firewall Manager does not update this finding.
+
+###### Firewall Manager found unused security group.
+
+The Firewall Manager security group usage audit has identified an unused security group. This is a
+security group that's not referenced by any Firewall Manager common security group policy. You
+can enable Firewall Manager automatic remediation on the usage audit policy, which removes
+unused security groups.
+
+- Severity – 30
+- Status settings – None
+- Updates – Firewall Manager does not update this finding.
