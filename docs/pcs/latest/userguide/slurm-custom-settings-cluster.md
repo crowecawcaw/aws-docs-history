@@ -1,0 +1,55 @@
+# Custom Slurm settings for AWS PCS clusters
+
+The following custom Slurm settings are supported at the cluster level:
+
+- [AccountingStorageEnforce](https://slurm.schedmd.com/slurm.conf.html#OPT_AccountingStorageEnforce "https://slurm.schedmd.com/slurm.conf.html#OPT_AccountingStorageEnforce")
+
+###### Important
+
+AWS PCS supports a subset of the options for `AccountingStorageEnforce`.
+For more information, see [Slurm accounting in AWS PCS](slurm-accounting.md "slurm-accounting.md").
+
+- [AccountingStorageTRES](https://slurm.schedmd.com/slurm.conf.html#OPT_AccountingStorageTRES "https://slurm.schedmd.com/slurm.conf.html#OPT_AccountingStorageTRES")
+- [AccountingStoreFlags](https://slurm.schedmd.com/slurm.conf.html#OPT_AccountingStoreFlags "https://slurm.schedmd.com/slurm.conf.html#OPT_AccountingStoreFlags")
+- [DefMemPerCPU](https://slurm.schedmd.com/slurm.conf.html#OPT_DefMemPerCPU "https://slurm.schedmd.com/slurm.conf.html#OPT_DefMemPerCPU")
+- [Epilog](https://slurm.schedmd.com/slurm.conf.html#OPT_Epilog_1 "https://slurm.schedmd.com/slurm.conf.html#OPT_Epilog_1")
+- [EnforcePartLimits](https://slurm.schedmd.com/slurm.conf.html#OPT_EnforcePartLimits "https://slurm.schedmd.com/slurm.conf.html#OPT_EnforcePartLimits")
+- [FairShareDampeningFactor](https://slurm.schedmd.com/slurm.conf.html#OPT_FairShareDampeningFactor "https://slurm.schedmd.com/slurm.conf.html#OPT_FairShareDampeningFactor")
+- [HealthCheckInterval](https://slurm.schedmd.com/slurm.conf.html#OPT_HealthCheckInterval "https://slurm.schedmd.com/slurm.conf.html#OPT_HealthCheckInterval")
+- [HealthCheckNodeState](https://slurm.schedmd.com/slurm.conf.html#OPT_HealthCheckNodeState "https://slurm.schedmd.com/slurm.conf.html#OPT_HealthCheckNodeState")
+- [HealthCheckProgram](https://slurm.schedmd.com/slurm.conf.html#OPT_HealthCheckProgram "https://slurm.schedmd.com/slurm.conf.html#OPT_HealthCheckProgram")
+- [JobRequeue](https://slurm.schedmd.com/slurm.conf.html#OPT_JobRequeue "https://slurm.schedmd.com/slurm.conf.html#OPT_JobRequeue")
+- [LaunchParameters](https://slurm.schedmd.com/slurm.conf.html#OPT_LaunchParameters "https://slurm.schedmd.com/slurm.conf.html#OPT_LaunchParameters")
+- [Licenses](https://slurm.schedmd.com/slurm.conf.html#OPT_Licenses "https://slurm.schedmd.com/slurm.conf.html#OPT_Licenses")
+- [OverTimeLimit](https://slurm.schedmd.com/slurm.conf.html#OPT_OverTimeLimit "https://slurm.schedmd.com/slurm.conf.html#OPT_OverTimeLimit")
+- [PreemptExemptTime](https://slurm.schedmd.com/slurm.conf.html#OPT_PreemptExemptTime "https://slurm.schedmd.com/slurm.conf.html#OPT_PreemptExemptTime")
+- [PreemptMode](https://slurm.schedmd.com/slurm.conf.html#OPT_PreemptMode "https://slurm.schedmd.com/slurm.conf.html#OPT_PreemptMode")
+- [PreemptParameters](https://slurm.schedmd.com/slurm.conf.html#OPT_PreemptParameters "https://slurm.schedmd.com/slurm.conf.html#OPT_PreemptParameters")
+- [PreemptType](https://slurm.schedmd.com/slurm.conf.html#OPT_PreemptType "https://slurm.schedmd.com/slurm.conf.html#OPT_PreemptType")
+- [PriorityCalcPeriod](https://slurm.schedmd.com/slurm.conf.html#OPT_PriorityCalcPeriod "https://slurm.schedmd.com/slurm.conf.html#OPT_PriorityCalcPeriod")
+- [PriorityDecayHalfLife](https://slurm.schedmd.com/slurm.conf.html#OPT_PriorityDecayHalfLife "https://slurm.schedmd.com/slurm.conf.html#OPT_PriorityDecayHalfLife")
+- [PriorityFavorSmall](https://slurm.schedmd.com/slurm.conf.html#OPT_PriorityFavorSmall "https://slurm.schedmd.com/slurm.conf.html#OPT_PriorityFavorSmall")
+- [PriorityFlags](https://slurm.schedmd.com/slurm.conf.html#OPT_PriorityFlags "https://slurm.schedmd.com/slurm.conf.html#OPT_PriorityFlags")
+- [PriorityMaxAge](https://slurm.schedmd.com/slurm.conf.html#OPT_PriorityMaxAge "https://slurm.schedmd.com/slurm.conf.html#OPT_PriorityMaxAge")
+- [PriorityUsageResetPeriod](https://slurm.schedmd.com/slurm.conf.html#OPT_PriorityUsageResetPeriod "https://slurm.schedmd.com/slurm.conf.html#OPT_PriorityUsageResetPeriod")
+- [PriorityWeightAge](https://slurm.schedmd.com/slurm.conf.html#OPT_PriorityWeightAge "https://slurm.schedmd.com/slurm.conf.html#OPT_PriorityWeightAge")
+- [PriorityWeightAssoc](https://slurm.schedmd.com/slurm.conf.html#OPT_PriorityWeightAssoc "https://slurm.schedmd.com/slurm.conf.html#OPT_PriorityWeightAssoc")
+- [PriorityWeightFairshare](https://slurm.schedmd.com/slurm.conf.html#OPT_PriorityWeightFairshare "https://slurm.schedmd.com/slurm.conf.html#OPT_PriorityWeightFairshare")
+- [PriorityWeightJobSize](https://slurm.schedmd.com/slurm.conf.html#OPT_PriorityWeightJobSize "https://slurm.schedmd.com/slurm.conf.html#OPT_PriorityWeightJobSize")
+- [PriorityWeightPartition](https://slurm.schedmd.com/slurm.conf.html#OPT_PriorityWeightPartition "https://slurm.schedmd.com/slurm.conf.html#OPT_PriorityWeightPartition")
+- [PriorityWeightQOS](https://slurm.schedmd.com/slurm.conf.html#OPT_PriorityWeightQOS "https://slurm.schedmd.com/slurm.conf.html#OPT_PriorityWeightQOS")
+- [PriorityWeightTRES](https://slurm.schedmd.com/slurm.conf.html#OPT_PriorityWeightTRES "https://slurm.schedmd.com/slurm.conf.html#OPT_PriorityWeightTRES")
+- [PrivateData](https://slurm.schedmd.com/slurm.conf.html#OPT_PrivateData "https://slurm.schedmd.com/slurm.conf.html#OPT_PrivateData")
+- [Prolog](https://slurm.schedmd.com/slurm.conf.html#OPT_Prolog_1 "https://slurm.schedmd.com/slurm.conf.html#OPT_Prolog_1")
+- [PrologFlags](https://slurm.schedmd.com/slurm.conf.html#OPT_PrologFlags "https://slurm.schedmd.com/slurm.conf.html#OPT_PrologFlags")
+- [PropagatePrioProcess](https://slurm.schedmd.com/slurm.conf.html#OPT_PropagatePrioProcess "https://slurm.schedmd.com/slurm.conf.html#OPT_PropagatePrioProcess")
+- [PropagateResourceLimits](https://slurm.schedmd.com/slurm.conf.html#OPT_PropagateResourceLimits "https://slurm.schedmd.com/slurm.conf.html#OPT_PropagateResourceLimits")
+- [PropagateResourceLimitsExcept](https://slurm.schedmd.com/slurm.conf.html#OPT_PropagateResourceLimitsExcept "https://slurm.schedmd.com/slurm.conf.html#OPT_PropagateResourceLimitsExcept")
+- [SchedulerParameters](https://slurm.schedmd.com/slurm.conf.html#OPT_SchedulerParameters "https://slurm.schedmd.com/slurm.conf.html#OPT_SchedulerParameters")
+- [SelectTypeParameters](https://slurm.schedmd.com/slurm.conf.html#OPT_SelectTypeParameters "https://slurm.schedmd.com/slurm.conf.html#OPT_SelectTypeParameters")
+- [SrunPortRange](https://slurm.schedmd.com/slurm.conf.html#OPT_SrunPortRange "https://slurm.schedmd.com/slurm.conf.html#OPT_SrunPortRange")
+- [TaskEpilog](https://slurm.schedmd.com/slurm.conf.html#OPT_TaskEpilog "https://slurm.schedmd.com/slurm.conf.html#OPT_TaskEpilog")
+- [TaskPluginParam](https://slurm.schedmd.com/slurm.conf.html#OPT_TaskPluginParam "https://slurm.schedmd.com/slurm.conf.html#OPT_TaskPluginParam")
+- [TaskProlog](https://slurm.schedmd.com/slurm.conf.html#OPT_TaskProlog "https://slurm.schedmd.com/slurm.conf.html#OPT_TaskProlog")
+- [UnkillableStepProgram](https://slurm.schedmd.com/slurm.conf.html#OPT_UnkillableStepProgram "https://slurm.schedmd.com/slurm.conf.html#OPT_UnkillableStepProgram")
+- [UnkillableStepTimeout](https://slurm.schedmd.com/slurm.conf.html#OPT_UnkillableStepTimeout "https://slurm.schedmd.com/slurm.conf.html#OPT_UnkillableStepTimeout")
