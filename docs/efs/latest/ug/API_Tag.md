@@ -1,0 +1,38 @@
+# Tag
+
+A tag is a key-value pair. Allowed characters are letters, white space, and numbers that
+can be represented in UTF-8, and the following characters: `+ - = . _ : /`.
+
+## Contents
+
+**Key**
+
+The tag key (String). The key can't start with `aws:`.
+
+Type: String
+
+Length Constraints: Minimum length of 1. Maximum length of 128.
+
+Pattern: `^(?![aA]{1}[wW]{1}[sS]{1}:)([\p{L}\p{Z}\p{N}_.:/=+\-@]+)$`
+
+Required: Yes
+
+**Value**
+
+The value of the tag key.
+
+Type: String
+
+Length Constraints: Maximum length of 256.
+
+Pattern: `^([\p{L}\p{Z}\p{N}_.:/=+\-@]*)$`
+
+Required: Yes
+
+## See Also
+
+For more information about using this API in one of the language-specific AWS SDKs, see the following:
+
+- [AWS SDK for C++](../../../goto/SdkForCpp/elasticfilesystem-2015-02-01/Tag.md "../../../goto/SdkForCpp/elasticfilesystem-2015-02-01/Tag.md")
+- [AWS SDK for Java V2](../../../goto/SdkForJavaV2/elasticfilesystem-2015-02-01/Tag.md "../../../goto/SdkForJavaV2/elasticfilesystem-2015-02-01/Tag.md")
+- [AWS SDK for Ruby V3](../../../goto/SdkForRubyV3/elasticfilesystem-2015-02-01/Tag.md "../../../goto/SdkForRubyV3/elasticfilesystem-2015-02-01/Tag.md")

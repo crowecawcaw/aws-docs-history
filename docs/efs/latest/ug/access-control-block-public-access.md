@@ -1,0 +1,125 @@
+# Blocking public access to EFS
+
+file systems
+
+The Amazon EFS block public access feature provides settings to help you manage public access to
+EFS file systems. By default, new EFS file systems don't allow public
+access. However, you can modify file system policies to allow public access.
+
+###### Important
+
+Enabling Block Public Access access helps protect your resources by preventing public access
+from being granted through the resource policies that are directly attached to the file
+system. In addition to enabling Block Public Access, carefully inspect the following
+policies to confirm that they do not grant public access:
+
+- Identity-based policies attached to associated AWS principals (for example, IAM
+  roles)
+- Resource-based policies attached to associated AWS resources (for example,AWS Key Management Service (KMS)
+  keys)
+
+###### Topics
+
+- [Blocking public access with
+  AWS Transfer Family](#block-efs-public-access-with-transferfamily "#block-efs-public-access-with-transferfamily")
+- [The meaning of "public"](#what-is-a-public-policy "#what-is-a-public-policy")
+
+## Blocking public access with
+
+AWS Transfer Family
+
+When you use Amazon EFS with AWS Transfer Family, file system access requests received from a Transfer Family server
+that is owned by a different account than the file system are blocked if the file system
+allows public access. Amazon EFS evaluates the file system's IAM policies, and if the
+policy is public, it blocks the request. To permit AWS Transfer Family access to your file system,
+update your file system policy so that it is not considered public.
+
+###### Note
+
+Using Transfer Family with Amazon EFS is disabled by default for AWS accounts that have EFS file systems
+with policies that allow public access that were created before January 6, 2021. To
+enable using Transfer Family to access your file system, contact AWS Support.
+
+## The meaning of "public"
+
+When evaluating whether a file system allows public access, Amazon EFS assumes that the file system policy is public.
+It then evaluates the file system policy to determine if it qualifies as non-public. To be considered non-public, a
+file system policy must grant access only to fixed values (values that don't contain a wild card) of one or more of the following:
+
+- An AWS principal, user, role, or service principal (for example,
+  `aws:PrincipalOrgID`)
+- `aws:SourceArn`
+- `aws:SourceVpc`
+- `aws:SourceVpce`
+- `aws:SourceOwner`
+- `aws:SourceAccount`
+- `elasticfilesystem:AccessedViaMountTarget`
+- `aws:userid, outside the pattern "AROLEID:*"`
+
+Under these rules, the following example policy is considered public.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Id": "efs-policy-wizard-15ad9567-2546-4bbb-8168-5541b6fc0e55",
+ "Statement": [
+ {
+ "Sid": "efs-statement-14a7191c-9401-40e7-a388-6af6cfb7dd9c",
+ "Effect": "Allow",
+ "Principal": {
+ "AWS": "*"
+ },
+ "Action": [
+ "elasticfilesystem:ClientMount",
+ "elasticfilesystem:ClientWrite",
+ "elasticfilesystem:ClientRootAccess"
+ ],
+ "Resource": "arn:aws:elasticfilesystem:`us-east-1`:`111122223333`:file-system/*"
+ }
+ ]
+}`
+
+```
+
+You can make this file system policy non-public by using the EFS condition key
+`elasticfilesystem:AccessedViaMountTarget` set to true. You can use
+`elasticfilesystem:AccessedViaMountTarget` to allow the specified EFS
+actions to clients accessing the EFS file system using a file system mount target. The
+following non-public policy uses the
+`elasticfilesystem:AccessedViaMountTarget` condition key set to
+true.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Id": "efs-policy-wizard-15ad9567-2546-4bbb-8168-5541b6fc0e55",
+ "Statement": [
+ {
+ "Sid": "efs-statement-14a7191c-9401-40e7-a388-6af6cfb7dd9c",
+ "Effect": "Allow",
+ "Principal": {
+ "AWS": "*"
+ },
+ "Action": [
+ "elasticfilesystem:ClientMount",
+ "elasticfilesystem:ClientWrite",
+ "elasticfilesystem:ClientRootAccess"
+ ],
+ "Resource": "arn:aws:elasticfilesystem:`us-east-1`:`111122223333`:file-system/*",
+ "Condition": {
+ "Bool": {
+ "elasticfilesystem:AccessedViaMountTarget": "true"
+ }
+ }
+ }
+ ]
+}`
+
+```
+
+For more information about Amazon EFS condition keys, see [EFS condition keys for clients](iam-access-control-nfs-efs.md#efs-condition-keys-for-nfs "iam-access-control-nfs-efs.md#efs-condition-keys-for-nfs").
+For more information about creating file system policies, see [Creating file system policies](create-file-system-policy.md "create-file-system-policy.md").
