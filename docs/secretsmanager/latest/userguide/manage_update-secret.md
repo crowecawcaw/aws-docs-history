@@ -1,0 +1,61 @@
+# Modify an AWS Secrets Manager secret
+
+You can modify the metadata of a secret after it is created, depending on who created the
+secret. For secrets created by other services, you might need to use the other service to update
+or rotate it.
+
+To determine who manages a secret, you can review the secret name. Secrets managed
+by other services are prefixed with the ID of that service. Or, in the AWS CLI, call [describe-secret](../../../cli/latest/reference/secretsmanager/describe-secret.md "../../../cli/latest/reference/secretsmanager/describe-secret.md"), and then review the field `OwningService`. For more
+information, see [AWS Secrets Manager secrets managed by other AWS services](service-linked-secrets.md "service-linked-secrets.md").
+
+For secrets you manage, you can modify the description, resource-based policy,
+the encryption key, and tags. You can also change the encrypted secret value; however, we
+recommend you use rotation to update secret values that contain credentials. Rotation updates
+both the secret in Secrets Manager and the credentials on the database or service. This keeps the secret
+automatically synchronized so when clients request a secret value, they always get a working set
+of credentials. For more information, see [Rotate AWS Secrets Manager secrets](rotating-secrets.md "rotating-secrets.md").
+
+Secrets Manager generates a CloudTrail log entry when you modify a secret. For more information, see [Log AWS Secrets Manager events with AWS CloudTrail](monitoring-cloudtrail.md "monitoring-cloudtrail.md").
+
+###### To update a secret you manage (console)
+
+1. Open the Secrets Manager console at [https://console.aws.amazon.com/secretsmanager/](https://console.aws.amazon.com/secretsmanager/ "https://console.aws.amazon.com/secretsmanager/").
+2. From the list of secrets, choose your secret.
+3. On the secret details page, do any of the following:
+
+**Note** that you can't change the name or ARN of a secret.
+
+    * To update the description, in the **Secrets details** section,
+     choose **Actions**, and then choose **Edit
+     description**.
+    * To update the encryption key, see [Change the encryption key for an AWS Secrets Manager secret](manage_update-encryption-key.md "manage_update-encryption-key.md").
+    * To update tags, on the **Tags** tab, choose
+     **Edit tags**. See [Tagging secrets in AWS Secrets Manager](managing-secrets_tagging.md "managing-secrets_tagging.md").
+    * To update the secret value, see [Update the value for an AWS Secrets Manager secret](manage_update-secret-value.md "manage_update-secret-value.md").
+    * To update permissions for your secret, on the **Overview** tab, choose **Edit permissions**. See [Resource-based policies](auth-and-access_resource-policies.md "auth-and-access_resource-policies.md").
+
+    * To update rotation for your secret, on the **Rotation** tab, choose **Edit rotation**. See [Rotate AWS Secrets Manager secrets](rotating-secrets.md "rotating-secrets.md").
+    * To replicate your secret to other Regions, see [Multi-region replication](replicate-secrets.md "replicate-secrets.md").
+    * If your secret has replicas, you can change the encryption key for a replica. On the **Replication** tab, select the radio button for the
+     replica, and then on the **Actions** menu, choose **Edit
+     encryption key**. See [Secret encryption and decryption in AWS Secrets Manager](security-encryption.md "security-encryption.md").
+    * To change a secret so that it is managed by another service, you need to recreate the secret in that service. See [Secrets managed by other services](service-linked-secrets.md "service-linked-secrets.md").
+
+## AWS CLI
+
+###### Example Update secret description
+
+The following [`update-secret`](../../../cli/latest/reference/secretsmanager/update-secret.md "../../../cli/latest/reference/secretsmanager/update-secret.md") example updates the description of a secret.
+
+```
+aws secretsmanager update-secret \
+    --secret-id MyTestSecret \
+    --description "This is a new description for the secret."
+```
+
+## AWS SDK
+
+We recommend you avoid calling `PutSecretValue` or `UpdateSecret` at a sustained rate of more than once every 10 minutes. When you call `PutSecretValue` or `UpdateSecret` to update the secret value, Secrets Manager creates a new version of the secret. Secrets Manager removes unlabeled versions when there are more than 100, but it does not remove versions created less than 24 hours ago. If you update the secret value more than once every 10 minutes, you create more versions than Secrets Manager removes, and you will reach the quota for secret versions.
+
+To update a secret, use the following actions:
+[`UpdateSecret`](../apireference/API_UpdateSecret.md "../apireference/API_UpdateSecret.md") or [`ReplicateSecretToRegions`](../apireference/API_ReplicateSecretToRegions.md "../apireference/API_ReplicateSecretToRegions.md"). For more information, see [AWS SDKs](asm_access.md#asm-sdks "asm_access.md#asm-sdks").
