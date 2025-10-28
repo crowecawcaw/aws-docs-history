@@ -1,0 +1,99 @@
+# Tracing calls to downstream HTTP web services with
+
+the X-Ray SDK for .NET
+
+###### Note
+
+End-of-support notice – On February 25th, 2027, AWS X-Ray will discontinue support for AWS X-Ray SDKs and daemon. After February 25th, 2027, you will no longer receive updates or releases. For more information on the support timeline, see
+[X-Ray SDK and daemon end of support timeline](xray-daemon-eos.md "xray-daemon-eos.md"). We recommend to migrate to OpenTelemetry. For more information on migrating to OpenTelemetry, see [Migrating from X-Ray instrumentation to OpenTelemetry instrumentation](xray-sdk-migration.md "xray-sdk-migration.md") .
+
+When your application makes calls to microservices or public HTTP APIs, you can use the
+X-Ray SDK for .NET's `GetResponseTraced` extension method for
+`System.Net.HttpWebRequest` to instrument those calls and add the API to the
+service graph as a downstream service.
+
+###### Example HttpWebRequest
+
+```
+using System.Net;
+using Amazon.XRay.Recorder.Core;
+using Amazon.XRay.Recorder.Handlers.System.Net;
+
+private void MakeHttpRequest()
+{
+  HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://names.example.com/api");
+  `request.GetResponseTraced();`
+}
+```
+
+For asynchronous calls, use `GetAsyncResponseTraced`.
+
+```
+request.GetAsyncResponseTraced();
+```
+
+If you use [`system.net.http.httpclient`](https://msdn.microsoft.com/en-us/library/system.net.http.httpclient.aspx "https://msdn.microsoft.com/en-us/library/system.net.http.httpclient.aspx"), use the `HttpClientXRayTracingHandler` delegating handler to record calls.
+
+###### Example HttpClient
+
+```
+using System.Net.Http;
+using Amazon.XRay.Recorder.Core;
+using Amazon.XRay.Recorder.Handlers.System.Net;
+
+private void MakeHttpRequest()
+{
+  var httpClient = new HttpClient(`new HttpClientXRayTracingHandler(new HttpClientHandler())`);
+  httpClient.GetAsync(URL);
+}
+```
+
+When you instrument a call to a downstream web API, the X-Ray SDK for .NET records a
+subsegment with information about the HTTP request and response. X-Ray uses the subsegment to
+generate an inferred segment for the API.
+
+###### Example Subsegment for a downstream HTTP call
+
+```
+{
+  "id": "004f72be19cddc2a",
+  "start_time": 1484786387.131,
+  "end_time": 1484786387.501,
+  "name": "names.example.com",
+  "namespace": "remote",
+  "http": {
+    "request": {
+      "method": "GET",
+      "url": "https://names.example.com/"
+    },
+    "response": {
+      "content_length": -1,
+      "status": 200
+    }
+  }
+}
+```
+
+###### Example Inferred segment for a downstream HTTP call
+
+```
+{
+  "id": "168416dc2ea97781",
+  "name": "names.example.com",
+  "trace_id": "1-62be1272-1b71c4274f39f122afa64eab",
+  "start_time": 1484786387.131,
+  "end_time": 1484786387.501,
+  "parent_id": "004f72be19cddc2a",
+  "http": {
+    "request": {
+      "method": "GET",
+      "url": "https://names.example.com/"
+    },
+    "response": {
+      "content_length": -1,
+      "status": 200
+    }
+  },
+  "inferred": true
+}
+```
