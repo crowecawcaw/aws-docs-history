@@ -1,0 +1,36 @@
+#
+
+Amazon Linux 2 release notes for 2025
+
+The following are the release notes for Amazon Linux 2 for 2025.
+
+###### Release notes
+
+- [2.0.20251014](relnotes-20251014.md "relnotes-20251014.md")
+- [2.0.20250929](relnotes-20250929.md "relnotes-20250929.md")
+- [2.0.20250915](relnotes-20250915.md "relnotes-20250915.md")
+- [2.0.20250902](relnotes-20250902.md "relnotes-20250902.md")
+- [2.0.20250818](relnotes-20250818.md "relnotes-20250818.md")
+- [2.0.20250808](relnotes-20250808.md "relnotes-20250808.md")
+- [2.0.20250804 (recalled)](relnotes-20250804.md "relnotes-20250804.md")
+- [2.0.20250728](relnotes-20250728.md "relnotes-20250728.md")
+- [2.0.20250721](relnotes-20250721.md "relnotes-20250721.md")
+- [2.0.20250707](relnotes-20250707.md "relnotes-20250707.md")
+- [2.0.20250623](relnotes-20250623.md "relnotes-20250623.md")
+- [2.0.20250610](relnotes-20250610.md "relnotes-20250610.md")
+- [2.0.20250605](relnotes-20250605.md "relnotes-20250605.md")
+- [2.0.20250603](relnotes-20250603.md "relnotes-20250603.md")
+- [2.0.20250527](relnotes-20250527.md "relnotes-20250527.md")
+- [2.0.20250512](relnotes-20250512.md "relnotes-20250512.md")
+- [2.0.20250428](relnotes-20250428.md "relnotes-20250428.md")
+- [2.0.20250414](relnotes-20250414.md "relnotes-20250414.md")
+- [2.0.20250405](relnotes-20250405.md "relnotes-20250405.md")
+- [2.0.20250328](relnotes-20250328.md "relnotes-20250328.md")
+- [2.0.20250321](relnotes-20250321.md "relnotes-20250321.md")
+- [2.0.20250305](relnotes-20250305.md "relnotes-20250305.md")
+- [2.0.20250220](relnotes-20250220.md "relnotes-20250220.md")
+- [2.0.20250201](relnotes-20250201.md "relnotes-20250201.md")
+- [2.0.20250123](relnotes-20250123.md "relnotes-20250123.md")
+- [2.0.20250116](relnotes-20250116.md "relnotes-20250116.md")
+- [2.0.20250113](relnotes-20250113.md "relnotes-20250113.md")
+- [2.0.20250108](relnotes-20250108.md "relnotes-20250108.md")
