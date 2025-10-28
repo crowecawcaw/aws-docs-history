@@ -1018,16 +1018,6 @@ class AwsDocsCrawler:
 
 
 def parse_args() -> argparse.Namespace:
-    # Check if first argument is a known command
-    known_commands = {"crawl", "discover", "crawl-services"}
-    has_command = len(sys.argv) > 1 and sys.argv[1] in known_commands
-
-    # For backward compatibility, if no command is provided, insert 'crawl'
-    if not has_command and len(sys.argv) > 1:
-        # Check if it looks like old-style arguments (starts with --)
-        if sys.argv[1].startswith("--"):
-            sys.argv.insert(1, "crawl")
-
     parser = argparse.ArgumentParser(description="Crawl AWS documentation using sitemaps.")
 
     # Global arguments
@@ -1038,45 +1028,7 @@ def parse_args() -> argparse.Namespace:
     )
 
     # Create subparsers for different commands
-    subparsers = parser.add_subparsers(dest="command", help="Command to run")
-
-    # Default crawl command (for backward compatibility)
-    crawl_parser = subparsers.add_parser("crawl", help="Crawl AWS documentation (default)")
-    crawl_parser.add_argument(
-        "--output-dir",
-        default="docs",
-        type=Path,
-        help="Directory where Markdown files should be written.",
-    )
-    crawl_parser.add_argument(
-        "--max-workers",
-        type=int,
-        default=8,
-        help="Number of worker threads to use for crawling.",
-    )
-    crawl_parser.add_argument(
-        "--requests-per-second",
-        type=float,
-        default=10.0,
-        help="Maximum number of HTTP requests per second. Set to 0 to disable throttling.",
-    )
-    crawl_parser.add_argument(
-        "--service-url",
-        type=str,
-        help="Service guide URL to crawl (e.g., 'https://docs.aws.amazon.com/AmazonS3/latest/userguide/' or '/AmazonS3/latest/userguide/'). If not provided, all services will be crawled.",
-    )
-    crawl_parser.add_argument(
-        "--allowed-prefix",
-        dest="allowed_prefixes",
-        action="append",
-        metavar="PATH",
-        help="Restrict crawling to URLs with this path prefix. Can be provided multiple times.",
-    )
-    crawl_parser.add_argument(
-        "--dry-run",
-        action="store_true",
-        help="Discover and list all guides with page counts without actually crawling them.",
-    )
+    subparsers = parser.add_subparsers(dest="command", required=True, help="Command to run")
 
     # Discover command
     discover_parser = subparsers.add_parser("discover", help="Discover services from sitemap and save to JSON")
@@ -1127,27 +1079,41 @@ def parse_args() -> argparse.Namespace:
         help="Maximum number of HTTP requests per second. Set to 0 to disable throttling.",
     )
 
-    args = parser.parse_args()
+    # Crawl-guide command (for manually crawling a single guide)
+    crawl_guide_parser = subparsers.add_parser(
+        "crawl-guide",
+        help="Crawl a single service guide"
+    )
+    crawl_guide_parser.add_argument(
+        "service_url",
+        type=str,
+        help="Service guide URL (e.g., '/AmazonS3/latest/userguide/' or 'https://docs.aws.amazon.com/AmazonS3/latest/userguide/')",
+    )
+    crawl_guide_parser.add_argument(
+        "--output-dir",
+        default="docs",
+        type=Path,
+        help="Directory where Markdown files should be written.",
+    )
+    crawl_guide_parser.add_argument(
+        "--max-workers",
+        type=int,
+        default=8,
+        help="Number of worker threads to use for crawling.",
+    )
+    crawl_guide_parser.add_argument(
+        "--requests-per-second",
+        type=float,
+        default=10.0,
+        help="Maximum number of HTTP requests per second. Set to 0 to disable throttling.",
+    )
+    crawl_guide_parser.add_argument(
+        "--dry-run",
+        action="store_true",
+        help="Show what would be crawled without actually crawling.",
+    )
 
-    # If no command specified after parsing, default to crawl
-    if not args.command:
-        # This shouldn't happen now due to the pre-insertion, but just in case
-        args.command = "crawl"
-        # Set default values for crawl command
-        if not hasattr(args, 'output_dir'):
-            args.output_dir = Path("docs")
-        if not hasattr(args, 'max_workers'):
-            args.max_workers = 8
-        if not hasattr(args, 'requests_per_second'):
-            args.requests_per_second = 10.0
-        if not hasattr(args, 'service_url'):
-            args.service_url = None
-        if not hasattr(args, 'allowed_prefixes'):
-            args.allowed_prefixes = None
-        if not hasattr(args, 'dry_run'):
-            args.dry_run = False
-
-    return args
+    return parser.parse_args()
 
 
 def clean_guide_directory(output_dir: Path, service_url: str) -> None:
@@ -1273,16 +1239,15 @@ def cmd_crawl_services(args: argparse.Namespace) -> None:
         sys.exit(1)
 
 
-def cmd_crawl(args: argparse.Namespace) -> None:
-    """Traditional crawl command (backward compatible)."""
-    # Clean guide directory if crawling a specific guide (skip in dry-run mode)
-    if args.service_url and not args.dry_run:
+def cmd_crawl_guide(args: argparse.Namespace) -> None:
+    """Crawl a single service guide."""
+    # Clean guide directory before crawling (skip in dry-run mode)
+    if not args.dry_run:
         clean_guide_directory(args.output_dir, args.service_url)
 
     crawler = AwsDocsCrawler(
         output_dir=args.output_dir,
         max_workers=args.max_workers,
-        allowed_prefixes=args.allowed_prefixes,
         requests_per_second=args.requests_per_second,
         service_url_filter=args.service_url,
         dry_run=args.dry_run,
@@ -1302,8 +1267,8 @@ def main() -> None:
         cmd_discover(args)
     elif args.command == "crawl-services":
         cmd_crawl_services(args)
-    elif args.command == "crawl":
-        cmd_crawl(args)
+    elif args.command == "crawl-guide":
+        cmd_crawl_guide(args)
     else:
         LOGGER.error("Unknown command: %s", args.command)
         sys.exit(1)
