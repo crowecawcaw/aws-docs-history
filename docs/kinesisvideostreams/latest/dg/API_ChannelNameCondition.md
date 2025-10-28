@@ -1,0 +1,39 @@
+# ChannelNameCondition
+
+An optional input parameter for the `ListSignalingChannels` API. When this
+parameter is specified while invoking `ListSignalingChannels`, the API
+returns only the channels that satisfy a condition specified in
+`ChannelNameCondition`.
+
+## Contents
+
+**ComparisonOperator**
+
+A comparison operator. Currently, you can only specify the `BEGINS_WITH`
+operator, which finds signaling channels whose names begin with a given prefix.
+
+Type: String
+
+Valid Values: `BEGINS_WITH`
+
+Required: No
+
+**ComparisonValue**
+
+A value to compare.
+
+Type: String
+
+Length Constraints: Minimum length of 1. Maximum length of 256.
+
+Pattern: `[a-zA-Z0-9_.-]+`
+
+Required: No
+
+## See Also
+
+For more information about using this API in one of the language-specific AWS SDKs, see the following:
+
+- [AWS SDK for C++](../../../goto/SdkForCpp/kinesisvideo-2017-09-30/ChannelNameCondition.md "../../../goto/SdkForCpp/kinesisvideo-2017-09-30/ChannelNameCondition.md")
+- [AWS SDK for Java V2](../../../goto/SdkForJavaV2/kinesisvideo-2017-09-30/ChannelNameCondition.md "../../../goto/SdkForJavaV2/kinesisvideo-2017-09-30/ChannelNameCondition.md")
+- [AWS SDK for Ruby V3](../../../goto/SdkForRubyV3/kinesisvideo-2017-09-30/ChannelNameCondition.md "../../../goto/SdkForRubyV3/kinesisvideo-2017-09-30/ChannelNameCondition.md")
