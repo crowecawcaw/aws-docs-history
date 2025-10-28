@@ -1,0 +1,82 @@
+# Disabling a policy type
+
+If you no longer want to use a certain policy type in your organization, you can
+disable that type to prevent its accidental use. You can disable a policy type from only
+the organization's management account or a member account designated as a delegated administrator..
+
+## Considerations
+
+**Disabled policies are detached from all entities but not deleted**
+
+When you disable a policy type, all policies of the specified type are
+automatically detached from all entities in the organization root. The
+policies are **_not_** deleted.
+
+**(Service control policy type only) All entities in the root are initially attached to only
+the default `FullAWSAccess` SCP**
+
+(Service control policy type only) If you re-enable the SCP policy type
+later, all entities in the organization root are initially attached to only
+the default `FullAWSAccess` SCP. Attachments of SCPs to entities
+are lost when the SCPs are disabled in the organization. If you later want
+to re-enable SCPs, you must reattach them to the organization's root, OUs,
+and accounts, as appropriate.
+
+## Disable a policy type
+
+###### Minimum permissions
+
+To disable SCPs, you need permission to run the following actions:
+
+- `organizations:DisablePolicyType`
+- `organizations:DescribeOrganization` – required only when using the Organizations console
+- `organizations:ListRoots` – required only when using the Organizations console
+
+AWS Management Console
+
+###### To disable a policy type
+
+1. Sign in to the [AWS Organizations console](https://console.aws.amazon.com/organizations/v2 "https://console.aws.amazon.com/organizations/v2"). You must sign in as an IAM user, assume an IAM role, or
+   sign in as the root user ([not
+   recommended](../../../IAM/latest/UserGuide/best-practices.md#lock-away-credentials "../../../IAM/latest/UserGuide/best-practices.md#lock-away-credentials")) in the organization’s management account.
+2. On the **[Policies](https://console.aws.amazon.com/organizations/v2/home/policies "https://console.aws.amazon.com/organizations/v2/home/policies")** page, choose the name of the policy type that
+   you want to disable.
+3. On the policy type page, choose **Disable
+   `policy type`**.
+4. On the confirmation dialog box, enter the word
+   `disable`, and then choose
+   **Disable**.
+
+The list of available policies of the specified type
+disappears.
+
+AWS CLI & AWS SDKs
+
+###### To disable a policy type
+
+You can use one of the following commands to disable a policy
+type:
+
+- AWS CLI: [disable-policy-type](../../../cli/latest/reference/organizations/disable-policy-type.md "../../../cli/latest/reference/organizations/disable-policy-type.md")
+
+The following example shows how to disable backup policies for
+your organization. Note that you must specify the ID of your
+organization's root.
+
+```
+`$` **aws organizations disable-policy-type \
+ --root-id r-a1b2 \
+ --policy-type BACKUP\_POLICY**`{
+ "Root": {
+ "Id": "r-a1b2",
+ "Arn": "arn:aws:organizations::123456789012:root/o-aa111bb222/r-a1b2",
+ "Name": "Root",
+ "PolicyTypes": []
+ }
+}`
+```
+
+The list of `PolicyTypes` in the output no longer
+includes the specified policy type.
+
+- AWS SDKs: [DisablePolicyType](../APIReference/API_DisablePolicyType.md "../APIReference/API_DisablePolicyType.md")
