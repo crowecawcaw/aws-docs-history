@@ -1,0 +1,58 @@
+# Troubleshooting DNSSEC signing
+
+The information in this section can help you address issues with DNSSEC signing, including enabling, disabling, and
+with your key-signing keys (KSKs).
+
+_Enabling DNSSEC_
+Make sure you have read the prerequisites in [Configuring DNSSEC signing in Amazon Route 53](dns-configuring-dnssec.md "dns-configuring-dnssec.md") before you start enabling DNSSEC
+signing.
+
+_Disabling DNSSEC_
+In order to safely disable DNSSEC, Route 53 will check whether the target zone is in the chain
+of trust. It checks if the parent of the target zone has any NS records of the target
+zone and DS records of the target zone. If the
+target zone is not publicly resolvable, for example, getting a SERVFAIL response when
+querying for NS and DS, Route 53 cannot determine whether it is safe to disable DNSSEC. You
+can contact your parent zone to fix those issues, and retry disabling DNSSEC
+later.
+
+\*KSK status is **Action needed\***
+A KSK can change its status to **Action needed** (or `ACTION_NEEDED` in a [KeySigningKey](../APIReference/API_KeySigningKey.md "../APIReference/API_KeySigningKey.md") status),
+when Route 53 DNSSEC loses access to a corresponding
+AWS KMS key (due to a change in permissions or AWS KMS key deletion).
+
+If the status of a KSK is **Action needed**, it means that eventually
+it'll cause a zone outage for clients using DNSSEC validating resolvers and
+you must act fast to prevent a production zone becoming
+un-resolvable.
+
+To correct the problem, make sure that the customer managed key that your KSK is based on is enabled and has the
+correct permissions. For more information about the required permissions, see
+[Route 53 customer managed key permissions required
+for DNSSEC signing](access-control-managing-permissions.md#KMS-key-policy-for-DNSSEC "access-control-managing-permissions.md#KMS-key-policy-for-DNSSEC").
+
+After you have fixed the KSK, activate it again by using the console or the AWS CLI, as
+described in [Step 2: Enable DNSSEC signing and
+create a KSK](dns-configuring-dnssec-enable-signing.md#dns-configuring-dnssec-enable "dns-configuring-dnssec-enable-signing.md#dns-configuring-dnssec-enable").
+
+To prevent this issue in the future,
+consider adding an Amazon CloudWatch metric to track the state of the KSK as suggested in [Configuring DNSSEC signing in Amazon Route 53](dns-configuring-dnssec.md "dns-configuring-dnssec.md").
+
+\*KSK status is **Internal failure\***
+
+When a KSK has a status of **Internal failure** (or
+`INTERNAL_FAILURE` in a [KeySigningKey](../APIReference/API_KeySigningKey.md "../APIReference/API_KeySigningKey.md") status), you can't work with any other DNSSEC
+entities until the problem is resolved. You must take action before you can
+work with DNSSEC signing, including working with this KSK or your other
+KSK.
+
+To correct the problem, try again to activate or deactivate the
+KSK.
+
+To correct the problem when working with the APIs, try enabling signing
+([EnableHostedZoneDNSSEC](../APIReference/API_EnableHostedZoneDNSSEC.md "../APIReference/API_EnableHostedZoneDNSSEC.md")) or disabling signing ([DisableHostedZoneDNSSEC](../APIReference/API_DisableHostedZoneDNSSEC.md "../APIReference/API_DisableHostedZoneDNSSEC.md")).
+
+It's important that you correct **Internal failure**
+problems promptly. You can't make any other changes to the hosted zone until
+you correct the problem, except the operations to fix the **Internal
+failure**.

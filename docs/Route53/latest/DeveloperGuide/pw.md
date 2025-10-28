@@ -1,0 +1,42 @@
+# .pw (Palau)
+
+[Return to index](registrar-tld-list.md#index "registrar-tld-list.md#index")
+
+The .pw was originally reserved for the residents of Palau, an island country in the Micronesia sub region of Oceania in
+the western Pacific, however, now it is commonly used to represent ‘Professional Web’ and is available to everyone.
+
+**Lease period for registration and renewal**
+
+One to ten years.
+
+**Privacy protection (applies to all contact types: person, company,
+association, and public body)**
+
+All information is hidden except organization name.
+
+**Domain locking to prevent unauthorized transfers**
+
+Supported.
+
+**Internationalized domain names**
+
+Supported.
+
+**Authorization code required for transfers**
+
+Yes
+
+**DNSSEC**
+
+Supported for domain registration. For more information, see [Configuring DNSSEC for a domain](domain-configure-dnssec.md "domain-configure-dnssec.md").
+
+**Deadlines for renewing and restoring domains**
+
+- Renewal is possible: Until the expiration date
+- Late renewal with Route 53 is possible: Until 44 days after
+  expiration
+- Domain is deleted from Route 53: 45 days after expiration
+- Restoration with the registry is possible: Between 45 days and
+  75 days after expiration
+- Domain is deleted from the registry: 75 days after
+  expiration

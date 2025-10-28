@@ -1,0 +1,48 @@
+# Deleting a private hosted zone
+
+This section explains how to delete a private hosted zone using the Amazon Route 53 console.
+
+You can delete a private hosted zone only if there are no records other than the default SOA and NS records.
+If your hosted zone contains other records, you must delete them before you can delete your hosted zone. This
+prevents you from accidentally deleting a hosted zone that still contains records.
+
+###### Topics
+
+- [Deleting private hosted zones that were created by another service](#delete-private-hosted-zone-created-by-another-service "#delete-private-hosted-zone-created-by-another-service")
+- [Using the Route 53 console to delete a private hosted zone](#delete-private-hosted-zone-procedure "#delete-private-hosted-zone-procedure")
+
+## Deleting private hosted zones that were created by another service
+
+If a private hosted zone was created by another service, you can't delete it using the Route 53 console. Instead, you need to use the
+applicable process for the other service:
+
+- **AWS Cloud Map** – To delete a hosted zone that AWS Cloud Map created when you created a private DNS namespace,
+  delete the namespace. AWS Cloud Map deletes the hosted zone automatically. For more information, see
+  [Deleting namespaces](../../../cloud-map/latest/dg/deleting-namespaces.md "../../../cloud-map/latest/dg/deleting-namespaces.md") in the _AWS Cloud Map Developer Guide_.
+- **Amazon Elastic Container Service (Amazon ECS) Service Discovery** – To delete a private hosted zone that
+  Amazon ECS created when you created a service using service discovery, delete the Amazon ECS services that are using the namespace, and
+  delete the namespace. For more information, see
+  [Deleting a service](../../../AmazonECS/latest/developerguide/delete-service.md "../../../AmazonECS/latest/developerguide/delete-service.md") in the _Amazon Elastic Container Service Developer Guide_.
+
+## Using the Route 53 console to delete a private hosted zone
+
+To use the Route 53 console to delete a private hosted zone, perform the following procedure.
+
+###### To delete a private hosted zone using the Route 53 console
+
+1. Sign in to the AWS Management Console and open the Route 53 console at
+   [https://console.aws.amazon.com/route53/](https://console.aws.amazon.com/route53/ "https://console.aws.amazon.com/route53/").
+2. Confirm that the hosted zone that you want to delete contains only an NS and an SOA record. If it contains
+   additional records, delete them:
+   1. Choose the name of the hosted zone that you want to delete.
+   2. On the **Record** page, if the list of records includes any records for which the value of the
+      **Type** column is something other than **NS** or **SOA**, choose the
+      row, and choose **Delete**.
+
+   To select multiple, consecutive records, choose the first row, press and hold the **Shift** key, and choose
+   the last row. To select multiple, non-consecutive records, choose the first row, press and hold the **Ctrl**
+   key, and choose the remaining rows.
+
+3. On the Hosted Zones page, choose the row for the hosted zone that you want to delete.
+4. Choose **Delete**.
+5. Type the confirmation key and choose **Delete**.
