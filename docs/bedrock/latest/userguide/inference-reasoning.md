@@ -1,0 +1,18 @@
+# Enhance model responses with model reasoning
+
+Some foundation models are able to perform model reasoning, where they are able to take a larger, complex task and break it down into smaller, simpler steps. This process is often referred to as chain of thought (CoT) reasoning. Chain of thought reasoning can often improve model accuracy by giving the model a chance to think before it responds. Model reasoning is most useful for task such as multi-step analysis, math problems, and complex reasoning tasks.
+
+For example, in tackling a mathematical word problem, the model can first identify the relevant variables, then construct equations based on the given information, and finally solve those equations to reach the solution. This strategy not only minimizes errors but also makes the reasoning process more transparent and easier to follow, thereby enhancing the quality of foundation model's output.
+
+Model reasoning is not necessary for all tasks and does come with additional overhead, including increased latency and output tokens. Simple tasks that don't need additional explanations are not good candidates for CoT reasoning.
+
+Note that not all models allow you to configure the number of output tokens that are allocated for model reasoning.
+
+Model reasoning is available for the following models.
+
+| Foundation Model            | Model ID                                  | Number of tokens                                                                                                                                                                                             | Reasoning configuration                                                                                                   |
+| --------------------------- | ----------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------- |
+| Anthropic Claude Opus 4     | anthropic.claude-opus-4-20250514-v1:0     | This model will have 32,768 tokens, which includes both output and reasoning tokens.                                                                                                                         | Reasoning can be enabled or disabled for this model using a configurable token budget. By default, reasoning is disabled. |
+| Anthropic Claude Sonnet 4   | anthropic.claude-sonnet-4-20250514-v1:0   | This model will have 65,536 tokens, which includes both output and reasoning tokens.                                                                                                                         | Reasoning can be enabled or disabled for this model using a configurable token budget. By default, reasoning is disabled. |
+| Anthropic Claude 3.7 Sonnet | anthropic.claude-3-7-sonnet-20250219-v1:0 | This model will have 65,536 tokens, which includes both output and reasoning tokens.                                                                                                                         | Reasoning can be enabled or disabled for this model using a configurable token budget. By default, reasoning is disabled. |
+| DeepSeek DeepSeek-R1        | deepseek.r1-v1:0                          | This model will have 8192 tokens, which includes both output and reasoning tokens. The number of thinking tokens cannot be configured and the maximum number of output tokens must not be greater than 8192. | Reasoning is always enabled for this model. The model does not support toggling the reasoning capability on and off.      |

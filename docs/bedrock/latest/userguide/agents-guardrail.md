@@ -1,0 +1,5 @@
+# Implement safeguards for your application by associating a guardrail with your agent
+
+To implement safeguards and prevent unwanted behavior from model responses or user messages, associate a guardrail with your agent. To learn more about guardrails and how to create them, see [Detect and filter harmful content by using Amazon Bedrock Guardrails](guardrails.md "guardrails.md").
+
+You can associate a guardrail with your agent when you [create](agents-create.md "agents-create.md") or [update](agents-edit.md "agents-edit.md") an agent. In the Amazon Bedrock console, you add a guardrail in the **Guardrail details** section of the **Agent builder**. In the Amazon Bedrock API, you specify a [GuardrailConfiguration](../APIReference/API_agent_GuardrailConfiguration.md "../APIReference/API_agent_GuardrailConfiguration.md") when you send a [CreateAgent](../APIReference/API_agent_CreateAgent.md "../APIReference/API_agent_CreateAgent.md") or [UpdateAgent](../APIReference/API_agent_UpdateAgent.md "../APIReference/API_agent_UpdateAgent.md") request.

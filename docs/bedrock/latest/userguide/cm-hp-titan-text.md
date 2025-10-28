@@ -1,0 +1,18 @@
+# Amazon Titan text model customization
+
+hyperparameters
+
+Amazon Titan Text Premier model supports the following hyperparameters for model customization. The number of epochs you specify increases your model customization cost by processing more tokens. Each epoch processes the entire training dataset once. For information about pricing, see [Amazon Bedrock pricing](https://aws.amazon.com/bedrock/pricing "https://aws.amazon.com/bedrock/pricing").
+
+| Hyperparameter (console)   | Hyperparameter (API)    | Definition                                                                                         | Type    | Minimum  | Maximum  | Default  |
+| -------------------------- | ----------------------- | -------------------------------------------------------------------------------------------------- | ------- | -------- | -------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Epochs                     | epochCount              | The number of iterations through the entire training dataset                                       | integer | 1        | 5        | 2        |
+| Batch size (micro)         | batchSize               | The number of samples processed before updating model parameters                                   | integer | 1        | 1        | 1        |
+| Learning rate              | learningRate            | The rate at which model parameters are updated after each batch                                    | float   | 1.00E-07 | 1.00E-05 | 1.00E-06 |
+| Learning rate warmup steps | learningRateWarmupSteps | The number of iterations over which the learning rate is gradually increased to the specified rate | integer | 0        | 20       | 5        | Amazon Titan Text models, such as Lite and Express, support the following hyperparameters for model customization. The number of epochs you specify increases your model customization cost by processing more tokens. Each epoch processes the entire training dataset once. For information about pricing, see [Amazon Bedrock pricing](https://aws.amazon.com/bedrock/pricing "https://aws.amazon.com/bedrock/pricing"). |
+| Hyperparameter (console)   | Hyperparameter (API)    | Definition                                                                                         | Type    | Minimum  | Maximum  | Default  |
+| ---                        | ---                     | ---                                                                                                | ---     | ---      | ---      | ---      |
+| Epochs                     | epochCount              | The number of iterations through the entire training dataset                                       | integer | 1        | 10       | 5        |
+| Batch size (micro)         | batchSize               | The number of samples processed before updating model parameters                                   | integer | 1        | 64       | 1        |
+| Learning rate              | learningRate            | The rate at which model parameters are updated after each batch                                    | float   | 0.0      | 1        | 1.00E-5  |
+| Learning rate warmup steps | learningRateWarmupSteps | The number of iterations over which the learning rate is gradually increased to the specified rate | integer | 0        | 250      | 5        |

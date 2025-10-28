@@ -1,0 +1,45 @@
+# Supported Region and models for Provisioned Throughput
+
+If you purchase Provisioned Throughput through the Amazon Bedrock API, you must specify a contextual variant of
+Amazon Bedrock FMs for the model ID.
+
+###### Note
+
+Provisioned Throughput is supported in AWS GovCloud (US-West) only for custom models with a no-commitment purchase. Use the ID of a custom model when purchasing Provisioned Throughput for it.
+
+The following table shows the models for which you can
+purchase Provisioned Throughput, the model ID to use when purchasing Provisioned Throughput, the Regions in which you can purchase Provisioned Throughput for the model, and whether you can purchase without commitment for the base model.
+
+| Model name                            | Model ID for Provisioned Throughput            | Regions supported                                                                                               | No-commitment purchase supported for base model |
+| ------------------------------------- | ---------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | ----------------------------------------------- |
+| Amazon Nova Canvas                    | amazon.nova-canvas-v1:0                        | us-east-1                                                                                                       | Yes                                             |
+| Amazon Nova Lite 24k                  | amazon.nova-lite-v1:0:24k                      | us-east-1                                                                                                       | Yes                                             |
+| Amazon Nova Lite 300k                 | amazon.nova-lite-v1:0:300k                     | us-east-1                                                                                                       | Yes                                             |
+| Amazon Nova Micro 128k                | amazon.nova-micro-v1:0:128k                    | us-east-1                                                                                                       | Yes                                             |
+| Amazon Nova Micro 24k                 | amazon.nova-micro-v1:0:24k                     | us-east-1                                                                                                       | Yes                                             |
+| Amazon Nova Pro 24k                   | amazon.nova-pro-v1:0:24k                       | us-east-1                                                                                                       | Yes                                             |
+| Amazon Nova Pro 300k                  | amazon.nova-pro-v1:0:300k                      | us-east-1                                                                                                       | Yes                                             |
+| Amazon Titan Embeddings G1 - Text 8k  | amazon.titan-embed-text-v1:2:8k                | us-east-1 us-west-2                                                                                             | Yes                                             |
+| Amazon Titan Image Generator G1 v2    | amazon.titan-image-generator-v2:0              | us-east-1 us-west-2                                                                                             | No                                              |
+| Amazon Titan Image Generator G1       | amazon.titan-image-generator-v1:0              | us-east-1 us-west-2 ap-south-1 eu-west-2                                                                        | No                                              |
+| Amazon Titan Multimodal Embeddings G1 | amazon.titan-embed-image-v1:0                  | us-east-1 us-west-2 ap-south-1 ap-southeast-2 ca-central-1 eu-central-1 eu-west-1 eu-west-2 eu-west-3 sa-east-1 | Yes                                             |
+| Amazon Titan Text G1 - Express 8k     | amazon.titan-text-express-v1:0:8k              | us-east-1 us-west-2 ap-south-1 ap-southeast-2 ca-central-1 eu-west-1 eu-west-2 eu-west-3 sa-east-1              | Yes                                             |
+| Amazon Titan Text G1 - Lite 4k        | amazon.titan-text-lite-v1:0:4k                 | us-east-1 us-west-2 ap-south-1 ap-southeast-2 ca-central-1 eu-central-1 eu-west-1 eu-west-2 eu-west-3 sa-east-1 | Yes                                             |
+| Anthropic Claude 3 Haiku 200k         | anthropic.claude-3-haiku-20240307-v1:0:200k    | us-east-1 us-west-2 ap-southeast-2 eu-west-3                                                                    | Yes                                             |
+| Anthropic Claude 3 Haiku 48k          | anthropic.claude-3-haiku-20240307-v1:0:48k     | us-east-1 us-west-2 ap-south-1 ap-southeast-2 eu-west-1 eu-west-3                                               | Yes                                             |
+| Anthropic Claude 3 Sonnet 200k        | anthropic.claude-3-sonnet-20240229-v1:0:200k   | ap-southeast-2                                                                                                  | Yes                                             |
+| Anthropic Claude 3 Sonnet 28k         | anthropic.claude-3-sonnet-20240229-v1:0:28k    | ap-south-1 ap-southeast-2                                                                                       | Yes                                             |
+| Anthropic Claude 3.5 Sonnet 18k       | anthropic.claude-3-5-sonnet-20240620-v1:0:18k  | us-west-2                                                                                                       | Yes                                             |
+| Anthropic Claude 3.5 Sonnet 200k      | anthropic.claude-3-5-sonnet-20240620-v1:0:200k | us-west-2                                                                                                       | Yes                                             |
+| Anthropic Claude 3.5 Sonnet 51k       | anthropic.claude-3-5-sonnet-20240620-v1:0:51k  | us-west-2                                                                                                       | Yes                                             |
+| Anthropic Claude 3.5 Sonnet v2 18k    | anthropic.claude-3-5-sonnet-20241022-v2:0:18k  | us-west-2                                                                                                       | Yes                                             |
+| Anthropic Claude 3.5 Sonnet v2 200k   | anthropic.claude-3-5-sonnet-20241022-v2:0:200k | us-west-2                                                                                                       | Yes                                             |
+| Anthropic Claude 3.5 Sonnet v2 51k    | anthropic.claude-3-5-sonnet-20241022-v2:0:51k  | us-west-2                                                                                                       | Yes                                             |
+| Cohere Embed English                  | cohere.embed-english-v3:0:512                  | us-east-1 us-west-2 ca-central-1 eu-west-2 eu-west-3 sa-east-1                                                  | Yes                                             |
+| Cohere Embed Multilingual             | cohere.embed-multilingual-v3:0:512             | us-east-1 us-west-2 ca-central-1 eu-west-2 eu-west-3 sa-east-1                                                  | Yes                                             |
+| Meta Llama 3.1 70B Instruct 128k      | meta.llama3-1-70b-instruct-v1:0:128k           | us-west-2                                                                                                       | Yes                                             |
+| Meta Llama 3.1 8B Instruct 128k       | meta.llama3-1-8b-instruct-v1:0:128k            | us-west-2                                                                                                       | Yes                                             |
+| Meta Llama 3.2 11B Instruct 128k      | meta.llama3-2-11b-instruct-v1:0:128k           | us-west-2                                                                                                       | Yes                                             |
+| Meta Llama 3.2 1B Instruct 128k       | meta.llama3-2-1b-instruct-v1:0:128k            | us-west-2                                                                                                       | Yes                                             |
+| Meta Llama 3.2 3B Instruct 128k       | meta.llama3-2-3b-instruct-v1:0:128k            | us-west-2                                                                                                       | Yes                                             |
+| Meta Llama 3.2 90B Instruct 128k      | meta.llama3-2-90b-instruct-v1:0:128k           | us-west-2                                                                                                       | Yes                                             |

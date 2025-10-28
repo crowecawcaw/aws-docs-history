@@ -1,0 +1,3 @@
+# Modify the tags for an application inference profile
+
+After you create an application inference profile, you can still manage tags through the Amazon Bedrock API by submitting a [TagResource](../APIReference/API_TagResource.md "../APIReference/API_TagResource.md") or [UntagResource](../APIReference/API_UntagResource.md "../APIReference/API_UntagResource.md") request with an [Amazon Bedrock control plane endpoint](../../../general/latest/gr/bedrock.md#br-cp "../../../general/latest/gr/bedrock.md#br-cp") and specifying the ARN of the application inference profile in the `resourceArn` field. To learn more about tagging, see [Tagging Amazon Bedrock resources](tagging.md "tagging.md").

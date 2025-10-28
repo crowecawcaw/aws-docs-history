@@ -1,0 +1,42 @@
+# Inference request parameters and response fields for foundation models
+
+The topics in this section describe the request parameters and response fields for the models that Amazon Bedrock supplies. When you make inference calls to models with the model invocation ([InvokeModel](../APIReference/API_runtime_InvokeModel.md "../APIReference/API_runtime_InvokeModel.md"), [InvokeModelWithResponseStream](../APIReference/API_runtime_InvokeModelWithResponseStream.md "../APIReference/API_runtime_InvokeModelWithResponseStream.md"), [Converse](../APIReference/API_runtime_Converse.md "../APIReference/API_runtime_Converse.md"), and [ConverseStream](../APIReference/API_runtime_ConverseStream.md "../APIReference/API_runtime_ConverseStream.md")) API operations, you include request parameters depending on the model that you're using.
+
+If you created a [custom model](custom-models.md "custom-models.md"), use the same inference parameters as the foundation model from which it was customized.
+
+If you are [importing a customized model into Amazon Bedrock](model-customization-import-model.md "model-customization-import-model.md"), make sure to use the same inference
+parameters that is mentioned for the customized model you are importing. If you are using
+inference parameters that do not match with the inference parameters mentioned for that
+model in this documentation, those parameters will be ignored.
+
+Before viewing model parameters for different models, you should familiarize yourself with what model inference is by reading the following chapter: [Submit prompts and generate responses with model inference](inference.md "inference.md").
+
+Refer to the following pages for more information about different models in Amazon Bedrock:
+
+- For a table of models and their IDs to use with the model invocation API operations, the Regions they're supported in, and the general features that they support, see [Supported foundation models in Amazon Bedrock](models-supported.md "models-supported.md").
+- For a table of the Amazon Bedrock Regions that each model is supported in, see [Model support by AWS Region in Amazon Bedrock](models-regions.md "models-regions.md").
+- For a table of the Amazon Bedrock features that each model supports, see [Model support by feature](models-features.md "models-features.md").
+- To check if the Converse API (`Converse` and `ConverseStream`) supports a specific model, see
+  [Supported models and
+  model features](conversation-inference-supported-models-features.md "conversation-inference-supported-models-features.md").
+- When you make inference calls to a model, you include a prompt for the model. For general information
+  about creating prompts for the models that Amazon Bedrock supports, see [Prompt engineering concepts](prompt-engineering-guidelines.md "prompt-engineering-guidelines.md").
+- For code examples,
+  see [Code examples for Amazon Bedrock using AWS SDKs](service_code_examples.md "service_code_examples.md").
+  Select a topic to learn about models for that provider and their parameters.
+
+###### Topics
+
+- [Amazon Nova models](model-parameters-nova.md "model-parameters-nova.md")
+- [Amazon Titan models](model-parameters-titan.md "model-parameters-titan.md")
+- [Anthropic Claude models](model-parameters-claude.md "model-parameters-claude.md")
+- [AI21 Labs models](model-parameters-ai21.md "model-parameters-ai21.md")
+- [Cohere models](model-parameters-cohere.md "model-parameters-cohere.md")
+- [DeepSeek models](model-parameters-deepseek.md "model-parameters-deepseek.md")
+- [Luma AI models](model-parameters-luma.md "model-parameters-luma.md")
+- [Meta Llama models](model-parameters-meta.md "model-parameters-meta.md")
+- [Mistral AI models](model-parameters-mistral.md "model-parameters-mistral.md")
+- [OpenAI models](model-parameters-openai.md "model-parameters-openai.md")
+- [Stability AI models](model-parameters-stability-diffusion.md "model-parameters-stability-diffusion.md")
+- [TwelveLabs models](model-parameters-twelvelabs.md "model-parameters-twelvelabs.md")
+- [Writer AI Palmyra models](model-parameters-writer-palmyra.md "model-parameters-writer-palmyra.md")
