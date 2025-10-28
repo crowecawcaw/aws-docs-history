@@ -1,0 +1,34 @@
+# Monitoring Amazon Keyspaces with Amazon CloudWatch
+
+You can monitor Amazon Keyspaces using Amazon CloudWatch, which collects raw data and processes it into readable,
+near real-time metrics. These statistics are kept for 15 months, so that you can access
+historical information and gain a better perspective on how your web application or service is
+performing.
+
+You can also set alarms that watch for certain thresholds, and send notifications or take
+actions when those thresholds are met. For more information, see the [Amazon CloudWatch User Guide](../../../AmazonCloudWatch/latest/monitoring.md "../../../AmazonCloudWatch/latest/monitoring.md").
+
+###### Note
+
+To get started quickly with a preconfigured CloudWatch dashboard showing common metrics for
+Amazon Keyspaces, you can use an AWS CloudFormation template available from [https://github.com/aws-samples/amazon-keyspaces-cloudwatch-cloudformation-templates](https://github.com/aws-samples/amazon-keyspaces-cloudwatch-cloudformation-templates "https://github.com/aws-samples/amazon-keyspaces-cloudwatch-cloudformation-templates").
+
+###### Topics
+
+- [How do I use Amazon Keyspaces metrics?](#how-to-use-metrics "#how-to-use-metrics")
+- [Amazon Keyspaces metrics and dimensions](metrics-dimensions.md "metrics-dimensions.md")
+- [Viewing Amazon Keyspaces metrics in CloudWatch](view-metrics.md "view-metrics.md")
+- [Creating CloudWatch alarms to monitor Amazon Keyspaces](creating-alarms.md "creating-alarms.md")
+
+## How do I use Amazon Keyspaces metrics?
+
+The metrics reported by Amazon Keyspaces provide information that you can analyze in different
+ways. The following list shows some common uses for the metrics. These are suggestions to
+get you started, not a comprehensive list. For more information about metrics and retention,
+see [Metrics](../../../AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.md#Metric "../../../AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.md#Metric").
+
+| How can I?                                                              | Relevant metrics                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| ----------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| How can I determine if any system errors occurred?                      | You can monitor `SystemErrors` to determine whether any requests resulted in a server error code. Typically, this metric should be equal to zero. If it isn't, you might want to investigate.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| How can I compare average provisioned read to consumed read capacity?   | To monitor average provisioned read capacity and consumed read capacity 1. Set the **Period** for `ConsumedReadCapacityUnits` and `ProvisionedReadCapacityUnits` to the interval you want to monitor. 2. Change the **Statistic** for `ConsumedReadCapacityUnits` from `Average` to `Sum`. 3. Create a new empty **Math expression**. 4. In the **Details** section of the new math expression, enter the **Id** of `ConsumedReadCapacityUnits` and divide the metric by the CloudWatch **PERIOD** function of the metric (metric_id/(**PERIOD**(metric_id)). 5. Unselect `ConsumedReadCapacityUnits`. You can now compare your average consumed read capacity to your provisioned capacity. For more information on basic arithmetic functions and how to create a time series see [Using metric math](../../../AmazonCloudWatch/latest/monitoring/using-metric-math.md "../../../AmazonCloudWatch/latest/monitoring/using-metric-math.md").         |
+| How can I compare average provisioned write to consumed write capacity? | To monitor average provisioned write capacity and consumed write capacity 1. Set the **Period** for `ConsumedWriteCapacityUnits` and `ProvisionedWriteCapacityUnits` to the interval you want to monitor. 2. Change the **Statistic** for `ConsumedWriteCapacityUnits` from `Average` to `Sum`. 3. Create a new empty **Math expression**. 4. In the **Details** section of the new math expression, enter the **Id** of `ConsumedWriteCapacityUnits` and divide the metric by the CloudWatch **PERIOD** function of the metric (metric_id/(**PERIOD**(metric_id)). 5. Unselect `ConsumedWriteCapacityUnits`. You can now compare your average consumed write capacity to your provisioned capacity. For more information on basic arithmetic functions and how to create a time series see [Using metric math](../../../AmazonCloudWatch/latest/monitoring/using-metric-math.md "../../../AmazonCloudWatch/latest/monitoring/using-metric-math.md"). |
