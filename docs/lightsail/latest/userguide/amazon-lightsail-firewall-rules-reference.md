@@ -1,0 +1,127 @@
+# Firewall rules reference for
+
+Lightsail instances
+
+You can add rules to an Amazon Lightsail instance's firewall that reflects the role of the
+instance. For example, an instance that's configured as a web server needs firewall rules that
+allow inbound HTTP and HTTPS access. A database instance needs rules that allow access for the
+type of database, such as access over port 3306 for MySQL. For more information about firewalls,
+see [Instance
+firewalls in Lightsail](understanding-firewall-and-port-mappings-in-amazon-lightsail.md "understanding-firewall-and-port-mappings-in-amazon-lightsail.md").
+
+This guide provides examples of the kinds of firewall rules that you can add to an instance
+firewall for specific kinds of access. The rules are listed as application, protocol, port, and
+source IP address (for example, application - protocol - port - source IP address), unless
+otherwise stated.
+
+**Contents**
+
+- [Web server rules](#firewall-web-server-rules "#firewall-web-server-rules")
+- [Rules to connect to your
+  instance from your computer](#firewall-connect-to-instance "#firewall-connect-to-instance")
+- [Database server
+  rules](#firewall-database-server-rules "#firewall-database-server-rules")
+- [DNS server rules](#firewall-dns-server "#firewall-dns-server")
+- [SMTP email](#firewall-smtp "#firewall-smtp")
+
+## Web server rules
+
+The following inbound rules allow HTTP and HTTPS access.
+
+###### Note
+
+Some Lightsail instances have the following firewall rules configured by default. For
+more information, see [Firewalls and
+ports](understanding-firewall-and-port-mappings-in-amazon-lightsail.md "understanding-firewall-and-port-mappings-in-amazon-lightsail.md").
+
+**HTTP**
+
+HTTP - TCP - 80 - all IP addresses
+
+**HTTPS**
+
+HTTPS - TCP - 443 - all IP addresses
+
+## Rules to connect to your instance from your
+
+computer
+
+To connect to your instance, you add a rule that allows SSH access (for Linux instances)
+or RDP access (for Windows instances).
+
+###### Note
+
+All Lightsail instances have either of the following firewall rules configured by
+default. For more information, see [Firewalls and
+ports](understanding-firewall-and-port-mappings-in-amazon-lightsail.md "understanding-firewall-and-port-mappings-in-amazon-lightsail.md").
+
+**SSH**
+
+SSH - TCP - 22 - The public IP address of your computer, or a range of IP addresses
+(in CIDR block notation) in your local network
+
+**RDP**
+
+RDP - TCP - 3389 - The public IP address of your computer, or a range of IP
+addresses (in CIDR block notation) in your local network
+
+## Database server rules
+
+The following inbound rules are examples of rules that you might add for database access,
+depending on what type of database you're running on your instance.
+
+**SQL Server**
+
+Custom - TCP - 1433 - The public IP address of your computer, or a range of IP
+addresses (in CIDR block notation) in your local network
+
+**MySQL/Aurora**
+
+MySQL/Aurora - TCP - 3306 - The public IP address of your computer, or a range of IP
+addresses (in CIDR block notation) in your local network
+
+**PostgreSQL**
+
+PostgreSQL - TCP - 5432 - The public IP address of your computer, or a range of IP
+addresses (in CIDR block notation) in your local network
+
+**Oracle-RDS**
+
+Oracle-RDS - TCP - 1521 - The public IP address of your computer, or a range of IP
+addresses (in CIDR block notation) in your local network
+
+**Amazon Redshift**
+
+Custom - TCP - 5439 - The public IP address of your computer, or a range of IP
+addresses (in CIDR block notation) in your local network
+
+## DNS server rules
+
+If you've set up your instance as a DNS server, you must ensure that TCP and UDP traffic
+can reach your DNS server over port 53.
+
+**DNS (TCP)**
+
+DNS (TCP) - TCP - 53 - The IP address of a computer, or a range of IP addresses (in
+CIDR block notation) in your local network
+
+**DNS (UDP)**
+
+DNS (UDP) - UDP - 53 - The IP address of a computer, or a range of IP addresses (in
+CIDR block notation) in your local network
+
+## SMTP email
+
+To enable SMTP on your instance, you must configure the following firewall rule.
+
+###### Important
+
+After configuring the following rule, you must also configure reverse DNS for your
+instance. Otherwise, your email may be limited over TCP port 25. For more information, see
+[Configure reverse DNS for an
+email server](amazon-lightsail-configuring-reverse-dns.md "amazon-lightsail-configuring-reverse-dns.md").
+
+**SMTP**
+
+Custom - TCP - 25 - The IP addresses of the hosts that communicate with your
+instance

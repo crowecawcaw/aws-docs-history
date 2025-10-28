@@ -1,0 +1,389 @@
+# Deploy a Ghost website on
+
+Lightsail
+
+###### Tip
+
+Did you know that you can enable automatic snapshots for your instance? With automatic snapshots enabled, Lightsail stores seven daily snapshots
+and automatically replaces the oldest with the newest. For more information, see [Configure
+automatic snapshots for Lightsail instances and disks](amazon-lightsail-configuring-automatic-snapshots.md "amazon-lightsail-configuring-automatic-snapshots.md").
+
+Here are a few steps you should take to get started after your Ghost instance is up and
+running on Amazon Lightsail:
+
+**Contents**
+
+- [Step 1: Read the
+  Bitnami documentation](#amazon-lightsail-read-the-bitnami-documentation-ghost "#amazon-lightsail-read-the-bitnami-documentation-ghost")
+- [Step 2: Get the default application password to access the Ghost administration
+  dashboard](#amazon-lightsail-get-the-default-user-password-ghost "#amazon-lightsail-get-the-default-user-password-ghost")
+- [Step 3:
+  Attach a static IP address to your instance](#amazon-lightsail-attach-static-ip-ghost "#amazon-lightsail-attach-static-ip-ghost")
+- [Step 4: Sign in to
+  the administration dashboard of your Ghost website](#amazon-lightsail-sign-in-ghost "#amazon-lightsail-sign-in-ghost")
+- [Step 5: Route
+  traffic for your registered domain name to your Ghost website](#amazon-lightsail-map-your-domain-to-your-instance-ghost "#amazon-lightsail-map-your-domain-to-your-instance-ghost")
+- [Step 6: Configure HTTPS
+  for your Ghost website](#amazon-lightsail-https-ghost "#amazon-lightsail-https-ghost")
+- [Step 7:
+  Read the Ghost documentation and continue configuring your website](#amazon-lightsail-read-documentation-ghost "#amazon-lightsail-read-documentation-ghost")
+- [Step 8:
+  Create a snapshot of your instance](#amazon-lightsail-create-a-snapshot-ghost "#amazon-lightsail-create-a-snapshot-ghost")
+
+## Step 1: Read the
+
+Bitnami documentation
+
+Read the Bitnami documentation to learn how to configure your Ghost application. For
+more information, see the [_Ghost Packaged By Bitnami For AWS Cloud_](https://docs.bitnami.com/aws/apps/ghost/ "https://docs.bitnami.com/aws/apps/ghost/").
+
+## Step 2: Get the
+
+default application password to access the Ghost administration dashboard
+
+Complete the following procedure to get the default application password required to
+access the administration dashboard for your Ghost website. For more information, see
+[Getting the application user name and password for your Bitnami instance in
+Amazon Lightsail](log-in-to-your-bitnami-application-running-on-amazon-lightsail.md "log-in-to-your-bitnami-application-running-on-amazon-lightsail.md").
+
+1. On your instance management page, under the **Connect** tab,
+   choose **Connect using SSH**.
+
+![Connect using SSH in the Lightsail console](images/quick-start-connect-to-your-instance.png) 2. After you're connected, enter the following command to get the application
+password:
+
+```
+`$` cat $HOME/bitnami_application_password
+```
+
+You should see a response similar to the following, which contains the default
+application password:
+
+```
+bitnami@ip-192-0-2-0:~$ cat $HOME/bitnami_application_password
+wB2Ex@mplEK6
+```
+
+## Step 3: Attach a static IP
+
+address to your instance
+
+The default dynamic public IP address attached to your instance changes every time you
+stop and start the instance. You can create a static IP address and attach it to your instance to
+keep the public IP address from changing. Later, when you use your domain name with your
+instance, you don’t have to update your domain’s DNS records each time you stop and start the
+instance. You can attach only one static IP address to each instance.
+
+On the instance management page, under the **Networking** tab,
+choose **Create a static IP** or **Attach static
+IP** (if you previously created a static IP that you can attach to your
+instance), then follow the instructions on the page. For more information, see [Create a static IP and attach it to an
+instance](lightsail-create-static-ip.md "lightsail-create-static-ip.md").
+
+![Attach static IP address in the Lightsail console](images/quick-start-static-ip-address.png)
+
+After the new static IP address is attached to your instance, you must complete the
+following steps to make the application aware of the new static IP address.
+
+1. Make a note of the static IP address of your instance. It's listed in the
+   header section of your instance management page.
+
+![Public or static IP address of a Lightsail instance](images/quick-start-public-static-ip.png) 2. On the instance management page, under the **Connect** tab,
+choose **Connect using SSH**.
+
+![Connect to your instance using SSH](images/quick-start-connect-using-ssh.png) 3. After you're connected, enter the following command. Replace
+`<StaticIP>` with the new static IP address
+of your instance.
+
+```
+sudo /opt/bitnami/configure_app_domain --domain `<StaticIP>`
+```
+
+**Example:**
+
+```
+sudo /opt/bitnami/configure_app_domain --domain `203.0.113.0`
+```
+
+You should see a response similar to the following. The application on your
+instance should now be aware of the new static IP address.
+
+```
+bitnami@ip-203.0.113.0:~$ sudo /opt/bitnami/configure_app_domain --domain 203.0.113.0
+Configuring domain to 203.0.113.0
+2024-06-06T21:43:42.393Z - info: Saving configuration info to disk
+ghost 21:43:42.78 INFO  ==> Configuring Ghost URL to http://203.0.113.0
+Disabling automatic domain update for IP address changes
+```
+
+## Step 4: Sign in to the administration
+
+dashboard of your Ghost website
+
+Now that you have the default application password, complete the following procedure
+to navigate to your Ghost website's home page, and sign in to the administration
+dashboard. After you’re signed in, you can start customizing your website and making
+administrative changes. For more information about what you can do in Ghost, see the
+[Step
+6: Read the Ghost documentation and continue configuring your website](#amazon-lightsail-read-documentation-ghost.title "#amazon-lightsail-read-documentation-ghost.title") section
+later in this guide.
+
+1. On your instance management page, under the **Connect** tab,
+   make note of the public IP address of your instance. If you previously attached
+   a static IP to your instance, this will be the static IP address. The public IP
+   address is also displayed in the header section of your instance management
+   page.
+
+![Public IP address of an instance](images/quick-start-public-ip.png) 2. Browse to the public IP address of your instance, for example by going to
+`http://203.0.113.0`.
+
+The home page of your Ghost website should appear. 3. Choose **Manage** in the bottom right corner of your Ghost
+website home page.
+
+If the **Manage** banner is not shown, you can reach the sign
+in page by browsing to
+`http://`<PublicIP>`/ghost`.
+Replace `<PublicIP>` with the public
+IP address of your instance. 4. Sign in using the default user name (`user@example.com`) and the
+default password retrieved earlier in this guide.
+
+The Ghost administration dashboard appears.
+
+![The Ghost administration dashboard](images/amazon-lightsail-ghost-dashboard.png)
+
+## Step 5: Route
+
+traffic for your registered domain name to your Ghost website
+
+To route traffic for your registered domain name, such as `example.com`, to
+your Ghost website, you add a record to the DNS of your domain. DNS records are
+typically managed and hosted at the registrar where you registered your domain. However,
+we recommend that you transfer management of your domain's DNS records to Lightsail so
+that you can administer it using the Lightsail console.
+
+On the Lightsail console home page, in the **Domains & DNS**
+section, choose **Create DNS zone**, then follow the instructions on
+the page. For more information, see [Creating a DNS zone to manage your domain’s DNS records in
+Lightsail](lightsail-how-to-create-dns-entry.md "lightsail-how-to-create-dns-entry.md").
+
+After your domain name is routing traffic to your instance, you must complete the
+following steps to make the Ghost application aware of the new domain.
+
+1. On the instance management page, under the **Connect** tab,
+   choose **Connect using SSH**.
+2. After you're connected, enter the following command. Replace
+   `<DomainName>` with the domain name that is
+   directing traffic to your Ghost instance.
+
+```
+`$` sudo /opt/bitnami/configure_app_domain --domain `<DomainName>`
+```
+
+**Example:**
+
+```
+`$` sudo /opt/bitnami/configure_app_domain --domain `example.com`
+```
+
+You should see a response similar to the following example. The Ghost
+application should now be aware of the domain.
+
+```
+bitnami@ip-203.0.113.0:~$ sudo /opt/bitnami/configure_app_domain --domain example.com
+Configuring domain to example.com
+2024-06-06T21:50:00.393Z - info: Saving configuration info to disk
+ghost 21:50:25.78 INFO  ==> Configuring Ghost URL to http://example.com
+Disabling automatic domain update for IP address changes
+```
+
+If you browse to the domain name that you configured for your instance, you should be
+redirected to the home page of your Ghost website. Next, you should generate and
+configure an SSL/TLS certificate to enable HTTPS connections for your Ghost website. For
+more information, continue to the next [Step 6: Configure HTTPS for your Ghost
+website](#amazon-lightsail-https-ghost "#amazon-lightsail-https-ghost") section of this guide.
+
+## Step 6: Configure HTTPS for your Ghost
+
+website
+
+Complete the following procedure to configure HTTPS on your Ghost website. These steps
+show you how to use the Bitnami HTTPS Configuration Tool (`bncert-tool`),
+which is a command line tool for requesting Let's Encrypt SSL/TLS certificates. For more
+information see [Learn About The Bitnami HTTPS Configuration Tool](https://docs.bitnami.com/aws/how-to/understand-bncert/ "https://docs.bitnami.com/aws/how-to/understand-bncert/") in the _Bitnami
+documentation_.
+
+###### Important
+
+Before starting with this procedure, make sure that you configured your domain to
+route traffic to your Ghost instance. Otherwise, the SSL/TLS certificate validation
+process will fail.
+
+1. On your instance management page, under the **Connect** tab,
+   choose **Connect using SSH**.
+
+![Connect using SSH in the Lightsail console](images/quick-start-connect-to-your-instance.png) 2. After you're connected, enter the following command to confirm the bncert tool
+is installed on your instance.
+
+```
+sudo /opt/bitnami/bncert-tool
+```
+
+You should see one of the following responses:
+
+    * If you see command not found in the response, then the bncert tool is
+     not installed on your instance. Continue to the next step in this
+     procedure to install the bncert tool on your instance.
+    * If you see **Welcome to the Bitnami HTTPS
+     configuration tool** in the response, then the bncert tool
+     is installed on your instance. Continue to the step 8 of this
+     procedure.
+    * If the bncert tool has been installed on your instance for a while,
+     then you might see a message indicating that an updated version of the
+     tool is available. Choose to download it, and then enter the `sudo
+     /opt/bitnami/bncert-tool` command to run the bncert tool
+     again. Continue to the step 8 of this procedure.
+
+3. Enter the following command to download the bncert run file to your
+   instance.
+
+```
+wget -O bncert-linux-x64.run https://downloads.bitnami.com/files/bncert/latest/bncert-linux-x64.run
+```
+
+4. Enter the following command to create a directory for the bncert tool run file
+   on your instance.
+
+```
+sudo mkdir /opt/bitnami/bncert
+```
+
+5. Enter the following command to make the bncert run a file that can be executed
+   as a program.
+
+```
+sudo chmod +x /opt/bitnami/bncert/bncert-linux-x64.run
+```
+
+6. Enter the following command to create a symbolic link that runs the bncert
+   tool when you enter the sudo /opt/bitnami/bncert-tool command.
+
+```
+sudo ln -s /opt/bitnami/bncert/bncert-linux-x64.run /opt/bitnami/bncert-tool
+```
+
+You are now done installing the bncert tool on your instance. 7. Enter the following command to run the bncert tool.
+
+```
+sudo /opt/bitnami/bncert-tool
+```
+
+8. Enter your primary domain name and alternate domain names separated by a space
+   as shown in the following example.
+
+If your domain is not configured to route traffic to the public IP address of
+your instance, the `bncert` tool will ask you to make that
+configuration before continuing. Your domain must be routing traffic to the
+public IP address of the instance from which you are using the
+`bncert` tool to enable HTTPS on the instance. This confirms that
+you own the domain, and serves as the validation for your certificate.
+
+![Entering the primary and alternate domain names](images/bncert-domain-names.png) 9. The `bncert` tool will ask you how you want your website's
+redirection to be configured. These are the options available:
+
+    * **Enable HTTP to HTTPS redirection** -
+     Specifies whether users who browse to the HTTP version of your website
+     (i.e., `http:/example.com`) are automatically redirected to
+     the HTTPS version (i.e., `https://example.com`). We recommend
+     enabling this option because it forces all visitors to use the encrypted
+     connection. Type `Y` and press **Enter** to
+     enable it.
+    * **Enable non-www to www redirection** -
+     Specifies whether users who browse to the apex of your domain (i.e.,
+     `https://example.com`) are automatically redirected to
+     your domain's `www` subdomain (i.e.,
+     `https://www.example.com`). We recommend enabling this
+     option. However, you may want to disable it and enable the alternate
+     option (enable `www` to non-`www` redirection) if
+     you have specified the apex of your domain as your preferred website
+     address in search engine tools like Google's webmaster tools, or if your
+     apex points directly to your IP and your `www` subdomain
+     references your apex via a CNAME record. Type `Y` and press
+     **Enter** to enable it.
+    * **Enable www to non-www redirection** -
+     Specifies whether users who browse to your domain's `www`
+     subdomain (i.e., `https://www.example.com`) are automatically
+     redirected to the apex of your domain (i.e.,
+     `https://example.com`). We recommend disabling this, if
+     you enabled non-`www` redirection to `www`. Type
+     `N` and press **Enter** to disable
+     it.
+
+Your selections should look like the following example.
+
+![Website redirection options](images/bncert-enable-disable-redirection.png) 10. The changes that are going to be made are listed. Type `Y` and
+press **Enter** to confirm and continue.
+
+![Confirming the changes](images/bncert-confirm-changes.png) 11. Enter your email address to associate with your Let's Encrypt certificate and
+press **Enter**.
+
+![Associating your email address with your Let's Encrypt certificate](images/bncert-email-address.png) 12. Review the Let's Encrypt Subscriber Agreement. Type `Y` and press
+**Enter** to accept the agreement and continue.
+
+![Review the Let's Encrypt subscriber agreement](images/bncert-lets-ecrypt-agreement.png)
+
+The actions are performed to enable HTTPS on your instance, including
+requesting the certificate and configuring the redirections you
+specified.
+
+![Actions being performed](images/bncert-performing-actions.png)
+
+Your certificate is successfully issued and validated, and the redirections
+are successfully configured on your instance if you see a message similar to the
+following example.
+
+![Actions successfully completed](images/bncert-success-conf.png)
+
+The `bncert` tool will perform an automatic renewal of your
+certificate every 80 days before it expires. Repeat the above steps if you wish
+to use additional domains and subdomains with your instance, and you want to
+enable HTTPS for those domains.
+
+###### Tip
+
+Enter the following command to restart the services on your
+instance.
+
+```
+sudo /opt/bitnami/ctlscript.sh restart
+```
+
+You are now done enabling HTTPS on your Ghost instance. Next time you browse
+to your Ghost website using the domain you configured, you should see that it
+redirects to the HTTPS connection.
+
+## Step 7: Read the Ghost
+
+documentation and continue configuring your website
+
+Read the Ghost documentation to learn how to administer and customize your website.
+For more information, see the [Ghost
+Documentation](https://ghost.org/docs/ "https://ghost.org/docs/").
+
+## Step 8: Create a snapshot of
+
+your instance
+
+After you configure your website the way you want it, create
+periodic snapshots of your instance to back it up. A snapshot is a copy of the system disk and original configuration of an instance. A
+snapshot contains all of the data that is needed to restore your instance (from the moment
+when the snapshot was taken).
+
+You can create snapshots manually, or
+enable automatic snapshots to have Lightsail create daily snapshots for you. If
+something goes wrong with your instance, you can create a new replacement instance using
+the snapshot.
+
+You can work with snapshots on your instance's management page on the **Snapshots** tab.
+For more information, see [Snapshots in Amazon Lightsail](understanding-snapshots-in-amazon-lightsail.md "understanding-snapshots-in-amazon-lightsail.md").
+
+![Create an instance snapshot in the Lightsail console](images/quick-start-instance-snapshots.png)
