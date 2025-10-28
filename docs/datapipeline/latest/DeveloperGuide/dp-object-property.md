@@ -1,0 +1,74 @@
+AWS Data Pipeline is no longer available to new customers. Existing customers of AWS Data Pipeline can continue to use the service as normal. [Learn more](https://aws.amazon.com/blogs/big-data/migrate-workloads-from-aws-data-pipeline/ "https://aws.amazon.com/blogs/big-data/migrate-workloads-from-aws-data-pipeline/")
+
+# Property
+
+A single key-value property for use with an EmrConfiguration object.
+
+## Example
+
+The following pipeline definition shows an EmrConfiguration object and
+corresponding Property objects to launch an EmrCluster:
+
+```
+{
+  "objects": [
+    {
+      "name": "ReleaseLabelCluster",
+      "releaseLabel": "emr-4.1.0",
+      "applications": ["spark", "hive", "pig"],
+      "id": "ResourceId_I1mCc",
+      "type": "EmrCluster",
+      "configuration": {
+        "ref": "coresite"
+      }
+    },
+    {
+      "name": "coresite",
+      "id": "coresite",
+      "type": "EmrConfiguration",
+      "classification": "core-site",
+      "property": [{
+        "ref": "io-file-buffer-size"
+      },
+      {
+        "ref": "fs-s3-block-size"
+      }
+      ]
+    },
+    {
+      "name": "io-file-buffer-size",
+      "id": "io-file-buffer-size",
+      "type": "Property",
+      "key": "io.file.buffer.size",
+      "value": "4096"
+    },
+    {
+      "name": "fs-s3-block-size",
+      "id": "fs-s3-block-size",
+      "type": "Property",
+      "key": "fs.s3.block.size",
+      "value": "67108864"
+    }
+  ]
+}
+```
+
+## Syntax
+
+This object includes the following fields.
+
+| Required Fields | Description                                                                                                                                 | Slot Type                                                        |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| key             | key                                                                                                                                         | String                                                           |
+| value           | value                                                                                                                                       | String                                                           |
+| Optional Fields | Description                                                                                                                                 | Slot Type                                                        |
+| ---             | ---                                                                                                                                         | ---                                                              |
+| parent          | Parent of the current object from which slots are inherited.                                                                                | Reference Object, for example, "parent":{"ref":"myBaseObjectId"} |
+| Runtime Fields  | Description                                                                                                                                 | Slot Type                                                        |
+| ---             | ---                                                                                                                                         | ---                                                              |
+| @version        | Pipeline version that the object was created with.                                                                                          | String                                                           |
+| System Fields   | Description                                                                                                                                 | Slot Type                                                        |
+| ---             | ---                                                                                                                                         | ---                                                              |
+| @error          | Error describing the ill-formed object.                                                                                                     | String                                                           |
+| @pipelineId     | ID of the pipeline to which this object belongs.                                                                                            | String                                                           |
+| @sphere         | The sphere of an object denotes its place in the lifecycle: Component Objects give rise to Instance Objects, which execute Attempt Objects. | String                                                           | ## See Also <br>• [EmrCluster](dp-object-emrcluster.md "dp-object-emrcluster.md") <br>• [EmrConfiguration](dp-object-emrconfiguration.md "dp-object-emrconfiguration.md") <br>• [Amazon EMR Release Guide](../../../ElasticMapReduce/latest/ReleaseGuide.md "../../../ElasticMapReduce/latest/ReleaseGuide.md") |
