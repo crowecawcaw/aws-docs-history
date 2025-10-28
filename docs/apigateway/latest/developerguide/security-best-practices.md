@@ -1,0 +1,49 @@
+# Security best practices in Amazon API Gateway
+
+API Gateway provides a number of security features to consider as you develop and implement your own security policies. The following best
+practices are general guidelines and don’t represent a complete security solution. Because these best practices might not be appropriate or sufficient
+for your environment, treat them as helpful considerations rather than prescriptions.
+
+**Implement least privilege access**
+
+Use IAM policies to implement least privilege access for creating, reading,
+updating, or deleting API Gateway APIs. To learn more, see [Identity and access management for Amazon API Gateway](security-iam.md "security-iam.md"). API Gateway offers several
+options to control access to APIs that you create. To learn more, see [Control and manage access to
+REST APIs in API Gateway](apigateway-control-access-to-api.md "apigateway-control-access-to-api.md"), [Control and manage access to
+WebSocket APIs in API Gateway](apigateway-websocket-api-control-access.md "apigateway-websocket-api-control-access.md"), and [Control access to HTTP APIs with JWT authorizers in API Gateway](http-api-jwt-authorizer.md "http-api-jwt-authorizer.md").
+
+**Implement logging**
+
+Use CloudWatch Logs or Amazon Data Firehose to log requests to your APIs. To learn more, see [Monitor REST APIs in API Gateway](rest-api-monitor.md "rest-api-monitor.md"),
+[Configure logging for WebSocket APIs in API Gateway](websocket-api-logging.md "websocket-api-logging.md"), and
+[Configure logging for HTTP APIs in API Gateway](http-api-logging.md "http-api-logging.md").
+
+**Implement Amazon CloudWatch alarms**
+
+Using CloudWatch alarms, you watch a single metric over a time period that you specify.
+If the metric exceeds a given threshold, a notification is sent to an Amazon Simple Notification Service
+topic or AWS Auto Scaling policy. CloudWatch alarms do not invoke actions when a metric is in
+a particular state. Rather, the state must have changed and been maintained for
+a specified number of periods. For more information, see [Monitor REST API execution with Amazon CloudWatch metrics](monitoring-cloudwatch.md "monitoring-cloudwatch.md").
+
+**Enable AWS CloudTrail**
+
+CloudTrail provides a record of actions taken by a user, role, or an AWS service in API Gateway. Using the information collected by
+CloudTrail, you can determine the request that was made to API Gateway, the IP address from which the request was made, who made the request,
+when it was made, and additional details. For more information, see [Logging Amazon API Gateway API calls using
+AWS CloudTrail](cloudtrail.md "cloudtrail.md").
+
+**Enable AWS Config**
+
+AWS Config provides a detailed view of the configuration of AWS resources in your account. You can see how resources are related, get a
+history of configuration changes, and see how relationships and configurations change over time. You can use AWS Config to define rules that
+evaluate resource configurations for data compliance. AWS Config rules represent the ideal configuration settings for your API Gateway resources. If a
+resource violates a rule and is flagged as noncompliant, AWS Config can alert you using an Amazon Simple Notification Service (Amazon SNS) topic.
+For details, see [Monitoring API Gateway API configuration with AWS Config](apigateway-config.md "apigateway-config.md").
+
+**Use AWS Security Hub**
+
+Monitor your usage of API Gateway as it relates to security best practices by using [AWS Security Hub](../../../securityhub/latest/userguide/what-is-securityhub.md "../../../securityhub/latest/userguide/what-is-securityhub.md"). Security Hub uses _security controls_
+to evaluate resource configurations and _security standards_ to help you comply with various compliance
+frameworks. For more information about using Security Hub to evaluate API Gateway resources, see [Amazon API Gateway controls](../../../securityhub/latest/userguide/apigateway-controls.md "../../../securityhub/latest/userguide/apigateway-controls.md")
+in the _AWS Security Hub User Guide_.

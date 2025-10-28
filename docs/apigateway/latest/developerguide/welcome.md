@@ -1,0 +1,129 @@
+# What is Amazon API Gateway?
+
+Amazon API Gateway is an AWS service for creating, publishing, maintaining, monitoring, and
+securing REST, HTTP, and WebSocket APIs at any scale. API developers can create APIs that
+access AWS or other web services, as well as data stored in the [AWS Cloud](https://aws.amazon.com/what-is-cloud-computing/ "https://aws.amazon.com/what-is-cloud-computing/"). As an API Gateway
+API developer, you can create APIs for use in your own client applications. Or you can make
+your APIs available to third-party app developers. For more information, see [Who uses API Gateway?](api-gateway-overview-developer-experience.md#apigateway-who-uses-api-gateway "api-gateway-overview-developer-experience.md#apigateway-who-uses-api-gateway").
+
+API Gateway creates RESTful APIs that:
+
+- Are HTTP-based.
+- Enable stateless client-server communication.
+- Implement standard HTTP methods such as GET, POST, PUT, PATCH, and DELETE.
+  For more information about API Gateway REST APIs and HTTP APIs, see [Choose between REST APIs and HTTP APIs](http-api-vs-rest.md "http-api-vs-rest.md"), [API Gateway HTTP APIs](http-api.md "http-api.md"), [Use API Gateway to create REST APIs](api-gateway-overview-developer-experience.md#api-gateway-overview-rest "api-gateway-overview-developer-experience.md#api-gateway-overview-rest"), and [Develop REST APIs in API Gateway](rest-api-develop.md "rest-api-develop.md").
+
+API Gateway creates WebSocket APIs that:
+
+- Adhere to the [WebSocket](https://datatracker.ietf.org/doc/html/rfc6455 "https://datatracker.ietf.org/doc/html/rfc6455")
+  protocol, which enables stateful, full-duplex communication between client and
+  server.
+- Route incoming messages based on message content.
+  For more information about API Gateway WebSocket APIs, see [Use API Gateway to create WebSocket
+  APIs](api-gateway-overview-developer-experience.md#api-gateway-overview-websocket "api-gateway-overview-developer-experience.md#api-gateway-overview-websocket") and [Overview of WebSocket APIs in API Gateway](apigateway-websocket-api-overview.md "apigateway-websocket-api-overview.md").
+
+###### Topics
+
+- [Architecture of API Gateway](#api-gateway-overview-aws-backbone "#api-gateway-overview-aws-backbone")
+- [Features of API Gateway](#api-gateway-overview-features "#api-gateway-overview-features")
+- [API Gateway use cases](api-gateway-overview-developer-experience.md "api-gateway-overview-developer-experience.md")
+- [Accessing API Gateway](#introduction-accessing-apigateway "#introduction-accessing-apigateway")
+- [Part of AWS serverless
+  infrastructure](#api-gateway-overview-a-serverless-pillar "#api-gateway-overview-a-serverless-pillar")
+- [How to get started with Amazon API Gateway](#welcome-how-to-get-started "#welcome-how-to-get-started")
+- [Amazon API Gateway concepts](api-gateway-basic-concept.md "api-gateway-basic-concept.md")
+- [Choose between REST APIs and HTTP APIs](http-api-vs-rest.md "http-api-vs-rest.md")
+- [Get started with the REST API console](getting-started-rest-new-console.md "getting-started-rest-new-console.md")
+
+## Architecture of API Gateway
+
+The following diagram shows API Gateway architecture.
+
+![API Gateway architecture diagram](images/Product-Page-Diagram_Amazon-API-Gateway-How-Works.png)
+
+This diagram illustrates how the APIs you build in Amazon API Gateway provide you or your
+developer customers with an integrated and consistent developer experience for building
+AWS serverless applications. API Gateway handles all the tasks involved in accepting and
+processing up to hundreds of thousands of concurrent API calls. These tasks include
+traffic management, authorization and access control, monitoring, and API version
+management.
+
+API Gateway acts as a "front door" for applications to access data, business logic, or
+functionality from your backend services, such as workloads running on Amazon Elastic Compute Cloud
+(Amazon EC2), code running on AWS Lambda, any web application, or real-time communication
+applications.
+
+## Features of API Gateway
+
+Amazon API Gateway offers features such as the following:
+
+- Support for stateful ([WebSocket](apigateway-websocket-api.md "apigateway-websocket-api.md")) and stateless ([HTTP](http-api.md "http-api.md") and
+  [REST](apigateway-rest-api.md "apigateway-rest-api.md")) APIs.
+- Powerful, flexible [authentication](apigateway-control-access-to-api.md "apigateway-control-access-to-api.md") mechanisms, such as AWS Identity and Access Management policies, Lambda
+  authorizer functions, and Amazon Cognito user pools.
+- [Canary release deployments](canary-release.md "canary-release.md") for safely
+  rolling out changes.
+- [CloudTrail](cloudtrail.md "cloudtrail.md") logging and monitoring of API usage and
+  API changes.
+- CloudWatch access logging and execution logging, including the ability to set
+  alarms. For more information, see [Monitor REST API execution with Amazon CloudWatch metrics](monitoring-cloudwatch.md "monitoring-cloudwatch.md") and
+  [Monitor WebSocket API execution
+  with CloudWatch metrics](apigateway-websocket-api-logging.md "apigateway-websocket-api-logging.md").
+- Ability to use AWS CloudFormation templates to enable API creation. For more information,
+  see [Amazon API Gateway Resource
+  Types Reference](../../../AWSCloudFormation/latest/UserGuide/AWS_ApiGateway.md "../../../AWSCloudFormation/latest/UserGuide/AWS_ApiGateway.md") and [Amazon API Gateway V2 Resource
+  Types Reference](../../../AWSCloudFormation/latest/UserGuide/AWS_ApiGatewayV2.md "../../../AWSCloudFormation/latest/UserGuide/AWS_ApiGatewayV2.md").
+- Support for [custom domain
+  names](how-to-custom-domains.md "how-to-custom-domains.md").
+- Integration with [AWS WAF](apigateway-control-access-aws-waf.md "apigateway-control-access-aws-waf.md") for protecting your APIs against common web exploits.
+- Integration with [AWS X-Ray](apigateway-xray.md "apigateway-xray.md") for
+  understanding and triaging performance latencies.
+
+For a complete list of API Gateway feature releases, see [Document history](history.md "history.md").
+
+## Accessing API Gateway
+
+You can access Amazon API Gateway in the following ways:
+
+- **AWS Management Console** – The AWS Management Console provides a web interface for creating
+  and managing APIs. After you complete the steps in [Set up to use API Gateway](setting-up.md "setting-up.md"), you can access the API Gateway
+  console at [https://console.aws.amazon.com/apigateway](https://console.aws.amazon.com/apigateway "https://console.aws.amazon.com/apigateway").
+- **AWS SDKs** – If you're using a
+  programming language that AWS provides an SDK for, you can use an SDK to access
+  API Gateway. SDKs simplify authentication, integrate easily with your development
+  environment, and provide access to API Gateway commands. For more information, see
+  [Tools for Amazon Web
+  Services](https://aws.amazon.com/developer/tools/ "https://aws.amazon.com/developer/tools/").
+- **API Gateway V1 and V2 APIs** – If you're using
+  a programming language that an SDK isn't available for, see the [Amazon API Gateway Version 1 API Reference](../api/API_Operations.md "../api/API_Operations.md")
+  and [Amazon API Gateway Version 2 API Reference](../../../apigatewayv2/latest/api-reference/api-reference.md "../../../apigatewayv2/latest/api-reference/api-reference.md").
+- **AWS Command Line Interface** – For more information, see
+  [Getting Set Up with the AWS Command Line Interface](../../../cli/latest/userguide.md "../../../cli/latest/userguide.md") in the
+  _AWS Command Line Interface User Guide_.
+- **AWS Tools for Windows PowerShell** – For more information, see
+  [Setting Up the AWS Tools for Windows PowerShell](../../../powershell/latest/userguide.md "../../../powershell/latest/userguide.md") in the
+  _AWS Tools for PowerShell User Guide_.
+
+## Part of AWS serverless
+
+infrastructure
+
+Together with [AWS Lambda](../../../lambda/latest/dg.md "../../../lambda/latest/dg.md"), API Gateway forms the app-facing
+part of the AWS serverless infrastructure. To learn more about getting started with serverless, see the
+[Serverless Developer Guide](../../../serverless/latest/devguide/welcome.md "../../../serverless/latest/devguide/welcome.md").
+
+For an app to call publicly available AWS services, you can use Lambda to interact
+with required services and expose Lambda functions through API methods in API Gateway.
+AWS Lambda runs your code on a highly available computing infrastructure. It performs the
+necessary execution and administration of computing resources. To enable serverless
+applications, API Gateway supports [streamlined
+proxy integrations](api-gateway-set-up-simple-proxy.md "api-gateway-set-up-simple-proxy.md") with AWS Lambda and HTTP endpoints.
+
+## How to get started with Amazon API Gateway
+
+For an introduction to Amazon API Gateway, see the following:
+
+- [Get started with API Gateway](getting-started.md "getting-started.md"), which provides a walkthrough for creating an HTTP API.
+- [Serverless land](https://serverlessland.com/video?tag=Amazon%20API%20Gateway "https://serverlessland.com/video?tag=Amazon%20API%20Gateway"), which provides instructional videos.
+- [Happy Little API
+  Shorts](https://www.youtube.com/playlist?list=PLJo-rJlep0EDFw7t0-IBHffVYKcPMDXHY "https://www.youtube.com/playlist?list=PLJo-rJlep0EDFw7t0-IBHffVYKcPMDXHY"), which is a series of brief instructional videos.
