@@ -1,0 +1,130 @@
+# Querying data in place with Amazon S3 Select
+
+###### Important
+
+Amazon S3 Select is no longer available to new customers. Existing customers of Amazon S3 Select can continue to use the feature as usual. [Learn more](https://aws.amazon.com/blogs/storage/how-to-optimize-querying-your-data-in-amazon-s3/ "https://aws.amazon.com/blogs/storage/how-to-optimize-querying-your-data-in-amazon-s3/")
+
+With Amazon S3 Select, you can use structured query language (SQL) statements to filter the
+contents of an Amazon S3 object and retrieve only the subset of data that you need. By using Amazon S3
+Select to filter this data, you can reduce the amount of data that Amazon S3 transfers, which
+reduces the cost and latency to retrieve this data.
+
+Amazon S3 Select only allows you to query one object at a time. It works on an object stored in CSV, JSON, or Apache Parquet format.
+It also works with an object that is compressed with GZIP or BZIP2 (for CSV and JSON objects
+only), and a server-side encrypted object. You can specify the format of the results as
+either CSV or JSON, and you can determine how the records in the result are
+delimited.
+
+You pass SQL expressions to Amazon S3 in the request. Amazon S3 Select supports a subset of SQL. For
+more information about the SQL elements that are supported by Amazon S3 Select, see [SQL reference for Amazon S3 Select](s3-select-sql-reference.md "s3-select-sql-reference.md").
+
+You can perform SQL queries by using the Amazon S3 console, the AWS Command Line Interface (AWS CLI), the `SelectObjectContent` REST
+API operation, or the AWS SDKs.
+
+###### Note
+
+The Amazon S3 console limits the
+amount of data returned to 40 MB. To retrieve more data, use the AWS CLI or the API.
+
+## Requirements
+
+and limits
+
+The following are requirements for using Amazon S3 Select:
+
+- You must have `s3:GetObject` permission for the object you are
+  querying.
+- If the object you are querying is encrypted with server-side encryption with
+  customer-provided keys (SSE-C), you must use `https`, and you must
+  provide the encryption key in the request.
+
+The following limits apply when using Amazon S3 Select:
+
+- S3 Select can query only one object per request.
+- The maximum length of a SQL expression is 256 KB.
+- The maximum length of a record in the input or result is 1 MB.
+- Amazon S3 Select can only emit nested data by using the JSON output format.
+- You cannot query an object stored in the S3 Glacier Flexible Retrieval, S3 Glacier Deep Archive, or
+  Reduced Redundancy Storage (RRS) storage classes. You also cannot query an object stored in the S3 Intelligent-Tiering Archive Access tier or the S3 Intelligent-Tiering Deep Archive Access tier.
+  For more information about storage classes, see [Understanding and managing Amazon S3 storage classes](storage-class-intro.md "storage-class-intro.md").
+
+Additional limitations apply when using Amazon S3 Select with a Parquet
+object:
+
+- Amazon S3 Select supports only columnar compression using GZIP or
+  Snappy. Amazon S3 Select doesn't support whole-object compression
+  for a Parquet object.
+- Amazon S3 Select doesn't support Parquet output. You must specify
+  the output format as CSV or JSON.
+- The maximum uncompressed row group size is 512 MB.
+- You must use the data types that are specified in the object's schema.
+- Selecting on a repeated field returns only the last value.
+
+## Constructing a
+
+request
+
+When you construct a request, you provide details of the object that is being queried
+by using an `InputSerialization` object. You provide details of how the
+results are to be returned by using an `OutputSerialization` object. You also
+include the SQL expression that Amazon S3 uses to filter the request.
+
+For more information about constructing an Amazon S3 Select request, see [SelectObjectContent](../API/RESTObjectSELECTContent.md "../API/RESTObjectSELECTContent.md") in the
+_Amazon Simple Storage Service API Reference_. You can also see one of the SDK code examples
+in the following sections.
+
+### Requests using
+
+scan ranges
+
+With Amazon S3 Select, you can scan a subset of an object by specifying a range of
+bytes to query. This capability lets you parallelize scanning the whole object by
+splitting the work into separate Amazon S3 Select requests for a series of
+non-overlapping scan ranges.
+
+Scan ranges don't need to be aligned with record boundaries. An Amazon S3 Select scan
+range request runs across the byte range that you specify. A record that starts
+within the specified scan range but extends beyond that scan range will be processed
+by the query. For example, the following shows an Amazon S3 object that contains a series
+of records in a line-delimited CSV format:
+
+```
+A,B
+C,D
+D,E
+E,F
+G,H
+I,J
+```
+
+Suppose that you're using the Amazon S3 Select `ScanRange` parameter and
+_Start_ at (Byte) 1 and _End_ at (Byte) 4.
+So the scan range would start at "`,`" and scan until the end of the
+record starting at `C`. Your scan range request will return the result
+`C, D` because that is the end of the record.
+
+Amazon S3 Select scan range requests support Parquet, CSV (without
+quoted delimiters), or JSON objects (in `LINES` mode only). CSV and JSON
+objects must be uncompressed. For line-based CSV and JSON objects, when a scan range
+is specified as part of the Amazon S3 Select request, all records that start within the
+scan range are processed. For Parquet objects, all of the row groups
+that start within the scan range requested are processed.
+
+Amazon S3 Select scan range requests are available to use with the AWS CLI, Amazon S3 API, and
+AWS SDKs. You can use the `ScanRange` parameter in the Amazon S3 Select
+request for this feature. For more information, see [SelectObjectContent](../API/API_SelectObjectContent.md "../API/API_SelectObjectContent.md") in the
+_Amazon Simple Storage Service API Reference_.
+
+## Errors
+
+Amazon S3 Select returns an error code and associated error message when an issue is
+encountered while attempting to run a query. For a list of error codes and
+descriptions, see the [List of SELECT Object Content Error Codes](../API/ErrorResponses.md#SelectObjectContentErrorCodeList "../API/ErrorResponses.md#SelectObjectContentErrorCodeList") section of the _Error Responses_
+page in the _Amazon Simple Storage Service API Reference_.
+
+For more information about Amazon S3 Select, see the following topics.
+
+###### Topics
+
+- [Examples of using Amazon S3 Select on an object](using-select.md "using-select.md")
+- [SQL reference for Amazon S3 Select](s3-select-sql-reference.md "s3-select-sql-reference.md")
