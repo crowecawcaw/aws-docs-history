@@ -1,0 +1,18 @@
+# Downloading a monthly cost allocation
+
+report
+
+###### Important
+
+The monthly cost allocation report feature will be unavailable at a later date. We
+recommend that you use the AWS Cost and Usage Reports instead.
+
+You can create custom cost allocation tag sets for your AWS resources that can
+describe the business dimensions of your AWS usage. You can use these tag sets to
+organize and track your AWS costs. Many AWS services expose tagging in their feature
+sets. You create the tags within those services by using the console, API, or the AWS
+command line interface (CLI). For more information, see [Using Cost Allocation
+Tags](../../../awsaccountbilling/latest/aboutv2/cost-alloc-tags.md "../../../awsaccountbilling/latest/aboutv2/cost-alloc-tags.md") in the _AWS Billing User Guide_.
+
+After you create your tags, you can obtain a monthly cost allocation report. This is
+essentially a monthly report that includes your cost allocation tag sets.
