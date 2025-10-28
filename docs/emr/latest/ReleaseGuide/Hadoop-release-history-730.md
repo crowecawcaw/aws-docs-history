@@ -1,0 +1,9 @@
+# Amazon EMR 7.3.0 - Hadoop release notes
+
+## Amazon EMR 7.3.0 - Hadoop changes
+
+| Type        | Description                                                                                                                                                                 |
+| ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| New Feature | [HADOOP-19197](https://issues.apache.org/jira/browse/HADOOP-18850 "https://issues.apache.org/jira/browse/HADOOP-18850"): S3A Support AWS KMS Encryption Context             |
+| New Feature | [HADOOP-18980](https://issues.apache.org/jira/browse/HADOOP-18980 "https://issues.apache.org/jira/browse/HADOOP-18980"): S3A credential provider remapping: make extensible |
+| Improvement | [HADOOP-18808](https://issues.apache.org/jira/browse/HADOOP-18808 "https://issues.apache.org/jira/browse/HADOOP-18808"): LogExactlyOnce to add a debug() method             | ## Amazon EMR 7.3.0 - Hadoop features See the following list for new Hadoop features in Amazon EMR 7.3.0. <br>• By default, clusters with in-transit encryption enabled through the security configuration will run TLS 1.3 for Hadoop YARN (Resource Manager, Node Manager, Timeline Server and WebApplicationProxy), HDFS (NameNode, DataNode, Journal Node and DFSZKFailoverController), and Map Reduce (JobHistory Server and MapReduce Shuffle ports). |

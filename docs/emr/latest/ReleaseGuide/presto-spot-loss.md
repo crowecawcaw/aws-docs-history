@@ -1,0 +1,25 @@
+# Handling Spot Instance loss in Presto
+
+With Spot Instances in Amazon EMR, you can run big data workloads on spare Amazon EC2 capacity
+at a reduced cost. In exchange for the lower cost, Amazon EC2 can interrupt Spot Instances
+with a two-minute notification. When you terminate a node, Presto can take up to 10
+minutes before it returns an error. This causes unnecessary delays in error reports and
+possible retries. Quick termination is a feature that gives you control over the way
+Presto handles terminated nodes.
+
+The job of the Presto coordinator is to keep track of all the worker nodes with
+regular polls of their statuses. Without quick termination, the coordinator doesn't
+consult the YARN NodeManager for the status of each node. This can result in a long
+retry loop before the query fails. With quick termination, the Presto coordinator
+consults the node status in the NodeManager as soon as the poll fails to reach the host.
+If NodeManager shows that the node is inactive, Presto abandons further retries, fails
+the query, and returns a `NODE_DECOMMISSIONED` error.
+
+The following set of configuration parameters allows you to control and customize
+Presto behavior in the event of node termination.
+
+| Presto configurations for node failure handling    | Setting                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Description | Default |
+| -------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- | ------- |
+| `query.remote-task.max-backoff-duration`           | The duration of time that the coordinator continues attempts to fetch the remote task status from worker nodes.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | 10 minutes  |
+| `query.remote-task.quick-terminate-node-failure`   | Activates quick node failure if the coordinator can't reach the node or can't connect to the worker that runs on that node. The value of `query.remote-task.terminate-on-connect-exception` determines if the coordinator must reach the node or connect to the worker. The node fails the query and Amazon EMR removes the node from the list of available workers. When this happens, you can't use the node to schedule new queries. When you set this value to `false`, Presto reverts to its previous behavior where the Presto coordinator again tries to reach the node (for `query.remote-task.max-backoff-duration`) before it marks the node as unavailable and fails the ongoing query on the node. | `true`      |
+| `query.remote-task.terminate-on-connect-exception` | Specifies if Amazon EMR should a node if the host is reachable but the coordinator fails to connect to the worker process of the host. When you set this value to `true`, you activate quick query failure if the host is unreachable.                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | `false`     |
