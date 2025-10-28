@@ -1,0 +1,3 @@
+# What Is ACE Pipeline Manager?
+
+The APN Customer Engagements Program (ACE) Pipeline Manager is an exclusive benefit for participating AWS Partners in the [APN Customer Engagements Program](https://aws.amazon.com/partners/programs/ace/ "https://aws.amazon.com/partners/programs/ace/"). The ACE Pipeline Manager provides AWS Partners full-service management of their pipeline of AWS customers, allowing for joint collaboration with AWS on those engagements. This guide walks through how to use the ACE Pipeline Manager and equips you with the necessary skills to drive successful customer engagements on AWS.
