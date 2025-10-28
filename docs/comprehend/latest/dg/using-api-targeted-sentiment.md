@@ -1,0 +1,78 @@
+# Async analysis for targeted sentiment
+
+For information about real-time analysis for Targeted sentiment, see [Real-time analysis for targeted sentiment](using-api-sync.md#get-started-api-targeted-sentiment "using-api-sync.md#get-started-api-targeted-sentiment").
+
+Amazon Comprehend provides the following API operations to start and manage asynchronous targeted sentiment analysis:
+
+- [StartTargetedSentimentDetectionJob](../APIReference/API_StartTargetedSentimentDetectionJob.md "../APIReference/API_StartTargetedSentimentDetectionJob.md") –
+  Starts an asynchronous targeted sentiment detection job for a collection of documents.
+- [ListTargetedSentimentDetectionJobs](../APIReference/API_ListTargetedSentimentDetectionJobs.md "../APIReference/API_ListTargetedSentimentDetectionJobs.md") –
+  Returns the list of targeted sentiment detection jobs that you have submitted.
+- [DescribeTargetedSentimentDetectionJob](../APIReference/API_DescribeTargetedSentimentDetectionJob.md "../APIReference/API_DescribeTargetedSentimentDetectionJob.md") –
+  Gets the properties (including status) associated with the specified targeted sentiment detection job.
+- [StopTargetedSentimentDetectionJob](../APIReference/API_StopTargetedSentimentDetectionJob.md "../APIReference/API_StopTargetedSentimentDetectionJob.md") –
+  Stops the specified in-progress targeted sentiment job.
+
+###### Topics
+
+- [Before you start](#api-targeted-sentiment-before "#api-targeted-sentiment-before")
+- [Analyzing targeted sentiment using the
+  AWS CLI](#api-targeted-sentiment-cli "#api-targeted-sentiment-cli")
+
+## Before you start
+
+Before you start, make sure that you have:
+
+- **Input and output buckets**—Identify
+  the Amazon S3 buckets that you want to use for input and output. The buckets must
+  be in the same Region as the API that you are calling.
+- **IAM service role**—You must have an
+  IAM service role with permission to access your input and output buckets.
+  For more information, see [Role-based permissions required for
+  asynchronous operations](security_iam_id-based-policy-examples.md#auth-role-permissions "security_iam_id-based-policy-examples.md#auth-role-permissions").
+
+## Analyzing targeted sentiment using the
+
+AWS CLI
+
+The following example demonstrates using the `StartTargetedSentimentDetectionJob`
+operation with the AWS CLI. This example specifies the language of the input
+text.
+
+The example is formatted for Unix, Linux, and macOS. For Windows, replace the
+backslash (\) Unix continuation character at the end of each line with a caret
+(^).
+
+```
+aws comprehend start-targeted-sentiment-detection-job \
+       --job-name "`job name`" \
+       --language-code "en" \
+       --cli-input-json file://`path to JSON input file`
+```
+
+For the `cli-input-json` parameter you supply the path to a JSON file
+that contains the request data, as shown in the following example.
+
+```
+{
+    "InputDataConfig": {
+        "S3Uri": "s3://`input bucket`/`input path`",
+        "InputFormat": "ONE_DOC_PER_FILE"
+    },
+    "OutputDataConfig": {
+        "S3Uri": "s3://`output bucket`/`output path`"
+    },
+    "DataAccessRoleArn": "arn:aws:iam::`account ID`:role/`data access role`"
+}
+```
+
+If the request to start the job was successful, you will receive
+the following response:
+
+```
+{
+    "JobStatus": "SUBMITTED",
+    "JobArn": "`job ARN`"
+    "JobId": "`job ID`"
+}
+```
