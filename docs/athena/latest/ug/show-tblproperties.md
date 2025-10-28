@@ -1,0 +1,25 @@
+# SHOW TBLPROPERTIES
+
+Lists table properties for the named table.
+
+## Synopsis
+
+```
+SHOW TBLPROPERTIES table_name [('property_name')]
+```
+
+## Parameters
+
+**[('property\_name')]**
+
+If included, only the value of the property named `property_name` is listed.
+
+## Examples
+
+```
+SHOW TBLPROPERTIES orders;
+```
+
+```
+SHOW TBLPROPERTIES orders('comment');
+```
