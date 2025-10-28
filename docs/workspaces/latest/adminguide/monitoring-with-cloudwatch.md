@@ -1,0 +1,19 @@
+# WorkSpaces Pools metrics and dimensions
+
+Amazon WorkSpaces sends the following WorkSpaces Pools metrics and dimension information to
+Amazon CloudWatch.
+
+WorkSpaces Pools sends metrics to CloudWatch one time every minute. The `AWS/Workspaces`
+namespace includes the following metrics.
+
+## Pools usage metrics
+
+| Metric                            | Description                                                                                                                                                                                                                                                                                                                                                           |
+| --------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `ActiveUserSessionCapacity`       | The number of user sessions currently being used for streaming sessions. Units: Count Valid statistics: Average, Minimum, Maximum                                                                                                                                                                                                                                     |
+| `ActualUserSessionCapacity`       | The total number of pool sessions that are available for streaming or are currently streaming. `ActualUserSessionCapacity = AvailableUserSessionCapacity + ActiveUserSessionCapacity` Units: Count Valid statistics: Average, Minimum, Maximum                                                                                                                        |
+| `AvailableUserSessionCapacity`    | The number of idle pool sessions currently available for user streaming. `AvailableUserSessionCapacity = ActualUserSessionCapacity - ActiveUserSessionCapacity` Units: Count Valid statistics: Average, Minimum, Maximum                                                                                                                                              |
+| `PendingUserSessionCapacity`      | The number of sessions being provisioned for your pool. Represents the additional number of streaming sessions the pool can support after provisioning is complete. Units: Count Valid statistics: Average, Minimum, Maximum                                                                                                                                          |
+| `UserSessionsCapacityUtilization` | The percentage of sessions in a pool that are being used, using the following formula. `UserSessionCapacityUtilization = (ActiveUserSessionCapacity / ActualUserSessionCapacity) * 100` Monitoring this metric helps with decisions about increasing or decreasing the value of a pool's desired capacity. Units: Percent Valid statistics: Average, Minimum, Maximum |
+| `DesiredUserSessionCapacity`      | The total number of sessions that are either running or pending. This represents the total number of concurrent streaming sessions your pool can support in a steady state. `DesiredUserSessionCapacity = ActualUserSessionCapacity + PendingUserSessionCapacity` Units: Count Valid statistics: Average, Minimum, Maximum                                            |
+| `InsufficientCapacityError`       | The number of session requests rejected due to lack of capacity. You can set alarms to use this metric to be notified of users waiting for streaming sessions. Units: Count Valid statistics: Average, Minimum, Maximum, Sum                                                                                                                                          |

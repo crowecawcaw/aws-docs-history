@@ -1,0 +1,69 @@
+# Client network requirements for WorkSpaces Personal
+
+Your WorkSpaces users can connect to their WorkSpaces by using the client application for a supported
+device. Alternatively, they can use a web browser to connect to WorkSpaces that support this form of access.
+For a list of WorkSpaces that support web browser access, see "Which Amazon WorkSpaces bundles support web access?"
+in [Client Access, Web Access, and User Experience](https://aws.amazon.com/workspaces/faqs/#Client_Access.2C_Web_Access.2C_and_User_Experience "https://aws.amazon.com/workspaces/faqs/#Client_Access.2C_Web_Access.2C_and_User_Experience").
+
+###### Note
+
+A web browser cannot be used to connect to Amazon Linux WorkSpaces.
+
+###### Important
+
+Beginning October 1, 2020, customers will no longer be able to use the Amazon WorkSpaces Web Access client
+to connect to Windows 7 custom WorkSpaces or to Windows 7 Bring Your Own License (BYOL) WorkSpaces.
+
+To provide your users with
+a good experience with their WorkSpaces, verify that their client devices meet the following
+network requirements:
+
+- The client device must have a broadband internet connection. We recommend planning for a minimum of
+  1 Mbps per simultaneous user watching a 480p video window. Depending on your user-quality requirements
+  for video resolution, more bandwidth might be required.
+- The network that the client device is connected to, and any firewall on the client
+  device, must have certain ports open to the IP address ranges for various AWS
+  services. For more information, see [IP address and port requirements for
+  WorkSpaces Personal](workspaces-port-requirements.md "workspaces-port-requirements.md").
+- For the best performance for PCoIP, the round trip time (RTT) from the client's network to the Region that the
+  WorkSpaces are in should be less than 100ms. If the RTT is between 100ms and 200ms, the user can access the
+  WorkSpace, but performance is affected. If the RTT is between 200ms and 375ms, the performance is degraded.
+  If the RTT exceeds 375ms, the WorkSpaces client connection is terminated.
+
+For the best performance for DCV, the RTT from the client's network to the Region that the WorkSpaces
+are in should be less than 250ms. If the RTT is between 250ms and 400ms, the user can access the WorkSpace,
+but the performance is degraded.
+
+To check the RTT to the various AWS Regions from your location, use the
+[Amazon WorkSpaces Connection Health Check](https://clients.amazonworkspaces.com/Health.html "https://clients.amazonworkspaces.com/Health.html").
+
+- To use webcams with DCV, we recommend a minimum upload bandwidth of 1.7 megabits per second.
+- If users will access their WorkSpaces through a virtual private network (VPN),
+  the connection must support a maximum transmission unit (MTU) of at least 1200
+  bytes.
+
+###### Note
+
+You cannot access WorkSpaces through a VPN connected to your virtual private cloud (VPC). To access WorkSpaces
+using a VPN, internet connectivity (through the VPN's public IP addresses) is required,
+as described in [IP address and port requirements for
+WorkSpaces Personal](workspaces-port-requirements.md "workspaces-port-requirements.md").
+
+- The clients require HTTPS access to WorkSpaces resources hosted by the service and
+  Amazon Simple Storage Service (Amazon S3). The clients do not support proxy redirection at the application
+  level. HTTPS access is required so that users can successfully complete registration
+  and access their WorkSpaces.
+- To allow access from PCoIP zero client devices, you must be using a PCoIP protocol bundle for
+  WorkSpaces. You must also enable Network Time Protocol (NTP) in Teradici. For more information,
+  see [Set up PCoIP zero clients for WorkSpaces Personal](set-up-pcoip-zero-client.md "set-up-pcoip-zero-client.md").
+  You can verify that a client device meets the networking requirements as follows.
+
+1. Open your WorkSpaces client. If this is the first time you have opened the client,
+   you are prompted to enter the registration code that you received in the
+   invitation email.
+2. Depending on which client you're using, do one of the following.
+
+| If you're using...       | Do this                                                                                         |
+| ------------------------ | ----------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Windows or Linux clients | In the upper-right corner of the client application, select the **Network** icon Network icon . |
+| macOS client             | Choose **Connections**, **Network**.                                                            | The client application tests the network connection, ports, and round-trip time, and reports the results of these tests. 3. Close the **Network** dialog box to return to the sign-in page. 1. Open your WorkSpaces client. If this is the first time you have opened the client, you are prompted to enter the registration code that you received in the invitation email. 2. Choose **Network** in the lower-right corner of the client application. The client application tests the network connection, ports, and round-trip time, and reports the results of these tests. 3. Choose **Dismiss** to return to the sign-in page. |
