@@ -1,0 +1,40 @@
+# Manage Hyperparameter Tuning and
+
+Training Jobs
+
+A tuning job can contain many training jobs and creating and managing these jobs and their
+definitions can become a complex and onerous task. SageMaker AI provides tools to help facilitate the
+management of these jobs. Tuning jobs you have run can be accessed from the Amazon SageMaker AI console
+at [https://console.aws.amazon.com/sagemaker/](https://console.aws.amazon.com/sagemaker/ "https://console.aws.amazon.com/sagemaker/"). Select **Hyperparameter tuning job** from the
+**Training** menu to see the list. This page is also where you start the
+procedure to create a new tuning job by selecting **Create hyperparameter tuning
+job**.
+
+To see the training jobs run a part of a tuning job, select one of the hyperparameter
+tuning jobs from the list. The tabs on the tuning job page allow you to inspect the training
+jobs, their definitions, the tags and configuration used for the tuning job, and the best
+training job found during tuning. You can select the best training job or any of the other
+training jobs that belong to the tuning job to see all of their settings. From here you can
+create a model that uses the hyperparameter values found by a training job by selecting
+**Create Model** or you can clone the training job by selecting
+**Clone**.
+
+###### Cloning
+
+You can save time by cloning a training job that belongs to a hyperparameter tuning job.
+Cloning copies all of the job’s settings, including data channels, S3 storage locations for
+output artifacts. You can do this for training jobs you have already run from the tuning job
+page, as just described, or when you are creating additional training job definitions while
+creating a hyperparameter tuning job, as described in [Add or clone a training
+job](multiple-algorithm-hpo-create-tuning-jobs.md#multiple-algorithm-hpo-add-training-job "multiple-algorithm-hpo-create-tuning-jobs.md#multiple-algorithm-hpo-add-training-job") step of that procedure.
+
+###### Tagging
+
+Automatic Model Tuning launches multiple training jobs within a single parent tuning job
+to discover the ideal weighting of model hyperparameters. Tags can be added to the parent
+tuning job as described in the [Components of a
+tuning job](multiple-algorithm-hpo-create-tuning-jobs.md#multiple-algorithm-hpo-create-tuning-jobs-define-settings "multiple-algorithm-hpo-create-tuning-jobs.md#multiple-algorithm-hpo-create-tuning-jobs-define-settings") section and
+these tags are then propagated to the individual training jobs underneath. Customers can use
+these tags for purposes, such as cost allocation or access control. To add tags using the
+SageMaker SDK, use [`AddTags`](../APIReference/API_AddTags.md "../APIReference/API_AddTags.md") API. For
+more information about using tagging for AWS resources, see [Tagging AWS resources](../../../general/latest/gr/aws_tagging.md "../../../general/latest/gr/aws_tagging.md").

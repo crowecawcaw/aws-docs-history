@@ -1,0 +1,57 @@
+# Tune Multiple Algorithms with Hyperparameter
+
+Optimization to Find the Best Model
+
+To create a new hyperparameter optimization (HPO) job with Amazon SageMaker AI that tunes multiple
+algorithms, you must provide job settings that apply to all of the algorithms to be tested and a
+training definition for each of these algorithms. You must also specify the resources you want
+to use for the tuning job.
+
+- The **job settings** to configure include warm starting,
+  early stopping, and the tuning strategy. Warm starting and early stopping are available only
+  when tuning a single algorithm.
+- The **training job definition** to specify the name,
+  algorithm source, objective metric, and the range of values, when required, to configure the
+  set of hyperparameter values for each training job. It configures the channels for data
+  inputs, data output locations, and any checkpoint storage locations for each training job.
+  The definition also configures the resources to deploy for each training job, including
+  instance types and counts, managed spot training, and stopping conditions.
+- The **tuning job resources**: to deploy, including the
+  maximum number of concurrent training jobs that a hyperparameter tuning job can run
+  concurrently and the maximum number of training jobs that the hyperparameter tuning job can
+  run.
+
+## Get Started
+
+You can create a new hyperparameter tuning job, clone a job, add, or edit tags to a job
+from the console. You can also use the search feature to find jobs by their name, creation
+time, or status. Alternatively, you can also hyperparameter tuning jobs with the SageMaker AI
+API.
+
+- **In the console**: To create a new job, open the
+  Amazon SageMaker AI console at [https://console.aws.amazon.com/sagemaker/](https://console.aws.amazon.com/sagemaker/ "https://console.aws.amazon.com/sagemaker/"), choose **Hyperparameter tuning
+  jobs** from the **Training**, menu, and then
+  choose **Create hyperparameter tuning job**. Then following the
+  configuration steps to create a training job for each algorithm that you want to use.
+  These steps are documented in the [Create a Hyperparameter
+  Optimization Tuning Job for One or More Algorithms (Console)](multiple-algorithm-hpo-create-tuning-jobs.md "multiple-algorithm-hpo-create-tuning-jobs.md") topic.
+
+###### Note
+
+When you start the configuration steps, note that the warm start and early stopping
+features are not available to use with multi-algorithm HPO. If you want to use these
+features, you can only tune a single algorithm at a time.
+
+- **With the API**: For instructions on using the SageMaker API
+  to create a hyperparameter tuning job, see [Example: Hyperparameter Tuning Job](automatic-model-tuning-ex.md "automatic-model-tuning-ex.md"). When you call [`CreateHyperParameterTuningJob`](../APIReference/API_CreateHyperParameterTuningJob.md "../APIReference/API_CreateHyperParameterTuningJob.md") to tune multiple algorithms, you
+  must provide a list of training definitions using [`TrainingJobDefinitions`](../APIReference/API_CreateHyperParameterTuningJob.md#sagemaker-CreateHyperParameterTuningJob-request-TrainingJobDefinitions "../APIReference/API_CreateHyperParameterTuningJob.md#sagemaker-CreateHyperParameterTuningJob-request-TrainingJobDefinitions") instead of specifying a single [TrainingJobDefinition](../APIReference/API_CreateHyperParameterTuningJob.md#sagemaker-CreateHyperParameterTuningJob-request-TrainingJobDefinition "../APIReference/API_CreateHyperParameterTuningJob.md#sagemaker-CreateHyperParameterTuningJob-request-TrainingJobDefinition"). You must provide job settings that apply to all of the
+  algorithms to be tested and a training definition for each of these algorithms. You must
+  also specify the resources that you want to use for the tuning job. Choose only one of
+  these definition types depending on the number of algorithms that are being tuned.
+
+###### Topics
+
+- [Create a Hyperparameter
+  Optimization Tuning Job for One or More Algorithms (Console)](multiple-algorithm-hpo-create-tuning-jobs.md "multiple-algorithm-hpo-create-tuning-jobs.md")
+- [Manage Hyperparameter Tuning and
+  Training Jobs](multiple-algorithm-hpo-manage-tuning-jobs.md "multiple-algorithm-hpo-manage-tuning-jobs.md")

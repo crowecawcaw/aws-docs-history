@@ -1,0 +1,204 @@
+# Manually Create Tracking Entities
+
+You can manually create tracking entities for any property to establish model governance,
+reproduce your workflow, and maintain a record of your work history. For information on the
+tracking entities that Amazon SageMaker AI automatically creates, see [Amazon SageMaker AI–Created Tracking
+Entities](lineage-tracking-auto-creation.md "lineage-tracking-auto-creation.md"). The
+following tutorial demonstrates the steps needed to manually create and associate artifacts
+between a SageMaker training job and endpoint, then track the workflow.
+
+You can add tags to all entities except associations. Tags are arbitrary key-value pairs that provide
+custom information. You can filter or sort a list or search query by tags. For more information,
+see [Tagging AWS resources](../../../general/latest/gr/aws_tagging.md "../../../general/latest/gr/aws_tagging.md")
+in the _AWS General Reference_.
+
+For a sample notebook that demonstrates how to create lineage entities, see the
+[Amazon SageMaker AI
+Lineage](https://github.com/aws/amazon-sagemaker-examples/tree/master/sagemaker-lineage "https://github.com/aws/amazon-sagemaker-examples/tree/master/sagemaker-lineage") notebook in the [Amazon SageMaker example GitHub repository](https://github.com/awslabs/amazon-sagemaker-examples "https://github.com/awslabs/amazon-sagemaker-examples").
+
+###### Topics
+
+- [Manually Create Entities](#lineage-tracking-manual-create "#lineage-tracking-manual-create")
+- [Manually Track a Workflow](#lineage-tracking-manual-track "#lineage-tracking-manual-track")
+- [Limits](#lineage-tracking-manual-track-limits "#lineage-tracking-manual-track-limits")
+
+## Manually Create Entities
+
+The following procedure shows you how to create and associate artifacts between a SageMaker AI
+training job and endpoint. You perform the following steps:
+
+###### Import tracking entities and associations
+
+1. Import the lineage tracking entities.
+
+```
+import sys
+!{sys.executable} -m pip install -q sagemaker
+
+from sagemaker import get_execution_role
+from sagemaker.session import Session
+**from sagemaker.lineage import context, artifact, association, action**
+
+import boto3
+boto_session = boto3.Session(region_name=`region`)
+sagemaker_client = boto_session.client("sagemaker")
+```
+
+2. Create the input and output artifacts.
+
+```
+code_location_arn = artifact.Artifact.create(
+    artifact_name='source-code-location',
+    source_uri='s3://...',
+    artifact_type='code-location'
+).artifact_arn
+
+# Similar constructs for train_data_location_arn and test_data_location_arn
+
+model_location_arn = artifact.Artifact.create(
+    artifact_name='model-location',
+    source_uri='s3://...',
+    artifact_type='model-location'
+).artifact_arn
+```
+
+3. Train the model and get the `trial_component_arn` that represents the
+   training job.
+4. Associate the input artifacts and output artifacts with the training job (trial component).
+
+```
+input_artifacts = [code_location_arn, train_data_location_arn, test_data_location_arn]
+for artifact_arn in input_artifacts:
+    try:
+        association.Association.create(
+            source_arn=artifact_arn,
+            destination_arn=trial_component_arn,
+            association_type='ContributedTo'
+        )
+    except:
+        logging.info('association between {} and {} already exists', artifact_arn, trial_component_arn)
+
+output_artifacts = [model_location_arn]
+for artifact_arn in output_artifacts:
+    try:
+         association.Association.create(
+            source_arn=trial_component_arn,
+            destination_arn=artifact_arn,
+            association_type='Produced'
+        )
+    except:
+        logging.info('association between {} and {} already exists', artifact_arn, trial_component_arn)
+```
+
+5. Create the inference endpoint.
+
+```
+predictor = mnist_estimator.deploy(initial_instance_count=1,
+                                     instance_type='ml.m4.xlarge')
+```
+
+6. Create the endpoint context.
+
+```
+from sagemaker.lineage import context
+
+endpoint = sagemaker_client.describe_endpoint(EndpointName=predictor.endpoint_name)
+endpoint_arn = endpoint['EndpointArn']
+
+endpoint_context_arn = context.Context.create(
+    context_name=predictor.endpoint_name,
+    context_type='Endpoint',
+    source_uri=endpoint_arn
+).context_arn
+```
+
+7. Associate the training job (trial component) and endpoint context.
+
+```
+association.Association.create(
+    source_arn=trial_component_arn,
+    destination_arn=endpoint_context_arn
+)
+```
+
+## Manually Track a Workflow
+
+You can manually track the workflow created in the previous section.
+
+Given the endpoint Amazon Resource Name (ARN) from the previous example, the following procedure
+shows you how to track the workflow back to the datasets used to train the model that was deployed to
+the endpoint. You perform the following steps:
+
+###### To track a workflow from endpoint to training data source
+
+1. Import the tracking entities.
+
+```
+import sys
+!{sys.executable} -m pip install -q sagemaker
+
+from sagemaker import get_execution_role
+from sagemaker.session import Session
+**from sagemaker.lineage import context, artifact, association, action**
+
+import boto3
+boto_session = boto3.Session(region_name=region)
+sagemaker_client = boto_session.client("sagemaker")
+```
+
+2. Get the endpoint context from the endpoint ARN.
+
+```
+endpoint_context_arn = sagemaker_client.list_contexts(
+    SourceUri=endpoint_arn)['ContextSummaries'][0]['ContextArn']
+```
+
+3. Get the trial component from the association between the trial component and the endpoint
+   context.
+
+```
+trial_component_arn = sagemaker_client.list_associations(
+    DestinationArn=endpoint_context_arn)['AssociationSummaries'][0]['SourceArn']
+```
+
+4. Get the training data location artifact from the association between the trial component and the
+   endpoint context.
+
+```
+train_data_location_artifact_arn = sagemaker_client.list_associations(
+    DestinationArn=trial_component_arn, SourceType='Model')['AssociationSummaries'][0]['SourceArn']
+```
+
+5. Get the training data location from the training data location artifact.
+
+```
+train_data_location = sagemaker_client.describe_artifact(
+    ArtifactArn=train_data_location_artifact_arn)['Source']['SourceUri']
+    print(train_data_location)
+```
+
+Response:
+
+```
+s3://sagemaker-sample-data-us-east-2/mxnet/mnist/train
+```
+
+## Limits
+
+You can create an an association between any entities, experiment and lineage, except the
+following:
+
+- You cannot create an association between two experiment entities. Experiment entities
+  consist of experiments, trials, and trial components.
+- You can create an association with another association.
+
+An error occurs if you try to create an entity that already exists.
+
+###### Maximum number of manually created lineage entities
+
+- Actions: 3000
+- Artifacts: 6000
+- Associations: 6000
+- Contexts: 500
+
+There is no limit to the number of lineage entities automatically created by Amazon SageMaker AI.
