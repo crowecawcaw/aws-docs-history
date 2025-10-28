@@ -1,0 +1,21 @@
+For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified
+data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](timestream-for-influxdb.md "timestream-for-influxdb.md").
+
+# Integral
+
+functions
+
+You can use integrals to find the area under the curve per unit of time for your
+time series events. As an example, suppose you're tracking the volume of requests
+received by your application per unit of time. In this scenario, you can use the
+integral function to determine the total volume of requests served per specified interval over a specific
+time period.
+
+Amazon Timestream supports one variant of integral functions. This section
+provides usage information for the Timestream for LiveAnalytics integral function, as well as sample queries.
+
+## Usage information
+
+| Function                                                                                                                                                                                                                                                                                                                                    | Output data type | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `integral_trapezoidal(timeseries(double))` `integral_trapezoidal(timeseries(double), interval day to second)` `integral_trapezoidal(timeseries(bigint))` `integral_trapezoidal(timeseries(bigint), interval day to second)` `integral_trapezoidal(timeseries(integer), interval day to second)` `integral_trapezoidal(timeseries(integer))` | double           | Approximates the [integral](https://wikipedia.org/wiki/Integral "https://wikipedia.org/wiki/Integral") per the specified `interval day to second` for the `timeseries` provided, using the [trapezoidal rule](https://wikipedia.org/wiki/Trapezoidal_rule "https://wikipedia.org/wiki/Trapezoidal_rule"). The interval day to second parameter is optional and the default is `1s`. For more information about intervals, see [Interval and duration](date-time-functions.md#date-time-functions-interval-duration "date-time-functions.md#date-time-functions-interval-duration"). | ## Query examples Calculate the total volume of requests served per five minutes over the past hour by a specific host: `SELECT INTEGRAL_TRAPEZOIDAL(CREATE_TIME_SERIES(time, measure_value::double), 5m) AS result FROM sample.DevOps WHERE measure_name = 'request' AND hostname = 'host-Hovjv' AND time > ago (1h) GROUP BY hostname, measure_name` |

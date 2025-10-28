@@ -1,0 +1,14 @@
+For similar capabilities to Amazon Timestream for LiveAnalytics, consider Amazon Timestream for InfluxDB. It offers simplified
+data ingestion and single-digit millisecond query response times for real-time analytics. Learn more [here](timestream-for-influxdb.md "timestream-for-influxdb.md").
+
+# Bitwise functions
+
+Timestream for LiveAnalytics supports the following bitwise functions.
+
+| Function                    | Output data type          | Description                                                                                                                                                                                                                                                                                                       |
+| --------------------------- | ------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| bit_count(bigint, bigint)   | bigint (two's complement) | Returns the count of bits in the first bigint parameter where the second parameter is a bit signed integer such as 8 or 64. `SELECT bit_count(19, 8)` Example result: `3` `SELECT bit_count(19, 2)` Example result: `Number must be representable with the bits specified. 19 can not be represented with 2 bits` |
+| bitwise_and(bigint, bigint) | bigint (two's complement) | Returns the bitwise AND of the bigint parameters. `SELECT bitwise_and(12, 7)` Example result: `4`                                                                                                                                                                                                                 |
+| bitwise_not(bigint)         | bigint (two's complement) | Returns the bitwise NOT of the bigint parameter. `SELECT bitwise_not(12)` Example result: `-13`                                                                                                                                                                                                                   |
+| bitwise_or(bigint, bigint)  | bigint (two's complement) | Returns the bitwise OR of the bigint parameters. `SELECT bitwise_or(12, 7)` Example result: `15`                                                                                                                                                                                                                  |
+| bitwise_xor(bigint, bigint) | bigint (two's complement) | Returns the bitwise XOR of the bigint parameters. `SELECT bitwise_xor(12, 7)` Example result: `11`                                                                                                                                                                                                                |
