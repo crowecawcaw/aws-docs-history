@@ -1,0 +1,165 @@
+# GENSEC01-BP03 Implement least privilege access permissions for
+
+foundation models accessing data stores
+
+Foundation models can aggregate and generate rich insights from data
+they have been trained on or interact with from the APIs providing
+inputs and outputs. It is important to treat generative AI systems
+and their foundation models just as you would treat privileged users
+when providing access to data. This best practice describes how to
+provide generative AI APIs and services with appropriate access to
+data.
+
+**Desired outcome:** When
+implemented, this best practice reduces the risk of accidentally
+using unauthorized internal data when training and fine-tuning
+foundation models. Additionally, a process will be implemented to
+make sure that foundation models and workloads are granted only the
+minimum necessary access to data, following the principle of least
+privilege
+
+**Benefits of establishing this best
+practice:**
+
+- [Implement
+  a strong identity foundation](../framework/sec-design.md "../framework/sec-design.md") - least privilege access
+  permissions foster model access to only the required data.
+- [Apply
+  security at all layers](../framework/sec-design.md "../framework/sec-design.md") - least privilege data access for
+  foundation models provides an identity-based layer of data security.
+- [Protect
+  data in transit and at rest](../framework/sec-design.md "../framework/sec-design.md") - least privilege data access
+  for foundation models offers an added protection for data via access
+  controls.
+- [Keep
+  people away from data](../framework/sec-design.md "../framework/sec-design.md") - least privilege data access for
+  foundation offers helps prevent sweeping access to data for
+  foundation models.
+
+**Level of risk exposed if this best practice
+is not established:** High
+
+## Implementation guidance
+
+Generative AI architecture patterns like Retrieval Augmented
+Generation (RAG) make use of external data to correlate with the
+foundation models output and address user prompts. In many cases,
+a single vector database may store data intended for several use
+cases, some of which require additional authorizations to access.
+While controls can be implemented at the foundation model layer,
+this approach alone is insufficient. Addressing access to data
+requires a multi-layered strategy. This is necessary not only for
+RAG use cases but also for model customization and pre-training
+processes.
+
+When securing foundation models and protecting sensitive data,
+customers should deploy data stores in a VPC with strong access
+controls. Implementing zero-trust security principles and
+enforcing least privilege access for users and applications
+reduces the risks of unauthorized access. In the software layer,
+customers should regularly update data stores with the latest
+security patches to stay protected. Using temporary,
+least privilege credentials for application access reduces the
+risk of unauthorized access even if credentials are
+unintentionally exposed. Keeping data store drivers and SDKs up to
+date maintains compatibility and helps to mitigate known issues.
+For the data layer, implementing granular controls over
+foundational model elements allows for precise management of
+sensitive information like personally identifiable information
+(PII) using controls such as guardrails in both Amazon Bedrock and
+Amazon SageMaker AI.
+
+When using data for model training, especially in generative AI
+scenarios, applying robust data obfuscation and anonymization
+techniques can prevent unintended exposure of sensitive data
+through model outputs. Vector databases supported with services
+such as Amazon OpenSearch Service offers efficient ways to sanitize and
+manage large-scale data for AI workloads, improving both
+performance and security. At the application layer, customers
+should regularly review and refine Access Control Lists to prevent
+unauthorized access to data. Utilizing metadata filtering
+capabilities in vector stores and knowledge bases can enable more
+granular access control, allowing for data segregation based on
+user roles or project requirements. For Identity and Access
+Management, creating IAM roles with precision, such as attribute
+based access controls, helps maintain the principle of least
+privilege. Designing IAM policy documents with properly scoped
+permissions can help prevent improper access. Amazon Bedrock
+Knowledge Bases can add a layer of abstraction to data access,
+simplifying permission management across multiple data sources.
+
+When designing the overall architecture, aligning data access
+permissions with data architecture decisions can lead to a more
+coherent and manageable security posture. This approach simplifies
+auditing and reduces the risk of misconfiguration. Setting up a
+dedicated process for preparing training data and using separate
+data stores and classification designed for generative AI
+workloads, helps isolate sensitive data and provides an additional
+layer of protection against unauthorized access or misuse.
+
+### Implementation steps
+
+1. Classify data by its usage. Data can belong to several usage
+   patterns such as training, RAG, analytics, etc. Classification
+   of data helps to prevent and identify misuse.
+2. Deploy a vector data store into a secure VPC, setting
+   appropriate access controls on the datastore for various roles
+   (for example, administrator, read-only, or power-user). Consider
+   extending role definitions to encompass generative AI
+   workloads (like `model-XX-RAG`).
+3. Develop a data ingestion pipeline which obfuscates or removes
+   data that should not be processed by a foundation model.
+   Examples of this data might be personal information. The scope of this data is
+   informed largely by the workload use case. Ingest this data
+   from your data lake into the vector store lake house.
+   - A use case for a customer service assistant may require
+     access to handbooks, documentation, and customer service
+     material, not company financials, staff information or HR
+     policies.
+   - Sanitizing for prohibited material should happen before
+     the model accesses the data, at time of ingestion.
+
+4. Create least-privilege access policies for foundation model
+   and generated AI workloads. This Policy Document should
+   contain resource identifiers granting explicit access to
+   specific data in the vector datastore.
+5. Test access to data using curated prompts designed to confirm
+   models are not allowed to access sensitive information.
+6. Similar principles apply for model training and model
+   customization workloads, though data used for model training
+   and model customization typically resides in a data lake,
+   separate from a compute engine.
+
+## Resources
+
+**Related practices:**
+
+- [SEC03-BP01](../security-pillar/sec_permissions_define.md "../security-pillar/sec_permissions_define.md")
+- [SEC03-BP02](../security-pillar/sec_permissions_least_privileges.md "../security-pillar/sec_permissions_least_privileges.md")
+- [SEC07-BP01](../security-pillar/sec_data_classification_identify_data.md "../security-pillar/sec_data_classification_identify_data.md")
+- [SEC07-BP02](../security-pillar/sec_data_classification_define_protection.md "../security-pillar/sec_data_classification_define_protection.md")
+- [SEC08-BP04](../security-pillar/sec_protect_data_rest_access_control.md "../security-pillar/sec_protect_data_rest_access_control.md")
+
+**Related guides, videos, and documentation:**
+
+- [AWS re:Invent 2023 - Use new IAM Access Analyzer features on your
+  journey to least privilege](https://www.youtube.com/watch?v=JpemUkU8INA "https://www.youtube.com/watch?v=JpemUkU8INA")
+- [AWS re:Inforce 2022 - Strategies for achieving least privilege
+  (IAM303)](https://www.youtube.com/watch?v=j57tBC6U4kk "https://www.youtube.com/watch?v=j57tBC6U4kk")
+- [AWS Prescriptive Guidance: Creating a data strategy on AWS](../../../prescriptive-guidance/latest/strategy-aws-data/aws-architecture.md "../../../prescriptive-guidance/latest/strategy-aws-data/aws-architecture.md")
+- [Identity
+  and Access Management in Amazon OpenSearch Service](../../../opensearch-service/latest/developerguide/ac.md "../../../opensearch-service/latest/developerguide/ac.md")
+- [Fine-Grained
+  Access Control in Amazon OpenSearch Service](../../../opensearch-service/latest/developerguide/fgac.md "../../../opensearch-service/latest/developerguide/fgac.md")
+- [Amazon Bedrock Knowledge Bases Meta-Data Filtering](../../../bedrock/latest/userguide/kb-test-config.md "../../../bedrock/latest/userguide/kb-test-config.md")
+
+**Related examples:**
+
+- [Techniques
+  for Writing Least Privilege IAM Policies](https://aws.amazon.com/blogs/security/techniques-for-writing-least-privilege-iam-policies/ "https://aws.amazon.com/blogs/security/techniques-for-writing-least-privilege-iam-policies/")
+- [When
+  and Where to use IAM Permissions Boundaries](https://aws.amazon.com/blogs/security/when-and-where-to-use-iam-permissions-boundaries/ "https://aws.amazon.com/blogs/security/when-and-where-to-use-iam-permissions-boundaries/")
+- [Example
+  Permissions Boundaries](https://github.com/aws-samples/example-permissions-boundary "https://github.com/aws-samples/example-permissions-boundary")
+- [Overseeing
+  AI Risk in a Rapidly Changing Landscape](https://aws.amazon.com/blogs/enterprise-strategy/overseeing-ai-risk-in-a-rapidly-changing-landscape/ "https://aws.amazon.com/blogs/enterprise-strategy/overseeing-ai-risk-in-a-rapidly-changing-landscape/")

@@ -1,0 +1,84 @@
+# GENCOST02-BP02 Optimize resource consumption to minimize
+
+hosting costs
+
+Hosting a foundation model for inference requires myriad choices,
+all of which affect cost. These cost dimensions can be optimized to
+reduce cost while meeting performance goals.
+
+**Desired outcome:** When
+implemented, this best practice describes a relationship between
+cost and performance contextualized in self-hosted foundation model
+hosting.
+
+**Benefits of establishing this best
+practice:**
+
+- [Measure
+  overall efficiency](../framework/cost-dp.md "../framework/cost-dp.md") - It is helpful to understand
+  inference and hosting costs associated with the performance
+  requirements of foundation model.
+- [Stop
+  spending money on undifferentiated heavy lifting](../framework/cost-dp.md "../framework/cost-dp.md") - More
+  often than not, it is beneficial to opt for a managed or
+  serverless hosting paradigm, due to the intractability of the
+  total cost of ownership for foundation model hosting.
+
+**Level of risk exposed if this best practice
+is not established:** Medium
+
+## Implementation guidance
+
+Self-hosted model infrastructure should be optimized based on the
+model used and the workload's usage pattern. Customers
+self-hosting models should also consider optimizing the model's
+hosting infrastructure. Consider right-sizing the inference
+endpoint to the smallest instance available that allows you to
+meet performance goals. In some scenarios, it may be appropriate
+to shut down the hosting instance and restart it during relevant
+hours. This is particularly useful for workloads with predictable
+usage patterns. You may also consider purchasing [Amazon EC2 Reserved
+Instances](https://aws.amazon.com/ec2/pricing/reserved-instances/ "https://aws.amazon.com/ec2/pricing/reserved-instances/") or Savings Plans to further reduce the cost of a hosted
+model endpoint. Before committing to compute reservation, consider
+Amazon SageMaker AI Inference Recommender to evaluate if you are
+using the ideal inference endpoint type, generation, and size.
+
+### Implementation steps
+
+1. Identify the nature of the demand for this workload.
+2. Deploy selected foundation model on acceptable
+   infrastructure, even if it may be over-provisioned.
+3. Establish an inference or demand profile for the hosted
+   workload.
+4. Optimize the hosting infrastructure in accordance with the
+   workload's demands, and select the most cost optimized
+   infrastructure that meets performance requirements.
+
+## Resources
+
+**Related practices:**
+
+- [COST06-BP01](../cost-optimization-pillar/cost_type_size_number_resources_cost_modeling.md "../cost-optimization-pillar/cost_type_size_number_resources_cost_modeling.md")
+- [COST06-BP02](../cost-optimization-pillar/cost_type_size_number_resources_data.md "../cost-optimization-pillar/cost_type_size_number_resources_data.md")
+- [COST09-BP01](../cost-optimization-pillar/cost_manage_demand_resources_cost_analysis.md "../cost-optimization-pillar/cost_manage_demand_resources_cost_analysis.md")
+
+**Related guides, videos, and documentation:**
+
+- [Tagging
+  Amazon Bedrock resources](../../../bedrock/latest/userguide/tagging.md "../../../bedrock/latest/userguide/tagging.md")
+- [Inference
+  cost optimization best practices](../../../sagemaker/latest/dg/inference-cost-optimization.md "../../../sagemaker/latest/dg/inference-cost-optimization.md")
+
+**Related examples:**
+
+- [Track,
+  allocate and manage your generative AI cost and usage with
+  Amazon Bedrock](https://aws.amazon.com/blogs/machine-learning/track-allocate-and-manage-your-generative-ai-cost-and-usage-with-amazon-bedrock/ "https://aws.amazon.com/blogs/machine-learning/track-allocate-and-manage-your-generative-ai-cost-and-usage-with-amazon-bedrock/")
+- [Optimizing
+  costs of generative AI applications on AWS](https://aws.amazon.com/blogs/machine-learning/optimizing-costs-of-generative-ai-applications-on-aws/ "https://aws.amazon.com/blogs/machine-learning/optimizing-costs-of-generative-ai-applications-on-aws/")
+- [SageMaker AI
+  Inference Recommender for HuggingFace BERT Sentiment
+  Analysis](https://github.com/aws/amazon-sagemaker-examples/blob/main/sagemaker-inference-recommender/huggingface-inference-recommender/huggingface-inference-recommender.ipynb "https://github.com/aws/amazon-sagemaker-examples/blob/main/sagemaker-inference-recommender/huggingface-inference-recommender/huggingface-inference-recommender.ipynb")
+- [Analyze
+  Amazon SageMaker AI spend and determine cost optimization
+  opportunities based on usage, Part 1](https://aws.amazon.com/blogs/machine-learning/part-1-analyze-amazon-sagemaker-spend-and-determine-cost-optimization-opportunities-based-on-usage-part-1/ "https://aws.amazon.com/blogs/machine-learning/part-1-analyze-amazon-sagemaker-spend-and-determine-cost-optimization-opportunities-based-on-usage-part-1/")

@@ -1,0 +1,88 @@
+# GENSEC06-BP01 Implement data purification filters for model
+
+training workflows
+
+Data poisoning is best handled at the data layer before training or
+customization has taken place. Data purification filters can be
+introduced to data pipelines when curating a dataset for training or
+customization.
+
+**Desired outcome:** When
+implemented, this best practice reduces the likelihood of
+inappropriate or undesirable data being introduced into a model
+training or customization workflow.
+
+**Benefits of establishing this best
+practice:**
+[Apply
+security at all layers](../framework/sec-design.md "../framework/sec-design.md") - Security at all layers reduces the
+risk of subtle security vulnerabilities entering an otherwise
+advanced workflow.
+
+**Level of risk exposed if this best practice
+is not established:** High
+
+## Implementation guidance
+
+_Data poisoning_ happens during pre-training,
+domain adaptation, and fine-tuning, where
+_poisoned_ data is introduced, intentionally or
+by mistake, into a model. Data poisoning is considered successful
+if the model has learned from poisoned data. Protect models from
+poisoning during pre-training and ongoing training steps by
+isolating your model training environment, infrastructure, and
+data. Data should be examined and cleaned for content which may be
+considered poisonous before introducing that data to a training
+job. There are several ways to accomplish this, all of which are
+dependent on the data used to train a model. For example, consider
+using Amazon Transcribe's Toxicity Detection capability for voice
+data. For text data, consider using the Amazon Bedrock Guardrails
+API to filter data. Trained models can be tested using toxicity
+evaluation techniques from fmeval or Amazon SageMaker AI Studio's
+model evaluation capability. Carefully consider what your use case
+defines as poisonous, and develop mechanisms for surfacing this
+kind of data before it is introduced to a model through pre- and
+post-training steps.
+
+### Implementation steps
+
+1. Identify the data intended for model pre-training or model
+   customization.
+2. Develop filters to check for data which may be considered
+   poisonous to the model.
+   - Examples include data which is biased, factually
+     incorrect, hateful, or violent.
+   - Other examples include data which is irrelevant to the
+     models intended purpose.
+
+3. Consider a guardrail from Amazon Bedrock Guardrails or a
+   third-party solution to check for less discrete signals of
+   poisoning.
+4. Run these checks on the data intended for model pre-training
+   and/or model customization, remediating issues as they are
+   discovered.
+
+## Resources
+
+**Related practices:**
+
+- [SEC07-BP02](../security-pillar/sec_data_classification_define_protection.md "../security-pillar/sec_data_classification_define_protection.md")
+
+**Related guides, videos, and documentation:**
+
+- [Amazon Transcribe Toxicity Detection](https://aws.amazon.com/transcribe/toxicity-detection/ "https://aws.amazon.com/transcribe/toxicity-detection/")
+- [Use
+  the ApplyGuardrail API in Your Application](../../../bedrock/latest/userguide/guardrails-use-independent-api.md "../../../bedrock/latest/userguide/guardrails-use-independent-api.md")
+
+**Related examples:**
+
+- [Implement
+  Model Independent Safety Measures with Amazon Bedrock
+  Guardrails](https://aws.amazon.com/blogs/machine-learning/implement-model-independent-safety-measures-with-amazon-bedrock-guardrails/ "https://aws.amazon.com/blogs/machine-learning/implement-model-independent-safety-measures-with-amazon-bedrock-guardrails/")
+
+**Related tools:**
+
+- [Guardrails
+  AI](https://github.com/guardrails-ai/guardrails "https://github.com/guardrails-ai/guardrails")
+- [OWASP
+  Data Poisoning Attack](https://owasp.org/www-project-machine-learning-security-top-10/docs/ML02_2023-Data_Poisoning_Attack.html "https://owasp.org/www-project-machine-learning-security-top-10/docs/ML02_2023-Data_Poisoning_Attack.html")
