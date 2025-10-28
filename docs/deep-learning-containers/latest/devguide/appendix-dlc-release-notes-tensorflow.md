@@ -1,0 +1,15 @@
+# TensorFlow Deep Learning Containers
+
+Below are the release notes for TensorFlow Deep Learning Containers:
+
+| Version | Type      | Service     | Architecture | Release Note                                                                                                                                                                                                      |
+| ------- | --------- | ----------- | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 2.19    | Training  | SageMaker   | X86          | [AWS Deep Learning Containers for TensorFlow 2.19 (Training on SageMaker AI): July 9, 2025](dlc-tensorflow-2-19-training-sagemaker.md "dlc-tensorflow-2-19-training-sagemaker.md")                                |
+| 2.19    | Inference | SageMaker   | X86          | [AWS Deep Learning Containers for TensorFlow 2.19 (Inference on SageMaker AI): July 2, 2025](dlc-tensorflow-2-19-inference-sagemaker.md "dlc-tensorflow-2-19-inference-sagemaker.md")                             |
+| 2.19    | Inference | SageMaker   | Arm64        | [AWS Deep Learning Containers for TensorFlow 2.18 ARM64 (Inference on SageMaker AI): March 3, 2025](dlc-tensorflow-2-19-arm64-inference-sagemaker.md "dlc-tensorflow-2-19-arm64-inference-sagemaker.md")          |
+| 2.18    | Training  | EC2 ECS EKS | X86          | [AWS Deep Learning Containers for TensorFlow 2.18 (Training on EC2, ECS, and EKS): January 29, 2025](dlc-tensorflow-2-18-training-ec2-ecs-eks.md "dlc-tensorflow-2-18-training-ec2-ecs-eks.md")                   |
+| 2.18    | Training  | SageMaker   | X86          | [AWS Deep Learning Containers for TensorFlow 2.18 (Training on SageMaker AI): January 29, 2025](dlc-tensorflow-2-18-training-sagemaker.md "dlc-tensorflow-2-18-training-sagemaker.md")                            |
+| 2.18    | Inference | EC2 ECS EKS | X86          | [AWS Deep Learning Containers for TensorFlow 2.18 (Inference on EC2, ECS, and EKS): January 29, 2025](dlc-tensorflow-2-18-inference-ec2-ecs-eks.md "dlc-tensorflow-2-18-inference-ec2-ecs-eks.md")                |
+| 2.18    | Inference | SageMaker   | X86          | [AWS Deep Learning Containers for TensorFlow 2.18 (Inference on SageMaker AI): January 29, 2025](dlc-tensorflow-2-18-inference-sagemaker.md "dlc-tensorflow-2-18-inference-sagemaker.md")                         |
+| 2.18    | Inference | EC2 ECS EKS | Arm64        | [AWS Deep Learning Containers for TensorFlow 2.18 ARM64 (Inference on EC2, ECS, and EKS): March 3, 2025](dlc-tensorflow-2-18-arm64-inference-ec2-ecs-eks.md "dlc-tensorflow-2-18-arm64-inference-ec2-ecs-eks.md") |
+| 2.18    | Inference | SageMaker   | Arm64        | [AWS Deep Learning Containers for TensorFlow 2.18 ARM64 (Inference on SageMaker AI): March 3, 2025](dlc-tensorflow-2-18-arm64-inference-sagemaker.md "dlc-tensorflow-2-18-arm64-inference-sagemaker.md")          |
