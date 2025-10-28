@@ -1,0 +1,38 @@
+# Using managed data identifiers
+
+Amazon Macie uses a combination of criteria and techniques, including machine learning and
+pattern matching, to detect sensitive data in Amazon Simple Storage Service (Amazon S3) objects. These criteria and
+techniques, collectively referred to as _managed data
+identifiers_, can detect a large and growing list of sensitive data types for
+many countries and regions, including multiple types of credentials data, financial
+information, personal health information (PHI), and personally identifiable information
+(PII). Each managed data identifier is designed to detect a specific type of sensitive
+data—for example, AWS secret access keys, credit card numbers, or passport numbers
+for a particular country or region.
+
+Macie can detect the following categories of sensitive data by using managed data
+identifiers:
+
+- Credentials, for credentials data such as private keys and AWS secret access
+  keys.
+- Financial information, for financial data such as credit card numbers and bank
+  account numbers.
+- Personal information, for PHI such as health insurance and medical identification
+  numbers, and PII such as driver's license identification numbers and passport
+  numbers.
+  Within each category, Macie can detect multiple types of sensitive data. The topics in this
+  section list and describe each type and any relevant requirements for detecting it. For each
+  type, they also indicate the unique identifier (ID) for the managed data identifier that's
+  designed to detect the data. When you [create a
+  sensitive data discovery job](discovery-jobs-create.md "discovery-jobs-create.md") or [configure settings for automated sensitive data discovery](discovery-asdd-account-configure.md "discovery-asdd-account-configure.md"), you can use these IDs to specify which
+  managed data identifiers you want Macie to use when it analyzes S3 objects.
+
+###### Topics
+
+- [Keyword requirements](managed-data-identifiers-keywords.md "managed-data-identifiers-keywords.md")
+- [Quick reference by sensitive data
+  type](mdis-reference-quick.md "mdis-reference-quick.md")
+- [Detailed reference by sensitive data
+  category](mdis-reference.md "mdis-reference.md")
+  For a list of managed data identifiers that we recommend for jobs, see [Managed data identifiers recommended for sensitive data discovery jobs](discovery-jobs-mdis-recommended.md "discovery-jobs-mdis-recommended.md"). For a list of managed data
+  identifiers that we recommend and are used by default for automated sensitive data discovery, see [Default settings for automated sensitive data discovery](discovery-asdd-settings-defaults.md "discovery-asdd-settings-defaults.md").
