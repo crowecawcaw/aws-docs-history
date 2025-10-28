@@ -1,0 +1,21 @@
+Amazon CodeCatalyst will no longer be open to new customers starting on November
+7, 2025. If you would like to use the service, please sign up prior to November 7, 2025. For
+more information, see [How to migrate from CodeCatalyst](migration.md "migration.md").
+
+# 'Deploy to Kubernetes
+
+cluster' variables
+
+The **Deploy to Kubernetes cluster** action produces and sets the following
+variables at run time. These are known as _predefined variables_.
+
+For information about referencing these variables in a workflow, see [Using predefined variables](workflows-using-predefined-variables.md "workflows-using-predefined-variables.md").
+
+| Key                 | Value                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| cluster             | The Amazon.com Resource Name (ARN) of the of the Amazon EKS cluster that was deployed to during the workflow run. Example: `arn:aws:eks:us-west-2:111122223333:cluster/codecatalyst-eks-cluster`                                                                                                                                                                                                                                                  |
+| deployment-platform | The name of the deployment platform. Hardcoded to `AWS:EKS`.                                                                                                                                                                                                                                                                                                                                                                                      |
+| metadata            | Reserved. JSON-formatted metadata related to the cluster deployed during the workflow run.                                                                                                                                                                                                                                                                                                                                                        |
+| namespace           | The Kubernetes namespace into which the cluster was deployed. Example: `default`                                                                                                                                                                                                                                                                                                                                                                  |
+| resources           | Reserved. JSON-formatted metadata related to the resources deployed during the workflow run.                                                                                                                                                                                                                                                                                                                                                      |
+| server              | The name of the API server endpoint that you can use to communicate with your cluster using management tools such as `kubectl`. For more information about the API service endpoint, see [Amazon EKS cluster endpoint access control](../../../eks/latest/userguide/cluster-endpoint.md "../../../eks/latest/userguide/cluster-endpoint.md") in the **Amazon EKS User Guide**. Example: `https://`random-string`.gr7.us-west-2.eks.amazonaws.com` |
