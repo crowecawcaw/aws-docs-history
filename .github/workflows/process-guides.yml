@@ -68,6 +68,7 @@ jobs:
           # Add commit flag if enabled (default true for scheduled runs, configurable for manual)
           if [ "${{ github.event_name }}" = "schedule" ] || [ "${{ inputs.enable_commit }}" = "true" ]; then
             ARGS="$ARGS --commit"
+            echo "Note: Commits will be automatically pushed after each guide"
           fi
 
           # Add single guide filter if specified
@@ -82,14 +83,3 @@ jobs:
 
           echo "Running: python crawler.py process-guides $ARGS"
           eval python crawler.py process-guides $ARGS
-
-      - name: Push changes
-        if: github.event_name == 'schedule' || inputs.enable_commit == true
-        run: |
-          # Check if there are any commits to push
-          if git log origin/${{ github.ref_name }}..${{ github.ref_name }} --oneline | grep -q .; then
-            echo "Pushing commits to remote..."
-            git push origin ${{ github.ref_name }}
-          else
-            echo "No commits to push"
-          fi
