@@ -1,0 +1,12 @@
+# Creating an Amazon Q Business index using APIs
+
+All Amazon Q Business index actions are supported both on the console and using
+APIs.
+
+| API action                                                                               | API description                                            | Relevant User Guide topic                                                                                                                                                             |
+| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [CreateIndex](../api-reference/API_CreateIndex.md "../api-reference/API_CreateIndex.md") | Creates an Amazon Q Business index                         | [Creating an index](select-retriever.md "select-retriever.md")                                                                                                                        |
+| [DeleteIndex](../api-reference/API_DeleteIndex.md "../api-reference/API_DeleteIndex.md") | Deletes an Amazon Q Business index                         | [Deleting an index](supported-native-retriever-actions.md#delete-native-retriever "supported-native-retriever-actions.md#delete-native-retriever")                                    |
+| [GetIndex](../api-reference/API_GetIndex.md "../api-reference/API_GetIndex.md")          | Gets information about an existing Amazon Q Business index | [Getting properties of an Amazon Q Business index](supported-native-retriever-actions.md#describe-native-retriever "supported-native-retriever-actions.md#describe-native-retriever") |
+| [ListIndices](../api-reference/API_ListIndices.md "../api-reference/API_ListIndices.md") | Lists existing Amazon Q Business indices                   | [Listing properties of an Amazon Q Business index](supported-native-retriever-actions.md#list-native-retriever "supported-native-retriever-actions.md#list-native-retriever")         |
+| [UpdateIndex](../api-reference/API_UpdateIndex.md "../api-reference/API_UpdateIndex.md") | Updates an existing Amazon Q Business index                | [Updating an Amazon Q Business index](supported-native-retriever-actions.md#update-native-retriever "supported-native-retriever-actions.md#update-native-retriever")                  |

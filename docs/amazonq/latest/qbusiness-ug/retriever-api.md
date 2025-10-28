@@ -1,0 +1,24 @@
+# Creating a retriever for an Amazon Q Business
+
+application using APIs
+
+You can't create an Amazon Q Business retriever using the AWS Management Console. If you use
+the console, Amazon Q Business creates a retriever for you when you create an
+Amazon Q Business index. If you're using an Amazon Kendra index as retriever, adding
+an Amazon Kendra index will also add a retriever.
+
+###### Note
+
+You can only add an Amazon Kendra index as retriever if you have existing Amazon Kendra
+indexes.
+
+When you use the APIs, you must create a retriever for your Amazon Q Business
+index separately.
+
+| API action                                                                                           | API description                                                                 | Relevant User Guide topic                                                                                                                                                                                                                                                                                                                                                       |
+| ---------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [CreateRetriever](../api-reference/API_CreateRetriever.md "../api-reference/API_CreateRetriever.md") | Creates an Amazon Q Business or Amazon Kendra retriever                         | <br>• [Creating an Amazon Q Business retriever](native-retriever.md "native-retriever.md") <br>• [Creating an Amazon Kendra retriever](add-kendra-retriever.md "add-kendra-retriever.md")                                                                                                                                                                                       |
+| [DeleteRetriever](../api-reference/API_DeleteRetriever.md "../api-reference/API_DeleteRetriever.md") | Deletes an Amazon Q Business or Amazon Kendra retriever                         | <br>• [Deleting an Amazon Q Business retriever](supported-native-retriever-actions.md#delete-native-retriever "supported-native-retriever-actions.md#delete-native-retriever") <br>• [Deleting an Amazon Kendra retriever](supported-kendra-retriever-actions.md#delete-kendra-retriever "supported-kendra-retriever-actions.md#delete-kendra-retriever")                       |
+| [GetRetriever](../api-reference/API_GetRetriever.md "../api-reference/API_GetRetriever.md")          | Gets information about an existing Amazon Q Business or Amazon Kendra retriever | <br>• [Getting Amazon Q Business retriever properties](supported-native-retriever-actions.md#describe-native-retriever "supported-native-retriever-actions.md#describe-native-retriever") <br>• [Getting Amazon Kendra retriever properties](supported-kendra-retriever-actions.md#describe-kendra-retriever "supported-kendra-retriever-actions.md#describe-kendra-retriever") |
+| [ListRetrievers](../api-reference/API_ListRetrievers.md "../api-reference/API_ListRetrievers.md")    | Lists existing Amazon Q Business or Amazon Kendra retrievers                    | <br>• [Listing retrievers](supported-native-retriever-actions.md#list-native-retriever "supported-native-retriever-actions.md#list-native-retriever") <br>• [Getting Amazon Kendra retriever properties](supported-kendra-retriever-actions.md#list-kendra-retriever "supported-kendra-retriever-actions.md#list-kendra-retriever")                                             |
+| [UpdateRetriever](../api-reference/API_UpdateRetriever.md "../api-reference/API_UpdateRetriever.md") | Updates an existing Amazon Q Business or Amazon Kendra retriever                | <br>• [Updating an Amazon Q Business retriever](supported-native-retriever-actions.md#update-native-retriever "supported-native-retriever-actions.md#update-native-retriever") <br>• [Updating an Amazon Kendra retriever](supported-kendra-retriever-actions.md#update-kendra-retriever "supported-kendra-retriever-actions.md#update-kendra-retriever")                       |
