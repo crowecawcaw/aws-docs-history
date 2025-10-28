@@ -1,0 +1,38 @@
+# Creating a DASH endpoint
+
+Create an endpoint that formats content for devices that support MPEG-DASH.
+
+###### To create an MPEG-DASH endpoint (console)
+
+1. Access the channel that the endpoint will be associated with, as described
+   in [Viewing channel details](channels-view.md "channels-view.md").
+2. On the details page for the channel, under **Origin
+   endpoints**, choose **Manage endpoints**.
+3. Choose **Manage endpoints**.
+4. Complete the fields as described in the following topics:
+   - [New endpoint fields](endpoints-dash-new.md "endpoints-dash-new.md")
+   - [Packager settings fields](endpoints-dash-packager.md "endpoints-dash-packager.md")
+   - [Package encryption fields](endpoints-dash-encryption.md "endpoints-dash-encryption.md")
+   - [Access control settings fields](endpoints-dash-access-control.md "endpoints-dash-access-control.md")
+   - [Stream selection fields](endpoints-dash-include-streams.md "endpoints-dash-include-streams.md")
+
+5. Choose **Save**.
+
+If you enabled Amazon CloudFront distribution creation from the
+AWS Elemental MediaPackage console and this is your first endpoint on the channel,
+MediaPackage adds an origin to the distribution. You can view the CloudFront CDN
+URL and endpoint information in the endpoints section of the channel's
+details page.
+
+The endpoint is active and can deliver content as soon as requests are
+sent to its URL endpoints. MediaPackage scales resources up and down to
+allow the right amount of capacity for your traffic.
+
+When you're creating an endpoint, you will receive an error if you exceed
+the quotas on the account. An error similar to **`Too many requests,
+ please try again. Resource limit exceeded`** means that either
+you've exceeded the API request quotas, or you've already reached the
+maximum number of endpoints allowed on this channel. If you think you
+received this error wrongfully, use the Service Quotas console to
+[request quota increases](https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/mediapackage/quotas "https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/mediapackage/quotas"). For more
+information about quotas in MediaPackage, see [Quotas in AWS Elemental MediaPackage](quotas.md "quotas.md").

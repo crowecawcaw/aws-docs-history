@@ -1,0 +1,6 @@
+# (Optional) Setting up encryption
+
+Protect your content from unauthorized use through content encryption and digital rights management (DRM). AWS Elemental MediaPackage uses the [AWS Secure Packager and Encoder Key Exchange (SPEKE) API](https://aws.amazon.com/media/tech/speke-basics-secure-packager-encoder-key-exchange-api/ "https://aws.amazon.com/media/tech/speke-basics-secure-packager-encoder-key-exchange-api/") to facilitate content encryption and decryption by a DRM provider. Using SPEKE, the DRM provider supplies encryption keys to MediaPackage through the SPEKE API. The DRM provider also supplies licenses to supported media players for decryption. For more information about how SPEKE is used with services and features running in the cloud, see [AWS cloud-based architecture](../../../speke/latest/documentation/what-is-speke.md#services-architecture "../../../speke/latest/documentation/what-is-speke.md#services-architecture") in the _Secure Packager and Encoder Key Exchange API Specification guide_.
+
+To encrypt content, you must have a DRM solution provider and be set up to use
+encryption. For more information, see [Content encryption and DRM in AWS Elemental MediaPackage](using-encryption.md "using-encryption.md").
