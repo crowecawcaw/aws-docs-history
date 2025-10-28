@@ -1,0 +1,35 @@
+# Generate and verify MAC
+
+Message Authentication Codes (MAC) are typically used to authenticate the integrity of a message (whether it's been modified). Cryptographic hashes
+such as HMAC (Hash-Based Message Authentication Code), CBC-MAC and CMAC (Cipher-based Message Authentication Code) additionally provide additional assurance of
+the sender of the MAC by utilizing cryptography. HMAC is based on hash functions while CMAC is based on block ciphers.
+
+All MAC algorithms of this service combine a cryptographic hash function and a shared secret key.
+They take a message and a secret key, such as the key material in a key,
+and return a unique tag or mac. If even one character of the message changes,
+or if the secret key changes, the resulting tag is entirely different.
+By requiring a secret key, cryptographic MACs also provides authenticity; it is impossible to generate an identical mac without the secret key.
+Cryptographic MACs are sometimes called symmetric signatures, because they work like digital signatures, but use a single key for both signing and verification.
+
+AWS Payment Cryptography supports several types of MACs:
+
+**ISO9797 ALGORITHM 1**
+
+Denoted by `KeyUsage` of ISO9797_ALGORITHM1
+
+**ISO9797 ALGORITHM 3 (Retail MAC)**
+
+Denoted by `KeyUsage` of ISO9797_ALGORITHM3
+
+**ISO9797 ALGORITHM 5 (CMAC)**
+
+Denoted by `KeyUsage` of TR31_M6_ISO_9797_5_CMAC_KEY
+
+**HMAC**
+
+Denoted by `KeyUsage` of TR31_M7_HMAC_KEY including HMAC_SHA224, HMAC_SHA256, HMAC_SHA384 and HMAC_SHA512
+
+###### Topics
+
+- [Generate MAC](generate-mac.md "generate-mac.md")
+- [Verify MAC](verify-mac.md "verify-mac.md")
