@@ -1,0 +1,111 @@
+# Direct Connect
+
+identity-based policy examples using tag-based conditions
+
+You can control access to resources and requests by using tag key conditions. You can
+also use a condition in your IAM policy to control whether specific tag keys can be used
+on a resource or in a request.
+
+For information about how to use tags with IAM policies, see [Controlling Access Using Tags](../../../IAM/latest/UserGuide/access_iam-tags.md "../../../IAM/latest/UserGuide/access_iam-tags.md") in the
+_IAM User Guide_.
+
+## Associating
+
+Direct Connect virtual interfaces based on tags
+
+The following example shows how you might create a policy that allows associating a
+virtual interface only if the tag contains the environment key and the preprod or
+production values.
+
+JSON
+
+```
+ `{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": [
+ "directconnect:AssociateVirtualInterface"
+ ],
+ "Resource": "arn:aws:directconnect:*:*:dxvif/*",
+ "Condition": {
+ "StringEquals": {
+ "aws:ResourceTag/environment": [
+ "preprod",
+ "production"
+ ]
+ }
+ }
+ },
+ {
+ "Effect": "Allow",
+ "Action": "directconnect:DescribeVirtualInterfaces",
+ "Resource": "*"
+ }
+ ]
+ }`
+
+```
+
+## Controlling access to requests based on tags
+
+You can use conditions in your IAM policies to control which tag key–value pairs can be
+passed in a request that tags an AWS resource. The following example shows how you might
+create a policy that allows using the AWS Direct Connect TagResource action to attach tags to a virtual
+interface only if the tag contains the environment key and the preprod or production values.
+As a best practice, use the `ForAllValues` modifier with the
+`aws:TagKeys` condition key to indicate that only the key environment is allowed
+in the request.
+
+JSON
+
+```
+ `{
+ "Version":"2012-10-17",
+ "Statement": {
+ "Effect": "Allow",
+ "Action": "directconnect:TagResource",
+ "Resource": "arn:aws:directconnect:*:*:dxvif/*",
+ "Condition": {
+ "StringEquals": {
+ "aws:RequestTag/environment": [
+ "preprod",
+ "production"
+ ]
+ },
+ "ForAllValues:StringEquals": {"aws:TagKeys": "environment"}
+ }
+ }
+ }`
+
+```
+
+## Controlling tag keys
+
+You can use a condition in your IAM policies to control whether specific tag keys can
+be used on a resource or in a request.
+
+The following example shows how you might create a policy that allows you to tag resources,
+but only with the tag key environment
+
+JSON
+
+```
+ `{
+ "Version":"2012-10-17",
+ "Statement": {
+ "Effect": "Allow",
+ "Action": "directconnect:TagResource",
+ "Resource": "*",
+ "Condition": {
+ "ForAllValues:StringEquals": {
+ "aws:TagKeys": [
+ "environment"
+ ]
+ }
+ }
+ }
+ }`
+
+```
