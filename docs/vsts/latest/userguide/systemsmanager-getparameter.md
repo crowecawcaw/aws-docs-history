@@ -1,0 +1,162 @@
+# AWS SSM Get Parameter task
+
+(AWS Systems Manager Get Parameter Task)
+
+## Synopsis
+
+Reads one or more values from Systems Manager
+Parameter Store into build variables.
+
+## Description
+
+This task reads a parameter value, or hierarchy of values identified by common path,
+into build variables in the build or release definition. These variables are then
+accessible from downstream tasks in the definition. The names used for the build variables
+are customizable.
+
+## Parameters
+
+You can set the following parameters for the task. Required parameters are noted by an
+asterisk (\*). Other parameters are optional.
+
+### Display name\*
+
+The default name of the task instance, which can be modified: Systems Manager Get
+Parameter
+
+### AWS Credentials
+
+Specifies the AWS credentials to be used by the task in the build agent
+environment.
+
+You can specify credentials using a service endpoint (of type AWS) in the task
+configuration or you can leave unspecified. If unspecified the task will attempt to
+obtain credentials from the following sources in order:
+
+- From task variables named _AWS.AccessKeyID_,
+  _AWS.SecretAccessKey_ and optionally
+  _AWS.SessionToken_.
+- From credentials set in environment variables in the build agent process. When
+  using environment variables in the build agent process you may use the standard
+  AWS environment variables: _AWS_ACCESS_KEY_ID_,
+  _AWS_SECRET_ACCESS_KEY_ and optionally
+  _AWS_SESSION_TOKEN_.
+- If the build agent is running on an Amazon EC2 instance, from the instance
+  metadata associated with the EC2 instance. For credentials to be available from
+  EC2 instance metadata the instance must have been started with an instance profile
+  referencing a role granting permissions to the task to make calls to AWS on your
+  behalf. For more information, see [Using an IAM role to grant permissions to applications running on Amazon EC2
+  instances](../../../IAM/latest/UserGuide/id_roles_use_switch-role-ec2.md "../../../IAM/latest/UserGuide/id_roles_use_switch-role-ec2.md").
+
+### AWS Region
+
+The AWS Region code (for example, us-east-1, us-west-2) of the Region containing the
+AWS resources the task will use or create. For more information, see [Regions and endpoints](../../../general/latest/gr/rande.md "../../../general/latest/gr/rande.md") in
+the _Amazon Web Services General Reference_.
+
+If a Region is not specified in the task configuration the task will attempt to
+obtain the Region to be used using the standard AWS environment variable
+_AWS_REGION_ in the build agent process's environment. Tasks
+running in build agents hosted on Amazon EC2 instances (Windows or Linux) will also
+attempt to obtain the Region using the instance metadata associated with the EC2
+instance if no Region is configured on the task or set in the environment
+variable.
+
+**Note:** The Regions listed in the picker are those known
+at the time this software was released. New Regions that are not listed may still be
+used by entering the _region code_ of the Region (for example,
+_us_west_2_).
+
+### Read Mode\*
+
+Whether the task gets the value of a single named parameter or values from a
+parameter hierarchy identified by common parameter path.
+
+### Parameter Name
+
+The name identifying a single parameter to be read from the store. Required if
+_Read Mode_ is set to _Get value for single
+parameter_.
+
+### Parameter Version
+
+If unspecified the value associated with the latest version of the parameter is read.
+If specified the task requests the value associated with the supplied version. Parameter
+versions start at 1 and increment each time a new value is stored for the
+parameter.
+
+This field is only available when Read Mode is set to get a single parameter
+value.
+
+### Parameter Path
+
+The path hierarchy for the parameters to be read. Hierarchies start with, and are
+separated by, a forward slash (/) and may contain up to five levels. The path hierarchy
+can identify a specific parameter in the hierarchy by appending the parameter name, or
+can identify a group of parameters sharing the hierarchy path. If the supplied hierarchy
+contains multiple parameters, all parameter values in the hierarchy are
+downloaded.
+
+**Note:**
+_SecureString_ parameters found in a hierarchy will be automatically
+set as secret variables.
+
+Required if _Read Mode_ is set to _Get values for
+parameter hierarchy_.
+
+### Recursive
+
+Available when reading a parameter hierarchy. If selected then parameter values for
+the specified _Parameter Path_ and all sub-paths are read. If not
+selected only the values for parameters matching the supplied path are read, values in
+sub-paths are ignored.
+
+### Variable Name Transform
+
+Specifies how the build variable names to hold the parameter values are created. You
+can choose from
+
+- Use parameter names (including any paths) as variable names. The full parameter
+  name is used to set the build variable name.
+- Use leaf of parameter names as variable names. The path is removed and the
+  resulting leaf text is used as the build variable name.
+- Replace text in the parameter name using a regular expression to form the build
+  variable name.
+- Use custom name. Available for single parameter read mode only, enables entry
+  of a custom name for the build variable.
+
+### Custom Variable Name
+
+The name of the build variable to hold the parameter value. This value is required if
+_Variable Name Transform_ is set to _Use custom
+name_.
+
+### Search Pattern
+
+A regular expression defining the text in the parameter name that is to be replaced
+to form the variable name. This field is required if _Variable Name
+Transform_ is set to _Replace text in the parameter name using a
+regular expression_.
+
+### Replacement Text
+
+The text to use to replace the matched pattern defined in the _Search
+Pattern_ option. If an empty string is supplied the text identified by the
+pattern is simply removed from the parameter name.
+
+### Global Match
+
+If selected then a global match is performed with the specified pattern. If not
+selected the replacement stops after the first match.
+
+### Case-insensitive Match
+
+If selected a case-insensitive match is performed with the specified pattern.
+
+## Task Permissions
+
+This task requires permissions to call the following AWS service APIs (depending on
+selected task options, not all APIs may be used):
+
+- ssm:GetParameter
+- ssm:GetParametersByPath

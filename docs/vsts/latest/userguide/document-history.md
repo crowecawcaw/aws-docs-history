@@ -1,0 +1,24 @@
+# Document history for AWS Toolkit for Microsoft Azure DevOps
+
+_Last documentation update:_ June 18, 2019
+
+The following table describes important changes to the AWS Toolkit for Microsoft Azure DevOps over the course of its history.
+For notification about updates to this documentation, you can subscribe to an [RSS feed](amazon-tools-for-vsts-guide-doc-history.md "amazon-tools-for-vsts-guide-doc-history.md").
+
+| Change                                                                                                           | Description                                                                                                                  | Date              |
+| ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- | ----------------- |
+| [Added task to Lambda Deploy Function: Task Permissions](lambda-deploy.md "lambda-deploy.md")                    | As of Azure DevOps Toolkit 1.12.0, it is now necessary to include permissions for the task: lambda.GetFunctionConfiguration. | December 1, 2021  |
+| [Security Content](security.md "security.md")                                                                    | Added security content.                                                                                                      | February 4, 2020  |
+| Refresh                                                                                                          | Screenshots with relevant content and task names were refreshed for user-interface updates.                                  | June 18, 2019     |
+| [AWS CloudFormation Create/Update Stack Task](cloudformation-create-update.md "cloudformation-create-update.md") | Added information about the option to log warning messages when no changes are reported.                                     | March 29, 2019    |
+| [Amazon Elastic Container Registry Push Image](ecr-pushimage.md "ecr-pushimage.md")                              | Added permission requirements to the task.                                                                                   | July 25, 2018     |
+| [AWS Systems Manager Set Parameter](systemsmanager-setparameter.md "systemsmanager-setparameter.md")             | Added the AWS Systems Manager Set Parameter task.                                                                            | July 23, 2018     |
+| [AWS Shell Script](awsshell.md "awsshell.md")                                                                    | Added the AWS Shell Script task.                                                                                             | July 23, 2018     |
+| [AWS Secrets Manager Get Secret](secretsmanager-getsecret.md "secretsmanager-getsecret.md")                      | Added the AWS Secrets Manager Get Secret task.                                                                               | July 23, 2018     |
+| [AWS Secrets Manager Create/Update Secret](secretsmanager-create-update.md "secretsmanager-create-update.md")    | Added the AWS Secrets Manager Create/Update Secret task.                                                                     | July 23, 2018     |
+| [AWS Elastic Beanstalk Create Version](elastic-beanstalk-createversion.md "elastic-beanstalk-createversion.md")  | Added the AWS Elastic Beanstalk Create Version task.                                                                         | July 23, 2018     |
+| [Amazon Elastic Container Registry Push Image](ecr-pushimage.md "ecr-pushimage.md")                              | Added the Amazon Elastic Container Registry Push Image task.                                                                 | November 28, 2017 |
+| [AWS Systems Manager Run Command](systemsmanager-runcommand.md "systemsmanager-runcommand.md")                   | Added the AWS Systems Manager Run Command task.                                                                              | November 28, 2017 |
+| [AWS Systems Manager Get Parameter](systemsmanager-getparameter.md "systemsmanager-getparameter.md")             | Added the AWS Systems Manager Get Parameter task.                                                                            | November 28, 2017 |
+| [AWS Lambda .NET Core Deployment task](lambda-netcore-deploy.md "lambda-netcore-deploy.md")                      | Added the AWS Lambda .NET Core Deployment task.                                                                              | November 28, 2017 |
+| Initial Release                                                                                                  | Initial release of SDK developer guide for AWS Toolkit for Microsoft Azure DevOps.                                           | August 14, 2017   |
