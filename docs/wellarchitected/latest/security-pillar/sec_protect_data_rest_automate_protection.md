@@ -1,0 +1,189 @@
+# SEC08-BP03 Automate data at rest protection
+
+Use automation to validate and enforce data at rest controls.  Use
+automated scanning to detect misconfiguration of your data storage
+solutions, and perform remediations through automated programmatic
+response where possible.  Incorporate automation in your CI/CD
+processes to detect data storage misconfigurations before they are
+deployed to production.
+
+**Desired outcome:** Automated
+systems scan and monitor data storage locations for misconfiguration
+of controls, unauthorized access, and unexpected use.  Detection of
+misconfigured storage locations initiates automated remediations.
+ Automated processes create data backups and store immutable copies
+outside of the original environment.
+
+**Common anti-patterns:**
+
+- Not considering options to enable encryption by default
+  settings, where supported.
+- Not considering security events, in addition to operational
+  events, when formulating an automated backup and recovery
+  strategy.
+- Not enforcing public access settings for storage services.
+- Not monitoring and audit your controls for protecting data at
+  rest.
+
+**Benefits of establishing this best
+practice:** Automation helps to prevent the risk of
+misconfiguring your data storage locations. It helps to prevent
+misconfigurations from entering your production environments. This
+best practice also helps with detecting and fixing misconfigurations
+if they occur. 
+
+**Level of risk exposed if this best practice
+is not established:** Medium
+
+## Implementation guidance
+
+Automation is a theme throughout the practices for protecting your
+data at rest.
+[SEC01-BP06 Automate
+deployment of standard security controls](../framework/sec_securely_operate_automate_security_controls.md "../framework/sec_securely_operate_automate_security_controls.md") describes how you
+can capture the configuration of your resources using
+*infrastructure as code* (IaC) templates, such
+as
+with [AWS CloudFormation](https://aws.amazon.com/cloudformation/ "https://aws.amazon.com/cloudformation/").  These templates are committed to a version
+control system, and are used to deploy resources on AWS through a
+CI/CD pipeline.  These techniques equally apply to automating the
+configuration of your data storage solutions, such as encryption
+settings on Amazon S3 buckets.  
+
+You can check the settings that you define in your IaC templates
+for misconfiguration in your CI/CD pipelines using rules in [AWS CloudFormation Guard](../../../cfn-guard/latest/ug/what-is-guard.md "../../../cfn-guard/latest/ug/what-is-guard.md").  You
+can monitor settings that are not yet available in CloudFormation
+or other IaC tooling for misconfiguration with
+[AWS Config](https://aws.amazon.com/config/ "https://aws.amazon.com/config/").  Alerts that Config generates for misconfigurations
+can be remediated automatically, as described in
+[SEC04-BP04 Initiate
+remediation for non-compliant resources](../framework/sec_detect_investigate_events_noncompliant_resources.md "../framework/sec_detect_investigate_events_noncompliant_resources.md").
+
+Using automation as part of your permissions management strategy
+is also an integral component of automated data protections.
+[SEC03-BP02
+Grant least privilege access](../framework/sec_permissions_least_privileges.md "../framework/sec_permissions_least_privileges.md") and
+[SEC03-BP04
+Reduce permissions continuously](../framework/sec_permissions_continuous_reduction.md "../framework/sec_permissions_continuous_reduction.md") describe configuring
+least-privilege access policies that are continually monitored by the [AWS Identity and Access Management Access Analyzer](https://aws.amazon.com/iam/access-analyzer/ "https://aws.amazon.com/iam/access-analyzer/") to generate findings when permission can be reduced.  Beyond
+automation for monitoring permissions, you can configure
+[Amazon GuardDuty](https://aws.amazon.com/guardduty/ "https://aws.amazon.com/guardduty/") to watch for anomalous data access behavior for
+your
+[EBS
+volumes](../../../guardduty/latest/ug/guardduty_finding-types-ec2.md "../../../guardduty/latest/ug/guardduty_finding-types-ec2.md") (by way of an EC2 instance),
+[S3
+buckets](../../../guardduty/latest/ug/s3-protection.md "../../../guardduty/latest/ug/s3-protection.md"), and supported
+[Amazon Relational Database Service databases](../../../guardduty/latest/ug/rds-protection.md "../../../guardduty/latest/ug/rds-protection.md").
+
+Automation also plays a role in detecting when sensitive data is
+stored in unauthorized locations.
+[SEC07-BP03 Automate
+identification and classification](../framework/sec_data_classification_auto_classification.md "../framework/sec_data_classification_auto_classification.md") describes how
+[Amazon Macie](https://aws.amazon.com/macie/ "https://aws.amazon.com/macie/") can monitor your S3 buckets for unexpected sensitive
+data and generate alerts that can initiate an automated response.
+
+Follow the practices in
+[REL09
+Back up data](../reliability-pillar/back-up-data.md "../reliability-pillar/back-up-data.md") to develop an automated data backup and
+recovery strategy. Data backup and recovery is as important for
+recovering from security events as it is for operational events.
+
+### Implementation steps
+
+1. Capture data storage configuration in IaC templates.  Use
+   automated checks in your CI/CD pipelines to detect
+   misconfigurations.
+   1. You can use for [AWS CloudFormation](https://aws.amazon.com/cloudformation/ "https://aws.amazon.com/cloudformation/") your IaC templates, and
+      [AWS CloudFormation
+      Guard](../../../cfn-guard/latest/ug/what-is-guard.md "../../../cfn-guard/latest/ug/what-is-guard.md") for checking templates for misconfiguration.
+   2. Use [AWS Config](https://aws.amazon.com/config/ "https://aws.amazon.com/config/") to run rules in a proactive evaluation mode.
+      Use this setting to check the compliance of a resource as
+      a step in your CI/CD pipeline before creating it.
+
+2. Monitor resources for data storage misconfigurations.
+   1. Set [AWS Config](https://aws.amazon.com/config/ "https://aws.amazon.com/config/") to monitor data storage resources for
+      changes in control configurations and generate alerts to
+      invoke remediation actions when it detects a
+      misconfiguration.
+   2. See
+      [SEC04-BP04 Initiate
+      remediation for non-compliant resources](../framework/sec_detect_investigate_events_noncompliant_resources.md "../framework/sec_detect_investigate_events_noncompliant_resources.md")
+      for more guidance on automated remediations.
+
+3. Monitor and reduce data access permissions continually through
+   automation.
+   1. [IAM Access Analyzer](https://aws.amazon.com/iam/access-analyzer/ "https://aws.amazon.com/iam/access-analyzer/") can run continually to generate
+      alerts when permissions can potentially be reduced.
+
+4. Monitor and alert on anomalous data access behaviors.
+   1. [GuardDuty](https://aws.amazon.com/guardduty/ "https://aws.amazon.com/guardduty/")
+      watches for both known threat signatures and deviations
+      from baseline access behaviors for data storage resources
+      such as EBS volumes, S3 buckets, and RDS databases.
+
+5. Monitor and alert on sensitive data being stored in unexpected
+   locations.
+   1. Use
+      [Amazon Macie](https://aws.amazon.com/macie/ "https://aws.amazon.com/macie/") to continually scan your S3 buckets for
+      sensitive data.
+
+6. Automate secure and encrypted backups of your data.
+   1. [AWS Backup](../../../aws-backup/latest/devguide/whatisbackup.md "../../../aws-backup/latest/devguide/whatisbackup.md") is a managed service that creates encrypted
+      and secure backups of various data sources on AWS.
+       [Elastic
+      Disaster Recovery](https://aws.amazon.com/disaster-recovery/ "https://aws.amazon.com/disaster-recovery/") allows you to copy full server
+      workloads and maintain continuous data protection with a
+      recovery point objective (RPO) measured in seconds.  You
+      can configure both services to work together to automate
+      creating data backups and copying them to failover
+      locations.  This can help keep your data available when
+      impacted by either operational or security events.
+
+## Resources
+
+**Related best practices:**
+
+- [SEC01-BP06
+  Automate deployment of standard security controls](../framework/sec_securely_operate_automate_security_controls.md "../framework/sec_securely_operate_automate_security_controls.md")
+- [SEC03-BP02
+  Grant least privilege access](../framework/sec_permissions_least_privileges.md "../framework/sec_permissions_least_privileges.md")
+- [SEC03-BP04
+  Reduce permissions continuously](../framework/sec_permissions_continuous_reduction.md "../framework/sec_permissions_continuous_reduction.md")
+- [SEC04-BP04 Initiate
+  remediation for non-compliant resources](../framework/sec_detect_investigate_events_noncompliant_resources.md "../framework/sec_detect_investigate_events_noncompliant_resources.md")
+- [SEC07-BP03 Automate
+  identification and classification](../framework/sec_data_classification_auto_classification.md "../framework/sec_data_classification_auto_classification.md")
+- [REL09-BP02
+  Secure and encrypt backups](../reliability-pillar/rel_backing_up_data_secured_backups_data.md "../reliability-pillar/rel_backing_up_data_secured_backups_data.md")
+- [REL09-BP03
+  Perform data backup automatically](../reliability-pillar/rel_backing_up_data_automated_backups_data.md "../reliability-pillar/rel_backing_up_data_automated_backups_data.md")
+
+**Related documents:**
+
+- [AWS Prescriptive Guidance: Automatically encrypt existing and new
+  Amazon EBS volumes](../../../prescriptive-guidance/latest/patterns/automatically-encrypt-existing-and-new-amazon-ebs-volumes.md "../../../prescriptive-guidance/latest/patterns/automatically-encrypt-existing-and-new-amazon-ebs-volumes.md")
+- [Ransomware
+  Risk Management on AWS Using the NIST Cyber Security Framework
+  (CSF)](../../../whitepapers/latest/ransomware-risk-management-on-aws-using-nist-csf/ransomware-risk-management-on-aws-using-nist-csf.md "../../../whitepapers/latest/ransomware-risk-management-on-aws-using-nist-csf/ransomware-risk-management-on-aws-using-nist-csf.md")
+
+**Related examples:**
+
+- [How
+  to use AWS Config proactive rules and AWS CloudFormation Hooks
+  to prevent creation of noncompliant cloud resources](https://aws.amazon.com/blogs/mt/how-to-use-aws-config-proactive-rules-and-aws-cloudformation-hooks-to-prevent-creation-of-non-complaint-cloud-resources/ "https://aws.amazon.com/blogs/mt/how-to-use-aws-config-proactive-rules-and-aws-cloudformation-hooks-to-prevent-creation-of-non-complaint-cloud-resources/")
+- [Automate
+  and centrally manage data protection for Amazon S3 with AWS Backup](https://aws.amazon.com/blogs/storage/automate-and-centrally-manage-data-protection-for-amazon-s3-with-aws-backup/ "https://aws.amazon.com/blogs/storage/automate-and-centrally-manage-data-protection-for-amazon-s3-with-aws-backup/")
+- [AWS re:Invent 2023 - Implement proactive data protection using
+  Amazon EBS snapshots](https://www.youtube.com/watch?v=d7C6XsUnmHc "https://www.youtube.com/watch?v=d7C6XsUnmHc")
+- [AWS re:Invent 2022 - Build and automate for resilience with modern
+  data protection](https://www.youtube.com/watch?v=OkaGvr3xYNk "https://www.youtube.com/watch?v=OkaGvr3xYNk")
+
+**Related tools:**
+
+- [AWS CloudFormation Guard](../../../cfn-guard/latest/ug/what-is-guard.md "../../../cfn-guard/latest/ug/what-is-guard.md")
+- [AWS CloudFormation Guard Rules Registry](https://github.com/aws-cloudformation/aws-guard-rules-registry "https://github.com/aws-cloudformation/aws-guard-rules-registry")
+- [IAM Access Analyzer](https://aws.amazon.com/iam/access-analyzer/ "https://aws.amazon.com/iam/access-analyzer/")
+- [Amazon Macie](https://aws.amazon.com/macie/ "https://aws.amazon.com/macie/")
+- [AWS Backup](../../../aws-backup/latest/devguide/whatisbackup.md "../../../aws-backup/latest/devguide/whatisbackup.md")
+- [Elastic
+  Disaster Recovery](https://aws.amazon.com/disaster-recovery/ "https://aws.amazon.com/disaster-recovery/")
