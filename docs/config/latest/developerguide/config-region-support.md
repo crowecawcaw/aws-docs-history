@@ -1,0 +1,75 @@
+# Region Support for AWS Config
+
+## Considerations
+
+Some features of AWS Config are only supported in a subset of the AWS Regions where AWS Config is supported.
+
+**Resource Management**
+
+- For a list of which AWS resource types are supported in which Regions,
+  see [Resource Coverage by Region Availability](what-is-resource-config-coverage.md "what-is-resource-config-coverage.md").
+
+**AWS Config Rules**
+
+- For a list of which AWS Config rules are supported in which Regions, see [List of AWS Config Managed Rules by Region Availability](managing-rules-by-region-availability.md "managing-rules-by-region-availability.md").
+- For a list of Regions which support the organizational deployment of AWS Config rules, see [Organizational Rules | Region Support](config-rule-multi-account-deployment.md#region-support-org-config-rules "config-rule-multi-account-deployment.md#region-support-org-config-rules").
+
+**Conformance Packs**
+
+- For a list of Regions which support conformance packs and the organizational deployment of conformance packs, see [Conformance Packs | Region Support](conformance-packs.md#conformance-packs-regions "conformance-packs.md#conformance-packs-regions").
+
+**Remediation**
+
+- For a list of Regions which support remediation actions for AWS Config rules, see [Remediation Actions | Region Support](remediation.md#region-support-config-remediation "remediation.md#region-support-config-remediation").
+
+**Aggregators**
+
+- For a list of Regions which support the aggregators, see [Aggregators | Region Support](aggregate-data.md#aggregation-regions "aggregate-data.md#aggregation-regions").
+
+**Advanced Queries**
+
+- For a list of Regions which support advanced queries, see [Advanced Queries | Region Support](querying-AWS-resources.md#query-regionsupport "querying-AWS-resources.md#query-regionsupport").
+- For a list of Regions which support the natural language query processor for advanced queries, see [Natural language query processor for advanced queries | Region Support](query-assistant.md#query-assistant-region-support "query-assistant.md#query-assistant-region-support").
+
+## List of Supported Regions
+
+The following table lists the AWS Regions where you can enable AWS Config.
+
+| Region Name                | Region         | Endpoint                                                           | Protocol    |
+| -------------------------- | -------------- | ------------------------------------------------------------------ | ----------- |
+| US East (Ohio)             | us-east-2      | config.us-east-2.amazonaws.com config-fips.us-east-2.amazonaws.com | HTTPS HTTPS |
+| US East (N. Virginia)      | us-east-1      | config.us-east-1.amazonaws.com config-fips.us-east-1.amazonaws.com | HTTPS HTTPS |
+| US West (N. California)    | us-west-1      | config.us-west-1.amazonaws.com config-fips.us-west-1.amazonaws.com | HTTPS HTTPS |
+| US West (Oregon)           | us-west-2      | config.us-west-2.amazonaws.com config-fips.us-west-2.amazonaws.com | HTTPS HTTPS |
+| Africa (Cape Town)         | af-south-1     | config.af-south-1.amazonaws.com                                    | HTTPS       |
+| Asia Pacific (Hong Kong)   | ap-east-1      | config.ap-east-1.amazonaws.com                                     | HTTPS       |
+| Asia Pacific (Hyderabad)   | ap-south-2     | config.ap-south-2.amazonaws.com                                    | HTTPS       |
+| Asia Pacific (Jakarta)     | ap-southeast-3 | config.ap-southeast-3.amazonaws.com                                | HTTPS       |
+| Asia Pacific (Malaysia)    | ap-southeast-5 | config.ap-southeast-5.amazonaws.com                                | HTTPS       |
+| Asia Pacific (Melbourne)   | ap-southeast-4 | config.ap-southeast-4.amazonaws.com                                | HTTPS       |
+| Asia Pacific (Mumbai)      | ap-south-1     | config.ap-south-1.amazonaws.com                                    | HTTPS       |
+| Asia Pacific (New Zealand) | ap-southeast-6 | config.ap-southeast-6.amazonaws.com                                | HTTPS       |
+| Asia Pacific (Osaka)       | ap-northeast-3 | config.ap-northeast-3.amazonaws.com                                | HTTPS       |
+| Asia Pacific (Seoul)       | ap-northeast-2 | config.ap-northeast-2.amazonaws.com                                | HTTPS       |
+| Asia Pacific (Singapore)   | ap-southeast-1 | config.ap-southeast-1.amazonaws.com                                | HTTPS       |
+| Asia Pacific (Sydney)      | ap-southeast-2 | config.ap-southeast-2.amazonaws.com                                | HTTPS       |
+| Asia Pacific (Taipei)      | ap-east-2      | config.ap-east-2.amazonaws.com                                     | HTTPS       |
+| Asia Pacific (Thailand)    | ap-southeast-7 | config.ap-southeast-7.amazonaws.com                                | HTTPS       |
+| Asia Pacific (Tokyo)       | ap-northeast-1 | config.ap-northeast-1.amazonaws.com                                | HTTPS       |
+| Canada (Central)           | ca-central-1   | config.ca-central-1.amazonaws.com                                  | HTTPS       |
+| Canada West (Calgary)      | ca-west-1      | config.ca-west-1.amazonaws.com                                     | HTTPS       |
+| Europe (Frankfurt)         | eu-central-1   | config.eu-central-1.amazonaws.com                                  | HTTPS       |
+| Europe (Ireland)           | eu-west-1      | config.eu-west-1.amazonaws.com                                     | HTTPS       |
+| Europe (London)            | eu-west-2      | config.eu-west-2.amazonaws.com                                     | HTTPS       |
+| Europe (Milan)             | eu-south-1     | config.eu-south-1.amazonaws.com                                    | HTTPS       |
+| Europe (Paris)             | eu-west-3      | config.eu-west-3.amazonaws.com                                     | HTTPS       |
+| Europe (Spain)             | eu-south-2     | config.eu-south-2.amazonaws.com                                    | HTTPS       |
+| Europe (Stockholm)         | eu-north-1     | config.eu-north-1.amazonaws.com                                    | HTTPS       |
+| Europe (Zurich)            | eu-central-2   | config.eu-central-2.amazonaws.com                                  | HTTPS       |
+| Israel (Tel Aviv)          | il-central-1   | config.il-central-1.amazonaws.com                                  | HTTPS       |
+| Mexico (Central)           | mx-central-1   | config.mx-central-1.amazonaws.com                                  | HTTPS       |
+| Middle East (Bahrain)      | me-south-1     | config.me-south-1.amazonaws.com                                    | HTTPS       |
+| Middle East (UAE)          | me-central-1   | config.me-central-1.amazonaws.com                                  | HTTPS       |
+| South America (São Paulo)  | sa-east-1      | config.sa-east-1.amazonaws.com                                     | HTTPS       |
+| AWS GovCloud (US-East)     | us-gov-east-1  | config.us-gov-east-1.amazonaws.com                                 | HTTPS       |
+| AWS GovCloud (US-West)     | us-gov-west-1  | config.us-gov-west-1.amazonaws.com                                 | HTTPS       |

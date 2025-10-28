@@ -1,0 +1,24 @@
+# dynamodb-table-encrypted-kms
+
+Checks if Amazon DynamoDB table is encrypted with AWS Key Management Service (KMS). The rule is NON_COMPLIANT if Amazon DynamoDB table is not encrypted with AWS KMS.
+The rule is also NON_COMPLIANT if the encrypted AWS KMS key is not present in `kmsKeyArns` input parameter.
+
+**Identifier:** DYNAMODB_TABLE_ENCRYPTED_KMS
+
+**Resource Types:** AWS::DynamoDB::Table
+
+**Trigger type:** Configuration changes
+
+**AWS Region:** All supported AWS regions except Asia Pacific (Taipei) Region
+
+**Parameters:**
+
+kmsKeyArns (Optional)
+Type: CSV
+
+Comma separated list of AWS KMS key ARNs allowed for encrypting Amazon DynamoDB Tables.
+
+## AWS CloudFormation template
+
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed
+Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").

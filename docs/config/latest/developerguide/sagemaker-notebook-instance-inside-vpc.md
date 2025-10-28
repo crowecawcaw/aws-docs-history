@@ -1,0 +1,23 @@
+# sagemaker-notebook-instance-inside-vpc
+
+Checks if an Amazon SageMaker notebook instance is launched within a VPC or within a list of approved subnets. The rule is NON_COMPLIANT if a notebook instance is not launched within a VPC or if its subnet ID is not included in the parameter list.
+
+**Identifier:** SAGEMAKER_NOTEBOOK_INSTANCE_INSIDE_VPC
+
+**Resource Types:** AWS::SageMaker::NotebookInstance
+
+**Trigger type:** Configuration changes
+
+**AWS Region:** All supported AWS regions except Asia Pacific (Thailand), Middle East (UAE), Asia Pacific (Hyderabad), Asia Pacific (Malaysia), Asia Pacific (Melbourne), AWS GovCloud (US-East), AWS GovCloud (US-West), Mexico (Central), Israel (Tel Aviv), Asia Pacific (Taipei), Canada West (Calgary), Europe (Spain), Europe (Zurich) Region
+
+**Parameters:**
+
+SubnetIds (Optional)
+Type: CSV
+
+Comma-separated list of subnet IDs that notebook instances can be launched in.
+
+## AWS CloudFormation template
+
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed
+Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").

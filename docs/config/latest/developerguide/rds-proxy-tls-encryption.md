@@ -1,0 +1,20 @@
+# rds-proxy-tls-encryption
+
+Checks if Amazon RDS proxies enforce TLS for all connections. The rule is NON_COMPLIANT if an Amazon RDS proxy does not have TLS enforced for all connections.
+
+**Identifier:** RDS_PROXY_TLS_ENCRYPTION
+
+**Resource Types:** AWS::RDS::DBProxy
+
+**Trigger type:** Periodic
+
+**AWS Region:** All supported AWS regions except Middle East (Bahrain), China (Beijing), Asia Pacific (Thailand), Asia Pacific (Malaysia), AWS GovCloud (US-East), AWS GovCloud (US-West), Mexico (Central), Asia Pacific (Taipei), Canada West (Calgary), China (Ningxia) Region
+
+**Parameters:**
+
+None
+
+## AWS CloudFormation template
+
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed
+Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").

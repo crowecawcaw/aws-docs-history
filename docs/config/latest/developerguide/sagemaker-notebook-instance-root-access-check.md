@@ -1,0 +1,20 @@
+# sagemaker-notebook-instance-root-access-check
+
+Checks if the Amazon SageMaker RootAccess setting is enabled for Amazon SageMaker notebook instances. The rule is NON_COMPLIANT if the RootAccess setting is set to ‘Enabled’ for an Amazon SageMaker notebook instance.
+
+**Identifier:** SAGEMAKER_NOTEBOOK_INSTANCE_ROOT_ACCESS_CHECK
+
+**Resource Types:** AWS::SageMaker::NotebookInstance
+
+**Trigger type:** Configuration changes
+
+**AWS Region:** All supported AWS regions except Asia Pacific (Thailand), Middle East (UAE), Asia Pacific (Hyderabad), Asia Pacific (Malaysia), Asia Pacific (Melbourne), AWS GovCloud (US-East), AWS GovCloud (US-West), Mexico (Central), Israel (Tel Aviv), Asia Pacific (Taipei), Canada West (Calgary), Europe (Spain), Europe (Zurich) Region
+
+**Parameters:**
+
+None
+
+## AWS CloudFormation template
+
+To create AWS Config managed rules with AWS CloudFormation templates, see [Creating AWS Config Managed
+Rules With AWS CloudFormation Templates](aws-config-managed-rules-cloudformation-templates.md "aws-config-managed-rules-cloudformation-templates.md").
