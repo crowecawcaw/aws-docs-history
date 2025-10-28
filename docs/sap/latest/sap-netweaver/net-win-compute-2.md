@@ -1,0 +1,10 @@
+# Compute
+
+EBS volumes are exposed as NVMe block devices on [Nitro-based instances](../../../AWSEC2/latest/WindowsGuide/instance-types.md#ec2-nitro-instances "../../../AWSEC2/latest/WindowsGuide/instance-types.md#ec2-nitro-instances"). When changing EC2 instance types from a previous generation to a Nitro generation, and if using a Windows Server 2008 R2, or later, Windows AMI, the AWS NVMe driver is already included as described in the [Amazon EBS and NVMe documentation](../../../AWSEC2/latest/WindowsGuide/nvme-ebs-volumes.md "../../../AWSEC2/latest/WindowsGuide/nvme-ebs-volumes.md"). If you are not using the latest Windows AMIs provided by Amazon, see [Installing or Upgrading AWS NVMe Drivers](../../../AWSEC2/latest/WindowsGuide/aws-nvme-drivers.md#install-nvme-drivers "../../../AWSEC2/latest/WindowsGuide/aws-nvme-drivers.md#install-nvme-drivers").
+
+Besides operating system maintenance, there is also maintenance that you can consider for the EC2 instances themselves. This maintenance can be driven by AWS Systems Manager Automation documents. Some examples are:
+
+- Use the AWS-StopEC2InstanceWithApproval document to request that one or more IAM users approve the instance stop action. After the approval is received, automation stops the instance.
+- Use the AWS-StopEC2Instance document to automatically stop instances based on a schedule by using Amazon CloudWatch Events or a Maintenance Window task. For example, you can configure an automation workflow to stop instances every Friday evening, and then restart them every Monday morning.
+- Use the AWS-UpdateCloudFormationStackWithApproval document to update resources that were deployed using an AWS CloudFormation template. The update applies a new template. You can configure the automation to request approval by one or more IAM users before the update begins.
+  We also provide an AWS Solution called [AWS Instance Scheduler](https://aws.amazon.com/solutions/instance-scheduler/ "https://aws.amazon.com/solutions/instance-scheduler/") that enables you to easily configure custom start and stop schedules for their Amazon EC2 and Amazon Relational Database Service (Amazon RDS) instances.

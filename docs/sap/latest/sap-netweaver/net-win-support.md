@@ -1,0 +1,3 @@
+# Support
+
+To get help from SAP, SAP requires, at the minimum, a business support agreement with AWS. [AWS Business Support](https://aws.amazon.com/premiumsupport/business-support/ "https://aws.amazon.com/premiumsupport/business-support/") provides resources and technical support for customers running SAP workloads on AWS. If you have any AWS-related technical issues, you can open a case with either SAP or AWS, and it will be routed to the appropriate teams. AWS also offers [AWS Enterprise Support](https://aws.amazon.com/premiumsupport/enterprise-support/ "https://aws.amazon.com/premiumsupport/enterprise-support/") for customers running mission critical production workloads on AWS.

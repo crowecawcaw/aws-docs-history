@@ -1,0 +1,7 @@
+# Configure patch baselines
+
+Patch Manager uses patch baselines, which include rules for auto-approving patches within days of their release, as well as a list of approved and rejected patches. For information about patch baselines, see [About patch baselines](../../../systems-manager/latest/userguide/about-patch-baselines.md "../../../systems-manager/latest/userguide/about-patch-baselines.md") in the _AWS Systems Manager User Guide_. You can use predefined patch baselines or create custom patch baselines. The sections below contain instructions on how to use both.
+
+For information about patch baselines that is specific to Linux, see [How patch baseline rules work on Linux-based systems](../../../systems-manager/latest/userguide/patch-manager-how-it-works-linux-rules.md "../../../systems-manager/latest/userguide/patch-manager-how-it-works-linux-rules.md") in the _AWS Systems Manager User Guide_.
+
+For information about the differences between Linux and Windows patching, see [Key differences between Linux and Windows patching](../../../systems-manager/latest/userguide/sysman-patch-differences.md "../../../systems-manager/latest/userguide/sysman-patch-differences.md") in the _AWS Systems Manager User Guide_. If your system landscape has a combination of Windows Server and Linux operating systems, such as Windows Server for SAP application servers and Linux for database servers, you can define a baseline for each operating system type.
