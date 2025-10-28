@@ -1,0 +1,14 @@
+# Prerequisites for migrating a BigQuery project to Amazon Redshift
+
+The following prerequisites are also required to complete this walkthrough:
+
+- Familiarity with the AWS Management Console, AWS SCT, Amazon Redshift, Google Cloud management console, and SQL.
+- An AWS user with AWS Identity and Access Management (IAM) credentials. Make sure that you can use these credentials to launch Amazon Redshift clusters and create an Amazon S3 bucket in your AWS Region. For more information, see [Creating an IAM role for your Amazon Redshift cluster](../../../redshift/latest/mgmt/authorizing-redshift-service.md#authorizing-redshift-service-creating-an-iam-role "../../../redshift/latest/mgmt/authorizing-redshift-service.md#authorizing-redshift-service-creating-an-iam-role") and [Create an IAM user for your Amazon S3 bucket](../../../AmazonS3/latest/userguide/setting-up-s3.md#create-an-iam-user-gsg "../../../AmazonS3/latest/userguide/setting-up-s3.md#create-an-iam-user-gsg").
+- Basic knowledge of the Amazon Virtual Private Cloud (Amazon VPC) service and of security groups. For information about using Amazon Redshift in a VPC, see [Managing clusters in a VPC](../../../redshift/latest/mgmt/managing-clusters-vpc.md "../../../redshift/latest/mgmt/managing-clusters-vpc.md").
+- An understanding of the supported features and limitations on using BigQuery as a source for AWS SCT. For more information, see [Using BigQuery as a source](../../../SchemaConversionTool/latest/userguide/CHAP_Source.md "../../../SchemaConversionTool/latest/userguide/CHAP_Source.md") in AWS SCT User Guide.
+- An AWS service profile in AWS SCT with access to the S3 bucket. For more information, see [Storing service profiles](../../../SchemaConversionTool/latest/userguide/CHAP_UserInterface.md#CHAP_UserInterface.Profiles "../../../SchemaConversionTool/latest/userguide/CHAP_UserInterface.md#CHAP_UserInterface.Profiles") in AWS SCT User Guide.
+  For more information about the AWS Schema Conversion Tool, see [https://docs.aws.amazon.com/SchemaConversionTool/latest/userguide/CHAP_Welcome.html](../../../SchemaConversionTool/latest/userguide/CHAP_Welcome.md "../../../SchemaConversionTool/latest/userguide/CHAP_Welcome.md").
+
+For this migration walkthrough, we expect that you are familiar with BigQuery. You can use your BigQuery project for this migration, or create a new one. For example, you can use one of the public BigQuery datasets that are available in [Google Cloud Marketplace](https://console.cloud.google.com/marketplace/browse?filter=solution-type:dataset "https://console.cloud.google.com/marketplace/browse?filter=solution-type:dataset").
+
+We recommend that you don’t use your production workloads for the migration in this walkthrough. After you get familiar with migration tools and AWS services, you can migrate your production workloads.

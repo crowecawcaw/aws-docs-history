@@ -1,0 +1,3 @@
+# Step-by-step Amazon RDS for Oracle database to Amazon S3 data lake migration conclusion
+
+In this walkthrough, we covered all steps that you need to take to migrate a sales history data warehouse from Oracle to an Amazon S3 data lake. Our example company can use this data lake for machine learning and analysis use cases. We achieved the crucial business requirements by using AWS DMS. Try out these steps to migrate your data to an Amazon S3 data lake and explore how you can centralize your data with a low-cost solution. To learn more about AWS DMS service, see [Database Migration Service Documentation](../../index.md "../../index.md").
