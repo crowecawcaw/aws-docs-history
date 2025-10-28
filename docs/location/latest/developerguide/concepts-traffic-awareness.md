@@ -1,0 +1,8 @@
+# Traffic awareness
+
+Determines the type of traffic-related information used during route calculation. Flow traffic represents congestion, excluding long-term incident-related congestion. The accuracy of flow traffic data decreases over time, making historical traffic data more reliable for past events.
+
+| Parameter                  | Description                                                                                                                                                                                                                                                      | Routes | Routes Matrix | Isoline | Optimize Waypoint | Snap To Road |
+| -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ | ------------- | ------- | ----------------- | ------------ |
+| Usage                      | Enable or disable traffic data during route calculation. When enabled, if `DepartureTime`, `ArrivalTime`, or `DepartNow` are not provided, only long-term closures will be considered. Otherwise, if a time is provided, all traffic data is taken into account. | Yes    | Yes           | Yes     | Yes               | No           |
+| FlowEventThresholdOverride | Duration in seconds for which a flow traffic event is considered valid. While valid, flow traffic data will be used over historical traffic data.                                                                                                                | Yes    | Yes           | Yes     | No                | No           |
