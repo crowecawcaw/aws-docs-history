@@ -1,0 +1,258 @@
+# Creating Grafana managed
+
+alert rules
+
+This documentation topic is designed
+for Grafana workspaces that support **Grafana version
+9.x**.
+
+For Grafana workspaces that support Grafana version 10.x, see
+[Working in Grafana version 10](using-grafana-v10.md "using-grafana-v10.md").
+
+For Grafana workspaces that support Grafana version 8.x, see
+[Working in Grafana version 8](using-grafana-v8.md "using-grafana-v8.md").
+
+Grafana allows you to create alerting rules that query one or more data sources,
+reduce or transform the results and compare them to each other or to fixed
+thresholds. When these are run, Grafana sends notifications to the contact
+point.
+
+###### To add a Grafana managed rule
+
+1. From your Grafana console, in the Grafana menu, choose the
+   **Alerting** (bell) icon to open the
+   **Alerting** page listing existing alerts.
+2. Choose **New alert rule**.
+3. In **Step 1**, add the rule name, type and storage
+   location, as follows:
+   - In **Rule name**, add a descriptive name. This
+     name is displayed in the alert rules list. It is also the
+     `alertname` label for every alert instance that is
+     created from this rule.
+   - From the **Rule type** dropdown, select
+     **Grafana managed alert**.
+   - From the **Folder** dropdown, select the folder
+     where you want to store the rule. If you do not select a folder, the
+     rule is stored in the `General` folder. To create a
+     folder, select the dropdown and enter a new folder name.
+
+4. In **Step 2**, add the queries and expressions to
+   evaluate.
+   - Keep the default name or hover over and choose the edit icon to
+     change the name.
+   - For queries, select a data source from the dropdown.
+   - Add one or more [queries
+     or expressions](v9-panels-query-xform-expressions.md "v9-panels-query-xform-expressions.md").
+   - For each expression, select either **Classic
+     condition** to create a single alert rule, or choose
+     from **Math**, **Reduce**,
+     **Resample** options to generate separate
+     alerts for each series. For details on these options, see [Single and multidimensional rules](#v9-alerting-single-multi-rule "#v9-alerting-single-multi-rule").
+   - Choose **Run queries** to verify that the query
+     is successful.
+
+5. In **Step 3**, add conditions.
+   - From the **Condition** dropdown, select the query
+     or expression to initiate the alert rule.
+   - For **Evaluate every**, specify the frequency of
+     evaluation. Must be a multiple of 10 seconds. For example,
+     `1m`, `30s`.
+   - For **Evaluate for**, specify the duration for
+     which the condition must be true before an alert is
+     initiated.
+
+   ###### Note
+
+   After a condition is breached, the alert goes into
+   `Pending` state. If the condition remains
+   breached for the duration specified, the alert transitions to
+   the `Firing` state. If it is no longer met, it
+   reverts to the `Normal` state.
+   - In **Configure no data and error handling**,
+     configure alerting behavior in the absence of data. use the
+     guidelines in [Handling no data or error cases](#v9-alerting-rule-no-data-error "#v9-alerting-rule-no-data-error").
+   - Choose **Preview alerts** to check the result of
+     running the query at this moment. Preview excludes no data and error
+     handling conditions.
+
+6. In **Step 4**, add additional metadata associated with
+   the rule.
+   - Add a description and summary to customize alert messages. Use the
+     guidelines in [Labels and annotations](v9-alerting-explore-labels.md "v9-alerting-explore-labels.md").
+   - Add Runbook URL, panel, dashboard, and alert IDs.
+   - Add custom labels.
+
+7. Choose **Save** to save the rule or **Save and
+   exit** to save the rule and go back to the
+   **Alerting** page.
+   After you have created your rule, you can create a notification for your rule.
+   For more information about notifications, see [Manage your alert
+   notifications](v9-alerting-managenotifications.md "v9-alerting-managenotifications.md").
+
+## Single and multidimensional rules
+
+For Grafana managed alert rules, you can create a rule with a classic
+condition or you can create a multidimensional rule.
+
+**Single dimensional rule (classic
+condition)**
+
+Use a classic condition expression to create a rule that initiates a single
+alert when its condition is met. For a query that returns multiple series,
+Grafana does not track the alert state of each series. As a result, Grafana
+sends only a single alert even when alert conditions are met for multiple
+series.
+
+For more information about how to format expressions, see [Expressions](https://grafana.com/docs/grafana/next/panels/query-a-data-source/ "https://grafana.com/docs/grafana/next/panels/query-a-data-source/") in the _Grafana
+documentation_.
+
+**Multidimensional rule**
+
+To generate a separate alert instance for each series returned in the query,
+create a multidimensional rule.
+
+###### Note
+
+Each alert instance generated by a multi-dimensional rule counts toward
+your total quota of alerts. Rules are not evaluated when you reach your
+quota of alerts. For more information about quotas for multi-dimensional
+rules, see [Quota reached errors](#v9-alerting-rule-quota-reached "#v9-alerting-rule-quota-reached").
+
+To create multiple instances from a single rule, use `Math`,
+`Reduce`, or `Resample` expressions to create a
+multidimensional rule. For example, you can:
+
+- Add a `Reduce` expression for each query to aggregate
+  values in the selected time range into a single value. (Not needed for
+  [rules using numeric
+  data](v9-alerting-explore-numeric.md "v9-alerting-explore-numeric.md")).
+- Add a `Math` expression with the condition for the rule.
+  This is not needed in case a query or a reduce expression already
+  returns 0 if rule should not initiate an alert, or a positive number if
+  it should initiate an alert.
+
+Some examples:
+
+    + `$B > 70` if it should initiate an alert in case
+     value of B query/expression is more than 70.
+    + `$B < $C * 100` in case it should initiate an
+     alert if value of B is less than value of C multiplied by 100.
+     If queries being compared have multiple series in their results,
+     series from different queries are matched if they have the same
+     labels, or one is a subset of the other.
+
+###### Note
+
+Grafana does not support alert queries with template variables. More
+information is available at the community page [Template variables are not supported in alert queries while setting up
+Alert](https://community.grafana.com/t/template-variables-are-not-supported-in-alert-queries-while-setting-up-alert/2514 "https://community.grafana.com/t/template-variables-are-not-supported-in-alert-queries-while-setting-up-alert/2514").
+
+**Performance considerations for multidimensional
+rules**
+
+Each alert instance counts toward the alert quota. Multidimensional rules that
+create more instances than can be accommodated within the alert quota are not
+evaluated and return a quota error. For more information, see [Quota reached errors](#v9-alerting-rule-quota-reached "#v9-alerting-rule-quota-reached").
+
+Multidimensional alerts can have a high impact on the performance of your
+Grafana workspace, as well as on the performance of your data sources as Grafana
+queries them to evaluate your alert rules. The following considerations can be
+helpful as you are trying to optimize the performance of your monitoring
+system.
+
+- **Frequency of rule evaluation** –
+  The **Evaluate Every** property of an alert rule
+  controls the frequency of rule evaluation. We recommend using the lowest
+  acceptable evaluation frequency.
+- **Result set cardinality** – The
+  number of alert instances you create with a rule affects its
+  performance. Suppose you are monitoring API response errors for every
+  API path, on every VM in your fleet. This set has a cardinality of the
+  number of paths multiplied by the number of VMs. You can reduce the
+  cardinality of the result set, for example, by monitoring total errors
+  per VM instead of per path per VM.
+- **Complexity of the query** –
+  Queries that data sources can process and respond to quickly consume
+  fewer resources. Although this consideration is less important than the
+  other considerations listed above, if you have reduced those as much as
+  possible, looking at individual query performance could make a
+  difference. You should also be aware of the performance impact that
+  evaluating these rules has on your data sources. Alerting queries are
+  often the vast majority of queries handled by monitoring databases, so
+  the same load factors that affect the Grafana instance affect them as
+  well.
+
+## Quota reached errors
+
+There is a quota for the number of alert instances you can have within a
+single workspace. When you reach that number, you can no longer create new alert
+rules in that workspace. With multidimensional alerts, the number of alert
+instances can vary over time.
+
+The following are important to remember when working with alert
+instances.
+
+- If you create only single-dimensional rules, each rule is a
+  single alert instance. You can create the same number of rules in a
+  single workspace as your alert-instance quota, and no more.
+- Multidimensional rules create multiple alert instances, however, the
+  number is not known until they are evaluated. For example, if you create
+  an alert rule that tracks the CPU usage of your Amazon EC2 instances, there
+  might be 50 EC2 instances when you create it (and therefore 50 alert
+  instances), but if you add 10 more EC2 instances a week later, the next
+  evaluation has 60 alert instances.
+
+The number of alert instances is evaluated when you create a
+multidimensional alert, and you can't create one that immediately
+puts you over your alert instance quota. Because the number of alert
+instances can change, your quota is checked each time that your
+rules are evaluated.
+
+- At rule evaluation time, if a rule causes you to go beyond your quota
+  for alert instances, that rule is not evaluated until an update is
+  made to the alert rule that brings the total count of alert instances
+  below the service quota. When this happens, you receive an alert
+  notification letting you know that your quota has been reached (the
+  notification uses the notification policy for the rule being
+  evaluated). The notification includes an `Error`
+  annotation with the value `QuotaReachedError`.
+- A rule that causes a `QuotaReachedError` stops being
+  evaluated. Evaluation is only resumed when an update is made and
+  the evaluation after the update does not itself cause a
+  `QuotaReachedError`. A rule that is not being evaluated
+  shows the **Quota reached** error in the Grafana
+  console.
+- You can lower the number of alert instances by removing alert rules,
+  or by editing multidimensional alerts to have fewer alert instances (for
+  example, by having one alert on errors per VM, rather than one alert on
+  error per API in a VM).
+- To resume evaluations, update the alert and save it. You can update it
+  to lower the number of alert instances, or if you have made other
+  changes to lower the number of alert instances, you can save it
+  with no changes. If it can be resumed, it is. If it causes another
+  `QuotaReachedError`, you are not able to save
+  it.
+- When an alert is saved and resumes evaluation without going over the
+  alerts quota, the **Quota reached** error can continue
+  to show in the Grafana console for some time (up to its evaluation
+  interval), however, the alert rule evaluation does start and alerts are
+  sent if the rule threshold is met.
+- For details on the alerts quota, as well as other quotas, see [Amazon Managed Grafana service quotas](AMG_quotas.md "AMG_quotas.md").
+
+## Handling no data or error cases
+
+Choose options for how to handle alerting behavior in the absence of data or
+when there are errors.
+
+The options for handling no data are listed in the following table.
+
+| No Data option          | Behavior                                                                                                                                |
+| ----------------------- | --------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------- |
+| No Data                 | Create an alert `DatasourceNoData` with the name and UID of the alert rule, and UID of the data source that returned no data as labels. |
+| Alerting                | Set alert rule state to `Alerting`.                                                                                                     |
+| OK                      | Set alert rule state to `Normal`.                                                                                                       | The options for handling error cases are listed in the following table. |
+| Error or timeout option | Behavior                                                                                                                                |
+| ---                     | ---                                                                                                                                     |
+| Alerting                | Set alert rule state to `Alerting`                                                                                                      |
+| OK                      | Set alert rule state to `Normal`                                                                                                        |
+| Error                   | Create an alert `DatasourceError` with the name and UID of the alert rule, and UID of the data source that returned no data as labels.  |
