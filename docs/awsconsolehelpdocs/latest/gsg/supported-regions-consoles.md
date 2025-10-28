@@ -1,0 +1,162 @@
+# Supported AWS Regions, service consoles, and
+
+features for Private Access
+
+AWS Management Console Private Access supports only a subset of Regions and AWS services. Unsupported
+service consoles will be inactive in the AWS Management Console. In addition, certain AWS Management Console features
+might be disabled when using AWS Management Console Private Access, for example, the [Default
+Region](select-region.md "select-region.md") selection in Unified Settings.
+
+The following Regions and service consoles are supported.
+
+###### Supported Regions
+
+- US East (Ohio)
+- US East (N. Virginia)
+- US West (N. California)
+- US West (Oregon)
+- Asia Pacific (Hyderabad)
+- Asia Pacific (Mumbai)
+- Asia Pacific (Seoul)
+- Asia Pacific (Osaka)
+- Asia Pacific (Singapore)
+- Asia Pacific (Sydney)
+- Asia Pacific (Malaysia)
+- Asia Pacific (Thailand)
+- Asia Pacific (Tokyo)
+- Canada (Central)
+- Europe (Frankfurt)
+- Europe (Ireland)
+- Europe (London)
+- Europe (Paris)
+- Europe (Stockholm)
+- South America (São Paulo)
+- Africa (Cape Town)
+- Asia Pacific (Hong Kong)
+- Asia Pacific (Jakarta)
+- Asia Pacific (Melbourne)
+- Canada West (Calgary)
+- Mexico (Central)
+- Europe (Milan)
+- Europe (Spain)
+- Europe (Zurich)
+- Middle East (Bahrain)
+- Middle East (UAE)
+- Israel (Tel Aviv)
+
+###### Supported service consoles
+
+- Amazon API Gateway
+- AWS App Mesh
+- AWS Application Migration Service
+- AWS Artifact
+- Amazon Athena
+- AWS Audit Manager
+- AWS Auto Scaling
+- AWS Batch
+- AWS Billing Conductor
+- AWS Billing and Cost Management
+- AWS Budgets
+- AWS Certificate Manager
+- AWS Cloud Map
+- AWS CloudFormation
+- Amazon CloudFront
+- AWS CloudTrail
+- Amazon CloudWatch
+- AWS CodeArtifact
+- AWS CodeBuild
+- AWS CodeCommit
+- AWS CodeDeploy
+- Amazon CodeGuru
+- AWS CodePipeline
+- Amazon Comprehend
+- Amazon Comprehend Medical
+- AWS Compute Optimizer
+- AWS Console Home
+- AWS Control Tower
+- Amazon DataZone
+- AWS Database Migration Service
+- AWS DataSync
+- AWS DeepRacer
+- AWS Direct Connect
+- AWS Directory Service
+- Amazon DocumentDB
+- Amazon DynamoDB
+- Amazon EC2
+- Amazon EC2 Global View
+- EC2 Image Builder
+- Amazon EC2 Instance Connect
+- Amazon Elastic Container Registry
+- Amazon Elastic Container Service
+- AWS Elastic Disaster Recovery
+- Amazon Elastic File System
+- Amazon Elastic Kubernetes Service
+- Elastic Load Balancing
+- Amazon ElastiCache
+- Amazon EMR
+- Amazon EventBridge
+- AWS Firewall Manager
+- Amazon GameLift Servers
+- AWS Glue
+- AWS Global Accelerator
+- AWS Glue DataBrew
+- AWS Ground Station
+- Amazon GuardDuty
+- AWS IAM Identity Center
+- AWS Identity and Access Management
+- AWS Identity and Access Management Access Analyzer
+- Amazon Inspector
+- Amazon Kendra
+- AWS Key Management Service
+- Amazon Kinesis
+- Amazon Managed Service for Apache Flink
+- Amazon Data Firehose
+- Amazon Kinesis Data Streams
+- Amazon Kinesis Video Streams
+- AWS Lambda
+- Amazon Lex
+- AWS License Manager
+- Amazon Managed Grafana
+- Amazon Macie
+- Amazon Managed Streaming for Apache Kafka
+- Amazon Managed Workflows for Apache Airflow (MWAA)
+- AWS Migration Hub Strategy Recommendations
+- Amazon MQ
+- Network Access Analyzer
+- AWS Network Firewall
+- AWS Network Manager
+- Amazon OpenSearch Service
+- AWS Organizations
+- AWS Private Certificate Authority
+- Public Health Dashboard
+- Amazon Rekognition
+- Amazon Relational Database Service
+- AWS Resource Access Manager
+- AWS Resource Groups and Tag Editor
+- Amazon Route 53 Resolver
+- Amazon Route 53 Resolver DNS Firewall
+- Amazon S3 on Outposts
+- Amazon SageMaker
+- Amazon SageMaker Runtime
+- Amazon SageMaker AI Synthetic Data
+- AWS Secrets Manager
+- AWS Service Catalog
+- AWS Security Hub
+- Service Quotas
+- AWS Signer
+- Amazon Simple Email Service
+- Amazon SNS
+- Amazon Simple Queue Service
+- Amazon Simple Storage Service (Amazon S3)
+- AWS SQL Workbench
+- AWS Step Functions
+- AWS Storage Gateway
+- Support
+- AWS Systems Manager
+- Amazon Timestream
+- AWS Transfer Family
+- AWS Trusted Advisor
+- Unified Settings
+- Amazon VPC IP Address Manager
+- Amazon Virtual Private Cloud
+- Amazon WorkSpaces Thin client
