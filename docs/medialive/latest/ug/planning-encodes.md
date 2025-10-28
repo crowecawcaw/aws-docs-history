@@ -1,0 +1,14 @@
+# Identify the output encodes
+
+When you prepared the downstream systems, you [identified the output groups](identify-downstream-system.md "identify-downstream-system.md") that you need. Now, as part of the planning of the
+channel, you must identify the encodes to include in each output group you have decided to
+create. An _encode_ refers to the audio, video, or captions
+streams in the output.
+
+###### Topics
+
+- [Identify the video encodes](channel-planning-video-encodes.md "channel-planning-video-encodes.md")
+- [Identify the audio encodes](channel-planning-audio-encodes.md "channel-planning-audio-encodes.md")
+- [Identify the captions encodes](channel-planning-captions-encodes.md "channel-planning-captions-encodes.md")
+- [Summary of encode rules for output groups](encode-rules.md "encode-rules.md")
+- [Example of a plan for output encodes](plan-encodes-example.md "plan-encodes-example.md")
