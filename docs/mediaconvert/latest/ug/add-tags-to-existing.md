@@ -1,0 +1,32 @@
+# Adding tags to an existing AWS Elemental MediaConvert
+
+resource
+
+The following procedure shows you how to add tags to existing job templates, output
+presets, or queues using the AWS Elemental MediaConvert console. You can't use the console to add
+tags to existing jobs.
+
+For information about adding tags using the API, see the `POST` method in
+the [Tags](../apireference/tags.md "../apireference/tags.md") endpoint section of the _MediaConvert API Reference_.
+
+###### Note
+
+Tags on your MediaConvert resources don't appear in the JSON response to a
+`GET` request on the resource. Instead, send a `GET`
+request to the `Tags` endpoint. If you send your request directly to the
+API, rather than using an SDK, you must URL encode the resource ARN.
+
+###### To add tags to job templates, output presets, and queues (console)
+
+1. Open the MediaConvert console at [https://console.aws.amazon.com/mediaconvert](https://console.aws.amazon.com/mediaconvert "https://console.aws.amazon.com/mediaconvert").
+2. Choose the three-bar icon on the left to access the left navigation pane.
+3. Choose **Output presets**, **Job
+   templates**, or **Queues**.
+4. Choose the name of the specific resource that you want to add a tag to.
+5. Choose the **Update**, **Edit queue**, or
+   **Update preset** button in the upper right.
+6. In the **Tags** section at the bottom of the page, choose
+   **Add**.
+7. For **Tag key**, enter a name for the tag. For **Tag
+   value**, enter a value for the tag.
+8. Choose **Save**.
