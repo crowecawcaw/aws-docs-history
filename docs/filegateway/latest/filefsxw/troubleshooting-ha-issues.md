@@ -1,0 +1,96 @@
+Amazon FSx File Gateway is no longer available to new customers. Existing
+customers of FSx File Gateway can continue to use the service normally. For capabilities
+similar to FSx File Gateway, visit [this blog post](https://aws.amazon.com/blogs/storage/switch-your-file-share-access-from-amazon-fsx-file-gateway-to-amazon-fsx-for-windows-file-server/ "https://aws.amazon.com/blogs/storage/switch-your-file-share-access-from-amazon-fsx-file-gateway-to-amazon-fsx-for-windows-file-server/").
+
+# Troubleshooting: high availability
+
+issues
+
+You can find information following about actions to take if you experience availability
+issues.
+
+###### Topics
+
+- [Health notifications](#ha-health-notifications "#ha-health-notifications")
+- [Metrics](#ha-health-notification-metrics "#ha-health-notification-metrics")
+
+## Health notifications
+
+When you run your gateway on VMware vSphere HA, all gateways produce the following
+health notifications to your configured Amazon CloudWatch log group. These notifications go into
+a log stream called `AvailabilityMonitor`.
+
+###### Topics
+
+- [Notification: Reboot](#troubleshoot-reboot-notification "#troubleshoot-reboot-notification")
+- [Notification:
+  HardReboot](#troubleshoot-hardreboot-notification "#troubleshoot-hardreboot-notification")
+- [Notification:
+  HealthCheckFailure](#troubleshoot-healthcheckfailure-notification "#troubleshoot-healthcheckfailure-notification")
+- [Notification:
+  AvailabilityMonitorTest](#troubleshoot-availabilitymonitortest-notification "#troubleshoot-availabilitymonitortest-notification")
+
+### Notification: Reboot
+
+You can get a reboot notification when the gateway VM is restarted. You can
+restart a gateway VM by using the VM Hypervisor Management console or the
+Storage Gateway console. You can also restart by using the gateway software during the
+gateway's maintenance cycle.
+
+**Action to Take**
+
+If the time of the reboot is within 10 minutes of the gateway's configured
+[maintenance start time](MaintenanceManagingUpdate-common.md "MaintenanceManagingUpdate-common.md"),
+this is probably a normal occurrence and not a sign of any problem. If the reboot
+occurred significantly outside the maintenance window, check whether the gateway was
+restarted manually.
+
+### Notification:
+
+HardReboot
+
+You can get a `HardReboot` notification when the gateway VM is
+restarted unexpectedly. Such a restart can be due to loss of power, a hardware
+failure, or another event. For VMware gateways, a reset by vSphere High Availability
+Application Monitoring can cause this event.
+
+**Action to Take**
+
+When your gateway runs in such an environment, check for the presence of the
+`HealthCheckFailure` notification and consult the VMware events log
+for the VM.
+
+### Notification:
+
+HealthCheckFailure
+
+For a gateway on VMware vSphere HA, you can get a `HealthCheckFailure`
+notification when a health check fails and a VM restart is requested. This event
+also occurs during a test to monitor availability, indicated by an
+`AvailabilityMonitorTest` notification. In this case, the
+`HealthCheckFailure` notification is expected.
+
+###### Note
+
+This notification is for VMware gateways only.
+
+**Action to Take**
+
+If this event repeatedly occurs without an `AvailabilityMonitorTest`
+notification, check your VM infrastructure for issues (storage, memory, and so on).
+If you need additional assistance, contact Support.
+
+### Notification:
+
+AvailabilityMonitorTest
+
+For a gateway on VMware vSphere HA, you can get an
+`AvailabilityMonitorTest` notification when you [run a test](vmware-ha.md#vmware-ha-test-failover "vmware-ha.md#vmware-ha-test-failover") of the [Availability and application monitoring](../../../storagegateway/latest/APIReference/API_StartAvailabilityMonitorTest.md "../../../storagegateway/latest/APIReference/API_StartAvailabilityMonitorTest.md") system in VMware.
+
+## Metrics
+
+The `AvailabilityNotifications` metric is available on all gateways. This
+metric is a count of the number of availability-related health notifications generated
+by the gateway. Use the `Sum` statistic to observe whether the gateway is
+experiencing any availability-related events. Consult with your configured CloudWatch log
+group for details about the events.
