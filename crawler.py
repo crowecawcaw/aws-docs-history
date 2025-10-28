@@ -8,11 +8,14 @@ from __future__ import annotations
 
 import argparse
 from concurrent.futures import ThreadPoolExecutor
+from datetime import datetime, timezone
+import json
 import logging
 import os
 import posixpath
 import queue
 import shutil
+import sys
 import threading
 import time
 import xml.etree.ElementTree as ET
@@ -647,6 +650,97 @@ class AwsDocsCrawler:
             for _ in range(self.max_workers):
                 self._url_queue.put(None)
 
+    def discover_services(self) -> list[dict]:
+        """Discover all services from sitemap index and return metadata."""
+        LOGGER.info("Fetching sitemap index from %s", SITEMAP_INDEX_URL)
+
+        try:
+            self._rate_limiter.acquire()
+            response = self.session.get(SITEMAP_INDEX_URL, timeout=30)
+            response.raise_for_status()
+        except requests.RequestException as exc:
+            LOGGER.error("Failed to fetch sitemap index: %s", exc)
+            return []
+
+        try:
+            root = ET.fromstring(response.text)
+        except ET.ParseError as exc:
+            LOGGER.error("Failed to parse sitemap index XML: %s", exc)
+            return []
+
+        # Extract all sitemap URLs
+        ns = {"sm": "http://www.sitemaps.org/schemas/sitemap/0.9"}
+        locs = root.findall(".//sm:loc", ns)
+        if not locs:
+            locs = root.findall(".//loc")
+
+        services = []
+        for loc in locs:
+            sitemap_url = (loc.text or "").strip()
+            if not sitemap_url:
+                continue
+
+            # Parse the sitemap URL to filter services
+            if not self._should_include_sitemap(sitemap_url):
+                continue
+
+            # Extract service path from sitemap URL
+            # e.g., /AmazonS3/latest/userguide/sitemap.xml -> /AmazonS3/latest/userguide/
+            parsed = urlparse(sitemap_url)
+            path = parsed.path.rstrip("/")
+            if path.endswith("/sitemap.xml"):
+                service_path = path[:-len("/sitemap.xml")]
+            else:
+                service_path = path.rstrip("/")
+
+            service_url = "/" + service_path.lstrip("/") + "/"
+
+            # Extract service name (first path component)
+            parts = [p for p in service_path.split("/") if p]
+            service_name = parts[0] if parts else "unknown"
+
+            # Count pages in this sitemap
+            page_count = self._count_sitemap_pages(sitemap_url)
+
+            services.append({
+                "url": service_url,
+                "name": service_name,
+                "page_count": page_count,
+                "last_discovered": datetime.now(timezone.utc).isoformat(),
+            })
+
+        LOGGER.info("Discovered %d services", len(services))
+        return services
+
+    def _count_sitemap_pages(self, sitemap_url: str) -> int:
+        """Count the number of pages in a sitemap."""
+        try:
+            self._rate_limiter.acquire()
+            response = self.session.get(sitemap_url, timeout=30)
+            response.raise_for_status()
+        except requests.RequestException as exc:
+            LOGGER.warning("Failed to fetch sitemap %s: %s", sitemap_url, exc)
+            return 0
+
+        try:
+            root = ET.fromstring(response.text)
+        except ET.ParseError as exc:
+            LOGGER.warning("Failed to parse sitemap XML from %s: %s", sitemap_url, exc)
+            return 0
+
+        ns = {"sm": "http://www.sitemaps.org/schemas/sitemap/0.9"}
+        locs = root.findall(".//sm:loc", ns)
+        if not locs:
+            locs = root.findall(".//loc")
+
+        count = 0
+        for loc in locs:
+            url = (loc.text or "").strip()
+            if url and self.link_checker(normalise_url(url)):
+                count += 1
+
+        return count
+
     def _discover_from_sitemap_index(self) -> None:
         """Fetch the sitemap index and discover all service sitemaps."""
         LOGGER.info("Fetching sitemap index from %s", SITEMAP_INDEX_URL)
@@ -925,47 +1019,113 @@ class AwsDocsCrawler:
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Crawl AWS documentation using sitemaps.")
+
+    # Global arguments
     parser.add_argument(
+        "--log-level",
+        default="INFO",
+        help="Python logging level (e.g. INFO, DEBUG).",
+    )
+
+    # Create subparsers for different commands
+    subparsers = parser.add_subparsers(dest="command", help="Command to run")
+
+    # Default crawl command (for backward compatibility)
+    crawl_parser = subparsers.add_parser("crawl", help="Crawl AWS documentation (default)")
+    crawl_parser.add_argument(
         "--output-dir",
         default="docs",
         type=Path,
         help="Directory where Markdown files should be written.",
     )
-    parser.add_argument(
+    crawl_parser.add_argument(
         "--max-workers",
         type=int,
         default=8,
         help="Number of worker threads to use for crawling.",
     )
-    parser.add_argument(
+    crawl_parser.add_argument(
         "--requests-per-second",
         type=float,
         default=10.0,
         help="Maximum number of HTTP requests per second. Set to 0 to disable throttling.",
     )
-    parser.add_argument(
+    crawl_parser.add_argument(
         "--service-url",
         type=str,
         help="Service guide URL to crawl (e.g., 'https://docs.aws.amazon.com/AmazonS3/latest/userguide/' or '/AmazonS3/latest/userguide/'). If not provided, all services will be crawled.",
     )
-    parser.add_argument(
+    crawl_parser.add_argument(
         "--allowed-prefix",
         dest="allowed_prefixes",
         action="append",
         metavar="PATH",
         help="Restrict crawling to URLs with this path prefix. Can be provided multiple times.",
     )
-    parser.add_argument(
-        "--log-level",
-        default="INFO",
-        help="Python logging level (e.g. INFO, DEBUG).",
-    )
-    parser.add_argument(
+    crawl_parser.add_argument(
         "--dry-run",
         action="store_true",
         help="Discover and list all guides with page counts without actually crawling them.",
     )
-    return parser.parse_args()
+
+    # Discover command
+    discover_parser = subparsers.add_parser("discover", help="Discover services from sitemap and save to JSON")
+    discover_parser.add_argument(
+        "--output",
+        type=Path,
+        default="services.json",
+        help="Output JSON file path (default: services.json)",
+    )
+    discover_parser.add_argument(
+        "--requests-per-second",
+        type=float,
+        default=10.0,
+        help="Maximum number of HTTP requests per second. Set to 0 to disable throttling.",
+    )
+    discover_parser.add_argument(
+        "--dry-run",
+        action="store_true",
+        help="Print discovered services without saving to file.",
+    )
+
+    # Crawl-services command
+    crawl_services_parser = subparsers.add_parser(
+        "crawl-services",
+        help="Crawl multiple specific services by URL"
+    )
+    crawl_services_parser.add_argument(
+        "services",
+        type=str,
+        help="Comma-separated list of service URLs (e.g., '/AmazonS3/latest/userguide/,/AmazonEC2/latest/userguide/')",
+    )
+    crawl_services_parser.add_argument(
+        "--output-dir",
+        default="docs",
+        type=Path,
+        help="Directory where Markdown files should be written.",
+    )
+    crawl_services_parser.add_argument(
+        "--max-workers",
+        type=int,
+        default=8,
+        help="Number of worker threads to use for crawling.",
+    )
+    crawl_services_parser.add_argument(
+        "--requests-per-second",
+        type=float,
+        default=10.0,
+        help="Maximum number of HTTP requests per second. Set to 0 to disable throttling.",
+    )
+
+    args = parser.parse_args()
+
+    # If no command specified, default to crawl for backward compatibility
+    if not args.command:
+        # Parse again with crawl as default
+        sys.argv.insert(1, "crawl")
+        return parser.parse_args()
+
+    return args
 
 
 def clean_guide_directory(output_dir: Path, service_url: str) -> None:
@@ -995,10 +1155,104 @@ def clean_guide_directory(output_dir: Path, service_url: str) -> None:
             LOGGER.warning("Failed to clean directory %s: %s", guide_dir, exc)
 
 
-def main() -> None:
-    args = parse_args()
-    logging.basicConfig(level=getattr(logging, args.log_level.upper(), logging.INFO))
+def cmd_discover(args: argparse.Namespace) -> None:
+    """Discover services from sitemap and save to JSON."""
+    # Create a crawler just for discovery (no output dir needed)
+    crawler = AwsDocsCrawler(
+        output_dir=Path("tmp"),  # Not used for discovery
+        max_workers=1,  # Single thread for discovery
+        requests_per_second=args.requests_per_second,
+    )
 
+    # Discover services
+    services = crawler.discover_services()
+
+    if not services:
+        LOGGER.error("No services discovered")
+        sys.exit(1)
+
+    # Create output structure
+    output_data = {
+        "last_updated": datetime.now(timezone.utc).isoformat(),
+        "services": services,
+    }
+
+    if args.dry_run:
+        # Print to stdout
+        print(json.dumps(output_data, indent=2))
+    else:
+        # Write to file
+        args.output.write_text(json.dumps(output_data, indent=2), encoding="utf-8")
+        LOGGER.info("Discovered %d services, saved to %s", len(services), args.output)
+
+
+def cmd_crawl_services(args: argparse.Namespace) -> None:
+    """Crawl multiple specific services."""
+    # Parse service URLs from comma-separated list
+    service_urls = [s.strip() for s in args.services.split(",") if s.strip()]
+
+    if not service_urls:
+        LOGGER.error("No service URLs provided")
+        sys.exit(1)
+
+    LOGGER.info("Will crawl %d services: %s", len(service_urls), service_urls)
+
+    args.output_dir.mkdir(parents=True, exist_ok=True)
+
+    # Track overall success
+    all_succeeded = True
+    failed_services = []
+
+    # Crawl each service sequentially
+    for service_url in service_urls:
+        LOGGER.info("=" * 80)
+        LOGGER.info("Starting crawl for service: %s", service_url)
+        LOGGER.info("=" * 80)
+
+        # Clean the guide directory before crawling
+        clean_guide_directory(args.output_dir, service_url)
+
+        try:
+            # Create a crawler for this specific service
+            crawler = AwsDocsCrawler(
+                output_dir=args.output_dir,
+                max_workers=args.max_workers,
+                requests_per_second=args.requests_per_second,
+                service_url_filter=service_url,
+                dry_run=False,
+            )
+
+            crawler.crawl()
+
+            page_count = len(crawler.visited_urls)
+            if page_count > 0:
+                LOGGER.info("Successfully crawled %d pages for %s", page_count, service_url)
+            else:
+                LOGGER.warning("No pages crawled for %s", service_url)
+                all_succeeded = False
+                failed_services.append(service_url)
+
+        except Exception as exc:
+            LOGGER.error("Failed to crawl service %s: %s", service_url, exc)
+            all_succeeded = False
+            failed_services.append(service_url)
+
+    # Summary
+    LOGGER.info("=" * 80)
+    LOGGER.info("Crawl summary:")
+    LOGGER.info("  Total services: %d", len(service_urls))
+    LOGGER.info("  Succeeded: %d", len(service_urls) - len(failed_services))
+    LOGGER.info("  Failed: %d", len(failed_services))
+    if failed_services:
+        LOGGER.info("  Failed services: %s", failed_services)
+    LOGGER.info("=" * 80)
+
+    if not all_succeeded:
+        sys.exit(1)
+
+
+def cmd_crawl(args: argparse.Namespace) -> None:
+    """Traditional crawl command (backward compatible)."""
     # Clean guide directory if crawling a specific guide (skip in dry-run mode)
     if args.service_url and not args.dry_run:
         clean_guide_directory(args.output_dir, args.service_url)
@@ -1015,6 +1269,22 @@ def main() -> None:
 
     if not args.dry_run:
         LOGGER.info("Crawled %d pages", len(crawler.visited_urls))
+
+
+def main() -> None:
+    args = parse_args()
+    logging.basicConfig(level=getattr(logging, args.log_level.upper(), logging.INFO))
+
+    # Route to appropriate command handler
+    if args.command == "discover":
+        cmd_discover(args)
+    elif args.command == "crawl-services":
+        cmd_crawl_services(args)
+    elif args.command == "crawl":
+        cmd_crawl(args)
+    else:
+        LOGGER.error("Unknown command: %s", args.command)
+        sys.exit(1)
 
 
 if __name__ == "__main__":

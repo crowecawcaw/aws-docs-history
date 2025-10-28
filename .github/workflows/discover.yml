@@ -1,0 +1,80 @@
+name: Discover Services
+
+on:
+  schedule:
+    - cron: '0 3 * * 0'  # Weekly on Sundays at 3 AM UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  discover:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: main
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Discover services
+        run: |
+          python crawler.py discover --output services.json
+
+      - name: Check for changes
+        id: check_changes
+        run: |
+          if git diff --quiet services.json; then
+            echo "changed=false" >> $GITHUB_OUTPUT
+            echo "No changes to services.json"
+          else
+            echo "changed=true" >> $GITHUB_OUTPUT
+            echo "Services.json has been updated"
+          fi
+
+      - name: Configure Git user
+        if: steps.check_changes.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Commit new services
+        if: steps.check_changes.outputs.changed == 'true'
+        run: |
+          git add services.json
+          git commit -m "chore: update discovered services [skip ci]"
+          git push origin main
+
+      - name: Trigger crawl workflow
+        run: |
+          # Read services from services.json and format for workflow input
+          SERVICES=$(python -c "
+          import json
+          import sys
+          with open('services.json') as f:
+              data = json.load(f)
+          # Extract just the URLs
+          urls = [s['url'] for s in data['services']]
+          # Output as JSON array string
+          print(json.dumps(urls))
+          ")
+
+          echo "Triggering crawl for $(echo $SERVICES | jq 'length') services"
+
+          gh workflow run crawl-matrix.yml \
+            --ref main \
+            --field services="$SERVICES"
+        env:
+          GH_TOKEN: ${{ github.token }}
