@@ -1,0 +1,213 @@
+AWS Cloud9 is no longer available to new customers. Existing customers of
+AWS Cloud9 can continue to use the service as normal.
+[Learn more](https://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/ "https://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/")
+
+# Working with Systems Manager automation
+
+documents
+
+With AWS Systems Manager, you have visibility and control of your infrastructure on AWS. Systems Manager
+provides a unified user interface that you can use to view operational data from multiple
+AWS services and automate operational tasks across your AWS resources.
+
+A [Systems Manager
+document](../../../systems-manager/latest/userguide/sysman-systems-manager-docs.md "../../../systems-manager/latest/userguide/sysman-systems-manager-docs.md") defines the actions that Systems Manager performs on your managed instances. An
+automation document is a type of Systems Manager document that's used to perform common maintenance and
+deployment tasks. This includes creating or updating an Amazon Machine Image (AMI). This topic
+outlines how to create, edit, publish, and delete automation documents with AWS Toolkit.
+
+###### Topics
+
+- [Assumptions and prerequisites](#systems-manager-assumptions "#systems-manager-assumptions")
+- [IAM permissions for Systems Manager Automation
+  documents](#systems-manager-permissions "#systems-manager-permissions")
+- [Creating a new Systems Manager automation document](#systems-manager-create "#systems-manager-create")
+- [Publishing a Systems Manager automation document](#systems-manager-publish "#systems-manager-publish")
+- [Editing an existing Systems Manager automation document](#systems-manager-open "#systems-manager-open")
+- [Working with versions](#systems-manager-edit-default-version "#systems-manager-edit-default-version")
+- [Deleting a Systems Manager automation document](#systems-manager-delete "#systems-manager-delete")
+- [Running a Systems Manager automation document](#systems-manager-run "#systems-manager-run")
+- [Troubleshooting Systems Manager automation documents in
+  AWS Toolkit](systems-manager-troubleshoot.md "systems-manager-troubleshoot.md")
+
+## Assumptions and prerequisites
+
+Before you begin, make sure you met the following conditions:
+
+- You’re familiar with Systems Manager. For more information, see the [_AWS Systems Manager User Guide_](../../../systems-manager/latest/userguide/what-is-systems-manager.md "../../../systems-manager/latest/userguide/what-is-systems-manager.md").
+- You’re familiar with Systems Manager automation use cases. For more information, see [AWS Systems
+  Manager Automation](../../../systems-manager/latest/userguide/systems-manager-automation.md "../../../systems-manager/latest/userguide/systems-manager-automation.md") in the _AWS Systems Manager User Guide_.
+
+## IAM permissions for Systems Manager Automation
+
+documents
+
+To create, edit, publish, and delete Systems Manager automation documents, you must have a
+credentials profile that contains the necessary AWS Identity and Access Management (IAM) permissions. The following
+policy document defines the necessary IAM permissions that can be used in a principal
+policy.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": [
+ "ssm:ListDocuments",
+ "ssm:ListDocumentVersions",
+ "ssm:DescribeDocument",
+ "ssm:GetDocument",
+ "ssm:CreateDocument",
+ "ssm:UpdateDocument",
+ "ssm:UpdateDocumentDefaultVersion",
+ "ssm:DeleteDocument"
+ ],
+ "Resource": "*"
+ }
+ ]
+}`
+
+```
+
+For information about how to update an IAM policy, see [Creating IAM policies](../../../IAM/latest/UserGuide/access_policies_create.md "../../../IAM/latest/UserGuide/access_policies_create.md") in the
+_IAM User Guide_.
+
+## Creating a new Systems Manager automation document
+
+You can create an automation document in `JSON` or `YAML` using
+AWS Toolkit. When you create an automation document, it's presented in an untitled file. You
+can name your file and save it. However, the file isn't uploaded to AWS until you publish
+it.
+
+###### To create a new automation document
+
+1. Choose the search icon on the left navigation pane or press
+   **Ctrl+P** to open the Search pane.
+2. In the Search pane, start to enter the term "systems manager" and choose the **AWS: Create a new Systems Manager Document
+   Locally** command when it displays.
+3. Choose one of the starter templates for a "Hello World" example.
+4. Choose either `JSON` or `YAML` as the format for your
+   document.
+
+The editor displays your new automation document.
+
+###### Note
+
+When you first create a local automation document, it doesn't automatically appear in
+AWS. Before you can run it, you must publish it to AWS.
+
+## Publishing a Systems Manager automation document
+
+After you create or edit your automation document in AWS Toolkit, you can publish it to AWS.
+
+###### To publish your automation document
+
+1. Open the automation document that you want to publish using the procedure that's
+   outlined in [Editing an existing Systems Manager automation document](#systems-manager-open "#systems-manager-open").
+2. Choose the search icon on the left navigation pane or press
+   **Ctrl+P** to open the Search pane.
+3. In the Search pane, start to enter the term "systems manager" and choose the **AWS: Publish a new Systems Manager Document** command when it displays.
+4. For **Step 1 of 3**, choose the AWS Region where you want to
+   publish the document.
+5. For **Step 2 of 3**, choose **Quick Create** to
+   create an automation document. Or, choose **Quick Update** to update an
+   existing automation document in that Region.
+
+###### Note
+
+You can update only automation documents that you own. If you choose **Quick Update** and you don't own any documents in that Region, a message informs you to publish a document before updating it. 6. For **Step 3 of 3**, depending on your choice in the previous step,
+enter the name of a new automation document or select an existing document to
+update.
+
+###### Note
+
+When you publish an update to an existing automation document in AWS, a new version is
+added to the document. If a document has multiple versions, you can set the [default one](#systems-manager-edit-default-version "#systems-manager-edit-default-version").
+
+## Editing an existing Systems Manager automation document
+
+You use the AWS Explorer to find existing Systems Manager automation documents. When you open an
+existing document, it appears as an untitled file in an AWS Cloud9 editor. There are three
+types of automation document that you download:
+
+- **Owned by Amazon**: Pre-configured SSM documents that can be used by specifying parameters at runtime.
+- **Owned by me**: Documents that I've created and published to AWS.
+- **Shared with me**: Documents that owners have shared with you,
+  based on your AWS account ID.
+
+The only type of documents that you can update on AWS are those that are _owned
+by me_. You can also download automation documents that are shared or owned by
+Amazon, and edit them in AWS Cloud9. However, when you publish to AWS, you must use either create
+a new document or update an existing document you own. You can't create new versions of
+documents that have another owner or are owned by Amazon.
+
+For more information, see [AWS Systems Manager documents](../../../systems-manager/latest/userguide/documents.md "../../../systems-manager/latest/userguide/documents.md") in the _AWS Systems Manager User Guide_.
+
+1. In the AWS Explorer, for **Systems Manager**, choose the category
+   of SSM document you want to download: **Owned by Amazon**,
+   **Owned by me**, or **Shared with me**.
+2. For a specific document, open the context (right-click) menu and choose
+   **Download as YAML** or **Download as JSON**.
+
+The formatted SSM document displays in a new editor tab.
+
+After you finished editing, you can use the **AWS: Publish a new Systems Manager
+Document** command to create a new document in the AWS Cloud or update an
+existing document that you own.
+
+## Working with versions
+
+Systems Manager automation documents use versions for change management. With AWS Toolkit, you can
+set the default version of the document, which is the version that's used when you run the
+document.
+
+###### To set a default version
+
+- In the AWS Explorer, navigate to the document that you want to set the default
+  version on, open the context (right-click) menu for the document, and choose
+  **Set default version**.
+
+###### Note
+
+If the chosen document only has one version, you can't change the default.
+
+## Deleting a Systems Manager automation document
+
+You can delete the automation documents that you own in AWS Toolkit. Deleting an
+Automation document deletes the document and all versions of the document.
+
+###### Important
+
+- Deleting is a destructive action that can't be undone.
+- Deleting an automation document that has already been started doesn't delete the
+  AWS resources that were created or modified when it was run.
+- Deleting is permitted only if you own the document.
+
+###### To delete your automation document
+
+1. In the AWS Explorer pane, for **Systems Manager**, expand
+   **Owned by Me** to list your documents.
+2. Open the context
+   (right-click) menu for the document you want to delete, and choose **Delete
+   document**.
+3. In the warning dialog box that displays, choose **Delete** to confirm.
+
+## Running a Systems Manager automation document
+
+After your automation document is published to AWS, you can run it to perform tasks on
+your behalf in your AWS account. To run your Automation document, you use the AWS Management Console, the
+Systems Manager APIs, the AWS CLI, or the AWS Tools for PowerShell. For instructions on how to run an automation
+document, see [Running a simple
+automation](../../../systems-manager/latest/userguide/running-simple-automations.md "../../../systems-manager/latest/userguide/running-simple-automations.md") in the _AWS Systems Manager User Guide_.
+
+Alternatively, if you want to use one of the AWS SDKs with the Systems Manager APIs to run your
+Automation document, see the [AWS SDK references](https://aws.amazon.com/developer/tools/ "https://aws.amazon.com/developer/tools/").
+
+###### Important
+
+Running an automation document can create new resources in AWS and can incur billing
+costs. We strongly recommend that you understand what your automation document will create
+in your account before you run it.
