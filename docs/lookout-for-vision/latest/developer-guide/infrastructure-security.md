@@ -1,0 +1,20 @@
+End of support notice: On October 31, 2025, AWS
+will discontinue support for Amazon Lookout for Vision. After October 31, 2025, you will
+no longer be able to access the Lookout for Vision console or Lookout for Vision resources.
+For more information, visit this [blog post](https://aws.amazon.com/blogs/machine-learning/exploring-alternatives-and-seamlessly-migrating-data-from-amazon-lookout-for-vision "https://aws.amazon.com/blogs/machine-learning/exploring-alternatives-and-seamlessly-migrating-data-from-amazon-lookout-for-vision").
+
+# Infrastructure security in Amazon Lookout for Vision
+
+As a managed service, Amazon Lookout for Vision is protected by AWS global network security. For
+information about AWS security services and how AWS protects infrastructure, see [AWS Cloud Security](https://aws.amazon.com/security/ "https://aws.amazon.com/security/"). To design your AWS
+environment using the best practices for infrastructure security, see [Infrastructure
+Protection](../../../wellarchitected/latest/security-pillar/infrastructure-protection.md "../../../wellarchitected/latest/security-pillar/infrastructure-protection.md") in _Security Pillar AWS Well‐Architected
+Framework_.
+
+You use AWS published API calls to access Lookout for Vision through the network. Clients must
+support the following:
+
+- Transport Layer Security (TLS). We require TLS 1.2 and recommend TLS 1.3.
+- Cipher suites with perfect forward secrecy (PFS) such as DHE (Ephemeral
+  Diffie-Hellman) or ECDHE (Elliptic Curve Ephemeral Diffie-Hellman). Most modern systems
+  such as Java 7 and later support these modes.
