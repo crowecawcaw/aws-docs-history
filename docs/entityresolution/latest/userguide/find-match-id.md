@@ -1,0 +1,35 @@
+# Looking up a Match ID for a rule-based matching
+
+workflow
+
+After completing a rule-based matching workflow, you can retrieve the Match ID and
+associated rule for each processed record. This information helps you understand how records
+were matched and which rules were applied. The following procedure demonstrates how to access
+this data using either the AWS Entity Resolution console or the `GetMatchID` API.
+
+Console
+
+###### To look up a Match ID using the console
+
+1. Sign in to the AWS Management Console and open the AWS Entity Resolution console at [https://console.aws.amazon.com/entityresolution/](https://console.aws.amazon.com/entityresolution/ "https://console.aws.amazon.com/entityresolution/").
+2. In the left navigation pane, under **Workflows**, choose
+   **Matching**.
+3. Choose the rule-based matching workflow that has been processed (**Job
+   status** is **Completed**).
+4. On the matching workflow details page, choose the **Match IDs**
+   tab.
+5. Choose **Look up match ID**.
+
+###### Note
+
+The **Look up match ID** option is only available for
+matching workflows that use the **Automatic** processing cadence.
+If you have selected the **Manual** processing cadence, this
+option will appear inactive. To use this option, edit your workflow to use the
+**Automatic** processing cadence. For more information about
+editing workflows, see [Editing a matching workflow](edit-matching-workflow.md "edit-matching-workflow.md"). 6. Do one of the following:
+
+| If ...                                                               | Then ...                                                |
+| -------------------------------------------------------------------- | ------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| There is only one schema mapping associated with this workflow.      | View the **Schema mapping** that's selected by default. |
+| There is more than one schema mapping associated with this workflow. | Choose the **Schema mapping** from the dropdown list.   | 7. For **Record attributes**, enter the **Value** for an existing **Match key** to look up for each existing record. ###### Tip Enter as many values as you can to help find the Match ID. 8. The **Normalize data** option is selected by default, so that data inputs are normalized before matching. If you don't want to normalize data, deselect the **Normalize data** option. 9. If you want to view the matching rules expand the **View matching rules**. 10. Choose **Look up**. A success message appears, stating that the Match ID was found. 11. View the corresponding Match ID and the associated rule that was found. API ###### To look up a Match ID using the API ###### Note To call this API successfully, you must have first successfully run a rule-based matching workflow using the [StartMatchingJob API](../apireference/API_StartMatchingJob.md "../apireference/API_StartMatchingJob.md"). For a complete list of supported programming languages, see the [See Also](../apireference/API_GetMatchId.md#API_GetMatchId_SeeAlso "../apireference/API_GetMatchId.md#API_GetMatchId_SeeAlso") section of the [GetMatchID API](../apireference/API_GetMatchId.md "../apireference/API_GetMatchId.md"). 1. Open a terminal or command prompt to make the API request. 2. Create a POST request to the following endpoint: `/matchingworkflows/workflowName/matches` 3. In the request header, set the Content-type to application/json. 4. In the request URI, specify your `workflowName`. The `workflowName` must: <br>• Be between 1 and 255 characters long <br>• Match the pattern [a-zA-Z\_0-9-]\* 5. For the request body, provide the following JSON: `{ "applyNormalization": boolean, "record": { "string" : "string" } }` Where: `applyNormalization` (optional) - Set to `true` to normalize attributes defined in the schema `record` (required) - The record to fetch the Match ID for 6. Send the request. If successful, you'll receive a response with status code 200 and a JSON body containing: `{ "matchId": "string", "matchRule": "string" }` The `matchId` is the unique identifier for this group of matched records, and `matchRule` indicates which rule the record matched on. If the call is unsuccessful, you might receive one of these errors: <br>• 403 - AccessDeniedException if you don't have sufficient access <br>• 404 - ResourceNotFoundException if the resource can't be found <br>• 429 - ThrottlingException if the request was throttled <br>• 400 - ValidationException if the input fails validation <br>• 500 - InternalServerException if there's an internal service failure |
