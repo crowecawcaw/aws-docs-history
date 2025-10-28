@@ -1,0 +1,34 @@
+# Amazon Q Developer service improvement
+
+To help Amazon Q Developer provide the most relevant information, we may use certain content
+from Amazon Q, such as questions that you ask Amazon Q and its responses, for service
+improvement. This page explains what content we use and how to opt out.
+
+## Amazon Q Developer Free tier content used for service
+
+improvement
+
+We may use certain content from Amazon Q Developer Free tier for service improvement. Amazon Q
+may use this content, for example, to provide better responses to common questions, fix
+Amazon Q operational issues, for de-bugging, or for model training.
+
+Content that AWS may use for service improvement includes, for example, your
+questions to Amazon Q and the responses and code that Amazon Q generates.
+
+We do not use content from Amazon Q Developer Pro or Amazon Q Business for service improvement.
+
+###### Note
+
+Amazon Q Developer for GitHub (Preview) does not currently use your content for service improvement. If we enable this in the future, we will provide you with adequate notice and a way for you to opt out of such use.
+
+## How to opt out
+
+The way you opt out of Amazon Q Developer Free Tier using content for service improvement
+depends on the environment where you use Amazon Q.
+
+For the AWS Management Console, AWS Console Mobile Application, AWS websites, and in chat applications, configure an AI services
+opt-out policy in AWS Organizations. For more information, see [AI services
+opt-out policies](../../../organizations/latest/userguide/orgs_manage_policies_ai-opt-out.md "../../../organizations/latest/userguide/orgs_manage_policies_ai-opt-out.md") in the _AWS Organizations User Guide_.
+
+In the IDE, for Amazon Q Developer Free Tier, adjust your settings in the IDE. For more
+information, see [Opt out of data sharing in the IDE and command line](opt-out-IDE.md "opt-out-IDE.md").
