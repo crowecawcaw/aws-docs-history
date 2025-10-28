@@ -1,0 +1,168 @@
+This is the new _AWS CloudFormation Template Reference Guide_.
+Please update your bookmarks and links. For help getting started with CloudFormation, see the
+[AWS CloudFormation User Guide](../UserGuide/Welcome.md "../UserGuide/Welcome.md").
+
+# `Fn::Select`
+
+The intrinsic function `Fn::Select` returns a single object from a list of
+objects by index.
+
+###### Important
+
+`Fn::Select` doesn't check for null values or if the index is out of bounds
+of the array. Both conditions will result in a stack error, so you should be certain that
+the index you choose is valid, and that the list contains non-null values.
+
+## Declaration
+
+### JSON
+
+```
+{ "Fn::Select" : [ `index`, `listOfObjects` ] }
+```
+
+### YAML
+
+Syntax for the full function name:
+
+```
+Fn::Select: [ `index`, `listOfObjects` ]
+```
+
+Syntax for the short form:
+
+```
+!Select [ `index`, `listOfObjects` ]
+```
+
+## Parameters
+
+index
+
+The index of the object to retrieve. This must be a value from zero to N-1,
+where N represents the number of elements in the array.
+
+listOfObjects
+
+The list of objects to select from. This list must not be null, nor can it have
+null entries.
+
+## Return value
+
+The selected object.
+
+## Examples
+
+### Basic example
+
+The following example returns: `"grapes"`.
+
+#### JSON
+
+```
+{ "Fn::Select" : [ "1", [ "apples", "grapes", "oranges", "mangoes" ] ] }
+```
+
+#### YAML
+
+```
+!Select [ "1", [ "apples", "grapes", "oranges", "mangoes" ] ]
+```
+
+ 
+
+### Comma-delimited list parameter type
+
+You can use `Fn::Select` to select an object from a
+`CommaDelimitedList` parameter. You might use a
+`CommaDelimitedList` parameter to combine the values of related
+parameters, which reduces the total number of parameters in your template. For example,
+the following parameter specifies a comma-delimited list of three CIDR blocks:
+
+#### JSON
+
+```
+"Parameters" : {
+  "DbSubnetIpBlocks": {
+    "Description": "Comma-delimited list of three CIDR blocks",
+    "Type": "CommaDelimitedList",
+      "Default": "10.0.48.0/24, 10.0.112.0/24, 10.0.176.0/24"
+  }
+}
+```
+
+#### YAML
+
+```
+Parameters:
+  DbSubnetIpBlocks:
+    Description: "Comma-delimited list of three CIDR blocks"
+    Type: CommaDelimitedList
+    Default: "10.0.48.0/24, 10.0.112.0/24, 10.0.176.0/24"
+
+```
+
+To specify one of the three CIDR blocks, use `Fn::Select` in the Resources
+section of the same template, as shown in the following sample snippet:
+
+#### JSON
+
+```
+"Subnet0": {
+  "Type": "AWS::EC2::Subnet",
+    "Properties": {
+      "VpcId": { "Ref": "VPC" },
+      "CidrBlock": { "Fn::Select" : [ "0", {"Ref": "DbSubnetIpBlocks"} ] }
+    }
+}
+```
+
+#### YAML
+
+```
+Subnet0:
+  Type: "AWS::EC2::Subnet"
+  Properties:
+    VpcId: !Ref VPC
+    CidrBlock: !Select [ 0, !Ref DbSubnetIpBlocks ]
+```
+
+ 
+
+### Nested functions with short form YAML
+
+The following examples show valid patterns for using nested intrinsic functions with
+the `!Select` short form. You can't nest short form functions consecutively,
+so a pattern like `!GetAZs !Ref` isn't valid.
+
+#### YAML
+
+```
+AvailabilityZone: !Select
+  - 0
+  - !GetAZs
+    Ref: 'AWS::Region'
+```
+
+#### YAML
+
+```
+AvailabilityZone: !Select
+  - 0
+  - Fn::GetAZs: !Ref 'AWS::Region'
+```
+
+## Supported functions
+
+For the `Fn::Select` index value, you can use the `Ref` and
+`Fn::FindInMap` functions.
+
+For the `Fn::Select` list of objects, you can use the following
+functions:
+
+- `Fn::FindInMap`
+- `Fn::GetAtt`
+- `Fn::GetAZs`
+- `Fn::If`
+- `Fn::Split`
+- `Ref`
