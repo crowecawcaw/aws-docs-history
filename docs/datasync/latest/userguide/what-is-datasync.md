@@ -1,0 +1,118 @@
+# What is AWS DataSync?
+
+AWS DataSync is an online data transfer service that simplifies data migration and helps you
+quickly, easily, and securely transfer your file or object data to, from, and between AWS
+storage services.
+
+###### On-premises storage transfers
+
+DataSync works with the following on-premises storage systems:
+
+- [Network File System (NFS)](create-nfs-location.md "create-nfs-location.md")
+- [Server Message Block (SMB)](create-smb-location.md "create-smb-location.md")
+- [Hadoop Distributed File Systems
+  (HDFS)](create-hdfs-location.md "create-hdfs-location.md")
+- [Object storage](create-object-location.md "create-object-location.md")
+
+###### AWS storage transfers
+
+DataSync works with the following AWS storage services:
+
+- [Amazon S3](create-s3-location.md "create-s3-location.md")
+- [Amazon EFS](create-efs-location.md "create-efs-location.md")
+- [Amazon FSx for Windows File Server](create-fsx-location.md "create-fsx-location.md")
+- [Amazon FSx for Lustre](create-lustre-location.md "create-lustre-location.md")
+- [Amazon FSx for OpenZFS](create-openzfs-location.md "create-openzfs-location.md")
+- [Amazon FSx for NetApp ONTAP](create-ontap-location.md "create-ontap-location.md")
+
+###### Other cloud storage transfers
+
+DataSync works with the following storage services in other clouds:
+
+- [Google Cloud
+  Storage](tutorial_transfer-google-cloud-storage.md "tutorial_transfer-google-cloud-storage.md")
+- [Microsoft Azure Blob
+  Storage](creating-azure-blob-location.md "creating-azure-blob-location.md")
+- [Microsoft Azure
+  Files](transferring-azure-files.md "transferring-azure-files.md")
+- [Wasabi Cloud
+  Storage](creating-other-cloud-object-location.md "creating-other-cloud-object-location.md")
+- [DigitalOcean
+  Spaces](creating-other-cloud-object-location.md "creating-other-cloud-object-location.md")
+- [Oracle Cloud
+  Infrastructure Object Storage](creating-other-cloud-object-location.md "creating-other-cloud-object-location.md")
+- [Cloudflare R2
+  Storage](creating-other-cloud-object-location.md "creating-other-cloud-object-location.md")
+- [Backblaze B2 Cloud
+  Storage](creating-other-cloud-object-location.md "creating-other-cloud-object-location.md")
+- [NAVER Cloud Object
+  Storage](creating-other-cloud-object-location.md "creating-other-cloud-object-location.md")
+- [Alibaba Cloud Object
+  Storage Service](creating-other-cloud-object-location.md "creating-other-cloud-object-location.md")
+- [IBM Cloud Object
+  Storage](creating-other-cloud-object-location.md "creating-other-cloud-object-location.md")
+- [Seagate Lyve
+  Cloud](creating-other-cloud-object-location.md "creating-other-cloud-object-location.md")
+
+###### Edge storage transfers
+
+DataSync works with the following edge storage services and devices:
+
+- [Amazon S3 compatible storage on
+  AWS Snowball Edge](s3-compatible-storage-snow.md "s3-compatible-storage-snow.md")
+
+## Use cases
+
+These are some of the main use cases for DataSync:
+
+- **Migrate data** – Transfer active
+  datasets rapidly over the network into AWS storage services. DataSync includes
+  automatic encryption and data integrity validation to help make sure that your
+  data arrives securely, intact, and ready to use.
+- **Archive cold data** – Move cold data
+  stored in on-premises storage directly to durable and secure long-term storage
+  classes such as S3 Glacier Flexible Retrieval or S3 Glacier Deep Archive.
+  Doing so can free up on-premises storage capacity and shut down legacy systems.
+- **Replicate data** – Copy data into any
+  Amazon S3 storage class, choosing the most cost-effective storage class for your
+  needs. You can also send data to Amazon EFS, FSx for Windows File Server, FSx for Lustre, or
+  FSx for OpenZFS for a standby file system.
+- **Transfer data for timely in-cloud processing**
+  – Transfer data in or out of AWS for processing. This approach can
+  speed up critical hybrid cloud workflows across many industries. These include
+  machine learning in the life-sciences industry, video production in media and
+  entertainment, big-data analytics in financial services, and seismic research in
+  the oil and gas industry.
+
+## Benefits
+
+By using DataSync, you can get the following benefits:
+
+- **Automate data movement** – DataSync makes
+  it easier to transfer data over the network between storage systems and
+  services. DataSync automates both the management of data-transfer processes and the
+  infrastructure required for high performance and secure data transfers.
+- **Transfer data securely** – DataSync
+  provides end-to-end security, including encryption and data integrity
+  validation, to help ensure that your data arrives securely, intact, and ready to
+  use. DataSync accesses your AWS storage through built-in AWS security
+  mechanisms, such as AWS Identity and Access Management (IAM) roles. It also supports virtual private
+  cloud (VPC) endpoints, giving you the option to transfer data without traversing
+  the public internet and further increasing the security of data copied
+  online.
+- **Move data faster** – DataSync uses a
+  purpose-built network protocol and a parallel, multi-threaded architecture to
+  accelerate your transfers. This approach speeds up migrations, recurring
+  data-processing workflows for analytics and machine learning, and
+  data-protection processes.
+
+## Additional resources
+
+We recommend that you read the following:
+
+- [DataSync resources](https://aws.amazon.com/datasync/resources/ "https://aws.amazon.com/datasync/resources/")
+  – Includes blogs, videos, and other training materials
+- [AWS re:Post](https://repost.aws/ "https://repost.aws/") – See the latest
+  discussion around DataSync
+- [AWS DataSync
+  pricing](https://aws.amazon.com/datasync/pricing "https://aws.amazon.com/datasync/pricing")
