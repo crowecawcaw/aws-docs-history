@@ -1,0 +1,30 @@
+# Monitoring Amazon WorkMail with
+
+CloudWatch metrics
+
+You can monitor Amazon WorkMail using CloudWatch, which collects raw data and processes it into
+readable, near real-time metrics. The no charge metrics are stored for 15 months so that
+you can access historical information to see how your web application or service is
+performing. You can also set alarms that watch for certain thresholds, and send
+notifications or take actions when those thresholds are met. For more information, see
+the [Amazon CloudWatch User Guide](../../../AmazonCloudWatch/latest/monitoring.md "../../../AmazonCloudWatch/latest/monitoring.md").
+
+## CloudWatch metrics for Amazon WorkMail
+
+Amazon WorkMail
+sends the following metrics and dimension information to CloudWatch.
+
+The `AWS/WorkMail` namespace includes the following
+metrics.
+
+| Metric                        | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| ----------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `OrganizationEmailReceived`   | The number of emails received by your Amazon WorkMail organization. If one email is addressed to 10 recipients in your organization, the `OrganizationEmailReceived` count is one. Units: Count                                                                                                                                                                                                                                                            |
+| `MailboxEmailDelivered`       | The number of emails delivered to individual mailboxes in your Amazon WorkMail organization. If one email is successfully delivered to 10 recipients in your organization, the `MailboxEmailDelivered` count is 10. Units: Count                                                                                                                                                                                                                           |
+| `IncomingEmailBounced`        | The number of incoming emails that bounced due to full mailboxes. This metric is counted for each intended recipient. For example, if one email is sent to 10 recipients in your organization, and two of the recipients have full mailboxes resulting in a bounce response, the `IncomingEmailBounced` count is two. Units: Count                                                                                                                         |
+| `OutgoingEmailBounced`        | The number of outgoing emails that couldn't be delivered. This metric is counted for each intended recipient. For example, if one email is sent to 10 recipients, and two emails could not be delivered, the `OutgoingEmailBounced` count is 2. Units: Count                                                                                                                                                                                               |
+| `OutgoingEmailSent`           | The number of emails successfully sent from your Amazon WorkMail organization. This metric is counted for each recipient of a successfully sent email. For example, if 1 email is sent to 10 recipients, and the email was successfully delivered to 8 of the recipients, the `OutgoingEmailSent` count is 8. Units: Count                                                                                                                                 |
+| `AuthenticationFailure`       | This metric counts the number of authentication attempts. When authentication is successful, the count is 0 and when authentication is unsuccessful, the count is 1. Use the `Sum` statistic to monitor the amount of failed authentication attempts. Use the `Sample count` statistic to monitor the total number of authentication events. Use the `Average` statistic to monitor the ratio of failed and successful authentication events. Units: Count |
+| `AccessDenied`                | This metric counts the number of access control evaluations. When action is denied by access control, the count is 1 and when action is granted, the count is 0. Use the `Sum` statistic to monitor the volume of denied actions, the `Sample count` statistic to monitor the total number of attempted actions, and the `Average` statistic to monitor the ratio of allowed and denied actions. Units: Count                                              |
+| `ActionDenied`                | This metric is counted when there's action on mailbox data. When action is denied, the count is 1 and if action is granted, the count is 0. Use the `Sum` statistic to monitor the volume of denied mailbox actions, the `Sample count` statistic to monitor the total number of attempted mailbox actions, and the `Average` statistic to monitor the ratio of allowed and denied actions. Units: Count                                                   |
+| `AvailabilityProviderFailure` | This metric is counted for every _availability provider_ request that Amazon WorkMail executes to retrieve calendar availability from an external source. For more information about Availability Providers, see the Amazon WorkMail Administrator Guide.                                                                                                                                                                                                  |
