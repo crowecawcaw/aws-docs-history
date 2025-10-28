@@ -1,0 +1,31 @@
+# Considerations for using customer
+
+managed permissions in AWS RAM
+
+Customer managed permissions are only available in the AWS Region that you create them in. Not all resource
+types support customer managed permissions. For a list of supported resource types in AWS Resource Access Manager, see [Shareable AWS resources](shareable.md "shareable.md").
+
+Customer managed permissions with multiple statements aren't supported. You can only use single non-negating
+operators in customer managed permissions.
+
+The following conditions aren't supported in customer managed permissions:
+
+- Condition keys used to match properties of the principal:
+  - `aws:PrincipalOrgId`
+  - `aws:PrincipalOrgPaths`
+  - `aws:PrincipalAccount`
+
+- Condition keys used to restrict access for service principals:
+  - `aws:SourceArn`
+  - `aws:SourceAccount`
+  - `aws:SourceOrgPaths`
+  - `aws:SourceOrgID`
+
+- System tags:
+  - `aws:PrincipalTag/aws:`
+  - `aws:ResourceTag/aws:`
+  - `aws:RequestTag/aws:`
+
+###### Note
+
+The `aws:SourceAccount` value is automatically populated when sharing to service principals.
