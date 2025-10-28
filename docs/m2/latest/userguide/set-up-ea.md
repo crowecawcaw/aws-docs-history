@@ -1,0 +1,82 @@
+AWS Mainframe Modernization Service (Managed Runtime Environment experience) will no longer be open to new customers starting on November 7, 2025. If you would like to use the service, please sign up prior to November 7, 2025. For capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed Experience). Existing customers can continue to use the service as normal. For more information, see
+[AWS Mainframe Modernization availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
+
+# Tutorial: Set up Enterprise Analyzer on AppStream 2.0
+
+This tutorial describes how to set up Rocket Enterprise Analyzer (formerly Micro Focus Enterprise Analyzer) to analyze one or more
+mainframe applications. The Enterprise Analyzer tool provides several reports based on its analysis of the
+application source code and system definitions.
+
+This setup is designed to foster team collaboration. Installation uses an Amazon S3 bucket to
+share the source code with virtual disks. Doing this makes use of [Rclone](https://rclone.org/ "https://rclone.org/")) on the Windows machine. With a common Amazon RDS instance running [PostgreSQL](https://www.postgresql.org/ "https://www.postgresql.org/") , any member of the team can access to all
+requested reports.
+
+Team members can also mount the virtual Amazon S3 backed disk on their personal machines. and
+update the source bucket from their workstations. They can potentially use scripts or any other
+form of automation on their machines if they are connected to other on-premises internal
+systems.
+
+The setup is based on the AppStream 2.0 Windows images that AWS Mainframe Modernization shares with the customer .
+Setup is also based on the creation of AppStream 2.0 fleets and stacks as described in [Tutorial: Set up AppStream 2.0 for use with Rocket Enterprise Analyzer and
+Rocket Enterprise Developer](set-up-appstream-mf.md "set-up-appstream-mf.md").
+
+###### Important
+
+The steps in this tutorial assume that you set up AppStream 2.0 with the downloadable AWS CloudFormation
+template [cfn-m2-appstream-fleet-ea-ed.yml](https://drm0z31ua8gi7.cloudfront.net/tutorials/mf/appstream/cfn-m2-appstream-fleet-ea-ed.yml "https://drm0z31ua8gi7.cloudfront.net/tutorials/mf/appstream/cfn-m2-appstream-fleet-ea-ed.yml"). For more information, see [Tutorial: Set up AppStream 2.0 for use with Rocket Enterprise Analyzer and
+Rocket Enterprise Developer](set-up-appstream-mf.md "set-up-appstream-mf.md").
+
+To perform the steps in this tutorial, you must have set up your Enterprise Analyzer fleet and stack and
+they must be running.
+
+For a complete description of Enterprise Analyzer features and deliverables, see the [Enterprise Analyzer
+Documentation](https://www.microfocus.com/documentation/enterprise-analyzer/ "https://www.microfocus.com/documentation/enterprise-analyzer/") on the Rocket Software (formerly Micro Focus) website.
+
+## Image contents
+
+In addition to Enterprise Analyzer application itself, the image contains the following tools and
+libraries.
+
+Third-party tools
+
+- [Python](https://www.python.org/ "https://www.python.org/")
+- [Rclone](https://rclone.org/ "https://rclone.org/")
+- [pgAdmin](https://www.pgadmin.org/ "https://www.pgadmin.org/")
+- [git-scm](https://git-scm.com/ "https://git-scm.com/")
+- [PostgreSQL ODBC driver](https://odbc.postgresql.org/ "https://odbc.postgresql.org/")
+
+Libraries in `C:\Users\Public`
+
+- BankDemo source code and project definition for Enterprise Developer:
+  `m2-bankdemo-template.zip`.
+- MFA install package for the mainframe: `mfa.zip`. For more information,
+  see [Mainframe Access Overview](https://www.microfocus.com/documentation/enterprise-developer/30pu12/ED-VS2012/BKMMMMINTRS001.html "https://www.microfocus.com/documentation/enterprise-developer/30pu12/ED-VS2012/BKMMMMINTRS001.html") in the _Micro Focus Enterprise Developer_ documentation.
+- Command and config files for Rclone (instructions for their use in the tutorials):
+  `m2-rclone.cmd` and `m2-rclone.conf`.
+
+###### Topics
+
+- [Prerequisites](#tutorial-ea-prerequisites "#tutorial-ea-prerequisites")
+- [Step 1: Setup](#tutorial-ea-step1 "#tutorial-ea-step1")
+- [Step 2: Create the Amazon S3 based virtual folder on
+  Windows](#tutorial-ea-step2 "#tutorial-ea-step2")
+- [Step 3: Create an ODBC source for the Amazon RDS instance](#tutorial-ea-step3 "#tutorial-ea-step3")
+- [Subsequent sessions](#tutorial-ea-step4 "#tutorial-ea-step4")
+- [Troubleshooting workspace connection](#tutorial-ea-step5 "#tutorial-ea-step5")
+- [Clean up resources](#tutorial-ea-clean "#tutorial-ea-clean")
+
+## Prerequisites
+
+- Upload the source code and system definitions for the customer application that you want
+  to analyze to an S3 bucket. The system definitions include CICS CSD, DB2 object definitions,
+  and so on. You can create a folder structure within the bucket that makes sense for how you
+  want to organize the application artifacts. For example, when you unzip the BankDemo sample, it
+  has the following structure:
+
+````
+demo
+|--> jcl
+|--> RDEF
+|--> transaction
+|--> xa ``` <br>• Create and start an Amazon RDS instance running PostgreSQL. This instance will store the data and results produced by Enterprise Analyzer. You can share this instance with all members of the application team. In addition, create an empty schema called `m2_ea` (or any other suitable name) in the database. Define credentials for authorized users that allow them to create, insert, update, and delete items in this schema. You can obtain the database name, its server endpoint URL, and TCP port from the Amazon RDS console or from the account administrator. <br>• Make sure you have set up programmatic access to your AWS account. For more information, see [Programmatic access](../../../general/latest/gr/aws-sec-cred-types.md#access-keys-and-secret-access-keys "../../../general/latest/gr/aws-sec-cred-types.md#access-keys-and-secret-access-keys") in the *Amazon Web Services General Reference.* ## Step 1: Setup 1. Start a session with AppStream 2.0 with the URL that you received in the welcome email message from AppStream 2.0. 2. Use your email as your user ID, and define your permanent password. 3. Select the Enterprise Analyzer stack. 4. On the AppStream 2.0 menu page, choose **Desktop** to reach the Windows desktop that the fleet is streaming. ## Step 2: Create the Amazon S3 based virtual folder on Windows ###### Note If you already used Rclone during the AWS Mainframe Modernization preview, you must update `m2-rclone.cmd` to the newer version located in `C:\Users\Public`. 1. Copy the `m2-rclone.conf` and `m2-rclone.cmd` files provided in `C:\Users\Public` to your home folder `C:\Users\PhotonUser\My Files\Home Folder` using File Explorer. 2. Update the `m2-rclone.conf` config parameters with your AWS access key and corresponding secret, as well as your AWS Region. ``` [m2-s3] type = s3 provider = AWS access_key_id = YOUR-ACCESS-KEY secret_access_key = YOUR-SECRET-KEY region = YOUR-REGION acl = private server_side_encryption = AES256 ``` 3. In `m2-rclone.cmd`, make the following changes: <br>• Change `amzn-s3-demo-bucket` to your Amazon S3 bucket name. For example, `m2-s3-mybucket`. <br>• Change `your-s3-folder-key` to your Amazon S3 bucket key. For example, `myProject`. <br>• Change `your-local-folder-path` to the path of the directory where you want the application files synced from the Amazon S3 bucket that contains them. For example, `D:\PhotonUser\My Files\Home Folder\m2-new`. This synced directory must be a subdirectory of the Home Folder in order for AppStream 2.0 to properly back up and restore it on session start and end. ``` :loop timeout /T 10 "C:\Program Files\rclone\rclone.exe" sync m2-s3:`amzn-s3-demo-bucket`/`your-s3-folder-key` "D:\PhotonUser\My Files\Home Folder\`your-local-folder-path`" --config "D:\PhotonUser\My Files\Home Folder\m2-rclone.conf" goto :loop ``` 4. Open a Windows command prompt, cd to `C:\Users\PhotonUser\My Files\Home Folder` if needed and run `m2-rclone.cmd`. This command script runs a continuous loop, syncing your Amazon S3 bucket and key to the local folder every 10 seconds. You can adjust the time out as needed. You should see the source code of the application located in the Amazon S3 bucket in Windows File Explorer. To add new files to the set that you are working on or to update existing ones, upload the files to the Amazon S3 bucket and they will be synced to your directory at the next iteration defined in `m2-rclone.cmd`. Similarly, if you want to delete some files, delete them from the Amazon S3 bucket. The next sync operation will delete them from your local directory. ## Step 3: Create an ODBC source for the Amazon RDS instance 1. To start the EA\_Admin tool, navigate to the application selector menu in the top left corner of the browser window and choose **MF EA\_Admin**. 2. From the **Administer** menu, choose **ODBC Data Sources**, and choose **Add** from the **User DSN** tab. 3. In the Create New Data Source dialog box, choose the **PostgreSQL Unicode** driver, and then choose **Finish**. 4. In the **PostgreSQL Unicode ODBC Driver (psqlODBC) Setup** dialog box, define and take note of the data source name that you want. Complete the following parameters with the values from the RDS instance that you previously created: **Description** Optional description to help you identify this database connection quickly. **Database** The Amazon RDS database you created previously. **Server** The Amazon RDS endpoint. **Port** The Amazon RDS port. **User Name** As defined in the Amazon RDS instance. **Password** As defined in the Amazon RDS instance. 5. Choose **Test** to validate that the connection to Amazon RDS is successful, and then choose **Save** to save your new User DSN. 6. Wait until you see the message that confirms creation of the proper workspace, and then choose **OK** to finish with ODBC Data Sources and close the EA\_Admin tool. 7. Navigate again to the application selector menu, and choose Enterprise Analyzer to start the tool. Choose **Create New**. 8. In the Workspace configuration window, enter your workspace name and define its location. The workspace can be the Amazon S3 based disk if you work under this config, or your home folder if you prefer. 9. Choose **Choose Other Database** to connect to your Amazon RDS instance. 10. Choose the **Postgre** icon from the options, and then choose **OK**. 11. For the Windows settings under **Options – Define Connection Parameters**, enter the name of the data source that you created. Also enter the database name, the schema name, the user name, and password. Choose **OK**. 12. Wait for Enterprise Analyzer to create all the tables, indexes, and so on that it needs to store results. This process might take a couple of minutes. Enterprise Analyzer confirms when the database and workspace are ready for use. 13. Navigate again to the application selector menu and choose Enterprise Analyzer to start the tool. 14. The Enterprise Analyzer startup window appears in the new, selected workspace location. Choose **OK**. 15. Navigate to your repository in the left pane, select the repository name, and choose **Add files / folders to your workspace**.Select the folder where your application code is stored to add it to the workspace. You can use the previous BankDemo example code if you want. When Enterprise Analyzer prompts you to verify those files, choose **Verify** to start the initial Enterprise Analyzer verification report. It might take some minutes to complete, depending on the size of your application. 16. Expand your workspace to see the files and folders that you’ve added to the workspace. The object types and cyclomatic complexity reports are also visible in the top quadrant of the **Chart Viewer** pane. You can now use Enterprise Analyzer for all needed tasks. ## Subsequent sessions 1. Start a session with AppStream 2.0 with the URL that you received in the welcome email message from AppStream 2.0. 2. Log in with your email and permanent password. 3. Select the Enterprise Analyzer stack. 4. Launch `Rclone` to connect to the Amazon S3 backed disk if you use this option to share the workspace files. 5. Launch Enterprise Analyzer to do your tasks. ## Troubleshooting workspace connection When you try to reconnect to your Enterprise Analyzer workspace, you might see an error like this: ``` Cannot access the workspace directory D:\PhotonUser\My Files\Home Folder\EA_BankDemo. The workspace has been created on a non-shared disk of the EC2AMAZ-E6LC33H computer. Would you like to correct the workspace directory location? ``` To resolve this issue, choose **OK** to clear the message, and then complete the following steps. 1. In AppStream 2.0, choose the **Launch Application** icon on the toolbar, and then choose **EA\_Admin** to start the Enterprise Analyzer Administration tool. ![The AppStream 2.0 launch selector menu with the Rocket Enterprise Developer administration tool selected.](images/aas-launch-selector.png) 2. From the **Administer** menu, choose **Refresh Workspace Path...**. ![Administer menu of Rocket Enterprise Analyzer administration tool with Refresh Workspace Path selected.](images/ea_admin-administer-refresh.png) 3. Under **Select workspace**, choose the workspace that you want, and then choose **OK**. ![The Select workspace dialog box of Rocket Enterprise Analyzer administration tool with a project selected.](images/ea_admin-select-workspace.png) 4. Choose **OK** to confirm the error message. ![The Enterprise Analyzer error message "Cannot access the workspace directory" with OK selected.](images/ea_admin-select-workspace-error.png) 5. Under **Workspace directory network path**, enter the correct path to your workspace, for example, `D:\PhotonUser\My Files\Home Folder\EA\MyWorkspace3`. ![The Enterprise Analyzer dialog box Workspace directory network path with an example path.](images/ea_admin-workspace-directory-network-path.png) 6. Close the Micro Focus Enterprise Analyzer Administration tool. ![The Micro Focus Enterprise Analyzer Administration tool with the Close button selected.](images/ea_admin-close.png) 7. In AppStream 2.0, choose the **Launch Application** icon on the toolbar, and then choose **EA** to start Micro Focus Enterprise Analyzer. ![The AppStream 2.0 launch application icon with EA selected.](images/aas-launch-ea.png) 8. Repeat steps 3 - 5. Micro Focus Enterprise Analyzer should now open with the existing workspace. ## Clean up resources If you no longer need the resources that you created for this tutorial, delete them so that you don't incur further charges. Complete the following steps: <br>• Use the **EA\_Admin** tool to delete the workspace. <br>• Delete the S3 buckets that you created for this tutorial. For more information, see [Deleting a bucket](../../../AmazonS3/latest/userguide/delete-bucket.md "../../../AmazonS3/latest/userguide/delete-bucket.md") in the *Amazon S3 User Guide*. <br>• Delete the database that you created for this tutorial. For more information, see [Deleting a DB instance](../../../AmazonRDS/latest/UserGuide/CHAP_GettingStarted.CreatingConnecting.md#CHAP_GettingStarted.Deleting.PostgreSQL "../../../AmazonRDS/latest/UserGuide/CHAP_GettingStarted.CreatingConnecting.md#CHAP_GettingStarted.Deleting.PostgreSQL").
+````
