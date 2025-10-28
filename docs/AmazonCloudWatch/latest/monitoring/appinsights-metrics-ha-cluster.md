@@ -1,0 +1,15 @@
+# HA Cluster
+
+CloudWatch Application Insights supports the following metrics:
+
+ha_cluster_pacemaker_stonith_enabled
+
+ha_cluster_corosync_quorate
+
+hanadb_webdispatcher_service_started_status
+
+ha_cluster_pacemaker_nodes
+
+ha_cluster_corosync_ring_errors
+
+ha_cluster_pacemaker_fail_count

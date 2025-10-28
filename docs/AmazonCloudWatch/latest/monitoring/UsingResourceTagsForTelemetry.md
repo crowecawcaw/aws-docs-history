@@ -1,0 +1,150 @@
+# Using resource tags for telemetry
+
+Once you have enabled resource tags for telemetry, you can leverage this enriched data to create powerful monitoring solutions that scale with your infrastructure. Use tag-based queries to group and filter metrics across multiple resources, create dynamic alarms that
+automatically adapt to resource changes, and gain insights into your AWS environment organized by meaningful business or operational categories. This approach enables you to monitor resources by team, environment, application, or any other tagging strategy you use in your
+organization.
+
+- **Creating tag-based Metrics Insights queries** – After you enable resource tags for telemetry in your account, you can create tag-based Metrics Insights queries to discover and visualize your AWS infrastructure metrics by tag. Example queries using tags can be seen in the
+  [CloudWatch Metrics Insights query builder documentation](cloudwatch-metrics-insights-buildquery.md "cloudwatch-metrics-insights-buildquery.md"). _Monitoring accounts_ can also make tag based queries for
+  metrics in _source accounts_ which have enabled resource tags on their telemetry.
+- **Creating tag based CloudWatch alarms** – After you enable resource tags for telemetry in your account, you can create CloudWatch alarms on tag-based Metrics Insights queries to alert on your AWS infrastructure metrics by tag.
+  Example alarms using tag based queries can be seen in the [CloudWatch Metric Insights alarms documentation](cloudwatch-metrics-insights-alarms.md "cloudwatch-metrics-insights-alarms.md").
+
+## Supported AWS infrastructure metrics
+
+The list below displays the AWS CloudFormation resource that support resource tags for telemetry enrichment in CloudWatch. When you enable resource tags for telemetry, CloudWatch can enrich metrics from these services with their associated resource tags.
+
+- AWS::AmazonMQ::Broker
+- AWS::AppFlow::Flow
+- AWS::AppRunner::Service
+- AWS::AppStream::Fleet
+- AWS::Athena::WorkGroup
+- AWS::Backup::BackupVault
+- AWS::Cassandra::Keyspace
+- AWS::CertificateManager::Certificate
+- AWS::CloudFront::Distribution
+- AWS::CloudWatch::MetricStream
+- AWS::CodeBuild::Project
+- AWS::CodeGuruProfiler::ProfilingGroup
+- AWS::Cognito::UserPool
+- AWS::Config::ConformancePack
+- AWS::Connect::Instance
+- AWS::CustomerProfiles::Domain
+- AWS::DataSync::Agent
+- AWS::DataSync::Task
+- AWS::DAX::Cluster
+- AWS::DMS::ReplicationConfig
+- AWS::DMS::ReplicationInstance
+- AWS::DocDB::DBCluster
+- AWS::DocDB::DBInstance
+- AWS::DynamoDB::Table
+- AWS::EC2::Host
+- AWS::EC2::Instance
+- AWS::EC2::NatGateway
+- AWS::EC2::TransitGateway
+- AWS::EC2::TransitGatewayAttachment
+- AWS::EC2::Volume
+- AWS::ECR::Repository
+- AWS::ECS::Cluster
+- AWS::ECS::Service
+- AWS::EFS::FileSystem
+- AWS::ElastiCache::CacheCluster
+- AWS::ElastiCache::ReplicationGroup
+- AWS::ElasticBeanstalk::Environment
+- AWS::ElasticLoadBalancing::LoadBalancer
+- AWS::ElasticLoadBalancingV2::LoadBalancer
+- AWS::ElasticLoadBalancingV2::TargetGroup
+- AWS::Elasticsearch::Domain
+- AWS::EMRServerless::Application
+- AWS::Events::EventBus
+- AWS::Events::Rule
+- AWS::Forecast::Dataset
+- AWS::FraudDetector::Outcome
+- AWS::FraudDetector::Variable
+- AWS::FSx::FileSystem
+- AWS::FSx::Volume
+- AWS::GameLift::ContainerGroupDefinition
+- AWS::GameLift::Fleet
+- AWS::GameLift::Location
+- AWS::InternetMonitor::Monitor
+- AWS::IoT::ProvisioningTemplate
+- AWS::IoT::ScheduledAudit
+- AWS::IoT::SecurityProfile
+- AWS::IoTAnalytics::Channel
+- AWS::IoTAnalytics::Dataset
+- AWS::IoTAnalytics::Pipeline
+- AWS::IoTFleetWise::Campaign
+- AWS::IoTFleetWise::Vehicle
+- AWS::IoTSiteWise::Gateway
+- AWS::IVS::Channel
+- AWS::KafkaConnect::Connector
+- AWS::Kendra::Index
+- AWS::Kinesis::Stream
+- AWS::KinesisAnalytics::Application
+- AWS::KinesisFirehose::DeliveryStream
+- AWS::KinesisVideo::SignalingChannel
+- AWS::KinesisVideo::Stream
+- AWS::KMS::Key
+- AWS::Lambda::Function
+- AWS::Lex::Bot
+- AWS::Lex::BotAlias
+- AWS::Lex::BotVersion
+- AWS::Logs::LogAnomalyDetector
+- AWS::Logs::LogGroup
+- AWS::LookoutEquipment::InferenceScheduler
+- AWS::LookoutMetrics::Alert
+- AWS::LookoutMetrics::AnomalyDetector
+- AWS::M2::Environment
+- AWS::ManagedBlockchain::Member
+- AWS::ManagedBlockchain::Node
+- AWS::MediaConvert::Queue
+- AWS::MediaLive::Channel
+- AWS::MediaPackage::Channel
+- AWS::MediaPackage::OriginEndpoint
+- AWS::MediaPackage::PackagingConfiguration
+- AWS::MediaStore::Container
+- AWS::MediaTailor::Channel
+- AWS::MemoryDB::Cluster
+- AWS::MSK::Replicator
+- AWS::MWAA::Environment
+- AWS::Neptune::DBCluster
+- AWS::Neptune::DBInstance
+- AWS::NetworkFirewall::Firewall
+- AWS::OpsWorks::Instance
+- AWS::OpsWorks::Layer
+- AWS::OpsWorks::Stack
+- AWS::OSIS::Pipeline
+- AWS::Personalize::Dataset
+- AWS::Personalize::DatasetGroup
+- AWS::Personalize::Solution
+- AWS::QBusiness::Index
+- AWS::QLDB::Ledger
+- AWS::QLDB::Stream
+- AWS::QuickSight::Dashboard
+- AWS::RDS::DBCluster
+- AWS::RDS::DBInstance
+- AWS::Redshift::Cluster
+- AWS::Redshift::Integration
+- AWS::Rekognition::Project
+- AWS::Route53::HealthCheck
+- AWS::Route53::HostedZone
+- AWS::Route53Resolver::FirewallRuleGroup
+- AWS::S3::Bucket
+- AWS::SageMaker::Endpoint
+- AWS::SageMaker::FeatureGroup
+- AWS::SageMaker::InferenceComponent
+- AWS::SageMaker::Model
+- AWS::SageMaker::Workteam
+- AWS::Scheduler::ScheduleGroup
+- AWS::SNS::Topic
+- AWS::SQS::Queue
+- AWS::StepFunctions::Activity
+- AWS::StepFunctions::StateMachine
+- AWS::Timestream::Database
+- AWS::Timestream::Table
+- AWS::Transfer::Connector
+- AWS::Transfer::Server
+- AWS::VoiceID::Domain
+- AWS::VpcLattice::Service
+- AWS::VpcLattice::TargetGroup
+- AWS::WorkSpaces::Workspace
