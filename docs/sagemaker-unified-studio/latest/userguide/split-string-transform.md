@@ -1,0 +1,19 @@
+# Split string transform
+
+Use this transform to split a string column into an array.
+
+###### To add a Split String transform:
+
+1. Navigate to your visual ETL job in Amazon SageMaker Unified Studio.
+2. Choose the plus icon to open the **Add nodes** menu.
+3. Under **Transforms**, choose **Split
+   String**.
+4. Select the diagram to add the node to your visual ETL job.
+5. Connect the transform node to a data source node.
+6. Select the node on the diagram to view details about the transform.
+7. Under **Column to split**, select the column that you want to
+   split.
+8. Under **Splitting regular expression**, enter a regular expression
+   that defines the separator token.
+9. (Optional) Under **Array column name, enter a name for the new column that
+   contains the extracted array.**
