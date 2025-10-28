@@ -1,0 +1,19 @@
+End of support notice:
+On December 15, 2025, AWS will end support for AWS IoT Analytics. After December 15, 2025, you will no longer
+be able to access the AWS IoT Analytics console, or AWS IoT Analytics resources.
+For more information, see
+[AWS IoT Analytics end of support](iotanalytics-end-of-support.md "iotanalytics-end-of-support.md").
+
+# Message payload syntax
+
+The field names of message payloads (data) that you send to AWS IoT Analytics:
+
+- Must contain only alphanumeric characters and underscores (\_); no other special characters are allowed
+- Must begin with an alphabetic character or single underscore (\_).
+- Cannot contain hyphens (-).
+- In regular expression terms: "`^[A-Za-z_]([A-Za-z0-9]*|[A-Za-z0-9][A-Za-z0-9_]*)$`".
+- Cannot be greater than 255 characters.
+- Are case-insensitive. Fields named "foo" and "FOO" in the same payload are considered
+  duplicates.
+  For example, `{"temp_01": 29}` or `{"_temp_01": 29}` are valid, but `{"temp-01": 29}`,
+  `{"01_temp": 29}` or `{"__temp_01": 29}` are invalid in message payloads.
