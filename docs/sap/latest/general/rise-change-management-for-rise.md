@@ -1,0 +1,9 @@
+# Change Management for RISE with SAP
+
+[SAP Cloud ALM](https://support.sap.com/en/alm/sap-cloud-alm.html "https://support.sap.com/en/alm/sap-cloud-alm.html") provides capability to manage change and orchestrate deployments across the landscape. For RISE with SAP, Cloud ALM integrates with [Change and Transport System (CTS)](https://support.sap.com/en/tools/software-logistics-tools/change-and-transport-system.html "https://support.sap.com/en/tools/software-logistics-tools/change-and-transport-system.html") to orchestrate the deployment of transport requests.
+
+For SAP BTP, Cloud ALM integrates with [SAP Cloud Transport Management Service (cTMS)](https://www.sap.com/sea/products/technology-platform/cloud-transport-management.html "https://www.sap.com/sea/products/technology-platform/cloud-transport-management.html") and allows you to transport multiple content types from your development or testing to the production subaccount (List of supported content types for transport is available [here](https://help.sap.com/docs/cloud-transport-management/sap-cloud-transport-management/supported-content-types "https://help.sap.com/docs/cloud-transport-management/sap-cloud-transport-management/supported-content-types")).
+
+For customers using SAP Solution Manager, [Change Request Management (ChaRM)](https://support.sap.com/en/alm/solution-manager/training-services/alm-consulting-services/change-management.html?anchorId=section "https://support.sap.com/en/alm/solution-manager/training-services/alm-consulting-services/change-management.html?anchorId=section") is an integrated functionality that provides comprehensive change management.
+
+SAP provides a [DevOps reference framework](https://architecture.learning.sap.com/docs/ref-arch/1c5706feb5 "https://architecture.learning.sap.com/docs/ref-arch/1c5706feb5") to automate large parts of your deployment pipeline, allowing you to quickly setup CI/CD pipelines as part of SAP Build.
