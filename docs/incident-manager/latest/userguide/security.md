@@ -1,0 +1,42 @@
+AWS Systems Manager Incident Manager will no longer be open to new customers starting November 7, 2025. If you would like to use Incident Manager,
+sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see
+[AWS Systems Manager Incident Manager availability change](incident-manager-availability-change.md "incident-manager-availability-change.md").
+
+# Security in AWS Systems Manager Incident Manager
+
+Cloud security at AWS is the highest priority. As an AWS customer, you benefit from data
+centers and network architectures that are built to meet the requirements of the most
+security-sensitive organizations.
+
+Security is a shared responsibility between AWS and you. The [shared responsibility
+model](https://aws.amazon.com/compliance/shared-responsibility-model/ "https://aws.amazon.com/compliance/shared-responsibility-model/") describes this as security _of_ the cloud and security
+_in_ the cloud:
+
+- **Security of the cloud** – AWS is responsible for
+  protecting the infrastructure that runs AWS services in the AWS Cloud. AWS also
+  provides you with services that you can use securely. Third-party auditors regularly test
+  and verify the effectiveness of our security as part of the [AWS Compliance Programs](https://aws.amazon.com/compliance/programs/ "https://aws.amazon.com/compliance/programs/"). To learn about the compliance programs that
+  apply to AWS Systems Manager Incident Manager, see [AWS Services in Scope by Compliance Program](https://aws.amazon.com/compliance/services-in-scope/ "https://aws.amazon.com/compliance/services-in-scope/").
+- **Security in the cloud** – Your responsibility is
+  determined by the AWS service that you use. You are also responsible for other factors
+  including the sensitivity of your data, your company’s requirements, and applicable laws and
+  regulations.
+  This documentation helps you understand how to apply the shared responsibility model when
+  using Incident Manager. The following topics show you how to configure Incident Manager to meet your
+  security and compliance objectives. You also learn how to use other AWS services that help you
+  to monitor and secure your Incident Manager resources.
+
+###### Topics
+
+- [Data protection in Incident Manager](data-protection.md "data-protection.md")
+- [Identity and Access Management for AWS Systems Manager Incident Manager](security-iam.md "security-iam.md")
+- [Working with shared contacts and response plans in
+  Incident Manager](sharing.md "sharing.md")
+- [Compliance validation for AWS Systems Manager Incident Manager](SERVICENAME-compliance.md "SERVICENAME-compliance.md")
+- [Resilience in AWS Systems Manager Incident Manager](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
+- [Infrastructure security in AWS Systems Manager Incident Manager](infrastructure-security.md "infrastructure-security.md")
+- [Working with AWS Systems Manager Incident Manager and interface VPC
+  endpoints (AWS PrivateLink)](vpc-interface-endpoints.md "vpc-interface-endpoints.md")
+- [Configuration and vulnerability analysis in
+  Incident Manager](vulnerability.md "vulnerability.md")
+- [Security best practices in AWS Systems Manager Incident Manager](security-best-practices.md "security-best-practices.md")
