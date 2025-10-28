@@ -1,0 +1,63 @@
+# Live input redundancy AWS Elemental MediaPackage processing
+
+flow
+
+Achieve input redundancy in AWS Elemental MediaPackage by sending two streams to separate
+ingest domains on a channel in MediaPackage. One of the streams becomes the primary,
+active source of content for the endpoints, while the other continues to
+passively receive content. If MediaPackage stops receiving content from the active
+stream, it switches over to the other ingest stream so that content playback
+isn't interrupted.
+
+If you use MediaPackage with AWS Elemental MediaLive (for example), here's the flow of input
+redundancy:
+
+1. You create a channel group in MediaPackage, as described in [Creating a channel group in AWS Elemental MediaPackage](channel-group-create.md "channel-group-create.md"). When MediaPackage provisions the channel group, it creates an egress domain
+   for all channels and origin endpoints within the channel group.
+2. You create a channel within the channel group as described in [Creating a channel in AWS Elemental MediaPackage](channels-create.md "channels-create.md"). When
+   MediaPackage provisions the channel, it creates two ingest domains for the
+   channel. If you're not using input redundancy, you can send a stream to
+   either ingest domain. There's no requirement that you send content to
+   both domains.
+3. You create an origin endpoint within the channel as described in [Creating an origin endpoint in AWS Elemental MediaPackage](endpoints-create.md "endpoints-create.md").
+
+###### Important
+
+If you use short output segments, depending on your playback
+device, you might see buffering when MediaPackage switches inputs. You can
+reduce buffering by using the time delay feature on the endpoint. Be
+aware that using a time delay introduces latency to end-to-end
+delivery of the content. For information about enabling time delay,
+see [Creating an origin endpoint in AWS Elemental MediaPackage](endpoints-create.md "endpoints-create.md"). 4. You create an input and channel in AWS Elemental MediaLive, and you add a MediaPackage
+output group to the channel in MediaLive. For more information, see [Creating a Channel
+from Scratch](../../../medialive/latest/ug/creating-channel-scratch.md "../../../medialive/latest/ug/creating-channel-scratch.md") in the _AWS Elemental MediaLive User
+Guide_.
+
+If you use an HLS output group in AWS Elemental MediaLive, the input loss action on
+the HLS group's settings must be set to pause the output if the service
+doesn't receive input. If MediaLive sends a black frame or some other filler
+frame when it's missing input, then MediaPackage can't tell when segments are
+missing, and subsequently can't perform failover. For more information
+about setting the input loss action in MediaLive, see [Fields for the HLS
+Group](../../../medialive/latest/ug/hls-group-fields.md "../../../medialive/latest/ug/hls-group-fields.md") in the _AWS Elemental MediaLive User Guide_.
+
+###### Important
+
+If you use a different encoder (not AWS Elemental MediaLive) and you send two
+separate streams to the same channel in MediaPackage, the streams must have
+identical encoder settings and manifest names. Otherwise, input
+redundancy might not work correctly and playback could be
+interrupted if the inputs switch. 5. You start the channel in AWS Elemental MediaLive to send the streams to
+MediaPackage. 6. MediaPackage receives content on both of the ingest URLs, but only one of the
+streams is used for source content at a time. If the active stream is
+missing any segments, then MediaPackage automatically fails over to the other
+stream. MediaPackage continues to use this stream until failover is needed
+again.
+
+The formula that's used to determine if an input is missing segments
+is based on the segment lengths on the inputs and the endpoints. If an
+input is missing segments and quickly recovers, an endpoint with longer
+segment lengths won't switch inputs. This might result in different
+endpoints on the channel using different inputs (if one endpoint
+switches and the other doesn't). This is expected behavior and should
+not affect the content workflow.
