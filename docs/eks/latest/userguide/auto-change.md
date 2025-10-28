@@ -1,0 +1,85 @@
+**Help improve this page**
+
+To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
+
+# Review EKS Auto Mode release notes
+
+This page documents updates to Amazon EKS Auto Mode. You can periodically check this page for announcements about features, bug fixes, known issues, and deprecated functionality.
+
+To receive notifications of all source file changes to this specific documentation page, you can subscribe to the following URL with an RSS reader:
+
+```
+https://github.com/awsdocs/amazon-eks-user-guide/commits/mainline/latest/ug/automode/auto-change.adoc.atom
+```
+
+## October 1, 2025
+
+**Feature:** EKS Auto Mode now supports deploying nodes to AWS Local Zones. For more information, see [Deploy EKS Auto Mode nodes onto Local Zones](auto-local-zone.md "auto-local-zone.md").
+
+## September 30, 2025
+
+**Feature:** Added support for instanceProfile to the NodeClass `spec.instanceProfile` which is mutually exclusive from the `spec.role` field.
+
+## September 29, 2025
+
+DRA is not currently supported by EKS Auto Mode.
+
+## September 10, 2025
+
+**Chore:** Events fired from the Auto Mode Compute controller will now use the name `eks-auto-mode/compute` instead of `karpenter`.
+
+## August 24, 2025
+
+**Bug Fix:** VPCs that used a DHCP option set with a custom domain name that contained capital letters would cause Nodes to fail to join the cluster due to generating an invalid hostname. This has been resolved and domain names with capital letters now work correctly.
+
+## August 15, 2025
+
+**Bug Fix:** The Pod Identity Agent will now only listen on the IPv4 Link Local address in an IPv4 EKS cluster to avoid issues where the Pod can’t reach the IPv6 address.
+
+## August 6, 2025
+
+**Feature:** Added new configuration on the NodeClass `spec.advancedNetworking.associatePublicIPAddress` which can be used to prevent public IP addresses from being assigned to EKS Auto Mode Nodes
+
+## June 30, 2025
+
+**Feature:** The Auto Mode NodeClass now uses the configured custom KMS key to encrypt the read-only root volume of the instance, in addition to the read/write data volume. Previously, the custom KMS key was only used to encrypt the data volume.
+
+## June 20, 2025
+
+**Feature:** Support for controlling deployment of workloads into EC2 On-Demand Capacity Reservations (ODCRs). This adds the optional key `capacityReservationSelectorTerms` to the NodeClass, allowing you to explicitly control which ODCRs your workloads use. For more information, see [Control deployment of workloads into Capacity Reservations with EKS Auto Mode](auto-odcr.md "auto-odcr.md").
+
+## June 13, 2025
+
+**Feature:** Support for separate pod subnets in the `NodeClass`. This adds the optional keys ``podSubnetSelectorTerms` and `podSecurityGroupSelectorTerms` to set the subnets and security groups for the pods. For more information, see [Subnet selection for Pods](create-node-class.md#pod-subnet-selector "create-node-class.md#pod-subnet-selector").
+
+## April 30, 2025
+
+**Feature:** Support for forward network proxies in the `NodeClass`. This adds the optional key `advancedNetworking` to set your HTTPS proxy. For more information, see [Node Class Specification](create-node-class.md#auto-node-class-spec "create-node-class.md#auto-node-class-spec").
+
+## April 18, 2025
+
+**Feature:** Support for resolving .local domains (typically reserved for Multicast DNS) via unicast DNS.
+
+## April 11, 2025
+
+**Feature:** Added `certificateBundles` and `ephemeralStorage.kmsKeyID` to `NodeClass`. For more information, see [Node Class Specification](create-node-class.md#auto-node-class-spec "create-node-class.md#auto-node-class-spec").
+
+**Feature:** Improved image pull speed, particularly for instance types with local instance storage that can take advantage of the faster image decompression.
+
+**Bug Fix:** Resolved a race condition which caused FailedCreatePodSandBox , Error while dialing: dial tcp 127.0.0.1:50051: connect: connection refused to sometimes occur for Pods scheduling to a Node immediately at startup.
+
+## April 4, 2025
+
+**Feature:** Increase `registryPullQPS` from 5 to 25 and `registryBurst` from 10 to 50 to reduce client enforced image pull throttling (`Failed to pull image xyz: pull QPS exceeded`)
+
+## March 31, 2025
+
+**Bug Fix:** Fixes an issue where if a Core DNS Pod is running on an Auto Mode node, DNS queries from Pods on the node would hit that Core DNS Pod instead of the node local DNS server. DNS queries from Pods on an Auto Mode node will always go to the node local DNS.
+
+## March 21, 2025
+
+**Bug Fix:** Auto Mode nodes now resolve `kube-dns.kube-system.svc.cluster.local` correctly when there isn’t a `kube-dns` service installed in the cluster. Addresses GitHub issue [#2546](https://github.com/aws/containers-roadmap/issues/2546 "https://github.com/aws/containers-roadmap/issues/2546").
+
+## March 14, 2025
+
+**Feature**: `IPv4` egress enabled in `IPv6` clusters. `IPv4` traffic egressing from `IPv6` Auto Mode clusters will now be automatically translated to the `v4` address of the node primary ENI.

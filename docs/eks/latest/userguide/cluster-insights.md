@@ -1,0 +1,46 @@
+**Help improve this page**
+
+To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
+
+# Prepare for Kubernetes version upgrades and troubleshoot misconfigurations with cluster insights
+
+Amazon EKS cluster insights provide detection of issues and recommendations to resolve them to help you manage your cluster. Every Amazon EKS cluster undergoes automatic, recurring checks against an Amazon EKS curated list of insights. These _insight checks_ are fully managed by Amazon EKS and offer recommendations on how to address any findings.
+
+## Cluster insight types
+
+- **Configuration insights**: Identifies misconfigurations in your EKS Hybrid Nodes setup that could impair functionality of your cluster or workloads.
+- **Upgrade insights**: Identifies issues that could impact your ability to upgrade to new versions of Kubernetes.
+
+## Considerations
+
+- **Frequency**: Amazon EKS refreshes cluster insights every 24 hours, or you can manually refresh them to see the latest status. For example, you can manually refresh cluster insights after addressing an issue to see if the issue was resolved.
+- **Permissions**: Amazon EKS automatically creates a cluster access entry for cluster insights in every EKS cluster. This entry gives EKS permission to view information about your cluster. Amazon EKS uses this information to generate the insights. For more information, see [AmazonEKSClusterInsightsPolicy](access-policy-permissions.md#access-policy-permissions-AmazonEKSClusterInsightsPolicy "access-policy-permissions.md#access-policy-permissions-AmazonEKSClusterInsightsPolicy").
+
+## Use cases
+
+Cluster insights in Amazon EKS provide automated checks to help maintain the health, reliability, and optimal configuration of your Kubernetes clusters. Below are key use cases for cluster insights, including upgrade readiness and configuration troubleshooting.
+
+### Upgrade insights
+
+Upgrade insights are a specific type of insight checks within cluster insights. These checks returns insights related to Kubernetes version upgrade readiness. Amazon EKS runs upgrade insight checks on every EKS cluster.
+
+###### Important
+
+Amazon EKS has temporarily rolled back a feature that would
+require you to use a `--force` flag to upgrade your cluster when there were certain cluster insight issues. For more information, see [Temporary rollback of enforcing upgrade insights on update cluster version](https://github.com/aws/containers-roadmap/issues/2570 "https://github.com/aws/containers-roadmap/issues/2570") on GitHub.
+
+For more information about updating your cluster, see [Step 3: Update cluster control plane](update-cluster.md#update-cluster-control-plane "update-cluster.md#update-cluster-control-plane").
+
+Before updating your cluster Kubernetes version, you can use the **Upgrade insights** tab of the observability dashboard in the [Amazon EKS console](https://console.aws.amazon.com/eks/home#/clusters "https://console.aws.amazon.com/eks/home#/clusters"). If your cluster has identified issues, review them and make appropriate fixes. The issues include links to Amazon EKS and Kubernetes documentation. After fixing the issue, refresh cluster insights on-demand to fetch the latest insights. If all issues have been resolved, [update your cluster](update-cluster.md "update-cluster.md").
+
+Amazon EKS returns insights related to Kubernetes version upgrade readiness. Upgrade insights identify possible issues that could impact Kubernetes cluster upgrades. This minimizes the effort that administrators spend preparing for upgrades and increases the reliability of applications on newer Kubernetes versions. Clusters are automatically scanned by Amazon EKS against a list of possible Kubernetes version upgrade impacting issues. Amazon EKS frequently updates the list of insight checks based on reviews of changes made in each Kubernetes version release.
+
+Amazon EKS upgrade insights speed up the testing and verification process for new versions. They also allow cluster administrators and application developers to leverage the newest Kubernetes capabilities by highlighting concerns and offering remediation advice.
+
+### Configuration insights
+
+EKS cluster insights automatically scans Amazon EKS clusters with hybrid nodes to identify configuration issues impairing Kubernetes control plane-to-webhook communication, kubectl commands like exec and logs, and more. Configuration insights surface issues and provide remediation recommendations, accelerating the time to a fully functioning hybrid nodes setup.
+
+## Get started
+
+To see the list of insight checks performed and any relevant issues that Amazon EKS has identified, you can use the AWS Management Console, the AWS CLI, AWS SDKs, and Amazon EKS `ListInsights` API operation. To get started, see [View cluster insights](view-cluster-insights.md "view-cluster-insights.md").

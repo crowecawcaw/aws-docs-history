@@ -1,0 +1,21 @@
+**Help improve this page**
+
+To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
+
+# Update self-managed nodes for your cluster
+
+When a new Amazon EKS optimized AMI is released, consider replacing the nodes in your self-managed node group with the new AMI. Likewise, if you have updated the Kubernetes version for your Amazon EKS cluster, update the nodes to use nodes with the same Kubernetes version.
+
+###### Important
+
+This topic covers node updates for self-managed nodes. If you are using [managed node groups](managed-node-groups.md "managed-node-groups.md"), see [Update a managed node group for your cluster](update-managed-node-group.md "update-managed-node-group.md").
+
+There are two basic ways to update self-managed node groups in your clusters to use a new AMI:
+
+**[Migrate applications to a new node group](migrate-stack.md "migrate-stack.md")**
+
+Create a new node group and migrate your Pods to that group. Migrating to a new node group is more graceful than simply updating the AMI ID in an existing AWS CloudFormation stack. This is because the migration process [taints](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/ "https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/") the old node group as `NoSchedule` and drains the nodes after a new stack is ready to accept the existing Pod workload.
+
+**[Update an AWS CloudFormation node stack](update-stack.md "update-stack.md")**
+
+Update the AWS CloudFormation stack for an existing node group to use the new AMI. This method isn’t supported for node groups that were created with `eksctl`.

@@ -1,0 +1,13 @@
+**Help improve this page**
+
+To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
+
+# Organize and monitor cluster resources
+
+This chapter includes the following topics to help you manage your cluster. You can also view information about your [Kubernetes resources](view-kubernetes-resources.md "view-kubernetes-resources.md") with the AWS Management Console.
+
+- The Kubernetes Dashboard is a general purpose, web-based UI for Kubernetes clusters. It allows users to manage applications running in the cluster and troubleshoot them, as well as manage the cluster itself. For more information, see The [Kubernetes Dashboard](https://github.com/kubernetes/dashboard "https://github.com/kubernetes/dashboard") GitHub repository.
+- [View resource usage with the Kubernetes Metrics Server](metrics-server.md "metrics-server.md") – The Kubernetes Metrics Server is an aggregator of resource usage data in your cluster. It isn’t deployed by default in your cluster, but is used by Kubernetes add-ons, such as the Kubernetes Dashboard and [Scale pod deployments with Horizontal Pod Autoscaler](horizontal-pod-autoscaler.md "horizontal-pod-autoscaler.md"). In this topic you learn how to install the Metrics Server.
+- [Deploy applications with Helm on Amazon EKS](helm.md "helm.md") – The Helm package manager for Kubernetes helps you install and manage applications on your Kubernetes cluster. This topic helps you install and run the Helm binaries so that you can install and manage charts using the Helm CLI on your local computer.
+- [Organize Amazon EKS resources with tags](eks-using-tags.md "eks-using-tags.md") – To help you manage your Amazon EKS resources, you can assign your own metadata to each resource in the form of _tags_. This topic describes tags and shows you how to create them.
+- [View and manage Amazon EKS and Fargate service quotas](service-quotas.md "service-quotas.md") – Your AWS account has default quotas, formerly referred to as limits, for each AWS service. Learn about the quotas for Amazon EKS and how to increase them.

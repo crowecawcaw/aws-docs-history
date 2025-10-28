@@ -1,0 +1,12 @@
+**Help improve this page**
+
+To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
+
+# Monitor and optimize Amazon EKS cluster costs
+
+Cost monitoring is an essential aspect of managing your Kubernetes clusters on Amazon EKS. By gaining visibility into your cluster costs, you can optimize resource utilization, set budgets, and make data-driven decisions about your deployments. Amazon EKS provides two cost monitoring solutions, each with its own unique advantages, to help you track and allocate your costs effectively:
+
+**AWS Billing split cost allocation data for Amazon EKS** — This native feature integrates seamlessly with the AWS Billing Console, allowing you to analyze and allocate costs using the same familiar interface and workflows you use for other AWS services. With split cost allocation, you can gain insights into your Kubernetes costs directly alongside your other AWS spend, making it easier to optimize costs holistically across your AWS environment. You can also leverage existing AWS Billing features like Cost Categories and Cost Anomaly Detection to further enhance your cost management capabilities. For more information, see [Understanding split cost allocation data](../../../cur/latest/userguide/split-cost-allocation-data.md "../../../cur/latest/userguide/split-cost-allocation-data.md") in the AWS Billing User Guide.
+
+**Kubecost** — Amazon EKS supports Kubecost, a Kubernetes cost monitoring tool. Kubecost offers a feature-rich, Kubernetes-native approach to cost monitoring, providing granular cost breakdowns by Kubernetes resources, cost optimization recommendations, and out-of-the-box dashboards and reports. Kubecost also retrieves accurate pricing data by integrating with the AWS Cost and Usage Report, ensuring you get a precise view of your Amazon EKS costs. Learn how to [Install Kubecost](cost-monitoring-kubecost.md#kubecost-overview "cost-monitoring-kubecost.md#kubecost-overview"). See the [Kubecost](https://aws.amazon.com/marketplace/pp/prodview-asiz4x22pm2n2 "https://aws.amazon.com/marketplace/pp/prodview-asiz4x22pm2n2")
+AWS Marketplace page for information on getting a free Kubecost subscription.

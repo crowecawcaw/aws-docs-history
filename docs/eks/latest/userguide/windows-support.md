@@ -1,0 +1,168 @@
+**Help improve this page**
+
+To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
+
+# Deploy Windows nodes on EKS clusters
+
+Learn how to enable and manage Windows support for your Amazon EKS cluster to run Windows containers alongside Linux containers.
+
+## Considerations
+
+Before deploying Windows nodes, be aware of the following considerations.
+
+- EKS Auto Mode does not support Windows nodes
+- You can use host networking on Windows nodes using `HostProcess` Pods. For more information, see [Create a Windows HostProcessPod](https://kubernetes.io/docs/tasks/configure-pod-container/create-hostprocess-pod/ "https://kubernetes.io/docs/tasks/configure-pod-container/create-hostprocess-pod/") in the Kubernetes documentation.
+- Amazon EKS clusters must contain one or more Linux or Fargate nodes to run core system Pods that only run on Linux, such as CoreDNS.
+- The `kubelet` and `kube-proxy` event logs are redirected to the `EKS Windows` Event Log and are set to a 200 MB limit.
+- You can’t use the same IAM role for both Linux and Windows nodes.
+- You can’t use [Assign security groups to individual pods](security-groups-for-pods.md "security-groups-for-pods.md") with Pods running on Windows nodes.
+- You can’t use [custom networking](cni-custom-network.md "cni-custom-network.md") with Windows nodes.
+- You can’t use `IPv6` with Windows nodes.
+- Windows nodes support one elastic network interface per node. By default, the number of Pods that you can run per Windows node is equal to the number of IP addresses available per elastic network interface for the node’s instance type, minus one. For more information, see [IP addresses per network interface per instance type](../../../AWSEC2/latest/WindowsGuide/using-eni.md#AvailableIpPerENI "../../../AWSEC2/latest/WindowsGuide/using-eni.md#AvailableIpPerENI") in the _Amazon EC2 User Guide_.
+- In an Amazon EKS cluster, a single service with a load balancer can support up to 1024 back-end Pods. Each Pod has its own unique IP address. The previous limit of 64 Pods is no longer the case, after [a Windows Server update](https://github.com/microsoft/Windows-Containers/issues/93 "https://github.com/microsoft/Windows-Containers/issues/93") starting with [OS Build 17763.2746](https://support.microsoft.com/en-us/topic/march-22-2022-kb5011551-os-build-17763-2746-preview-690a59cd-059e-40f4-87e8-e9139cc65de4 "https://support.microsoft.com/en-us/topic/march-22-2022-kb5011551-os-build-17763-2746-preview-690a59cd-059e-40f4-87e8-e9139cc65de4").
+- Windows containers aren’t supported for Amazon EKS Pods on Fargate.
+- You can’t use Amazon EKS Hybrid Nodes with Windows as the operating system for the host.
+- You can’t retrieve logs from the `vpc-resource-controller` Pod. You previously could when you deployed the controller to the data plane.
+- There is a cool down period before an `IPv4` address is assigned to a new Pod. This prevents traffic from flowing to an older Pod with the same `IPv4` address due to stale `kube-proxy` rules.
+- The source for the controller is managed on GitHub. To contribute to, or file issues against the controller, visit the [project](https://github.com/aws/amazon-vpc-resource-controller-k8s "https://github.com/aws/amazon-vpc-resource-controller-k8s") on GitHub.
+- When specifying a custom AMI ID for Windows managed node groups, add `eks:kube-proxy-windows` to your AWS IAM Authenticator configuration map. For more information, see [Limits and conditions when specifying an AMI ID](launch-templates.md#mng-ami-id-conditions "launch-templates.md#mng-ami-id-conditions").
+- If preserving your available IPv4 addresses is crucial for your subnet, refer to [EKS Best Practices Guide - Windows Networking IP Address Management](https://aws.github.io/aws-eks-best-practices/windows/docs/networking/#ip-address-management "https://aws.github.io/aws-eks-best-practices/windows/docs/networking/#ip-address-management") for guidance.
+- Considerations for EKS Access Entries
+  - Access Entries for use with Windows nodes need the type of `EC2_WINDOWS`. For more information, see [Create access entries](creating-access-entries.md "creating-access-entries.md").
+
+  To create an access entry for a Windows node:
+
+  ```
+  aws eks create-access-entry --cluster-name my-cluster --principal-arn arn:aws:iam::111122223333:role/<role-name> --type EC2_Windows
+  ```
+
+## Prerequisites
+
+- An existing cluster.
+- Your cluster must have at least one (we recommend at least two) Linux node or Fargate Pod to run CoreDNS. If you enable legacy Windows support, you must use a Linux node (you can’t use a Fargate Pod) to run CoreDNS.
+- An existing [Amazon EKS cluster IAM role](cluster-iam-role.md "cluster-iam-role.md").
+
+## Enable Windows support
+
+1. If you don’t have Amazon Linux nodes in your cluster and use security groups for Pods, skip to the next step. Otherwise, confirm that the `AmazonEKSVPCResourceController` managed policy is attached to your [cluster role](cluster-iam-role.md "cluster-iam-role.md"). Replace `eksClusterRole` with your cluster role name.
+
+```
+aws iam list-attached-role-policies --role-name eksClusterRole
+```
+
+An example output is as follows.
+
+```
+{
+    "AttachedPolicies": [
+        {
+            "PolicyName": "AmazonEKSClusterPolicy",
+            "PolicyArn": "arn:aws:iam::aws:policy/AmazonEKSClusterPolicy"
+        },
+        {
+            "PolicyName": "AmazonEKSVPCResourceController",
+            "PolicyArn": "arn:aws:iam::aws:policy/AmazonEKSVPCResourceController"
+        }
+    ]
+}
+```
+
+If the policy is attached, as it is in the previous output, skip the next step. 2. Attach the **[AmazonEKSVPCResourceController](../../../aws-managed-policy/latest/reference/AmazonEKSVPCResourceController.md "../../../aws-managed-policy/latest/reference/AmazonEKSVPCResourceController.md")** managed policy to your [Amazon EKS cluster IAM role](cluster-iam-role.md "cluster-iam-role.md"). Replace `eksClusterRole` with your cluster role name.
+
+```
+aws iam attach-role-policy \
+  --role-name eksClusterRole \
+  --policy-arn arn:aws:iam::aws:policy/AmazonEKSVPCResourceController
+```
+
+3. Update the VPC CNI ConfigMap to enable Windows IPAM. Note, if the VPC CNI is installed on your cluster using a Helm chart or as an Amazon EKS Add-on you may not be able to directly modify the ConfigMap. For information on configuring Amazon EKS Add-ons, see [Determine fields you can customize for Amazon EKS add-ons](kubernetes-field-management.md "kubernetes-field-management.md").
+   1. Create a file named `vpc-resource-controller-configmap.yaml` with the following contents.
+
+   ```
+   apiVersion: v1
+   kind: ConfigMap
+   metadata:
+     name: amazon-vpc-cni
+     namespace: kube-system
+   data:
+     enable-windows-ipam: "true"
+   ```
+
+   2. Apply the `ConfigMap` to your cluster.
+
+   ```
+   kubectl apply -f vpc-resource-controller-configmap.yaml
+   ```
+
+4. If your cluster has the authentication mode set to enable the `aws-auth` configmap:
+   - Verify that your `aws-auth`
+     `ConfigMap` contains a mapping for the instance role of the Windows node to include the `eks:kube-proxy-windows` RBAC permission group. You can verify by running the following command.
+
+   ```
+   kubectl get configmap aws-auth -n kube-system -o yaml
+   ```
+
+   An example output is as follows.
+
+   ```
+   apiVersion: v1
+   kind: ConfigMap
+   metadata:
+     name: aws-auth
+     namespace: kube-system
+   data:
+     mapRoles: |
+       - groups:
+         - system:bootstrappers
+         - system:nodes
+         - eks:kube-proxy-windows # This group is required for Windows DNS resolution to work
+         rolearn: arn:aws:iam::111122223333:role/eksNodeRole
+         username: system:node:{{EC2PrivateDNSName}}
+   [...]
+   ```
+
+   You should see `eks:kube-proxy-windows` listed under groups. If the group isn’t specified, you need to update your `ConfigMap` or create it to include the required group. For more information about the `aws-auth`
+   `ConfigMap`, see [Apply the aws-auth   ConfigMap to your cluster](auth-configmap.md#aws-auth-configmap "auth-configmap.md#aws-auth-configmap").
+
+5. If your cluster has the authentication mode set to disable the `aws-auth` configmap, then you can use EKS Access Entries. Create a new node role for use with Windows instances, and EKS will automatically create an access entry of type `EC2_WINDOWS`.
+
+## Deploy Windows Pods
+
+When you deploy Pods to your cluster, you need to specify the operating system that they use if you’re running a mixture of node types.
+
+For Linux Pods, use the following node selector text in your manifests.
+
+```
+nodeSelector:
+        kubernetes.io/os: linux
+        kubernetes.io/arch: amd64
+```
+
+For Windows Pods, use the following node selector text in your manifests.
+
+```
+nodeSelector:
+        kubernetes.io/os: windows
+        kubernetes.io/arch: amd64
+```
+
+You can deploy a [sample application](sample-deployment.md "sample-deployment.md") to see the node selectors in use.
+
+## Support higher Pod density on Windows nodes
+
+In Amazon EKS, each Pod is allocated an `IPv4` address from your VPC. Due to this, the number of Pods that you can deploy to a node is constrained by the available IP addresses, even if there are sufficient resources to run more Pods on the node. Since only one elastic network interface is supported by a Windows node, by default, the maximum number of available IP addresses on a Windows node is equal to:
+
+```
+Number of private IPv4 addresses for each interface on the node - 1
+```
+
+One IP address is used as the primary IP address of the network interface, so it can’t be allocated to Pods.
+
+You can enable higher Pod density on Windows nodes by enabling IP prefix delegation. This feature enables you to assign a `/28`
+`IPv4` prefix to the primary network interface, instead of assigning secondary `IPv4` addresses. Assigning an IP prefix increases the maximum available `IPv4` addresses on the node to:
+
+```
+(Number of private IPv4 addresses assigned to the interface attached to the node - 1) * 16
+```
+
+With this significantly larger number of available IP addresses, available IP addresses shouldn’t limit your ability to scale the number of Pods on your nodes. For more information, see [Assign more IP addresses to Amazon EKS nodes with prefixes](cni-increase-ip-addresses.md "cni-increase-ip-addresses.md").

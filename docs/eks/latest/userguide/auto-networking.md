@@ -1,0 +1,85 @@
+**Help improve this page**
+
+To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
+
+# Learn about VPC Networking and Load Balancing in EKS Auto Mode
+
+This topic explains how to configure Virtual Private Cloud (VPC) networking and load balancing features in EKS Auto Mode. While EKS Auto Mode manages most networking components automatically, you can still customize certain aspects of your cluster’s networking configuration through `NodeClass` resources and load balancer annotations.
+
+When you use EKS Auto Mode, AWS manages the VPC Container Network Interface (CNI) configuration and load balancer provisioning for your cluster. You can influence networking behaviors by defining `NodeClass` objects and applying specific annotations to your Service and Ingress resources, while maintaining the automated operational model that EKS Auto Mode provides.
+
+## Networking capability
+
+EKS Auto Mode has a new networking capability that handles node and pod networking. You can configure it by creating a `NodeClass` Kubernetes object.
+
+Configuration options for the previous AWS VPC CNI will not apply to EKS Auto Mode.
+
+### Configure networking with a `NodeClass`
+
+The `NodeClass` resource in EKS Auto Mode allows you to customize certain aspects of the networking capability. Through `NodeClass`, you can specify security group selections, control node placement across VPC subnets, set SNAT policies, configure network policies, and enable network event logging. This approach maintains the automated operational model of EKS Auto Mode while providing flexibility for network customization.
+
+You can use a `NodeClass` to:
+
+- Select a Security Group for Nodes
+- Control how nodes are placed on VPC Subnets
+- Set the Node SNAT Policy to `random` or `disabled`
+- Enable Kubernetes _network policies_ including:
+  - Set the Network Policy to Default Deny or Default Allow
+  - Enable Network Event Logging to a file.
+
+- Isolate pod traffic from the node traffic by attaching pods to different subnets.
+
+Learn how to [Create an Amazon EKS NodeClass](create-node-class.md "create-node-class.md").
+
+### Considerations
+
+EKS Auto Mode supports:
+
+- EKS Network Policies.
+- The `HostPort` and `HostNetwork` options for Kubernetes Pods.
+- Nodes and Pods in public or private subnets.
+- Caching DNS queries on the node.
+
+EKS Auto Mode does **not** support:
+
+- Security Groups per Pod (SGPP).
+- Custom Networking in the `ENIConfig`. You can put pods in multiple subnets or exclusively isolate them from the node traffic with [Subnet selection for Pods](create-node-class.md#pod-subnet-selector "create-node-class.md#pod-subnet-selector").
+- Warm IP, warm prefix, and warm ENI configurations.
+- Minimum IP targets configuration.
+- Other configurations supported by the open source AWS VPC CNI.
+- Network Policy configurations such as conntrack timer customization (default is 300s).
+- Exporting network event logs to CloudWatch.
+
+### Network Resource Management
+
+EKS Auto Mode handles prefix, IP addressing, and network interface management by monitoring NodeClass resources for networking configurations. The service performs several key operations automatically:
+
+**Prefix Delegation**
+
+EKS Auto Mode defaults to using prefix delegation (/28 prefixes) for pod networking and maintains a predefined warm pool of IP resources that scales based on the number of scheduled pods. When pod subnet fragmentation is detected, Auto Mode provisions secondary IP addresses (/32). Due to this default pod networking algorithm, Auto Mode calculates max pods per node based on the number of ENIs and IPs supported per instance type (assuming the worst case of fragmentation). For more information about Max ENIs and IPs per instance type, see [Maximum IP addresses per network interface](../../../AWSEC2/latest/UserGuide/AvailableIpPerENI.md "../../../AWSEC2/latest/UserGuide/AvailableIpPerENI.md") in the EC2 User Guide. Newer generation (Nitro v6 and above) instance families generally have increased ENIs and IPs per instance type, and Auto Mode adjusts the max pods calculation accordingly.
+
+For IPv6 clusters, only prefix delegation is used, and Auto Mode always uses a max pods limit of 110 pods per node.
+
+**Cooldown Management**
+
+The service implements a cooldown pool for prefixes or secondary IPv4 addresses that are no longer in use. After the cooldown period expires, these resources are released back to the VPC. However, if pods reuse these resources during the cooldown period, they are restored from the cooldown pool.
+
+**IPv6 Support**
+
+For IPv6 clusters, EKS Auto Mode provisions a `/80` IPv6 prefix per node on the primary network interface.
+
+The service also ensures proper management and garbage collection of all network interfaces.
+
+## Load balancing
+
+You configure AWS Elastic Load Balancers provisioned by EKS Auto Mode using annotations on Service and Ingress resources.
+
+For more information, see [Create an IngressClass to configure an Application Load Balancer](auto-configure-alb.md "auto-configure-alb.md") or [Use Service Annotations to configure Network Load Balancers](auto-configure-nlb.md "auto-configure-nlb.md").
+
+### Considerations for load balancing with EKS Auto Mode
+
+- The default targeting mode is IP Mode, not Instance Mode.
+- EKS Auto Mode only supports Security Group Mode for Network Load Balancers.
+- AWS does not support migrating load balancers from the self managed AWS load balancer controller to management by EKS Auto Mode.
+- The `networking.ingress.ipBlock` field in `TargetGroupBinding` spec is not supported.
+- If your worker nodes use custom security groups (not `eks-cluster-sg-` naming pattern), your cluster role needs additional IAM permissions. The default EKS-managed policy only allows EKS to modify security groups named `eks-cluster-sg-`. Without permission to modify your custom security groups, EKS cannot add the required ingress rules that allow ALB/NLB traffic to reach your pods.

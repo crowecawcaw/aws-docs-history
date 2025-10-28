@@ -1,0 +1,128 @@
+**Help improve this page**
+
+To contribute to this user guide, choose the **Edit this page on GitHub** link that is located in the right pane of every page.
+
+# Review release notes for Kubernetes versions on standard support
+
+This topic gives important changes to be aware of for each Kubernetes version in standard support. When upgrading, carefully review the changes that have occurred between the old and new versions for your cluster.
+
+## Kubernetes 1.34
+
+Kubernetes `1.34` is now available in Amazon EKS. For more information about Kubernetes `1.34`, see the [official release announcement](https://kubernetes.io/blog/2025/08/27/kubernetes-v1-34-release/ "https://kubernetes.io/blog/2025/08/27/kubernetes-v1-34-release/").
+
+###### Important
+
+- Containerd updated to 2.1 in Version 1.34 for launch.
+  - If you experience any issues after upgrade, check the [containerd 2.1 release notes](https://github.com/containerd/containerd/releases/tag/v2.1.0 "https://github.com/containerd/containerd/releases/tag/v2.1.0").
+
+- AWS is not releasing an EKS-optimized Amazon Linux 2 AMI for Kubernetes 1.34.
+  - AWS encourages you to migrate to Amazon Linux 2023. Learn how to [Upgrade from Amazon Linux 2 to Amazon Linux 2023](al2023.md "al2023.md").
+  - For more information, see [Amazon Linux 2 AMI deprecation](#al2-ami-deprecation "#al2-ami-deprecation").
+
+- AppArmor is deprecated in Kubernetes 1.34.
+  - We recommend migrating to alternative container security solutions like [seccomp](https://kubernetes.io/docs/tutorials/security/seccomp/ "https://kubernetes.io/docs/tutorials/security/seccomp/") or [Pod Security Standards](https://kubernetes.io/docs/concepts/security/pod-security-standards/ "https://kubernetes.io/docs/concepts/security/pod-security-standards/").
+
+- VolumeAttributesClass (VAC) graduates to GA in Kubernetes 1.34, migrating from the beta API (`storage.k8s.io/v1beta1`) to the stable API (`storage.k8s.io/v1`).
+  - If you use the EBS CSI driver with AWS-managed sidecar containers (from [CSI Components](https://gallery.ecr.aws/csi-components "https://gallery.ecr.aws/csi-components") on the ECR Gallery), volume modification will continue to work seamlessly on EKS 1.31-1.33 clusters. AWS will patch the sidecars to support beta VAC APIs until the end of EKS 1.33 standard support (July 29, 2026).
+  - If you self-manage your CSI sidecar containers, you may need to pin to older sidecar versions on pre-1.34 clusters to maintain VAC functionality.
+  - To use GA VolumeAttributesClass features (such as modification rollback), upgrade to EKS 1.34 or later.
+
+- **Dynamic Resource Allocation (DRA) Core APIs (GA):** Dynamic Resource Allocation has graduated to stable, enabling efficient management of specialized hardware like GPUs through standardized allocation interfaces - simplifying resource management for hardware accelerators and improving utilization of specialized resources.
+- **Projected ServiceAccount Tokens for Kubelet (Beta):** This enhancement improves security by using short-lived credentials for container image pulls instead of long-lived secrets - reducing the risk of credential exposure and strengthening the overall security posture of your clusters.
+- **Pod-level Resource Requests and Limits (Beta):** This feature simplifies resource management by allowing shared resource pools for multi-container pods - enabling more efficient resource allocation and utilization for complex applications with multiple containers.
+- **Mutable CSI Node Allocatable Count (Beta):** The `MutableCSINodeAllocatableCount` feature gate is enabled by default in EKS 1.34, making the CSINode max attachable volume count attribute mutable and introducing a mechanism to update it dynamically based on user configuration at the CSI driver level. These updates can be triggered either by periodic intervals or by failure detection, enhancing the reliability of stateful pod scheduling by addressing mismatches between reported and actual attachment capacity on nodes.
+  - For more information, see [Kubernetes v1.34: Mutable CSI Node Allocatable Count](https://kubernetes.io/blog/2025/09/11/kubernetes-v1-34-mutable-csi-node-allocatable-count/ "https://kubernetes.io/blog/2025/09/11/kubernetes-v1-34-mutable-csi-node-allocatable-count/") on the _Kubernetes Blog_.
+
+- **Deprecation Notice - cgroup driver configuration:** Manual cgroup driver configuration is being deprecated in favor of automatic detection.
+  - **Customer impact:** If you currently set the `--cgroup-driver` flag manually in your kubelet configuration, you should prepare to remove this configuration.
+  - **Required action:** Plan to update node bootstrap scripts and custom AMI configurations to remove manual cgroup driver settings before the feature is removed in a future Kubernetes release.
+  - For more information, see the [cgroup driver documentation](https://kubernetes.io/docs/tasks/administer-cluster/kubeadm/configure-cgroup-driver/ "https://kubernetes.io/docs/tasks/administer-cluster/kubeadm/configure-cgroup-driver/").
+
+For the complete Kubernetes `1.34` changelog, see [https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.34.md](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.34.md "https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.34.md")
+
+## Kubernetes 1.33
+
+Kubernetes `1.33` is now available in Amazon EKS. For more information about Kubernetes `1.33`, see the [official release announcement](https://kubernetes.io/blog/2025/04/23/kubernetes-v1-33-release/ "https://kubernetes.io/blog/2025/04/23/kubernetes-v1-33-release/").
+
+###### Important
+
+- The Dynamic Resource Allocation _beta_ Kubernetes API is enabled.
+  - This beta API improves the experience of scheduling and monitoring workloads that require resources such as GPUs.
+  - The beta API is defined by the Kubernetes community, and might change in future versions of Kubernetes.
+  - Carefully review [Feature stages](https://kubernetes.io/docs/reference/command-line-tools-reference/feature-gates/#feature-stages "https://kubernetes.io/docs/reference/command-line-tools-reference/feature-gates/#feature-stages") in the Kubernetes documentation to understand the implications of using beta APIs.
+
+- AWS is not releasing an EKS-optimized Amazon Linux 2 AMI for Kubernetes 1.33.
+  - AWS encourages you to migrate to Amazon Linux 2023. Learn how to [Upgrade from Amazon Linux 2 to Amazon Linux 2023](al2023.md "al2023.md").
+  - For more information, see [Amazon Linux 2 AMI deprecation](#al2-ami-deprecation "#al2-ami-deprecation").
+
+- **In-Place Pod Resource Resize (Beta):** In-place resource resize has been promoted to beta, allowing dynamic updates to CPU and memory resources for existing Pods without restarts - enabling vertical scaling of stateful workloads with zero downtime and seamless resource adjustments based on traffic patterns.
+- **Sidecar Containers Now Stable:** Sidecar containers have graduated to stable, implementing sidecars as special init containers with `restartPolicy: Always` that start before application containers, run throughout the pod lifecycle, and support probes for operational state signaling.
+  - For more information, see [Sidecar Containers](https://kubernetes.io/docs/concepts/workloads/pods/sidecar-containers/ "https://kubernetes.io/docs/concepts/workloads/pods/sidecar-containers/") in the _Kubernetes Documentation_.
+
+- **Endpoints API Deprecation:** The Endpoints API is now officially deprecated and will return warnings when accessed - migrate workloads and scripts to use the EndpointSlices API instead, which supports modern features like dual-stack networking and handles multiple EndpointSlices per Service.
+  - For more information, see [Kubernetes v1.33: Continuing the transition from Endpoints to EndpointSlice](https://kubernetes.io/blog/2025/04/24/endpoints-deprecation/ "https://kubernetes.io/blog/2025/04/24/endpoints-deprecation/") on the _Kubernetes Blog_.
+
+- **Elastic Fabric Adapter Support:** The default security group for Amazon EKS clusters now supports Elastic Fabric Adapter (EFA) traffic. The default security group has a new outbound rule that allows EFA traffic with the destination of the same security group. This allows EFA traffic within the cluster.
+  - For more information, see [Elastic Fabric Adapter for AI/ML and HPC workloads on Amazon EC2](../../../AWSEC2/latest/UserGuide/efa.md "../../../AWSEC2/latest/UserGuide/efa.md") in the Amazon Elastic Compute Cloud User Guide.
+
+For the complete Kubernetes `1.33` changelog, see [https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.33.md](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.33.md "https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.33.md")
+
+## Kubernetes 1.32
+
+Kubernetes `1.32` is now available in Amazon EKS. For more information about Kubernetes `1.32`, see the [official release announcement](https://kubernetes.io/blog/2024/12/11/kubernetes-v1-32-release/ "https://kubernetes.io/blog/2024/12/11/kubernetes-v1-32-release/").
+
+###### Important
+
+- The `flowcontrol.apiserver.k8s.io/v1beta3` API version of FlowSchema and PriorityLevelConfiguration has been removed in version `1.32`. If you are using these APIs, you must update your configurations to use the latest supported version before upgrading.
+- ServiceAccount `metadata.annotations[kubernetes.io/enforce-mountable-secrets]` has been deprecated in version `1.32` and will be removed in a future Kubernetes minor version release. It is recommended to use separate namespaces to isolate access to mounted secrets.
+- Kubernetes version `1.32` is the last version for which Amazon EKS will release Amazon Linux 2 (AL2) AMIs. From version `1.33` onwards, Amazon EKS will continue to release Amazon Linux 2023 (AL2023) and Bottlerocket based AMIs.
+
+- The Memory Manager feature has graduated to Generally Available (GA) status in Kubernetes version `1.32`. This enhancement provides more efficient and predictable memory allocation for containerized applications, particularly beneficial for workloads with specific memory requirements.
+- PersistentVolumeClaims (PVCs) created by StatefulSets now include automatic cleanup functionality. When PVCs are no longer needed, they will be automatically deleted while maintaining data persistence during StatefulSet updates and node maintenance operations. This feature simplifies storage management and helps prevent orphaned PVCs in your cluster.
+- Custom Resource Field Selector functionality has been introduced, allowing developers to add field selectors to custom resources. This feature provides the same filtering capabilities available for built-in Kubernetes objects to custom resources, enabling more precise and efficient resource filtering and promoting better API design practices.
+
+For the complete Kubernetes `1.32` changelog, see [https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.32.md](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.32.md "https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.32.md")
+
+### Anonymous authentication changes
+
+Starting with Amazon EKS `1.32`, anonymous authentication is restricted to the following API server health check endpoints:
+
+- `/healthz`
+- `/livez`
+- `/readyz`
+
+Requests to any other endpoint using the `system:unauthenticated` user will receive a `401 Unauthorized` HTTP response. This security enhancement helps prevent unintended cluster access that could occur due to misconfigured RBAC policies.
+
+###### Note
+
+The `public-info-viewer` RBAC role continues to apply for the health check endpoints listed above.
+
+### Amazon Linux 2 AMI deprecation
+
+For Kubernetes versions 1.33 and later, EKS will not provide pre-built optimized Amazon Linux 2 (AL2) Amazon Machine Images (AMIs).
+
+AWS suggests adopting EKS Auto Mode, or migrating to a more recent operating system, such as Amazon Linux 2023 (AL2023) or Bottlerocket.
+
+- [Migrate from EKS Managed Node Groups to EKS Auto Mode](auto-migrate-mng.md "auto-migrate-mng.md")
+- [Upgrade from Amazon Linux 2 to Amazon Linux 2023](al2023.md "al2023.md")
+- [Create nodes with optimized Bottlerocket AMIs](eks-optimized-ami-bottlerocket.md "eks-optimized-ami-bottlerocket.md")
+
+###### Note
+
+This update applies to EKS-optimized AL2 AMIs. For more information about the operating system itself, see [Amazon Linux 2 FAQs](https://aws.amazon.com/amazon-linux-2/faqs/ "https://aws.amazon.com/amazon-linux-2/faqs/").
+
+## Kubernetes 1.31
+
+Kubernetes `1.31` is now available in Amazon EKS. For more information about Kubernetes `1.31`, see the [official release announcement](https://kubernetes.io/blog/2024/08/13/kubernetes-v1-31-release/ "https://kubernetes.io/blog/2024/08/13/kubernetes-v1-31-release/").
+
+###### Important
+
+- The kubelet flag `--keep-terminated-pod-volumes` deprecated since 2017 has been removed as part of the version `1.31` release. This change impacts how terminated pod volumes are handled by the kubelet. If you are using this flag in your node configurations, you must update your bootstrap scripts and launch templates to remove it before upgrading.
+
+- The beta `VolumeAttributesClass` feature gate and API resource is enabled in Amazon EKS version `1.31`. This feature allows cluster operators to modify mutable properties of Persistent Volumes (PVs) managed by compatible CSI Drivers, including the Amazon EBS CSI Driver. To leverage this feature, ensure that your CSI Driver supports the `VolumeAttributesClass` feature (for the Amazon EBS CSI Driver, upgrade to version `1.35.0` or later to automatically enable the feature). You will be able to create `VolumeAttributesClass` objects to define the desired volume attributes, such as volume type and throughput, and associate them with your Persistent Volume Claims (PVCs). See the [official Kubernetes documentation](https://kubernetes.io/docs/concepts/storage/volume-attributes-classes/ "https://kubernetes.io/docs/concepts/storage/volume-attributes-classes/") as well as the documentation of your CSI driver for more information.
+  - For more information about the Amazon EBS CSI Driver, see [Use Kubernetes volume storage with Amazon EBS](ebs-csi.md "ebs-csi.md").
+
+- Kubernetes support for [AppArmor](https://apparmor.net/ "https://apparmor.net/") has graduated to stable and is now generally available for public use. This feature allows you to protect your containers with AppArmor by setting the `appArmorProfile.type` field in the container’s `securityContext`. Prior to Kubernetes version `1.30`, AppArmor was controlled by annotations. Starting with version `1.30`, it is controlled using fields. To leverage this feature, we recommend migrating away from annotations and using the `appArmorProfile.type` field to ensure that your workloads are compatible.
+- The PersistentVolume last phase transition time feature has graduated to stable and is now generally available for public use in Kubernetes version `1.31`. This feature introduces a new field, `.status.lastTransitionTime`, in the PersistentVolumeStatus, which provides a timestamp of when a PersistentVolume last transitioned to a different phase. This enhancement allows for better tracking and management of PersistentVolumes, particularly in scenarios where understanding the lifecycle of volumes is important.
+
+For the complete Kubernetes `1.31` changelog, see [https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.31.md](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.31.md "https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.31.md")
