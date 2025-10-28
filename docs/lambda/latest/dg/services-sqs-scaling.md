@@ -1,0 +1,81 @@
+# Configuring scaling behavior for SQS event source mappings
+
+For standard queues, Lambda uses [long polling](../../../AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-short-and-long-polling.md#sqs-long-polling "../../../AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-short-and-long-polling.md#sqs-long-polling") to poll a queue until it becomes active. When messages are
+available, Lambda starts processing five batches at a time with five concurrent invocations
+of your function. If messages are still available, Lambda increases the number of processes that are reading batches by up to 300 more instances per minute. The maximum number of batches that an event source mapping can process simultaneously is 1,000. When traffic is low, Lambda scales back the processing to
+five concurrent batches, and can optimize to as few as 2 concurrent batches to reduce the
+SQS calls and corresponding costs. However, this optimization is not available when you
+enable the maximum concurrency setting.
+
+For FIFO queues, Lambda sends messages to your function in the order that it receives them. When you send a
+message to a FIFO queue, you specify a [message group
+ID](../../../AWSSimpleQueueService/latest/SQSDeveloperGuide/using-messagegroupid-property.md "../../../AWSSimpleQueueService/latest/SQSDeveloperGuide/using-messagegroupid-property.md"). Amazon SQS ensures that messages in the same group are delivered to Lambda in order. When Lambda reads
+your messages into batches, each batch may contain messages from more than one message group, but the order
+of the messages is maintained. If your function returns an error, the function attempts all retries on the
+affected messages before Lambda receives additional messages from the same
+group.
+
+## Configuring maximum concurrency for Amazon SQS event sources
+
+You can use the maximum concurrency setting to control scaling behavior for your SQS event sources.
+The maximum concurrency setting limits the number of concurrent instances of the function that an Amazon SQS
+event source can invoke. Maximum concurrency is an event source-level setting. If you have multiple Amazon SQS
+event sources mapped to one function, each event source can have a separate maximum concurrency setting.
+You can use maximum concurrency to prevent one queue from using all of the function's
+[reserved concurrency](configuration-concurrency.md "configuration-concurrency.md") or the rest of the
+[account's concurrency quota](gettingstarted-limits.md "gettingstarted-limits.md"). There is no charge for
+configuring maximum concurrency on an Amazon SQS event source.
+
+Importantly, maximum concurrency and reserved concurrency are two independent settings. Don't set
+maximum concurrency higher than the function's reserved concurrency. If you configure maximum concurrency,
+make sure that your function's reserved concurrency is greater than or equal to the total maximum
+concurrency for all Amazon SQS event sources on the function. Otherwise, Lambda may throttle your messages.
+
+When your account's concurrency quota is set to the default value of 1,000, an Amazon SQS event source mapping can scale
+to invoke function instances up to this value, unless you specify a maximum concurrency.
+
+If you receive an increase to your account's default concurrency quota, Lambda may not be able to invoke concurrent functions
+instances up to your new quota. By default, Lambda can scale to invoke up to 1,250 concurrent function instances
+for an Amazon SQS event source mapping. If this is insufficient for your use case, contact AWS support to
+discuss an increase to your account's Amazon SQS event source mapping concurrency.
+
+###### Note
+
+For FIFO queues, concurrent invocations are capped either by the number of
+[message group IDs](../../../AWSSimpleQueueService/latest/SQSDeveloperGuide/using-messagegroupid-property.md "../../../AWSSimpleQueueService/latest/SQSDeveloperGuide/using-messagegroupid-property.md")
+(`messageGroupId`) or the maximum concurrency setting—whichever is lower. For example,
+if you have six message group IDs and maximum concurrency is set to 10, your function can have a maximum
+of six concurrent invocations.
+
+You can configure maximum concurrency on new and existing Amazon SQS event source mappings.
+
+###### Configure maximum concurrency using the Lambda console
+
+1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions "https://console.aws.amazon.com/lambda/home#/functions") of the Lambda console.
+2. Choose the name of a function.
+3. Under **Function overview**, choose **SQS**. This opens the **Configuration** tab.
+4. Select the Amazon SQS trigger and choose **Edit**.
+5. For **Maximum concurrency**, enter a number between 2 and 1,000. To turn off maximum concurrency, leave the box empty.
+6. Choose **Save**.
+
+###### Configure maximum concurrency using the AWS Command Line Interface (AWS CLI)
+
+Use the [update-event-source-mapping](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lambda/update-event-source-mapping.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lambda/update-event-source-mapping.html") command with the `--scaling-config` option. Example:
+
+```
+aws lambda update-event-source-mapping \
+    --uuid `"a1b2c3d4-5678-90ab-cdef-11111EXAMPLE"` \
+    --scaling-config `'{"MaximumConcurrency":5}'`
+```
+
+To turn off maximum concurrency, enter an empty value for `--scaling-config`:
+
+```
+aws lambda update-event-source-mapping \
+    --uuid `"a1b2c3d4-5678-90ab-cdef-11111EXAMPLE"` \
+    --scaling-config `"{}"`
+```
+
+###### Configure maximum concurrency using the Lambda API
+
+Use the [CreateEventSourceMapping](../api/API_CreateEventSourceMapping.md "../api/API_CreateEventSourceMapping.md") or [UpdateEventSourceMapping](../api/API_UpdateEventSourceMapping.md "../api/API_UpdateEventSourceMapping.md") action with a [ScalingConfig](../api/API_ScalingConfig.md "../api/API_ScalingConfig.md") object.

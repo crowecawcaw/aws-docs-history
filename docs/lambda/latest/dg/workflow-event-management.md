@@ -1,0 +1,63 @@
+# Managing Lambda workflows and events
+
+When building serverless applications with Lambda, you often need ways to orchestrate function execution and handle events. AWS provides two key services that help coordinate Lambda functions:
+
+- AWS Step Functions for workflow orchestration
+- Amazon EventBridge Scheduler and Amazon EventBridge for event management
+  Additionally, you can integrate Step Functions and EventBridge together in your applications. For example, you might use EventBridge Scheduler to trigger Step Functions workflows when specific events occur,
+  or configure Step Functions workflows to publish events to EventBridge Scheduler at defined execution points. The following topics in this section provide more information on how you can use these services.
+
+## Orchestrating workflows with Step Functions
+
+AWS Step Functions is a workflow orchestration service that helps you coordinate multiple Lambda functions and other AWS services into structured workflows.
+These workflows can maintain state, handle errors with sophisticated retry mechanisms, and process data at scale.
+
+Step Functions offers two types of workflows to meet different orchestration needs:
+
+**Standard workflows**
+
+Ideal for long-running, auditable workflows that require exactly-once execution semantics. Standard workflows can run for up to one year, provide detailed execution history, and support visual debugging.
+They are suitable for processes like order fulfillment, data processing pipelines, or multi-step analytics jobs.
+
+**Express workflows**
+
+Designed for high-event-rate, short-duration workloads with at-least-once execution semantics. Express workflows can run for up to five minutes and are ideal for high-volume event processing,
+streaming data transformations, or IoT data ingestion scenarios. They offer higher throughput and potentially lower cost compared to Standard workflows.
+
+###### Note
+
+For more information on Step Functions workflow types, see [Choosing workflow type in Step Functions](../../../step-functions/latest/dg/choosing-workflow-type.md "../../../step-functions/latest/dg/choosing-workflow-type.md").
+
+Within these workflows, Step Functions provides two types of Map states for parallel processing:
+
+**Inline Map**
+
+Processes items from a JSON array within the execution history of the parent workflow. Inline Map supports up to 40 concurrent iterations and is suitable for smaller datasets or when you need to
+keep all processing within a single execution. For more information, see [Using Map state in Inline mode](../../../step-functions/latest/dg/amazon-states-language-map-state.md "../../../step-functions/latest/dg/amazon-states-language-map-state.md").
+
+**Distributed Map**
+
+Enables processing of large-scale parallel workloads by iterating over datasets that exceed 256 KiB or require more than 40 concurrent iterations. With support for up to 10,000 parallel child workflow executions,
+Distributed Map excels at processing semi-structured data stored in Amazon S3, such as JSON or CSV files, making it ideal for batch processing and ETL operations. For more information,
+see [Using Map state in Distributed mode](../../../step-functions/latest/dg/state-map-distributed.md "../../../step-functions/latest/dg/state-map-distributed.md").
+
+By combining these workflow types and Map states, Step Functions provides a flexible and powerful toolset for orchestrating complex serverless applications, from small-scale operations to large-scale data processing pipelines.
+
+To get started with using Lambda with Step Functions, see [Orchestrating Lambda functions with Step Functions](with-step-functions.md "with-step-functions.md").
+
+## Managing events with EventBridge and EventBridge Scheduler
+
+Amazon EventBridge is an event bus service that helps you build event-driven architectures. It routes events between AWS services, integrated applications, and software as a service (SaaS) applications.
+EventBridge Scheduler is a serverless scheduler that enables you to create, run, and manage tasks from one central service, allowing you to invoke Lambda functions on a schedule using cron and rate expressions, or configure one-time invocations.
+
+Amazon EventBridge and EventBridge Scheduler help you build event-driven architectures with Lambda.
+EventBridge routes events between AWS services, integrated applications, and SaaS applications, while EventBridge Scheduler provides specific scheduling capabilities for invoking Lambda functions on a recurring or one-time basis.
+
+These services provide several key capabilities for working with Lambda functions:
+
+- Create rules that match and route events to Lambda functions using EventBridge
+- Set up recurring function invocations using cron and rate expressions with EventBridge Scheduler
+- Configure one-time function invocations at specific dates and times
+- Define flexible time windows and retry policies for scheduled invocations
+
+For more information, see [Invoke a Lambda function on a schedule](with-eventbridge-scheduler.md "with-eventbridge-scheduler.md").
