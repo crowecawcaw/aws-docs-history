@@ -1,0 +1,100 @@
+# Use `DescribeFHIRExportJob` with an AWS SDK or CLI
+
+The following code examples show how to use `DescribeFHIRExportJob`.
+
+CLI
+
+**AWS CLI**
+
+**To describe a FHIR export job**
+
+The following `describe-fhir-export-job` example shows how to find the properties of a FHIR export job in AWS HealthLake.
+
+```
+`aws healthlake describe-fhir-export-job \
+ --datastore-id `(Data` `store` `ID)` \
+ --job-id `9b9a51943afaedd0a8c0c26c49135a31``
+
+```
+
+Output:
+
+```
+{
+    "ExportJobProperties": {
+        "DataAccessRoleArn": "arn:aws:iam::(AWS Account ID):role/(Role Name)",
+        "JobStatus": "IN_PROGRESS",
+        "JobId": "9009813e9d69ba7cf79bcb3468780f16",
+        "SubmitTime": "2024-11-20T11:31:46.672000-05:00",
+        "EndTime": "2024-11-20T11:34:01.636000-05:00",
+        "OutputDataConfig": {
+            "S3Configuration": {
+            "S3Uri": "s3://(Bucket Name)/(Prefix Name)/",
+            "KmsKeyId": "arn:aws:kms:us-east-1:012345678910:key/d330e7fc-b56c-4216-a250-f4c43ef46e83"
+        }
+
+        },
+        "DatastoreId": "(Data store ID)"
+    }
+}
+```
+
+- For API details, see
+  [DescribeFHIRExportJob](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/healthlake/describe-fhir-export-job.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/healthlake/describe-fhir-export-job.html")
+  in _AWS CLI Command Reference_.
+
+Python
+
+**SDK for Python (Boto3)**
+
+```
+    @classmethod
+    def from_client(cls) -> "HealthLakeWrapper":
+        """
+        Creates a HealthLakeWrapper instance with a default AWS HealthLake client.
+
+        :return: An instance of HealthLakeWrapper initialized with the default HealthLake client.
+        """
+        health_lake_client = boto3.client("healthlake")
+        return cls(health_lake_client)
+
+
+    def describe_fhir_export_job(
+        self, datastore_id: str, job_id: str
+    ) -> dict[str, any]:
+        """
+        Describes a HealthLake export job.
+        :param datastore_id: The data store ID.
+        :param job_id: The export job ID.
+        :return: The export job description.
+        """
+        try:
+            response = self.health_lake_client.describe_fhir_export_job(
+                DatastoreId=datastore_id, JobId=job_id
+            )
+            return response["ExportJobProperties"]
+        except ClientError as err:
+            logger.exception(
+                "Couldn't describe export job with ID %s. Here's why %s",
+                job_id,
+                err.response["Error"]["Message"],
+            )
+            raise
+
+
+
+```
+
+- For API details, see
+  [DescribeFHIRExportJob](../../../goto/boto3/healthlake-2017-07-01/DescribeFHIRExportJob.md "../../../goto/boto3/healthlake-2017-07-01/DescribeFHIRExportJob.md")
+  in _AWS SDK for Python (Boto3) API Reference_.
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/healthlake#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/healthlake#code-examples").
+
+For a complete list of AWS SDK developer guides and code examples, see
+[Using HealthLake with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").
+This topic also includes information about getting started and details about previous SDK versions.
