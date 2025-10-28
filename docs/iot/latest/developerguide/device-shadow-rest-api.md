@@ -1,0 +1,298 @@
+# Device Shadow REST API
+
+A shadow exposes the following URI for updating state information:
+
+```
+https://`account-specific-prefix`-ats.iot.`region`.amazonaws.com/things/`thingName`/shadow
+```
+
+The endpoint is specific to your AWS account. To find your endpoint, you can:
+
+- Use the [describe-endpoint](../../../cli/latest/reference/iot/describe-endpoint.md "../../../cli/latest/reference/iot/describe-endpoint.md") command from the AWS CLI.
+- Use the AWS IoT console settings. In **Settings**, the endpoint
+  is listed under **Custom endpoint**
+- Use the AWS IoT console thing details page. In the console:
+
+      1. Open **Manage** and under **Manage**,
+       choose **Things**.
+      2. In the list of things, choose the thing for which you want to get the
+       endpoint URI.
+      3. Choose the **Device Shadows** tab and choose your
+       shadow. You can view the endpoint URI in the **Device Shadow
+       URL** section of the **Device Shadow
+       details** page.
+
+  The format of the endpoint is as follows:
+
+```
+`identifier`.iot.`region`.amazonaws.com
+```
+
+The shadow REST API follows the same HTTPS protocols/port mappings as described in
+[Device communication protocols](protocols.md "protocols.md").
+
+###### Note
+
+To use the APIs, you must use `iotdevicegateway` as the service name
+for authentication. For more information, see [IoTDataPlane](../../../AWSJavaScriptSDK/v3/latest/clients/client-iot-data-plane/classes/iotdataplane.md "../../../AWSJavaScriptSDK/v3/latest/clients/client-iot-data-plane/classes/iotdataplane.md").
+
+###### API actions
+
+- [GetThingShadow](#API_GetThingShadow "#API_GetThingShadow")
+- [UpdateThingShadow](#API_UpdateThingShadow "#API_UpdateThingShadow")
+- [DeleteThingShadow](#API_DeleteThingShadow "#API_DeleteThingShadow")
+- [ListNamedShadowsForThing](#API_ListNamedShadowsForThing "#API_ListNamedShadowsForThing")
+  You can also use the API to create a named shadow by providing
+  `name=`shadowName`` as part of the query
+  parameter of the API.
+
+## GetThingShadow
+
+Gets the shadow for the specified thing.
+
+The response state document includes the delta between the `desired`
+and `reported` states.
+
+###### Request
+
+The request includes the standard HTTP headers plus the following URI:
+
+```
+HTTP GET https://`endpoint`/things/`thingName`/shadow?name=`shadowName`
+Request body: (none)
+```
+
+The `name` query parameter is not required for unnamed (classic)
+shadows.
+
+###### Response
+
+Upon success, the response includes the standard HTTP headers plus the
+following code and body:
+
+```
+HTTP 200
+Response Body: `response state document`
+```
+
+For more information, see [Example Response State Document](device-shadow-document.md#device-shadow-example-response-json "device-shadow-document.md#device-shadow-example-response-json").
+
+###### Authorization
+
+Retrieving a shadow requires a policy that allows the caller to perform the
+`iot:GetThingShadow` action. The Device Shadow service accepts
+two forms of authentication: Signature Version 4 with IAM credentials or TLS
+mutual authentication with a client certificate.
+
+The following is an example policy that allows a caller to retrieve a device's
+shadow:
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": "iot:GetThingShadow",
+ "Resource": [
+ "arn:aws:iot:`us-east-1`:`111122223333`:thing/`thing`"
+ ]
+ }
+ ]
+}`
+
+```
+
+## UpdateThingShadow
+
+Updates the shadow for the specified thing.
+
+Updates affect only the fields specified in the request state document. Any field
+with a value of `null` is removed from the device's shadow.
+
+###### Request
+
+The request includes the standard HTTP headers plus the following URI and
+body:
+
+```
+HTTP POST https://`endpoint`/things/`thingName`/shadow?name=`shadowName`
+Request body: `request state document`
+```
+
+The `name` query parameter is not required for unnamed (classic)
+shadows.
+
+For more information, see [Example Request State Document](device-shadow-document.md#device-shadow-example-request-json "device-shadow-document.md#device-shadow-example-request-json").
+
+###### Response
+
+Upon success, the response includes the standard HTTP headers plus the
+following code and body:
+
+```
+HTTP 200
+Response body: `response state document`
+```
+
+For more information, see [Example Response State Document](device-shadow-document.md#device-shadow-example-response-json "device-shadow-document.md#device-shadow-example-response-json").
+
+###### Authorization
+
+Updating a shadow requires a policy that allows the caller to perform the
+`iot:UpdateThingShadow` action. The Device Shadow service accepts
+two forms of authentication: Signature Version 4 with IAM credentials or TLS
+mutual authentication with a client certificate.
+
+The following is an example policy that allows a caller to update a device's
+shadow:
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": "iot:UpdateThingShadow",
+ "Resource": [
+ "arn:aws:iot:`us-east-1`:`111122223333`:thing/`thing`"
+ ]
+ }
+ ]
+}`
+
+```
+
+## DeleteThingShadow
+
+Deletes the shadow for the specified thing.
+
+###### Request
+
+The request includes the standard HTTP headers plus the following URI:
+
+```
+HTTP DELETE https://`endpoint`/things/`thingName`/shadow?name=`shadowName`
+Request body: (none)
+```
+
+The `name` query parameter is not required for unnamed (classic)
+shadows.
+
+###### Response
+
+Upon success, the response includes the standard HTTP headers plus the
+following code and body:
+
+```
+HTTP 200
+Response body: `Empty response state document`
+```
+
+Note that deleting a shadow does not reset its version number to 0.
+
+###### Authorization
+
+Deleting a device's shadow requires a policy that allows the caller to perform
+the `iot:DeleteThingShadow` action. The Device Shadow service accepts
+two forms of authentication: Signature Version 4 with IAM credentials or TLS
+mutual authentication with a client certificate.
+
+The following is an example policy that allows a caller to delete a device's
+shadow:
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": "iot:DeleteThingShadow",
+ "Resource": [
+ "arn:aws:iot:`us-east-1`:`111122223333`:thing/`thing`"
+ ]
+ }
+ ]
+}`
+
+```
+
+## ListNamedShadowsForThing
+
+Lists the shadows for the specified thing.
+
+###### Request
+
+The request includes the standard HTTP headers plus the following URI:
+
+```
+HTTP GET /api/things/shadow/ListNamedShadowsForThing/`thingName`?nextToken=`nextToken`&pageSize=`pageSize`
+Request body: (none)
+```
+
+nextToken
+
+The token to retrieve the next set of results.
+
+This value is returned on paged results and is used in the call that
+returns the next page.
+
+pageSize
+
+The number of shadow names to return in each call. See also
+`nextToken`.
+
+thingName
+
+The name of the thing for which to list the named shadows.
+
+###### Response
+
+Upon success, the response includes the standard HTTP headers plus the
+following response code and a [Shadow name list response
+document](device-shadow-document.md#device-shadow-list-json "device-shadow-document.md#device-shadow-list-json").
+
+###### Note
+
+The unnamed (classic) shadow does not appear in this list. The response is an
+empty list if you only have a classic shadow or if the `thingName`
+you specify doesn't exist.
+
+```
+HTTP 200
+Response body: `Shadow name list document`
+```
+
+###### Authorization
+
+Listing a device's shadow requires a policy that allows the caller to perform
+the `iot:ListNamedShadowsForThing` action. The Device Shadow service
+accepts two forms of authentication: Signature Version 4 with IAM credentials
+or TLS mutual authentication with a client certificate.
+
+The following is an example policy that allows a caller to list a thing's named
+shadows:
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": "iot:ListNamedShadowsForThing",
+ "Resource": [
+ "arn:aws:iot:`us-east-1`:`111122223333`:thing/`thing`"
+ ]
+ }
+ ]
+}`
+
+```

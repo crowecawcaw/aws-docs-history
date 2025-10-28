@@ -1,0 +1,26 @@
+# AWS IoT security
+
+Each connected device or client must have a credential to interact with AWS IoT. All traffic
+to and from AWS IoT is sent securely over Transport Layer Security (TLS). AWS cloud security
+mechanisms protect data as it moves between AWS IoT and other AWS services.
+
+![AWS IoT security workflows including credentials to interact with AWS IoT, Transport Layer Security to secure connection, and AWS Cloud security mechanisms to protect data.](images/thunderball-overview.png)
+
+- You are responsible for managing device credentials (X.509 certificates, AWS
+  credentials, Amazon Cognito identities, federated identities, or custom authentication
+  tokens) and policies in AWS IoT. You are also responsible
+  for assigning unique identities to each device and managing the permissions for each
+  device or group of devices.
+- Your devices connect to AWS IoT using X.509 certificates or Amazon Cognito identities over a
+  secure TLS connection. During research and development, and for some applications
+  that make API calls or use WebSockets, you can also authenticate using IAM users
+  and groups or custom authentication tokens. For more information, see [IAM users, groups, and roles](iam-users-groups-roles.md "iam-users-groups-roles.md").
+- When using AWS IoT authentication, the message broker is responsible for
+  authenticating your devices, securely ingesting device data, and granting or denying
+  access permissions you specify for your devices using AWS IoT policies.
+- When using custom authentication, a custom authorizer is responsible for
+  authenticating your devices and granting or denying access permissions you specify
+  for your devices using AWS IoT or IAM policies.
+- The AWS IoT rules engine forwards device data to other devices or other AWS
+  services according to rules you define. It uses AWS Identity and Access Management to securely transfer data
+  to its final destination. For more information, see [Identity and access management for AWS IoT](security-iam.md "security-iam.md").

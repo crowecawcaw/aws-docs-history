@@ -1,0 +1,170 @@
+# Server authentication
+
+When your device or other client attempts to connect to AWS IoT Core, the AWS IoT Core
+server will send an X.509 certificate that your device uses to authenticate the server.
+Authentication takes place at the TLS layer through validation of the [X.509 certificate chain](x509-client-certs.md "x509-client-certs.md"). This is the same method
+used by your browser when you visit an HTTPS URL. If you want to use certificates from
+your own certificate authority, see [Manage your CA certificates](manage-your-CA-certs.md "manage-your-CA-certs.md").
+
+When your devices or other clients establish a TLS connection to an AWS IoT Core
+endpoint, AWS IoT Core presents a certificate chain that the devices use to verify that
+they're communicating with AWS IoT Core and not another server impersonating AWS IoT Core. The
+chain that is presented depends on a combination of the type of endpoint the device is
+connecting to and the [cipher suite](transport-security.md "transport-security.md") that the
+client and AWS IoT Core negotiated during the TLS handshake.
+
+## Endpoint types
+
+AWS IoT Core supports `iot:Data-ATS`. `iot:Data-ATS`
+endpoints present a server certificate signed by an [Amazon Trust Services](https://www.amazontrust.com/repository/ "https://www.amazontrust.com/repository/")
+CA.
+
+Certificates presented by ATS endpoints are cross signed by Starfield. Some TLS
+client implementations require validation of the root of trust and require that the
+Starfield CA certificates are installed in the client's trust stores.
+
+###### Warning
+
+Using a method of certificate pinning that hashes the whole certificate
+(including the issuer name, and so on) is not recommended because this will
+cause certificate verification to fail because the ATS certificates we provide
+are cross signed by Starfield and have a different issuer name.
+
+###### Important
+
+Use `iot:Data-ATS` endpoints. Symantec and Verisign certificates have been
+deprecated and are no longer supported by AWS IoT Core.
+
+You can use the `describe-endpoint` command to create your ATS
+endpoint.
+
+```
+aws iot describe-endpoint --endpoint-type iot:Data-ATS
+```
+
+The `describe-endpoint` command returns an endpoint in the following
+format.
+
+```
+`account-specific-prefix`.iot.`your-region`.amazonaws.com
+```
+
+###### Note
+
+The first time `describe-endpoint` is called, an endpoint is
+created. All subsequent calls to `describe-endpoint` return the same
+endpoint.
+
+###### Note
+
+To see your `iot:Data-ATS` endpoint in the AWS IoT Core console,
+choose **Settings**. The console displays only the
+`iot:Data-ATS` endpoint.
+
+### Creating an `IotDataPlaneClient` with
+
+the AWS SDK for Java
+
+To create an `IotDataPlaneClient` that uses an
+`iot:Data-ATS` endpoint, you must do the following.
+
+- Create an `iot:Data-ATS` endpoint by using the [DescribeEndpoint](../apireference/API_DescribeEndpoint.md "../apireference/API_DescribeEndpoint.md") API.
+- Specify that endpoint when you create the
+  `IotDataPlaneClient`.
+
+The following example performs both of these operations.
+
+```
+public void setup() throws Exception {
+        IotClient client = IotClient.builder().credentialsProvider(CREDENTIALS_PROVIDER_CHAIN).region(Region.US_EAST_1).build();
+        String endpoint = client.describeEndpoint(r -> r.endpointType("iot:Data-ATS")).endpointAddress();
+        iot = IotDataPlaneClient.builder()
+                                .credentialsProvider(CREDENTIALS_PROVIDER_CHAIN)
+                                .endpointOverride(URI.create("https://" + endpoint))
+                                .region(Region.US_EAST_1)
+                                .build();
+}
+```
+
+## CA certificates for server
+
+authentication
+
+Depending on which type of data endpoint you are using and which cipher suite you
+have negotiated, AWS IoT Core server authentication certificates are signed by one of
+the following root CA certificates:
+
+**Amazon Trust Services Endpoints
+(preferred)**
+
+###### Note
+
+You might need to right click these links and select **Save link
+as...** to save these certificates as files.
+
+- RSA 2048 bit key: [Amazon Root CA 1](https://www.amazontrust.com/repository/AmazonRootCA1.pem "https://www.amazontrust.com/repository/AmazonRootCA1.pem").
+- RSA 4096 bit key: Amazon Root CA 2. Reserved for future
+  use.
+- ECC 256 bit key: [Amazon Root CA 3](https://www.amazontrust.com/repository/AmazonRootCA3.pem "https://www.amazontrust.com/repository/AmazonRootCA3.pem").
+- ECC 384 bit key: Amazon Root CA 4. Reserved for future
+  use.
+
+These certificates are all cross-signed by the [Starfield Root CA
+Certificate](https://www.amazontrust.com/repository/SFSRootCAG2.pem "https://www.amazontrust.com/repository/SFSRootCAG2.pem"). All new AWS IoT Core regions, beginning with the May 9, 2018
+launch of AWS IoT Core in the Asia Pacific (Mumbai) Region, serve only ATS
+certificates.
+
+**VeriSign Endpoints (legacy)**
+
+- RSA 2048 bit key: [VeriSign Class 3 Public Primary G5 root CA certificate](https://www.digicert.com/kb/digicert-root-certificates.htm "https://www.digicert.com/kb/digicert-root-certificates.htm")
+
+## Server authentication
+
+guidelines
+
+There are many variables that can affect a device's ability to validate the
+AWS IoT Core server authentication certificate. For example, devices may be too memory
+constrained to hold all possible root CA certificates, or devices may implement a
+non-standard method of certificate validation. For these reasons we suggest
+following these guidelines:
+
+- We recommend that you use your ATS endpoint and install all supported
+  Amazon Root CA certificates.
+- If you cannot store all of these certificates on your device and if your
+  devices do not use ECC-based validation, you can omit the [Amazon Root CA 3](https://www.amazontrust.com/repository/AmazonRootCA3.pem "https://www.amazontrust.com/repository/AmazonRootCA3.pem") and [Amazon Root CA 4](https://www.amazontrust.com/repository/AmazonRootCA4.pem "https://www.amazontrust.com/repository/AmazonRootCA4.pem") ECC certificates. If your
+  devices do not implement RSA-based certificate validation, you can omit the
+  [Amazon Root CA 1](https://www.amazontrust.com/repository/AmazonRootCA1.pem "https://www.amazontrust.com/repository/AmazonRootCA1.pem") and [Amazon Root CA 2](https://www.amazontrust.com/repository/AmazonRootCA2.pem "https://www.amazontrust.com/repository/AmazonRootCA2.pem") RSA certificates. You might
+  need to right click these links and select **Save link
+  as...** to save these certificates as files.
+- If you are experiencing server certificate validation issues when
+  connecting to your ATS endpoint, try adding the relevant cross-signed Amazon
+  Root CA certificate to your trust store. You might need to right click these
+  links and select **Save link as...** to save these
+  certificates as files.
+  - [Cross-signed Amazon Root CA 1](https://www.amazontrust.com/repository/G2-RootCA1.pem "https://www.amazontrust.com/repository/G2-RootCA1.pem")
+  - [Cross-signed Amazon Root CA 2](https://www.amazontrust.com/repository/G2-RootCA2.pem "https://www.amazontrust.com/repository/G2-RootCA2.pem") - Reserved
+    for future use.
+  - [Cross-signed Amazon Root CA 3](https://www.amazontrust.com/repository/G2-RootCA3.pem "https://www.amazontrust.com/repository/G2-RootCA3.pem")
+  - [Cross-signed Amazon Root CA 4 - Reserved for
+    future use.](https://www.amazontrust.com/repository/G2-RootCA4.pem "https://www.amazontrust.com/repository/G2-RootCA4.pem")
+
+- If you are experiencing server certificate validation issues, your device
+  may need to explicitly trust the root CA. Try adding the [Starfield Root CA Certificate](https://www.amazontrust.com/repository/SFSRootCAG2.pem "https://www.amazontrust.com/repository/SFSRootCAG2.pem") to your trust
+  store.
+- If you still experience issues after executing the steps above, please
+  contact [AWS Developer Support](https://aws.amazon.com/premiumsupport/plans/developers/ "https://aws.amazon.com/premiumsupport/plans/developers/").
+
+###### Note
+
+CA certificates have an expiration date after which they cannot be used to
+validate a server's certificate. CA certificates might have to be replaced
+before their expiration date. Make sure that you can update the root CA
+certificates on all of your devices or clients to help ensure ongoing
+connectivity and to keep up to date with security best practices.
+
+###### Note
+
+When connecting to AWS IoT Core in your device code, pass the certificate into
+the API you are using to connect. The API you use will vary by SDK. For more
+information, see the [AWS IoT Core Device
+SDKs](iot-sdks.md "iot-sdks.md").
