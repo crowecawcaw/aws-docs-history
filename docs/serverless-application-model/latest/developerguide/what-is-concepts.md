@@ -1,0 +1,39 @@
+# Serverless concepts for AWS Serverless Application Model
+
+Learn about basic serverless concepts before using the AWS Serverless Application Model (AWS SAM).
+
+## Serverless concepts
+
+**Event-driven architecture**
+
+A serverless application consists of individual AWS services, such as AWS Lambda for compute and
+Amazon DynamoDB for database management, that each perform a specialized role. These services are then loosely
+integrated with each other through an event-driven architecture. To learn more about event-driven architecture,
+see [What is an Event-Driven Architecture?](https://aws.amazon.com/event-driven-architecture/ "https://aws.amazon.com/event-driven-architecture/").
+
+**Infrastructure as Code (IaC)**
+
+Infrastructure as Code (IaC) is a way of treating infrastructure in the same way that developers treat code,
+applying the same rigor of application code development to infrastructure provisioning. You define your
+infrastructure in a template file, deploy it to AWS, and AWS creates the resources for you. With IaC, you
+define in code what you want AWS to provision. For a comparison of IaC tools available for AWS, see [Infrastructure as Code (IaC)](what-is-iac.md "what-is-iac.md").
+
+**Serverless technologies**
+
+With AWS serverless technologies, you can build and run applications without having to manage your own
+servers. All server management is done by AWS, providing many benefits such as automatic scaling and built-in
+high availability, letting you take your idea to production quickly. Using serverless technologies, you can focus
+on the core of your product without having to worry about managing and operating servers. To learn more about
+serverless, see the following:
+
+- [Serverless on AWS](https://aws.amazon.com/serverless/ "https://aws.amazon.com/serverless/")
+- [Serverless Developer Guide](../../../serverless/latest/devguide/serverless-preface.md "../../../serverless/latest/devguide/serverless-preface.md") – Provides a conceptual overview of serverless development in the
+  AWS Cloud.
+
+For a basic introduction to the core AWS serverless services, see [Serverless 101: Understanding the serverless
+services](https://serverlessland.com/learn/serverless-101 "https://serverlessland.com/learn/serverless-101") at _Serverless Land_.
+
+**Serverless Application**
+
+When you use AWS SAM, you manage related resources in an application, which consists of your AWS SAM project and template. All the resources in your application are defined or referred to in your AWS SAM template.
+When AWS SAM processes your template, it creates AWS CloudFormation resources. In AWS CloudFormation, resources are managed in a single unit called a stack, and all the resources in a stack are defined by the stack's AWS CloudFormation template.
