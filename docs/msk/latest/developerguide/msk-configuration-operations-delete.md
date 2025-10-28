@@ -1,0 +1,32 @@
+# Delete configuration
+
+The following procedure shows how to delete a configuration that isn't attached to
+a cluster. You can't delete a configuration that's attached to a cluster.
+
+1. To run this example, replace `configuration-arn`
+   with the ARN
+   that
+   you obtained when you created the configuration. If you
+   didn't save the ARN when you created the configuration, you can use the
+   `list-configurations` command to list all configuration in
+   your
+   account.
+   The configuration that you want in the
+   list
+   appears in the response. The ARN of the configuration also appears in that
+   list.
+
+```
+aws kafka delete-configuration --arn `configuration-arn`
+```
+
+2. The following is an example of a successful response after
+   you
+   run this command.
+
+```
+{
+    "arn": " arn:aws:kafka:us-east-1:123456789012:configuration/SomeTest/abcdabcd-1234-abcd-1234-abcd123e8e8e-1",
+    "state": "DELETING"
+}
+```
