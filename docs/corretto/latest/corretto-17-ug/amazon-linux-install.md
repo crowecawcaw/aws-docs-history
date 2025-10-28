@@ -1,0 +1,112 @@
+# Amazon Corretto 17 Installation Instructions for Amazon Linux 2 and Amazon Linux 2023
+
+This topic describes how to install and uninstall Amazon Corretto 17 on a host or container running the Amazon Linux 2 or Amazon Linux 2023 operating systems.
+
+##
+
+Option 1: Install using the yum Package Manager on Amazon Linux
+
+Amazon Corretto 17 has a 'headless' variant available. This variant omits runtime dependencies that are
+typically associated with GUI applications such as X11 and ALSA and is worth considering for
+server-oriented workloads. The 'headful' variant adds support for X11 and ALSA. There is also a
+'devel' package which contains the JDK development tools, as well as a 'jmods' package that
+contains the Amazon Corretto 17 JMods used to create custom runtime images.
+
+Option 1: Install the headless Amazon Corretto 17:
+
+```
+sudo yum install java-17-amazon-corretto-headless
+```
+
+Option 2: Install the headful Amazon Corretto 17:
+
+```
+sudo yum install java-17-amazon-corretto
+```
+
+Option 3: Install the JDK for Amazon Corretto 17:
+
+```
+sudo yum install java-17-amazon-corretto-devel
+```
+
+Option 4: Install the JMods for Amazon Corretto 17:
+
+```
+sudo yum install java-17-amazon-corretto-jmods
+```
+
+The installation location is `/usr/lib/jvm/java-17-amazon-corretto.<cpu_arch>`.
+
+While it is recommended to use `/usr/lib/jvm/java-17-amazon-corretto.<cpu_arch>` location,
+installation may also add alternative links making installation location accessible via
+`/etc/alternatives/jre`, `/etc/alternatives/jre_17` and `/etc/alternatives/jre_17_openjdk` for JRE and
+`/etc/alternatives/java_sdk`, `/etc/alternatives/java_sdk_17` and `/etc/alternatives/java_sdk_17_openjdk` for JDK.
+The paths under `/etc/alternatives/` may point to another JDK depending on the packages installed and system configuration.
+
+## Option 2: Download and Install RPMs Manually
+
+1. Download RPMs from the [Downloads](downloads-list.md "downloads-list.md") page for your CPU architecture.
+   To install the JDK, you will need to download the RPMs for both the JDK and the JRE.
+2. Install using `yum localinstall`.
+
+```
+sudo yum localinstall java-17-amazon-corretto*.rpm
+```
+
+## Verify Your Installation
+
+In the terminal, run the following command to verify the installation.
+
+```
+java -version
+```
+
+Expected output for 17.0.17:
+
+```
+openjdk version "17.0.17" 2025-10-21 LTS
+OpenJDK Runtime Environment Corretto-17.0.17.10.1 (build 17.0.17+10-LTS)
+OpenJDK 64-Bit Server VM Corretto-17.0.17.10.1 (build 17.0.17+10-LTS, mixed mode, sharing)
+```
+
+If you see a version string that doesn't mention `Corretto`,
+run the following command to change the default `java` or `javac` providers.
+
+```
+sudo alternatives --config java
+```
+
+If using the JDK you should also run:
+
+```
+sudo alternatives --config javac
+```
+
+## Uninstall Amazon Corretto 17
+
+You can uninstall Amazon Corretto 17 with the following commands.
+
+Uninstall headless:
+
+```
+sudo yum remove java-17-amazon-corretto-headless
+```
+
+Uninstall headful:
+
+```
+sudo yum remove java-17-amazon-corretto
+```
+
+Uninstall devel:
+
+```
+sudo yum remove java-17-amazon-corretto-devel
+```
+
+Uninstall jmods:
+
+```
+sudo yum remove java-17-amazon-corretto-jmods
+```
