@@ -1,0 +1,79 @@
+# Unmanaged nodegroups
+
+In `eksctl`, setting `--managed=false` or using the `nodeGroups` field creates an unmanaged nodegroup. Bear in mind that
+unmanaged nodegroups do not appear in the EKS console, which as a general rule only knows about EKS-managed nodegroups.
+
+You should be upgrading nodegroups only after you ran `eksctl upgrade cluster`.
+(See [Upgrading clusters](cluster-upgrade.md "cluster-upgrade.md").)
+
+If you have a simple cluster with just an initial nodegroup (i.e. created with
+`eksctl create cluster`), the process is very simple:
+
+1. Get the name of old nodegroup:
+
+```
+ eksctl get nodegroups --cluster=<clusterName> --region=<region>
+```
+
+###### Note
+
+```
+You should see only one nodegroup here, if you see more - read the next section.
+```
+
+2. Create a new nodegroup:
+
+```
+ eksctl create nodegroup --cluster=<clusterName> --region=<region> --name=<newNodeGroupName> --managed=false
+```
+
+3. Delete the old nodegroup:
+
+```
+ eksctl delete nodegroup --cluster=<clusterName> --region=<region> --name=<oldNodeGroupName>
+```
+
+###### Note
+
+```
+This will drain all pods from that nodegroup before the instances are deleted. In some scenarios, Pod Disruption Budget (PDB) policies can prevent pods to be evicted. To delete the nodegroup regardless of PDB, one should use the `--disable-eviction` flag, will bypass checking PDB policies.
+```
+
+## Updating multiple nodegroups
+
+If you have multiple nodegroups, it’s your responsibility to track how each one was configured.
+You can do this by using config files, but if you haven’t used it already, you will need to inspect
+your cluster to find out how each nodegroup was configured.
+
+In general terms, you are looking to:
+
+- review which nodegroups you have and which ones can be deleted or must be replaced for the new version
+- note down configuration of each nodegroup, consider using config file to ease upgrades next time
+
+### Updating with config file
+
+If you are using config file, you will need to do the following.
+
+Edit config file to add new nodegroups, and remove old nodegroups.
+If you just want to upgrade nodegroups and keep the same configuration,
+you can just change nodegroup names, e.g. append `-v2` to the name.
+
+To create all of new nodegroups defined in the config file, run:
+
+```
+eksctl create nodegroup --config-file=<path>
+```
+
+Once you have new nodegroups in place, you can delete old ones:
+
+```
+eksctl delete nodegroup --config-file=<path> --only-missing
+```
+
+###### Note
+
+First run is in plan mode, if you are happy with the proposed changes, re-run with `--approve`.
+
+## Updating default add-ons
+
+You may need to update the networking add-ons installed on your cluster. For more information, see [Default add-on updates](addon-upgrade.md "addon-upgrade.md").
