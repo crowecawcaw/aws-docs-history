@@ -1,0 +1,41 @@
+# Integrate with Amazon WorkMail action
+
+The **WorkMail** action integrates with Amazon WorkMail. If Amazon WorkMail performs all of
+your email processing, you will typically not use this action directly because Amazon WorkMail takes
+care of the setup. This action has the following options.
+
+- Organization ARN—The ARN of the Amazon WorkMail
+  organization. Amazon WorkMail organization ARNs are in the form
+  `arn:aws:workmail:`region`:`account_ID`:organization/`organization_ID``,
+  where:
+
+      + `region` is the region in which you are using Amazon SES and Amazon WorkMail.
+       (You must use them from the same Region.) An example is
+       us-east-1.
+      + `account_ID` is the AWS account ID. You can find your AWS
+       account ID on the [Account](https://console.aws.amazon.com/billing/home?#/account "https://console.aws.amazon.com/billing/home?#/account") page of the AWS Management Console.
+      + `organization_ID` is a unique identifier that Amazon WorkMail generates
+       when you create an organization. You can find the organization ID in the
+       Amazon WorkMail console on the Organization Settings page of your organization.
+
+  An example of a complete Amazon WorkMail organization ARN is
+  _arn:aws:workmail:us-east-1:123456789012:organization/m-68755160c4cb4e29a2b2f8fb58f359d7_.
+  For information about Amazon WorkMail organizations, see the [Amazon WorkMail Administrator Guide](../../../workmail/latest/adminguide/organizations_overview.md "../../../workmail/latest/adminguide/organizations_overview.md").
+
+- SNS Topic—The name or ARN of the Amazon SNS topic
+  to notify when the Amazon WorkMail action is taken. An example of an Amazon SNS topic ARN is
+  _arn:aws:sns:us-east-1:123456789012:MyTopic_.
+  You can also create an Amazon SNS topic when you set up your action by choosing
+  **Create SNS Topic**. For more information about Amazon SNS topics,
+  see the [Amazon Simple Notification Service Developer Guide](../../../sns/latest/dg/CreateTopic.md "../../../sns/latest/dg/CreateTopic.md").
+
+###### Note
+
+The Amazon SNS topic you choose must be in the same AWS Region as the Amazon SES
+endpoint you use to receive email.
+
+###### Note
+
+Amazon SES only supports WorkMail actions in regions where WorkMail is available.
+See [Amazon WorkMail endpoints and quotas](../../../general/latest/gr/workmail.md "../../../general/latest/gr/workmail.md") in the
+AWS General Reference.

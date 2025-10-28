@@ -1,0 +1,51 @@
+# Problems with emails received from Amazon SES
+
+This section discusses some common issues that you might see when you receive emails that
+were sent from Amazon SES.
+
+**The email client displays "sent via amazonses.com" as the
+source of the email**
+
+Some email clients display the "via" domain when the sender's domain doesn't
+match the domain that the email was sent from (in this case,
+_amazonses.com_). For more information, see [Extra info next
+to sender's name](https://support.google.com/mail/answer/1311182?hl=en; "https://support.google.com/mail/answer/1311182?hl=en;") on the Gmail Support website. Alternatively, you
+can set up [DomainKeys Identified
+Mail](send-email-authentication-dkim.md "send-email-authentication-dkim.md") (DKIM). When you authenticate your emails using DKIM, email
+clients typically don't show the "via" domain because the DKIM signature shows
+that the email is from the domain that it claims to be from. For information
+about setting up DKIM, see [Authenticating Email with DKIM in
+Amazon SES](send-email-authentication-dkim.md "send-email-authentication-dkim.md").
+
+###### Note
+
+If you've received spam or other unsolicited email messages from an
+SES user, use the spam reporting tools in your email client, and
+follow the steps to report SES email abuse listed under [Contacting
+Us](https://aws.amazon.com/ses/faqs/#Contacting_Us "https://aws.amazon.com/ses/faqs/#Contacting_Us").
+
+**The message contains garbled or nonsense
+characters**
+
+If your message includes characters that aren't in the ASCII character set
+(such as accented Latin characters, Chinese characters, or Arabic characters),
+you have to encode those characters using HTML character encoding. You can use
+web-based tools to encode the characters in your email, such as the [HTML
+Character Convertor](https://www.emailonacid.com/resource/character-converter/ "https://www.emailonacid.com/resource/character-converter/") on the Email On Acid website.
+
+Alternatively, you can assemble the MIME message yourself. In the MIME
+message, you can specify that the message should use UTF-8 encoding. When you
+use UTF-8 encoding, you can use non-ASCII characters directly in your messages.
+When you've finished creating the MIME message, you can send it using the [SendRawEmail](../APIReference/API_SendRawEmail.md "../APIReference/API_SendRawEmail.md") API or the
+[SendMail](../APIReference-V2/API_SendMail.md "../APIReference-V2/API_SendMail.md") API v2.
+
+One common cause of this issue is the Smart Quotes feature of Microsoft Word.
+If you often copy content from Word and paste it into your emails, you might
+encounter this issue. The Smart Quotes feature replaces straight quote
+characters ("...") with curly quote characters (“...”). Curly quote
+characters aren't standard ASCII characters. As a result, they might be rendered
+in some email clients as "??" or as a group of characters such as
+"â€œ". To correct this issue, you can disable the Smart Quotes
+feature in Word. Alternatively, you can use the SendRawEmail solution from the
+preceding paragraph. To learn how to disable this feature, see [Smart quotes in Word](https://support.office.com/en-us/article/smart-quotes-in-word-702fc92e-b723-4e3d-b2cc-71dedaf2f343 "https://support.office.com/en-us/article/smart-quotes-in-word-702fc92e-b723-4e3d-b2cc-71dedaf2f343") on the Microsoft Office Support
+website.
