@@ -1,0 +1,9 @@
+AWS Migration Hub will no longer be open to new customers starting November 7, 2025. To continue using the service, sign up prior to November 7, 2025. For capabilities similar to AWS Migration Hub, explore [AWS Transform](https://aws.amazon.com/transform "https://aws.amazon.com/transform").
+
+# Working with other services
+
+This section describes other AWS services that interact with Migration Hub Strategy Recommendations.
+
+###### Topics
+
+- [AWS CloudTrail](logging-using-cloudtrail.md "logging-using-cloudtrail.md")
