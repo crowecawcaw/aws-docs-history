@@ -1,0 +1,95 @@
+name: Process Service Guides
+
+on:
+  workflow_dispatch:
+    inputs:
+      enable_commit:
+        description: 'Enable git commits'
+        required: false
+        type: boolean
+        default: true
+      service_guide_url:
+        description: 'Process only this guide (for testing, e.g., /AmazonS3/latest/userguide/)'
+        required: false
+        type: string
+      service_guides_start:
+        description: 'Start from this guide (for resuming, e.g., /AmazonS3/latest/userguide/)'
+        required: false
+        type: string
+  schedule:
+    # Run weekly on Sundays at 3 AM UTC
+    - cron: '0 3 * * 0'
+
+permissions:
+  contents: write
+
+# Ensure only one process runs at a time
+concurrency:
+  group: process-guides
+  cancel-in-progress: false
+
+jobs:
+  process-guides:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Prettier
+        run: npm install --global prettier
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Configure Git user
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Process service guides
+        run: |
+          # Build command arguments
+          ARGS="--output-dir docs"
+
+          # Add commit flag if enabled (default true for scheduled runs, configurable for manual)
+          if [ "${{ github.event_name }}" = "schedule" ] || [ "${{ inputs.enable_commit }}" = "true" ]; then
+            ARGS="$ARGS --commit"
+          fi
+
+          # Add single guide filter if specified
+          if [ -n "${{ inputs.service_guide_url }}" ]; then
+            ARGS="$ARGS --service-guide-url '${{ inputs.service_guide_url }}'"
+          fi
+
+          # Add start guide if specified
+          if [ -n "${{ inputs.service_guides_start }}" ]; then
+            ARGS="$ARGS --service-guides-start '${{ inputs.service_guides_start }}'"
+          fi
+
+          echo "Running: python crawler.py process-guides $ARGS"
+          eval python crawler.py process-guides $ARGS
+
+      - name: Push changes
+        if: github.event_name == 'schedule' || inputs.enable_commit == true
+        run: |
+          # Check if there are any commits to push
+          if git log origin/${{ github.ref_name }}..${{ github.ref_name }} --oneline | grep -q .; then
+            echo "Pushing commits to remote..."
+            git push origin ${{ github.ref_name }}
+          else
+            echo "No commits to push"
+          fi

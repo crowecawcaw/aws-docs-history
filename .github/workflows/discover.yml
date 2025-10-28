@@ -57,24 +57,19 @@ jobs:
           git commit -m "chore: update discovered services [skip ci]"
           git push origin main
 
-      - name: Trigger crawl workflow
+      - name: Trigger process-guides workflow
         run: |
-          # Read services from services.json and format for workflow input
-          SERVICES=$(python -c "
+          # Count services
+          SERVICE_COUNT=$(python -c "
           import json
-          import sys
           with open('services.json') as f:
               data = json.load(f)
-          # Extract just the URLs
-          urls = [s['url'] for s in data['services']]
-          # Output as JSON array string
-          print(json.dumps(urls))
+          print(len(data['services']))
           ")
 
-          echo "Triggering crawl for $(echo $SERVICES | jq 'length') services"
+          echo "Triggering process-guides workflow for $SERVICE_COUNT services"
 
-          gh workflow run crawl-matrix.yml \
-            --ref main \
-            --field services="$SERVICES"
+          gh workflow run process-guides.yml \
+            --ref main
         env:
           GH_TOKEN: ${{ github.token }}

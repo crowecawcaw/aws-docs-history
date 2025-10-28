@@ -14,7 +14,9 @@ import logging
 import os
 import posixpath
 import queue
+import re
 import shutil
+import subprocess
 import sys
 import threading
 import time
@@ -1016,6 +1018,191 @@ class AwsDocsCrawler:
             total = len(self._known_urls)
             LOGGER.info("Wrote [%d/%d] %s", crawled, total, output_path)
 
+    def process_single_guide(
+        self,
+        service_url: str,
+        *,
+        enable_commit: bool = False,
+    ) -> tuple[int, bool]:
+        """Process a single service guide: crawl, format, and optionally commit.
+
+        Returns:
+            Tuple of (pages_crawled, commit_success)
+        """
+        LOGGER.info("=" * 80)
+        LOGGER.info("Processing guide: %s", service_url)
+        LOGGER.info("=" * 80)
+
+        # Step 1: Delete previous guide directory
+        clean_guide_directory(self.output_dir, service_url)
+
+        # Step 2: Discover pages from sitemap and crawl
+        LOGGER.info("Phase 1: Discovering pages for %s", service_url)
+        self._discover_from_sitemap_index()
+
+        with self._known_urls_lock:
+            page_count = len(self._known_urls)
+
+        if page_count == 0:
+            LOGGER.warning("No pages discovered for %s", service_url)
+            return 0, False
+
+        LOGGER.info("Phase 2: Crawling %d pages for %s", page_count, service_url)
+
+        # Crawl all pages
+        with ThreadPoolExecutor(max_workers=self.max_workers) as executor:
+            for _ in range(self.max_workers):
+                executor.submit(self._worker)
+
+            # Enqueue all discovered URLs
+            with self._known_urls_lock:
+                for url in self._known_urls:
+                    if url not in self._visited_urls:
+                        self._url_queue.put(url)
+
+            self._url_queue.join()
+
+            for _ in range(self.max_workers):
+                self._url_queue.put(None)
+
+        pages_crawled = len(self.visited_urls)
+        LOGGER.info("Crawled %d pages for %s", pages_crawled, service_url)
+
+        # Step 3: Get guide directory path
+        parsed = urlparse(service_url) if service_url.startswith(("http://", "https://")) else None
+        path = parsed.path if parsed else service_url
+        path = path.strip().strip("/")
+        guide_dir = self.output_dir / path
+
+        # Step 4: Run prettier on the guide
+        LOGGER.info("Formatting markdown files with prettier...")
+        run_prettier_on_guide(guide_dir)
+
+        # Step 5: Commit if enabled
+        commit_success = False
+        if enable_commit:
+            LOGGER.info("Committing changes for %s...", service_url)
+            commit_success = commit_guide_directory(guide_dir, service_url)
+        else:
+            LOGGER.info("Skipping commit (--commit not specified)")
+
+        return pages_crawled, commit_success
+
+    def process_all_guides(
+        self,
+        *,
+        enable_commit: bool = False,
+        single_guide_url: Optional[str] = None,
+        start_from_guide: Optional[str] = None,
+    ) -> None:
+        """Process all service guides sequentially.
+
+        Args:
+            enable_commit: If True, commit each guide after processing
+            single_guide_url: If provided, process only this guide
+            start_from_guide: If provided, start from this guide (for resuming)
+        """
+        # Discover all service guides
+        LOGGER.info("Discovering service guides from sitemap index...")
+        services = self.discover_services()
+
+        if not services:
+            LOGGER.error("No services discovered")
+            sys.exit(1)
+
+        # Sort services by name for deterministic processing order
+        services.sort(key=lambda s: s["name"].lower())
+
+        # Filter to single guide if specified
+        if single_guide_url:
+            # Normalize the URL for comparison
+            if single_guide_url.startswith(("http://", "https://")):
+                parsed = urlparse(single_guide_url)
+                single_guide_path = "/" + parsed.path.strip("/") + "/"
+            else:
+                single_guide_path = "/" + single_guide_url.strip("/") + "/"
+
+            services = [s for s in services if s["url"] == single_guide_path]
+            if not services:
+                LOGGER.error("Guide not found: %s", single_guide_url)
+                sys.exit(1)
+            LOGGER.info("Processing single guide: %s", single_guide_url)
+
+        # Find start index if resuming
+        start_index = 0
+        if start_from_guide and not single_guide_url:
+            # Normalize the start URL for comparison
+            if start_from_guide.startswith(("http://", "https://")):
+                parsed = urlparse(start_from_guide)
+                start_guide_path = "/" + parsed.path.strip("/") + "/"
+            else:
+                start_guide_path = "/" + start_from_guide.strip("/") + "/"
+
+            for i, service in enumerate(services):
+                if service["url"] == start_guide_path:
+                    start_index = i
+                    break
+
+            if start_index == 0 and services[0]["url"] != start_guide_path:
+                LOGGER.error("Start guide not found: %s", start_from_guide)
+                sys.exit(1)
+
+            LOGGER.info("Resuming from guide %d/%d: %s", start_index + 1, len(services), start_from_guide)
+
+        # Process each guide
+        total_pages = 0
+        total_commits = 0
+        failed_guides = []
+
+        for idx, service in enumerate(services[start_index:], start=start_index + 1):
+            service_url = service["url"]
+            expected_pages = service.get("page_count", 0)
+
+            LOGGER.info("")
+            LOGGER.info("=" * 80)
+            LOGGER.info("Guide %d/%d: %s (expected %d pages)", idx, len(services), service_url, expected_pages)
+            LOGGER.info("=" * 80)
+
+            try:
+                # Reset state for this guide
+                with self._known_urls_lock:
+                    self._known_urls.clear()
+                    self._visited_urls.clear()
+                    self._sitemap_pages.clear()
+
+                # Process the guide
+                pages_crawled, committed = self.process_single_guide(
+                    service_url,
+                    enable_commit=enable_commit,
+                )
+
+                total_pages += pages_crawled
+                if committed:
+                    total_commits += 1
+
+                if pages_crawled == 0:
+                    LOGGER.warning("No pages crawled for %s", service_url)
+                    failed_guides.append(service_url)
+
+            except Exception as exc:
+                LOGGER.error("Failed to process guide %s: %s", service_url, exc, exc_info=True)
+                failed_guides.append(service_url)
+
+        # Final summary
+        LOGGER.info("")
+        LOGGER.info("=" * 80)
+        LOGGER.info("FINAL SUMMARY")
+        LOGGER.info("=" * 80)
+        LOGGER.info("Total guides processed: %d", len(services) - start_index)
+        LOGGER.info("Total pages crawled: %d", total_pages)
+        LOGGER.info("Total commits: %d", total_commits)
+        LOGGER.info("Failed guides: %d", len(failed_guides))
+        if failed_guides:
+            LOGGER.info("Failed guide URLs:")
+            for guide_url in failed_guides:
+                LOGGER.info("  - %s", guide_url)
+        LOGGER.info("=" * 80)
+
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Crawl AWS documentation using sitemaps.")
@@ -1113,6 +1300,45 @@ def parse_args() -> argparse.Namespace:
         help="Show what would be crawled without actually crawling.",
     )
 
+    # Process-guides command (new simplified workflow)
+    process_guides_parser = subparsers.add_parser(
+        "process-guides",
+        help="Process all service guides sequentially (simplified workflow)"
+    )
+    process_guides_parser.add_argument(
+        "--output-dir",
+        default="docs",
+        type=Path,
+        help="Directory where Markdown files should be written.",
+    )
+    process_guides_parser.add_argument(
+        "--max-workers",
+        type=int,
+        default=8,
+        help="Number of worker threads to use for crawling each guide.",
+    )
+    process_guides_parser.add_argument(
+        "--requests-per-second",
+        type=float,
+        default=10.0,
+        help="Maximum number of HTTP requests per second. Set to 0 to disable throttling.",
+    )
+    process_guides_parser.add_argument(
+        "--commit",
+        action="store_true",
+        help="Enable git commits after processing each guide. Without this flag, changes are only local.",
+    )
+    process_guides_parser.add_argument(
+        "--service-guide-url",
+        type=str,
+        help="Process only this specific guide (for testing). E.g., '/AmazonS3/latest/userguide/'",
+    )
+    process_guides_parser.add_argument(
+        "--service-guides-start",
+        type=str,
+        help="Start processing from this guide (for resuming failed runs). E.g., '/AmazonS3/latest/userguide/'",
+    )
+
     return parser.parse_args()
 
 
@@ -1141,6 +1367,127 @@ def clean_guide_directory(output_dir: Path, service_url: str) -> None:
             shutil.rmtree(guide_dir)
         except Exception as exc:
             LOGGER.warning("Failed to clean directory %s: %s", guide_dir, exc)
+
+
+def run_prettier_on_guide(guide_dir: Path) -> bool:
+    """Run prettier on all markdown files in a guide directory."""
+    if not guide_dir.exists() or not guide_dir.is_dir():
+        LOGGER.warning("Guide directory does not exist: %s", guide_dir)
+        return False
+
+    try:
+        LOGGER.info("Running prettier on %s", guide_dir)
+        # Use glob pattern relative to the guide directory
+        pattern = f"{guide_dir}/**/*.md"
+        subprocess.run(
+            ["npx", "--yes", "prettier", "--write", pattern],
+            check=True,
+            capture_output=True,
+            text=True,
+        )
+        return True
+    except subprocess.CalledProcessError as exc:
+        LOGGER.warning("Prettier failed for %s: %s", guide_dir, exc)
+        return False
+    except FileNotFoundError:
+        LOGGER.warning("npx/prettier not found. Skipping prettier formatting.")
+        return False
+
+
+def prettify_slug(slug: str | None) -> str:
+    """Convert a slug into a human-readable name."""
+    if not slug:
+        return ""
+
+    # Special cases
+    special_slugs = {
+        "apireference": "API reference",
+        "api-reference": "API reference",
+        "userguide": "user guide",
+        "user-guide": "user guide",
+        "developerguide": "developer guide",
+        "developer-guide": "developer guide",
+        "gettingstarted": "getting started",
+        "getting-started": "getting started",
+    }
+
+    lower = slug.lower()
+    if lower in special_slugs:
+        return special_slugs[lower]
+
+    # Convert to title case
+    text = slug.replace("-", " ").replace("_", " ")
+    text = re.sub(r"(?<=[a-z0-9])([A-Z])", r" \1", text)
+    text = re.sub(r"(?<=[A-Z])([A-Z][a-z])", r" \1", text)
+    text = re.sub(r"\s+", " ", text).strip()
+
+    words = []
+    for word in text.split(" "):
+        if not word:
+            continue
+        if re.fullmatch(r"[A-Z0-9]+", word):
+            words.append(word)
+        else:
+            words.append(word[0].upper() + word[1:].lower())
+    return " ".join(words)
+
+
+def commit_guide_directory(guide_dir: Path, service_url: str) -> bool:
+    """Commit changes for a specific guide directory."""
+    if not guide_dir.exists():
+        LOGGER.warning("Cannot commit: guide directory does not exist: %s", guide_dir)
+        return False
+
+    try:
+        # Stage all changes in the guide directory
+        subprocess.run(
+            ["git", "add", "-A", "--", str(guide_dir)],
+            check=True,
+            capture_output=True,
+            text=True,
+        )
+
+        # Check if there are staged changes
+        result = subprocess.run(
+            ["git", "diff", "--cached", "--quiet"],
+            capture_output=True,
+        )
+
+        if result.returncode == 0:
+            # No changes to commit
+            LOGGER.info("No changes to commit for %s", guide_dir)
+            return False
+
+        # Extract service name from URL for commit message
+        parsed = urlparse(service_url) if service_url.startswith(("http://", "https://")) else None
+        path = parsed.path if parsed else service_url
+        path_parts = [p for p in path.strip("/").split("/") if p]
+
+        # Generate commit message
+        service_name = prettify_slug(path_parts[0]) if path_parts else "unknown"
+        guide_type = prettify_slug(path_parts[2]) if len(path_parts) > 2 else ""
+
+        if guide_type:
+            message = f"Add {service_name} {guide_type}"
+        else:
+            message = f"Add {service_name} documentation"
+
+        # Create commit
+        subprocess.run(
+            ["git", "commit", "-m", message],
+            check=True,
+            capture_output=True,
+            text=True,
+        )
+
+        LOGGER.info("Committed changes for %s: %s", guide_dir, message)
+        return True
+
+    except subprocess.CalledProcessError as exc:
+        LOGGER.warning("Failed to commit %s: %s", guide_dir, exc)
+        # Reset any staged changes
+        subprocess.run(["git", "reset", "HEAD"], check=False, capture_output=True)
+        return False
 
 
 def cmd_discover(args: argparse.Namespace) -> None:
@@ -1258,6 +1605,23 @@ def cmd_crawl_guide(args: argparse.Namespace) -> None:
         LOGGER.info("Crawled %d pages", len(crawler.visited_urls))
 
 
+def cmd_process_guides(args: argparse.Namespace) -> None:
+    """Process all service guides sequentially (simplified workflow)."""
+    args.output_dir.mkdir(parents=True, exist_ok=True)
+
+    crawler = AwsDocsCrawler(
+        output_dir=args.output_dir,
+        max_workers=args.max_workers,
+        requests_per_second=args.requests_per_second,
+    )
+
+    crawler.process_all_guides(
+        enable_commit=args.commit,
+        single_guide_url=args.service_guide_url,
+        start_from_guide=args.service_guides_start,
+    )
+
+
 def main() -> None:
     args = parse_args()
     logging.basicConfig(level=getattr(logging, args.log_level.upper(), logging.INFO))
@@ -1269,6 +1633,8 @@ def main() -> None:
         cmd_crawl_services(args)
     elif args.command == "crawl-guide":
         cmd_crawl_guide(args)
+    elif args.command == "process-guides":
+        cmd_process_guides(args)
     else:
         LOGGER.error("Unknown command: %s", args.command)
         sys.exit(1)
