@@ -1,0 +1,18 @@
+# AWS domain and IP managed rule groups for AWS Network Firewall
+
+This section describes the AWS managed rule groups that inspect domain and IP information for Network Firewall.
+You see these in the console in the list of AWS managed rule groups, or when you
+add rule groups to your firewall policy. Through the API, you can
+retrieve the list of AWS managed rule groups by calling [ListRuleGroups](../APIReference/API_ListRuleGroups.md "../APIReference/API_ListRuleGroups.md").
+
+Domain and IP rule groups block HTTP/HTTPS traffic to domains identified as low-reputation, or that are known or suspected to be associated with malware or botnets. Choose one or more of these rule groups to establish domain list protection for your resources.
+
+Each rule name in the table below is appended by either `StrictOrder` or `ActionOrder`. A firewall policy's _rule evaluation order_ determines whether you can add `StrictOrder` or `ActionOrder` managed rule groups to the policy. For example, you can only add a rule group appended with `StrictOrder` if the policy uses strict order for its rule evaluation order. In the console, Network Firewall automatically filters the managed rule groups available for you to add to your policy. For information about rule evaluation order, see
+[Managing evaluation order for Suricata compatible rules in AWS Network Firewall](suricata-rule-evaluation-order.md "suricata-rule-evaluation-order.md").
+
+| Rule name                                                                                                      | Description and label                                                                                                                                                                                                                                     |
+| -------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `AbusedLegitMalwareDomainsStrictOrder`, `AbusedLegitMalwareDomainsActionOrder`                                 | Rules that allow you to block requests to a class of domains, which are generally legitimate but are compromised and may host malware. This can help reduce the risk of receiving malware or viruses originating from these sources with poor reputation. |
+| `MalwareDomainsStrictOrder`, `MalwareDomainsActionOrder`                                                       | Rules that allow you to block requests to domains that are known for hosting malware. This can help reduce the risk of receiving malware or viruses originating from these known sources.                                                                 |
+| `AbusedLegitBotNetCommandAndControlDomainsStrictOrder`, `AbusedLegitBotNetCommandAndControlDomainsActionOrder` | Rules that allow you to block requests to a class of domains, which are generally legitimate but are compromised and may host botnets. This can help reduce the risk of resources accessing botnets originating from these sources with poor reputation.  |
+| `BotNetCommandAndControlDomainsStrictOrder`, `BotNetCommandAndControlDomainsActionOrder`                       | Rules that allow you to block requests to domains that are known for hosting botnets. This can help reduce the risk of resources accessing botnets originating from these known sources.                                                                  |
