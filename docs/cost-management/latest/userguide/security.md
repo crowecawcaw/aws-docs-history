@@ -1,0 +1,29 @@
+# Security in AWS Cost Management
+
+Cloud security at AWS is the highest priority. As an AWS customer, you benefit from a data center and network architecture that is built to meet
+the requirements of the most security-sensitive organizations.
+
+Security is a shared responsibility between AWS and you. The [shared responsibility model](https://aws.amazon.com/compliance/shared-responsibility-model/ "https://aws.amazon.com/compliance/shared-responsibility-model/") describes this as security
+_of_ the cloud and security _in_ the cloud:
+
+- **Security of the cloud** – AWS is responsible for protecting the
+  infrastructure that runs AWS services in the AWS Cloud. AWS also provides you with services that you can use
+  securely. Third-party auditors regularly test and verify the effectiveness of our security as part of the [AWS Compliance Programs](https://aws.amazon.com/compliance/programs/ "https://aws.amazon.com/compliance/programs/"). To learn about the compliance programs that apply to AWS Cost Management, see [AWS Services in Scope by Compliance
+  Program](https://aws.amazon.com/compliance/services-in-scope/ "https://aws.amazon.com/compliance/services-in-scope/").
+- **Security in the cloud** – Your responsibility is
+  determined by the AWS service that you use. You are also responsible for other factors
+  including the sensitivity of your data, your company’s requirements, and applicable laws and
+  regulations.
+  This documentation helps you understand how to apply the shared responsibility model when
+  using Billing and Cost Management. The following topics show you how to configure Billing and Cost Management to meet your
+  security and compliance objectives. You also learn how to use other AWS services that help you
+  to monitor and secure your Billing and Cost Management resources.
+
+###### Topics
+
+- [Data protection in AWS Cost Management](data-protection.md "data-protection.md")
+- [Identity and Access Management for AWS Cost Management](security-iam.md "security-iam.md")
+- [Logging and monitoring in AWS Cost Management](billing-security-logging.md "billing-security-logging.md")
+- [Compliance validation for AWS Cost Management](Billing-compliance.md "Billing-compliance.md")
+- [Resilience in AWS Cost Management](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
+- [Infrastructure security in AWS Cost Management](infrastructure-security.md "infrastructure-security.md")
