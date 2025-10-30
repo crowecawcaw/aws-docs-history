@@ -34,11 +34,13 @@ different domains.
   table contains clothing, automotive parts, and motorcycle parts.
 
 | ID      | Category                   | Subcat.   | Name              | Color              | Size                 | Make   | Model |
-| ------- | -------------------------- | --------- | ----------------- | ------------------ | -------------------- | ------ | ----- | ------------------------------------------------------------------------------------------------------------------------ |
+| ------- | -------------------------- | --------- | ----------------- | ------------------ | -------------------- | ------ | ----- |
 | Item_01 | Clothes                    | Sweater   | Cathair Sweater   | Siamese            | Small, Medium, Large |        |       |
 | Item_02 | Clothes                    | Pants     | Designer Jeans    | Paisley Acid Wash  | 30x32, 32x32, 32x34  |        |       |
 | Item_03 | Clothes                    | Pants     | Sweatpants        | Blue, Yellow, Pink | Large                |        |       |
 | Item_04 | Car Parts                  | Engine    | Turbos            |                    |                      | Audi   | S4    |
 | Item_05 | Car Parts                  | Emissions | 02 Sensor         |                    |                      | Audi   | S4    |
 | Item_06 | Motorcycle Parts           | Bodywork  | Fender Eliminator | Blue               |                      | Yamaha | R1    |
-| Item_07 | Motorcycle Parts, Clothing | Clothing  | Leather Pants     | Black              | Small, Medium, Large |        |       | Regardless of how you store your data, Amazon SimpleDB automatically indexes your data for quick and accurate retrieval. |
+| Item_07 | Motorcycle Parts, Clothing | Clothing  | Leather Pants     | Black              | Small, Medium, Large |        |       |
+
+Regardless of how you store your data, Amazon SimpleDB automatically indexes your data for quick and accurate retrieval.

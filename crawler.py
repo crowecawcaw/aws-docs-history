@@ -295,12 +295,29 @@ def _reflow_markdown_tables(markdown: str) -> str:
             result.append(pending_row.rstrip())
             pending_row = None
 
+    def is_separator_row(line: str) -> bool:
+        """Check if a line is a table separator row (e.g., | --- | --- |)."""
+        stripped = line.strip()
+        if not stripped.startswith("|") or not stripped.endswith("|"):
+            return False
+        # Remove pipes and whitespace, check if only dashes remain
+        content = stripped.strip("|").replace(" ", "").replace("|", "")
+        return all(c == "-" for c in content) and len(content) > 0
+
     for line in lines:
         stripped_leading = line.lstrip()
 
         if stripped_leading.startswith("|"):
             pipe_count = stripped_leading.count("|")
 
+            # If this is a separator row, just pass it through without updating expected count
+            if is_separator_row(stripped_leading):
+                if in_table:
+                    flush_row()
+                result.append(stripped_leading.rstrip())
+                continue
+
+            # Check if this is a continuation of the previous row
             if (
                 in_table
                 and pending_row is not None
@@ -311,13 +328,23 @@ def _reflow_markdown_tables(markdown: str) -> str:
                 pending_row += " " + stripped_leading.strip()
                 continue
 
+            # If we have more pipes than expected, this might be a malformed row
+            # End the table instead of extending it
+            if in_table and expected_pipe_count and pipe_count > expected_pipe_count:
+                flush_row()
+                in_table = False
+                expected_pipe_count = None
+                result.append(line)
+                continue
+
             if in_table:
                 flush_row()
             else:
                 in_table = True
 
             pending_row = stripped_leading.rstrip()
-            if expected_pipe_count is None or pipe_count > expected_pipe_count:
+            # Set expected_pipe_count from the FIRST row only (the header row)
+            if expected_pipe_count is None:
                 expected_pipe_count = pipe_count
             continue
 
@@ -325,6 +352,28 @@ def _reflow_markdown_tables(markdown: str) -> str:
             stripped = line.strip()
             if not stripped:
                 continue
+
+            # If the current row already has the expected pipe count,
+            # check if this line looks like new content rather than a continuation
+            if expected_pipe_count and pending_row.count("|") >= expected_pipe_count:
+                # Detect if this looks like a new paragraph/content:
+                # - Not a list item (doesn't start with *, -, or digit)
+                # - Substantial length (>15 chars)
+                # - Not a fragment (starts with capital letter)
+                is_list_item = stripped.startswith("* ") or stripped.startswith("- ") or (len(stripped) > 2 and stripped[0].isdigit() and stripped[1] in ". )")
+                looks_like_new_content = (
+                    not is_list_item
+                    and len(stripped) > 15
+                    and stripped[0].isupper()
+                )
+
+                if looks_like_new_content:
+                    # This appears to be new content after the table, not a row continuation
+                    flush_row()
+                    in_table = False
+                    expected_pipe_count = None
+                    result.append(line)
+                    continue
 
             if stripped.startswith("* "):
                 addition = f" <br>• {stripped[2:].strip()}"

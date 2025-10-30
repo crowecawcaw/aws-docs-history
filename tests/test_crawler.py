@@ -183,6 +183,152 @@ class TestHtmlToMarkdownConversion(unittest.TestCase):
         self.assertIn("S3", markdown)
         self.assertIn("Object storage", markdown)
 
+    def test_convert_html_to_markdown_handles_complex_tables_with_long_content(self):
+        """Test table conversion with complex content similar to SimpleDB DataModel.md.
+
+        This tests the fix for tables that have:
+        - Multiple columns (8 in this case)
+        - Some cells with long content
+        - Empty cells
+        - Content that should appear after the table
+
+        The bug was that _reflow_markdown_tables would allow expected_pipe_count
+        to increase based on malformed rows, causing incorrect table structure.
+        """
+        html = """
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Category</th>
+                <th>Subcat.</th>
+                <th>Name</th>
+                <th>Color</th>
+                <th>Size</th>
+                <th>Make</th>
+                <th>Model</th>
+            </tr>
+            <tr>
+                <td>Item_01</td>
+                <td>Clothes</td>
+                <td>Sweater</td>
+                <td>Cathair Sweater</td>
+                <td>Siamese</td>
+                <td>Small, Medium, Large</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Item_02</td>
+                <td>Clothes</td>
+                <td>Pants</td>
+                <td>Designer Jeans</td>
+                <td>Paisley Acid Wash</td>
+                <td>30x32, 32x32, 32x34</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Item_03</td>
+                <td>Clothes</td>
+                <td>Pants</td>
+                <td>Sweatpants</td>
+                <td>Blue, Yellow, Pink</td>
+                <td>Large</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Item_04</td>
+                <td>Car Parts</td>
+                <td>Engine</td>
+                <td>Turbos</td>
+                <td></td>
+                <td></td>
+                <td>Audi</td>
+                <td>S4</td>
+            </tr>
+            <tr>
+                <td>Item_05</td>
+                <td>Car Parts</td>
+                <td>Emissions</td>
+                <td>02 Sensor</td>
+                <td></td>
+                <td></td>
+                <td>Audi</td>
+                <td>S4</td>
+            </tr>
+            <tr>
+                <td>Item_06</td>
+                <td>Motorcycle Parts</td>
+                <td>Bodywork</td>
+                <td>Fender Eliminator</td>
+                <td>Blue</td>
+                <td></td>
+                <td>Yamaha</td>
+                <td>R1</td>
+            </tr>
+            <tr>
+                <td>Item_07</td>
+                <td>Motorcycle Parts, Clothing</td>
+                <td>Clothing</td>
+                <td>Leather Pants</td>
+                <td>Black</td>
+                <td>Small, Medium, Large</td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+        <p>Regardless of how you store your data, Amazon SimpleDB automatically indexes your data for quick and accurate retrieval.</p>
+        """
+
+        markdown = convert_html_to_markdown(html)
+
+        # Verify table structure
+        lines = markdown.strip().split("\n")
+        table_lines = [line for line in lines if line.strip().startswith("|")]
+
+        # All table rows should have the same number of pipes
+        if table_lines:
+            # Count pipes in header row (first table line)
+            expected_pipes = table_lines[0].count("|")
+
+            for i, line in enumerate(table_lines):
+                # Skip separator rows (rows with only dashes and pipes)
+                if all(c in "|-: \t" for c in line):
+                    continue
+
+                pipe_count = line.count("|")
+                self.assertEqual(
+                    pipe_count,
+                    expected_pipes,
+                    f"Row {i} has {pipe_count} pipes but expected {expected_pipes}: {line[:100]}"
+                )
+
+        # Verify content is present (note: underscores are escaped in markdown)
+        self.assertIn("ID", markdown)
+        self.assertIn("Category", markdown)
+        self.assertTrue("Item_01" in markdown or "Item\\_01" in markdown)
+        self.assertIn("Cathair Sweater", markdown)
+        self.assertTrue("Item_07" in markdown or "Item\\_07" in markdown)
+        self.assertIn("Leather Pants", markdown)
+
+        # Verify that content after the table is not included in table rows
+        self.assertIn("Regardless of how you store your data", markdown)
+
+        # The paragraph should appear on its own line(s), not in a table row
+        paragraph_line = None
+        for line in lines:
+            if "Regardless of how you store your data" in line:
+                paragraph_line = line
+                break
+
+        self.assertIsNotNone(paragraph_line, "Paragraph should be present in output")
+        # The paragraph should not start with a pipe (not be part of the table)
+        self.assertFalse(
+            paragraph_line.strip().startswith("|"),
+            "Paragraph after table should not be part of a table row"
+        )
+
 
 class TestLinkChecker(unittest.TestCase):
     """Test URL link checking and filtering."""
