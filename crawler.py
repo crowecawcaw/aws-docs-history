@@ -261,10 +261,84 @@ def extract_main_content(soup: BeautifulSoup) -> Tag:
     return main
 
 
+class AwsDocsMarkdownConverter(markdownify.MarkdownConverter):
+    """Custom markdownify converter that handles complex table cells.
+
+    AWS documentation tables often contain multi-paragraph content and lists
+    within cells. The default markdownify converter breaks these across
+    multiple lines, creating invalid markdown tables. This custom converter
+    keeps all cell content on a single line by:
+    1. Removing newlines from cell content
+    2. Converting list markers (* -) to <br>• for readability
+    3. Separating paragraphs with <br> to maintain visual structure
+    """
+
+    def convert_td(self, el, text, convert_as_inline):
+        """Convert table data cell, cleaning multi-line content."""
+        text = self._clean_cell_text(text)
+        return ' ' + text + ' |'
+
+    def convert_th(self, el, text, convert_as_inline):
+        """Convert table header cell, cleaning multi-line content."""
+        text = self._clean_cell_text(text)
+        return ' ' + text + ' |'
+
+    def _clean_cell_text(self, text):
+        """Clean cell text, using <br> to separate paragraphs and list items."""
+        if not text:
+            return ''
+
+        # First split by newlines, then handle lines that have list markers mid-line
+        lines = text.split('\n')
+        result_parts = []
+
+        for line in lines:
+            line = line.strip()
+            if not line:
+                continue
+
+            # Check if line starts with a list marker
+            if line.startswith('* ') or line.startswith('- '):
+                item_text = line[2:].strip()
+                if result_parts:
+                    result_parts.append('<br>• ' + item_text)
+                else:
+                    result_parts.append('• ' + item_text)
+            # Check if line contains list markers mid-line (markdownify sometimes does this)
+            elif '* ' in line or '- ' in line:
+                # Split on list markers and process each part
+                import re
+                # Split on * or - followed by space, keeping the delimiter pattern
+                parts = re.split(r'(\* |- )', line)
+                for i, part in enumerate(parts):
+                    if not part or part in ('* ', '- '):
+                        continue
+                    if i > 0 and parts[i-1] in ('* ', '- '):
+                        # This is a list item
+                        if result_parts:
+                            result_parts.append('<br>• ' + part.strip())
+                        else:
+                            result_parts.append('• ' + part.strip())
+                    else:
+                        # Regular text
+                        if result_parts:
+                            result_parts.append('<br>' + part.strip())
+                        else:
+                            result_parts.append(part.strip())
+            else:
+                # Regular paragraph - use <br> separator if not first
+                if result_parts:
+                    result_parts.append('<br>' + line)
+                else:
+                    result_parts.append(line)
+
+        # Join without spaces since <br> handles separation
+        return ''.join(result_parts)
+
+
 def convert_html_to_markdown(html: str) -> str:
-    """Convert the relevant HTML content to Markdown using markdownify."""
-    content = markdownify.markdownify(
-        html,
+    """Convert HTML content to Markdown using custom AWS docs converter."""
+    content = AwsDocsMarkdownConverter(
         heading_style=markdownify.ATX,
         autolinks=True,
         default_title=True,
@@ -272,81 +346,12 @@ def convert_html_to_markdown(html: str) -> str:
         escape_underscores=True,
         newline_style="SPACES",
         strip=TAGS_TO_STRIP,
-    )
+    ).convert(html)
 
     if not content:
         return ""
 
-    cleaned = _reflow_markdown_tables(content)
-    return cleaned.strip() + "\n"
-
-
-def _reflow_markdown_tables(markdown: str) -> str:
-    """Join wrapped table rows produced by markdownify."""
-    lines = markdown.splitlines()
-    result: list[str] = []
-    pending_row: str | None = None
-    in_table = False
-    expected_pipe_count: int | None = None
-
-    def flush_row() -> None:
-        nonlocal pending_row
-        if pending_row is not None:
-            result.append(pending_row.rstrip())
-            pending_row = None
-
-    for line in lines:
-        stripped_leading = line.lstrip()
-
-        if stripped_leading.startswith("|"):
-            pipe_count = stripped_leading.count("|")
-
-            if (
-                in_table
-                and pending_row is not None
-                and expected_pipe_count
-                and pipe_count < expected_pipe_count
-                and pending_row.count("|") < expected_pipe_count
-            ):
-                pending_row += " " + stripped_leading.strip()
-                continue
-
-            if in_table:
-                flush_row()
-            else:
-                in_table = True
-
-            pending_row = stripped_leading.rstrip()
-            if expected_pipe_count is None or pipe_count > expected_pipe_count:
-                expected_pipe_count = pipe_count
-            continue
-
-        if in_table and pending_row is not None:
-            stripped = line.strip()
-            if not stripped:
-                continue
-
-            if stripped.startswith("* "):
-                addition = f" <br>• {stripped[2:].strip()}"
-            elif stripped.startswith("- "):
-                addition = f" <br>• {stripped[2:].strip()}"
-            else:
-                addition = " " + stripped
-
-            pending_row += addition
-            continue
-
-        if in_table:
-            flush_row()
-            in_table = False
-            expected_pipe_count = None
-
-        result.append(line)
-
-    if in_table:
-        flush_row()
-
-    return "\n".join(result)
+    return content.strip() + "\n"
 
 
 def url_to_output_path(url: str, output_root: Optional[Path] = None) -> Path:
