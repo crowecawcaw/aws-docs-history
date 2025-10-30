@@ -261,10 +261,61 @@ def extract_main_content(soup: BeautifulSoup) -> Tag:
     return main
 
 
+class AwsDocsMarkdownConverter(markdownify.MarkdownConverter):
+    """Custom markdownify converter that handles complex table cells.
+
+    AWS documentation tables often contain multi-paragraph content and lists
+    within cells. The default markdownify converter breaks these across
+    multiple lines, creating invalid markdown tables. This custom converter
+    keeps all cell content on a single line by:
+    1. Removing newlines from cell content
+    2. Converting list markers to <br>• for readability
+    3. Joining multiple paragraphs with spaces
+    """
+
+    def convert_td(self, el, text, convert_as_inline):
+        """Convert table data cell, cleaning multi-line content."""
+        text = self._clean_cell_text(text)
+        return ' ' + text + ' |'
+
+    def convert_th(self, el, text, convert_as_inline):
+        """Convert table header cell, cleaning multi-line content."""
+        text = self._clean_cell_text(text)
+        return ' ' + text + ' |'
+
+    def _clean_cell_text(self, text):
+        """Clean cell text by removing newlines and converting list markers."""
+        if not text:
+            return ''
+
+        lines = text.split('\n')
+        result_parts = []
+
+        for line in lines:
+            line = line.strip()
+            if not line:
+                continue
+
+            # Convert list markers to <br>• for readability
+            if line.startswith('* '):
+                if result_parts:  # Not the first item, add line break
+                    result_parts.append('<br>• ' + line[2:].strip())
+                else:  # First item keeps the original marker
+                    result_parts.append(line)
+            elif line.startswith('- '):
+                if result_parts:
+                    result_parts.append('<br>• ' + line[2:].strip())
+                else:
+                    result_parts.append(line)
+            else:
+                result_parts.append(line)
+
+        return ' '.join(result_parts)
+
+
 def convert_html_to_markdown(html: str) -> str:
-    """Convert the relevant HTML content to Markdown using markdownify."""
-    content = markdownify.markdownify(
-        html,
+    """Convert HTML content to Markdown using custom AWS docs converter."""
+    content = AwsDocsMarkdownConverter(
         heading_style=markdownify.ATX,
         autolinks=True,
         default_title=True,
@@ -272,117 +323,12 @@ def convert_html_to_markdown(html: str) -> str:
         escape_underscores=True,
         newline_style="SPACES",
         strip=TAGS_TO_STRIP,
-    )
+    ).convert(html)
 
     if not content:
         return ""
 
-    cleaned = _reflow_markdown_tables(content)
-    return cleaned.strip() + "\n"
-
-
-def _reflow_markdown_tables(markdown: str) -> str:
-    """Join wrapped table rows produced by markdownify."""
-    lines = markdown.splitlines()
-    result: list[str] = []
-    pending_row: str | None = None
-    in_table = False
-    expected_pipe_count: int | None = None
-
-    def flush_row() -> None:
-        nonlocal pending_row
-        if pending_row is not None:
-            result.append(pending_row.rstrip())
-            pending_row = None
-
-    def is_separator_row(line: str) -> bool:
-        """Check if a line is a table separator row (e.g., | --- | --- |)."""
-        stripped = line.strip()
-        if not stripped.startswith("|") or not stripped.endswith("|"):
-            return False
-        # Remove pipes and whitespace, check if only dashes remain
-        content = stripped.strip("|").replace(" ", "").replace("|", "")
-        return all(c == "-" for c in content) and len(content) > 0
-
-    for line in lines:
-        stripped_leading = line.lstrip()
-        stripped = line.strip()
-
-        # Blank lines end tables
-        if not stripped:
-            if in_table:
-                flush_row()
-                in_table = False
-                expected_pipe_count = None
-            result.append(line)
-            continue
-
-        # Lines starting with | are table rows (or parts of rows)
-        if stripped_leading.startswith("|"):
-            pipe_count = stripped_leading.count("|")
-
-            # If this is a separator row, just pass it through without updating expected count
-            if is_separator_row(stripped_leading):
-                if in_table:
-                    flush_row()
-                result.append(stripped_leading.rstrip())
-                continue
-
-            # Check if this is a continuation of the previous row
-            if (
-                in_table
-                and pending_row is not None
-                and expected_pipe_count
-                and pipe_count < expected_pipe_count
-                and pending_row.count("|") < expected_pipe_count
-            ):
-                pending_row += " " + stripped_leading.strip()
-                continue
-
-            # If we have more pipes than expected, this might be a malformed row
-            # End the table instead of extending it
-            if in_table and expected_pipe_count and pipe_count > expected_pipe_count:
-                flush_row()
-                in_table = False
-                expected_pipe_count = None
-                result.append(line)
-                continue
-
-            if in_table:
-                flush_row()
-            else:
-                in_table = True
-
-            pending_row = stripped_leading.rstrip()
-            # Set expected_pipe_count from the FIRST row only (the header row)
-            if expected_pipe_count is None:
-                expected_pipe_count = pipe_count
-            continue
-
-        # Non-pipe lines while in a table are continuations (list items, wrapped text)
-        if in_table and pending_row is not None:
-            if stripped.startswith("* "):
-                addition = f" <br>• {stripped[2:].strip()}"
-            elif stripped.startswith("- "):
-                addition = f" <br>• {stripped[2:].strip()}"
-            else:
-                addition = " " + stripped
-
-            pending_row += addition
-            continue
-
-        # Regular non-table content
-        if in_table:
-            flush_row()
-            in_table = False
-            expected_pipe_count = None
-
-        result.append(line)
-
-    if in_table:
-        flush_row()
-
-    return "\n".join(result)
+    return content.strip() + "\n"
 
 
 def url_to_output_path(url: str, output_root: Optional[Path] = None) -> Path:
