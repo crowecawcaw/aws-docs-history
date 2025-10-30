@@ -184,7 +184,7 @@ class TestHtmlToMarkdownConversion(unittest.TestCase):
         self.assertIn("Object storage", markdown)
 
     def test_convert_html_to_markdown_handles_complex_tables_with_long_content(self):
-        """Test table conversion with complex content similar to SimpleDB DataModel.md.
+        """Test table conversion with real HTML from SimpleDB DataModel page.
 
         This tests the fix for tables that have:
         - Multiple columns (8 in this case)
@@ -193,97 +193,20 @@ class TestHtmlToMarkdownConversion(unittest.TestCase):
         - Content that should appear after the table
 
         The bug was that _reflow_markdown_tables would allow expected_pipe_count
-        to increase based on malformed rows, causing incorrect table structure.
+        to increase based on any row, causing the table structure to become
+        corrupted with inconsistent pipe counts.
+
+        Uses real HTML from the SimpleDB DataModel documentation page which
+        previously had a malformed table in the generated markdown.
         """
-        html = """
-        <table>
-            <tr>
-                <th>ID</th>
-                <th>Category</th>
-                <th>Subcat.</th>
-                <th>Name</th>
-                <th>Color</th>
-                <th>Size</th>
-                <th>Make</th>
-                <th>Model</th>
-            </tr>
-            <tr>
-                <td>Item_01</td>
-                <td>Clothes</td>
-                <td>Sweater</td>
-                <td>Cathair Sweater</td>
-                <td>Siamese</td>
-                <td>Small, Medium, Large</td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>Item_02</td>
-                <td>Clothes</td>
-                <td>Pants</td>
-                <td>Designer Jeans</td>
-                <td>Paisley Acid Wash</td>
-                <td>30x32, 32x32, 32x34</td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>Item_03</td>
-                <td>Clothes</td>
-                <td>Pants</td>
-                <td>Sweatpants</td>
-                <td>Blue, Yellow, Pink</td>
-                <td>Large</td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>Item_04</td>
-                <td>Car Parts</td>
-                <td>Engine</td>
-                <td>Turbos</td>
-                <td></td>
-                <td></td>
-                <td>Audi</td>
-                <td>S4</td>
-            </tr>
-            <tr>
-                <td>Item_05</td>
-                <td>Car Parts</td>
-                <td>Emissions</td>
-                <td>02 Sensor</td>
-                <td></td>
-                <td></td>
-                <td>Audi</td>
-                <td>S4</td>
-            </tr>
-            <tr>
-                <td>Item_06</td>
-                <td>Motorcycle Parts</td>
-                <td>Bodywork</td>
-                <td>Fender Eliminator</td>
-                <td>Blue</td>
-                <td></td>
-                <td>Yamaha</td>
-                <td>R1</td>
-            </tr>
-            <tr>
-                <td>Item_07</td>
-                <td>Motorcycle Parts, Clothing</td>
-                <td>Clothing</td>
-                <td>Leather Pants</td>
-                <td>Black</td>
-                <td>Small, Medium, Large</td>
-                <td></td>
-                <td></td>
-            </tr>
-        </table>
-        <p>Regardless of how you store your data, Amazon SimpleDB automatically indexes your data for quick and accurate retrieval.</p>
-        """
+        # Load the real HTML that caused the bug
+        test_data_path = Path(__file__).parent / "data" / "simpledb_datamodel_table.html"
+        with open(test_data_path, 'r') as f:
+            html = f.read()
 
         markdown = convert_html_to_markdown(html)
 
-        # Verify table structure
+        # Verify table structure - all rows must have consistent pipe counts
         lines = markdown.strip().split("\n")
         table_lines = [line for line in lines if line.strip().startswith("|")]
 
