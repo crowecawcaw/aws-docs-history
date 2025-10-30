@@ -306,7 +306,18 @@ def _reflow_markdown_tables(markdown: str) -> str:
 
     for line in lines:
         stripped_leading = line.lstrip()
+        stripped = line.strip()
 
+        # Blank lines end tables
+        if not stripped:
+            if in_table:
+                flush_row()
+                in_table = False
+                expected_pipe_count = None
+            result.append(line)
+            continue
+
+        # Lines starting with | are table rows (or parts of rows)
         if stripped_leading.startswith("|"):
             pipe_count = stripped_leading.count("|")
 
@@ -348,33 +359,8 @@ def _reflow_markdown_tables(markdown: str) -> str:
                 expected_pipe_count = pipe_count
             continue
 
+        # Non-pipe lines while in a table are continuations (list items, wrapped text)
         if in_table and pending_row is not None:
-            stripped = line.strip()
-            if not stripped:
-                continue
-
-            # If the current row already has the expected pipe count,
-            # check if this line looks like new content rather than a continuation
-            if expected_pipe_count and pending_row.count("|") >= expected_pipe_count:
-                # Detect if this looks like a new paragraph/content:
-                # - Not a list item (doesn't start with *, -, or digit)
-                # - Substantial length (>15 chars)
-                # - Not a fragment (starts with capital letter)
-                is_list_item = stripped.startswith("* ") or stripped.startswith("- ") or (len(stripped) > 2 and stripped[0].isdigit() and stripped[1] in ". )")
-                looks_like_new_content = (
-                    not is_list_item
-                    and len(stripped) > 15
-                    and stripped[0].isupper()
-                )
-
-                if looks_like_new_content:
-                    # This appears to be new content after the table, not a row continuation
-                    flush_row()
-                    in_table = False
-                    expected_pipe_count = None
-                    result.append(line)
-                    continue
-
             if stripped.startswith("* "):
                 addition = f" <br>• {stripped[2:].strip()}"
             elif stripped.startswith("- "):
@@ -385,6 +371,7 @@ def _reflow_markdown_tables(markdown: str) -> str:
             pending_row += addition
             continue
 
+        # Regular non-table content
         if in_table:
             flush_row()
             in_table = False
