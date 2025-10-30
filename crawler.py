@@ -269,8 +269,8 @@ class AwsDocsMarkdownConverter(markdownify.MarkdownConverter):
     multiple lines, creating invalid markdown tables. This custom converter
     keeps all cell content on a single line by:
     1. Removing newlines from cell content
-    2. Converting list markers to <br>• for readability
-    3. Joining multiple paragraphs with spaces
+    2. Converting list markers (* -) to <br>• for readability
+    3. Separating paragraphs with <br> to maintain visual structure
     """
 
     def convert_td(self, el, text, convert_as_inline):
@@ -284,10 +284,11 @@ class AwsDocsMarkdownConverter(markdownify.MarkdownConverter):
         return ' ' + text + ' |'
 
     def _clean_cell_text(self, text):
-        """Clean cell text by removing newlines and converting list markers."""
+        """Clean cell text, using <br> to separate paragraphs and list items."""
         if not text:
             return ''
 
+        # First split by newlines, then handle lines that have list markers mid-line
         lines = text.split('\n')
         result_parts = []
 
@@ -296,21 +297,43 @@ class AwsDocsMarkdownConverter(markdownify.MarkdownConverter):
             if not line:
                 continue
 
-            # Convert list markers to <br>• for readability
-            if line.startswith('* '):
-                if result_parts:  # Not the first item, add line break
-                    result_parts.append('<br>• ' + line[2:].strip())
-                else:  # First item keeps the original marker
-                    result_parts.append(line)
-            elif line.startswith('- '):
+            # Check if line starts with a list marker
+            if line.startswith('* ') or line.startswith('- '):
+                item_text = line[2:].strip()
                 if result_parts:
-                    result_parts.append('<br>• ' + line[2:].strip())
+                    result_parts.append('<br>• ' + item_text)
+                else:
+                    result_parts.append('• ' + item_text)
+            # Check if line contains list markers mid-line (markdownify sometimes does this)
+            elif '* ' in line or '- ' in line:
+                # Split on list markers and process each part
+                import re
+                # Split on * or - followed by space, keeping the delimiter pattern
+                parts = re.split(r'(\* |- )', line)
+                for i, part in enumerate(parts):
+                    if not part or part in ('* ', '- '):
+                        continue
+                    if i > 0 and parts[i-1] in ('* ', '- '):
+                        # This is a list item
+                        if result_parts:
+                            result_parts.append('<br>• ' + part.strip())
+                        else:
+                            result_parts.append('• ' + part.strip())
+                    else:
+                        # Regular text
+                        if result_parts:
+                            result_parts.append('<br>' + part.strip())
+                        else:
+                            result_parts.append(part.strip())
+            else:
+                # Regular paragraph - use <br> separator if not first
+                if result_parts:
+                    result_parts.append('<br>' + line)
                 else:
                     result_parts.append(line)
-            else:
-                result_parts.append(line)
 
-        return ' '.join(result_parts)
+        # Join without spaces since <br> handles separation
+        return ''.join(result_parts)
 
 
 def convert_html_to_markdown(html: str) -> str:
