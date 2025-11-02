@@ -1,3839 +1,3845 @@
 {
-  "last_updated": "2025-10-28T02:15:24.014062+00:00",
+  "last_updated": "2025-11-02T03:29:22.263902+00:00",
   "services": [
     {
       "url": "/accounts/latest/reference/",
       "name": "accounts",
       "page_count": 80,
-      "last_discovered": "2025-10-28T02:14:18.010647+00:00"
+      "last_discovered": "2025-11-02T03:28:02.049944+00:00"
     },
     {
       "url": "/acm/latest/userguide/",
       "name": "acm",
       "page_count": 97,
-      "last_discovered": "2025-10-28T02:14:18.107391+00:00"
+      "last_discovered": "2025-11-02T03:28:02.181648+00:00"
     },
     {
       "url": "/agentworkspace/latest/devguide/",
       "name": "agentworkspace",
       "page_count": 111,
-      "last_discovered": "2025-10-28T02:14:18.216364+00:00"
+      "last_discovered": "2025-11-02T03:28:02.296448+00:00"
     },
     {
       "url": "/AL2/latest/relnotes/",
       "name": "AL2",
-      "page_count": 136,
-      "last_discovered": "2025-10-28T02:14:18.332555+00:00"
+      "page_count": 137,
+      "last_discovered": "2025-11-02T03:28:02.439564+00:00"
     },
     {
       "url": "/amazon-mq/latest/developer-guide/",
       "name": "amazon-mq",
       "page_count": 105,
-      "last_discovered": "2025-10-28T02:14:18.432991+00:00"
+      "last_discovered": "2025-11-02T03:28:02.557321+00:00"
     },
     {
       "url": "/amazon-mq/latest/migration-guide/",
       "name": "amazon-mq",
       "page_count": 17,
-      "last_discovered": "2025-10-28T02:14:18.522570+00:00"
+      "last_discovered": "2025-11-02T03:28:02.685590+00:00"
     },
     {
       "url": "/AmazonCloudFront/latest/DeveloperGuide/",
       "name": "AmazonCloudFront",
       "page_count": 285,
-      "last_discovered": "2025-10-28T02:14:18.616222+00:00"
+      "last_discovered": "2025-11-02T03:28:02.800605+00:00"
     },
     {
       "url": "/AmazonCloudWatch/latest/logs/",
       "name": "AmazonCloudWatch",
-      "page_count": 223,
-      "last_discovered": "2025-10-28T02:14:18.709367+00:00"
+      "page_count": 220,
+      "last_discovered": "2025-11-02T03:28:02.918173+00:00"
     },
     {
       "url": "/AmazonCloudWatch/latest/monitoring/",
       "name": "AmazonCloudWatch",
-      "page_count": 776,
-      "last_discovered": "2025-10-28T02:14:18.831447+00:00"
+      "page_count": 778,
+      "last_discovered": "2025-11-02T03:28:03.040471+00:00"
     },
     {
       "url": "/amazondynamodb/latest/developerguide/",
       "name": "amazondynamodb",
-      "page_count": 631,
-      "last_discovered": "2025-10-28T02:14:18.916079+00:00"
+      "page_count": 632,
+      "last_discovered": "2025-11-02T03:28:03.159924+00:00"
     },
     {
       "url": "/AmazonECR/latest/public/",
       "name": "AmazonECR",
       "page_count": 39,
-      "last_discovered": "2025-10-28T02:14:19.007835+00:00"
+      "last_discovered": "2025-11-02T03:28:03.296527+00:00"
     },
     {
       "url": "/AmazonECR/latest/userguide/",
       "name": "AmazonECR",
       "page_count": 126,
-      "last_discovered": "2025-10-28T02:14:19.123405+00:00"
+      "last_discovered": "2025-11-02T03:28:03.418808+00:00"
     },
     {
       "url": "/AmazonECS/latest/bestpracticesguide/",
       "name": "AmazonECS",
       "page_count": 0,
-      "last_discovered": "2025-10-28T02:14:19.302006+00:00"
+      "last_discovered": "2025-11-02T03:28:03.580206+00:00"
     },
     {
       "url": "/AmazonECS/latest/developerguide/",
       "name": "AmazonECS",
-      "page_count": 519,
-      "last_discovered": "2025-10-28T02:14:19.388352+00:00"
+      "page_count": 527,
+      "last_discovered": "2025-11-02T03:28:03.710603+00:00"
     },
     {
       "url": "/AmazonElastiCache/latest/dg/",
       "name": "AmazonElastiCache",
       "page_count": 335,
-      "last_discovered": "2025-10-28T02:14:19.474309+00:00"
+      "last_discovered": "2025-11-02T03:28:03.825836+00:00"
     },
     {
       "url": "/amazonglacier/latest/dev/",
       "name": "amazonglacier",
       "page_count": 185,
-      "last_discovered": "2025-10-28T02:14:19.573338+00:00"
+      "last_discovered": "2025-11-02T03:28:03.950476+00:00"
     },
     {
       "url": "/amazonq/latest/qbusiness-ug/",
       "name": "amazonq",
       "page_count": 728,
-      "last_discovered": "2025-10-28T02:14:19.702120+00:00"
+      "last_discovered": "2025-11-02T03:28:04.067812+00:00"
     },
     {
       "url": "/amazonq/latest/qdeveloper-ug/",
       "name": "amazonq",
       "page_count": 222,
-      "last_discovered": "2025-10-28T02:14:19.781744+00:00"
+      "last_discovered": "2025-11-02T03:28:04.197602+00:00"
     },
     {
       "url": "/AmazonRDS/latest/AuroraMySQLReleaseNotes/",
       "name": "AmazonRDS",
       "page_count": 151,
-      "last_discovered": "2025-10-28T02:14:19.884695+00:00"
+      "last_discovered": "2025-11-02T03:28:04.331198+00:00"
     },
     {
       "url": "/AmazonRDS/latest/AuroraPostgreSQLReleaseNotes/",
       "name": "AmazonRDS",
       "page_count": 8,
-      "last_discovered": "2025-10-28T02:14:19.969160+00:00"
+      "last_discovered": "2025-11-02T03:28:04.463021+00:00"
     },
     {
       "url": "/AmazonRDS/latest/AuroraUserGuide/",
       "name": "AmazonRDS",
       "page_count": 962,
-      "last_discovered": "2025-10-28T02:14:20.084027+00:00"
+      "last_discovered": "2025-11-02T03:28:04.583868+00:00"
     },
     {
       "url": "/AmazonRDS/latest/gettingstartedguide/",
       "name": "AmazonRDS",
       "page_count": 24,
-      "last_discovered": "2025-10-28T02:14:20.195374+00:00"
+      "last_discovered": "2025-11-02T03:28:04.698724+00:00"
     },
     {
       "url": "/AmazonRDS/latest/OracleReleaseNotes/",
       "name": "AmazonRDS",
       "page_count": 8,
-      "last_discovered": "2025-10-28T02:14:20.286041+00:00"
+      "last_discovered": "2025-11-02T03:28:04.815383+00:00"
     },
     {
       "url": "/AmazonRDS/latest/PostgreSQLReleaseNotes/",
       "name": "AmazonRDS",
       "page_count": 6,
-      "last_discovered": "2025-10-28T02:14:20.388429+00:00"
+      "last_discovered": "2025-11-02T03:28:04.964980+00:00"
     },
     {
       "url": "/AmazonRDS/latest/UserGuide/",
       "name": "AmazonRDS",
       "page_count": 1324,
-      "last_discovered": "2025-10-28T02:14:20.491978+00:00"
+      "last_discovered": "2025-11-02T03:28:05.082737+00:00"
     },
     {
       "url": "/AmazonS3/latest/s3-outposts/",
       "name": "AmazonS3",
       "page_count": 73,
-      "last_discovered": "2025-10-28T02:14:20.573274+00:00"
+      "last_discovered": "2025-11-02T03:28:05.211124+00:00"
     },
     {
       "url": "/AmazonS3/latest/userguide/",
       "name": "AmazonS3",
-      "page_count": 694,
-      "last_discovered": "2025-10-28T02:14:20.681571+00:00"
+      "page_count": 691,
+      "last_discovered": "2025-11-02T03:28:05.333807+00:00"
     },
     {
       "url": "/AmazonSimpleDB/latest/DeveloperGuide/",
       "name": "AmazonSimpleDB",
       "page_count": 69,
-      "last_discovered": "2025-10-28T02:14:20.778191+00:00"
+      "last_discovered": "2025-11-02T03:28:05.453738+00:00"
     },
     {
       "url": "/amazonswf/latest/awsflowguide/",
       "name": "amazonswf",
       "page_count": 48,
-      "last_discovered": "2025-10-28T02:14:20.887639+00:00"
+      "last_discovered": "2025-11-02T03:28:05.588363+00:00"
     },
     {
       "url": "/amazonswf/latest/developerguide/",
       "name": "amazonswf",
       "page_count": 72,
-      "last_discovered": "2025-10-28T02:14:20.991908+00:00"
+      "last_discovered": "2025-11-02T03:28:05.700426+00:00"
     },
     {
       "url": "/amplify/latest/userguide/",
       "name": "amplify",
       "page_count": 128,
-      "last_discovered": "2025-10-28T02:14:21.083119+00:00"
+      "last_discovered": "2025-11-02T03:28:05.821731+00:00"
     },
     {
       "url": "/apigateway/latest/developerguide/",
       "name": "apigateway",
       "page_count": 376,
-      "last_discovered": "2025-10-28T02:14:21.210282+00:00"
+      "last_discovered": "2025-11-02T03:28:05.964186+00:00"
     },
     {
       "url": "/app-mesh/latest/userguide/",
       "name": "app-mesh",
       "page_count": 57,
-      "last_discovered": "2025-10-28T02:14:21.298125+00:00"
+      "last_discovered": "2025-11-02T03:28:06.081098+00:00"
     },
     {
       "url": "/app2container/latest/UserGuide/",
       "name": "app2container",
       "page_count": 43,
-      "last_discovered": "2025-10-28T02:14:21.377131+00:00"
+      "last_discovered": "2025-11-02T03:28:06.199771+00:00"
     },
     {
       "url": "/appconfig/latest/userguide/",
       "name": "appconfig",
       "page_count": 90,
-      "last_discovered": "2025-10-28T02:14:21.482003+00:00"
+      "last_discovered": "2025-11-02T03:28:06.314723+00:00"
     },
     {
       "url": "/appfabric/latest/adminguide/",
       "name": "appfabric",
       "page_count": 94,
-      "last_discovered": "2025-10-28T02:14:21.588462+00:00"
+      "last_discovered": "2025-11-02T03:28:06.453019+00:00"
     },
     {
       "url": "/appflow/latest/userguide/",
       "name": "appflow",
       "page_count": 118,
-      "last_discovered": "2025-10-28T02:14:21.681636+00:00"
+      "last_discovered": "2025-11-02T03:28:06.570130+00:00"
     },
     {
       "url": "/application-discovery/latest/userguide/",
       "name": "application-discovery",
       "page_count": 77,
-      "last_discovered": "2025-10-28T02:14:21.792622+00:00"
+      "last_discovered": "2025-11-02T03:28:06.688863+00:00"
     },
     {
       "url": "/apprunner/latest/dg/",
       "name": "apprunner",
       "page_count": 85,
-      "last_discovered": "2025-10-28T02:14:21.886663+00:00"
+      "last_discovered": "2025-11-02T03:28:06.831627+00:00"
     },
     {
       "url": "/apprunner/latest/relnotes/",
       "name": "apprunner",
       "page_count": 60,
-      "last_discovered": "2025-10-28T02:14:21.997471+00:00"
+      "last_discovered": "2025-11-02T03:28:06.942727+00:00"
     },
     {
       "url": "/appstream2/latest/developerguide/",
       "name": "appstream2",
       "page_count": 469,
-      "last_discovered": "2025-10-28T02:14:22.083821+00:00"
+      "last_discovered": "2025-11-02T03:28:07.061436+00:00"
     },
     {
       "url": "/appstudio/latest/userguide/",
       "name": "appstudio",
       "page_count": 112,
-      "last_discovered": "2025-10-28T02:14:22.180275+00:00"
+      "last_discovered": "2025-11-02T03:28:07.180391+00:00"
     },
     {
       "url": "/appsync/latest/devguide/",
       "name": "appsync",
       "page_count": 188,
-      "last_discovered": "2025-10-28T02:14:22.305226+00:00"
+      "last_discovered": "2025-11-02T03:28:07.298316+00:00"
     },
     {
       "url": "/architecture-diagrams/latest/active-active-and-active-passive-configurations-in-aws-direct-connect/",
       "name": "architecture-diagrams",
       "page_count": 1,
-      "last_discovered": "2025-10-28T02:14:22.395196+00:00"
+      "last_discovered": "2025-11-02T03:28:07.432869+00:00"
     },
     {
       "url": "/architecture-diagrams/latest/amazon-virtual-andon/",
       "name": "architecture-diagrams",
       "page_count": 1,
-      "last_discovered": "2025-10-28T02:14:22.490797+00:00"
+      "last_discovered": "2025-11-02T03:28:07.551988+00:00"
     },
     {
       "url": "/architecture-diagrams/latest/amazon-vpc-lattice-use-cases/",
       "name": "architecture-diagrams",
       "page_count": 1,
-      "last_discovered": "2025-10-28T02:14:22.582957+00:00"
+      "last_discovered": "2025-11-02T03:28:07.663210+00:00"
     },
     {
       "url": "/architecture-diagrams/latest/automotive-call-center-architecture/",
       "name": "architecture-diagrams",
       "page_count": 1,
-      "last_discovered": "2025-10-28T02:14:22.700996+00:00"
+      "last_discovered": "2025-11-02T03:28:07.779974+00:00"
     },
     {
       "url": "/architecture-diagrams/latest/aws-aerospace-vdi-reference-architecture/",
       "name": "architecture-diagrams",
       "page_count": 1,
-      "last_discovered": "2025-10-28T02:14:22.796447+00:00"
+      "last_discovered": "2025-11-02T03:28:07.897578+00:00"
     },
     {
       "url": "/architecture-diagrams/latest/aws-connected-vehicle/",
       "name": "architecture-diagrams",
       "page_count": 1,
-      "last_discovered": "2025-10-28T02:14:22.901746+00:00"
+      "last_discovered": "2025-11-02T03:28:08.011822+00:00"
     },
     {
       "url": "/architecture-diagrams/latest/aws-devops-monitoring-dashboard/",
       "name": "architecture-diagrams",
       "page_count": 1,
-      "last_discovered": "2025-10-28T02:14:22.978583+00:00"
+      "last_discovered": "2025-11-02T03:28:08.124471+00:00"
     },
     {
       "url": "/architecture-diagrams/latest/aws-innovation-sandbox/",
       "name": "architecture-diagrams",
       "page_count": 0,
-      "last_discovered": "2025-10-28T02:14:23.115117+00:00"
+      "last_discovered": "2025-11-02T03:28:08.287500+00:00"
     },
     {
       "url": "/architecture-diagrams/latest/aws-media-insights-engine/",
       "name": "architecture-diagrams",
       "page_count": 1,
-      "last_discovered": "2025-10-28T02:14:23.198858+00:00"
+      "last_discovered": "2025-11-02T03:28:08.402592+00:00"
     },
     {
       "url": "/architecture-diagrams/latest/build-healthcare-data-pipeline-on-aws-ibm-cp4d/",
       "name": "architecture-diagrams",
       "page_count": 1,
-      "last_discovered": "2025-10-28T02:14:23.290148+00:00"
+      "last_discovered": "2025-11-02T03:28:08.523272+00:00"
     },
     {
       "url": "/architecture-diagrams/latest/connected-aircraft-solution-architecture/",
       "name": "architecture-diagrams",
       "page_count": 1,
-      "last_discovered": "2025-10-28T02:14:23.389573+00:00"
+      "last_discovered": "2025-11-02T03:28:08.644215+00:00"
     },
     {
       "url": "/architecture-diagrams/latest/connected-mobility-data-lake/",
       "name": "architecture-diagrams",
       "page_count": 1,
-      "last_discovered": "2025-10-28T02:14:23.501752+00:00"
+      "last_discovered": "2025-11-02T03:28:08.757850+00:00"
     },
     {
       "url": "/architecture-diagrams/latest/connected-mobility-platform-on-aws/",
       "name": "architecture-diagrams",
       "page_count": 1,
-      "last_discovered": "2025-10-28T02:14:23.602456+00:00"
+      "last_discovered": "2025-11-02T03:28:08.877641+00:00"
     },
     {
       "url": "/architecture-diagrams/latest/data-lake-architecture-for-renewable-energy/",
       "name": "architecture-diagrams",
       "page_count": 1,
-      "last_discovered": "2025-10-28T02:14:23.683776+00:00"
+      "last_discovered": "2025-11-02T03:28:08.995565+00:00"
     },
     {
       "url": "/architecture-diagrams/latest/datavant-switchboard-with-aws-clean-rooms/",
       "name": "architecture-diagrams",
       "page_count": 1,
-      "last_discovered": "2025-10-28T02:14:23.791664+00:00"
+      "last_discovered": "2025-11-02T03:28:09.106646+00:00"
     },
     {
       "url": "/architecture-diagrams/latest/delivering-dataops-on-industrial-data-fabric/",
       "name": "architecture-diagrams",
       "page_count": 1,
-      "last_discovered": "2025-10-28T02:14:23.887383+00:00"
+      "last_discovered": "2025-11-02T03:28:09.221646+00:00"
     },
     {
       "url": "/architecture-diagrams/latest/describe-for-me-web-app/",
       "name": "architecture-diagrams",
       "page_count": 1,
-      "last_discovered": "2025-10-28T02:14:23.990074+00:00"
+      "last_discovered": "2025-11-02T03:28:09.334086+00:00"
     },
     {
       "url": "/architecture-diagrams/latest/detect-malware-threats-using-aws-transfer-family/",
       "name": "architecture-diagrams",
       "page_count": 1,
-      "last_discovered": "2025-10-28T02:14:24.089082+00:00"
+      "last_discovered": "2025-11-02T03:28:09.452563+00:00"
     },
     {
       "url": "/architecture-diagrams/latest/edit-in-cloud-on-aws/",
       "name": "architecture-diagrams",
       "page_count": 1,
-      "last_discovered": "2025-10-28T02:14:24.211601+00:00"
+      "last_discovered": "2025-11-02T03:28:09.590522+00:00"
     },
     {
       "url": "/architecture-diagrams/latest/electric-vehicle-charging-ocpp-handler/",
       "name": "architecture-diagrams",
       "page_count": 1,
-      "last_discovered": "2025-10-28T02:14:24.302721+00:00"
+      "last_discovered": "2025-11-02T03:28:09.719506+00:00"
     },
     {
       "url": "/architecture-diagrams/latest/electric-vehicle-charging-station-management-software/",
       "name": "architecture-diagrams",
       "page_count": 1,
-      "last_discovered": "2025-10-28T02:14:24.403854+00:00"
+      "last_discovered": "2025-11-02T03:28:09.834025+00:00"
     },
     {
       "url": "/architecture-diagrams/latest/electro-optical-imagery/",
       "name": "architecture-diagrams",
       "page_count": 1,
-      "last_discovered": "2025-10-28T02:14:24.483287+00:00"
+      "last_discovered": "2025-11-02T03:28:09.952723+00:00"
     },
     {
       "url": "/architecture-diagrams/latest/electro-optical-imagery-architecture/",
       "name": "architecture-diagrams",
       "page_count": 1,
-      "last_discovered": "2025-10-28T02:14:24.584170+00:00"
+      "last_discovered": "2025-11-02T03:28:10.070268+00:00"
     },
     {
       "url": "/architecture-diagrams/latest/element-analytics-unify-on-aws/",
       "name": "architecture-diagrams",
       "page_count": 1,
-      "last_discovered": "2025-10-28T02:14:24.699830+00:00"
+      "last_discovered": "2025-11-02T03:28:10.187623+00:00"
     },
     {
       "url": "/architecture-diagrams/latest/embedded-ml-models-using-sagemaker-on-aws-marketplace/",
       "name": "architecture-diagrams",
       "page_count": 1,
-      "last_discovered": "2025-10-28T02:14:24.795499+00:00"
+      "last_discovered": "2025-11-02T03:28:10.308754+00:00"
     },
     {
       "url": "/architecture-diagrams/latest/exploring-real-time-streaming-for-retrieval-augmented-generation/",
       "name": "architecture-diagrams",
       "page_count": 1,
-      "last_discovered": "2025-10-28T02:14:24.902527+00:00"
+      "last_discovered": "2025-11-02T03:28:10.430608+00:00"
     },
     {
       "url": "/architecture-diagrams/latest/financial-advisor-chat-assistant/",
       "name": "architecture-diagrams",
       "page_count": 1,
-      "last_discovered": "2025-10-28T02:14:24.997042+00:00"
+      "last_discovered": "2025-11-02T03:28:10.542105+00:00"
     },
     {
       "url": "/architecture-diagrams/latest/fleet-management-for-connected-farm/",
       "name": "architecture-diagrams",
       "page_count": 1,
-      "last_discovered": "2025-10-28T02:14:25.084967+00:00"
+      "last_discovered": "2025-11-02T03:28:10.654514+00:00"
     },
     {
       "url": "/architecture-diagrams/latest/flight-information-management-system/",
       "name": "architecture-diagrams",
       "page_count": 1,
-      "last_discovered": "2025-10-28T02:14:25.210244+00:00"
+      "last_discovered": "2025-11-02T03:28:10.766686+00:00"
     },
     {
       "url": "/architecture-diagrams/latest/fraud-ring-detection-using-Neo4j-and-graphs/",
       "name": "architecture-diagrams",
       "page_count": 1,
-      "last_discovered": "2025-10-28T02:14:25.302062+00:00"
+      "last_discovered": "2025-11-02T03:28:10.886770+00:00"
     },
     {
       "url": "/architecture-diagrams/latest/game-production-in-the-cloud-workstations/",
       "name": "architecture-diagrams",
       "page_count": 1,
-      "last_discovered": "2025-10-28T02:14:25.383921+00:00"
+      "last_discovered": "2025-11-02T03:28:11.001342+00:00"
     },
     {
       "url": "/architecture-diagrams/latest/healthcare-payor-strategic-focus-areas/",
       "name": "architecture-diagrams",
       "page_count": 1,
-      "last_discovered": "2025-10-28T02:14:25.498281+00:00"
+      "last_discovered": "2025-11-02T03:28:11.122195+00:00"
     },
     {
       "url": "/architecture-diagrams/latest/high-performance-computing-on-aws/",
       "name": "architecture-diagrams",
       "page_count": 1,
-      "last_discovered": "2025-10-28T02:14:25.592324+00:00"
+      "last_discovered": "2025-11-02T03:28:11.237804+00:00"
     },
     {
       "url": "/architecture-diagrams/latest/hpc-cluster-monitoring/",
       "name": "architecture-diagrams",
       "page_count": 1,
-      "last_discovered": "2025-10-28T02:14:25.702159+00:00"
+      "last_discovered": "2025-11-02T03:28:11.382411+00:00"
     },
     {
       "url": "/architecture-diagrams/latest/ibm-datastage-on-aws-with-ibm-cp4d/",
       "name": "architecture-diagrams",
       "page_count": 1,
-      "last_discovered": "2025-10-28T02:14:25.797182+00:00"
+      "last_discovered": "2025-11-02T03:28:11.519060+00:00"
     },
     {
       "url": "/architecture-diagrams/latest/ibm-planning-analytics-with-watson/",
       "name": "architecture-diagrams",
       "page_count": 1,
-      "last_discovered": "2025-10-28T02:14:25.903855+00:00"
+      "last_discovered": "2025-11-02T03:28:11.651971+00:00"
     },
     {
       "url": "/architecture-diagrams/latest/imdsoft-metavision-suite-on-aws/",
       "name": "architecture-diagrams",
       "page_count": 1,
-      "last_discovered": "2025-10-28T02:14:25.988148+00:00"
+      "last_discovered": "2025-11-02T03:28:11.774876+00:00"
     },
     {
       "url": "/architecture-diagrams/latest/industrial-data-lake-for-predictive-maintenance-using-amazon-monitron-and-amazon-kinesis/",
       "name": "architecture-diagrams",
       "page_count": 1,
-      "last_discovered": "2025-10-28T02:14:26.089465+00:00"
+      "last_discovered": "2025-11-02T03:28:11.934046+00:00"
     },
     {
       "url": "/architecture-diagrams/latest/industrial-dataops-using-highbyte-hub-and-element-unify/",
       "name": "architecture-diagrams",
       "page_count": 1,
-      "last_discovered": "2025-10-28T02:14:26.199322+00:00"
+      "last_discovered": "2025-11-02T03:28:12.049601+00:00"
     },
     {
       "url": "/architecture-diagrams/latest/intelligent-supply-chain-retail/",
       "name": "architecture-diagrams",
       "page_count": 1,
-      "last_discovered": "2025-10-28T02:14:26.304231+00:00"
+      "last_discovered": "2025-11-02T03:28:12.191569+00:00"
     },
     {
       "url": "/architecture-diagrams/latest/iot-analytics-with-aws-ibm-cp4d/",
       "name": "architecture-diagrams",
       "page_count": 1,
-      "last_discovered": "2025-10-28T02:14:26.383911+00:00"
+      "last_discovered": "2025-11-02T03:28:12.307776+00:00"
     },
     {
       "url": "/architecture-diagrams/latest/kelvin-ai-on-aws/",
       "name": "architecture-diagrams",
       "page_count": 1,
-      "last_discovered": "2025-10-28T02:14:26.509434+00:00"
+      "last_discovered": "2025-11-02T03:28:12.420564+00:00"
     },
     {
       "url": "/architecture-diagrams/latest/knowledge-graphs-and-graphrag-with-neo4j/",
       "name": "architecture-diagrams",
       "page_count": 1,
-      "last_discovered": "2025-10-28T02:14:26.591888+00:00"
+      "last_discovered": "2025-11-02T03:28:12.536949+00:00"
     },
     {
       "url": "/architecture-diagrams/latest/life-sciences-data-collection-storage-processing/",
       "name": "architecture-diagrams",
       "page_count": 1,
-      "last_discovered": "2025-10-28T02:14:26.688649+00:00"
+      "last_discovered": "2025-11-02T03:28:12.671132+00:00"
     },
     {
       "url": "/architecture-diagrams/latest/livestock-counting-at-the-edge/",
       "name": "architecture-diagrams",
       "page_count": 1,
-      "last_discovered": "2025-10-28T02:14:26.808183+00:00"
+      "last_discovered": "2025-11-02T03:28:12.787746+00:00"
     },
     {
       "url": "/architecture-diagrams/latest/local-clusters-for-amazon-eks-on-aws-outposts/",
       "name": "architecture-diagrams",
       "page_count": 1,
-      "last_discovered": "2025-10-28T02:14:26.893286+00:00"
+      "last_discovered": "2025-11-02T03:28:12.900413+00:00"
     },
     {
       "url": "/architecture-diagrams/latest/location-enabled-data-science-with-precisely/",
       "name": "architecture-diagrams",
       "page_count": 1,
-      "last_discovered": "2025-10-28T02:14:26.998586+00:00"
+      "last_discovered": "2025-11-02T03:28:13.044597+00:00"
     },
     {
       "url": "/architecture-diagrams/latest/location-services-with-machine-learning-forecasting/",
       "name": "architecture-diagrams",
       "page_count": 1,
-      "last_discovered": "2025-10-28T02:14:27.085402+00:00"
+      "last_discovered": "2025-11-02T03:28:13.159359+00:00"
     },
     {
       "url": "/architecture-diagrams/latest/luminai-refinery-advisor-on-aws/",
       "name": "architecture-diagrams",
       "page_count": 1,
-      "last_discovered": "2025-10-28T02:14:27.198757+00:00"
+      "last_discovered": "2025-11-02T03:28:13.275458+00:00"
     },
     {
       "url": "/architecture-diagrams/latest/mobile-apps-location-based-engagement/",
       "name": "architecture-diagrams",
       "page_count": 1,
-      "last_discovered": "2025-10-28T02:14:27.310195+00:00"
+      "last_discovered": "2025-11-02T03:28:13.417301+00:00"
     },
     {
       "url": "/architecture-diagrams/latest/modern-data-analytics-on-aws/",
       "name": "architecture-diagrams",
       "page_count": 1,
-      "last_discovered": "2025-10-28T02:14:27.399967+00:00"
+      "last_discovered": "2025-11-02T03:28:13.531352+00:00"
     },
     {
       "url": "/architecture-diagrams/latest/modernize-applications-with-microservices-using-amazon-eks/",
       "name": "architecture-diagrams",
       "page_count": 1,
-      "last_discovered": "2025-10-28T02:14:27.483944+00:00"
+      "last_discovered": "2025-11-02T03:28:13.673346+00:00"
     },
     {
       "url": "/architecture-diagrams/latest/moodle-for-high-availability-on-aws/",
       "name": "architecture-diagrams",
       "page_count": 1,
-      "last_discovered": "2025-10-28T02:14:27.601685+00:00"
+      "last_discovered": "2025-11-02T03:28:13.788750+00:00"
     },
     {
       "url": "/architecture-diagrams/latest/moodle-learning-management-system-on-aws/",
       "name": "architecture-diagrams",
       "page_count": 1,
-      "last_discovered": "2025-10-28T02:14:27.701693+00:00"
+      "last_discovered": "2025-11-02T03:28:13.906831+00:00"
     },
     {
       "url": "/architecture-diagrams/latest/multiplayer-session-based-game-hosting-on-aws/",
       "name": "architecture-diagrams",
       "page_count": 1,
-      "last_discovered": "2025-10-28T02:14:27.807755+00:00"
+      "last_discovered": "2025-11-02T03:28:14.026497+00:00"
     },
     {
       "url": "/architecture-diagrams/latest/omni-channel-customer-engagement-for-airlines/",
       "name": "architecture-diagrams",
       "page_count": 1,
-      "last_discovered": "2025-10-28T02:14:27.890830+00:00"
+      "last_discovered": "2025-11-02T03:28:14.168625+00:00"
     },
     {
       "url": "/architecture-diagrams/latest/open-edx-for-high-availability-on-aws/",
       "name": "architecture-diagrams",
       "page_count": 1,
-      "last_discovered": "2025-10-28T02:14:28.004097+00:00"
+      "last_discovered": "2025-11-02T03:28:14.298074+00:00"
     },
     {
       "url": "/architecture-diagrams/latest/opentext-infoarchive-architecture-using-amazon-eks/",
       "name": "architecture-diagrams",
       "page_count": 1,
-      "last_discovered": "2025-10-28T02:14:28.094379+00:00"
+      "last_discovered": "2025-11-02T03:28:14.442667+00:00"
     },
     {
       "url": "/architecture-diagrams/latest/oracle-e-business-suite-on-aws/",
       "name": "architecture-diagrams",
       "page_count": 1,
-      "last_discovered": "2025-10-28T02:14:28.219276+00:00"
+      "last_discovered": "2025-11-02T03:28:14.556532+00:00"
     },
     {
       "url": "/architecture-diagrams/latest/oracle-peoplesoft-on-aws/",
       "name": "architecture-diagrams",
       "page_count": 1,
-      "last_discovered": "2025-10-28T02:14:28.299407+00:00"
+      "last_discovered": "2025-11-02T03:28:14.675384+00:00"
     },
     {
       "url": "/architecture-diagrams/latest/payment-system-interface-modernization/",
       "name": "architecture-diagrams",
       "page_count": 1,
-      "last_discovered": "2025-10-28T02:14:28.409095+00:00"
+      "last_discovered": "2025-11-02T03:28:14.806900+00:00"
     },
     {
       "url": "/architecture-diagrams/latest/plagiarism-detection-architecture/",
       "name": "architecture-diagrams",
       "page_count": 1,
-      "last_discovered": "2025-10-28T02:14:28.505651+00:00"
+      "last_discovered": "2025-11-02T03:28:14.922258+00:00"
     },
     {
       "url": "/architecture-diagrams/latest/power-grid-simulation-with-high-performance-computing/",
       "name": "architecture-diagrams",
       "page_count": 1,
-      "last_discovered": "2025-10-28T02:14:28.596693+00:00"
+      "last_discovered": "2025-11-02T03:28:15.036089+00:00"
     },
     {
       "url": "/architecture-diagrams/latest/powering-multiple-contact-centers-with-gen-ai-using-amazon-bedrock/",
       "name": "architecture-diagrams",
       "page_count": 1,
-      "last_discovered": "2025-10-28T02:14:28.715914+00:00"
+      "last_discovered": "2025-11-02T03:28:15.168412+00:00"
     },
     {
       "url": "/architecture-diagrams/latest/protegrity-data-protection-for-amazon-s3-and-snowflake/",
       "name": "architecture-diagrams",
       "page_count": 1,
-      "last_discovered": "2025-10-28T02:14:28.790491+00:00"
+      "last_discovered": "2025-11-02T03:28:15.282667+00:00"
     },
     {
       "url": "/architecture-diagrams/latest/ptc-creo-deployment-options-on-aws/",
       "name": "architecture-diagrams",
       "page_count": 1,
-      "last_discovered": "2025-10-28T02:14:28.913443+00:00"
+      "last_discovered": "2025-11-02T03:28:15.407207+00:00"
     },
     {
       "url": "/architecture-diagrams/latest/real-time-player-casino-analytics/",
       "name": "architecture-diagrams",
       "page_count": 1,
-      "last_discovered": "2025-10-28T02:14:28.994922+00:00"
+      "last_discovered": "2025-11-02T03:28:15.525747+00:00"
     },
     {
       "url": "/architecture-diagrams/latest/routing-scenarios-with-aws-direct-connect-sitelink/",
       "name": "architecture-diagrams",
       "page_count": 1,
-      "last_discovered": "2025-10-28T02:14:29.101611+00:00"
+      "last_discovered": "2025-11-02T03:28:15.652477+00:00"
     },
     {
       "url": "/architecture-diagrams/latest/satellite-mission-operations-center/",
       "name": "architecture-diagrams",
       "page_count": 1,
-      "last_discovered": "2025-10-28T02:14:29.190081+00:00"
+      "last_discovered": "2025-11-02T03:28:15.765266+00:00"
     },
     {
       "url": "/architecture-diagrams/latest/scale-geospatial-data-lakes/",
       "name": "architecture-diagrams",
       "page_count": 1,
-      "last_discovered": "2025-10-28T02:14:29.308054+00:00"
+      "last_discovered": "2025-11-02T03:28:15.879569+00:00"
     },
     {
       "url": "/architecture-diagrams/latest/secure-htap-data-architecture-with-tidb-cloud/",
       "name": "architecture-diagrams",
       "page_count": 1,
-      "last_discovered": "2025-10-28T02:14:29.400527+00:00"
+      "last_discovered": "2025-11-02T03:28:15.998709+00:00"
     },
     {
       "url": "/architecture-diagrams/latest/serverless-in-game-screenshot-processor-pipeline-game-studios/",
       "name": "architecture-diagrams",
       "page_count": 1,
-      "last_discovered": "2025-10-28T02:14:29.509023+00:00"
+      "last_discovered": "2025-11-02T03:28:16.118005+00:00"
     },
     {
       "url": "/architecture-diagrams/latest/serverless-web-hosting-aws-app-runner/",
       "name": "architecture-diagrams",
       "page_count": 1,
-      "last_discovered": "2025-10-28T02:14:29.610720+00:00"
+      "last_discovered": "2025-11-02T03:28:16.244488+00:00"
     },
     {
       "url": "/architecture-diagrams/latest/smart-farm-on-aws/",
       "name": "architecture-diagrams",
       "page_count": 1,
-      "last_discovered": "2025-10-28T02:14:29.721255+00:00"
+      "last_discovered": "2025-11-02T03:28:16.382604+00:00"
     },
     {
       "url": "/architecture-diagrams/latest/smart-metering-for-water-utilities/",
       "name": "architecture-diagrams",
       "page_count": 1,
-      "last_discovered": "2025-10-28T02:14:29.793072+00:00"
+      "last_discovered": "2025-11-02T03:28:16.506873+00:00"
     },
     {
       "url": "/architecture-diagrams/latest/sports-betting-architecture/",
       "name": "architecture-diagrams",
       "page_count": 1,
-      "last_discovered": "2025-10-28T02:14:29.895947+00:00"
+      "last_discovered": "2025-11-02T03:28:16.645293+00:00"
     },
     {
       "url": "/architecture-diagrams/latest/telecom-charging-ocs-chf-on-aws-outposts/",
       "name": "architecture-diagrams",
       "page_count": 1,
-      "last_discovered": "2025-10-28T02:14:29.992474+00:00"
+      "last_discovered": "2025-11-02T03:28:16.763623+00:00"
     },
     {
       "url": "/architecture-diagrams/latest/traffic-segmentation-aws-direct-connect/",
       "name": "architecture-diagrams",
       "page_count": 1,
-      "last_discovered": "2025-10-28T02:14:30.105998+00:00"
+      "last_discovered": "2025-11-02T03:28:16.884257+00:00"
     },
     {
       "url": "/architecture-diagrams/latest/using-vmware-vcdr-and-netapp-cvo-for-disaster-recovery-architecture/",
       "name": "architecture-diagrams",
       "page_count": 1,
-      "last_discovered": "2025-10-28T02:14:30.197496+00:00"
+      "last_discovered": "2025-11-02T03:28:17.001597+00:00"
     },
     {
       "url": "/architecture-diagrams/latest/wafer-inspection-with-machine-learning-architecture/",
       "name": "architecture-diagrams",
       "page_count": 1,
-      "last_discovered": "2025-10-28T02:14:30.299351+00:00"
+      "last_discovered": "2025-11-02T03:28:17.113496+00:00"
     },
     {
       "url": "/architecture-diagrams/latest/web3-decentralized-applications-on-aws/",
       "name": "architecture-diagrams",
       "page_count": 1,
-      "last_discovered": "2025-10-28T02:14:30.414309+00:00"
+      "last_discovered": "2025-11-02T03:28:17.242230+00:00"
     },
     {
       "url": "/ARG/latest/userguide/",
       "name": "ARG",
       "page_count": 41,
-      "last_discovered": "2025-10-28T02:14:30.502062+00:00"
+      "last_discovered": "2025-11-02T03:28:17.358570+00:00"
     },
     {
       "url": "/artifact/latest/ug/",
       "name": "artifact",
       "page_count": 24,
-      "last_discovered": "2025-10-28T02:14:30.593335+00:00"
+      "last_discovered": "2025-11-02T03:28:17.496052+00:00"
     },
     {
       "url": "/athena/latest/ug/",
       "name": "athena",
       "page_count": 617,
-      "last_discovered": "2025-10-28T02:14:30.702795+00:00"
+      "last_discovered": "2025-11-02T03:28:17.617998+00:00"
     },
     {
       "url": "/audit-manager/latest/userguide/",
       "name": "audit-manager",
       "page_count": 168,
-      "last_discovered": "2025-10-28T02:14:30.790398+00:00"
+      "last_discovered": "2025-11-02T03:28:17.740384+00:00"
     },
     {
       "url": "/aurora-dsql/latest/userguide/",
       "name": "aurora-dsql",
-      "page_count": 68,
-      "last_discovered": "2025-10-28T02:14:30.903702+00:00"
+      "page_count": 70,
+      "last_discovered": "2025-11-02T03:28:17.855674+00:00"
     },
     {
       "url": "/aws-backup/latest/devguide/",
       "name": "aws-backup",
       "page_count": 371,
-      "last_discovered": "2025-10-28T02:14:30.991055+00:00"
+      "last_discovered": "2025-11-02T03:28:17.981083+00:00"
     },
     {
       "url": "/aws-iq/latest/experts-user-guide/",
       "name": "aws-iq",
       "page_count": 15,
-      "last_discovered": "2025-10-28T02:14:31.094495+00:00"
+      "last_discovered": "2025-11-02T03:28:18.114865+00:00"
     },
     {
       "url": "/aws-iq/latest/user-guide/",
       "name": "aws-iq",
       "page_count": 18,
-      "last_discovered": "2025-10-28T02:14:31.204122+00:00"
+      "last_discovered": "2025-11-02T03:28:18.240732+00:00"
     },
     {
       "url": "/aws-managed-policy/latest/reference/",
       "name": "aws-managed-policy",
       "page_count": 1414,
-      "last_discovered": "2025-10-28T02:14:31.324985+00:00"
+      "last_discovered": "2025-11-02T03:28:18.375197+00:00"
     },
     {
       "url": "/aws-supply-chain/latest/adminguide/",
       "name": "aws-supply-chain",
       "page_count": 43,
-      "last_discovered": "2025-10-28T02:14:31.410030+00:00"
+      "last_discovered": "2025-11-02T03:28:18.491975+00:00"
     },
     {
       "url": "/aws-supply-chain/latest/userguide/",
       "name": "aws-supply-chain",
       "page_count": 183,
-      "last_discovered": "2025-10-28T02:14:31.527151+00:00"
+      "last_discovered": "2025-11-02T03:28:18.612941+00:00"
     },
     {
       "url": "/awsaccountbilling/latest/aboutv2/",
       "name": "awsaccountbilling",
       "page_count": 138,
-      "last_discovered": "2025-10-28T02:14:31.602603+00:00"
+      "last_discovered": "2025-11-02T03:28:18.741317+00:00"
     },
     {
       "url": "/AWSCloudFormation/latest/TemplateReference/",
       "name": "AWSCloudFormation",
       "page_count": 57,
-      "last_discovered": "2025-10-28T02:14:31.721808+00:00"
+      "last_discovered": "2025-11-02T03:28:18.877215+00:00"
     },
     {
       "url": "/AWSCloudFormation/latest/UserGuide/",
       "name": "AWSCloudFormation",
       "page_count": 228,
-      "last_discovered": "2025-10-28T02:14:31.815953+00:00"
+      "last_discovered": "2025-11-02T03:28:18.995659+00:00"
     },
     {
       "url": "/awscloudtrail/latest/partner-onboarding/",
       "name": "awscloudtrail",
       "page_count": 4,
-      "last_discovered": "2025-10-28T02:14:31.919966+00:00"
+      "last_discovered": "2025-11-02T03:28:19.134392+00:00"
     },
     {
       "url": "/awscloudtrail/latest/userguide/",
       "name": "awscloudtrail",
       "page_count": 190,
-      "last_discovered": "2025-10-28T02:14:32.006043+00:00"
+      "last_discovered": "2025-11-02T03:28:19.265984+00:00"
     },
     {
       "url": "/awsconsolehelpdocs/latest/gsg/",
       "name": "awsconsolehelpdocs",
       "page_count": 89,
-      "last_discovered": "2025-10-28T02:14:32.097850+00:00"
+      "last_discovered": "2025-11-02T03:28:19.386187+00:00"
     },
     {
       "url": "/AWSEC2/latest/UserGuide/",
       "name": "AWSEC2",
       "page_count": 703,
-      "last_discovered": "2025-10-28T02:14:32.222711+00:00"
+      "last_discovered": "2025-11-02T03:28:19.527732+00:00"
     },
     {
       "url": "/AWSMechTurk/latest/AWSMechanicalTurkGettingStartedGuide/",
       "name": "AWSMechTurk",
       "page_count": 5,
-      "last_discovered": "2025-10-28T02:14:32.299466+00:00"
+      "last_discovered": "2025-11-02T03:28:19.653260+00:00"
     },
     {
       "url": "/AWSMechTurk/latest/AWSMechanicalTurkRequester/",
       "name": "AWSMechTurk",
       "page_count": 39,
-      "last_discovered": "2025-10-28T02:14:32.412581+00:00"
+      "last_discovered": "2025-11-02T03:28:19.800573+00:00"
     },
     {
       "url": "/AWSMechTurk/latest/AWSMturkCLT/",
       "name": "AWSMechTurk",
       "page_count": 27,
-      "last_discovered": "2025-10-28T02:14:32.501629+00:00"
+      "last_discovered": "2025-11-02T03:28:19.934390+00:00"
     },
     {
       "url": "/AWSMechTurk/latest/RequesterUI/",
       "name": "AWSMechTurk",
       "page_count": 25,
-      "last_discovered": "2025-10-28T02:14:32.604075+00:00"
+      "last_discovered": "2025-11-02T03:28:20.068311+00:00"
     },
     {
       "url": "/AWSSimpleQueueService/latest/SQSDeveloperGuide/",
       "name": "AWSSimpleQueueService",
       "page_count": 195,
-      "last_discovered": "2025-10-28T02:14:32.712307+00:00"
+      "last_discovered": "2025-11-02T03:28:20.183737+00:00"
     },
     {
       "url": "/awssupport/latest/user/",
       "name": "awssupport",
       "page_count": 109,
-      "last_discovered": "2025-10-28T02:14:32.811449+00:00"
+      "last_discovered": "2025-11-02T03:28:20.329568+00:00"
     },
     {
       "url": "/b2bi/latest/userguide/",
       "name": "b2bi",
       "page_count": 53,
-      "last_discovered": "2025-10-28T02:14:32.911773+00:00"
+      "last_discovered": "2025-11-02T03:28:20.449787+00:00"
     },
     {
       "url": "/batch/latest/userguide/",
       "name": "batch",
       "page_count": 268,
-      "last_discovered": "2025-10-28T02:14:33.015563+00:00"
+      "last_discovered": "2025-11-02T03:28:20.568750+00:00"
     },
     {
       "url": "/bedrock/latest/userguide/",
       "name": "bedrock",
-      "page_count": 748,
-      "last_discovered": "2025-10-28T02:14:33.106980+00:00"
+      "page_count": 745,
+      "last_discovered": "2025-11-02T03:28:20.701843+00:00"
     },
     {
       "url": "/bedrock-agentcore/latest/devguide/",
       "name": "bedrock-agentcore",
-      "page_count": 241,
-      "last_discovered": "2025-10-28T02:14:33.223856+00:00"
+      "page_count": 248,
+      "last_discovered": "2025-11-02T03:28:20.818900+00:00"
     },
     {
       "url": "/billingconductor/latest/userguide/",
       "name": "billingconductor",
       "page_count": 46,
-      "last_discovered": "2025-10-28T02:14:33.309888+00:00"
+      "last_discovered": "2025-11-02T03:28:20.947572+00:00"
     },
     {
       "url": "/blockchain-templates/latest/developerguide/",
       "name": "blockchain-templates",
       "page_count": 12,
-      "last_discovered": "2025-10-28T02:14:33.424257+00:00"
+      "last_discovered": "2025-11-02T03:28:21.073508+00:00"
     },
     {
       "url": "/braket/latest/developerguide/",
       "name": "braket",
       "page_count": 105,
-      "last_discovered": "2025-10-28T02:14:33.520246+00:00"
+      "last_discovered": "2025-11-02T03:28:21.189341+00:00"
     },
     {
       "url": "/ccft/latest/releasenotes/",
       "name": "ccft",
       "page_count": 1,
-      "last_discovered": "2025-10-28T02:14:33.593661+00:00"
+      "last_discovered": "2025-11-02T03:28:21.313553+00:00"
     },
     {
       "url": "/cfn-guard/latest/ug/",
       "name": "cfn-guard",
       "page_count": 24,
-      "last_discovered": "2025-10-28T02:14:33.713174+00:00"
+      "last_discovered": "2025-11-02T03:28:21.443528+00:00"
     },
     {
       "url": "/chatbot/latest/adminguide/",
       "name": "chatbot",
       "page_count": 70,
-      "last_discovered": "2025-10-28T02:14:33.802213+00:00"
+      "last_discovered": "2025-11-02T03:28:21.571339+00:00"
     },
     {
       "url": "/chime/latest/ag/",
       "name": "chime",
       "page_count": 76,
-      "last_discovered": "2025-10-28T02:14:33.917295+00:00"
+      "last_discovered": "2025-11-02T03:28:21.746079+00:00"
     },
     {
       "url": "/chime/latest/ug/",
       "name": "chime",
       "page_count": 185,
-      "last_discovered": "2025-10-28T02:14:34.020973+00:00"
+      "last_discovered": "2025-11-02T03:28:21.863057+00:00"
     },
     {
       "url": "/clean-rooms/latest/sql-reference/",
       "name": "clean-rooms",
       "page_count": 469,
-      "last_discovered": "2025-10-28T02:14:34.107032+00:00"
+      "last_discovered": "2025-11-02T03:28:21.976305+00:00"
     },
     {
       "url": "/clean-rooms/latest/userguide/",
       "name": "clean-rooms",
       "page_count": 181,
-      "last_discovered": "2025-10-28T02:14:34.228350+00:00"
+      "last_discovered": "2025-11-02T03:28:22.104774+00:00"
     },
     {
       "url": "/cloud-map/latest/dg/",
       "name": "cloud-map",
       "page_count": 46,
-      "last_discovered": "2025-10-28T02:14:34.319334+00:00"
+      "last_discovered": "2025-11-02T03:28:22.219801+00:00"
     },
     {
       "url": "/cloud9/latest/user-guide/",
       "name": "cloud9",
       "page_count": 156,
-      "last_discovered": "2025-10-28T02:14:34.424365+00:00"
+      "last_discovered": "2025-11-02T03:28:22.340808+00:00"
     },
     {
       "url": "/cloudcontrolapi/latest/userguide/",
       "name": "cloudcontrolapi",
       "page_count": 18,
-      "last_discovered": "2025-10-28T02:14:34.540943+00:00"
+      "last_discovered": "2025-11-02T03:28:22.480550+00:00"
     },
     {
       "url": "/clouddirectory/latest/developerguide/",
       "name": "clouddirectory",
       "page_count": 58,
-      "last_discovered": "2025-10-28T02:14:34.626163+00:00"
+      "last_discovered": "2025-11-02T03:28:22.595270+00:00"
     },
     {
       "url": "/cloudhsm/latest/userguide/",
       "name": "cloudhsm",
       "page_count": 531,
-      "last_discovered": "2025-10-28T02:14:34.723591+00:00"
+      "last_discovered": "2025-11-02T03:28:22.711568+00:00"
     },
     {
       "url": "/cloudsearch/latest/developerguide/",
       "name": "cloudsearch",
       "page_count": 160,
-      "last_discovered": "2025-10-28T02:14:34.822243+00:00"
+      "last_discovered": "2025-11-02T03:28:22.828799+00:00"
     },
     {
       "url": "/cloudshell/latest/userguide/",
       "name": "cloudshell",
       "page_count": 36,
-      "last_discovered": "2025-10-28T02:14:34.917854+00:00"
+      "last_discovered": "2025-11-02T03:28:22.948292+00:00"
     },
     {
       "url": "/cloudwatch/latest/observabilityadmin/",
       "name": "cloudwatch",
       "page_count": 47,
-      "last_discovered": "2025-10-28T02:14:35.012248+00:00"
+      "last_discovered": "2025-11-02T03:28:23.064148+00:00"
     },
     {
       "url": "/code-samples/latest/catalog/",
       "name": "code-samples",
       "page_count": 0,
-      "last_discovered": "2025-10-28T02:14:35.128103+00:00"
+      "last_discovered": "2025-11-02T03:28:23.191514+00:00"
     },
     {
       "url": "/codeartifact/latest/ug/",
       "name": "codeartifact",
       "page_count": 128,
-      "last_discovered": "2025-10-28T02:14:35.230568+00:00"
+      "last_discovered": "2025-11-02T03:28:23.309389+00:00"
     },
     {
       "url": "/codebuild/latest/public-builds/",
       "name": "codebuild",
       "page_count": 4,
-      "last_discovered": "2025-10-28T02:14:35.331942+00:00"
+      "last_discovered": "2025-11-02T03:28:23.432038+00:00"
     },
     {
       "url": "/codebuild/latest/userguide/",
       "name": "codebuild",
       "page_count": 288,
-      "last_discovered": "2025-10-28T02:14:35.435582+00:00"
+      "last_discovered": "2025-11-02T03:28:23.559604+00:00"
     },
     {
       "url": "/codecatalyst/latest/adk/",
       "name": "codecatalyst",
       "page_count": 20,
-      "last_discovered": "2025-10-28T02:14:35.512706+00:00"
+      "last_discovered": "2025-11-02T03:28:23.688331+00:00"
     },
     {
       "url": "/codecatalyst/latest/adminguide/",
       "name": "codecatalyst",
       "page_count": 45,
-      "last_discovered": "2025-10-28T02:14:35.619822+00:00"
+      "last_discovered": "2025-11-02T03:28:23.802218+00:00"
     },
     {
       "url": "/codecatalyst/latest/userguide/",
       "name": "codecatalyst",
       "page_count": 469,
-      "last_discovered": "2025-10-28T02:14:35.733264+00:00"
+      "last_discovered": "2025-11-02T03:28:23.921123+00:00"
     },
     {
       "url": "/codecommit/latest/userguide/",
       "name": "codecommit",
       "page_count": 122,
-      "last_discovered": "2025-10-28T02:14:35.814013+00:00"
+      "last_discovered": "2025-11-02T03:28:24.036743+00:00"
     },
     {
       "url": "/codedeploy/latest/userguide/",
       "name": "codedeploy",
       "page_count": 233,
-      "last_discovered": "2025-10-28T02:14:35.922562+00:00"
+      "last_discovered": "2025-11-02T03:28:24.166268+00:00"
     },
     {
       "url": "/codeguru/latest/profiler-ug/",
       "name": "codeguru",
       "page_count": 85,
-      "last_discovered": "2025-10-28T02:14:36.018576+00:00"
+      "last_discovered": "2025-11-02T03:28:24.296340+00:00"
     },
     {
       "url": "/codeguru/latest/reviewer-ug/",
       "name": "codeguru",
       "page_count": 69,
-      "last_discovered": "2025-10-28T02:14:36.135768+00:00"
+      "last_discovered": "2025-11-02T03:28:24.412583+00:00"
     },
     {
       "url": "/codeguru/latest/security-ug/",
       "name": "codeguru",
       "page_count": 57,
-      "last_discovered": "2025-10-28T02:14:36.233120+00:00"
+      "last_discovered": "2025-11-02T03:28:24.547086+00:00"
     },
     {
       "url": "/codepipeline/latest/userguide/",
       "name": "codepipeline",
       "page_count": 211,
-      "last_discovered": "2025-10-28T02:14:36.374386+00:00"
+      "last_discovered": "2025-11-02T03:28:24.678485+00:00"
     },
     {
       "url": "/codewhisperer/latest/userguide/",
       "name": "codewhisperer",
       "page_count": 1,
-      "last_discovered": "2025-10-28T02:14:36.466520+00:00"
+      "last_discovered": "2025-11-02T03:28:24.797549+00:00"
     },
     {
       "url": "/cognito/latest/developerguide/",
       "name": "cognito",
       "page_count": 228,
-      "last_discovered": "2025-10-28T02:14:36.545954+00:00"
+      "last_discovered": "2025-11-02T03:28:24.917009+00:00"
     },
     {
       "url": "/comprehend/latest/dg/",
       "name": "comprehend",
       "page_count": 164,
-      "last_discovered": "2025-10-28T02:14:36.646933+00:00"
+      "last_discovered": "2025-11-02T03:28:25.037611+00:00"
     },
     {
       "url": "/comprehend-medical/latest/dev/",
       "name": "comprehend-medical",
       "page_count": 31,
-      "last_discovered": "2025-10-28T02:14:36.744292+00:00"
+      "last_discovered": "2025-11-02T03:28:25.154581+00:00"
     },
     {
       "url": "/compute-optimizer/latest/ug/",
       "name": "compute-optimizer",
       "page_count": 61,
-      "last_discovered": "2025-10-28T02:14:36.857369+00:00"
+      "last_discovered": "2025-11-02T03:28:25.268885+00:00"
     },
     {
       "url": "/config/latest/developerguide/",
       "name": "config",
-      "page_count": 973,
-      "last_discovered": "2025-10-28T02:14:37.027280+00:00"
+      "page_count": 983,
+      "last_discovered": "2025-11-02T03:28:25.391152+00:00"
     },
     {
       "url": "/connect/latest/adminguide/",
       "name": "connect",
       "page_count": 981,
-      "last_discovered": "2025-10-28T02:14:37.125644+00:00"
+      "last_discovered": "2025-11-02T03:28:25.519069+00:00"
     },
     {
       "url": "/consolemobileapp/latest/userguide/",
       "name": "consolemobileapp",
       "page_count": 17,
-      "last_discovered": "2025-10-28T02:14:37.203954+00:00"
+      "last_discovered": "2025-11-02T03:28:25.636646+00:00"
     },
     {
       "url": "/controlcatalog/latest/userguide/",
       "name": "controlcatalog",
       "page_count": 15,
-      "last_discovered": "2025-10-28T02:14:37.295456+00:00"
+      "last_discovered": "2025-11-02T03:28:25.766646+00:00"
     },
     {
       "url": "/controltower/latest/controlreference/",
       "name": "controltower",
       "page_count": 122,
-      "last_discovered": "2025-10-28T02:14:37.397798+00:00"
+      "last_discovered": "2025-11-02T03:28:25.916681+00:00"
     },
     {
       "url": "/controltower/latest/userguide/",
       "name": "controltower",
       "page_count": 278,
-      "last_discovered": "2025-10-28T02:14:37.498480+00:00"
+      "last_discovered": "2025-11-02T03:28:26.033284+00:00"
     },
     {
       "url": "/corretto/latest/corretto-11-ug/",
       "name": "corretto",
       "page_count": 13,
-      "last_discovered": "2025-10-28T02:14:37.616159+00:00"
+      "last_discovered": "2025-11-02T03:28:26.157047+00:00"
     },
     {
       "url": "/corretto/latest/corretto-17-ug/",
       "name": "corretto",
       "page_count": 13,
-      "last_discovered": "2025-10-28T02:14:37.695354+00:00"
+      "last_discovered": "2025-11-02T03:28:26.284476+00:00"
     },
     {
       "url": "/corretto/latest/corretto-21-ug/",
       "name": "corretto",
       "page_count": 13,
-      "last_discovered": "2025-10-28T02:14:37.813771+00:00"
+      "last_discovered": "2025-11-02T03:28:26.401630+00:00"
     },
     {
       "url": "/corretto/latest/corretto-25-ug/",
       "name": "corretto",
       "page_count": 13,
-      "last_discovered": "2025-10-28T02:14:37.896382+00:00"
+      "last_discovered": "2025-11-02T03:28:26.528414+00:00"
     },
     {
       "url": "/corretto/latest/corretto-8-ug/",
       "name": "corretto",
       "page_count": 13,
-      "last_discovered": "2025-10-28T02:14:38.011980+00:00"
+      "last_discovered": "2025-11-02T03:28:26.647002+00:00"
     },
     {
       "url": "/cost-management/latest/userguide/",
       "name": "cost-management",
       "page_count": 178,
-      "last_discovered": "2025-10-28T02:14:38.100229+00:00"
+      "last_discovered": "2025-11-02T03:28:26.775390+00:00"
     },
     {
       "url": "/cur/latest/userguide/",
       "name": "cur",
-      "page_count": 112,
-      "last_discovered": "2025-10-28T02:14:38.213933+00:00"
+      "page_count": 113,
+      "last_discovered": "2025-11-02T03:28:26.907048+00:00"
     },
     {
       "url": "/data-exchange/latest/userguide/",
       "name": "data-exchange",
       "page_count": 158,
-      "last_discovered": "2025-10-28T02:14:38.310616+00:00"
+      "last_discovered": "2025-11-02T03:28:27.029267+00:00"
     },
     {
       "url": "/databrew/latest/dg/",
       "name": "databrew",
       "page_count": 409,
-      "last_discovered": "2025-10-28T02:14:38.402674+00:00"
+      "last_discovered": "2025-11-02T03:28:27.158042+00:00"
     },
     {
       "url": "/datapipeline/latest/DeveloperGuide/",
       "name": "datapipeline",
       "page_count": 164,
-      "last_discovered": "2025-10-28T02:14:38.502978+00:00"
+      "last_discovered": "2025-11-02T03:28:27.275277+00:00"
     },
     {
       "url": "/datasync/latest/userguide/",
       "name": "datasync",
       "page_count": 201,
-      "last_discovered": "2025-10-28T02:14:38.624329+00:00"
+      "last_discovered": "2025-11-02T03:28:27.397332+00:00"
     },
     {
       "url": "/datatransferterminal/latest/userguide/",
       "name": "datatransferterminal",
       "page_count": 27,
-      "last_discovered": "2025-10-28T02:14:38.712886+00:00"
+      "last_discovered": "2025-11-02T03:28:27.645656+00:00"
     },
     {
       "url": "/datazone/latest/userguide/",
       "name": "datazone",
       "page_count": 162,
-      "last_discovered": "2025-10-28T02:14:38.814651+00:00"
+      "last_discovered": "2025-11-02T03:28:27.763452+00:00"
     },
     {
       "url": "/dcv/latest/access-console/",
       "name": "dcv",
       "page_count": 59,
-      "last_discovered": "2025-10-28T02:14:38.907424+00:00"
+      "last_discovered": "2025-11-02T03:28:27.876334+00:00"
     },
     {
       "url": "/dcv/latest/adminguide/",
       "name": "dcv",
       "page_count": 87,
-      "last_discovered": "2025-10-28T02:14:39.023639+00:00"
+      "last_discovered": "2025-11-02T03:28:27.993334+00:00"
     },
     {
       "url": "/dcv/latest/gw-admin/",
       "name": "dcv",
       "page_count": 20,
-      "last_discovered": "2025-10-28T02:14:39.139609+00:00"
+      "last_discovered": "2025-11-02T03:28:28.129612+00:00"
     },
     {
       "url": "/dcv/latest/sm-admin/",
       "name": "dcv",
       "page_count": 38,
-      "last_discovered": "2025-10-28T02:14:39.247964+00:00"
+      "last_discovered": "2025-11-02T03:28:28.242264+00:00"
     },
     {
       "url": "/dcv/latest/sm-dev/",
       "name": "dcv",
       "page_count": 16,
-      "last_discovered": "2025-10-28T02:14:39.334723+00:00"
+      "last_discovered": "2025-11-02T03:28:28.383102+00:00"
     },
     {
       "url": "/dcv/latest/userguide/",
       "name": "dcv",
       "page_count": 47,
-      "last_discovered": "2025-10-28T02:14:39.434339+00:00"
+      "last_discovered": "2025-11-02T03:28:28.520230+00:00"
     },
     {
       "url": "/deadline-cloud/latest/developerguide/",
       "name": "deadline-cloud",
       "page_count": 94,
-      "last_discovered": "2025-10-28T02:14:39.527903+00:00"
+      "last_discovered": "2025-11-02T03:28:28.640424+00:00"
     },
     {
       "url": "/deadline-cloud/latest/userguide/",
       "name": "deadline-cloud",
       "page_count": 83,
-      "last_discovered": "2025-10-28T02:14:39.642159+00:00"
+      "last_discovered": "2025-11-02T03:28:28.757165+00:00"
     },
     {
       "url": "/deep-learning-containers/latest/devguide/",
       "name": "deep-learning-containers",
-      "page_count": 69,
-      "last_discovered": "2025-10-28T02:14:39.728990+00:00"
+      "page_count": 63,
+      "last_discovered": "2025-11-02T03:28:28.875697+00:00"
     },
     {
       "url": "/deepracer/latest/developerguide/",
       "name": "deepracer",
       "page_count": 88,
-      "last_discovered": "2025-10-28T02:14:39.837478+00:00"
+      "last_discovered": "2025-11-02T03:28:28.999350+00:00"
     },
     {
       "url": "/deepracer/latest/student-userguide/",
       "name": "deepracer",
       "page_count": 17,
-      "last_discovered": "2025-10-28T02:14:39.955442+00:00"
+      "last_discovered": "2025-11-02T03:28:29.115577+00:00"
     },
     {
       "url": "/detective/latest/userguide/",
       "name": "detective",
       "page_count": 106,
-      "last_discovered": "2025-10-28T02:14:40.029346+00:00"
+      "last_discovered": "2025-11-02T03:28:29.231490+00:00"
     },
     {
       "url": "/devicefarm/latest/developerguide/",
       "name": "devicefarm",
-      "page_count": 116,
-      "last_discovered": "2025-10-28T02:14:40.204345+00:00"
+      "page_count": 112,
+      "last_discovered": "2025-11-02T03:28:29.339771+00:00"
     },
     {
       "url": "/devicefarm/latest/testgrid/",
       "name": "devicefarm",
       "page_count": 28,
-      "last_discovered": "2025-10-28T02:14:40.285042+00:00"
+      "last_discovered": "2025-11-02T03:28:29.458394+00:00"
     },
     {
       "url": "/devops-guru/latest/userguide/",
       "name": "devops-guru",
       "page_count": 62,
-      "last_discovered": "2025-10-28T02:14:40.386226+00:00"
+      "last_discovered": "2025-11-02T03:28:29.576105+00:00"
     },
     {
       "url": "/diagnostic-tools/latest/userguide/",
       "name": "diagnostic-tools",
       "page_count": 19,
-      "last_discovered": "2025-10-28T02:14:40.470890+00:00"
+      "last_discovered": "2025-11-02T03:28:29.698581+00:00"
     },
     {
       "url": "/directconnect/latest/UserGuide/",
       "name": "directconnect",
       "page_count": 108,
-      "last_discovered": "2025-10-28T02:14:40.589952+00:00"
+      "last_discovered": "2025-11-02T03:28:29.821877+00:00"
     },
     {
       "url": "/directoryservice/latest/admin-guide/",
       "name": "directoryservice",
       "page_count": 239,
-      "last_discovered": "2025-10-28T02:14:40.695245+00:00"
+      "last_discovered": "2025-11-02T03:28:29.939936+00:00"
     },
     {
       "url": "/directoryservice/latest/devguide/",
       "name": "directoryservice",
       "page_count": 134,
-      "last_discovered": "2025-10-28T02:14:40.785061+00:00"
+      "last_discovered": "2025-11-02T03:28:30.054144+00:00"
     },
     {
       "url": "/dlami/latest/devguide/",
       "name": "dlami",
       "page_count": 76,
-      "last_discovered": "2025-10-28T02:14:40.879346+00:00"
+      "last_discovered": "2025-11-02T03:28:30.176292+00:00"
     },
     {
       "url": "/dms/latest/oracle-to-aurora-mysql-migration-playbook/",
       "name": "dms",
       "page_count": 104,
-      "last_discovered": "2025-10-28T02:14:40.974390+00:00"
+      "last_discovered": "2025-11-02T03:28:30.301496+00:00"
     },
     {
       "url": "/dms/latest/oracle-to-aurora-postgresql-migration-playbook/",
       "name": "dms",
       "page_count": 92,
-      "last_discovered": "2025-10-28T02:14:41.085758+00:00"
+      "last_discovered": "2025-11-02T03:28:30.415048+00:00"
     },
     {
       "url": "/dms/latest/sbs/",
       "name": "dms",
       "page_count": 243,
-      "last_discovered": "2025-10-28T02:14:41.235305+00:00"
+      "last_discovered": "2025-11-02T03:28:30.541534+00:00"
     },
     {
       "url": "/dms/latest/sql-server-to-aurora-mysql-migration-playbook/",
       "name": "dms",
       "page_count": 76,
-      "last_discovered": "2025-10-28T02:14:41.371840+00:00"
+      "last_discovered": "2025-11-02T03:28:30.662334+00:00"
     },
     {
       "url": "/dms/latest/sql-server-to-aurora-postgresql-migration-playbook/",
       "name": "dms",
       "page_count": 82,
-      "last_discovered": "2025-10-28T02:14:41.444891+00:00"
+      "last_discovered": "2025-11-02T03:28:30.799297+00:00"
     },
     {
       "url": "/dms/latest/userguide/",
       "name": "dms",
       "page_count": 281,
-      "last_discovered": "2025-10-28T02:14:41.558279+00:00"
+      "last_discovered": "2025-11-02T03:28:30.917173+00:00"
     },
     {
       "url": "/documentation/latest/databases-on-aws-how-to-choose/",
       "name": "documentation",
       "page_count": 1,
-      "last_discovered": "2025-10-28T02:14:41.667826+00:00"
+      "last_discovered": "2025-11-02T03:28:31.032991+00:00"
     },
     {
       "url": "/documentdb/latest/developerguide/",
       "name": "documentdb",
       "page_count": 349,
-      "last_discovered": "2025-10-28T02:14:41.740220+00:00"
+      "last_discovered": "2025-11-02T03:28:31.147759+00:00"
     },
     {
       "url": "/drs/latest/userguide/",
       "name": "drs",
       "page_count": 146,
-      "last_discovered": "2025-10-28T02:14:41.859171+00:00"
+      "last_discovered": "2025-11-02T03:28:31.289963+00:00"
     },
     {
       "url": "/dtconsole/latest/userguide/",
       "name": "dtconsole",
       "page_count": 97,
-      "last_discovered": "2025-10-28T02:14:41.965893+00:00"
+      "last_discovered": "2025-11-02T03:28:31.404655+00:00"
     },
     {
       "url": "/ebs/latest/userguide/",
       "name": "ebs",
       "page_count": 171,
-      "last_discovered": "2025-10-28T02:14:42.051324+00:00"
+      "last_discovered": "2025-11-02T03:28:31.540275+00:00"
     },
     {
       "url": "/ec2/latest/devguide/",
       "name": "ec2",
       "page_count": 210,
-      "last_discovered": "2025-10-28T02:14:42.221001+00:00"
+      "last_discovered": "2025-11-02T03:28:31.666187+00:00"
     },
     {
       "url": "/ec2/latest/instancetypes/",
       "name": "ec2",
       "page_count": 14,
-      "last_discovered": "2025-10-28T02:14:42.304208+00:00"
+      "last_discovered": "2025-11-02T03:28:31.791216+00:00"
     },
     {
       "url": "/ec2/latest/windows-ami-reference/",
       "name": "ec2",
       "page_count": 13,
-      "last_discovered": "2025-10-28T02:14:42.387067+00:00"
+      "last_discovered": "2025-11-02T03:28:31.909328+00:00"
     },
     {
       "url": "/EDI/latest/eco-support-guide/",
       "name": "EDI",
       "page_count": 37,
-      "last_discovered": "2025-10-28T02:14:42.514477+00:00"
+      "last_discovered": "2025-11-02T03:28:32.024518+00:00"
     },
     {
       "url": "/efs/latest/ug/",
       "name": "efs",
       "page_count": 177,
-      "last_discovered": "2025-10-28T02:14:42.612915+00:00"
+      "last_discovered": "2025-11-02T03:28:32.154443+00:00"
     },
     {
       "url": "/eks/latest/best-practices/",
       "name": "eks",
       "page_count": 83,
-      "last_discovered": "2025-10-28T02:14:42.705005+00:00"
+      "last_discovered": "2025-11-02T03:28:32.272071+00:00"
     },
     {
       "url": "/eks/latest/eksctl/",
       "name": "eks",
       "page_count": 61,
-      "last_discovered": "2025-10-28T02:14:42.803292+00:00"
+      "last_discovered": "2025-11-02T03:28:32.392987+00:00"
     },
     {
       "url": "/eks/latest/userguide/",
       "name": "eks",
-      "page_count": 378,
-      "last_discovered": "2025-10-28T02:14:42.902743+00:00"
+      "page_count": 379,
+      "last_discovered": "2025-11-02T03:28:32.512050+00:00"
     },
     {
       "url": "/elasticbeanstalk/latest/dg/",
       "name": "elasticbeanstalk",
       "page_count": 400,
-      "last_discovered": "2025-10-28T02:14:43.008792+00:00"
+      "last_discovered": "2025-11-02T03:28:32.631775+00:00"
     },
     {
       "url": "/elasticbeanstalk/latest/platforms/",
       "name": "elasticbeanstalk",
       "page_count": 19,
-      "last_discovered": "2025-10-28T02:14:43.115937+00:00"
+      "last_discovered": "2025-11-02T03:28:32.746203+00:00"
     },
     {
       "url": "/elasticbeanstalk/latest/relnotes/",
       "name": "elasticbeanstalk",
       "page_count": 335,
-      "last_discovered": "2025-10-28T02:14:43.227598+00:00"
+      "last_discovered": "2025-11-02T03:28:32.861817+00:00"
     },
     {
       "url": "/elasticloadbalancing/latest/application/",
       "name": "elasticloadbalancing",
       "page_count": 64,
-      "last_discovered": "2025-10-28T02:14:43.343008+00:00"
+      "last_discovered": "2025-11-02T03:28:32.988365+00:00"
     },
     {
       "url": "/elasticloadbalancing/latest/classic/",
       "name": "elasticloadbalancing",
       "page_count": 47,
-      "last_discovered": "2025-10-28T02:14:43.433454+00:00"
+      "last_discovered": "2025-11-02T03:28:33.114059+00:00"
     },
     {
       "url": "/elasticloadbalancing/latest/gateway/",
       "name": "elasticloadbalancing",
       "page_count": 27,
-      "last_discovered": "2025-10-28T02:14:43.518567+00:00"
+      "last_discovered": "2025-11-02T03:28:33.253641+00:00"
     },
     {
       "url": "/elasticloadbalancing/latest/network/",
       "name": "elasticloadbalancing",
       "page_count": 46,
-      "last_discovered": "2025-10-28T02:14:43.624109+00:00"
+      "last_discovered": "2025-11-02T03:28:33.372493+00:00"
     },
     {
       "url": "/elasticloadbalancing/latest/userguide/",
       "name": "elasticloadbalancing",
       "page_count": 18,
-      "last_discovered": "2025-10-28T02:14:43.734051+00:00"
+      "last_discovered": "2025-11-02T03:28:33.507851+00:00"
     },
     {
       "url": "/elastictranscoder/latest/developerguide/",
       "name": "elastictranscoder",
       "page_count": 74,
-      "last_discovered": "2025-10-28T02:14:43.829062+00:00"
+      "last_discovered": "2025-11-02T03:28:33.622397+00:00"
     },
     {
       "url": "/elemental-appliances-software/latest/ug/",
       "name": "elemental-appliances-software",
       "page_count": 8,
-      "last_discovered": "2025-10-28T02:14:43.912675+00:00"
+      "last_discovered": "2025-11-02T03:28:33.737246+00:00"
     },
     {
       "url": "/elemental-cf2/latest/configguide/",
       "name": "elemental-cf2",
       "page_count": 39,
-      "last_discovered": "2025-10-28T02:14:44.042828+00:00"
+      "last_discovered": "2025-11-02T03:28:33.856141+00:00"
     },
     {
       "url": "/elemental-cf2/latest/installguide/",
       "name": "elemental-cf2",
       "page_count": 47,
-      "last_discovered": "2025-10-28T02:14:44.123148+00:00"
+      "last_discovered": "2025-11-02T03:28:33.976500+00:00"
     },
     {
       "url": "/elemental-cf2/latest/migrationguide/",
       "name": "elemental-cf2",
       "page_count": 28,
-      "last_discovered": "2025-10-28T02:14:44.220608+00:00"
+      "last_discovered": "2025-11-02T03:28:34.094218+00:00"
     },
     {
       "url": "/elemental-cl3/latest/configguide/",
       "name": "elemental-cl3",
       "page_count": 68,
-      "last_discovered": "2025-10-28T02:14:44.322424+00:00"
+      "last_discovered": "2025-11-02T03:28:34.237200+00:00"
     },
     {
       "url": "/elemental-cl3/latest/installguide/",
       "name": "elemental-cl3",
       "page_count": 17,
-      "last_discovered": "2025-10-28T02:14:44.434087+00:00"
+      "last_discovered": "2025-11-02T03:28:34.353265+00:00"
     },
     {
       "url": "/elemental-cl3/latest/migrationguide/",
       "name": "elemental-cl3",
       "page_count": 44,
-      "last_discovered": "2025-10-28T02:14:44.533027+00:00"
+      "last_discovered": "2025-11-02T03:28:34.467424+00:00"
     },
     {
       "url": "/elemental-cl3/latest/ug/",
       "name": "elemental-cl3",
       "page_count": 82,
-      "last_discovered": "2025-10-28T02:14:44.627126+00:00"
+      "last_discovered": "2025-11-02T03:28:34.582491+00:00"
     },
     {
       "url": "/elemental-cl3/latest/upgradeguide/",
       "name": "elemental-cl3",
       "page_count": 46,
-      "last_discovered": "2025-10-28T02:14:44.713828+00:00"
+      "last_discovered": "2025-11-02T03:28:34.714371+00:00"
     },
     {
       "url": "/elemental-live/latest/configguide/",
       "name": "elemental-live",
       "page_count": 44,
-      "last_discovered": "2025-10-28T02:14:44.814154+00:00"
+      "last_discovered": "2025-11-02T03:28:34.832504+00:00"
     },
     {
       "url": "/elemental-live/latest/installguide/",
       "name": "elemental-live",
       "page_count": 17,
-      "last_discovered": "2025-10-28T02:14:44.911412+00:00"
+      "last_discovered": "2025-11-02T03:28:34.975062+00:00"
     },
     {
       "url": "/elemental-live/latest/migrationguide/",
       "name": "elemental-live",
       "page_count": 17,
-      "last_discovered": "2025-10-28T02:14:45.017233+00:00"
+      "last_discovered": "2025-11-02T03:28:35.111240+00:00"
     },
     {
       "url": "/elemental-live/latest/ug/",
       "name": "elemental-live",
       "page_count": 379,
-      "last_discovered": "2025-10-28T02:14:45.145434+00:00"
+      "last_discovered": "2025-11-02T03:28:35.235030+00:00"
     },
     {
       "url": "/elemental-live/latest/upgradeguide/",
       "name": "elemental-live",
       "page_count": 14,
-      "last_discovered": "2025-10-28T02:14:45.227620+00:00"
+      "last_discovered": "2025-11-02T03:28:35.369303+00:00"
     },
     {
       "url": "/elemental-onprem/latest/ug/",
       "name": "elemental-onprem",
       "page_count": 3,
-      "last_discovered": "2025-10-28T02:14:45.372700+00:00"
+      "last_discovered": "2025-11-02T03:28:35.484793+00:00"
     },
     {
       "url": "/elemental-server/latest/configguide/",
       "name": "elemental-server",
       "page_count": 37,
-      "last_discovered": "2025-10-28T02:14:45.440249+00:00"
+      "last_discovered": "2025-11-02T03:28:35.602514+00:00"
     },
     {
       "url": "/elemental-server/latest/installguide/",
       "name": "elemental-server",
       "page_count": 35,
-      "last_discovered": "2025-10-28T02:14:45.561335+00:00"
+      "last_discovered": "2025-11-02T03:28:35.723309+00:00"
     },
     {
       "url": "/elemental-server/latest/migrationguide/",
       "name": "elemental-server",
       "page_count": 15,
-      "last_discovered": "2025-10-28T02:14:45.647009+00:00"
+      "last_discovered": "2025-11-02T03:28:35.835894+00:00"
     },
     {
       "url": "/elemental-server/latest/ug/",
       "name": "elemental-server",
       "page_count": 96,
-      "last_discovered": "2025-10-28T02:14:45.782759+00:00"
+      "last_discovered": "2025-11-02T03:28:35.965768+00:00"
     },
     {
       "url": "/elemental-statmux/latest/configguide/",
       "name": "elemental-statmux",
       "page_count": 36,
-      "last_discovered": "2025-10-28T02:14:45.866370+00:00"
+      "last_discovered": "2025-11-02T03:28:36.083805+00:00"
     },
     {
       "url": "/elemental-statmux/latest/installguide/",
       "name": "elemental-statmux",
       "page_count": 15,
-      "last_discovered": "2025-10-28T02:14:45.967105+00:00"
+      "last_discovered": "2025-11-02T03:28:36.199090+00:00"
     },
     {
       "url": "/elemental-statmux/latest/upgradeguide/",
       "name": "elemental-statmux",
       "page_count": 22,
-      "last_discovered": "2025-10-28T02:14:46.078814+00:00"
+      "last_discovered": "2025-11-02T03:28:36.323504+00:00"
     },
     {
       "url": "/emr/latest/EMR-on-EKS-DevelopmentGuide/",
       "name": "emr",
       "page_count": 331,
-      "last_discovered": "2025-10-28T02:14:46.208387+00:00"
+      "last_discovered": "2025-11-02T03:28:36.442271+00:00"
     },
     {
       "url": "/emr/latest/EMR-Serverless-UserGuide/",
       "name": "emr",
       "page_count": 130,
-      "last_discovered": "2025-10-28T02:14:46.295400+00:00"
+      "last_discovered": "2025-11-02T03:28:36.555974+00:00"
     },
     {
       "url": "/emr/latest/ManagementGuide/",
       "name": "emr",
       "page_count": 373,
-      "last_discovered": "2025-10-28T02:14:46.396459+00:00"
+      "last_discovered": "2025-11-02T03:28:36.709822+00:00"
     },
     {
       "url": "/emr/latest/ReleaseGuide/",
       "name": "emr",
       "page_count": 535,
-      "last_discovered": "2025-10-28T02:14:46.492388+00:00"
+      "last_discovered": "2025-11-02T03:28:36.827288+00:00"
     },
     {
       "url": "/enclaves/latest/user/",
       "name": "enclaves",
       "page_count": 38,
-      "last_discovered": "2025-10-28T02:14:46.586134+00:00"
+      "last_discovered": "2025-11-02T03:28:36.949347+00:00"
     },
     {
       "url": "/entityresolution/latest/userguide/",
       "name": "entityresolution",
       "page_count": 69,
-      "last_discovered": "2025-10-28T02:14:46.699445+00:00"
+      "last_discovered": "2025-11-02T03:28:37.066817+00:00"
     },
     {
       "url": "/eventbridge/latest/onboarding/",
       "name": "eventbridge",
       "page_count": 8,
-      "last_discovered": "2025-10-28T02:14:46.777112+00:00"
+      "last_discovered": "2025-11-02T03:28:37.198700+00:00"
     },
     {
       "url": "/eventbridge/latest/pipes-reference/",
       "name": "eventbridge",
       "page_count": 87,
-      "last_discovered": "2025-10-28T02:14:46.886563+00:00"
+      "last_discovered": "2025-11-02T03:28:37.331420+00:00"
     },
     {
       "url": "/eventbridge/latest/ref/",
       "name": "eventbridge",
       "page_count": 373,
-      "last_discovered": "2025-10-28T02:14:47.000570+00:00"
+      "last_discovered": "2025-11-02T03:28:37.450925+00:00"
     },
     {
       "url": "/eventbridge/latest/schema-reference/",
       "name": "eventbridge",
       "page_count": 22,
-      "last_discovered": "2025-10-28T02:14:47.132358+00:00"
+      "last_discovered": "2025-11-02T03:28:37.567567+00:00"
     },
     {
       "url": "/eventbridge/latest/userguide/",
       "name": "eventbridge",
       "page_count": 205,
-      "last_discovered": "2025-10-28T02:14:47.218374+00:00"
+      "last_discovered": "2025-11-02T03:28:37.686638+00:00"
     },
     {
       "url": "/evs/latest/userguide/",
       "name": "evs",
       "page_count": 38,
-      "last_discovered": "2025-10-28T02:14:47.317517+00:00"
+      "last_discovered": "2025-11-02T03:28:37.827219+00:00"
     },
     {
       "url": "/filegateway/latest/filefsxw/",
       "name": "filegateway",
       "page_count": 106,
-      "last_discovered": "2025-10-28T02:14:47.408264+00:00"
+      "last_discovered": "2025-11-02T03:28:37.942287+00:00"
     },
     {
       "url": "/filegateway/latest/files3/",
       "name": "filegateway",
       "page_count": 153,
-      "last_discovered": "2025-10-28T02:14:47.523033+00:00"
+      "last_discovered": "2025-11-02T03:28:38.084469+00:00"
     },
     {
       "url": "/finspace/latest/userguide/",
       "name": "finspace",
       "page_count": 140,
-      "last_discovered": "2025-10-28T02:14:47.601483+00:00"
+      "last_discovered": "2025-11-02T03:28:38.203530+00:00"
     },
     {
       "url": "/firehose/latest/dev/",
       "name": "firehose",
       "page_count": 114,
-      "last_discovered": "2025-10-28T02:14:47.718176+00:00"
+      "last_discovered": "2025-11-02T03:28:38.344477+00:00"
     },
     {
       "url": "/fis/latest/userguide/",
       "name": "fis",
       "page_count": 69,
-      "last_discovered": "2025-10-28T02:14:47.826949+00:00"
+      "last_discovered": "2025-11-02T03:28:38.461786+00:00"
     },
     {
       "url": "/forecast/latest/dg/",
       "name": "forecast",
       "page_count": 222,
-      "last_discovered": "2025-10-28T02:14:47.923487+00:00"
+      "last_discovered": "2025-11-02T03:28:38.593371+00:00"
     },
     {
       "url": "/frauddetector/latest/ug/",
       "name": "frauddetector",
       "page_count": 103,
-      "last_discovered": "2025-10-28T02:14:48.034585+00:00"
+      "last_discovered": "2025-11-02T03:28:38.724205+00:00"
     },
     {
       "url": "/fsx/latest/FileCacheGuide/",
       "name": "fsx",
       "page_count": 70,
-      "last_discovered": "2025-10-28T02:14:48.163930+00:00"
+      "last_discovered": "2025-11-02T03:28:38.835567+00:00"
     },
     {
       "url": "/fsx/latest/LustreGuide/",
       "name": "fsx",
       "page_count": 118,
-      "last_discovered": "2025-10-28T02:14:48.278753+00:00"
+      "last_discovered": "2025-11-02T03:28:38.949607+00:00"
     },
     {
       "url": "/fsx/latest/ONTAPGuide/",
       "name": "fsx",
       "page_count": 171,
-      "last_discovered": "2025-10-28T02:14:48.368779+00:00"
+      "last_discovered": "2025-11-02T03:28:39.061947+00:00"
     },
     {
       "url": "/fsx/latest/OpenZFSGuide/",
       "name": "fsx",
       "page_count": 88,
-      "last_discovered": "2025-10-28T02:14:48.470525+00:00"
+      "last_discovered": "2025-11-02T03:28:39.188131+00:00"
     },
     {
       "url": "/fsx/latest/WindowsGuide/",
       "name": "fsx",
       "page_count": 121,
-      "last_discovered": "2025-10-28T02:14:48.567659+00:00"
+      "last_discovered": "2025-11-02T03:28:39.304229+00:00"
     },
     {
       "url": "/gameliftservers/latest/developerguide/",
       "name": "gameliftservers",
-      "page_count": 185,
-      "last_discovered": "2025-10-28T02:14:48.662529+00:00"
+      "page_count": 192,
+      "last_discovered": "2025-11-02T03:28:39.425816+00:00"
     },
     {
       "url": "/gameliftservers/latest/fleetiqguide/",
       "name": "gameliftservers",
       "page_count": 42,
-      "last_discovered": "2025-10-28T02:14:48.768952+00:00"
+      "last_discovered": "2025-11-02T03:28:39.553740+00:00"
     },
     {
       "url": "/gameliftservers/latest/flexmatchguide/",
       "name": "gameliftservers",
       "page_count": 80,
-      "last_discovered": "2025-10-28T02:14:48.852252+00:00"
+      "last_discovered": "2025-11-02T03:28:39.670617+00:00"
     },
     {
       "url": "/gameliftstreams/latest/developerguide/",
       "name": "gameliftstreams",
       "page_count": 51,
-      "last_discovered": "2025-10-28T02:14:48.955355+00:00"
+      "last_discovered": "2025-11-02T03:28:39.792963+00:00"
     },
     {
       "url": "/general/latest/gr/",
       "name": "general",
       "page_count": 277,
-      "last_discovered": "2025-10-28T02:14:49.092887+00:00"
+      "last_discovered": "2025-11-02T03:28:39.910942+00:00"
     },
     {
       "url": "/global-accelerator/latest/dg/",
       "name": "global-accelerator",
       "page_count": 116,
-      "last_discovered": "2025-10-28T02:14:49.178584+00:00"
+      "last_discovered": "2025-11-02T03:28:40.026524+00:00"
     },
     {
       "url": "/global-infrastructure/latest/regions/",
       "name": "global-infrastructure",
       "page_count": 6,
-      "last_discovered": "2025-10-28T02:14:49.271704+00:00"
+      "last_discovered": "2025-11-02T03:28:40.168437+00:00"
     },
     {
       "url": "/glossary/latest/reference/",
       "name": "glossary",
       "page_count": 1,
-      "last_discovered": "2025-10-28T02:14:49.368174+00:00"
+      "last_discovered": "2025-11-02T03:28:40.308183+00:00"
     },
     {
       "url": "/glue/latest/dg/",
       "name": "glue",
       "page_count": 1189,
-      "last_discovered": "2025-10-28T02:14:49.487503+00:00"
+      "last_discovered": "2025-11-02T03:28:40.428697+00:00"
     },
     {
       "url": "/govcloud-us/latest/UserGuide/",
       "name": "govcloud-us",
       "page_count": 214,
-      "last_discovered": "2025-10-28T02:14:49.582982+00:00"
+      "last_discovered": "2025-11-02T03:28:40.565000+00:00"
     },
     {
       "url": "/grafana/latest/userguide/",
       "name": "grafana",
       "page_count": 508,
-      "last_discovered": "2025-10-28T02:14:49.673120+00:00"
+      "last_discovered": "2025-11-02T03:28:40.694825+00:00"
     },
     {
       "url": "/ground-station/latest/gs-agent-ug/",
       "name": "ground-station",
       "page_count": 15,
-      "last_discovered": "2025-10-28T02:14:49.781988+00:00"
+      "last_discovered": "2025-11-02T03:28:40.833846+00:00"
     },
     {
       "url": "/ground-station/latest/ug/",
       "name": "ground-station",
-      "page_count": 59,
-      "last_discovered": "2025-10-28T02:14:49.888031+00:00"
+      "page_count": 65,
+      "last_discovered": "2025-11-02T03:28:40.958725+00:00"
     },
     {
       "url": "/guardduty/latest/ug/",
       "name": "guardduty",
       "page_count": 212,
-      "last_discovered": "2025-10-28T02:14:50.002228+00:00"
+      "last_discovered": "2025-11-02T03:28:41.080128+00:00"
     },
     {
       "url": "/guidance/latest/cloud-intelligence-dashboards/",
       "name": "guidance",
-      "page_count": 66,
-      "last_discovered": "2025-10-28T02:14:50.099461+00:00"
+      "page_count": 72,
+      "last_discovered": "2025-11-02T03:28:41.212214+00:00"
     },
     {
       "url": "/guidance/latest/deploying-cross-region-disaster-recovery-with-aws-elastic-disaster-recovery/",
       "name": "guidance",
       "page_count": 12,
-      "last_discovered": "2025-10-28T02:14:50.197379+00:00"
+      "last_discovered": "2025-11-02T03:28:41.335319+00:00"
     },
     {
       "url": "/guidance/latest/migrating-vmware-virtual-machines-to-nutanix-cloud-clusters-on-aws/",
       "name": "guidance",
       "page_count": 8,
-      "last_discovered": "2025-10-28T02:14:50.268748+00:00"
+      "last_discovered": "2025-11-02T03:28:41.477251+00:00"
     },
     {
       "url": "/hands-on/latest/amazon-ebs-backup-and-restore-using-aws-backup/",
       "name": "hands-on",
       "page_count": 1,
-      "last_discovered": "2025-10-28T02:14:50.372424+00:00"
+      "last_discovered": "2025-11-02T03:28:41.595237+00:00"
     },
     {
       "url": "/hands-on/latest/amazon-ec2-backup-and-restore-using-aws-backup/",
       "name": "hands-on",
       "page_count": 1,
-      "last_discovered": "2025-10-28T02:14:50.484951+00:00"
+      "last_discovered": "2025-11-02T03:28:41.708979+00:00"
     },
     {
       "url": "/hands-on/latest/amazon-rds-backup-restore-using-aws-backup/",
       "name": "hands-on",
       "page_count": 1,
-      "last_discovered": "2025-10-28T02:14:50.569234+00:00"
+      "last_discovered": "2025-11-02T03:28:41.852621+00:00"
     },
     {
       "url": "/hands-on/latest/amazon-s3-with-additional-checksums/",
       "name": "hands-on",
       "page_count": 1,
-      "last_discovered": "2025-10-28T02:14:50.672124+00:00"
+      "last_discovered": "2025-11-02T03:28:41.971808+00:00"
     },
     {
       "url": "/hands-on/latest/backup-files-to-amazon-s3/",
       "name": "hands-on",
       "page_count": 1,
-      "last_discovered": "2025-10-28T02:14:50.787689+00:00"
+      "last_discovered": "2025-11-02T03:28:42.099097+00:00"
     },
     {
       "url": "/hands-on/latest/build-flutter-mobile-app-part-one/",
       "name": "hands-on",
       "page_count": 5,
-      "last_discovered": "2025-10-28T02:14:50.888904+00:00"
+      "last_discovered": "2025-11-02T03:28:42.219883+00:00"
     },
     {
       "url": "/hands-on/latest/build-flutter-mobile-app-part-two/",
       "name": "hands-on",
       "page_count": 5,
-      "last_discovered": "2025-10-28T02:14:51.011313+00:00"
+      "last_discovered": "2025-11-02T03:28:42.351540+00:00"
     },
     {
       "url": "/hands-on/latest/build-ios-app-amplify/",
       "name": "hands-on",
       "page_count": 6,
-      "last_discovered": "2025-10-28T02:14:51.149808+00:00"
+      "last_discovered": "2025-11-02T03:28:42.476907+00:00"
     },
     {
       "url": "/hands-on/latest/build-react-app-amplify-graphql/",
       "name": "hands-on",
       "page_count": 5,
-      "last_discovered": "2025-10-28T02:14:51.261800+00:00"
+      "last_discovered": "2025-11-02T03:28:42.598304+00:00"
     },
     {
       "url": "/hands-on/latest/build-serverless-web-app-lambda-amplify-bedrock-cognito-gen-ai/",
       "name": "hands-on",
       "page_count": 7,
-      "last_discovered": "2025-10-28T02:14:51.341807+00:00"
+      "last_discovered": "2025-11-02T03:28:42.711715+00:00"
     },
     {
       "url": "/hands-on/latest/continuous-deployment-pipeline/",
       "name": "hands-on",
       "page_count": 1,
-      "last_discovered": "2025-10-28T02:14:51.445438+00:00"
+      "last_discovered": "2025-11-02T03:28:42.826907+00:00"
     },
     {
       "url": "/hands-on/latest/control-your-costs-free-tier-budgets/",
       "name": "hands-on",
       "page_count": 1,
-      "last_discovered": "2025-10-28T02:14:51.529500+00:00"
+      "last_discovered": "2025-11-02T03:28:42.964317+00:00"
     },
     {
       "url": "/hands-on/latest/create-audio-transcript-transcribe/",
       "name": "hands-on",
       "page_count": 1,
-      "last_discovered": "2025-10-28T02:14:51.635634+00:00"
+      "last_discovered": "2025-11-02T03:28:43.081021+00:00"
     },
     {
       "url": "/hands-on/latest/create-continuous-delivery-pipeline/",
       "name": "hands-on",
       "page_count": 6,
-      "last_discovered": "2025-10-28T02:14:51.742278+00:00"
+      "last_discovered": "2025-11-02T03:28:43.214501+00:00"
     },
     {
       "url": "/hands-on/latest/create-microsoft-sql-db/",
       "name": "hands-on",
       "page_count": 1,
-      "last_discovered": "2025-10-28T02:14:51.839377+00:00"
+      "last_discovered": "2025-11-02T03:28:43.330621+00:00"
     },
     {
       "url": "/hands-on/latest/create-mysql-db/",
       "name": "hands-on",
       "page_count": 1,
-      "last_discovered": "2025-10-28T02:14:51.933567+00:00"
+      "last_discovered": "2025-11-02T03:28:43.457298+00:00"
     },
     {
       "url": "/hands-on/latest/deliver-content-faster/",
       "name": "hands-on",
       "page_count": 1,
-      "last_discovered": "2025-10-28T02:14:52.054592+00:00"
+      "last_discovered": "2025-11-02T03:28:43.567836+00:00"
     },
     {
       "url": "/hands-on/latest/deploy-a-p4d-ec2-ultracluster/",
       "name": "hands-on",
       "page_count": 1,
-      "last_discovered": "2025-10-28T02:14:52.169822+00:00"
+      "last_discovered": "2025-11-02T03:28:43.684843+00:00"
     },
     {
       "url": "/hands-on/latest/deploy-docker-containers/",
       "name": "hands-on",
       "page_count": 1,
-      "last_discovered": "2025-10-28T02:14:52.241203+00:00"
+      "last_discovered": "2025-11-02T03:28:43.809535+00:00"
     },
     {
       "url": "/hands-on/latest/deploy-lamp-lightsail/",
       "name": "hands-on",
       "page_count": 3,
-      "last_discovered": "2025-10-28T02:14:52.342378+00:00"
+      "last_discovered": "2025-11-02T03:28:43.924136+00:00"
     },
     {
       "url": "/hands-on/latest/deploy-webapp-amplify/",
       "name": "hands-on",
       "page_count": 6,
-      "last_discovered": "2025-10-28T02:14:52.451318+00:00"
+      "last_discovered": "2025-11-02T03:28:44.041517+00:00"
     },
     {
       "url": "/hands-on/latest/deploy-webapp-apprunner/",
       "name": "hands-on",
       "page_count": 1,
-      "last_discovered": "2025-10-28T02:14:52.559304+00:00"
+      "last_discovered": "2025-11-02T03:28:44.171294+00:00"
     },
     {
       "url": "/hands-on/latest/detect-analyze-compare-faces-rekognition/",
       "name": "hands-on",
       "page_count": 1,
-      "last_discovered": "2025-10-28T02:14:52.663929+00:00"
+      "last_discovered": "2025-11-02T03:28:44.288797+00:00"
     },
     {
       "url": "/hands-on/latest/extract-text-with-amazon-textract/",
       "name": "hands-on",
       "page_count": 1,
-      "last_discovered": "2025-10-28T02:14:52.757272+00:00"
+      "last_discovered": "2025-11-02T03:28:44.402855+00:00"
     },
     {
       "url": "/hands-on/latest/get-a-domain/",
       "name": "hands-on",
       "page_count": 1,
-      "last_discovered": "2025-10-28T02:14:52.840745+00:00"
+      "last_discovered": "2025-11-02T03:28:44.539586+00:00"
     },
     {
       "url": "/hands-on/latest/get-started-with-amazon-sagemaker-geospatial-capabilities/",
       "name": "hands-on",
       "page_count": 1,
-      "last_discovered": "2025-10-28T02:14:52.955099+00:00"
+      "last_discovered": "2025-11-02T03:28:44.657534+00:00"
     },
     {
       "url": "/hands-on/latest/getting-started-using-amazon-s3-glacier-storage-classes/",
       "name": "hands-on",
       "page_count": 1,
-      "last_discovered": "2025-10-28T02:14:53.069248+00:00"
+      "last_discovered": "2025-11-02T03:28:44.771413+00:00"
     },
     {
       "url": "/hands-on/latest/getting-started-with-aws-management-console/",
       "name": "hands-on",
       "page_count": 1,
-      "last_discovered": "2025-10-28T02:14:53.135472+00:00"
+      "last_discovered": "2025-11-02T03:28:44.888833+00:00"
     },
     {
       "url": "/hands-on/latest/host-net-web-app/",
       "name": "hands-on",
       "page_count": 1,
-      "last_discovered": "2025-10-28T02:14:53.264022+00:00"
+      "last_discovered": "2025-11-02T03:28:45.025597+00:00"
     },
     {
       "url": "/hands-on/latest/host-static-website/",
       "name": "hands-on",
       "page_count": 2,
-      "last_discovered": "2025-10-28T02:14:53.354054+00:00"
+      "last_discovered": "2025-11-02T03:28:45.148799+00:00"
     },
     {
       "url": "/hands-on/latest/launch-a-virtual-machine/",
       "name": "hands-on",
       "page_count": 1,
-      "last_discovered": "2025-10-28T02:14:53.453679+00:00"
+      "last_discovered": "2025-11-02T03:28:45.263419+00:00"
     },
     {
       "url": "/hands-on/latest/launch-a-wordpress-website/",
       "name": "hands-on",
       "page_count": 1,
-      "last_discovered": "2025-10-28T02:14:53.557300+00:00"
+      "last_discovered": "2025-11-02T03:28:45.375690+00:00"
     },
     {
       "url": "/hands-on/latest/launch-windows-vm/",
       "name": "hands-on",
       "page_count": 1,
-      "last_discovered": "2025-10-28T02:14:53.657298+00:00"
+      "last_discovered": "2025-11-02T03:28:45.495189+00:00"
     },
     {
       "url": "/hands-on/latest/machine-learning-tutorial-prepare-data-with-minimal-code/",
       "name": "hands-on",
       "page_count": 1,
-      "last_discovered": "2025-10-28T02:14:53.740832+00:00"
+      "last_discovered": "2025-11-02T03:28:45.612839+00:00"
     },
     {
       "url": "/hands-on/latest/migrate-aspnet-web-application-elastic-beanstalk/",
       "name": "hands-on",
       "page_count": 1,
-      "last_discovered": "2025-10-28T02:14:53.858151+00:00"
+      "last_discovered": "2025-11-02T03:28:45.747604+00:00"
     },
     {
       "url": "/hands-on/latest/migrate-rdsmysql-to-auroramysql/",
       "name": "hands-on",
       "page_count": 1,
-      "last_discovered": "2025-10-28T02:14:53.941058+00:00"
+      "last_discovered": "2025-11-02T03:28:45.883365+00:00"
     },
     {
       "url": "/hands-on/latest/remotely-run-commands-ec2-instance-systems-manager/",
       "name": "hands-on",
       "page_count": 1,
-      "last_discovered": "2025-10-28T02:14:54.043101+00:00"
+      "last_discovered": "2025-11-02T03:28:46.021874+00:00"
     },
     {
       "url": "/hands-on/latest/replicate-data-using-amazon-s3-replication/",
       "name": "hands-on",
       "page_count": 1,
-      "last_discovered": "2025-10-28T02:14:54.136247+00:00"
+      "last_discovered": "2025-11-02T03:28:46.160389+00:00"
     },
     {
       "url": "/hands-on/latest/request-service-quota-increase/",
       "name": "hands-on",
       "page_count": 1,
-      "last_discovered": "2025-10-28T02:14:54.278024+00:00"
+      "last_discovered": "2025-11-02T03:28:46.278233+00:00"
     },
     {
       "url": "/hands-on/latest/send-an-email-with-amazon-ses/",
       "name": "hands-on",
       "page_count": 1,
-      "last_discovered": "2025-10-28T02:14:54.397326+00:00"
+      "last_discovered": "2025-11-02T03:28:46.395269+00:00"
     },
     {
       "url": "/hands-on/latest/send-fanout-event-notifications/",
       "name": "hands-on",
       "page_count": 1,
-      "last_discovered": "2025-10-28T02:14:54.482714+00:00"
+      "last_discovered": "2025-11-02T03:28:46.511783+00:00"
     },
     {
       "url": "/hands-on/latest/send-messages-distributed-applications/",
       "name": "hands-on",
       "page_count": 1,
-      "last_discovered": "2025-10-28T02:14:54.586442+00:00"
+      "last_discovered": "2025-11-02T03:28:46.630280+00:00"
     },
     {
       "url": "/hands-on/latest/set-up-an-aws-transfer-family-web-app/",
       "name": "hands-on",
       "page_count": 6,
-      "last_discovered": "2025-10-28T02:14:54.673626+00:00"
+      "last_discovered": "2025-11-02T03:28:46.756721+00:00"
     },
     {
       "url": "/hands-on/latest/set-up-command-line-elastic-beanstalk/",
       "name": "hands-on",
       "page_count": 1,
-      "last_discovered": "2025-10-28T02:14:54.763924+00:00"
+      "last_discovered": "2025-11-02T03:28:46.874803+00:00"
     },
     {
       "url": "/hands-on/latest/setup-environment/",
       "name": "hands-on",
       "page_count": 4,
-      "last_discovered": "2025-10-28T02:14:54.868846+00:00"
+      "last_discovered": "2025-11-02T03:28:46.993737+00:00"
     },
     {
       "url": "/health/latest/ug/",
       "name": "health",
       "page_count": 46,
-      "last_discovered": "2025-10-28T02:14:54.971296+00:00"
+      "last_discovered": "2025-11-02T03:28:47.708541+00:00"
     },
     {
       "url": "/healthimaging/latest/devguide/",
       "name": "healthimaging",
       "page_count": 110,
-      "last_discovered": "2025-10-28T02:14:55.084266+00:00"
+      "last_discovered": "2025-11-02T03:28:47.824815+00:00"
     },
     {
       "url": "/healthlake/latest/devguide/",
       "name": "healthlake",
-      "page_count": 108,
-      "last_discovered": "2025-10-28T02:14:55.201780+00:00"
+      "page_count": 115,
+      "last_discovered": "2025-11-02T03:28:47.942558+00:00"
     },
     {
       "url": "/IAM/latest/UserGuide/",
       "name": "IAM",
       "page_count": 541,
-      "last_discovered": "2025-10-28T02:14:55.309216+00:00"
+      "last_discovered": "2025-11-02T03:28:48.055663+00:00"
     },
     {
       "url": "/IDR/latest/userguide/",
       "name": "IDR",
       "page_count": 38,
-      "last_discovered": "2025-10-28T02:14:55.407190+00:00"
+      "last_discovered": "2025-11-02T03:28:48.173070+00:00"
     },
     {
       "url": "/imagebuilder/latest/userguide/",
       "name": "imagebuilder",
       "page_count": 112,
-      "last_discovered": "2025-10-28T02:14:55.495049+00:00"
+      "last_discovered": "2025-11-02T03:28:48.290990+00:00"
     },
     {
       "url": "/incident-manager/latest/userguide/",
       "name": "incident-manager",
       "page_count": 48,
-      "last_discovered": "2025-10-28T02:14:55.594721+00:00"
+      "last_discovered": "2025-11-02T03:28:48.418462+00:00"
     },
     {
       "url": "/infrastructure-composer/latest/dg/",
       "name": "infrastructure-composer",
       "page_count": 73,
-      "last_discovered": "2025-10-28T02:14:55.679317+00:00"
+      "last_discovered": "2025-11-02T03:28:48.563115+00:00"
     },
     {
       "url": "/inspector/latest/user/",
       "name": "inspector",
       "page_count": 116,
-      "last_discovered": "2025-10-28T02:14:55.804319+00:00"
+      "last_discovered": "2025-11-02T03:28:48.679445+00:00"
     },
     {
       "url": "/iot/latest/developerguide/",
       "name": "iot",
       "page_count": 398,
-      "last_discovered": "2025-10-28T02:14:55.886123+00:00"
+      "last_discovered": "2025-11-02T03:28:48.807186+00:00"
     },
     {
       "url": "/iot-device-defender/latest/devguide/",
       "name": "iot-device-defender",
       "page_count": 59,
-      "last_discovered": "2025-10-28T02:14:55.990597+00:00"
+      "last_discovered": "2025-11-02T03:28:48.919718+00:00"
     },
     {
       "url": "/iot-expresslink/latest/gettingstartedguide/",
       "name": "iot-expresslink",
       "page_count": 8,
-      "last_discovered": "2025-10-28T02:14:56.106992+00:00"
+      "last_discovered": "2025-11-02T03:28:49.050276+00:00"
     },
     {
       "url": "/iot-expresslink/latest/oemonboardingguide/",
       "name": "iot-expresslink",
       "page_count": 8,
-      "last_discovered": "2025-10-28T02:14:56.189808+00:00"
+      "last_discovered": "2025-11-02T03:28:49.185939+00:00"
     },
     {
       "url": "/iot-expresslink/latest/programmersguide/",
       "name": "iot-expresslink",
       "page_count": 18,
-      "last_discovered": "2025-10-28T02:14:56.296400+00:00"
+      "last_discovered": "2025-11-02T03:28:49.303185+00:00"
     },
     {
       "url": "/iot-fleetwise/latest/developerguide/",
       "name": "iot-fleetwise",
       "page_count": 106,
-      "last_discovered": "2025-10-28T02:14:56.414775+00:00"
+      "last_discovered": "2025-11-02T03:28:49.419814+00:00"
     },
     {
       "url": "/iot-mi/latest/devguide/",
       "name": "iot-mi",
       "page_count": 108,
-      "last_discovered": "2025-10-28T02:14:56.498652+00:00"
+      "last_discovered": "2025-11-02T03:28:49.542529+00:00"
     },
     {
       "url": "/iot-sitewise/latest/appguide/",
       "name": "iot-sitewise",
       "page_count": 36,
-      "last_discovered": "2025-10-28T02:14:56.603876+00:00"
+      "last_discovered": "2025-11-02T03:28:49.659655+00:00"
     },
     {
       "url": "/iot-sitewise/latest/userguide/",
       "name": "iot-sitewise",
       "page_count": 348,
-      "last_discovered": "2025-10-28T02:14:56.684225+00:00"
+      "last_discovered": "2025-11-02T03:28:49.778297+00:00"
     },
     {
       "url": "/iot-twinmaker/latest/guide/",
       "name": "iot-twinmaker",
       "page_count": 72,
-      "last_discovered": "2025-10-28T02:14:56.800193+00:00"
+      "last_discovered": "2025-11-02T03:28:49.908677+00:00"
     },
     {
       "url": "/iot-wireless/latest/developerguide/",
       "name": "iot-wireless",
       "page_count": 107,
-      "last_discovered": "2025-10-28T02:14:56.892336+00:00"
+      "last_discovered": "2025-11-02T03:28:50.024564+00:00"
     },
     {
       "url": "/iotanalytics/latest/userguide/",
       "name": "iotanalytics",
       "page_count": 101,
-      "last_discovered": "2025-10-28T02:14:57.014164+00:00"
+      "last_discovered": "2025-11-02T03:28:50.157401+00:00"
     },
     {
       "url": "/iotevents/latest/developerguide/",
       "name": "iotevents",
       "page_count": 97,
-      "last_discovered": "2025-10-28T02:14:57.084955+00:00"
+      "last_discovered": "2025-11-02T03:28:50.273158+00:00"
     },
     {
       "url": "/ivs/latest/ChatUserGuide/",
       "name": "ivs",
       "page_count": 46,
-      "last_discovered": "2025-10-28T02:14:57.219408+00:00"
+      "last_discovered": "2025-11-02T03:28:50.412706+00:00"
     },
     {
       "url": "/ivs/latest/LowLatencyUserGuide/",
       "name": "ivs",
       "page_count": 81,
-      "last_discovered": "2025-10-28T02:14:57.310470+00:00"
+      "last_discovered": "2025-11-02T03:28:50.546229+00:00"
     },
     {
       "url": "/ivs/latest/RealTimeUserGuide/",
       "name": "ivs",
-      "page_count": 59,
-      "last_discovered": "2025-10-28T02:14:57.418729+00:00"
+      "page_count": 60,
+      "last_discovered": "2025-11-02T03:28:50.684322+00:00"
     },
     {
       "url": "/kendra/latest/dg/",
       "name": "kendra",
       "page_count": 174,
-      "last_discovered": "2025-10-28T02:14:57.495765+00:00"
+      "last_discovered": "2025-11-02T03:28:50.816325+00:00"
     },
     {
       "url": "/keyspaces/latest/devguide/",
       "name": "keyspaces",
       "page_count": 306,
-      "last_discovered": "2025-10-28T02:14:57.611870+00:00"
+      "last_discovered": "2025-11-02T03:28:50.956172+00:00"
     },
     {
       "url": "/kinesis-agent-windows/latest/userguide/",
       "name": "kinesis-agent-windows",
       "page_count": 19,
-      "last_discovered": "2025-10-28T02:14:57.705343+00:00"
+      "last_discovered": "2025-11-02T03:28:51.073466+00:00"
     },
     {
       "url": "/kinesisanalytics/latest/dev/",
       "name": "kinesisanalytics",
       "page_count": 183,
-      "last_discovered": "2025-10-28T02:14:57.805599+00:00"
+      "last_discovered": "2025-11-02T03:28:51.192807+00:00"
     },
     {
       "url": "/kinesisanalytics/latest/sqlref/",
       "name": "kinesisanalytics",
       "page_count": 120,
-      "last_discovered": "2025-10-28T02:14:57.891790+00:00"
+      "last_discovered": "2025-11-02T03:28:51.311687+00:00"
     },
     {
       "url": "/kinesisvideostreams/latest/dg/",
       "name": "kinesisvideostreams",
       "page_count": 206,
-      "last_discovered": "2025-10-28T02:14:58.028176+00:00"
+      "last_discovered": "2025-11-02T03:28:51.426372+00:00"
     },
     {
       "url": "/kinesisvideostreams-webrtc-dg/latest/devguide/",
       "name": "kinesisvideostreams-webrtc-dg",
       "page_count": 48,
-      "last_discovered": "2025-10-28T02:14:58.118224+00:00"
+      "last_discovered": "2025-11-02T03:28:51.547179+00:00"
     },
     {
       "url": "/kms/latest/cryptographic-details/",
       "name": "kms",
       "page_count": 31,
-      "last_discovered": "2025-10-28T02:14:58.213803+00:00"
+      "last_discovered": "2025-11-02T03:28:51.662174+00:00"
     },
     {
       "url": "/kms/latest/developerguide/",
       "name": "kms",
       "page_count": 277,
-      "last_discovered": "2025-10-28T02:14:58.323259+00:00"
+      "last_discovered": "2025-11-02T03:28:51.776349+00:00"
     },
     {
       "url": "/lake-formation/latest/dg/",
       "name": "lake-formation",
       "page_count": 237,
-      "last_discovered": "2025-10-28T02:14:58.426836+00:00"
+      "last_discovered": "2025-11-02T03:28:51.898168+00:00"
     },
     {
       "url": "/lambda/latest/dg/",
       "name": "lambda",
-      "page_count": 394,
-      "last_discovered": "2025-10-28T02:14:58.511444+00:00"
+      "page_count": 396,
+      "last_discovered": "2025-11-02T03:28:52.010563+00:00"
     },
     {
       "url": "/launchwizard/latest/userguide/",
       "name": "launchwizard",
       "page_count": 69,
-      "last_discovered": "2025-10-28T02:14:58.596459+00:00"
+      "last_discovered": "2025-11-02T03:28:52.127520+00:00"
     },
     {
       "url": "/lex/latest/dg/",
       "name": "lex",
       "page_count": 284,
-      "last_discovered": "2025-10-28T02:14:58.704368+00:00"
+      "last_discovered": "2025-11-02T03:28:52.243031+00:00"
     },
     {
       "url": "/lexv2/latest/dg/",
       "name": "lexv2",
       "page_count": 254,
-      "last_discovered": "2025-10-28T02:14:58.800967+00:00"
+      "last_discovered": "2025-11-02T03:28:52.380926+00:00"
     },
     {
       "url": "/license-manager/latest/userguide/",
       "name": "license-manager",
       "page_count": 98,
-      "last_discovered": "2025-10-28T02:14:58.916626+00:00"
+      "last_discovered": "2025-11-02T03:28:52.498346+00:00"
     },
     {
       "url": "/lightsail/latest/userguide/",
       "name": "lightsail",
-      "page_count": 357,
-      "last_discovered": "2025-10-28T02:14:58.998132+00:00"
+      "page_count": 358,
+      "last_discovered": "2025-11-02T03:28:52.625182+00:00"
     },
     {
       "url": "/lightsail-for-research/latest/ug/",
       "name": "lightsail-for-research",
       "page_count": 48,
-      "last_discovered": "2025-10-28T02:14:59.163513+00:00"
+      "last_discovered": "2025-11-02T03:28:52.762964+00:00"
     },
     {
       "url": "/local-zones/latest/ug/",
       "name": "local-zones",
       "page_count": 13,
-      "last_discovered": "2025-10-28T02:14:59.346059+00:00"
+      "last_discovered": "2025-11-02T03:28:52.897553+00:00"
     },
     {
       "url": "/location/latest/developerguide/",
       "name": "location",
       "page_count": 246,
-      "last_discovered": "2025-10-28T02:14:59.590205+00:00"
+      "last_discovered": "2025-11-02T03:28:53.014300+00:00"
     },
     {
       "url": "/lookout-for-equipment/latest/ug/",
       "name": "lookout-for-equipment",
       "page_count": 154,
-      "last_discovered": "2025-10-28T02:14:59.709836+00:00"
+      "last_discovered": "2025-11-02T03:28:53.136330+00:00"
     },
     {
       "url": "/lookout-for-equipment/latest/userguide/",
       "name": "lookout-for-equipment",
       "page_count": 51,
-      "last_discovered": "2025-10-28T02:14:59.792336+00:00"
+      "last_discovered": "2025-11-02T03:28:53.251786+00:00"
     },
     {
       "url": "/lookout-for-vision/latest/dda-reseller-guide/",
       "name": "lookout-for-vision",
       "page_count": 1,
-      "last_discovered": "2025-10-28T02:14:59.877908+00:00"
+      "last_discovered": "2025-11-02T03:28:53.387956+00:00"
     },
     {
       "url": "/lookout-for-vision/latest/dda-user-guide/",
       "name": "lookout-for-vision",
       "page_count": 84,
-      "last_discovered": "2025-10-28T02:14:59.997298+00:00"
+      "last_discovered": "2025-11-02T03:28:53.501978+00:00"
     },
     {
       "url": "/lookout-for-vision/latest/developer-guide/",
       "name": "lookout-for-vision",
       "page_count": 96,
-      "last_discovered": "2025-10-28T02:15:00.123244+00:00"
+      "last_discovered": "2025-11-02T03:28:53.616795+00:00"
     },
     {
       "url": "/lookoutmetrics/latest/dev/",
       "name": "lookoutmetrics",
       "page_count": 44,
-      "last_discovered": "2025-10-28T02:15:00.283250+00:00"
+      "last_discovered": "2025-11-02T03:28:53.743067+00:00"
     },
     {
       "url": "/m2/latest/userguide/",
       "name": "m2",
       "page_count": 152,
-      "last_discovered": "2025-10-28T02:15:00.360358+00:00"
+      "last_discovered": "2025-11-02T03:28:53.877322+00:00"
     },
     {
       "url": "/machine-learning/latest/dg/",
       "name": "machine-learning",
       "page_count": 92,
-      "last_discovered": "2025-10-28T02:15:00.458432+00:00"
+      "last_discovered": "2025-11-02T03:28:54.006677+00:00"
     },
     {
       "url": "/macie/latest/user/",
       "name": "macie",
       "page_count": 143,
-      "last_discovered": "2025-10-28T02:15:00.577634+00:00"
+      "last_discovered": "2025-11-02T03:28:54.126123+00:00"
     },
     {
       "url": "/managed-blockchain/latest/ambbtc-dg/",
       "name": "managed-blockchain",
       "page_count": 13,
-      "last_discovered": "2025-10-28T02:15:00.651577+00:00"
+      "last_discovered": "2025-11-02T03:28:54.243027+00:00"
     },
     {
       "url": "/managed-blockchain/latest/ambp-dg/",
       "name": "managed-blockchain",
       "page_count": 16,
-      "last_discovered": "2025-10-28T02:15:00.762428+00:00"
+      "last_discovered": "2025-11-02T03:28:54.385449+00:00"
     },
     {
       "url": "/managed-blockchain/latest/ambq-dg/",
       "name": "managed-blockchain",
       "page_count": 14,
-      "last_discovered": "2025-10-28T02:15:00.853699+00:00"
+      "last_discovered": "2025-11-02T03:28:54.525849+00:00"
     },
     {
       "url": "/managed-blockchain/latest/ethereum-dev/",
       "name": "managed-blockchain",
       "page_count": 22,
-      "last_discovered": "2025-10-28T02:15:00.998120+00:00"
+      "last_discovered": "2025-11-02T03:28:54.639675+00:00"
     },
     {
       "url": "/managed-blockchain/latest/hyperledger-fabric-dev/",
       "name": "managed-blockchain",
       "page_count": 50,
-      "last_discovered": "2025-10-28T02:15:01.094037+00:00"
+      "last_discovered": "2025-11-02T03:28:54.758039+00:00"
     },
     {
       "url": "/managed-flink/latest/java/",
       "name": "managed-flink",
       "page_count": 173,
-      "last_discovered": "2025-10-28T02:15:01.170488+00:00"
+      "last_discovered": "2025-11-02T03:28:54.901931+00:00"
     },
     {
       "url": "/managedservices/latest/accelerate-guide/",
       "name": "managedservices",
       "page_count": 212,
-      "last_discovered": "2025-10-28T02:15:01.269176+00:00"
+      "last_discovered": "2025-11-02T03:28:55.030439+00:00"
     },
     {
       "url": "/managedservices/latest/appguide/",
       "name": "managedservices",
       "page_count": 128,
-      "last_discovered": "2025-10-28T02:15:01.381091+00:00"
+      "last_discovered": "2025-11-02T03:28:55.167998+00:00"
     },
     {
       "url": "/managedservices/latest/ctexguide/",
       "name": "managedservices",
       "page_count": 2,
-      "last_discovered": "2025-10-28T02:15:01.482956+00:00"
+      "last_discovered": "2025-11-02T03:28:55.303061+00:00"
     },
     {
       "url": "/managedservices/latest/ctref/",
       "name": "managedservices",
       "page_count": 389,
-      "last_discovered": "2025-10-28T02:15:01.579618+00:00"
+      "last_discovered": "2025-11-02T03:28:55.435287+00:00"
     },
     {
       "url": "/managedservices/latest/onboardingguide/",
       "name": "managedservices",
       "page_count": 338,
-      "last_discovered": "2025-10-28T02:15:01.685994+00:00"
+      "last_discovered": "2025-11-02T03:28:55.552845+00:00"
     },
     {
       "url": "/managedservices/latest/userguide/",
       "name": "managedservices",
       "page_count": 444,
-      "last_discovered": "2025-10-28T02:15:01.785548+00:00"
+      "last_discovered": "2025-11-02T03:28:55.669677+00:00"
     },
     {
       "url": "/marketplace/latest/buyerguide/",
       "name": "marketplace",
       "page_count": 154,
-      "last_discovered": "2025-10-28T02:15:01.874999+00:00"
+      "last_discovered": "2025-11-02T03:28:55.807454+00:00"
     },
     {
       "url": "/marketplace/latest/userguide/",
       "name": "marketplace",
       "page_count": 254,
-      "last_discovered": "2025-10-28T02:15:02.014585+00:00"
+      "last_discovered": "2025-11-02T03:28:55.925777+00:00"
     },
     {
       "url": "/mediaconnect/latest/ug/",
       "name": "mediaconnect",
       "page_count": 199,
-      "last_discovered": "2025-10-28T02:15:02.109986+00:00"
+      "last_discovered": "2025-11-02T03:28:56.067077+00:00"
     },
     {
       "url": "/mediaconvert/latest/ug/",
       "name": "mediaconvert",
       "page_count": 294,
-      "last_discovered": "2025-10-28T02:15:02.304670+00:00"
+      "last_discovered": "2025-11-02T03:28:56.183846+00:00"
     },
     {
       "url": "/medialive/latest/ug/",
       "name": "medialive",
       "page_count": 809,
-      "last_discovered": "2025-10-28T02:15:02.392251+00:00"
+      "last_discovered": "2025-11-02T03:28:56.320631+00:00"
     },
     {
       "url": "/mediapackage/latest/ug/",
       "name": "mediapackage",
       "page_count": 204,
-      "last_discovered": "2025-10-28T02:15:02.516053+00:00"
+      "last_discovered": "2025-11-02T03:28:56.436577+00:00"
     },
     {
       "url": "/mediapackage/latest/userguide/",
       "name": "mediapackage",
       "page_count": 120,
-      "last_discovered": "2025-10-28T02:15:02.608478+00:00"
+      "last_discovered": "2025-11-02T03:28:56.555644+00:00"
     },
     {
       "url": "/mediastore/latest/ug/",
       "name": "mediastore",
       "page_count": 116,
-      "last_discovered": "2025-10-28T02:15:02.687824+00:00"
+      "last_discovered": "2025-11-02T03:28:56.696239+00:00"
     },
     {
       "url": "/mediatailor/latest/ug/",
       "name": "mediatailor",
       "page_count": 275,
-      "last_discovered": "2025-10-28T02:15:02.801472+00:00"
+      "last_discovered": "2025-11-02T03:28:56.827117+00:00"
     },
     {
       "url": "/memorydb/latest/devguide/",
       "name": "memorydb",
       "page_count": 189,
-      "last_discovered": "2025-10-28T02:15:02.902208+00:00"
+      "last_discovered": "2025-11-02T03:28:56.968391+00:00"
     },
     {
       "url": "/mgn/latest/ug/",
       "name": "mgn",
       "page_count": 206,
-      "last_discovered": "2025-10-28T02:15:03.011605+00:00"
+      "last_discovered": "2025-11-02T03:28:57.084384+00:00"
     },
     {
       "url": "/mhj/latest/userguide/",
       "name": "mhj",
       "page_count": 44,
-      "last_discovered": "2025-10-28T02:15:03.095396+00:00"
+      "last_discovered": "2025-11-02T03:28:57.198839+00:00"
     },
     {
       "url": "/microservice-extractor/latest/userguide/",
       "name": "microservice-extractor",
       "page_count": 34,
-      "last_discovered": "2025-10-28T02:15:03.202312+00:00"
+      "last_discovered": "2025-11-02T03:28:57.326709+00:00"
     },
     {
       "url": "/migrationhub/latest/launchguide/",
       "name": "migrationhub",
       "page_count": 10,
-      "last_discovered": "2025-10-28T02:15:03.285867+00:00"
+      "last_discovered": "2025-11-02T03:28:57.440820+00:00"
     },
     {
       "url": "/migrationhub/latest/ug/",
       "name": "migrationhub",
       "page_count": 95,
-      "last_discovered": "2025-10-28T02:15:03.395482+00:00"
+      "last_discovered": "2025-11-02T03:28:57.580705+00:00"
     },
     {
       "url": "/migrationhub-orchestrator/latest/userguide/",
       "name": "migrationhub-orchestrator",
       "page_count": 30,
-      "last_discovered": "2025-10-28T02:15:03.493502+00:00"
+      "last_discovered": "2025-11-02T03:28:57.706722+00:00"
     },
     {
       "url": "/migrationhub-refactor-spaces/latest/userguide/",
       "name": "migrationhub-refactor-spaces",
       "page_count": 33,
-      "last_discovered": "2025-10-28T02:15:03.588348+00:00"
+      "last_discovered": "2025-11-02T03:28:57.829326+00:00"
     },
     {
       "url": "/migrationhub-strategy/latest/userguide/",
       "name": "migrationhub-strategy",
       "page_count": 40,
-      "last_discovered": "2025-10-28T02:15:03.686971+00:00"
+      "last_discovered": "2025-11-02T03:28:57.949363+00:00"
     },
     {
       "url": "/mobileanalytics/latest/ug/",
       "name": "mobileanalytics",
       "page_count": 8,
-      "last_discovered": "2025-10-28T02:15:03.789107+00:00"
+      "last_discovered": "2025-11-02T03:28:58.065299+00:00"
     },
     {
       "url": "/Monitron/latest/getting-started-guide/",
       "name": "Monitron",
       "page_count": 6,
-      "last_discovered": "2025-10-28T02:15:03.895743+00:00"
+      "last_discovered": "2025-11-02T03:28:58.206108+00:00"
     },
     {
       "url": "/Monitron/latest/user-guide/",
       "name": "Monitron",
       "page_count": 161,
-      "last_discovered": "2025-10-28T02:15:04.017089+00:00"
+      "last_discovered": "2025-11-02T03:28:58.332267+00:00"
     },
     {
       "url": "/mpa/latest/userguide/",
       "name": "mpa",
       "page_count": 39,
-      "last_discovered": "2025-10-28T02:15:04.211408+00:00"
+      "last_discovered": "2025-11-02T03:28:58.458953+00:00"
     },
     {
       "url": "/msk/latest/developerguide/",
       "name": "msk",
       "page_count": 277,
-      "last_discovered": "2025-10-28T02:15:04.506805+00:00"
+      "last_discovered": "2025-11-02T03:28:58.601639+00:00"
     },
     {
       "url": "/MSKC/latest/mskc/",
       "name": "MSKC",
       "page_count": 79,
-      "last_discovered": "2025-10-28T02:15:04.641413+00:00"
+      "last_discovered": "2025-11-02T03:28:58.716989+00:00"
     },
     {
       "url": "/mwaa/latest/migrationguide/",
       "name": "mwaa",
       "page_count": 6,
-      "last_discovered": "2025-10-28T02:15:04.707107+00:00"
+      "last_discovered": "2025-11-02T03:28:58.861414+00:00"
     },
     {
       "url": "/mwaa/latest/userguide/",
       "name": "mwaa",
       "page_count": 97,
-      "last_discovered": "2025-10-28T02:15:04.808970+00:00"
+      "last_discovered": "2025-11-02T03:28:58.973269+00:00"
     },
     {
       "url": "/mxnet/latest/dg/",
       "name": "mxnet",
       "page_count": 1,
-      "last_discovered": "2025-10-28T02:15:04.942728+00:00"
+      "last_discovered": "2025-11-02T03:28:59.117983+00:00"
     },
     {
       "url": "/neptune/latest/userguide/",
       "name": "neptune",
       "page_count": 632,
-      "last_discovered": "2025-10-28T02:15:05.042564+00:00"
+      "last_discovered": "2025-11-02T03:28:59.247149+00:00"
     },
     {
       "url": "/neptune-analytics/latest/userguide/",
       "name": "neptune-analytics",
       "page_count": 159,
-      "last_discovered": "2025-10-28T02:15:05.137317+00:00"
+      "last_discovered": "2025-11-02T03:28:59.397000+00:00"
     },
     {
       "url": "/network-firewall/latest/developerguide/",
       "name": "network-firewall",
       "page_count": 145,
-      "last_discovered": "2025-10-28T02:15:05.225407+00:00"
+      "last_discovered": "2025-11-02T03:28:59.513108+00:00"
     },
     {
       "url": "/network-manager/latest/cloudwan/",
       "name": "network-manager",
       "page_count": 108,
-      "last_discovered": "2025-10-28T02:15:05.336800+00:00"
+      "last_discovered": "2025-11-02T03:28:59.645845+00:00"
     },
     {
       "url": "/network-manager/latest/infrastructure-performance/",
       "name": "network-manager",
       "page_count": 11,
-      "last_discovered": "2025-10-28T02:15:05.436870+00:00"
+      "last_discovered": "2025-11-02T03:28:59.792742+00:00"
     },
     {
       "url": "/network-manager/latest/tgwnm/",
       "name": "network-manager",
       "page_count": 68,
-      "last_discovered": "2025-10-28T02:15:05.525660+00:00"
+      "last_discovered": "2025-11-02T03:28:59.908296+00:00"
     },
     {
       "url": "/next-generation-sagemaker/latest/userguide/",
       "name": "next-generation-sagemaker",
       "page_count": 12,
-      "last_discovered": "2025-10-28T02:15:05.612813+00:00"
+      "last_discovered": "2025-11-02T03:29:00.026254+00:00"
     },
     {
       "url": "/notifications/latest/userguide/",
       "name": "notifications",
       "page_count": 48,
-      "last_discovered": "2025-10-28T02:15:05.739639+00:00"
+      "last_discovered": "2025-11-02T03:29:00.143677+00:00"
     },
     {
       "url": "/nova/latest/userguide/",
       "name": "nova",
-      "page_count": 140,
-      "last_discovered": "2025-10-28T02:15:05.885096+00:00"
+      "page_count": 143,
+      "last_discovered": "2025-11-02T03:29:00.266803+00:00"
     },
     {
       "url": "/odb/latest/UserGuide/",
       "name": "odb",
       "page_count": 37,
-      "last_discovered": "2025-10-28T02:15:06.033050+00:00"
+      "last_discovered": "2025-11-02T03:29:00.384122+00:00"
     },
     {
       "url": "/omics/latest/dev/",
       "name": "omics",
       "page_count": 118,
-      "last_discovered": "2025-10-28T02:15:06.110682+00:00"
+      "last_discovered": "2025-11-02T03:29:00.505554+00:00"
     },
     {
       "url": "/one-enterprise/latest/userguide/",
       "name": "one-enterprise",
       "page_count": 56,
-      "last_discovered": "2025-10-28T02:15:06.245797+00:00"
+      "last_discovered": "2025-11-02T03:29:00.629130+00:00"
     },
     {
       "url": "/online-register/latest/data-formats/",
       "name": "online-register",
       "page_count": 433,
-      "last_discovered": "2025-10-28T02:15:06.322485+00:00"
+      "last_discovered": "2025-11-02T03:29:00.767111+00:00"
     },
     {
       "url": "/opensearch-service/latest/developerguide/",
       "name": "opensearch-service",
       "page_count": 298,
-      "last_discovered": "2025-10-28T02:15:06.461865+00:00"
+      "last_discovered": "2025-11-02T03:29:00.883077+00:00"
     },
     {
       "url": "/organizations/latest/userguide/",
       "name": "organizations",
       "page_count": 230,
-      "last_discovered": "2025-10-28T02:15:06.552825+00:00"
+      "last_discovered": "2025-11-02T03:29:01.029693+00:00"
     },
     {
       "url": "/outposts/latest/install-server/",
       "name": "outposts",
       "page_count": 33,
-      "last_discovered": "2025-10-28T02:15:06.636361+00:00"
+      "last_discovered": "2025-11-02T03:29:01.143336+00:00"
     },
     {
       "url": "/outposts/latest/network-userguide/",
       "name": "outposts",
       "page_count": 43,
-      "last_discovered": "2025-10-28T02:15:06.731554+00:00"
+      "last_discovered": "2025-11-02T03:29:01.261412+00:00"
     },
     {
       "url": "/outposts/latest/server-userguide/",
       "name": "outposts",
       "page_count": 38,
-      "last_discovered": "2025-10-28T02:15:06.854815+00:00"
+      "last_discovered": "2025-11-02T03:29:01.507282+00:00"
     },
     {
       "url": "/outposts/latest/userguide/",
       "name": "outposts",
       "page_count": 43,
-      "last_discovered": "2025-10-28T02:15:06.936940+00:00"
+      "last_discovered": "2025-11-02T03:29:01.644523+00:00"
     },
     {
       "url": "/panorama/latest/dev/",
       "name": "panorama",
       "page_count": 64,
-      "last_discovered": "2025-10-28T02:15:07.062579+00:00"
+      "last_discovered": "2025-11-02T03:29:01.761139+00:00"
     },
     {
       "url": "/parallelcluster/latest/ug/",
       "name": "parallelcluster",
       "page_count": 293,
-      "last_discovered": "2025-10-28T02:15:07.155492+00:00"
+      "last_discovered": "2025-11-02T03:29:01.879443+00:00"
     },
     {
       "url": "/partner-central/latest/builder-guide/",
       "name": "partner-central",
       "page_count": 4,
-      "last_discovered": "2025-10-28T02:15:07.225509+00:00"
+      "last_discovered": "2025-11-02T03:29:02.014752+00:00"
     },
     {
       "url": "/partner-central/latest/crm/",
       "name": "partner-central",
       "page_count": 87,
-      "last_discovered": "2025-10-28T02:15:07.351427+00:00"
+      "last_discovered": "2025-11-02T03:29:02.153829+00:00"
     },
     {
       "url": "/partner-central/latest/getting-started/",
       "name": "partner-central",
       "page_count": 29,
-      "last_discovered": "2025-10-28T02:15:07.447821+00:00"
+      "last_discovered": "2025-11-02T03:29:02.274088+00:00"
     },
     {
       "url": "/partner-central/latest/sales-guide/",
       "name": "partner-central",
       "page_count": 10,
-      "last_discovered": "2025-10-28T02:15:07.551363+00:00"
+      "last_discovered": "2025-11-02T03:29:02.405959+00:00"
     },
     {
       "url": "/payment-cryptography/latest/userguide/",
       "name": "payment-cryptography",
       "page_count": 101,
-      "last_discovered": "2025-10-28T02:15:07.783153+00:00"
+      "last_discovered": "2025-11-02T03:29:02.525979+00:00"
     },
     {
       "url": "/pcs/latest/userguide/",
       "name": "pcs",
       "page_count": 166,
-      "last_discovered": "2025-10-28T02:15:07.867462+00:00"
+      "last_discovered": "2025-11-02T03:29:02.641729+00:00"
     },
     {
       "url": "/personalize/latest/dg/",
       "name": "personalize",
       "page_count": 436,
-      "last_discovered": "2025-10-28T02:15:07.997903+00:00"
+      "last_discovered": "2025-11-02T03:29:02.760224+00:00"
     },
     {
       "url": "/pinpoint/latest/archguide/",
       "name": "pinpoint",
       "page_count": 28,
-      "last_discovered": "2025-10-28T02:15:08.074367+00:00"
+      "last_discovered": "2025-11-02T03:29:02.876793+00:00"
     },
     {
       "url": "/pinpoint/latest/developerguide/",
       "name": "pinpoint",
       "page_count": 129,
-      "last_discovered": "2025-10-28T02:15:08.179677+00:00"
+      "last_discovered": "2025-11-02T03:29:02.999069+00:00"
     },
     {
       "url": "/pinpoint/latest/userguide/",
       "name": "pinpoint",
       "page_count": 139,
-      "last_discovered": "2025-10-28T02:15:08.284168+00:00"
+      "last_discovered": "2025-11-02T03:29:03.130111+00:00"
     },
     {
       "url": "/polly/latest/dg/",
       "name": "polly",
       "page_count": 185,
-      "last_discovered": "2025-10-28T02:15:08.411465+00:00"
+      "last_discovered": "2025-11-02T03:29:03.244297+00:00"
     },
     {
       "url": "/portingassistant/latest/userguide/",
       "name": "portingassistant",
       "page_count": 26,
-      "last_discovered": "2025-10-28T02:15:08.498370+00:00"
+      "last_discovered": "2025-11-02T03:29:03.359899+00:00"
     },
     {
       "url": "/pricing-calculator/latest/userguide/",
       "name": "pricing-calculator",
       "page_count": 22,
-      "last_discovered": "2025-10-28T02:15:08.592123+00:00"
+      "last_discovered": "2025-11-02T03:29:03.479082+00:00"
     },
     {
       "url": "/privateca/latest/userguide/",
       "name": "privateca",
       "page_count": 147,
-      "last_discovered": "2025-10-28T02:15:08.685330+00:00"
+      "last_discovered": "2025-11-02T03:29:03.598134+00:00"
     },
     {
       "url": "/prometheus/latest/userguide/",
       "name": "prometheus",
-      "page_count": 125,
-      "last_discovered": "2025-10-28T02:15:08.793666+00:00"
+      "page_count": 127,
+      "last_discovered": "2025-11-02T03:29:03.732194+00:00"
     },
     {
       "url": "/proton/latest/userguide/",
       "name": "proton",
       "page_count": 100,
-      "last_discovered": "2025-10-28T02:15:08.879135+00:00"
+      "last_discovered": "2025-11-02T03:29:03.871328+00:00"
     },
     {
       "url": "/push-notifications/latest/userguide/",
       "name": "push-notifications",
       "page_count": 26,
-      "last_discovered": "2025-10-28T02:15:09.021371+00:00"
+      "last_discovered": "2025-11-02T03:29:03.991794+00:00"
     },
     {
       "url": "/quicksight/latest/developerguide/",
       "name": "quicksight",
       "page_count": 170,
-      "last_discovered": "2025-10-28T02:15:09.106635+00:00"
+      "last_discovered": "2025-11-02T03:29:04.131057+00:00"
     },
     {
       "url": "/quicksuite/latest/userguide/",
       "name": "quicksuite",
       "page_count": 940,
-      "last_discovered": "2025-10-28T02:15:09.211987+00:00"
+      "last_discovered": "2025-11-02T03:29:04.260687+00:00"
     },
     {
       "url": "/r53recovery/latest/dg/",
       "name": "r53recovery",
       "page_count": 205,
-      "last_discovered": "2025-10-28T02:15:09.316200+00:00"
+      "last_discovered": "2025-11-02T03:29:04.394689+00:00"
     },
     {
       "url": "/ram/latest/userguide/",
       "name": "ram",
       "page_count": 54,
-      "last_discovered": "2025-10-28T02:15:09.417769+00:00"
+      "last_discovered": "2025-11-02T03:29:04.512990+00:00"
     },
     {
       "url": "/redshift/latest/dg/",
       "name": "redshift",
       "page_count": 1285,
-      "last_discovered": "2025-10-28T02:15:09.517551+00:00"
+      "last_discovered": "2025-11-02T03:29:04.634456+00:00"
     },
     {
       "url": "/redshift/latest/gsg/",
       "name": "redshift",
       "page_count": 18,
-      "last_discovered": "2025-10-28T02:15:09.589200+00:00"
+      "last_discovered": "2025-11-02T03:29:04.750085+00:00"
     },
     {
       "url": "/redshift/latest/mgmt/",
       "name": "redshift",
       "page_count": 399,
-      "last_discovered": "2025-10-28T02:15:09.707388+00:00"
+      "last_discovered": "2025-11-02T03:29:04.871382+00:00"
     },
     {
       "url": "/rekognition/latest/customlabels-dg/",
       "name": "rekognition",
       "page_count": 104,
-      "last_discovered": "2025-10-28T02:15:09.794220+00:00"
+      "last_discovered": "2025-11-02T03:29:05.007016+00:00"
     },
     {
       "url": "/rekognition/latest/dg/",
       "name": "rekognition",
       "page_count": 213,
-      "last_discovered": "2025-10-28T02:15:09.899597+00:00"
+      "last_discovered": "2025-11-02T03:29:05.125676+00:00"
     },
     {
       "url": "/repostprivate/latest/adminguide/",
       "name": "repostprivate",
       "page_count": 19,
-      "last_discovered": "2025-10-28T02:15:09.987269+00:00"
+      "last_discovered": "2025-11-02T03:29:05.244080+00:00"
     },
     {
       "url": "/repostprivate/latest/caguide/",
       "name": "repostprivate",
       "page_count": 37,
-      "last_discovered": "2025-10-28T02:15:10.118516+00:00"
+      "last_discovered": "2025-11-02T03:29:05.358465+00:00"
     },
     {
       "url": "/repostprivate/latest/userguide/",
       "name": "repostprivate",
       "page_count": 16,
-      "last_discovered": "2025-10-28T02:15:10.200343+00:00"
+      "last_discovered": "2025-11-02T03:29:05.472121+00:00"
     },
     {
       "url": "/res/latest/ug/",
       "name": "res",
       "page_count": 104,
-      "last_discovered": "2025-10-28T02:15:10.293575+00:00"
+      "last_discovered": "2025-11-02T03:29:05.591354+00:00"
     },
     {
       "url": "/resilience-hub/latest/userguide/",
       "name": "resilience-hub",
       "page_count": 100,
-      "last_discovered": "2025-10-28T02:15:10.409812+00:00"
+      "last_discovered": "2025-11-02T03:29:05.706641+00:00"
     },
     {
       "url": "/resource-explorer/latest/userguide/",
       "name": "resource-explorer",
       "page_count": 60,
-      "last_discovered": "2025-10-28T02:15:10.518183+00:00"
+      "last_discovered": "2025-11-02T03:29:05.827494+00:00"
     },
     {
       "url": "/rfdk/latest/guide/",
       "name": "rfdk",
       "page_count": 23,
-      "last_discovered": "2025-10-28T02:15:10.597755+00:00"
+      "last_discovered": "2025-11-02T03:29:05.941827+00:00"
     },
     {
       "url": "/rolesanywhere/latest/userguide/",
       "name": "rolesanywhere",
       "page_count": 36,
-      "last_discovered": "2025-10-28T02:15:10.687745+00:00"
+      "last_discovered": "2025-11-02T03:29:06.057606+00:00"
     },
     {
       "url": "/rosa/latest/userguide/",
       "name": "rosa",
       "page_count": 26,
-      "last_discovered": "2025-10-28T02:15:10.802933+00:00"
+      "last_discovered": "2025-11-02T03:29:06.186976+00:00"
     },
     {
       "url": "/Route53/latest/DeveloperGuide/",
       "name": "Route53",
       "page_count": 696,
-      "last_discovered": "2025-10-28T02:15:10.913872+00:00"
+      "last_discovered": "2025-11-02T03:29:06.359905+00:00"
     },
     {
       "url": "/rtb-fabric/latest/userguide/",
       "name": "rtb-fabric",
       "page_count": 29,
-      "last_discovered": "2025-10-28T02:15:11.042873+00:00"
+      "last_discovered": "2025-11-02T03:29:06.488129+00:00"
     },
     {
       "url": "/sagemaker/latest/dg/",
       "name": "sagemaker",
-      "page_count": 2180,
-      "last_discovered": "2025-10-28T02:15:11.172880+00:00"
+      "page_count": 2179,
+      "last_discovered": "2025-11-02T03:29:06.610722+00:00"
     },
     {
       "url": "/sagemaker/latest/dg-ecr-paths/",
       "name": "sagemaker",
       "page_count": 38,
-      "last_discovered": "2025-10-28T02:15:11.264494+00:00"
+      "last_discovered": "2025-11-02T03:29:06.727679+00:00"
     },
     {
       "url": "/sagemaker-lakehouse-architecture/latest/userguide/",
       "name": "sagemaker-lakehouse-architecture",
       "page_count": 28,
-      "last_discovered": "2025-10-28T02:15:11.375662+00:00"
+      "last_discovered": "2025-11-02T03:29:06.848400+00:00"
     },
     {
       "url": "/sagemaker-unified-studio/latest/adminguide/",
       "name": "sagemaker-unified-studio",
       "page_count": 119,
-      "last_discovered": "2025-10-28T02:15:11.465432+00:00"
+      "last_discovered": "2025-11-02T03:29:06.986453+00:00"
     },
     {
       "url": "/sagemaker-unified-studio/latest/userguide/",
       "name": "sagemaker-unified-studio",
       "page_count": 328,
-      "last_discovered": "2025-10-28T02:15:11.545498+00:00"
+      "last_discovered": "2025-11-02T03:29:07.114357+00:00"
     },
     {
       "url": "/sap/latest/general/",
       "name": "sap",
       "page_count": 128,
-      "last_discovered": "2025-10-28T02:15:11.646792+00:00"
+      "last_discovered": "2025-11-02T03:29:07.241203+00:00"
     },
     {
       "url": "/sap/latest/sap-AnyDB/",
       "name": "sap",
       "page_count": 52,
-      "last_discovered": "2025-10-28T02:15:11.757995+00:00"
+      "last_discovered": "2025-11-02T03:29:07.353844+00:00"
     },
     {
       "url": "/sap/latest/sap-businessobjects/",
       "name": "sap",
       "page_count": 64,
-      "last_discovered": "2025-10-28T02:15:11.862259+00:00"
+      "last_discovered": "2025-11-02T03:29:07.484336+00:00"
     },
     {
       "url": "/sap/latest/sap-hana/",
       "name": "sap",
       "page_count": 127,
-      "last_discovered": "2025-10-28T02:15:11.942445+00:00"
+      "last_discovered": "2025-11-02T03:29:07.621556+00:00"
     },
     {
       "url": "/sap/latest/sap-netweaver/",
       "name": "sap",
       "page_count": 144,
-      "last_discovered": "2025-10-28T02:15:12.059601+00:00"
+      "last_discovered": "2025-11-02T03:29:07.744666+00:00"
     },
     {
       "url": "/savingsplans/latest/userguide/",
       "name": "savingsplans",
       "page_count": 45,
-      "last_discovered": "2025-10-28T02:15:12.184699+00:00"
+      "last_discovered": "2025-11-02T03:29:07.863718+00:00"
     },
     {
       "url": "/scheduler/latest/UserGuide/",
       "name": "scheduler",
       "page_count": 37,
-      "last_discovered": "2025-10-28T02:15:12.269397+00:00"
+      "last_discovered": "2025-11-02T03:29:07.989031+00:00"
     },
     {
       "url": "/SchemaConversionTool/latest/userguide/",
       "name": "SchemaConversionTool",
       "page_count": 112,
-      "last_discovered": "2025-10-28T02:15:12.369888+00:00"
+      "last_discovered": "2025-11-02T03:29:08.102821+00:00"
     },
     {
       "url": "/secretsmanager/latest/userguide/",
       "name": "secretsmanager",
       "page_count": 188,
-      "last_discovered": "2025-10-28T02:15:12.455650+00:00"
+      "last_discovered": "2025-11-02T03:29:08.222222+00:00"
     },
     {
       "url": "/security-ir/latest/userguide/",
       "name": "security-ir",
       "page_count": 192,
-      "last_discovered": "2025-10-28T02:15:12.569491+00:00"
+      "last_discovered": "2025-11-02T03:29:08.344082+00:00"
     },
     {
       "url": "/security-lake/latest/userguide/",
       "name": "security-lake",
       "page_count": 95,
-      "last_discovered": "2025-10-28T02:15:12.656516+00:00"
+      "last_discovered": "2025-11-02T03:29:08.461225+00:00"
     },
     {
       "url": "/securityhub/latest/partnerguide/",
       "name": "securityhub",
       "page_count": 20,
-      "last_discovered": "2025-10-28T02:15:12.753038+00:00"
+      "last_discovered": "2025-11-02T03:29:08.591391+00:00"
     },
     {
       "url": "/securityhub/latest/userguide/",
       "name": "securityhub",
       "page_count": 336,
-      "last_discovered": "2025-10-28T02:15:12.867505+00:00"
+      "last_discovered": "2025-11-02T03:29:08.708079+00:00"
     },
     {
       "url": "/serverless/latest/devguide/",
       "name": "serverless",
       "page_count": 12,
-      "last_discovered": "2025-10-28T02:15:12.972304+00:00"
+      "last_discovered": "2025-11-02T03:29:08.838978+00:00"
     },
     {
       "url": "/serverless-application-model/latest/developerguide/",
       "name": "serverless-application-model",
       "page_count": 255,
-      "last_discovered": "2025-10-28T02:15:13.098840+00:00"
+      "last_discovered": "2025-11-02T03:29:08.957195+00:00"
     },
     {
       "url": "/serverlessrepo/latest/devguide/",
       "name": "serverlessrepo",
       "page_count": 44,
-      "last_discovered": "2025-10-28T02:15:13.205613+00:00"
+      "last_discovered": "2025-11-02T03:29:09.073519+00:00"
     },
     {
       "url": "/service-authorization/latest/reference/",
       "name": "service-authorization",
       "page_count": 442,
-      "last_discovered": "2025-10-28T02:15:13.297673+00:00"
+      "last_discovered": "2025-11-02T03:29:09.194427+00:00"
     },
     {
       "url": "/servicecatalog/latest/adminguide/",
       "name": "servicecatalog",
       "page_count": 96,
-      "last_discovered": "2025-10-28T02:15:13.395623+00:00"
+      "last_discovered": "2025-11-02T03:29:09.314805+00:00"
     },
     {
       "url": "/servicecatalog/latest/arguide/",
       "name": "servicecatalog",
       "page_count": 44,
-      "last_discovered": "2025-10-28T02:15:13.482288+00:00"
+      "last_discovered": "2025-11-02T03:29:09.457160+00:00"
     },
     {
       "url": "/servicecatalog/latest/dg/",
       "name": "servicecatalog",
       "page_count": 199,
-      "last_discovered": "2025-10-28T02:15:13.574993+00:00"
+      "last_discovered": "2025-11-02T03:29:09.572498+00:00"
     },
     {
       "url": "/servicecatalog/latest/smcguide/",
       "name": "servicecatalog",
       "page_count": 1,
-      "last_discovered": "2025-10-28T02:15:13.679357+00:00"
+      "last_discovered": "2025-11-02T03:29:09.689886+00:00"
     },
     {
       "url": "/servicecatalog/latest/userguide/",
       "name": "servicecatalog",
       "page_count": 12,
-      "last_discovered": "2025-10-28T02:15:13.786383+00:00"
+      "last_discovered": "2025-11-02T03:29:09.806390+00:00"
     },
     {
       "url": "/servicequotas/latest/userguide/",
       "name": "servicequotas",
       "page_count": 29,
-      "last_discovered": "2025-10-28T02:15:13.875749+00:00"
+      "last_discovered": "2025-11-02T03:29:09.921537+00:00"
     },
     {
       "url": "/ses/latest/dg/",
       "name": "ses",
       "page_count": 267,
-      "last_discovered": "2025-10-28T02:15:14.001579+00:00"
+      "last_discovered": "2025-11-02T03:29:10.035792+00:00"
     },
     {
       "url": "/signer/latest/developerguide/",
       "name": "signer",
       "page_count": 50,
-      "last_discovered": "2025-10-28T02:15:14.098077+00:00"
+      "last_discovered": "2025-11-02T03:29:10.176703+00:00"
     },
     {
       "url": "/signin/latest/userguide/",
       "name": "signin",
       "page_count": 26,
-      "last_discovered": "2025-10-28T02:15:14.231883+00:00"
+      "last_discovered": "2025-11-02T03:29:10.294974+00:00"
     },
     {
       "url": "/silk/latest/developerguide/",
       "name": "silk",
       "page_count": 25,
-      "last_discovered": "2025-10-28T02:15:14.304884+00:00"
+      "last_discovered": "2025-11-02T03:29:10.411145+00:00"
     },
     {
       "url": "/simspaceweaver/latest/catalog/",
       "name": "simspaceweaver",
       "page_count": 3,
-      "last_discovered": "2025-10-28T02:15:14.412854+00:00"
+      "last_discovered": "2025-11-02T03:29:10.529578+00:00"
     },
     {
       "url": "/simspaceweaver/latest/userguide/",
       "name": "simspaceweaver",
       "page_count": 143,
-      "last_discovered": "2025-10-28T02:15:14.520680+00:00"
+      "last_discovered": "2025-11-02T03:29:10.648187+00:00"
     },
     {
       "url": "/singlesignon/latest/developerguide/",
       "name": "singlesignon",
       "page_count": 21,
-      "last_discovered": "2025-10-28T02:15:14.609060+00:00"
+      "last_discovered": "2025-11-02T03:29:10.768592+00:00"
     },
     {
       "url": "/singlesignon/latest/userguide/",
       "name": "singlesignon",
       "page_count": 236,
-      "last_discovered": "2025-10-28T02:15:14.720459+00:00"
+      "last_discovered": "2025-11-02T03:29:10.885281+00:00"
     },
     {
       "url": "/smc/latest/ag/",
       "name": "smc",
       "page_count": 163,
-      "last_discovered": "2025-10-28T02:15:14.814351+00:00"
+      "last_discovered": "2025-11-02T03:29:11.001235+00:00"
     },
     {
       "url": "/sms-voice/latest/userguide/",
       "name": "sms-voice",
       "page_count": 237,
-      "last_discovered": "2025-10-28T02:15:14.917087+00:00"
+      "last_discovered": "2025-11-02T03:29:11.118367+00:00"
     },
     {
       "url": "/snow/latest/swsbe-pack/",
       "name": "snow",
       "page_count": 13,
-      "last_discovered": "2025-10-28T02:15:15.085533+00:00"
+      "last_discovered": "2025-11-02T03:29:11.233675+00:00"
     },
     {
       "url": "/snowball/latest/developer-guide/",
       "name": "snowball",
       "page_count": 145,
-      "last_discovered": "2025-10-28T02:15:15.179207+00:00"
+      "last_discovered": "2025-11-02T03:29:11.348733+00:00"
     },
     {
       "url": "/sns/latest/dg/",
       "name": "sns",
       "page_count": 272,
-      "last_discovered": "2025-10-28T02:15:15.288931+00:00"
+      "last_discovered": "2025-11-02T03:29:11.493056+00:00"
     },
     {
       "url": "/social-messaging/latest/userguide/",
       "name": "social-messaging",
       "page_count": 58,
-      "last_discovered": "2025-10-28T02:15:15.363100+00:00"
+      "last_discovered": "2025-11-02T03:29:11.612136+00:00"
     },
     {
       "url": "/speke/latest/documentation/",
       "name": "speke",
       "page_count": 23,
-      "last_discovered": "2025-10-28T02:15:15.477862+00:00"
+      "last_discovered": "2025-11-02T03:29:11.739810+00:00"
     },
     {
       "url": "/sql-server-ec2/latest/userguide/",
       "name": "sql-server-ec2",
       "page_count": 22,
-      "last_discovered": "2025-10-28T02:15:15.560665+00:00"
+      "last_discovered": "2025-11-02T03:29:11.872170+00:00"
     },
     {
       "url": "/ssm-sap/latest/userguide/",
       "name": "ssm-sap",
       "page_count": 30,
-      "last_discovered": "2025-10-28T02:15:15.655937+00:00"
+      "last_discovered": "2025-11-02T03:29:12.014144+00:00"
     },
     {
       "url": "/step-functions/latest/dg/",
       "name": "step-functions",
       "page_count": 174,
-      "last_discovered": "2025-10-28T02:15:15.766931+00:00"
+      "last_discovered": "2025-11-02T03:29:12.128433+00:00"
     },
     {
       "url": "/storagegateway/latest/tgw/",
       "name": "storagegateway",
       "page_count": 144,
-      "last_discovered": "2025-10-28T02:15:15.857015+00:00"
+      "last_discovered": "2025-11-02T03:29:12.267446+00:00"
     },
     {
       "url": "/storagegateway/latest/vgw/",
       "name": "storagegateway",
       "page_count": 131,
-      "last_discovered": "2025-10-28T02:15:15.963509+00:00"
+      "last_discovered": "2025-11-02T03:29:12.398447+00:00"
     },
     {
       "url": "/streams/latest/dev/",
       "name": "streams",
       "page_count": 203,
-      "last_discovered": "2025-10-28T02:15:16.125061+00:00"
+      "last_discovered": "2025-11-02T03:29:12.540743+00:00"
     },
     {
       "url": "/systems-manager/latest/userguide/",
       "name": "systems-manager",
       "page_count": 774,
-      "last_discovered": "2025-10-28T02:15:16.214024+00:00"
+      "last_discovered": "2025-11-02T03:29:12.673168+00:00"
     },
     {
       "url": "/systems-manager-automation-runbooks/latest/userguide/",
       "name": "systems-manager-automation-runbooks",
-      "page_count": 357,
-      "last_discovered": "2025-10-28T02:15:16.300845+00:00"
+      "page_count": 360,
+      "last_discovered": "2025-11-02T03:29:12.793884+00:00"
     },
     {
       "url": "/tag-editor/latest/userguide/",
       "name": "tag-editor",
       "page_count": 31,
-      "last_discovered": "2025-10-28T02:15:16.406471+00:00"
+      "last_discovered": "2025-11-02T03:29:12.940187+00:00"
     },
     {
       "url": "/textract/latest/dg/",
       "name": "textract",
       "page_count": 169,
-      "last_discovered": "2025-10-28T02:15:16.499018+00:00"
+      "last_discovered": "2025-11-02T03:29:13.060017+00:00"
     },
     {
       "url": "/timestream/latest/developerguide/",
       "name": "timestream",
       "page_count": 448,
-      "last_discovered": "2025-10-28T02:15:16.618990+00:00"
+      "last_discovered": "2025-11-02T03:29:13.175322+00:00"
     },
     {
       "url": "/tnb/latest/ug/",
       "name": "tnb",
       "page_count": 69,
-      "last_discovered": "2025-10-28T02:15:16.697485+00:00"
+      "last_discovered": "2025-11-02T03:29:13.287458+00:00"
     },
     {
       "url": "/transcribe/latest/dg/",
       "name": "transcribe",
       "page_count": 129,
-      "last_discovered": "2025-10-28T02:15:16.799316+00:00"
+      "last_discovered": "2025-11-02T03:29:13.409512+00:00"
     },
     {
       "url": "/transfer/latest/userguide/",
       "name": "transfer",
       "page_count": 150,
-      "last_discovered": "2025-10-28T02:15:16.900008+00:00"
+      "last_discovered": "2025-11-02T03:29:13.551617+00:00"
     },
     {
       "url": "/transform/latest/userguide/",
       "name": "transform",
       "page_count": 64,
-      "last_discovered": "2025-10-28T02:15:17.012785+00:00"
+      "last_discovered": "2025-11-02T03:29:13.671124+00:00"
     },
     {
       "url": "/translate/latest/dg/",
       "name": "translate",
       "page_count": 71,
-      "last_discovered": "2025-10-28T02:15:17.126154+00:00"
+      "last_discovered": "2025-11-02T03:29:13.789248+00:00"
     },
     {
       "url": "/verified-access/latest/ug/",
       "name": "verified-access",
       "page_count": 60,
-      "last_discovered": "2025-10-28T02:15:17.192470+00:00"
+      "last_discovered": "2025-11-02T03:29:13.921090+00:00"
     },
     {
       "url": "/verifiedpermissions/latest/userguide/",
       "name": "verifiedpermissions",
       "page_count": 59,
-      "last_discovered": "2025-10-28T02:15:17.309248+00:00"
+      "last_discovered": "2025-11-02T03:29:14.064740+00:00"
     },
     {
       "url": "/vm-import/latest/userguide/",
       "name": "vm-import",
       "page_count": 47,
-      "last_discovered": "2025-10-28T02:15:17.394649+00:00"
+      "last_discovered": "2025-11-02T03:29:14.182207+00:00"
     },
     {
       "url": "/vpc/latest/ipam/",
       "name": "vpc",
-      "page_count": 82,
-      "last_discovered": "2025-10-28T02:15:17.496904+00:00"
+      "page_count": 83,
+      "last_discovered": "2025-11-02T03:29:14.315506+00:00"
     },
     {
       "url": "/vpc/latest/mirroring/",
       "name": "vpc",
       "page_count": 22,
-      "last_discovered": "2025-10-28T02:15:17.608858+00:00"
+      "last_discovered": "2025-11-02T03:29:14.445735+00:00"
     },
     {
       "url": "/vpc/latest/network-access-analyzer/",
       "name": "vpc",
       "page_count": 17,
-      "last_discovered": "2025-10-28T02:15:17.694707+00:00"
+      "last_discovered": "2025-11-02T03:29:14.560262+00:00"
     },
     {
       "url": "/vpc/latest/peering/",
       "name": "vpc",
       "page_count": 17,
-      "last_discovered": "2025-10-28T02:15:17.795322+00:00"
+      "last_discovered": "2025-11-02T03:29:14.682358+00:00"
     },
     {
       "url": "/vpc/latest/privatelink/",
       "name": "vpc",
       "page_count": 42,
-      "last_discovered": "2025-10-28T02:15:17.912635+00:00"
+      "last_discovered": "2025-11-02T03:29:14.799068+00:00"
     },
     {
       "url": "/vpc/latest/reachability/",
       "name": "vpc",
       "page_count": 22,
-      "last_discovered": "2025-10-28T02:15:18.009246+00:00"
+      "last_discovered": "2025-11-02T03:29:14.917303+00:00"
     },
     {
       "url": "/vpc/latest/tgw/",
       "name": "vpc",
       "page_count": 115,
-      "last_discovered": "2025-10-28T02:15:18.120709+00:00"
+      "last_discovered": "2025-11-02T03:29:15.035178+00:00"
     },
     {
       "url": "/vpc/latest/userguide/",
       "name": "vpc",
       "page_count": 197,
-      "last_discovered": "2025-10-28T02:15:18.245848+00:00"
+      "last_discovered": "2025-11-02T03:29:15.161938+00:00"
     },
     {
       "url": "/vpc-lattice/latest/ug/",
       "name": "vpc-lattice",
       "page_count": 68,
-      "last_discovered": "2025-10-28T02:15:18.347264+00:00"
+      "last_discovered": "2025-11-02T03:29:15.279690+00:00"
     },
     {
       "url": "/vpn/latest/s2svpn/",
       "name": "vpn",
       "page_count": 84,
-      "last_discovered": "2025-10-28T02:15:18.428146+00:00"
+      "last_discovered": "2025-11-02T03:29:15.423808+00:00"
     },
     {
       "url": "/vsts/latest/userguide/",
       "name": "vsts",
       "page_count": 35,
-      "last_discovered": "2025-10-28T02:15:18.529381+00:00"
+      "last_discovered": "2025-11-02T03:29:15.562353+00:00"
     },
     {
       "url": "/waf/latest/developerguide/",
       "name": "waf",
       "page_count": 529,
-      "last_discovered": "2025-10-28T02:15:18.622053+00:00"
+      "last_discovered": "2025-11-02T03:29:15.681571+00:00"
     },
     {
       "url": "/wavelength/latest/developerguide/",
       "name": "wavelength",
       "page_count": 14,
-      "last_discovered": "2025-10-28T02:15:18.744751+00:00"
+      "last_discovered": "2025-11-02T03:29:15.797064+00:00"
     },
     {
       "url": "/wellarchitected/latest/amazon-opensearch-service-lens/",
       "name": "wellarchitected",
       "page_count": 110,
-      "last_discovered": "2025-10-28T02:15:18.830695+00:00"
+      "last_discovered": "2025-11-02T03:29:15.937200+00:00"
     },
     {
       "url": "/wellarchitected/latest/analytics-lens/",
       "name": "wellarchitected",
       "page_count": 116,
-      "last_discovered": "2025-10-28T02:15:19.016433+00:00"
+      "last_discovered": "2025-11-02T03:29:16.052573+00:00"
     },
     {
       "url": "/wellarchitected/latest/change-enablement-in-the-cloud/",
       "name": "wellarchitected",
       "page_count": 12,
-      "last_discovered": "2025-10-28T02:15:19.113340+00:00"
+      "last_discovered": "2025-11-02T03:29:16.197444+00:00"
     },
     {
       "url": "/wellarchitected/latest/connected-mobility-lens/",
       "name": "wellarchitected",
       "page_count": 74,
-      "last_discovered": "2025-10-28T02:15:19.254256+00:00"
+      "last_discovered": "2025-11-02T03:29:16.326982+00:00"
     },
     {
       "url": "/wellarchitected/latest/container-build-lens/",
       "name": "wellarchitected",
       "page_count": 62,
-      "last_discovered": "2025-10-28T02:15:19.343099+00:00"
+      "last_discovered": "2025-11-02T03:29:16.441889+00:00"
     },
     {
       "url": "/wellarchitected/latest/cost-optimization-pillar/",
       "name": "wellarchitected",
       "page_count": 74,
-      "last_discovered": "2025-10-28T02:15:19.439411+00:00"
+      "last_discovered": "2025-11-02T03:29:16.557876+00:00"
     },
     {
       "url": "/wellarchitected/latest/data-residency-hybrid-cloud-services-lens/",
       "name": "wellarchitected",
       "page_count": 126,
-      "last_discovered": "2025-10-28T02:15:19.539133+00:00"
+      "last_discovered": "2025-11-02T03:29:16.706022+00:00"
     },
     {
       "url": "/wellarchitected/latest/devops-guidance/",
       "name": "wellarchitected",
       "page_count": 317,
-      "last_discovered": "2025-10-28T02:15:19.642052+00:00"
+      "last_discovered": "2025-11-02T03:29:16.831148+00:00"
     },
     {
       "url": "/wellarchitected/latest/end-user-computing-lens/",
       "name": "wellarchitected",
       "page_count": 173,
-      "last_discovered": "2025-10-28T02:15:19.728166+00:00"
+      "last_discovered": "2025-11-02T03:29:16.947981+00:00"
     },
     {
       "url": "/wellarchitected/latest/financial-services-industry-lens/",
       "name": "wellarchitected",
       "page_count": 131,
-      "last_discovered": "2025-10-28T02:15:19.823029+00:00"
+      "last_discovered": "2025-11-02T03:29:17.068156+00:00"
     },
     {
       "url": "/wellarchitected/latest/framework/",
       "name": "wellarchitected",
       "page_count": 475,
-      "last_discovered": "2025-10-28T02:15:19.936168+00:00"
+      "last_discovered": "2025-11-02T03:29:17.187362+00:00"
     },
     {
       "url": "/wellarchitected/latest/games-industry-lens/",
       "name": "wellarchitected",
       "page_count": 70,
-      "last_discovered": "2025-10-28T02:15:20.036681+00:00"
+      "last_discovered": "2025-11-02T03:29:17.332102+00:00"
     },
     {
       "url": "/wellarchitected/latest/generative-ai-lens/",
       "name": "wellarchitected",
       "page_count": 96,
-      "last_discovered": "2025-10-28T02:15:20.143237+00:00"
+      "last_discovered": "2025-11-02T03:29:17.460413+00:00"
     },
     {
       "url": "/wellarchitected/latest/government-lens/",
       "name": "wellarchitected",
       "page_count": 45,
-      "last_discovered": "2025-10-28T02:15:20.233729+00:00"
+      "last_discovered": "2025-11-02T03:29:17.578617+00:00"
     },
     {
       "url": "/wellarchitected/latest/healthcare-industry-lens/",
       "name": "wellarchitected",
       "page_count": 85,
-      "last_discovered": "2025-10-28T02:15:20.352206+00:00"
+      "last_discovered": "2025-11-02T03:29:17.709432+00:00"
     },
     {
       "url": "/wellarchitected/latest/high-performance-computing-lens/",
       "name": "wellarchitected",
       "page_count": 59,
-      "last_discovered": "2025-10-28T02:15:20.422390+00:00"
+      "last_discovered": "2025-11-02T03:29:17.825254+00:00"
     },
     {
       "url": "/wellarchitected/latest/hybrid-networking-lens/",
       "name": "wellarchitected",
       "page_count": 20,
-      "last_discovered": "2025-10-28T02:15:20.522055+00:00"
+      "last_discovered": "2025-11-02T03:29:17.953734+00:00"
     },
     {
       "url": "/wellarchitected/latest/iot-lens/",
       "name": "wellarchitected",
       "page_count": 121,
-      "last_discovered": "2025-10-28T02:15:20.636325+00:00"
+      "last_discovered": "2025-11-02T03:29:18.072512+00:00"
     },
     {
       "url": "/wellarchitected/latest/machine-learning-lens/",
       "name": "wellarchitected",
       "page_count": 167,
-      "last_discovered": "2025-10-28T02:15:20.751393+00:00"
+      "last_discovered": "2025-11-02T03:29:18.184795+00:00"
     },
     {
       "url": "/wellarchitected/latest/management-and-governance-guide/",
       "name": "wellarchitected",
       "page_count": 51,
-      "last_discovered": "2025-10-28T02:15:20.822085+00:00"
+      "last_discovered": "2025-11-02T03:29:18.303220+00:00"
     },
     {
       "url": "/wellarchitected/latest/maori-data-lens/",
       "name": "wellarchitected",
       "page_count": 31,
-      "last_discovered": "2025-10-28T02:15:20.928384+00:00"
+      "last_discovered": "2025-11-02T03:29:18.417739+00:00"
     },
     {
       "url": "/wellarchitected/latest/mergers-and-acquisitions-lens/",
       "name": "wellarchitected",
       "page_count": 48,
-      "last_discovered": "2025-10-28T02:15:21.026272+00:00"
+      "last_discovered": "2025-11-02T03:29:18.536235+00:00"
     },
     {
       "url": "/wellarchitected/latest/migration-lens/",
       "name": "wellarchitected",
       "page_count": 36,
-      "last_discovered": "2025-10-28T02:15:21.136439+00:00"
+      "last_discovered": "2025-11-02T03:29:18.667150+00:00"
+    },
+    {
+      "url": "/wellarchitected/latest/modern-industrial-data-technology-lens/",
+      "name": "wellarchitected",
+      "page_count": 131,
+      "last_discovered": "2025-11-02T03:29:18.795286+00:00"
     },
     {
       "url": "/wellarchitected/latest/operational-excellence-pillar/",
       "name": "wellarchitected",
       "page_count": 99,
-      "last_discovered": "2025-10-28T02:15:21.237192+00:00"
+      "last_discovered": "2025-11-02T03:29:18.926941+00:00"
     },
     {
       "url": "/wellarchitected/latest/operational-readiness-reviews/",
       "name": "wellarchitected",
       "page_count": 15,
-      "last_discovered": "2025-10-28T02:15:21.360674+00:00"
+      "last_discovered": "2025-11-02T03:29:19.042587+00:00"
     },
     {
       "url": "/wellarchitected/latest/performance-efficiency-pillar/",
       "name": "wellarchitected",
       "page_count": 47,
-      "last_discovered": "2025-10-28T02:15:21.439106+00:00"
+      "last_discovered": "2025-11-02T03:29:19.160378+00:00"
     },
     {
       "url": "/wellarchitected/latest/reducing-scope-of-impact-with-cell-based-architecture/",
       "name": "wellarchitected",
       "page_count": 38,
-      "last_discovered": "2025-10-28T02:15:21.547363+00:00"
+      "last_discovered": "2025-11-02T03:29:19.277641+00:00"
     },
     {
       "url": "/wellarchitected/latest/reliability-pillar/",
       "name": "wellarchitected",
       "page_count": 97,
-      "last_discovered": "2025-10-28T02:15:21.649754+00:00"
+      "last_discovered": "2025-11-02T03:29:19.397227+00:00"
     },
     {
       "url": "/wellarchitected/latest/saas-lens/",
       "name": "wellarchitected",
       "page_count": 83,
-      "last_discovered": "2025-10-28T02:15:21.763211+00:00"
+      "last_discovered": "2025-11-02T03:29:19.516843+00:00"
     },
     {
       "url": "/wellarchitected/latest/sap-lens/",
       "name": "wellarchitected",
       "page_count": 141,
-      "last_discovered": "2025-10-28T02:15:21.852954+00:00"
+      "last_discovered": "2025-11-02T03:29:19.638780+00:00"
     },
     {
       "url": "/wellarchitected/latest/security-pillar/",
       "name": "wellarchitected",
       "page_count": 93,
-      "last_discovered": "2025-10-28T02:15:21.973420+00:00"
+      "last_discovered": "2025-11-02T03:29:19.754480+00:00"
     },
     {
       "url": "/wellarchitected/latest/serverless-applications-lens/",
       "name": "wellarchitected",
       "page_count": 82,
-      "last_discovered": "2025-10-28T02:15:22.074507+00:00"
+      "last_discovered": "2025-11-02T03:29:19.886600+00:00"
     },
     {
       "url": "/wellarchitected/latest/streaming-media-lens/",
       "name": "wellarchitected",
       "page_count": 46,
-      "last_discovered": "2025-10-28T02:15:22.157687+00:00"
+      "last_discovered": "2025-11-02T03:29:20.005865+00:00"
     },
     {
       "url": "/wellarchitected/latest/supply-chain-lens/",
       "name": "wellarchitected",
       "page_count": 135,
-      "last_discovered": "2025-10-28T02:15:22.279635+00:00"
+      "last_discovered": "2025-11-02T03:29:20.118004+00:00"
     },
     {
       "url": "/wellarchitected/latest/sustainability-pillar/",
       "name": "wellarchitected",
       "page_count": 55,
-      "last_discovered": "2025-10-28T02:15:22.353234+00:00"
+      "last_discovered": "2025-11-02T03:29:20.245555+00:00"
     },
     {
       "url": "/wellarchitected/latest/userguide/",
       "name": "wellarchitected",
       "page_count": 109,
-      "last_discovered": "2025-10-28T02:15:22.467005+00:00"
+      "last_discovered": "2025-11-02T03:29:20.363193+00:00"
     },
     {
       "url": "/wellarchitected/latest/video-streaming-advertising-lens/",
       "name": "wellarchitected",
       "page_count": 124,
-      "last_discovered": "2025-10-28T02:15:22.552879+00:00"
+      "last_discovered": "2025-11-02T03:29:20.501934+00:00"
     },
     {
       "url": "/wickr/latest/adminguide/",
       "name": "wickr",
       "page_count": 118,
-      "last_discovered": "2025-10-28T02:15:22.669839+00:00"
+      "last_discovered": "2025-11-02T03:29:20.619620+00:00"
     },
     {
       "url": "/wickr/latest/adminguide-classic/",
       "name": "wickr",
       "page_count": 115,
-      "last_discovered": "2025-10-28T02:15:22.773721+00:00"
+      "last_discovered": "2025-11-02T03:29:20.734566+00:00"
     },
     {
       "url": "/wickr/latest/enterpriseadminguide/",
       "name": "wickr",
       "page_count": 99,
-      "last_discovered": "2025-10-28T02:15:22.852099+00:00"
+      "last_discovered": "2025-11-02T03:29:20.863607+00:00"
     },
     {
       "url": "/wickr/latest/userguide/",
       "name": "wickr",
       "page_count": 54,
-      "last_discovered": "2025-10-28T02:15:22.960000+00:00"
+      "last_discovered": "2025-11-02T03:29:20.982112+00:00"
     },
     {
       "url": "/wickr/latest/wickrenterpriseinstall/",
       "name": "wickr",
       "page_count": 32,
-      "last_discovered": "2025-10-28T02:15:23.078170+00:00"
+      "last_discovered": "2025-11-02T03:29:21.099455+00:00"
     },
     {
       "url": "/wickr/latest/wickrio/",
       "name": "wickr",
       "page_count": 43,
-      "last_discovered": "2025-10-28T02:15:23.148226+00:00"
+      "last_discovered": "2025-11-02T03:29:21.214556+00:00"
     },
     {
       "url": "/workmail/latest/adminguide/",
       "name": "workmail",
       "page_count": 118,
-      "last_discovered": "2025-10-28T02:15:23.281231+00:00"
+      "last_discovered": "2025-11-02T03:29:21.346235+00:00"
     },
     {
       "url": "/workmail/latest/userguide/",
       "name": "workmail",
       "page_count": 41,
-      "last_discovered": "2025-10-28T02:15:23.365656+00:00"
+      "last_discovered": "2025-11-02T03:29:21.482615+00:00"
     },
     {
       "url": "/workspaces/latest/adminguide/",
       "name": "workspaces",
       "page_count": 173,
-      "last_discovered": "2025-10-28T02:15:23.486334+00:00"
+      "last_discovered": "2025-11-02T03:29:21.618839+00:00"
     },
     {
       "url": "/workspaces/latest/userguide/",
       "name": "workspaces",
-      "page_count": 30,
-      "last_discovered": "2025-10-28T02:15:23.599963+00:00"
+      "page_count": 32,
+      "last_discovered": "2025-11-02T03:29:21.760289+00:00"
     },
     {
       "url": "/workspaces-core/latest/ag/",
       "name": "workspaces-core",
       "page_count": 9,
-      "last_discovered": "2025-10-28T02:15:23.696056+00:00"
+      "last_discovered": "2025-11-02T03:29:21.876468+00:00"
     },
     {
       "url": "/workspaces-core/latest/pg/",
       "name": "workspaces-core",
       "page_count": 14,
-      "last_discovered": "2025-10-28T02:15:23.777926+00:00"
+      "last_discovered": "2025-11-02T03:29:21.994951+00:00"
     },
     {
       "url": "/workspaces-web/latest/adminguide/",
       "name": "workspaces-web",
       "page_count": 173,
-      "last_discovered": "2025-10-28T02:15:23.907261+00:00"
+      "last_discovered": "2025-11-02T03:29:22.121151+00:00"
     },
     {
       "url": "/xray/latest/devguide/",
       "name": "xray",
       "page_count": 154,
-      "last_discovered": "2025-10-28T02:15:24.003787+00:00"
+      "last_discovered": "2025-11-02T03:29:22.253356+00:00"
     }
   ]
 }
