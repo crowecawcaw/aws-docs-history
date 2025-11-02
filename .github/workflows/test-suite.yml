@@ -14,10 +14,11 @@ jobs:
       - name: Check out repository (without generated docs)
         uses: actions/checkout@v4
         with:
+          fetch-depth: 1
           sparse-checkout: |
             *
             !docs/
-          sparse-checkout-cone: false
+          sparse-checkout-cone-mode: false
 
       - name: Set up Python
         uses: actions/setup-python@v5
