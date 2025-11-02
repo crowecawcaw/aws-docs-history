@@ -17,7 +17,7 @@ jobs:
           sparse-checkout: |
             *
             !docs/
-          sparse-checkout-cone: false
+          sparse-checkout-cone-mode: false
 
       - name: Set up Python
         uses: actions/setup-python@v5
