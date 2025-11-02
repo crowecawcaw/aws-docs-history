@@ -11,8 +11,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Check out repository
+      - name: Check out repository (without generated docs)
         uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            *
+            !docs/
+          sparse-checkout-cone: false
 
       - name: Set up Python
         uses: actions/setup-python@v5
