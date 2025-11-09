@@ -16,10 +16,32 @@ to free up quota allocation or request a quota increase.
 Amazon SageMaker Unified Studio has the following default quotas and limits. These default quotas provide a
 balance between resource availability and cost management.
 
-| Resource                                                                                                                                                         | Default |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Maximum number of JupyterLab instances                                                                                                                           | 4000    |
-| Maximum number of project members for your Amazon SageMaker platform domain. The total number of project members is the product of project members and projects. | 6000    |
-| Maximum number of spaces                                                                                                                                         | 6000    |
-| Maximum number of projects                                                                                                                                       | 500     |
-| Maximum number of Micro environments                                                                                                                             | 200     | For more information about other AWS service quotas, see [AWS service quotas](../../../general/latest/gr/aws_service_limits.md "../../../general/latest/gr/aws_service_limits.md"). For more quotas information, see the following: <br>• [Amazon SageMaker Supported Regions and Quotas](../../../sagemaker/latest/dg/regions-quotas.md "../../../sagemaker/latest/dg/regions-quotas.md") <br>• [Amazon Managed Workflows for Apache Airflow endpoints and quotas](../../../general/latest/gr/mwaa.md "../../../general/latest/gr/mwaa.md") <br>• [Amazon Redshift endpoints and quotas](../../../general/latest/gr/redshift-service.md "../../../general/latest/gr/redshift-service.md") <br>• [Amazon EMR endpoints and quotas](../../../general/latest/gr/emr.md "../../../general/latest/gr/emr.md") <br>• [Amazon DataZone endpoints and quotas](../../../general/latest/gr/datazone.md "../../../general/latest/gr/datazone.md") <br>• [Amazon Q Business endpoints and quotas](../../../general/latest/gr/amazonq.md "../../../general/latest/gr/amazonq.md") <br>• [Amazon Athena endpoints and quotas](../../../general/latest/gr/athena.md "../../../general/latest/gr/athena.md") <br>• [Amazon Bedrock endpoints and quotas](../../../general/latest/gr/bedrock.md "../../../general/latest/gr/bedrock.md") <br>• [AWS Glue endpoints and quotas](../../../general/latest/gr/glue.md "../../../general/latest/gr/glue.md") |
+| Resource                                                                                                                                                               | Default |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
+| Maximum number of JupyterLab instances                                                                                                                                 | 4000    |
+| Maximum number of project members for your Amazon SageMaker platform<br>domain. The total number of project members is the product of project<br>members and projects. | 6000    |
+| Maximum number of spaces                                                                                                                                               | 6000    |
+| Maximum number of projects                                                                                                                                             | 500     |
+| Maximum number of Micro environments                                                                                                                                   | 200     |
+
+For more information about other AWS service quotas, see [AWS
+service quotas](../../../general/latest/gr/aws_service_limits.md "../../../general/latest/gr/aws_service_limits.md").
+
+For more quotas information, see the following:
+
+- [Amazon SageMaker Supported Regions and Quotas](../../../sagemaker/latest/dg/regions-quotas.md "../../../sagemaker/latest/dg/regions-quotas.md")
+- [Amazon
+  Managed Workflows for Apache Airflow endpoints and quotas](../../../general/latest/gr/mwaa.md "../../../general/latest/gr/mwaa.md")
+- [Amazon Redshift endpoints and quotas](../../../general/latest/gr/redshift-service.md "../../../general/latest/gr/redshift-service.md")
+- [Amazon EMR
+  endpoints and quotas](../../../general/latest/gr/emr.md "../../../general/latest/gr/emr.md")
+- [Amazon
+  DataZone endpoints and quotas](../../../general/latest/gr/datazone.md "../../../general/latest/gr/datazone.md")
+- [Amazon Q
+  Business endpoints and quotas](../../../general/latest/gr/amazonq.md "../../../general/latest/gr/amazonq.md")
+- [Amazon
+  Athena endpoints and quotas](../../../general/latest/gr/athena.md "../../../general/latest/gr/athena.md")
+- [Amazon
+  Bedrock endpoints and quotas](../../../general/latest/gr/bedrock.md "../../../general/latest/gr/bedrock.md")
+- [AWS Glue
+  endpoints and quotas](../../../general/latest/gr/glue.md "../../../general/latest/gr/glue.md")

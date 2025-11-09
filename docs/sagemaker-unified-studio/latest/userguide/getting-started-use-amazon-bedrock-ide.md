@@ -61,35 +61,33 @@ its next response. 10. Choose **Reset** to start a new chat with the model. 11. 
 
 
 
-    ![Inference parameters in Amazon Bedrock in SageMaker Unified Studio chat playground.](images/bedrock/bedrock-ide-chat-playground-inference.png)
+    ![Inference parameters in Amazon Bedrock in SageMaker Unified Studio chat playground.](/images/sagemaker-unified-studio/latest/userguide/images/bedrock/bedrock-ide-chat-playground-inference.png)
     3. Influence the model response by making [inference parameters](explore-prompts.md#inference-parameters "explore-prompts.md#inference-parameters") changes.
     4. (Optional) In **System instructions**, enter any overarching system instructions that you want the model to apply for future interactions.
     5. Run the prompt again and compare the response with the previous response.
 
 12. Choose **Reset** to start a new chat with the model.
-13.
-14. Try sending an image to a model by doing the following:
-    1. For **Model**, choose a model
-       that supports [images](../../../bedrock/latest/userguide/models-supported.md "../../../bedrock/latest/userguide/models-supported.md").
-    2. Choose the attachment button at the left of the **Enter prompt** text box.
+13. Try sending an image to a model by doing the following:
+    1.  For **Model**, choose a model
+        that supports [images](../../../bedrock/latest/userguide/models-supported.md "../../../bedrock/latest/userguide/models-supported.md").
+    2.  Choose the attachment button at the left of the **Enter prompt** text box.
 
     ![Run prompt in Amazon Bedrock in SageMaker Unified Studio chat playground.](images/bedrock/bedrock-ide-chat-playground-run-prompt-attach.png) 3. In the open file dialog box, choose an image from your local computer. 4. In the text box, next to the image that you uploaded, enter `What's in this
  image?`. 5. Press Enter on your keyboard enter to send the prompt to the model. The response from the
     models describes the model or image.
 
-15. (Optional) Try using another model and different prompts. Different models have different
+14. (Optional) Try using another model and different prompts. Different models have different
     recommendations for creating, or engineering, prompts. For more information, see [Prompt engineering guides](explore-prompts.md#prompt-guides "explore-prompts.md#prompt-guides").
-16. (Optional) Try restoring a previous chat session and continuing the conversation. In the playground, select **History** to open the chat history panel. Select a previous session from the list and send a new prompt to the model.
-17. (Optional) Compare the output from multiple models, or [shared apps](bedrock-explore-chat-playground-app.md "bedrock-explore-chat-playground-app.md").
-    1. In the playground, turn on **Compare mode**.
-    2. In both panes, select the model that you want to compare. If you want to use a
-       shared app, select **App** in **Type** and
-       then select the app in **App**.
-    3. Enter a prompt in the text box and run the prompt. The output from each model is shown. You
-       can choose the copy icon to copy the prompt or model response to the clipboard.
-    4. (Optional) Choose **View configs** to make configuration
-       changes, such as [inference
-       parameters](explore-prompts.md#inference-parameters "explore-prompts.md#inference-parameters"). Choose **View chats** to return to the chat page.
-    5. (Optional) Choose **Add chat window** to add a third window.
-       You can compare up to 3 models or apps.
-    6. Turn off **Compare mode** to stop comparing models.
+15. (Optional) Compare the output from multiple models, or [shared apps](bedrock-explore-chat-playground-app.md "bedrock-explore-chat-playground-app.md").
+    1.  In the playground, turn on **Compare mode**.
+    2.  In both panes, select the model that you want to compare. If you want to use a
+        shared app, select **App** in **Type** and
+        then select the app in **App**.
+    3.  Enter a prompt in the text box and run the prompt. The output from each model is shown. You
+        can choose the copy icon to copy the prompt or model response to the clipboard.
+    4.  (Optional) Choose **View configs** to make configuration
+        changes, such as [inference
+        parameters](explore-prompts.md#inference-parameters "explore-prompts.md#inference-parameters"). Choose **View chats** to return to the chat page.
+    5.  (Optional) Choose **Add chat window** to add a third window.
+        You can compare up to 3 models or apps.
+    6.  Turn off **Compare mode** to stop comparing models.

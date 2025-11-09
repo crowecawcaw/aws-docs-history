@@ -70,20 +70,18 @@ its next response. 10. Choose **Reset** to start a new chat with the model. 11. 
     5. Run the prompt again and compare the response with the previous response.
 
 12. Choose **Reset** to start a new chat with the model.
-13.
-14. Try sending an image to a model by doing the following:
-    1. For **Model**, choose a model
-       that supports [images](../../../bedrock/latest/userguide/models-supported.md "../../../bedrock/latest/userguide/models-supported.md").
-    2. Choose the attachment button at the left of the **Enter prompt** text box.
+13. Try sending an image to a model by doing the following:
+    1.  For **Model**, choose a model
+        that supports [images](../../../bedrock/latest/userguide/models-supported.md "../../../bedrock/latest/userguide/models-supported.md").
+    2.  Choose the attachment button at the left of the **Enter prompt** text box.
 
     ![Run prompt in Amazon Bedrock in SageMaker Unified Studio chat playground.](images/bedrock/bedrock-ide-chat-playground-run-prompt-attach.png) 3. In the open file dialog box, choose an image from your local computer. 4. In the text box, next to the image that you uploaded, enter `What's in this
  image?`. 5. Press Enter on your keyboard enter to send the prompt to the model. The response from the
     models describes the model or image.
 
-15. (Optional) Try using another model and different prompts. Different models have different
+14. (Optional) Try using another model and different prompts. Different models have different
     recommendations for creating, or engineering, prompts. For more information, see [Prompt engineering guides](explore-prompts.md#prompt-guides "explore-prompts.md#prompt-guides").
-16. (Optional) Try restoring a previous chat session and continuing the conversation. In the playground, select **History** to open the chat history panel. Select a previous session from the list and send a new prompt to the model.
-17. (Optional) Compare the output from multiple models, or [shared apps](bedrock-explore-chat-playground-app.md "bedrock-explore-chat-playground-app.md").
+15. (Optional) Compare the output from multiple models, or [shared apps](bedrock-explore-chat-playground-app.md "bedrock-explore-chat-playground-app.md").
 
         1. In the playground, turn on **Compare mode**.
         2. In both panes, select the model that you want to compare. If you want to use a

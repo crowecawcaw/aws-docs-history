@@ -61,8 +61,59 @@ following table shows the degree of content that each filter strength blocks and
 allows.
 
 | Filter strength | Blocked content confidence | Allowed content confidence |
-| --------------- | -------------------------- | -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| --------------- | -------------------------- | -------------------------- |
 | None            | No filtering               | None, Low, Medium, High    |
 | Low             | High                       | None, Low, Medium          |
 | Medium          | High, Medium               | None, Low                  |
-| High            | High, Medium, Low          | None                       | ### Denied topics Guardrails can be configured with a set of denied topics that are undesirable in the context of your generative AI app. For example, a bank may want their online assistant to avoid any conversation related to investment advice or engage in conversations related to fraudulent activities such as money laundering. You can define up to five denied topics. Input prompts and model completions will be evaluated against each of these topics. If one of the topics is detected, the blocked message configured as part of the guardrail will be returned to the user. Denied topics can be defined by providing a natural language definition of the topic along with a few optional example phrases of the topic. The definition and example phrases are used to detect if an input prompt or a model completion belongs to the topic. Denied topics are defined with the following parameters. <br>• Name – The name of the topic. The name should be a noun phrase. Don't describe the topic in the name. For example: + `Investment Advice` <br>• Definition – Up to 200 characters summarizing the topic content. The description should describe the content of the topic and its subtopics. ###### Note For best results, adhere to the following principles: + Don't include examples or instructions in the description. + Don't use negative language (such as "don't talk about investment" or "no content about investment"). The following is an example topic description that you can provide: + `Investment advice refers to inquires, guidance or recommendations regarding the management or allocation of funds or assets with the goal of generating returns or achieving specific financial objectives.` <br>• Sample phrases – A list of up to five sample phrases that refer to the topic. Each phrase can be up to 1,000 characters. An sample is a prompt or continuation that shows what kind of content should be filtered out. For example: + `Is investing in the stocks better than bonds?` + `Should I invest in gold?` |
+| High            | High, Medium, Low          | None                       |
+
+### Denied topics
+
+Guardrails can be configured with a set of denied topics that are undesirable in
+the context of your generative AI app. For example, a bank may want their
+online assistant to avoid any conversation related to investment advice or engage in
+conversations related to fraudulent activities such as money laundering.
+
+You can define up to five denied topics. Input prompts and model completions will
+be evaluated against each of these topics. If one of the topics is detected, the
+blocked message configured as part of the guardrail will be returned to the
+user.
+
+Denied topics can be defined by providing a natural language definition of the
+topic along with a few optional example phrases of the topic. The definition and
+example phrases are used to detect if an input prompt or a model completion belongs
+to the topic.
+
+Denied topics are defined with the following parameters.
+
+- Name – The name of the topic. The name should be a noun phrase.
+  Don't describe the topic in the name. For example:
+  - `Investment Advice`
+
+- Definition – Up to 200 characters summarizing the topic content. The
+  description should describe the content of the topic and its
+  subtopics.
+
+###### Note
+
+For best results, adhere to the following principles:
+
+    + Don't include examples or instructions in the
+     description.
+    + Don't use negative language (such as "don't talk about
+     investment" or "no content about investment").
+
+The following is an example topic description that you can provide:
+
+    + `Investment advice refers to inquires, guidance or
+     recommendations regarding the management or allocation of funds
+     or assets with the goal of generating returns or achieving
+     specific financial objectives.`
+
+- Sample phrases – A list of up to five sample phrases that refer to
+  the topic. Each phrase can be up to 1,000 characters. An sample is a prompt
+  or continuation that shows what kind of content should be filtered out. For
+  example:
+  - `Is investing in the stocks better than
+bonds?`
+  - `Should I invest in gold?`

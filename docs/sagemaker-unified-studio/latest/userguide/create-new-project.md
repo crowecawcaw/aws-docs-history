@@ -55,8 +55,7 @@ Some of the parameter values might be determined by your admin or by the default
 from the environment blueprint, according to the configurations that your admin has set in
 the Amazon SageMaker Unified Studio management console. If you are not able to view or change a parameter value
 that you want to specify, contact your admin to edit the configurations. For more
-information, see the section Edit a project profile in the Amazon SageMaker Unified Studio Administrator
-Guide.
+information, see [Manage Tooling blueprint parameters](../adminguide/manage-tooling-blueprint.md "../adminguide/manage-tooling-blueprint.md").
 
 ### Connect to a Git repository
 

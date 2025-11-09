@@ -16,9 +16,18 @@ AWS service's client if no service name is specified. Those connections are list
 the following table.
 
 | Connection Type | AWS Service Name |
-| --------------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| --------------- | ---------------- |
 | ATHENA          | athena           |
 | DYNAMODB        | dynamodb         |
 | REDSHIFT        | redshift         |
 | S3              | s3               |
-| S3_FOLDER       | s3               | For other connection types, you must specify an AWS service name. See the following example for details. `` `iam_connection: Connection = proj.connection("project.iam") glue_client = iam_connection.create_client("glue")` `` |
+| S3_FOLDER       | s3               |
+
+For other connection types, you must specify an AWS service name.
+
+See the following example for details.
+
+```
+`iam_connection: Connection = proj.connection("project.iam")
+glue_client = iam_connection.create_client("glue")`
+```

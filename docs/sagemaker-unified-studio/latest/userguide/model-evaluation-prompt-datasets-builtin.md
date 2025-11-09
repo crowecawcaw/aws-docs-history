@@ -77,13 +77,26 @@ Available built-in datasets for automatic model evaluation jobs in
 Amazon Bedrock| Task type | Metric | Built-in datasets | Computed metric |
 | --- | --- | --- | --- |
 | General text generation | Accuracy | [TREX](https://hadyelsahar.github.io/t-rex/ "https://hadyelsahar.github.io/t-rex/") | Real world knowledge (RWK) score |
-| Robustness | [BOLD](https://github.com/amazon-science/bold "https://github.com/amazon-science/bold") | Word error rate | | [TREX](https://hadyelsahar.github.io/t-rex/ "https://hadyelsahar.github.io/t-rex/") |
-| [WikiText2](https://huggingface.co/datasets/wikitext "https://huggingface.co/datasets/wikitext") | | Toxicity | [RealToxicityPrompts](https://github.com/allenai/real-toxicity-prompts "https://github.com/allenai/real-toxicity-prompts") | Toxicity |
+| Robustness | [BOLD](https://github.com/amazon-science/bold "https://github.com/amazon-science/bold") | Word error rate |
+| [TREX](https://hadyelsahar.github.io/t-rex/ "https://hadyelsahar.github.io/t-rex/") |
+| [WikiText2](https://huggingface.co/datasets/wikitext "https://huggingface.co/datasets/wikitext") |
+| Toxicity | [RealToxicityPrompts](https://github.com/allenai/real-toxicity-prompts "https://github.com/allenai/real-toxicity-prompts") | Toxicity |
 | [BOLD](https://github.com/amazon-science/bold "https://github.com/amazon-science/bold") |
 | Text summarization | Accuracy | [Gigaword](https://huggingface.co/datasets/gigaword?row=3 "https://huggingface.co/datasets/gigaword?row=3") | BERTScore |
-| Toxicity | [Gigaword](https://huggingface.co/datasets/gigaword?row=3 "https://huggingface.co/datasets/gigaword?row=3") | Toxicity | | Robustness | [Gigaword](https://huggingface.co/datasets/gigaword?row=3 "https://huggingface.co/datasets/gigaword?row=3") | BERTScore and deltaBERTScore |
+| Toxicity | [Gigaword](https://huggingface.co/datasets/gigaword?row=3 "https://huggingface.co/datasets/gigaword?row=3") | Toxicity |
+| Robustness | [Gigaword](https://huggingface.co/datasets/gigaword?row=3 "https://huggingface.co/datasets/gigaword?row=3") | BERTScore and deltaBERTScore |
 | Question and answer | Accuracy | [BoolQ](https://github.com/google-research-datasets/boolean-questions "https://github.com/google-research-datasets/boolean-questions") | NLP-F1 |
-| [NaturalQuestions](https://github.com/google-research-datasets/natural-questions "https://github.com/google-research-datasets/natural-questions") | | [TriviaQA](https://nlp.cs.washington.edu/triviaqa/ "https://nlp.cs.washington.edu/triviaqa/") | | Robustness | [BoolQ](https://github.com/google-research-datasets/boolean-questions "https://github.com/google-research-datasets/boolean-questions") | F1 and deltaF1 |
-| [NaturalQuestions](https://github.com/google-research-datasets/natural-questions "https://github.com/google-research-datasets/natural-questions") | | [TriviaQA](https://nlp.cs.washington.edu/triviaqa/ "https://nlp.cs.washington.edu/triviaqa/") | | Toxicity | [BoolQ](https://github.com/google-research-datasets/boolean-questions "https://github.com/google-research-datasets/boolean-questions") | Toxicity |
-| [NaturalQuestions](https://github.com/google-research-datasets/natural-questions "https://github.com/google-research-datasets/natural-questions") | | [TriviaQA](https://nlp.cs.washington.edu/triviaqa/ "https://nlp.cs.washington.edu/triviaqa/") | | Text classification | Accuracy | [Women's Ecommerce Clothing Reviews](https://www.kaggle.com/datasets/nicapotato/womens-ecommerce-clothing-reviews "https://www.kaggle.com/datasets/nicapotato/womens-ecommerce-clothing-reviews") | Accuracy (Binary accuracy from classification_accuracy_score) |
-| Robustness | [Women's Ecommerce Clothing Reviews](https://www.kaggle.com/datasets/nicapotato/womens-ecommerce-clothing-reviews "https://www.kaggle.com/datasets/nicapotato/womens-ecommerce-clothing-reviews") | classification_accuracy_score and delta_classification_accuracy_score | To learn more about the requirements for creating and examples of custom prompt datasets, see [Use custom prompt dataset for model evaluation in Amazon Bedrock in SageMaker Unified Studio](model-evaluation-prompt-datasets-custom.md "model-evaluation-prompt-datasets-custom.md").
+| [NaturalQuestions](https://github.com/google-research-datasets/natural-questions "https://github.com/google-research-datasets/natural-questions") |
+| [TriviaQA](https://nlp.cs.washington.edu/triviaqa/ "https://nlp.cs.washington.edu/triviaqa/") |
+| Robustness | [BoolQ](https://github.com/google-research-datasets/boolean-questions "https://github.com/google-research-datasets/boolean-questions") | F1 and deltaF1 |
+| [NaturalQuestions](https://github.com/google-research-datasets/natural-questions "https://github.com/google-research-datasets/natural-questions") |
+| [TriviaQA](https://nlp.cs.washington.edu/triviaqa/ "https://nlp.cs.washington.edu/triviaqa/") |
+| Toxicity | [BoolQ](https://github.com/google-research-datasets/boolean-questions "https://github.com/google-research-datasets/boolean-questions") | Toxicity |
+| [NaturalQuestions](https://github.com/google-research-datasets/natural-questions "https://github.com/google-research-datasets/natural-questions") |
+| [TriviaQA](https://nlp.cs.washington.edu/triviaqa/ "https://nlp.cs.washington.edu/triviaqa/") |
+| Text classification | Accuracy | [Women's Ecommerce Clothing Reviews](https://www.kaggle.com/datasets/nicapotato/womens-ecommerce-clothing-reviews "https://www.kaggle.com/datasets/nicapotato/womens-ecommerce-clothing-reviews") | Accuracy (Binary accuracy from<br>classification_accuracy_score) |
+| Robustness | [Women's Ecommerce Clothing Reviews](https://www.kaggle.com/datasets/nicapotato/womens-ecommerce-clothing-reviews "https://www.kaggle.com/datasets/nicapotato/womens-ecommerce-clothing-reviews") | classification_accuracy_score and<br>delta_classification_accuracy_score |
+
+To learn more about the requirements for creating and examples of custom prompt
+datasets, see [Use custom prompt
+dataset for model evaluation in Amazon Bedrock in SageMaker Unified Studio](model-evaluation-prompt-datasets-custom.md "model-evaluation-prompt-datasets-custom.md").

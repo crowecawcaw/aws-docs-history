@@ -81,8 +81,67 @@ sequence.
 
 The following table summarizes the effects of these parameters.
 
-| Parameter   | Effect of lower value                                                                            | Effect of higher value                                                                          |
-| ----------- | ------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Temperature | Increase likelihood of higher-probability tokens Decrease likelihood of lower-probability tokens | Increase likelihood of lower-probability tokensDecrease likelihood of higher-probability tokens |
-| Top K       | Remove lower-probability tokens                                                                  | Allow lower-probability tokens                                                                  |
-| Top P       | Remove lower-probability tokens                                                                  | Allow lower-probability tokens                                                                  | As an example to understand these parameters, consider the example prompt `I hear the hoof beats of "`. Let's say that the model determines the following three words to be candidates for the next token. The model also assigns a probability for each word. `{ "horses": 0.7, "zebras": 0.2, "unicorns": 0.1 }` <br>• If you set a high **temperature**, the probability distribution is flattened and the probabilities become less different, which would increase the probability of choosing "unicorns" and decrease the probability of choosing "horses". <br>• If you set **Top K** as 2, the model only considers the top 2 most likely candidates: "horses" and "zebras." <br>• If you set **Top P** as 0.7, the model only considers "horses" because it is the only candidate that lies in the top 70% of the probability distribution. If you set **Top P** as 0.9, the model considers "horses" and "zebras" as they lie in the top 90% of probability distribution. ## System instructions A system instruction an overarching initial guideline that defines how a model should behave in future interactions. System instructions provide context to the model about the task it should perform or the persona it should adopt during the conversation. For example, you could use a system instruction to specify that the model should behave as an app that creates playlists for a radio station that plays rock and pop music. You can then use the model to create playlists of rock and pop songs based on different themes, such as songs that are related by artist You can apply system instructions to models you use in the [Amazon Bedrock playgrounds](bedrock-playgrounds.md "bedrock-playgrounds.md"), [chat agent apps](create-chat-app.md "create-chat-app.md"), and [flow apps](create-flows-app.md "create-flows-app.md"). ## Prompt engineering guides Amazon Bedrock in SageMaker Unified Studio provides models from a variety of model providers. Each provider provides guidance on how to best create prompt for their models. <br>• **Amazon Nova user guide:** [https://docs.aws.amazon.com/nova/latest/userguide/what-is-nova.html](../../../nova/latest/userguide/what-is-nova.md "../../../nova/latest/userguide/what-is-nova.md") <br>• **Anthropic Claude model prompt guide:** [https://docs.anthropic.com/claude/docs](https://docs.anthropic.com/claude/docs/configuring-gpt-prompts-for-claude "https://docs.anthropic.com/claude/docs/configuring-gpt-prompts-for-claude") <br>• **Anthropic Claude prompt engineering resources:** [https://docs.anthropic.com/claude/docs/guide-to-anthropics-prompt-engineering-resources](https://docs.anthropic.com/claude/docs/configuring-gpt-prompts-for-claude "https://docs.anthropic.com/claude/docs/configuring-gpt-prompts-for-claude") <br>• **Cohere prompt guide:** [https://txt.cohere.com/how-to-train-your-pet-llm-prompt-engineering](https://txt.cohere.com/how-to-train-your-pet-llm-prompt-engineering "https://txt.cohere.com/how-to-train-your-pet-llm-prompt-engineering") <br>• **AI21 Labs Jurassic model prompt guide:** [https://docs.ai21.com/docs/prompt-engineering](https://docs.ai21.com/docs/prompt-engineering "https://docs.ai21.com/docs/prompt-engineering") <br>• **Meta Llama 2 prompt guide:** [https://ai.meta.com/llama/get-started/#prompting](https://ai.meta.com/llama/get-started/#prompting "https://ai.meta.com/llama/get-started/#prompting") <br>• **Stability documentation:** [https://platform.stability.ai/docs/getting-started](https://platform.stability.ai/docs/getting-started "https://platform.stability.ai/docs/getting-started") <br>• **Mistral AI prompt guide:** [https://docs.mistral.ai/guides/prompting_capabilities/](https://docs.mistral.ai/guides/prompting_capabilities/ "https://docs.mistral.ai/guides/prompting_capabilities/") For general guidelines about creating prompts with Amazon Bedrock, see [General guidelines for Amazon Bedrock LLM users](../../../bedrock/latest/userguide/general-guidelines-for-bedrock-users.md "../../../bedrock/latest/userguide/general-guidelines-for-bedrock-users.md"). |
+| Parameter   | Effect of lower value                                                                                  | Effect of higher value                                                                             |
+| ----------- | ------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------- |
+| Temperature | Increase likelihood of higher-probability tokens<br>Decrease<br>likelihood of lower-probability tokens | Increase likelihood of lower-probability tokensDecrease<br>likelihood of higher-probability tokens |
+| Top K       | Remove lower-probability tokens                                                                        | Allow lower-probability tokens                                                                     |
+| Top P       | Remove lower-probability tokens                                                                        | Allow lower-probability tokens                                                                     |
+
+As an example to understand these parameters, consider the example prompt `I hear
+ the hoof beats of "`. Let's say that the model determines the following three words
+to be candidates for the next token. The model also assigns a probability for each word.
+
+```
+{
+    "horses": 0.7,
+    "zebras": 0.2,
+    "unicorns": 0.1
+}
+```
+
+- If you set a high **temperature**, the probability
+  distribution is flattened and the probabilities become less different, which would increase
+  the probability of choosing "unicorns" and decrease the probability of choosing
+  "horses".
+- If you set **Top K** as 2, the model only considers the top
+  2 most likely candidates: "horses" and "zebras."
+- If you set **Top P** as 0.7, the model only considers
+  "horses" because it is the only candidate that lies in the top 70% of the probability
+  distribution. If you set **Top P** as 0.9, the model considers
+  "horses" and "zebras" as they lie in the top 90% of probability distribution.
+
+## System instructions
+
+A system instruction an overarching initial guideline that defines how a model should
+behave in future interactions. System instructions provide context to the model about the task it should perform or the persona it should adopt during the conversation.
+
+For example, you could use a system instruction to specify that the model should behave as an app that creates playlists for a radio station that plays rock and pop music. You can then use the model to
+create playlists of rock and pop songs based on different themes, such as songs that are related by artist
+
+You can apply system instructions to models you use in the [Amazon Bedrock playgrounds](bedrock-playgrounds.md "bedrock-playgrounds.md"), [chat agent apps](create-chat-app.md "create-chat-app.md"), and [flow apps](create-flows-app.md "create-flows-app.md").
+
+## Prompt engineering guides
+
+Amazon Bedrock in SageMaker Unified Studio provides models from a variety of model providers. Each provider provides
+guidance on how to best create prompt for their models.
+
+- **Amazon Nova user guide:**
+  [https://docs.aws.amazon.com/nova/latest/userguide/what-is-nova.html](../../../nova/latest/userguide/what-is-nova.md "../../../nova/latest/userguide/what-is-nova.md")
+- **Anthropic Claude model prompt
+  guide:**
+  [https://docs.anthropic.com/claude/docs](https://docs.anthropic.com/claude/docs/configuring-gpt-prompts-for-claude "https://docs.anthropic.com/claude/docs/configuring-gpt-prompts-for-claude")
+- **Anthropic Claude prompt engineering
+  resources:**
+  [https://docs.anthropic.com/claude/docs/guide-to-anthropics-prompt-engineering-resources](https://docs.anthropic.com/claude/docs/configuring-gpt-prompts-for-claude "https://docs.anthropic.com/claude/docs/configuring-gpt-prompts-for-claude")
+- **Cohere prompt guide:**
+  [https://txt.cohere.com/how-to-train-your-pet-llm-prompt-engineering](https://txt.cohere.com/how-to-train-your-pet-llm-prompt-engineering "https://txt.cohere.com/how-to-train-your-pet-llm-prompt-engineering")
+- **AI21 Labs Jurassic model prompt guide:**
+  [https://docs.ai21.com/docs/prompt-engineering](https://docs.ai21.com/docs/prompt-engineering "https://docs.ai21.com/docs/prompt-engineering")
+- **Meta Llama 2 prompt guide:**
+  [https://ai.meta.com/llama/get-started/#prompting](https://ai.meta.com/llama/get-started/#prompting "https://ai.meta.com/llama/get-started/#prompting")
+- **Stability documentation:**
+  [https://platform.stability.ai/docs/getting-started](https://platform.stability.ai/docs/getting-started "https://platform.stability.ai/docs/getting-started")
+- **Mistral AI prompt guide:**
+  [https://docs.mistral.ai/guides/prompting_capabilities/](https://docs.mistral.ai/guides/prompting_capabilities/ "https://docs.mistral.ai/guides/prompting_capabilities/")
+
+For general guidelines about creating prompts with Amazon Bedrock, see [General guidelines for Amazon Bedrock LLM users](../../../bedrock/latest/userguide/general-guidelines-for-bedrock-users.md "../../../bedrock/latest/userguide/general-guidelines-for-bedrock-users.md").
