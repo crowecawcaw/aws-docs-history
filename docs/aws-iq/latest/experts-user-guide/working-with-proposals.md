@@ -91,10 +91,10 @@ to the customer's account and can't request additional payments.
 
 You can format the text in your proposal using the following Markdown styles.
 
-| Formatting     | Markdown                                 | Display                                                       |
-| -------------- | ---------------------------------------- | ------------------------------------------------------------- |
-| Bold text      | `**Apples**`                             | **Apples**                                                    |
-| Italic text    | `*Apples*` or `_Apples_`                 | _Apples_                                                      |
-| Hyperlinks     | `[Amazon](https://smile.amazon.com)`     | [Amazon](https://smile.amazon.com "https://smile.amazon.com") |
-| Bulleted lists | `<br>• Apples <br>• Oranges <br>• Pears` | <br>• Apples <br>• Oranges <br>• Pears                        |
-| Numbered lists | `1. Apples 2. Oranges 3. Pears`          | 1. Apples 2. Oranges 3. Pears                                 |
+| Formatting     | Markdown                                      | Display                                                       |
+| -------------- | --------------------------------------------- | ------------------------------------------------------------- |
+| Bold text      | `**Apples**`                                  | **Apples**                                                    |
+| Italic text    | `*Apples*` or `_Apples_`                      | _Apples_                                                      |
+| Hyperlinks     | `[Amazon](https://smile.amazon.com)`          | [Amazon](https://smile.amazon.com "https://smile.amazon.com") |
+| Bulleted lists | `<br>• Apples<br>• Oranges<br>• Pears<br>`    | • Apples<br>• Oranges<br>• Pears                              |
+| Numbered lists | `<br>1. Apples<br>2. Oranges<br>3. Pears<br>` | 1. Apples<br>2. Oranges<br>3. Pears                           |
