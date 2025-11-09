@@ -62,9 +62,16 @@ AWS Security Hub findings follow the [AWS Security Finding Format](../../../secu
 fields from AWS Security Hub findings to JSM Incident records.
 
 | JIRA issue field | Security Hub ASFF field |
-| ---------------- | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ---------------- | ----------------------- |
 | Created          | CreatedAt               |
 | Updated          | UpdatedAt               |
 | Summary          | Title                   |
 | Priority         | Severity.Label          |
-| Status           | Workflow.Status         | ###### Note Jira does not duplicate findings. If a Security Hub finding is sent to Jira with the same finding ID as one previously sent to Jira, Jira updates the ticket with the most recent information in the finding. |
+| Status           | Workflow.Status         |
+
+###### Note
+
+Jira does not duplicate findings. If a Security Hub finding is sent to
+Jira with the same finding ID as one previously sent to Jira, Jira
+updates the ticket with the most recent information in the
+finding.

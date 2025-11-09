@@ -36,12 +36,16 @@ Jira.
 
 The following table displays the mapping between Incident Manager Incidents and Jira Issues.
 
-| AWS Systems Manager Incident status                  | Jira AWS Issue Status   |
-| ---------------------------------------------------- | ----------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
-| Open                                                 | OPEN                    |
-| Resolved                                             | RESOLVED                | Jira Service Management Connector maps **Priority - Impact** of an AWS Incident to the priority of the corresponding Jira Issue. |
+| AWS Systems Manager Incident status | Jira AWS Issue Status |
+| ----------------------------------- | --------------------- |
+| Open                                | OPEN                  |
+| Resolved                            | RESOLVED              |
+
+Jira Service Management Connector maps **Priority - Impact** of an AWS Incident to the
+priority of the corresponding Jira Issue.
+
 | AWS Systems Manager Incident Manager Incident impact | Jira AWS Issue priority |
-| ---                                                  | ---                     |
+| ---------------------------------------------------- | ----------------------- |
 | Critical                                             | Blocker                 |
 | High                                                 | High                    |
 | Medium                                               | Medium                  |

@@ -50,25 +50,34 @@ in Jira.
 This table shows how AWS Incident Manager Incidents map to a Jira
 issue.
 
-| AWS Incident Management Incident        | Jira AWS Incident          |
-| --------------------------------------- | -------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| TITLE                                   | Summary                    |
-| SUMMARY                                 | Description                |
-| INCIDENT ARN                            | AWS Incident ARN           |
-| AWS ACCOUNT                             | AWS Account ID             |
-| AWS REGION                              | AWS Region                 |
-| STATUS                                  | AWS Incident Status        |
-| START TIME                              | AWS Creation Time          |
-| RESOLVED TIME                           | AWS Resolved Time          |
-| UPDATED TIME                            | AWS Last Updated Time      |
-| AWS INCIDENT URL                        | AWS Incident URL           |
-| IMPACT                                  | Priority                   | Incident Status is an integer in Jira Service Management. Jira Service Management Connector maps Incident Manager incident status values to Jira status values. |
-| AWS Incident Management Incident Status | Jira AWS Incident Status   |
-| ---                                     | ---                        |
-| Open                                    | OPEN                       |
-| Resolved                                | RESOLVED                   | Jira Service Management Connector maps **Priority - Imact** of an AWS Incident to the priority of the corresponding JIRA issue.                                 |
+| AWS Incident Management Incident | Jira AWS Incident     |
+| -------------------------------- | --------------------- |
+| TITLE                            | Summary               |
+| SUMMARY                          | Description           |
+| INCIDENT ARN                     | AWS Incident ARN      |
+| AWS ACCOUNT                      | AWS Account ID        |
+| AWS REGION                       | AWS Region            |
+| STATUS                           | AWS Incident Status   |
+| START TIME                       | AWS Creation Time     |
+| RESOLVED TIME                    | AWS Resolved Time     |
+| UPDATED TIME                     | AWS Last Updated Time |
+| AWS INCIDENT URL                 | AWS Incident URL      |
+| IMPACT                           | Priority              |
+
+Incident Status is an integer in Jira Service Management. Jira
+Service Management Connector maps Incident Manager incident status
+values to Jira status values.
+
+| AWS Incident Management Incident Status | Jira AWS Incident Status |
+| --------------------------------------- | ------------------------ |
+| Open                                    | OPEN                     |
+| Resolved                                | RESOLVED                 |
+
+Jira Service Management Connector maps **Priority - Imact** of an AWS Incident to the priority of
+the corresponding JIRA issue.
+
 | AWS Incident Management Incident Impact | Jira AWS Incident Priority |
-| ---                                     | ---                        |
+| --------------------------------------- | -------------------------- |
 | Critical                                | Blocker                    |
 | High                                    | High                       |
 | Medium                                  | Medium                     |

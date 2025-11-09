@@ -145,30 +145,60 @@ Incident records
 
 This table shows how Support Case map to ServiceNow Incidents.
 
-| Support case                                                 | ServiceNow incident                        |
-| ------------------------------------------------------------ | ------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Subject                                                      | short_description                          |
-| First correspondence                                         | description                                |
-| Case ID                                                      | x_126749_aws_sc_awssupportcaseid           |
-| Status                                                       | x_126749_aws_sc_awscasestatus              |
-| Service                                                      | x_126749_aws_sc_awsservice                 |
-| Category                                                     | x_126749_aws_sc_awscategory                |
-| Additional contacts                                          | x_126749_aws_sc_awscasecommunicationemails |
-| AWS account                                                  | x_126749_aws_sc_awsaccount                 | Incident State is an integer in ServiceNow. We map Support case status values to ServiceNow state.                                                                                                                                          |
-| ServiceNow incident Status                                   | Support case status                        |
-| ---                                                          | ---                                        |
-| New                                                          | Unassigned                                 |
-| New                                                          | Open                                       |
-| In Progress                                                  | Work in progress                           |
-| In Progress                                                  | Reopened                                   |
-| On Hold                                                      | Pending customer action                    |
-| Resolved                                                     | Resolved                                   |
-| Resolved                                                     | Closed                                     |
-| Resolved                                                     | Closed                                     | **Priority**: In Incident, you can’t set the Priority ﬁeld directly. The values of the **Impact** and **Urgency** ﬁelds calculate the **Priority** ﬁeld. When synchronizing from AWS, we set by default the ﬁelds shown in the table below. |
-| Support Case Severity label                                  | Support Case Severity value                | ServiceNow Incident priority label                                                                                                                                                                                                          | ServiceNow Incident priority value |
-| ---                                                          | ---                                        | ---                                                                                                                                                                                                                                         | ---                                |
-| Business Critical System Down (Enterprise support plan only) | critical                                   | 1 – Critical                                                                                                                                                                                                                                | 1                                  |
-| Production System Down                                       | urgent                                     | 2 – High                                                                                                                                                                                                                                    | 2                                  |
-| Production System Impaired                                   | high                                       | 3 – Moderate                                                                                                                                                                                                                                | 3                                  |
-| System Impaired                                              | normal                                     | 4 – Low                                                                                                                                                                                                                                     | 4                                  |
-| General Guidance                                             | low                                        | 5 – Planning                                                                                                                                                                                                                                | 5                                  | Support integration also enables you to customize the priority values, and maps Support Case Severity to ServiceNow Incident Priority. ###### To create custom priority mappings 1. Log in to your ServiceNow instance as a user (for example, System Administrator) in the fulﬁller view (standard user interface view). 2. In the navigator, enter `AWS Service Management`. 3. Under **Setup**, choose **Priority Mappings**. Then choose **New**. 4. Choose **AWS Record** **Type** as **Support Case**. 5. For mapping, choose **Support Case Severity** and **ServiceNow Incident Priority**. 6. Choose **Submit**. |
+| Support case         | ServiceNow incident                        |
+| -------------------- | ------------------------------------------ |
+| Subject              | short_description                          |
+| First correspondence | description                                |
+| Case ID              | x_126749_aws_sc_awssupportcaseid           |
+| Status               | x_126749_aws_sc_awscasestatus              |
+| Service              | x_126749_aws_sc_awsservice                 |
+| Category             | x_126749_aws_sc_awscategory                |
+| Additional contacts  | x_126749_aws_sc_awscasecommunicationemails |
+| AWS account          | x_126749_aws_sc_awsaccount                 |
+
+Incident State is an integer in ServiceNow. We map Support case status
+values to ServiceNow state.
+
+| ServiceNow incident Status | Support case status     |
+| -------------------------- | ----------------------- |
+| New                        | Unassigned              |
+| New                        | Open                    |
+| In Progress                | Work in progress        |
+| In Progress                | Reopened                |
+| On Hold                    | Pending customer action |
+| Resolved                   | Resolved                |
+| Resolved                   | Closed                  |
+| Resolved                   | Closed                  |
+
+**Priority**: In Incident, you can’t set the
+Priority ﬁeld directly.
+
+The values of the **Impact** and **Urgency** ﬁelds calculate the **Priority** ﬁeld. When synchronizing from AWS, we set by default
+the ﬁelds shown in the table below.
+
+| Support Case Severity label                                     | Support Case Severity value | ServiceNow Incident priority label | ServiceNow Incident priority value |
+| --------------------------------------------------------------- | --------------------------- | ---------------------------------- | ---------------------------------- |
+| Business Critical System Down (Enterprise support plan<br>only) | critical                    | 1 – Critical                       | 1                                  |
+| Production System Down                                          | urgent                      | 2 – High                           | 2                                  |
+| Production System Impaired                                      | high                        | 3 – Moderate                       | 3                                  |
+| System Impaired                                                 | normal                      | 4 – Low                            | 4                                  |
+| General Guidance                                                | low                         | 5 – Planning                       | 5                                  |
+
+Support integration also enables you to customize the priority values, and
+maps Support Case Severity to ServiceNow Incident Priority.
+
+###### To create custom priority mappings
+
+1. Log in to your ServiceNow instance as a user (for example, System
+   Administrator) in the fulﬁller view (standard user interface
+   view).
+2. In the navigator, enter `AWS Service
+Management`.
+3. Under **Setup**, choose **Priority Mappings**. Then choose **New**.
+4. Choose **AWS Record**
+   **Type** as **Support
+   Case**.
+5. For mapping, choose **Support Case
+   Severity** and **ServiceNow Incident
+   Priority**.
+6. Choose **Submit**.

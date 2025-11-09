@@ -188,9 +188,150 @@ customers or Jira agents during provisioning, but are available in the
 provisioned product in Service Catalog.
 
 | Key                 | Value           |
-| ------------------- | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------------- | --------------- |
 | Requester name      | ${OPENED_BY}    |
 | Requester user name | ${USERNAME}     |
 | Issue ID            | ${ISSUE_ID}     |
 | Project name        | ${PROJECT_NAME} |
-| Project code        | ${PROJECT_CODE} | ###### To add TagOptions to Service Catalog integration in Jira Service Management 1. Navigate to the **Settings** menu, and then choose **Apps**. 2. Choose **AWS Service Management Connector**, and then navigate to **Automated Tags**. 3. Enter the **Key** and **Value** fields. 4. Select a portfolio option. 1. **Glocal** if the tag should be available in all synced portfolios, or 2. **Portfolio** to restrict tags to only the specified portfolio. 5. Choose **Add**. ## Projects Enabled for the Connector The AWS Service Management Connector for Jira Service Management must be associated with one or more Jira projects and Jira Service Management request types. You can configure which features are enabled for each Jira project. **Configure Jira projects for AWS Service Catalog,AWS Systems Manager Incident Manager, AWS Security Hub, Support, AWS Systems Manager Automation, AWS Systems Manager OpsCenter and AWS Health** ###### To configure the Jira projects for AWS Service Catalog, AWS Systems Manager Incident Manager, AWS Security Hub, Support, and AWS Systems Manager Automation 1. Navigate to the **Settings** menu, and then choose **Apps**. 2. Choose **AWS Service Management Connector**, and then navigate to **Connector settings**. 3. Under **Projects enabled for Connector**, you must enable at least one Jira project. You can [create a new Jira Service Management project](https://support.atlassian.com/jira-service-management-cloud/docs/set-up-your-first-jira-service-management-project/ "https://support.atlassian.com/jira-service-management-cloud/docs/set-up-your-first-jira-service-management-project/") or add an existing one. Only Jira internal customers and Jira agents with access to the associated project can access the Connector. When you apply this update, the Connector adds the necessary issue types and other Jira items for AWS Service Catalog products to be available in those projects. You can return to this screen and add or remove projects at any time. 4. Projects initially take the default configuration for which Connector features are enabled. Choose **Edit** in a project row to change the configuration for individual projects. We permit projects to use more features than the default. 5. Choose **Save.** ###### Note For internal customers and Jira agents to be able to request AWS Service Catalog products, one or more projects must be enabled. Internal customers and Jira agents must have Jira permissions to create issues in the Jira project and Permission to Request in the Jira settings for the AWS Account for at least one portfolio with products. ###### AWS Security Hub configuration 1. Navigate to the **Settings** menu, and then choose **Apps**. 2. Choose **AWS Service Management Connector**, and then navigate to **Connector settings**. 3. Under **Security Hub configuration**, choose **CRITICAL**, **HIGH**, **MEDIUM**, **LOW**, or **INFORMATIONAL** to configure the findings synched to Jira Service Management. **SQS queue name** is the queue from which Security Hub findings are synched. The default value is `AwsSmcJsmCloudForgeSecurityHubQueue`. The configured queue is available in all AWS accounts and regions and where you have configured the integration. 4. (optional) Enable **Recreate Jira Issues** to indicate if Jira Issues will be created for updated findings where the original Jira Issue deleted. 5. Assign onboarded AWS accounts to Jira projects. 6. Choose **Save**. ###### AWS Systems Manager Incident Manager configuration 1. Configure incident resolution behavior between AWS and Jira Service Management. The default value is **Bidirectional**. 2. Assign onboarded AWS accounts to Jira projects. 3. Choose **Save**. ###### Support configuraiton 1. Navigate to the **Settings** menu, and then choose **Apps**. 2. Choose **AWS Service Management Connector**, and then navigate to **Connector settings**. 3. In the **Support configuration** pane, choose **SQS gueue name** from where you want to sync the Support case. The default value is **AwsSmcJsmCloudForgeSupportQueue**. The queue must be available in `us-east-1` for commercial and `us-gov-west-1` for GovCloud accounts. 4. Assign onboarded AWS accounts to Jira projects. 5. Choose **Save**. ###### AWS Systems Manager Automation configuraiton 1. Navigate to the **Settings** menu, and then choose **Apps**. 2. Choose **AWS Service Management Connector**, and then navigate to **Connector settings**. 3. In the **AWS Systems Manager Automation configuration** pane, select the **Jira groups that can request automation** execution. 4. Choose **Save**. ###### AWS Systems Manager OpsCenter configuration 1. Navigate to the **Settings** menu, and then choose **Apps**. 2. Choose **AWS Service Management Connector**, and then navigate to **Connector settings**. 3. Under **Systems Manager OpsCenter configuration**, assign onboarded AWS accounts to Jira projects. 4. Choose **Save**. ###### AWS Health configuration 1. Navigate to the **Settings** menu, and then choose **Apps**. 2. Choose **AWS Service Management Connector**, and then navigate to **Connector settings**. 3. Under **AWS Health configuration**, provide the SQS queue name from where you want to sync health events. The default name is **AwsSmcJsmCloudForgeHealthQueue**. 4. Choose default severity levels for Jira issues for health event types (**Issue**, **Account Notification**, **Scheduled Change**). 5. Assign onboarded AWS accounts to Jira projects. 6. Choose **Save**. |
+| Project code        | ${PROJECT_CODE} |
+
+###### To add TagOptions to Service Catalog integration in Jira Service
+
+Management
+
+1. Navigate to the **Settings** menu, and then
+   choose **Apps**.
+2. Choose **AWS Service Management Connector**,
+   and then navigate to **Automated Tags**.
+3. Enter the **Key** and
+   **Value** fields.
+4. Select a portfolio option.
+   1. **Glocal** if the tag should be available
+      in all synced portfolios, or
+   2. **Portfolio** to restrict tags to only the
+      specified portfolio.
+
+5. Choose **Add**.
+
+## Projects Enabled for the
+
+Connector
+
+The AWS Service Management Connector for Jira Service Management
+must be associated with one or more Jira projects and Jira Service
+Management request types. You can configure which features are enabled for
+each Jira project.
+
+**Configure Jira projects for
+AWS Service Catalog,AWS Systems Manager Incident Manager, AWS Security Hub, Support, AWS Systems Manager Automation,
+AWS Systems Manager OpsCenter and AWS Health**
+
+###### To configure the Jira projects for AWS Service Catalog, AWS Systems Manager Incident Manager,
+
+AWS Security Hub, Support, and AWS Systems Manager Automation
+
+1. Navigate to the **Settings** menu, and then
+   choose **Apps**.
+2. Choose **AWS Service Management Connector**,
+   and then navigate to **Connector settings**.
+3. Under **Projects enabled for
+   Connector**, you must enable at least one Jira project. You
+   can [create a new Jira Service Management project](https://support.atlassian.com/jira-service-management-cloud/docs/set-up-your-first-jira-service-management-project/ "https://support.atlassian.com/jira-service-management-cloud/docs/set-up-your-first-jira-service-management-project/") or add an
+   existing one. Only Jira internal customers and Jira agents with access
+   to the associated project can access the Connector. When you apply
+   this update, the Connector adds the necessary issue types and other
+   Jira items for AWS Service Catalog products to be available in those projects.
+   You can return to this screen and add or remove projects at any time.
+4. Projects initially take the default configuration for which
+   Connector features are enabled. Choose **Edit** in a project row to change the configuration for
+   individual projects. We permit projects to use more features than the
+   default.
+5. Choose **Save.**
+
+###### Note
+
+For internal customers and Jira agents to be able to request
+AWS Service Catalog products, one or more projects must be enabled. Internal
+customers and Jira agents must have Jira permissions to create
+issues in the Jira project and Permission to Request in the Jira
+settings for the AWS Account for at least one portfolio with
+products.
+
+###### AWS Security Hub configuration
+
+1. Navigate to the **Settings** menu, and then
+   choose **Apps**.
+2. Choose **AWS Service Management Connector**,
+   and then navigate to **Connector settings**.
+3. Under **Security Hub configuration**, choose
+   **CRITICAL**, **HIGH**,
+   **MEDIUM**, **LOW**, or
+   **INFORMATIONAL** to configure the findings synched
+   to Jira Service Management.
+
+**SQS queue name** is the queue from which Security Hub
+findings are synched. The default value is
+`AwsSmcJsmCloudForgeSecurityHubQueue`. The configured
+queue is available in all AWS accounts and regions and where you
+have configured the integration. 4. (optional) Enable **Recreate Jira Issues** to
+indicate if Jira Issues will be created for updated findings where the
+original Jira Issue deleted. 5. Assign onboarded AWS accounts to Jira projects. 6. Choose **Save**.
+
+###### AWS Systems Manager Incident Manager configuration
+
+1. Configure incident resolution behavior between AWS and Jira
+   Service Management. The default value is
+   **Bidirectional**.
+2. Assign onboarded AWS accounts to Jira projects.
+3. Choose **Save**.
+
+###### Support configuraiton
+
+1. Navigate to the **Settings** menu, and then
+   choose **Apps**.
+2. Choose **AWS Service Management Connector**, and then navigate to
+   **Connector settings**.
+3. In the **Support configuration** pane, choose
+   **SQS gueue name** from where you want to sync the
+   Support case. The default value is
+   **AwsSmcJsmCloudForgeSupportQueue**. The queue must
+   be available in `us-east-1` for commercial and
+   `us-gov-west-1` for GovCloud accounts.
+4. Assign onboarded AWS accounts to Jira projects.
+5. Choose **Save**.
+
+###### AWS Systems Manager Automation configuraiton
+
+1. Navigate to the **Settings** menu, and then
+   choose **Apps**.
+2. Choose **AWS Service Management Connector**, and then navigate to
+   **Connector settings**.
+3. In the **AWS Systems Manager Automation configuration**
+   pane, select the **Jira groups that can request
+   automation** execution.
+4. Choose **Save**.
+
+###### AWS Systems Manager OpsCenter configuration
+
+1. Navigate to the **Settings** menu, and then
+   choose **Apps**.
+2. Choose **AWS Service Management Connector**, and then navigate to
+   **Connector settings**.
+3. Under **Systems Manager OpsCenter configuration**, assign
+   onboarded AWS accounts to Jira projects.
+4. Choose **Save**.
+
+###### AWS Health configuration
+
+1. Navigate to the **Settings** menu, and then
+   choose **Apps**.
+2. Choose **AWS Service Management Connector**, and then navigate to
+   **Connector settings**.
+3. Under **AWS Health
+   configuration**, provide the SQS queue name from where you
+   want to sync health events. The default name is **AwsSmcJsmCloudForgeHealthQueue**.
+4. Choose default severity levels for Jira issues for health event
+   types (**Issue**, **Account Notification**, **Scheduled
+   Change**).
+5. Assign onboarded AWS accounts to Jira projects.
+6. Choose **Save**.

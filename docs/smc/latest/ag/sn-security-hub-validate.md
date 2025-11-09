@@ -28,18 +28,41 @@ Management`.
    This table shows how fields map from ServiceNow Findings records to ServiceNow as
    Incident or Problem records.
 
-| Finding                                                          | Incident            | Problem            |
-| ---------------------------------------------------------------- | ------------------- | ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Created at                                                       | Opened at           | Opened at          |
-| Company Name                                                     | Company             | Company            |
-| Description                                                      | Description         | Description        |
-| Criticality                                                      | Impact              | Impact             |
-| Severity                                                         | Urgency             | Urgency            |
-| Hardcoded to _software_                                          | Category            | Category           |
-| Id of record in _cmdb_ci_service_ with name **AWS Security Hub** | Business service    | Business service   |
-| Description                                                      | Short description   | Short description  |
-| Reference to related Problem if it exists                        | problem_id          | n/a                | This table shows how fields synchronize between AWS Security Findings and ServiceNow Incidents or Problems.                                                                                                                                                                                                                                                                                                                                                |
-| AWS Security Hub value                                           | ServiceNow Incident | ServiceNow Problem |
-| ---                                                              | ---                 | ---                |
-| Severity Label                                                   | Urgency             | Urgency            |
-| Criticality                                                      | Impact              | Impact             | **Fields synchronized between AWS Security Findings, Incidents, and Problems in ServiceNow** <br>• Finding severity label → Problem/Incident urgency + INFORMATIONAL or LOW → LOW + MEDIUM → MEDIUM + HIGH or CRITICAL → HIGH <br>• Finding criticality → Problem/Incident impact + 0 - 29 → LOW + 30 - 69 → MEDIUM + 70 - 100 → HIGH **Fields synchronized from Findings to AWS Security Hub** <br>• Severity (Label and Normalized) <br>• WorkflowStatus |
+| Finding                                                             | Incident          | Problem           |
+| ------------------------------------------------------------------- | ----------------- | ----------------- |
+| Created at                                                          | Opened at         | Opened at         |
+| Company Name                                                        | Company           | Company           |
+| Description                                                         | Description       | Description       |
+| Criticality                                                         | Impact            | Impact            |
+| Severity                                                            | Urgency           | Urgency           |
+| Hardcoded to _software_                                             | Category          | Category          |
+| Id of record in _cmdb_ci_service_<br>with name **AWS Security Hub** | Business service  | Business service  |
+| Description                                                         | Short description | Short description |
+| Reference to related Problem if it exists                           | problem_id        | n/a               |
+
+This table shows how fields synchronize between AWS Security Findings and ServiceNow
+Incidents or Problems.
+
+| AWS Security Hub value | ServiceNow Incident | ServiceNow Problem |
+| ---------------------- | ------------------- | ------------------ |
+| Severity Label         | Urgency             | Urgency            |
+| Criticality            | Impact              | Impact             |
+
+**Fields synchronized between AWS Security Findings, Incidents,
+and Problems in ServiceNow**
+
+- Finding severity label → Problem/Incident urgency
+  - INFORMATIONAL or LOW → LOW
+  - MEDIUM → MEDIUM
+  - HIGH or CRITICAL → HIGH
+
+- Finding criticality → Problem/Incident impact
+
+      + 0 - 29 → LOW
+      + 30 - 69 → MEDIUM
+      + 70 - 100 → HIGH
+
+  **Fields synchronized from Findings to AWS Security Hub**
+
+- Severity (Label and Normalized)
+- WorkflowStatus

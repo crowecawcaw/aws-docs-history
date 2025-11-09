@@ -1,8 +1,28 @@
 # Release notes for AWS Service Management Connector for ServiceNow
 
-The latest version includes support for Xanadu and minor fixes to
-existing AWS Security Hub integrations. The prior version included enhancements to
+The latest version includes support for Zurich, Yokohama, and Xanadu and minor fixes to
+existing integrations. The prior version included enhancements to
 the existing AWS Health integration.
+
+## Version 5.1.10
+
+**AWS ServiceNow Connector Core Features**
+
+- Supports the latest ServiceNow platform releases of Zurich, Yokohama, and Xanadu.
+
+**Support**
+
+- Fix for region selection for AWS Support integration.
+
+## Version 5.1.6
+
+**AWS ServiceNow Connector Core Features**
+
+- Supports the latest ServiceNow platform releases of Yokohama and Xanadu.
+
+**AWS Config**
+
+- Fix for AWS tags filtering.
 
 ## Version 5.1.3
 

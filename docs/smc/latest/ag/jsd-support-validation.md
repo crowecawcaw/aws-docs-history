@@ -110,18 +110,22 @@ in Jira incident
 **Status**: We map Support case status
 values to JSM state.
 
-| JSM incident status           | Support case status     |
-| ----------------------------- | ----------------------- | ------------------------------------------------------------------- |
-| OPEN                          | Unassigned              |
-| OPEN                          | Opened                  |
-| WORK IN PROGRESS              | Work in progress        |
-| WORK IN PROGRESS              | Reopened                |
-| PENDING                       | Pending customer action |
-| COMPLETED                     | Resolved                | **Priority**: We map Support case severity to JSM Incident Priority |
-| AWS severity                  | JSM incident priority   |
-| ---                           | ---                     |
-| General Guidance              | Minor                   |
-| System Impaired               | Low                     |
-| Production System Impaired    | Medium                  |
-| Production system down        | High                    |
-| Business Critical system down | Blocker                 |
+| JSM incident status | Support case status     |
+| ------------------- | ----------------------- |
+| OPEN                | Unassigned              |
+| OPEN                | Opened                  |
+| WORK IN PROGRESS    | Work in progress        |
+| WORK IN PROGRESS    | Reopened                |
+| PENDING             | Pending customer action |
+| COMPLETED           | Resolved                |
+
+**Priority**: We map Support case
+severity to JSM Incident Priority
+
+| AWS severity                  | JSM incident priority |
+| ----------------------------- | --------------------- |
+| General Guidance              | Minor                 |
+| System Impaired               | Low                   |
+| Production System Impaired    | Medium                |
+| Production system down        | High                  |
+| Business Critical system down | Blocker               |
