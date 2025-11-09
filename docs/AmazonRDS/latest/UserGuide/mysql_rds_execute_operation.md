@@ -34,12 +34,45 @@ The following example demonstrates temporary tablespace shrinking using `mysql.r
 
 To check current temporary tablespace size, run the following query:
 
-````
+```
 
 SELECT FILE_SIZE FROM information_schema.innodb_sys_tablespaces WHERE name LIKE 'innodb_temporary';
 +------------+
-| FILE_SIZE  | +------------+
-| 6723469312 |  -- 6.3 GB +------------+ ``` When you drop temporary tables, it doesn't reduce storage usage in the global tablespace. To reduce the size of the global tablespace, run the `mysql.rds_execute_operation` command to shrink the temporary tablespace. ``` CALL `mysql.rds_execute_operation('innodb_truncate_temporary_tablespace_now');` Query OK, 2 rows affected (0.004 sec) ``` After you run the procedure, verify that the space was reclaimed. ``` SELECT FILE_SIZE FROM information_schema.innodb_sys_tablespaces WHERE name LIKE 'innodb_temporary'; +-----------+
-| FILE_SIZE | +-----------+
-|  12582912 |  -- 12 MB +-----------+ ``` ###### Note The shrink operation might take time, depending on the temporary tablespace size and current workload. ###### Important The temporary tablespace shrinks only when all temporary tables that contributed to its size are no longer in use. We recommend that you run this procedure when there are no active temporary tablespaces on the instance.
-````
+| FILE_SIZE  |
++------------+
+| 6723469312 |  -- 6.3 GB
++------------+
+
+```
+
+When you drop temporary tables, it doesn't reduce storage usage in the global tablespace.
+To reduce the size of the global tablespace, run the `mysql.rds_execute_operation` command to shrink the temporary tablespace.
+
+```
+
+CALL `mysql.rds_execute_operation('innodb_truncate_temporary_tablespace_now');`
+Query OK, 2 rows affected (0.004 sec)
+
+```
+
+After you run the procedure, verify that the space was reclaimed.
+
+```
+
+SELECT FILE_SIZE FROM information_schema.innodb_sys_tablespaces WHERE name LIKE 'innodb_temporary';
++-----------+
+| FILE_SIZE |
++-----------+
+|  12582912 |  -- 12 MB
++-----------+
+
+```
+
+###### Note
+
+The shrink operation might take time, depending on the temporary tablespace size and current workload.
+
+###### Important
+
+The temporary tablespace shrinks only when all temporary tables that contributed to its size are no longer in use.
+We recommend that you run this procedure when there are no active temporary tablespaces on the instance.

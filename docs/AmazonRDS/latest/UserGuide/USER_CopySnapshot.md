@@ -465,7 +465,7 @@ The following examples illustrate the difference between full and incremental sn
 unshared snapshots.
 
 | Snapshot            | Encryption key | Full or incremental |
-| ------------------- | -------------- | ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------------- | -------------- | ------------------- |
 | S1                  | K1             | Full                |
 | S2                  | K1             | Incremental of S1   |
 | S3                  | K1             | Incremental of S2   |
@@ -474,4 +474,242 @@ unshared snapshots.
 | Copy of S2 (S2C)    | K3             | Full                |
 | Copy of S3 (S3C)    | K3             | Incremental of S2C  |
 | Copy of S4 (S4C)    | K3             | Incremental of S3C  |
-| Copy 2 of S4 (S4C2) | K4             | Full                | ###### Note In these examples, snapshots S2, S3, and S4 are incremental only if the previous snapshot still exists. The same applies to copies. Snapshot copies S3C and S4C are incremental only if the previous copy still exists. For information on copying incremental snapshots across AWS Regions, see [Full and incremental copies](#USER_CopySnapshot.AcrossRegions.Full "#USER_CopySnapshot.AcrossRegions.Full"). ### Considerations for cross-Region snapshot copying You can copy DB snapshots across AWS Regions. Data transfer charges applies for cross-Region snapshot copy. Cross-Region snapshot copying is subject to certain constraints and considerations. #### Requesting a cross-Region DB snapshot copy To communicate with the source Region to request a cross-Region DB snapshot copy, the requester (IAM role or IAM user) must have access to the source DB snapshot and the source Region. Certain conditions in the requester's IAM policy can cause the request to fail. The following examples assume that you're copying the DB snapshot from US East (Ohio) to US East (N. Virginia). These examples show conditions in the requester's IAM policy that cause the request to fail: <br>• The requester's policy has a condition for `aws:RequestedRegion`. `... "Effect": "Allow", "Action": "rds:CopyDBSnapshot", "Resource": "*", "Condition": { "StringEquals": { "aws:RequestedRegion": "us-east-1" } }` The request fails because the policy doesn't allow access to the source Region. For a successful request, specify both the source and destination Regions. `... "Effect": "Allow", "Action": "rds:CopyDBSnapshot", "Resource": "*", "Condition": { "StringEquals": { "aws:RequestedRegion": [ "us-east-1", "us-east-2" ] } }` <br>• The requester's policy doesn't allow access to the source DB snapshot. `... "Effect": "Allow", "Action": "rds:CopyDBSnapshot", "Resource": "arn:aws:rds:us-east-1:123456789012:snapshot:target-snapshot" ...` For a successful request, specify both the source and target snapshots. `... "Effect": "Allow", "Action": "rds:CopyDBSnapshot", "Resource": [ "arn:aws:rds:us-east-1:123456789012:snapshot:target-snapshot", "arn:aws:rds:us-east-2:123456789012:snapshot:source-snapshot" ] ...` <br>• The requester's policy denies `aws:ViaAWSService`. `... "Effect": "Allow", "Action": "rds:CopyDBSnapshot", "Resource": "*", "Condition": { "Bool": {"aws:ViaAWSService": "false"} }` Communication with the source Region is made by RDS on the requester's behalf. For a successful request, don't deny calls made by AWS services. <br>• The requester's policy has a condition for `aws:SourceVpc` or `aws:SourceVpce`. These requests might fail because when RDS makes the call to the remote Region, it isn't from the specified VPC or VPC endpoint. If you need to use one of the previous conditions that would cause a request to fail, you can include a second statement with `aws:CalledVia` in your policy to make the request succeed. For example, you can use `aws:CalledVia` with `aws:SourceVpce` as shown here: `... "Effect": "Allow", "Action": "rds:CopyDBSnapshot", "Resource": "*", "Condition": { "Condition" : { "ForAnyValue:StringEquals" : { "aws:SourceVpce": "vpce-1a2b3c4d" } } }, { "Effect": "Allow", "Action": [ "rds:CopyDBSnapshot" ], "Resource": "*", "Condition": { "ForAnyValue:StringEquals": { "aws:CalledVia": [ "rds.amazonaws.com" ] } } }` For more information, see [Policies and permissions in IAM](../../../IAM/latest/UserGuide/access_policies.md "../../../IAM/latest/UserGuide/access_policies.md") in the _IAM User Guide_. #### Authorizing the snapshot copy After a cross-Region DB snapshot copy request returns `success`, RDS starts the copy in the background. An authorization for RDS to access the source snapshot is created. This authorization links the source DB snapshot to the target DB snapshot, and allows RDS to copy only to the specified target snapshot. The authorization is verified by RDS using the `rds:CrossRegionCommunication` permission in the service-linked IAM role. If the copy is authorized, RDS communicates with the source Region and completes the copy. RDS doesn't have access to DB snapshots that weren't authorized previously by a `CopyDBSnapshot` request. The authorization is revoked when copying completes. RDS uses the service-linked role to verify the authorization in the source Region. If you delete the service-linked role during the copy process, the copy fails. For more information, see [Using service-linked roles](../../../IAM/latest/UserGuide/using-service-linked-roles.md "../../../IAM/latest/UserGuide/using-service-linked-roles.md") in the _IAM User Guide_. #### Using AWS Security Token Service credentials Session tokens from the global AWS Security Token Service (AWS STS) endpoint are valid only in AWS Regions that are enabled by default (commercial Regions). If you use credentials from the `assumeRole` API operation in AWS STS, use the regional endpoint if the source Region is an opt-in Region. Otherwise, the request fails. This happens because your credentials must be valid in both Regions, which is true for opt-in Regions only when the regional AWS STS endpoint is used. To use the global endpoint, make sure that it's enabled for both Regions in the operations. Set the global endpoint to `Valid in all AWS Regions` in the AWS STS account settings. The same rule applies to credentials in the presigned URL parameter. For more information, see [Managing AWS STS in an AWS Region](../../../IAM/latest/UserGuide/id_credentials_temp_enable-regions.md "../../../IAM/latest/UserGuide/id_credentials_temp_enable-regions.md") in the _IAM User Guide_. #### Latency and multiple copy requests Depending on the AWS Regions involved and the amount of data to be copied, a cross-Region snapshot copy can take hours to complete. In some cases, there might be a large number of cross-Region snapshot copy requests from a given source AWS Region. In such cases, Amazon RDS might put new cross-Region copy requests from that source AWS Region into a queue until some in-progress copies complete. No progress information is displayed about copy requests while they are in the queue. Progress information is displayed when the copying starts. #### Full and incremental copies When you copy a snapshot to a different AWS Region from the source snapshot, the first copy is a full snapshot copy, even if you copy an incremental snapshot. A full snapshot copy contains all of the data and metadata required to restore the DB instance. After the first snapshot copy, you can copy incremental snapshots of the same DB instance to the same destination Region within the same AWS account. For more information on incremental snapshots, see [Considerations for incremental snapshot copying](#USER_CopySnapshot.Incremental "#USER_CopySnapshot.Incremental"). Incremental snapshot copying across AWS Regions is supported for both unencrypted and encrypted snapshots. When you copy a snapshot across AWS Regions, the copy is an incremental copy if the following conditions are met: <br>• The snapshot was previously copied to the destination Region. <br>• The most recent snapshot copy still exists in the destination Region. <br>• All copies of the snapshot in the destination Region are either unencrypted, or were encrypted using the same KMS key. ### Considerations for option groups DB option groups are specific to the AWS Region that they are created in, and you can't use an option group from one AWS Region in another AWS Region. For Oracle databases, you can use the AWS CLI or RDS API to copy the custom DB option group from a snapshot that has been shared with your AWS account. You can only copy option groups within the same AWS Region. The option group isn't copied if it has already been copied to the destination account and no changes have been made to it since being copied. If the source option group has been copied before, but has changed since being copied, RDS copies the new version to the destination account. Default option groups aren't copied. When you copy a snapshot across Regions, you can specify a new option group for the snapshot. We recommend that you prepare the new option group before you copy the snapshot. In the destination AWS Region, create an option group with the same settings as the original DB instance. If one already exists in the new AWS Region, you can use that one. In some cases, you might copy a snapshot and not specify a new option group for the snapshot. In these cases, when you restore the snapshot the DB instance gets the default option group. To give the new DB instance the same options as the original, do the following: 1. In the destination AWS Region, create an option group with the same settings as the original DB instance. If one already exists in the new AWS Region, you can use that one. 2. After you restore the snapshot in the destination AWS Region, modify the new DB instance and add the new or existing option group from the previous step. ### Considerations for parameter group When you copy a snapshot across Regions, the copy doesn't include the parameter group used by the original DB instance. When you restore a snapshot to create a new DB instance, that DB instance gets the default parameter group for the AWS Region it is created in. To give the new DB instance the same parameters as the original, do the following: 1. In the destination AWS Region, create a DB parameter group with the same settings as the original DB instance. If one already exists in the new AWS Region, you can use that one. 2. After you restore the snapshot in the destination AWS Region, modify the new DB instance and add the new or existing parameter group from the previous step. |
+| Copy 2 of S4 (S4C2) | K4             | Full                |
+
+###### Note
+
+In these examples, snapshots S2, S3, and S4 are incremental only if the previous snapshot still exists.
+
+The same applies to copies. Snapshot copies S3C and S4C are incremental only if the previous copy still exists.
+
+For information on copying incremental snapshots across AWS Regions, see [Full and incremental copies](#USER_CopySnapshot.AcrossRegions.Full "#USER_CopySnapshot.AcrossRegions.Full").
+
+### Considerations for cross-Region snapshot copying
+
+You can copy DB snapshots across AWS Regions. Data transfer charges applies for cross-Region snapshot copy.
+Cross-Region snapshot copying is subject to certain constraints and considerations.
+
+#### Requesting a cross-Region DB snapshot copy
+
+To communicate with the source Region to request a cross-Region DB snapshot copy,
+the requester (IAM role or IAM user) must have access to the source DB snapshot and
+the source Region.
+
+Certain conditions in the requester's IAM policy can cause the request to
+fail. The following examples assume that you're copying the DB snapshot from
+US East (Ohio) to US East (N. Virginia). These examples show conditions in the
+requester's IAM policy that cause the request to fail:
+
+- The requester's policy has a condition for `aws:RequestedRegion`.
+
+```
+...
+"Effect": "Allow",
+"Action": "rds:CopyDBSnapshot",
+"Resource": "*",
+"Condition": {
+    "StringEquals": {
+        "aws:RequestedRegion": "us-east-1"
+    }
+}
+```
+
+The request fails because the policy doesn't allow access to the source Region. For a successful request,
+specify both the source and destination Regions.
+
+```
+...
+"Effect": "Allow",
+"Action": "rds:CopyDBSnapshot",
+"Resource": "*",
+"Condition": {
+    "StringEquals": {
+        "aws:RequestedRegion": [
+            "us-east-1",
+            "us-east-2"
+        ]
+    }
+}
+```
+
+- The requester's policy doesn't allow access to the source DB snapshot.
+
+```
+...
+"Effect": "Allow",
+"Action": "rds:CopyDBSnapshot",
+"Resource": "arn:aws:rds:us-east-1:123456789012:snapshot:target-snapshot"
+...
+```
+
+For a successful request, specify both the source and target snapshots.
+
+```
+...
+"Effect": "Allow",
+"Action": "rds:CopyDBSnapshot",
+"Resource": [
+    "arn:aws:rds:us-east-1:123456789012:snapshot:target-snapshot",
+    "arn:aws:rds:us-east-2:123456789012:snapshot:source-snapshot"
+]
+...
+```
+
+- The requester's policy denies `aws:ViaAWSService`.
+
+```
+...
+"Effect": "Allow",
+"Action": "rds:CopyDBSnapshot",
+"Resource": "*",
+"Condition": {
+    "Bool": {"aws:ViaAWSService": "false"}
+}
+```
+
+Communication with the source Region is made by RDS on the requester's behalf. For a successful request,
+don't deny calls made by AWS services.
+
+- The requester's policy has a condition for `aws:SourceVpc` or `aws:SourceVpce`.
+
+These requests might fail because when RDS makes the call to the remote
+Region, it isn't from the specified VPC or VPC endpoint.
+
+If you need to use one of the previous conditions that would cause a request to fail, you can include a second statement
+with `aws:CalledVia` in your policy to make the request succeed. For example, you can use
+`aws:CalledVia` with `aws:SourceVpce` as shown here:
+
+```
+...
+"Effect": "Allow",
+"Action": "rds:CopyDBSnapshot",
+"Resource": "*",
+"Condition": {
+    "Condition" : {
+        "ForAnyValue:StringEquals" : {
+          "aws:SourceVpce": "vpce-1a2b3c4d"
+        }
+     }
+},
+{
+    "Effect": "Allow",
+    "Action": [
+        "rds:CopyDBSnapshot"
+    ],
+    "Resource": "*",
+    "Condition": {
+        "ForAnyValue:StringEquals": {
+            "aws:CalledVia": [
+                "rds.amazonaws.com"
+            ]
+        }
+    }
+}
+
+```
+
+For more information, see [Policies and permissions in IAM](../../../IAM/latest/UserGuide/access_policies.md "../../../IAM/latest/UserGuide/access_policies.md") in the
+_IAM User Guide_.
+
+#### Authorizing the snapshot copy
+
+After a cross-Region DB snapshot copy request returns `success`, RDS
+starts the copy in the background. An authorization for RDS to access the source
+snapshot is created. This authorization links the source DB snapshot to the target
+DB snapshot, and allows RDS to copy only to the specified target snapshot.
+
+The authorization is verified by RDS using the
+`rds:CrossRegionCommunication` permission in the service-linked IAM
+role. If the copy is authorized, RDS communicates with the source Region and
+completes the copy.
+
+RDS doesn't have access to DB snapshots that weren't authorized previously by a `CopyDBSnapshot` request.
+The authorization is revoked when copying completes.
+
+RDS uses the service-linked role to verify the authorization in the source Region. If you delete the service-linked role
+during the copy process, the copy fails.
+
+For more information, see [Using service-linked roles](../../../IAM/latest/UserGuide/using-service-linked-roles.md "../../../IAM/latest/UserGuide/using-service-linked-roles.md") in
+the _IAM User Guide_.
+
+#### Using AWS Security Token Service credentials
+
+Session tokens from the global AWS Security Token Service (AWS STS) endpoint are valid only in AWS Regions that are enabled by default (commercial Regions). If you use credentials
+from the `assumeRole` API operation in AWS STS, use the regional endpoint
+if the source Region is an opt-in Region. Otherwise, the request fails. This happens
+because your credentials must be valid in both Regions, which is true for opt-in
+Regions only when the regional AWS STS endpoint is used.
+
+To use the global endpoint, make sure that it's enabled for both Regions in the operations. Set the global endpoint
+to `Valid in all AWS Regions` in the AWS STS account settings.
+
+The same rule applies to credentials in the presigned URL parameter.
+
+For more information, see [Managing AWS STS in an AWS Region](../../../IAM/latest/UserGuide/id_credentials_temp_enable-regions.md "../../../IAM/latest/UserGuide/id_credentials_temp_enable-regions.md") in the _IAM User Guide_.
+
+#### Latency and multiple copy requests
+
+Depending on the AWS Regions involved and the amount of data to be copied, a cross-Region snapshot copy can take hours to
+complete.
+
+In some cases, there might be a large number of cross-Region snapshot copy
+requests from a given source AWS Region. In such cases, Amazon RDS might put new
+cross-Region copy requests from that source AWS Region into a queue until some
+in-progress copies complete. No progress information is displayed about copy
+requests while they are in the queue. Progress information is displayed when the
+copying starts.
+
+#### Full and incremental copies
+
+When you copy a snapshot to a different AWS Region from the source snapshot, the first copy is a
+full snapshot copy, even if you copy an incremental snapshot. A full snapshot copy contains all of the data and metadata
+required to restore the DB instance. After the first snapshot copy, you can copy incremental snapshots of the same DB instance to the same destination Region within the same AWS account. For more information on incremental snapshots, see
+[Considerations for incremental snapshot copying](#USER_CopySnapshot.Incremental "#USER_CopySnapshot.Incremental").
+
+Incremental snapshot copying across AWS Regions is supported for both unencrypted and encrypted
+snapshots.
+
+When you copy a snapshot across AWS Regions, the copy is an incremental copy if the following
+conditions are met:
+
+- The snapshot was previously copied to the destination Region.
+- The most recent snapshot copy still exists in the destination Region.
+- All copies of the snapshot in the destination Region are either unencrypted, or were encrypted using the same
+  KMS key.
+
+### Considerations for option groups
+
+DB option groups are specific to the AWS Region that they are created in, and you can't use an option group from one
+AWS Region in another AWS Region.
+
+For Oracle databases, you can use the AWS CLI or RDS API to copy the custom DB option group from a snapshot that has been shared
+with your AWS account. You can only copy option groups within the same AWS Region. The option group isn't copied if it has
+already been copied to the destination account and no changes have been made to it since being copied. If the source option
+group has been copied before, but has changed since being copied, RDS copies the new version to the destination account. Default
+option groups aren't copied.
+
+When you copy a snapshot across Regions, you can specify a new option group for the snapshot. We recommend that you prepare
+the new option group before you copy the snapshot. In the destination AWS Region, create an option group with the same settings
+as the original DB instance. If one already exists
+in the new AWS Region, you can use that one.
+
+In some cases, you might copy a snapshot and not specify a new option group for the
+snapshot. In these cases, when you restore the snapshot the DB instance gets the default option group. To give the
+new DB instance the same options as the original, do the following:
+
+1. In the destination AWS Region, create an option group with the same settings as the original DB instance.
+   If one already exists in the new AWS Region, you can use that one.
+2. After you restore the snapshot in the destination AWS Region, modify the new DB instance
+   and add the new or existing option group from the previous step.
+
+### Considerations for parameter group
+
+When you copy a snapshot across Regions, the copy doesn't include the parameter group used
+by the original DB instance. When you restore a snapshot to create a new
+DB instance, that DB instance gets the default parameter group for the AWS Region it is created in. To give the new DB instance the same parameters as the original, do the
+following:
+
+1. In the destination AWS Region, create a DB parameter group with the same settings as the original
+   DB instance. If one already exists in the new AWS Region, you can use that one.
+2. After you restore the snapshot in the destination AWS Region, modify the new DB instance
+   and add the new or existing parameter group from the previous step.

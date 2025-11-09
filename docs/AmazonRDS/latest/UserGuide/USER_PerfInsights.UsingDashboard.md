@@ -1,40 +1,54 @@
-# Viewing a performance analysis
+# Analyzing SQL Server execution plans using the Performance Insights dashboard for Amazon RDS
 
-report in Performance Insights
+When analyzing DB load on a SQL Server Database, you might want to know which plans are contributing the most to DB load.
+You can determine which plans are contributing the most to DB load by using the plan capture feature of Performance Insights.
 
-The **Performance analysis reports - new** tab lists all the reports
-that are created for the DB instance. The following are displayed for each report:
+###### To analyze SQL Server execution plans using the console
 
-- **ID**: Unique identifier of the report.
-- **Name**: Tag key added to the report.
-- **Report creation time**: Time you created the report.
-- **Analysis start time**: Start time of the analysis in the report.
-- **Analysis end time**: End time of the analysis in the report.
-
-###### To view a performance analysis report
-
-1. Sign in to the AWS Management Console and open the Amazon RDS console at
+1. Open the Amazon RDS console at
    [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. In the left navigation pane, choose **Performance Insights**.
-3. Choose a DB instance for which you want to view the analysis report.
-4. Scroll down and choose **Performance analysis reports - new** tab in the Performance Insights dashboard.
+2. In the navigation pane, choose **Performance Insights**.
+3. Choose a SQL Server DB instance. The Performance Insights dashboard is displayed for that
+   DB instance.
+4. In the **Database load (DB load)** section, choose **Plans**
+   next to **Slice by**.
 
-All the analysis reports for the different time periods are displayed. 5. Choose **ID** of the report you want to view.
+The Average active sessions chart shows the plans used by your top SQL statements. The plan hash values appear to
+the right of the color-coded squares. Each hash value uniquely identifies a plan.
 
-The DB load chart displays the entire analysis period by default if more than one insight is identified.
-If the report has identified one insight then the DB load chart displays the insight by default.
+![Slice by plans](images/pi-slice-by-plans-sqlserver.png) 5. Scroll down to the **Top SQL** tab.
 
-The dashboard also lists the tags for the report in the **Tags** section.
+In the following example, the top SQL digest has three plans.
+The presence of a question mark in the SQL statement indicates that the statement is a digest.
+To view the full SQL statement, choose a value in the **SQL statements** column.
 
-The following example shows the entire analysis period for the report.
+![Choose a digest plan](images/top-sql-plans-unselected-sqlserver.png) 6. Choose the digest to expand it into its component statements.
 
-![DB load chart showing entire analysis report period](images/PI_EntireAnalysisRep.png) 6. Choose the insight in the **Database load insights** list you want to view if more than one insight is identified in the report.
+In the following example, the `SELECT` statement is a digest query. The component queries in the digest
+use three different execution plans. The colors assigned to the plans correspond to the database load chart.
 
-The dashboard displays the insight message, DB load chart highlighting the time period of the insight,
-analysis and recommendations, and the list of report tags.
+![Choose a digest plan](images/pi-digest-plan-sqlserver.png) 7. Scroll down and choose two **Plans** to compare from **Plans for digest
+query** list.
 
-The following example shows the DB load insight in the report.
+You can view either one or two plans for a query at a time. The following screenshot
+compares two plans in the digest. In the following example, 40% of the average
+active sessions running this digest query are using the plan on the left, whereas
+28% are using the plan on the right.
 
-![DB load chart showing insight in the report](images/PI_AnalysisRepInsight_chart.png)
+![Compare the plans side by side](images/pi-compare-plan-sqlserver.png)
 
-![Report insight analysis and recommendation section](images/PI_AnalysisRepInsight_Recommendations.png)
+In the previous example, the plans differ in an important way. Step 2 in the plan on the left uses an table scan, whereas the plan
+on the right uses a clustered index scan. For a table with a large number of rows, a query retrieving a single row is almost
+always faster with a clustered index scan. 8. (Optional) Choose the **Settings** icon on the Plan Details table to customize the visibility and order of columns.
+The following screenshot shows the Plan Details table with the **Output list** column as the second column.
+
+![Customize the visibility and order of columns in the Plan Details table](images/pi-plan-fields-sql-server.png) 9. (Optional) Choose **Copy** to copy the plan to the clipboard, or **Download** to
+save the plan to your hard drive.
+
+###### Note
+
+Performance Insights displays estimated execution plans using a hierarchical tree table.
+The table includes the partial execution information for each statement.
+For more information about the columns in the Plan Details table, see [SET SHOWPLAN_ALL](https://learn.microsoft.com/en-us/sql/t-sql/statements/set-showplan-all-transact-sql "https://learn.microsoft.com/en-us/sql/t-sql/statements/set-showplan-all-transact-sql") in the SQL Server documentation.
+To display the full execution information for an estimated execution plan, choose **Download** to download the plan and then upload the plan to SQL Server Management Studio.
+For more information about displaying an estimated execution plan using SQL Server Management Studio, see [Display an Estimated Execution Plan](https://learn.microsoft.com/en-us/sql/relational-databases/performance/display-the-estimated-execution-plan "https://learn.microsoft.com/en-us/sql/relational-databases/performance/display-the-estimated-execution-plan") in the SQL Server documentation.

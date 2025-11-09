@@ -24,8 +24,11 @@ SQL query:
 For example, querying an RDS for MySQL 8.0.34 database returns the following
 output:
 
-````
+```
 `+---------------------+
-| mysql.rds_version() | +---------------------+
-| 8.0.34.R2.20231201 | +---------------------+ 1 row in set (0.01 sec)` ```
-````
+| mysql.rds_version() |
++---------------------+
+| 8.0.34.R2.20231201 |
++---------------------+
+1 row in set (0.01 sec)`
+```

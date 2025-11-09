@@ -1,141 +1,145 @@
-# Working with RDS for Db2 replica backups
+# Requirements and considerations for RDS for Db2
 
-You can create and restore backups of an RDS for Db2 replica just like a primary database. However, there are important differences in how replica backups work, particularly regarding restore timing and backup retention settings.
+replicas
 
-RDS for Db2 supports both automatic backups and manual snapshots for replicas. RDS for Db2
-doesn't support point-in-time restore. For information about RDS backups, see [Backing up, restoring, and exporting data](CHAP_CommonTasks.md "CHAP_CommonTasks.md").
+Db2 replica requirements fall into several categories: licensing and versioning, backup
+and restore considerations, replication behavior, and general operational considerations.
+Before creating a Db2 replica, familiarize yourself with the following requirements and
+considerations.
 
-## Key differences for replica backups
+## Version and
 
-Replica backups differ from primary database backups in several important ways:
+licensing requirements for RDS for Db2 replicas
 
-- Automatic backups aren't enabled by default for replicas.
-- Restore operations use database time rather than backup creation time.
-- Replica lag can affect the actual data restored. For information about
-  monitoring replica lag, see [Monitoring Db2 replication
-  lag](db2-troubleshooting-replicas.md#db2-troubleshooting-replicas-lag "db2-troubleshooting-replicas.md#db2-troubleshooting-replicas-lag").
+Before you create an RDS for Db2 replica, review the following information about versions
+and licensing models:
 
-## Enabling automatic backups for RDS for Db2 replicas
+- **Supported versions** – All Db2 11.5
+  versions support replica DB instances.
 
-Unlike primary databases, RDS for Db2 replicas don't have automated backups enabled by
-default. You must manually configure the backup retention period to enable automatic
-backups. Enable automated backups by setting the backup retention period to a positive
-nonzero value.
+Source and replica DB instances must use the same major version. Db2 replicas
+support minor version upgrades but not major version upgrades. For information
+about upgrading DB instances, see [Upgrading
+a DB instance engine version](USER_UpgradeDBInstance.md "USER_UpgradeDBInstance.md").
 
-###### To enable automatic backups immediately
+###### Note
 
-1. Sign in to the AWS Management Console and open the Amazon RDS console at
-   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. In the navigation pane, choose **Databases**, and
-   then choose the DB instance that you want to modify.
-3. Choose **Modify**.
-4. For **Backup retention period**, choose a positive
-   nonzero value, for example three days.
-5. Choose **Continue**.
-6. Choose **Apply immediately**.
-7. Choose **Modify DB instance** to save your changes
-   and enable automated backups.
-   To enable automated backups, use the AWS CLI [modify-db-instance](../../../cli/latest/reference/rds/modify-db-instance.md "../../../cli/latest/reference/rds/modify-db-instance.md") command.
+When upgrading a source DB instance, all replicas are automatically
+upgraded to maintain version compatibility.
 
-Include the following parameters:
+- **Valid licensing models and replica modes**
+  – Both Db2 Advanced Edition (AE) and Standard Edition (SE) can create
+  replicas in read-only or standby mode for both the Bring Your Own License (BYOL)
+  model and the Db2 license through AWS Marketplace model.
+- **Custom parameter group** – You must
+  specify a custom parameter group for the replica.
 
-- `--db-instance-identifier`
-- `--backup-retention-period`
-- `--apply-immediately` or
-  `--no-apply-immediately`
-  The following example enables automated backups by setting the backup
-  retention period to three days. The changes are applied immediately.
+For replicas that use the BYOL model, this custom parameter group must include
+your IBM Site ID and IBM Customer ID. For more information, see [IBM IDs for bring your own
+license (BYOL) for Db2](db2-licensing.md#db2-prereqs-ibm-info "db2-licensing.md#db2-prereqs-ibm-info"). You
+can specify this custom parameter group for the replica by using the AWS Management Console,
+the AWS CLI , or the RDS API.
 
-For Linux, macOS, or Unix:
+- **vCPU count** varies by replica mode and
+  licensing model:
+  - **Standby replicas** always use two vCPUs
+    regardless of DB instance size.
+    - **BYOL model** – AWS License Manager
+      configurations show that RDS for Db2 DB instances use two
+      vCPUs.
+    - **Db2 license through AWS Marketplace
+      model** – Bills reflect license costs for
+      two vCPUs.
 
-```
-aws rds modify-db-instance \
-    --db-instance-identifier `my_db_instance`  \
-    --backup-retention-period 3 \
-    --apply-immediately
-```
+  - **Read-only replicas** use the same vCPU
+    count as the DB instance size.
+    - **BYOL model** – AWS License Manager
+      configurations show that RDS for Db2 DB instances use the same
+      number of vCPUs that match the DB instance size.
+    - **Db2 license through AWS Marketplace
+      model** – Bills reflect license costs for
+      the same number of vCPUs that match the DB instance size.
 
-For Windows:
+## Backup and restore
 
-```
-aws rds modify-db-instance ^
-    --db-instance-identifier `my_db_instance`  ^
-    --backup-retention-period 3 ^
-    --apply-immediately
-```
+considerations for RDS for Db2 replicas
 
-To enable automated backups, use the RDS API [ModifyDBInstance](../APIReference/API_ModifyDBInstance.md "../APIReference/API_ModifyDBInstance.md")
-operation with the following required parameters:
+Replica backups have different behavior than primary database backups. Consider the
+following backup and restore requirements:
 
-- `DBInstanceIdentifier`
-- `BackupRetentionPeriod`
+- To create snapshots of RDS for Db2 replicas or turn on automatic backups, make
+  sure to set the backup retention period manually. Automatic backups aren't
+  turned on by default.
+- When you restore a replica backup, you restore to the database time, not the
+  time that the backup was taken. The _database time_ refers
+  to the latest applied transaction time of the data in the backup. The difference
+  is significant because a replica can lag behind the primary database for minutes
+  or hours. When there are multiple databases, RDS for Db2 uses the earliest database
+  time.
 
-## Restoring an RDS for Db2 replica
-
-backup
-
-You can restore an RDS for Db2 replica backup the same way that you can restore a backup
-of the primary database. For more information, see [Restoring to a DB instance](USER_RestoreFromSnapshot.md "USER_RestoreFromSnapshot.md").
-
-The most important consideration when restoring replica backups is understanding the
-difference between database time and backup creation time, especially when replica lag
-is present.
-
-You can monitor replication lag and ensure that your backups contain the expected
-data. For information about the ReplicaLag metric, see [Amazon CloudWatch metrics for Amazon RDS](rds-metrics.md "rds-metrics.md").
-
-### Understanding timing
-
-differences
-
-When you restore a replica backup, you must determine the point in time to which
-you are restoring. The _database time_ refers to the latest
-applied transaction time of the data in the backup. When you restore a replica
-backup, you restore to the database time, not the time when the backup completed.
-The difference is significant because a replica can lag behind the primary database
-by minutes or hours. Thus, the database time of a replica backup might be much
-earlier than the snapshot creation time.
-
-To find the difference between database time and creation time, run the AWS CLI
-[describe-db-snapshots](../../../cli/latest/reference/rds/describe-db-snapshots.md "../../../cli/latest/reference/rds/describe-db-snapshots.md") command or call the RDS API [DescribeDBSnapshots](../APIReference/API_DescribeDBSnapshots.md "../APIReference/API_DescribeDBSnapshots.md") operation. Compare the
-`SnapshotDatabaseTime` value and the
+To find the difference, run the AWS CLI [describe-db-snapshots](../../../cli/latest/reference/rds/describe-db-snapshots.md "../../../cli/latest/reference/rds/describe-db-snapshots.md") command or call the RDS API [DescribeDBSnapshots](../APIReference/API_DescribeDBSnapshots.md "../APIReference/API_DescribeDBSnapshots.md") operation. Compare the
+`SnapshotDatabaseTime` value to the
 `OriginalSnapshotCreateTime` value. The
-`SnapshotDatabaseTime` value is the earliest database time among all
-the databases of the replica backup. The `OriginalSnapshotCreateTime`
-value is the latest applied transaction on the primary database. Note that
-replication lags could be different for multiple databases, and the database time
-could be in between these two times.
+`SnapshotDatabaseTime` value is the database time of the replica
+backup. The `OriginalSnapshotCreateTime` value is the latest applied
+transaction on the primary database.
 
-The following AWS CLI example shows the difference between the two times:
+For more information about backups and restoring backups, see [Working with RDS for Db2 replica backups](db2-read-replicas.md "db2-read-replicas.md").
 
-For Linux, macOS, or Unix:
+## Replication considerations
 
-```
-aws rds describe-db-snapshots \
-    --db-instance-identifier `my_db2_replica` \
-    --db-snapshot-identifier `my_replica_snapshot`
-```
+for RDS for Db2 replicas
 
-For Windows:
+Db2 replicas use HADR technology with specific limitations and behaviors. Review the
+following replication considerations:
 
-```
-aws rds describe-db-snapshots ^
-    --db-instance-identifier `my_db2_replica` ^
-    --db-snapshot-identifier `my_replica_snapshot`
-```
+- Replication uses Db2 HADR for all databases on the RDS for Db2 DB
+  instance.
+- Replication doesn't support the `LOAD` command. If you run the
+  `LOAD` command from the source DB instance, you will receive
+  inconsistent data.
+- RDS for Db2 doesn't replicate the following items:
+  - Storage access. Be aware of data, such as external tables, that rely
+    on storage access.
+  - Non-inline LOBs.
+  - Binaries of external stored procedures (in C or Java).
 
-This command produces output similar to the following example.
+- For standby replicas, RDS for Db2 replicates the following items:
+  - Local users, except master users
+  - Database configuration parameters
 
-```
-{
-    "DBSnapshots": [
-        {
-            "DBSnapshotIdentifier": "my_replica_snapshot",
-            "DBInstanceIdentifier": "my_db2_replica",
-            "SnapshotDatabaseTime": "2022-07-26T**17:49:44Z**",
-            ...
-            "OriginalSnapshotCreateTime": "2021-07-26T**19:49:44Z**"
-        }
-    ]
-}
-```
+- For read-only replicas, RDS for Db2 replicates the following items:
+  - Local users, except master users
+  - SID group mappings
+
+## Miscellaneous
+
+considerations for RDS for Db2 replicas
+
+Additional operational considerations apply to Db2 replicas. Review the following
+items:
+
+- RDS for Db2 replicates database configurations to the replicas. When RDS for Db2
+  promotes a replica, it deactivates and activates each database.
+- RDS for Db2 replicates the local users, but not the master user, and SID group
+  mappings to the replicas. You can modify the master user on the replica. For
+  more information, see [Modifying an Amazon RDS DB instance](Overview.DBInstance.md "Overview.DBInstance.md").
+- All databases must be in an active state. For information about activating
+  databases, see [Stored procedures for databases for
+  RDS for Db2](db2-sp-managing-databases.md "db2-sp-managing-databases.md").
+- All stored procedures for creating, dropping, restoring, or rolling forward
+  databases must be completed before creating a replica. For information about
+  these stored procedures, see [Stored procedures for databases for
+  RDS for Db2](db2-sp-managing-databases.md "db2-sp-managing-databases.md").
+- When the replica is created, Amazon RDS sets the database-level parameter
+  `blocknonlogged` for all databases on the source DB instance to
+  `YES`. When the source replica becomes a standalone instance
+  again, Amazon RDS sets the value back to `NO`. For more information, see
+  [blocknonlogged - Block creation of tables that allow non-logged activity
+  configuration parameter](https://www.ibm.com/docs/en/db2/11.1?topic=dcp-blocknonlogged-block-creation-tables-that-allow-non-logged-activity "https://www.ibm.com/docs/en/db2/11.1?topic=dcp-blocknonlogged-block-creation-tables-that-allow-non-logged-activity") in the IBM Db2 documentation.
+- When the replica is created, Amazon RDS sets the database-level parameter
+  `logindexbuild` for all databases on the source DB instance to
+  `YES`. When the source replica becomes a standalone instance
+  again, Amazon RDS sets the value back to `NO`. For more information, see
+  [logindexbuild - Log index pages created configuration parameter](https://www.ibm.com/docs/en/db2/11.1?topic=parameters-logindexbuild-log-index-pages-created "https://www.ibm.com/docs/en/db2/11.1?topic=parameters-logindexbuild-log-index-pages-created") in
+  the IBM Db2 documentation.

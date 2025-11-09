@@ -1,19 +1,45 @@
-# Working with read replicas for Amazon RDS for Oracle
+# Troubleshooting RDS for Oracle replicas
 
-To configure replication between Oracle DB instances, you can create replica databases. For an overview of Amazon RDS
-read replicas, see [Overview of Amazon RDS read replicas](USER_ReadRepl.md#USER_ReadRepl.Overview "USER_ReadRepl.md#USER_ReadRepl.Overview"). For a summary of
-the differences between Oracle replicas and other DB engines, see [Differences between read replicas for
-DB engines](USER_ReadRepl.Overview.md "USER_ReadRepl.Overview.md").
+This section describes possible replication problems and solutions.
 
 ###### Topics
 
-- [Overview of RDS for Oracle replicas](oracle-read-replicas.md "oracle-read-replicas.md")
-- [Requirements and considerations for
-  RDS for Oracle replicas](oracle-read-replicas.md "oracle-read-replicas.md")
-- [Preparing to create an Oracle replica](oracle-read-replicas.md "oracle-read-replicas.md")
-- [Creating an RDS for Oracle replica in mounted mode](oracle-read-replicas.md "oracle-read-replicas.md")
-- [Modifying the RDS for Oracle replica mode](oracle-read-replicas.md "oracle-read-replicas.md")
-- [Working with RDS for Oracle replica backups](oracle-read-replicas.md "oracle-read-replicas.md")
-- [Performing an Oracle Data Guard switchover](oracle-replication-switchover.md "oracle-replication-switchover.md")
-- [Troubleshooting RDS for Oracle replicas](oracle-read-replicas.md "oracle-read-replicas.md")
-- [Redo transport compression with RDS for Oracle](oracle-read-replicas.md "oracle-read-replicas.md")
+- [Monitoring Oracle replication lag](#oracle-read-replicas.troubleshooting.lag "#oracle-read-replicas.troubleshooting.lag")
+- [Troubleshooting Oracle replication failure after adding or modifying
+  triggers](#oracle-read-replicas.troubleshooting.triggers "#oracle-read-replicas.troubleshooting.triggers")
+
+## Monitoring Oracle replication lag
+
+To monitor replication lag in Amazon CloudWatch, view the Amazon RDS `ReplicaLag` metric. For more information about replication lag time,
+see [Monitoring read replication](USER_ReadRepl.md "USER_ReadRepl.md") and [Amazon CloudWatch metrics for Amazon RDS](rds-metrics.md "rds-metrics.md").
+
+For a read replica, if the lag time is too long, query the following views:
+
+- `V$ARCHIVED_LOG` – Shows which commits have been applied to the read
+  replica.
+- `V$DATAGUARD_STATS` – Shows a detailed breakdown of the components that make up the `ReplicaLag`
+  metric.
+- `V$DATAGUARD_STATUS` – Shows the log output from Oracle's internal replication
+  processes.
+
+For a mounted replica, if the lag time is too long, you can't query the `V$` views. Instead, do the following:
+
+- Check the `ReplicaLag` metric in CloudWatch.
+- Check the alert log file for the replica in the console. Look for errors in the recovery messages. The messages include the log
+  sequence number, which you can compare to the primary sequence number. For more information, see [Amazon RDS for Oracle database log files](USER_LogAccess.Concepts.md "USER_LogAccess.Concepts.md").
+
+## Troubleshooting Oracle replication failure after adding or modifying
+
+triggers
+
+If you add or modify any triggers, and if replication fails afterward, the problem may be the triggers.
+Ensure that the trigger excludes the following user accounts, which are required by RDS for
+replication:
+
+- User accounts with administrator privileges
+- `SYS`
+- `SYSTEM`
+- `RDS_DATAGUARD`
+- `rdsdb`
+
+For more information, see [Miscellaneous considerations for RDS for Oracle replicas](oracle-read-replicas.md#oracle-read-replicas.limitations.miscellaneous "oracle-read-replicas.md#oracle-read-replicas.limitations.miscellaneous").

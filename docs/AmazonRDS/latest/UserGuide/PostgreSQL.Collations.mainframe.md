@@ -46,25 +46,79 @@ EBCDIC code pages to Unicode code points. We recommend that you use the collatio
 in this table for application development that requires sorting based on the
 ordering of IBM code pages.
 
-| PostgreSQL collation name | Description of code-page mapping and sort order                                                                                                                         |
-| ------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| da-DK-cp277-x-icu         | Unicode characters that directly map to IBM EBCDIC Code Page 277 (per conversion tables) are sorted in IBM CP 277 code point order                                      |
-| de-DE-cp273-x-icu         | Unicode characters that directly map to IBM EBCDIC Code Page 273 (per conversion tables) are sorted in IBM CP 273 code point order                                      |
-| en-GB-cp285-x-icu         | Unicode characters that directly map to IBM EBCDIC Code Page 285 (per conversion tables) are sorted in IBM CP 285 code point order                                      |
-| en-US-cp037-x-icu         | Unicode characters that directly map to IBM EBCDIC Code Page 037 (per conversion tables) are sorted in IBM CP 37 code point order                                       |
-| es-ES-cp284-x-icu         | Unicode characters that directly map to IBM EBCDIC Code Page 284 (per conversion tables) are sorted in IBM CP 284 code point order                                      |
-| fi-FI-cp278-x-icu         | Unicode characters that directly map to IBM EBCDIC Code Page 278 (per conversion tables) are sorted in IBM CP 278 code point order                                      |
-| fr-FR-cp297-x-icu         | Unicode characters that directly map to IBM EBCDIC Code Page 297 (per conversion tables) are sorted in IBM CP 297 code point order                                      |
-| it-IT-cp280-x-icu         | Unicode characters that directly map to IBM EBCDIC Code Page 280 (per conversion tables) are sorted in IBM CP 280 code point order                                      |
-| nl-BE-cp500-x-icu         | Unicode characters that directly map to IBM EBCDIC Code Page 500 (per conversion tables) are sorted in IBM CP 500 code point order                                      | Amazon RDS provides a set of additional collations that sort Unicode code points that map to LATIN9 characters using the tables published by IBM, in the order of the original code points according to the EBCDIC code page of the source data.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| PostgreSQL collation name | Description of code-page mapping and sort order                                                                                                                         |
-| ---                       | ---                                                                                                                                                                     |
-| da-DK-cp1142m-x-icu       | Unicode characters that map to LATIN9 characters originally converted from IBM EBCDIC Code Page 1142 (per conversion tables) are sorted in IBM CP 1142 code point order |
-| de-DE-cp1141m-x-icu       | Unicode characters that map to LATIN9 characters originally converted from IBM EBCDIC Code Page 1141 (per conversion tables) are sorted in IBM CP 1141 code point order |
-| en-GB-cp1146m-x-icu       | Unicode characters that map to LATIN9 characters originally converted from IBM EBCDIC Code Page 1146 (per conversion tables) are sorted in IBM CP 1146 code point order |
-| en-US-cp1140m-x-icu       | Unicode characters that map to LATIN9 characters originally converted from IBM EBCDIC Code Page 1140 (per conversion tables) are sorted in IBM CP 1140 code point order |
-| es-ES-cp1145m-x-icu       | Unicode characters that map to LATIN9 characters originally converted from IBM EBCDIC Code Page 1145 (per conversion tables) are sorted in IBM CP 1145 code point order |
-| fi-FI-cp1143m-x-icu       | Unicode characters that map to LATIN9 characters originally converted from IBM EBCDIC Code Page 1143 (per conversion tables) are sorted in IBM CP 1143 code point order |
-| fr-FR-cp1147m-x-icu       | Unicode characters that map to LATIN9 characters originally converted from IBM EBCDIC Code Page 1147 (per conversion tables) are sorted in IBM CP 1147 code point order |
-| it-IT-cp1144m-x-icu       | Unicode characters that map to LATIN9 characters originally converted from IBM EBCDIC Code Page 1144 (per conversion tables) are sorted in IBM CP 1144 code point order |
-| nl-BE-cp1148m-x-icu       | Unicode characters that map to LATIN9 characters originally converted from IBM EBCDIC Code Page 1148 (per conversion tables) are sorted in IBM CP 1148 code point order | In the following, you can find an example of using an RDS for PostgreSQL collation. `` `db1=>` SELECT pg_import_system_collations('pg_catalog'); `pg_import_system_collations ----------------------------- 36` `db1=>` SELECT '¤' < 'a' col1; `col1 ------ t` `db1=>` SELECT '¤' < 'a' COLLATE "da-DK-cp277-x-icu" col1; `col1 ------ f` `` We recommend that you use the collations in the [Unicode to EBCDIC collations table](#ebcdic-table "#ebcdic-table") and in the [Unicode to LATIN9 collations table](#latin9-table "#latin9-table") for application development that requires sorting based on the ordering of IBM code pages. The following collations (suffixed with the letter “b”) are also visible in `pg_collation`, but are intended for use by mainframe data integration and migration tools at AWS that map code pages with specific code point shifts and require special handling in collation. In other words, the following collations aren't recommended for use. <br>• da-DK-277b-x-icu <br>• da-DK-1142b-x-icu <br>• de-DE-cp273b-x-icu <br>• de-DE-cp1141b-x-icu <br>• en-GB-cp1146b-x-icu <br>• en-GB-cp285b-x-icu <br>• en-US-cp037b-x-icu <br>• en-US-cp1140b-x-icu <br>• es-ES-cp1145b-x-icu <br>• es-ES-cp284b-x-icu <br>• fi-FI-cp1143b-x-icu <br>• fr-FR-cp1147b-x-icu <br>• fr-FR-cp297b-x-icu <br>• it-IT-cp1144b-x-icu <br>• it-IT-cp280b-x-icu <br>• nl-BE-cp1148b-x-icu <br>• nl-BE-cp500b-x-icu To learn more about migrating applications from mainframe environments to AWS, see [What is AWS Mainframe Modernization?](../../../m2/latest/userguide/what-is-m2.md "../../../m2/latest/userguide/what-is-m2.md"). For more information about managing collations in PostgreSQL, see [Collation Support](https://www.postgresql.org/docs/current/collation.html "https://www.postgresql.org/docs/current/collation.html") in the PostgreSQL documentation. |
+| PostgreSQL collation name | Description of code-page mapping and sort order                                                                                          |
+| ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| da-DK-cp277-x-icu         | Unicode characters that directly map to IBM EBCDIC Code<br>Page 277 (per conversion tables) are sorted in IBM CP 277 code<br>point order |
+| de-DE-cp273-x-icu         | Unicode characters that directly map to IBM EBCDIC Code<br>Page 273 (per conversion tables) are sorted in IBM CP 273 code<br>point order |
+| en-GB-cp285-x-icu         | Unicode characters that directly map to IBM EBCDIC Code<br>Page 285 (per conversion tables) are sorted in IBM CP 285 code<br>point order |
+| en-US-cp037-x-icu         | Unicode characters that directly map to IBM EBCDIC Code<br>Page 037 (per conversion tables) are sorted in IBM CP 37 code<br>point order  |
+| es-ES-cp284-x-icu         | Unicode characters that directly map to IBM EBCDIC Code<br>Page 284 (per conversion tables) are sorted in IBM CP 284 code<br>point order |
+| fi-FI-cp278-x-icu         | Unicode characters that directly map to IBM EBCDIC Code<br>Page 278 (per conversion tables) are sorted in IBM CP 278 code<br>point order |
+| fr-FR-cp297-x-icu         | Unicode characters that directly map to IBM EBCDIC Code<br>Page 297 (per conversion tables) are sorted in IBM CP 297 code<br>point order |
+| it-IT-cp280-x-icu         | Unicode characters that directly map to IBM EBCDIC Code<br>Page 280 (per conversion tables) are sorted in IBM CP 280 code<br>point order |
+| nl-BE-cp500-x-icu         | Unicode characters that directly map to IBM EBCDIC Code<br>Page 500 (per conversion tables) are sorted in IBM CP 500 code<br>point order |
+
+Amazon RDS provides a set of additional collations that sort Unicode code points that
+map to LATIN9 characters using the tables published by IBM, in the order of the
+original code points according to the EBCDIC code page of the source data.
+
+| PostgreSQL collation name | Description of code-page mapping and sort order                                                                                                                               |
+| ------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| da-DK-cp1142m-x-icu       | Unicode characters that map to LATIN9 characters originally<br>converted from IBM EBCDIC Code Page 1142 (per conversion tables)<br>are sorted in IBM CP 1142 code point order |
+| de-DE-cp1141m-x-icu       | Unicode characters that map to LATIN9 characters originally<br>converted from IBM EBCDIC Code Page 1141 (per conversion tables)<br>are sorted in IBM CP 1141 code point order |
+| en-GB-cp1146m-x-icu       | Unicode characters that map to LATIN9 characters originally<br>converted from IBM EBCDIC Code Page 1146 (per conversion tables)<br>are sorted in IBM CP 1146 code point order |
+| en-US-cp1140m-x-icu       | Unicode characters that map to LATIN9 characters originally<br>converted from IBM EBCDIC Code Page 1140 (per conversion tables)<br>are sorted in IBM CP 1140 code point order |
+| es-ES-cp1145m-x-icu       | Unicode characters that map to LATIN9 characters originally<br>converted from IBM EBCDIC Code Page 1145 (per conversion tables)<br>are sorted in IBM CP 1145 code point order |
+| fi-FI-cp1143m-x-icu       | Unicode characters that map to LATIN9 characters originally<br>converted from IBM EBCDIC Code Page 1143 (per conversion tables)<br>are sorted in IBM CP 1143 code point order |
+| fr-FR-cp1147m-x-icu       | Unicode characters that map to LATIN9 characters originally<br>converted from IBM EBCDIC Code Page 1147 (per conversion tables)<br>are sorted in IBM CP 1147 code point order |
+| it-IT-cp1144m-x-icu       | Unicode characters that map to LATIN9 characters originally<br>converted from IBM EBCDIC Code Page 1144 (per conversion tables)<br>are sorted in IBM CP 1144 code point order |
+| nl-BE-cp1148m-x-icu       | Unicode characters that map to LATIN9 characters originally<br>converted from IBM EBCDIC Code Page 1148 (per conversion tables)<br>are sorted in IBM CP 1148 code point order |
+
+In the following, you can find an example of using an RDS for PostgreSQL
+collation.
+
+```
+`db1=>` SELECT pg_import_system_collations('pg_catalog');
+ `pg_import_system_collations
+-----------------------------
+ 36`
+`db1=>` SELECT '¤' < 'a' col1;
+ `col1
+------
+ t`
+`db1=>` SELECT '¤' < 'a' COLLATE "da-DK-cp277-x-icu" col1;
+ `col1
+------
+ f`
+```
+
+We recommend that you use the collations in the [Unicode to EBCDIC collations table](#ebcdic-table "#ebcdic-table") and in the [Unicode to LATIN9 collations table](#latin9-table "#latin9-table") for application development that requires sorting
+based on the ordering of IBM code pages. The following collations (suffixed with the
+letter “b”) are also visible in `pg_collation`, but are intended for use
+by mainframe data integration and migration tools at AWS that map code pages with
+specific code point shifts and require special handling in collation. In other
+words, the following collations aren't recommended for use.
+
+- da-DK-277b-x-icu
+- da-DK-1142b-x-icu
+- de-DE-cp273b-x-icu
+- de-DE-cp1141b-x-icu
+- en-GB-cp1146b-x-icu
+- en-GB-cp285b-x-icu
+- en-US-cp037b-x-icu
+- en-US-cp1140b-x-icu
+- es-ES-cp1145b-x-icu
+- es-ES-cp284b-x-icu
+- fi-FI-cp1143b-x-icu
+- fr-FR-cp1147b-x-icu
+- fr-FR-cp297b-x-icu
+- it-IT-cp1144b-x-icu
+- it-IT-cp280b-x-icu
+- nl-BE-cp1148b-x-icu
+- nl-BE-cp500b-x-icu
+  To learn more about migrating applications from mainframe environments to AWS,
+  see [What is
+  AWS Mainframe Modernization?](../../../m2/latest/userguide/what-is-m2.md "../../../m2/latest/userguide/what-is-m2.md").
+
+For more information about managing collations in PostgreSQL, see [Collation
+Support](https://www.postgresql.org/docs/current/collation.html "https://www.postgresql.org/docs/current/collation.html") in the PostgreSQL documentation.

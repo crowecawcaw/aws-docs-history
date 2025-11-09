@@ -26,8 +26,11 @@ following SQL query:
 For example, querying an RDS for MariaDB 10.6.14 database returns the following
 output:
 
-````
+```
 `+---------------------+
-| mysql.rds_version() | +---------------------+
-| 10.6.14.R2.20231201 | +---------------------+ 1 row in set (0.01 sec)` ```
-````
+| mysql.rds_version() |
++---------------------+
+| 10.6.14.R2.20231201 |
++---------------------+
+1 row in set (0.01 sec)`
+```

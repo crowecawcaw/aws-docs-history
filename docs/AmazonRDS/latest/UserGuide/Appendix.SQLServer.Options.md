@@ -1,82 +1,92 @@
-# Support for Transparent Data Encryption in SQL Server
+# Support for SQL Server Reporting Services in Amazon RDS for SQL Server
 
-Amazon RDS supports using Transparent Data Encryption (TDE) to encrypt stored data on your DB instances running Microsoft SQL Server.
-TDE automatically encrypts data before it is written to storage, and automatically decrypts data when the data is read from storage.
+Microsoft SQL Server Reporting Services (SSRS) is a server-based application used for report
+generation and distribution. It's part of a suite of SQL Server services that also
+includes SQL Server Analysis Services (SSAS) and SQL Server Integration Services (SSIS).
+SSRS is a service built on top of SQL Server. You can use it to collect data from various
+data sources and present it in a way that's easily understandable and ready for
+analysis.
 
-Amazon RDS supports TDE for the following SQL Server versions and editions:
+Amazon RDS for SQL Server supports running SSRS directly on RDS DB instances. You can use SSRS with existing or new DB instances.
 
-- SQL Server 2022 Standard and Enterprise Editions
-- SQL Server 2019 Standard and Enterprise Editions
-- SQL Server 2017 Enterprise Edition
-- SQL Server 2016 Enterprise Edition
+RDS supports SSRS for SQL Server Standard and Enterprise Editions on the following versions:
 
-###### Note
+- SQL Server 2022, all versions
+- SQL Server 2019, version 15.00.4043.16.v1 and higher
+- SQL Server 2017, version 14.00.3223.3.v1 and higher
+- SQL Server 2016, version 13.00.5820.21.v1 and higher
 
-RDS for SQL Server does not support TDE for read-only databases.
+###### Contents
 
-Transparent Data Encryption for SQL Server provides encryption key management by using a two-tier key architecture. A certificate,
-which is generated from the database master key, is used to protect the data encryption keys. The database encryption key performs
-the actual encryption and decryption of data on the user database. Amazon RDS backs up and manages the database master key and the TDE
-certificate.
+- [Limitations and recommendations](Appendix.SQLServer.Options.md#SSRS.Limitations "Appendix.SQLServer.Options.md#SSRS.Limitations")
+- [Turning on SSRS](SSRS.md "SSRS.md")
+  - [Creating an option group for
+    SSRS](SSRS.md#SSRS.OptionGroup "SSRS.md#SSRS.OptionGroup")
+  - [Adding the SSRS option to your option group](SSRS.md#SSRS.Add "SSRS.md#SSRS.Add")
+  - [Associating your option group with your
+    DB instance](SSRS.md#SSRS.Apply "SSRS.md#SSRS.Apply")
+  - [Allowing inbound access to your VPC
+    security group](SSRS.md#SSRS.Inbound "SSRS.md#SSRS.Inbound")
 
-Transparent Data Encryption is used in scenarios where you need to encrypt sensitive data. For example, you might want to provide
-data files and backups to a third party, or address security-related regulatory compliance issues. You can't encrypt the system
-databases for SQL Server, such as the `model` or `master` databases.
+- [Report server databases](Appendix.SQLServer.Options.md#SSRS.DBs "Appendix.SQLServer.Options.md#SSRS.DBs")
+- [SSRS log files](Appendix.SQLServer.Options.md#SSRS.Logs "Appendix.SQLServer.Options.md#SSRS.Logs")
+- [Accessing the SSRS web portal](SSRS.md "SSRS.md")
+  - [Using SSL on RDS](SSRS.md#SSRS.Access.SSL "SSRS.md#SSRS.Access.SSL")
+  - [Granting access to domain users](SSRS.md#SSRS.Access.Grant "SSRS.md#SSRS.Access.Grant")
+  - [Accessing the web portal](SSRS.md#SSRS.Access "SSRS.md#SSRS.Access")
 
-A detailed discussion of Transparent Data Encryption is beyond the scope of this guide,
-but make sure that you understand the security strengths and weaknesses of each encryption
-algorithm and key. For information about Transparent Data Encryption for SQL Server, see
-[Transparent Data
-Encryption (TDE)](http://msdn.microsoft.com/en-us/library/bb934049.aspx "http://msdn.microsoft.com/en-us/library/bb934049.aspx") in the Microsoft documentation.
+- [Deploying reports and configuring report data sources](SSRS.md "SSRS.md")
+  - [Deploying reports to SSRS](SSRS.md#SSRS.Deploy "SSRS.md#SSRS.Deploy")
+  - [Configuring the report data source](SSRS.md#SSRS.ConfigureDataSource "SSRS.md#SSRS.ConfigureDataSource")
 
-###### Topics
+- [Using SSRS Email to send reports](SSRS.md "SSRS.md")
+- [Revoking system-level permissions](SSRS.Access.md "SSRS.Access.md")
+- [Monitoring the status of a task](SSRS.md "SSRS.md")
+- [Disabling and deleting SSRS databases](SSRS.md "SSRS.md")
+  - [Turning off SSRS](SSRS.md#SSRS.Disable "SSRS.md#SSRS.Disable")
+  - [Deleting the SSRS databases](SSRS.md#SSRS.Drop "SSRS.md#SSRS.Drop")
 
-- [Turning on TDE for RDS for SQL Server](#TDE.Enabling "#TDE.Enabling")
-- [Encrypting data on RDS for SQL Server](TDE.md "TDE.md")
-- [Backing up and restoring TDE certificates on RDS for SQL Server](TDE.md "TDE.md")
-- [Backing up and restoring TDE certificates for on-premises databases](TDE.md "TDE.md")
-- [Turning off TDE for RDS for SQL Server](TDE.md "TDE.md")
+## Limitations and recommendations
 
-## Turning on TDE for RDS for SQL Server
+The following limitations and recommendations apply to running SSRS on RDS for SQL Server:
 
-To turn on Transparent Data Encryption for an RDS for SQL Server DB instance, specify the TDE
-option in an RDS option group that's associated with that DB instance:
+- You can't use SSRS on DB instances that have read replicas.
+- Instances must use self-managed Active Directory or AWS Directory Service for Microsoft Active Directory for SSRS web portal and web server authentication. For more information, see [Working with Active Directory with RDS for SQL Server](User.SQLServer.md "User.SQLServer.md").
+- You can't back up the reporting server databases that are created with the SSRS option.
+- Importing and restoring report server databases from other instances of SSRS isn't
+  supported. For more information, see [Report server databases](#SSRS.DBs "#SSRS.DBs").
+- You can't configure SSRS to listen on the default SSL port (443). The allowed values are
+  1150–49511, except 1234, 1434, 3260, 3343, 3389, and 47001.
+- Subscriptions through a Microsoft Windows file share aren't supported.
+- Using Reporting Services Configuration Manager isn't supported.
+- Creating and modifying roles isn't supported.
+- Modifying report server properties isn't supported.
+- System administrator and system user roles aren't granted.
+- You can't edit system-level role assignments through the web portal.
 
-1. Determine whether your DB instance is already associated with an option group
-   that has the TDE option. To view the option group that a DB instance is
-   associated with, use the RDS console, the [describe-db-instance](../../../cli/latest/reference/rds/describe-db-instances.md "../../../cli/latest/reference/rds/describe-db-instances.md") AWS CLI command, or the API operation [DescribeDBInstances](../APIReference/API_DescribeDBInstances.md "../APIReference/API_DescribeDBInstances.md").
-2. If the DB instance isn't associated with an option group that has TDE turned on, you have two choices. You can
-   create an option group and add the TDE option, or you can modify the associated option group to add it.
+## Report server databases
 
-###### Note
+When your DB instance is associated with the SSRS option, two new databases are created on your DB instance:
 
-In the RDS console, the option is named `TRANSPARENT_DATA_ENCRYPTION`. In the AWS CLI and RDS API, it's
-named `TDE`.
+- `rdsadmin_ReportServer`
+- `rdsadmin_ReportServerTempDB`
 
-For information about creating or modifying an option group, see [Working with option groups](USER_WorkingWithOptionGroups.md "USER_WorkingWithOptionGroups.md"). For information about adding an option to an option group, see [Adding an option to an option group](USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.AddOption "USER_WorkingWithOptionGroups.md#USER_WorkingWithOptionGroups.AddOption"). 3. Associate the DB instance with the option group that has the TDE option. For information about associating a DB
-instance with an option group, see [Modifying an Amazon RDS DB instance](Overview.DBInstance.md "Overview.DBInstance.md").
+These databases act as the ReportServer and ReportServerTempDB databases.
+SSRS stores its data in the ReportServer database and caches its data in the ReportServerTempDB database.
+For more information, see [Report Server Database](https://learn.microsoft.com/en-us/sql/reporting-services/report-server/report-server-database-ssrs-native-mode?view=sql-server-ver15 "https://learn.microsoft.com/en-us/sql/reporting-services/report-server/report-server-database-ssrs-native-mode?view=sql-server-ver15")
+in the Microsoft documentation.
 
-### Option group considerations
+RDS owns and manages these databases, so database operations on them such as ALTER and DROP aren't permitted.
+Access isn't permitted on the `rdsadmin_ReportServerTempDB` database. However,
+you can perform read operations on the `rdsadmin_ReportServer`database.
 
-The TDE option is a persistent option. You can't remove it from an option
-group unless all DB instances and backups are no longer associated with the option
-group. After you add the TDE option to an option group, the option group can be
-associated only with DB instances that use TDE. For more information about
-persistent options in an option group, see [Option groups overview](USER_WorkingWithOptionGroups.md#Overview.OptionGroups "USER_WorkingWithOptionGroups.md#Overview.OptionGroups").
+## SSRS log files
 
-Because the TDE option is a persistent option, you can have a conflict between the option group and an associated DB
-instance. You can have a conflict in the following situations:
+You can list, view, and download SSRS log files. SSRS log files follow a naming convention of ReportServerService\_`timestamp`.log.
+These report server logs are located in the `D:\rdsdbdata\Log\SSRS` directory. (The `D:\rdsdbdata\Log` directory is also the
+parent directory for error logs and SQL Server Agent logs.). For more information, see [Viewing and listing database log files](USER_LogAccess.Procedural.md "USER_LogAccess.Procedural.md").
 
-- The current option group has the TDE option, and you replace it with an
-  option group that doesn't have the TDE option.
-- You restore from a DB snapshot to a new DB instance that doesn't have an option group that contains the TDE
-  option. For more information about this scenario, see [Considerations for option groups](USER_CopySnapshot.md#USER_CopySnapshot.Options "USER_CopySnapshot.md#USER_CopySnapshot.Options").
+For existing SSRS instances, restarting the SSRS service might be necessary to access report server logs. You can restart the
+service by updating the `SSRS` option.
 
-### SQL Server performance considerations
-
-Using Transparent Data Encryption can affect the performance of a SQL Server DB
-instance.
-
-Performance for unencrypted databases can also be degraded if the databases are on a DB instance that has at least one
-encrypted database. As a result, we recommend that you keep encrypted and unencrypted databases on separate DB
-instances.
+For more information, see [Working with Amazon RDS for Microsoft SQL Server logs](Appendix.SQLServer.CommonDBATasks.md "Appendix.SQLServer.CommonDBATasks.md").

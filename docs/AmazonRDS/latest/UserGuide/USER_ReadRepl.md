@@ -145,9 +145,49 @@ instance. However, you can create a read replica that has a different storage ty
 the source DB instance based on the options listed in the following table.
 
 | Source DB instance storage type | Source DB instance storage allocation | Read replica storage type options           |
-| ------------------------------- | ------------------------------------- | ------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| ------------------------------- | ------------------------------------- | ------------------------------------------- |
 | Provisioned IOPS                | 100 GiB–64 TiB                        | Provisioned IOPS, General Purpose, Magnetic |
 | General Purpose                 | 100 GiB–64 TiB                        | Provisioned IOPS, General Purpose, Magnetic |
 | General Purpose                 | <100 GiB                              | General Purpose, Magnetic                   |
 | Magnetic                        | 100 GiB–6 TiB                         | Provisioned IOPS, General Purpose, Magnetic |
-| Magnetic                        | <100 GiB                              | General Purpose, Magnetic                   | ###### Note When you increase the allocated storage of a read replica, it must be by at least 10 percent. If you try to increase the value by less than 10 percent, you get an error. ### Restrictions for creating a replica from a replica Amazon RDS doesn't support circular replication. You can't configure a DB instance to serve as a replication source for an existing DB instance. You can only create a new read replica from an existing DB instance. For example, if `MySourceDBInstance` replicates to `ReadReplica1`, you can't configure `ReadReplica1` to replicate back to `MySourceDBInstance`. For RDS for MariaDB and RDS for MySQL, and for certain versions of RDS for PostgreSQL, you can create a read replica from an existing read replica. For example, you can create new read replica `ReadReplica2` from existing replica `ReadReplica1`. For RDS for Db2, RDS for Oracle, and RDS for SQL Server, you can't create a read replica from an existing read replica. ### Considerations when deleting replicas RDS doesn't support autoscaling of read replicas. Thus, RDS won't increase the number of replicas when demand increases or decrease the number of replicas when demand decreases. If you no longer need read replicas, manually delete them using the same mechanisms for deleting a DB instance. If you delete a source DB instance without deleting its read replicas in the same AWS Region, each replica is promoted to a standalone DB instance. For information about deleting a DB instance, see [Deleting a DB instance](USER_DeleteInstance.md "USER_DeleteInstance.md"). For information about read replica promotion, see [Promoting a read replica to be a standalone DB instance](USER_ReadRepl.md "USER_ReadRepl.md"). For information related to deleting the source DB instance for a cross-Region read replica, see [Cross-Region replication considerations](USER_ReadRepl.md#USER_ReadRepl.XRgn.Cnsdr "USER_ReadRepl.md#USER_ReadRepl.XRgn.Cnsdr"). |
+| Magnetic                        | <100 GiB                              | General Purpose, Magnetic                   |
+
+###### Note
+
+When you increase the allocated storage of a read replica, it must be by at least
+10 percent. If you try to increase the value by less than 10 percent, you get an
+error.
+
+### Restrictions for creating
+
+a replica from a replica
+
+Amazon RDS doesn't support circular replication. You can't configure a DB instance to serve as a
+replication source for an existing DB instance. You can only create a new read replica from an
+existing DB instance. For example, if `MySourceDBInstance` replicates to
+`ReadReplica1`, you can't configure
+`ReadReplica1` to replicate back to
+`MySourceDBInstance`.
+
+For RDS for MariaDB and RDS for MySQL, and for certain versions of RDS for PostgreSQL, you can
+create a read replica from an existing read replica. For example, you can create new
+read replica `ReadReplica2` from existing replica
+`ReadReplica1`. For RDS for Db2, RDS for Oracle, and RDS for SQL Server, you
+can't create a read replica from an existing read replica.
+
+### Considerations when
+
+deleting replicas
+
+RDS doesn't support autoscaling of read replicas. Thus, RDS won't increase the number
+of replicas when demand increases or decrease the number of replicas when demand
+decreases. If you no longer need read replicas, manually delete them using the same
+mechanisms for deleting a DB instance. If you delete a source DB instance without deleting its read
+replicas in the same AWS Region, each replica is promoted to a standalone DB instance.
+
+For information about deleting a DB instance, see [Deleting a DB instance](USER_DeleteInstance.md "USER_DeleteInstance.md"). For information about read replica promotion,
+see [Promoting a read replica to be a standalone
+DB instance](USER_ReadRepl.md "USER_ReadRepl.md"). For
+information related to deleting the source DB instance for a cross-Region read replica, see
+[Cross-Region replication
+considerations](USER_ReadRepl.md#USER_ReadRepl.XRgn.Cnsdr "USER_ReadRepl.md#USER_ReadRepl.XRgn.Cnsdr").

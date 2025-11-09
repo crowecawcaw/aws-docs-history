@@ -1,246 +1,266 @@
-# Amazon RDS Proxy
+# RDS Proxy concepts and terminology
 
-By using Amazon RDS Proxy, you can allow your applications to pool and share database
-connections to improve their ability to scale. RDS Proxy makes applications more resilient to
-database failures by automatically connecting to a standby DB instance while preserving
-application connections. By using RDS Proxy, you can enforce AWS Identity and Access Management (IAM) authentication
-for clients connecting to the proxy, and the proxy can connect to databases using either IAM
-database authentication or credentials stored in AWS Secrets Manager.
+You can simplify connection management for your Amazon RDS DB instances
+by using RDS Proxy.
 
-![An overview of how applications connect to RDS Proxy](images/Proxy-Overview.png)
-Using RDS Proxy, you can handle unpredictable surges in database traffic. Otherwise, these
-surges might cause issues due to oversubscribing connections or new connections being created at a
-fast rate. RDS Proxy establishes a database connection pool and reuses connections in this pool.
-This approach avoids the memory and CPU overhead of opening a new database connection each time.
-To protect a database against oversubscription, you can control the number of database
-connections that are created.
+RDS Proxy handles the network traffic between the client application and the database. It does so in an active
+way first by understanding the database protocol. It then adjusts its behavior based on the SQL operations
+from your application and the result sets from the database.
 
-RDS Proxy queues or throttles application connections that can't be served immediately from the connection pool.
-Although latencies might increase, your application can continue to scale without abruptly failing
-or overwhelming the database. If connection requests exceed the limits you specify, RDS Proxy rejects application
-connections (that is, it sheds load). At the same time, it maintains predictable performance for the load that RDS can serve with the available capacity.
+RDS Proxy reduces the memory and CPU overhead for connection management on your database. The database needs
+less memory and CPU resources when applications open many simultaneous connections. It also doesn't
+require logic in your applications to close and reopen connections that stay idle for a long time. Similarly,
+it requires less application logic to reestablish connections in case of a database problem.
 
-![A detailed view of how applications connect to RDS Proxy and the types connections involved.](images/Proxy-detail.png)
-
-You can reduce the overhead to process credentials and establish a secure connection for each new connection.
-RDS Proxy can handle some of that work on behalf of the database.
-
-RDS Proxy is fully compatible with the engine versions that it supports. You can enable RDS Proxy for most applications with no
-code changes.
+The infrastructure for RDS Proxy is highly available and deployed over multiple
+Availability Zones (AZs). The computation, memory, and storage for RDS Proxy are independent of
+your RDS DB instance. This separation helps lower overhead on your database servers, so that
+they can devote their resources to serving database workloads. The RDS Proxy compute resources
+are serverless, automatically scaling based on your database workload.
 
 ###### Topics
 
-- [Region and version availability](#rds-proxy.RegionVersionAvailability "#rds-proxy.RegionVersionAvailability")
-- [Quotas and limitations for RDS Proxy](#rds-proxy.limitations "#rds-proxy.limitations")
-- [Planning where to use RDS Proxy](rds-proxy-planning.md "rds-proxy-planning.md")
-- [RDS Proxy concepts and terminology](rds-proxy.md "rds-proxy.md")
-- [Getting started with RDS Proxy](rds-proxy-setup.md "rds-proxy-setup.md")
-- [Managing an RDS Proxy](rds-proxy-managing.md "rds-proxy-managing.md")
-- [Working with Amazon RDS Proxy endpoints](rds-proxy-endpoints.md "rds-proxy-endpoints.md")
-- [Monitoring RDS Proxy metrics with Amazon CloudWatch](rds-proxy.md "rds-proxy.md")
-- [Working with RDS Proxy events](rds-proxy.md "rds-proxy.md")
-- [Troubleshooting for RDS Proxy](rds-proxy.md "rds-proxy.md")
-- [Using RDS Proxy with AWS CloudFormation](rds-proxy-cfn.md "rds-proxy-cfn.md")
+- [Overview of RDS Proxy concepts](#rds-proxy-overview "#rds-proxy-overview")
+- [Connection pooling](#rds-proxy-connection-pooling "#rds-proxy-connection-pooling")
+- [RDS Proxy security](#rds-proxy-security "#rds-proxy-security")
+- [Failover](#rds-proxy-failover "#rds-proxy-failover")
+- [Transactions](#rds-proxy-transactions "#rds-proxy-transactions")
 
-## Region and version availability
+## Overview of RDS Proxy concepts
 
-Feature availability and support varies across specific versions of each database engine, and across AWS Regions.
-For more information on version and Region availability of Amazon RDS with RDS Proxy, see
-[Supported
-Regions and DB engines for Amazon RDS Proxy](Concepts.RDS_Fea_Regions_DB-eng.Feature.md "Concepts.RDS_Fea_Regions_DB-eng.Feature.md").
+RDS Proxy handles the infrastructure to perform connection pooling and the other features described in the sections that follow.
+You see the proxies represented in the RDS console on the **Proxies** page.
 
-## Quotas and limitations for RDS Proxy
+Each proxy handles connections to a single RDS DB
+instance. The proxy
+automatically determines the current writer instance for RDS
+Multi-AZ DB instance or cluster.
 
-The following quotas and limitations apply to RDS Proxy:
+The connections that a proxy keeps open and available for your database applications to use make up the
+_connection pool_.
 
-- Each AWS account ID is limited to 20 proxies. If your application requires more
-  proxies, request an increase via the **Service Quotas** page within the
-  AWS Management Console. In the **Service Quotas** page, select **Amazon Relational Database Service
-  (Amazon RDS)** and locate **Proxies** to request a quota increase.
-  AWS can automatically increase your quota or pending review of your request by
-  Support.
-- Each proxy can have up to 200 associated Secrets Manager secrets, thus limiting connections
-  to up to 200 different user accounts when using secrets.
-- Each proxy has a default endpoint. You can also add up to 20 proxy endpoints for each proxy.
-  You can create, view, modify, and delete these endpoints.
-- For RDS DB instances in replication configurations, you can associate a proxy only
-  with the writer DB instance, not a read replica.
-- Your RDS Proxy must be in the same virtual private cloud (VPC) as the database. The
-  proxy can't be publicly accessible, although the database can be. For example, if you're
-  prototyping your database on a local host, you can't connect to your proxy unless you set up
-  the necessary network requirements to allow connection to the proxy.
-  This is because your local host is outside of the proxy’s VPC.
-- You can't use RDS Proxy with a VPC that has its tenancy set to `dedicated`.
-- For IPv6 endpoint network types, configure your VPC and subnets to support only IPv6.
-  For both IPv4 and IPv6 target connection network types, configure your VPC and subnets to support dual-stack mode.
-- If you use RDS Proxy with an RDS DB
-  instance that has IAM authentication enabled,
-  the proxy can connect to the database using either IAM authentication or credentials stored in Secrets Manager.
-  Clients connecting to the proxy must authenticate using IAM credentials. For detailed configuration instructions,
-  see [Setting up database credentials for RDS Proxy](rds-proxy-secrets-arns.md "rds-proxy-secrets-arns.md")
-  and [Configuring IAM authentication for RDS Proxy](rds-proxy-iam-setup.md "rds-proxy-iam-setup.md")
-- You can't use RDS Proxy with custom DNS when using SSL hostname validation.
-- Each proxy can be associated with a single target DB instance
-  . However, you
-  can associate multiple proxies with the same DB instance
-  .
-- Any statement with a text size greater than 16 KB causes the proxy to pin the session to the current connection.
-- Certain Regions have Availability-Zone (AZ) restrictions to consider while creating your proxy.
-  US East (N. Virginia) Region does not support RDS Proxy in the `use1-az3` Availability Zone.
-  US West (N. California) Region does not support RDS Proxy in the `usw1-az2` Availability Zone.
-  When selecting subnets while creating your proxy,
-  make sure that you don't select subnets in the Availability Zones mentioned above.
-- Currently, RDS Proxy doesn't support any global condition context keys.
+By default, RDS Proxy can reuse a connection after each transaction in your session. This transaction-level
+reuse is called _multiplexing_. When RDS Proxy temporarily removes a connection from the
+connection pool to reuse it, that operation is called _borrowing_ the connection.
+When it's safe to do so, RDS Proxy returns that connection to the connection pool.
 
-For more information about global condition context keys,
-see [AWS global condition context keys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md") in the
-_IAM User Guide_.
+In some cases, RDS Proxy can't be sure that it's safe to reuse a database connection outside of the
+current session. In these cases, it keeps the session on the same connection until the session ends. This fallback
+behavior is called _pinning_.
 
-- You can't use RDS Proxy with RDS Custom for SQL Server.
-- To reflect any database parameter group modification to your proxy,
-  an instance reboot is required even if your chose to apply your changes immediately.
-  For cluster-level parameters, a cluster-wide reboot is required.
-- Your proxy automatically creates the `rdsproxyadmin` DB user when you
-  register a proxy target. This is a protected user that is essential for proxy functionality.
-  You should avoid tampering with the `rdsproxyadmin` user in any capacity.
-  Deleting or modifying the `rdsproxyadmin` user
-  or its permissions can result in complete unavailability of the proxy to your application.
+A proxy has a default endpoint. You connect to this endpoint when you work with an
+Amazon RDS DB instance.
+You do so instead of connecting to the read/write endpoint
+that connects directly to the instance
+. For RDS DB clusters,
+you can also create additional read/write and read-only endpoints. For more information, see [Overview of proxy endpoints](rds-proxy-endpoints.md#rds-proxy-endpoints-overview "rds-proxy-endpoints.md#rds-proxy-endpoints-overview").
 
-For additional limitations for each DB engine, see the following sections:
+For example, you can still connect to the cluster endpoint for read/write connections
+without connection pooling. You can still connect to the reader endpoint for load-balanced
+read-only connections. You can still connect to the instance endpoints for diagnosis and
+troubleshooting of specific DB instances within a cluster. If you use other AWS
+services such as AWS Lambda to connect to RDS databases, change their connection settings to
+use the proxy endpoint. For example, you specify the proxy endpoint to allow Lambda functions
+to access your database while taking advantage of RDS Proxy functionality.
 
-- [Additional limitations for RDS for MariaDB](#rds-proxy.limitations-mdb "#rds-proxy.limitations-mdb")
-- [Additional limitations for RDS for Microsoft SQL Server](#rds-proxy.limitations-ms "#rds-proxy.limitations-ms")
-- [Additional limitations for RDS for MySQL](#rds-proxy.limitations-my "#rds-proxy.limitations-my")
-- [Additional limitations for RDS for PostgreSQL](#rds-proxy.limitations-pg "#rds-proxy.limitations-pg")
+Each proxy contains a target group. This _target
+group_ embodies the RDS DB
+instance that the proxy can
+connect to.
+The RDS DB instance associated with a proxy are called the _targets_ of
+that proxy. For convenience, when you create a proxy through the console, RDS Proxy also
+creates the corresponding target group and registers the associated targets automatically.
 
-### Additional limitations for RDS for MariaDB
+An _engine family_ is a related set of database engines that use the same DB protocol.
+You choose the engine family for each proxy that you create.
 
-The following additional
-limitations apply to RDS Proxy with RDS for MariaDB databases:
+## Connection pooling
 
-- Currently, all proxies listen on port 3306 for MariaDB. The proxies still connect to your database using
-  the port that you specified in the database settings.
-- You can't use RDS Proxy with self-managed MariaDB databases in Amazon EC2
-  instances.
-- You can't use RDS Proxy with an RDS for MariaDB DB instance that has the
-  `read_only` parameter in its DB parameter group set to
-  `1`.
-- RDS Proxy doesn't support MariaDB compressed mode. For example, it doesn't
-  support the compression used by the `--compress` or `-C` options
-  of the `mysql` command.
-- Some SQL statements and functions can change the connection state without causing
-  pinning. For the most current pinning behavior, see [Avoiding pinning an RDS Proxy](rds-proxy-pinning.md "rds-proxy-pinning.md").
-- RDS Proxy doesn't support the MariaDB `auth_ed25519` plugin.
-- RDS Proxy doesn't support Transport Layer Security (TLS) version 1.3 for MariaDB databases.
-- Database connections processing a `GET DIAGNOSTIC` command might return
-  inaccurate information when RDS Proxy reuses the same database connection to run another
-  query. This can happen when RDS Proxy multiplexes database connections. For more information,
-  see [Overview of RDS Proxy concepts](rds-proxy.md#rds-proxy-overview "rds-proxy.md#rds-proxy-overview").
-- RDS Proxy currently doesn't support the `caching_sha2_password` option for `ClientPasswordAuthType` for MariaDB.
+Each proxy performs connection pooling separately for the writer and reader instance of its associated RDS database
+. _Connection pooling_ is an optimization
+that reduces the overhead associated with opening and closing connections and with keeping
+many connections open simultaneously. This overhead includes memory needed to handle each
+new connection. It also involves CPU overhead to close each connection and open a new one.
+Examples include Transport Layer Security/Secure Sockets Layer (TLS/SSL) handshaking,
+authentication, negotiating capabilities, and so on. Connection pooling simplifies your
+application logic. You don't need to write application code to minimize the number of
+simultaneous open connections.
 
-###### Important
+Each proxy also performs connection multiplexing, also known as connection reuse. With
+_multiplexing_, RDS Proxy performs all the operations for a transaction
+using one underlying database connection. RDS then can use a different connection for the
+next transaction. You can open many simultaneous connections to the proxy, and the proxy
+keeps a smaller number of connections open to the DB instance or cluster. Doing so further
+minimizes the memory overhead for connections on the database server. This technique also
+reduces the chance of "too many connections" errors.
 
-For proxies associated with MariaDB databases, don't set the configuration parameter
-`sql_auto_is_null` to `true` or a nonzero value in the initialization
-query. Doing so might cause incorrect application behavior.
+## RDS Proxy security
 
-### Additional limitations for RDS for Microsoft SQL Server
+RDS Proxy uses the existing RDS security mechanisms such as TLS/SSL and AWS Identity and Access Management
+(IAM). For general information about those security features, see [Security in Amazon RDS](UsingWithRDS.md "UsingWithRDS.md"). Also, make sure to familiarize
+yourself with how RDS
+work with authentication, authorization, and other areas of
+security.
 
-The following additional
-limitations apply to RDS Proxy with RDS for Microsoft SQL Server databases:
+RDS Proxy can act as an additional layer of security between client applications and the
+underlying database. For example, you can connect to the proxy using TLS 1.3, even if the
+underlying DB instance supports an older version of TLS. You can connect to the proxy using
+an IAM role even if the proxy connects to the database using the database user
+and password authentication method. By using this technique, you can enforce strong
+authentication requirements for database applications without a costly migration effort for
+the DB instances themselves.
 
-- The number of Secrets Manager secrets that you need to create for a proxy depends on the collation that
-  your DB instance uses. For example, suppose that your DB instance uses case-sensitive
-  collation. If your application accepts both "Admin" and "admin," then your proxy needs two
-  separate secrets. For more information about collation in SQL Server, see the [Microsoft SQL Server](https://docs.microsoft.com/en-us/sql/relational-databases/collations/collation-and-unicode-support?view=sql-server-ver16 "https://docs.microsoft.com/en-us/sql/relational-databases/collations/collation-and-unicode-support?view=sql-server-ver16")
-  documentation.
-- RDS Proxy doesn't support connections that use Active Directory.
-- You can't use IAM authentication with clients that don't support token properties. For more information, see [Considerations for connecting to Microsoft SQL Server](rds-proxy-connecting.md#rds-proxy-connecting-sqlserver "rds-proxy-connecting.md#rds-proxy-connecting-sqlserver").
-- The results of `@@IDENTITY`, `@@ROWCOUNT`, and
-  `SCOPE_IDENTITY` aren't always accurate. As a work-around, retrieve their
-  values in the same session statement to ensure that they return the correct
-  information.
-- If the connection uses multiple active result sets (MARS), RDS Proxy doesn't run the initialization queries. For information about MARS, see the [Microsoft SQL Server](https://docs.microsoft.com/en-us/sql/relational-databases/native-client/features/using-multiple-active-result-sets-mars?view=sql-server-ver16 "https://docs.microsoft.com/en-us/sql/relational-databases/native-client/features/using-multiple-active-result-sets-mars?view=sql-server-ver16") documentation.
-- Currently, RDS Proxy does not support RDS for SQL Server DB instances that run on major version
-  _SQL Server 2022_.
-- RDS Proxy does not support RDS for SQL Server DB instances that run on major version _SQL
-  Server 2014_.
-- RDS Proxy does not support client applications that can't handle multiple response
-  messages in one TLS record.
-- RDS Proxy does not support end-to-end IAM authentication for RDS for SQL Server.
+You can use the following methods of authentication with RDS Proxy:
 
-### Additional limitations for RDS for MySQL
+- **Database credentials**
+- **Standard IAM authentication**
+- **End-to-end IAM authentication**
 
-The following additional
-limitations apply to RDS Proxy with RDS for MySQL databases:
+### Using IAM with RDS Proxy
 
-- RDS Proxy support for `caching_sha2_password` authentication requires a secure (TLS) connection.
-- RDS Proxy support for `caching_sha2_password` is known to have compatibility issues with certain
-  go-sql driver versions.
-- When using the MySQL 8.4 C driver, the `mysql_stmt_bind_named_param` API might form malformed packets
-  if parameter count exceeds placeholder count in a prepared statements. This results in incorrect responses. For
-  more information, see [MySQL bug report](https://bugs.mysql.com/bug.php?id=116860&thanks=4 "https://bugs.mysql.com/bug.php?id=116860&thanks=4").
-- Currently, all proxies listen on port 3306 for MySQL. The proxies still connect to your database using
-  the port that you specified in the database settings.
-- You can't use RDS Proxy with self-managed MySQL databases in EC2
-  instances.
-- You can't use RDS Proxy with an RDS for MySQL DB instance that has the
-  `read_only` parameter in its DB parameter group set to
-  `1`.
-- RDS Proxy doesn't support MySQL compressed mode. For example, it doesn't
-  support the compression used by the `--compress` or `-C` options
-  of the `mysql` command.
-- Database connections processing a `GET DIAGNOSTIC` command might return
-  inaccurate information when RDS Proxy reuses the same database connection to run another
-  query. This can happen when RDS Proxy multiplexes database connections.
-- Some SQL statements and functions such as `SET LOCAL` can
-  change the connection state without causing pinning. For the most current pinning
-  behavior, see [Avoiding pinning an RDS Proxy](rds-proxy-pinning.md "rds-proxy-pinning.md").
-- Using the `ROW_COUNT()` function in a multi-statement query is not
-  supported.
-- RDS Proxy does not support client applications that can't
-  handle multiple response messages in one TLS record.
-- RDS Proxy does not support the MySQL dual passwords.
-- RDS Proxy might not work as expected when you configure the `init_connect` parameter in your
-  RDS DB parameter group to set session state variables. Instead, set the initialization query for your proxy
-  to run session initialization statements when using proxy to connect to your database.
+RDS Proxy offers two methods of IAM authentication:
 
-###### Important
+- **Standard IAM authentication**: Enforce IAM authentication for connections to
+  your proxy while the proxy connects to the database using credentials stored in Secrets Manager.
+  This enforces IAM authentication for database access even if the databases use native password authentication.
+  The proxy retrieves the database credentials from Secrets Manager and handles the authentication to the database on behalf of your application.
+- **End-to-end IAM authentication**: Enforces IAM authentication for connections directly from
+  your applications to your database through the proxy. End-to-end IAM authentication simplifies your security configuration and
+  avoids database credential management in Secrets Manager. This additional layer of security enforces IAM-based access
+  control from the client application to the database.
 
-For proxies associated with MySQL databases, don't set the configuration parameter
-`sql_auto_is_null` to `true` or a nonzero value in the initialization
-query. Doing so might cause incorrect application behavior.
+To use standard IAM authentication, configure your proxy to use Secrets Manager secrets for authentication and enable IAM authentication for client connections.
+Your applications authenticate to the proxy using IAM, while the proxy authenticates to the database using the credentials retrieved from Secrets Manager.
 
-### Additional limitations for RDS for PostgreSQL
+To use end-to-end IAM authentication, configure your proxy to use IAM authentication when setting the default authentication scheme
+when creating or modifying your proxy.
 
-The following additional limitations apply to RDS Proxy with RDS for PostgreSQL databases:
+For end-to-end IAM authentication, you must update the IAM role associated with the proxy to grant the `rds-db:connect` permission.
+With end-to-end IAM authentication, this eliminates the need to register individual database users with the proxy through Secrets Manager secrets.
 
-- RDS Proxy doesn't support session pinning filters for PostgreSQL.
-- Currently, all proxies listen on port 5432 for PostgreSQL.
-- For PostgreSQL, RDS Proxy doesn't currently support canceling a query from a client by
-  issuing a `CancelRequest`. This is the case, for example, when you cancel a
-  long-running query in an interactive psql session by using Ctrl+C.
-- The results of the PostgreSQL function [lastval](https://www.postgresql.org/docs/current/functions-sequence.html "https://www.postgresql.org/docs/current/functions-sequence.html")
-  aren't always accurate. As a work-around, use the [INSERT](https://www.postgresql.org/docs/current/sql-insert.html "https://www.postgresql.org/docs/current/sql-insert.html") statement
-  with the `RETURNING` clause.
-- RDS Proxy currently doesn't support streaming replication mode.
-- With RDS for PostgreSQL 16, modifications to the `scram_iterations` value exclusively impact
-  the authentication process between the proxy and the database.
-  Specifically, if you configure `ClientPasswordAuthType` to `scram-sha-256`,
-  any customizations made to the `scram_iterations` value doesn't influence client-to-proxy password authentication.
-  Instead, the iteration value for client-to-proxy password authentication is fixed at 4096.
-- The default `postgres` database must exist on the RDS for PostgreSQL instance
-  for RDS Proxy to function. Don't delete this database even if your application uses
-  different databases.
-- If you use `ALTER ROLE` to change the user role with `SET ROLE`, subsequent connections as that
-  user to the proxy might not use this role setting, if those connections encounter pinning. To prevent this, when using proxy,
-  use `SET ROLE` in the initialization query of the proxy. For more information,
-  see **Initialization query** in [Creating a proxy for Amazon RDS](rds-proxy-creating.md "rds-proxy-creating.md").
+### Using TLS/SSL with RDS Proxy
 
-###### Important
+You can connect to RDS Proxy using the TLS/SSL protocol.
 
-For existing proxies with PostgreSQL databases, if you modify the database authentication to use `SCRAM` only,
-the proxy becomes unavailable for up to 60 seconds. To avoid the issue, do one of the following:
+###### Note
 
-- Ensure that the database allows both `SCRAM` and `MD5` authentication.
-- To use only `SCRAM` authentication, create a new proxy, migrate your application traffic to the new proxy, then delete the proxy previously associated with the database.
+RDS Proxy uses certificates from the AWS Certificate Manager (ACM). If you are using RDS Proxy, you don't need
+to download Amazon RDS certificates or update applications that use RDS Proxy connections.
+
+To enforce TLS for all connections between the proxy and your database, you can
+specify a setting **Require Transport Layer Security** when you create or
+modify a proxy in the AWS Management Console.
+
+RDS Proxy can also ensure that your session uses TLS/SSL between your client and the
+RDS Proxy endpoint. To have RDS Proxy do so, specify the requirement on the client side. SSL
+session variables are not set for SSL connections to a database using RDS Proxy.
+
+- For RDS for MySQL, specify the requirement on the client side with the
+  `--ssl-mode` parameter when you run the `mysql` command.
+- For Amazon RDS PostgreSQL, specify `sslmode=require` as part of the
+  `conninfo` string when you run the `psql` command.
+
+RDS Proxy supports TLS protocol version 1.0, 1.1, 1.2, and 1.3. You can connect to the
+proxy using a higher version of TLS than you use in the underlying database.
+
+By default, client programs establish an encrypted connection with RDS Proxy, with
+further control available through the `--ssl-mode` option. From the client
+side, RDS Proxy supports all SSL modes.
+
+For the client, the SSL modes are the following:
+
+**PREFERRED**
+
+SSL is the first choice, but it isn't required.
+
+**DISABLED**
+
+No SSL is allowed.
+
+**REQUIRED**
+
+Enforce SSL.
+
+**VERIFY_CA**
+
+Enforce SSL and verify the certificate authority (CA).
+
+**VERIFY_IDENTITY**
+
+Enforce SSL and verify the CA and CA hostname.
+
+When using a client with `--ssl-mode`
+`VERIFY_CA` or `VERIFY_IDENTITY`, specify the `--ssl-ca`
+option pointing to a CA in `.pem` format. For the `.pem` file to
+use, download all root CA PEMs from [Amazon Trust Services](https://www.amazontrust.com/repository/ "https://www.amazontrust.com/repository/") and place them into a single `.pem`
+file.
+
+RDS Proxy uses wildcard certificates, which apply to both a domain and its subdomains. If you use the
+`mysql` client to connect with SSL mode `VERIFY_IDENTITY`, currently you must use
+the MySQL 8.0-compatible `mysql` command.
+
+## Failover
+
+_Failover_ is a high-availability feature that replaces a
+database instance with another one when the original instance becomes unavailable. A
+failover might happen because of a problem with a database instance. It might also be part
+of normal maintenance procedures, such as during a database upgrade. Failover applies to RDS
+DB instances in a Multi-AZ configuration.
+
+Connecting through a proxy makes your applications more resilient to database failovers. When the original DB
+instance becomes unavailable, RDS Proxy connects to the standby database without dropping idle application
+connections. This helps speed up and simplify the failover process. This is less disruptive to your application
+than a typical reboot or database problem.
+
+Without RDS Proxy, a failover involves a brief outage. During the outage, you can't
+perform write operations on the database in failover. Any existing database connections are disrupted,
+and your application must reopen them. The database becomes available for new connections
+and write operations when a read-only DB instance is promoted in place of one that's
+unavailable.
+
+During DB failovers, RDS Proxy continues to accept connections at the same IP address and automatically
+directs connections to the new primary DB instance. Clients connecting through RDS Proxy are not susceptible to the
+following:
+
+- Domain Name System (DNS) propagation delays on failover.
+- Local DNS caching.
+- Connection timeouts.
+- Uncertainty about which DB instance is the current writer.
+- Waiting for a query response from a former writer that became unavailable without closing connections.
+
+For applications that maintain their own connection pool, going through RDS Proxy means that most connections
+stay alive during failovers or other disruptions. Only connections that are in the middle of a transaction
+or SQL statement are canceled. RDS Proxy immediately accepts new connections. When the database writer is
+unavailable, RDS Proxy queues up incoming requests.
+
+For applications that don't maintain their own connection pools, RDS Proxy offers faster connection rates
+and more open connections. It offloads the expensive overhead of frequent reconnects from the database. It
+does so by reusing database connections maintained in the RDS Proxy connection pool. This approach is
+particularly important for TLS connections, where setup costs are significant.
+
+## Transactions
+
+All the statements within a single transaction always use the same underlying database connection. The
+connection becomes available for use by a different session when the transaction ends. Using the transaction
+as the unit of granularity has the following consequences:
+
+- Connection reuse can happen after each individual statement when the RDS for MySQL
+  `autocommit` setting is turned on.
+- Conversely, when the `autocommit` setting is turned off, the first
+  statement you issue in a session begins a new transaction. For example, suppose that you
+  enter a sequence of `SELECT`, `INSERT`, `UPDATE`, and
+  other data manipulation language (DML) statements. In this case, connection reuse
+  doesn't happen until you issue a `COMMIT`, `ROLLBACK`, or
+  otherwise end the transaction.
+- Entering a data definition language (DDL) statement causes the transaction to end after that statement
+  completes.
+
+RDS Proxy detects when a transaction ends through the network protocol used by the database client
+application. Transaction detection doesn't rely on keywords such as `COMMIT` or
+`ROLLBACK` appearing in the text of the SQL statement.
+
+In some cases, RDS Proxy might detect a database request that makes it impractical to move your session to a
+different connection. In these cases, it turns off multiplexing for that connection the remainder of your
+session. The same rule applies if RDS Proxy can't be certain that multiplexing is practical for the
+session. This operation is called _pinning_. For ways to detect and
+minimize pinning, see [Avoiding pinning an RDS Proxy](rds-proxy-pinning.md "rds-proxy-pinning.md").

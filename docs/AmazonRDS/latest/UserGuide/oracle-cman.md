@@ -69,8 +69,16 @@ parameter to the address of CMAN instance in a DB parameter group. Consider the 
 The following table shows how to set the `REMOTE_LISTENER` value. The `LOCAL_LISTENER`
 value is set automatically by Amazon RDS.
 
-| DB instance name | DB instance IP | Local listener value (set automatically)                      | Remote listener value (set by user) |
-| ---------------- | -------------- | ------------------------------------------------------------- | ----------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `orcla`          | `10.0.159.200` | `( address= (protocol=tcp) (host=10.0.159.200) (port=1521) )` | `10.0.159.100:1521`                 |
-| `orclb`          | `10.0.159.300` | `( address= (protocol=tcp) (host=10.0.159.300) (port=1521) )` | `10.0.159.100:1521`                 |
-| `orclc`          | `10.0.159.400` | `( address= (protocol=tcp) (host=10.0.159.400) (port=1521) )` | `10.0.159.100:1521`                 | ### Step 3: Associate your DB instance with the parameter group Create or modify your DB instance to use the parameter group that you configured in [Step 2: Configure database parameters for CMAN](#oracle-cman.configuring-cman.parameters "#oracle-cman.configuring-cman.parameters"). For more information, see [Associating a DB parameter group with a DB instance in Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md"). |
+| DB instance name | DB instance IP | Local listener value (set automatically)                                          | Remote listener value (set by user) |
+| ---------------- | -------------- | --------------------------------------------------------------------------------- | ----------------------------------- |
+| `orcla`          | `10.0.159.200` | `<br>( address=<br>(protocol=tcp)<br>(host=10.0.159.200)<br>(port=1521)<br>)<br>` | `10.0.159.100:1521`                 |
+| `orclb`          | `10.0.159.300` | `<br>( address=<br>(protocol=tcp)<br>(host=10.0.159.300)<br>(port=1521)<br>)<br>` | `10.0.159.100:1521`                 |
+| `orclc`          | `10.0.159.400` | `<br>( address=<br>(protocol=tcp)<br>(host=10.0.159.400)<br>(port=1521)<br>)<br>` | `10.0.159.100:1521`                 |
+
+### Step 3: Associate your DB instance with the
+
+parameter group
+
+Create or modify your DB instance to use the parameter group that you configured in [Step 2: Configure database parameters for
+CMAN](#oracle-cman.configuring-cman.parameters "#oracle-cman.configuring-cman.parameters"). For more information, see [Associating a DB parameter group with a
+DB instance in Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").

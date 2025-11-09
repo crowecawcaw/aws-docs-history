@@ -244,34 +244,74 @@ by using either name. You can only use the new names when modifying values in a 
 MySQL 8.4 parameter group. For more information, see [Default and custom parameter
 groups](parameter-groups-overview.md#parameter-groups-overview.custom "parameter-groups-overview.md#parameter-groups-overview.custom").
 
+| Name to be removed            | New or preferred name           |
+| ----------------------------- | ------------------------------- |
+| `init_slave`                  | `init_replica`                  |
+| `log_slave_updates`           | `log_replica_updates`           |
+| `log_slow_slave_statements`   | `log_slow_replica_statements`   |
+| `rpl_stop_slave_timeout`      | `rpl_stop_replica_timeout`      |
+| `skip_slave_start`            | `skip_replica_start`            |
+| `slave_checkpoint_group`      | `replica_checkpoint_group`      |
+| `slave_checkpoint_period`     | `replica_checkpoint_period`     |
+| `slave_compressed_protocol`   | `replica_compressed_protocol`   |
+| `slave_exec_mode`             | `replica_exec_mode`             |
+| `slave_load_tmpdir`           | `replica_load_tmpdir`           |
+| `slave_max_allowed_packet`    | `replica_max_allowed_packet`    |
+| `slave_net_timeout`           | `replica_net_timeout`           |
+| `slave_parallel_type`         | `replica_parallel_type`         |
+| `slave_parallel_workers`      | `replica_parallel_workers`      |
+| `slave_pending_jobs_size_max` | `replica_pending_jobs_size_max` |
+| `slave_preserve_commit_order` | `replica_preserve_commit_order` |
+| `slave_skip_errors`           | `replica_skip_errors`           |
+| `slave_sql_verify_checksum`   | `replica_sql_verify_checksum`   |
+| `slave_transaction_retries`   | `replica_transaction_retries`   |
+| `slave_type_conversions`      | `replica_type_conversions`      |
+| `sql_slave_skip_counter`      | `sql_replica_skip_counter`      |
+
+###### Note
+
+The parameter `replica_allow_batching` isn't available because Amazon RDS doesn't support NDB clusters.
+
+### Stored procedure
+
+name changes
+
+The following stored procedures have new names in RDS for MySQL 8.4.
+
+For compatibility, you can use either name in the initial RDS for MySQL 8.4 release. The
+old procedure names are to be removed in a future release. For more information, see
+[Configuring, starting, and stopping binary
+log (binlog) replication](mysql-stored-proc-replicating.md "mysql-stored-proc-replicating.md").
+
 | Name to be removed                                 | New or preferred name                              |
-| -------------------------------------------------- | -------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `init_slave`                                       | `init_replica`                                     |
-| `log_slave_updates`                                | `log_replica_updates`                              |
-| `log_slow_slave_statements`                        | `log_slow_replica_statements`                      |
-| `rpl_stop_slave_timeout`                           | `rpl_stop_replica_timeout`                         |
-| `skip_slave_start`                                 | `skip_replica_start`                               |
-| `slave_checkpoint_group`                           | `replica_checkpoint_group`                         |
-| `slave_checkpoint_period`                          | `replica_checkpoint_period`                        |
-| `slave_compressed_protocol`                        | `replica_compressed_protocol`                      |
-| `slave_exec_mode`                                  | `replica_exec_mode`                                |
-| `slave_load_tmpdir`                                | `replica_load_tmpdir`                              |
-| `slave_max_allowed_packet`                         | `replica_max_allowed_packet`                       |
-| `slave_net_timeout`                                | `replica_net_timeout`                              |
-| `slave_parallel_type`                              | `replica_parallel_type`                            |
-| `slave_parallel_workers`                           | `replica_parallel_workers`                         |
-| `slave_pending_jobs_size_max`                      | `replica_pending_jobs_size_max`                    |
-| `slave_preserve_commit_order`                      | `replica_preserve_commit_order`                    |
-| `slave_skip_errors`                                | `replica_skip_errors`                              |
-| `slave_sql_verify_checksum`                        | `replica_sql_verify_checksum`                      |
-| `slave_transaction_retries`                        | `replica_transaction_retries`                      |
-| `slave_type_conversions`                           | `replica_type_conversions`                         |
-| `sql_slave_skip_counter`                           | `sql_replica_skip_counter`                         | ###### Note The parameter `replica_allow_batching` isn't available because Amazon RDS doesn't support NDB clusters. ### Stored procedure name changes The following stored procedures have new names in RDS for MySQL 8.4. For compatibility, you can use either name in the initial RDS for MySQL 8.4 release. The old procedure names are to be removed in a future release. For more information, see [Configuring, starting, and stopping binary log (binlog) replication](mysql-stored-proc-replicating.md "mysql-stored-proc-replicating.md").                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| Name to be removed                                 | New or preferred name                              |
-| ---                                                | ---                                                |
+| -------------------------------------------------- | -------------------------------------------------- |
 | `mysql.rds_next_master_log`                        | `mysql.rds_next_source_log`                        |
 | `mysql.rds_reset_external_master`                  | `mysql.rds_reset_external_source`                  |
 | `mysql.rds_set_external_master`                    | `mysql.rds_set_external_source`                    |
 | `mysql.rds_set_external_master_with_auto_position` | `mysql.rds_set_external_source_with_auto_position` |
 | `mysql.rds_set_external_master_with_delay`         | `mysql.rds_set_external_source_with_delay`         |
-| `mysql.rds_set_master_auto_position`               | `mysql.rds_set_source_auto_position`               | ## MySQL features not supported by Amazon RDS Amazon RDS doesn't currently support the following MySQL features: <br>• Authentication Plugin <br>• Error Logging to the System Log <br>• InnoDB Tablespace Encryption <br>• NDB clusters <br>• Password Strength Plugin <br>• Persisted system variables <br>• Rewriter Query Rewrite Plugin <br>• Semisynchronous replication, except for Multi-AZ DB clusters <br>• Transportable tablespace <br>• X Plugin To deliver a managed service experience, Amazon RDS doesn't provide shell access to DB instances. It also restricts access to certain system procedures and tables that require advanced privileges. Amazon RDS supports access to databases on a DB instance using any standard SQL client application. Amazon RDS doesn't allow direct host access to a DB instance by using Telnet, Secure Shell (SSH), or Windows Remote Desktop Connection. When you create a DB instance, you are assigned as _db_owner_ for all databases on that instance, and you have all database-level permissions except for those used for backups. Amazon RDS manages backups for you. |
+| `mysql.rds_set_master_auto_position`               | `mysql.rds_set_source_auto_position`               |
+
+## MySQL features not supported by Amazon RDS
+
+Amazon RDS doesn't currently support the following MySQL features:
+
+- Authentication Plugin
+- Error Logging to the System Log
+- InnoDB Tablespace Encryption
+- NDB clusters
+- Password Strength Plugin
+- Persisted system variables
+- Rewriter Query Rewrite Plugin
+- Semisynchronous replication, except for Multi-AZ DB clusters
+- Transportable tablespace
+- X Plugin
+
+To deliver a managed service experience, Amazon RDS doesn't provide shell access to DB
+instances. It also restricts access to certain system procedures and tables that require
+advanced privileges. Amazon RDS supports access to databases on a DB instance using any
+standard SQL client application. Amazon RDS doesn't allow direct host access to a DB
+instance by using Telnet, Secure Shell (SSH), or Windows Remote Desktop Connection. When
+you create a DB instance, you are assigned as _db_owner_ for
+all databases on that instance, and you have all database-level permissions except for
+those used for backups. Amazon RDS manages backups for you.

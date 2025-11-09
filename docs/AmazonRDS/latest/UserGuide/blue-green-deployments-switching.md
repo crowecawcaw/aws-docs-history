@@ -162,12 +162,9 @@ that the status has changed to `SWITCHOVER_IN_PROGRESS`.
 - Make sure the primary DB instance
   in the green environment is healthy and replicating.
 - Make sure that your network and client configurations don’t increase the DNS cache
-  Time-To-Live (TTL) beyond five seconds, which is the default for RDS DNS zones.
-
-Otherwise, applications will continue to send write traffic to the blue environment after
-
-switchover.
-
+  Time-To-Live (TTL) beyond five seconds, which is the default for RDS DNS zones. 
+  Otherwise, applications will continue to send write traffic to the blue environment after 
+  switchover.
 - Make sure data loading is complete before switching over. For more information, see
   [Lazy loading and storage
   initialization for blue/green deployments](blue-green-deployments-creating.md#blue-green-deployments-creating-lazy-loading "blue-green-deployments-creating.md#blue-green-deployments-creating-lazy-loading").

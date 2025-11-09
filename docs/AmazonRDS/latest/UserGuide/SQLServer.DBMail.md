@@ -1,169 +1,126 @@
-# Enabling Database Mail
+# Sending email messages using Database Mail
 
-Use the following process to enable Database Mail for your DB instance:
+You use the [sp_send_dbmail](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-send-dbmail-transact-sql "https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-send-dbmail-transact-sql") stored procedure to send email messages using Database Mail.
 
-1. Create a new parameter group.
-2. Modify the parameter group to set the `database mail xps` parameter to 1.
-3. Associate the parameter group with the DB instance.
-
-## Creating the parameter group for Database Mail
-
-Create a parameter group for the `database mail xps` parameter that corresponds to the SQL Server edition and
-version of your DB instance.
-
-###### Note
-
-You can also modify an existing parameter group. Follow the procedure in [Modifying the parameter that enables
-Database Mail](#DBMail.ModifyParamGroup "#DBMail.ModifyParamGroup").
-
-The following example creates a parameter group for SQL Server Standard Edition 2016.
-
-###### To create the parameter group
-
-1. Sign in to the AWS Management Console and open the Amazon RDS console at
-   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. In the navigation pane, choose **Parameter groups**.
-3. Choose **Create parameter group**.
-4. In the **Create parameter group** pane, do the following:
-   1. For **Parameter group family**, choose
-      **sqlserver-se-13.0**.
-   2. For **Group name**, enter an identifier for the parameter group, such as
-      `dbmail-sqlserver-se-13`.
-   3. For **Description**, enter `Database Mail XPs`.
-
-5. Choose **Create**.
-   The following example creates a parameter group for SQL Server Standard Edition 2016.
-
-###### To create the parameter group
-
-- Use one of the following commands.
-
-For Linux, macOS, or Unix:
+## Usage
 
 ```
-aws rds create-db-parameter-group \
-    --db-parameter-group-name `dbmail-sqlserver-se-13` \
-    --db-parameter-group-family "`sqlserver-se-13.0`" \
-    --description "`Database Mail XPs`"
+EXEC msdb.dbo.sp_send_dbmail
+@profile_name = '`profile_name`',
+@recipients = '`recipient1@example.com`[; `recipient2`; ... `recipientn`]',
+@subject = '`subject`',
+@body = '`message_body`',
+[@body_format = 'HTML'],
+[@file_attachments = '`file_path1`; `file_path2`; ... `file_pathn`'],
+[@query = '`SQL_query'`],
+[@attach_query_result_as_file = `0|1`]';
 ```
 
-For Windows:
+The following parameters are required:
+
+- `@profile_name` – The name of the Database Mail profile from which to send the message.
+- `@recipients` – The semicolon-delimited list of email addresses to which to send the
+  message.
+- `@subject` – The subject of the message.
+- `@body` – The body of the message. You can also use a declared variable as the body.
+
+The following parameters are optional:
+
+- `@body_format` – This parameter is used with a declared
+  variable to send email in HTML format.
+- `@file_attachments` – The semicolon-delimited list of message attachments. File paths must be
+  absolute paths.
+- `@query` – A SQL query to run. The query results can be
+  attached as a file or included in the body of the message.
+- `@attach_query_result_as_file` – Whether to attach the query result as a file. Set to 0 for no,
+  1 for yes. The default is 0.
+
+## Examples
+
+The following examples demonstrate how to send email messages.
+
+###### Example of sending a message to a single recipient
 
 ```
-aws rds create-db-parameter-group ^
-    --db-parameter-group-name `dbmail-sqlserver-se-13` ^
-    --db-parameter-group-family "`sqlserver-se-13.0`" ^
-    --description "`Database Mail XPs`"
+USE msdb
+GO
+
+EXEC msdb.dbo.sp_send_dbmail
+     @profile_name       = 'Notifications',
+     @recipients         = 'nobody@example.com',
+     @subject            = 'Automated DBMail message - 1',
+     @body               = 'Database Mail configuration was successful.';
+GO
 ```
 
-## Modifying the parameter that enables
-
-Database Mail
-
-Modify the `database mail xps` parameter in the parameter group that corresponds to the SQL Server edition and
-version of your DB instance.
-
-To enable Database Mail, set the `database mail xps` parameter to 1.
-
-The following example modifies the parameter group that you created for SQL Server Standard Edition 2016.
-
-###### To modify the parameter group
-
-1. Sign in to the AWS Management Console and open the Amazon RDS console at
-   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. In the navigation pane, choose **Parameter groups**.
-3. Choose the parameter group, such as **dbmail-sqlserver-se-13**.
-4. Under **Parameters**, filter the parameter list for `mail`.
-5. Choose **database mail xps**.
-6. Choose **Edit parameters**.
-7. Enter `1`.
-8. Choose **Save changes**.
-   The following example modifies the parameter group that you created for SQL Server Standard Edition 2016.
-
-###### To modify the parameter group
-
-- Use one of the following commands.
-
-For Linux, macOS, or Unix:
+###### Example of sending a message to multiple recipients
 
 ```
-aws rds modify-db-parameter-group \
-    --db-parameter-group-name `dbmail-sqlserver-se-13` \
-    --parameters "ParameterName='database mail xps',ParameterValue=`1`,ApplyMethod=immediate"
+USE msdb
+GO
+
+EXEC msdb.dbo.sp_send_dbmail
+     @profile_name       = 'Notifications',
+     @recipients         = 'recipient1@example.com;recipient2@example.com',
+     @subject            = 'Automated DBMail message - 2',
+     @body               = 'This is a message.';
+GO
 ```
 
-For Windows:
+###### Example of sending a SQL query result as a file attachment
 
 ```
-aws rds modify-db-parameter-group ^
-    --db-parameter-group-name `dbmail-sqlserver-se-13` ^
-    --parameters "ParameterName='database mail xps',ParameterValue=`1`,ApplyMethod=immediate"
+USE msdb
+GO
+
+EXEC msdb.dbo.sp_send_dbmail
+     @profile_name       = 'Notifications',
+     @recipients         = 'nobody@example.com',
+     @subject            = 'Test SQL query',
+     @body               = 'This is a SQL query test.',
+     @query              = 'SELECT * FROM abc.dbo.test',
+     @attach_query_result_as_file = 1;
+GO
 ```
 
-## Associating the parameter group with the DB instance
-
-You can use the AWS Management Console or the AWS CLI to associate the Database Mail parameter group with the DB instance.
-
-You can associate the Database Mail parameter group with a new or existing DB instance.
-
-- For a new DB instance, associate it when you launch the instance. For more information, see [Creating an Amazon RDS DB instance](USER_CreateDBInstance.md "USER_CreateDBInstance.md").
-- For an existing DB instance, associate it by modifying the instance. For more information, see [Modifying an Amazon RDS DB instance](Overview.DBInstance.md "Overview.DBInstance.md").
-  You can associate the Database Mail parameter group with a new or existing DB instance.
-
-###### To create a DB instance with the Database Mail parameter group
-
-- Specify the same DB engine type and major version as you used when creating the parameter group.
-
-For Linux, macOS, or Unix:
+###### Example of sending a message in HTML format
 
 ```
-aws rds create-db-instance \
-    --db-instance-identifier `mydbinstance` \
-    --db-instance-class `db.m5.2xlarge` \
-    --engine `sqlserver-se` \
-    --engine-version `13.00.5426.0.v1` \
-    --allocated-storage `100` \
-    --manage-master-user-password \
-    --master-username `admin` \
-    --storage-type `gp2` \
-    --license-model `li`
-    --db-parameter-group-name `dbmail-sqlserver-se-13`
+USE msdb
+GO
+
+DECLARE @HTML_Body as NVARCHAR(500) = 'Hi, <h4> Heading </h4> </br> See the report. <b> Regards </b>';
+
+EXEC msdb.dbo.sp_send_dbmail
+     @profile_name       = 'Notifications',
+     @recipients         = 'nobody@example.com',
+     @subject            = 'Test HTML message',
+     @body               = @HTML_Body,
+     @body_format        = 'HTML';
+GO
 ```
 
-For Windows:
+###### Example of sending a message using a trigger when a specific event occurs in the database
 
 ```
-aws rds create-db-instance ^
-    --db-instance-identifier `mydbinstance` ^
-    --db-instance-class `db.m5.2xlarge` ^
-    --engine `sqlserver-se` ^
-    --engine-version `13.00.5426.0.v1` ^
-    --allocated-storage `100` ^
-    --manage-master-user-password ^
-    --master-username `admin` ^
-    --storage-type `gp2` ^
-    --license-model `li` ^
-    --db-parameter-group-name `dbmail-sqlserver-se-13`
-```
+USE AdventureWorks2017
+GO
+IF OBJECT_ID ('Production.iProductNotification', 'TR') IS NOT NULL
+DROP TRIGGER Purchasing.iProductNotification
+GO
 
-###### To modify a DB instance and associate the Database Mail parameter group
+CREATE TRIGGER iProductNotification ON Production.Product
+   FOR INSERT
+   AS
+   DECLARE @ProductInformation nvarchar(255);
+   SELECT
+   @ProductInformation = 'A new product, ' + Name + ', is now available for $' + CAST(StandardCost AS nvarchar(20)) + '!'
+   FROM INSERTED i;
 
-- Use one of the following commands.
-
-For Linux, macOS, or Unix:
-
-```
-aws rds modify-db-instance \
-    --db-instance-identifier `mydbinstance` \
-    --db-parameter-group-name `dbmail-sqlserver-se-13` \
-    --apply-immediately
-```
-
-For Windows:
-
-```
-aws rds modify-db-instance ^
-    --db-instance-identifier `mydbinstance` ^
-    --db-parameter-group-name `dbmail-sqlserver-se-13` ^
-    --apply-immediately
+EXEC msdb.dbo.sp_send_dbmail
+     @profile_name       = 'Notifications',
+     @recipients         = 'nobody@example.com',
+     @subject            = 'New product information',
+     @body               = @ProductInformation;
+GO
 ```

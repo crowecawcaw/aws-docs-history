@@ -193,8 +193,63 @@ SHOW GLOBAL STATUS like '%flow_control%';
 
 Your output should look similar to the following.
 
-````
+```
 +-------------------------------------------------+-------+
-| Variable_name                                   | Value | +-------------------------------------------------+-------+
-| Rpl_semi_sync_master_flow_control_current_delay | 2010  | +-------------------------------------------------+-------+ 1 row in set (0.00 sec) ``` ###### Note The delay is shown in microseconds. When you have Performance Insights turned on for an RDS for MySQL Multi-AZ DB cluster, you can monitor the wait event corresponding to a SQL statement indicating that the queries were delayed by a flow control. When a delay was introduced by a flow control, you can view the wait event `/wait/synch/cond/semisync/semi_sync_flow_control_delay_cond` corresponding to the SQL statement on the Performance Insights dashboard. To view these metrics, make sure that the Performance Schema is turned on. For information about Performance Insights, see [Monitoring DB load with Performance Insights on Amazon RDS](USER_PerfInsights.md "USER_PerfInsights.md"). #### Mitigating replica lag with flow control for RDS for PostgreSQL When you are using RDS for PostgreSQL Multi-AZ DB clusters, flow control is deployed as an extension. It turns on a background worker for all DB instances in the DB cluster. By default, the background workers on the reader DB instances communicate the current replica lag with the background worker on the writer DB instance. If the lag exceeds two minutes on any reader DB instance, the background worker on the writer DB instance adds a delay at the end of a transaction. To control the lag threshold, use the parameter `flow_control.target_standby_apply_lag`. When a flow control throttles a PostgreSQL process, the `Extension` wait event in `pg_stat_activity` and Performance Insights indicates that. The function `get_flow_control_stats` displays details about how much delay is currently being added. Flow control can benefit most online transaction processing (OLTP) workloads that have short but highly concurrent transactions. If the lag is caused by long-running transactions, such as batch operations, flow control doesn't provide as strong a benefit. You can turn off flow control by removing the extension from the `shared_preload_libraries` and rebooting your DB instance. ## Multi-AZ DB cluster snapshots Amazon RDS creates and saves automated backups of your Multi-AZ DB cluster during the configured backup window. RDS creates a storage volume snapshot of your DB cluster, backing up the entire cluster and not just individual instances. You can also take manual backups of your Multi-AZ DB cluster. For very long-term backups, consider exporting the snapshot data to Amazon S3. For more information, see [Creating a Multi-AZ DB cluster snapshot for Amazon RDS](USER_CreateMultiAZDBClusterSnapshot.md "USER_CreateMultiAZDBClusterSnapshot.md"). You can restore a Multi-AZ DB cluster to a specific point in time, creating a new Multi-AZ DB cluster. For instructions, see [Restoring a Multi-AZ DB cluster to a specified time](USER_PIT.md "USER_PIT.md"). Alternately, you can restore a Multi-AZ DB cluster snapshot to a Single-AZ deployment or Multi-AZ DB instance deployment. For instructions, see [Restoring from a Multi-AZ DB cluster snapshot to a DB instance](USER_RestoreFromMultiAZDBClusterSnapshot.md "USER_RestoreFromMultiAZDBClusterSnapshot.md").
-````
+| Variable_name                                   | Value |
++-------------------------------------------------+-------+
+| Rpl_semi_sync_master_flow_control_current_delay | 2010  |
++-------------------------------------------------+-------+
+1 row in set (0.00 sec)
+```
+
+###### Note
+
+The delay is shown in microseconds.
+
+When you have Performance Insights turned on for an RDS for MySQL Multi-AZ DB cluster, you
+can monitor the wait event corresponding to a SQL statement indicating that the
+queries were delayed by a flow control. When a delay was introduced by a flow
+control, you can view the wait event
+`/wait/synch/cond/semisync/semi_sync_flow_control_delay_cond`
+corresponding to the SQL statement on the Performance Insights dashboard. To
+view these metrics, make sure that the Performance Schema is turned on. For
+information about Performance Insights, see [Monitoring DB load with Performance Insights on Amazon RDS](USER_PerfInsights.md "USER_PerfInsights.md").
+
+#### Mitigating replica lag with flow control for RDS for PostgreSQL
+
+When you are using RDS for PostgreSQL Multi-AZ DB clusters, flow control is deployed as an extension. It
+turns on a background worker for all DB instances in the DB cluster. By default, the
+background workers on the reader DB instances communicate the current replica lag with
+the background worker on the writer DB instance. If the lag exceeds two minutes on any
+reader DB instance, the background worker on the writer DB instance adds a delay at the end
+of a transaction. To control the lag threshold, use the parameter
+`flow_control.target_standby_apply_lag`.
+
+When a flow control throttles a PostgreSQL process, the `Extension` wait event in
+`pg_stat_activity` and Performance Insights indicates that. The
+function `get_flow_control_stats` displays details about how much delay
+is currently being added.
+
+Flow control can benefit most online transaction processing (OLTP) workloads that have
+short but highly concurrent transactions. If the lag is caused by long-running
+transactions, such as batch operations, flow control doesn't provide as strong a
+benefit.
+
+You can turn off flow control by removing the extension from the
+`shared_preload_libraries` and rebooting your DB instance.
+
+## Multi-AZ DB cluster snapshots
+
+Amazon RDS creates and saves automated backups of your Multi-AZ DB cluster during the configured backup window.
+RDS creates a storage volume snapshot of your DB cluster, backing up the entire cluster and
+not just individual instances.
+
+You can also take manual backups of your Multi-AZ DB cluster. For very long-term backups, consider
+exporting the snapshot data to Amazon S3. For more information, see [Creating a Multi-AZ DB cluster snapshot for Amazon RDS](USER_CreateMultiAZDBClusterSnapshot.md "USER_CreateMultiAZDBClusterSnapshot.md").
+
+You can restore a Multi-AZ DB cluster to a specific point in time, creating a new Multi-AZ DB cluster. For
+instructions, see [Restoring a Multi-AZ DB cluster to a specified time](USER_PIT.md "USER_PIT.md").
+
+Alternately, you can restore a Multi-AZ DB cluster snapshot to a Single-AZ deployment or Multi-AZ DB
+instance deployment. For instructions, see [Restoring from a Multi-AZ DB cluster snapshot to a
+DB instance](USER_RestoreFromMultiAZDBClusterSnapshot.md "USER_RestoreFromMultiAZDBClusterSnapshot.md").

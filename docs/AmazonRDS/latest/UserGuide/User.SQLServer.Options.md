@@ -72,9 +72,18 @@ Therefore, all files downloaded after that time that haven't been deleted using 
 `rds_delete_from_filesystem` stored procedure are still accessible on
 the current host. Files downloaded before that time might also be available.
 
+| errorlog_available_from     | recent_failover_time |
+| --------------------------- | -------------------- |
+| 2020-04-29 23:59:00.0100000 | null                 |
+
+###### Example of recent failover
+
+This example shows the output when there is a failover in the error logs. The most recent failover was at 2020-05-05 18:57:51.89.
+
+All files downloaded after that time that haven't been deleted using the
+`rds_delete_from_filesystem` stored procedure are still accessible on
+the current host.
+
 | errorlog_available_from     | recent_failover_time        |
-| --------------------------- | --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| 2020-04-29 23:59:00.0100000 | null                        | ###### Example of recent failover This example shows the output when there is a failover in the error logs. The most recent failover was at 2020-05-05 18:57:51.89. All files downloaded after that time that haven't been deleted using the `rds_delete_from_filesystem` stored procedure are still accessible on the current host. |
-| errorlog_available_from     | recent_failover_time        |
-| ---                         | ---                         |
+| --------------------------- | --------------------------- |
 | 2020-04-29 23:59:00.0100000 | 2020-05-05 18:57:51.8900000 |

@@ -1,37 +1,164 @@
-# Turning on HugePages for an RDS for Oracle instance
+# RDS for Oracle licensing options
 
-Amazon RDS for Oracle supports Linux kernel HugePages for increased database scalability. HugePages results in
-smaller page tables and less CPU time spent on memory management, increasing the performance of large database
-instances. For more information, see [Overview of HugePages](https://docs.oracle.com/database/121/UNXAR/appi_vlm.htm#UNXAR400 "https://docs.oracle.com/database/121/UNXAR/appi_vlm.htm#UNXAR400") in the
-Oracle documentation.
+Amazon RDS for Oracle has two licensing options: License Included (LI) and Bring Your Own License (BYOL). After you create an Oracle DB instance on
+Amazon RDS, you can change the licensing model by modifying the DB instance. For more information, see [Modifying an Amazon RDS DB instance](Overview.DBInstance.md "Overview.DBInstance.md").
 
-You can use HugePages with all supported versions and editions of RDS for Oracle.
+###### Important
 
-The `use_large_pages` parameter controls whether HugePages are turned on for a DB instance. The possible settings for this
-parameter are `ONLY`, `FALSE`, and `{DBInstanceClassHugePagesDefault}`. The `use_large_pages`
-parameter is set to `{DBInstanceClassHugePagesDefault}` in the default DB parameter group for Oracle.
+Make sure that you have the appropriate Oracle Database license, with Software Update
+License and Support, for your DB instance class and Oracle Database edition. Also make sure that you
+have licenses for any separately licensed Oracle Database features.
 
-To control whether HugePages are turned on for a DB instance automatically, you can use the `DBInstanceClassHugePagesDefault`
-formula variable in parameter groups. The value is determined as follows:
+###### Topics
 
-- For the DB instance classes mentioned in the table following, `DBInstanceClassHugePagesDefault` always evaluates to
-  `FALSE` by default, and `use_large_pages` evaluates to `FALSE`. You can turn on HugePages
-  manually for these DB instance classes if the DB instance class has at least 14 GiB of memory.
-- For DB instance classes not mentioned in the table following, if the DB instance class has less than 14
-  GiB of memory, `DBInstanceClassHugePagesDefault` always evaluates to `FALSE`. Also,
-  `use_large_pages` evaluates to `FALSE`.
-- For DB instance classes not mentioned in the table following, if the instance class has at least 14 GiB of memory and less than
-  100 GiB of memory, `DBInstanceClassHugePagesDefault` evaluates to `TRUE` by default. Also,
-  `use_large_pages` evaluates to `ONLY`. You can turn off HugePages manually by setting
-  `use_large_pages` to `FALSE`.
-- For DB instance classes not mentioned in the table following, if the instance class has at least 100
-  GiB of memory, `DBInstanceClassHugePagesDefault` always evaluates to `TRUE`. Also,
-  `use_large_pages` evaluates to `ONLY` and HugePages can't be
-  disabled.
-  HugePages are not turned on by default for the following DB instance classes.
+- [License Included model for
+  SE2](#Oracle.Concepts.Licensing.LicenseIncluded "#Oracle.Concepts.Licensing.LicenseIncluded")
+- [Bring Your Own License (BYOL) for EE
+  and SE2](#Oracle.Concepts.Licensing.BYOL "#Oracle.Concepts.Licensing.BYOL")
+- [Licensing Oracle Multi-AZ deployments](#Oracle.Concepts.Licensing.MAZ "#Oracle.Concepts.Licensing.MAZ")
 
-| DB instance class family | DB instance classes with HugePages not turned on by default             |
-| ------------------------ | ----------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| db.m5                    | db.m5.large                                                             |
-| db.m4                    | db.m4.large, db.m4.xlarge, db.m4.2xlarge, db.m4.4xlarge, db.m4.10xlarge |
-| db.t3                    | db.t3.micro, db.t3.small, db.t3.medium, db.t3.large                     | For more information about DB instance classes, see [Hardware specifications for DB instance classes](Concepts.DBInstanceClass.md "Concepts.DBInstanceClass.md"). To turn on HugePages for new or existing DB instances manually, set the `use_large_pages` parameter to `ONLY`. You can't use HugePages with Oracle Automatic Memory Management (AMM). If you set the parameter `use_large_pages` to `ONLY`, then you must also set both `memory_target` and `memory_max_target` to `0`. For more information about setting DB parameters for your DB instance, see [Parameter groups for Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md"). You can also set the `sga_target`, `sga_max_size`, and `pga_aggregate_target` parameters. When you set system global area (SGA) and program global area (PGA) memory parameters, add the values together. Subtract this total from your available instance memory (`DBInstanceClassMemory`) to determine the free memory beyond the HugePages allocation. You must leave free memory of at least 2 GiB, or 10 percent of the total available instance memory, whichever is smaller. After you configure your parameters, you must reboot your DB instance for the changes to take effect. For more information, see [Rebooting a DB instance](USER_RebootInstance.md "USER_RebootInstance.md"). ###### Note The Oracle DB instance defers changes to SGA-related initialization parameters until you reboot the instance without failover. In the Amazon RDS console, choose **Reboot** but _do not_ choose **Reboot with failover**. In the AWS CLI, call the `reboot-db-instance` command with the `--no-force-failover` parameter. The DB instance does not process the SGA-related parameters during failover or during other maintenance operations that cause the instance to restart. The following is a sample parameter configuration for HugePages that enables HugePages manually. You should set the values to meet your needs. `memory_target            = 0 memory_max_target        = 0 pga_aggregate_target     = {DBInstanceClassMemory*1/8} sga_target               = {DBInstanceClassMemory*3/4} sga_max_size             = {DBInstanceClassMemory*3/4} use_large_pages          = ONLY` Assume the following parameters values are set in a parameter group. `memory_target            = IF({DBInstanceClassHugePagesDefault}, 0, {DBInstanceClassMemory*3/4}) memory_max_target        = IF({DBInstanceClassHugePagesDefault}, 0, {DBInstanceClassMemory*3/4}) pga_aggregate_target     = IF({DBInstanceClassHugePagesDefault}, {DBInstanceClassMemory*1/8}, 0) sga_target               = IF({DBInstanceClassHugePagesDefault}, {DBInstanceClassMemory*3/4}, 0) sga_max_size             = IF({DBInstanceClassHugePagesDefault}, {DBInstanceClassMemory*3/4}, 0) use_large_pages          = {DBInstanceClassHugePagesDefault}` The parameter group is used by a db.r4 DB instance class with less than 100 GiB of memory. With these parameter settings and `use_large_pages` set to `{DBInstanceClassHugePagesDefault}`, HugePages are turned on for the db.r4 instance. Consider another example with following parameters values set in a parameter group. `memory_target           = IF({DBInstanceClassHugePagesDefault}, 0, {DBInstanceClassMemory*3/4}) memory_max_target       = IF({DBInstanceClassHugePagesDefault}, 0, {DBInstanceClassMemory*3/4}) pga_aggregate_target    = IF({DBInstanceClassHugePagesDefault}, {DBInstanceClassMemory*1/8}, 0) sga_target              = IF({DBInstanceClassHugePagesDefault}, {DBInstanceClassMemory*3/4}, 0) sga_max_size            = IF({DBInstanceClassHugePagesDefault}, {DBInstanceClassMemory*3/4}, 0) use_large_pages         = FALSE` The parameter group is used by a db.r4 DB instance class and a db.r5 DB instance class, both with less than 100 GiB of memory. With these parameter settings, HugePages are turned off on the db.r4 and db.r5 instance. ###### Note If this parameter group is used by a db.r4 DB instance class or db.r5 DB instance class with at least 100 GiB of memory, the `FALSE` setting for `use_large_pages` is overridden and set to `ONLY`. In this case, a customer notification regarding the override is sent. After HugePages are active on your DB instance, you can view HugePages information by enabling enhanced monitoring. For more information, see [Monitoring OS metrics with Enhanced Monitoring](USER_Monitoring.md "USER_Monitoring.md"). |
+## License Included model for
+
+SE2
+
+In the License Included model, you don't need to purchase Oracle Database licenses
+separately. AWS holds the license for the Oracle database software. The License
+Included model is only supported on Amazon RDS for Oracle Database Standard Edition 2
+(SE2).
+
+In this model, if you have an AWS Support account with case support, contact Support for
+both Amazon RDS and Oracle Database service requests. Your use of RDS for Oracle the LI option is
+subject to Section 10.3.1 of the [AWS Service Terms](https://aws.amazon.com/service-terms/ "https://aws.amazon.com/service-terms/").
+
+## Bring Your Own License (BYOL) for EE
+
+and SE2
+
+In the BYOL model, you can use your existing Oracle Database licenses to deploy
+databases on Amazon RDS. Amazon RDS supports the BYOL model only for Oracle Database Enterprise
+Edition (EE) and Oracle Database Standard Edition 2 (SE2).
+
+Make sure that you have the appropriate Oracle Database license (with Software Update
+License and Support) for the DB instance class and Oracle Database edition you wish to run.
+You must also follow Oracle's policies for licensing Oracle Database software in the
+cloud computing environment. For more information on Oracle's licensing policy for
+Amazon EC2, see [Licensing Oracle software in the cloud computing environment](http://www.oracle.com/us/corporate/pricing/cloud-licensing-070579.pdf "http://www.oracle.com/us/corporate/pricing/cloud-licensing-070579.pdf").
+
+In this model, you continue to use your active Oracle support account, and you contact Oracle directly
+for Oracle Database service requests. If you have an AWS Support account with case support, you can contact
+Support for Amazon RDS issues.
+
+### Integrating with AWS License Manager
+
+To make it easier to monitor Oracle license usage in the BYOL model, [AWS License Manager](https://aws.amazon.com/license-manager/ "https://aws.amazon.com/license-manager/") integrates with Amazon RDS for Oracle. License Manager supports
+tracking of RDS for Oracle engine editions and licensing packs based on virtual cores (vCPUs). You
+can also use License Manager with AWS Organizations to manage all of your organizational accounts centrally.
+
+The following table shows the product information filters for RDS for Oracle.
+
+| Filter                 | Name                                                               | Description                                                                                                                                 |
+| ---------------------- | ------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| Engine Edition         | `oracle-ee`                                                        | Oracle Database Enterprise Edition (EE)                                                                                                     |
+| `oracle-se2`           | Oracle Database Standard Edition 2 (SE2)                           |
+| License Pack           | `data guard`                                                       | See [Working with read replicas for Amazon RDS for Oracle](oracle-read-replicas.md "oracle-read-replicas.md")<br>(Oracle Active Data Guard) |
+| `olap`                 | See [Oracle OLAP](Oracle.Options.md "Oracle.Options.md")           |
+| `ols`                  | See [Oracle Label Security](Oracle.Options.md "Oracle.Options.md") |
+| `diagnostic pack sqlt` | See [Oracle SQLT](Oracle.Options.md "Oracle.Options.md")           |
+| `tuning pack sqlt`     | See [Oracle SQLT](Oracle.Options.md "Oracle.Options.md")           |
+
+To track license usage of your Oracle DB instances, you can create a self-managed
+license using AWS License Manager. In this case, RDS for Oracle resources that match the
+product information filter are automatically associated with the self-managed
+license. Discovery of Oracle DB instances can take up to 24 hours. You can also track a
+license across accounts by using AWS Resource Access Manager.
+
+###### To create a self-managed license in AWS License Manager to track the license
+
+usage of your RDS for Oracle DB instances
+
+1. Go to [https://console.aws.amazon.com/license-manager/](https://console.aws.amazon.com/license-manager/ "https://console.aws.amazon.com/license-manager/").
+2. Choose **Create self-managed license**.
+
+For instructions, see [Create a
+self-managed license](../../../license-manager/latest/userguide/create-license-configuration.md "../../../license-manager/latest/userguide/create-license-configuration.md") in the _AWS License Manager User
+Guide_.
+
+Add a rule for an **RDS Product Information Filter** in the
+**Product Information** panel.
+
+For more information, see [ProductInformation](../../../license-manager/latest/APIReference/API_ProductInformation.md "../../../license-manager/latest/APIReference/API_ProductInformation.md") in the _AWS License Manager API
+Reference_. 3. (Cross-account tracking only) Use AWS Resource Access Manager to share your
+self-managed licenses with any AWS account or through AWS Organizations.
+For more information, see [Sharing
+your AWS resources](../../../ram/latest/userguide/getting-started-sharing.md "../../../ram/latest/userguide/getting-started-sharing.md").
+To create a self-managed license by using the AWS CLI, call the [create-license-configuration](../../../cli/latest/reference/license-manager/create-license-configuration.md "../../../cli/latest/reference/license-manager/create-license-configuration.md") command. Use the
+`--cli-input-json` or `--cli-input-yaml`
+parameters to pass the parameters to the command.
+
+###### Example
+
+The following example creates a self-managed license for Oracle
+Enterprise Edition.
+
+```
+aws license-manager create-license-configuration --cli-input-json file://rds-oracle-ee.json
+```
+
+The following is the sample `rds-oracle-ee.json` file used in the
+example.
+
+```
+{
+    "Name": "rds-oracle-ee",
+    "Description": "RDS Oracle Enterprise Edition",
+    "LicenseCountingType": "vCPU",
+    "LicenseCountHardLimit": false,
+    "ProductInformationList": [
+        {
+            "ResourceType": "RDS",
+            "ProductInformationFilterList": [
+                {
+                    "ProductInformationFilterName": "Engine Edition",
+                    "ProductInformationFilterValue": ["oracle-ee"],
+                    "ProductInformationFilterComparator": "EQUALS"
+                }
+            ]
+        }
+    ]
+}
+```
+
+For more information about product information, see [Automated discovery of resource
+inventory](../../../license-manager/latest/userguide/automated-discovery.md "../../../license-manager/latest/userguide/automated-discovery.md") in the _AWS License Manager User Guide_.
+
+For more information about the `--cli-input` parameter, see [Generating AWS CLI skeleton and input parameters
+from a JSON or YAML input file](../../../cli/latest/userguide/cli-usage-skeleton.md "../../../cli/latest/userguide/cli-usage-skeleton.md") in the _AWS CLI User
+Guide_.
+
+### Migrating between Oracle
+
+Database editions
+
+If you have an unused BYOL Oracle Database license appropriate for the edition and
+class of DB instance that you plan to run, you can migrate from Standard Edition 2 (SE2)
+to Enterprise Edition (EE). You can't migrate from EE to other editions.
+
+###### To change your Oracle Database edition and retain your data
+
+1. Create a snapshot of the DB instance.
+
+For more information, see [Creating a DB snapshot for a Single-AZ DB instance for Amazon RDS](USER_CreateSnapshot.md "USER_CreateSnapshot.md"). 2. Restore the snapshot to a new DB instance, and select the Oracle database edition you want
+to use.
+
+For more information, see [Restoring to a DB instance](USER_RestoreFromSnapshot.md "USER_RestoreFromSnapshot.md"). 3. (Optional) Delete the old DB instance, unless you want to keep it running and have the
+appropriate Oracle Database licenses for it.
+
+For more information, see [Deleting a DB instance](USER_DeleteInstance.md "USER_DeleteInstance.md").
+
+## Licensing Oracle Multi-AZ deployments
+
+Amazon RDS supports Multi-AZ deployments for Oracle as a high-availability, failover solution. We recommend
+Multi-AZ for production workloads. For more information, see [Configuring and managing a Multi-AZ deployment for Amazon RDS](Concepts.md "Concepts.md").
+
+If you use the Bring Your Own License model, you must have a license for both the primary DB instance
+and the standby DB instance in a Multi-AZ deployment.

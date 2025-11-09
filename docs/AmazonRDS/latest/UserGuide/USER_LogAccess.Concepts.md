@@ -1,18 +1,177 @@
-# Amazon RDS for Microsoft SQL Server database log
+# Amazon RDS for Db2 database log files
 
-files
+You can access RDS for Db2 diagnostic logs and notify logs by using the Amazon RDS console, AWS CLI,
+or RDS API. For more information about viewing, downloading, and watching file-based
+database logs, see [Monitoring Amazon RDS log files](USER_LogAccess.md "USER_LogAccess.md").
 
-You can access Microsoft SQL Server error logs, agent logs, trace files, and dump files by using the Amazon RDS console,
-AWS CLI, or RDS API. For more information about viewing, downloading, and watching file-based database logs, see [Monitoring Amazon RDS log files](USER_LogAccess.md "USER_LogAccess.md").
+###### Topics
+
+- [Retention schedule](#USER_LogAccess.Concepts.Db2.Retention "#USER_LogAccess.Concepts.Db2.Retention")
+- [Publishing Db2 logs to
+  Amazon CloudWatch Logs](#USER_LogAccess.Db2.PublishtoCloudWatchLogs "#USER_LogAccess.Db2.PublishtoCloudWatchLogs")
 
 ## Retention schedule
 
 Log files are rotated each day and whenever your DB instance is restarted. The
-following is the retention schedule for Microsoft SQL Server logs on Amazon RDS.
+following is the retention schedule for RDS for Db2 logs on Amazon RDS.
 
-| Log type    | Retention schedule                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Error logs  | A maximum of 30 error logs are retained. Amazon RDS might delete error logs older than 7 days.                                                                                                                                                                                                                                                                                                                                                                                    |
-| Agent logs  | A maximum of 10 agent logs are retained. Amazon RDS might delete agent logs older than 7 days.                                                                                                                                                                                                                                                                                                                                                                                    |
-| Trace files | Trace files are retained according to the trace file retention period of your DB instance. The default trace file retention period is 7 days. To modify the trace file retention period for your DB instance, see [Setting the retention period for trace and dump files](Appendix.SQLServer.CommonDBATasks.md#Appendix.SQLServer.CommonDBATasks.TraceFiles.PurgeTraceFiles "Appendix.SQLServer.CommonDBATasks.md#Appendix.SQLServer.CommonDBATasks.TraceFiles.PurgeTraceFiles"). |
-| Dump files  | Dump files are retained according to the dump file retention period of your DB instance. The default dump file retention period is 7 days. To modify the dump file retention period for your DB instance, see [Setting the retention period for trace and dump files](Appendix.SQLServer.CommonDBATasks.md#Appendix.SQLServer.CommonDBATasks.TraceFiles.PurgeTraceFiles "Appendix.SQLServer.CommonDBATasks.md#Appendix.SQLServer.CommonDBATasks.TraceFiles.PurgeTraceFiles").     | ## Viewing the SQL Server error log by using the rds_read_error_log procedure You can use the Amazon RDS stored procedure `rds_read_error_log` to view error logs and agent logs. For more information, see [Viewing error and agent logs](Appendix.SQLServer.CommonDBATasks.md#Appendix.SQLServer.CommonDBATasks.Logs.SP "Appendix.SQLServer.CommonDBATasks.md#Appendix.SQLServer.CommonDBATasks.Logs.SP"). ## Publishing SQL Server logs to Amazon CloudWatch Logs With Amazon RDS for SQL Server, you can publish error and agent log events directly to Amazon CloudWatch Logs. Analyze the log data with CloudWatch Logs, then use CloudWatch to create alarms and view metrics. With CloudWatch Logs, you can do the following: <br>• Store logs in highly durable storage space with a retention period that you define. <br>• Search and filter log data. <br>• Share log data between accounts. <br>• Export logs to Amazon S3. <br>• Stream data to Amazon OpenSearch Service. <br>• Process log data in real time with Amazon Kinesis Data Streams. For more information, see [Working with Amazon CloudWatch Logs](../../../kinesisanalytics/latest/dev/cloudwatch-logs.md "../../../kinesisanalytics/latest/dev/cloudwatch-logs.md") in the _Amazon Managed Service for Apache Flink for SQL Applications Developer Guide_. Amazon RDS publishes each SQL Server database log as a separate database stream in the log group. For example, if you publish the agent logs and error logs, error data is stored in an error log stream in the `/aws/rds/instance/`my_instance.node1`/error` log group, and agent log data is stored in the `/aws/rds/instance/`my_instance.node1`/agent` log group. For Multi-AZ DB instances, Amazon RDS publishes the database log as two separate streams in the log group. For example, if you publish the error logs, the error data is stored in the error log streams `/aws/rds/instance/`my_instance.node1`/error` and `/aws/rds/instance/`my_instance.node2`/error` respectively. The log streams don't change during a failover and the error log stream of each node can contain error logs from primary or secondary instance. With Multi-AZ, a log stream is automatically created for `/aws/rds/instance/`my_instance`/rds-events` to store event data such as DB instance failovers. ###### Note Publishing SQL Server logs to CloudWatch Logs isn't enabled by default. Publishing trace and dump files isn't supported. Publishing SQL Server logs to CloudWatch Logs is supported in all regions, except for Asia Pacific (Hong Kong). ###### To publish SQL Server DB logs to CloudWatch Logs from the AWS Management Console 1. Open the Amazon RDS console at [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/"). 2. In the navigation pane, choose **Databases**, and then choose the DB instance that you want to modify. 3. Choose **Modify**. 4. In the **Log exports** section, choose the logs that you want to start publishing to CloudWatch Logs. You can choose **Agent log**, **Error log**, or both. 5. Choose **Continue**, and then choose **Modify DB Instance** on the summary page. To publish SQL Server logs, you can use the [`modify-db-instance`](../../../cli/latest/reference/rds/modify-db-instance.md "../../../cli/latest/reference/rds/modify-db-instance.md") command with the following parameters: <br>• `--db-instance-identifier` <br>• `--cloudwatch-logs-export-configuration` ###### Note A change to the `--cloudwatch-logs-export-configuration` option is always applied to the DB instance immediately. Therefore, the `--apply-immediately` and `--no-apply-immediately` options have no effect. You can also publish SQL Server logs using the following commands: <br>• [`create-db-instance`](../../../cli/latest/reference/rds/create-db-instance.md "../../../cli/latest/reference/rds/create-db-instance.md") <br>• [`restore-db-instance-from-db-snapshot`](../../../cli/latest/reference/rds/restore-db-instance-from-db-snapshot.md "../../../cli/latest/reference/rds/restore-db-instance-from-db-snapshot.md") <br>• [`restore-db-instance-to-point-in-time`](../../../cli/latest/reference/rds/restore-db-instance-to-point-in-time.md "../../../cli/latest/reference/rds/restore-db-instance-to-point-in-time.md") ###### Example The following example creates an SQL Server DB instance with CloudWatch Logs publishing enabled. The `--enable-cloudwatch-logs-exports` value is a JSON array of strings that can include `error`, `agent`, or both. For Linux, macOS, or Unix: `` aws rds create-db-instance \ --db-instance-identifier `mydbinstance` \ --enable-cloudwatch-logs-exports '["error","agent"]' \ --db-instance-class `db.m4.large` \ --engine `sqlserver-se` `` For Windows: ``aws rds create-db-instance ^ --db-instance-identifier `mydbinstance` ^ --enable-cloudwatch-logs-exports "[\"error\",\"agent\"]" ^ --db-instance-class db.m4.large ^ --engine sqlserver-se`` ###### Note When using the Windows command prompt, you must escape double quotes (") in JSON code by prefixing them with a backslash (\). ###### Example The following example modifies an existing SQL Server DB instance to publish log files to CloudWatch Logs. The `--cloudwatch-logs-export-configuration` value is a JSON object. The key for this object is `EnableLogTypes`, and its value is an array of strings that can include `error`, `agent`, or both. For Linux, macOS, or Unix: ``aws rds modify-db-instance \ --db-instance-identifier `mydbinstance` \ --cloudwatch-logs-export-configuration '{"EnableLogTypes":["error","agent"]}'`` For Windows: ``aws rds modify-db-instance ^ --db-instance-identifier `mydbinstance` ^ --cloudwatch-logs-export-configuration "{\"EnableLogTypes\":[\"error\",\"agent\"]}"`` ###### Note When using the Windows command prompt, you must escape double quotes (") in JSON code by prefixing them with a backslash (\). ###### Example The following example modifies an existing SQL Server DB instance to disable publishing agent log files to CloudWatch Logs. The `--cloudwatch-logs-export-configuration` value is a JSON object. The key for this object is `DisableLogTypes`, and its value is an array of strings that can include `error`, `agent`, or both. For Linux, macOS, or Unix: ``aws rds modify-db-instance \ --db-instance-identifier `mydbinstance` \ --cloudwatch-logs-export-configuration '{"DisableLogTypes":["agent"]}'`` For Windows: ``aws rds modify-db-instance ^ --db-instance-identifier `mydbinstance` ^ --cloudwatch-logs-export-configuration "{\"DisableLogTypes\":[\"agent\"]}"`` ###### Note When using the Windows command prompt, you must escape double quotes (") in JSON code by prefixing them with a backslash (\). |
+| Log type        | Retention schedule                                                                                                                              |
+| --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| Diagnostic logs | Db2 deletes logs outside of the retention settings in the<br>instance-level configuration. Amazon RDS sets the `diagsize`<br>parameter to 1000. |
+| Notify logs     | Db2 deletes logs outside of the retention settings in the<br>instance-level configuration. Amazon RDS sets the `diagsize`<br>parameter to 1000. |
+
+## Publishing Db2 logs to
+
+Amazon CloudWatch Logs
+
+With RDS for Db2, you can publish diagnostic and notify log events directly to Amazon CloudWatch Logs.
+Analyze the log data with CloudWatch Logs, then use CloudWatch to create alarms and view metrics.
+
+With CloudWatch Logs, you can do the following:
+
+- Store logs in highly durable storage space with a retention period that you
+  define.
+- Search and filter log data.
+- Share log data between accounts.
+- Export logs to Amazon S3.
+- Stream data to Amazon OpenSearch Service.
+- Process log data in real time with Amazon Kinesis Data Streams. For more information, see [Working with Amazon CloudWatch Logs](../../../kinesisanalytics/latest/dev/cloudwatch-logs.md "../../../kinesisanalytics/latest/dev/cloudwatch-logs.md") in the _Amazon Managed Service for Apache Flink for SQL
+  Applications Developer Guide_.
+
+Amazon RDS publishes each RDS for Db2 database log as a separate database stream in the log
+group. For example, if you publish the diagnostic logs and notify logs, diagnostic data
+is stored in a diagnostic log stream in the
+`/aws/rds/instance/`my_instance`/diagnostic`
+log group, and notify log data is stored in the
+`/aws/rds/instance/`my_instance`/notify` log
+group.
+
+###### Note
+
+Publishing RDS for Db2 logs to CloudWatch Logs isn't enabled by default. Publishing
+self-tuning memory manager (STMM) and optimizer statistics logs isn't supported.
+Publishing RDS for Db2 logs to CloudWatch Logs is supported in all Regions, except for
+Asia Pacific (Hong Kong).
+
+###### To publish RDS for Db2 logs to CloudWatch Logs from the AWS Management Console
+
+1. Open the Amazon RDS console at
+   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
+2. In the navigation pane, choose **Databases**, and
+   then choose the DB instance that you want to modify.
+3. Choose **Modify**.
+4. In the **Log exports** section, choose the logs that
+   you want to start publishing to CloudWatch Logs.
+
+You can choose **diag.log**,
+**notify.log**, or both. 5. Choose **Continue**, and then choose **Modify
+DB Instance** on the summary page.
+To publish RDS for Db2 logs, you can use the [`modify-db-instance`](../../../cli/latest/reference/rds/modify-db-instance.md "../../../cli/latest/reference/rds/modify-db-instance.md") command with the following
+parameters:
+
+- `--db-instance-identifier`
+- `--cloudwatch-logs-export-configuration`
+
+###### Note
+
+A change to the `--cloudwatch-logs-export-configuration` option
+is always applied to the DB instance immediately. Therefore, the
+`--apply-immediately` and `--no-apply-immediately`
+options have no effect.
+
+You can also publish RDS for Db2 logs using the following commands:
+
+- [`create-db-instance`](../../../cli/latest/reference/rds/create-db-instance.md "../../../cli/latest/reference/rds/create-db-instance.md")
+- [`restore-db-instance-from-db-snapshot`](../../../cli/latest/reference/rds/restore-db-instance-from-db-snapshot.md "../../../cli/latest/reference/rds/restore-db-instance-from-db-snapshot.md")
+- [`restore-db-instance-to-point-in-time`](../../../cli/latest/reference/rds/restore-db-instance-to-point-in-time.md "../../../cli/latest/reference/rds/restore-db-instance-to-point-in-time.md")
+
+###### Example
+
+The following example creates an RDS for Db2 DB instance with CloudWatch Logs
+publishing enabled. The `--enable-cloudwatch-logs-exports` value
+is a JSON array of strings that can include `diag.log`,
+`notify.log`, or both.
+
+For Linux, macOS, or Unix:
+
+```
+aws rds create-db-instance \
+    --db-instance-identifier `mydbinstance` \
+    --enable-cloudwatch-logs-exports '["diag.log","notify.log"]' \
+    --db-instance-class `db.m4.large` \
+    --engine `db2-se`
+```
+
+For Windows:
+
+```
+aws rds create-db-instance ^
+    --db-instance-identifier `mydbinstance` ^
+    --enable-cloudwatch-logs-exports "[\"diag.log\",\"notify.log\"]" ^
+    --db-instance-class `db.m4.large` ^
+    --engine `db2-se`
+```
+
+###### Note
+
+When using the Windows command prompt, you must escape double quotes
+(") in JSON code by prefixing them with a backslash (\).
+
+###### Example
+
+The following example modifies an existing RDS for Db2 DB instance to publish
+log files to CloudWatch Logs. The `--cloudwatch-logs-export-configuration`
+value is a JSON object. The key for this object is
+`EnableLogTypes`, and its value is an array of strings that
+can include `diag.log`, `notify.log`, or both.
+
+For Linux, macOS, or Unix:
+
+```
+aws rds modify-db-instance \
+    --db-instance-identifier `mydbinstance` \
+    --cloudwatch-logs-export-configuration '{"EnableLogTypes":["diag.log","notify.log"]}'
+```
+
+For Windows:
+
+```
+aws rds modify-db-instance ^
+    --db-instance-identifier `mydbinstance` ^
+    --cloudwatch-logs-export-configuration "{\"EnableLogTypes\":[\"diag.log\",\"notify.log\"]}"
+```
+
+###### Note
+
+When using the Windows command prompt, you must escape double quotes
+(") in JSON code by prefixing them with a backslash (\).
+
+###### Example
+
+The following example modifies an existing RDS for Db2 DB instance to disable
+publishing diagnostic log files to CloudWatch Logs. The
+`--cloudwatch-logs-export-configuration` value is a JSON
+object. The key for this object is `DisableLogTypes`, and its
+value is an array of strings that can include `diag.log`,
+`notify.log`, or both.
+
+For Linux, macOS, or Unix:
+
+```
+aws rds modify-db-instance \
+    --db-instance-identifier `mydbinstance` \
+    --cloudwatch-logs-export-configuration '{"DisableLogTypes":["diag.log"]}'
+```
+
+For Windows:
+
+```
+aws rds modify-db-instance ^
+    --db-instance-identifier `mydbinstance` ^
+    --cloudwatch-logs-export-configuration "{\"DisableLogTypes\":[\"diag.log\"]}"
+```
+
+###### Note
+
+When using the Windows command prompt, you must escape double quotes
+(") in JSON code by prefixing them with a backslash (\).

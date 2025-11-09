@@ -157,7 +157,7 @@ You can also collect all the information about your RDS for PostgreSQL DB
 instance's SSL usage by process, client, and application by using the
 following query:
 
-````
+```
 `SELECT datname as "Database name", usename as "User name", ssl, client_addr, application_name, backend_type
  FROM pg_stat_ssl
  JOIN pg_stat_activity
@@ -165,15 +165,99 @@ following query:
  ORDER BY ssl;`
  `Database name | User name | ssl | client_addr | application_name | backend_type
 ---------------+-----------+-----+----------------+------------------------+------------------------------
-| | f | | | autovacuum launcher
-| rdsadmin | f | | | logical replication launcher
-| | f | | | background writer
-| | f | | | checkpointer
-| | f | | | walwriter rdsadmin | rdsadmin | t | 127.0.0.1 | | client backend rdsadmin | rdsadmin | t | 127.0.0.1 | PostgreSQL JDBC Driver | client backend postgres | postgres | t | 204.246.162.36 | psql | client backend (8 rows)` ``` To identify the cipher used for your SSL connection, you can query as follows: ``` `postgres=>` `SELECT ssl_cipher();` `ssl_cipher -------------------- DHE-RSA-AES256-SHA (1 row)` ``` To learn more about the `sslmode` option, see [Database connection control functions](https://www.postgresql.org/docs/11/libpq-connect.html#LIBPQ-CONNECT-SSLMODE "https://www.postgresql.org/docs/11/libpq-connect.html#LIBPQ-CONNECT-SSLMODE") in the *PostgreSQL documentation*. ## SSL cipher suites in RDS for PostgreSQL The PostgreSQL configuration parameter [ssl\_ciphers](https://www.postgresql.org/docs/current/runtime-config-connection.html#RUNTIME-CONFIG-CONNECTION-SSL "https://www.postgresql.org/docs/current/runtime-config-connection.html#RUNTIME-CONFIG-CONNECTION-SSL") specifies the categories of cipher suites that are allowed for SSL connections to the database when using TLS 1.2 and lower. In RDS for PostgreSQL 16 and later, you can modify the `ssl_ciphers` parameter to use specific values from the allowlisted cipher suites. This is a dynamic parameter that doesn't require a database instance reboot. To view the allowlisted cipher suites, use either the Amazon RDS console or the following AWS CLI command: ``` aws rds describe-db-parameters --db-parameter-group-name `<your-parameter-group>` --region `<region>` --endpoint-url `<endpoint-url>` --output json | jq '.Parameters[] | select(.ParameterName == "ssl_ciphers")' ``` The following table lists both the default cipher suites and the allowed cipher suites for versions that support custom configurations.
-| PostgreSQL engine version | Default ssl\_cipher suite values | Allowlisted custom ssl\_cipher suite values | | --- | --- | --- |
-| 17 | `HIGH:!aNULL:!3DES` | `TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384` `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256` `TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256` `TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384` `TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256` | | 16 | `HIGH:!aNULL:!3DES` | `TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384` `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256` `TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256` `TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384` `TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256` |
-| 15 | `HIGH:!aNULL:!3DES` | Custom ssl\_ciphers isn't supported | | 14 | `HIGH:!aNULL:!3DES` | Custom ssl\_ciphers isn't supported |
-| 13 | `HIGH:!aNULL:!3DES` | Custom ssl\_ciphers isn't supported | | 12 | `HIGH:!aNULL:!3DES` | Custom ssl\_ciphers isn't supported |
-| 11.4 and higher minor versions | `HIGH:MEDIUM:+3DES:!aNULL:!RC4` | Custom ssl\_ciphers isn't supported | | 11.1, 11.2 | `HIGH:MEDIUM:+3DES:!aNULL` | Custom ssl\_ciphers isn't supported |
-| 10.9 and higher minor versions | `HIGH:MEDIUM:+3DES:!aNULL:!RC4` | Custom ssl\_ciphers isn't supported | | 10.7 and lower minor versions | `HIGH:MEDIUM:+3DES:!aNULL` | Custom ssl\_ciphers isn't supported | To configure all instance connections to use the `TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384` cipher suite, modify your parameter group as shown in the following example: ``` aws rds modify-db-parameter-group --db-parameter-group-name `<your-parameter-group>` --parameters "ParameterName='ssl_ciphers',ParameterValue='TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384',ApplyMethod=immediate" ``` This example uses an ECDSA cipher, which requires your instance to use a certificate authority with elliptic curve cryptography (ECC) to establish a connection. For information about certificate authorities provided by Amazon RDS, see [Certificate authorities](singWithRDS.md#UsingWithRDS.SSL.RegionCertificateAuthorities "singWithRDS.md#UsingWithRDS.SSL.RegionCertificateAuthorities"). You can verify the ciphers in use through the methods described in [Determining the SSL connection status](PostgreSQL.Concepts.General.md#PostgreSQL.Concepts.General.SSL.Status "PostgreSQL.Concepts.General.md#PostgreSQL.Concepts.General.SSL.Status"). Ciphers may have different names depending on the context: <br>• The allowlisted ciphers that you can configure in your parameter group are referred to with their IANA names. <br>• The `sslinfo` and `psql` logon banner refer to ciphers using their OpenSSL names. By default, the value of `ssl_max_protocol_version` in RDS for PostgreSQL 16 and later is TLS v1.3. You must set the value of this parameter to TLS v1.2 as TLS v1.3 doesn't use the cipher configurations specified in the `ssl_ciphers` parameter. When you set the value as TLS v1.2, connections use only the ciphers that you define in `ssl_ciphers`. ``` aws rds modify-db-parameter-group --db-parameter-group-name `<your-parameter-group>` --parameters "ParameterName='ssl_max_protocol_version',ParameterValue='TLSv1.2',ApplyMethod=immediate" ``` To ensure database connections use SSL, set the `rds.force_ssl parameter` to 1 in your parameter group. For more information about parameters and parameter groups, see [Parameter groups for Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").
-````
+ | | f | | | autovacuum launcher
+ | rdsadmin | f | | | logical replication launcher
+ | | f | | | background writer
+ | | f | | | checkpointer
+ | | f | | | walwriter
+ rdsadmin | rdsadmin | t | 127.0.0.1 | | client backend
+ rdsadmin | rdsadmin | t | 127.0.0.1 | PostgreSQL JDBC Driver | client backend
+ postgres | postgres | t | 204.246.162.36 | psql | client backend
+(8 rows)`
+```
+
+To identify the cipher used for your SSL connection, you can query as
+follows:
+
+```
+`postgres=>` `SELECT ssl_cipher();`
+`ssl_cipher
+--------------------
+DHE-RSA-AES256-SHA
+(1 row)`
+
+```
+
+To learn more about the `sslmode` option, see [Database connection control functions](https://www.postgresql.org/docs/11/libpq-connect.html#LIBPQ-CONNECT-SSLMODE "https://www.postgresql.org/docs/11/libpq-connect.html#LIBPQ-CONNECT-SSLMODE") in the _PostgreSQL
+documentation_.
+
+## SSL cipher suites in
+
+RDS for PostgreSQL
+
+The PostgreSQL configuration parameter [ssl_ciphers](https://www.postgresql.org/docs/current/runtime-config-connection.html#RUNTIME-CONFIG-CONNECTION-SSL "https://www.postgresql.org/docs/current/runtime-config-connection.html#RUNTIME-CONFIG-CONNECTION-SSL") specifies the categories of cipher suites that are
+allowed for SSL connections to the database when using TLS 1.2 and lower.
+
+In RDS for PostgreSQL 16 and later, you can modify the `ssl_ciphers`
+parameter to use specific values from the allowlisted cipher suites. This is a
+dynamic parameter that doesn't require a database instance reboot. To view the
+allowlisted cipher suites, use either the Amazon RDS console or the following AWS
+CLI command:
+
+```
+aws rds describe-db-parameters --db-parameter-group-name `<your-parameter-group>` --region `<region>` --endpoint-url `<endpoint-url>` --output json | jq '.Parameters[] | select(.ParameterName == "ssl_ciphers")'
+```
+
+The following table lists both the default cipher suites and the allowed
+cipher suites for versions that support custom configurations.
+
+| PostgreSQL engine version      | Default ssl_cipher suite values | Allowlisted custom ssl_cipher suite values                                                                                                                                                                              |
+| ------------------------------ | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 17                             | `HIGH:!aNULL:!3DES`             | `TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384`<br>`TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256`<br>`TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256`<br>`TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384`<br>`TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256` |
+| 16                             | `HIGH:!aNULL:!3DES`             | `TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384`<br>`TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256`<br>`TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256`<br>`TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384`<br>`TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256` |
+| 15                             | `HIGH:!aNULL:!3DES`             | Custom ssl_ciphers isn't supported                                                                                                                                                                                      |
+| 14                             | `HIGH:!aNULL:!3DES`             | Custom ssl_ciphers isn't supported                                                                                                                                                                                      |
+| 13                             | `HIGH:!aNULL:!3DES`             | Custom ssl_ciphers isn't supported                                                                                                                                                                                      |
+| 12                             | `HIGH:!aNULL:!3DES`             | Custom ssl_ciphers isn't supported                                                                                                                                                                                      |
+| 11.4 and higher minor versions | `HIGH:MEDIUM:+3DES:!aNULL:!RC4` | Custom ssl_ciphers isn't supported                                                                                                                                                                                      |
+| 11.1, 11.2                     | `HIGH:MEDIUM:+3DES:!aNULL`      | Custom ssl_ciphers isn't supported                                                                                                                                                                                      |
+| 10.9 and higher minor versions | `HIGH:MEDIUM:+3DES:!aNULL:!RC4` | Custom ssl_ciphers isn't supported                                                                                                                                                                                      |
+| 10.7 and lower minor versions  | `HIGH:MEDIUM:+3DES:!aNULL`      | Custom ssl_ciphers isn't supported                                                                                                                                                                                      |
+
+To configure all instance connections to use the
+`TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384` cipher suite, modify
+your parameter group as shown in the following example:
+
+```
+aws rds modify-db-parameter-group --db-parameter-group-name `<your-parameter-group>` --parameters "ParameterName='ssl_ciphers',ParameterValue='TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384',ApplyMethod=immediate"
+```
+
+This example uses an ECDSA cipher, which requires your instance to use a
+certificate authority with elliptic curve cryptography (ECC) to establish a
+connection. For information about certificate authorities provided by Amazon RDS, see
+[Certificate authorities](singWithRDS.md#UsingWithRDS.SSL.RegionCertificateAuthorities "singWithRDS.md#UsingWithRDS.SSL.RegionCertificateAuthorities").
+
+You can verify the ciphers in use through the methods described in [Determining the SSL connection status](PostgreSQL.Concepts.General.md#PostgreSQL.Concepts.General.SSL.Status "PostgreSQL.Concepts.General.md#PostgreSQL.Concepts.General.SSL.Status").
+
+Ciphers may have different names depending on the context:
+
+- The allowlisted ciphers that you can configure in your parameter group
+  are referred to with their IANA names.
+- The `sslinfo` and `psql` logon banner refer to
+  ciphers using their OpenSSL names.
+
+By default, the value of `ssl_max_protocol_version` in
+RDS for PostgreSQL 16 and later is TLS v1.3. You must set the value of this parameter
+to TLS v1.2 as TLS v1.3 doesn't use the cipher configurations specified in the
+`ssl_ciphers` parameter. When you set the value as TLS v1.2,
+connections use only the ciphers that you define in
+`ssl_ciphers`.
+
+```
+aws rds modify-db-parameter-group --db-parameter-group-name `<your-parameter-group>` --parameters "ParameterName='ssl_max_protocol_version',ParameterValue='TLSv1.2',ApplyMethod=immediate"
+```
+
+To ensure database connections use SSL, set the `rds.force_ssl
+ parameter` to 1 in your parameter group. For more information about
+parameters and parameter groups, see [Parameter
+groups for Amazon RDS](USER_WorkingWithParamGroups.md "USER_WorkingWithParamGroups.md").

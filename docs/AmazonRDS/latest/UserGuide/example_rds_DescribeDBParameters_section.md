@@ -251,7 +251,7 @@ There's more on GitHub. Find the complete example and learn how to set up and ru
 [AWS Code
 Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/rds#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2/example_code/rds#code-examples").
 
-````
+```
     // Retrieve parameters in the group.
     public static void describeDbParameters(RdsClient rdsClient, String dbGroupName, int flag) {
         try {
@@ -275,5 +275,193 @@ Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/j
                 // auto_increment_increment.
                 paraName = para.parameterName();
                 if ((paraName.compareTo("auto_increment_offset") == 0)
-|| (paraName.compareTo("auto_increment_increment ") == 0)) { System.out.println("*** The parameter name is  " + paraName); System.out.println("*** The parameter value is  " + para.parameterValue()); System.out.println("*** The parameter data type is " + para.dataType()); System.out.println("*** The parameter description is " + para.description()); System.out.println("*** The parameter allowed values  is " + para.allowedValues()); } } } catch (RdsException e) { System.out.println(e.getLocalizedMessage()); System.exit(1); } } ``` <br>• For API details, see [DescribeDBParameters](../../../goto/SdkForJavaV2/rds-2014-10-31/DescribeDBParameters.md "../../../goto/SdkForJavaV2/rds-2014-10-31/DescribeDBParameters.md") in *AWS SDK for Java 2.x API Reference*. Python **SDK for Python (Boto3)** ###### Note There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/rds#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/rds#code-examples"). ``` class InstanceWrapper: """Encapsulates Amazon RDS DB instance actions.""" def __init__(self, rds_client): """ :param rds_client: A Boto3 Amazon RDS client. """ self.rds_client = rds_client @classmethod def from_client(cls): """ Instantiates this class from a Boto3 client. """ rds_client = boto3.client("rds") return cls(rds_client) def get_parameters(self, parameter_group_name, name_prefix="", source=None): """ Gets the parameters that are contained in a DB parameter group. :param parameter_group_name: The name of the parameter group to query. :param name_prefix: When specified, the retrieved list of parameters is filtered to contain only parameters that start with this prefix. :param source: When specified, only parameters from this source are retrieved. For example, a source of 'user' retrieves only parameters that were set by a user. :return: The list of requested parameters. """ try: kwargs = {"DBParameterGroupName": parameter_group_name} if source is not None: kwargs["Source"] = source parameters = [] paginator = self.rds_client.get_paginator("describe_db_parameters") for page in paginator.paginate(**kwargs): parameters += [ p for p in page["Parameters"] if p["ParameterName"].startswith(name_prefix) ] except ClientError as err: logger.error( "Couldn't get parameters for %s. Here's why: %s: %s", parameter_group_name, err.response["Error"]["Code"], err.response["Error"]["Message"], ) raise else: return parameters ``` <br>• For API details, see [DescribeDBParameters](../../../goto/boto3/rds-2014-10-31/DescribeDBParameters.md "../../../goto/boto3/rds-2014-10-31/DescribeDBParameters.md") in *AWS SDK for Python (Boto3) API Reference*. Ruby **SDK for Ruby** ###### Note There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/rds#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/rds#code-examples"). ``` require 'aws-sdk-rds' # v2: require 'aws-sdk' # List all Amazon Relational Database Service (Amazon RDS) parameter groups. # # @param rds_resource [Aws::RDS::Resource] An SDK for Ruby Amazon RDS resource. # @return [Array, nil] List of all parameter groups, or nil if error. def list_parameter_groups(rds_resource) parameter_groups = [] rds_resource.db_parameter_groups.each do |p| parameter_groups.append({ "name": p.db_parameter_group_name, "description": p.description }) end parameter_groups rescue Aws::Errors::ServiceError => e puts "Couldn't list parameter groups:\n #{e.message}" end ``` <br>• For API details, see [DescribeDBParameters](../../../goto/SdkForRubyV3/rds-2014-10-31/DescribeDBParameters.md "../../../goto/SdkForRubyV3/rds-2014-10-31/DescribeDBParameters.md") in *AWS SDK for Ruby API Reference*. Swift **SDK for Swift** ###### Note There's more on GitHub. Find the complete example and learn how to set up and run in the [AWS Code Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/rds#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/rds#code-examples"). ``` import AWSRDS /// Returns the detailed parameter list for the specified database /// parameter group. /// /// - Parameters: ///   - groupName: The name of the parameter group to return parameters for. ///   - source: The types of parameters to return (`user`, `system`, or ///     `engine-default`). /// /// - Returns: An array of `RdSClientTypes.Parameter` objects, each ///   describing one of the group's parameters. func describeDBParameters(groupName: String, source: String? = nil) async -> [RDSClientTypes.Parameter] { var parameterList: [RDSClientTypes.Parameter] = [] do { let pages = rdsClient.describeDBParametersPaginated( input: DescribeDBParametersInput( dbParameterGroupName: groupName, source: source ) ) for try await page in pages { guard let parameters = page.parameters else { return [] } parameterList += parameters } } catch { print("*** Error getting database parameters: \(error.localizedDescription)") return [] } return parameterList } ``` <br>• For API details, see [DescribeDBParameters](https://sdk.amazonaws.com/swift/api/awsrds/latest/documentation/awsrds/rdsclient/describedbparameters(input:) "https://sdk.amazonaws.com/swift/api/awsrds/latest/documentation/awsrds/rdsclient/describedbparameters(input:)") in *AWS SDK for Swift API reference*. For a complete list of AWS SDK developer guides and code examples, see [Using this service with an AWS SDK](CHAP_Tutorials.md#sdk-general-information-section "CHAP_Tutorials.md#sdk-general-information-section"). This topic also includes information about getting started and details about previous SDK versions.
-````
+                        || (paraName.compareTo("auto_increment_increment ") == 0)) {
+                    System.out.println("*** The parameter name is  " + paraName);
+                    System.out.println("*** The parameter value is  " + para.parameterValue());
+                    System.out.println("*** The parameter data type is " + para.dataType());
+                    System.out.println("*** The parameter description is " + para.description());
+                    System.out.println("*** The parameter allowed values  is " + para.allowedValues());
+                }
+            }
+
+        } catch (RdsException e) {
+            System.out.println(e.getLocalizedMessage());
+            System.exit(1);
+        }
+    }
+
+
+```
+
+- For API details, see
+  [DescribeDBParameters](../../../goto/SdkForJavaV2/rds-2014-10-31/DescribeDBParameters.md "../../../goto/SdkForJavaV2/rds-2014-10-31/DescribeDBParameters.md")
+  in _AWS SDK for Java 2.x API Reference_.
+
+Python
+
+**SDK for Python (Boto3)**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/rds#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python/example_code/rds#code-examples").
+
+```
+class InstanceWrapper:
+    """Encapsulates Amazon RDS DB instance actions."""
+
+    def __init__(self, rds_client):
+        """
+        :param rds_client: A Boto3 Amazon RDS client.
+        """
+        self.rds_client = rds_client
+
+    @classmethod
+    def from_client(cls):
+        """
+        Instantiates this class from a Boto3 client.
+        """
+        rds_client = boto3.client("rds")
+        return cls(rds_client)
+
+
+    def get_parameters(self, parameter_group_name, name_prefix="", source=None):
+        """
+        Gets the parameters that are contained in a DB parameter group.
+
+        :param parameter_group_name: The name of the parameter group to query.
+        :param name_prefix: When specified, the retrieved list of parameters is filtered
+                            to contain only parameters that start with this prefix.
+        :param source: When specified, only parameters from this source are retrieved.
+                       For example, a source of 'user' retrieves only parameters that
+                       were set by a user.
+        :return: The list of requested parameters.
+        """
+        try:
+            kwargs = {"DBParameterGroupName": parameter_group_name}
+            if source is not None:
+                kwargs["Source"] = source
+            parameters = []
+            paginator = self.rds_client.get_paginator("describe_db_parameters")
+            for page in paginator.paginate(**kwargs):
+                parameters += [
+                    p
+                    for p in page["Parameters"]
+                    if p["ParameterName"].startswith(name_prefix)
+                ]
+        except ClientError as err:
+            logger.error(
+                "Couldn't get parameters for %s. Here's why: %s: %s",
+                parameter_group_name,
+                err.response["Error"]["Code"],
+                err.response["Error"]["Message"],
+            )
+            raise
+        else:
+            return parameters
+
+
+
+```
+
+- For API details, see
+  [DescribeDBParameters](../../../goto/boto3/rds-2014-10-31/DescribeDBParameters.md "../../../goto/boto3/rds-2014-10-31/DescribeDBParameters.md")
+  in _AWS SDK for Python (Boto3) API Reference_.
+
+Ruby
+
+**SDK for Ruby**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/rds#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby/example_code/rds#code-examples").
+
+```
+require 'aws-sdk-rds' # v2: require 'aws-sdk'
+
+# List all Amazon Relational Database Service (Amazon RDS) parameter groups.
+#
+# @param rds_resource [Aws::RDS::Resource] An SDK for Ruby Amazon RDS resource.
+# @return [Array, nil] List of all parameter groups, or nil if error.
+def list_parameter_groups(rds_resource)
+  parameter_groups = []
+  rds_resource.db_parameter_groups.each do |p|
+    parameter_groups.append({
+                              "name": p.db_parameter_group_name,
+                              "description": p.description
+                            })
+  end
+  parameter_groups
+rescue Aws::Errors::ServiceError => e
+  puts "Couldn't list parameter groups:\n #{e.message}"
+end
+
+
+```
+
+- For API details, see
+  [DescribeDBParameters](../../../goto/SdkForRubyV3/rds-2014-10-31/DescribeDBParameters.md "../../../goto/SdkForRubyV3/rds-2014-10-31/DescribeDBParameters.md")
+  in _AWS SDK for Ruby API Reference_.
+
+Swift
+
+**SDK for Swift**
+
+###### Note
+
+There's more on GitHub. Find the complete example and learn how to set up and run in the
+[AWS Code
+Examples Repository](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/rds#code-examples "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/swift/example_code/rds#code-examples").
+
+```
+import AWSRDS
+
+    /// Returns the detailed parameter list for the specified database
+    /// parameter group.
+    ///
+    /// - Parameters:
+    ///   - groupName: The name of the parameter group to return parameters for.
+    ///   - source: The types of parameters to return (`user`, `system`, or
+    ///     `engine-default`).
+    ///
+    /// - Returns: An array of `RdSClientTypes.Parameter` objects, each
+    ///   describing one of the group's parameters.
+    func describeDBParameters(groupName: String, source: String? = nil) async -> [RDSClientTypes.Parameter] {
+        var parameterList: [RDSClientTypes.Parameter] = []
+
+        do {
+            let pages = rdsClient.describeDBParametersPaginated(
+                input: DescribeDBParametersInput(
+                    dbParameterGroupName: groupName,
+                    source: source
+                )
+            )
+
+            for try await page in pages {
+                guard let parameters = page.parameters else {
+                    return []
+                }
+
+                parameterList += parameters
+            }
+        } catch {
+            print("*** Error getting database parameters: \(error.localizedDescription)")
+            return []
+        }
+
+        return parameterList
+    }
+
+
+```
+
+- For API details, see
+  [DescribeDBParameters](<https://sdk.amazonaws.com/swift/api/awsrds/latest/documentation/awsrds/rdsclient/describedbparameters(input:)> "https://sdk.amazonaws.com/swift/api/awsrds/latest/documentation/awsrds/rdsclient/describedbparameters(input:)")
+  in _AWS SDK for Swift API reference_.
+
+For a complete list of AWS SDK developer guides and code examples, see
+[Using this service with an AWS SDK](CHAP_Tutorials.md#sdk-general-information-section "CHAP_Tutorials.md#sdk-general-information-section").
+This topic also includes information about getting started and details about previous SDK versions.

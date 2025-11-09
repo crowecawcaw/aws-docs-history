@@ -98,11 +98,17 @@ Reserve the following minimum numbers of free IP addresses in your subnets for y
 proxy, based on DB instance class sizes.
 
 | DB instance class       | Minimum free IP addresses |
-| ----------------------- | ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| ----------------------- | ------------------------- |
 | db.\*.xlarge or smaller | 10                        |
 | db.\*.2xlarge           | 15                        |
 | db.\*.4xlarge           | 25                        |
 | db.\*.8xlarge           | 45                        |
 | db.\*.12xlarge          | 60                        |
 | db.\*.16xlarge          | 75                        |
-| db.\*.24xlarge          | 110                       | These recommended numbers of IP addresses are estimates for a proxy with only the default endpoint. A proxy with additional endpoints or read replicas might need more free IP addresses. For each additional endpoint, we recommend that you reserve three more IP addresses. For each read replica, we recommend that you reserve additional IP addresses as specified in the table based on that read replica's size. |
+| db.\*.24xlarge          | 110                       |
+
+These recommended numbers of IP addresses are estimates for a proxy with only the
+default endpoint. A proxy with additional endpoints or read replicas might need more free
+IP addresses. For each additional endpoint, we recommend that you reserve three more IP
+addresses. For each read replica, we recommend that you reserve additional IP addresses as
+specified in the table based on that read replica's size.

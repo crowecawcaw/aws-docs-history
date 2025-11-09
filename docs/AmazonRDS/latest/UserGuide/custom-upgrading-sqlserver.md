@@ -79,14 +79,71 @@ aws rds describe-db-engine-versions ^
 
 The output shows the available target engine versions:
 
-````
+```
 --------------------------
-|DescribeDBEngineVersions| +------------------------+
-|      EngineVersion     | +------------------------+
+|DescribeDBEngineVersions|
++------------------------+
+|      EngineVersion     |
++------------------------+
 |  15.00.4410.1.v1       |
 |  15.00.4415.2.v1       |
 |  15.00.4430.1.v1       |
 |  16.00.4165.4.v1       |
 |  16.00.4175.1.v1       |
-|  16.00.4185.3.v1       | +------------------------+ ``` After identifying your target version, use the AWS Management Console and follow the instructions in [Modifying an RDS Custom for SQL Server DB instance](custom-managing.md "custom-managing.md"). Alternatively, use [`modify-db-instance`](../../../cli/latest/reference/rds/modify-db-instance.md "../../../cli/latest/reference/rds/modify-db-instance.md") CLI command or [ModifyDBInstance](../APIReference/API_ModifyDBInstance.md "../APIReference/API_ModifyDBInstance.md") RDS API command. For Linux, macOS, or Unix: ``` aws rds modify-db-instance \ --db-instance-identifier `DB_INSTANCE_IDENTIFIER` \ --engine-version `ENGINE_VERSION` \ --allow-major-version-upgrade \ --region `Region` \ --no-apply-immediately ``` For Windows: ``` aws rds modify-db-instance ^ --db-instance-identifier `DB_INSTANCE_IDENTIFIER` ^ --engine-version `ENGINE_VERSION` ^ --allow-major-version-upgrade ^ --region `Region` ^ --no-apply-immediately ``` ###### Note You must include the `--allow-major-version-upgrade` parameter to perform major version upgrades. ## Database compatibility level You can use Microsoft SQL Server database compatibility levels to adjust some database behaviors to mimic previous versions of SQL Server. For more information, see [Compatibility level](https://msdn.microsoft.com/en-us/library/bb510680.aspx "https://msdn.microsoft.com/en-us/library/bb510680.aspx") in the Microsoft documentation. When you upgrade your DB instance, all existing databases remain at their original compatibility level. For example, if you upgrade from SQL Server 2019 to SQL Server 2022, all existing databases have a compatibility level of 150. Any new database created after the upgrade have compatibility level 160. You can change the compatibility level of a database by using the ALTER DATABASE command. For example, to change a database named `customeracct` to be compatible with SQL Server 2022, issue the following command: ``` ALTER DATABASE customeracct SET COMPATIBILITY_LEVEL = 160 ```
-````
+|  16.00.4185.3.v1       |
++------------------------+
+```
+
+After identifying your target version, use the AWS Management Console and follow the instructions in
+[Modifying an RDS Custom for SQL Server DB instance](custom-managing.md "custom-managing.md"). Alternatively, use
+[`modify-db-instance`](../../../cli/latest/reference/rds/modify-db-instance.md "../../../cli/latest/reference/rds/modify-db-instance.md") CLI command or
+[ModifyDBInstance](../APIReference/API_ModifyDBInstance.md "../APIReference/API_ModifyDBInstance.md") RDS API command.
+
+For Linux, macOS, or Unix:
+
+```
+aws rds modify-db-instance \
+    --db-instance-identifier `DB_INSTANCE_IDENTIFIER` \
+    --engine-version `ENGINE_VERSION` \
+    --allow-major-version-upgrade \
+    --region `Region` \
+    --no-apply-immediately
+```
+
+For Windows:
+
+```
+aws rds modify-db-instance ^
+    --db-instance-identifier `DB_INSTANCE_IDENTIFIER` ^
+    --engine-version `ENGINE_VERSION` ^
+    --allow-major-version-upgrade ^
+    --region `Region` ^
+    --no-apply-immediately
+```
+
+###### Note
+
+You must include the `--allow-major-version-upgrade` parameter to perform major version upgrades.
+
+## Database compatibility level
+
+You can use Microsoft SQL Server database compatibility levels
+to adjust some database behaviors to mimic previous versions of SQL Server.
+For more information, see [Compatibility level](https://msdn.microsoft.com/en-us/library/bb510680.aspx "https://msdn.microsoft.com/en-us/library/bb510680.aspx")
+in the Microsoft documentation.
+
+When you upgrade your DB instance,
+all existing databases remain at their original compatibility level.
+For example, if you upgrade from SQL Server 2019 to SQL Server 2022,
+all existing databases have a compatibility level of 150.
+Any new database created after the upgrade have compatibility level 160.
+
+You can change the compatibility level of a database
+by using the ALTER DATABASE command.
+For example, to change a database named `customeracct`
+to be compatible with SQL Server 2022,
+issue the following command:
+
+```
+ALTER DATABASE customeracct SET COMPATIBILITY_LEVEL = 160
+```

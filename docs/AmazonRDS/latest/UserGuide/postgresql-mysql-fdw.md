@@ -170,6 +170,9 @@ command. The syntax varies, depending on the MySQL version, as shown in the foll
 information, see [ALTER USER](https://dev.mysql.com/doc/refman/8.0/en/alter-user.html "https://dev.mysql.com/doc/refman/8.0/en/alter-user.html") in
 _MySQL Reference Manual_.
 
-| MySQL 5.7, MySQL 8.0                   | MySQL 5.6                                         |
-| -------------------------------------- | ------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `ALTER USER '`user`'@'%' REQUIRE SSL;` | `GRANT USAGE ON *.* to '`user`'@'%' REQUIRE SSL;` | For more information about the `mysql_fdw` extension, see the [mysql_fdw](https://github.com/EnterpriseDB/mysql_fdw "https://github.com/EnterpriseDB/mysql_fdw") documentation. |
+| MySQL 5.7, MySQL 8.0                   | MySQL 5.6                                             |
+| -------------------------------------- | ----------------------------------------------------- |
+| `ALTER USER '`user`'@'%' REQUIRE SSL;` | `GRANT USAGE ON *.<br>• to '`user`'@'%' REQUIRE SSL;` |
+
+For more information about the `mysql_fdw` extension, see the
+[mysql_fdw](https://github.com/EnterpriseDB/mysql_fdw "https://github.com/EnterpriseDB/mysql_fdw") documentation.

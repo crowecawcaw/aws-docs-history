@@ -1,48 +1,15 @@
-# Deleting a CEV
+# Working with custom engine versions for Amazon RDS Custom for Oracle
 
-You can delete a CEV using the AWS Management Console or the AWS CLI. Typically, deletion takes a few minutes.
+A _custom engine version (CEV)_ for Amazon RDS Custom for Oracle is a binary volume
+snapshot of a database engine and specific Amazon Machine Image (AMI). By default, RDS Custom for Oracle uses the
+latest available AMI managed by RDS Custom, but you can specify an AMI that was used in a previous CEV. You store your database
+installation files in Amazon S3. RDS Custom uses the installation files and the AMI to create your
+CEV for you.
 
-To delete a CEV, it can't be in use by any of the following:
+###### Topics
 
-- An RDS Custom DB instance
-- A snapshot of an RDS Custom DB instance
-- An automated backup of your RDS Custom DB instance
-
-###### To delete a CEV
-
-1. Sign in to the AWS Management Console and open the Amazon RDS console at
-   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
-2. In the navigation pane, choose **Custom engine versions**.
-3. Choose a CEV whose description or status you want to delete.
-4. For **Actions**, choose **Delete**.
-
-The **Delete `cev_name`?** dialog box appears. 5. Enter `delete me`, and then choose **Delete**.
-
-In the **Custom engine versions** page, the banner shows that your CEV is being deleted.
-To delete a CEV by using the AWS CLI, run the [delete-custom-db-engine-version](../../../cli/latest/reference/rds/delete-custom-db-engine-version.md "../../../cli/latest/reference/rds/delete-custom-db-engine-version.md") command.
-
-The following options are required:
-
-- `--engine `engine-type``, where
-`engine-type`is`custom-oracle-ee`,
-`custom-oracle-se2`, `custom-oracle-ee-cdb`, or
-`custom-oracle-se2-cdb`
-- `--engine-version `cev``, where `cev`is the name of the custom
- engine version to be deleted
-The following example deletes a CEV named`19.my_cev1`.
-
-For Linux, macOS, or Unix:
-
-```
-aws rds delete-custom-db-engine-version \
-    --engine custom-oracle-ee \
-    --engine-version `19.my_cev1`
-```
-
-For Windows:
-
-```
-aws rds delete-custom-db-engine-version ^
-    --engine custom-oracle-ee ^
-    --engine-version `19.my_cev1`
-```
+- [Preparing to create a CEV](custom-cev.md "custom-cev.md")
+- [Creating a CEV](custom-cev.md "custom-cev.md")
+- [Modifying CEV status](custom-cev.md "custom-cev.md")
+- [Viewing CEV details for Amazon RDS Custom for Oracle](custom-cev.md "custom-cev.md")
+- [Deleting a CEV](custom-cev.md "custom-cev.md")
