@@ -461,6 +461,92 @@ type**, specify a file format for the report:
      capture scoring details and reference URLs for each finding. The
      following is a sample of the CSV headers in a findings report:
 
-|                |          |               |              |       |             |             |            |           |              |             |                      |        |          |               |                   |                           |                  |                     |           |               |            |             |                 |                        |        |                  |        |                 |                 |                           |                 |                  |                 |                  |                    |                     |                    |                     |               |     |                      |                       |               |              |            |                   |                   |               |                     |                        |                |
-| -------------- | -------- | ------------- | ------------ | ----- | ----------- | ----------- | ---------- | --------- | ------------ | ----------- | -------------------- | ------ | -------- | ------------- | ----------------- | ------------------------- | ---------------- | ------------------- | --------- | ------------- | ---------- | ----------- | --------------- | ---------------------- | ------ | ---------------- | ------ | --------------- | --------------- | ------------------------- | --------------- | ---------------- | --------------- | ---------------- | ------------------ | ------------------- | ------------------ | ------------------- | ------------- | --- | -------------------- | --------------------- | ------------- | ------------ | ---------- | ----------------- | ----------------- | ------------- | ------------------- | ---------------------- | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| AWS Account Id | Severity | Fix Available | Finding Type | Title | Description | Finding ARN | First Seen | Last Seen | Last Updated | Resource ID | Container Image Tags | Region | Platform | Resource Tags | Affected Packages | Package Installed Version | Fixed in Version | Package Remediation | File Path | Network Paths | Age (Days) | Remediation | Inspector Score | Inspector Score Vector | Status | Vulnerability Id | Vendor | Vendor Severity | Vendor Advisory | Vendor Advisory Published | NVD CVSS3 Score | NVD CVSS3 Vector | NVD CVSS2 Score | NVD CVSS2 Vector | Vendor CVSS3 Score | Vendor CVSS3 Vector | Vendor CVSS2 Score | Vendor CVSS2 Vector | Resource Type | Ami | Resource Public Ipv4 | Resource Private Ipv4 | Resource Ipv6 | Resource Vpc | Port Range | Exploit Available | Last Exploited At | Lambda Layers | Lambda Package Type | Lambda Last Updated At | Reference Urls | 6. Under **Export location**, for **S3 URI**, specify the S3 bucket where you want to store the report: <br>• To store the report in a bucket that your account owns, choose **Browse S3**. Amazon Inspector displays a table of the S3 buckets for your account. Select the row for the bucket that you want, and then choose **Choose**. ###### Tip To also specify an Amazon S3 path prefix for the report, append a slash (/) and the prefix to the value in the **S3 URI** box. Amazon Inspector then includes the prefix when it adds the report to the bucket, and Amazon S3 generates the path specified by the prefix. For example, if you want to use your AWS account ID as a prefix and your account ID is _111122223333_, append `/111122223333` to the value in the **S3 URI** box. A _prefix_ is similar to a directory path within an S3 bucket. It allows you to group similar objects together in a bucket, much like you might store similar files together in a folder on a file system. For more information, see [Organizing objects in the Amazon S3 console using folders](../../../AmazonS3/latest/userguide/using-folders.md "../../../AmazonS3/latest/userguide/using-folders.md") in the _Amazon Simple Storage Service User Guide_. <br>• To store the report in a bucket that another account owns, enter the URI for the bucket—for example, `s3://DOC-EXAMPLE_BUCKET`, where _DOC-EXAMPLE_BUCKET_ is the name of the bucket. The bucket owner can find this information for you in the bucket's properties. 7. For **KMS key**, specify the AWS KMS key that you want to use to encrypt the report: <br>• To use a key from your own account, choose the key from the list. The list displays customer managed, symmetric encryption KMS keys for your account. <br>• To use a key that another account owns, enter the Amazon Resource Name (ARN) of the key. The key owner can find this information for you in the key's properties. For more information, see [Finding the key ID and key ARN](../../../kms/latest/developerguide/find-cmk-id-arn.md "../../../kms/latest/developerguide/find-cmk-id-arn.md") in the _AWS Key Management Service Developer Guide_. 8. Choose **Export**. Amazon Inspector generates the findings report, encrypts it with the KMS key that you specified, and adds it to the S3 bucket that you specified. Depending on the number of findings that you chose to include in the report, this process can take several minutes or hours. When the export is complete, Amazon Inspector displays a message indicating that your findings report was exported successfully. Optionally choose **View report** in the message to navigate to the report in Amazon S3. Note that you can export only one report a time. If an export is currently in progress, wait until that export is complete before you try to export another report. ## Troubleshoot export errors If an error occurs when you try to export a findings report, Amazon Inspector displays a message describing the error. You can use the information in this topic as a guide to identify possible causes and solutions for the error. For example, verify that the S3 bucket is in the current AWS Region and the bucket's policy allows Amazon Inspector to add objects to the bucket. Also verify that the AWS KMS key is enabled in the current Region, and ensure that the key policy allows Amazon Inspector to use the key. After you address the error, try to export the report again. ### Cannot have multiple reports error If you are attempting to create a report but Amazon Inspector is already generating a report, you will receive an error stating **Reason: Cannot have multiple reports in-progress**. This error occurs because Amazon Inspector can only generate one report for an account at a time. To resolve the error you can wait for the other report to finish or cancel it before requesting a new report. You can check the status of a report by using the [GetFindingsReportStatus](../../v2/APIReference/API_GetFindingsReportStatus.md "../../v2/APIReference/API_GetFindingsReportStatus.md") operation, this operation returns the report ID of any report that is currently being generated. If you need to, you can use the report ID given by the `GetFindingsReportStatus` operation to cancel a export that is currently in progress by using the [CancelFindingsReport](../../v2/APIReference/API_CancelFindingsReport.md "../../v2/APIReference/API_CancelFindingsReport.md") operation. |
+
+
+
+    |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+    | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+    | AWS Account Id | Severity | Fix Available | Finding Type | Title | Description | Finding ARN | First Seen | Last Seen | Last Updated | Resource ID | Container Image Tags | Region | Platform | Resource Tags | Affected Packages | Package Installed Version | Fixed in Version | Package Remediation | File Path | Network Paths | Age (Days) | Remediation | Inspector Score | Inspector Score Vector | Status | Vulnerability Id | Vendor | Vendor Severity | Vendor Advisory | Vendor Advisory Published | NVD CVSS3 Score | NVD CVSS3 Vector | NVD CVSS2 Score | NVD CVSS2 Vector | Vendor CVSS3 Score | Vendor CVSS3 Vector | Vendor CVSS2 Score | Vendor CVSS2 Vector | Resource Type | Ami | Resource Public Ipv4 | Resource Private Ipv4 | Resource Ipv6 | Resource Vpc | Port Range | Exploit Available | Last Exploited At | Lambda Layers | Lambda Package Type | Lambda Last Updated At | Reference Urls |
+
+6. Under **Export location**, for **S3 URI**,
+   specify the S3 bucket where you want to store the report:
+   - To store the report in a bucket that your account owns, choose
+     **Browse S3**. Amazon Inspector displays a table of the S3
+     buckets for your account. Select the row for the bucket that you want,
+     and then choose **Choose**.
+
+   ###### Tip
+
+   To also specify an Amazon S3 path prefix for the report, append a slash
+   (/) and the prefix to the value in the **S3 URI**
+   box. Amazon Inspector then includes the prefix when it adds the report to the
+   bucket, and Amazon S3 generates the path specified by the prefix.
+
+   For example, if you want to use your AWS account ID as a prefix
+   and your account ID is _111122223333_, append
+   `/111122223333` to the value in
+   the **S3 URI** box.
+
+   A _prefix_ is similar to a
+   directory path within an S3 bucket. It allows you to group similar
+   objects together in a bucket, much like you might store similar
+   files together in a folder on a file system. For more information,
+   see [Organizing
+   objects in the Amazon S3 console using folders](../../../AmazonS3/latest/userguide/using-folders.md "../../../AmazonS3/latest/userguide/using-folders.md") in the
+   _Amazon Simple Storage Service User Guide_.
+   - To store the report in a bucket that another account owns, enter the
+     URI for the bucket—for example,
+     `s3://DOC-EXAMPLE_BUCKET`, where _DOC-EXAMPLE_BUCKET_ is the name of the
+     bucket. The bucket owner can find this information for you in the
+     bucket's properties.
+
+7. For **KMS key**, specify the AWS KMS key that you want
+   to use to encrypt the report:
+   - To use a key from your own account, choose the key from the list. The
+     list displays customer managed, symmetric encryption KMS keys for your
+     account.
+   - To use a key that another account owns, enter the Amazon Resource Name
+     (ARN) of the key. The key owner can find this information for you in the
+     key's properties. For more information, see [Finding the key
+     ID and key ARN](../../../kms/latest/developerguide/find-cmk-id-arn.md "../../../kms/latest/developerguide/find-cmk-id-arn.md") in the _AWS Key Management Service Developer Guide_.
+
+8. Choose **Export**.
+
+Amazon Inspector generates the findings report, encrypts it with the KMS key that you
+specified, and adds it to the S3 bucket that you specified. Depending on the number of
+findings that you chose to include in the report, this process can take several minutes
+or hours. When the export is complete, Amazon Inspector displays a message indicating that your
+findings report was exported successfully. Optionally choose **View
+report** in the message to navigate to the report in Amazon S3.
+
+Note that you can export only one report a time. If an export is currently in
+progress, wait until that export is complete before you try to export another
+report.
+
+## Troubleshoot export errors
+
+If an error occurs when you try to export a findings report, Amazon Inspector displays a message
+describing the error. You can use the information in this topic as a guide to identify
+possible causes and solutions for the error.
+
+For example, verify that the S3 bucket is in the current AWS Region and the bucket's
+policy allows Amazon Inspector to add objects to the bucket. Also verify that the AWS KMS key is
+enabled in the current Region, and ensure that the key policy allows Amazon Inspector to use the
+key.
+
+After you address the error, try to export the report again.
+
+### Cannot have multiple reports error
+
+If you are attempting to create a report but Amazon Inspector is already generating a report,
+you will receive an error stating **Reason: Cannot have multiple reports
+in-progress**. This error occurs because Amazon Inspector can only generate one
+report for an account at a time.
+
+To resolve the error you can wait for the other report to finish or cancel it before requesting
+a new report.
+
+You can check the status of a report by using the [GetFindingsReportStatus](../../v2/APIReference/API_GetFindingsReportStatus.md "../../v2/APIReference/API_GetFindingsReportStatus.md") operation, this operation returns the report ID of any report that is currently being generated.
+
+If you need to, you can use the report ID given by the `GetFindingsReportStatus`
+operation to cancel a export that is currently in progress by using the [CancelFindingsReport](../../v2/APIReference/API_CancelFindingsReport.md "../../v2/APIReference/API_CancelFindingsReport.md") operation.

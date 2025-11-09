@@ -337,8 +337,171 @@ Adjusting this setting helps control disk usage, memory consumption, and overall
 
 Sbomgen displays a spinning progress indicator that can result in excessive slash characters in CI/CD environments.
 
-````
+```
 INFO[2024-02-01 14:58:46]coreV1.go:53: analyzing artifact
-| \ /
-| \ / INFO[2024-02-01 14:58:46]coreV1.go:62: executing post-processors ``` You can disable the progress indicator using the `--disable-progress-bar` arguement: ``` ./inspector-sbomgen container --image alpine:latest \ --outfile /tmp/sbom.json \ --disable-progress-bar ``` ## Authenticating to private registries with Sbomgen By providing your private registry authentication credentials, you can generate SBOMs from containers that are hosted in private registries. You can provide these credentials through the following methods: ### Authenticate using cached credentials (recommended) For this method, you authenticate to your container registry. For example, if using Docker, you can authenticate to your container registry using the Docker loging command: `docker login`. 1. Authenticate to your container registry. For example, if using Docker, you can authenticate to your registry using the Docker `login` command: 2. After you authenticate to your container registry, use Sbomgen on a container image that's in the registry. To use the following example, replace ``image:tag`` with the name of the image to scan: ``` `./inspector-sbomgen container --image `image:tag`` ``` ### Authenticate using the interactive method For this method, provide your username as a parameter, and Sbomgen will prompt you for secure password entry when needed. To use the following example, replace ``image:tag`` with the name of the image that you want to scan and ``your_username`` with a username that has access to the image: ``` ./inspector-sbomgen container --image `image:tag` --username `your_username` ``` ### Authenticate using the non-interactive method For this method, store your password or registry token in a `.txt` file. ###### Note The current user should only be able to read this file. The file should also contain your password or token on a single line. To use the following example, replace ``your_username`` with your username, ``password.txt`` with the `.txt` file that includes your password or token on a single line, and ``image:tag`` with the name of the image to scan: ``` INSPECTOR_SBOMGEN_USERNAME=`your_username` \ INSPECTOR_SBOMGEN_PASSWORD=`cat `password.txt`` \ ./inspector-sbomgen container --image `image:tag` ``` ## Example outputs from Sbomgen The following is an example of an SBOM for a container image inventoried using Sbomgen. ``` { "bomFormat": "CycloneDX", "specVersion": "1.5", "serialNumber": "urn:uuid:828875ef-8c32-4777-b688-0af96f3cf619", "version": 1, "metadata": { "timestamp": "2023-11-17T21:36:38Z", "tools": [ { "vendor": "Amazon Web Services, Inc. (AWS)", "name": "Amazon Inspector SBOM Generator", "version": "1.0.0", "hashes": [ { "alg": "SHA-256", "content": "10ab669cfc99774786301a745165b5957c92ed9562d19972fbf344d4393b5eb1" } ] } ], "component": { "bom-ref": "comp-1", "type": "container", "name": "fedora:latest", "properties": [ { "name": "amazon:inspector:sbom_generator:image_id", "value": "sha256:c81c8ae4dda7dedc0711daefe4076d33a88a69a28c398688090c1141eff17e50" }, { "name": "amazon:inspector:sbom_generator:layer_diff_id", "value": "sha256:eddd0d48c295dc168d0710f70364581bd84b1dda6bb386c4a4de0b61de2f2119" } ] } }, "components": [ { "bom-ref": "comp-2", "type": "library", "name": "dnf", "version": "4.18.0", "purl": "pkg:pypi/dnf@4.18.0", "properties": [ { "name": "amazon:inspector:sbom_generator:source_file_scanner", "value": "python-pkg" }, { "name": "amazon:inspector:sbom_generator:source_package_collector", "value": "python-pkg" }, { "name": "amazon:inspector:sbom_generator:source_path", "value": "/usr/lib/python3.12/site-packages/dnf-4.18.0.dist-info/METADATA" }, { "name": "amazon:inspector:sbom_generator:is_duplicate_package", "value": "true" }, { "name": "amazon:inspector:sbom_generator:duplicate_purl", "value": "pkg:rpm/fedora/python3-dnf@4.18.0-2.fc39?arch=noarch&distro=39&epoch=0" } ] }, { "bom-ref": "comp-3", "type": "library", "name": "libcomps", "version": "0.1.20", "purl": "pkg:pypi/libcomps@0.1.20", "properties": [ { "name": "amazon:inspector:sbom_generator:source_file_scanner", "value": "python-pkg" }, { "name": "amazon:inspector:sbom_generator:source_package_collector", "value": "python-pkg" }, { "name": "amazon:inspector:sbom_generator:source_path", "value": "/usr/lib64/python3.12/site-packages/libcomps-0.1.20-py3.12.egg-info/PKG-INFO" }, { "name": "amazon:inspector:sbom_generator:is_duplicate_package", "value": "true" }, { "name": "amazon:inspector:sbom_generator:duplicate_purl", "value": "pkg:rpm/fedora/python3-libcomps@0.1.20-1.fc39?arch=x86_64&distro=39&epoch=0" } ] } ] } ```
-````
+|
+\
+/
+|
+\
+/
+INFO[2024-02-01 14:58:46]coreV1.go:62: executing post-processors
+```
+
+You can disable the progress indicator using the `--disable-progress-bar` arguement:
+
+```
+./inspector-sbomgen container --image alpine:latest \
+--outfile /tmp/sbom.json \
+--disable-progress-bar
+```
+
+## Authenticating to private registries with Sbomgen
+
+By providing your private registry authentication credentials, you can generate SBOMs from containers that are hosted in private registries.
+You can provide these credentials through the following methods:
+
+### Authenticate using cached credentials (recommended)
+
+For this method, you authenticate to your container registry.
+For example, if using Docker, you can authenticate to your container registry using the Docker loging command: `docker login`.
+
+1. Authenticate to your container registry.
+   For example, if using Docker, you can authenticate to your registry using the Docker `login` command:
+2. After you authenticate to your container registry, use Sbomgen on a container image that's in the registry.
+   To use the following example, replace `image:tag` with the name of the image to scan:
+
+```
+`./inspector-sbomgen container --image `image:tag``
+```
+
+### Authenticate using the interactive method
+
+For this method, provide your username as a parameter, and Sbomgen will prompt you for secure password entry when needed.
+
+To use the following example, replace `image:tag` with the name of the image that you want to scan and `your_username` with a username that has access to the image:
+
+```
+./inspector-sbomgen container --image `image:tag` --username `your_username`
+```
+
+### Authenticate using the non-interactive method
+
+For this method, store your password or registry token in a `.txt` file.
+
+###### Note
+
+The current user should only be able to read this file.
+The file should also contain your password or token on a single line.
+
+To use the following example, replace `your_username` with your username, `password.txt` with the `.txt` file that includes your password or token on a single line, and `image:tag` with the name of the image to scan:
+
+```
+INSPECTOR_SBOMGEN_USERNAME=`your_username` \
+INSPECTOR_SBOMGEN_PASSWORD=`cat `password.txt`` \
+./inspector-sbomgen container --image `image:tag`
+```
+
+## Example outputs from Sbomgen
+
+The following is an example of an SBOM for a container image inventoried using Sbomgen.
+
+```
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:828875ef-8c32-4777-b688-0af96f3cf619",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2023-11-17T21:36:38Z",
+    "tools": [
+      {
+        "vendor": "Amazon Web Services, Inc. (AWS)",
+        "name": "Amazon Inspector SBOM Generator",
+        "version": "1.0.0",
+        "hashes": [
+          {
+            "alg": "SHA-256",
+            "content": "10ab669cfc99774786301a745165b5957c92ed9562d19972fbf344d4393b5eb1"
+          }
+        ]
+      }
+    ],
+    "component": {
+      "bom-ref": "comp-1",
+      "type": "container",
+      "name": "fedora:latest",
+      "properties": [
+        {
+          "name": "amazon:inspector:sbom_generator:image_id",
+          "value": "sha256:c81c8ae4dda7dedc0711daefe4076d33a88a69a28c398688090c1141eff17e50"
+        },
+        {
+          "name": "amazon:inspector:sbom_generator:layer_diff_id",
+          "value": "sha256:eddd0d48c295dc168d0710f70364581bd84b1dda6bb386c4a4de0b61de2f2119"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "comp-2",
+      "type": "library",
+      "name": "dnf",
+      "version": "4.18.0",
+      "purl": "pkg:pypi/dnf@4.18.0",
+      "properties": [
+        {
+          "name": "amazon:inspector:sbom_generator:source_file_scanner",
+          "value": "python-pkg"
+        },
+        {
+          "name": "amazon:inspector:sbom_generator:source_package_collector",
+          "value": "python-pkg"
+        },
+        {
+          "name": "amazon:inspector:sbom_generator:source_path",
+          "value": "/usr/lib/python3.12/site-packages/dnf-4.18.0.dist-info/METADATA"
+        },
+        {
+          "name": "amazon:inspector:sbom_generator:is_duplicate_package",
+          "value": "true"
+        },
+        {
+          "name": "amazon:inspector:sbom_generator:duplicate_purl",
+          "value": "pkg:rpm/fedora/python3-dnf@4.18.0-2.fc39?arch=noarch&distro=39&epoch=0"
+        }
+      ]
+    },
+    {
+      "bom-ref": "comp-3",
+      "type": "library",
+      "name": "libcomps",
+      "version": "0.1.20",
+      "purl": "pkg:pypi/libcomps@0.1.20",
+      "properties": [
+        {
+          "name": "amazon:inspector:sbom_generator:source_file_scanner",
+          "value": "python-pkg"
+        },
+        {
+          "name": "amazon:inspector:sbom_generator:source_package_collector",
+          "value": "python-pkg"
+        },
+        {
+          "name": "amazon:inspector:sbom_generator:source_path",
+          "value": "/usr/lib64/python3.12/site-packages/libcomps-0.1.20-py3.12.egg-info/PKG-INFO"
+        },
+        {
+          "name": "amazon:inspector:sbom_generator:is_duplicate_package",
+          "value": "true"
+        },
+        {
+          "name": "amazon:inspector:sbom_generator:duplicate_purl",
+          "value": "pkg:rpm/fedora/python3-libcomps@0.1.20-1.fc39?arch=x86_64&distro=39&epoch=0"
+        }
+      ]
+    }
+  ]
+}
+```
