@@ -158,19 +158,116 @@ sources to work with encrypted topics, you must perform the following steps.
 }
 ```
 
-| Event source                                                                                                                                                                                                 | Service principal                                                                                                                    |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Amazon CloudWatch](../../../AmazonCloudWatch/latest/DeveloperGuide.md "../../../AmazonCloudWatch/latest/DeveloperGuide.md")                                                                                 | `cloudwatch.amazonaws.com`                                                                                                           |
-| [Amazon CloudWatch Events](../../../AmazonCloudWatch/latest/events.md "../../../AmazonCloudWatch/latest/events.md")                                                                                          | `events.amazonaws.com`                                                                                                               |
-| [AWS CodeCommit](../../../codecommit/latest/userguide/how-to-notify-sns.md "../../../codecommit/latest/userguide/how-to-notify-sns.md")                                                                      | `codecommit.amazonaws.com`                                                                                                           |
-| [AWS Database Migration Service](../../../dms/latest/userguide/CHAP_Events.md "../../../dms/latest/userguide/CHAP_Events.md")                                                                                | `dms.amazonaws.com`                                                                                                                  |
-| [AWS Directory Service](../../../directoryservice/latest/admin-guide/ms_ad_enable_notifications.md "../../../directoryservice/latest/admin-guide/ms_ad_enable_notifications.md")                             | `ds.amazonaws.com`                                                                                                                   |
-| [Amazon DynamoDB](../../../amazondynamodb/latest/developerguide/DAX.md#DAX.cluster-management.custom-settings "../../../amazondynamodb/latest/developerguide/DAX.md#DAX.cluster-management.custom-settings") | `dynamodb.amazonaws.com`                                                                                                             |
-| [Amazon Inspector](../../../inspector/latest/userguide/inspector_introduction.md "../../../inspector/latest/userguide/inspector_introduction.md")                                                            | `inspector.amazonaws.com`                                                                                                            |
-| [Amazon Redshift](../../../redshift/latest/mgmt/working-with-event-notifications.md "../../../redshift/latest/mgmt/working-with-event-notifications.md")                                                     | `redshift.amazonaws.com`                                                                                                             |
-| [Amazon RDS](../../../AmazonRDS/latest/DeveloperGuide/USER_Events.md "../../../AmazonRDS/latest/DeveloperGuide/USER_Events.md")                                                                              | `events.rds.amazonaws.com`                                                                                                           |
-| [Amazon Glacier](../../../amazonglacier/latest/dev/configuring-notifications.md "../../../amazonglacier/latest/dev/configuring-notifications.md")                                                            | `glacier.amazonaws.com`                                                                                                              |
-| [Amazon Simple Email Service](../../../ses/latest/DeveloperGuide/configure-sns-notifications.md "../../../ses/latest/DeveloperGuide/configure-sns-notifications.md")                                         | `ses.amazonaws.com`                                                                                                                  |
-| [Amazon Simple Storage Service](../../../AmazonS3/latest/userguide/ways-to-add-notification-config-to-bucket.md "../../../AmazonS3/latest/userguide/ways-to-add-notification-config-to-bucket.md")           | `s3.amazonaws.com`                                                                                                                   |
-| [AWS Snowball Edge](../../../snowball/latest/api-reference/API_Notification.md "../../../snowball/latest/api-reference/API_Notification.md")                                                                 | `importexport.amazonaws.com`                                                                                                         |
-| [AWS Systems Manager Incident Manager](../../../incident-manager/latest/userguide/chat.md "../../../incident-manager/latest/userguide/chat.md")                                                              | AWS Systems Manager Incident Manager consists of two service principles: `ssm-incidents.amazonaws.com`; `ssm-contacts.amazonaws.com` | ###### Note Some Amazon SNS event sources require you to provide an IAM role (rather than the service principal) in the AWS KMS key policy: <br>• [Amazon EC2 Auto Scaling](../../../autoscaling/ec2/userguide/ASGettingNotifications.md "../../../autoscaling/ec2/userguide/ASGettingNotifications.md") <br>• [Amazon Elastic Transcoder](../../../elastictranscoder/latest/developerguide/notifications.md "../../../elastictranscoder/latest/developerguide/notifications.md") <br>• [AWS CodePipeline](../../../codepipeline/latest/userguide/approvals.md#approvals-configuration-options "../../../codepipeline/latest/userguide/approvals.md#approvals-configuration-options") <br>• [AWS Config](../../../config/latest/developerguide/notifications-for-AWS-Config.md "../../../config/latest/developerguide/notifications-for-AWS-Config.md") <br>• [AWS Elastic Beanstalk](../../../elasticbeanstalk/latest/dg/using-features.managing.md "../../../elasticbeanstalk/latest/dg/using-features.managing.md") <br>• [AWS IoT](../../../iot/latest/developerguide/iot-sns-rule.md "../../../iot/latest/developerguide/iot-sns-rule.md") <br>• [EC2 Image Builder](../../../imagebuilder/latest/userguide/ibhow-integrations.md#integ-sns-encrypted "../../../imagebuilder/latest/userguide/ibhow-integrations.md#integ-sns-encrypted") 3. Add the `aws:SourceAccount` and `aws:SourceArn` condition keys to the KMS resource policy to further protect the KMS key from [confused deputy](../../../IAM/latest/UserGuide/confused-deputy.md "../../../IAM/latest/UserGuide/confused-deputy.md") attacks. Refer to service specific documentation list (above) for exact details in each case. ###### Important Adding the `aws:SourceAccount`, `aws:SourceArn`, and `aws:SourceOrgID` to a AWS KMS policy is not supported for EventBridge-to-encrypted topics. ``{ "Effect": "Allow", "Principal": { "Service": "service.amazonaws.com" }, "Action": [ "kms:GenerateDataKey*", "kms:Decrypt" ], "Resource": "*", "Condition": { "StringEquals": { "aws:SourceAccount": "`customer-account-id`" }, "ArnLike": { "aws:SourceArn": "arn:aws:service:region:`customer-account-id`:resource-type:`customer-resource-id`" } } }`` 4. [Enable SSE for your topic](sns-enable-encryption-for-topic.md "sns-enable-encryption-for-topic.md") using your KMS. 5. Provide the ARN of the encrypted topic to the event source. ## AWS KMS errors When you work with Amazon SNS and AWS KMS, you might encounter errors. The following list describes the errors and possible troubleshooting solutions. **KMSAccessDeniedException** The ciphertext references a key that doesn't exist or that you don't have access to. HTTP Status Code: 400 **KMSDisabledException** The request was rejected because the specified KMS isn't enabled. HTTP Status Code: 400 **KMSInvalidStateException** The request was rejected because the state of the specified resource isn't valid for this request. For more information, see [Key states of AWS KMS keys](../../../kms/latest/developerguide/key-state.md "../../../kms/latest/developerguide/key-state.md") in the _AWS Key Management Service Developer Guide_. HTTP Status Code: 400 **KMSNotFoundException** The request was rejected because the specified entity or resource can't be found. HTTP Status Code: 400 **KMSOptInRequired** The AWS access key ID needs a subscription for the service. HTTP Status Code: 403 **KMSThrottlingException** The request was denied due to request throttling. For more information about throttling, see [Quotas](../../../kms/latest/developerguide/limits.md#requests-per-second "../../../kms/latest/developerguide/limits.md#requests-per-second") in the _AWS Key Management Service Developer Guide_. HTTP Status Code: 400 |
+| Event source                                                                                                                                                                                                 | Service principal                                                                                                                          |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| [Amazon CloudWatch](../../../AmazonCloudWatch/latest/DeveloperGuide.md "../../../AmazonCloudWatch/latest/DeveloperGuide.md")                                                                                 | `cloudwatch.amazonaws.com`                                                                                                                 |
+| [Amazon CloudWatch Events](../../../AmazonCloudWatch/latest/events.md "../../../AmazonCloudWatch/latest/events.md")                                                                                          | `events.amazonaws.com`                                                                                                                     |
+| [AWS CodeCommit](../../../codecommit/latest/userguide/how-to-notify-sns.md "../../../codecommit/latest/userguide/how-to-notify-sns.md")                                                                      | `codecommit.amazonaws.com`                                                                                                                 |
+| [AWS Database Migration Service](../../../dms/latest/userguide/CHAP_Events.md "../../../dms/latest/userguide/CHAP_Events.md")                                                                                | `dms.amazonaws.com`                                                                                                                        |
+| [AWS Directory Service](../../../directoryservice/latest/admin-guide/ms_ad_enable_notifications.md "../../../directoryservice/latest/admin-guide/ms_ad_enable_notifications.md")                             | `ds.amazonaws.com`                                                                                                                         |
+| [Amazon DynamoDB](../../../amazondynamodb/latest/developerguide/DAX.md#DAX.cluster-management.custom-settings "../../../amazondynamodb/latest/developerguide/DAX.md#DAX.cluster-management.custom-settings") | `dynamodb.amazonaws.com`                                                                                                                   |
+| [Amazon Inspector](../../../inspector/latest/userguide/inspector_introduction.md "../../../inspector/latest/userguide/inspector_introduction.md")                                                            | `inspector.amazonaws.com`                                                                                                                  |
+| [Amazon Redshift](../../../redshift/latest/mgmt/working-with-event-notifications.md "../../../redshift/latest/mgmt/working-with-event-notifications.md")                                                     | `redshift.amazonaws.com`                                                                                                                   |
+| [Amazon RDS](../../../AmazonRDS/latest/DeveloperGuide/USER_Events.md "../../../AmazonRDS/latest/DeveloperGuide/USER_Events.md")                                                                              | `events.rds.amazonaws.com`                                                                                                                 |
+| [Amazon Glacier](../../../amazonglacier/latest/dev/configuring-notifications.md "../../../amazonglacier/latest/dev/configuring-notifications.md")                                                            | `glacier.amazonaws.com`                                                                                                                    |
+| [Amazon Simple Email Service](../../../ses/latest/DeveloperGuide/configure-sns-notifications.md "../../../ses/latest/DeveloperGuide/configure-sns-notifications.md")                                         | `ses.amazonaws.com`                                                                                                                        |
+| [Amazon Simple Storage Service](../../../AmazonS3/latest/userguide/ways-to-add-notification-config-to-bucket.md "../../../AmazonS3/latest/userguide/ways-to-add-notification-config-to-bucket.md")           | `s3.amazonaws.com`                                                                                                                         |
+| [AWS Snowball Edge](../../../snowball/latest/api-reference/API_Notification.md "../../../snowball/latest/api-reference/API_Notification.md")                                                                 | `importexport.amazonaws.com`                                                                                                               |
+| [AWS Systems Manager<br>Incident Manager](../../../incident-manager/latest/userguide/chat.md "../../../incident-manager/latest/userguide/chat.md")                                                           | AWS Systems Manager Incident Manager consists of two service<br>principles:<br>`ssm-incidents.amazonaws.com`; `ssm-contacts.amazonaws.com` |
+
+###### Note
+
+Some Amazon SNS event sources require you to provide an IAM role (rather than the
+service principal) in the AWS KMS key policy:
+
+    * [Amazon EC2 Auto Scaling](../../../autoscaling/ec2/userguide/ASGettingNotifications.md "../../../autoscaling/ec2/userguide/ASGettingNotifications.md")
+    * [Amazon Elastic Transcoder](../../../elastictranscoder/latest/developerguide/notifications.md "../../../elastictranscoder/latest/developerguide/notifications.md")
+    * [AWS CodePipeline](../../../codepipeline/latest/userguide/approvals.md#approvals-configuration-options "../../../codepipeline/latest/userguide/approvals.md#approvals-configuration-options")
+    * [AWS Config](../../../config/latest/developerguide/notifications-for-AWS-Config.md "../../../config/latest/developerguide/notifications-for-AWS-Config.md")
+    * [AWS Elastic Beanstalk](../../../elasticbeanstalk/latest/dg/using-features.managing.md "../../../elasticbeanstalk/latest/dg/using-features.managing.md")
+    * [AWS IoT](../../../iot/latest/developerguide/iot-sns-rule.md "../../../iot/latest/developerguide/iot-sns-rule.md")
+    * [EC2 Image Builder](../../../imagebuilder/latest/userguide/ibhow-integrations.md#integ-sns-encrypted "../../../imagebuilder/latest/userguide/ibhow-integrations.md#integ-sns-encrypted")
+
+3. Add the `aws:SourceAccount` and `aws:SourceArn` condition keys
+   to the KMS resource policy to further protect the KMS key from [confused
+   deputy](../../../IAM/latest/UserGuide/confused-deputy.md "../../../IAM/latest/UserGuide/confused-deputy.md") attacks. Refer to service specific documentation list (above) for exact
+   details in each case.
+
+###### Important
+
+Adding the `aws:SourceAccount`, `aws:SourceArn`, and
+`aws:SourceOrgID` to a AWS KMS policy is not supported for
+EventBridge-to-encrypted topics.
+
+```
+{
+  "Effect": "Allow",
+  "Principal": {
+    "Service": "service.amazonaws.com"
+  },
+  "Action": [
+    "kms:GenerateDataKey*",
+    "kms:Decrypt"
+  ],
+  "Resource": "*",
+  "Condition": {
+    "StringEquals": {
+      "aws:SourceAccount": "`customer-account-id`"
+    },
+    "ArnLike": {
+      "aws:SourceArn": "arn:aws:service:region:`customer-account-id`:resource-type:`customer-resource-id`"
+    }
+  }
+}
+```
+
+4. [Enable SSE for your topic](sns-enable-encryption-for-topic.md "sns-enable-encryption-for-topic.md") using
+   your KMS.
+5. Provide the ARN of the encrypted topic to the event source.
+
+## AWS KMS errors
+
+When you work with Amazon SNS and AWS KMS, you might encounter errors. The following list
+describes the errors and possible troubleshooting solutions.
+
+**KMSAccessDeniedException**
+
+The ciphertext references a key that doesn't exist or that you don't have access
+to.
+
+HTTP Status Code: 400
+
+**KMSDisabledException**
+
+The request was rejected because the specified KMS isn't enabled.
+
+HTTP Status Code: 400
+
+**KMSInvalidStateException**
+
+The request was rejected because the state of the specified resource isn't valid for
+this request. For more information, see [Key
+states of AWS KMS keys](../../../kms/latest/developerguide/key-state.md "../../../kms/latest/developerguide/key-state.md") in the _AWS Key Management Service Developer Guide_.
+
+HTTP Status Code: 400
+
+**KMSNotFoundException**
+
+The request was rejected because the specified entity or resource can't be
+found.
+
+HTTP Status Code: 400
+
+**KMSOptInRequired**
+
+The AWS access key ID needs a subscription for the service.
+
+HTTP Status Code: 403
+
+**KMSThrottlingException**
+
+The request was denied due to request throttling. For more information about
+throttling, see [Quotas](../../../kms/latest/developerguide/limits.md#requests-per-second "../../../kms/latest/developerguide/limits.md#requests-per-second")
+in the _AWS Key Management Service Developer Guide_.
+
+HTTP Status Code: 400

@@ -16,9 +16,82 @@ Application event notifications track when individual platform endpoints are cre
 deleted, and updated, as well as delivery failures. The following are the attribute
 names for the application events.
 
-| Attribute name         | Notification trigger                                                                                                                                                                                                                                                                                                                                                                   |
-| ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `EventEndpointCreated` | A new platform endpoint is added to your application.                                                                                                                                                                                                                                                                                                                                  |
-| `EventEndpointDeleted` | Any platform endpoint associated with your application is deleted.                                                                                                                                                                                                                                                                                                                     |
-| `EventEndpointUpdated` | Any of the attributes of the platform endpoints associated with your application are changed.                                                                                                                                                                                                                                                                                          |
-| `EventDeliveryFailure` | A delivery to any of the platform endpoints associated with your application encounters a permanent failure. NoteTo track delivery failures on the platform application side, subscribe to message delivery status events for the application. For more information, see [Using Amazon SNS Application Attributes for Message Delivery Status](sns-msg-status.md "sns-msg-status.md"). | You can associate any attribute with an application which can then receive these event notifications. ## Sending mobile push notifications To send application event notifications, you specify a topic to receive the notifications for each type of event. As Amazon SNS sends the notifications, the topic can route them to endpoints that will take programmatic action. ###### Important High-volume applications will create a large number of application event notifications (for example, tens of thousands), which will overwhelm endpoints meant for human use, such as email addresses, phone numbers, and mobile applications. Consider the following guidelines when you send application event notifications to a topic: <br>• Each topic that receives notifications should contain only subscriptions for programmatic endpoints, such as HTTP or HTTPS endpoints, Amazon SQS queues, or AWS Lambda functions. <br>• To reduce the amount of processing that is triggered by the notifications, limit each topic's subscriptions to a small number (for example, five or fewer). You can send application event notifications using the Amazon SNS console, the AWS Command Line Interface (AWS CLI), or the AWS SDKs. ### AWS Management Console 1. Sign in to the [Amazon SNS console](https://console.aws.amazon.com/sns/home "https://console.aws.amazon.com/sns/home"). 2. On the navigation panel, choose **Mobile**, **Push notifications**. 3. On the **Mobile push notifications** page, in the **Platform applications** section, choose an application and then choose **Edit**. 4. Expand the **Event notifications** section. 5. Choose **Actions**, **Configure events**. 6. Enter the ARNs for topics to be used for the following events: <br>• Endpoint Created <br>• Endpoint Deleted <br>• Endpoint Updated <br>• Delivery Failure 7. Choose **Save changes**. ### AWS CLI Run the [set-platform-application-attributes](../../../cli/latest/reference/sns/set-platform-application-attributes.md "../../../cli/latest/reference/sns/set-platform-application-attributes.md") command. The following example sets the same Amazon SNS topic for all four application events: `aws sns set-platform-application-attributes --platform-application-arn arn:aws:sns:us-east-1:12345EXAMPLE:app/FCM/MyFCMPlatformApplication --attributes EventEndpointCreated="arn:aws:sns:us-east-1:12345EXAMPLE:MyFCMPlatformApplicationEvents", EventEndpointDeleted="arn:aws:sns:us-east-1:12345EXAMPLE:MyFCMPlatformApplicationEvents", EventEndpointUpdated="arn:aws:sns:us-east-1:12345EXAMPLE:MyFCMPlatformApplicationEvents", EventDeliveryFailure="arn:aws:sns:us-east-1:12345EXAMPLE:MyFCMPlatformApplicationEvents"` ### AWS SDKs Set application event notifications by submitting a `SetPlatformApplicationAttributes` request with the Amazon SNS API using an AWS SDK. For a complete list of AWS SDK developer guides and code examples, including help getting started and information about previous versions, see [Using Amazon SNS with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md"). |
+| Attribute name         | Notification trigger                                                                                                                                                                                                                                                                                                                                                                                  |
+| ---------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `EventEndpointCreated` | A new platform endpoint is added to your application.                                                                                                                                                                                                                                                                                                                                                 |
+| `EventEndpointDeleted` | Any platform endpoint associated with your application is<br>deleted.                                                                                                                                                                                                                                                                                                                                 |
+| `EventEndpointUpdated` | Any of the attributes of the platform endpoints associated with your<br>application are changed.                                                                                                                                                                                                                                                                                                      |
+| `EventDeliveryFailure` | A delivery to any of the platform endpoints associated with your<br>application encounters a permanent failure. NoteTo track delivery failures on the platform application side,<br>subscribe to message delivery status events for the application.<br>For more information, see [Using Amazon SNS<br>Application Attributes for Message Delivery<br>Status](sns-msg-status.md "sns-msg-status.md"). |
+
+You can associate any attribute with an application which can then receive these event
+notifications.
+
+## Sending mobile push
+
+notifications
+
+To send application event notifications, you specify a topic to receive the
+notifications for each type of event. As Amazon SNS sends the notifications, the topic can
+route them to endpoints that will take programmatic action.
+
+###### Important
+
+High-volume applications will create a large number of application event
+notifications (for example, tens of thousands), which will overwhelm endpoints meant
+for human use, such as email addresses, phone numbers, and mobile applications.
+Consider the following guidelines when you send application event notifications to a
+topic:
+
+- Each topic that receives notifications should contain only subscriptions
+  for programmatic endpoints, such as HTTP or HTTPS endpoints, Amazon SQS queues,
+  or AWS Lambda functions.
+- To reduce the amount of processing that is triggered by the notifications,
+  limit each topic's subscriptions to a small number (for example, five or
+  fewer).
+
+You can send application event notifications using the Amazon SNS console, the AWS Command Line Interface
+(AWS CLI), or the AWS SDKs.
+
+### AWS Management Console
+
+1. Sign in to the [Amazon SNS console](https://console.aws.amazon.com/sns/home "https://console.aws.amazon.com/sns/home").
+2. On the navigation panel, choose **Mobile**,
+   **Push notifications**.
+3. On the **Mobile push notifications** page, in the
+   **Platform applications** section, choose an
+   application and then choose **Edit**.
+4. Expand the **Event notifications** section.
+5. Choose **Actions**, **Configure
+   events**.
+6. Enter the ARNs for topics to be used for the following events:
+   - Endpoint Created
+   - Endpoint Deleted
+   - Endpoint Updated
+   - Delivery Failure
+
+7. Choose **Save changes**.
+
+### AWS CLI
+
+Run the [set-platform-application-attributes](../../../cli/latest/reference/sns/set-platform-application-attributes.md "../../../cli/latest/reference/sns/set-platform-application-attributes.md") command.
+
+The following example sets the same Amazon SNS topic for all four application
+events:
+
+```
+aws sns set-platform-application-attributes
+--platform-application-arn arn:aws:sns:us-east-1:12345EXAMPLE:app/FCM/MyFCMPlatformApplication
+--attributes EventEndpointCreated="arn:aws:sns:us-east-1:12345EXAMPLE:MyFCMPlatformApplicationEvents",
+EventEndpointDeleted="arn:aws:sns:us-east-1:12345EXAMPLE:MyFCMPlatformApplicationEvents",
+EventEndpointUpdated="arn:aws:sns:us-east-1:12345EXAMPLE:MyFCMPlatformApplicationEvents",
+EventDeliveryFailure="arn:aws:sns:us-east-1:12345EXAMPLE:MyFCMPlatformApplicationEvents"
+```
+
+### AWS SDKs
+
+Set application event notifications by submitting a
+`SetPlatformApplicationAttributes` request with the Amazon SNS API using
+an AWS SDK.
+
+For a complete list of AWS SDK developer guides and code examples, including
+help getting started and information about previous versions, see [Using Amazon SNS with an AWS SDK](sdk-general-information-section.md "sdk-general-information-section.md").

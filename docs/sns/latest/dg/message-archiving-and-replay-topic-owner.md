@@ -190,9 +190,23 @@ You can monitor archived messages using Amazon CloudWatch using the following me
 be notified of anomalies in your workloads and help avoid impact, you can configure
 Amazon CloudWatch alarms on these metrics. For more details, see [Logging and monitoring in Amazon SNS](sns-logging-monitoring.md "sns-logging-monitoring.md").
 
-| Metric                                  | Description                                                                                                                              |
-| --------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **ApproximateNumberOfMessagesArchived** | Provides the topic owner with the aggregate number of messages archived in the topic archive, at 60-minute resolution.                   |
-| **ApproximateNumberOfBytesArchived**    | Provides the topic owner with the aggregate number of bytes archived, across all messages in the topic archive, at 60-minute resolution. |
-| **NumberOfMessagesArchiveProcessing**   | Provides the topic owner with the number of messages saved to the topic archive during the interval in 1-minute resolution.              |
-| **NumberOfBytesArchiveProcessing**      | Provides the topic owner with the aggregate number of bytes saved to the topic archive during the interval in 1-minute resolution.       | The `GetTopicAttributes` API has a `BeginningArchiveTime` property, which represents the oldest timestamp at which a subscriber can start a replay. The following represents a sample response for this API action: ``{ "ArchivePolicy": { "MessageRetentionPeriod": "`<integer>`" }, "BeginningArchiveTime": "`<timestamp>`", ... }`` |
+| Metric                                  | Description                                                                                                                                    |
+| --------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| **ApproximateNumberOfMessagesArchived** | Provides the topic owner with the aggregate number of messages<br>archived in the topic archive, at 60-minute resolution.                      |
+| **ApproximateNumberOfBytesArchived**    | Provides the topic owner with the aggregate number of bytes<br>archived, across all messages in the topic archive, at 60-minute<br>resolution. |
+| **NumberOfMessagesArchiveProcessing**   | Provides the topic owner with the number of messages saved to<br>the topic archive during the interval in 1-minute<br>resolution.              |
+| **NumberOfBytesArchiveProcessing**      | Provides the topic owner with the aggregate number of bytes<br>saved to the topic archive during the interval in 1-minute<br>resolution.       |
+
+The `GetTopicAttributes` API has a `BeginningArchiveTime`
+property, which represents the oldest timestamp at which a subscriber can start a
+replay. The following represents a sample response for this API action:
+
+```
+{
+ "ArchivePolicy": {
+    "MessageRetentionPeriod": "`<integer>`"
+  },
+  "BeginningArchiveTime": "`<timestamp>`",
+  ...
+}
+```

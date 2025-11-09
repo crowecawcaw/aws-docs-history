@@ -121,25 +121,39 @@ The following table lists the reserved message attributes for mobile push notifi
 services that you can use to structure your push notification message:
 
 | Push notification service                  | Reserved message attribute              |
-| ------------------------------------------ | --------------------------------------- | -------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------------------------------------ | --------------------------------------- |
 | ADM                                        | `AWS.SNS.MOBILE.ADM.TTL`                |
 | APNs1                                      | `AWS.SNS.MOBILE.APNS_MDM.TTL`           |
-| `AWS.SNS.MOBILE.APNS_MDM_SANDBOX.TTL`      |                                         | `AWS.SNS.MOBILE.APNS_PASSBOOK.TTL`     |
-| `AWS.SNS.MOBILE.APNS_PASSBOOK_SANDBOX.TTL` |                                         | `AWS.SNS.MOBILE.APNS_SANDBOX.TTL`      |
-| `AWS.SNS.MOBILE.APNS_VOIP.TTL`             |                                         | `AWS.SNS.MOBILE.APNS_VOIP_SANDBOX.TTL` |
-| `AWS.SNS.MOBILE.APNS.COLLAPSE_ID`          |                                         | `AWS.SNS.MOBILE.APNS.PRIORITY`         |
-| `AWS.SNS.MOBILE.APNS.PUSH_TYPE`            |                                         | `AWS.SNS.MOBILE.APNS.TOPIC`            |
+| `AWS.SNS.MOBILE.APNS_MDM_SANDBOX.TTL`      |
+| `AWS.SNS.MOBILE.APNS_PASSBOOK.TTL`         |
+| `AWS.SNS.MOBILE.APNS_PASSBOOK_SANDBOX.TTL` |
+| `AWS.SNS.MOBILE.APNS_SANDBOX.TTL`          |
+| `AWS.SNS.MOBILE.APNS_VOIP.TTL`             |
+| `AWS.SNS.MOBILE.APNS_VOIP_SANDBOX.TTL`     |
+| `AWS.SNS.MOBILE.APNS.COLLAPSE_ID`          |
+| `AWS.SNS.MOBILE.APNS.PRIORITY`             |
+| `AWS.SNS.MOBILE.APNS.PUSH_TYPE`            |
+| `AWS.SNS.MOBILE.APNS.TOPIC`                |
 | `AWS.SNS.MOBILE.APNS.TTL`                  |
 | Baidu                                      | `AWS.SNS.MOBILE.BAIDU.DeployStatus`     |
-| `AWS.SNS.MOBILE.BAIDU.MessageKey`          |                                         | `AWS.SNS.MOBILE.BAIDU.MessageType`     |
+| `AWS.SNS.MOBILE.BAIDU.MessageKey`          |
+| `AWS.SNS.MOBILE.BAIDU.MessageType`         |
 | `AWS.SNS.MOBILE.BAIDU.TTL`                 |
 | FCM                                        | `AWS.SNS.MOBILE.FCM.TTL`                |
 | `AWS.SNS.MOBILE.GCM.TTL`                   |
 | macOS                                      | `AWS.SNS.MOBILE.MACOS_SANDBOX.TTL`      |
 | `AWS.SNS.MOBILE.MACOS.TTL`                 |
 | MPNS                                       | `AWS.SNS.MOBILE.MPNS.NotificationClass` |
-| `AWS.SNS.MOBILE.MPNS.TTL`                  |                                         | `AWS.SNS.MOBILE.MPNS.Type`             |
+| `AWS.SNS.MOBILE.MPNS.TTL`                  |
+| `AWS.SNS.MOBILE.MPNS.Type`                 |
 | WNS                                        | `AWS.SNS.MOBILE.WNS.CachePolicy`        |
-| `AWS.SNS.MOBILE.WNS.Group`                 |                                         | `AWS.SNS.MOBILE.WNS.Match`             |
-| `AWS.SNS.MOBILE.WNS.SuppressPopup`         |                                         | `AWS.SNS.MOBILE.WNS.Tag`               |
-| `AWS.SNS.MOBILE.WNS.TTL`                   |                                         | `AWS.SNS.MOBILE.WNS.Type`              | 1 Apple will reject Amazon SNS notifications if message attributes do not meet their requirements. For additional details, see [Sending Notification Requests to APNs](https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/sending_notification_requests_to_apns "https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/sending_notification_requests_to_apns") on the Apple Developer website. |
+| `AWS.SNS.MOBILE.WNS.Group`                 |
+| `AWS.SNS.MOBILE.WNS.Match`                 |
+| `AWS.SNS.MOBILE.WNS.SuppressPopup`         |
+| `AWS.SNS.MOBILE.WNS.Tag`                   |
+| `AWS.SNS.MOBILE.WNS.TTL`                   |
+| `AWS.SNS.MOBILE.WNS.Type`                  |
+
+1 Apple will reject Amazon SNS notifications if message
+attributes do not meet their requirements. For additional details, see [Sending Notification Requests to APNs](https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/sending_notification_requests_to_apns "https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/sending_notification_requests_to_apns") on the Apple Developer
+website.

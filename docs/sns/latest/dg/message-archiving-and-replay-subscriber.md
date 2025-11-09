@@ -192,7 +192,7 @@ You can monitor replay messages using Amazon CloudWatch using the following metr
 notified of anomalies in your workloads and help avoid impact, you can configure
 Amazon CloudWatch alarms on these metrics. For more details, see [Logging and monitoring in Amazon SNS](sns-logging-monitoring.md "sns-logging-monitoring.md").
 
-| Metric                                     | Description                                                                                                                                   |
-| ------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| **NumberOfReplayedNotificationsDelivered** | Provides the subscriber with the aggregate number of messages replayed from the topic archive, at 1-minute resolution.                        |
-| **NumberOfReplayedNotificationsFailed**    | Provides the subscriber with the aggregate number of messages replayed that failed to deliver from the topic archive, at 1-minute resolution. |
+| Metric                                     | Description                                                                                                                                         |
+| ------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **NumberOfReplayedNotificationsDelivered** | Provides the subscriber with the aggregate number of messages<br>replayed from the topic archive, at 1-minute resolution.                           |
+| **NumberOfReplayedNotificationsFailed**    | Provides the subscriber with the aggregate number of messages<br>replayed that failed to deliver from the topic archive, at<br>1-minute resolution. |

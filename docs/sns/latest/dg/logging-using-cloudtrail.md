@@ -63,7 +63,311 @@ value, which you would specify when configuring advanced event selectors using t
 CloudTrail APIs. The **Data APIs logged to CloudTrail** column shows the API
 calls logged to CloudTrail for the resource type.
 
-| Data event type (console) | resources.type value                                                                                                                                               | Data APIs logged to CloudTrail                                                                                                                                                                                                                                                                               |
-| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **SNS topic**             | [`AWS::SNS::Topic`](../../../AWSCloudFormation/latest/UserGuide/aws-resource-sns-topic.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-sns-topic.md") | <br>• [`Publish`](../api/API_Publish.md "../api/API_Publish.md") <br>• [`PublishBatch`](../api/API_PublishBatch.md "../api/API_PublishBatch.md")                                                                                                                                                             |
-| **SNS platform endpoint** | `AWS::SNS::PlatformEndpoint`                                                                                                                                       | <br>• [Publish](../api/API_Publish.md "../api/API_Publish.md") For additional details, see [`AdvancedEventSelector`](../../../awscloudtrail/latest/APIReference/API_AdvancedEventSelector.md "../../../awscloudtrail/latest/APIReference/API_AdvancedEventSelector.md") in the AWS CloudTrail API Reference. | ###### Note SNS resource type `AWS::SNS::PhoneNumber` is not logged by CloudTrail. You can configure advanced event selectors to filter on the `eventName`, `readOnly`, and `resources.ARN` fields to log only those events that are important to you. For more information about these fields, see [AdvancedFieldSelector](../../../awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.md "../../../awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.md") in the _AWS CloudTrail API Reference_. For information about logging data events, see Logging data events with the AWS Management Console and Logging data events with the AWS CLI in the CloudTrail User Guide. ## SNS management events in CloudTrail [Management events](../../../awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.md#logging-management-events "../../../awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.md#logging-management-events") provide information about management operations that are performed on resources in your AWS account. These are also known as control plane operations. By default, CloudTrail logs management events. AWS SNS logs the following SNS control plane operations to CloudTrail as _management events_. <br>• `AddPermission` <br>• `CheckIfPhoneNumberIsOptedOut` <br>• `ConfirmSubscription` <br>• `CreatePlatformApplication` <br>• `CreatePlatformEndpoint` <br>• `CreateSMSSandboxPhoneNumber` <br>• `CreateTopic` <br>• `DeleteEndpoint` <br>• `DeletePlatformApplication` <br>• `DeleteSMSSandboxPhoneNumber` <br>• `DeleteTopic` <br>• `GetDataProtectionPolicy` <br>• `GetEndpointAttributes` <br>• `GetPlatformApplicationAttributes` <br>• `GetSMSAttributes` <br>• `GetSMSSandboxAccountStatus` <br>• `GetSubscriptionAttributes` <br>• `GetTopicAttributes` <br>• `ListEndpointsByPlatformApplication` <br>• `ListOriginationNumbers` <br>• `ListPhoneNumbersOptedOut` <br>• `ListPlatformApplications` <br>• `ListSMSSandboxPhoneNumbers` <br>• `ListSubscriptions` <br>• `ListSubscriptionsByTopic` <br>• `ListTagsForResource` <br>• `ListTopics` <br>• `OptInPhoneNumber` <br>• `PutDataProtectionPolicy` <br>• `RemovePermission` <br>• `SetEndpointAttributes` <br>• `SetPlatformApplicationAttributes` <br>• `SetSMSAttributes` <br>• `SetSubscriptionAttributes` <br>• `SetTopicAttributes` <br>• `Subscribe` <br>• `TagResource` <br>• `Unsubscribe` <br>• `UntagResource` <br>• `VerifySMSSandboxPhoneNumber` ###### Note When you are not logged in to Amazon Web Services (unauthenticated mode) and either the [`ConfirmSubscription`](../api/API_ConfirmSubscription.md "../api/API_ConfirmSubscription.md") or [`Unsubscribe`](../api/API_Unsubscribe.md "../api/API_Unsubscribe.md") actions are invoked, then they will not be logged to CloudTrail. Such as, when you choose the provided link in an email notification to confirm a pending subscription to a topic, the `ConfirmSubscription` action is invoked in unauthenticated mode. In this example, the `ConfirmSubscription` action would not be logged to CloudTrail. ## SNS event examples An event represents a single request from any source and includes information about the requested API operation, the date and time of the operation, request parameters, and so on. CloudTrail log files aren't an ordered stack trace of the public API calls, so events don't appear in any specific order. The following example shows a CloudTrail event that demonstrates the **`ListTopics`**, `**CreateTopic**`, and `**DeleteTopic**` actions. `{ "Records": [ { "eventVersion": "1.02", "userIdentity": { "type": "IAMUser", "userName": "Bob", "principalId": "EX_PRINCIPAL_ID", "arn": "arn:aws:iam::123456789012:user/Bob", "accountId": "123456789012", "accessKeyId": "AKIAIOSFODNN7EXAMPLE" }, "eventTime": "2014-09-30T00:00:00Z", "eventSource": "sns.amazonaws.com", "eventName": "ListTopics", "awsRegion": "us-west-2", "sourceIPAddress": "127.0.0.1", "userAgent": "aws-sdk-java/unknown-version", "requestParameters": { "nextToken": "ABCDEF1234567890EXAMPLE==" }, "responseElements": null, "requestID": "example1-b9bb-50fa-abdb-80f274981d60", "eventID": "example0-09a3-47d6-a810-c5f9fd2534fe", "eventType": "AwsApiCall", "recipientAccountId": "123456789012" }, { "eventVersion": "1.02", "userIdentity": { "type": "IAMUser", "userName": "Bob", "principalId": "EX_PRINCIPAL_ID", "arn": "arn:aws:iam::123456789012:user/Bob", "accountId": "123456789012", "accessKeyId": "AKIAIOSFODNN7EXAMPLE" }, "eventTime": "2014-09-30T00:00:00Z", "eventSource": "sns.amazonaws.com", "eventName": "CreateTopic", "awsRegion": "us-west-2", "sourceIPAddress": "127.0.0.1", "userAgent": "aws-sdk-java/unknown-version", "requestParameters": { "name": "hello" }, "responseElements": { "topicArn": "arn:aws:sns:us-west-2:123456789012:hello-topic" }, "requestID": "example7-5cd3-5323-8a00-f1889011fee9", "eventID": "examplec-4f2f-4625-8378-130ac89660b1", "eventType": "AwsApiCall", "recipientAccountId": "123456789012" }, { "eventVersion": "1.02", "userIdentity": { "type": "IAMUser", "userName": "Bob", "principalId": "EX_PRINCIPAL_ID", "arn": "arn:aws:iam::123456789012:user/Bob", "accountId": "123456789012", "accessKeyId": "AKIAIOSFODNN7EXAMPLE" }, "eventTime": "2014-09-30T00:00:00Z", "eventSource": "sns.amazonaws.com", "eventName": "DeleteTopic", "awsRegion": "us-west-2", "sourceIPAddress": "127.0.0.1", "userAgent": "aws-sdk-java/unknown-version", "requestParameters": { "topicArn": "arn:aws:sns:us-west-2:123456789012:hello-topic" }, "responseElements": null, "requestID": "example5-4faa-51d5-aab2-803a8294388d", "eventID": "example8-6443-4b4d-abfd-1b867280d964", "eventType": "AwsApiCall", "recipientAccountId": "123456789012" } ] }` The following example shows a CloudTrail event that demonstrates the `**Publish**` action. `{ "eventVersion": "1.09", "userIdentity": { "type": "AssumedRole", "principalId": "EX_PRINCIPAL_ID", "arn": "arn:aws:iam::123456789012:user/Bob", "accountId": "123456789012", "accessKeyId": "AKIAIOSFODNN7EXAMPLE", "sessionContext": { "sessionIssuer": { "type": "Role", "principalId": "AKIAIOSFODNN7EXAMPLE", "arn": "arn:aws:iam::123456789012:role/Admin", "accountId": "123456789012", "userName": "ExampleUser" }, "attributes": { "creationDate": "2023-08-21T16:44:05Z", "mfaAuthenticated": "false" } } }, "eventTime": "2023-08-21T16:48:37Z", "eventSource": "sns.amazonaws.com", "eventName": "Publish", "awsRegion": "us-east-1", "sourceIPAddress": "192.0.2.0", "userAgent": "aws-cli/1.29.16 md/Botocore#1.31.16 ua/2.0 os/linux#5.4.250-173.369.amzn2int.x86_64 md/arch#x86_64 lang/python#3.8.17 md/pyimpl#CPython cfg/retry-mode#legacy botocore/1.31.16", "requestParameters": { "topicArn": "arn:aws:sns:us-east-1:123456789012:ExampleSNSTopic", "message": "HIDDEN_DUE_TO_SECURITY_REASONS", "subject": "HIDDEN_DUE_TO_SECURITY_REASONS", "messageStructure": "json", "messageAttributes": "HIDDEN_DUE_TO_SECURITY_REASONS" }, "responseElements": { "messageId": "0787cd1e-d92b-521c-a8b4-90434e8ef840" }, "requestID": "0a8ab208-11bf-5e01-bd2d-ef55861b545d", "eventID": "bb3496d4-5252-4660-9c28-3c6aebdb21c0", "readOnly": false, "resources": [ { "accountId": "123456789012", "type": "AWS::SNS::Topic", "ARN": "arn:aws:sns:us-east-1:123456789012:ExampleSNSTopic" } ], "eventType": "AwsApiCall", "managementEvent": false, "recipientAccountId": "123456789012", "eventCategory": "Data", "tlsDetails": { "tlsVersion": "TLSv1.2", "cipherSuite": "ECDHE-RSA-AES128-GCM-SHA256", "clientProvidedHostHeader": "sns.us-east-1.amazonaws.com" } }` The following example shows a CloudTrail event that demonstrates the `**PublishBatch**` action. `{ "eventVersion": "1.09", "userIdentity": { "type": "AssumedRole", "principalId": "EX_PRINCIPAL_ID", "arn": "arn:aws:iam::123456789012:user/Bob", "accountId": "123456789012", "accessKeyId": "AKIAIOSFODNN7EXAMPLE", "sessionContext": { "sessionIssuer": { "type": "Role", "principalId": "AKIAIOSFODNN7EXAMPLE", "arn": "arn:aws:iam::123456789012:role/Admin", "accountId": "123456789012", "userName": "ExampleUser" }, "attributes": { "creationDate": "2023-08-21T19:20:49Z", "mfaAuthenticated": "false" } } }, "eventTime": "2023-08-21T19:22:01Z", "eventSource": "sns.amazonaws.com", "eventName": "PublishBatch", "awsRegion": "us-east-1", "sourceIPAddress": "192.0.2.0", "userAgent": "aws-cli/1.29.16 md/Botocore#1.31.16 ua/2.0 os/linux#5.4.250-173.369.amzn2int.x86_64 md/arch#x86_64 lang/python#3.8.17 md/pyimpl#CPython cfg/retry-mode#legacy botocore/1.31.16", "requestParameters": { "topicArn": "arn:aws:sns:us-east-1:123456789012:ExampleSNSTopic", "publishBatchRequestEntries": [ { "id": "1", "message": "HIDDEN_DUE_TO_SECURITY_REASONS" }, { "id": "2", "message": "HIDDEN_DUE_TO_SECURITY_REASONS" } ] }, "responseElements": { "successful": [ { "id": "1", "messageId": "30d68101-a64a-5573-9e10-dc5c1dd3af2f" }, { "id": "2", "messageId": "c0aa0c5c-561d-5455-b6c4-5101ed84de09" } ], "failed": [] }, "requestID": "e2cdf7f3-1b35-58ad-ac9e-aaaea0ace2f1", "eventID": "10da9a14-0154-4ab6-b3a5-1825b229a7ed", "readOnly": false, "resources": [ { "accountId": "123456789012", "type": "AWS::SNS::Topic", "ARN": "arn:aws:sns:us-east-1:123456789012:ExampleSNSTopic" } ], "eventType": "AwsApiCall", "managementEvent": false, "recipientAccountId": "123456789012", "eventCategory": "Data", "tlsDetails": { "tlsVersion": "TLSv1.2", "cipherSuite": "ECDHE-RSA-AES128-GCM-SHA256", "clientProvidedHostHeader": "sns.us-east-1.amazonaws.com" } }` For information about CloudTrail record contents, see [CloudTrail record contents](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-record-contents.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-record-contents.md") in the _AWS CloudTrail User Guide_. |
+| Data event type (console) | resources.type value                                                                                                                                               | Data APIs logged to CloudTrail                                                                                                                                                                                                                                                                              |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **SNS topic**             | [`AWS::SNS::Topic`](../../../AWSCloudFormation/latest/UserGuide/aws-resource-sns-topic.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-sns-topic.md") | • [`Publish`](../api/API_Publish.md "../api/API_Publish.md")<br>• [`PublishBatch`](../api/API_PublishBatch.md "../api/API_PublishBatch.md")                                                                                                                                                                 |
+| **SNS platform endpoint** | `AWS::SNS::PlatformEndpoint`                                                                                                                                       | • [Publish](../api/API_Publish.md "../api/API_Publish.md")<br>For additional details, see [`AdvancedEventSelector`](../../../awscloudtrail/latest/APIReference/API_AdvancedEventSelector.md "../../../awscloudtrail/latest/APIReference/API_AdvancedEventSelector.md") in the AWS CloudTrail API Reference. |
+
+###### Note
+
+SNS resource type `AWS::SNS::PhoneNumber` is not logged by CloudTrail.
+
+You can configure advanced event selectors to filter on the `eventName`,
+`readOnly`, and `resources.ARN` fields to log only those events that
+are important to you. For more information about these fields, see [AdvancedFieldSelector](../../../awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.md "../../../awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.md") in the
+_AWS CloudTrail API Reference_.
+
+For information about logging data events, see Logging data events with the AWS Management Console and
+Logging data events with the AWS CLI in the CloudTrail User Guide.
+
+## SNS management events in CloudTrail
+
+[Management events](../../../awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.md#logging-management-events "../../../awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.md#logging-management-events") provide information about management operations that are performed on resources in your AWS account. These are also known as control plane operations. By default, CloudTrail logs management events.
+
+AWS SNS logs the following SNS control plane operations to CloudTrail as
+_management events_.
+
+- `AddPermission`
+- `CheckIfPhoneNumberIsOptedOut`
+- `ConfirmSubscription`
+- `CreatePlatformApplication`
+- `CreatePlatformEndpoint`
+- `CreateSMSSandboxPhoneNumber`
+- `CreateTopic`
+- `DeleteEndpoint`
+- `DeletePlatformApplication`
+- `DeleteSMSSandboxPhoneNumber`
+- `DeleteTopic`
+- `GetDataProtectionPolicy`
+- `GetEndpointAttributes`
+- `GetPlatformApplicationAttributes`
+- `GetSMSAttributes`
+- `GetSMSSandboxAccountStatus`
+- `GetSubscriptionAttributes`
+- `GetTopicAttributes`
+- `ListEndpointsByPlatformApplication`
+- `ListOriginationNumbers`
+- `ListPhoneNumbersOptedOut`
+- `ListPlatformApplications`
+- `ListSMSSandboxPhoneNumbers`
+- `ListSubscriptions`
+- `ListSubscriptionsByTopic`
+- `ListTagsForResource`
+- `ListTopics`
+- `OptInPhoneNumber`
+- `PutDataProtectionPolicy`
+- `RemovePermission`
+- `SetEndpointAttributes`
+- `SetPlatformApplicationAttributes`
+- `SetSMSAttributes`
+- `SetSubscriptionAttributes`
+- `SetTopicAttributes`
+- `Subscribe`
+- `TagResource`
+- `Unsubscribe`
+- `UntagResource`
+- `VerifySMSSandboxPhoneNumber`
+
+###### Note
+
+When you are not logged in to Amazon Web Services (unauthenticated mode) and either the [`ConfirmSubscription`](../api/API_ConfirmSubscription.md "../api/API_ConfirmSubscription.md")
+or [`Unsubscribe`](../api/API_Unsubscribe.md "../api/API_Unsubscribe.md") actions
+are invoked, then they will not be logged to CloudTrail. Such as, when you choose the provided
+link in an email notification to confirm a pending subscription to a topic, the
+`ConfirmSubscription` action is invoked in unauthenticated mode. In this
+example, the `ConfirmSubscription` action would not be logged to CloudTrail.
+
+## SNS event examples
+
+An event represents a single request from any source and includes information about the requested API operation, the date and time of the operation, request parameters, and so on. CloudTrail log files aren't an ordered stack trace of the public API calls, so events don't appear in any specific order.
+
+The following example shows a CloudTrail event that demonstrates the **`ListTopics`**, `**CreateTopic**`, and `**DeleteTopic**` actions.
+
+```
+{
+  "Records": [
+    {
+      "eventVersion": "1.02",
+      "userIdentity": {
+        "type": "IAMUser",
+        "userName": "Bob",
+        "principalId": "EX_PRINCIPAL_ID",
+        "arn": "arn:aws:iam::123456789012:user/Bob",
+        "accountId": "123456789012",
+        "accessKeyId": "AKIAIOSFODNN7EXAMPLE"
+      },
+      "eventTime": "2014-09-30T00:00:00Z",
+      "eventSource": "sns.amazonaws.com",
+      "eventName": "ListTopics",
+      "awsRegion": "us-west-2",
+      "sourceIPAddress": "127.0.0.1",
+      "userAgent": "aws-sdk-java/unknown-version",
+      "requestParameters": {
+        "nextToken": "ABCDEF1234567890EXAMPLE=="
+      },
+      "responseElements": null,
+      "requestID": "example1-b9bb-50fa-abdb-80f274981d60",
+      "eventID": "example0-09a3-47d6-a810-c5f9fd2534fe",
+      "eventType": "AwsApiCall",
+      "recipientAccountId": "123456789012"
+    },
+    {
+      "eventVersion": "1.02",
+      "userIdentity": {
+        "type": "IAMUser",
+        "userName": "Bob",
+        "principalId": "EX_PRINCIPAL_ID",
+        "arn": "arn:aws:iam::123456789012:user/Bob",
+        "accountId": "123456789012",
+        "accessKeyId": "AKIAIOSFODNN7EXAMPLE"
+      },
+      "eventTime": "2014-09-30T00:00:00Z",
+      "eventSource": "sns.amazonaws.com",
+      "eventName": "CreateTopic",
+      "awsRegion": "us-west-2",
+      "sourceIPAddress": "127.0.0.1",
+      "userAgent": "aws-sdk-java/unknown-version",
+      "requestParameters": {
+        "name": "hello"
+      },
+      "responseElements": {
+        "topicArn": "arn:aws:sns:us-west-2:123456789012:hello-topic"
+      },
+      "requestID": "example7-5cd3-5323-8a00-f1889011fee9",
+      "eventID": "examplec-4f2f-4625-8378-130ac89660b1",
+      "eventType": "AwsApiCall",
+      "recipientAccountId": "123456789012"
+    },
+    {
+      "eventVersion": "1.02",
+      "userIdentity": {
+        "type": "IAMUser",
+        "userName": "Bob",
+        "principalId": "EX_PRINCIPAL_ID",
+        "arn": "arn:aws:iam::123456789012:user/Bob",
+        "accountId": "123456789012",
+        "accessKeyId": "AKIAIOSFODNN7EXAMPLE"
+      },
+      "eventTime": "2014-09-30T00:00:00Z",
+      "eventSource": "sns.amazonaws.com",
+      "eventName": "DeleteTopic",
+      "awsRegion": "us-west-2",
+      "sourceIPAddress": "127.0.0.1",
+      "userAgent": "aws-sdk-java/unknown-version",
+      "requestParameters": {
+        "topicArn": "arn:aws:sns:us-west-2:123456789012:hello-topic"
+      },
+      "responseElements": null,
+      "requestID": "example5-4faa-51d5-aab2-803a8294388d",
+      "eventID": "example8-6443-4b4d-abfd-1b867280d964",
+      "eventType": "AwsApiCall",
+      "recipientAccountId": "123456789012"
+    }
+  ]
+}
+```
+
+The following example shows a CloudTrail event that demonstrates the `**Publish**` action.
+
+```
+{
+  "eventVersion": "1.09",
+  "userIdentity": {
+    "type": "AssumedRole",
+    "principalId": "EX_PRINCIPAL_ID",
+    "arn": "arn:aws:iam::123456789012:user/Bob",
+    "accountId": "123456789012",
+    "accessKeyId": "AKIAIOSFODNN7EXAMPLE",
+    "sessionContext": {
+      "sessionIssuer": {
+        "type": "Role",
+        "principalId": "AKIAIOSFODNN7EXAMPLE",
+        "arn": "arn:aws:iam::123456789012:role/Admin",
+        "accountId": "123456789012",
+        "userName": "ExampleUser"
+      },
+      "attributes": {
+        "creationDate": "2023-08-21T16:44:05Z",
+        "mfaAuthenticated": "false"
+      }
+    }
+  },
+  "eventTime": "2023-08-21T16:48:37Z",
+  "eventSource": "sns.amazonaws.com",
+  "eventName": "Publish",
+  "awsRegion": "us-east-1",
+  "sourceIPAddress": "192.0.2.0",
+  "userAgent": "aws-cli/1.29.16 md/Botocore#1.31.16 ua/2.0 os/linux#5.4.250-173.369.amzn2int.x86_64 md/arch#x86_64 lang/python#3.8.17 md/pyimpl#CPython cfg/retry-mode#legacy botocore/1.31.16",
+  "requestParameters": {
+    "topicArn": "arn:aws:sns:us-east-1:123456789012:ExampleSNSTopic",
+    "message": "HIDDEN_DUE_TO_SECURITY_REASONS",
+    "subject": "HIDDEN_DUE_TO_SECURITY_REASONS",
+    "messageStructure": "json",
+    "messageAttributes": "HIDDEN_DUE_TO_SECURITY_REASONS"
+  },
+  "responseElements": {
+    "messageId": "0787cd1e-d92b-521c-a8b4-90434e8ef840"
+  },
+  "requestID": "0a8ab208-11bf-5e01-bd2d-ef55861b545d",
+  "eventID": "bb3496d4-5252-4660-9c28-3c6aebdb21c0",
+  "readOnly": false,
+  "resources": [
+    {
+      "accountId": "123456789012",
+      "type": "AWS::SNS::Topic",
+      "ARN": "arn:aws:sns:us-east-1:123456789012:ExampleSNSTopic"
+    }
+  ],
+  "eventType": "AwsApiCall",
+  "managementEvent": false,
+  "recipientAccountId": "123456789012",
+  "eventCategory": "Data",
+  "tlsDetails": {
+    "tlsVersion": "TLSv1.2",
+    "cipherSuite": "ECDHE-RSA-AES128-GCM-SHA256",
+    "clientProvidedHostHeader": "sns.us-east-1.amazonaws.com"
+  }
+}
+```
+
+The following example shows a CloudTrail event that demonstrates the `**PublishBatch**` action.
+
+```
+{
+  "eventVersion": "1.09",
+  "userIdentity": {
+    "type": "AssumedRole",
+    "principalId": "EX_PRINCIPAL_ID",
+    "arn": "arn:aws:iam::123456789012:user/Bob",
+    "accountId": "123456789012",
+    "accessKeyId": "AKIAIOSFODNN7EXAMPLE",
+    "sessionContext": {
+      "sessionIssuer": {
+        "type": "Role",
+        "principalId": "AKIAIOSFODNN7EXAMPLE",
+        "arn": "arn:aws:iam::123456789012:role/Admin",
+        "accountId": "123456789012",
+        "userName": "ExampleUser"
+      },
+      "attributes": {
+        "creationDate": "2023-08-21T19:20:49Z",
+        "mfaAuthenticated": "false"
+      }
+    }
+  },
+  "eventTime": "2023-08-21T19:22:01Z",
+  "eventSource": "sns.amazonaws.com",
+  "eventName": "PublishBatch",
+  "awsRegion": "us-east-1",
+  "sourceIPAddress": "192.0.2.0",
+  "userAgent": "aws-cli/1.29.16 md/Botocore#1.31.16 ua/2.0 os/linux#5.4.250-173.369.amzn2int.x86_64 md/arch#x86_64 lang/python#3.8.17 md/pyimpl#CPython cfg/retry-mode#legacy botocore/1.31.16",
+  "requestParameters": {
+    "topicArn": "arn:aws:sns:us-east-1:123456789012:ExampleSNSTopic",
+    "publishBatchRequestEntries": [
+      {
+        "id": "1",
+        "message": "HIDDEN_DUE_TO_SECURITY_REASONS"
+      },
+      {
+        "id": "2",
+        "message": "HIDDEN_DUE_TO_SECURITY_REASONS"
+      }
+    ]
+  },
+  "responseElements": {
+    "successful": [
+      {
+        "id": "1",
+        "messageId": "30d68101-a64a-5573-9e10-dc5c1dd3af2f"
+      },
+      {
+        "id": "2",
+        "messageId": "c0aa0c5c-561d-5455-b6c4-5101ed84de09"
+      }
+    ],
+    "failed": []
+  },
+  "requestID": "e2cdf7f3-1b35-58ad-ac9e-aaaea0ace2f1",
+  "eventID": "10da9a14-0154-4ab6-b3a5-1825b229a7ed",
+  "readOnly": false,
+  "resources": [
+    {
+      "accountId": "123456789012",
+      "type": "AWS::SNS::Topic",
+      "ARN": "arn:aws:sns:us-east-1:123456789012:ExampleSNSTopic"
+    }
+  ],
+  "eventType": "AwsApiCall",
+  "managementEvent": false,
+  "recipientAccountId": "123456789012",
+  "eventCategory": "Data",
+  "tlsDetails": {
+    "tlsVersion": "TLSv1.2",
+    "cipherSuite": "ECDHE-RSA-AES128-GCM-SHA256",
+    "clientProvidedHostHeader": "sns.us-east-1.amazonaws.com"
+  }
+}
+```
+
+For information about CloudTrail record contents, see [CloudTrail
+record contents](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-record-contents.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-record-contents.md") in the _AWS CloudTrail User Guide_.
