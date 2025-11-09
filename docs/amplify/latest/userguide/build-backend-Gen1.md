@@ -151,7 +151,7 @@ backend in the Amplify Hosting console.
 2. Locate the **main** branch and choose
    **Edit**.
 
-![The location of the Edit link for a branch in the Amplify console.](/images/amplify/latest/userguide/images/amplify_edit_backend_alternate.png) 3. In the **Edit target backend** window, for
+![The location of the Edit link for a branch in the Amplify console.](images/amplify_edit_backend_alternate.png) 3. In the **Edit target backend** window, for
 **Environment**, select the name of the backend to connect. In
 this example, choose the **staging** backend that you created in
 _Step 2_.

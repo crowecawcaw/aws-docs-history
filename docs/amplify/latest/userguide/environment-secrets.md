@@ -60,9 +60,9 @@ Specify an Systems Manager parameter in the format
 You can use the following environment secrets that are accessible by default within
 the Amplify console.
 
-| Variable name            | Description                        | Example value                                                        |
-| ------------------------ | ---------------------------------- | -------------------------------------------------------------------- |
-| AMPLIFY_SIWA_CLIENT_ID   | The Sign in with Apple client ID   | `com.yourapp.auth`                                                   |
-| AMPLIFY_SIWA_TEAM_ID     | The Sign in with Apple team ID     | `ABCD123`                                                            |
-| AMPLIFY_SIWA_KEY_ID      | The Sign in with Apple key ID      | `ABCD123`                                                            |
-| AMPLIFY_SIWA_PRIVATE_KEY | The Sign in with Apple private key | -----BEGIN PRIVATE KEY----- \*\*\*\*...... -----END PRIVATE KEY----- |
+| Variable name            | Description                        | Example value                                                              |
+| ------------------------ | ---------------------------------- | -------------------------------------------------------------------------- |
+| AMPLIFY_SIWA_CLIENT_ID   | The Sign in with Apple client ID   | `com.yourapp.auth`                                                         |
+| AMPLIFY_SIWA_TEAM_ID     | The Sign in with Apple team ID     | `ABCD123`                                                                  |
+| AMPLIFY_SIWA_KEY_ID      | The Sign in with Apple key ID      | `ABCD123`                                                                  |
+| AMPLIFY_SIWA_PRIVATE_KEY | The Sign in with Apple private key | -----BEGIN PRIVATE KEY-----<br>\*\*\*\*......<br>-----END PRIVATE KEY----- |

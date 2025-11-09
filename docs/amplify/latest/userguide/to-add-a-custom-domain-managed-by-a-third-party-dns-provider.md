@@ -98,7 +98,7 @@ for the CNAME record value.
 The following screenshot shows the location of the ACM verification record to
 use.
 
-![The DNS records in the Amplify console, including the ACM verification record.](/images/amplify/latest/userguide/images/amplify-customdomains-DNS-verification2.png)
+![The DNS records in the Amplify console, including the ACM verification record.](images/amplify-customdomains-DNS-verification2.png)
 
 Amplify uses this information to verify ownership of your domain and generate an
 SSL/TLS certificate for your domain. Once Amplify validates ownership of your

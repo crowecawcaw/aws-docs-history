@@ -19,7 +19,209 @@ The following table describes the compute specifications for each build instance
 type:
 
 | Build instance type | vCPUs    | Memory | Disk space |
-| ------------------- | -------- | ------ | ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------------- | -------- | ------ | ---------- |
 | Standard            | 4 vCPUs  | 8 GiB  | 128 GB     |
 | Large               | 8 vCPUs  | 16 GiB | 128 GB     |
-| XLarge              | 36 vCPUs | 72 GiB | 256 GB     | ###### Topics <br>• [Understanding build instance types](#understanding-build-instance-sizes "#understanding-build-instance-sizes") <br>• [Configuring the build instance type in the Amplify console](#configure-build-instance-type "#configure-build-instance-type") <br>• [Configuring an application's heap memory to utilize large instance types](#configuring-heap-memory "#configuring-heap-memory") ## Understanding build instance types The build instance type setting is configured at the application level and extends to all of the application's branches. The following key details apply to build instance types: <br>• The build instance type that you configure for an application automatically applies to auto-created branches and pull request previews. <br>• The _Concurrent jobs_ service quota applies across all build instance types in your AWS account. For example, if your _Concurrent jobs_ limit is five, you can run up to a maximum of 5 builds across all instance types in your AWS account. <br>• The cost for each build instance type is calculated per build minute. The build instance allocation process can require additional overhead time before your build starts. For larger instances, especially XLarge, your build might experience latency before the build starts, due to this overhead time. However, you are billed only for the actual build time, not the overhead time. You can configure the build instance type when you create a new application or you can update the instance type on an existing application. For instructions on configuring this setting in the Amplify console, see [Configuring the build instance type in the Amplify console](#configure-build-instance-type "#configure-build-instance-type"). You can also update this setting using the SDKs. For more information, see the [CreateApp](../APIReference/API_CreateApp.md "../APIReference/API_CreateApp.md"), and [UpdateApp](../APIReference/API_UpdateApp.md "../APIReference/API_UpdateApp.md") APIs in the _Amplify API Reference_. If you have existing applications in your account that were created before the release of the customizable build instance type feature, they are using the default Standard instance type. When you update the build instance type for an existing application, any builds that are queued or in progress before your update will utilize the previously configured build instance type. For example, if you have an existing application with the `main` branch deployed to Amplify and you update its build instance type from **Standard** to **Large**, all new builds that you initiate from the `main` branch will use the **Large** build instance type. However, any builds that are in progress at the time that you update the build instance type will continue to run on the **Standard** instance. ## Configuring the build instance type in the Amplify console Use the following procedure to configure the build instance type when you create a new Amplify application. ###### To configure the build instance type for a new application 1. Sign in to the AWS Management Console and open the [Amplify console](https://console.aws.amazon.com/amplify/ "https://console.aws.amazon.com/amplify/"). 2. On the **All apps** page, choose **Create new app**. 3. On the **Start building with Amplify** page, choose your Git repository provider, then choose **Next**. 4. On the **Add repository branch** page, do the following: 1. In the **Recently updated repositories** list, select the name of the repository to connect. 2. In the **Branch** list, select the name of the repository branch to connect. 3. Choose **Next**. 5. On the **App settings** page, open the **Advanced settings** section. 6. For **Build instance type**, choose your desired instance type from the list. 7. If you are deploying a Node.js runtime based application, configure the heap memory size to effectively utilize a large instance type. You can do this on the **App settings** page by either setting an environment variable or updating the build settings. For more information, see [Configuring an application's heap memory to utilize large instance types](#configuring-heap-memory "#configuring-heap-memory") . <br>• Set an environment variable 1. In the **Advanced settings**, **Environment variables** section, choose **Add new**. 2. For **Key** enter `NODE_OPTIONS`. 3. For **Value**, enter `--max-old-space-size=`memory_size_in_mb``. Replace `memory_size_in_mb` with your desired heap memory size in megabytes. <br>• Update the build settings 1. In the **Build settings** section, choose **Edit YML file**. 2. Add the following command to the `preBuild` phase. Replace `memory_size_in_mb` with your desired heap memory size in megabytes. ``` export NODE_OPTIONS='--max-old-space-size=`memory_size_in_mb`' ``` 3. Choose **Save**. 8. Choose, **Next**. 9. On the **Review** page, choose **Save and deploy**. Use the following procedure to configure the build instance type for an existing Amplify application. ###### To configure the build instance type for an existing application 1. Sign in to the AWS Management Console and open the [Amplify console](https://console.aws.amazon.com/amplify/ "https://console.aws.amazon.com/amplify/"). 2. Choose the app that you want to configure the build instance type for. 3. In the navigation pane, choose **Hosting**, the choose **Build settings**. 4. On the **Build settings** page, in the **Advanced settings** section, choose **Edit**. 5. On the **Edit settings** page, for **Build instance type**, choose your desired instance type from the list. 6. Choose **Save**. This change will take effect the next time you deploy the application. 7. (Optional) To deploy the updated application immediately, do the following: 1. In the navigation pane, choose **Overview**. 2. On your application's overview page, choose the branch to redeploy. 3. On the **Deployment** page, choose a deployment, such as the most recent deployment. Then, choose **Redeploy this version**. A new deployment will begin. 4. When the deployment completes, the application's build settings will show that the branch is using the updated build instance type. ## Configuring an application's heap memory to utilize large instance types If you are building memory intensive applications, use this section to understand how to configure your application to utilize large instance types. Programming languages and frameworks often rely on allocating dynamic memory, also known as heap memory, during runtime to manage application memory requirements. Heap memory is requested by the runtime environment and allocated by the host operating system. By default, runtime environments enforce a maximum heap size limit available to the application. This means that no additional memory will be available for the application beyond the heap size, even though the host operating system or container has a larger amount of memory available. As an example, the JavaScript Node.js v8 runtime environment enforces a default heap size limit which depends on several factors, including the host memory size. As a result, Standard and Large build instances have a default Node.js heap size of 2096 MB and the XLarge instance has a default heap size of 4144 MB. Therefore, building an application with a 6000 MB memory requirement using the default Node.js heap size on any Amplify build instance type will result in a failed build due to an out-of-memory error. To work around the Node.js default heap size memory limits, you can do one of the following: <br>• Set the `NODE_OPTIONS` environment variable in your Amplify application to the value `--max-old-space-size=`memory_size_in_mb``. For `memory_size_in_mb`, specify your desired heap memory size in megabytes. For instructions, see [Setting environment variables](setting-env-vars.md "setting-env-vars.md"). <br>• Add the following command to the `preBuild` phase in your Amplify application's build specification. ``export NODE_OPTIONS='--max-old-space-size=`memory_size_in_mb`'`` You can update the build specification in the Amplify console or in your application's `amplify.yml` file in your project repository. For instructions, see [Configuring the build settings for an Amplify application](build-settings.md "build-settings.md"). The following example Amplify build specification sets a Node.js heap memory size to 7000 MB for building a React frontend application: `version: 1 frontend: phases: preBuild: commands: # Set the heap size to 7000 MB <br>• export NODE_OPTIONS='--max-old-space-size=7000' # To check the heap size memory limit in MB <br>• node -e "console.log('Total available heap size (MB):', v8.getHeapStatistics().heap_size_limit / 1024 / 1024)" <br>• npm ci --cache .npm --prefer-offline build: commands: <br>• npm run build artifacts: baseDirectory: build files: <br>• '**/*' cache: paths: <br>• .npm/**/*` To effectively utilize large instance types, it is important to have a sufficient heap memory size configured. Configuring a small heap size for a memory intensive application will likely result in a build failure. The application's build logs might not directly indicate an out-of-memory error as the application runtime can crash unexpectedly. Configuring a heap size as large as the host memory might result in the host operating system swapping or terminating other processes, and potentially disrupting your build process. As a reference, Node.js recommends setting a maximum heap size of 1536 MB on a machine with approximately 2000 MB of memory to leave some memory for other uses. The optimal heap size depends on your application's needs and resource usage. If you encounter out-of-memory errors, start with a moderate heap size and then gradually increase it as needed. As a guideline, we recommend starting with 6000 MB for a Standard instance type, 12000 MB for a Large instance type, and 60000 MB for an XLarge instance type. |
+| XLarge              | 36 vCPUs | 72 GiB | 256 GB     |
+
+###### Topics
+
+- [Understanding build instance types](#understanding-build-instance-sizes "#understanding-build-instance-sizes")
+- [Configuring the build instance type in the
+  Amplify console](#configure-build-instance-type "#configure-build-instance-type")
+- [Configuring an application's heap memory to utilize
+  large instance types](#configuring-heap-memory "#configuring-heap-memory")
+
+## Understanding build instance types
+
+The build instance type setting is configured at the application level and extends to all
+of the application's branches. The following key details apply to build instance types:
+
+- The build instance type that you configure for an application automatically applies to
+  auto-created branches and pull request previews.
+- The _Concurrent jobs_ service quota applies across all build
+  instance types in your AWS account. For example, if your _Concurrent
+  jobs_ limit is five, you can run up to a maximum of 5 builds across all
+  instance types in your AWS account.
+- The cost for each build instance type is calculated per build minute. The build
+  instance allocation process can require additional overhead time before your build starts.
+  For larger instances, especially XLarge, your build might experience latency before the
+  build starts, due to this overhead time. However, you are billed only for the actual build
+  time, not the overhead time.
+
+You can configure the build instance type when you create a new application or you can
+update the instance type on an existing application. For instructions on configuring this
+setting in the Amplify console, see [Configuring the build instance type in the
+Amplify console](#configure-build-instance-type "#configure-build-instance-type"). You can also update this setting using the
+SDKs. For more information, see the [CreateApp](../APIReference/API_CreateApp.md "../APIReference/API_CreateApp.md"), and [UpdateApp](../APIReference/API_UpdateApp.md "../APIReference/API_UpdateApp.md")
+APIs in the _Amplify API Reference_.
+
+If you have existing applications in your account that were created before the release of
+the customizable build instance type feature, they are using the default
+Standard instance type. When you update the build instance type for an
+existing application, any builds that are queued or in progress before your update will
+utilize the previously configured build instance type. For example, if you have an existing
+application with the `main` branch deployed to Amplify and you update its build
+instance type from **Standard** to **Large**, all new builds
+that you initiate from the `main` branch will use the **Large**
+build instance type. However, any builds that are in progress at the time that you update the
+build instance type will continue to run on the **Standard** instance.
+
+## Configuring the build instance type in the
+
+Amplify console
+
+Use the following procedure to configure the build instance type when you create a new
+Amplify application.
+
+###### To configure the build instance type for a new application
+
+1. Sign in to the AWS Management Console and open the [Amplify
+   console](https://console.aws.amazon.com/amplify/ "https://console.aws.amazon.com/amplify/").
+2. On the **All apps** page, choose **Create new
+   app**.
+3. On the **Start building with Amplify** page, choose your Git
+   repository provider, then choose **Next**.
+4. On the **Add repository branch** page, do the following:
+   1. In the **Recently updated repositories** list, select the name of
+      the repository to connect.
+   2. In the **Branch** list, select the name of the repository branch
+      to connect.
+   3. Choose **Next**.
+
+5. On the **App settings** page, open the **Advanced
+   settings** section.
+6. For **Build instance type**, choose your desired instance type from
+   the list.
+7. If you are deploying a Node.js runtime based application, configure the heap memory
+   size to effectively utilize a large instance type. You can do this on the **App
+   settings** page by either setting an environment variable or updating the build
+   settings. For more information, see [Configuring an application's heap memory to utilize
+   large instance types](#configuring-heap-memory "#configuring-heap-memory") .
+   - Set an environment variable
+     1. In the **Advanced settings**, **Environment
+        variables** section, choose **Add new**.
+     2. For **Key** enter `NODE_OPTIONS`.
+     3. For **Value**, enter `--max-old-space-size=`memory_size_in_mb``. Replace `memory_size_in_mb` with your desired heap memory size in megabytes.
+
+   - Update the build settings
+     1. In the **Build settings** section, choose **Edit YML file**.
+     2. Add the following command to the `preBuild` phase. Replace `memory_size_in_mb` with your desired heap memory size in megabytes.
+
+     ```
+     export NODE_OPTIONS='--max-old-space-size=`memory_size_in_mb`'
+     ```
+
+     3. Choose **Save**.
+
+8. Choose, **Next**.
+9. On the **Review** page, choose **Save and
+   deploy**.
+
+Use the following procedure to configure the build instance type for an existing Amplify
+application.
+
+###### To configure the build instance type for an existing application
+
+1. Sign in to the AWS Management Console and open the [Amplify
+   console](https://console.aws.amazon.com/amplify/ "https://console.aws.amazon.com/amplify/").
+2. Choose the app that you want to configure the build instance type for.
+3. In the navigation pane, choose **Hosting**, the choose
+   **Build settings**.
+4. On the **Build settings** page, in the **Advanced
+   settings** section, choose **Edit**.
+5. On the **Edit settings** page, for **Build instance
+   type**, choose your desired instance type from the list.
+6. Choose **Save**. This change will take effect the next time you
+   deploy the application.
+7. (Optional) To deploy the updated application immediately, do the following:
+   1. In the navigation pane, choose **Overview**.
+   2. On your application's overview page, choose the branch to redeploy.
+   3. On the **Deployment** page, choose a deployment, such as the most
+      recent deployment. Then, choose **Redeploy this version**. A new
+      deployment will begin.
+   4. When the deployment completes, the application's build settings will show that the
+      branch is using the updated build instance type.
+
+## Configuring an application's heap memory to utilize
+
+large instance types
+
+If you are building memory intensive applications, use this section to understand how to
+configure your application to utilize large instance types. Programming languages and
+frameworks often rely on allocating dynamic memory, also known as heap memory, during runtime
+to manage application memory requirements. Heap memory is requested by the runtime environment
+and allocated by the host operating system. By default, runtime environments enforce a maximum
+heap size limit available to the application. This means that no additional memory will be
+available for the application beyond the heap size, even though the host operating system or
+container has a larger amount of memory available.
+
+As an example, the JavaScript Node.js v8 runtime environment enforces a default heap size
+limit which depends on several factors, including the host memory size. As a result,
+Standard and Large build instances have a default Node.js heap
+size of 2096 MB and the XLarge instance has a default heap size of 4144 MB.
+Therefore, building an application with a 6000 MB memory requirement using the default Node.js
+heap size on any Amplify build instance type will result in a failed build due to an out-of-memory error.
+
+To work around the Node.js default heap size memory limits, you can do one of the
+following:
+
+- Set the `NODE_OPTIONS` environment variable in your Amplify application
+  to the value
+  `--max-old-space-size=`memory_size_in_mb``. For
+`memory_size_in_mb`, specify your desired heap memory size in
+  megabytes.
+
+For instructions, see [Setting environment variables](setting-env-vars.md "setting-env-vars.md").
+
+- Add the following command to the `preBuild` phase in your Amplify
+  application's build specification.
+
+```
+export NODE_OPTIONS='--max-old-space-size=`memory_size_in_mb`'
+```
+
+You can update the build specification in the Amplify console or in your
+application's `amplify.yml` file in your project repository. For
+instructions, see [Configuring the build settings for an Amplify application](build-settings.md "build-settings.md").
+
+The following example Amplify build specification sets a Node.js heap memory size to
+7000 MB for building a React frontend application:
+
+```
+version: 1
+frontend:
+  phases:
+    preBuild:
+      commands:
+        # Set the heap size to 7000 MB
+        - export NODE_OPTIONS='--max-old-space-size=7000'
+        # To check the heap size memory limit in MB
+        - node -e "console.log('Total available heap size (MB):', v8.getHeapStatistics().heap_size_limit / 1024 / 1024)"
+        - npm ci --cache .npm --prefer-offline
+    build:
+      commands:
+        - npm run build
+  artifacts:
+    baseDirectory: build
+    files:
+      - '**/*'
+  cache:
+    paths:
+      - .npm/**/*
+```
+
+To effectively utilize large instance types, it is important to have a sufficient heap
+memory size configured. Configuring a small heap size for a memory intensive application will
+likely result in a build failure. The application's build logs might not directly indicate an
+out-of-memory error as the application runtime can crash unexpectedly. Configuring a heap size
+as large as the host memory might result in the host operating system swapping or terminating
+other processes, and potentially disrupting your build process. As a reference, Node.js
+recommends setting a maximum heap size of 1536 MB on a machine with approximately 2000 MB of
+memory to leave some memory for other uses.
+
+The optimal heap size depends on your application's needs and resource usage. If you
+encounter out-of-memory errors, start with a moderate heap size and then gradually increase it
+as needed. As a guideline, we recommend starting with 6000 MB for a Standard
+instance type, 12000 MB for a Large instance type, and 60000 MB for an
+XLarge instance type.
