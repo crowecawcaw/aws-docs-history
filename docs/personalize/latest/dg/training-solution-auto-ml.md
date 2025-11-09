@@ -19,9 +19,14 @@ How a recipe is chosen is shown in the following table. Either `performAutoML`or
 `recipeArn` must be specified but not both. AutoML is only performed using the HRNN
 recipes.
 
-| performAutoML | recipeArn | solutionConfig                                          | Result                                                                      |
-| ------------- | --------- | ------------------------------------------------------- | --------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
-| true          | omit      | omitted                                                 | Amazon Personalize chooses the recipe                                       |
-| true          | omit      | `autoMLConfig`: `metricName` and `recipeList` specified | Amazon Personalize chooses a recipe from the list that optimizes the metric |
-| omit          | specified | omitted                                                 | You specify the recipe                                                      |
-| omit          | specified | specified                                               | You specify the recipe and override the default training properties         | ###### Note When `performAutoML` is `true`, all parameters of the `solutionConfig` object are ignored except for `autoMLConfig`. |
+| performAutoML | recipeArn | solutionConfig                                             | Result                                                                      |
+| ------------- | --------- | ---------------------------------------------------------- | --------------------------------------------------------------------------- |
+| true          | omit      | omitted                                                    | Amazon Personalize chooses the recipe                                       |
+| true          | omit      | `autoMLConfig`: `metricName` and `recipeList`<br>specified | Amazon Personalize chooses a recipe from the list that optimizes the metric |
+| omit          | specified | omitted                                                    | You specify the recipe                                                      |
+| omit          | specified | specified                                                  | You specify the recipe and override the default training properties         |
+
+###### Note
+
+When `performAutoML` is `true`, all parameters of the
+`solutionConfig` object are ignored except for `autoMLConfig`.
