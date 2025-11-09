@@ -23,11 +23,25 @@ example, if you specify 1 day as the time range, you won't be able to retrieve
 metrics with a 10 second period.
 
 | Period                          | Maximum time range            |
-| ------------------------------- | ----------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------------------------- | ----------------------------- |
 | 1 second                        | The last 3 hours              |
-| 5 seconds                       |                               | 10 seconds                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| 5 seconds                       |
+| 10 seconds                      |
 | 30 seconds                      |
 | 60 seconds                      | The last 360 hours (15 days)  |
 | 300 seconds (5 minutes)         | The last 1512 hours (63 days) |
 | 900 seconds (15 minutes)        |
-| 3600 seconds (1 hour) or longer | The last 455 days (15 months) | Periods don't have a _minimum time range_. But there is a point where the statistic you apply becomes meaningless if you have a low period. For example, assume that you set the period to one second. This means that CloudWatch retrieves one datapoint. You can't obtain an average, a minimum or a maximum on one datapoint. However, this doesn't mean that the metric is meaningless. Instead, the metric is for the raw datapoint, with no statistic. ## Maximum storage time Metrics are available for the last 15 months. Make sure that you specify a period that allows the time range that you want. |
+| 3600 seconds (1 hour) or longer | The last 455 days (15 months) |
+
+Periods don't have a _minimum time range_.
+But there is a point where the statistic you apply becomes meaningless if you
+have a low period. For example, assume that you set the period to one second.
+This means that CloudWatch retrieves one datapoint. You can't obtain an average, a
+minimum or a maximum on one datapoint. However, this doesn't mean that the
+metric is meaningless. Instead, the metric is for the raw datapoint, with no
+statistic.
+
+## Maximum storage time
+
+Metrics are available for the last 15 months. Make sure that you specify a
+period that allows the time range that you want.

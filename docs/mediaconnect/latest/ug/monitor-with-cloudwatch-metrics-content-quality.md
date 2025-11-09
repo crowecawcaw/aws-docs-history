@@ -10,11 +10,11 @@ evaluate the quality of the content that's transmitted by MediaConnect.
 The following table lists the content quality metrics that AWS Elemental MediaConnect
 sends to CloudWatch.
 
-| Metric                  | Description                                                                                  |
-| ----------------------- | -------------------------------------------------------------------------------------------- |
-| `AudioStreamMissing`    | Monitors instances when the expected audio stream is not detected in the content.            |
-| `BlackFramesBreaching`  | Tracks the duration of black frames in the video that surpasses the specified threshold.     |
-| `FrozenFramesBreaching` | Monitors instances when the video remains unchanged for longer than the specified threshold. |
-| `SilentAudioBreaching`  | Measures the duration of silent audio that exceeds the specified threshold.                  |
-| `TimecodePresent`       | Indicates whether a valid timecode is present in the media stream.                           |
-| `VideoStreamMissing`    | Monitors instances when the expected video stream is absent from the content.                |
+| Metric                  | Description                                                                                     |
+| ----------------------- | ----------------------------------------------------------------------------------------------- |
+| `AudioStreamMissing`    | Monitors instances when the expected audio stream is not<br>detected in the content.            |
+| `BlackFramesBreaching`  | Tracks the duration of black frames in the video that<br>surpasses the specified threshold.     |
+| `FrozenFramesBreaching` | Monitors instances when the video remains unchanged for<br>longer than the specified threshold. |
+| `SilentAudioBreaching`  | Measures the duration of silent audio that exceeds the<br>specified threshold.                  |
+| `TimecodePresent`       | Indicates whether a valid timecode is present in the media<br>stream.                           |
+| `VideoStreamMissing`    | Monitors instances when the expected video stream is absent<br>from the content.                |

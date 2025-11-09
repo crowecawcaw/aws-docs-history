@@ -75,7 +75,7 @@ JPEG XS, you use the following protocols:
 The following table describes what protocols can be used for sources, outputs, or both.
 
 | Transport stream protocols | Protocol | Can this be used as a Source? | Can this be used as an Output? |
-| -------------------------- | -------- | ----------------------------- | ------------------------------ | -------- | ----------------------------- | ------------------------------ |
+| -------------------------- | -------- | ----------------------------- | ------------------------------ |
 | NDI-SpeedHQ                | No       | Yes                           |
 | RIST                       | Yes      | Yes                           |
 | RTP                        | Yes      | Yes                           |
@@ -83,7 +83,9 @@ The following table describes what protocols can be used for sources, outputs, o
 | SRT listener               | Yes      | Yes                           |
 | SRT caller                 | Yes      | Yes                           |
 | Zixi pull                  | No       | Yes                           |
-| Zixi push                  | Yes      | Yes                           | CDI protocols                  | Protocol | Can this be used as a Source? | Can this be used as an Output? |
-| ---                        | ---      | ---                           |
-| CDI                        | Yes      | Yes                           |
-| ST 2110 JPEG XS            | Yes      | Yes                           |
+| Zixi push                  | Yes      | Yes                           |
+
+| CDI protocols   | Protocol | Can this be used as a Source? | Can this be used as an Output? |
+| --------------- | -------- | ----------------------------- | ------------------------------ |
+| CDI             | Yes      | Yes                           |
+| ST 2110 JPEG XS | Yes      | Yes                           |

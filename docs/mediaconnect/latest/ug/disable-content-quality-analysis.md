@@ -37,12 +37,158 @@ Console
    2. To disable specific metrics, turn off one or
       more of the following metrics:
 
-| Metric                    | Description                                               |
-| ------------------------- | --------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------- | ------------- | ----------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Black frames              | Detects periods of black video frames in the stream.      |
-| Frozen frames             | Detects periods of unchanging video frames in the stream. |
-| Silent audio              | Detects periods of audio silence in the stream.           | 6. Choose **Update** to save your changes. AWS CLI ###### To disable all metrics Run the [update-flow](../../../cli/latest/reference/mediaconnect/update-flow.md "../../../cli/latest/reference/mediaconnect/update-flow.md") command as shown in the following example: ``aws mediaconnect update-flow \ --flow-arn "`flowARN`" \ --source-monitoring-config ContentQualityAnalysisState=DISABLED`` In the following example response, `ContentQualityAnalysisState` is now disabled, but individual metric settings remain unchanged: `{ "Flow": { "FlowArn": "<arn>", ... "SourceMonitoringConfig": { "ContentQualityAnalysisState": "DISABLED", "ThumbnailState": "ENABLED", "AudioMonitoringSettings": [ { "SilentAudio": { "State": "ENABLED", "ThresholdSeconds": 30 } } ], "VideoMonitoringSettings": [ { "BlackFrames": { "State": "ENABLED", "ThresholdSeconds": 30 }, "FrozenFrames": { "State": "ENABLED", "ThresholdSeconds": 10 } } ] } } }` ###### Note When `ContentQualityAnalysisState` is set to `DISABLED`, it takes precedence over the individual metric settings. This means that even though individual metrics (`SilentAudio`, `BlackFrames`, `FrozenFrames`) show as `ENABLED`, they are not active. This enables you to maintain your preferred configuration for individual metrics without having to reconfigure them each time you toggle the overall `ContentQualityAnalysisState`. When you want to re-enable content quality analysis, set `ContentQualityAnalysisState` back to `ENABLED`. Your previously configured individual metric settings will then become active again. ###### To disable specific metrics Run the [update-flow](../../../cli/latest/reference/mediaconnect/update-flow.md "../../../cli/latest/reference/mediaconnect/update-flow.md") command with the `--source-monitoring-config parameter` configured as shown below. The following example command disables the two video monitoring metrics while preserving the custom thresholds for future use: `aws mediaconnect update-flow \ --flow-arn "FlowArn" \ --source-monitoring-config ContentQualityAnalysisState=ENABLED \ '{"VideoMonitoringSettings": [ \ {"FrozenFrames": {"State": "DISABLED", "ThresholdSeconds": 10}}, \ {"BlackFrames": {"State": "DISABLED", "ThresholdSeconds": 15}}], \ "AudioMonitoringSettings": [ \ {"SilentAudio": {"State": "ENABLED", "ThresholdSeconds": 25}}]}'` In the following example response, `ContentQualityAnalysisState` remains enabled, but both of the video monitoring metrics are now disabled: `{ "Flow": { "FlowArn": <arn>, ... "SourceMonitoringConfig": { "ContentQualityAnalysisState": "ENABLED", "AudioMonitoringSettings": [ { "SilentAudio": { "State": "ENABLED", "ThresholdSeconds": 25 } } ], "VideoMonitoringSettings": [ { "BlackFrames": { "State": "DISABLED", "ThresholdSeconds": 15 }, "FrozenFrames": { "State": "DISABLED", "ThresholdSeconds": 10 } } ] } } }` Keep in mind the following: <br>• You don’t have to change or remove the existing thresholds for individual metrics. If you re-enable content quality analysis in the future, your custom thresholds are preserved so that you don’t have to reconfigure them. <br>• You can disable one, two, or all three of the following metrics: |
-| Monitoring settings type  | Metric                                                    | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| ---                       | ---                                                       | ---                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| `VideoMonitoringSettings` | `BlackFrames`                                             | Detects periods of black video frames in the stream.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| `FrozenFrames`            | Detects periods of unchanging video frames in the stream. |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | `AudioMonitoringSettings` | `SilentAudio` | Detects periods of audio silence in the stream. | ## Next steps You can re-enable the content quality analysis feature at any time. For instructions, see [Enabling content quality analysis in an existing flow](enable-content-quality-analysis.md#enable-content-quality-analysis-procedure-existing-flow "enable-content-quality-analysis.md#enable-content-quality-analysis-procedure-existing-flow"). |
+   | Metric        | Description                                                  |
+   | ------------- | ------------------------------------------------------------ |
+   | Black frames  | Detects periods of black video frames in<br>the stream.      |
+   | Frozen frames | Detects periods of unchanging video frames<br>in the stream. |
+   | Silent audio  | Detects periods of audio silence in the<br>stream.           |
+
+6. Choose **Update** to save
+   your changes.
+
+AWS CLI
+
+###### To disable all metrics
+
+Run the [update-flow](../../../cli/latest/reference/mediaconnect/update-flow.md "../../../cli/latest/reference/mediaconnect/update-flow.md") command as shown in the following
+example:
+
+```
+aws mediaconnect update-flow \
+--flow-arn "`flowARN`" \
+--source-monitoring-config ContentQualityAnalysisState=DISABLED
+```
+
+In the following example response,
+`ContentQualityAnalysisState` is now disabled,
+but individual metric settings remain unchanged:
+
+```
+{
+   "Flow": {
+              "FlowArn": "<arn>",
+              ...
+              "SourceMonitoringConfig": {
+                "ContentQualityAnalysisState": "DISABLED",
+                "ThumbnailState": "ENABLED",
+                "AudioMonitoringSettings": [
+                    {
+                        "SilentAudio": {
+                            "State": "ENABLED",
+                            "ThresholdSeconds": 30
+                        }
+                    }
+                ],
+                "VideoMonitoringSettings": [
+                    {
+                        "BlackFrames": {
+                            "State": "ENABLED",
+                            "ThresholdSeconds": 30
+                        },
+                        "FrozenFrames": {
+                            "State": "ENABLED",
+                            "ThresholdSeconds": 10
+                        }
+                    }
+                ]
+            }
+         }
+}
+```
+
+###### Note
+
+When `ContentQualityAnalysisState` is set to `DISABLED`, it takes
+precedence over the individual metric settings. This means
+that even though individual metrics
+(`SilentAudio`, `BlackFrames`,
+`FrozenFrames`) show as `ENABLED`,
+they are not active. This enables you to maintain your
+preferred configuration for individual metrics without
+having to reconfigure them each time you toggle the overall
+`ContentQualityAnalysisState`.
+
+When you want to re-enable content quality analysis, set
+`ContentQualityAnalysisState` back to
+`ENABLED`. Your previously configured
+individual metric settings will then become active
+again.
+
+###### To disable specific metrics
+
+Run the [update-flow](../../../cli/latest/reference/mediaconnect/update-flow.md "../../../cli/latest/reference/mediaconnect/update-flow.md") command with the
+`--source-monitoring-config parameter`
+configured as shown below.
+
+The following example command disables the two video
+monitoring metrics while preserving the custom thresholds for
+future use:
+
+```
+aws mediaconnect update-flow \
+ --flow-arn "FlowArn" \
+ --source-monitoring-config ContentQualityAnalysisState=ENABLED \
+ '{"VideoMonitoringSettings": [ \
+ {"FrozenFrames": {"State": "DISABLED", "ThresholdSeconds": 10}}, \
+ {"BlackFrames": {"State": "DISABLED", "ThresholdSeconds": 15}}], \
+ "AudioMonitoringSettings": [ \
+ {"SilentAudio": {"State": "ENABLED", "ThresholdSeconds": 25}}]}'
+```
+
+In the following example response,
+`ContentQualityAnalysisState` remains enabled,
+but both of the video monitoring metrics are now
+disabled:
+
+```
+{
+   "Flow": {
+              "FlowArn": <arn>,
+              ...
+              "SourceMonitoringConfig": {
+                "ContentQualityAnalysisState": "ENABLED",
+                "AudioMonitoringSettings": [
+                    {
+                        "SilentAudio": {
+                            "State": "ENABLED",
+                            "ThresholdSeconds": 25
+                        }
+                    }
+                ],
+                "VideoMonitoringSettings": [
+                    {
+                        "BlackFrames": {
+                            "State": "DISABLED",
+                            "ThresholdSeconds": 15
+                        },
+                        "FrozenFrames": {
+                            "State": "DISABLED",
+                            "ThresholdSeconds": 10
+                        }
+                    }
+                ]
+            }
+         }
+}
+```
+
+Keep in mind the following:
+
+- You don’t have to change or remove the existing
+  thresholds for individual metrics. If you re-enable
+  content quality analysis in the future, your custom
+  thresholds are preserved so that you don’t have to
+  reconfigure them.
+- You can disable one, two, or all three of the
+  following metrics:
+
+| Monitoring settings type  | Metric                                                       | Description                                             |
+| ------------------------- | ------------------------------------------------------------ | ------------------------------------------------------- |
+| `VideoMonitoringSettings` | `BlackFrames`                                                | Detects periods of black video frames in the<br>stream. |
+| `FrozenFrames`            | Detects periods of unchanging video frames in<br>the stream. |
+| `AudioMonitoringSettings` | `SilentAudio`                                                | Detects periods of audio silence in the<br>stream.      |
+
+## Next steps
+
+You can re-enable the content quality analysis feature at any
+time. For instructions, see [Enabling content quality analysis in an existing flow](enable-content-quality-analysis.md#enable-content-quality-analysis-procedure-existing-flow "enable-content-quality-analysis.md#enable-content-quality-analysis-procedure-existing-flow").

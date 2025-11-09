@@ -35,14 +35,50 @@ requirements, as well as MediaConnect Gateway-specific requirements.
 
 The following table contains the default quotas for each MediaConnect Gateway component.
 
-| Component                                      | Default quota        | Can this quota be increased? |
-| ---------------------------------------------- | -------------------- | ---------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Maximum number of gateways for each AWS Region | 3                    | Yes                          |
-| Maximum number of instances for each gateway   | 20                   | No                           |
-| Maximum number of bridges for each gateway     | 40                   | No                           |
-| Maximum bitrate for each bridge                | 100 Mbps             | No                           | ## Supported system architectures The following table contains the recommended system architectures for your individual gateway instances. The system will determine the maximum number of bridges that can run on the instance. Only x86_64 CPU architectures are supported. MediaConnect Gateway does not support ARM-based CPUs: |
-| Number of bridges                              | vCPU cores (2.6 GHz) | vCPU cores (3.0 GHz)         | Minimum RAM (GB)                                                                                                                                                                                                                                                                                                                    | Minimum disk space (GB) |
-| ---                                            | ---                  | ---                          | ---                                                                                                                                                                                                                                                                                                                                 | ---                     |
-| 10                                             | 2                    | 2                            | 4                                                                                                                                                                                                                                                                                                                                   | 25                      |
-| 25                                             | 6                    | 4                            | 8                                                                                                                                                                                                                                                                                                                                   | 25                      |
-| 40                                             | 10                   | 8                            | 16                                                                                                                                                                                                                                                                                                                                  | 25                      | **CPU references** The CPU architectures are benchmarked using these CPUs: <br>• 2.6 GHz - Intel E5-2660 v3 <br>• 3.0 GHz - AMD 7302 ## Supported operating systems The following list contains the supported operating systems (OS) and software configurations for your MediaConnect Gateway instances. **Supported operating systems** <br>• Ubuntu 20.04 **Required software** <br>• Docker - MediaConnect Gateway requires that you install the latest release of Docker. If you are using a Linux distribution other than RHEL, the instance registration script provided by MediaConnect will install Docker for you. Neither Docker or RHEL's open package repositories support installing Docker natively on RHEL. When using RHEL, you must ensure that Docker is installed before you run the instance registration script that's described in this document. |
+| Component                                      | Default quota | Can this quota be increased? |
+| ---------------------------------------------- | ------------- | ---------------------------- |
+| Maximum number of gateways for each AWS Region | 3             | Yes                          |
+| Maximum number of instances for each gateway   | 20            | No                           |
+| Maximum number of bridges for each gateway     | 40            | No                           |
+| Maximum bitrate for each bridge                | 100 Mbps      | No                           |
+
+## Supported system
+
+architectures
+
+The following table contains the recommended system architectures for your
+individual gateway instances. The system will determine the maximum number of
+bridges that can run on the instance. Only x86_64 CPU architectures are
+supported. MediaConnect Gateway does not support ARM-based CPUs:
+
+| Number of bridges | vCPU cores (2.6 GHz) | vCPU cores (3.0 GHz) | Minimum RAM (GB) | Minimum disk space (GB) |
+| ----------------- | -------------------- | -------------------- | ---------------- | ----------------------- |
+| 10                | 2                    | 2                    | 4                | 25                      |
+| 25                | 6                    | 4                    | 8                | 25                      |
+| 40                | 10                   | 8                    | 16               | 25                      |
+
+**CPU references**
+
+The CPU architectures are benchmarked using these CPUs:
+
+- 2.6 GHz - Intel E5-2660 v3
+- 3.0 GHz - AMD 7302
+
+## Supported operating systems
+
+The following list contains the supported operating systems (OS) and software
+configurations for your MediaConnect Gateway instances.
+
+**Supported operating systems**
+
+- Ubuntu 20.04
+
+**Required software**
+
+- Docker - MediaConnect Gateway requires that you install the latest release of
+  Docker. If you are using a Linux distribution other than RHEL, the
+  instance registration script provided by MediaConnect will install Docker for
+  you. Neither Docker or RHEL's open package repositories support
+  installing Docker natively on RHEL. When using RHEL, you must ensure
+  that Docker is installed before you run the instance registration script
+  that's described in this document.

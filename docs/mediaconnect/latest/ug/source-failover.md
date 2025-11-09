@@ -59,16 +59,16 @@ Zixi pull protocol.
 
 The following table describes which source protocols support failover.
 
-| Protocol                             | Does this protocol support source failover? | How many sources can be added?               | Supported failover modes         |
-| ------------------------------------ | ------------------------------------------- | -------------------------------------------- | -------------------------------- |
-| RIST                                 | Yes                                         | 2                                            | Merge or failover                |
-| RTP                                  | Yes                                         | 2                                            | Merge or failover                |
-| RTP-FEC                              | Yes                                         | 2                                            | Merge or failover                |
-| SRT listener                         | Yes                                         | 2                                            | Failover only                    |
-| SRT caller                           | Yes                                         | 2                                            | Failover only                    |
-| Zixi pull                            | No                                          | None - Zixi pull cannot be used as a source. | Source failover is not supported |
-| Zixi push                            | Yes                                         | 2                                            | Merge or failover                |
-| Zixi push for AWS Elemental Link UHD | Yes                                         | 2                                            | Failover only                    |
-| CDI                                  | No                                          | 1                                            | Source failover is not supported |
-| ST 2110 JPEG XS                      | No                                          | 1                                            | Source failover is not supported |
-| Entitlement flows                    | No                                          | 1                                            | Source failover is not supported |
+| Protocol                             | Does this protocol support source failover? | How many sources can be added?                  | Supported failover modes         |
+| ------------------------------------ | ------------------------------------------- | ----------------------------------------------- | -------------------------------- |
+| RIST                                 | Yes                                         | 2                                               | Merge or failover                |
+| RTP                                  | Yes                                         | 2                                               | Merge or failover                |
+| RTP-FEC                              | Yes                                         | 2                                               | Merge or failover                |
+| SRT listener                         | Yes                                         | 2                                               | Failover only                    |
+| SRT caller                           | Yes                                         | 2                                               | Failover only                    |
+| Zixi pull                            | No                                          | None<br>• Zixi pull cannot be used as a source. | Source failover is not supported |
+| Zixi push                            | Yes                                         | 2                                               | Merge or failover                |
+| Zixi push for AWS Elemental Link UHD | Yes                                         | 2                                               | Failover only                    |
+| CDI                                  | No                                          | 1                                               | Source failover is not supported |
+| ST 2110 JPEG XS                      | No                                          | 1                                               | Source failover is not supported |
+| Entitlement flows                    | No                                          | 1                                               | Source failover is not supported |

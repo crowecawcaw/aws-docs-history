@@ -10,7 +10,7 @@ MediaLive does not currently support RGB color space for CDI inputs. If you will
 outputting a CDI flow from MediaConnect to MediaLive, ensure that you use YCbCr color
 space.
 
-| CDI color support | Protocol                                                               | Supported color configurations |
-| ----------------- | ---------------------------------------------------------------------- | ------------------------------ |
-| CDI               | <br>• YCbCr 10-bit 4:2:2 <br>• RGB 10-bit 4:4:4 <br>• RGB 12-bit 4:4:4 |
-| ST 2110 JPEG XS   | <br>• YCbCr 10-bit 4:2:2 <br>• RGB 10-bit 4:4:4 <br>• RGB 12-bit 4:4:4 |
+| CDI color support | Protocol                                                         | Supported color configurations |
+| ----------------- | ---------------------------------------------------------------- | ------------------------------ |
+| CDI               | • YCbCr 10-bit 4:2:2<br>• RGB 10-bit 4:4:4<br>• RGB 12-bit 4:4:4 |
+| ST 2110 JPEG XS   | • YCbCr 10-bit 4:2:2<br>• RGB 10-bit 4:4:4<br>• RGB 12-bit 4:4:4 |
