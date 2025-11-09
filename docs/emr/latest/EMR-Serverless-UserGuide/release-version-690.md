@@ -4,7 +4,22 @@ The following table lists the application versions available with
 EMR Serverless 6.9.0.
 
 | Application  | Version |
-| ------------ | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| ------------ | ------- |
 | Apache Spark | 3.3.0   |
 | Apache Hive  | 3.1.3   |
-| Apache Tez   | 0.10.2  | ###### EMR Serverless 6.9.0 release notes <br>• The Amazon Redshift integration for Apache Spark is included in Amazon EMR releases 6.9.0 and later. Previously an open-source tool, the native integration is a Spark connector that you can use to build Apache Spark applications that read from and write to data in Amazon Redshift and Amazon Redshift Serverless. For more information, see [Using Amazon Redshift integration for Apache Spark on Amazon EMR Serverless](emr-spark-redshift.md "emr-spark-redshift.md"). <br>• EMR Serverless release 6.9.0 adds support for AWS Graviton2 (arm64) architecture. You can use the `architecture` parameter for the `create-application` and `update-application` APIs to choose the arm64 architecture. For more information, refer to [Amazon EMR Serverless architecture options](architecture.md "architecture.md"). <br>• You can now export, import, query, and join Amazon DynamoDB tables directly from your EMR Serverless Spark and Hive applications. For more information, refer to [Connecting to DynamoDB with Amazon EMR Serverless](using-ddb-connector.md "using-ddb-connector.md"). **Known issues** <br>• If you use the Amazon Redshift integration for Apache Spark and have a time, timetz, timestamp, or timestamptz with microsecond precision in Parquet format, the connector rounds the time values to the nearest millisecond value. As a workaround, use the text unload format `unload_s3_format` parameter. |
+| Apache Tez   | 0.10.2  |
+
+###### EMR Serverless 6.9.0 release notes
+
+- The Amazon Redshift integration for Apache Spark is included in Amazon EMR releases 6.9.0 and later. Previously an open-source tool, the native integration is a Spark connector that you can use to build Apache Spark applications that read from and write to data in Amazon Redshift and Amazon Redshift Serverless. For more information, see [Using Amazon Redshift integration for Apache Spark on
+  Amazon EMR Serverless](emr-spark-redshift.md "emr-spark-redshift.md").
+- EMR Serverless release 6.9.0 adds support for AWS Graviton2 (arm64) architecture. You can use the
+  `architecture` parameter for the `create-application` and
+  `update-application` APIs to choose the arm64 architecture. For more information,
+  refer to [Amazon EMR Serverless architecture options](architecture.md "architecture.md").
+- You can now export, import, query, and join Amazon DynamoDB tables directly from your
+  EMR Serverless Spark and Hive applications. For more information, refer to [Connecting to DynamoDB with
+  Amazon EMR Serverless](using-ddb-connector.md "using-ddb-connector.md").
+  **Known issues**
+
+- If you use the Amazon Redshift integration for Apache Spark and have a time, timetz, timestamp, or timestamptz with microsecond precision in Parquet format, the connector rounds the time values to the nearest millisecond value. As a workaround, use the text unload format `unload_s3_format` parameter.

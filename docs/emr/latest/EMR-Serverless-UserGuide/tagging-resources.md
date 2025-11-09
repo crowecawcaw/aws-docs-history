@@ -15,8 +15,7 @@ scripts after creating a resource.
 The following table describes the Amazon EMR Serverless resources that can be
 tagged.
 
-Taggable resources| Resource | Supports tags | Supports tag propagation | Supports tagging on creation (Amazon EMR Serverless API, AWS CLI, and
-AWS SDK) | API for creation (tags can be added during creation) |
-| --- | --- | --- | --- | --- |
-| Application | Yes | No. Tags associated with an application do not propagate to job runs submitted to that application. | Yes | `CreateApplication` |
-| Job run | Yes | No | Yes | `StartJobRun` |
+| Taggable resources | Resource | Supports tags                                                                                          | Supports tag propagation | Supports tagging on creation (Amazon EMR Serverless API, AWS CLI, and<br>AWS SDK) | API for creation (tags can be added during creation) |
+| ------------------ | -------- | ------------------------------------------------------------------------------------------------------ | ------------------------ | --------------------------------------------------------------------------------- | ---------------------------------------------------- |
+| Application        | Yes      | No. Tags associated with an application do not propagate to job runs<br>submitted to that application. | Yes                      | `CreateApplication`                                                               |
+| Job run            | Yes      | No                                                                                                     | Yes                      | `StartJobRun`                                                                     |

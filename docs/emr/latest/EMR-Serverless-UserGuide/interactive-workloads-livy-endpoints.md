@@ -139,7 +139,7 @@ in the `conf` parameter of your request body. The following example is a sample 
 The following table describes all of the available Apache Livy API operations.
 
 | API operation                                                  | Description                                                  |
-| -------------------------------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| -------------------------------------------------------------- | ------------------------------------------------------------ |
 | GET /sessions                                                  | Returns a list of all of the active interactive sessions.    |
 | POST /sessions                                                 | Creates a new interactive session via spark or pyspark.      |
 | GET /sessions/<`sessionId`>                                    | Returns the session information.                             |
@@ -148,4 +148,275 @@ The following table describes all of the available Apache Livy API operations.
 | GET /sessions/<`sessionId`>/statements                         | Returns all the statements in a session.                     |
 | POST /sessions/<`sessionId`>/statements                        | Runs a statement in a session.                               |
 | GET /sessions/<`sessionId`>/statements/<`statementId`>         | Returns the details of the specified statement in a session. |
-| POST /sessions/<`sessionId`>/statements/<`statementId`>/cancel | Cancels the specified statement in this session.             | #### Sending requests to the Apache Livy endpoint You can also send requests directly to the Apache Livy endpoint from an HTTP client. Doing so lets you remotely run code for your use cases outside of a notebook. Before you start sending requests to the endpoint, make sure that you've installed the following libraries: `pip3 install botocore awscrt requests` The following is a sample Python script to send HTTP requests directly to an endpoint: ``from botocore import crt import requests from botocore.awsrequest import AWSRequest from botocore.credentials import Credentials import botocore.session import json, pprint, textwrap endpoint = 'https://`<application_id>`.livy.emr-serverless-services.`<AWS_REGION>`.amazonaws.com' headers = {'Content-Type': 'application/json'} session = botocore.session.Session() signer = crt.auth.CrtS3SigV4Auth(session.get_credentials(), 'emr-serverless', '`<AWS_REGION>`') ### Create session request data = {'kind': 'pyspark', 'heartbeatTimeoutInSecond': 60, 'conf': { 'emr-serverless.session.executionRoleArn': 'arn:aws:iam::123456789012:role/role1'}} request = AWSRequest(method='POST', url=endpoint + "/sessions", data=json.dumps(data), headers=headers) request.context["payload_signing_enabled"] = False signer.add_auth(request) prepped = request.prepare() r = requests.post(prepped.url, headers=prepped.headers, data=json.dumps(data)) pprint.pprint(r.json()) ### List Sessions Request request = AWSRequest(method='GET', url=endpoint + "/sessions", headers=headers) request.context["payload_signing_enabled"] = False signer.add_auth(request) prepped = request.prepare() r2 = requests.get(prepped.url, headers=prepped.headers) pprint.pprint(r2.json()) ### Get session state session_url = endpoint + r.headers['location'] request = AWSRequest(method='GET', url=session_url, headers=headers) request.context["payload_signing_enabled"] = False signer.add_auth(request) prepped = request.prepare() r3 = requests.get(prepped.url, headers=prepped.headers) pprint.pprint(r3.json()) ### Submit Statement data = { 'code': "1 + 1" } statements_url = endpoint + r.headers['location'] + "/statements" request = AWSRequest(method='POST', url=statements_url, data=json.dumps(data), headers=headers) request.context["payload_signing_enabled"] = False signer.add_auth(request) prepped = request.prepare() r4 = requests.post(prepped.url, headers=prepped.headers, data=json.dumps(data)) pprint.pprint(r4.json()) ### Check statements results specific_statement_url = endpoint + r4.headers['location'] request = AWSRequest(method='GET', url=specific_statement_url, headers=headers) request.context["payload_signing_enabled"] = False signer.add_auth(request) prepped = request.prepare() r5 = requests.get(prepped.url, headers=prepped.headers) pprint.pprint(r5.json()) ### Delete session session_url = endpoint + r.headers['location'] request = AWSRequest(method='DELETE', url=session_url, headers=headers) request.context["payload_signing_enabled"] = False signer.add_auth(request) prepped = request.prepare() r6 = requests.delete(prepped.url, headers=prepped.headers) pprint.pprint(r6.json())`` ### Sparkmagic kernel Before you install sparkmagic, make sure that you have configured AWS credentials in the instance in which you want to install sparkmagic 1. Install sparkmagic by following the [installation steps](https://github.com/jupyter-incubator/sparkmagic?tab=readme-ov-file#installation "https://github.com/jupyter-incubator/sparkmagic?tab=readme-ov-file#installation"). Note that you only perform the first four steps. 2. The sparkmagic kernel supports custom authenticators, so you can integrate an authenticator with the sparkmagic kernel so that every request is SIGv4 signed. 3. Install the EMR Serverless custom authenticator. `pip install emr-serverless-customauth` 4. Now provide the path to the custom authenticator and the Apache Livy endpoint URL in the sparkmagic configuration json file. Use the following command to open the configuration file. `vim ~/.sparkmagic/config.json` The following is a sample `config.json` file. ``{ "kernel_python_credentials" : { "username": "", "password": "", "url": "https://`<application-id>`.livy.emr-serverless-services.`<AWS_REGION>`.amazonaws.com", "auth": "Custom_Auth" }, "kernel_scala_credentials" : { "username": "", "password": "", "url": "https://`<application-id>`.livy.emr-serverless-services.`<AWS_REGION>`.amazonaws.com", "auth": "Custom_Auth" }, "authenticators": { "None": "sparkmagic.auth.customauth.Authenticator", "Basic_Access": "sparkmagic.auth.basic.Basic", "Custom_Auth": "emr_serverless_customauth.customauthenticator.EMRServerlessCustomSigV4Signer" }, "livy_session_startup_timeout_seconds": 600, "ignore_ssl_errors": false }`` 5. Start Jupyter lab. It should use the custom authentication that you set up in the last step. 6. You can then run the following notebook commands and your code to get started. `%%info //Returns the information about the current sessions.` ``%%configure -f //Configure information specific to a session. We supply executionRoleArn in this example. Change it for your use case. { "driverMemory": "4g", "conf": { "emr-serverless.session.executionRoleArn": "arn:aws:iam::123456789012:role/`JobExecutionRole`" } }`` `` `<your code>`//Run your code to start the session `` Internally, each instruction calls each of the Apache Livy API operations through the configured Apache Livy endpoint URL. You can then write your instructions according to your use case. ## Considerations Consider the following considerations when running interactive workloads through Apache Livy endpoints. <br>• EMR Serverless maintains session-level isolation using the caller principal. The caller principal that creates the session is the only one that can access that session. For more granular isolation, configure a source identity when you assume credentials. In this case, EMR Serverless enforces session-level isolation based on the caller principal and the source identity. For more information about source identity, refer to [Monitor and control actions taken with assumed roles](../../../IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.md#id_credentials_temp_control-access_monitor-specify-sourceid "../../../IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.md#id_credentials_temp_control-access_monitor-specify-sourceid"). <br>• Apache Livy endpoints are supported with EMR Serverless releases 6.14.0 and higher. <br>• Apache Livy endpoints are supported only for the Apache Spark engine. <br>• Apache Livy endpoints support Scala Spark and PySpark. <br>• By default, `autoStopConfig` is enabled in your applications. This means that applications shut down after 15 minutes of being idle. You can change this configuration as part of your `create-application` or `update-application` request. <br>• You can run up to 25 concurrent sessions on a single Apache Livy endpoint-enabled application. <br>• For the best startup experience, we suggest that you configure pre-initialized capacity for drivers and executors. <br>• You must manually start your application before connecting to the Apache Livy endpoint. <br>• You must have sufficient vCPU service quota in your AWS account to run interactive workloads with the Apache Livy endpoint. We suggest at least 24 vCPU. <br>• The default Apache Livy session timeout is 1 hour. If you don't run statements for one hour, then Apache Livy deletes the session and releases the driver and executors. From release emr-7.8.0, this value can be set by specifying the `ttl` parameter as part of Livy `/sessions POST` request, for example, `2h`(hours), `120m`(minutes), `7200s`(seconds), `7200000ms`(milliseconds). ###### Note This configuration cannot be changed prior to emr-7.8.0. The following is a sample of a `POST /sessions` request body. ``{ "kind": "pyspark", "heartbeatTimeoutInSecond": 60, "conf": { "emr-serverless.session.executionRoleArn": "`executionRoleArn`" }, "ttl": "2h" }`` <br>• Starting with Amazon EMR release emr-7.8.0 for Applications with fine-grained access control via LakeFormation enabled, the setting can be disabled per session. For more information on enabling fine grained access control for an EMR Serverless application, refer to [Methods for fine-grained access control](emr-serverless-lf-enable.md#emr-serverless-lf-enable-config "emr-serverless-lf-enable.md#emr-serverless-lf-enable-config"). ###### Note Lake Formation cannot be enabled for a Session when it has not been enabled for an Application. The following is a sample of a `POST /sessions` request body. ``{ "kind": "pyspark", "heartbeatTimeoutInSecond": 60, "conf": { "emr-serverless.session.executionRoleArn": "`executionRoleArn`" }, "spark.emr-serverless.lakeformation.enabled" : "false" }`` <br>• Only active sessions can interact with an Apache Livy endpoint. Once the session finishes, cancels, or terminates, you can't access it through the Apache Livy endpoint. |
+| POST /sessions/<`sessionId`>/statements/<`statementId`>/cancel | Cancels the specified statement in this session.             |
+
+#### Sending requests to the Apache Livy endpoint
+
+You can also send requests directly to the Apache Livy endpoint from an HTTP client. Doing so
+lets you remotely run code for your use cases outside of a notebook.
+
+Before you start sending requests to the endpoint, make sure that you've installed the following libraries:
+
+```
+pip3 install botocore awscrt requests
+```
+
+The following is a sample Python script to send HTTP requests directly to an endpoint:
+
+```
+from botocore import crt
+import requests
+from botocore.awsrequest import AWSRequest
+from botocore.credentials import Credentials
+import botocore.session
+import json, pprint, textwrap
+
+endpoint = 'https://`<application_id>`.livy.emr-serverless-services.`<AWS_REGION>`.amazonaws.com'
+headers = {'Content-Type': 'application/json'}
+
+session = botocore.session.Session()
+signer = crt.auth.CrtS3SigV4Auth(session.get_credentials(), 'emr-serverless', '`<AWS_REGION>`')
+
+
+### Create session request
+
+data = {'kind': 'pyspark', 'heartbeatTimeoutInSecond': 60, 'conf': { 'emr-serverless.session.executionRoleArn': 'arn:aws:iam::123456789012:role/role1'}}
+
+request = AWSRequest(method='POST', url=endpoint + "/sessions", data=json.dumps(data), headers=headers)
+
+request.context["payload_signing_enabled"] = False
+
+signer.add_auth(request)
+
+prepped = request.prepare()
+
+r = requests.post(prepped.url, headers=prepped.headers, data=json.dumps(data))
+
+pprint.pprint(r.json())
+
+
+### List Sessions Request
+
+request = AWSRequest(method='GET', url=endpoint + "/sessions", headers=headers)
+
+request.context["payload_signing_enabled"] = False
+
+signer.add_auth(request)
+
+prepped = request.prepare()
+
+r2 = requests.get(prepped.url, headers=prepped.headers)
+pprint.pprint(r2.json())
+
+
+### Get session state
+
+session_url = endpoint + r.headers['location']
+
+request = AWSRequest(method='GET', url=session_url, headers=headers)
+
+request.context["payload_signing_enabled"] = False
+
+signer.add_auth(request)
+
+prepped = request.prepare()
+
+r3 = requests.get(prepped.url, headers=prepped.headers)
+
+pprint.pprint(r3.json())
+
+
+### Submit Statement
+
+data = {
+      'code': "1 + 1"
+}
+
+statements_url = endpoint + r.headers['location'] + "/statements"
+
+request = AWSRequest(method='POST', url=statements_url, data=json.dumps(data), headers=headers)
+
+request.context["payload_signing_enabled"] = False
+
+signer.add_auth(request)
+
+prepped = request.prepare()
+
+r4 = requests.post(prepped.url, headers=prepped.headers, data=json.dumps(data))
+
+pprint.pprint(r4.json())
+
+### Check statements results
+
+specific_statement_url = endpoint + r4.headers['location']
+
+request = AWSRequest(method='GET', url=specific_statement_url, headers=headers)
+
+request.context["payload_signing_enabled"] = False
+
+signer.add_auth(request)
+
+prepped = request.prepare()
+
+r5 = requests.get(prepped.url, headers=prepped.headers)
+
+pprint.pprint(r5.json())
+
+
+### Delete session
+
+
+session_url = endpoint + r.headers['location']
+
+request = AWSRequest(method='DELETE', url=session_url, headers=headers)
+
+request.context["payload_signing_enabled"] = False
+
+signer.add_auth(request)
+
+prepped = request.prepare()
+
+r6 = requests.delete(prepped.url, headers=prepped.headers)
+
+pprint.pprint(r6.json())
+
+```
+
+### Sparkmagic kernel
+
+Before you install sparkmagic, make sure that you have configured AWS credentials in the instance
+in which you want to install sparkmagic
+
+1. Install sparkmagic by following the [installation steps](https://github.com/jupyter-incubator/sparkmagic?tab=readme-ov-file#installation "https://github.com/jupyter-incubator/sparkmagic?tab=readme-ov-file#installation").
+   Note that you only perform the first four steps.
+2. The sparkmagic kernel supports custom authenticators, so you can integrate an authenticator
+   with the sparkmagic kernel so that every request is SIGv4 signed.
+3. Install the EMR Serverless custom authenticator.
+
+```
+pip install emr-serverless-customauth
+```
+
+4. Now provide the path to the custom authenticator and the Apache Livy endpoint URL in the sparkmagic configuration json file.
+   Use the following command to open the configuration file.
+
+```
+vim ~/.sparkmagic/config.json
+```
+
+The following is a sample `config.json` file.
+
+```
+{
+"kernel_python_credentials" : {
+    "username": "",
+    "password": "",
+    "url": "https://`<application-id>`.livy.emr-serverless-services.`<AWS_REGION>`.amazonaws.com",
+    "auth": "Custom_Auth"
+  },
+
+  "kernel_scala_credentials" : {
+    "username": "",
+    "password": "",
+    "url": "https://`<application-id>`.livy.emr-serverless-services.`<AWS_REGION>`.amazonaws.com",
+    "auth": "Custom_Auth"
+  },
+  "authenticators": {
+    "None": "sparkmagic.auth.customauth.Authenticator",
+    "Basic_Access": "sparkmagic.auth.basic.Basic",
+    "Custom_Auth": "emr_serverless_customauth.customauthenticator.EMRServerlessCustomSigV4Signer"
+  },
+  "livy_session_startup_timeout_seconds": 600,
+  "ignore_ssl_errors": false
+}
+```
+
+5. Start Jupyter lab. It should use the custom authentication that you set up in the last step.
+6. You can then run the following notebook commands and your code to get started.
+
+```
+%%info //Returns the information about the current sessions.
+```
+
+```
+%%configure -f //Configure information specific to a session. We supply executionRoleArn in this example. Change it for your use case.
+{
+    "driverMemory": "4g",
+    "conf": {
+          "emr-serverless.session.executionRoleArn": "arn:aws:iam::123456789012:role/`JobExecutionRole`"
+    }
+}
+```
+
+```
+`<your code>`//Run your code to start the session
+```
+
+Internally, each instruction calls each of the Apache Livy API operations through the configured Apache Livy endpoint URL.
+You can then write your instructions according to your use case.
+
+## Considerations
+
+Consider the following considerations when running interactive workloads through Apache Livy endpoints.
+
+- EMR Serverless maintains session-level isolation using the caller principal.
+  The caller principal that creates the session is the only one that can access that session.
+  For more granular isolation, configure a source identity when you assume credentials.
+  In this case, EMR Serverless enforces session-level isolation based on the caller principal and
+  the source identity. For more information about source identity, refer to
+  [Monitor and control actions taken with assumed roles](../../../IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.md#id_credentials_temp_control-access_monitor-specify-sourceid "../../../IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.md#id_credentials_temp_control-access_monitor-specify-sourceid").
+- Apache Livy endpoints are supported with EMR Serverless releases 6.14.0 and higher.
+- Apache Livy endpoints are supported only for the Apache Spark engine.
+- Apache Livy endpoints support Scala Spark and PySpark.
+- By default, `autoStopConfig` is enabled in your applications. This means that applications
+  shut down after 15 minutes of being idle. You can change this configuration as part of your `create-application` or `update-application` request.
+- You can run up to 25 concurrent sessions on a single Apache Livy endpoint-enabled application.
+- For the best startup experience, we suggest that you configure pre-initialized
+  capacity for drivers and executors.
+- You must manually start your application before connecting to the Apache Livy endpoint.
+- You must have sufficient vCPU service quota in your AWS account to run interactive workloads
+  with the Apache Livy endpoint. We suggest at least 24 vCPU.
+- The default Apache Livy session timeout is 1 hour.
+  If you don't run statements for one hour, then Apache Livy
+  deletes the session and releases the driver and executors. From release emr-7.8.0, this value can be set
+  by specifying the `ttl` parameter as part of Livy `/sessions POST` request, for
+  example, `2h`(hours), `120m`(minutes), `7200s`(seconds), `7200000ms`(milliseconds).
+
+###### Note
+
+This configuration cannot be changed prior to emr-7.8.0. The following is a sample
+of a `POST /sessions` request body.
+
+```
+{
+    "kind": "pyspark",
+    "heartbeatTimeoutInSecond": 60,
+    "conf": {
+        "emr-serverless.session.executionRoleArn": "`executionRoleArn`"
+    },
+    "ttl": "2h"
+}
+```
+
+- Starting with Amazon EMR release emr-7.8.0 for Applications with fine-grained access control via LakeFormation enabled, the setting can be disabled per
+  session. For more information on enabling fine grained access control for an EMR Serverless application,
+  refer to [Methods for fine-grained access control](emr-serverless-lf-enable.md#emr-serverless-lf-enable-config "emr-serverless-lf-enable.md#emr-serverless-lf-enable-config").
+
+###### Note
+
+Lake Formation cannot be enabled for a Session when it has not been enabled for an Application.
+The following is a sample of a `POST /sessions` request body.
+
+```
+{
+    "kind": "pyspark",
+    "heartbeatTimeoutInSecond": 60,
+    "conf": {
+        "emr-serverless.session.executionRoleArn": "`executionRoleArn`"
+    },
+    "spark.emr-serverless.lakeformation.enabled" : "false"
+}
+```
+
+- Only active sessions can interact with an Apache Livy endpoint. Once the session finishes, cancels, or terminates,
+  you can't access it through the Apache Livy endpoint.

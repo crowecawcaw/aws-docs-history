@@ -188,20 +188,23 @@ EMR Serverless supports Apache Hive, Apache Iceberg, and as of release 7.6.0, De
 
 Hive
 
+| Operations                             | Notes                               |
+| -------------------------------------- | ----------------------------------- |
+| Read operations                        | Fully supported                     |
+| Incremental queries                    | Not applicable                      |
+| Time travel queries                    | Not applicable to this table format |
+| `DML INSERT`                           | With IAM permissions only           |
+| DML UPDATE                             | Not applicable to this table format |
+| `DML DELETE`                           | Not applicable to this table format |
+| DDL commands                           | With IAM permissions only           |
+| Metadata tables                        | Not applicable to this table format |
+| Stored procedures                      | Not applicable                      |
+| Table maintenance and utility features | Not applicable                      |
+
+Iceberg
+
 | Operations                             | Notes                                                                                                                                                                                                                     |
-| -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Read operations                        | Fully supported                                                                                                                                                                                                           |
-| Incremental queries                    | Not applicable                                                                                                                                                                                                            |
-| Time travel queries                    | Not applicable to this table format                                                                                                                                                                                       |
-| `DML INSERT`                           | With IAM permissions only                                                                                                                                                                                                 |
-| DML UPDATE                             | Not applicable to this table format                                                                                                                                                                                       |
-| `DML DELETE`                           | Not applicable to this table format                                                                                                                                                                                       |
-| DDL commands                           | With IAM permissions only                                                                                                                                                                                                 |
-| Metadata tables                        | Not applicable to this table format                                                                                                                                                                                       |
-| Stored procedures                      | Not applicable                                                                                                                                                                                                            |
-| Table maintenance and utility features | Not applicable                                                                                                                                                                                                            | Iceberg                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| Operations                             | Notes                                                                                                                                                                                                                     |
-| ---                                    | ---                                                                                                                                                                                                                       |
+| -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Read operations                        | Fully supported                                                                                                                                                                                                           |
 | Incremental queries                    | Fully supported                                                                                                                                                                                                           |
 | Time travel queries                    | Fully supported                                                                                                                                                                                                           |
@@ -211,28 +214,85 @@ Hive
 | DDL commands                           | With IAM permissions only                                                                                                                                                                                                 |
 | Metadata tables                        | Supported, but certain tables are hidden. Refer to [considerations and limitations](emr-serverless-lf-enable-considerations.md "emr-serverless-lf-enable-considerations.md") for more information.                        |
 | Stored procedures                      | Supported with the exceptions of `register_table` and `migrate`. Refer to [considerations and limitations](emr-serverless-lf-enable-considerations.md "emr-serverless-lf-enable-considerations.md") for more information. |
-| Table maintenance and utility features | Not applicable                                                                                                                                                                                                            | **Spark configuration for Iceberg:** The following sample shows how to configure Spark with Iceberg. To run Iceberg jobs, provide the following `spark-submit` properties. ``--conf spark.sql.catalog.spark_catalog=org.apache.iceberg.spark.SparkSessionCatalog --conf spark.sql.catalog.spark_catalog.warehouse=<`S3_DATA_LOCATION`> --conf spark.sql.catalog.spark_catalog.glue.account-id=<`ACCOUNT_ID`> --conf spark.sql.catalog.spark_catalog.client.region=<`REGION`> --conf spark.sql.catalog.spark_catalog.glue.endpoint=https://glue.<`REGION`>.amazonaws.com`` Hudi                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| Operations                             | Notes                                                                                                                                                                                                                     |
-| ---                                    | ---                                                                                                                                                                                                                       |
-| Read operations                        | Fully supported                                                                                                                                                                                                           |
-| Incremental queries                    | Fully supported                                                                                                                                                                                                           |
-| Time travel queries                    | Fully supported                                                                                                                                                                                                           |
-| `DML INSERT`                           | With IAM permissions only                                                                                                                                                                                                 |
-| DML UPDATE                             | With IAM permissions only                                                                                                                                                                                                 |
-| `DML DELETE`                           | With IAM permissions only                                                                                                                                                                                                 |
-| DDL commands                           | With IAM permissions only                                                                                                                                                                                                 |
-| Metadata tables                        | Not supported                                                                                                                                                                                                             |
-| Stored procedures                      | Not applicable                                                                                                                                                                                                            |
-| Table maintenance and utility features | Not supported                                                                                                                                                                                                             | The following samples configure Spark with Hudi, specifying file locations and other properties necessary for use. **Spark config for Hudi:** This snippet when used in a notebook specifies the path to the Hudi Spark bundle JAR file, which enables Hudi functionality in Spark. It also configures Spark to use the AWS Glue Data Catalog as the metastore. `%%configure -f { "conf": { "spark.jars": "/usr/lib/hudi/hudi-spark-bundle.jar", "spark.hadoop.hive.metastore.client.factory.class": "com.amazonaws.glue.catalog.metastore.AWSGlueDataCatalogHiveClientFactory", "spark.serializer": "org.apache.spark.serializer.JavaSerializer", "spark.sql.catalog.spark_catalog": "org.apache.spark.sql.hudi.catalog.HoodieCatalog", "spark.sql.extensions": "org.apache.spark.sql.hudi.HoodieSparkSessionExtension" } }` **Spark config for Hudi with AWS Glue:** This snippet when used in a notebook enables Hudi as a supported data-lake format and ensures that Hudi libraries and dependencies are available. `%%configure { "--conf": "spark.serializer=org.apache.spark.serializer.JavaSerializer --conf spark.sql.catalog.spark_catalog=org.apache.spark.sql.hudi.catalog.HoodieCatalog --conf spark.sql.extensions=org.apache.spark.sql.hudi.HoodieSparkSessionExtension", "--datalake-formats": "hudi", "--enable-glue-datacatalog": True, "--enable-lakeformation-fine-grained-access": "true" }` Delta Lake |
-| Operations                             | Notes                                                                                                                                                                                                                     |
-| ---                                    | ---                                                                                                                                                                                                                       |
-| Read operations                        | Fully supported                                                                                                                                                                                                           |
-| Incremental queries                    | Fully supported                                                                                                                                                                                                           |
-| Time travel queries                    | Fully supported                                                                                                                                                                                                           |
-| `DML INSERT`                           | With IAM permissions only                                                                                                                                                                                                 |
-| DML UPDATE                             | With IAM permissions only                                                                                                                                                                                                 |
-| `DML DELETE`                           | With IAM permissions only                                                                                                                                                                                                 |
-| DDL commands                           | With IAM permissions only                                                                                                                                                                                                 |
-| Metadata tables                        | Not supported                                                                                                                                                                                                             |
-| Stored procedures                      | Not applicable                                                                                                                                                                                                            |
-| Table maintenance and utility features | Not supported                                                                                                                                                                                                             | **EMR Serverless with Delta Lake:** To use Delta Lake with Lake Formation on EMR Serverless, run the following command: `spark-sql \ --conf spark.sql.extensions=io.delta.sql.DeltaSparkSessionExtension,com.amazonaws.emr.recordserver.connector.spark.sql.RecordServerSQLExtension \ --conf spark.sql.catalog.spark_catalog=org.apache.spark.sql.delta.catalog.DeltaCatalog \`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| Table maintenance and utility features | Not applicable                                                                                                                                                                                                            |
+
+**Spark configuration for Iceberg:** The following sample shows how to configure Spark with Iceberg. To run Iceberg jobs, provide the following `spark-submit` properties.
+
+```
+--conf spark.sql.catalog.spark_catalog=org.apache.iceberg.spark.SparkSessionCatalog
+--conf spark.sql.catalog.spark_catalog.warehouse=<`S3_DATA_LOCATION`>
+--conf spark.sql.catalog.spark_catalog.glue.account-id=<`ACCOUNT_ID`>
+--conf spark.sql.catalog.spark_catalog.client.region=<`REGION`>
+--conf spark.sql.catalog.spark_catalog.glue.endpoint=https://glue.<`REGION`>.amazonaws.com
+```
+
+Hudi
+
+| Operations                             | Notes                     |
+| -------------------------------------- | ------------------------- |
+| Read operations                        | Fully supported           |
+| Incremental queries                    | Fully supported           |
+| Time travel queries                    | Fully supported           |
+| `DML INSERT`                           | With IAM permissions only |
+| DML UPDATE                             | With IAM permissions only |
+| `DML DELETE`                           | With IAM permissions only |
+| DDL commands                           | With IAM permissions only |
+| Metadata tables                        | Not supported             |
+| Stored procedures                      | Not applicable            |
+| Table maintenance and utility features | Not supported             |
+
+The following samples configure Spark with Hudi, specifying file locations and other properties necessary for use.
+
+**Spark config for Hudi:** This snippet when used in a notebook specifies the path to the Hudi Spark bundle JAR file, which enables Hudi functionality in Spark. It also configures Spark to
+use the AWS Glue Data Catalog as the metastore.
+
+```
+%%configure -f
+{
+    "conf": {
+        "spark.jars": "/usr/lib/hudi/hudi-spark-bundle.jar",
+        "spark.hadoop.hive.metastore.client.factory.class": "com.amazonaws.glue.catalog.metastore.AWSGlueDataCatalogHiveClientFactory",
+        "spark.serializer": "org.apache.spark.serializer.JavaSerializer",
+        "spark.sql.catalog.spark_catalog": "org.apache.spark.sql.hudi.catalog.HoodieCatalog",
+        "spark.sql.extensions": "org.apache.spark.sql.hudi.HoodieSparkSessionExtension"
+    }
+}
+```
+
+**Spark config for Hudi with AWS Glue:** This snippet when used in a notebook enables Hudi as a supported data-lake format
+and ensures that Hudi libraries and dependencies are available.
+
+```
+%%configure
+{
+    "--conf": "spark.serializer=org.apache.spark.serializer.JavaSerializer --conf
+spark.sql.catalog.spark_catalog=org.apache.spark.sql.hudi.catalog.HoodieCatalog --conf
+spark.sql.extensions=org.apache.spark.sql.hudi.HoodieSparkSessionExtension",
+    "--datalake-formats": "hudi",
+    "--enable-glue-datacatalog": True,
+    "--enable-lakeformation-fine-grained-access": "true"
+}
+```
+
+Delta Lake
+
+| Operations                             | Notes                     |
+| -------------------------------------- | ------------------------- |
+| Read operations                        | Fully supported           |
+| Incremental queries                    | Fully supported           |
+| Time travel queries                    | Fully supported           |
+| `DML INSERT`                           | With IAM permissions only |
+| DML UPDATE                             | With IAM permissions only |
+| `DML DELETE`                           | With IAM permissions only |
+| DDL commands                           | With IAM permissions only |
+| Metadata tables                        | Not supported             |
+| Stored procedures                      | Not applicable            |
+| Table maintenance and utility features | Not supported             |
+
+**EMR Serverless with Delta Lake:** To use Delta Lake with Lake Formation on EMR Serverless, run the following command:
+
+```
+spark-sql \
+  --conf spark.sql.extensions=io.delta.sql.DeltaSparkSessionExtension,com.amazonaws.emr.recordserver.connector.spark.sql.RecordServerSQLExtension \
+  --conf spark.sql.catalog.spark_catalog=org.apache.spark.sql.delta.catalog.DeltaCatalog \
+```

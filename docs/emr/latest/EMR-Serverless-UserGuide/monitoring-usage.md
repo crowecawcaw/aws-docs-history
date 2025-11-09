@@ -19,12 +19,20 @@ EMR Serverless
 EMR Serverless publishes the following service quota usage metrics in the
 `AWS/Usage` namespace.
 
-| Metric          | Description                                                                                                                                                                                                         |
-| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `ResourceCount` | The total number of the specified resource that is running on your account. The resource is defined by the [dimensions](#usage-metrics-dimensions "#usage-metrics-dimensions") that are associated with the metric. | ## Dimensions for EMR Serverless service quota usage metrics You can use the following dimensions to refine the usage metrics that EMR Serverless publishes. |
-| Dimension       | Value                                                                                                                                                                                                               | Description                                                                                                                                                  |
-| ---             | ---                                                                                                                                                                                                                 | ---                                                                                                                                                          |
-| `Service`       | EMR Serverless                                                                                                                                                                                                      | The name of the AWS service that contains the resource.                                                                                                      |
-| `Type`          | Resource                                                                                                                                                                                                            | The type of entity that EMR Serverless is reporting.                                                                                                         |
-| `Resource`      | vCPU                                                                                                                                                                                                                | The type of resource that EMR Serverless is tracking.                                                                                                        |
-| `Class`         | None                                                                                                                                                                                                                | The class of resource that EMR Serverless is tracking.                                                                                                       |
+| Metric          | Description                                                                                                                                                                                                                  |
+| --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `ResourceCount` | The total number of the specified resource that is<br>running on your account. The resource is defined by the<br>[dimensions](#usage-metrics-dimensions "#usage-metrics-dimensions") that are associated with the<br>metric. |
+
+## Dimensions for EMR Serverless
+
+service quota usage metrics
+
+You can use the following dimensions to refine the usage metrics that
+EMR Serverless publishes.
+
+| Dimension  | Value          | Description                                                |
+| ---------- | -------------- | ---------------------------------------------------------- |
+| `Service`  | EMR Serverless | The name of the AWS service that contains the<br>resource. |
+| `Type`     | Resource       | The type of entity that EMR Serverless is reporting.       |
+| `Resource` | vCPU           | The type of resource that EMR Serverless is<br>tracking.   |
+| `Class`    | None           | The class of resource that EMR Serverless is<br>tracking.  |

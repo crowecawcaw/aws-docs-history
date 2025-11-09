@@ -75,9 +75,38 @@ jdbc:redshift:iam://`examplecluster.abc123xyz789`.`us-west-2`.redshift.amazonaws
 The following permissions are required for your job execution role when the
 provided conditions are met:
 
-| Permission                           | Conditions when required for job execution role                                                                           |
-| ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `redshift:GetClusterCredentials`     | Required for JDBC driver to fetch the credentials from Amazon Redshift                                                    |
-| `redshift:DescribeCluster`           | Required if you specify the Amazon Redshift cluster and AWS Region in the JDBC URL instead of endpoint                    |
-| `redshift-serverless:GetCredentials` | Required for JDBC driver to fetch the credentials from Amazon Redshift Serverless                                         |
-| `redshift-serverless:GetWorkgroup`   | Required if you are using Amazon Redshift Serverless and you are specifying the URL in terms of workgroup name and Region | ## Connecting to Amazon Redshift within a different VPC When you set up a provisioned Amazon Redshift cluster or Amazon Redshift Serverless workgroup under a VPC, configure VPC connectivity for your Amazon EMR Serverless application to access to the resources. For more information on how to configure VPC connectivity on an EMR Serverless application, refer to [Configuring VPC access for EMR Serverless applications to connect to data](vpc-access.md "vpc-access.md"). <br>• If your provisioned Amazon Redshift cluster or Amazon Redshift Serverless workgroup is publicly accessible, specify one or more private subnets that have a NAT gateway attached when you create EMR Serverless applications. <br>• If your provisioned Amazon Redshift cluster or Amazon Redshift Serverless workgroup isn't publicly accessible, you must create an Amazon Redshift managed VPC endpoint for your Amazon Redshift cluster as described in [Configuring VPC access for EMR Serverless applications to connect to data](vpc-access.md "vpc-access.md"). Alternatively, you can create your Amazon Redshift Serverless workgroup as described in [Connecting to Amazon Redshift Serverless](../../../redshift/latest/mgmt/serverless-connecting.md "../../../redshift/latest/mgmt/serverless-connecting.md") in the _Amazon Redshift Management Guide_. You must associate your cluster or your subgroup to the private subnets that you specify when you create your EMR Serverless application. ###### Note If you use IAM based authentication, and your private subnets for the EMR Serverless application don't have a NAT gateway attached, then you must also create a VPC endpoint on those subnets for Amazon Redshift or Amazon Redshift Serverless. This way, the JDBC driver can fetch the credentials. |
+| Permission                           | Conditions when required for job execution role                                                                              |
+| ------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------- |
+| `redshift:GetClusterCredentials`     | Required for JDBC driver to fetch the credentials from<br>Amazon Redshift                                                    |
+| `redshift:DescribeCluster`           | Required if you specify the Amazon Redshift cluster and AWS Region<br>in the JDBC URL instead of endpoint                    |
+| `redshift-serverless:GetCredentials` | Required for JDBC driver to fetch the credentials from<br>Amazon Redshift Serverless                                         |
+| `redshift-serverless:GetWorkgroup`   | Required if you are using Amazon Redshift Serverless and you are<br>specifying the URL in terms of workgroup name and Region |
+
+## Connecting to Amazon Redshift within a
+
+different VPC
+
+When you set up a provisioned Amazon Redshift cluster or Amazon Redshift Serverless workgroup under
+a VPC, configure VPC connectivity for your Amazon EMR Serverless
+application to access to the resources. For more information on how to configure
+VPC connectivity on an EMR Serverless application, refer to [Configuring VPC access for EMR Serverless applications to connect to data](vpc-access.md "vpc-access.md").
+
+- If your provisioned Amazon Redshift cluster or Amazon Redshift Serverless workgroup is
+  publicly accessible, specify one or more private subnets that
+  have a NAT gateway attached when you create EMR Serverless
+  applications.
+- If your provisioned Amazon Redshift cluster or Amazon Redshift Serverless workgroup isn't
+  publicly accessible, you must create an Amazon Redshift managed VPC endpoint for
+  your Amazon Redshift cluster as described in [Configuring VPC access for EMR Serverless applications to connect to data](vpc-access.md "vpc-access.md"). Alternatively, you can create your Amazon Redshift
+  Serverless workgroup as described in [Connecting to
+  Amazon Redshift Serverless](../../../redshift/latest/mgmt/serverless-connecting.md "../../../redshift/latest/mgmt/serverless-connecting.md") in the
+  _Amazon Redshift Management Guide_. You must associate your
+  cluster or your subgroup to the private subnets that you specify when
+  you create your EMR Serverless application.
+
+###### Note
+
+If you use IAM based authentication, and your private subnets for the
+EMR Serverless application don't have a NAT gateway attached, then you must
+also create a VPC endpoint on those subnets for Amazon Redshift or Amazon Redshift Serverless.
+This way, the JDBC driver can fetch the credentials.

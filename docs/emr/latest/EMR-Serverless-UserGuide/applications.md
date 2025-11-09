@@ -24,12 +24,16 @@ When you create an application with EMR Serverless, the application run enters t
 
 Applications can have the following states:
 
-| State          | Description                                                                                                                                              |
-| -------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Creating**   | The application is being prepared and isn't ready to use yet.                                                                                            |
-| **Created**    | The application has been created but hasn't provisioned capacity yet. You can modify the application to change its initial capacity configuration.       |
-| **Starting**   | The application is starting and is provisioning capacity.                                                                                                |
-| **Started**    | The application is ready to accept new jobs. The application only accepts jobs when it's in this state.                                                  |
-| **Stopping**   | All jobs have completed and the application is releasing its capacity.                                                                                   |
-| **Stopped**    | The application is stopped and no resources are running on the application. You can modify the application to change its initial capacity configuration. |
-| **Terminated** | The application has been terminated and doesn't appear on your application list.                                                                         | The following diagram illustrates the trajectory of EMR Serverless application states. ![EMR Serverless application states.](images/emr-serverless-application-states.png) |
+| State          | Description                                                                                                                                                 |
+| -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Creating**   | The application is being prepared and isn't ready to use yet.                                                                                               |
+| **Created**    | The application has been created but hasn't provisioned capacity yet. You can<br>modify the application to change its initial capacity configuration.       |
+| **Starting**   | The application is starting and is provisioning capacity.                                                                                                   |
+| **Started**    | The application is ready to accept new jobs. The application only accepts jobs<br>when it's in this state.                                                  |
+| **Stopping**   | All jobs have completed and the application is releasing its capacity.                                                                                      |
+| **Stopped**    | The application is stopped and no resources are running on the application. You<br>can modify the application to change its initial capacity configuration. |
+| **Terminated** | The application has been terminated and doesn't appear on your application list.                                                                            |
+
+The following diagram illustrates the trajectory of EMR Serverless application states.
+
+![EMR Serverless application states.](images/emr-serverless-application-states.png)

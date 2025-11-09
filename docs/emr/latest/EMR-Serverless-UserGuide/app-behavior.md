@@ -33,10 +33,31 @@ The following table lists supported worker configurations and sizes that can be 
 for EMR Serverless. Configure different sizes for drivers and executors based on
 the need of your workload.
 
-| Worker configurations and sizes | CPU                                               | Memory         | Default ephemeral storage                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| ------------------------------- | ------------------------------------------------- | -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 1 vCPU                          | Minimum 2 GB, maximum 8 GB, in 1 GB increments    | 20 GB - 200 GB |
-| 2 vCPU                          | Minimum 4 GB, maximum 16 GB, in 1 GB increments   | 20 GB - 200 GB |
-| 4 vCPU                          | Minimum 8 GB, maximum 30 GB, in 1 GB increments   | 20 GB - 200 GB |
-| 8 vCPU                          | Minimum 16 GB, maximum 60 GB, in 4 GB increments  | 20 GB - 200 GB |
-| 16 vCPU                         | Minimum 32 GB, maximum 120 GB, in 8 GB increments | 20 GB - 200 GB | **CPU** — Each worker can have 1, 2, 4, 8, or 16 vCPUs. **Memory** — Each worker has memory, specified in GB, within the limits listed in the earlier table. Spark jobs have a memory overhead, meaning that the memory they use is more than the specified container sizes. This overhead is specified with the properties `spark.driver.memoryOverhead` and `spark.executor.memoryOverhead`. The overhead has a default value of 10% of container memory, with a minimum of 384 MB. You should consider this overhead when you choose worker sizes. For example, If you choose 4 vCPUs for your worker instance, and a pre-initialized storage capacity of 30 GB, then set a value of approximately 27 GB as executor memory for your Spark job. This maximizes the utilization of your pre-initialized capacity. Usable memory is 27 GB, plus 10% of 27 GB (2.7 GB), for a total of 29.7 GB. **Disk** — You can configure each worker with temporary storage disks with a minimum size of 20 GB and a maximum of 200 GB. You only pay for additional storage beyond 20 GB that you configure per worker. |
+| Worker configurations and sizes | CPU                                               | Memory            | Default ephemeral storage |
+| ------------------------------- | ------------------------------------------------- | ----------------- | ------------------------- |
+| 1 vCPU                          | Minimum 2 GB, maximum 8 GB, in 1 GB increments    | 20 GB<br>• 200 GB |
+| 2 vCPU                          | Minimum 4 GB, maximum 16 GB, in 1 GB increments   | 20 GB<br>• 200 GB |
+| 4 vCPU                          | Minimum 8 GB, maximum 30 GB, in 1 GB increments   | 20 GB<br>• 200 GB |
+| 8 vCPU                          | Minimum 16 GB, maximum 60 GB, in 4 GB increments  | 20 GB<br>• 200 GB |
+| 16 vCPU                         | Minimum 32 GB, maximum 120 GB, in 8 GB increments | 20 GB<br>• 200 GB |
+
+**CPU** — Each worker can have 1, 2, 4, 8, or
+16 vCPUs.
+
+**Memory** — Each worker has memory, specified in GB, within the
+limits listed in the earlier table. Spark jobs have a memory overhead, meaning that the
+memory they use is more than the specified container sizes. This overhead is specified with
+the properties `spark.driver.memoryOverhead` and
+`spark.executor.memoryOverhead`. The overhead has a default value of 10% of
+container memory, with a minimum of 384 MB. You should consider this overhead when you
+choose worker sizes.
+
+For example, If you choose 4 vCPUs for your worker instance, and a pre-initialized
+storage capacity of 30 GB, then set a value of approximately 27 GB as
+executor memory for your Spark job. This maximizes the utilization of your pre-initialized
+capacity. Usable memory is 27 GB, plus 10% of 27 GB (2.7 GB), for a
+total of 29.7 GB.
+
+**Disk** — You can configure each worker with temporary storage
+disks with a minimum size of 20 GB and a maximum of 200 GB. You only pay for
+additional storage beyond 20 GB that you configure per worker.
