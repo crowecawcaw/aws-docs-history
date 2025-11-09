@@ -1,5 +1,14 @@
 # Prototyping
 
 | OPS 2: How do you approach application lifecycle management? |
-| ------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|                                                              | Use infrastructure as code to create temporary environments for new features that you want to prototype, and tear them down as you complete them. You can use dedicated accounts per team or per developer depending, on the size of the team and the level of automation within the organization. Temporary environments allow for higher fidelity when working with managed services, and increase levels of control to help you gain confidence that your workload integrates and operates as intended. |
+| ------------------------------------------------------------ |
+|                                                              |
+
+Use infrastructure as code to create temporary environments for new features that you
+want to prototype, and tear them down as you complete them. You can use dedicated accounts
+per team or per developer depending, on the size of the team and the level of automation
+within the organization.
+
+Temporary environments allow for higher fidelity when working with managed services,
+and increase levels of control to help you gain confidence that your workload integrates and
+operates as intended.

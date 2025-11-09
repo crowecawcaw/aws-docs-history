@@ -23,8 +23,8 @@ _Figure 23: Regional Endpoint API Gateway deployment_
 This table can help you decide whether to deploy an Edge-optimized API or Regional API
 Endpoint:
 
-|                                                                                                                         | **Edge-optimized API** | **Regional API Endpoint** |
-| ----------------------------------------------------------------------------------------------------------------------- | ---------------------- | ------------------------- |
-| API is accessed across Regions. Includes API Gateway-managed CloudFront distribution.                                   | X                      |                           |
-| API is accessed within same Region. Least request latency when API is accessed from the same Region as API is deployed. |                        | X                         |
-| Ability to associate own CloudFront distribution.                                                                       |                        | X                         |
+|                                                                                                                            | **Edge-optimized API** | **Regional API Endpoint** |
+| -------------------------------------------------------------------------------------------------------------------------- | ---------------------- | ------------------------- |
+| API is accessed across Regions. Includes API Gateway-managed CloudFront distribution.                                      | X                      |                           |
+| API is accessed within same Region. Least request latency when API is accessed<br>from the same Region as API is deployed. |                        | X                         |
+| Ability to associate own CloudFront distribution.                                                                          |                        | X                         |

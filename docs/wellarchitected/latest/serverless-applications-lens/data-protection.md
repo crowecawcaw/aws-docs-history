@@ -34,6 +34,28 @@ Enabling logging in API Gateway where sensitive data is unencrypted is also disc
 mentioned in the [Detective controls](detective-controls.md "detective-controls.md") subsection, you should consult your compliance team
 before enabling API Gateway logging in such cases.
 
-| SEC 3: How do you implement application security in your workload? |
-| ------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|                                                                    | Review security awareness documents authored by AWS Security bulletins and industry threat intelligence as covered in the AWS Well-Architected Framework. OWASP guidelines for application security still apply. Validate and sanitize inbound events, and perform a security code review as you normally would for non-serverless applications. For API Gateway, set up basic request validation as a first step to ensure that the request adheres to the configured JSON-schema request model as well as any required parameters in the URI, query string, or headers. Application-specific deep validation should be implemented, whether that is as a separate Lambda function, library, framework, or service. To add protection for your code executing in Lambda runtime against any unintended and unauthorised changes while it is moving in your CI/CD pipelines, you can add code signature. Signing the code will confirm that it comes from a trusted source and is unaltered. [AWS Signer](../../../signer/latest/developerguide/Welcome.md "../../../signer/latest/developerguide/Welcome.md") integrates with AWS Lambda to sign the code and enforce that only trusted code is deployed into your runtime. Store your secrets, such as database passwords or API keys, in a secrets manager that allows for rotation, secure and audited access. Secrets Manager allows fine-grained policies for secrets including auditing. |
+| SEC 3: How do you implement application security in your<br>workload? |
+| --------------------------------------------------------------------- |
+|                                                                       |
+
+Review security awareness documents authored by AWS Security bulletins and industry
+threat intelligence as covered in the AWS Well-Architected Framework. OWASP guidelines
+for application security still apply.
+
+Validate and sanitize inbound events, and perform a security code review as you
+normally would for non-serverless applications. For API Gateway, set up basic request
+validation as a first step to ensure that the request adheres to the configured
+JSON-schema request model as well as any required parameters in the URI, query string,
+or headers. Application-specific deep validation should be implemented, whether that is
+as a separate Lambda function, library, framework, or service.
+
+To add protection for your code executing in Lambda runtime against any unintended and
+unauthorised changes while it is moving in your CI/CD pipelines, you can add code
+signature. Signing the code will confirm that it comes from a trusted source and is
+unaltered. [AWS
+Signer](../../../signer/latest/developerguide/Welcome.md "../../../signer/latest/developerguide/Welcome.md") integrates with AWS Lambda to sign the code and enforce that only
+trusted code is deployed into your runtime.
+
+Store your secrets, such as database passwords or API keys, in a secrets manager that
+allows for rotation, secure and audited access. Secrets Manager allows fine-grained policies
+for secrets including auditing.
