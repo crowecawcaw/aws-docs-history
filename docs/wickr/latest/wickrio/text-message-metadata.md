@@ -76,27 +76,90 @@ The text message above is a sample, and does not include all of the optional fie
 meta data you may see in a message. The "tablemeta" object can contain the following
 objects:
 
-| Name              | Description                                                                                                                                                                                                                                                                       |
-| ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| name              | This object is a string that is the name of the table.                                                                                                                                                                                                                            |
-| firstcolumnname   | This object is a string that is the name of the first column of the table.                                                                                                                                                                                                        |
-| secondcolumnname  | This object is a string that is the name of the second column of the table. This is optional.                                                                                                                                                                                     |
-| actioncolumnname  | This object is a string that is the name of the action column of the table. This is optional.                                                                                                                                                                                     |
-| items             | This is an array of entries for the table.                                                                                                                                                                                                                                        | The items is an array and can contain 0 or more entries for the table. Each entry in this table will contain the following objects:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| Name              | Description                                                                                                                                                                                                                                                                       |
-| ---               | ---                                                                                                                                                                                                                                                                               |
-| firstcolumnvalue  | This object is a string that is the value for the first column.                                                                                                                                                                                                                   |
-| secondcolumnvalue | This object is a string that is the value for the second column. This is optional.                                                                                                                                                                                                |
-| response          | This object is a string that is the value to be returned to the bot when the list is selected. This is optional.                                                                                                                                                                  | The "textcutmeta" is used to maintain some backwards compatability with Wickr clients that do not support lists. The "textcutmeta" is a list that identifies text characters that will be removed from the message text when the client supports table meta data. Typically the text that is removed is when the list information is in the message text, see the example above. The fields of the each of the "textcutmeta" entries identifies the starting index and ending index of what characters to cut from the message text. These values are 0 relative for the first character in the message text. ## Text message button meta data As of the 5.81 release of WickrIO, support was added for buttons. Wickr clients that support these buttons will display the buttons when the message is received from the bot. There are several types of buttons, but selecting a button will perform a specific operation, including sending a message to the bot or sending your location to the bot. The following is an example of a text message with button meta data: `{ "buttonmeta":[ { "msgbutton":{ "message":"/ack", "text":"/Ack" } }, { "locationbutton":{ "locationtype":0, "text":"/Ack with Location" } } ], "message":"this is a broadcast\n\nBroadcast message sent by: bnuser01@userworld.com\n\nPlease acknowledge message by replying with /ack", "message_id":"744dc0c0a75a11eb986e31ce44694ab3", "msg_ts":"1619529250.508240", "msgtype":1000, "receiver":"bnuser01@userworld.com", "sender":"bn0523_bcast_bot", "sender_type": "normal", "time": "7/11/23 6:07 PM", "time_iso": "2023-07-11 18:07:21.981", "ttl": "7/10/24 6:07 PM", "vgroupid":"4b32d7c8c6c37cc9e9506e9ed98ce37f0a96e1e45fcd4ca6f6d00c9d435d82e3" }` The "buttonmeta" array contains all of the buttons associated with this text message. There are three types of buttons supported: |
-| Name              | Description                                                                                                                                                                                                                                                                       |
-| ---               | ---                                                                                                                                                                                                                                                                               |
-| msgbutton         | This is a normal button type that contains the text of the button and the message to be sent to the bot when the button is selected.                                                                                                                                              |
-| locationbutton    | This is a location button that will perform a location based operation. Currently, the "locationtype" value of 0 means the client will send the location of the device to the bot when the button is selected. There will be other location type buttons supported in the future. | The "msgbutton" object will have the following objects:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| Name              | Description                                                                                                                                                                                                                                                                       |
-| ---               | ---                                                                                                                                                                                                                                                                               |
-| text              | This is the text of the button to be displayed                                                                                                                                                                                                                                    |
-| message           | This is the message that is sent to the bot when the button is selected.                                                                                                                                                                                                          | The "locationbutton" type performs a location type of operation. The "locationbutton" object has the following objects:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| Name              | Description                                                                                                                                                                                                                                                                       |
-| ---               | ---                                                                                                                                                                                                                                                                               |
-| text              | This is the text of the button to be displayed                                                                                                                                                                                                                                    |
-| type              | The type of location operation to perform. Value of 0 is to have the client send the location to the bot when the button is selected. Other location button types will have the option to start and stop location sharing, not implemented yet.                                   |
+| Name             | Description                                                                                      |
+| ---------------- | ------------------------------------------------------------------------------------------------ |
+| name             | This object is a string that is the name of the table.                                           |
+| firstcolumnname  | This object is a string that is the name of the first column of the table.                       |
+| secondcolumnname | This object is a string that is the name of the second column of the table. This is<br>optional. |
+| actioncolumnname | This object is a string that is the name of the action column of the table. This is<br>optional. |
+| items            | This is an array of entries for the table.                                                       |
+
+The items is an array and can contain 0 or more entries for the table. Each entry in this
+table will contain the following objects:
+
+| Name              | Description                                                                                                         |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------- |
+| firstcolumnvalue  | This object is a string that is the value for the first column.                                                     |
+| secondcolumnvalue | This object is a string that is the value for the second column. This is<br>optional.                               |
+| response          | This object is a string that is the value to be returned to the bot when the list is<br>selected. This is optional. |
+
+The "textcutmeta" is used to maintain some backwards compatability with Wickr clients
+that do not support lists. The "textcutmeta" is a list that identifies text characters that will
+be removed from the message text when the client supports table meta data. Typically the text
+that is removed is when the list information is in the message text, see the example above. The
+fields of the each of the "textcutmeta" entries identifies the starting index and ending index
+of what characters to cut from the message text. These values are 0 relative for the first
+character in the message text.
+
+## Text message button meta data
+
+As of the 5.81 release of WickrIO, support was added for buttons. Wickr clients that
+support these buttons will display the buttons when the message is received from the bot. There
+are several types of buttons, but selecting a button will perform a specific operation,
+including sending a message to the bot or sending your location to the bot. The following is an
+example of a text message with button meta data:
+
+```
+
+{
+   "buttonmeta":[
+      {
+         "msgbutton":{
+            "message":"/ack",
+            "text":"/Ack"
+         }
+      },
+      {
+         "locationbutton":{
+            "locationtype":0,
+            "text":"/Ack with Location"
+         }
+      }
+   ],
+   "message":"this is a broadcast\n\nBroadcast message sent by: bnuser01@userworld.com\n\nPlease acknowledge message by replying with /ack",
+   "message_id":"744dc0c0a75a11eb986e31ce44694ab3",
+   "msg_ts":"1619529250.508240",
+   "msgtype":1000,
+   "receiver":"bnuser01@userworld.com",
+   "sender":"bn0523_bcast_bot",
+   "sender_type": "normal",
+   "time": "7/11/23 6:07 PM",
+   "time_iso": "2023-07-11 18:07:21.981",
+   "ttl": "7/10/24 6:07 PM",
+   "vgroupid":"4b32d7c8c6c37cc9e9506e9ed98ce37f0a96e1e45fcd4ca6f6d00c9d435d82e3"
+}
+
+```
+
+The "buttonmeta" array contains all of the buttons associated with this text message. There
+are three types of buttons supported:
+
+| Name           | Description                                                                                                                                                                                                                                                                                |
+| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| msgbutton      | This is a normal button type that contains the text of the button and the message to<br>be sent to the bot when the button is selected.                                                                                                                                                    |
+| locationbutton | This is a location button that will perform a location based operation. Currently, the<br>"locationtype" value of 0 means the client will send the location of the device to the bot<br>when the button is selected. There will be other location type buttons supported in the<br>future. |
+
+The "msgbutton" object will have the following objects:
+
+| Name    | Description                                                              |
+| ------- | ------------------------------------------------------------------------ |
+| text    | This is the text of the button to be displayed                           |
+| message | This is the message that is sent to the bot when the button is selected. |
+
+The "locationbutton" type performs a location type of operation. The "locationbutton"
+object has the following objects:
+
+| Name | Description                                                                                                                                                                                                                                           |
+| ---- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| text | This is the text of the button to be displayed                                                                                                                                                                                                        |
+| type | The type of location operation to perform. Value of 0 is to have the client send the<br>location to the bot when the button is selected. Other location button types will have the<br>option to start and stop location sharing, not implemented yet. |
