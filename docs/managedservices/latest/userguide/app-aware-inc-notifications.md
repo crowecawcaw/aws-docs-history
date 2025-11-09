@@ -21,9 +21,69 @@ After provisioning AppRegistry, use one of the following methods to create appli
 
 You must tag your applications before AMS can access application metadata. The following table lists the required tag.
 
-| Tag key        | Tag value                                                   |
-| -------------- | ----------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ | ---- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| ams-managed    | true                                                        | ## Customize AMS support case severity for your applications You can customize the severity of AMS created support cases by specifying how critical your application is for your organization. This setting is controlled by an attribute group associated with your application in AppRegistry. The name of the attribute group name must match the following pattern: `AMS.<ApplicationName>.CommunicationOptions` In the preceding pattern, the `ApplicationName` must match the name used in AppRegistry when you created the application. Example content: `{ "SchemaVersion": "1.0", "Criticality": "low" }` **SchemaVersion** This determines the schema version that you're using and the subset of features available to use. |
+| Tag key     | Tag value |
+| ----------- | --------- |
+| ams-managed | true      |
+
+## Customize AMS support case severity for your applications
+
+You can customize the severity of AMS created support cases by specifying how critical your application is for your organization. This setting is controlled by an attribute group associated
+with your application in AppRegistry. The name of the attribute group name must match the following pattern:
+
+```
+AMS.<ApplicationName>.CommunicationOptions
+```
+
+In the preceding pattern, the `ApplicationName` must match the name used in AppRegistry when you created the application.
+
+Example content:
+
+```
+{
+"SchemaVersion": "1.0",
+"Criticality": "low"
+}
+```
+
+**SchemaVersion**
+
+This determines the schema version that you're using and the subset of features available to use.
+
 | Schema version | Feature                                                     |
-| ---            | ---                                                         |
-| 1.0            | Customized support case severity based on Criticality value | **Criticality** The criticality of this application determines the severity of the support cases created by the AMS automated systems. Valid values: ``` low                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | normal | high | urgent | critical ``For more information on severity levels, see [SeverityLevel](../../../awssupport/latest/APIReference/API_SeverityLevel.md "../../../awssupport/latest/APIReference/API_SeverityLevel.md") in the *AWS Support API Reference*. Required: Yes ## Review required permissions To use this feature, AMS requires access to the following AWS Identity and Access Management permissions: <br>• iam:ListRoleTags <br>• iam:ListUserTags <br>• resourcegroupstaggingapi:GetResources <br>• servicecatalog-appregistry:GetApplication <br>• servicecatalog-appregistry:ListAssociatedAttributeGroups <br>• servicecatalog-appregistry:GetAttributeGroup ###### Important Make sure that there isn't an IAM policy or service control policy (SCP) that denies the preceding actions. The API calls are made by the `ams-access-admin` role. The following is an example of what you might see:`` arn:aws:sts::111122223333:assumed-role/ams-access-admin/AMS-AMSAppMetadataLookup-\* ``` |
+| -------------- | ----------------------------------------------------------- |
+| 1.0            | Customized support case severity based on Criticality value |
+
+**Criticality**
+
+The criticality of this application determines the severity of the support cases created by the AMS automated systems.
+
+Valid values:
+
+```
+low|normal|high|urgent|critical
+```
+
+For more information on severity levels, see [SeverityLevel](../../../awssupport/latest/APIReference/API_SeverityLevel.md "../../../awssupport/latest/APIReference/API_SeverityLevel.md") in the _AWS Support API Reference_.
+
+Required: Yes
+
+## Review required permissions
+
+To use this feature, AMS requires access to the following AWS Identity and Access Management permissions:
+
+- iam:ListRoleTags
+- iam:ListUserTags
+- resourcegroupstaggingapi:GetResources
+- servicecatalog-appregistry:GetApplication
+- servicecatalog-appregistry:ListAssociatedAttributeGroups
+- servicecatalog-appregistry:GetAttributeGroup
+
+###### Important
+
+Make sure that there isn't an IAM policy or service control policy (SCP) that denies the preceding actions.
+
+The API calls are made by the `ams-access-admin` role. The following is an example of what you might see:
+
+```
+arn:aws:sts::111122223333:assumed-role/ams-access-admin/AMS-AMSAppMetadataLookup-*
+```

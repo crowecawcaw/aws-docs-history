@@ -11,4 +11,45 @@ to a secondary one (often called a "flip") by mapping the DNS name to a differen
 After you create private DNS resources using the Deployment | Advanced
 stack components | DNS (private) | Create (ct-0c38gftq56zj6) or Deployment | Advanced
 stack components | DNS (public) | Create (ct-0vzsr2nyraedl), you can use the Management
-| Advanced stack components | DNS (private) | Update (ct-1d55pi44ff21u) and Management | Advanced stack components | DNS (public) | Update (ct-1hzofpphabs3i), CTs to configure additional, or update existing, record sets. For multi-account landing zone (MALZ) accounts, DNS resources created in the application account VPCs can be shared with the shared services account VPC to maintain centralized DNS using AMS AD. MALZ The following graphic illustrates a possible DNS configuration for Multi-Account Landing Zone AMS. It illustrates a hybrid DNS setup between AMS and a typical customer network. A Canonical Name Record (CNAME) in the customer network DNS server forwards to the AMS AD DNS in the shared services account with a conditional forward that has the CNAME of the AMS FQDN forwarded to the A record. ![An example of a DNS configuration, showing relationships between your corporate network, the internet, and your AWS cloud account.](images/MALZ_DNS_diagram.png) SALZ The following graphic illustrates a possible DNS configuration for single-account landing zone (SALZ). It shows a hybrid DNS setup between AMS and a typical customer network. A CNAME in the customer network DNS server forwards to the AMS AD DNS with a conditional forward which has the CNAME of the AMS FQDN forwarded to the A record. ![An example of a DNS configuration, showing relationships between your corporate network, the internet and your AWS cloud account.](images/AMS_DNS_diagram.png) SALZ Route53 DNS The following graphic illustrates a possible DNS configuration for single-account landing zone (SALZ). It shows a hybrid DNS setup between AMS and a typical customer network. A CNAME in the customer network DNS server forwards to the AMS AD DNS with a conditional forward which has the CNAME of the AMS FQDN forwarded to the A record. This also leverages Route53 for outbound network traffic so that any application in the account can have DNS Resolution in the account with the highest availability. Route53 enabled Resolution paths: <br>• Instance attempting to resolve AMS MAD name --> VPC +2 (Route53/AmazonProvidedDNS) --> Conditional Forwarders evaluated --> Route53 MAD Conditional Forwarder rule matched --> Route53 Outbound resolver --> Managed AD DNS <br>• Instance attempting to resolve customer on-prem name --> VPC +2 (Route53/AmazonProvidedDNS) --> Conditional Forwarders evaluated --> Route53 On-prem Conditional Forwarder rule matched --> Route53 Outbound resolver --> Customer on-prem DNS <br>• Instance attempting to resolve Internet name --> VPC +2 (Route53/AmazonProvidedDNS) --> Conditional Forwarders evaluated --> No matching forwarder --> Internet DNS Service ![An example of a DNS configuration, showing relationships between your corporate network, the internet, Route53 DNS, and your AWS cloud account.](images/AMS_DNS_R53_diagram.png) For more information, see [Using DNS with Your VPC](../../../AmazonVPC/latest/UserGuide/vpc-dns.md "../../../AmazonVPC/latest/UserGuide/vpc-dns.md") and [Working with Private Hosted Zones](../../../Route53/latest/DeveloperGuide/hosted-zones-private.md "../../../Route53/latest/DeveloperGuide/hosted-zones-private.md").
+| Advanced stack components | DNS (private) | Update (ct-1d55pi44ff21u) and Management |
+Advanced stack components | DNS (public) | Update (ct-1hzofpphabs3i), CTs to configure
+additional, or update existing, record sets. For multi-account landing zone (MALZ) accounts, DNS resources created in the application account VPCs can be shared with the shared
+services account VPC to maintain centralized DNS using AMS AD.
+
+MALZ
+The following graphic illustrates a possible DNS configuration for Multi-Account Landing Zone AMS. It
+illustrates a hybrid DNS setup between AMS and a typical customer network. A Canonical
+Name Record (CNAME) in the customer network DNS server forwards to the AMS AD DNS in
+the shared services account with a conditional forward that has the CNAME of the AMS
+FQDN forwarded to the A record.
+
+![An example of a DNS configuration, showing relationships between your corporate network, the internet, and your AWS cloud account.](images/MALZ_DNS_diagram.png)
+
+SALZ
+The following graphic illustrates a possible DNS configuration for single-account landing zone (SALZ). It
+shows a hybrid DNS setup between AMS and a typical customer network. A CNAME in the
+customer network DNS server forwards to the AMS AD DNS with a conditional forward
+which has the CNAME of the AMS FQDN forwarded to the A record.
+
+![An example of a DNS configuration, showing relationships between your corporate network, the internet and your AWS cloud account.](images/AMS_DNS_diagram.png)
+
+SALZ Route53 DNS
+The following graphic illustrates a possible DNS configuration for single-account landing zone (SALZ). It shows a hybrid DNS
+setup between AMS and a typical customer network. A CNAME in the customer network DNS server forwards to the AMS AD DNS with a
+conditional forward which has the CNAME of the AMS FQDN forwarded to the A record. This also leverages Route53 for outbound network
+traffic so that any application in the account can have DNS Resolution in the account with the highest availability.
+
+Route53 enabled Resolution paths:
+
+- Instance attempting to resolve AMS MAD name --> VPC +2 (Route53/AmazonProvidedDNS) --> Conditional Forwarders evaluated -->
+  Route53 MAD Conditional Forwarder rule matched --> Route53 Outbound resolver --> Managed AD DNS
+- Instance attempting to resolve customer on-prem name --> VPC +2 (Route53/AmazonProvidedDNS) --> Conditional Forwarders evaluated -->
+  Route53 On-prem Conditional Forwarder rule matched --> Route53 Outbound resolver --> Customer on-prem DNS
+- Instance attempting to resolve Internet name --> VPC +2 (Route53/AmazonProvidedDNS) --> Conditional Forwarders evaluated -->
+  No matching forwarder --> Internet DNS Service
+
+![An example of a DNS configuration, showing relationships between your corporate network, the internet, Route53 DNS, and your AWS cloud account.](images/AMS_DNS_R53_diagram.png)
+
+For more information, see
+[Using DNS with Your VPC](../../../AmazonVPC/latest/UserGuide/vpc-dns.md "../../../AmazonVPC/latest/UserGuide/vpc-dns.md") and
+[Working with Private Hosted Zones](../../../Route53/latest/DeveloperGuide/hosted-zones-private.md "../../../Route53/latest/DeveloperGuide/hosted-zones-private.md").

@@ -168,4 +168,111 @@ threat lists.
   uploaded threat lists per AWS account per region.
 
 To implement GuardDuty, use the AMS CT Deployment | Monitoring and notification
-| GuardDuty IP set | Create (ct-08avsj2e9mc7g) to create a set of approved IP addresses. You can also use the AMS CT Deployment | Monitoring and notification | GuardDuty threat intel set | Create (ct-25v6r7t8gvkq5) to create a set of denied IP addresses. For a list of the services that AMS monitors, see [What does the AMS monitoring system monitor?](monitoring-what-services.md "monitoring-what-services.md"). ## Amazon Route 53 Resolver DNS Firewall Amazon Route 53 Resolver responds recursively to DNS queries from AWS resources for public records, Amazon VPC-specific DNS names, and Amazon Route 53 private hosted zones, and is available by default in all VPCs. With Route 53 Resolver DNS Firewall, you can filter and regulate outbound DNS traffic for your virtual private cloud (VPC). To do this, you create reusable collections of filtering rules in DNS Firewall rule groups, associate the rule groups to your VPC, and then monitor activity in DNS Firewall logs and metrics. Based on the activity, you can adjust the behavior of DNS Firewall accordingly. For more information, see [Using DNS Firewall to filter outbound DNS traffic](../../../Route53/latest/DeveloperGuide/resolver-dns-firewall.md "../../../Route53/latest/DeveloperGuide/resolver-dns-firewall.md"). To view and manage your Route 53 Resolver DNS Firewall configuration, use the following procedure: 1. Sign in to the AWS Management Console and open the Amazon VPC console at [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/"). 2. Under **DNS Firewall**, choose **Rule groups**. 3. Review, edit, or delete your existing configuration, or create a new rule group. For more information, see [How Route 53 Resolver DNS Firewall works](../../../Route53/latest/DeveloperGuide/resolver-dns-firewall-overview.md "../../../Route53/latest/DeveloperGuide/resolver-dns-firewall-overview.md"). ### Amazon Route 53 Resolver DNS Firewall monitoring and security Amazon Route 53 DNS Firewall uses the concepts of rule associations, rule action, and rule evaluation priority. A domain list is a reusable set of domain specifications that you use in a DNS Firewall rule, inside a rule group. When you associate a rule group with a VPC, DNS Firewall compares your DNS queries against the domain lists that are used in the rules. If DNS Firewall finds a match, then it handles the DNS query according to the matching rule's action. For more information about rule groups and rules, see [DNS Firewall rule groups and rules](../../../Route53/latest/DeveloperGuide/resolver-dns-firewall-rule-groups.md "../../../Route53/latest/DeveloperGuide/resolver-dns-firewall-rule-groups.md"). Domain lists fall into two main categories: <br>• Managed domain lists, that AWS creates and maintains for you. <br>• Your own domain lists, that you create and maintain. Rule groups are evaluated based on their association priority index. By default, AMS deploys a baseline configuration that consists of the following rule and rule group: <br>• One rule group named `DefaultSecurityMonitoringRule`. The rule group has the highest association priority that's available at the time of creation for each existing VPC in each enabled AWS Region. <br>• One rule named `DefaultSecurityMonitoringRule` with priority **1** within the `DefaultSecurityMonitoringRule` rule group, using the `AWSManagedDomainsAggregateThreatList` Managed Domain list with action **ALERT**. If you have an existing configuration, the baseline configuration is deployed with lower priority than your existing configuration. Your existing configuration is the default. You use the AMS baseline configuration as a catch-all if your existing configuration doesn't provide a higher priority instruction on how to handle query resolution. To alter or remove the baseline configuration, do one of the following: <br>• Contact your Cloud Service Delivery Manager (CSDM) or Cloud Architect (CA). <br>• Create a Request For Change (RFC) using [Management | Other | Other | Create CT (ct-1e1xtak34nx76)](../onboardingguide/ex-other-other.md "../onboardingguide/ex-other-other.md"). <br>• Create a service request. If your account is operated in Developer mode or Direct Change mode, you can perform the changes yourself. ## AWS Certificate Manager (ACM) certificate AMS has a CT, Deployment | Advanced stack components | ACM certificate with additional SANs | Create (ct-3l14e139i5p50), that you can use to submit a request for an AWS Certificate Manager certificate, with up to five additional Subject alternative names (SAN) (such as example.com, example.net, and example.org). For details, see [What Is AWS Certificate Manager?](../../../acm/latest/userguide/acm-overview.md "../../../acm/latest/userguide/acm-overview.md") and [ACM Certificate Characteristic](../../../acm/latest/userguide/acm-certificate.md "../../../acm/latest/userguide/acm-certificate.md"). ###### Note This timeout setting isn't just about the run, but also your validation of the ACM certificate through email validation. Without your validation, the RFC fails. ## Data encryption in AMS AMS uses several AWS services for data encryption, notably Amazon Simple Storage Service, AWS Key Management Service (AWS KMS), Amazon Elastic Block Store, Amazon Relational Database Service, Amazon Redshift, Amazon ElastiCache, AWS Lambda, and Amazon OpenSearch Service. **Amazon S3** Amazon S3 offers several object encryption options that protect data in transit and at rest. Server-side encryption encrypts your object before saving it on disks in its data centers and then decrypts it when you download the objects. As long as you authenticate your request and you have access permissions, there is no difference in the way you access encrypted or unencrypted objects. For more information, see [Data protection in Amazon S3](../../../AmazonS3/latest/userguide/DataDurability.md "../../../AmazonS3/latest/userguide/DataDurability.md"). **Amazon EBS** With Amazon EBS encryption, you don't need to build, maintain, and secure your own key management infrastructure. Amazon EBS encryption uses AWS KMS keys when creating encrypted volumes and snapshots. Encryption operations occur on the servers that host Amazon EC2 instances. This is done to make sure that both data-at-rest and data-in-transit between an instance and its attached Amazon EBS storage is secure. You can attach both encrypted and unencrypted volumes to an instance simultaneously. For more information, see [Amazon EBS Encryption](../../../AWSEC2/latest/UserGuide/EBSEncryption.md "../../../AWSEC2/latest/UserGuide/EBSEncryption.md"). **Amazon RDS** Amazon RDS can encrypt your Amazon RDS DB instances. Data that's encrypted at rest includes the underlying storage for DB instances, its automated backups, read replicas, and snapshots. Amazon RDS-encrypted DB instances use the industry standard AES-256 encryption algorithm to encrypt your data on the server that hosts your Amazon RDS DB instances. After your data is encrypted, Amazon RDS handles authentication of access and decryption of your data transparently with a minimal impact on performance. You don't need to modify your database client applications to use encryption. For more information, see [Encrypting Amazon RDS resources](../../../AmazonRDS/latest/UserGuide/Overview.md "../../../AmazonRDS/latest/UserGuide/Overview.md"). **Amazon Simple Queue Service** In addition to the default Amazon SQS managed server-side encryption (SSE) option, Amazon SQS-managed SSE (SSE-SQS) allows you to create custom managed server-side encryption that uses Amazon SQS-managed encryption keys to protect sensitive data that's sent over message queues. Server-side encryption (SSE) allows you to transmit sensitive data in encrypted queues. SSE protects the content of messages in queues using Amazon SQS-managed encryption keys (SSE-SQS) or keys that are managed in AWS KMS (SSE-KMS). For information about managing SSE using the AWS Management Console, see [Encryption at rest](../../../AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.md "../../../AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.md"). **Data encryption at rest** OpenSearch Service domains offer encryption of data at rest, a security feature that helps prevent unauthorized access to your data. The feature uses AWS Key Management Service (AWS KMS) to store and manage your encryption keys and the Advanced Encryption Standard algorithm with 256-bit keys(AES-256) to perform the encryption. For more information, see [Encryption of Data at Rest for Amazon OpenSearch Service](../../../opensearch-service/latest/developerguide/encryption-at-rest.md "../../../opensearch-service/latest/developerguide/encryption-at-rest.md"). **Key management** AWS KMS is a managed service that makes it easy for you to create and control customer master keys (CMKs), the encryption keys used to encrypt your data. AWS KMS CMKs are protected by hardware security modules (HSMs) that are validated by the FIPS 140-2 Cryptographic Module Validation Program except in the China (Beijing) and China (Ningxia) Regions. For more information, see [What is AWS Key Management Service?](../../../kms/latest/developerguide/overview.md "../../../kms/latest/developerguide/overview.md")
+| GuardDuty IP set | Create (ct-08avsj2e9mc7g) to create a set of approved IP
+addresses. You can also use the AMS CT Deployment | Monitoring and notification |
+GuardDuty threat intel set | Create (ct-25v6r7t8gvkq5) to create a set of
+denied IP addresses.
+
+For a list of the services that AMS monitors, see
+[What does the AMS monitoring system monitor?](monitoring-what-services.md "monitoring-what-services.md").
+
+## Amazon Route 53 Resolver DNS Firewall
+
+Amazon Route 53 Resolver responds recursively to DNS queries from AWS resources for public records, Amazon VPC-specific DNS names, and Amazon Route 53 private hosted zones, and is available by default in all VPCs. With Route 53 Resolver DNS Firewall, you can filter and regulate outbound DNS traffic for your virtual private cloud (VPC). To do this, you create reusable collections of filtering rules in DNS Firewall rule groups, associate the rule groups to your VPC, and then monitor activity in DNS Firewall logs and metrics. Based on the activity, you can adjust the behavior of DNS Firewall accordingly. For more information, see [Using DNS Firewall to filter outbound DNS traffic](../../../Route53/latest/DeveloperGuide/resolver-dns-firewall.md "../../../Route53/latest/DeveloperGuide/resolver-dns-firewall.md").
+
+To view and manage your Route 53 Resolver DNS Firewall configuration, use the following procedure:
+
+1. Sign in to the AWS Management Console and open the Amazon VPC console at
+   [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
+2. Under **DNS Firewall**, choose **Rule groups**.
+3. Review, edit, or delete your existing configuration, or create a new rule group. For more information, see [How Route 53 Resolver DNS Firewall works](../../../Route53/latest/DeveloperGuide/resolver-dns-firewall-overview.md "../../../Route53/latest/DeveloperGuide/resolver-dns-firewall-overview.md").
+
+### Amazon Route 53 Resolver DNS Firewall monitoring and security
+
+Amazon Route 53 DNS Firewall uses the concepts of rule associations, rule action, and rule evaluation priority. A domain list is a reusable set of domain specifications
+that you use in a DNS Firewall rule, inside a rule group. When you associate a rule group with a VPC, DNS Firewall compares your DNS queries against the domain
+lists that are used in the rules. If DNS Firewall finds a match, then it handles the DNS query according to the matching rule's action. For more information about
+rule groups and rules, see [DNS Firewall rule groups and rules](../../../Route53/latest/DeveloperGuide/resolver-dns-firewall-rule-groups.md "../../../Route53/latest/DeveloperGuide/resolver-dns-firewall-rule-groups.md").
+
+Domain lists fall into two main categories:
+
+- Managed domain lists, that AWS creates and maintains for you.
+- Your own domain lists, that you create and maintain.
+
+Rule groups are evaluated based on their association priority index.
+
+By default, AMS deploys a baseline configuration that consists of the following rule and rule group:
+
+- One rule group named `DefaultSecurityMonitoringRule`. The rule group has the highest association priority that's available at the time of creation
+  for each existing VPC in each enabled AWS Region.
+- One rule named `DefaultSecurityMonitoringRule` with priority **1** within the `DefaultSecurityMonitoringRule` rule group,
+  using the `AWSManagedDomainsAggregateThreatList` Managed Domain list with action **ALERT**.
+
+If you have an existing configuration, the baseline configuration is deployed with lower priority than your existing configuration. Your existing configuration is the default.
+You use the AMS baseline configuration as a catch-all if your existing configuration doesn't provide a higher priority instruction on how to
+handle query resolution. To alter or remove the baseline configuration, do one of the following:
+
+- Contact your Cloud Service Delivery Manager (CSDM) or Cloud Architect (CA).
+- Create a Request For Change (RFC) using
+  [Management | Other | Other | Create CT (ct-1e1xtak34nx76)](../onboardingguide/ex-other-other.md "../onboardingguide/ex-other-other.md").
+- Create a service request.
+
+If your account is operated in Developer mode or Direct Change mode, you can perform the changes yourself.
+
+## AWS Certificate Manager (ACM) certificate
+
+AMS has a CT, Deployment | Advanced stack components | ACM certificate with additional SANs | Create
+(ct-3l14e139i5p50), that you can use to submit a request for an AWS Certificate Manager certificate, with up to five
+additional Subject alternative names (SAN) (such as example.com, example.net, and example.org). For details, see
+[What Is AWS Certificate Manager?](../../../acm/latest/userguide/acm-overview.md "../../../acm/latest/userguide/acm-overview.md") and
+[ACM Certificate Characteristic](../../../acm/latest/userguide/acm-certificate.md "../../../acm/latest/userguide/acm-certificate.md").
+
+###### Note
+
+This timeout setting isn't just about the run, but also your validation of the ACM certificate through
+email validation. Without your validation, the RFC fails.
+
+## Data encryption in AMS
+
+AMS uses several AWS services for data encryption, notably Amazon Simple Storage Service, AWS Key Management Service (AWS KMS), Amazon Elastic Block Store, Amazon Relational Database Service, Amazon Redshift, Amazon ElastiCache, AWS Lambda, and Amazon OpenSearch Service.
+
+**Amazon S3**
+
+Amazon S3 offers several object encryption options that protect data in transit and at rest.
+Server-side encryption encrypts your object before saving it on disks in its data centers and then
+decrypts it when you download the objects. As long as you authenticate your request and you have
+access permissions, there is no difference in the way you access encrypted or unencrypted objects.
+For more information, see [Data protection in Amazon S3](../../../AmazonS3/latest/userguide/DataDurability.md "../../../AmazonS3/latest/userguide/DataDurability.md").
+
+**Amazon EBS**
+
+With Amazon EBS encryption, you don't need to build, maintain, and secure your own key management infrastructure. Amazon EBS encryption uses AWS KMS keys when creating encrypted volumes and snapshots. Encryption operations occur on the servers that host Amazon EC2 instances. This is done to make sure that both data-at-rest and data-in-transit between an instance and its attached Amazon EBS storage is secure. You can attach both encrypted and unencrypted volumes to an instance simultaneously. For more information, see [Amazon EBS Encryption](../../../AWSEC2/latest/UserGuide/EBSEncryption.md "../../../AWSEC2/latest/UserGuide/EBSEncryption.md").
+
+**Amazon RDS**
+
+Amazon RDS can encrypt your Amazon RDS DB instances. Data that's encrypted at rest includes the underlying storage for DB instances, its automated backups, read replicas, and snapshots. Amazon RDS-encrypted DB instances use the industry standard AES-256 encryption algorithm to encrypt your data on the server that hosts your Amazon RDS DB instances. After your data is encrypted, Amazon RDS handles authentication of access and decryption of your data transparently with a minimal impact on performance. You don't need to modify your database client applications to use encryption. For more information, see [Encrypting Amazon RDS resources](../../../AmazonRDS/latest/UserGuide/Overview.md "../../../AmazonRDS/latest/UserGuide/Overview.md").
+
+**Amazon Simple Queue Service**
+
+In addition to the default Amazon SQS managed server-side encryption (SSE)
+option, Amazon SQS-managed SSE (SSE-SQS) allows you to create custom managed
+server-side encryption that uses Amazon SQS-managed encryption keys to protect
+sensitive data that's sent over message queues. Server-side encryption (SSE)
+allows you to transmit sensitive data in encrypted queues. SSE protects the
+content of messages in queues using Amazon SQS-managed encryption keys (SSE-SQS) or
+keys that are managed in AWS KMS (SSE-KMS). For information about managing SSE
+using the AWS Management Console, see [Encryption at rest](../../../AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.md "../../../AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.md").
+
+**Data encryption at rest**
+
+OpenSearch Service domains offer encryption of data at rest, a security feature that helps prevent unauthorized access to your
+data. The feature uses AWS Key Management Service (AWS KMS) to store and manage your encryption keys and the
+Advanced Encryption Standard algorithm with 256-bit keys(AES-256) to perform the encryption. For more information, see [Encryption of Data at Rest for Amazon OpenSearch Service](../../../opensearch-service/latest/developerguide/encryption-at-rest.md "../../../opensearch-service/latest/developerguide/encryption-at-rest.md").
+
+**Key management**
+
+AWS KMS is a managed service that makes it easy
+for you to create and control customer master keys (CMKs), the encryption keys used to encrypt your data. AWS KMS CMKs are
+protected by hardware security modules (HSMs) that are validated by the FIPS 140-2 Cryptographic Module Validation
+Program except in the China (Beijing) and China (Ningxia) Regions. For more information, see [What is AWS Key Management
+Service?](../../../kms/latest/developerguide/overview.md "../../../kms/latest/developerguide/overview.md")

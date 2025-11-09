@@ -37,14 +37,23 @@ To get complete information about a particular stack instance, by StackId, run G
 aws amsskms list-stack-summaries --output table
 ```
 
-````
+```
 --------------------------------------------------------------------
 |                                    ListStackSummaries            |
-|                                     StackSummaries               | +------------+----------------------+---------------------+--------+
-|   VpcId    |         StackId      |  StackTemplateId    |  Name  | +------------+----------------------+---------------------+--------+
+|                                     StackSummaries               |
++------------+----------------------+---------------------+--------+
+|   VpcId    |         StackId      |  StackTemplateId    |  Name  |
++------------+----------------------+---------------------+--------+
 |vpc-0123abcd|stack-1fb7fe2212345678|stm-sdhopvbb123456789|Test ELB|
 |vpc-0123abcd|stack-8323cc0e12345678|stm-s2b72beb123456789|S3 store|
 |vpc-0123abcd|stack-2309fa0712345678|stm-sdhopvbb123456789|ELB     |
 |vpc-0123abcd|stack-5e61a70512345678|stm-sdpabqbb123456789|PatchSim|
-|vpc-0123abcd|stack-bd0e080d12345678|stm-s2b72beb123456789|CLI demo| +------------+----------------------+---------------------+--------+ ``` For information about using CLI queries, see [How to Filter the Output with the --query Option](../../../cli/latest/userguide/controlling-output.md#controlling-output-filter "../../../cli/latest/userguide/controlling-output.md#controlling-output-filter") and the query language reference, [JMESPath Specification](http://jmespath.org/specification.html "http://jmespath.org/specification.html").. ###### Note For information on using instance IDs for access, see also [Accessing instances using bastions](using-bastions.md "using-bastions.md").
-````
+|vpc-0123abcd|stack-bd0e080d12345678|stm-s2b72beb123456789|CLI demo|
++------------+----------------------+---------------------+--------+
+```
+
+For information about using CLI queries, see [How to Filter the Output with the --query Option](../../../cli/latest/userguide/controlling-output.md#controlling-output-filter "../../../cli/latest/userguide/controlling-output.md#controlling-output-filter") and the query language reference, [JMESPath Specification](http://jmespath.org/specification.html "http://jmespath.org/specification.html")..
+
+###### Note
+
+For information on using instance IDs for access, see also [Accessing instances using bastions](using-bastions.md "using-bastions.md").

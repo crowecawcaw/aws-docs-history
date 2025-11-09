@@ -21,4 +21,25 @@ To learn more, see [Amazon Inspector Classic](../../../inspector/v1/userguide/in
 **Q: How do I request access to Amazon Inspector Classic in my AMS account?**
 
 Request access to Amazon Inspector Classic by submitting an RFC with the Management | AWS service | Self-provisioned service
-| Add (ct-1w8z66n899dct) change type. This RFC provisions the `customer_inspector_admin_role` IAM role to your account. The role includes the AWS-managed AmazonInspectorFullAccess policy. Once provisioned in your account, you must onboard the role in your federation solution. **Q: What are the restrictions to using Amazon Inspector Classic in my AMS account?** There are no restrictions. Full functionality of Amazon Inspector Classic is available in your AMS account. **Q: What are the prerequisites or dependencies to using Amazon Inspector Classic in my AMS account?** There are no prerequisites or dependencies to use Amazon Inspector Classic in your AMS account. ## Use the new Amazon Inspector in AMS You can now use the new Amazon Inspector in your AMS account. For Amazon Inspector Classic, the `customer-inspector-admin-role-ssm-inspector-agent-policy` and `AmazonInspectorFullAccess` were required. However, there has been an update to the SSPS role `customer-inspector-admin-role`, which now includes an additional `policyAmazonInspector2FullAccess`. This new policy allows API permissions for the new version of Amazon Inspector.
+| Add (ct-1w8z66n899dct) change type. This RFC provisions the `customer_inspector_admin_role`
+IAM role to your account. The role includes the AWS-managed AmazonInspectorFullAccess policy.
+Once provisioned in your account, you must onboard the role in your federation solution.
+
+**Q: What are the restrictions to using Amazon Inspector Classic in my AMS account?**
+
+There are no restrictions. Full functionality of Amazon Inspector Classic is available in your AMS account.
+
+**Q: What are the prerequisites or dependencies to using Amazon Inspector Classic in my AMS account?**
+
+There are no prerequisites or dependencies to use Amazon Inspector Classic in your AMS account.
+
+## Use the new Amazon Inspector in AMS
+
+You can now use the new Amazon Inspector in your AMS account.
+
+For Amazon Inspector Classic, the
+`customer-inspector-admin-role-ssm-inspector-agent-policy` and
+`AmazonInspectorFullAccess` were required. However, there has been an
+update to the SSPS role `customer-inspector-admin-role`, which now
+includes an additional `policyAmazonInspector2FullAccess`. This new
+policy allows API permissions for the new version of Amazon Inspector.

@@ -10,4 +10,13 @@ To learn more, see [Amazon Kendra;](../../../kendra/latest/dg/what-is-kendra.md 
 **Q: How do I request access to Amazon Kendra in my AMS account?**
 
 To request access to Amazon Inspector Classic, submit an RFC with the Management | AWS service | Self-provisioned service
-| Add (ct-3qe6io8t6jtny) change type. This RFC provisions the `customer_kendra_console_role` IAM role to your account. After provisioned in your account, you must onboard the role in your federation solution. **Q: What are the restrictions to using Amazon Kendra in my AMS account?** There are no restrictions. Full functionality of Amazon Kendra is available in your AMS account. **Q: What are the prerequisites or dependencies to using Amazon Kendra in my AMS account?** There are no prerequisites or dependencies to get started with Amazon Kendra. However, depending on your specific use case, you might require access to other AWS services.
+| Add (ct-3qe6io8t6jtny) change type. This RFC provisions the `customer_kendra_console_role`
+IAM role to your account. After provisioned in your account, you must onboard the role in your federation solution.
+
+**Q: What are the restrictions to using Amazon Kendra in my AMS account?**
+
+There are no restrictions. Full functionality of Amazon Kendra is available in your AMS account.
+
+**Q: What are the prerequisites or dependencies to using Amazon Kendra in my AMS account?**
+
+There are no prerequisites or dependencies to get started with Amazon Kendra. However, depending on your specific use case, you might require access to other AWS services.

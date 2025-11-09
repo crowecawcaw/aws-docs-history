@@ -52,11 +52,30 @@ aws amsskms list-subnet-summaries --query "SubnetSummaries.sort_by(@,&Visibility
 
 Which returns something like this:
 
-````
+```
 --------------------------------------------------------------------
-|                   ListSubnetSummaries                            | +---------+------------         -------+---------------------------+
+|                   ListSubnetSummaries                            |
++---------+------------         -------+---------------------------+
 |  Private|  subnet-01234567890abcdef  |  Demo Deployment Zone #1  |
 |  Private|  subnet-01234567890abcdef  |  Demo Deployment Zone #1  |
 |  Public |  subnet-01234567890abcdef  |  Demo DMZ #1              |
-|  Public |  subnet-01234567890abcdef  |  Demo DMZ #1              | +---------+----------         ---------+---------------------------+ ``` For information about using CLI queries, see [How to Filter the Output with the --query Option](../../../cli/latest/userguide/controlling-output.md#controlling-output-filter "../../../cli/latest/userguide/controlling-output.md#controlling-output-filter") and the query language reference, [JMESPath Specification](http://jmespath.org/specification.html "http://jmespath.org/specification.html"). 3. If you have multiple VPCs, include a VPC filter in the command, and then run the command for each VPC. For example: ``` list-subnet-summaries --filter Attribute=VpcId,Value=vpc-xxxxxxxx --query "SubnetSummaries.sort_by(@,&Visibility.Name)[].[Visibility.Name,SubnetId,Name]" --output table ``` 4. In AWS, use [describe-subnets](../../../cli/latest/reference/ec2/describe-subnets.md "../../../cli/latest/reference/ec2/describe-subnets.md"). For information about using CLI queries, see [How to Filter the Output with the --query Option](../../../cli/latest/userguide/controlling-output.md#controlling-output-filter "../../../cli/latest/userguide/controlling-output.md#controlling-output-filter") and the query language reference, [JMESPath Specification](http://jmespath.org/specification.html "http://jmespath.org/specification.html").. **Subnet names** Your AMS subnets are created automatically after input is gathered from you and added to the system. AMS uses a formula to create your subnet names: A`ACCOUNT_ID`-`SUBNET-TYPE`-`AZ-IDENTIFIER`. The subnet type would be either `dmz`, `shared-services`, or `customer-application`. Should you have more than one customer-application subnet, an optional identifier may be added to the subnet name, after the account ID, to indicated that the subnet is an "additional" or "reserved" subnet.
-````
+|  Public |  subnet-01234567890abcdef  |  Demo DMZ #1              |
++---------+----------         ---------+---------------------------+
+```
+
+For information about using CLI queries, see [How to Filter the Output with the --query Option](../../../cli/latest/userguide/controlling-output.md#controlling-output-filter "../../../cli/latest/userguide/controlling-output.md#controlling-output-filter") and the query language reference, [JMESPath Specification](http://jmespath.org/specification.html "http://jmespath.org/specification.html"). 3. If you have multiple VPCs, include a VPC filter in the command, and then run the command for each VPC. For example:
+
+```
+list-subnet-summaries --filter Attribute=VpcId,Value=vpc-xxxxxxxx --query "SubnetSummaries.sort_by(@,&Visibility.Name)[].[Visibility.Name,SubnetId,Name]" --output table
+```
+
+4. In AWS, use [describe-subnets](../../../cli/latest/reference/ec2/describe-subnets.md "../../../cli/latest/reference/ec2/describe-subnets.md").
+   For information about using CLI queries, see [How to Filter the Output with the --query Option](../../../cli/latest/userguide/controlling-output.md#controlling-output-filter "../../../cli/latest/userguide/controlling-output.md#controlling-output-filter") and the query language reference, [JMESPath Specification](http://jmespath.org/specification.html "http://jmespath.org/specification.html")..
+
+**Subnet names**
+
+Your AMS subnets are created automatically after input is gathered from you and added to the system. AMS uses a formula to create your subnet names:
+A`ACCOUNT_ID`-`SUBNET-TYPE`-`AZ-IDENTIFIER`.
+The subnet type would be either `dmz`, `shared-services`, or `customer-application`.
+Should you have more than one customer-application subnet, an optional identifier may be added to the subnet name,
+after the account ID, to indicated that the subnet is an "additional" or "reserved" subnet.

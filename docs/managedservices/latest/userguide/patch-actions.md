@@ -132,5 +132,4 @@ You can submit a service request to modify the following:
 Default is `240` (4 hours).
 
 - NotificationWindow: How far in advance (in minutes) of a scheduled change
-  (patch) the notification should be sent to you.
-  Default is `10080` (7 days).
+  (patch) the notification should be sent to you.  Default is `10080` (7 days).

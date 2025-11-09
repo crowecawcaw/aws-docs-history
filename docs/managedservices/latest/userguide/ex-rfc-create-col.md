@@ -72,9 +72,99 @@ This example of creating an RFC uses the Load Balancer (ELB) stack change type.
 aws amscm list-change-type-classification-summaries --query "ChangeTypeClassificationSummaries[?contains(Item,'ELB')].[Category,Item,Operation,ChangeTypeId]" --output table
 ```
 
-````
+```
 ---------------------------------------------------------------------
-|                            CtSummaries                            | +-----------+---------------------------+---------------------------+
+|                            CtSummaries                            |
++-----------+---------------------------+---------------------------+
 | Deployment| Load balancer (ELB) stack | Create | ct-123h45t6uz7jl |
-| Management| Load balancer (ELB) stack | Update | ct-0ltm873rsebx9 | +-----------+---------------------------+---------------------------+ ``` 2. Find the most current version of the CT: `ChangeTypeId` and `ChangeTypeVersion`: The change type ID for this walkthrough is `ct-123h45t6uz7jl` (create ELB), to find out the latest version, run this command: ``` aws amscm list-change-type-version-summaries --filter Attribute=ChangeTypeId,Value=ct-123h45t6uz7jl ``` 3. Learn the options and requirements. The following command outputs the schema to a JSON file named CreateElbParams.json. ``` aws amscm get-change-type-version --change-type-id "ct-123h45t6uz7jl" --query "ChangeTypeVersion.ExecutionInputSchema" --output text > CreateElbParams.json ``` 4. Modify and save the execution parameters JSON file. This example names the file CreateElbParams.json. For a provisioning CT, the StackTemplateId is included in the schema and must be submitted in the execution parameters. For TimeoutInMinutes, how many minutes are allowed for the creation of the stack before the RFC is failed, this setting will not delay the RFC execution, but you must give enough time (for example, don't specify "5"). Valid values are "60" up to "360," for CTs with long-running UserData: Create EC2 and Create ASG. We recommend the max allowed "60" for all other provisioning CTs. Provide the ID of the VPC where you want the stack to be created; you can get the VPC ID with the CLI command `aws amsskms list-vpc-summaries`. ``` { "Description":      "`ELB-Create-RFC`", "VpcId":            "`VPC_ID`", "StackTemplateId":  "stm-sdhopv00000000000", "Name":             "`MyElbInstance`", "TimeoutInMinutes": `60`, "Parameters":   { "ELBSubnetIds":                     `["SUBNET_ID"]`, "ELBHealthCheckHealthyThreshold":   `4`, "ELBHealthCheckInterval":           `5`, "ELBHealthCheckTarget":             `"HTTP:80/"`, "ELBHealthCheckTimeout":            `60`, "ELBHealthCheckUnhealthyThreshold": `5`, "ELBScheme":                        `false` } } ``` 5. Output the RFC JSON template to a file in your current folder named CreateElbRfc.json: ``` aws amscm create-rfc --generate-cli-skeleton > CreateElbRfc.json ``` 6. Modify and save the CreateElbRfc.json file. Because you created the execution parameters in a separate file, remove the `ExecutionParameters` line. For example, you can replace the contents with something like this: ``` { "ChangeTypeVersion":    "`2.0`", "ChangeTypeId":         "ct-123h45t6uz7jl", "Title":                "`Create ELB`" } ``` 7. Create the RFC. The following command specifies the execution parameters file and the RFC template file: ``` aws amscm create-rfc --cli-input-json file://CreateElbRfc.json --execution-parameters file://CreateElbParams.json ``` You receive the ID of the new RFC in the response and can use it to submit and monitor the RFC. Until you submit it, the RFC remains in the editing state and does not start. ###### Note You can use the AMS API/CLI to create an RFC without creating an RFC JSON file or a CT execution parameters JSON file. To do this, you use the `create-rfc` command and add the required RFC and execution parameters to the command, this is called "Inline Create". Note that all provisioning CTs have contained within the `execution-parameters` block a `Parameters` array with the parameters for the resource. The parameters must have quote marks escaped with a back slash (\). The other documented method of creating an RFC is called "Template Create." This is where you create a JSON file for the RFC parameters and another JSON file for the execution parameters, and submit the two files with the `create-rfc` command. These files can serve as templates and be re-used for future RFCs. When creating RFCs with templates, you can use a command to create the JSON file with the contents you want by issuing a command as shown. The commands create a file named "parameters.json" with the shown content; you could also use these commands to create the RFC JSON file.
-````
+| Management| Load balancer (ELB) stack | Update | ct-0ltm873rsebx9 |
++-----------+---------------------------+---------------------------+
+```
+
+2. Find the most current version of the CT:
+
+`ChangeTypeId` and `ChangeTypeVersion`: The change type ID for this walkthrough is `ct-123h45t6uz7jl` (create ELB),
+to find out the latest version, run this command:
+
+```
+aws amscm list-change-type-version-summaries --filter Attribute=ChangeTypeId,Value=ct-123h45t6uz7jl
+```
+
+3. Learn the options and requirements. The following command outputs the schema to a JSON file named CreateElbParams.json.
+
+```
+aws amscm get-change-type-version --change-type-id "ct-123h45t6uz7jl" --query "ChangeTypeVersion.ExecutionInputSchema" --output text > CreateElbParams.json
+```
+
+4. Modify and save the execution parameters JSON file. This example names the file
+   CreateElbParams.json.
+
+For a provisioning CT, the StackTemplateId is included in the schema and must be
+submitted in the execution parameters.
+
+For TimeoutInMinutes, how many minutes are allowed for the creation of the stack
+before the RFC is failed, this setting will not delay the RFC execution, but you must
+give enough time (for example, don't specify "5"). Valid values are "60" up to "360,"
+for CTs with long-running UserData: Create EC2 and Create ASG. We recommend the max
+allowed "60" for all other provisioning CTs.
+
+Provide the ID of the VPC where you want the stack to be created; you can get the VPC ID with the CLI command `aws amsskms list-vpc-summaries`.
+
+```
+{
+"Description":      "`ELB-Create-RFC`",
+"VpcId":            "`VPC_ID`",
+"StackTemplateId":  "stm-sdhopv00000000000",
+"Name":             "`MyElbInstance`",
+"TimeoutInMinutes": `60`,
+"Parameters":   {
+    "ELBSubnetIds":                     `["SUBNET_ID"]`,
+    "ELBHealthCheckHealthyThreshold":   `4`,
+    "ELBHealthCheckInterval":           `5`,
+    "ELBHealthCheckTarget":             `"HTTP:80/"`,
+    "ELBHealthCheckTimeout":            `60`,
+    "ELBHealthCheckUnhealthyThreshold": `5`,
+    "ELBScheme":                        `false`
+    }
+}
+```
+
+5. Output the RFC JSON template to a file in your current folder named CreateElbRfc.json:
+
+```
+aws amscm create-rfc --generate-cli-skeleton > CreateElbRfc.json
+```
+
+6. Modify and save the CreateElbRfc.json file. Because you created the execution parameters in a
+   separate file, remove the `ExecutionParameters` line. For example, you can replace the contents with something like this:
+
+```
+{
+"ChangeTypeVersion":    "`2.0`",
+"ChangeTypeId":         "ct-123h45t6uz7jl",
+"Title":                "`Create ELB`"
+}
+```
+
+7. Create the RFC. The following command specifies the execution parameters file and the RFC template file:
+
+```
+aws amscm create-rfc --cli-input-json file://CreateElbRfc.json --execution-parameters file://CreateElbParams.json
+```
+
+You receive the ID of the new RFC in the response and can use it to submit and monitor the RFC. Until you submit it, the RFC remains in the editing state and does not start.
+
+###### Note
+
+You can use the AMS API/CLI to create an RFC without creating an RFC JSON file or a CT execution parameters JSON file. To do this, you
+use the `create-rfc` command and add the required RFC and execution parameters to the command, this is called "Inline Create".
+Note that all provisioning CTs have contained within the `execution-parameters` block a `Parameters` array with the parameters for the resource. The
+parameters must have quote marks escaped with a back slash (\).
+
+The other documented method of creating an RFC is called "Template Create." This is where you create a JSON file for the RFC parameters and
+another JSON file for the execution parameters, and submit the two files with the `create-rfc` command. These files can serve as
+templates and be re-used for future RFCs.
+
+When creating RFCs with templates, you can use a command to create the JSON file with the contents you want by issuing a command as shown.
+The commands create a file named "parameters.json" with the shown content; you could also use these commands to create the
+RFC JSON file.

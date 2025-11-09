@@ -30,7 +30,7 @@ see the "Additional Information" section for the relevant change type in the _AM
 [Change Types by Classification](../ctref/classifications.md "../ctref/classifications.md") section.
 
 | Service                                             | Action                    |
-| --------------------------------------------------- | ------------------------- | --------------------------------- |
+| --------------------------------------------------- | ------------------------- |
 | AWS Key Management Service (AWS KMS)                | Update                    |
 | AWS Certificate Manager                             | Create                    |
 | AWS Identity and Access Management (IAM)            | Any                       |
@@ -38,7 +38,8 @@ see the "Additional Information" section for the relevant change type in the _AM
 | AMS Resource Scheduler                              |
 | AWS Backup                                          | Create backup plan        |
 | AMS Workload Ingestion (WIGs)                       | Any                       |
-| AMS Egress Filtering (Managed Palo Alto)            |                           | AMS Advanced MALZ account changes |
+| AMS Egress Filtering (Managed Palo Alto)            |
+| AMS Advanced MALZ account changes                   |
 | Amazon GuardDuty                                    |
 | AMS Advanced Stack Access                           | Any                       |
 | Amazon Elastic Block Store (EBS) volume             | Delete                    |
@@ -46,7 +47,8 @@ see the "Additional Information" section for the relevant change type in the _AM
 | Amazon Elastic Compute Cloud (Amazon EC2)           | Change hostname           |
 | Amazon Machine Images (AMI)                         | Delete, share             |
 | Amazon EC2 Security Group                           | Any                       |
-| AMS Advanced SSPS                                   |                           | AWS Managed Microsoft AD          |
+| AMS Advanced SSPS                                   |
+| AWS Managed Microsoft AD                            |
 | AMS Advanced developer mode                         |
 | Amazon Simple Storage Service (Amazon S3)           | Create S3 bucket policies |
 | AWS Systems Manager                                 | Create                    |

@@ -36,19 +36,34 @@ You can obtain the AMS SKMS CLI through the **Developer's Resources** page in th
 aws amsskms list-vpc-summaries --output table
 ```
 
-````
+```
 -----------------------------------------------------
-|                 ListVPCSummaries                  | +---------------------------------------------------+
+|                 ListVPCSummaries                  |
++---------------------------------------------------+
 |                  VPCSummaries                     |
 |+------------------+-------------------------------|
 |   CreatedTime     |   2016-01-15T18:50:11Z        |
 |   VpcId           |   vpc-01234567890abcdef       |
 |   LastModifiedTime|   2016-01-15T18:50:11Z        |
 |   Name            |   952444781316-initial-vpc    |
-|+------------------+-------------------------------| |                   Visibility                      |
+|+------------------+-------------------------------|
+|                   Visibility                      |
 |+------------------+-------------------------------|
 |   Id              |  PrivateAndPublic             |
 |   Name            |  PrivateAndPublic             |
-|+------------------+-------------------------------| ``` 2. This time with a query: ``` aws amsskms list-VPC-summaries --query "VPCSummaries[?starts_with(@.CreatedTime,to_string(`2016`))].[CreatedTime, VpcId, Name]" --output table ``` ``` ------------------------------------------------------------------------- |                               ListVPCSummaries                         | +---------------------+-----------------------+--------------------------+
-|2016-01-15T18:50:11Z | vpc-01234567890abcdef | 952444781316-initial-VPC | +---------------------+-----------------------+--------------------------+ ```
-````
+|+------------------+-------------------------------|
+```
+
+2. This time with a query:
+
+```
+aws amsskms list-VPC-summaries --query "VPCSummaries[?starts_with(@.CreatedTime,to_string(`2016`))].[CreatedTime, VpcId, Name]" --output table
+```
+
+```
+-------------------------------------------------------------------------
+|                               ListVPCSummaries                         |
++---------------------+-----------------------+--------------------------+
+|2016-01-15T18:50:11Z | vpc-01234567890abcdef | 952444781316-initial-VPC |
++---------------------+-----------------------+--------------------------+
+```

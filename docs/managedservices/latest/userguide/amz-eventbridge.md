@@ -17,7 +17,7 @@ Request access to EventBridge by submitting an RFC with the Management | AWS
 service | Self-provisioned service | Add (ct-1w8z66n899dct) change type.
 This RFC provisions the following IAM roles to your account: `customer_eventbridge_role` and `customer_eventbridge_scheduler_execution_role`. After it's provisioned in your account, you must onboard the role in your federation solution.
 
-The execution role, `customer_eventbridge_scheduler_execution_role` is an IAM role that EventBridge Scheduler assumes to interact with other AWS services on your behalf. The permission policies attached to this role grant EventBridge Scheduler access to invoke targets.
+The execution role, `customer_eventbridge_scheduler_execution_role` is an IAM role that EventBridge Scheduler assumes to interact with other AWS services on your behalf. The permission policies attached to this role grant EventBridge Scheduler access to invoke targets.  
 
 ###### Note
 
@@ -44,7 +44,7 @@ needed.
 
 **Q: The role customer_eventbridge_scheduler_execution_role has a prerequisite for an AWS Key Management Service Key (optional, if used for encryption). How do I adopt AWS KMS CMKs in data encryption at rest/transit?**
 
-By default, EventBridge Scheduler encrypts event metadata and message data that it stores under an AWS owned key (encryption at rest). EventBridge Scheduler also encrypts data that passes between EventBridge Scheduler and other services using Transport Layer Security (TLS) (encryption in transit).
+By default, EventBridge Scheduler encrypts event metadata and message data that it stores under an AWS owned key (encryption at rest). EventBridge Scheduler also encrypts data that passes between EventBridge Scheduler and other services using Transport Layer Security (TLS) (encryption in transit).  
 
 If your specific use case requires that you control and audit the encryption keys that protect your data on EventBridge Scheduler, you can use a customer managed key.
 
