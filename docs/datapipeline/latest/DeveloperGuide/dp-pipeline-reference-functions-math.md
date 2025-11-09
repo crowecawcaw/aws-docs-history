@@ -4,10 +4,10 @@ AWS Data Pipeline is no longer available to new customers. Existing customers of
 
 The following functions are available for working with numerical values.
 
-| Function | Description                                                                                                                         |
-| -------- | ----------------------------------------------------------------------------------------------------------------------------------- |
-| +        | Addition. Example: `#{1 + 2}` Result: `3`                                                                                           |
-| -        | Subtraction. Example: `#{1 - 2}` Result: `-1`                                                                                       |
-| \*       | Multiplication. Example: `#{1 * 2}` Result: `2`                                                                                     |
-| /        | Division. If you divide two integers, the result is truncated. Example: `#{1 / 2}`, Result: `0` Example: `#{1.0 / 2}`, Result: `.5` |
-| ^        | Exponent. Example: `#{2 ^ 2}` Result: `4.0`                                                                                         |
+| Function | Description                                                                                                                                     |
+| -------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| +        | Addition.<br>Example: `#{1 + 2}`<br>Result: `3`                                                                                                 |
+| -        | Subtraction.<br>Example: `#{1<br>• 2}`<br>Result: `-1`                                                                                          |
+| \*       | Multiplication.<br>Example: `#{1<br>• 2}`<br>Result: `2`                                                                                        |
+| /        | Division. If you divide two integers, the result is<br>truncated.<br>Example: `#{1 / 2}`, Result: `0`<br>Example: `#{1.0 / 2}`, Result:<br>`.5` |
+| ^        | Exponent.<br>Example: `#{2 ^ 2}`<br>Result: `4.0`                                                                                               |

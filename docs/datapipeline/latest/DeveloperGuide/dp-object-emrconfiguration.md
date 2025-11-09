@@ -176,19 +176,28 @@ cluster:
 
 This object includes the following fields.
 
-| Required Fields | Description                                                                                                                               | Slot Type                                                             |
-| --------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| classification  | Classification for the configuration.                                                                                                     | String                                                                |
-| Optional Fields | Description                                                                                                                               | Slot Type                                                             |
-| ---             | ---                                                                                                                                       | ---                                                                   |
-| configuration   | Sub-configuration for this configuration.                                                                                                 | Reference Object, e.g. "configuration":{"ref":"myEmrConfigurationId"} |
-| parent          | Parent of the current object from which slots will be inherited.                                                                          | Reference Object, e.g. "parent":{"ref":"myBaseObjectId"}              |
-| property        | Configuration property.                                                                                                                   | Reference Object, e.g. "property":{"ref":"myPropertyId"}              |
-| Runtime Fields  | Description                                                                                                                               | Slot Type                                                             |
-| ---             | ---                                                                                                                                       | ---                                                                   |
-| @version        | Pipeline version the object was created with.                                                                                             | String                                                                |
-| System Fields   | Description                                                                                                                               | Slot Type                                                             |
-| ---             | ---                                                                                                                                       | ---                                                                   |
-| @error          | Error describing the ill-formed object                                                                                                    | String                                                                |
-| @pipelineId     | Id of the pipeline to which this object belongs to                                                                                        | String                                                                |
-| @sphere         | The sphere of an object denotes its place in the lifecycle: Component Objects give rise to Instance Objects which execute Attempt Objects | String                                                                | ## See Also <br>• [EmrCluster](dp-object-emrcluster.md "dp-object-emrcluster.md") <br>• [Property](dp-object-property.md "dp-object-property.md") <br>• [Amazon EMR Release Guide](../../../ElasticMapReduce/latest/ReleaseGuide.md "../../../ElasticMapReduce/latest/ReleaseGuide.md") |
+| Required Fields | Description                           | Slot Type |
+| --------------- | ------------------------------------- | --------- |
+| classification  | Classification for the configuration. | String    |
+
+| Optional Fields | Description                                                      | Slot Type                                                             |
+| --------------- | ---------------------------------------------------------------- | --------------------------------------------------------------------- |
+| configuration   | Sub-configuration for this configuration.                        | Reference Object, e.g. "configuration":{"ref":"myEmrConfigurationId"} |
+| parent          | Parent of the current object from which slots will be inherited. | Reference Object, e.g. "parent":{"ref":"myBaseObjectId"}              |
+| property        | Configuration property.                                          | Reference Object, e.g. "property":{"ref":"myPropertyId"}              |
+
+| Runtime Fields | Description                                   | Slot Type |
+| -------------- | --------------------------------------------- | --------- |
+| @version       | Pipeline version the object was created with. | String    |
+
+| System Fields | Description                                                                                                                               | Slot Type |
+| ------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | --------- |
+| @error        | Error describing the ill-formed object                                                                                                    | String    |
+| @pipelineId   | Id of the pipeline to which this object belongs to                                                                                        | String    |
+| @sphere       | The sphere of an object denotes its place in the lifecycle: Component Objects give rise to Instance Objects which execute Attempt Objects | String    |
+
+## See Also
+
+- [EmrCluster](dp-object-emrcluster.md "dp-object-emrcluster.md")
+- [Property](dp-object-property.md "dp-object-property.md")
+- [Amazon EMR Release Guide](../../../ElasticMapReduce/latest/ReleaseGuide.md "../../../ElasticMapReduce/latest/ReleaseGuide.md")

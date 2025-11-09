@@ -73,23 +73,26 @@ object:
 
 ## Syntax
 
-| Required Fields  | Description                                                                                                                                | Slot Type                                                |
-| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------- |
-| hostname         | Host of the proxy which clients will use to connect to AWS Services.                                                                       | String                                                   |
-| port             | Port of the proxy host which the clients will use to connect to AWS Services.                                                              | String                                                   |
-| Optional Fields  | Description                                                                                                                                | Slot Type                                                |
-| ---              | ---                                                                                                                                        | ---                                                      |
-| parent           | Parent of the current object from which slots will be inherited.                                                                           | Reference Object, e.g. "parent":{"ref":"myBaseObjectId"} |
-| \*password       | Password for proxy.                                                                                                                        | String                                                   |
-| s3NoProxy        | Disable the HTTP proxy when connecting to Amazon S3                                                                                        | Boolean                                                  |
-| username         | User name for proxy.                                                                                                                       | String                                                   |
-| windowsDomain    | The Windows domain name for NTLM Proxy.                                                                                                    | String                                                   |
-| windowsWorkgroup | The Windows workgroup name for NTLM Proxy.                                                                                                 | String                                                   |
-| Runtime Fields   | Description                                                                                                                                | Slot Type                                                |
-| ---              | ---                                                                                                                                        | ---                                                      |
-| @version         | Pipeline version the object was created with.                                                                                              | String                                                   |
-| System Fields    | Description                                                                                                                                | Slot Type                                                |
-| ---              | ---                                                                                                                                        | ---                                                      |
-| @error           | Error describing the ill-formed object.                                                                                                    | String                                                   |
-| @pipelineId      | Id of the pipeline to which this object belongs to.                                                                                        | String                                                   |
-| @sphere          | The sphere of an object denotes its place in the lifecycle: Component Objects give rise to Instance Objects which execute Attempt Objects. | String                                                   |
+| Required Fields | Description                                                                   | Slot Type |
+| --------------- | ----------------------------------------------------------------------------- | --------- |
+| hostname        | Host of the proxy which clients will use to connect to AWS Services.          | String    |
+| port            | Port of the proxy host which the clients will use to connect to AWS Services. | String    |
+
+| Optional Fields  | Description                                                      | Slot Type                                                |
+| ---------------- | ---------------------------------------------------------------- | -------------------------------------------------------- |
+| parent           | Parent of the current object from which slots will be inherited. | Reference Object, e.g. "parent":{"ref":"myBaseObjectId"} |
+| \*password       | Password for proxy.                                              | String                                                   |
+| s3NoProxy        | Disable the HTTP proxy when connecting to Amazon S3              | Boolean                                                  |
+| username         | User name for proxy.                                             | String                                                   |
+| windowsDomain    | The Windows domain name for NTLM Proxy.                          | String                                                   |
+| windowsWorkgroup | The Windows workgroup name for NTLM Proxy.                       | String                                                   |
+
+| Runtime Fields | Description                                   | Slot Type |
+| -------------- | --------------------------------------------- | --------- |
+| @version       | Pipeline version the object was created with. | String    |
+
+| System Fields | Description                                                                                                                                   | Slot Type |
+| ------------- | --------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
+| @error        | Error describing the ill-formed object.                                                                                                       | String    |
+| @pipelineId   | Id of the pipeline to which this object belongs to.                                                                                           | String    |
+| @sphere       | The sphere of an object denotes its place in the lifecycle: Component Objects give rise to<br>Instance Objects which execute Attempt Objects. | String    |

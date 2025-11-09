@@ -85,15 +85,17 @@ copy the data to a `DynamoDBDataNode` output.
 
 ## Syntax
 
-| Optional Fields | Description                                                                                                                                                                                                 | Slot Type                                                   |
-| --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- |
-| column          | The column name with data type specified by each field for the data described by this data node. For example, `hostname STRING`. For multiple values, use column names and data types separated by a space. | String                                                      |
-| parent          | The parent of the current object from which slots will be inherited.                                                                                                                                        | Reference Object, such as "parent":{"ref":"myBaseObjectId"} |
-| Runtime Fields  | Description                                                                                                                                                                                                 | Slot Type                                                   |
-| ---             | ---                                                                                                                                                                                                         | ---                                                         |
-| @version        | The pipeline version uses to create the object.                                                                                                                                                             | String                                                      |
-| System Fields   | Description                                                                                                                                                                                                 | Slot Type                                                   |
-| ---             | ---                                                                                                                                                                                                         | ---                                                         |
-| @error          | The error describing the ill-formed object.                                                                                                                                                                 | String                                                      |
-| @pipelineId     | The Id of the pipeline to which this object belongs.                                                                                                                                                        | String                                                      |
-| @sphere         | The sphere of an object denotes its place in the lifecycle: Component Objects give rise to Instance Objects which execute Attempt Objects.                                                                  | String                                                      |
+| Optional Fields | Description                                                                                                                                                                                                       | Slot Type                                                   |
+| --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- |
+| column          | The column name with data type specified by each field for the data described by this data<br>node. For example, `hostname STRING`. For multiple values, use<br>column names and data types separated by a space. | String                                                      |
+| parent          | The parent of the current object from which slots will be inherited.                                                                                                                                              | Reference Object, such as "parent":{"ref":"myBaseObjectId"} |
+
+| Runtime Fields | Description                                     | Slot Type |
+| -------------- | ----------------------------------------------- | --------- |
+| @version       | The pipeline version uses to create the object. | String    |
+
+| System Fields | Description                                                                                                                                   | Slot Type |
+| ------------- | --------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
+| @error        | The error describing the ill-formed object.                                                                                                   | String    |
+| @pipelineId   | The Id of the pipeline to which this object belongs.                                                                                          | String    |
+| @sphere       | The sphere of an object denotes its place in the lifecycle: Component Objects give rise to<br>Instance Objects which execute Attempt Objects. | String    |

@@ -138,12 +138,49 @@ instead of using a separate file.
 
 The following table describes the attributes for parameter objects.
 
-| Parameter attributes | Attribute                                      | Type                                                                                                                                                                                                                                         | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| -------------------- | ---------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `id`                 | String                                         | The unique identifier of the parameter. To mask the value while it is typed or displayed, add an asterisk ('\*') as a prefix. For example, `*myVariable`—. Notes that this also encrypts the value before it is stored by AWS Data Pipeline. |
-| description          | String                                         | A description of the parameter.                                                                                                                                                                                                              |
-| type                 | String, Integer, Double, or AWS::S3::ObjectKey | The parameter type that defines the allowed range of input values and validation rules. The default is String.                                                                                                                               |
-| optional             | Boolean                                        | Indicates whether the parameter is optional or required. The default is `false`.                                                                                                                                                             |
-| allowedValues        | List of Strings                                | Enumerates all permitted values for the parameter.                                                                                                                                                                                           |
-| default              | String                                         | The default value for the parameter. If you specify a value for this parameter using parameter values, it overrides the default value.                                                                                                       |
-| isArray              | Boolean                                        | Indicates whether the parameter is an array.                                                                                                                                                                                                 | ## Define Parameter Values You can create a separate file to define your variables using parameter values. For example, the following JSON file, `file://values.json`, contains the value for `myS3OutputLoc` variable from the example pipeline definition above. ``{ "values": { "myS3OutputLoc": "`myOutputLocation`" } }`` ## Submitting the pipeline definition When you submit your pipeline definition, you can specify parameters, parameter objects, and parameter values. For example, you can use the [put-pipeline-definition](../../../cli/latest/reference/datapipeline/put-pipeline-definition.md "../../../cli/latest/reference/datapipeline/put-pipeline-definition.md") AWS CLI command as follows: `` $ aws datapipeline put-pipeline-definition --pipeline-id `id` --pipeline-definition file://`pipeline-definition.json` \ --parameter-objects file://`parameters.json` --parameter-values-uri file://`values.json` `` ###### Note A pipeline definition has an upper limit of 50 parameters. The size of the file for `parameter-values-uri` has an upper limit of 15 KB. |
+| Parameter attributes | Attribute                                      | Type                                                                                                                                                                                                                                                     | Description |
+| -------------------- | ---------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
+| `id`                 | String                                         | The unique identifier of the parameter. To mask the value<br>while it is typed or displayed, add an asterisk ('\*') as a<br>prefix. For example, `*myVariable`—. Notes<br>that this also encrypts the value before it is stored by<br>AWS Data Pipeline. |
+| description          | String                                         | A description of the parameter.                                                                                                                                                                                                                          |
+| type                 | String, Integer, Double, or AWS::S3::ObjectKey | The parameter type that defines the allowed range of<br>input values and validation rules. The default is<br>String.                                                                                                                                     |
+| optional             | Boolean                                        | Indicates whether the parameter is optional or required.<br>The default is `false`.                                                                                                                                                                      |
+| allowedValues        | List of Strings                                | Enumerates all permitted values for the<br>parameter.                                                                                                                                                                                                    |
+| default              | String                                         | The default value for the parameter. If you specify a<br>value for this parameter using parameter values, it<br>overrides the default value.                                                                                                             |
+| isArray              | Boolean                                        | Indicates whether the parameter is an array.                                                                                                                                                                                                             |
+
+## Define Parameter
+
+Values
+
+You can create a separate file to define your variables using parameter
+values. For example, the following JSON file,
+`file://values.json`, contains the value for
+`myS3OutputLoc` variable from the example
+pipeline definition above.
+
+```
+{
+  "values":
+    {
+      "myS3OutputLoc": "`myOutputLocation`"
+    }
+}
+```
+
+## Submitting the pipeline
+
+definition
+
+When you submit your pipeline definition, you can specify parameters,
+parameter objects, and parameter values. For example, you can use the [put-pipeline-definition](../../../cli/latest/reference/datapipeline/put-pipeline-definition.md "../../../cli/latest/reference/datapipeline/put-pipeline-definition.md") AWS CLI command as follows:
+
+```
+$ aws datapipeline put-pipeline-definition --pipeline-id `id` --pipeline-definition file://`pipeline-definition.json` \
+--parameter-objects file://`parameters.json` --parameter-values-uri file://`values.json`
+```
+
+###### Note
+
+A pipeline definition has an upper limit of 50 parameters. The size of
+the file for `parameter-values-uri` has an upper limit of 15
+KB.

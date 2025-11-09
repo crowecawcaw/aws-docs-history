@@ -57,18 +57,27 @@ corresponding Property objects to launch an EmrCluster:
 
 This object includes the following fields.
 
-| Required Fields | Description                                                                                                                                 | Slot Type                                                        |
-| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| key             | key                                                                                                                                         | String                                                           |
-| value           | value                                                                                                                                       | String                                                           |
-| Optional Fields | Description                                                                                                                                 | Slot Type                                                        |
-| ---             | ---                                                                                                                                         | ---                                                              |
-| parent          | Parent of the current object from which slots are inherited.                                                                                | Reference Object, for example, "parent":{"ref":"myBaseObjectId"} |
-| Runtime Fields  | Description                                                                                                                                 | Slot Type                                                        |
-| ---             | ---                                                                                                                                         | ---                                                              |
-| @version        | Pipeline version that the object was created with.                                                                                          | String                                                           |
-| System Fields   | Description                                                                                                                                 | Slot Type                                                        |
-| ---             | ---                                                                                                                                         | ---                                                              |
-| @error          | Error describing the ill-formed object.                                                                                                     | String                                                           |
-| @pipelineId     | ID of the pipeline to which this object belongs.                                                                                            | String                                                           |
-| @sphere         | The sphere of an object denotes its place in the lifecycle: Component Objects give rise to Instance Objects, which execute Attempt Objects. | String                                                           | ## See Also <br>• [EmrCluster](dp-object-emrcluster.md "dp-object-emrcluster.md") <br>• [EmrConfiguration](dp-object-emrconfiguration.md "dp-object-emrconfiguration.md") <br>• [Amazon EMR Release Guide](../../../ElasticMapReduce/latest/ReleaseGuide.md "../../../ElasticMapReduce/latest/ReleaseGuide.md") |
+| Required Fields | Description | Slot Type |
+| --------------- | ----------- | --------- |
+| key             | key         | String    |
+| value           | value       | String    |
+
+| Optional Fields | Description                                                  | Slot Type                                                        |
+| --------------- | ------------------------------------------------------------ | ---------------------------------------------------------------- |
+| parent          | Parent of the current object from which slots are inherited. | Reference Object, for example, "parent":{"ref":"myBaseObjectId"} |
+
+| Runtime Fields | Description                                        | Slot Type |
+| -------------- | -------------------------------------------------- | --------- |
+| @version       | Pipeline version that the object was created with. | String    |
+
+| System Fields | Description                                                                                                                                    | Slot Type |
+| ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
+| @error        | Error describing the ill-formed object.                                                                                                        | String    |
+| @pipelineId   | ID of the pipeline to which this object belongs.                                                                                               | String    |
+| @sphere       | The sphere of an object denotes its place in the lifecycle: Component Objects give rise to<br>Instance Objects, which execute Attempt Objects. | String    |
+
+## See Also
+
+- [EmrCluster](dp-object-emrcluster.md "dp-object-emrcluster.md")
+- [EmrConfiguration](dp-object-emrconfiguration.md "dp-object-emrconfiguration.md")
+- [Amazon EMR Release Guide](../../../ElasticMapReduce/latest/ReleaseGuide.md "../../../ElasticMapReduce/latest/ReleaseGuide.md")

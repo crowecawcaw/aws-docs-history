@@ -36,11 +36,13 @@ The following is an example of this object type.
 | inputRegEx      | The regular expression to parse an S3 input file. inputRegEx provides a way to retrieve columns from relatively unstructured data in a file.                                               | String                                                   |
 | outputFormat    | The column fields retrieved by inputRegEx, but referenced as %1$s %2$s using Java formatter syntax.                                                                                        | String                                                   |
 | parent          | Parent of the current object from which slots will be inherited.                                                                                                                           | Reference Object, e.g. "parent":{"ref":"myBaseObjectId"} |
-| Runtime Fields  | Description                                                                                                                                                                                | Slot Type                                                |
-| ---             | ---                                                                                                                                                                                        | ---                                                      |
-| @version        | Pipeline version the object was created with.                                                                                                                                              | String                                                   |
-| System Fields   | Description                                                                                                                                                                                | Slot Type                                                |
-| ---             | ---                                                                                                                                                                                        | ---                                                      |
-| @error          | Error describing the ill-formed object                                                                                                                                                     | String                                                   |
-| @pipelineId     | Id of the pipeline to which this object belongs to                                                                                                                                         | String                                                   |
-| @sphere         | The sphere of an object denotes its place in the lifecycle: Component Objects give rise to Instance Objects which execute Attempt Objects                                                  | String                                                   |
+
+| Runtime Fields | Description                                   | Slot Type |
+| -------------- | --------------------------------------------- | --------- |
+| @version       | Pipeline version the object was created with. | String    |
+
+| System Fields | Description                                                                                                                               | Slot Type |
+| ------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | --------- |
+| @error        | Error describing the ill-formed object                                                                                                    | String    |
+| @pipelineId   | Id of the pipeline to which this object belongs to                                                                                        | String    |
+| @sphere       | The sphere of an object denotes its place in the lifecycle: Component Objects give rise to Instance Objects which execute Attempt Objects | String    |
