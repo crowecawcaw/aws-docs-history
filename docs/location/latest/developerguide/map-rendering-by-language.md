@@ -15,21 +15,28 @@ Web frontend
 The following Map Rendering SDKs are available for web frontend
 application development.
 
-| Language / Framework    | Map Rendering Framework                                                                                                                                                                       |
-| ----------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Fully supported**     |
-| JavaScript              | [https://github.com/maplibre/maplibre-gl-js](https://github.com/maplibre/maplibre-gl-js "https://github.com/maplibre/maplibre-gl-js")                                                         |
-| ReactJS                 | [https://github.com/maplibre/maplibre-react-native](https://github.com/maplibre/maplibre-react-native "https://github.com/maplibre/maplibre-react-native")                                    |
-| TypeScript              | [https://github.com/maplibre/maplibre-gl-js](https://github.com/maplibre/maplibre-gl-js "https://github.com/maplibre/maplibre-gl-js")                                                         |
-| **Partially supported** |                                                                                                                                                                                               | Flutter                                                                                                     | [https://github.com/maplibre/flutter-maplibre-gl](https://github.com/maplibre/flutter-maplibre-gl "https://github.com/maplibre/flutter-maplibre-gl") The MapLibre Flutter library is considered experimental. |
-| Node.js                 | There is no MapLibre support for Node.js.                                                                                                                                                     |
-| PHP                     | There is no MapLibre support for PHP.                                                                                                                                                         | Mobile frontend The following Map Rendering SDKs are available for mobile frontend application development. |
-| Language / Framework    | Map Rendering Framework                                                                                                                                                                       |
-| ---                     | ---                                                                                                                                                                                           |
-| **Fully supported**     |
-| Java                    | [https://github.com/maplibre/maplibre-native](https://github.com/maplibre/maplibre-native "https://github.com/maplibre/maplibre-native")                                                      |
-| Kotlin                  | [https://github.com/maplibre/maplibre-native](https://github.com/maplibre/maplibre-native "https://github.com/maplibre/maplibre-native") Requires custom bindings, as MapLibre is Java-based. |
-| ObjectiveC              | [https://github.com/maplibre/maplibre-native](https://github.com/maplibre/maplibre-native "https://github.com/maplibre/maplibre-native")                                                      |
-| ReactNative             | [https://github.com/maplibre/maplibre-react-native](https://github.com/maplibre/maplibre-react-native "https://github.com/maplibre/maplibre-react-native")                                    |
-| Swift                   | [https://github.com/maplibre/maplibre-native](https://github.com/maplibre/maplibre-native "https://github.com/maplibre/maplibre-native")                                                      |
-| **Partially supported** |                                                                                                                                                                                               | Flutter                                                                                                     | [https://github.com/maplibre/flutter-maplibre-gl](https://github.com/maplibre/flutter-maplibre-gl "https://github.com/maplibre/flutter-maplibre-gl") The MapLibre Flutter library is considered experimental. |
+| Language / Framework       | Map Rendering Framework                                                                                                                                                                                             |
+| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Fully<br>supported**     |
+| JavaScript                 | [https://github.com/maplibre/maplibre-gl-js](https://github.com/maplibre/maplibre-gl-js "https://github.com/maplibre/maplibre-gl-js")                                                                               |
+| ReactJS                    | [https://github.com/maplibre/maplibre-react-native](https://github.com/maplibre/maplibre-react-native "https://github.com/maplibre/maplibre-react-native")                                                          |
+| TypeScript                 | [https://github.com/maplibre/maplibre-gl-js](https://github.com/maplibre/maplibre-gl-js "https://github.com/maplibre/maplibre-gl-js")                                                                               |
+| **Partially<br>supported** |
+| Flutter                    | [https://github.com/maplibre/flutter-maplibre-gl](https://github.com/maplibre/flutter-maplibre-gl "https://github.com/maplibre/flutter-maplibre-gl")<br>The MapLibre Flutter library is considered<br>experimental. |
+| Node.js                    | There is no MapLibre support for Node.js.                                                                                                                                                                           |
+| PHP                        | There is no MapLibre support for PHP.                                                                                                                                                                               |
+
+Mobile frontend
+The following Map Rendering SDKs are available for mobile frontend
+application development.
+
+| Language / Framework       | Map Rendering Framework                                                                                                                                                                                             |
+| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Fully<br>supported**     |
+| Java                       | [https://github.com/maplibre/maplibre-native](https://github.com/maplibre/maplibre-native "https://github.com/maplibre/maplibre-native")                                                                            |
+| Kotlin                     | [https://github.com/maplibre/maplibre-native](https://github.com/maplibre/maplibre-native "https://github.com/maplibre/maplibre-native")<br>Requires custom bindings, as MapLibre is<br>Java-based.                 |
+| ObjectiveC                 | [https://github.com/maplibre/maplibre-native](https://github.com/maplibre/maplibre-native "https://github.com/maplibre/maplibre-native")                                                                            |
+| ReactNative                | [https://github.com/maplibre/maplibre-react-native](https://github.com/maplibre/maplibre-react-native "https://github.com/maplibre/maplibre-react-native")                                                          |
+| Swift                      | [https://github.com/maplibre/maplibre-native](https://github.com/maplibre/maplibre-native "https://github.com/maplibre/maplibre-native")                                                                            |
+| **Partially<br>supported** |
+| Flutter                    | [https://github.com/maplibre/flutter-maplibre-gl](https://github.com/maplibre/flutter-maplibre-gl "https://github.com/maplibre/flutter-maplibre-gl")<br>The MapLibre Flutter library is considered<br>experimental. |

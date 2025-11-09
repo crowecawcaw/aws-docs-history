@@ -22,13 +22,26 @@ more information, see [Manage quotas with Service Quotas](manage-quotas.md "mana
 
 ### Dynamic map
 
-| API name             | Default                                   | Max adjustable limit | More than Adjustable Max limit                                                                                                                                                                                                                  |
-| -------------------- | ----------------------------------------- | -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- | ----------------------------------------- | ---- |
-| `GetTiles`           | 2000                                      | 4000                 | Request on [service quota console](https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/geo/quotas "https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/geo/quotas") or contact support team | ### Static map  |
-| API name             | Default                                   | Max adjustable limit | More than Adjustable Max limit                                                                                                                                                                                                                  |
-| ---                  | ---                                       | ---                  | ---                                                                                                                                                                                                                                             |
-| `GetStaticMap`       | 50                                        | 100                  | Request on [service quota console](https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/geo/quotas "https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/geo/quotas") or contact support team | ## Usage limits |
-| API name             | Limit                                     | Value                |                                                                                                                                                                                                                                                 | ---             | ---                                       | ---  |
-| `GetStyleDescriptor` | Max requests, per second, per IP address. | 5000                 |                                                                                                                                                                                                                                                 | `GetGlyphys`    | Max requests, per second, per IP address. | 5000 |
-| `GetSprites`         | Max requests, per second, per IP address. | 5000                 |                                                                                                                                                                                                                                                 | `GetStaticMap`  | Response payload size after compression.  | 6MB  |
-| `GetTiles`           | Response payload size after compression.  | 6MB                  | ## Terms For more information, see [Terms of use and data attribution](data-attribution.md "data-attribution.md").                                                                                                                              |
+| API name   | Default | Max adjustable limit | More than Adjustable Max limit                                                                                                                                                                                                                     |
+| ---------- | ------- | -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `GetTiles` | 2000    | 4000                 | Request on [service quota console](https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/geo/quotas "https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/geo/quotas") or contact support<br>team |
+
+### Static map
+
+| API name       | Default | Max adjustable limit | More than Adjustable Max limit                                                                                                                                                                                                                     |
+| -------------- | ------- | -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `GetStaticMap` | 50      | 100                  | Request on [service quota console](https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/geo/quotas "https://console.aws.amazon.com/servicequotas/home?region=us-east-1#!/services/geo/quotas") or contact support<br>team |
+
+## Usage limits
+
+| API name             | Limit                                     | Value |
+| -------------------- | ----------------------------------------- | ----- |
+| `GetStyleDescriptor` | Max requests, per second, per IP address. | 5000  |
+| `GetGlyphys`         | Max requests, per second, per IP address. | 5000  |
+| `GetSprites`         | Max requests, per second, per IP address. | 5000  |
+| `GetStaticMap`       | Response payload size after compression.  | 6MB   |
+| `GetTiles`           | Response payload size after compression.  | 6MB   |
+
+## Terms
+
+For more information, see [Terms of use and data attribution](data-attribution.md "data-attribution.md").

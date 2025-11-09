@@ -39,9 +39,485 @@ resources:
   data.
 
 | Data type                                                                                                                                                                                                                                                                                                                                                                                                                     | AWS owned key encryption | Customer managed key encryption (Optional) |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------ | ------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------ | ------------------------------------------ |
 | `Position`A point geometry containing [the device position details](../../../location-trackers/latest/APIReference/API_DevicePosition.md "../../../location-trackers/latest/APIReference/API_DevicePosition.md").                                                                                                                                                                                                             | Enabled                  | Enabled                                    |
 | `PositionProperties`A set of key-value pairs [associated with the position update](../../../location-trackers/latest/APIReference/API_DevicePosition.md "../../../location-trackers/latest/APIReference/API_DevicePosition.md").                                                                                                                                                                                              | Enabled                  | Enabled                                    |
-| `GeofenceGeometry`A polygon [geofence geometry](../../../location-geofences/latest/APIReference/API_GeofenceGeometry.md "../../../location-geofences/latest/APIReference/API_GeofenceGeometry.md") representing the geofenced area.                                                                                                                                                                                           | Enabled                  | Enabled                                    |
-| `DeviceId`The device identifier specified when [uploading a device position update](../../../location-trackers/latest/APIReference/API_DevicePositionUpdate.md "../../../location-trackers/latest/APIReference/API_DevicePositionUpdate.md") to a tracker resource.                                                                                                                                                           | Enabled                  | Not supported                              |
-| `GeofenceId`An identifier specified when [storing a geofence geometry](../../../location-geofences/latest/APIReference/API_PutGeofence.md "../../../location-geofences/latest/APIReference/API_PutGeofence.md"), or a [batch of geofences](../../../location-geofences/latest/APIReference/API_BatchPutGeofence.md "../../../location-geofences/latest/APIReference/API_BatchPutGeofence.md") in a given geofence collection. | Enabled                  | Not supported                              | ###### Note Amazon Location automatically enables encryption at rest using AWS owned keys to protect personally identifiable data at no charge. However, AWS KMS charges apply for using a customer managed key. For more information about pricing, see the [AWS Key Management Service pricing](https://aws.amazon.com/kms/pricing/ "https://aws.amazon.com/kms/pricing/"). For more information on AWS KMS, see [What is AWS Key Management Service?](../../../kms/latest/developerguide/overview.md "../../../kms/latest/developerguide/overview.md") ## How Amazon Location Service uses grants in AWS KMS Amazon Location requires a [grant](../../../kms/latest/developerguide/grants.md "../../../kms/latest/developerguide/grants.md") to use your customer managed key. When you create a [tracker resource](geometry-components.md#tracking-components "geometry-components.md#tracking-components") or [geofence collection](geometry-components.md#geofence-components "geometry-components.md#geofence-components") encrypted with a customer managed key, Amazon Location creates a grant on your behalf by sending a [CreateGrant](../../../kms/latest/APIReference/API_CreateGrant.md "../../../kms/latest/APIReference/API_CreateGrant.md") request to AWS KMS. Grants in AWS KMS are used to give Amazon Location access to a KMS key in a customer account. Amazon Location requires the grant to use your customer managed key for the following internal operations: <br>• Send [DescribeKey](../../../kms/latest/APIReference/API_DescribeKey.md "../../../kms/latest/APIReference/API_DescribeKey.md") requests to AWS KMS to verify that the symmetric customer managed KMS key ID entered when creating a tracker or geofence collection is valid. <br>• Send [GenerateDataKeyWithoutPlaintext](../../../kms/latest/APIReference/API_GenerateDataKeyWithoutPlaintext.md "../../../kms/latest/APIReference/API_GenerateDataKeyWithoutPlaintext.md") requests to AWS KMS to generate data keys encrypted by your customer managed key. <br>• Send [Decrypt](../../../kms/latest/APIReference/API_Decrypt.md "../../../kms/latest/APIReference/API_Decrypt.md") requests to AWS KMS to decrypt the encrypted data keys so that they can be used to encrypt your data. You can revoke access to the grant, or remove the service's access to the customer managed key at any time. If you do, Amazon Location won't be able to access any of the data encrypted by the customer managed key, which affects operations that are dependent on that data. For example, if you attempt to [get device positions](../../../location-trackers/latest/APIReference/API_GetDevicePosition.md "../../../location-trackers/latest/APIReference/API_GetDevicePosition.md") from an encrypted tracker that Amazon Location can't access, then the operation would return an `AccessDeniedException` error. ## Create a customer managed key You can create a symmetric customer managed key by using the AWS Management Console, or the AWS KMS APIs. **To create a symmetric customer managed key** Follow the steps for [Creating symmetric customer managed key](../../../kms/latest/developerguide/create-keys.md#create-symmetric-cmk "../../../kms/latest/developerguide/create-keys.md#create-symmetric-cmk") in the _AWS Key Management Service Developer Guide_. **Key policy** Key policies control access to your customer managed key. Every customer managed key must have exactly one key policy, which contains statements that determine who can use the key and how they can use it. When you create your customer managed key, you can specify a key policy. For more information, see [Managing access to customer managed keys](../../../kms/latest/developerguide/control-access-overview.md#managing-access "../../../kms/latest/developerguide/control-access-overview.md#managing-access") in the _AWS Key Management Service Developer Guide_. To use your customer managed key with your Amazon Location resources, the following API operations must be permitted in the key policy: <br>• `kms:CreateGrant` – Adds a grant to a customer managed key. Grants control access to a specified KMS key, which allows access to [grant operations](../../../kms/latest/developerguide/grants.md#terms-grant-operations "../../../kms/latest/developerguide/grants.md#terms-grant-operations") Amazon Location requires. For more information about [Using Grants](../../../kms/latest/developerguide/grants.md "../../../kms/latest/developerguide/grants.md"), see the _AWS Key Management Service Developer Guide_. This allows Amazon Location to do the following: + Call `GenerateDataKeyWithoutPlainText` to generate an encrypted data key and store it, because the data key isn't immediately used to encrypt. + Call `Decrypt` to use the stored encrypted data key to access encrypted data. + Set up a retiring principal to allow the service to `RetireGrant`. <br>• `kms:DescribeKey` – Provides the customer managed key details to allow Amazon Location to validate the key. The following are policy statement examples you can add for Amazon Location: ``"Statement" : [ { "Sid" : "Allow access to principals authorized to use Amazon Location", "Effect" : "Allow", "Principal" : { "AWS" : "*" }, "Action" : [ "kms:DescribeKey", "kms:CreateGrant" ], "Resource" : "*", "Condition" : { "StringEquals" : { "kms:ViaService" : "geo.region.amazonaws.com", "kms:CallerAccount" : "111122223333" } }, { "Sid": "Allow access for key administrators", "Effect": "Allow", "Principal": { "AWS": "arn:aws:iam::111122223333:root" }, "Action" : [ "kms:*" ], "Resource": "arn:aws:kms:`region`:111122223333:key/`key_ID`" }, { "Sid" : "Allow read-only access to key metadata to the account", "Effect" : "Allow", "Principal" : { "AWS" : "arn:aws:iam::111122223333:root" }, "Action" : [ "kms:Describe*", "kms:Get*", "kms:List*", "kms:RevokeGrant" ], "Resource" : "*" } ]`` For more information about [specifying permissions in a policy](../../../kms/latest/developerguide/control-access-overview.md#overview-policy-elements "../../../kms/latest/developerguide/control-access-overview.md#overview-policy-elements"), see the _AWS Key Management Service Developer Guide_. For more information about [troubleshooting key access](../../../kms/latest/developerguide/policy-evaluation.md#example-no-iam "../../../kms/latest/developerguide/policy-evaluation.md#example-no-iam"), see the _AWS Key Management Service Developer Guide_. ## Specifying a customer managed key for Amazon Location You can specify a customer managed key as a second layer encryption for the following resources: <br>• [Create a tracker](start-create-tracker.md "start-create-tracker.md") <br>• [Get started with Amazon Location Service Geofences](geofence-gs.md "geofence-gs.md") When you create a resource, you can specify the data key by entering a **KMS ID**, which Amazon Location uses to encrypt the identifiable personal data stored by the resource. <br>• **KMS ID** — A [key identifier](../../../kms/latest/developerguide/concepts.md#key-id "../../../kms/latest/developerguide/concepts.md#key-id") for an AWS KMS customer managed key. Enter a key ID, key ARN, alias name, or alias ARN. ## Amazon Location Service encryption context An [encryption context](../../../kms/latest/developerguide/concepts.md#encrypt_context "../../../kms/latest/developerguide/concepts.md#encrypt_context") is an optional set of key-value pairs that contain additional contextual information about the data. AWS KMS uses the encryption context as [additional authenticated data](../../../kms/latest/cryptographic-details/aad.md "../../../kms/latest/cryptographic-details/aad.md") to support [authenticated encryption](../../../kms/latest/cryptographic-details/authenticated-encryption.md "../../../kms/latest/cryptographic-details/authenticated-encryption.md"). When you include an encryption context in a request to encrypt data, AWS KMS binds the encryption context to the encrypted data. To decrypt data, you include the same encryption context in the request. **Amazon Location Service encryption context** Amazon Location uses the same encryption context in all AWS KMS cryptographic operations, where the key is `aws:geo:arn` and the value is the resource [Amazon Resource Name](../../../general/latest/gr/aws-arns-and-namespaces.md "../../../general/latest/gr/aws-arns-and-namespaces.md") (ARN). `"encryptionContext": { "aws:geo:arn": "arn:aws:geo:us-west-2:111122223333:geofence-collection/SAMPLE-GeofenceCollection" }` **Using encryption context for monitoring** When you use a symmetric customer managed key to encrypt your tracker or geofence collection, you can also use the encryption context in audit records and logs to identify how the customer managed key is being used. The encryption context also appears in [logs generated by AWS CloudTrail or Amazon CloudWatch Logs](#example-custom-encryption "#example-custom-encryption"). **Using encryption context to control access to your customer managed key** You can use the encryption context in key policies and IAM policies as `conditions` to control access to your symmetric customer managed key. You can also use encryption context constraints in a grant. Amazon Location uses an encryption context constraint in grants to control access to the customer managed key in your account or region. The grant constraint requires that the operations that the grant allows use the specified encryption context. The following are example key policy statements to grant access to a customer managed key for a specific encryption context. The condition in this policy statement requires that the grants have an encryption context constraint that specifies the encryption context. `{ "Sid": "Enable DescribeKey", "Effect": "Allow", "Principal": { "AWS": "arn:aws:iam::111122223333:role/ExampleReadOnlyRole" }, "Action": "kms:DescribeKey", "Resource": "*" }, { "Sid": "Enable CreateGrant", "Effect": "Allow", "Principal": { "AWS": "arn:aws:iam::111122223333:role/ExampleReadOnlyRole" }, "Action": "kms:CreateGrant", "Resource": "*", "Condition": { "StringEquals": { "kms:EncryptionContext:aws:geo:arn": "arn:aws:geo:us-west-2:111122223333:tracker/SAMPLE-Tracker" } } }` ## Monitoring your encryption keys for Amazon Location Service When you use an AWS KMS customer managed key with your Amazon Location Service resources, you can use [AWS CloudTrail](../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md "../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md") or [Amazon CloudWatch Logs](../../../AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.md "../../../AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.md") to track requests that Amazon Location sends to AWS KMS. The following examples are AWS CloudTrail events for `CreateGrant`, `GenerateDataKeyWithoutPlainText`, `Decrypt`, and `DescribeKey` to monitor KMS operations called by Amazon Location to access data encrypted by your customer managed key: CreateGrant When you use an AWS KMS customer managed key to encrypt your tracker or geofence collection resources, Amazon Location sends a `CreateGrant` request on your behalf to access the KMS key in your AWS account. The grant that Amazon Location creates are specific to the resource associated with the AWS KMS customer managed key. In addition, Amazon Location uses the `RetireGrant` operation to remove a grant when you delete a resource. The following example event records the `CreateGrant` operation: `{ "eventVersion": "1.08", "userIdentity": { "type": "AssumedRole", "principalId": "AROAIGDTESTANDEXAMPLE:Sampleuser01", "arn": "arn:aws:sts::111122223333:assumed-role/Admin/Sampleuser01", "accountId": "111122223333", "accessKeyId": "AKIAIOSFODNN7EXAMPLE3", "sessionContext": { "sessionIssuer": { "type": "Role", "principalId": "AROAIGDTESTANDEXAMPLE:Sampleuser01", "arn": "arn:aws:sts::111122223333:assumed-role/Admin/Sampleuser01", "accountId": "111122223333", "userName": "Admin" }, "webIdFederationData": {}, "attributes": { "mfaAuthenticated": "false", "creationDate": "2021-04-22T17:02:00Z" } }, "invokedBy": "geo.amazonaws.com" }, "eventTime": "2021-04-22T17:07:02Z", "eventSource": "kms.amazonaws.com", "eventName": "CreateGrant", "awsRegion": "us-west-2", "sourceIPAddress": "172.12.34.56", "userAgent": "ExampleDesktop/1.0 (V1; OS)", "requestParameters": { "retiringPrincipal": "geo.region.amazonaws.com", "operations": [ "GenerateDataKeyWithoutPlaintext", "Decrypt", "DescribeKey" ], "keyId": "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-123456SAMPLE", "granteePrincipal": "geo.region.amazonaws.com" }, "responseElements": { "grantId": "0ab0ac0d0b000f00ea00cc0a0e00fc00bce000c000f0000000c0bc0a0000aaafSAMPLE" }, "requestID": "ff000af-00eb-00ce-0e00-ea000fb0fba0SAMPLE", "eventID": "ff000af-00eb-00ce-0e00-ea000fb0fba0SAMPLE", "readOnly": false, "resources": [ { "accountId": "111122223333", "type": "AWS::KMS::Key", "ARN": "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-123456SAMPLE" } ], "eventType": "AwsApiCall", "managementEvent": true, "eventCategory": "Management", "recipientAccountId": "111122223333" }` GenerateDataKeyWithoutPlainText When you enable an AWS KMS customer managed key for your tracker or geofence collection resource, Amazon Location creates a unique table key. It sends a `GenerateDataKeyWithoutPlainText` request to AWS KMS that specifies the AWS KMS customer managed key for the resource. The following example event records the `GenerateDataKeyWithoutPlainText` operation: `{ "eventVersion": "1.08", "userIdentity": { "type": "AWSService", "invokedBy": "geo.amazonaws.com" }, "eventTime": "2021-04-22T17:07:02Z", "eventSource": "kms.amazonaws.com", "eventName": "GenerateDataKeyWithoutPlaintext", "awsRegion": "us-west-2", "sourceIPAddress": "172.12.34.56", "userAgent": "ExampleDesktop/1.0 (V1; OS)", "requestParameters": { "encryptionContext": { "aws:geo:arn": "arn:aws:geo:us-west-2:111122223333:geofence-collection/SAMPLE-GeofenceCollection" }, "keySpec": "AES_256", "keyId": "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-123456SAMPLE" }, "responseElements": null, "requestID": "ff000af-00eb-00ce-0e00-ea000fb0fba0SAMPLE", "eventID": "ff000af-00eb-00ce-0e00-ea000fb0fba0SAMPLE", "readOnly": true, "resources": [ { "accountId": "111122223333", "type": "AWS::KMS::Key", "ARN": "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-123456SAMPLE" } ], "eventType": "AwsApiCall", "managementEvent": true, "eventCategory": "Management", "recipientAccountId": "111122223333", "sharedEventID": "57f5dbee-16da-413e-979f-2c4c6663475e" }` Decrypt When you access an encrypted tracker or geofence collection,Amazon Location calls the `Decrypt` operation to use the stored encrypted data key to access the encrypted data. The following example event records the `Decrypt` operation: `{ "eventVersion": "1.08", "userIdentity": { "type": "AWSService", "invokedBy": "geo.amazonaws.com" }, "eventTime": "2021-04-22T17:10:51Z", "eventSource": "kms.amazonaws.com", "eventName": "Decrypt", "awsRegion": "us-west-2", "sourceIPAddress": "172.12.34.56", "userAgent": "ExampleDesktop/1.0 (V1; OS)", "requestParameters": { "encryptionContext": { "aws:geo:arn": "arn:aws:geo:us-west-2:111122223333:geofence-collection/SAMPLE-GeofenceCollection" }, "keyId": "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-123456SAMPLE", "encryptionAlgorithm": "SYMMETRIC_DEFAULT" }, "responseElements": null, "requestID": "ff000af-00eb-00ce-0e00-ea000fb0fba0SAMPLE", "eventID": "ff000af-00eb-00ce-0e00-ea000fb0fba0SAMPLE", "readOnly": true, "resources": [ { "accountId": "111122223333", "type": "AWS::KMS::Key", "ARN": "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-123456SAMPLE" } ], "eventType": "AwsApiCall", "managementEvent": true, "eventCategory": "Management", "recipientAccountId": "111122223333", "sharedEventID": "dc129381-1d94-49bd-b522-f56a3482d088" }` DescribeKey Amazon Location uses the `DescribeKey` operation to verify if the AWS KMS customer managed key associated with your tracker or geofence collection exists in the account and region. The following example event records the `DescribeKey` operation: `{ "eventVersion": "1.08", "userIdentity": { "type": "AssumedRole", "principalId": "AROAIGDTESTANDEXAMPLE:Sampleuser01", "arn": "arn:aws:sts::111122223333:assumed-role/Admin/Sampleuser01", "accountId": "111122223333", "accessKeyId": "AKIAIOSFODNN7EXAMPLE3", "sessionContext": { "sessionIssuer": { "type": "Role", "principalId": "AROAIGDTESTANDEXAMPLE:Sampleuser01", "arn": "arn:aws:sts::111122223333:assumed-role/Admin/Sampleuser01", "accountId": "111122223333", "userName": "Admin" }, "webIdFederationData": {}, "attributes": { "mfaAuthenticated": "false", "creationDate": "2021-04-22T17:02:00Z" } }, "invokedBy": "geo.amazonaws.com" }, "eventTime": "2021-04-22T17:07:02Z", "eventSource": "kms.amazonaws.com", "eventName": "DescribeKey", "awsRegion": "us-west-2", "sourceIPAddress": "172.12.34.56", "userAgent": "ExampleDesktop/1.0 (V1; OS)", "requestParameters": { "keyId": "00dd0db0-0000-0000-ac00-b0c000SAMPLE" }, "responseElements": null, "requestID": "ff000af-00eb-00ce-0e00-ea000fb0fba0SAMPLE", "eventID": "ff000af-00eb-00ce-0e00-ea000fb0fba0SAMPLE", "readOnly": true, "resources": [ { "accountId": "111122223333", "type": "AWS::KMS::Key", "ARN": "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-123456SAMPLE" } ], "eventType": "AwsApiCall", "managementEvent": true, "eventCategory": "Management", "recipientAccountId": "111122223333" }` ## Learn more The following resources provide more information about data encryption at rest. <br>• For more information about [AWS Key Management Service basic concepts](../../../kms/latest/developerguide/concepts.md "../../../kms/latest/developerguide/concepts.md"), see the _AWS Key Management Service Developer Guide_. <br>• For more information about [Security best practices for AWS Key Management Service](../../../kms/latest/developerguide/best-practices.md "../../../kms/latest/developerguide/best-practices.md"), see the _AWS Key Management Service Developer Guide_. |
+| `GeofenceGeometry`A polygon [geofence geometry](../../../location-geofences/latest/APIReference/API_GeofenceGeometry.md "../../../location-geofences/latest/APIReference/API_GeofenceGeometry.md") representing the geofenced<br>area.                                                                                                                                                                                        | Enabled                  | Enabled                                    |
+| `DeviceId`The device identifier specified when<br>[uploading a device position update](../../../location-trackers/latest/APIReference/API_DevicePositionUpdate.md "../../../location-trackers/latest/APIReference/API_DevicePositionUpdate.md") to a tracker<br>resource.                                                                                                                                                     | Enabled                  | Not supported                              |
+| `GeofenceId`An identifier specified when [storing a geofence geometry](../../../location-geofences/latest/APIReference/API_PutGeofence.md "../../../location-geofences/latest/APIReference/API_PutGeofence.md"), or a [batch of geofences](../../../location-geofences/latest/APIReference/API_BatchPutGeofence.md "../../../location-geofences/latest/APIReference/API_BatchPutGeofence.md") in a given geofence collection. | Enabled                  | Not supported                              |
+
+###### Note
+
+Amazon Location automatically enables encryption at rest using AWS owned keys to
+protect personally identifiable data at no charge.
+
+However, AWS KMS charges apply for using a customer managed key. For more information about
+pricing, see the [AWS Key Management Service
+pricing](https://aws.amazon.com/kms/pricing/ "https://aws.amazon.com/kms/pricing/").
+
+For more information on AWS KMS, see [What is AWS Key Management Service?](../../../kms/latest/developerguide/overview.md "../../../kms/latest/developerguide/overview.md")
+
+## How Amazon Location Service uses grants in AWS KMS
+
+Amazon Location requires a [grant](../../../kms/latest/developerguide/grants.md "../../../kms/latest/developerguide/grants.md") to use your
+customer managed key.
+
+When you create a [tracker resource](geometry-components.md#tracking-components "geometry-components.md#tracking-components") or [geofence collection](geometry-components.md#geofence-components "geometry-components.md#geofence-components") encrypted with a customer managed key, Amazon Location creates a
+grant on your behalf by sending a [CreateGrant](../../../kms/latest/APIReference/API_CreateGrant.md "../../../kms/latest/APIReference/API_CreateGrant.md") request
+to AWS KMS. Grants in AWS KMS are used to give Amazon Location access to a KMS key in a
+customer account.
+
+Amazon Location requires the grant to use your customer managed key for the following internal
+operations:
+
+- Send [DescribeKey](../../../kms/latest/APIReference/API_DescribeKey.md "../../../kms/latest/APIReference/API_DescribeKey.md")
+  requests to AWS KMS to verify that the symmetric customer managed KMS key ID
+  entered when creating a tracker or geofence collection is valid.
+- Send [GenerateDataKeyWithoutPlaintext](../../../kms/latest/APIReference/API_GenerateDataKeyWithoutPlaintext.md "../../../kms/latest/APIReference/API_GenerateDataKeyWithoutPlaintext.md") requests to AWS KMS to generate
+  data keys encrypted by your customer managed key.
+- Send [Decrypt](../../../kms/latest/APIReference/API_Decrypt.md "../../../kms/latest/APIReference/API_Decrypt.md") requests
+  to AWS KMS to decrypt the encrypted data keys so that they can be used to
+  encrypt your data.
+
+You can revoke access to the grant, or remove the service's access to the
+customer managed key at any time. If you do, Amazon Location won't be able to access any of the data
+encrypted by the customer managed key, which affects operations that are dependent on that
+data. For example, if you attempt to [get
+device positions](../../../location-trackers/latest/APIReference/API_GetDevicePosition.md "../../../location-trackers/latest/APIReference/API_GetDevicePosition.md") from an encrypted tracker that Amazon Location can't access,
+then the operation would return an `AccessDeniedException` error.
+
+## Create a customer managed key
+
+You can create a symmetric customer managed key by using the AWS Management Console, or the AWS KMS
+APIs.
+
+**To create a symmetric customer managed key**
+
+Follow the steps for [Creating
+symmetric customer managed key](../../../kms/latest/developerguide/create-keys.md#create-symmetric-cmk "../../../kms/latest/developerguide/create-keys.md#create-symmetric-cmk") in the _AWS Key Management Service Developer
+Guide_.
+
+**Key policy**
+
+Key policies control access to your customer managed key. Every customer managed key must have exactly
+one key policy, which contains statements that determine who can use the key and how
+they can use it. When you create your customer managed key, you can specify a key policy. For
+more information, see [Managing access to customer managed keys](../../../kms/latest/developerguide/control-access-overview.md#managing-access "../../../kms/latest/developerguide/control-access-overview.md#managing-access") in the _AWS Key Management Service
+Developer Guide_.
+
+To use your customer managed key with your Amazon Location resources, the following API operations
+must be permitted in the key policy:
+
+- `kms:CreateGrant` – Adds a grant to a customer managed key.
+  Grants control access to a specified KMS key, which allows access to [grant
+  operations](../../../kms/latest/developerguide/grants.md#terms-grant-operations "../../../kms/latest/developerguide/grants.md#terms-grant-operations") Amazon Location requires. For more information about [Using
+  Grants](../../../kms/latest/developerguide/grants.md "../../../kms/latest/developerguide/grants.md"), see the _AWS Key Management Service Developer
+  Guide_.
+
+This allows Amazon Location to do the following:
+
+    + Call `GenerateDataKeyWithoutPlainText` to generate an
+     encrypted data key and store it, because the data key isn't
+     immediately used to encrypt.
+    + Call `Decrypt` to use the stored encrypted data key to
+     access encrypted data.
+    + Set up a retiring principal to allow the service to
+     `RetireGrant`.
+
+- `kms:DescribeKey` – Provides the customer managed key details to
+  allow Amazon Location to validate the key.
+
+The following are policy statement examples you can add for Amazon Location:
+
+```
+  "Statement" : [
+    {
+      "Sid" : "Allow access to principals authorized to use Amazon Location",
+      "Effect" : "Allow",
+      "Principal" : {
+        "AWS" : "*"
+      },
+      "Action" : [
+        "kms:DescribeKey",
+        "kms:CreateGrant"
+      ],
+      "Resource" : "*",
+      "Condition" : {
+        "StringEquals" : {
+          "kms:ViaService" : "geo.region.amazonaws.com",
+          "kms:CallerAccount" : "111122223333"
+        }
+    },
+    {
+      "Sid": "Allow access for key administrators",
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "arn:aws:iam::111122223333:root"
+       },
+      "Action" : [
+        "kms:*"
+       ],
+      "Resource": "arn:aws:kms:`region`:111122223333:key/`key_ID`"
+    },
+    {
+      "Sid" : "Allow read-only access to key metadata to the account",
+      "Effect" : "Allow",
+      "Principal" : {
+        "AWS" : "arn:aws:iam::111122223333:root"
+      },
+      "Action" : [
+        "kms:Describe*",
+        "kms:Get*",
+        "kms:List*",
+        "kms:RevokeGrant"
+      ],
+      "Resource" : "*"
+    }
+  ]
+```
+
+For more information about [specifying permissions in a policy](../../../kms/latest/developerguide/control-access-overview.md#overview-policy-elements "../../../kms/latest/developerguide/control-access-overview.md#overview-policy-elements"), see the _AWS Key Management Service Developer Guide_.
+
+For more information about [troubleshooting key access](../../../kms/latest/developerguide/policy-evaluation.md#example-no-iam "../../../kms/latest/developerguide/policy-evaluation.md#example-no-iam"), see the _AWS Key Management Service Developer Guide_.
+
+## Specifying a customer managed key for
+
+Amazon Location
+
+You can specify a customer managed key as a second layer encryption for the following
+resources:
+
+- [Create a tracker](start-create-tracker.md "start-create-tracker.md")
+- [Get started with Amazon Location Service Geofences](geofence-gs.md "geofence-gs.md")
+
+When you create a resource, you can specify the data key by entering a **KMS ID**, which Amazon Location uses to encrypt the identifiable
+personal data stored by the resource.
+
+- **KMS ID** — A [key
+  identifier](../../../kms/latest/developerguide/concepts.md#key-id "../../../kms/latest/developerguide/concepts.md#key-id") for an AWS KMS customer managed key. Enter a key ID, key ARN,
+  alias name, or alias ARN.
+
+## Amazon Location Service encryption context
+
+An [encryption
+context](../../../kms/latest/developerguide/concepts.md#encrypt_context "../../../kms/latest/developerguide/concepts.md#encrypt_context") is an optional set of key-value pairs that contain additional
+contextual information about the data.
+
+AWS KMS uses the encryption context as [additional
+authenticated data](../../../kms/latest/cryptographic-details/aad.md "../../../kms/latest/cryptographic-details/aad.md") to support [authenticated encryption](../../../kms/latest/cryptographic-details/authenticated-encryption.md "../../../kms/latest/cryptographic-details/authenticated-encryption.md"). When you include an encryption context in a
+request to encrypt data, AWS KMS binds the encryption context to the encrypted data.
+To decrypt data, you include the same encryption context in the request.
+
+**Amazon Location Service encryption context**
+
+Amazon Location uses the same encryption context in all AWS KMS cryptographic
+operations, where the key is `aws:geo:arn` and the value is the
+resource [Amazon Resource
+Name](../../../general/latest/gr/aws-arns-and-namespaces.md "../../../general/latest/gr/aws-arns-and-namespaces.md") (ARN).
+
+```
+"encryptionContext": {
+    "aws:geo:arn": "arn:aws:geo:us-west-2:111122223333:geofence-collection/SAMPLE-GeofenceCollection"
+}
+```
+
+**Using encryption context for monitoring**
+
+When you use a symmetric customer managed key to encrypt your tracker or geofence collection,
+you can also use the encryption context in audit records and logs to identify how
+the customer managed key is being used. The encryption context also appears in [logs generated by AWS CloudTrail or
+Amazon CloudWatch Logs](#example-custom-encryption "#example-custom-encryption").
+
+**Using encryption context to control access to your
+customer managed key**
+
+You can use the encryption context in key policies and IAM policies as
+`conditions` to control access to your symmetric customer managed key. You can
+also use encryption context constraints in a grant.
+
+Amazon Location uses an encryption context constraint in grants to control access to the
+customer managed key in your account or region. The grant constraint requires that the
+operations that the grant allows use the specified encryption context.
+
+The following are example key policy statements to grant access to a customer managed key
+for a specific encryption context. The condition in this policy statement
+requires that the grants have an encryption context constraint that specifies
+the encryption context.
+
+```
+{
+    "Sid": "Enable DescribeKey",
+    "Effect": "Allow",
+    "Principal": {
+        "AWS": "arn:aws:iam::111122223333:role/ExampleReadOnlyRole"
+     },
+     "Action": "kms:DescribeKey",
+     "Resource": "*"
+},
+{
+     "Sid": "Enable CreateGrant",
+     "Effect": "Allow",
+     "Principal": {
+         "AWS": "arn:aws:iam::111122223333:role/ExampleReadOnlyRole"
+     },
+     "Action": "kms:CreateGrant",
+     "Resource": "*",
+     "Condition": {
+         "StringEquals": {
+             "kms:EncryptionContext:aws:geo:arn": "arn:aws:geo:us-west-2:111122223333:tracker/SAMPLE-Tracker"
+          }
+     }
+}
+```
+
+## Monitoring your encryption keys for
+
+Amazon Location Service
+
+When you use an AWS KMS customer managed key with your Amazon Location Service resources, you can use [AWS CloudTrail](../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md "../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md")
+or [Amazon CloudWatch Logs](../../../AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.md "../../../AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.md")
+to track requests that Amazon Location sends to AWS KMS.
+
+The following examples are AWS CloudTrail events for `CreateGrant`,
+`GenerateDataKeyWithoutPlainText`, `Decrypt`, and
+`DescribeKey` to monitor KMS operations called by Amazon Location to access
+data encrypted by your customer managed key:
+
+CreateGrant
+When you use an AWS KMS customer managed key to encrypt your tracker or geofence
+collection resources, Amazon Location sends a `CreateGrant` request
+on your behalf to access the KMS key in your AWS account. The grant
+that Amazon Location creates are specific to the resource associated with the
+AWS KMS customer managed key. In addition, Amazon Location uses the
+`RetireGrant` operation to remove a grant when you delete
+a resource.
+
+The following example event records the `CreateGrant`
+operation:
+
+```
+{
+    "eventVersion": "1.08",
+    "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "AROAIGDTESTANDEXAMPLE:Sampleuser01",
+        "arn": "arn:aws:sts::111122223333:assumed-role/Admin/Sampleuser01",
+        "accountId": "111122223333",
+        "accessKeyId": "AKIAIOSFODNN7EXAMPLE3",
+        "sessionContext": {
+            "sessionIssuer": {
+                "type": "Role",
+                "principalId": "AROAIGDTESTANDEXAMPLE:Sampleuser01",
+                "arn": "arn:aws:sts::111122223333:assumed-role/Admin/Sampleuser01",
+                "accountId": "111122223333",
+                "userName": "Admin"
+            },
+            "webIdFederationData": {},
+            "attributes": {
+                "mfaAuthenticated": "false",
+                "creationDate": "2021-04-22T17:02:00Z"
+            }
+        },
+        "invokedBy": "geo.amazonaws.com"
+    },
+    "eventTime": "2021-04-22T17:07:02Z",
+    "eventSource": "kms.amazonaws.com",
+    "eventName": "CreateGrant",
+    "awsRegion": "us-west-2",
+    "sourceIPAddress": "172.12.34.56",
+    "userAgent": "ExampleDesktop/1.0 (V1; OS)",
+    "requestParameters": {
+        "retiringPrincipal": "geo.region.amazonaws.com",
+        "operations": [
+            "GenerateDataKeyWithoutPlaintext",
+            "Decrypt",
+            "DescribeKey"
+        ],
+        "keyId": "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-123456SAMPLE",
+        "granteePrincipal": "geo.region.amazonaws.com"
+    },
+    "responseElements": {
+        "grantId": "0ab0ac0d0b000f00ea00cc0a0e00fc00bce000c000f0000000c0bc0a0000aaafSAMPLE"
+    },
+    "requestID": "ff000af-00eb-00ce-0e00-ea000fb0fba0SAMPLE",
+    "eventID": "ff000af-00eb-00ce-0e00-ea000fb0fba0SAMPLE",
+    "readOnly": false,
+    "resources": [
+        {
+            "accountId": "111122223333",
+            "type": "AWS::KMS::Key",
+            "ARN": "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-123456SAMPLE"
+        }
+    ],
+    "eventType": "AwsApiCall",
+    "managementEvent": true,
+    "eventCategory": "Management",
+    "recipientAccountId": "111122223333"
+}
+```
+
+GenerateDataKeyWithoutPlainText
+When you enable an AWS KMS customer managed key for your tracker or geofence
+collection resource, Amazon Location creates a unique table key. It sends a
+`GenerateDataKeyWithoutPlainText` request to AWS KMS that
+specifies the AWS KMS customer managed key for the resource.
+
+The following example event records the
+`GenerateDataKeyWithoutPlainText` operation:
+
+```
+{
+    "eventVersion": "1.08",
+    "userIdentity": {
+        "type": "AWSService",
+        "invokedBy": "geo.amazonaws.com"
+    },
+    "eventTime": "2021-04-22T17:07:02Z",
+    "eventSource": "kms.amazonaws.com",
+    "eventName": "GenerateDataKeyWithoutPlaintext",
+    "awsRegion": "us-west-2",
+    "sourceIPAddress": "172.12.34.56",
+    "userAgent": "ExampleDesktop/1.0 (V1; OS)",
+    "requestParameters": {
+        "encryptionContext": {
+            "aws:geo:arn": "arn:aws:geo:us-west-2:111122223333:geofence-collection/SAMPLE-GeofenceCollection"
+        },
+        "keySpec": "AES_256",
+        "keyId": "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-123456SAMPLE"
+    },
+    "responseElements": null,
+    "requestID": "ff000af-00eb-00ce-0e00-ea000fb0fba0SAMPLE",
+    "eventID": "ff000af-00eb-00ce-0e00-ea000fb0fba0SAMPLE",
+    "readOnly": true,
+    "resources": [
+        {
+            "accountId": "111122223333",
+            "type": "AWS::KMS::Key",
+            "ARN": "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-123456SAMPLE"
+        }
+    ],
+    "eventType": "AwsApiCall",
+    "managementEvent": true,
+    "eventCategory": "Management",
+    "recipientAccountId": "111122223333",
+    "sharedEventID": "57f5dbee-16da-413e-979f-2c4c6663475e"
+}
+```
+
+Decrypt
+When you access an encrypted tracker or geofence collection,Amazon Location
+calls the `Decrypt` operation to use the stored encrypted
+data key to access the encrypted data.
+
+The following example event records the `Decrypt`
+operation:
+
+```
+{
+    "eventVersion": "1.08",
+    "userIdentity": {
+        "type": "AWSService",
+        "invokedBy": "geo.amazonaws.com"
+    },
+    "eventTime": "2021-04-22T17:10:51Z",
+    "eventSource": "kms.amazonaws.com",
+    "eventName": "Decrypt",
+    "awsRegion": "us-west-2",
+    "sourceIPAddress": "172.12.34.56",
+    "userAgent": "ExampleDesktop/1.0 (V1; OS)",
+    "requestParameters": {
+        "encryptionContext": {
+            "aws:geo:arn": "arn:aws:geo:us-west-2:111122223333:geofence-collection/SAMPLE-GeofenceCollection"
+        },
+        "keyId": "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-123456SAMPLE",
+        "encryptionAlgorithm": "SYMMETRIC_DEFAULT"
+    },
+    "responseElements": null,
+    "requestID": "ff000af-00eb-00ce-0e00-ea000fb0fba0SAMPLE",
+    "eventID": "ff000af-00eb-00ce-0e00-ea000fb0fba0SAMPLE",
+    "readOnly": true,
+    "resources": [
+        {
+            "accountId": "111122223333",
+            "type": "AWS::KMS::Key",
+            "ARN": "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-123456SAMPLE"
+        }
+    ],
+    "eventType": "AwsApiCall",
+    "managementEvent": true,
+    "eventCategory": "Management",
+    "recipientAccountId": "111122223333",
+    "sharedEventID": "dc129381-1d94-49bd-b522-f56a3482d088"
+}
+```
+
+DescribeKey
+Amazon Location uses the `DescribeKey` operation to verify if the
+AWS KMS customer managed key associated with your tracker or geofence collection
+exists in the account and region.
+
+The following example event records the `DescribeKey`
+operation:
+
+```
+{
+    "eventVersion": "1.08",
+    "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "AROAIGDTESTANDEXAMPLE:Sampleuser01",
+        "arn": "arn:aws:sts::111122223333:assumed-role/Admin/Sampleuser01",
+        "accountId": "111122223333",
+        "accessKeyId": "AKIAIOSFODNN7EXAMPLE3",
+        "sessionContext": {
+            "sessionIssuer": {
+                "type": "Role",
+                "principalId": "AROAIGDTESTANDEXAMPLE:Sampleuser01",
+                "arn": "arn:aws:sts::111122223333:assumed-role/Admin/Sampleuser01",
+                "accountId": "111122223333",
+                "userName": "Admin"
+            },
+            "webIdFederationData": {},
+            "attributes": {
+                "mfaAuthenticated": "false",
+                "creationDate": "2021-04-22T17:02:00Z"
+            }
+        },
+        "invokedBy": "geo.amazonaws.com"
+    },
+    "eventTime": "2021-04-22T17:07:02Z",
+    "eventSource": "kms.amazonaws.com",
+    "eventName": "DescribeKey",
+    "awsRegion": "us-west-2",
+    "sourceIPAddress": "172.12.34.56",
+    "userAgent": "ExampleDesktop/1.0 (V1; OS)",
+    "requestParameters": {
+        "keyId": "00dd0db0-0000-0000-ac00-b0c000SAMPLE"
+    },
+    "responseElements": null,
+    "requestID": "ff000af-00eb-00ce-0e00-ea000fb0fba0SAMPLE",
+    "eventID": "ff000af-00eb-00ce-0e00-ea000fb0fba0SAMPLE",
+    "readOnly": true,
+    "resources": [
+        {
+            "accountId": "111122223333",
+            "type": "AWS::KMS::Key",
+            "ARN": "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-123456SAMPLE"
+        }
+    ],
+    "eventType": "AwsApiCall",
+    "managementEvent": true,
+    "eventCategory": "Management",
+    "recipientAccountId": "111122223333"
+}
+```
+
+## Learn more
+
+The following resources provide more information about data encryption at
+rest.
+
+- For more information about [AWS Key Management Service basic
+  concepts](../../../kms/latest/developerguide/concepts.md "../../../kms/latest/developerguide/concepts.md"), see the _AWS Key Management Service Developer
+  Guide_.
+- For more information about [Security best
+  practices for AWS Key Management Service](../../../kms/latest/developerguide/best-practices.md "../../../kms/latest/developerguide/best-practices.md"), see the _AWS Key Management Service Developer Guide_.

@@ -31,14 +31,166 @@ The result is approximate because of the distributed architecture of Amazon Loca
 The following are metrics that Amazon Location Service exports to CloudWatch in the
 `AWS/Location` namespace.
 
-| Metric                                      | Description                                                                                                                                                                                                             | Dimensions                                                                                                                                                                                                                                                                                      |
-| ------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `CallCount`                                 | The number of calls made to a given API endpoint. Valid Statistic: Sum Units: Count                                                                                                                                     | OperationName OperationName, ResourceName ApiKeyName, OperationName ApiKeyName, OperationName, ResourceName OperationName, OperationVersion OperationName, OperationVersion, ResourceName ApiKeyName, OperationName, OperationVersion ApiKeyName, OperationName, OperationVersion, ResourceName |
-| `ErrorCount`                                | The number of error responses from calls made to a given API endpoint. Valid Statistic: Sum Units: Count                                                                                                                | OperationName OperationName, ResourceName ApiKeyName, OperationName ApiKeyName, OperationName, ResourceName                                                                                                                                                                                     |
-| `SuccessCount`                              | The number of successful calls made to a given API endpoint. Valid Statistic: Sum Units: Count                                                                                                                          | OperationName OperationName, ResourceName ApiKeyName, OperationName ApiKeyName, OperationName, ResourceName                                                                                                                                                                                     |
-| `CallLatency`                               | The amount of time the operation takes to process and return a response when a call is made to a given API endpoint. Valid Statistic: Average Units: Milliseconds                                                       | OperationName OperationName, ResourceName ApiKeyName, OperationName ApiKeyName, OperationName, ResourceName                                                                                                                                                                                     | ### Amazon Location Service dimensions for metrics You can use the dimensions in the following table to filter Amazon Location Service metrics. |
-| Dimension                                   | Description                                                                                                                                                                                                             |                                                                                                                                                                                                                                                                                                 | ---                                                                                                                                             | ---                                                                                                                                                                                                                                   |
-| OperationName                               | Filters Amazon Location metrics for API operation with the specified operation name.                                                                                                                                    |                                                                                                                                                                                                                                                                                                 | OperationName, ResourceName                                                                                                                     | Filter Amazon Location metrics for API operation with the specified operation name and resource name.                                                                                                                                 |
-| ApiKeyName, OperationName                   | Filter Amazon Location metrics for API operation with the specified operation name and using given API key name.                                                                                                        |                                                                                                                                                                                                                                                                                                 | ApiKeyName, OperationName, ResourceName                                                                                                         | Filter Amazon Location metrics for API operation with the specified operation name, resource name and using given API key name.                                                                                                       |
-| OperationName, OperationVersion             | Filters Amazon Location metrics for API operation with the specified operation name. Amazon Location Service standalone Maps, Places, and Routes will be export metric to this dimension.                               |                                                                                                                                                                                                                                                                                                 | OperationName, OperationVersion, ResourceName                                                                                                   | Filter Amazon Location metrics for API operation with the specified operation name, version, and Amazon Location resource name. Amazon Location standalone Maps, Places, and Routes will be export metric to this dimension.          |
-| ApiKeyName, OperationName, OperationVersion | Filter Amazon Location metrics for API operation with the specified operation name, version, and using given API key name. Amazon Location standalone Maps, Places, and Routes will be export metric to this dimension. |                                                                                                                                                                                                                                                                                                 | ApiKeyName, OperationName, OperationVersion, ResourceName                                                                                       | Filter Amazon Location metrics for API operation with the specified operation name, version, resource name and using given API key name. Amazon Location standalone Maps, Places, and Routes will be export metric to this dimension. | ## View Amazon Location Service metrics You can view metrics for Amazon Location Service on the Amazon CloudWatch console or by using the Amazon CloudWatch API. **To view metrics using the CloudWatch console** 1. Open the CloudWatch console at [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/"). 2. In the navigation pane, choose **Metrics**. 3. On the **All metrics tab**, choose the **Location** namespace. 4. Select the type of metric to view. 5. Select the metric and add it to the chart. For more information, see [View Available Metrics](../../../AmazonCloudWatch/latest/monitoring/viewing_metrics_with_cloudwatch.md "../../../AmazonCloudWatch/latest/monitoring/viewing_metrics_with_cloudwatch.md") in the _Amazon CloudWatch User Guide_. ## Create CloudWatch alarms for Amazon Location Service metrics You can use CloudWatch to set alarms on your Amazon Location Service metrics. For example, you can create an alarm in CloudWatch to send an email whenever an error count spike occurs. The following topics give you a high-level overview of how to set alarms using CloudWatch. For detailed instructions, see [Using Alarms](../../../AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.md "../../../AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.md") in the _Amazon CloudWatch User Guide_. **To set alarms using the CloudWatch console** 1. Open the CloudWatch console at [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/"). 2. In the navigation pane, choose **Alarm**. 3. Choose **Create Alarm**. 4. Choose **Select metric**. 5. On the **All metrics** tab, select the **Location** namespace. 6. Select a metric category. 7. Find the row with the metric you want to create an alarm for, then select the check box next to this row. 8. Choose **Select metric**. 9. Under **Metric**, fill in the values. 10. Specify the alarm **Conditions**. 11. Choose **Next**. 12. If you want to send a notification when the alarm conditions are met: <br>• Under **Alarm state trigger**, select the alarm state to prompt a notification to be sent. <br>• Under **Select an SNS topic**, choose **Create new topic** to create a new Amazon Simple Notification Service (Amazon SNS) topic. Enter the topic name and the email to send the notification to. <br>• Under **Send a notification to** enter additional email addresses to send the notification to. <br>• Choose **Add notification**. This list is saved and appears in the field for future alarms. 13. When done, choose **Next**. 14. Enter a name and description for the alarm, then choose **Next**. 15. Confirm the alarm details, then choose **Next**. ###### Note When creating a new Amazon SNS topic, you must verify the email address before a notification can be sent. If the email is not verified, the notification will not be received when an alarm is initiated by a state change. For more information about how to set alarms using the CloudWatch console, see [Create an Alarm that Sends Email](../../../AmazonCloudWatch/latest/DeveloperGuide/AlarmThatSendsEmail.md "../../../AmazonCloudWatch/latest/DeveloperGuide/AlarmThatSendsEmail.md") in the _Amazon CloudWatch User Guide_. ## Use CloudWatch to monitor usage against quotas You can create Amazon CloudWatch alarms to notify you when your utilization of a given quota exceeds a configurable threshold. This enables you to recognize when you are close to your quota limits, and either adapt your utilization to avoid cost overruns, or request a quota increase, if needed. For information about how to use CloudWatch to monitor quotas, see [Visualizing your service quotas and setting alarms](../../../AmazonCloudWatch/latest/monitoring/CloudWatch-Quotas-Visualize-Alarms.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch-Quotas-Visualize-Alarms.md") in the _Amazon CloudWatch User Guide_. ## CloudWatch metric examples for Amazon Location Service You can use the [GetMetricData](../../../AmazonCloudWatch/latest/APIReference/API_GetMetricData.md "../../../AmazonCloudWatch/latest/APIReference/API_GetMetricData.md") API to retrieve metrics for Amazon Location. <br>• For example, you can monitor `CallCount` and set an alarm for when a drop in number occurs. Monitoring the `CallCount` metrics for `SendDeviceLocation` can help give you perspective on tracked assets. If the `CallCount` drops, it means that tracked assets, such as a fleet of trucks, have stopped sending their current locations. Setting an alarm for this can help notify you an issue has occurred. <br>• For another example, you can monitor `ErrorCount` and set an alarm for when a spike in number occurs. Trackers must be associated with geofence collections in order for device locations to be evaluated against geofences. If you have a device fleet that requires continuous location updates, seeing the `CallCount` for `BatchEvaluateGeofence` or `BatchPutDevicePosition` drop to zero indicates that updates are no longer flowing. The following is an example output for [GetMetricData](../../../AmazonCloudWatch/latest/APIReference/API_GetMetricData.md "../../../AmazonCloudWatch/latest/APIReference/API_GetMetricData.md") with the metrics for `CallCount` and `ErrorCount` for creating map resources. `{ "StartTime": 1518867432, "EndTime": 1518868032, "MetricDataQueries": [ { "Id": "m1", "MetricStat": { "Metric": { "Namespace": "AWS/Location", "MetricName": "CallCount", "Dimensions": [ { "Name": "SendDeviceLocation", "Value": "100" } ] }, "Period": 300, "Stat": "SampleCount", "Unit": "Count" } }, { "Id": "m2", "MetricStat": { "Metric": { "Namespace": "AWS/Location", "MetricName": "ErrorCount", "Dimensions": [ { "Name": "AssociateTrackerConsumer", "Value": "0" } ] }, "Period": 1, "Stat": "SampleCount", "Unit": "Count" } } ] }` |
+| Metric         | Description                                                                                                                                                                | Dimensions                                                                                                                                                                                                                                                                                                           |
+| -------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `CallCount`    | The number of calls made to a given API endpoint.<br>Valid Statistic: Sum<br>Units: Count                                                                                  | OperationName<br>OperationName, ResourceName<br>ApiKeyName, OperationName<br>ApiKeyName, OperationName, ResourceName<br>OperationName, OperationVersion<br>OperationName, OperationVersion, ResourceName<br>ApiKeyName, OperationName, OperationVersion<br>ApiKeyName, OperationName, OperationVersion, ResourceName |
+| `ErrorCount`   | The number of error responses from calls made to a given API<br>endpoint.<br>Valid Statistic: Sum<br>Units: Count                                                          | OperationName<br>OperationName, ResourceName<br>ApiKeyName, OperationName<br>ApiKeyName, OperationName, ResourceName                                                                                                                                                                                                 |
+| `SuccessCount` | The number of successful calls made to a given API endpoint.<br>Valid Statistic: Sum<br>Units: Count                                                                       | OperationName<br>OperationName, ResourceName<br>ApiKeyName, OperationName<br>ApiKeyName, OperationName, ResourceName                                                                                                                                                                                                 |
+| `CallLatency`  | The amount of time the operation takes to process and return a<br>response when a call is made to a given API endpoint.<br>Valid Statistic: Average<br>Units: Milliseconds | OperationName<br>OperationName, ResourceName<br>ApiKeyName, OperationName<br>ApiKeyName, OperationName, ResourceName                                                                                                                                                                                                 |
+
+### Amazon Location Service dimensions for metrics
+
+You can use the dimensions in the following table to filter Amazon Location Service metrics.
+
+| Dimension                                                 | Description                                                                                                                                                                                                                                       |
+| --------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| OperationName                                             | Filters Amazon Location metrics for API operation with the<br>specified operation name.                                                                                                                                                           |
+| OperationName, ResourceName                               | Filter Amazon Location metrics for API operation with the<br>specified operation name and resource name.                                                                                                                                          |
+| ApiKeyName, OperationName                                 | Filter Amazon Location metrics for API operation with the specified<br>operation name and using given API key name.                                                                                                                               |
+| ApiKeyName, OperationName, ResourceName                   | Filter Amazon Location metrics for API operation with the specified<br>operation name, resource name and using given API key<br>name.                                                                                                             |
+| OperationName, OperationVersion                           | Filters Amazon Location metrics for API operation with the<br>specified operation name.<br>Amazon Location Service standalone Maps, Places, and Routes<br>will be export metric to this dimension.                                                |
+| OperationName, OperationVersion, ResourceName             | Filter Amazon Location metrics for API operation with the<br>specified operation name, version, and Amazon Location resource<br>name.<br>Amazon Location standalone Maps, Places, and Routes will be<br>export metric to this dimension.          |
+| ApiKeyName, OperationName, OperationVersion               | Filter Amazon Location metrics for API operation with the specified<br>operation name, version, and using given API key name.<br>Amazon Location standalone Maps, Places, and Routes will be<br>export metric to this dimension.                  |
+| ApiKeyName, OperationName, OperationVersion, ResourceName | Filter Amazon Location metrics for API operation with the specified<br>operation name, version, resource name and using given API key<br>name.<br>Amazon Location standalone Maps, Places, and Routes will be<br>export metric to this dimension. |
+
+## View Amazon Location Service metrics
+
+You can view metrics for Amazon Location Service on the Amazon CloudWatch console or by using the
+Amazon CloudWatch API.
+
+**To view metrics using the CloudWatch console**
+
+1. Open the CloudWatch console at [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
+2. In the navigation pane, choose **Metrics**.
+3. On the **All metrics tab**, choose the **Location** namespace.
+4. Select the type of metric to view.
+5. Select the metric and add it to the chart.
+   For more information, see [View Available Metrics](../../../AmazonCloudWatch/latest/monitoring/viewing_metrics_with_cloudwatch.md "../../../AmazonCloudWatch/latest/monitoring/viewing_metrics_with_cloudwatch.md") in the _Amazon
+   CloudWatch User Guide_.
+
+## Create CloudWatch alarms for Amazon Location Service metrics
+
+You can use CloudWatch to set alarms on your Amazon Location Service metrics. For example, you can create an
+alarm in CloudWatch to send an email whenever an error count spike occurs.
+
+The following topics give you a high-level overview of how to set alarms using CloudWatch. For
+detailed instructions, see [Using Alarms](../../../AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.md "../../../AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.md") in the _Amazon CloudWatch User
+Guide_.
+
+**To set alarms using the CloudWatch console**
+
+1. Open the CloudWatch console at [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
+2. In the navigation pane, choose **Alarm**.
+3. Choose **Create Alarm**.
+4. Choose **Select metric**.
+5. On the **All metrics** tab, select the
+   **Location** namespace.
+6. Select a metric category.
+7. Find the row with the metric you want to create an alarm for, then select the
+   check box next to this row.
+8. Choose **Select metric**.
+9. Under **Metric**, fill in the values.
+10. Specify the alarm **Conditions**.
+11. Choose **Next**.
+12. If you want to send a notification when the alarm conditions are met:
+    - Under **Alarm state trigger**, select the alarm state to
+      prompt a notification to be sent.
+    - Under **Select an SNS topic**, choose **Create
+      new topic** to create a new Amazon Simple Notification Service (Amazon SNS) topic.
+      Enter the topic name and the email to send the notification to.
+    - Under **Send a notification to** enter additional email
+      addresses to send the notification to.
+    - Choose **Add notification**. This list is saved and
+      appears in the field for future alarms.
+
+13. When done, choose **Next**.
+14. Enter a name and description for the alarm, then choose
+    **Next**.
+15. Confirm the alarm details, then choose **Next**.
+
+###### Note
+
+When creating a new Amazon SNS topic, you must verify the email address before a
+notification can be sent. If the email is not verified, the notification will not be
+received when an alarm is initiated by a state change.
+
+For more information about how to set alarms using the CloudWatch console, see [Create an Alarm that Sends Email](../../../AmazonCloudWatch/latest/DeveloperGuide/AlarmThatSendsEmail.md "../../../AmazonCloudWatch/latest/DeveloperGuide/AlarmThatSendsEmail.md") in the _Amazon CloudWatch
+User Guide_.
+
+## Use CloudWatch to monitor usage against quotas
+
+You can create Amazon CloudWatch alarms to notify you when your utilization of a given quota
+exceeds a configurable threshold. This enables you to recognize when you are close to
+your quota limits, and either adapt your utilization to avoid cost overruns, or request
+a quota increase, if needed.
+
+For information about how to use CloudWatch to monitor quotas, see [Visualizing your service quotas and setting alarms](../../../AmazonCloudWatch/latest/monitoring/CloudWatch-Quotas-Visualize-Alarms.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch-Quotas-Visualize-Alarms.md") in the _Amazon CloudWatch User Guide_.
+
+## CloudWatch metric examples for Amazon Location Service
+
+You can use the [GetMetricData](../../../AmazonCloudWatch/latest/APIReference/API_GetMetricData.md "../../../AmazonCloudWatch/latest/APIReference/API_GetMetricData.md") API to retrieve metrics for Amazon Location.
+
+- For example, you can monitor `CallCount` and set an alarm for when a drop
+  in number occurs.
+
+Monitoring the `CallCount` metrics for `SendDeviceLocation` can
+help give you perspective on tracked assets. If the `CallCount` drops, it means
+that tracked assets, such as a fleet of trucks, have stopped sending their current
+locations. Setting an alarm for this can help notify you an issue has occurred.
+
+- For another example, you can monitor `ErrorCount` and set an alarm for
+  when a spike in number occurs.
+
+Trackers must be associated with geofence collections in order for device locations to
+be evaluated against geofences. If you have a device fleet that requires
+continuous location updates, seeing the `CallCount` for
+`BatchEvaluateGeofence` or `BatchPutDevicePosition`
+drop to zero indicates that updates are no longer flowing.
+
+The following is an example output for [GetMetricData](../../../AmazonCloudWatch/latest/APIReference/API_GetMetricData.md "../../../AmazonCloudWatch/latest/APIReference/API_GetMetricData.md") with the metrics for `CallCount` and
+`ErrorCount` for creating map resources.
+
+```
+{
+"StartTime": 1518867432,
+  "EndTime": 1518868032,
+  "MetricDataQueries": [
+    {
+"Id": "m1",
+      "MetricStat": {
+"Metric": {
+"Namespace": "AWS/Location",
+          "MetricName": "CallCount",
+          "Dimensions": [
+            {
+"Name": "SendDeviceLocation",
+              "Value": "100"
+            }
+          ]
+        },
+        "Period": 300,
+        "Stat": "SampleCount",
+        "Unit": "Count"
+      }
+    },
+    {
+"Id": "m2",
+      "MetricStat": {
+"Metric": {
+"Namespace": "AWS/Location",
+          "MetricName": "ErrorCount",
+          "Dimensions": [
+            {
+"Name": "AssociateTrackerConsumer",
+              "Value": "0"
+            }
+          ]
+        },
+        "Period": 1,
+        "Stat": "SampleCount",
+        "Unit": "Count"
+      }
+    }
+  ]
+}
+```

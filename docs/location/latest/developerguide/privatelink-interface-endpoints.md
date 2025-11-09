@@ -104,10 +104,120 @@ There are six different VPC endpoints, one for each feature offered by
 Amazon Location Service.
 
 | Category  | Endpoint                                |
-| --------- | --------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| --------- | --------------------------------------- |
 | Maps      | `com.amazonaws.`region`.geo.maps`       |
 | Places    | `com.amazonaws.`region`.geo.places`     |
 | Routes    | `com.amazonaws.`region`.geo.routes`     |
 | Geofences | `com.amazonaws.`region`.geo.geofencing` |
 | Trackers  | `com.amazonaws.`region`.geo.tracking`   |
-| Metadata  | `com.amazonaws.`region`.geo.metadata`   | **For example:** ``com.amazonaws.`us-east-2`.geo.maps`` After you create the endpoint, you have the option to enable a private DNS hostname. To enable, select **Enable Private DNS Name** in the Amazon VPC Console when you create the VPC endpoint. If you enable private DNS for the interface endpoint, you can make API requests to Amazon Location Service service using its default Regional DNS name. The following examples show the default Regional DNS names format. <br>• `maps.geo.`region`.amazonaws.com` <br>• `places.geo.`region`.amazonaws.com` <br>• `routes.geo.`region`.amazonaws.com` <br>• `tracking.geo.`region`.amazonaws.com` <br>• `geofencing.geo.`region`.amazonaws.com` <br>• `metadata.geo.`region`.amazonaws.com` The previous DNS names are for IPv4 domains. The following IPV6 DNS names can also be used for interface endpoints. <br>• `maps.geo.`region`.api.aws` <br>• `places.geo.`region`.api.aws` <br>• `routes.geo.`region`.api.aws` <br>• `tracking.geo.`region`.api.aws` <br>• `geofencing.geo.`region`.api.aws` <br>• `metadata.geo.`region`.api.aws` ## Access Amazon Location API operations from Amazon Location interface endpoints You can use the [AWS CLI](../../../cli/latest/reference/location.md "../../../cli/latest/reference/location.md") or [AWS SDKs](dev-sdks.md "dev-sdks.md") to access Amazon Location API operations through Amazon Location interface endpoints. **Example: Create a VPC endpoint** `aws ec2 create-vpc-endpoint \ --region us-east-1 \ --service-name location-service-name \ --vpc-id client-vpc-id \ --subnet-ids client-subnet-id \ --vpc-endpoint-type Interface \ --security-group-ids client-sg-id` **Example: Modify a VPC endpoint** `aws ec2 modify-vpc-endpoint \ --region us-east-1 \ --vpc-endpoint-id client-vpc-endpoint-id \ --policy-document policy-document \ #example optional parameter --add-security-group-ids security-group-ids \ #example optional parameter # any additional parameters needed, see PrivateLink documentation for more details` ## Update an on-premises DNS configuration When using endpoint-specific DNS names to access the interface endpoints for Amazon Location, you don't have to update your on-premises DNS resolver. You can resolve the endpoint-specific DNS name with the private IP address of the interface endpoint from the public Amazon Location DNS domain. Use interface endpoints to access Amazon Location without a gateway endpoint or an internet gateway in the Amazon VPC Interface endpoints in your Amazon VPC can route both in-Amazon VPC applications and on-premises applications to Amazon Location over the Amazon network. ## Create an Amazon VPC endpoint policy for Amazon Location You can attach an endpoint policy to your Amazon VPC endpoint that controls access to Amazon Location. The policy specifies the following information: <br>• The AWS Identity and Access Management (IAM) principal that can perform actions <br>• The actions that can be performed <br>• The resources on which actions can be performed **Example:** Sample VPCe policy for accessing Amazon Location Service Places APIs: ``{ "Version": "2012-10-17", "Statement": [ { "Sid": "Allow-access-to-location-service-places-opeartions", "Effect": "Allow", "Action": [ "geo-places:*", "geo:*" ], "Resource": [ "arn:aws:geo-places:`us-east-1`::provider/default", "arn:aws:geo:us-east-1:*:place-index/*" ] } ] }`` |
+| Metadata  | `com.amazonaws.`region`.geo.metadata`   |
+
+**For example:**
+
+```
+com.amazonaws.`us-east-2`.geo.maps
+```
+
+After you create the endpoint, you have the option to enable a private DNS hostname.
+To enable, select **Enable Private DNS Name** in the Amazon VPC Console when
+you create the VPC endpoint.
+
+If you enable private DNS for the interface endpoint, you can make API requests to
+Amazon Location Service service using its default Regional DNS name. The following examples show the
+default Regional DNS names format.
+
+- `maps.geo.`region`.amazonaws.com`
+- `places.geo.`region`.amazonaws.com`
+- `routes.geo.`region`.amazonaws.com`
+- `tracking.geo.`region`.amazonaws.com`
+- `geofencing.geo.`region`.amazonaws.com`
+- `metadata.geo.`region`.amazonaws.com`
+
+The previous DNS names are for IPv4 domains. The following IPV6 DNS names can also be
+used for interface endpoints.
+
+- `maps.geo.`region`.api.aws`
+- `places.geo.`region`.api.aws`
+- `routes.geo.`region`.api.aws`
+- `tracking.geo.`region`.api.aws`
+- `geofencing.geo.`region`.api.aws`
+- `metadata.geo.`region`.api.aws`
+
+## Access Amazon Location API
+
+operations from Amazon Location interface endpoints
+
+You can use the [AWS CLI](../../../cli/latest/reference/location.md "../../../cli/latest/reference/location.md") or [AWS SDKs](dev-sdks.md "dev-sdks.md") to access
+Amazon Location API operations through Amazon Location interface endpoints.
+
+**Example: Create a VPC endpoint**
+
+```
+aws ec2 create-vpc-endpoint \
+--region us-east-1 \
+--service-name location-service-name \
+--vpc-id client-vpc-id \
+--subnet-ids client-subnet-id \
+--vpc-endpoint-type Interface \
+--security-group-ids client-sg-id
+```
+
+**Example: Modify a VPC endpoint**
+
+```
+aws ec2 modify-vpc-endpoint \
+--region us-east-1 \
+--vpc-endpoint-id client-vpc-endpoint-id \
+--policy-document policy-document \ #example optional parameter
+--add-security-group-ids security-group-ids \ #example optional parameter
+# any additional parameters needed, see PrivateLink documentation for more details
+```
+
+## Update an on-premises DNS
+
+configuration
+
+When using endpoint-specific DNS names to access the interface endpoints for
+Amazon Location, you don't have to update your on-premises DNS resolver. You can resolve the
+endpoint-specific DNS name with the private IP address of the interface endpoint from
+the public Amazon Location DNS domain.
+
+Use interface endpoints to access Amazon Location without a gateway endpoint or an internet
+gateway in the Amazon VPC
+
+Interface endpoints in your Amazon VPC can route both in-Amazon VPC applications and on-premises
+applications to Amazon Location over the Amazon network.
+
+## Create an Amazon VPC endpoint policy for
+
+Amazon Location
+
+You can attach an endpoint policy to your Amazon VPC endpoint that controls access to
+Amazon Location. The policy specifies the following information:
+
+- The AWS Identity and Access Management (IAM) principal that can perform actions
+- The actions that can be performed
+- The resources on which actions can be performed
+
+**Example:** Sample VPCe policy for accessing Amazon Location Service
+Places APIs:
+
+```
+{
+	"Version": "2012-10-17",
+	"Statement": [
+		{
+			"Sid": "Allow-access-to-location-service-places-opeartions",
+			"Effect": "Allow",
+			"Action": [
+				"geo-places:*",
+				"geo:*"
+			],
+			"Resource": [
+				"arn:aws:geo-places:`us-east-1`::provider/default",
+				"arn:aws:geo:us-east-1:*:place-index/*"
+			]
+		}
+	]
+}
+```
