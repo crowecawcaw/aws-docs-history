@@ -2,9 +2,72 @@
 
 The following table shows the structure of a Verified Access policy.
 
-| Component | Syntax                          |
-| --------- | ------------------------------- | ------- | ---------------- | -------------------------------------------------------------- |
-| effect    | `permit                         | forbid` |
-| scope     | `(principal, action, resource)` |         | condition clause | ``when { context.`policy-reference-name`.`attribute-name` };`` |
+| Component        | Syntax                                                                       |
+| ---------------- | ---------------------------------------------------------------------------- | ------- |
+| effect           | `permit                                                                      | forbid` |
+| scope            | `(principal, action, resource)`                                              |
+| condition clause | ``<br>when {<br>context.`policy-reference-name`.`attribute-name`<br>};<br>`` |
 
-| ## Policy components A Verified Access policy contains the following components: <br>• Effect – Either `permit` (allow) or `forbid` (deny) access. <br>• Scope – The principals, actions, and resources to which the effect applies. You can leave the scope in Cedar undefined by not identifying specific principals, actions, or resources. In this case, the policy applies to all possible principals, actions, and resources. <br>• **Condition clause** – The context in which the effect applies. ###### Important For Verified Access, policies are fully expressed by referring to trust data in the condition clause. **The policy scope must always be kept undefined**. You can then specify access using identity and device trust context in the condition clause. ## Comments You can include comments in your AWS Verified Access policies. Comments are defined as a line starting with `//` and ending with a newline character. The following example shows comments in a policy. `// grants access to users in a specific domain using trusted devices permit(principal, action, resource) when { // the user's email address is in the @example.com domain context.idc.user.email.address.contains("@example.com") // Jamf thinks the user's computer is low risk or secure. && ["LOW", "SECURE"].contains(context.jamf.risk) };` ## Multiple clauses You can use more than one condition clause in a policy statement using the `&&` operator. ``permit(principal,action,resource) when{ context.`policy-reference-name`.`attribute1` && context.`policy-reference-name`.`attribute2` };`` For additional examples, see [Verified Access example policies](trust-data-iam-add-pol.md "trust-data-iam-add-pol.md"). ## Reserved characters The following example shows how to write a policy if a context property uses a `:` (semicolon), which is a reserved character in the policy language. ``permit(principal, action, resource) when { context.`policy-reference-name`["namespace:groups"].contains("finance") };``
+## Policy components
+
+A Verified Access policy contains the following components:
+
+- Effect – Either `permit` (allow)
+  or `forbid` (deny) access.
+- Scope – The principals, actions, and
+  resources to which the effect applies. You can leave the scope in Cedar undefined by not
+  identifying specific principals, actions, or resources. In this case, the policy applies
+  to all possible principals, actions, and resources.
+- **Condition clause** – The context in
+  which the effect applies.
+
+###### Important
+
+For Verified Access, policies are fully expressed by referring to trust data in the condition
+clause. **The policy scope must always be kept undefined**. You
+can then specify access using identity and device trust context in the condition clause.
+
+## Comments
+
+You can include comments in your AWS Verified Access policies. Comments are defined as a
+line starting with `//` and ending with a newline character.
+
+The following example shows comments in a policy.
+
+```
+// grants access to users in a specific domain using trusted devices
+permit(principal, action, resource)
+when {
+  // the user's email address is in the @example.com domain
+  context.idc.user.email.address.contains("@example.com")
+  // Jamf thinks the user's computer is low risk or secure.
+  && ["LOW", "SECURE"].contains(context.jamf.risk)
+};
+```
+
+## Multiple clauses
+
+You can use more than one condition clause in a policy statement using the
+`&&` operator.
+
+```
+permit(principal,action,resource)
+when{
+ context.`policy-reference-name`.`attribute1` &&
+ context.`policy-reference-name`.`attribute2`
+};
+```
+
+For additional examples, see [Verified Access example policies](trust-data-iam-add-pol.md "trust-data-iam-add-pol.md").
+
+## Reserved characters
+
+The following example shows how to write a policy if a context property uses a
+`:` (semicolon), which is a reserved character in the policy language.
+
+```
+permit(principal, action, resource)
+when {
+    context.`policy-reference-name`["namespace:groups"].contains("finance")
+};
+```

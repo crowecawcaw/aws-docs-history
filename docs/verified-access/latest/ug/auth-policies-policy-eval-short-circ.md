@@ -26,7 +26,7 @@ permit(principal, action, resource) when {
 This is most useful when specifying a policy that references two different trust
 providers.
 
-````
+```
 permit(principal, action, resource) when {
   // user is in an allowed group
   context.aws_idc.groups has "c242c5b0-6081-1845-6fa8-6e0d9513c107"
@@ -36,5 +36,12 @@ permit(principal, action, resource) when {
       // permit if CrowdStrike's overall assessment is over 50
       context has "crowdstrike" && context.crowdstrike.assessment.overall > 50
     )
-|| ( // if Jamf data is present, // permit if Jamf's risk score is acceptable context has "jamf" && ["LOW", "NOT_APPLICABLE", "MEDIUM", "SECURE"].contains(context.jamf.risk) ) ) }; ```
-````
+    ||
+    (
+      // if Jamf data is present,
+      // permit if Jamf's risk score is acceptable
+      context has "jamf" && ["LOW", "NOT_APPLICABLE", "MEDIUM", "SECURE"].contains(context.jamf.risk)
+    )
+  )
+};
+```

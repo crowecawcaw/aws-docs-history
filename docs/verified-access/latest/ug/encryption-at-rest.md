@@ -63,9 +63,512 @@ pricing](https://aws.amazon.com/kms/pricing/ "https://aws.amazon.com/kms/pricing
 The following table summarizes the personally identifiable information (PII) that
 Verified Access uses, and how it is encrypted.
 
-| Data type                                                                                                                                                                                               | AWS owned key encryption | Customer managed key encryption (Optional) |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------ | ------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `Trust provider (user-type)`User-type trust providers contain OIDC options such as AuthorizationEndpoint, UserInfoEndpoint, ClientId, ClientSecret, and so on, which are considered PII.                | Enabled                  | Enabled                                    |
-| `Trust provider (device-type)`Device-type trust providers contain a TenantId, which is considered PII.                                                                                                  | Enabled                  | Enabled                                    |
-| `Group policy`Provided during creation or modification of Verified Access group. Contains rules for authorizing access requests. Might contain PII such as username and email address, and so on.       | Enabled                  | Enabled                                    |
-| `Endpoint policy`Provided during creation or modification of Verified Access endpoint. Contains rules for authorizing access requests. Might contain PII such as username and email address, and so on. | Enabled                  | Enabled                                    | ## How AWS Verified Access uses grants in AWS KMS Verified Access requires a [grant](../../../kms/latest/developerguide/grants.md "../../../kms/latest/developerguide/grants.md") to use your customer managed key. When you create Verified Access resources encrypted with a customer managed key, Verified Access creates a grant on your behalf by sending a [CreateGrant](../../../kms/latest/APIReference/API_CreateGrant.md "../../../kms/latest/APIReference/API_CreateGrant.md") request to AWS KMS. Grants in AWS KMS are used to give Verified Access the access to a customer managed key in your account. Verified Access requires the grant to use your customer managed key for the following internal operations: <br>• Send [Decrypt](../../../kms/latest/APIReference/API_Decrypt.md "../../../kms/latest/APIReference/API_Decrypt.md") requests to AWS KMS to decrypt the encrypted data keys so that they can be used to decrypt your data. <br>• Send [RetireGrant](../../../kms/latest/APIReference/API_RetireGrant.md "../../../kms/latest/APIReference/API_RetireGrant.md") requests to AWS KMS to delete a grant. You can revoke access to the grant, or remove the service's access to the customer managed key at any time. If you do, Verified Access won't be able to access any of the data that's encrypted by the customer managed key, which affects operations that are dependent on that data. ## Using customer managed keys with Verified Access You can create a symmetric customer managed key by using the AWS Management Console, or the AWS KMS APIs. Follow the steps for [Creating a symmetric encryption key](../../../kms/latest/developerguide/create-symmetric-cmk.md "../../../kms/latest/developerguide/create-symmetric-cmk.md") in the _AWS Key Management Service Developer Guide_. **Key policies** Key policies control access to your customer managed key. Every customer managed key must have exactly one key policy, which contains statements that determine who can use the key and how they can use it. When you create your customer managed key, you can specify a key policy. For more information, see [Key policies](../../../kms/latest/developerguide/key-policies.md "../../../kms/latest/developerguide/key-policies.md") in the _AWS Key Management Service Developer Guide_. To use your customer managed key with your Verified Access resources, the following API operations must be permitted in the key policy: <br>• `kms:CreateGrant` – Adds a grant to a customer managed key. Grants control access to a specified KMS key, which allows access to [grant operations](../../../kms/latest/developerguide/grants.md#terms-grant-operations "../../../kms/latest/developerguide/grants.md#terms-grant-operations") Verified Access requires. For more information, see [Grants](../../../kms/latest/developerguide/grants.md "../../../kms/latest/developerguide/grants.md"), in the _AWS Key Management Service Developer Guide_. This allows Verified Access to do the following: + Call `GenerateDataKeyWithoutPlainText` to generate an encrypted data key and store it, because the data key isn't immediately used to encrypt. + Call `Decrypt` to use the stored encrypted data key to access encrypted data. + Set up a retiring principal to allow the service to `RetireGrant`. <br>• `kms:DescribeKey` – Provides the customer managed key details to allow Verified Access to validate the key. <br>• `kms:GenerateDataKey` – Allows Verified Access to use key for encrypting data. <br>• `kms:Decrypt` – Allow Verified Access to decrypt the encrypted data keys. The following is an example key policy you can use for Verified Access. `"Statement" : [ { "Sid" : "Allow access to principals authorized to use Verified Access", "Effect" : "Allow", "Principal" : { "AWS" : "*" }, "Action" : [ "kms:DescribeKey", "kms:CreateGrant", "kms:GenerateDataKey", "kms:Decrypt" ], "Resource" : "*", "Condition" : { "StringEquals" : { "kms:ViaService" : "verified-access.region.amazonaws.com", "kms:CallerAccount" : "111122223333" } }, { "Sid": "Allow access for key administrators", "Effect": "Allow", "Principal": { "AWS": "arn:aws:iam::111122223333:root" }, "Action" : [ "kms:*" ], "Resource": "arn:aws:kms:region:111122223333:key/key_ID" }, { "Sid" : "Allow read-only access to key metadata to the account", "Effect" : "Allow", "Principal" : { "AWS" : "arn:aws:iam::111122223333:root" }, "Action" : [ "kms:Describe*", "kms:Get*", "kms:List*", "kms:RevokeGrant" ], "Resource" : "*" } ]` For more information, see [Creating a key policy](../../../kms/latest/developerguide/key-policy-overview.md "../../../kms/latest/developerguide/key-policy-overview.md") and [troubleshooting key access](../../../kms/latest/developerguide/policy-evaluation.md "../../../kms/latest/developerguide/policy-evaluation.md") in the _AWS Key Management Service Developer Guide_. ## Specifying a customer managed key for Verified Access resources You can specify a customer managed key to provide a second layer encryption for the following resources: <br>• [Verified Access group](verified-access-groups.md "verified-access-groups.md") <br>• [Verified Access endpoint](verified-access-endpoints.md "verified-access-endpoints.md") <br>• [Verified Access trust provider](trust-providers.md "trust-providers.md") When you create any of these resources using the AWS Management Console, you can specify a customer managed key in the **Additional encryption -- optional** section. During the process, select the **Customize encryption settings (advanced)** check box, then enter the AWS KMS key ID you want to use. This can also be done when modifying an existing resource, or by using the AWS CLI. ###### Note If the customer managed key used to add additional encryption to any of the above resources is lost, the configuration values for the resources will no longer be accessible. The resources can be modified however, by using the AWS Management Console or AWS CLI, to apply a new customer managed key and reset the configuration values. ## AWS Verified Access encryption context An [encryption context](../../../kms/latest/developerguide/encrypt_context.md "../../../kms/latest/developerguide/encrypt_context.md") is an optional set of key-value pairs that contain additional contextual information about the data. AWS KMS uses the encryption context as additional authenticated data to support authenticated encryption. When you include an encryption context in a request to encrypt data, AWS KMS binds the encryption context to the encrypted data. To decrypt data, you include the same encryption context in the request. **AWS Verified Access encryption context** Verified Access uses the same encryption context in all AWS KMS cryptographic operations, where the key is `aws:verified-access:arn` and the value is the resource Amazon Resource Name (ARN). Below are the encryption contexts for Verified Access resources. **Verified Access trust provider** `"encryptionContext": { "aws:verified-access:arn": "arn:aws:ec2:region:111122223333:VerifiedAccessTrustProviderId" }` **Verified Access group** `"encryptionContext": { "aws:verified-access:arn": "arn:aws:ec2:region:111122223333:VerifiedAccessGroupId" }` **Verified Access endpoint** `"encryptionContext": { "aws:verified-access:arn": "arn:aws:ec2:region:111122223333:VerifiedAccessEndpointId" }` ## Monitoring your encryption keys for AWS Verified Access When you use a customer managed KMS key with your AWS Verified Access resources, you can use [AWS CloudTrail](../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md "../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md") to track requests that Verified Access sends to AWS KMS. The following examples are AWS CloudTrail events for `CreateGrant`, `RetireGrant`, `Decrypt`, `DescribeKey`, and `GenerateDataKey`, which monitor KMS operations called by Verified Access to access data that's encrypted by your customer managed KMS key: CreateGrant When you use a customer managed key to encrypt your resources, Verified Access sends a `CreateGrant` request on your behalf to access the key in your AWS account. The grant that Verified Access creates is specific to the resource that's associated with the customer managed key. The following example event records the `CreateGrant` operation: `{ "eventVersion": "1.08", "userIdentity": { "type": "AssumedRole", "principalId": "AKIAI44QH8DHBEXAMPLE", "arn": "arn:aws:sts::111122223333:assumed-role/Admin/", "accountId": "111122223333", "accessKeyId": "AKIAIOSFODNN7EXAMPLE", "sessionContext": { "sessionIssuer": { "type": "Role", "principalId": "AKIAI44QH8DHBEXAMPLE", "arn": "arn:aws:iam::111122223333:role/Admin", "accountId": "111122223333", "userName": "Admin" }, "webIdFederationData": {}, "attributes": { "creationDate": "2023-09-11T16:27:12Z", "mfaAuthenticated": "false" } }, "invokedBy": "verified-access.amazonaws.com" }, "eventTime": "2023-09-11T16:41:42Z", "eventSource": "kms.amazonaws.com", "eventName": "CreateGrant", "awsRegion": "ca-central-1", "sourceIPAddress": "verified-access.amazonaws.com", "userAgent": "verified-access.amazonaws.com", "requestParameters": { "operations": [ "Decrypt", "RetireGrant", "GenerateDataKey" ], "keyId": "arn:aws:kms:ca-central-1:111122223333:key/5ed79e7f-88c9-420c-ae1a-61ee87104dae", "constraints": { "encryptionContextSubset": { "aws:verified-access:arn": "arn:aws:ec2:ca-central-1:111122223333:verified-access-trust-provider/vatp-0e54f581e2e5c97a2" } }, "granteePrincipal": "verified-access.ca-central-1.amazonaws.com", "retiringPrincipal": "verified-access.ca-central-1.amazonaws.com" }, "responseElements": { "grantId": "e5a050fff9893ba1c43f83fddf61e5f9988f579beaadd6d4ad6d1df07df6048f", "keyId": "arn:aws:kms:ca-central-1:111122223333:key/5ed79e7f-88c9-420c-ae1a-61ee87104dae" }, "requestID": "0faa837e-5c69-4189-9736-3957278e6444", "eventID": "1b6dd8b8-cbee-4a83-9b9d-d95fa5f6fd08", "readOnly": false, "resources": [ { "accountId": "AWS Internal", "type": "AWS::KMS::Key", "ARN": "arn:aws:kms:ca-central-1:111122223333:key/5ed79e7f-88c9-420c-ae1a-61ee87104dae" } ], "eventType": "AwsApiCall", "managementEvent": true, "recipientAccountId": "111122223333", "eventCategory": "Management" }` RetireGrant Verified Access uses the `RetireGrant` operation to remove a grant when you delete a resource. The following example event records the `RetireGrant` operation: `{ "eventVersion": "1.08", "userIdentity": { "type": "AssumedRole", "principalId": "AKIAI44QH8DHBEXAMPLE", "arn": "arn:aws:sts::111122223333:assumed-role/Admin/", "accountId": "111122223333", "accessKeyId": "AKIAIOSFODNN7EXAMPLE", "sessionContext": { "sessionIssuer": { "type": "Role", "principalId": "AKIAI44QH8DHBEXAMPLE", "arn": "arn:aws:iam::111122223333:role/Admin", "accountId": "111122223333", "userName": "Admin" }, "webIdFederationData": {}, "attributes": { "creationDate": "2023-09-11T16:42:33Z", "mfaAuthenticated": "false" } }, "invokedBy": "verified-access.amazonaws.com" }, "eventTime": "2023-09-11T16:47:53Z", "eventSource": "kms.amazonaws.com", "eventName": "RetireGrant", "awsRegion": "ca-central-1", "sourceIPAddress": "verified-access.amazonaws.com", "userAgent": "verified-access.amazonaws.com", "requestParameters": null, "responseElements": { "keyId": "arn:aws:kms:ca-central-1:111122223333:key/5ed79e7f-88c9-420c-ae1a-61ee87104dae" }, "additionalEventData": { "grantId": "b35e66f9bacb266cec214fcaa353c9cf750785e28773e61ba6f434d8c5c7632f" }, "requestID": "7d4a31c2-d426-434b-8f86-336532a70462", "eventID": "17edc343-f25b-43d4-bbff-150d8fff4cf8", "readOnly": false, "resources": [ { "accountId": "AWS Internal", "type": "AWS::KMS::Key", "ARN": "arn:aws:kms:ca-central-1:111122223333:key/5ed79e7f-88c9-420c-ae1a-61ee87104dae" } ], "eventType": "AwsApiCall", "managementEvent": true, "recipientAccountId": "111122223333", "eventCategory": "Management" }` Decrypt Verified Access calls the `Decrypt` operation to use the stored encrypted data key to access the encrypted data. The following example event records the `Decrypt` operation: `{ "eventVersion": "1.08", "userIdentity": { "type": "AssumedRole", "principalId": "AKIAI44QH8DHBEXAMPLE", "arn": "arn:aws:sts::111122223333:assumed-role/Admin/", "accountId": "111122223333", "accessKeyId": "AKIAIOSFODNN7EXAMPLE", "sessionContext": { "sessionIssuer": { "type": "Role", "principalId": "AKIAI44QH8DHBEXAMPLE", "arn": "arn:aws:iam::111122223333:role/Admin", "accountId": "111122223333", "userName": "Admin" }, "webIdFederationData": {}, "attributes": { "creationDate": "2023-09-11T17:19:33Z", "mfaAuthenticated": "false" } }, "invokedBy": "verified-access.amazonaws.com" }, "eventTime": "2023-09-11T17:47:05Z", "eventSource": "kms.amazonaws.com", "eventName": "Decrypt", "awsRegion": "ca-central-1", "sourceIPAddress": "verified-access.amazonaws.com", "userAgent": "verified-access.amazonaws.com", "requestParameters": { "encryptionAlgorithm": "SYMMETRIC_DEFAULT", "keyId": "arn:aws:kms:ca-central-1:111122223333:key/380d006e-706a-464b-99c5-68768297114e", "encryptionContext": { "aws:verified-access:arn": "arn:aws:ec2:ca-central-1:111122223333:verified-access-trust-provider/vatp-00f20a4e455e9340f", "aws-crypto-public-key": "AkK+vi1W/acBKv7OR8p2DeUrA8EgpTffSrjBqNucODuBYhyZ3hlMuYYJz9x7CwQWZw==" } }, "responseElements": null, "requestID": "2e920fd3-f2f6-41b2-a5e7-2c2cb6f853a9", "eventID": "3329e0a3-bcfb-44cf-9813-8106d6eee31d", "readOnly": true, "resources": [ { "accountId": "AWS Internal", "type": "AWS::KMS::Key", "ARN": "arn:aws:kms:ca-central-1:111122223333:key/380d006e-706a-464b-99c5-68768297114e" } ], "eventType": "AwsApiCall", "managementEvent": true, "recipientAccountId": "111122223333", "eventCategory": "Management" }` DescribeKey Verified Access uses the `DescribeKey` operation to verify whether the customer managed key that's associated with your resource exists in the account and Region. The following example event records the `DescribeKey` operation: `{ "eventVersion": "1.08", "userIdentity": { "type": "AssumedRole", "principalId": "AKIAI44QH8DHBEXAMPLE", "arn": "arn:aws:sts::111122223333:assumed-role/Admin/", "accountId": "111122223333", "accessKeyId": "AKIAIOSFODNN7EXAMPLE", "sessionContext": { "sessionIssuer": { "type": "Role", "principalId": "AKIAI44QH8DHBEXAMPLE", "arn": "arn:aws:iam::111122223333:role/Admin", "accountId": "111122223333", "userName": "Admin" }, "webIdFederationData": {}, "attributes": { "creationDate": "2023-09-11T17:19:33Z", "mfaAuthenticated": "false" } }, "invokedBy": "verified-access.amazonaws.com" }, "eventTime": "2023-09-11T17:46:48Z", "eventSource": "kms.amazonaws.com", "eventName": "DescribeKey", "awsRegion": "ca-central-1", "sourceIPAddress": "verified-access.amazonaws.com", "userAgent": "verified-access.amazonaws.com", "requestParameters": { "keyId": "arn:aws:kms:ca-central-1:111122223333:key/380d006e-706a-464b-99c5-68768297114e" }, "responseElements": null, "requestID": "5b127082-6691-48fa-bfb0-4d40e1503636", "eventID": "ffcfc2bb-f94b-4c00-b6fb-feac77daff2a", "readOnly": true, "resources": [ { "accountId": "AWS Internal", "type": "AWS::KMS::Key", "ARN": "arn:aws:kms:ca-central-1:111122223333:key/380d006e-706a-464b-99c5-68768297114e" } ], "eventType": "AwsApiCall", "managementEvent": true, "recipientAccountId": "111122223333", "eventCategory": "Management" }` GenerateDataKey The following example event records the `GenerateDataKey` operation: `{ "eventVersion": "1.08", "userIdentity": { "type": "AssumedRole", "principalId": "AKIAI44QH8DHBEXAMPLE", "arn": "arn:aws:sts::111122223333:assumed-role/Admin/", "accountId": "111122223333", "accessKeyId": "AKIAIOSFODNN7EXAMPLE", "sessionContext": { "sessionIssuer": { "type": "Role", "principalId": "AKIAI44QH8DHBEXAMPLE", "arn": "arn:aws:iam::111122223333:role/Admin", "accountId": "111122223333", "userName": "Admin" }, "webIdFederationData": {}, "attributes": { "creationDate": "2023-09-11T17:19:33Z", "mfaAuthenticated": "false" } }, "invokedBy": "verified-access.amazonaws.com" }, "eventTime": "2023-09-11T17:46:49Z", "eventSource": "kms.amazonaws.com", "eventName": "GenerateDataKey", "awsRegion": "ca-central-1", "sourceIPAddress": "verified-access.amazonaws.com", "userAgent": "verified-access.amazonaws.com", "requestParameters": { "encryptionContext": { "aws:verified-access:arn": "arn:aws:ec2:ca-central-1:111122223333:verified-access-trust-provider/vatp-00f20a4e455e9340f", "aws-crypto-public-key": "A/ATGxaYatPUlOtM+l/mfDndkzHUmX5Hav+29IlIm+JRBKFuXf24ulztmOIsqFQliw==" }, "numberOfBytes": 32, "keyId": "arn:aws:kms:ca-central-1:111122223333:key/380d006e-706a-464b-99c5-68768297114e" }, "responseElements": null, "requestID": "06535808-7cce-4ae1-ab40-e3afbf158a43", "eventID": "1ce79601-5a5e-412c-90b3-978925036526", "readOnly": true, "resources": [ { "accountId": "AWS Internal", "type": "AWS::KMS::Key", "ARN": "arn:aws:kms:ca-central-1:111122223333:key/380d006e-706a-464b-99c5-68768297114e" } ], "eventType": "AwsApiCall", "managementEvent": true, "recipientAccountId": "111122223333", "eventCategory": "Management" }` |
+| Data type                                                                                                                                                                                                     | AWS owned key encryption | Customer managed key encryption (Optional) |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------ | ------------------------------------------ |
+| `Trust provider (user-type)`User-type trust providers contain<br>OIDC options such as AuthorizationEndpoint, UserInfoEndpoint, ClientId,<br>ClientSecret, and so on, which are considered PII.                | Enabled                  | Enabled                                    |
+| `Trust provider (device-type)`Device-type trust providers<br>contain a TenantId, which is considered PII.                                                                                                     | Enabled                  | Enabled                                    |
+| `Group policy`Provided during creation or modification of<br>Verified Access group. Contains rules for authorizing access requests. Might contain PII<br>such as username and email address, and so on.       | Enabled                  | Enabled                                    |
+| `Endpoint policy`Provided during creation or modification of<br>Verified Access endpoint. Contains rules for authorizing access requests. Might contain<br>PII such as username and email address, and so on. | Enabled                  | Enabled                                    |
+
+## How AWS Verified Access uses grants in AWS KMS
+
+Verified Access requires a [grant](../../../kms/latest/developerguide/grants.md "../../../kms/latest/developerguide/grants.md") to use your customer managed key.
+
+When you create Verified Access resources encrypted with a customer managed key, Verified Access creates a
+grant on your behalf by sending a [CreateGrant](../../../kms/latest/APIReference/API_CreateGrant.md "../../../kms/latest/APIReference/API_CreateGrant.md") request to AWS KMS.
+Grants in AWS KMS are used to give Verified Access the access to a customer managed key in your account.
+
+Verified Access requires the grant to use your customer managed key for the following internal
+operations:
+
+- Send [Decrypt](../../../kms/latest/APIReference/API_Decrypt.md "../../../kms/latest/APIReference/API_Decrypt.md") requests to AWS KMS to decrypt the encrypted data keys so that they can
+  be used to decrypt your data.
+- Send [RetireGrant](../../../kms/latest/APIReference/API_RetireGrant.md "../../../kms/latest/APIReference/API_RetireGrant.md") requests to AWS KMS to delete a grant.
+
+You can revoke access to the grant, or remove the service's access to the customer managed key at
+any time. If you do, Verified Access won't be able to access any of the data that's encrypted by
+the customer managed key, which affects operations that are dependent on that data.
+
+## Using customer managed keys with Verified Access
+
+You can create a symmetric customer managed key by using the AWS Management Console, or the AWS KMS APIs. Follow
+the steps for [Creating a symmetric
+encryption key](../../../kms/latest/developerguide/create-symmetric-cmk.md "../../../kms/latest/developerguide/create-symmetric-cmk.md") in the _AWS Key Management Service Developer Guide_.
+
+**Key policies**
+
+Key policies control access to your customer managed key. Every customer managed key must have exactly one
+key policy, which contains statements that determine who can use the key and how they can
+use it. When you create your customer managed key, you can specify a key policy. For more information,
+see [Key policies](../../../kms/latest/developerguide/key-policies.md "../../../kms/latest/developerguide/key-policies.md") in the
+_AWS Key Management Service Developer Guide_.
+
+To use your customer managed key with your Verified Access resources, the following API operations
+must be permitted in the key policy:
+
+- `kms:CreateGrant` – Adds a grant to a customer managed key. Grants control
+  access to a specified KMS key, which allows access to [grant
+  operations](../../../kms/latest/developerguide/grants.md#terms-grant-operations "../../../kms/latest/developerguide/grants.md#terms-grant-operations") Verified Access requires. For more information, see [Grants](../../../kms/latest/developerguide/grants.md "../../../kms/latest/developerguide/grants.md"),
+  in the _AWS Key Management Service Developer Guide_.
+
+This allows Verified Access to do the following:
+
+    + Call `GenerateDataKeyWithoutPlainText` to generate an encrypted data
+     key and store it, because the data key isn't immediately used to encrypt.
+    + Call `Decrypt` to use the stored encrypted data key to access
+     encrypted data.
+    + Set up a retiring principal to allow the service to
+     `RetireGrant`.
+
+- `kms:DescribeKey` – Provides the customer managed key details to allow Verified Access
+  to validate the key.
+- `kms:GenerateDataKey` – Allows Verified Access to use key for encrypting
+  data.
+- `kms:Decrypt` – Allow Verified Access to decrypt the encrypted data
+  keys.
+
+The following is an example key policy you can use for Verified Access.
+
+```
+"Statement" : [
+    {
+      "Sid" : "Allow access to principals authorized to use Verified Access",
+      "Effect" : "Allow",
+      "Principal" : {
+        "AWS" : "*"
+      },
+      "Action" : [
+        "kms:DescribeKey",
+        "kms:CreateGrant",
+        "kms:GenerateDataKey",
+        "kms:Decrypt"
+      ],
+      "Resource" : "*",
+      "Condition" : {
+        "StringEquals" : {
+          "kms:ViaService" : "verified-access.region.amazonaws.com",
+          "kms:CallerAccount" : "111122223333"
+        }
+    },
+    {
+      "Sid": "Allow access for key administrators",
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "arn:aws:iam::111122223333:root"
+       },
+      "Action" : [
+        "kms:*"
+       ],
+      "Resource": "arn:aws:kms:region:111122223333:key/key_ID"
+    },
+    {
+      "Sid" : "Allow read-only access to key metadata to the account",
+      "Effect" : "Allow",
+      "Principal" : {
+        "AWS" : "arn:aws:iam::111122223333:root"
+      },
+      "Action" : [
+        "kms:Describe*",
+        "kms:Get*",
+        "kms:List*",
+        "kms:RevokeGrant"
+      ],
+      "Resource" : "*"
+    }
+  ]
+```
+
+For more information, see [Creating a key policy](../../../kms/latest/developerguide/key-policy-overview.md "../../../kms/latest/developerguide/key-policy-overview.md") and [troubleshooting key access](../../../kms/latest/developerguide/policy-evaluation.md "../../../kms/latest/developerguide/policy-evaluation.md")
+in the _AWS Key Management Service Developer Guide_.
+
+## Specifying a customer managed key for Verified Access
+
+resources
+
+You can specify a customer managed key to provide a second layer encryption for the following
+resources:
+
+- [Verified Access group](verified-access-groups.md "verified-access-groups.md")
+- [Verified Access endpoint](verified-access-endpoints.md "verified-access-endpoints.md")
+- [Verified Access trust provider](trust-providers.md "trust-providers.md")
+
+When you create any of these resources using the AWS Management Console, you can specify a customer managed key
+in the **Additional encryption -- optional** section. During the process,
+select the **Customize encryption settings (advanced)** check box, then
+enter the AWS KMS key ID you want to use. This can also be done when modifying an existing
+resource, or by using the AWS CLI.
+
+###### Note
+
+If the customer managed key used to add additional encryption to any of the above resources is lost, the configuration values for the resources will no longer be accessible. The resources can be modified however, by using the AWS Management Console or AWS CLI, to apply a new customer managed key and reset the configuration values.
+
+## AWS Verified Access encryption context
+
+An [encryption context](../../../kms/latest/developerguide/encrypt_context.md "../../../kms/latest/developerguide/encrypt_context.md")
+is an optional set of key-value pairs that contain additional contextual information about
+the data. AWS KMS uses the encryption context as additional authenticated data to support
+authenticated encryption. When you include an encryption context in a request to
+encrypt data, AWS KMS binds the encryption context to the encrypted data. To decrypt data, you
+include the same encryption context in the request.
+
+**AWS Verified Access encryption context**
+
+Verified Access uses the same encryption context in all AWS KMS cryptographic operations, where
+the key is `aws:verified-access:arn` and the value is the resource Amazon Resource
+Name (ARN). Below are the encryption contexts for Verified Access resources.
+
+**Verified Access trust provider**
+
+```
+"encryptionContext": {
+    "aws:verified-access:arn":
+    "arn:aws:ec2:region:111122223333:VerifiedAccessTrustProviderId"
+}
+```
+
+**Verified Access group**
+
+```
+"encryptionContext": {
+    "aws:verified-access:arn":
+    "arn:aws:ec2:region:111122223333:VerifiedAccessGroupId"
+}
+```
+
+**Verified Access endpoint**
+
+```
+"encryptionContext": {
+    "aws:verified-access:arn":
+    "arn:aws:ec2:region:111122223333:VerifiedAccessEndpointId"
+}
+```
+
+## Monitoring your encryption keys for AWS Verified Access
+
+When you use a customer managed KMS key with your AWS Verified Access resources, you can use
+[AWS CloudTrail](../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md "../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md") to track
+requests that Verified Access sends to AWS KMS.
+
+The following examples are AWS CloudTrail events for `CreateGrant`,
+`RetireGrant`, `Decrypt`, `DescribeKey`, and
+`GenerateDataKey`, which monitor KMS operations called by Verified Access to access
+data that's encrypted by your customer managed KMS key:
+
+CreateGrant
+When you use a customer managed key to encrypt your resources, Verified Access sends a
+`CreateGrant` request on your behalf to access the key in your AWS
+account. The grant that Verified Access creates is specific to the resource that's
+associated with the customer managed key.
+
+The following example event records the `CreateGrant` operation:
+
+```
+{
+    "eventVersion": "1.08",
+    "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "AKIAI44QH8DHBEXAMPLE",
+        "arn": "arn:aws:sts::111122223333:assumed-role/Admin/",
+        "accountId": "111122223333",
+        "accessKeyId": "AKIAIOSFODNN7EXAMPLE",
+        "sessionContext": {
+            "sessionIssuer": {
+                "type": "Role",
+                "principalId": "AKIAI44QH8DHBEXAMPLE",
+                "arn": "arn:aws:iam::111122223333:role/Admin",
+                "accountId": "111122223333",
+                "userName": "Admin"
+            },
+            "webIdFederationData": {},
+            "attributes": {
+                "creationDate": "2023-09-11T16:27:12Z",
+                "mfaAuthenticated": "false"
+            }
+        },
+        "invokedBy": "verified-access.amazonaws.com"
+    },
+    "eventTime": "2023-09-11T16:41:42Z",
+    "eventSource": "kms.amazonaws.com",
+    "eventName": "CreateGrant",
+    "awsRegion": "ca-central-1",
+    "sourceIPAddress": "verified-access.amazonaws.com",
+    "userAgent": "verified-access.amazonaws.com",
+    "requestParameters": {
+        "operations": [
+            "Decrypt",
+            "RetireGrant",
+            "GenerateDataKey"
+        ],
+        "keyId": "arn:aws:kms:ca-central-1:111122223333:key/5ed79e7f-88c9-420c-ae1a-61ee87104dae",
+        "constraints": {
+            "encryptionContextSubset": {
+                "aws:verified-access:arn": "arn:aws:ec2:ca-central-1:111122223333:verified-access-trust-provider/vatp-0e54f581e2e5c97a2"
+            }
+        },
+        "granteePrincipal": "verified-access.ca-central-1.amazonaws.com",
+        "retiringPrincipal": "verified-access.ca-central-1.amazonaws.com"
+    },
+    "responseElements": {
+        "grantId": "e5a050fff9893ba1c43f83fddf61e5f9988f579beaadd6d4ad6d1df07df6048f",
+        "keyId": "arn:aws:kms:ca-central-1:111122223333:key/5ed79e7f-88c9-420c-ae1a-61ee87104dae"
+    },
+    "requestID": "0faa837e-5c69-4189-9736-3957278e6444",
+    "eventID": "1b6dd8b8-cbee-4a83-9b9d-d95fa5f6fd08",
+    "readOnly": false,
+    "resources": [
+        {
+            "accountId": "AWS Internal",
+            "type": "AWS::KMS::Key",
+            "ARN": "arn:aws:kms:ca-central-1:111122223333:key/5ed79e7f-88c9-420c-ae1a-61ee87104dae"
+        }
+    ],
+    "eventType": "AwsApiCall",
+    "managementEvent": true,
+    "recipientAccountId": "111122223333",
+    "eventCategory": "Management"
+}
+```
+
+RetireGrant
+Verified Access uses the `RetireGrant` operation to remove a grant when you
+delete a resource.
+
+The following example event records the `RetireGrant` operation:
+
+```
+{
+    "eventVersion": "1.08",
+    "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "AKIAI44QH8DHBEXAMPLE",
+        "arn": "arn:aws:sts::111122223333:assumed-role/Admin/",
+        "accountId": "111122223333",
+        "accessKeyId": "AKIAIOSFODNN7EXAMPLE",
+        "sessionContext": {
+            "sessionIssuer": {
+                "type": "Role",
+                "principalId": "AKIAI44QH8DHBEXAMPLE",
+                "arn": "arn:aws:iam::111122223333:role/Admin",
+                "accountId": "111122223333",
+                "userName": "Admin"
+            },
+            "webIdFederationData": {},
+            "attributes": {
+                "creationDate": "2023-09-11T16:42:33Z",
+                "mfaAuthenticated": "false"
+            }
+        },
+        "invokedBy": "verified-access.amazonaws.com"
+    },
+    "eventTime": "2023-09-11T16:47:53Z",
+    "eventSource": "kms.amazonaws.com",
+    "eventName": "RetireGrant",
+    "awsRegion": "ca-central-1",
+    "sourceIPAddress": "verified-access.amazonaws.com",
+    "userAgent": "verified-access.amazonaws.com",
+    "requestParameters": null,
+    "responseElements": {
+        "keyId": "arn:aws:kms:ca-central-1:111122223333:key/5ed79e7f-88c9-420c-ae1a-61ee87104dae"
+    },
+    "additionalEventData": {
+        "grantId": "b35e66f9bacb266cec214fcaa353c9cf750785e28773e61ba6f434d8c5c7632f"
+    },
+    "requestID": "7d4a31c2-d426-434b-8f86-336532a70462",
+    "eventID": "17edc343-f25b-43d4-bbff-150d8fff4cf8",
+    "readOnly": false,
+    "resources": [
+        {
+            "accountId": "AWS Internal",
+            "type": "AWS::KMS::Key",
+            "ARN": "arn:aws:kms:ca-central-1:111122223333:key/5ed79e7f-88c9-420c-ae1a-61ee87104dae"
+        }
+    ],
+    "eventType": "AwsApiCall",
+    "managementEvent": true,
+    "recipientAccountId": "111122223333",
+    "eventCategory": "Management"
+}
+```
+
+Decrypt
+Verified Access calls the `Decrypt` operation to use the stored encrypted
+data key to access the encrypted data.
+
+The following example event records the `Decrypt` operation:
+
+```
+{
+    "eventVersion": "1.08",
+    "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "AKIAI44QH8DHBEXAMPLE",
+        "arn": "arn:aws:sts::111122223333:assumed-role/Admin/",
+        "accountId": "111122223333",
+        "accessKeyId": "AKIAIOSFODNN7EXAMPLE",
+        "sessionContext": {
+            "sessionIssuer": {
+                "type": "Role",
+                "principalId": "AKIAI44QH8DHBEXAMPLE",
+                "arn": "arn:aws:iam::111122223333:role/Admin",
+                "accountId": "111122223333",
+                "userName": "Admin"
+            },
+            "webIdFederationData": {},
+            "attributes": {
+                "creationDate": "2023-09-11T17:19:33Z",
+                "mfaAuthenticated": "false"
+            }
+        },
+        "invokedBy": "verified-access.amazonaws.com"
+    },
+    "eventTime": "2023-09-11T17:47:05Z",
+    "eventSource": "kms.amazonaws.com",
+    "eventName": "Decrypt",
+    "awsRegion": "ca-central-1",
+    "sourceIPAddress": "verified-access.amazonaws.com",
+    "userAgent": "verified-access.amazonaws.com",
+    "requestParameters": {
+        "encryptionAlgorithm": "SYMMETRIC_DEFAULT",
+        "keyId": "arn:aws:kms:ca-central-1:111122223333:key/380d006e-706a-464b-99c5-68768297114e",
+        "encryptionContext": {
+            "aws:verified-access:arn": "arn:aws:ec2:ca-central-1:111122223333:verified-access-trust-provider/vatp-00f20a4e455e9340f",
+            "aws-crypto-public-key": "AkK+vi1W/acBKv7OR8p2DeUrA8EgpTffSrjBqNucODuBYhyZ3hlMuYYJz9x7CwQWZw=="
+        }
+    },
+    "responseElements": null,
+    "requestID": "2e920fd3-f2f6-41b2-a5e7-2c2cb6f853a9",
+    "eventID": "3329e0a3-bcfb-44cf-9813-8106d6eee31d",
+    "readOnly": true,
+    "resources": [
+        {
+            "accountId": "AWS Internal",
+            "type": "AWS::KMS::Key",
+            "ARN": "arn:aws:kms:ca-central-1:111122223333:key/380d006e-706a-464b-99c5-68768297114e"
+        }
+    ],
+    "eventType": "AwsApiCall",
+    "managementEvent": true,
+    "recipientAccountId": "111122223333",
+    "eventCategory": "Management"
+}
+```
+
+DescribeKey
+Verified Access uses the `DescribeKey` operation to verify whether the
+customer managed key that's associated with your resource exists in the account and
+Region.
+
+The following example event records the `DescribeKey` operation:
+
+```
+{
+    "eventVersion": "1.08",
+    "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "AKIAI44QH8DHBEXAMPLE",
+        "arn": "arn:aws:sts::111122223333:assumed-role/Admin/",
+        "accountId": "111122223333",
+        "accessKeyId": "AKIAIOSFODNN7EXAMPLE",
+        "sessionContext": {
+            "sessionIssuer": {
+                "type": "Role",
+                "principalId": "AKIAI44QH8DHBEXAMPLE",
+                "arn": "arn:aws:iam::111122223333:role/Admin",
+                "accountId": "111122223333",
+                "userName": "Admin"
+            },
+            "webIdFederationData": {},
+            "attributes": {
+                "creationDate": "2023-09-11T17:19:33Z",
+                "mfaAuthenticated": "false"
+            }
+        },
+        "invokedBy": "verified-access.amazonaws.com"
+    },
+    "eventTime": "2023-09-11T17:46:48Z",
+    "eventSource": "kms.amazonaws.com",
+    "eventName": "DescribeKey",
+    "awsRegion": "ca-central-1",
+    "sourceIPAddress": "verified-access.amazonaws.com",
+    "userAgent": "verified-access.amazonaws.com",
+    "requestParameters": {
+        "keyId": "arn:aws:kms:ca-central-1:111122223333:key/380d006e-706a-464b-99c5-68768297114e"
+    },
+    "responseElements": null,
+    "requestID": "5b127082-6691-48fa-bfb0-4d40e1503636",
+    "eventID": "ffcfc2bb-f94b-4c00-b6fb-feac77daff2a",
+    "readOnly": true,
+    "resources": [
+        {
+            "accountId": "AWS Internal",
+            "type": "AWS::KMS::Key",
+            "ARN": "arn:aws:kms:ca-central-1:111122223333:key/380d006e-706a-464b-99c5-68768297114e"
+        }
+    ],
+    "eventType": "AwsApiCall",
+    "managementEvent": true,
+    "recipientAccountId": "111122223333",
+    "eventCategory": "Management"
+}
+```
+
+GenerateDataKey
+The following example event records the `GenerateDataKey` operation:
+
+```
+{
+    "eventVersion": "1.08",
+    "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "AKIAI44QH8DHBEXAMPLE",
+        "arn": "arn:aws:sts::111122223333:assumed-role/Admin/",
+        "accountId": "111122223333",
+        "accessKeyId": "AKIAIOSFODNN7EXAMPLE",
+        "sessionContext": {
+            "sessionIssuer": {
+                "type": "Role",
+                "principalId": "AKIAI44QH8DHBEXAMPLE",
+                "arn": "arn:aws:iam::111122223333:role/Admin",
+                "accountId": "111122223333",
+                "userName": "Admin"
+            },
+            "webIdFederationData": {},
+            "attributes": {
+                "creationDate": "2023-09-11T17:19:33Z",
+                "mfaAuthenticated": "false"
+            }
+        },
+        "invokedBy": "verified-access.amazonaws.com"
+    },
+    "eventTime": "2023-09-11T17:46:49Z",
+    "eventSource": "kms.amazonaws.com",
+    "eventName": "GenerateDataKey",
+    "awsRegion": "ca-central-1",
+    "sourceIPAddress": "verified-access.amazonaws.com",
+    "userAgent": "verified-access.amazonaws.com",
+    "requestParameters": {
+        "encryptionContext": {
+            "aws:verified-access:arn": "arn:aws:ec2:ca-central-1:111122223333:verified-access-trust-provider/vatp-00f20a4e455e9340f",
+            "aws-crypto-public-key": "A/ATGxaYatPUlOtM+l/mfDndkzHUmX5Hav+29IlIm+JRBKFuXf24ulztmOIsqFQliw=="
+        },
+        "numberOfBytes": 32,
+        "keyId": "arn:aws:kms:ca-central-1:111122223333:key/380d006e-706a-464b-99c5-68768297114e"
+    },
+    "responseElements": null,
+    "requestID": "06535808-7cce-4ae1-ab40-e3afbf158a43",
+    "eventID": "1ce79601-5a5e-412c-90b3-978925036526",
+    "readOnly": true,
+    "resources": [
+        {
+            "accountId": "AWS Internal",
+            "type": "AWS::KMS::Key",
+            "ARN": "arn:aws:kms:ca-central-1:111122223333:key/380d006e-706a-464b-99c5-68768297114e"
+        }
+    ],
+    "eventType": "AwsApiCall",
+    "managementEvent": true,
+    "recipientAccountId": "111122223333",
+    "eventCategory": "Management"
+}
+```
