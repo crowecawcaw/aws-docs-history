@@ -4,7 +4,7 @@ access
 
 AWS provides service reference information in JSON format to streamline the automation
 of policy management workflows. With the service reference information, you can access
-available actions, resources, and condition keys across AWS services from machine-readable
+available operations, actions, resources, and condition keys across AWS services from machine-readable
 files. Service reference information includes metadata beyond authorization details,
 including IAM action last accessed information and IAM Access Analyzer policy generation
 data.
@@ -28,6 +28,12 @@ allow you to incorporate the metadata into your policy management workflows.
   metadata. For more information, see [Additional field
   definitions](#service-reference-additional-field-definitions "#service-reference-additional-field-definitions").
 
+The service reference information also offers metadata on operations, including information on authorized actions and the method names in SDKs.
+
+Additional context of the value of condition keys may be available to assist in scoping permissions. For example, the value of `iam:PassedToService` may appear when the action `iam:PassRole` is authorized by an operation.
+
+This operation to action mapping is not supported for all services. Services that don't yet support this mapping will omit the AuthorizedAction property. Additionally, authorized action information for operations does not include permissions that might be required for operations called on your behalf with [Forward Access Sessions](../../../IAM/latest/UserGuide/access_forward_access_sessions.md "../../../IAM/latest/UserGuide/access_forward_access_sessions.md").
+
 ###### Note
 
 Changes to the service reference information may take up to 24 hours to be reflected
@@ -35,8 +41,12 @@ in the list of metadata for the service.
 
 ###### Accessing AWS service reference information
 
-1. Navigate to the [service reference information](http://servicereference.us-east-1.amazonaws.com/ "http://servicereference.us-east-1.amazonaws.com/") to access the list of AWS services for
+1. Navigate to the service reference information to access the list of AWS services for
    which reference information is available.
+
+There are two main entry points:
+
+[http://servicereference.us-east-1.amazonaws.com/](http://servicereference.us-east-1.amazonaws.com/ "http://servicereference.us-east-1.amazonaws.com/") displays a list of AWS services for which reference information is available.
 
 The following example shows a partial list of services and URLs for their
 respective reference information:
@@ -53,6 +63,34 @@ respective reference information:
     },
     …
 ]
+```
+
+[https://servicereference.us-east-1.amazonaws.com/v1/mapping.json](https://servicereference.us-east-1.amazonaws.com/v1/mapping.json "https://servicereference.us-east-1.amazonaws.com/v1/mapping.json") displays a mapping from SDK services to the location in the service reference that information can be found under.
+
+The following example shows a partial list of mappings:
+
+```
+{
+  "SDK" : {
+    "Python" : {
+      "Boto3" : {
+        "accessanalyzer" : {
+          "service" : "access-analyzer",
+          "url" : "https://servicereference.us-east-1.amazonaws.com/v1/access-analyzer/access-analyzer.json"
+        },
+        "account" : {
+          "service" : "account",
+          "url" : "https://servicereference.us-east-1.amazonaws.com/v1/account/account.json"
+        },
+        "amp" : {
+          "service" : "aps",
+          "url" : "https://servicereference.us-east-1.amazonaws.com/v1/aps/aps.json"
+        },
+        ...
+      }
+    }
+  }
+}
 ```
 
 2. Choose a service and navigate to the service information page in the
@@ -84,7 +122,7 @@ Amazon S3:
                 "s3:x-amz-content-sha256"
             ],
             "Annotations" : {
-                "Properties" : {
+            "Properties" : {
                     "IsList" : false,
                     "IsPermissionManagement" : false,
                     "IsTaggingOnly" : false,
@@ -153,6 +191,40 @@ Amazon S3:
         },
         ...
     ],
+    "Operations": [
+        {
+            "Name" : "GetObject",
+            "AuthorizedActions" : [
+                {
+                    "Name" : "GetObject",
+                    "Service" : "s3"
+                }, {
+                    "Name" : "GetObject",
+                    "Service" : "s3-object-lambda"
+                }, {
+                    "Name" : "GetObjectLegalHold",
+                    "Service" : "s3"
+                }, {
+                    "Name" : "GetObjectRetention",
+                    "Service" : "s3"
+                }, {
+                    "Name" : "GetObjectTagging",
+                    "Service" : "s3"
+                }, {
+                    "Name" : "GetObjectVersion",
+                    "Service" : "s3"
+                }
+            ],
+            "SDK" : [
+                {
+                    "Name" : "s3",
+                    "Method" : "get_object",
+                    "Package" : "Boto3"
+                }
+            ]
+        },
+        ...
+    ],
     "Resources": [
         {
             "Name": "accesspoint",
@@ -168,12 +240,17 @@ Amazon S3:
         }
         ...
     ],
-    "Version": "v1.3"
+    "Version": "v1.4"
 }
 ```
 
 3. Download the JSON file from the service URL to use in your policy authoring
    workflows.
+
+## Glossary
+
+- Operation - An API that can be called, usually through an SDK
+- Action - Permission that is authorized when performing an operation
 
 ## Additional field
 
