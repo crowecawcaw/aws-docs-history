@@ -208,6 +208,151 @@ for the endpoint.
 The following table describes the Amazon S3 bucket policy permissions needed by
 Amazon ECR.
 
-| Permission                                           | Description                                                                                                                                                                                                         |
-| ---------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `arn:aws:s3:::prod-`region`-starport-layer-bucket/*` | Provides access to the Amazon S3 bucket containing the layers for each Docker image. Represents the Region identifier for an AWS Region supported by Amazon ECR, such as `us-east-2` for the US East (Ohio) Region. | #### Example The following example illustrates how to provide access to the Amazon S3 buckets required for Amazon ECR operations. ``{ "Statement": [ { "Sid": "Access-to-specific-bucket-only", "Principal": "*", "Action": [ "s3:GetObject" ], "Effect": "Allow", "Resource": ["arn:aws:s3:::prod-`region`-starport-layer-bucket/*"] } ] }`` ## Create the CloudWatch Logs endpoint Amazon ECS tasks using the Fargate launch type that use a VPC without an internet gateway that also use the `awslogs` log driver to send log information to CloudWatch Logs require that you create the **com.amazonaws.`region`.logs** interface VPC endpoint for CloudWatch Logs. For more information, see [Using CloudWatch Logs with interface VPC endpoints](../../../AmazonCloudWatch/latest/logs/cloudwatch-logs-and-interface-VPC.md "../../../AmazonCloudWatch/latest/logs/cloudwatch-logs-and-interface-VPC.md") in the _Amazon CloudWatch Logs User Guide_. ## Create an endpoint policy for your Amazon ECR VPC endpoints A VPC endpoint policy is an IAM resource policy that you attach to an endpoint when you create or modify the endpoint. If you don't attach a policy when you create an endpoint, AWS attaches a default policy for you that allows full access to the service. An endpoint policy doesn't override or replace user policies or service-specific policies. It's a separate policy for controlling access from the endpoint to the specified service. Endpoint policies must be written in JSON format. For more information, see [Controlling Access to Services with VPC Endpoints](../../../vpc/latest/userguide/vpc-endpoints-access.md "../../../vpc/latest/userguide/vpc-endpoints-access.md") in the _Amazon VPC User Guide_. We recommend creating a single IAM resource policy and attaching it to both of the Amazon ECR VPC endpoints. The following is an example of an endpoint policy for Amazon ECR. This policy enables a specific IAM role to pull images from Amazon ECR. ``{ "Statement": [{ "Sid": "AllowPull", "Principal": { "AWS": "arn:aws:iam::`1234567890`:role/`role_name`" }, "Action": [ "ecr:BatchGetImage", "ecr:GetDownloadUrlForLayer", "ecr:GetAuthorizationToken" ], "Effect": "Allow", "Resource": "*" }] }`` The following endpoint policy example prevents a specified repository from being deleted. ``{ "Statement": [{ "Sid": "AllowAll", "Principal": "*", "Action": "*", "Effect": "Allow", "Resource": "*" }, { "Sid": "PreventDelete", "Principal": "*", "Action": "ecr:DeleteRepository", "Effect": "Deny", "Resource": "arn:aws:ecr:`region`:`1234567890`:repository/`repository_name`" } ] }`` The following endpoint policy example combines the two previous examples into a single policy. ``{ "Statement": [{ "Sid": "AllowAll", "Effect": "Allow", "Principal": "*", "Action": "*", "Resource": "*" }, { "Sid": "PreventDelete", "Effect": "Deny", "Principal": "*", "Action": "ecr:DeleteRepository", "Resource": "arn:aws:ecr:`region`:`1234567890`:repository/`repository_name`" }, { "Sid": "AllowPull", "Effect": "Allow", "Principal": { "AWS": "arn:aws:iam::`1234567890`:role/`role_name`" }, "Action": [ "ecr:BatchGetImage", "ecr:GetDownloadUrlForLayer", "ecr:GetAuthorizationToken" ], "Resource": "*" } ] }`` ###### To modify the VPC endpoint policy for Amazon ECR 1. Open the Amazon VPC console at [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/"). 2. In the navigation pane, choose **Endpoints**. 3. If you have not already created the VPC endpoints for Amazon ECR, see [Create the VPC endpoints for Amazon ECR](#ecr-setting-up-vpc-create "#ecr-setting-up-vpc-create"). 4. Select the Amazon ECR VPC endpoint to add a policy to, and choose the **Policy** tab in the lower half of the screen. 5. Choose **Edit Policy** and make the changes to the policy. 6. Choose **Save** to save the policy. ## Shared subnets You can't create, describe, modify, or delete VPC endpoints in subnets that are shared with you. However, you can use the VPC endpoints in subnets that are shared with you. |
+| Permission                                           | Description                                                                                                                                                                                                                  |
+| ---------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `arn:aws:s3:::prod-`region`-starport-layer-bucket/*` | Provides access to the Amazon S3 bucket containing the layers for<br>each Docker image. Represents the Region identifier for an AWS<br>Region supported by Amazon ECR, such as `us-east-2` for<br>the US East (Ohio) Region. |
+
+#### Example
+
+The following example illustrates how to provide access to the Amazon S3 buckets
+required for Amazon ECR operations.
+
+```
+{
+  "Statement": [
+    {
+      "Sid": "Access-to-specific-bucket-only",
+      "Principal": "*",
+      "Action": [
+        "s3:GetObject"
+      ],
+      "Effect": "Allow",
+      "Resource": ["arn:aws:s3:::prod-`region`-starport-layer-bucket/*"]
+    }
+  ]
+}
+```
+
+## Create the CloudWatch Logs endpoint
+
+Amazon ECS tasks using the Fargate launch type that use a VPC without an
+internet gateway that also use the `awslogs` log driver to send log
+information to CloudWatch Logs require that you create the
+**com.amazonaws.`region`.logs**
+interface VPC endpoint for CloudWatch Logs. For more information, see [Using
+CloudWatch Logs with interface VPC endpoints](../../../AmazonCloudWatch/latest/logs/cloudwatch-logs-and-interface-VPC.md "../../../AmazonCloudWatch/latest/logs/cloudwatch-logs-and-interface-VPC.md") in the
+_Amazon CloudWatch Logs User Guide_.
+
+## Create an endpoint policy for your Amazon ECR VPC
+
+endpoints
+
+A VPC endpoint policy is an IAM resource policy that you attach to an endpoint when
+you create or modify the endpoint. If you don't attach a policy when you create an
+endpoint, AWS attaches a default policy for you that allows full access to the
+service. An endpoint policy doesn't override or replace user policies or
+service-specific policies. It's a separate policy for controlling access from the
+endpoint to the specified service. Endpoint policies must be written in JSON format. For
+more information, see [Controlling Access to Services
+with VPC Endpoints](../../../vpc/latest/userguide/vpc-endpoints-access.md "../../../vpc/latest/userguide/vpc-endpoints-access.md") in the _Amazon VPC User Guide_.
+
+We recommend creating a single IAM resource policy and attaching it to both of the
+Amazon ECR VPC endpoints.
+
+The following is an example of an endpoint policy for Amazon ECR. This policy enables a
+specific IAM role to pull images from Amazon ECR.
+
+```
+{
+	"Statement": [{
+		"Sid": "AllowPull",
+		"Principal": {
+			"AWS": "arn:aws:iam::`1234567890`:role/`role_name`"
+		},
+		"Action": [
+			"ecr:BatchGetImage",
+			"ecr:GetDownloadUrlForLayer",
+                    "ecr:GetAuthorizationToken"
+		],
+		"Effect": "Allow",
+		"Resource": "*"
+	}]
+}
+```
+
+The following endpoint policy example prevents a specified repository from being
+deleted.
+
+```
+{
+	"Statement": [{
+			"Sid": "AllowAll",
+			"Principal": "*",
+			"Action": "*",
+			"Effect": "Allow",
+			"Resource": "*"
+		},
+		{
+			"Sid": "PreventDelete",
+			"Principal": "*",
+			"Action": "ecr:DeleteRepository",
+			"Effect": "Deny",
+			"Resource": "arn:aws:ecr:`region`:`1234567890`:repository/`repository_name`"
+		}
+	]
+}
+```
+
+The following endpoint policy example combines the two previous examples into a single
+policy.
+
+```
+{
+	"Statement": [{
+			"Sid": "AllowAll",
+			"Effect": "Allow",
+			"Principal": "*",
+			"Action": "*",
+			"Resource": "*"
+		},
+		{
+			"Sid": "PreventDelete",
+			"Effect": "Deny",
+			"Principal": "*",
+			"Action": "ecr:DeleteRepository",
+			"Resource": "arn:aws:ecr:`region`:`1234567890`:repository/`repository_name`"
+		},
+		{
+			"Sid": "AllowPull",
+			"Effect": "Allow",
+			"Principal": {
+				"AWS": "arn:aws:iam::`1234567890`:role/`role_name`"
+			},
+			"Action": [
+				"ecr:BatchGetImage",
+				"ecr:GetDownloadUrlForLayer",
+                          "ecr:GetAuthorizationToken"
+			],
+			"Resource": "*"
+		}
+	]
+}
+```
+
+###### To modify the VPC endpoint policy for Amazon ECR
+
+1. Open the Amazon VPC console at
+   [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
+2. In the navigation pane, choose **Endpoints**.
+3. If you have not already created the VPC endpoints for Amazon ECR, see [Create the VPC endpoints for Amazon ECR](#ecr-setting-up-vpc-create "#ecr-setting-up-vpc-create").
+4. Select the Amazon ECR VPC endpoint to add a policy to, and choose the
+   **Policy** tab in the lower half of the screen.
+5. Choose **Edit Policy** and make the changes to the
+   policy.
+6. Choose **Save** to save the policy.
+
+## Shared subnets
+
+You can't create, describe, modify, or delete VPC endpoints in subnets that are shared
+with you. However, you can use the VPC endpoints in subnets that are shared with
+you.

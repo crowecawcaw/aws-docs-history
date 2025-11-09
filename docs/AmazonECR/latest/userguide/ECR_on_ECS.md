@@ -12,8 +12,61 @@ The following table shows the IAM role to use, for each launch type, that provid
 the required permissions for your tasks to pull from an Amazon ECR private repository. Amazon ECS
 provides managed IAM policies that include the required permissions.
 
-| Launch type                        | IAM role                                                                                                                                                                                                                                                                                                                                                                                                     | AWS managed IAM policy                                                                                                                                                                                                                                                                                                                                                                                                          |
-| ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Amazon ECS on Amazon EC2 instances | Use the container instance IAM role, which is associated with the Amazon EC2 instance registered to your Amazon ECS cluster. For more information, see [Container instance IAM role](../../../AmazonECS/latest/developerguide/instance_IAM_role.md "../../../AmazonECS/latest/developerguide/instance_IAM_role.md") in the _Amazon Elastic Container Service Developer Guide_.                               | `AmazonEC2ContainerServiceforEC2Role` For more information, see [AmazonEC2ContainerServiceforEC2Role](../../../AmazonECS/latest/developerguide/security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonEC2ContainerServiceforEC2Role "../../../AmazonECS/latest/developerguide/security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonEC2ContainerServiceforEC2Role") in the _Amazon Elastic Container Service Developer Guide_  |
-| Amazon ECS on Fargate              | Use the task execution IAM role that you reference in your Amazon ECS task definition. For more information, see [Task execution IAM role](../../../AmazonECS/latest/developerguide/task_execution_IAM_role.md "../../../AmazonECS/latest/developerguide/task_execution_IAM_role.md") in the _Amazon Elastic Container Service Developer Guide_.                                                             | `AmazonECSTaskExecutionRolePolicy` For more information, see [AmazonECSTaskExecutionRolePolicy](../../../AmazonECS/latest/developerguide/security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonECSTaskExecutionRolePolicy "../../../AmazonECS/latest/developerguide/security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonECSTaskExecutionRolePolicy") in the _Amazon Elastic Container Service Developer Guide_.             |
-| Amazon ECS on external instances   | Use the container instance IAM role, which is associated with the on-premises server or virtual machine (VM) registered to your Amazon ECS cluster. For more information, see [Container instance Amazon ECS role](../../../AmazonECS/latest/developerguide/instance_IAM_role.md "../../../AmazonECS/latest/developerguide/instance_IAM_role.md") in the _Amazon Elastic Container Service Developer Guide_. | `AmazonEC2ContainerServiceforEC2Role` For more information, see [AmazonEC2ContainerServiceforEC2Role](../../../AmazonECS/latest/developerguide/security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonEC2ContainerServiceforEC2Role "../../../AmazonECS/latest/developerguide/security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonEC2ContainerServiceforEC2Role") in the _Amazon Elastic Container Service Developer Guide_. | ###### Important The AWS managed IAM policies contain additional permissions that you may not require for your use. In this case, these are the minimum required permissions to pull from an Amazon ECR private repository. JSON `` `{ "Version":"2012-10-17", "Statement": [ { "Effect": "Allow", "Action": [ "ecr:BatchGetImage", "ecr:GetDownloadUrlForLayer", "ecr:GetAuthorizationToken" ], "Resource": "*" } ] }` `` ## Specifying an Amazon ECR image in an Amazon ECS task definition When creating an Amazon ECS task definition, you can specify a container image hosted in an Amazon ECR private repository. In the task definition, ensure that you use the full `registry/repository:tag` naming for your Amazon ECR images. For example, ``aws_account_id`.dkr.ecr.`region`.amazonaws.com``/`my-repository`:`latest``. The following task definition snippet shows the syntax you would use to specify a container image hosted in Amazon ECR in your Amazon ECS task definition. ``` { "family": "`task-definition-name`", ... "containerDefinitions": [ { "name": "`container-name`", "image": "``aws_account_id`.dkr.ecr.`region`.amazonaws.com``/`my-repository`:`latest``", ... } ], ... } ``` |
+| Launch type                        | IAM role                                                                                                                                                                                                                                                                                                                                                                                                              | AWS managed IAM policy                                                                                                                                                                                                                                                                                                                                                                                                                |
+| ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Amazon ECS on Amazon EC2 instances | Use the container instance IAM role, which is associated with<br>the Amazon EC2 instance registered to your Amazon ECS cluster. For more<br>information, see [Container instance IAM role](../../../AmazonECS/latest/developerguide/instance_IAM_role.md "../../../AmazonECS/latest/developerguide/instance_IAM_role.md") in the<br>_Amazon Elastic Container Service Developer Guide_.                               | `AmazonEC2ContainerServiceforEC2Role`<br>For more information, see [AmazonEC2ContainerServiceforEC2Role](../../../AmazonECS/latest/developerguide/security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonEC2ContainerServiceforEC2Role "../../../AmazonECS/latest/developerguide/security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonEC2ContainerServiceforEC2Role")<br>in the _Amazon Elastic Container Service Developer Guide_  |
+| Amazon ECS on Fargate              | Use the task execution IAM role that you reference in your Amazon ECS<br>task definition. For more information, see [Task execution IAM role](../../../AmazonECS/latest/developerguide/task_execution_IAM_role.md "../../../AmazonECS/latest/developerguide/task_execution_IAM_role.md") in the<br>_Amazon Elastic Container Service Developer Guide_.                                                                | `AmazonECSTaskExecutionRolePolicy`<br>For more information, see [AmazonECSTaskExecutionRolePolicy](../../../AmazonECS/latest/developerguide/security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonECSTaskExecutionRolePolicy "../../../AmazonECS/latest/developerguide/security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonECSTaskExecutionRolePolicy") in<br>the _Amazon Elastic Container Service Developer Guide_.             |
+| Amazon ECS on external instances   | Use the container instance IAM role, which is associated with<br>the on-premises server or virtual machine (VM) registered to your<br>Amazon ECS cluster. For more information, see [Container instance Amazon ECS role](../../../AmazonECS/latest/developerguide/instance_IAM_role.md "../../../AmazonECS/latest/developerguide/instance_IAM_role.md") in the<br>_Amazon Elastic Container Service Developer Guide_. | `AmazonEC2ContainerServiceforEC2Role`<br>For more information, see [AmazonEC2ContainerServiceforEC2Role](../../../AmazonECS/latest/developerguide/security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonEC2ContainerServiceforEC2Role "../../../AmazonECS/latest/developerguide/security-iam-awsmanpol.md#security-iam-awsmanpol-AmazonEC2ContainerServiceforEC2Role")<br>in the _Amazon Elastic Container Service Developer Guide_. |
+
+###### Important
+
+The AWS managed IAM policies contain additional permissions that you may not
+require for your use. In this case, these are the minimum required permissions to
+pull from an Amazon ECR private repository.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": [
+ "ecr:BatchGetImage",
+ "ecr:GetDownloadUrlForLayer",
+ "ecr:GetAuthorizationToken"
+ ],
+ "Resource": "*"
+ }
+ ]
+}`
+
+```
+
+## Specifying an Amazon ECR image in an Amazon ECS task
+
+definition
+
+When creating an Amazon ECS task definition, you can specify a container image hosted in an
+Amazon ECR private repository. In the task definition, ensure that you use the full
+`registry/repository:tag` naming for your Amazon ECR images. For example,
+``aws_account_id`.dkr.ecr.`region`.amazonaws.com``/`my-repository`:`latest``.
+
+The following task definition snippet shows the syntax you would use to specify a
+container image hosted in Amazon ECR in your Amazon ECS task definition.
+
+```
+{
+    "family": "`task-definition-name`",
+    ...
+    "containerDefinitions": [
+        {
+            "name": "`container-name`",
+            "image": "``aws_account_id`.dkr.ecr.`region`.amazonaws.com``/`my-repository`:`latest``",
+            ...
+        }
+    ],
+    ...
+}
+```

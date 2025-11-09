@@ -27,9 +27,9 @@ The following table shows the mapping between cache repository names and upstrea
 repository names based on their prefix configurations in pull through cache
 rules.
 
-| Cache namespace | Upstream namespace | Mapping relationship (cache repository → upstream repository)                             |
-| --------------- | ------------------ | ----------------------------------------------------------------------------------------- |
-| ecr-public      | ROOT (default)     | `ecr-public/my-app/image1` → `my-app/image1` `ecr-public/my-app/image2` → `my-app/image2` |
-| ROOT            | ROOT               | `my-app/image1` → `my-app/image1`                                                         |
-| team-a          | team-a             | `team-a/myapp/image1` → `team-a/myapp/image1`                                             |
-| my-app          | upstream-app       | `my-app/image1` → `upstream-app/image1`                                                   |
+| Cache namespace | Upstream namespace | Mapping relationship (cache repository → upstream<br>repository)                                   |
+| --------------- | ------------------ | -------------------------------------------------------------------------------------------------- |
+| ecr-public      | ROOT (default)     | `ecr-public/my-app/image1` →<br>`my-app/image1`<br>`ecr-public/my-app/image2` →<br>`my-app/image2` |
+| ROOT            | ROOT               | `my-app/image1` → `my-app/image1`                                                                  |
+| team-a          | team-a             | `team-a/myapp/image1` →<br>`team-a/myapp/image1`                                                   |
+| my-app          | upstream-app       | `my-app/image1` →<br>`upstream-app/image1`                                                         |
