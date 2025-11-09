@@ -223,8 +223,7 @@ message logs. 3. **Configure your game client for Local and start
 it.**
 
 To use your game client with the Amazon GameLift Servers Local service, you must make the
-following changes to your game client's setup, as described in [Set up Amazon GameLift Servers on a backend
-service](gamelift-sdk-client-api.md#gamelift-sdk-client-api-initialize "gamelift-sdk-client-api.md#gamelift-sdk-client-api-initialize"):
+following changes to your game client's setup, as described in [Set up the Amazon GameLift Servers API](gamelift-sdk-client-api.md#gamelift-sdk-client-api-initialize "gamelift-sdk-client-api.md#gamelift-sdk-client-api-initialize"):
 
     * Change the `ClientConfiguration` object to point to your
      Local endpoint, such as `http://localhost:9080`.

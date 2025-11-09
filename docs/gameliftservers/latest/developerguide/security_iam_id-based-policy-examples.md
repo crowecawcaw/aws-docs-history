@@ -241,5 +241,4 @@ JSON
 
 ```
 
-For more information about uploading Amazon GameLift Servers game files, see [Deploy a custom server build for Amazon GameLift Servers
-hosting](gamelift-build-cli-uploading.md "gamelift-build-cli-uploading.md").
+For more information about uploading Amazon GameLift Servers game files, see [Create a game server build for Amazon GameLift Servers](gamelift-build-cli-uploading.md "gamelift-build-cli-uploading.md").

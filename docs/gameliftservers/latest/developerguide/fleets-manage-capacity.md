@@ -3,8 +3,7 @@
 Hosting capacity, measured in instances, represents the number of game sessions that Amazon GameLift Servers
 can host concurrently and the number of concurrent players that those game sessions can
 accommodate. One of the most challenging tasks with game hosting is scaling capacity to meet
-player demand without wasting money on resources that you don't need. For more information,
-see [Scaling fleet capacity](gamelift-howitworks.md#gamelift-howitworks-capacity "gamelift-howitworks.md#gamelift-howitworks-capacity").
+player demand without wasting money on resources that you don't need.
 
 Capacity is adjusted at the fleet location level. All fleets have at least one location:
 the fleet's home AWS Region. When viewing or scaling capacity, the information is listed

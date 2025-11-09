@@ -1,18 +1,8 @@
-# Setting up a hosting fleet with Amazon GameLift Servers
+# Deploy hosting fleets for Amazon GameLift Servers
 
-In this section, you'll find information about designing, building, and maintaining
-Amazon GameLift Servers fleets to host your game servers. See [Amazon GameLift Servers hosting options](gamelift-intro-flavors.md#gamelift-intro-flavors-hosting "gamelift-intro-flavors.md#gamelift-intro-flavors-hosting") to learn more about the hosting solutions that Amazon GameLift Servers offers, including those that use
-managed EC2 fleets, self-managed Anywhere fleets for your on-premises hardware, and a hybrid
-solution that uses both.
+Deploying hosting resources involves creating and configuring the compute infrastructure that will run your game servers. Amazon GameLift Servers offers several fleet types to match different hosting needs, from fully managed AWS Cloud resources to hybrid solutions that combine cloud and on-premises infrastructure.
 
-###### Topics
-
-- [Fleet characteristics](#fleets-intro-common "#fleets-intro-common")
-- [How Amazon GameLift Servers fleet creation works](#fleets-creation-workflow "#fleets-creation-workflow")
-- [Amazon GameLift Servers managed EC2 fleets](fleets-intro-managed.md "fleets-intro-managed.md")
-- [Amazon GameLift Servers managed container fleets](fleets-intro-containers.md "fleets-intro-containers.md")
-- [Amazon GameLift Servers Anywhere fleets](fleets-intro-anywhere.md "fleets-intro-anywhere.md")
-- [Abstract an Amazon GameLift Servers fleet designation with an alias](aliases-intro.md "aliases-intro.md")
+Choose the fleet type that best fits your requirements for cost, control, scalability, and geographic distribution. You can also combine multiple fleet types in a single hosting solution to optimize for different scenarios or player populations.
 
 ## Fleet characteristics
 
@@ -41,14 +31,10 @@ give it. All Amazon GameLift Servers fleets have the following characteristics:
   server processes, as well as usage metrics for game sessions and player activity.
   See the complete list of available metrics at [Monitor Amazon GameLift Servers with Amazon CloudWatch](monitoring-cloudwatch.md "monitoring-cloudwatch.md").
 
-## How Amazon GameLift Servers fleet creation works
+###### Topics
 
-When you request a new fleet, Amazon GameLift Servers starts a workflow to create the fleet resource. As
-it completes each step of the workflow, Amazon GameLift Servers updates the fleet's status and emits a
-series of events to communicate progress toward fleet creation.
-
-Amazon GameLift Servers uses two types of events. Fleet state transition events mark when the fleet
-status changes. Fleet creation events provide additional markers to help with debugging
-creation issues. You can track all events using the Amazon GameLift Servers console or by calling the
-Amazon GameLift Servers API operation [DescribeFleetEvents](../apireference/API_DescribeFleetEvents.md "../apireference/API_DescribeFleetEvents.md"). You can also track fleet and location status using
-[DescribeFleetAttributes](../apireference/API_DescribeFleetAttributes.md "../apireference/API_DescribeFleetAttributes.md") or [DescribeFleetLocationAttributes](../apireference/API_DescribeFleetLocationAttributes.md "../apireference/API_DescribeFleetLocationAttributes.md").
+- [Decision guide: Choose a hosting option](fleets-decision-guide.md "fleets-decision-guide.md")
+- [Amazon GameLift Servers managed EC2 fleets](fleets-intro-managed.md "fleets-intro-managed.md")
+- [Amazon GameLift Servers managed container fleets](fleets-intro-containers.md "fleets-intro-containers.md")
+- [Amazon GameLift Servers Anywhere fleets](fleets-intro-anywhere.md "fleets-intro-anywhere.md")
+- [Build a hybrid hosting solution](hybrid-solution-guide.md "hybrid-solution-guide.md")

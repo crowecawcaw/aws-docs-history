@@ -1,4 +1,4 @@
-# Manage how Amazon GameLift Servers launches game servers
+# Optimize game server runtime configuration on managed Amazon GameLift Servers
 
 You can set up an managed EC2 fleet's runtime configuration to run multiple game server
 processes per instance. This uses your hosting resources more efficiently.

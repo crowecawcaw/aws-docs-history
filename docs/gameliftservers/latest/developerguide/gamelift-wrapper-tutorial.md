@@ -141,7 +141,7 @@ aws gamelift upload-build \
     --name gamelift-test-2025-03-11-1 \
     --build-version gamelift-test-2025-03-11-1 \
     --build-root out/windows/amd64/gamelift-servers-managed-ec2 \
-    --operating-system WINDOWS_2016 \
+    --operating-system WINDOWS_2022 \
     --server-sdk-version 5.3.0 \
     --region us-west-2
 
@@ -296,5 +296,5 @@ For real-time log access or extended retention periods through CloudWatch:
 - [Create a multi-location fleet to add hosting in additional locations](gamelift-regions.md#gamelift-regions-hosting "gamelift-regions.md#gamelift-regions-hosting")
 - [Add a game session queue to make the best possible placements for game sessions across multiple locations](queues-intro.md "queues-intro.md")
 - [Experiment with FlexMatch matchmaking by creating a matchmaker and rule set for your game](../flexmatchguide/match-intro.md "../flexmatchguide/match-intro.md")
-- [Start working on functionality for your game client and backend service components, so players can make join requests and directly connect to game sessions](gamelift-sdk-client.md "gamelift-sdk-client.md")
+- [Start working on functionality for your game client and backend service components, so players can make join requests and directly connect to game sessions](gamelift-sdk-client-api.md "gamelift-sdk-client-api.md")
 - [When ready, move to a fully-integrated solution](gamelift-roadmap-managed.md "gamelift-roadmap-managed.md")

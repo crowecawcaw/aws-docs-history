@@ -3,7 +3,8 @@
 Amazon GameLift Servers -- Actions
 
 Use the Amazon GameLift Servers Unreal server SDK 5.x reference to help you prepare your multiplayer
-game for use with Amazon GameLift Servers. For details about the integration process, see [Add Amazon GameLift Servers to your game server](gamelift-sdk-server-api.md "gamelift-sdk-server-api.md"). If you're
+game for use with Amazon GameLift Servers. For details about the integration process, see [Add Amazon GameLift Servers to your game server with the server
+SDK](gamelift-sdk-server-api.md "gamelift-sdk-server-api.md"). If you're
 using the Amazon GameLift Servers plugin for Unreal, see also [Amazon GameLift Servers plugin for Unreal Engine](unreal-plugin.md "unreal-plugin.md").
 
 ###### Note
@@ -736,8 +737,7 @@ FGameLiftGetComputeCertificateOutcome FGameLiftServerSDKModule::GetComputeCertif
 ## GetFleetRoleCredentials()
 
 Retrieves IAM role credentials that authorize Amazon GameLift Servers to interact with other
-AWS services. For more information, see [Communicate with other AWS resources from
-your fleets](gamelift-sdk-server-resources.md "gamelift-sdk-server-resources.md").
+AWS services. For more information, see [Connect your Amazon GameLift Servers hosted game server to other AWS resources](gamelift-sdk-server-resources.md "gamelift-sdk-server-resources.md").
 
 ### Syntax
 

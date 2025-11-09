@@ -11,7 +11,7 @@ Amazon GameLift Servers. See these topics to learn more about when and how to in
 fleets into a game hosting solution:
 
 - [Hybrid hosting](gamelift-intro-flavors.md#gamelift-intro-flavors-hosting-hybrid "gamelift-intro-flavors.md#gamelift-intro-flavors-hosting-hybrid")
-- [Setting up a hosting fleet with Amazon GameLift Servers](fleets-intro.md "fleets-intro.md")
+- [Deploy hosting fleets for Amazon GameLift Servers](fleets-intro.md "fleets-intro.md")
 - [Set up for iterative development with Amazon GameLift Servers Anywhere](integration-dev-iteration.md "integration-dev-iteration.md")
   Because Anywhere fleets are self-managed, setting up a fleet requires some additional work. To get an Anywhere
   fleet ready to host game sessions and players, you need to complete the following tasks:

@@ -1,26 +1,14 @@
-# Integrate your game server with Amazon GameLift Servers
+# Integrate a game server with Amazon GameLift Servers
 
-After your custom game server is deployed and running on Amazon GameLift Servers instances, it must be
-able to interact with Amazon GameLift Servers (and potentially other resources). This section describes how to
-integrate your game server software with Amazon GameLift Servers.
-
-###### Note
-
-These instructions assume that you've created an AWS account and that you have an
-existing game server project.
-
-The topics in this section describe how to handle the following integration tasks:
-
-- Establish communication between Amazon GameLift Servers and your game servers.
-- Generate and use a TLS certificate to establish a secure connection between game
-  client and game server.
-- Provide permissions for your game server software to interact with other AWS
-  resources.
-- Allow game server processes to get information about the fleet that they're
-  running on.
+Your custom game server must be able to interact with Amazon GameLift Servers when deployed and running on
+hosting resources. The topics in this section describes how to integrate your game server
+project with the server SDK for Amazon GameLift Servers to add required and optional functionality. This
+section includes general instructions that you can use with any of the language-specific
+server SDKs. It also includes detailed guidance on integrating your Unreal Engine and Unity
+game projects.
 
 ###### Topics
 
-- [Add Amazon GameLift Servers to your game server](gamelift-sdk-server-api.md "gamelift-sdk-server-api.md")
-- [Communicate with other AWS resources from
-  your fleets](gamelift-sdk-server-resources.md "gamelift-sdk-server-resources.md")
+- [Add Amazon GameLift Servers to your game server with the server
+  SDK](gamelift-sdk-server-api.md "gamelift-sdk-server-api.md")
+- [Integrate the server SDK for game engines](integration-engines.md "integration-engines.md")

@@ -5,32 +5,94 @@ session-based multiplayer games. Built on AWS global computing infrastructure, A
 deliver high-performance, high-reliability game servers while dynamically scaling your
 resource usage to meet worldwide player demand.
 
-## What you can do with Amazon GameLift Servers
+## Key features
 
-Amazon GameLift Servers supports these use cases and more:
+- Deploy hosting in AWS Regions and Local Zones worldwide to bring your games to new
+  players. See a complete list of [locations supported by
+  Amazon GameLift Servers](gamelift-regions.md "gamelift-regions.md").
+- Deliver lowest possible latency and great player experience, wherever your players
+  are located.
+- Use multi-location placement queues to dynamically place players into game sessions
+  with optimal player experiences.
 
-- Host your own custom multiplayer game servers in the cloud with Amazon GameLift Servers managed
-  EC2 hosting.
-- Run low-cost managed hosting resources using [Amazon Elastic Compute Cloud (Amazon EC2)](https://aws.amazon.com/ec2/ "https://aws.amazon.com/ec2/") Spot Instances.
-- Host your containerized game servers for flexibility across platforms and to
-  support migrations with Amazon GameLift Servers managed containers.
-- Create a hybrid hosting solution to support multi-cloud and/or on-premises
-  hosting while managing game sessions all in one place with
-  Amazon GameLift Servers Anywhere.
-- Create a robust matchmaking system for your multiplayer games with Amazon GameLift Servers
-  FlexMatch.
-- Scale your managed hosting capacity automatically to meet your game needs
-  based on actual player usage.
-- Manage your Amazon EC2 compute resources for gaming all in one place using Amazon GameLift Servers
-  FleetIQ.
-- Create an iterative test environment for your game server and client builds
-  with Amazon GameLift Servers Anywhere and EC2.
-- For games that don't need a custom-build game server, set up a lightweight
-  server solution with Amazon GameLift Servers Realtime.
+- Optimize fleet capacity for cost efficiency while maintaining quality of
+  service.
+- Scale capacity based on player demand using target-based auto scaling
+- Maintain capacity buffer to handle sudden player influxes.
+  See more details at [Amazon GameLift Servers game hosting options](gamelift-intro-flavors.md "gamelift-intro-flavors.md").
 
-###### Tip
+- Game hosting in the cloud, managed by Amazon GameLift Servers
+  - Host game servers on Amazon Elastic Compute Cloud (Amazon EC2) infrastructure. Choose from
+    resource types including compute-optimized (C-family), memory-optimized (R-family),
+    and cost-efficient ARM-based Graviton instances.
+  - Customize how Amazon GameLift Servers manages all aspects of your game hosting
+    solution, from deploying game servers and starting game sessions to matching players
+    and getting them into games.
+  - Use multi-location fleets to streamline global game server deployment.
+  - Take advantage of low-cost hosting with [Amazon EC2 Spot Instances](https://aws.amazon.com/ec2/spot/ "https://aws.amazon.com/ec2/spot/").
+  - Deploy Windows or Linux game servers with managed EC2
+    hosting.
+  - Deploy Linux-based containers with your game server with managed
+    container hosting.
 
-[Get started now with Amazon GameLift Servers](getting-started-intro.md "getting-started-intro.md")
+- Game hosting managed by you, with Amazon GameLift Servers Anywhere
+  - Leverage Amazon GameLift Servers game session placement and session management
+    capabilities.
+  - Self-manage game server deployments and scaling on your own hardware,
+    on-premises infrastructure, or other cloud providers.
+
+- Hybrid game hosting
+  - Create a game hosting solution that uses a combination of Amazon GameLift Servers managed
+    fleets and Anywhere fleets to work with existing solutions or support
+    migration.
+
+- Let Amazon GameLift Servers manage game server processes for you, track game server status and
+  availability, and place new game sessions on request.
+- Use game session placement features to help players find and join game sessions that will
+  provide the best possible player experience. Rely on Amazon GameLift Servers decision-making, or customize
+  around criteria such as hosting cost, player latency, and geographic location.
+- Create game session placement queues to efficiently process new game session
+  requests. Use features to set a balance between placement quality and speed that fits
+  your game and player expectations.
+- Take advantage of optional player session features to reserve player slots in game sessions,
+  validate players on connection, and monitor slot availability. Search or filter existing
+  game sessions to find available slots.
+
+- Add robust matchmaking that's fully integrated with your Amazon GameLift Servers hosting
+  solution.
+- Build custom matchmaking rules based on player attributes and preferences, such as
+  skill level or character choice, and use complex logic as needed.
+- Set up team-based matches for competitive or cooperative gameplay. Balance
+  players across team and/or match composition.
+- Optimize the matchmaking algorithm to balance match quality and wait times.
+- Support matches from 2 to 200 concurrent players.
+- Support match backfilling to fill available player slots and keep game sessions
+  full.
+
+- Get real-time metrics on usage and performance for game sessions and
+  player activity, as well as hosting performance and health for managed fleets.
+- Integrate with Amazon CloudWatch for alerts and dashboards.
+- Access server logs and event tracking for troubleshooting.
+- Analyze performance and utilization data to optimize scaling (managed
+  fleets) or resource allocation (self-managed fleets).
+
+- Customize game session placement logic, including prioritizing for latency, cost, and
+  location.
+- For managed hosting, choose your game hosting resources and provide
+  instructions for launching and running game servers on each instance. For
+  managed containers, fine-tune resource allocation across containers.
+- Define your own matchmaking rules.
+- Implement custom strategies for capacity scaling.
+- Add game server code to integrate with your existing AWS services, such as databases
+  or content storage tools.
+- Create a backend service with custom features to manage player join requests (such as
+  player parties), handle authentication, or add custom logic and persistence.
+
+- Use services such as Amazon DynamoDB, Amazon Simple Storage Service, and Amazon Aurora DSQL for game state persistence.
+- Implement Amazon Cognito for player authentication.
+- Process game analytics with Amazon Kinesisand Amazon S3.
+- Add voice chat with Amazon Chime SDK.
+- Create custom game features using AWS Lambda and Amazon API Gateway.
 
 ## How to work with Amazon GameLift Servers
 
@@ -56,10 +118,9 @@ The Amazon GameLift Servers SDKs contain the libraries required to establish com
 between your game clients, game servers, and game services and the Amazon GameLift Servers
 service. For more information, see [Get Amazon GameLift Servers development tools](gamelift-supported.md "gamelift-supported.md").
 
-**Client SDK for Amazon GameLift Servers Realtime**
+**AWS CloudFormation**
 
-The client SDK for Amazon GameLift Servers Realtime enables you to connect your game client to a
-Realtime server provided by Amazon GameLift Servers, join game sessions, and stay in sync with
-other players. Download the [SDK](https://aws.amazon.com/gamelift/servers/getting-started/ "https://aws.amazon.com/gamelift/servers/getting-started/") and learn more about making
-API calls with the [Amazon GameLift Servers Realtime client API
-(C#)](realtime-sdk-csharp-ref.md "realtime-sdk-csharp-ref.md").
+Use AWS CloudFormation to model, provision, and manage AWS resources for your game hosting
+solution by treating infrastructue as code. Create templates that describe the
+resources, and AWS CloudFormation automates the tasks of configuring and deploying resources to the
+locations you specify.

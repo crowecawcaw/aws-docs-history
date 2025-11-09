@@ -4,9 +4,9 @@ project
 
 ###### Note
 
-This topic provides information for an earlier version of the Amazon GameLift Servers plugin for Unity. Version 1.0.0
-(released in 2021) uses the server SDK for Amazon GameLift Servers 4.x or earlier. For documentation on the
-latest version of the plugin, which uses server SDK 5.x and supports Amazon GameLift Servers Anywhere, see
+This topic provides information for an earlier version of the Amazon GameLift Servers plugin for Unity. Version 1.x
+uses the server SDK for Amazon GameLift Servers 4.x or earlier. For documentation on the
+latest plugin version, which uses server SDK 5.x and supports newer features such as Amazon GameLift Servers Anywhere and managed container hosting, see
 [Amazon GameLift Servers plugin for Unity (server SDK 5.x)](unity-plug-in.md "unity-plug-in.md").
 
 This topic helps you set up a game client to connect to Amazon GameLift Servers hosted game sessions through
@@ -41,11 +41,11 @@ A backend server handles the following game client tasks:
 Before setting up game server communication with the Amazon GameLift Servers client, complete the
 following tasks:
 
-- [Set up an AWS account](setting-up-aws-login.md "setting-up-aws-login.md")
+- [Set up an AWS user account](setting-up-aws-login.md "setting-up-aws-login.md")
 - [Install and set up the plugin](unity-plug-in-sdk4.md#unity-plug-in-sdk4-install "unity-plug-in-sdk4.md#unity-plug-in-sdk4-install")
 - [Integrate Amazon GameLift Servers with a Unity game server
   project](integration-unity-server-sdk4.md "integration-unity-server-sdk4.md")
-- [Setting up a hosting fleet with Amazon GameLift Servers](fleets-intro.md "fleets-intro.md")
+- [Deploy hosting fleets for Amazon GameLift Servers](fleets-intro.md "fleets-intro.md")
 
 ## Initialize a game client
 
@@ -60,8 +60,7 @@ other Amazon GameLift Servers functions.
 1. Initialize `AmazonGameLiftClient`. Call
    `AmazonGameLiftClient` with either a default client configuration
    or a custom configuration. For more information on how to configure a client,
-   see [Set up Amazon GameLift Servers on a backend
-   service](gamelift-sdk-client-api.md#gamelift-sdk-client-api-initialize "gamelift-sdk-client-api.md#gamelift-sdk-client-api-initialize").
+   see [Set up the Amazon GameLift Servers API](gamelift-sdk-client-api.md#gamelift-sdk-client-api-initialize "gamelift-sdk-client-api.md#gamelift-sdk-client-api-initialize").
 2. Generate a unique player id for each player to connect to a game session. For
    more information see [Generate player IDs](player-sessions-player-identifiers.md "player-sessions-player-identifiers.md").
 

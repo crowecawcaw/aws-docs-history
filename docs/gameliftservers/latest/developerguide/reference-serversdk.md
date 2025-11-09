@@ -7,7 +7,8 @@ game sessions and it provides regular game session status updates to the service
 your game servers with the server SDK before you deploy them for hosting.
 
 Use this server SDK reference to integrate your custom multiplayer game servers
-for hosting with Amazon GameLift Servers. For guidance about the integration process, see [Add Amazon GameLift Servers to your game server](gamelift-sdk-server-api.md "gamelift-sdk-server-api.md").
+for hosting with Amazon GameLift Servers. For guidance about the integration process, see [Add Amazon GameLift Servers to your game server with the server
+SDK](gamelift-sdk-server-api.md "gamelift-sdk-server-api.md").
 
 The latest major version of the server SDK for Amazon GameLift Servers is 5.x. The following hosting features require
 the use of version 5.x:

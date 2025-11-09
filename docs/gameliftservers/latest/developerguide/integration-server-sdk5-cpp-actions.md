@@ -3,7 +3,8 @@
 Actions
 
 Use the server SDK 5.x reference to integrate your multiplayer game for hosting with
-Amazon GameLift Servers. For guidance about the integration process, see [Add Amazon GameLift Servers to your game server](gamelift-sdk-server-api.md "gamelift-sdk-server-api.md").
+Amazon GameLift Servers. For guidance about the integration process, see [Add Amazon GameLift Servers to your game server with the server
+SDK](gamelift-sdk-server-api.md "gamelift-sdk-server-api.md").
 
 ###### Note
 
@@ -16,6 +17,7 @@ types](integration-server-sdk5-cpp-datatypes.md "integration-server-sdk5-cpp-dat
 ###### Topics
 
 - [GetSdkVersion()](#integration-server-sdk5-cpp-getsdkversion "#integration-server-sdk5-cpp-getsdkversion")
+- [InitMetrics()](#integration-server-sdk5-cpp-initmetrics "#integration-server-sdk5-cpp-initmetrics")
 - [InitSDK()](#integration-server-sdk5-cpp-initsdk "#integration-server-sdk5-cpp-initsdk")
 - [InitSDK()](#integration-server-sdk5-cpp-initsdk-anywhere "#integration-server-sdk5-cpp-initsdk-anywhere")
 - [ProcessReady()](#integration-server-sdk5-cpp-processready "#integration-server-sdk5-cpp-processready")
@@ -56,6 +58,50 @@ successful, returns an error message.
 
 ```
 Aws::GameLift::AwsStringOutcome SdkVersionOutcome = Aws::GameLift::Server::GetSdkVersion();
+```
+
+## InitMetrics()
+
+Initializes the metrics system for collecting and reporting server performance data.
+For best results, call this method before [InitSDK()](#integration-server-sdk5-cpp-initsdk "#integration-server-sdk5-cpp-initsdk") to enable metrics collection
+during SDK initialization.
+
+### Syntax
+
+```
+Aws::GameLift::GenericOutcome InitMetrics();
+Aws::GameLift::GenericOutcome InitMetrics(const Aws::GameLift::Server::MetricsParameters &metricsParameters);
+```
+
+### Parameters
+
+[MetricsParameters](integration-server-sdk5-cpp-datatypes.md#integration-server-sdk5-cpp-datatypes-metricsparameters "integration-server-sdk5-cpp-datatypes.md#integration-server-sdk5-cpp-datatypes-metricsparameters") (optional)
+
+Configuration parameters for metrics collection. If not provided, uses
+default values that can be overridden by environment variables.
+
+### Return value
+
+If successful, returns a [GenericOutcome](integration-server-sdk5-cpp-datatypes.md#integration-server-sdk5-cpp-datatypes-genericoutcome "integration-server-sdk5-cpp-datatypes.md#integration-server-sdk5-cpp-datatypes-genericoutcome")
+object indicating success. If not successful, returns an error message.
+
+### Example
+
+```
+// Initialize with default parameters (uses environment variables if available)
+// Defaults: localhost:8125 for StatsD, localhost:8126 for crash reporter
+// FlushInterval: 10000ms, MaxPacketSize: 512 bytes
+Aws::GameLift::GenericOutcome outcome = Aws::GameLift::Server::InitMetrics();
+if (outcome.IsSuccess()) {
+    // Metrics system initialized successfully
+}
+
+// Initialize with custom parameters
+Aws::GameLift::Server::MetricsParameters metricsParams("localhost", 8125, "crash-host", 8126, 5000, 1024);
+Aws::GameLift::GenericOutcome customOutcome = Aws::GameLift::Server::InitMetrics(metricsParams);
+if (customOutcome.IsSuccess()) {
+    // Metrics system initialized with custom parameters
+}
 ```
 
 ## InitSDK()
@@ -744,8 +790,7 @@ Aws::GameLift::GetComputeCertificateOutcome certificate = Aws::GameLift::Server:
 ## GetFleetRoleCredentials()
 
 Retrieves IAM role credentials that authorize Amazon GameLift Servers to interact with other
-AWS services. For more information, see [Communicate with other AWS resources from
-your fleets](gamelift-sdk-server-resources.md "gamelift-sdk-server-resources.md").
+AWS services. For more information, see [Connect your Amazon GameLift Servers hosted game server to other AWS resources](gamelift-sdk-server-resources.md "gamelift-sdk-server-resources.md").
 
 ### Syntax
 

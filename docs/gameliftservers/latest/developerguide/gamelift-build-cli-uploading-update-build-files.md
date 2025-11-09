@@ -1,12 +1,10 @@
 # Update a game server build
 
-for Amazon GameLift Servers managed hosting
-
 When you deploy your game server build for Amazon GameLift Servers managed EC2 hosting, you upload your
 game server software and create an Amazon GameLift Servers build resource. After you've created a Amazon GameLift Servers
 build, you can update the build's metadata, but you can't update the build files
-themselves. To deploy updates to your game server, upload the updated files and create a
-new Amazon GameLift Servers build using the AWS CLI command[`upload-build`](../../../cli/latest/reference/gamelift/upload-build.md "../../../cli/latest/reference/gamelift/upload-build.md") command. Alternatively you can use the [`create-build`](../../../cli/latest/reference/gamelift/create-build.md "../../../cli/latest/reference/gamelift/create-build.md") command to upload a new build from an Amazon S3
+themselves. To deploy updates to your game server builde, you must upload a new set of files and create a
+new Amazon GameLift Servers build using the AWS CLI command[`upload-build`](../../../cli/latest/reference/gamelift/upload-build.md "../../../cli/latest/reference/gamelift/upload-build.md") command. Alternatively, you can use the [`create-build`](../../../cli/latest/reference/gamelift/create-build.md "../../../cli/latest/reference/gamelift/create-build.md") command to upload a new build from an Amazon S3
 bucket that you control. Then deploy the new build by creating a new fleet for
 it.
 
@@ -24,7 +22,7 @@ server builds for Amazon GameLift Servers managed fleets:
   needed.** When sending game session requests to Amazon GameLift Servers, specify
   a game session queue instead of a specific fleet. With queues, you can add
   fleets with a new build and remove old fleets as needed. For more
-  information, see [Managing game session placement with Amazon GameLift Servers queues](queues-intro.md "queues-intro.md").
+  information, see [Configure game session placement](queues-intro.md "queues-intro.md").
 - **Use aliases to transfer players to a new game
   build.** When sending game session requests to Amazon GameLift Servers, specify a
   fleet alias instead of a fleet ID. For more information, see [Create an Amazon GameLift Servers alias](aliases-creating.md "aliases-creating.md").

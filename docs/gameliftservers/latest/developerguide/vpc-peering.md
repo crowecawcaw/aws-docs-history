@@ -1,4 +1,4 @@
-# VPC peering for Amazon GameLift Servers
+# Set up VPC peering for Amazon GameLift Servers
 
 This topic provides guidance on how to set up a VPC peering connection between your
 Amazon GameLift Servers-hosted game servers and your other non-Amazon GameLift Servers resources. Use Amazon Virtual Private Cloud (VPC) peering
@@ -11,8 +11,7 @@ access to.
 
 VPC peering is an advanced feature. To learn about preferred options for enabling your
 game servers to communicate directly and privately with your other AWS resources, see
-[Communicate with other AWS resources from
-your fleets](gamelift-sdk-server-resources.md "gamelift-sdk-server-resources.md").
+[Connect your Amazon GameLift Servers hosted game server to other AWS resources](gamelift-sdk-server-resources.md "gamelift-sdk-server-resources.md").
 
 If you're already familiar with Amazon VPCs and VPC peering, understand that setting up peering
 with Amazon GameLift Servers game servers is somewhat different. You don't have access to the VPC that

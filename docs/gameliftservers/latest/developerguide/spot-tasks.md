@@ -1,79 +1,79 @@
-# Design a queue for Spot Instances
+# Build a queue for Spot Instances
 
-You can take advantage of significant savings in hosting costs by using Spot fleets. For
-more details, see [On-Demand Instances versus Spot
-Instances](gamelift-compute.md#gamelift-compute-spot "gamelift-compute.md#gamelift-compute-spot"). To add Spot
-fleets to your hosting solution, you need to configure a game session queue with a
-combination of Spot fleets and On-Demand fleets. Amazon GameLift Servers uses a queue during the game
-session placement process to search across multiple fleets and find the best available hosts
-for new game sessions. This topic provides guidance on how to start using Spot
-fleets.
+You can achieve of potentially significant savings in hosting costs by using Spot fleets.
+For more details about Spot fleets and how to use them, see [On-Demand Instances versus Spot
+Instances](gamelift-compute.md#gamelift-compute-spot "gamelift-compute.md#gamelift-compute-spot").
 
-Are you using FlexMatch for matchmaking? You can use the following steps to add Spot fleets
-to your existing game session queues for matchmaking placements.
+If your game hosting solution includes Spot fleets, you must use a game session placement
+queue. Amazon GameLift Servers uses queues to search across multiple game hosting resources and select the
+best one available to host a new game session. With Spot fleets, queues are particularly
+important for minimizing hosting costs and avoiding possible Spot interruptions. This topic
+helps you set up a resilient queue that can continue to host games for players even in the
+event of interruptions, slowdowns and outages. You can customize how the queue prioritizes
+available hosting resources based on several factors including hosting cost.
 
-1. **Determine the destinations for your game session
+Are you using FlexMatch for matchmaking? You can use a queue with Spot fleets to make game
+session placements for your matches.
+
+## Implementation tasks for Spot fleets
+
+When creating or updating your game hosting solution to use Spot fleets, complete the
+following tasks. For more detailed guidance on how to build a queue that optimizes Spot
+availability and resiliency, see [Reduce game hosting costs with Spot fleets](fleets-spot.md "fleets-spot.md") .
+
+1. **Choose and create a set of fleet destinations for your game
+   session queue.**
+
+Start by deciding where you want your queue to place game sessions. A queue can
+search across multiple fleets to find the best possible placement. Each fleet
+has one instance type but can have multiple geographic locations. Queues with
+fleets that offer variety in both location and instance type are more likely to
+make successful placements. See these best practices for designing an effective
+and resilient Spot-optimized queue. 2. **Create your Spot-optimized game session queue.**
+
+Create a queue and configure it for your Spot fleets. See [Create a game session queue](queues-creating.md "queues-creating.md") for help creating
+and configuring the new queue. You can use the Amazon GameLift Servers console or the AWS CLI to create or edit a queue.
+
+    * Add the fleet destinations from Step 1.
+    * Prioritize the destination order as appropriate. By default, Amazon GameLift Servers
+     prioritizes by cost before destination, so destination order is used only
+     when the lowest costs between destinations are equal.
+    * If you want to prioritize game hosting cost before player latency, provide
+     a custom placement priority. See [Prioritize game session placement](queues-design-priority.md "queues-design-priority.md").
+
+3. **Update other components in your solution to use the new
    queue.**
 
-Managing game session placement with a queue is best practice, and it's required
-when using Spot Instances. Because Spot Instances might not always be available when
-you need them, you need to design a resilient queue that includes both Spot fleets
-and On-Demand fleets to offer backup capacity. You can keep your On-Demand fleets
-scaled down until they're needed. To design your queue, consider the
-following:
+When your solution uses a Spot-optimized queue to start new game sessions, the
+queue automatically avoids placing game sessions with fleets that have a high
+likelihood of interruption. It instead searches all viable fleets for resources that
+match your defined priorities, including player latency, hosting cost, and
+destination order.
 
-    * Locations – If possible, your Spot fleets and On-Demand fleets
-     should be in the same Region as the players. Position both Spot resources
-     and On-Demand resources in each location that you want to support.
-     Multi-location fleets support both Spot and On-Demand instances.
-    * Instance types – Consider your game server's hardware requirements
-     and availability of instances in the locations you choose.
+    * If you're not using FlexMatch – Update your backend service to specify
+     the new Spot-optimized queue in game session requests. The backend service
+     makes API requests to Amazon GameLift Servers on behalf of your game client (using
+     `StartGameSessionPlacement()`), and each request must specify
+     a queue name. For help implementing game session placements in your game
+     client, see [Create game sessions](gamelift-sdk-client-api.md#gamelift-sdk-client-api-create "gamelift-sdk-client-api.md#gamelift-sdk-client-api-create").
+    * If you are using FlexMatch – Update your matchmaking configuration to
+     send game session requests to the new Spot-optimized queue. When the
+     matchmaking system forms a player match, it sends a game session placement
+     request to the designated queue to start a new game session for the match.
+     Only matchmaking configurations with FlexMatch mode set to "Managed" can
+     designate a placement queue. You can update a matchmaking configuration
+     using the AWS CLI or the Amazon GameLift Servers console (see [Edit a matchmaking configuration](../flexmatchguide/match-create-configuration-edit.md "../flexmatchguide/match-create-configuration-edit.md")).
 
-To try a queue that optimizes Spot availability and resiliency, see [Tutorial: Create an Amazon GameLift Servers queue with Spot Instances](tutorial-queues-spot.md "tutorial-queues-spot.md"). For Spot
-design best practices, see [Best practices for Amazon GameLift Servers game session queues](queues-design.md#queues-best-practices "queues-design.md#queues-best-practices"). 2. **Create the fleets for your Spot-optimized queue.**
-
-Based on your queue design, create fleets to deploy your game servers to your
-desired locations and instance types. See [Create an Amazon GameLift Servers managed EC2 fleet](fleets-creating.md "fleets-creating.md") for help creating and configuring new
-fleets. 3. **Create your game session queue.**
-
-Add the fleet destinations, configure the game session placement process, and
-define placement priorities. See [Create a game session queue](queues-creating.md "queues-creating.md") for help creating and configuring the new
-queue. 4. **Update your game client service to use the
-queue.**
-
-When your game client uses a queue to request resources, the queue avoids
-resources with a high chance of interruption and selects the location that matches
-your defined priorities. For help implementing game session placements in your game
-client, see [Create game sessions](gamelift-sdk-client-api.md#gamelift-sdk-client-api-create "gamelift-sdk-client-api.md#gamelift-sdk-client-api-create"). 5. **Update your game server to handle a Spot
-interruption.**
-
-AWS can interrupt Spot Instances with a 2 minute notification, when it needs the
-capacity back. Set up your game server to handle interruption to minimize player
-impact.
-
-Before AWS reclaims a Spot Instance, it sends a termination notification. Amazon GameLift Servers
-passes the notification to all affected server processes by invoking the Amazon GameLift Servers
-Server SDK callback function `onProcessTerminate()`. Implement this
-callback to end the game session or move the game session and players to a new
-instance. See [Respond to a server process shutdown
-notification](gamelift-sdk-server-api.md#gamelift-sdk-server-terminate "gamelift-sdk-server-api.md#gamelift-sdk-server-terminate") for help implementing
-`onProcessTerminate()`.
-
-###### Note
-
-AWS makes every effort to provide the notification before it reclaims an
-instance, but it's possible that AWS reclaims the Spot Instance before the
-warning arrives. Prepare your game server to handle unexpected
-interruptions. 6. **Review the performance of your Spot fleets and
-queues.**
+4. **Review the performance of your Spot fleets and
+   queues.**
 
 View Amazon GameLift Servers metrics in the Amazon GameLift Servers console or with Amazon CloudWatch to review performance.
 For more information about Amazon GameLift Servers metrics, see [Monitor Amazon GameLift Servers with Amazon CloudWatch](monitoring-cloudwatch.md "monitoring-cloudwatch.md"). Key metrics include:
 
     * Interruption rate – Use the `InstanceInterruptions` and
-     `GameSessionInterruptions` metrics to track the number and
-     frequency of Spot-related interruptions for instances and game sessions.
-     Game sessions that are reclaimed by AWS have a status of
+     `GameSessionInterruptions` metrics to track the number
+     and frequency of Spot-related interruptions for instances and game
+     sessions. Game sessions on reclaimed instances have a status of
      `TERMINATED` and a status reason of
      `INTERRUPTED`.
     * Queue effectiveness – Track placement success rates, average wait
@@ -85,24 +85,55 @@ For more information about Amazon GameLift Servers metrics, see [Monitor Amazon 
 
 ## Best practices for queues with Spot fleets
 
-If your queue includes Spot fleets, set up a resilient queue. This takes advantage of
-cost savings with Spot fleets while minimizing the effect of game session interruptions.
-For help with correctly building fleets and game session queues for use with Spot
-fleets, see [Tutorial: Create an Amazon GameLift Servers queue with Spot Instances](tutorial-queues-spot.md "tutorial-queues-spot.md").
-For more information about Spot instances, see [Design a queue for Spot Instances](spot-tasks.md "spot-tasks.md").
+Use the following best practices when creating fleets and queues for Spot instances.
 
-In addition to the general best practices in the previous section, consider these
-Spot-specific best practices:
+- **Expand your queue's geographic coverage.** Even
+  if your players are clustered in a single AWS Region, add adjacent locations
+  to your Spot fleet. This approach improves the queue's ability to maintain
+  capacity during regional slowdowns, outages, and Spot interruptions.
+  Multi-location fleets work with both Spot and On-Demand instances.
+- **Diversify your queue's instance type
+  coverage.** Amazon GameLift Servers evaluates Spot viability based on instance type,
+  so having Spot fleets with a variety of instance types reduces the chance that
+  multiple Spot fleets are nonviable at the same time. Include at least two Spot
+  fleets with different instances types each location.
 
-- **Create at least one On-Demand fleet in each
-  location.** On-Demand fleets provide backup game servers for your
-  players. You can keep your backup fleets scaled down until they're needed, and
-  use auto scaling to increase On-Demand capacity when Spot fleets are
-  unavailable.
-- **Select different instance types across multiple Spot
-  fleets in a location.** If one Spot Instance type becomes
-  temporarily unavailable, the interruption affects only one Spot fleet in the
-  location. Best practice is to choose widely available instance types, and use
-  instance types in the same family (for example, m5.large, m5.xlarge,
-  m5.2xlarge). Use the [Amazon GameLift Servers
-  console](https://console.aws.amazon.com/gamelift/ "https://console.aws.amazon.com/gamelift/") to view historical pricing data for instance types.
+###### Note
+
+Pricing is based on the instances you use, not the number of fleets.
+Running five fleets with 10 instances each is the same as running one fleet
+with 50 instances of similar cost. Pricing varies by instance type, size,
+and location.
+
+Tips for grouping Spot instance types:
+
+    + Use instance types in the same family, such as
+     `m6g.medium`, `m6g.large`, and
+     `m6g.xlarge`. Larger instance types cost more, but can
+     also host more game sessions at a time.
+    + Select widely available instances types. Typically, older generation
+     families (such as C5, M5, and R5) and common sizes (such as .large,
+     .xlarge, and .2xlarge) have better availability.
+    + Check the 30-90 day pricing history in the Amazon GameLift Servers console. Look for
+     instance types with consistent availability patterns.
+    + Use the Amazon GameLift Servers console, fleet creation tool, to explore location
+     coverage for instance types.
+
+- **Add On-Demand fleets for backup capacity.**
+  Game hosting can switch to On-Demand fleets whenever Spot fleets are
+  unavailable. Put at least one On-Demand fleet in each location to maintain low
+  player latency. Add auto-scaling to your backup On-Demand fleets, so you can
+  keep them scaled down until they're needed.
+- **Assign aliases to all fleet destinations.**
+  Create aliases for each of your queue's destinations. Aliases make it easier and
+  more efficient whenever you need to replace fleets.
+- **Apply a queue prioritization strategy.** You
+  can customize how a queue prioritizes where to place game sessions (see [Prioritize game session placement](queues-design-priority.md "queues-design-priority.md")
+  for more details). For Spot-optimized queues, prioritizing by cost ensures that
+  low-cost Spot fleets are used whenever possible.
+
+You can also prioritize certain fleets by specifying a destination order. For
+example, some users designate a set of primary fleets for regular use and also a
+set of secondary fleets as backup. In this scenario, set the queue's destination
+order to list the primary fleets first. Then configure the queue's priority
+order with destination followed by cost.

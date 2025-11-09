@@ -63,4 +63,5 @@ It has the following limitations:
 - You can also shutdown game sessions using the AWS SDK and the AWS CLI. For more details and examples, see the Amazon GameLift Servers API Reference topic
   [TerminateGameSession](../apireference/API_TerminateGameSession.md "../apireference/API_TerminateGameSession.md").
 - For more information on game server integration and how a server process responds to signals from the Amazon GameLift Servers service, see
-  [Add Amazon GameLift Servers to your game server](gamelift-sdk-server-api.md "gamelift-sdk-server-api.md").
+  [Add Amazon GameLift Servers to your game server with the server
+  SDK](gamelift-sdk-server-api.md "gamelift-sdk-server-api.md").

@@ -35,7 +35,7 @@ your account user.
      AWS account](../../../accounts/latest/reference/manage-acct-creating.md "../../../accounts/latest/reference/manage-acct-creating.md") for more details.
    - An AWS user with permissions to use Amazon GameLift Servers
      and other required AWS services. See
-     [Set up an AWS account](setting-up-aws-login.md "setting-up-aws-login.md")
+     [Set up an AWS user account](setting-up-aws-login.md "setting-up-aws-login.md")
      for instructions on setting up an AWS Identity and Access Management (IAM) user with Amazon GameLift Servers permissions
      and programmatic access with long-term credentials.
    - Credentials for your AWS user. These credentials

@@ -2,8 +2,7 @@
 
 servers)
 
-You can capture custom server messages from your Amazon GameLift Servers custom servers in log files. To
-learn about logging for Amazon GameLift Servers Realtime, see [Logging server messages (Amazon GameLift Servers Realtime)](logging-server-messages-rts.md "logging-server-messages-rts.md").
+You can capture custom server messages from your Amazon GameLift Servers custom servers in log files.
 
 ###### Important
 
@@ -126,8 +125,7 @@ use the [GetGameSessionLogUrl](../../../gamelift/latest/apireference/API_GetGame
 the operation returns.
 
 Alternatively, you can set up your own logging solution by configuring your game server
-to send logs directly to your preferred logging service or storage location. For more information, see [Communicate with other AWS resources from
-your fleets](gamelift-sdk-server-resources.md "gamelift-sdk-server-resources.md").
+to send logs directly to your preferred logging service or storage location. For more information, see [Connect your Amazon GameLift Servers hosted game server to other AWS resources](gamelift-sdk-server-resources.md "gamelift-sdk-server-resources.md").
 
 ### Container fleets
 

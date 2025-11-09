@@ -27,8 +27,7 @@ README file for more details.
   script as part of fleet creation.
   You can set up any application in your build, including your install script, to access
   your resources securely on other AWS services. For information about ways to do this,
-  see [Communicate with other AWS resources from
-  your fleets](gamelift-sdk-server-resources.md "gamelift-sdk-server-resources.md").
+  see [Connect your Amazon GameLift Servers hosted game server to other AWS resources](gamelift-sdk-server-resources.md "gamelift-sdk-server-resources.md").
 
 After you've packaged your build files, make sure that your game server can run on a
 clean installation of your target OS to verify that all required dependencies are

@@ -111,16 +111,16 @@ Realtime configuration script.
   for a fleet.
 - Set up :
   - [PutScalingPolicy](../../../gamelift/latest/apireference/API_PutScalingPolicy.md "../../../gamelift/latest/apireference/API_PutScalingPolicy.md") – Turn on target-based
-    auto-scaling or create a custom auto-scaling policy, or update an
+    auto scaling or create a custom auto scaling policy, or update an
     existing policy.
   - [DescribeScalingPolicies](../../../gamelift/latest/apireference/API_DescribeScalingPolicies.md "../../../gamelift/latest/apireference/API_DescribeScalingPolicies.md") – Retrieve an existing
-    auto-scaling policy.
-  - [DeleteScalingPolicy](../../../gamelift/latest/apireference/API_DeleteScalingPolicy.md "../../../gamelift/latest/apireference/API_DeleteScalingPolicy.md") – Delete an auto-scaling
+    auto scaling policy.
+  - [DeleteScalingPolicy](../../../gamelift/latest/apireference/API_DeleteScalingPolicy.md "../../../gamelift/latest/apireference/API_DeleteScalingPolicy.md") – Delete an auto scaling
     policy and stop it from affecting a fleet's capacity.
   - [StartFleetActions](../../../gamelift/latest/apireference/API_StartFleetActions.md "../../../gamelift/latest/apireference/API_StartFleetActions.md") – Restart a fleet's
-    auto-scaling policies.
+    auto scaling policies.
   - [StopFleetActions](../../../gamelift/latest/apireference/API_StopFleetActions.md "../../../gamelift/latest/apireference/API_StopFleetActions.md") – Suspend a fleet's
-    auto-scaling policies.
+    auto scaling policies.
 
 **Monitor fleet activity.**
 
@@ -205,7 +205,8 @@ other AWS resources.
 Call these operations from a backend service to start new game sessions, get
 information on existing game sessions, and join players to game sessions. These
 operations are for use with custom game servers that are hosted on Amazon GameLift Servers. If you're
-using Amazon GameLift Servers Realtime, manage game sessions using the [Amazon GameLift Servers Realtime client API (C#) reference](realtime-sdk-csharp-ref.md "realtime-sdk-csharp-ref.md").
+using Amazon GameLift Servers Realtime, manage game sessions using the
+[Amazon GameLift Servers Realtime client API (C#)](../realtimeguide/realtime-sdk-csharp-ref.md "../realtimeguide/realtime-sdk-csharp-ref.md").
 
 - **Start new game sessions for one or more
   players.**

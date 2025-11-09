@@ -9,4 +9,3 @@ subsections in this chapter).
 - [Logging differences: Managed EC2 vs Container fleets](logging-server-messages-ec2-vs-containers.md "logging-server-messages-ec2-vs-containers.md")
 - [Logging server messages (custom
   servers)](logging-server-messages-custom.md "logging-server-messages-custom.md")
-- [Logging server messages (Amazon GameLift Servers Realtime)](logging-server-messages-rts.md "logging-server-messages-rts.md")

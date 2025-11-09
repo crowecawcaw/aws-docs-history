@@ -10,7 +10,7 @@ SDK versions and compatibility, see [Amazon GameLift Servers release notes](rele
 Integrate and build your 64-bit game servers with the server SDK for Amazon GameLift Servers. The game
 server uses the server SDK to communicate with the Amazon GameLift Servers service for game session
 management, including starting, updating, and stopping game sessions. For help with
-integrating the server SDK into your game projects, see [Preparing games for Amazon GameLift Servers](integration-intro.md "integration-intro.md").
+integrating the server SDK into your game projects, see [Prepare a game for hosting with Amazon GameLift Servers](integration-intro.md "integration-intro.md").
 
 ### Development support
 
@@ -159,10 +159,10 @@ scripts, sample code, and readmes.
 
 ## For game client services
 
-Create a 64-bit backend service for your game clients using the AWS SDK, which
-includes the service API for Amazon GameLift Servers. Your game's backend service handles client-side
-interactions with the Amazon GameLift Servers service, including starting new game sessions and joining
-players to games.
+Create a 64-bit backend service for your game and integrate it with functionality from
+the AWS SDK, which includes the service API for Amazon GameLift Servers. Use the backend service
+to handle client-side interactions with the Amazon GameLift Servers service, including starting or finding
+game sessions and joining players to games.
 
 [Get the
 AWS SDK](https://aws.amazon.com/developer/tools/#SDKs "https://aws.amazon.com/developer/tools/#SDKs")
@@ -171,7 +171,11 @@ For more information about using the AWS SDK with Amazon GameLift Servers, see t
 resources:
 
 - [Amazon GameLift Servers API Reference](../apireference/Welcome.md "../apireference/Welcome.md")
-- [Client service integration](gamelift-sdk-client.md "gamelift-sdk-client.md")
+- Integrate game client functionality
+  - [Client-side service integration for games with custom game server builds](gamelift-sdk-client-api.md "gamelift-sdk-client-api.md")
+  - [Client-side service integration for games with Realtime
+    servers](../realtimeguide/realtime-client.md "../realtimeguide/realtime-client.md")
+
 - [Design a client backend service](gamelift_quickstart_customservers_designbackend.md "gamelift_quickstart_customservers_designbackend.md")
 
 ## For Amazon GameLift Servers resource management
@@ -205,7 +209,8 @@ Use the following tools to create, update, and monitor your Amazon GameLift Serv
 Configure and deploy Realtime servers to host your multiplayer games. To allow your
 game clients to connect to Realtime servers, use the Amazon GameLift Servers Realtime client SDK.
 To get started, [download the Realtime client SDK](https://aws.amazon.com/gamelift/servers/getting-started/ "https://aws.amazon.com/gamelift/servers/getting-started/").
-For configuration information, see [Integrating a game client for Amazon GameLift Servers Realtime](realtime-client.md "realtime-client.md").
+For configuration information, see
+[Integrating a game client for Amazon GameLift Servers Realtime](../realtimeguide/realtime-client.md "../realtimeguide/realtime-client.md").
 
 **SDK support**
 

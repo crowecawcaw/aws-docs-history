@@ -65,4 +65,4 @@ To get the Fast Build Update Tool and learn more about how to use it, visit the 
 - [Build a cloud-based test
   environment](integration-dev-iteration-cloud.md "integration-dev-iteration-cloud.md")
 - [Set up local testing with Amazon GameLift Servers Anywhere](integration-testing.md "integration-testing.md")
-- [Work with the Amazon GameLift Servers Agent](integration-dev-iteration-agent.md "integration-dev-iteration-agent.md")
+- [Test your integration using Amazon GameLift Servers Local](integration-testing-local.md "integration-testing-local.md")

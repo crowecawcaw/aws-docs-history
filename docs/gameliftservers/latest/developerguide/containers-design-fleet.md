@@ -334,8 +334,7 @@ to choose from. Consider the following issues when selecting an instance size:
 **Set other optional fleet settings**
 You can use the following optional features when configuring a container fleet:
 
-- Set up your game servers to access other AWS resources. See [Communicate with other AWS resources from
-  your fleets](gamelift-sdk-server-resources.md "gamelift-sdk-server-resources.md").
+- Set up your game servers to access other AWS resources. See [Connect your Amazon GameLift Servers hosted game server to other AWS resources](gamelift-sdk-server-resources.md "gamelift-sdk-server-resources.md").
 - Protect game sessions with active players from terminating prematurely during a
   scale-down event.
 - Limit the number of game sessions that one individual can create on the fleet

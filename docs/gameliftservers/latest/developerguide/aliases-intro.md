@@ -27,4 +27,3 @@ can identify queues destinations by using either a fleet ID or alias.
 ###### Topics
 
 - [Create an Amazon GameLift Servers alias](aliases-creating.md "aliases-creating.md")
-- [Edit an alias](aliases-editing.md "aliases-editing.md")

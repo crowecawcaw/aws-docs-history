@@ -1,10 +1,10 @@
-# Amazon GameLift Servers plugin for Unity (server SDK 4.x)
+# Amazon GameLift Servers plugin for Unity for server SDK 4
 
 ###### Note
 
-This topic provides information for an earlier version of the Amazon GameLift Servers plugin for Unity. Version 1.0.0
-(released in 2021) uses the server SDK for Amazon GameLift Servers 4.x or earlier. For documentation on the
-latest version of the plugin, which uses server SDK 5.x and supports Amazon GameLift Servers Anywhere, see
+This topic provides information for an earlier version of the Amazon GameLift Servers plugin for Unity. Version 1.x
+uses the server SDK for Amazon GameLift Servers 4.x or earlier. For documentation on the
+latest plugin version, which uses server SDK 5.x and supports newer features such as Amazon GameLift Servers Anywhere and managed container hosting, see
 [Amazon GameLift Servers plugin for Unity (server SDK 5.x)](unity-plug-in.md "unity-plug-in.md").
 
 Amazon GameLift Servers provides tools for preparing your multiplayer game servers to run on
@@ -135,7 +135,7 @@ how to use them.
 ###### Prerequisites
 
 To deploy the scenario, you need an IAM role for the Amazon GameLift Servers service. For
-information on how to create a role for Amazon GameLift Servers, see [Set up an AWS account](setting-up-aws-login.md "setting-up-aws-login.md").
+information on how to create a role for Amazon GameLift Servers, see [Set up an AWS user account](setting-up-aws-login.md "setting-up-aws-login.md").
 
 Each scenario requires permissions to the following resources:
 
@@ -199,7 +199,7 @@ configures three fleets. It creates the following resources:
 - Two Spot fleets that contain different instance types to provide durability
   for Spot unavailability.
 - An On-Demand fleet that acts as a backup for the other Spot fleets. For more
-  information on designing your fleets, see [Customize your Amazon GameLift Servers EC2 managed fleets](fleets-design.md "fleets-design.md").
+  information on designing your fleets, see [Hosting resource customizations](fleets-design.md "fleets-design.md").
 - A Amazon GameLift Servers queue to keep server availability high and cost low. For more
   information and best practices about queues, see [Customize a game session queue](queues-design.md "queues-design.md").
 
@@ -382,7 +382,7 @@ server and then test locally using Amazon GameLift Servers Local.
 
 ### Prerequisites
 
-- [Set up an AWS account](setting-up-aws-login.md "setting-up-aws-login.md")
+- [Set up an AWS user account](setting-up-aws-login.md "setting-up-aws-login.md")
 - [Install and set up the plugin](#unity-plug-in-sdk4-install "#unity-plug-in-sdk4-install")
 
 ### Build and run the sample game server

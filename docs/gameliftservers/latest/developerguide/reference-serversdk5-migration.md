@@ -45,8 +45,7 @@ For SDK version 4.0.2 specifically, you can download it from the [official GitHu
    access to those resources. Replace the use of `AssumeRoleCredentials`
    with the new server SDK action `GetFleetRoleCredentials()` (for
    game servers) or use shared credentials (for other applications). For more on
-   how to implement this change, see [Communicate with other AWS resources from
-   your fleets](gamelift-sdk-server-resources.md "gamelift-sdk-server-resources.md").
+   how to implement this change, see [Connect your Amazon GameLift Servers hosted game server to other AWS resources](gamelift-sdk-server-resources.md "gamelift-sdk-server-resources.md").
 4. If your project called the server SDK action
    `GetInstanceCertificate()` to retrieve a TLS certificate, modify
    your code to use the new `GetComputeCertificate()` ([C++](integration-server-sdk5-cpp-actions.md#integration-server-sdk5-cpp-getcomputecertificate "integration-server-sdk5-cpp-actions.md#integration-server-sdk5-cpp-getcomputecertificate"))
@@ -55,8 +54,7 @@ For SDK version 4.0.2 specifically, you can download it from the [official GitHu
    the 5.x version you're using (this parameter currently defaults to 4.0.2). This
    parameter must match the actual server SDK libraries in the game server build.
    If you specify the wrong version for an uploaded game server build, any fleets
-   you create with that build will fail. See [Deploy a custom server build for Amazon GameLift Servers
-   hosting](gamelift-build-cli-uploading.md "gamelift-build-cli-uploading.md").
+   you create with that build will fail. See [Create a game server build for Amazon GameLift Servers](gamelift-build-cli-uploading.md "gamelift-build-cli-uploading.md").
 
 The following example illustrates how to specify the server SDK version:
 

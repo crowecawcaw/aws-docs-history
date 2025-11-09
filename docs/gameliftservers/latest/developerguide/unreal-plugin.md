@@ -62,19 +62,17 @@ solution's components.
 When you're ready, you can build on this basic solution by customizing each component,
 and fine-tuning your solution as you prepare for game launch. Consider these options:
 
-- Modify your fleets and fleet configurations. See [Customize your Amazon GameLift Servers EC2 managed fleets](fleets-design.md "fleets-design.md").
+- Modify your fleets and fleet configurations. See [Hosting resource customizations](fleets-design.md "fleets-design.md").
 - Customize your game session queue configuration. See [Customize a game session queue](queues-design.md "queues-design.md"):
 - Add functionality to your game server and game client.
-  See [Integrate your game server with Amazon GameLift Servers](gamelift-sdk-server.md "gamelift-sdk-server.md") and
-  [Integrate your game client
-  withAmazon GameLift Servers](gamelift-sdk-client.md "gamelift-sdk-client.md").
+  See [Integrate a game server with Amazon GameLift Servers](gamelift-sdk-server.md "gamelift-sdk-server.md") and
+  [Integrate Amazon GameLift Servers game client functionality](gamelift-sdk-client-api.md "gamelift-sdk-client-api.md").
 - Customize your backend service.
-  See [Design your game client
-  service](gamelift_quickstart_customservers_designbackend.md "gamelift_quickstart_customservers_designbackend.md").
+  See [Build a backend service for Amazon GameLift Servers](gamelift_quickstart_customservers_designbackend.md "gamelift_quickstart_customservers_designbackend.md").
 - Set up automatic capacity scaling to meet expected player demand. See [Scaling game hosting capacity with Amazon GameLift Servers](fleets-manage-capacity.md "fleets-manage-capacity.md").
 - Set up hosting observability tools, including analytics and logging. See [Monitoring Amazon GameLift Servers](monitoring-overview.md "monitoring-overview.md").
 - Automate your deployment using [infrastructure as code (IaC)](../../../whitepapers/latest/introduction-devops-aws/infrastructure-as-code.md "../../../whitepapers/latest/introduction-devops-aws/infrastructure-as-code.md"). The plugin's guided workflows for managed solutions use AWS CloudFormation
-  templates. You can customize these as needed. See [Managing Amazon GameLift Servers hosting resources using AWS CloudFormation](resources-cloudformation.md "resources-cloudformation.md").
+  templates. You can customize these as needed. See [Manage Amazon GameLift Servers hosting resources using AWS CloudFormation](resources-cloudformation.md "resources-cloudformation.md").
 
 ###### Topics
 

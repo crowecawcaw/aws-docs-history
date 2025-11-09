@@ -52,7 +52,7 @@ At some point, you'll need to have a backend service to send new game
 sessions requests to the Amazon GameLift Servers service and relay connection information
 back to a game client. You can use the test maps included with the
 plugin to add client Amazon GameLift Servers functionality to your game project. For help
-with building a custom solution, see [Add Amazon GameLift Servers to your game client](gamelift-sdk-client-api.md "gamelift-sdk-client-api.md").
+with building a custom solution, see [Integrate Amazon GameLift Servers game client functionality](gamelift-sdk-client-api.md "gamelift-sdk-client-api.md").
 
 ## Step 3: Connect to an Anywhere fleet
 

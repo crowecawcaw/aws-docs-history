@@ -3,7 +3,8 @@
 Actions
 
 Use the server SDK 5.x reference to integrate your multiplayer game for hosting with
-Amazon GameLift Servers. For guidance about the integration process, see [Add Amazon GameLift Servers to your game server](gamelift-sdk-server-api.md "gamelift-sdk-server-api.md"). If you're
+Amazon GameLift Servers. For guidance about the integration process, see [Add Amazon GameLift Servers to your game server with the server
+SDK](gamelift-sdk-server-api.md "gamelift-sdk-server-api.md"). If you're
 using the Amazon GameLift Servers plugin for Unity, see also [Amazon GameLift Servers plugin for Unity (server SDK 5.x)](unity-plug-in.md "unity-plug-in.md").
 
 [C# server SDK 5.x for Amazon GameLift Servers --
@@ -12,6 +13,7 @@ Data types](integration-server-sdk5-csharp-datatypes.md "integration-server-sdk5
 ###### Topics
 
 - [GetSdkVersion()](#integration-server-sdk5-csharp-getsdkversion "#integration-server-sdk5-csharp-getsdkversion")
+- [InitMetrics()](#integration-server-sdk5-csharp-initmetrics "#integration-server-sdk5-csharp-initmetrics")
 - [InitSDK()](#integration-server-sdk5-csharp-initsdk "#integration-server-sdk5-csharp-initsdk")
 - [InitSDK()](#integration-server-sdk5-csharp-initsdk-anywhere "#integration-server-sdk5-csharp-initsdk-anywhere")
 - [ProcessReady()](#integration-server-sdk5-csharp-processready "#integration-server-sdk5-csharp-processready")
@@ -51,6 +53,50 @@ successful, returns an error message.
 
 ```
 var getSdkVersionOutcome = GameLiftServerAPI.GetSdkVersion();
+```
+
+## InitMetrics()
+
+Initializes the metrics system for collecting and reporting server performance data.
+For best results, call this method before [InitSDK()](#integration-server-sdk5-csharp-initsdk "#integration-server-sdk5-csharp-initsdk") to enable metrics collection
+during SDK initialization.
+
+### Syntax
+
+```
+MetricsManagerOutcome InitMetrics();
+MetricsManagerOutcome InitMetrics(MetricsParameters metricsParameters);
+```
+
+### Parameters
+
+[MetricsParameters](integration-server-sdk5-csharp-datatypes.md#integration-server-sdk5-csharp-datatypes-metricsparameters "integration-server-sdk5-csharp-datatypes.md#integration-server-sdk5-csharp-datatypes-metricsparameters") (optional)
+
+Configuration parameters for metrics collection. If not provided, uses
+default values that can be overridden by environment variables.
+
+### Return value
+
+If successful, returns a [MetricsManagerOutcome](integration-server-sdk5-csharp-datatypes.md#integration-server-sdk5-csharp-datatypes-metricsmanageroutcome "integration-server-sdk5-csharp-datatypes.md#integration-server-sdk5-csharp-datatypes-metricsmanageroutcome")
+object containing the MetricsManager instance. If not successful, returns an error message.
+
+### Example
+
+```
+// Initialize with default parameters (uses environment variables if available)
+var outcome = GameLiftServerAPI.InitMetrics();
+if (outcome.Success) {
+    var metricsManager = outcome.Result;
+} else {
+    Console.WriteLine("Failed to initialize metrics: " + outcome.Error.ErrorMessage);
+}
+
+// Initialize with custom parameters
+var metricsParams = new MetricsParameters("localhost", 8125, "crash-host", 9999, 1000, 1024);
+var customOutcome = GameLiftServerAPI.InitMetrics(metricsParams);
+if (customOutcome.Success) {
+    var metricsManager = customOutcome.Result;
+}
 ```
 
 ## InitSDK()
@@ -608,8 +654,7 @@ GetComputeCertificateOutcome getComputeCertificateOutcome = GameLiftServerAPI.Ge
 ## GetFleetRoleCredentials()
 
 Retrieves IAM role credentials that authorize Amazon GameLift Servers to interact with other
-AWS services. For more information, see [Communicate with other AWS resources from
-your fleets](gamelift-sdk-server-resources.md "gamelift-sdk-server-resources.md").
+AWS services. For more information, see [Connect your Amazon GameLift Servers hosted game server to other AWS resources](gamelift-sdk-server-resources.md "gamelift-sdk-server-resources.md").
 
 ### Syntax
 

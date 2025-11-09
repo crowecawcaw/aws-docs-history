@@ -1,7 +1,14 @@
 # Aliases in the Amazon GameLift Servers console
 
+The alias resource represents a pointer to a fleet or terminal destination. They are used to direct player
+traffic to specific hosting destinations. Use an alias to abstract a destination so that you can more easily
+redirect traffic when you update your hosting fleets.
+
+View information about aliases in the Amazon GameLift Servers console or using the or AWS SDK for Amazon GameLift Servers.
+
+Console
 The **Alias** page displays information about Amazon GameLift Servers aliases that direct
-traffic specific hosting destinations. To aliases, choose **Hosting**,
+traffic specific hosting destinations. To view aliases, choose **Hosting**,
 **Aliases** in the navigation pane.
 
 You can do the following on the aliases page:
@@ -16,7 +23,7 @@ You can do the following on the aliases page:
 - Delete an alias. Choose an alias and then choose
   **Delete**.
 
-## Alias details
+###### Alias details
 
 The alias details page displays information about the alias.
 
@@ -48,3 +55,9 @@ Alias detail information includes:
 
 - **Tags** – Key and value pairs used to identify the
   alias.
+
+AWS SDK
+Use the following AWS CLI commands to retrieve information about this resource:
+
+- [ListAliases](../apireference/API_ListAliases.md "../apireference/API_ListAliases.md")
+- [DescribeAlias](../apireference/API_DescribeAlias.md "../apireference/API_DescribeAlias.md")

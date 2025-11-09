@@ -36,14 +36,14 @@ Console
    **Min size** and **Max size**
    limits are appropriate for the fleet. With auto scaling enabled,
    capacity adjusts between these two limits.
-6. In **Target-based auto-scaling policy**, choose
+6. In **Target-based auto scaling policy**, choose
    **Edit**.
-7. In the **Edit target-based auto-scaling policy**
+7. In the **Edit target-based auto scaling policy**
    dialog box, for **Percent available game
    sessions**, set the percentage that you want to maintain,
    and then choose **Confirm**. After you've confirmed
    the settings, Amazon GameLift Servers adds a new target-based policy under
-   **Target-based auto-scaling policy**.
+   **Target-based auto scaling policy**.
 
 AWS CLI
 

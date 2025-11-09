@@ -4,27 +4,27 @@ containers
 
 This roadmap guides you through how to develop an Amazon GameLift Servers managed hosting solution for your
 containerized game servers. Managed containers is just one hosting solution that is offered
-by Amazon GameLift Servers. For more information on hosting options, see [Amazon GameLift Servers solutions](gamelift-intro-flavors.md "gamelift-intro-flavors.md").
+by Amazon GameLift Servers. For more information on hosting options, see [Amazon GameLift Servers game hosting options](gamelift-intro-flavors.md "gamelift-intro-flavors.md").
 
 A managed container solution with Amazon GameLift Servers has the following components:
 
-- One or more container fleets, which use Amazon Elastic Compute Cloud (Amazon EC2) instances that are optimized
-  for multiplayer game hosting.
 - A container image with your game server build, uploaded to Amazon Elastic Container Registry (Amazon ECR) private
   repository. The game server build is integrated with the server SDK for Amazon GameLift Servers and built to run
   on Linux.
 - A backend service that interacts with the Amazon GameLift Servers service on behalf of your game clients.
   The backend service uses functionality in the service API for Amazon GameLift Servers, which is part of the AWS
   SDK.
-- An Amazon GameLift Servers game session queue that processes requests for new game sessions, searches for
-  available game servers across all fleets, and prompts a game server to start a game
-  session.
+- An Amazon GameLift Servers game session queue or other placement mechanism that processes requests for new
+  game sessions, searches for available game servers across all fleets, and prompts a
+  game server to start a game session.
 - (Optional) A FlexMatch matchmaker to create multi-player matches and set up game sessions
   for them.
+- One or more container fleets, which use Amazon Elastic Compute Cloud (Amazon EC2) instances and are
+  optimized for multiplayer game hosting.
   This roadmap presents a streamlined path to getting your containerized game servers up and
   running successfully with Amazon GameLift Servers managed containers. After you have the necessary components in
   place, you can continue to iterate on game development and customize your hosting solution. As
-  you get closer to launch, see these [Preparing your game for launch with Amazon GameLift Servers hosting](gamelift_quickstart_customservers_checklist.md "gamelift_quickstart_customservers_checklist.md") for help with preparing your
+  you get closer to launch, see these [Prepare for launch with Amazon GameLift Servers hosting](gamelift_quickstart_customservers_checklist.md "gamelift_quickstart_customservers_checklist.md") for help with preparing your
   hosting solution for production-level usage.
 
 ###### Speed up onboarding with these tools for managed containers:
@@ -47,7 +47,7 @@ A managed container solution with Amazon GameLift Servers has the following comp
   and Go. [Download the server SDK for Amazon GameLift Servers](https://aws.amazon.com/gamelift/servers/getting-started-sdks/ "https://aws.amazon.com/gamelift/servers/getting-started-sdks/"). The server SDK is available in
   C++, C#, and Go.
 - **Modify your game server code to add server SDK
-  functionality.** For guidance, see [Integrate games with custom game servers](integration-custom-intro.md "integration-custom-intro.md"). At a minimum, do the following:
+  functionality.** For guidance, see [Prepare a game for hosting with Amazon GameLift Servers](integration-intro.md "integration-intro.md"). At a minimum, do the following:
   - Add code to initialize the Amazon GameLift Servers SDK and establish a WebSocket
     connection with the Amazon GameLift Servers service. Use the server SDK action
     `InitSdk()`.
@@ -77,6 +77,67 @@ A managed container solution with Amazon GameLift Servers has the following comp
   process. Use the AWS CLI to request a new game session, and verify that
   the Amazon GameLift Servers service successfully prompts your server process to start a game
   session.
+  After you've successfully integrated your game server, create a container image
+  with your game server executable. Store it in an Amazon Elastic Container Registry (Amazon ECR) repository for
+  use with Amazon GameLift Servers. For detailed instructions, see [Build a container image for Amazon GameLift Servers](containers-prepare-images.md "containers-prepare-images.md").
+
+- **Get the Dockerfile template for a game server
+  container (provided by Amazon GameLift Servers).** Modify the file for your game
+  server build files.
+- **Build a game server container image.**
+  Working in a Linux environment, use the Docker tool to create your
+  image.
+- **Push your container image to Amazon ECR.**
+  Create a public or private repository in Amazon ECR, using the same AWS account
+  and AWS Region where you plan to deploy your container fleet. Push your
+  container image to it.
+- **Test your container images using your Anywhere
+  fleet (optional).** You might want to test your container
+  images locally before deploying them to a cloud-hosted container fleet. You
+  can use your existing Amazon GameLift Servers Anywhere fleet with a local workstation for
+  testing. Install and run the game server container and verify that: (1) the
+  Amazon GameLift Servers service successfully prompts your server process to start a game
+  session, and (2) a game client can connect to the game session.
+  Up to this point you've worked with a self-managed Anywhere fleet to test and
+  iterate on your game components. When you have a working game server build that's integrated
+  for Amazon GameLift Servers, you can start setting up the
+  cloud-based Amazon GameLift Servers managed
+  container fleet hosting resources that you'll need for a production environment.
+
+- **Create container group definitions.** Container
+  group definitions describe the container architecture for a fleet. and
+  identify which container images to deploy. See [Create a container group definition for an Amazon GameLift Servers
+  container fleet](containers-create-groups.md "containers-create-groups.md"). Create your container group
+  definition in the same AWS Region where the container images are stored.
+  For more on choosing a fleet location, see [Geographic locations](gamelift-compute.md#gamelift-compute-location "gamelift-compute.md#gamelift-compute-location"). At a minimum, do the
+  following:
+  - Create a game server container group definition.
+  - Add a container definition with a container image with your game
+    server build.
+  - Configure a port range for the container's game server
+    processes.
+
+- **Create a managed container fleet.** When you
+  create a fleet, Amazon GameLift Servers immediately begins deploying your game server build
+  for hosting. You can configure many aspects of a managed fleet. For
+  guidance, see [Create an Amazon GameLift Servers managed container fleet](containers-build-fleet.md "containers-build-fleet.md"). At minimum, do the following:
+  - Set up an AWS Identity and Access Management (IAM) service role for the container fleet. See
+    [Set up an IAM service role for Amazon GameLift Servers](setting-up-role.md "setting-up-role.md").
+  - Specify the game server container group definition to deploy to fleet
+    instances.
+  - Use default values where available for all other parameters. Amazon GameLift Servers
+    calculates some parameters for optimal configuration.
+
+- **Add the container fleets to your queue.** In
+  your game session queue, replace the Anywhere test fleet with your managed
+  container fleet.
+- **Test game hosting with your container fleets.**
+  At this point you should be able to test the entire solution. Start a game
+  client and request a game session through the backend service. Get
+  connection info and connect to a game session on the container fleet.
+- **Iterate on your fleet deployments.** You
+  can update container group definitions and fleet configurations, and then
+  deploy updates to existing fleets.
   Create a way for your game client to request to join a game session, get
   connection info, and then connect directly to a hosted game session. The most common approach
   is to set up backend service functionality that serves as a middleman between your game client and the
@@ -87,14 +148,13 @@ A managed container solution with Amazon GameLift Servers has the following comp
   hosting.** The backend service communicates with the Amazon GameLift Servers service
   and delivers connection information to a game client. This functionality
   includes starting game sessions, placing players into games, and retrieving game
-  session information. For guidance, see [Integrate games with custom game servers](integration-custom-intro.md "integration-custom-intro.md"). At a minimum, do the
+  session information. For guidance, see [Prepare a game for hosting with Amazon GameLift Servers](integration-intro.md "integration-intro.md"). At a minimum, do the
   following:
   - Get the AWS SDK for Amazon GameLift Servers and add it to your backend service
     project. See [Amazon GameLift Servers SDK
     resources for client services](gamelift-supported.md#gamelift-supported-clients "gamelift-supported.md#gamelift-supported-clients").
   - Add code to initialize an Amazon GameLift Servers client and store key
-    settings. See [Set up Amazon GameLift Servers on a backend
-    service](gamelift-sdk-client-api.md#gamelift-sdk-client-api-initialize "gamelift-sdk-client-api.md#gamelift-sdk-client-api-initialize").
+    settings. See [Set up the Amazon GameLift Servers API](gamelift-sdk-client-api.md#gamelift-sdk-client-api-initialize "gamelift-sdk-client-api.md#gamelift-sdk-client-api-initialize").
   - Add functionality to call the AWS SDK action
     `CreateGameSession()` and provide game session connection
     information to a game client. See [Create a game session on a
@@ -107,8 +167,7 @@ A managed container solution with Amazon GameLift Servers has the following comp
   `StartMatchmaking()` if you're using FlexMatch).
 
   For guidance on designing your backend service, see
-  [Design your game client
-  service](gamelift_quickstart_customservers_designbackend.md "gamelift_quickstart_customservers_designbackend.md").
+  [Build a backend service for Amazon GameLift Servers](gamelift_quickstart_customservers_designbackend.md "gamelift_quickstart_customservers_designbackend.md").
 
 - **Add functionality to your game client that lets players
   join a hosted game session.** The game client makes requests to
@@ -153,78 +212,16 @@ A managed container solution with Amazon GameLift Servers has the following comp
   the backend service to request a new game session, and verify that the Amazon GameLift Servers
   service successfully prompts your server process to start a game
   session.
-  After you've successfully integrated your game server, create a container image
-  with your game server executable. Store it in an Amazon Elastic Container Registry (Amazon ECR) repository for
-  use with Amazon GameLift Servers. For detailed instructions, see [Build a container image for Amazon GameLift Servers](containers-prepare-images.md "containers-prepare-images.md").
-
-- **Get the Dockerfile template for a game server
-  container (provided by Amazon GameLift Servers).** Modify the file for your game
-  server build files.
-- **Build a game server container image.**
-  Working in a Linux environment, use the Docker tool to create your
-  image.
-- **Push your container image to Amazon ECR.**
-  Create a public or private repository in Amazon ECR, using the same AWS account
-  and AWS Region where you plan to deploy your container fleet. Push your
-  container image to it.
-- **Test your container images using your Anywhere
-  fleet (optional).** You might want to test your container
-  images locally before deploying them to a cloud-hosted container fleet. You
-  can use your existing Amazon GameLift Servers Anywhere fleet with a local workstation for
-  testing. Install and run the game server container and verify that: (1) the
-  Amazon GameLift Servers service successfully prompts your server process to start a game
-  session, and (2) a game client can connect to the game session.
-  Up to this point you've worked with a self-managed Anywhere fleet to test and
-  iterate on your game components. The final piece of your solution is to set up the
-  cloud-based hosting resources that you'll need for a production system. To start
-  planning and configuring for production, you want to set up a Amazon GameLift Servers managed
-  container fleet and customize it for production.
-
-- **Create container group definitions.** Container
-  group definitions describe the container architecture for a fleet. and
-  identify which container images to deploy. See [Create a container group definition for an Amazon GameLift Servers
-  container fleet](containers-create-groups.md "containers-create-groups.md"). Create your container group
-  definition in the same AWS Region where the container images are stored.
-  For more on choosing a fleet location, see [Fleet location](gamelift-compute.md#gamelift-compute-location "gamelift-compute.md#gamelift-compute-location"). At a minimum, do the
-  following:
-  - Create a game server container group definition.
-  - Add a container definition with a container image with your game
-    server build.
-  - Configure a port range for the container's game server
-    processes.
-
-- **Create a managed container fleet.** When you
-  create a fleet, Amazon GameLift Servers immediately begins deploying your game server build
-  for hosting. You can configure many aspects of a managed fleet. For
-  guidance, see [Create an Amazon GameLift Servers managed container fleet](containers-build-fleet.md "containers-build-fleet.md"). At minimum, do the following:
-  - Set up an AWS Identity and Access Management (IAM) service role for the container fleet. See
-    [Set up an IAM service role for Amazon GameLift Servers](setting-up-role.md "setting-up-role.md").
-  - Specify the game server container group definition to deploy to fleet
-    instances.
-  - Use default values where available for all other parameters. Amazon GameLift Servers
-    calculates some parameters for optimal configuration.
-
-- **Add the container fleets to your queue.** In
-  your game session queue, replace the Anywhere test fleet with your managed
-  container fleet.
-- **Test game hosting with your container fleets.**
-  At this point you should be able to test the entire solution. Start a game
-  client and request a game session through the backend service. Get
-  connection info and connect to a game session on the container fleet.
-- **Iterate on your fleet deployments.** You
-  can update container group definitions and fleet configurations, and then
-  deploy updates to existing fleets.
   As you prepare for game launch, you'll need to fine-tune your managed hosting
   resources. Some of the decisions to consider include:
 
 - Optimize your container fleet configuration.
   See [Customize an Amazon GameLift Servers container fleet](containers-design-fleet.md "containers-design-fleet.md").
-- Consider adding Spot fleets for cost savings. See [Tutorial: Create an Amazon GameLift Servers queue with Spot Instances](tutorial-queues-spot.md "tutorial-queues-spot.md").
+- Consider adding Spot fleets for cost savings. See [Reduce game hosting costs with Spot fleets](fleets-spot.md "fleets-spot.md") .
 - If your game server needs to communicate other AWS resources, set up
-  IAM roles to manage access. See [Communicate with other AWS resources from
-  your fleets](gamelift-sdk-server-resources.md "gamelift-sdk-server-resources.md").
+  IAM roles to manage access. See [Connect your Amazon GameLift Servers hosted game server to other AWS resources](gamelift-sdk-server-resources.md "gamelift-sdk-server-resources.md").
 - Determine where geographically you want to position game servers. Add remote locations to your
-  managed fleets. See [Customize your Amazon GameLift Servers EC2 managed fleets](fleets-design.md "fleets-design.md").
+  managed fleets. See [Hosting resource customizations](fleets-design.md "fleets-design.md").
 - Experiment with game session placement options for managed fleets, including customizing
   prioritization settings. See [Customize a game session queue](queues-design.md "queues-design.md").
 - Set up automatic capacity scaling to meet expected player demand. See
@@ -232,7 +229,7 @@ A managed container solution with Amazon GameLift Servers has the following comp
 - Create fleets in other AWS Regions and modify queues and auto scaling to
   handle failovers as needed.
 - Set up hosting observability tools, including analytics and logging. See [Monitoring Amazon GameLift Servers](monitoring-overview.md "monitoring-overview.md").
-- Automate your fleet deployments using [infrastructure as code (IaC)](../../../whitepapers/latest/introduction-devops-aws/infrastructure-as-code.md "../../../whitepapers/latest/introduction-devops-aws/infrastructure-as-code.md"). See [Managing Amazon GameLift Servers hosting resources using AWS CloudFormation](resources-cloudformation.md "resources-cloudformation.md").
+- Automate your fleet deployments using [infrastructure as code (IaC)](../../../whitepapers/latest/introduction-devops-aws/infrastructure-as-code.md "../../../whitepapers/latest/introduction-devops-aws/infrastructure-as-code.md"). See [Manage Amazon GameLift Servers hosting resources using AWS CloudFormation](resources-cloudformation.md "resources-cloudformation.md").
 
 Amazon GameLift Servers supports the use of AWS CloudFormation templates for any deployment-specific
 configurations. You can also use the AWS Cloud Development Kit (AWS CDK) to define your Amazon GameLift Servers

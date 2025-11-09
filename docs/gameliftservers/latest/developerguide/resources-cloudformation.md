@@ -1,4 +1,4 @@
-# Managing Amazon GameLift Servers hosting resources using AWS CloudFormation
+# Manage Amazon GameLift Servers hosting resources using AWS CloudFormation
 
 You can use AWS CloudFormation to manage your Amazon GameLift Servers resources. In AWS CloudFormation, you create a template that
 models each resource and then use the template to create your resources. To update
@@ -169,10 +169,10 @@ sequence:
 
 If your game session queue uses fleet aliases, player traffic is automatically
 switched to the new fleets as soon as the aliases are updated. The old fleets are
-gradually drained of players as game sessions end. Auto-scaling handles the task of
+gradually drained of players as game sessions end. Auto scaling handles the task of
 adding and removing instances from each set of fleets as player traffic fluctuates.
 Alternatively, you can specify an initial desired instance count to quickly ramp up
-for the switch and enable auto-scaling later.
+for the switch and enable auto scaling later.
 
 You can also have AWS CloudFormation retain resources instead of deleting them. For more
 information, see [RetainResources](../../../AWSCloudFormation/latest/APIReference/API_DeleteStack.md "../../../AWSCloudFormation/latest/APIReference/API_DeleteStack.md") in the _AWS CloudFormation API Reference_.

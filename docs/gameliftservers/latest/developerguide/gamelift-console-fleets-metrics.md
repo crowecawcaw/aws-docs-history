@@ -8,7 +8,7 @@ On the fleet details page you can take the following actions:
 - Update a fleet's attributes, port settings, and runtime configuration.
 - Add or remove fleet locations.
 - Change fleet capacity settings.
-- Set or change target-tracking auto-scaling.
+- Set or change target-tracking auto scaling.
 - Delete a fleet.
 
 ## Details
@@ -60,9 +60,9 @@ servers. For guidance, see [Security best practices for Amazon GameLift Servers]
   during fleet creation.
 - **Metric group name** – The group used to aggregate
   metrics for multiple fleets.
-- **Protection policy** – The current
-  setting for the fleet's [game
-  session protection](gamelift-howitworks.md#gamelift-howitworks-capacity "gamelift-howitworks.md#gamelift-howitworks-capacity").
+- **Game scaling protection policy** –
+  Indicates whether the fleet's game session protection is enabled, which
+  prevents active game sessions from ending prematurely during a scale-down event.
 - **Maximum game sessions per player** – The maximum
   number of sessions a player can create during the **Policy
   period**.
@@ -106,7 +106,7 @@ Amazon GameLift Servers API Reference.
 
 The **Scaling** tab contains information about fleet
 capacity, including the current status and capacity changes over time. It also provides
-tools to update capacity limits and manage auto-scaling.
+tools to update capacity limits and manage auto scaling.
 
 ###### Scaling capacity
 
@@ -130,9 +130,9 @@ about changing limits and capacity, see [Scaling game hosting capacity with Amaz
   instances minus the number of instances in use. This value tells you the maximum
   number of instances that you can add to the location.
 
-###### Auto-scaling policies
+###### Auto scaling policies
 
-This section covers information about auto-scaling policies that are applied to
+This section covers information about auto scaling policies that are applied to
 the fleet. You can set up or update a target-based policy. The fleet's rule-based
 policies, which must be defined using the AWS SDK or CLI, are displayed here. For
 more information about scaling, see [Auto-scale fleet capacity with Amazon GameLift Servers](fleets-autoscaling.md "fleets-autoscaling.md").

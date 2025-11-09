@@ -9,7 +9,8 @@ game sessions and it provides regular game session status updates to the service
 your game servers with the server SDK before you deploy them for hosting.
 
 Use this server SDK reference to integrate your custom multiplayer game servers
-for hosting with Amazon GameLift Servers. For guidance about the integration process, see [Add Amazon GameLift Servers to your game server](gamelift-sdk-server-api.md "gamelift-sdk-server-api.md").
+for hosting with Amazon GameLift Servers. For guidance about the integration process, see [Add Amazon GameLift Servers to your game server with the server
+SDK](gamelift-sdk-server-api.md "gamelift-sdk-server-api.md").
 
 For SDK version 4.0.2, you can download it from the [official GitHub releases](https://github.com/amazon-gamelift/amazon-gamelift-servers-csharp-server-sdk/releases "https://github.com/amazon-gamelift/amazon-gamelift-servers-csharp-server-sdk/releases").
 The complete SDK package including GameLiftLocal.jar is available in the GameLift-CSharp-ServerSDK-4.0.2.zip artifact.

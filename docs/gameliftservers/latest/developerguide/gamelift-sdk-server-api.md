@@ -1,9 +1,11 @@
-# Add Amazon GameLift Servers to your game server
+# Add Amazon GameLift Servers to your game server with the server
 
-This topic describes how to modify your game server code so that game server processes can
-communicate with the Amazon GameLift Servers service. Use these instructions for game servers that you
-plan to deploy onto Amazon GameLift Servers managed EC2 fleets, managed container fleets, or Anywhere
-fleets.
+SDK
+
+This topic provides general guidance on the server SDK functionality that you need to add
+to your game server code/ This functionality enables game server processes to communicate
+with the Amazon GameLift Servers service. Use these instructions for game servers that you plan to deploy
+onto Amazon GameLift Servers managed EC2 fleets, managed container fleets, or Anywhere fleets.
 
 Game server processes communicate with the Amazon GameLift Servers service to receive instructions from
 the service and to report server process health and game session status. For detailed
@@ -11,12 +13,24 @@ information on interactions between your game hosting solution components (game 
 backend service, game client, and Amazon GameLift Servers), see [Game client/server interactions with
 Amazon GameLift Servers](gamelift-sdk-interactions.md "gamelift-sdk-interactions.md").
 
+**Get the server SDK**
+
 To prepare your game for hosting, add the server SDK for Amazon GameLift Servers to your game server
-project. If you're using the Amazon GameLift Servers plugin for Unreal Engine or Unity, the server SDK is built in and ready
-to use. The Server SDK is available in several languages. For more information about tool
+project. The Server SDK is available in several languages. For more information about tool
 support for game servers, including the server SDK, see [Get Amazon GameLift Servers development tools](gamelift-supported.md "gamelift-supported.md").
 
-Server SDK API references:
+Download the server SDK for your development language from
+[github.com/amazon-gamelift](https://github.com/amazon-gamelift "https://github.com/amazon-gamelift"). You can
+find repos for the server SDK versions, plugins, and other development tools.
+
+###### Note
+
+If you're developing using Unreal Engine or Unity, download the Amazon GameLift Servers plugin for these game engines.
+The server SDK is built in and ready to use. See these links for additional information:
+
+- Unreal Engine ([Download plugin](https://github.com/amazon-gamelift/amazon-gamelift-plugin-unreal "https://github.com/amazon-gamelift/amazon-gamelift-plugin-unreal")) ([Integration guide](integration-engines-setup-unreal.md "integration-engines-setup-unreal.md"))
+- Unity ([Download plugin](https://github.com/amazon-gamelift/amazon-gamelift-plugin-unity "https://github.com/amazon-gamelift/amazon-gamelift-plugin-unity")) ([Integration guide](integration-engines-unity-using.md "integration-engines-unity-using.md"))
+  Server SDK API references:
 
 - [C++ server SDK 5.x for Amazon GameLift Servers --
   Actions](integration-server-sdk5-cpp-actions.md "integration-server-sdk5-cpp-actions.md")
@@ -103,8 +117,7 @@ following `ServerParameters`:
         	 callback.
 
     You can also set up a game server so that it can securely access other AWS
-    resources that you own or control. For more information, see [Communicate with other AWS resources from
-    your fleets](gamelift-sdk-server-resources.md "gamelift-sdk-server-resources.md").
+    resources that you own or control. For more information, see [Connect your Amazon GameLift Servers hosted game server to other AWS resources](gamelift-sdk-server-resources.md "gamelift-sdk-server-resources.md").
 
 ## (Optional) Report server process
 

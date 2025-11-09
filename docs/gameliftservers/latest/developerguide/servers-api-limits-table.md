@@ -8,8 +8,8 @@ Server SDK limits are enforced using specific throttling keys that include accou
 
 This table is subject to change. The authoritative source for current limits is the internal SDC configuration. Contact AWS Support for the most up-to-date information if needed.
 
-| Server SDK API limits reference   | API action | Burst limit | Rate limit                               | Throttling key                                                                              | Notes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| --------------------------------- | ---------- | ----------- | ---------------------------------------- | ------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Server SDK API limits reference   | API action | Burst limit | Rate limit                               | Throttling key                                                                              | Notes |
+| --------------------------------- | ---------- | ----------- | ---------------------------------------- | ------------------------------------------------------------------------------------------- | ----- |
 | AcceptPlayerSession               | 3          | 1           | aws-account-and-process-id-and-player-id | Limit is per player and per process. Should never need a limit increase as it's per-player. |
 | RemovePlayerSession               | 3          | 1           | aws-account-and-process-id-and-player-id | Limit is per player and per process. Should never need a limit increase as it's per-player. |
 | ActivateGameSession               | 3          | 1           | aws-account-and-process-id               | Limit is per server process. Should never need a limit increase as it's per-process.        |
@@ -27,4 +27,15 @@ This table is subject to change. The authoritative source for current limits is 
 | UpdateHostProcess                 | 3          | 1           | aws-account-and-process-id               | Limit is per server process. Should never need a limit increase as it's per-process.        |
 | GetGameSessionId                  | 10         | 5           | aws-account-and-process-id               | Limit is per server process. Should never need a limit increase as it's per-process.        |
 | GetTerminationTime                | 3          | 1           | aws-account-and-process-id               | Limit is per server process. Should never need a limit increase as it's per-process.        |
-| UpdatePlayerSessionCreationPolicy | 3          | 1           | aws-account-and-process-id               | Limit is per server process. Should never need a limit increase as it's per-process.        | ###### Note These are the default limits. If you're experiencing throttling on these APIs, it may be due to account-level throttling. To request a limit increase, contact AWS Support. Per-process and per-player limits are designed to accommodate normal usage patterns and should rarely need adjustment. If you're experiencing throttling with these APIs, review your implementation for potential optimization opportunities before requesting limit increases. Account-level throttling may also apply through these additional rules: <br>• SdkWebSocket/AccountLevelHighUsage,aws-account <br>• SdkWebSocket/AccountLevelThrottle,aws-account |
+| UpdatePlayerSessionCreationPolicy | 3          | 1           | aws-account-and-process-id               | Limit is per server process. Should never need a limit increase as it's per-process.        |
+
+###### Note
+
+These are the default limits. If you're experiencing throttling on these APIs, it may be due to account-level throttling. To request a limit increase, contact AWS Support.
+
+Per-process and per-player limits are designed to accommodate normal usage patterns and should rarely need adjustment. If you're experiencing throttling with these APIs, review your implementation for potential optimization opportunities before requesting limit increases.
+
+Account-level throttling may also apply through these additional rules:
+
+- SdkWebSocket/AccountLevelHighUsage,aws-account
+- SdkWebSocket/AccountLevelThrottle,aws-account

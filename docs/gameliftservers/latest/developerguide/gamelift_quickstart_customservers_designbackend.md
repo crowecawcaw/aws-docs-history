@@ -1,15 +1,14 @@
-# Design your game client
-
-service
+# Build a backend service for Amazon GameLift Servers
 
 We recommend that you implement a game client service that authenticates your players and
 communicates with the Amazon GameLift Servers API. By implementing a custom game client service, you
 can:
 
 - Customize authentication for your players.
-- Control how Amazon GameLift Servers matches and starts game sessions.
-- Use your player database for player attributes such as skill rating for
-  matchmaking instead of trusting the client.
+- Control how Amazon GameLift Servers groups players for new game sessions or to add to existing game
+  sessions.
+- Collect information from your own resources to provide game sesplayer attributes
+  such as skill rating for matchmaking instead of trusting the client.
   Using a game client service also reduces security risks introduced by game clients
   interacting directly with your Amazon GameLift Servers API.
 

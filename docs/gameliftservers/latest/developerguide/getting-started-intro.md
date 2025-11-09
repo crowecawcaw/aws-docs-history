@@ -11,18 +11,19 @@ multiplayer games.
 - Select an AWS Region to work in. For development, choose a Region that's close to your
   location. You can change Regions at any time.
 
-[Set up an AWS account](setting-up-aws-login.md "setting-up-aws-login.md")
+[Set up an AWS user account](setting-up-aws-login.md "setting-up-aws-login.md")
 
-## Quick onboarding options
+## Choose your path
 
-Try out these quick start tools to get a basic hosting solution up and running fast with
-streamlined development. These tools are ideal for proof of concept and prototyping, or
-use them to build test environments for rapid iterative game development. After using
-these tools to deploy a game server for hosting, you can use the Amazon GameLift Servers console and API
-tools to monitor fleet performance, manage game sessions, and analyze metrics.
+### I want to explore Amazon GameLift Servers quickly
+
+Best for: learning, creating a proof of concept, rapid prototyping
+
+Quick qtart options:
 
 - [Game server
-  wrapper for Amazon GameLift Servers](https://github.com/amazon-gamelift/amazon-gamelift-servers-game-server-wrapper/ "https://github.com/amazon-gamelift/amazon-gamelift-servers-game-server-wrapper/") – This tool is the quickest and easiest way
+  wrapper for Amazon GameLift Servers](https://github.com/amazon-gamelift/amazon-gamelift-servers-game-server-wrapper/ "https://github.com/amazon-gamelift/amazon-gamelift-servers-game-server-wrapper/") – See [Tutorial: Quick onboarding with the Amazon GameLift Servers wrapper](gamelift-wrapper-tutorial.md "gamelift-wrapper-tutorial.md").
+  This tool is the quickest and easiest way
   to get your game server hosted and running game sessions with Amazon GameLift Servers, with no
   changes to game code required. The game server wrapper offers basic game session
   management functionality and streamlined game server deployment. It's ideal for
@@ -48,8 +49,11 @@ tools to monitor fleet performance, manage game sessions, and analyze metrics.
   management features, follow one of the custom development roadmaps to integrate
   the server SDK for Amazon GameLift Servers.
 
-## Custom development options
+### I want to build a custom hosting solution
 
+Best for: creating a production-level solution for a custom game server
+
+Review the page [Amazon GameLift Servers game hosting options](gamelift-intro-flavors.md "gamelift-intro-flavors.md") and choose one of the options for your solution.
 Follow one of these development roadmaps to get started building a full-featured
 custom hosting solution for your game. The roadmaps provide detailed guidance on how to
 create, test, and customize each component in your hosting solution.
@@ -62,57 +66,10 @@ create, test, and customize each component in your hosting solution.
 - [Development roadmap for hybrid hosting
   with Amazon GameLift Servers](gamelift-roadmap-hybrid.md "gamelift-roadmap-hybrid.md")
 
-## Amazon GameLift Servers examples
+## Recommended learning path
 
-If you're considering using Amazon GameLift Servers to manage your custom game server, or you're interested
-in taking advantage of Amazon GameLift Servers Realtime, we recommend that you try the following examples before you
-use the service for your own game. The custom game server example gives you experience with
-game hosting in the Amazon GameLift Servers console. The Amazon GameLift Servers Realtime example shows you how to prepare a game for
-hosting using Realtime servers.
-
-### Custom game server example
-
-This example demonstrates the process of deploying a sample game server to Amazon GameLift Servers
-managed EC2 fleet for hosting. Use the sample game client to connect to a live game
-session. You can experience how to use Amazon GameLift Servers .tools, including the console and the AWS
-CLI, to monitor the fleet's hosting performance and usage.
-
-The example walks you through the following steps:
-
-- Upload the sample game server build.
-- Create a fleet to run the game server build.
-- Get the sample game client and use it to connect to a game server and join a
-  game session.
-- Review fleet and game session metrics.
-
-Start up multiple game clients and play the game to generate hosting data. Use the
-Amazon GameLift Servers console to view hosting resources, track metrics, and explore options for scaling
-the fleet's hosting capacity.
-
-To get started, sign in to the [Amazon GameLift Servers console](https://console.aws.amazon.com/gamelift/sample-game "https://console.aws.amazon.com/gamelift/sample-game"). In the left-side navigation, go to
-**Resources**, **Try a sample game**.
-
-### Amazon GameLift Servers Realtime example
-
-This example is a complete tutorial that walks you through how to deploy a sample
-multiplayer game, Mega Frog Race, with Amazon GameLift Servers Realtime. The tutorial covers how to integrate
-your game client with the Realtime SDK and deploy a complete hosting solution with Realtime servers on
-managed EC2 fleets.
-
-For a hands-on tutorial, see [Creating Servers for Multiplayer Mobile Games with Just a Few Lines of
-JavaScript](https://aws.amazon.com/blogs/gametech/creating-servers-for-multiplayer-mobile-games-with-amazon-gamelift/ "https://aws.amazon.com/blogs/gametech/creating-servers-for-multiplayer-mobile-games-with-amazon-gamelift/") on the AWS for Games blog. For the source code of Mega Frog
-Race, see the [GitHub repository](https://github.com/aws-samples/megafrograce-gamelift-realtime-servers-sample "https://github.com/aws-samples/megafrograce-gamelift-realtime-servers-sample").
-
-The source code includes the following parts:
-
-- Game client – Source code for the C++ game client, created in Unity.
-  The game client gets game session connection information, connects to the
-  server, and exchanges updates with other players.
-- Backend service – Source code for an AWS Lambda function that manages
-  direct calls to the service API for Amazon GameLift Servers.
-- Realtime script – A source script file that configures a fleet of
-  Realtime servers for the game. This script includes the minimum configuration required for
-  each Realtime server to communicate with Amazon GameLift Servers and host game sessions.
-
-After you set up the sample game for hosting, use it as a starting point to experiment
-with other Amazon GameLift Servers features such as FlexMatch.
+1. Start small. Try the game server wrapper or the plugin for Unreal.
+2. Understand the concepts. Review the page [How hosting with Amazon GameLift Servers works](gamelift-howitworks.md "gamelift-howitworks.md").
+3. Choose architecture. Select your hosting model based on your game's requirements.
+4. Build and test. Follow the appropriate development roadmap. Build a basic version of each component and then iterate and customize.
+5. Scale and optimize. Optimize your solution for production-level usage. Add advanced features such as matchmaking.

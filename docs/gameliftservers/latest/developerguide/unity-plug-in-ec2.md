@@ -75,7 +75,8 @@ The sample code includes these minimum required elements, which use Amazon GameL
 
 If you want to customize the sample server code, see these resources:
 
-- [Add Amazon GameLift Servers to your game server](gamelift-sdk-server-api.md "gamelift-sdk-server-api.md")
+- [Add Amazon GameLift Servers to your game server with the server
+  SDK](gamelift-sdk-server-api.md "gamelift-sdk-server-api.md")
 - [C# server SDK 5.x for Amazon GameLift Servers --
   Actions](integration-server-sdk5-csharp-actions.md "integration-server-sdk5-csharp-actions.md")
 
@@ -109,7 +110,7 @@ Use the following resources as a guide.
   retrieving game session information.
 - To view the sample game integrations go to the GitHub repo
   [aws/amazon-gamelift-plugin-unity](https://github.com/aws/amazon-gamelift-plugin-unity "https://github.com/aws/amazon-gamelift-plugin-unity") , `Samples~/SampleGame/Assets/Scripts/Client/GameLiftClient.cs`.
-- [Add Amazon GameLift Servers to your game client](gamelift-sdk-client-api.md "gamelift-sdk-client-api.md").
+- [Integrate Amazon GameLift Servers game client functionality](gamelift-sdk-client-api.md "gamelift-sdk-client-api.md").
 
 ## Select deployment scenario
 

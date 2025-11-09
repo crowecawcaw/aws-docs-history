@@ -1,24 +1,23 @@
-# Customize your Amazon GameLift Servers EC2 managed fleets
+# Hosting resource customizations
 
-The topics in this section outline some of the customizations you can make when building a hosting
-solution with Amazon GameLift Servers managed EC2 fleets.
-They provide guidance and best practices for creating and configuring a fleet to host your game.
+This section provides advanced options for configuring and managing your Amazon GameLift Servers infrastructure to meet specific performance, cost, and operational requirements.
+In particular, the topics in this section describe how you can customize your Amazon GameLift Servers managed hosting resources to best fit your game and your players.
 
-Required decisions include:
+Some of the decisions you want to consider:
 
-- Where should you deploy hosting resources? Latency is a major factor in selecting your fleet's locations,
-  but cost also varies by location.
-- What EC2 instance type will best support your game? Choose from instance types that are
-  available in all your fleet locations to use the best combination of compute
-  architecture, memory, storage, and networking capacity.
+- Where to deploy hosting resources for your players? Gameplay latency is a major factor in
+  selecting your fleet's geographic locations, but there are other factors that vary
+  by location, including resource type availability and cost.
+- What EC2 instance types will best support your game? Choose from available instance types that
+  use the best combination of compute architecture, memory, storage, and networking
+  capacity.
 - What size of instance type do you need? Choose an instance type size based on the resource requirements
   (memory and CPU) of your game server software and other factors.
-- Should your fleet use On-Demand or Spot Instances? Consider whether you can take advantage of lower Spot pricing given
-  how Amazon GameLift Servers guards against the chance of game sessions interruptions.
+- Should your fleet use On-Demand or Spot Instances? Consider whether you can take advantage of
+  lower Spot pricing, and whether Amazon GameLift Servers sufficiently mitigates the chance of Spot
+  interruptions to your game sessions.
 - How do you want your game server software to run on each fleet instance? The runtime configuration tells Amazon GameLift Servers
   what server software to run and how.
-
-###### Topics
-
-- [Choose compute resources for a managed fleet](gamelift-compute.md "gamelift-compute.md")
-- [Manage how Amazon GameLift Servers launches game servers](fleets-multiprocess.md "fleets-multiprocess.md")
+- For container fleets, does the default configuration work for your game? Amazon GameLift Servers
+  does a lot of the work for you to optimize your container fleet configurations, but
+  you can customize most configuration settings.

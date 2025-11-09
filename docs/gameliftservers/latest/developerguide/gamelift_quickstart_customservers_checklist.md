@@ -1,4 +1,4 @@
-# Preparing your game for launch with Amazon GameLift Servers hosting
+# Prepare for launch with Amazon GameLift Servers hosting
 
 Use the following checklists to validate each deployment phase of your game. Items marked **[Critical]** are critical for your
 production launch.

@@ -1,16 +1,13 @@
-# Preparing games for Amazon GameLift Servers
+# Prepare a game for hosting with Amazon GameLift Servers
 
-Get your multiplayer games ready for hosting on Amazon GameLift Servers. Integrate Amazon GameLift Servers hosting
-features into your game projects and build your game server and client servers. Set up a
-hosted test environment to support rapid iterative game development and testing.
+Before you can deploy your game for hosting on Amazon GameLift Servers, you need to prepare both your game server and game client components. This involves integrating your game server with the Amazon GameLift Servers Server SDK and building a backend service that handles player authentication and game session management.
+
+The Server SDK integration enables your game server to communicate with the Amazon GameLift Servers service, report its health status, and manage game sessions. The backend service acts as an intermediary between your game clients and the Amazon GameLift Servers service, handling player requests and coordinating game session placement.
 
 ###### Topics
 
-- [Integrate games with custom game servers](integration-custom-intro.md "integration-custom-intro.md")
-- [Design your game client
-  service](gamelift_quickstart_customservers_designbackend.md "gamelift_quickstart_customservers_designbackend.md")
-- [Set up for iterative development with Amazon GameLift Servers Anywhere](integration-dev-iteration.md "integration-dev-iteration.md")
-- [Test your integration using Amazon GameLift Servers Local](integration-testing-local.md "integration-testing-local.md")
-- [Adding FlexMatch matchmaking](gamelift-match-intro.md "gamelift-match-intro.md")
-- [Get fleet data for an Amazon GameLift Servers instance](gamelift-sdk-server-fleetinfo.md "gamelift-sdk-server-fleetinfo.md")
-- [Integrating games with Amazon GameLift Servers Realtime](realtime-intro.md "realtime-intro.md")
+- [Prepare your Unreal or Unity game with the Amazon GameLift Servers plugin](getting-started-plugin.md "getting-started-plugin.md")
+- [Integrate a game server with Amazon GameLift Servers](gamelift-sdk-server.md "gamelift-sdk-server.md")
+- [Package a game server build for deployment](gamelift-build-intro.md "gamelift-build-intro.md")
+- [Game client/server interactions with
+  Amazon GameLift Servers](gamelift-sdk-interactions.md "gamelift-sdk-interactions.md")

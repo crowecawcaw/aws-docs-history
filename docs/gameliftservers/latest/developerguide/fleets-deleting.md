@@ -2,7 +2,7 @@
 
 You can delete a fleet when you no longer need it. Deleting a fleet permanently
 removes all data associated with game sessions and player sessions, and collected metric
-data. As an alternative, you can retain the fleet, disable auto-scaling, and manually
+data. As an alternative, you can retain the fleet, disable auto scaling, and manually
 scale the fleet to 0 instances.
 
 ###### Note
@@ -14,7 +14,7 @@ during fleet deletion.
 You can use either the Amazon GameLift Servers console or the AWS CLI tool to delete a
 fleet.
 
-Amazon GameLift Servers console
+Console
 
 1. In the [Amazon GameLift Servers console](https://console.aws.amazon.com/gamelift/ "https://console.aws.amazon.com/gamelift/"), in the navigation pane, choose
    **Fleets**.

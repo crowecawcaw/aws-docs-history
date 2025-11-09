@@ -1,18 +1,20 @@
-# Add Amazon GameLift Servers to your game client
+# Integrate Amazon GameLift Servers game client functionality
 
-Integrate Amazon GameLift Servers into game components that need game session information, create new
-game sessions, and add players to games. Depending on your game architecture, this
-functionality is in backend services that handle tasks such as player authentication,
-matchmaking, or game session placement.
+Integrate Amazon GameLift Servers game hosting functionality into any solution components that need to communicate with the Amazon GameLift Servers service, such as to
+get game session information or create new game sessions. In most cases, this
+functionality is built into the backend service component. Add functionality for core tasks, including:
 
-###### Note
+- Request information and status of active game sessions.
+- Reserve a slot for a new player in an existing game session.
+- Create a new game session for a group of players.
+- Request matchmaking for one or more players.
+- Provide updated data for existing game sessions.
+  See [Game client/server interactions with
+  Amazon GameLift Servers](gamelift-sdk-interactions.md "gamelift-sdk-interactions.md") for additional details on how game hosting components interact through the Amazon GameLift Servers SDKs.
 
-For detailed information about how to set up matchmaking for your game, see the [Amazon GameLift Servers FlexMatch Developer
-Guide](../flexmatchguide.md "../flexmatchguide.md").
+## Set up the Amazon GameLift Servers API
 
-## Set up Amazon GameLift Servers on a backend
-
-service
+Add the AWS SDK for C++ with Amazon GameLift Servers to a project.
 
 Add code to initialize an Amazon GameLift Servers client and store key settings. This code must run
 before any code dependent on Amazon GameLift Servers.
@@ -25,20 +27,21 @@ contacting Amazon GameLift Servers. Region identifies the set of deployed resour
 queues, and matchmakers) to use. The default client configuration sets location
 to the US East (N. Virginia) Region. To use any other Region, create a custom
 configuration. 2. Initialize an Amazon GameLift Servers client. Use [Aws::GameLift::GameLiftClient()](https://sdk.amazonaws.com/cpp/api/LATEST/aws-cpp-sdk-gamelift/html/class_aws_1_1_game_lift_1_1_game_lift_client.html "https://sdk.amazonaws.com/cpp/api/LATEST/aws-cpp-sdk-gamelift/html/class_aws_1_1_game_lift_1_1_game_lift_client.html") (C++) or [AmazonGameLiftClient()](../../../sdkfornet/v3/apidocs/items/GameLift/TGameLiftClient.md "../../../sdkfornet/v3/apidocs/items/GameLift/TGameLiftClient.md") (C#) with a default client configuration or
-a custom client configuration. 3. Add a mechanism to generate a unique identifier for each player. For more
-information, see [Generate player IDs](player-sessions-player-identifiers.md "player-sessions-player-identifiers.md"). 4. Collect and store the following information:
+a custom client configuration. 3. If you're using player sessions, add a mechanism to generate a unique
+identifier for each player. For more information, see [Generate player IDs](player-sessions-player-identifiers.md "player-sessions-player-identifiers.md"). 4. Collect and store the following information:
 
-    * **Target fleet** – Many Amazon GameLift Servers API
-     requests must specify a fleet. To do so, use either a fleet ID or an
-     alias ID that points to the target fleet. As a best practice, use fleet
+    * **Target fleet** – If you're
+     manually creating game sessions on a specific fleet, provide a fleet ID
+     or an alias ID that points to the target fleet. If the fleet is
+     multi-location, specify a fleet location . As a best practice, use fleet
      aliases so that you can switch players from one fleet to another without
-     having to update your backend services.
+     having to update your backend service.
     * **Target queue** – For games that
      use multi-fleet queues to place new game sessions, specify the name of
-     the queue to use.
+     the queue to send placement requests to.
     * **AWS credentials** – All calls
      to Amazon GameLift Servers must provide credentials for the AWS account that hosts the
-     game. You acquire these credentials by creating a player user, as
+     game. You can acquire these credentials by creating a player user, as
      described in [Set up programmatic access for your
      game](setting-up-aws-login.md#getting-started-iam-player-user "setting-up-aws-login.md#getting-started-iam-player-user"). Depending on how
      you manage access for the player user, do the following:
@@ -49,7 +52,7 @@ information, see [Generate player IDs](player-sessions-player-identifiers.md "pl
     	+ If you use a role to manage player user permissions, add code
     	 to assume the role before calling an Amazon GameLift Servers API. The request to
     	 assume the role returns a set of temporary security credentials.
-    	 For more information, see  [Switching to an IAM role (AWS API)](../../../IAM/latest/UserGuide/id_roles_use_switch-role-api.md "../../../IAM/latest/UserGuide/id_roles_use_switch-role-api.md") in the
+    	 For more information, see [Switching to an IAM role (AWS API)](../../../IAM/latest/UserGuide/id_roles_use_switch-role-api.md "../../../IAM/latest/UserGuide/id_roles_use_switch-role-api.md") in the
     	 *IAM User Guide*.
     	+ If you have long-term security credentials, configure your
     	 code to locate and use stored credentials. See [Authenticate using long-term credentials](../../../sdkref/latest/guide/access-iam-users.md "../../../sdkref/latest/guide/access-iam-users.md") in in the
@@ -62,7 +65,7 @@ information, see [Generate player IDs](player-sessions-player-identifiers.md "pl
     	 SDKs](../../../IAM/latest/UserGuide/id_credentials_temp_use-resources.md#using-temp-creds-sdk "../../../IAM/latest/UserGuide/id_credentials_temp_use-resources.md#using-temp-creds-sdk") in the *IAM User Guide*. The code must request new
     	 credentials before the old ones expire.
 
-## Get game sessions
+## Get active game sessions
 
 Add code to discover available game sessions and manage game session settings and
 metadata.
@@ -71,8 +74,10 @@ metadata.
 
 Use [SearchGameSessions](../apireference/API_SearchGameSessions.md "../apireference/API_SearchGameSessions.md") to get information about a specific game session, all
 active sessions, or sessions that meet a set of search criteria. This call returns a
-[GameSession](../apireference/API_GameSession.md "../apireference/API_GameSession.md") object for each active game session that matches your search
-request.
+[GameSession](../apireference/API_GameSession.md "../apireference/API_GameSession.md")
+object for each active game session that matches your search request. This object
+contains the DNS name, IP address, and port, which a game client needs to connect to the
+game session.
 
 Use search criteria to get a filtered list of active game sessions for players to
 join. For example, you can filter sessions as follows:
@@ -84,7 +89,7 @@ MaximumPlayerSessionCount`.
 - Find game sessions based on a custom game property:
   `gameSessionProperties.gameMode = "brawl"`.
 
-**Manage game sessions**
+**Manage game session data**
 
 Use any of the following operations to retrieve or update game session
 information.
@@ -99,15 +104,15 @@ information.
 ## Create game sessions
 
 Add code to start new game sessions on your deployed fleets and make them available to
-players. There are two options for creating game sessions, depending on whether you're
-deploying your game in multiple AWS Regions or in a single Region.
+players. There are two options for creating game sessions, depending on how your game
+hosting solution manages game session placements.
 
-**Create a game session in a multi-location
+**Create a game session with a multi-location
 queue**
 
 Use [StartGameSessionPlacement](../apireference/API_StartGameSessionPlacement.md "../apireference/API_StartGameSessionPlacement.md") to place a request for a new game session in a
 queue. To use this operation, create a queue. This determines where Amazon GameLift Servers places the new
-game session. For more information about queues and how to use them, see [Managing game session placement with Amazon GameLift Servers queues](queues-intro.md "queues-intro.md").
+game session. For more information about queues and how to use them, see [Configure game session placement](queues-intro.md "queues-intro.md").
 
 When creating a game session placement, specify the name of the queue to use, a game
 session name, a maximum number of concurrent players, and an optional set of game
@@ -138,43 +143,39 @@ maximum number of concurrent players for the game. Optionally, you can include a
 game properties. Game properties are defined in an array of key-value pairs.
 
 If you use the Amazon GameLift Servers resource protection feature to limit the number of game sessions
-that one player can create, then provide the game session creator's player ID.
+that a player can create, then provide the game session creator's player ID.
 
 ## Join a player to a game session
 
 Add code to reserve a player slot in an active game session and connect game clients
-to game sessions.
+to game sessions. This action is available if your game uses player sessions with unique
+player IDs. For more information about player sessions, see [Amazon GameLift Servers and the player experience](game-sessions-intro.md "game-sessions-intro.md").
 
 1. ###### Reserve a player slot in a game session
 
-To reserve a player slot, create a new player session for the game session.
-For more information about player sessions, see [How players connect to games](game-sessions-intro.md "game-sessions-intro.md").
+To reserve a player slot, create a player session for the game session. There
+are two ways to do this:
 
-There are two ways to create new player sessions:
+    * If you use [StartGameSessionPlacement](../apireference/API_StartGameSessionPlacement.md "../apireference/API_StartGameSessionPlacement.md") or [StartMatchmaking](../apireference/API_StartMatchmaking.md "../apireference/API_StartMatchmaking.md") to create a game session, you can include
+     one or more players in the request to create player sessions for them in
+     the new game session.
+    * To add players to an existing game session, call [CreatePlayerSession](../apireference/API_CreatePlayerSession.md "../apireference/API_CreatePlayerSession.md") or [CreatePlayerSessions](../apireference/API_CreatePlayerSessions.md "../apireference/API_CreatePlayerSessions.md") with a game session ID.
 
-    * Use [StartGameSessionPlacement](../apireference/API_StartGameSessionPlacement.md "../apireference/API_StartGameSessionPlacement.md") to reserve slots for one or more
-     players in the new game session.
-    * Reserve player slots for one or more players using [CreatePlayerSession](../apireference/API_CreatePlayerSession.md "../apireference/API_CreatePlayerSession.md") or [CreatePlayerSessions](../apireference/API_CreatePlayerSessions.md "../apireference/API_CreatePlayerSessions.md") with a game session ID.
-
-Amazon GameLift Servers first verifies that the game session is accepting new players and has
+A player session request must include a unique player ID . For more
+information, see [Generate player IDs](player-sessions-player-identifiers.md "player-sessions-player-identifiers.md"). On receiving the
+request, Amazon GameLift Servers verifies that the game session is accepting new players and has
 available player slots. If successful, Amazon GameLift Servers reserves a slot for the player,
-creates the new player session, and returns a [PlayerSession](../apireference/API_PlayerSession.md "../apireference/API_PlayerSession.md") object. This object contains the DNS name, IP
-address, and port that a game client needs to connect to the game
-session.
-
-A player session request must include a unique ID for each player. For more
-information, see [Generate player IDs](player-sessions-player-identifiers.md "player-sessions-player-identifiers.md").
+creates the new player session, and returns a [PlayerSession](../apireference/API_PlayerSession.md "../apireference/API_PlayerSession.md") object.
 
 A player session can include a set of custom player data. This data is stored
-in the newly created player session object, which you can retrieve by calling
-[DescribePlayerSessions()](../apireference/API_DescribePlayerSessions.md "../apireference/API_DescribePlayerSessions.md"). Amazon GameLift Servers also passes this object to the game
+in the newly created player session object. Amazon GameLift Servers passes this object to the game
 server when the player connects directly to the game session. When requesting
-multiple player sessions, provide a string of player data for each player that's
-mapped to the player ID in the request. 2. ###### Connect to a game session
+multiple player sessions, map each string of player data to a player ID. 2. ###### Connect to a game session
 
-Add code to the game client to retrieve the `PlayerSession` object,
-which contains the game session's connection information. Use this information
-to establish a direct connection to the server.
+Add code to the backend service to retrieve the `PlayerSession`
+object (such as by calling [DescribePlayerSessions()](../apireference/API_DescribePlayerSessions.md "../apireference/API_DescribePlayerSessions.md")) and pass it back to the game client. This
+object contains the DNS name, IP address, and port. The game client can use this
+information to establish a direct connection to the server.
 
     * You can connect using the specified port and the DNS name or IP
      address assigned to the server process.
@@ -185,28 +186,29 @@ to establish a direct connection to the server.
 
 After making the connection, the game client and server process communicate
 directly without involving Amazon GameLift Servers. The server maintains communication with Amazon GameLift Servers
-to report player connection status, health status, and more. If the game server
-validates incoming players, then it verifies that the player session ID matches
-a reserved slot in the game session, and accepts or denies the player
-connection. When the player disconnects, the server process reports the dropped
-connection.
+to report player connection status, health status, and more.
 
-## Use game session properties
+If the game server validates incoming players, then it verifies that the
+player session ID matches a reserved slot in the game session, and either
+accepts or denies the player connection. When the player disconnects, the server
+process reports the dropped connection.
 
-Your game client can pass data into a game session by using a game property.
-Game properties are key-value pairs that your game server can add, read, list, and change.
-You can pass in a game property when you're creating a new game session, or later when the game session is active.
-A game session can contain up to 16 game properties.
-You cannot delete game properties.
+## Pass custom game data to a game session
 
-For example, your game offers these difficulty levels: `Novice`, `Easy`, `Intermediate`, and `Expert`.
-A player chooses `Easy`, and then begins the game.
-Your game client requests new game session from Amazon GameLift Servers by using either `StartGameSessionPlacement` or `CreateGameSession` as explained in the preceding sections.
-In the request, the client passes this : `{"Key": "Difficulty", "Value":"Easy"}`.
+Your game client can pass data to a game session. When you create a game session, you can
+include a set of game properties (key-value pairs) or game session data (string values)
+in the request. You can also update an existing game session with new or updated game
+data. This data is passed to the game server process that is hosting the game session,
+for use by the game server code. You cannot delete game properties.
 
-In response to the request, Amazon GameLift Servers creates a `GameSession` object that contains the specified game property.
-Amazon GameLift Servers then instructs an available game server to start the new game session and passes the `GameSession` object.
-The game server starts a game session with a `Difficulty` of `Easy`.
+As an example, let's say that your game defines difficulty levels: `Novice`,
+`Easy`, `Intermediate`, and `Expert`. A player
+chooses to join an `Easy`, game. Your game client, through the backend
+service, requests a new game session with the following game property: `{"Key":
+ "Difficulty", "Value":"Easy"}`. In response, Amazon GameLift Servers prompts an available game
+server to start a new game session and passes the `GameSession` object. The
+game server process uses the game property provided to set the game session's difficulty
+level.
 
 ### Learn more
 

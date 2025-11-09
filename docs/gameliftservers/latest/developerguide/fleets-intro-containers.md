@@ -49,7 +49,7 @@ don't have to:
   ones.
 - Handles authentication for communication between server processes and the Amazon GameLift Servers
   service.
-- Offers auto-scaling tools that adjust fleet capacity dynamically to meet player
+- Offers auto scaling tools that adjust fleet capacity dynamically to meet player
   demand.
 - Reports performance metrics for the fleet's EC2 instances, containers, and server
   processes.

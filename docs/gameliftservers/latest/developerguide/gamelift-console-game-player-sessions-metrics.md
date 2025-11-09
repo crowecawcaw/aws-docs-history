@@ -3,7 +3,7 @@
 the Amazon GameLift Servers console
 
 You can use the Amazon GameLift Servers console to work with games sessions and player sessions. For more
-information about game sessions and player sessions, see [How players connect to games](game-sessions-intro.md "game-sessions-intro.md"). The Amazon GameLift Servers console provides information and tools to
+information about game sessions and player sessions, see [Amazon GameLift Servers and the player experience](game-sessions-intro.md "game-sessions-intro.md"). The Amazon GameLift Servers console provides information and tools to
 help you investigate issues with your game sessions.
 
 What you can do:

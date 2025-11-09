@@ -1,27 +1,30 @@
-# Deploying game server software for Amazon GameLift Servers hosting
+# Package a game server build for deployment
 
-Deploy your multiplayer game server software by installing it on your hosting resources,
-launching game server processes, and getting them ready to host games for players. The steps for
-getting the game server software ready for deployment depends on the type of Amazon GameLift Servers
-solution you're using. In all scenarios, the deployed game server software interacts with
-the Amazon GameLift Servers service to handle game session placement and communicate connection details for a game client.
+Get your game server software ready for deployment on your hosting resources. Once deployed, the
+software is installed on each hosting resource, and then one or more game server process is launched
+and readied to host game sessions for players.
 
-Your game server software must first be integrated with Amazon GameLift Servers, as described in
-[Preparing games for Amazon GameLift Servers](integration-intro.md "integration-intro.md").
+Getting a game server build ready varies depending on the type of Amazon GameLift Servers
+hosting options you're using. All game server builds must be integrated with the server SDK for Amazon GameLift Servers,
+as described in
+[Integrate a game server with Amazon GameLift Servers](gamelift-sdk-server.md "gamelift-sdk-server.md").
 
 The topics in this section provide guidance on how to get your software ready for
 deployment to the following scenarios.
 
-- Custom game server software
-  - For Amazon GameLift Servers managed EC2 hosting
-  - For Amazon GameLift Servers managed containers hosting
-  - For Amazon GameLift Servers Anywhere hosting
+- For managed EC2 hosting, package your server software and upload
+  it to Amazon GameLift Servers for deployment.
+- For managed containers hosting, build a container image with your
+  server software and store it in Amazon Elastic Container Registry for deployment.
+- For hosting with Amazon GameLift Servers Anywhere, package your server software as needed
+  for installation on your own hosting resources.
 
-- Amazon GameLift Servers Realtime customized script for Amazon GameLift Servers managed EC2 hosting
+###### Note
+
+If you're deploying an Amazon GameLift Servers Realtime configured script, see
+[Upload a script for Amazon GameLift Servers Realtime](../realtimeguide/realtime-script-uploading.md "../realtimeguide/realtime-script-uploading.md").
 
 ###### Topics
 
-- [Deploy a custom server build for Amazon GameLift Servers
-  hosting](gamelift-build-cli-uploading.md "gamelift-build-cli-uploading.md")
+- [Create a game server build for Amazon GameLift Servers](gamelift-build-cli-uploading.md "gamelift-build-cli-uploading.md")
 - [Build a container image for Amazon GameLift Servers](containers-prepare-images.md "containers-prepare-images.md")
-- [Deploy a script for Amazon GameLift Servers Realtime](realtime-script-uploading.md "realtime-script-uploading.md")

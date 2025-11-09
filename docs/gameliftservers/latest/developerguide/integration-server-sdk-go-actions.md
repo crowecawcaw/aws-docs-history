@@ -3,7 +3,8 @@
 Actions
 
 Use the server SDK 5.x reference to integrate your multiplayer game for hosting with
-Amazon GameLift Servers. For guidance about the integration process, see [Add Amazon GameLift Servers to your game server](gamelift-sdk-server-api.md "gamelift-sdk-server-api.md").
+Amazon GameLift Servers. For guidance about the integration process, see [Add Amazon GameLift Servers to your game server with the server
+SDK](gamelift-sdk-server-api.md "gamelift-sdk-server-api.md").
 
 `GameLiftServerAPI.go` defines the Go server SDK actions.
 
@@ -13,6 +14,8 @@ types](integration-server-sdk-go-datatypes.md "integration-server-sdk-go-datatyp
 ###### Actions
 
 - [GetSdkVersion()](#integration-server-sdk-go-getsdkversion "#integration-server-sdk-go-getsdkversion")
+- [InitMetrics()](#integration-server-sdk-go-initmetrics "#integration-server-sdk-go-initmetrics")
+- [InitMetricsFromEnvironment()](#integration-server-sdk-go-initmetricsfromenv "#integration-server-sdk-go-initmetricsfromenv")
 - [InitSDK()](#integration-server-sdk-go-initsdk "#integration-server-sdk-go-initsdk")
 - [ProcessReady()](#integration-server-sdk-go-processready "#integration-server-sdk-go-processready")
 - [ProcessEnding()](#integration-server-sdk-go-processending "#integration-server-sdk-go-processending")
@@ -51,6 +54,89 @@ an error message such as `common.SdkVersionDetectionFailed`.
 
 ```
 version, err := server.GetSdkVersion()
+```
+
+## InitMetrics()
+
+Initializes metrics collection for the Amazon GameLift Servers SDK. This method sets up metrics reporting
+to help monitor server performance and health. Call this method after [InitSDK()](#integration-server-sdk-go-initsdk "#integration-server-sdk-go-initsdk")
+but before [ProcessReady()](#integration-server-sdk-go-processready "#integration-server-sdk-go-processready").
+
+### Syntax
+
+```
+func InitMetrics() error
+func InitMetrics(metricsParameters MetricsParameters) error
+```
+
+### Parameters
+
+MetricsParameters (optional)
+
+A `MetricsParameters` object that configures metrics collection.
+If not provided, default metrics configuration is used. The MetricsParameters
+structure contains the following fields:
+
+- `StatsdHost` - The hostname or IP address of the StatsD server.
+- `StatsdPort` - The port number for the StatsD server.
+- `CrashReporterHost` - The hostname or IP address of the crash reporter service.
+- `CrashReporterPort` - The port number for the crash reporter service.
+- `FlushIntervalMs` - The interval in milliseconds for flushing metrics data.
+- `MaxPacketSize` - The maximum size of metrics packets in bytes.
+
+For more information about the MetricsParameters structure, see [Server SDK 5.x for C# data types](../../../https:/docs.aws.amazon.com/gameliftservers/latest/developerguide/integration-server-sdk5-csharp-datatypes.md "../../../https:/docs.aws.amazon.com/gameliftservers/latest/developerguide/integration-server-sdk5-csharp-datatypes.md").
+
+### Return value
+
+If successful, returns `nil` error to indicate that metrics collection
+has been initialized successfully.
+
+### Example
+
+Initialize metrics with default configuration:
+
+```
+err := server.InitMetrics()
+```
+
+Initialize metrics with custom configuration:
+
+```
+metricsParams := MetricsParameters{
+    StatsdHost:        "`localhost`",
+    StatsdPort:        `8125`,
+    CrashReporterHost: "`localhost`",
+    CrashReporterPort: `9125`,
+    FlushIntervalMs:   `5000`,
+    MaxPacketSize:     `1024`,
+}
+
+err := server.InitMetrics(metricsParams)
+```
+
+## InitMetricsFromEnvironment()
+
+Initializes metrics collection for the Amazon GameLift Servers SDK using configuration from environment variables.
+This method sets up metrics reporting using default settings derived from the runtime environment.
+
+Call this method after [InitSDK()](#integration-server-sdk-go-initsdk "#integration-server-sdk-go-initsdk")
+but before [ProcessReady()](#integration-server-sdk-go-processready "#integration-server-sdk-go-processready").
+
+### Syntax
+
+```
+func InitMetricsFromEnvironment() error
+```
+
+### Return value
+
+If successful, returns `nil` error to indicate that metrics collection
+has been initialized successfully using environment configuration.
+
+### Example
+
+```
+err := server.InitMetricsFromEnvironment()
 ```
 
 ## InitSDK()

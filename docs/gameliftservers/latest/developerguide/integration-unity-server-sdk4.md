@@ -4,14 +4,15 @@ project
 
 ###### Note
 
-This topic provides information for an earlier version of the Amazon GameLift Servers plugin for Unity. Version 1.0.0
-(released in 2021) uses the server SDK for Amazon GameLift Servers 4.x or earlier. For documentation on the
-latest version of the plugin, which uses server SDK 5.x and supports Amazon GameLift Servers Anywhere, see
+This topic provides information for an earlier version of the Amazon GameLift Servers plugin for Unity. Version 1.x
+uses the server SDK for Amazon GameLift Servers 4.x or earlier. For documentation on the
+latest plugin version, which uses server SDK 5.x and supports newer features such as Amazon GameLift Servers Anywhere and managed container hosting, see
 [Amazon GameLift Servers plugin for Unity (server SDK 5.x)](unity-plug-in.md "unity-plug-in.md").
 
 This topic helps you prepare your custom game server for hosting on Amazon GameLift Servers. The game server
 must be able to notify Amazon GameLift Servers about its status, to start and stop game sessions when
-prompted, and to perform other tasks. For more information, see  [Add Amazon GameLift Servers to your game server](gamelift-sdk-server-api.md "gamelift-sdk-server-api.md").
+prompted, and to perform other tasks. For more information, see  [Add Amazon GameLift Servers to your game server with the server
+SDK](gamelift-sdk-server-api.md "gamelift-sdk-server-api.md").
 
 ## Prerequisites
 
@@ -152,5 +153,4 @@ which uses server SDK 4.x or earlier.
 
 After you integrate your game server with Amazon GameLift Servers, upload the build files to a fleet so
 that Amazon GameLift Servers can deploy it for game hosting. For more information on how to upload your
-server to Amazon GameLift Servers, see [Deploy a custom server build for Amazon GameLift Servers
-hosting](gamelift-build-cli-uploading.md "gamelift-build-cli-uploading.md").
+server to Amazon GameLift Servers, see [Create a game server build for Amazon GameLift Servers](gamelift-build-cli-uploading.md "gamelift-build-cli-uploading.md").

@@ -120,8 +120,7 @@ same queues and matchmakers. Do the following tasks:
   Anywhere test fleet, you have to manually deploy your game server build and
   dependencies to each fleet compute. With a managed fleet, upload your game build
   package to Amazon GameLift Servers, which automatically deploys it to all fleet computes. See
-  [Deploy a custom server build for Amazon GameLift Servers
-  hosting](gamelift-build-cli-uploading.md "gamelift-build-cli-uploading.md") for details on packaging your
+  [Create a game server build for Amazon GameLift Servers](gamelift-build-cli-uploading.md "gamelift-build-cli-uploading.md") for details on packaging your
   game build files and creating a build resource with files in an Amazon S3
   bucket.
 - **Create a managed fleet.** Create a fleet using the console or

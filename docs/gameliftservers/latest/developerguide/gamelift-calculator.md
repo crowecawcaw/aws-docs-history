@@ -1,7 +1,7 @@
 # Generate Amazon GameLift Servers pricing estimates
 
 With AWS Pricing Calculator, you can [create a
-pricing estimate for Amazon GameLift Servers](https://calculator.aws/#/createCalculator/GameLift "https://calculator.aws/#/createCalculator/GameLift"). You don't need an AWS account or in-depth knowledge of
+pricing estimate for Amazon GameLift Servers](https://calculator.aws/#/createCalculator/GameLiftServers "https://calculator.aws/#/createCalculator/GameLiftServers"). You don't need an AWS account or in-depth knowledge of
 AWS to use the calculator.
 
 AWS Pricing Calculator calculator guides you through the decisions that affect service costs to give you an
@@ -9,10 +9,6 @@ idea of how much Amazon GameLift Servers might cost for your game project. If yo
 use Amazon GameLift Servers, then use the default values to generate an estimate. When planning for production
 usage, the calculator can help you test out potential scenarios and generate more accurate
 estimates.
-
-You can use AWS Pricing Calculator to generate estimates for the following Amazon GameLift Servers hosting options:
-
-- [Estimate Amazon GameLift Servers managed hosting](#gamelift-calculator-hosting "#gamelift-calculator-hosting")
 
 ## Estimate Amazon GameLift Servers managed hosting
 

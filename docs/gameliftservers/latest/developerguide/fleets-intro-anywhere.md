@@ -32,7 +32,6 @@ See these topics about how to set up and maintain Anywhere fleets:
   with Amazon GameLift Servers](gamelift-roadmap-hybrid.md "gamelift-roadmap-hybrid.md")
 - [Set up for iterative development with Amazon GameLift Servers Anywhere](integration-dev-iteration.md "integration-dev-iteration.md")
 - [Create an Amazon GameLift Servers Anywhere fleet](fleets-creating-anywhere.md "fleets-creating-anywhere.md")
-- [How Amazon GameLift Servers fleet creation works](fleets-intro.md#fleets-creation-workflow "fleets-intro.md#fleets-creation-workflow")
 - [Update an Amazon GameLift Servers fleet configuration](fleets-editing.md "fleets-editing.md")
 
 ## Anywhere fleet creation workflow

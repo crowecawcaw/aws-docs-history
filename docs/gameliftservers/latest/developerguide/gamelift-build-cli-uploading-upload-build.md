@@ -50,8 +50,7 @@ _Examples_
 ```
 aws gamelift upload-build \
  --operating-system AMAZON\_LINUX\_2023 \
-
-    --server-sdk-version "5.0.0" \
+ --server-sdk-version "5.0.0" \
     --build-root "~/mygame" \
     --name "My Game Nightly Build" \
     --build-version "build 255" \
@@ -60,8 +59,8 @@ aws gamelift upload-build \
 
 ```
 aws gamelift upload-build \
-    --operating-system WINDOWS_2016 \
-    --server-sdk-version "5.0.0" \
+ --operating-system WINDOWS\_2022 \
+ --server-sdk-version "5.0.0" \
     --build-root "C:\mygame" \
     --name "My Game Nightly Build" \
     --build-version "build 255" \

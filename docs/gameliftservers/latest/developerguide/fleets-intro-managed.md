@@ -36,8 +36,8 @@ don't have to:
   service.
 - Automatically starts and stops game server processes on each compute, based on
   your runtime configuration.
-- Offers capacity scaling tools, including auto scaling that dynamically adjusts
-  fleet capacity to meet player demand.
+- Offers auto scaling tools to adjust fleet capacity dynamically to meet player
+  demand.
 - Reports performance metrics for the fleet's EC2 instances.
   See these topics about how to set up and maintain managed EC2 fleets:
 
@@ -45,7 +45,7 @@ don't have to:
   managed EC2](gamelift-roadmap-managed.md "gamelift-roadmap-managed.md")
 - [Create an Amazon GameLift Servers managed EC2 fleet](fleets-creating.md "fleets-creating.md")
 - [Scaling game hosting capacity with Amazon GameLift Servers](fleets-manage-capacity.md "fleets-manage-capacity.md")
-- [Customize your Amazon GameLift Servers EC2 managed fleets](fleets-design.md "fleets-design.md")
+- [Hosting resource customizations](fleets-design.md "fleets-design.md")
 - [Update an Amazon GameLift Servers fleet configuration](fleets-editing.md "fleets-editing.md")
 
 ## Managed EC2 fleet creation workflow

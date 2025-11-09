@@ -15,9 +15,6 @@ monitor a fleet's status in the console or using the AWS Command Line Interface 
 ready to host game sessions, the status changes to `ACTIVE`. For more
 information about managed fleet creation, see these topics:
 
-- [How Amazon GameLift Servers fleet creation works](fleets-intro.md#fleets-creation-workflow "fleets-intro.md#fleets-creation-workflow")
-- [Debug Amazon GameLift Servers fleet issues](fleets-creating-debug.md "fleets-creating-debug.md")
-
 ###### Note
 
 As a best practice, we recommend replacing your fleets every 30 days to
@@ -31,46 +28,36 @@ Use either the Amazon GameLift Servers console or the AWS Command Line Interface
 
 Console
 In the [Amazon GameLift Servers console](https://console.aws.amazon.com/gamelift/ "https://console.aws.amazon.com/gamelift/"), use the navigation pane to open the
-**Fleets** page. Choose **Create
-fleet** to start the fleet creation workflow.
+**Managed EC2, Fleets** page. Choose **Create
+managed EC2 fleet** to start the fleet creation workflow.
 
-**Step 1 Choose compute type**
-Select the **Managed EC2** option and choose
-**Next**.
-
-**Step 2 Define fleet details**
-
-In this step, specify some fleet-wide settings.
+**Step 1 Define managed EC2 fleet details**
 
 ###### For a minimal fleet configuration:
 
 - Provide a fleet name.
-- Choose a binary type and specify an uploaded build or
-  script.
-- Skip the sections on additional details and tags.
+- Choose **Binary type: Build**.
+  Choose a build from the list of server builds that you've previously
+  uploaded to Amazon GameLift Servers.
+- Skip the Additional details and Tags sections to use default settings.
 
 1. Fill out the **Fleet details** section:
-   1. Enter a fleet **Name**. We recommend using a
-      fleet naming pattern that makes it easier to identify fleet
-      types when viewing lists of fleets.
-   2. Provide a short **Description** of the
-      fleet.
-   3. For **Binary type**, select
-      **Build** to indicate that you're deploying
-      a custom game server build, or select or
-      **Script** if you're deploying Amazon GameLift Servers Realtime to
-      this fleet. Select an uploaded build or script from the dropdown
-      list.
+   1. Enter a fleet **Name**. Fleet names are descriptive only, useful for
+      sorting or filtering a list of fleets. They don't need to be unique.
+   2. Provide a short fleet **Description** to include any custom information
+      you want to capture about the fleet.
+   3. Select **Binary type, Build**, and use the
+      dropdown list to choose a game server build that you've previously
+      uploaded to Amazon GameLift Servers.
 
-2. (Optional) Set **Additional details** as
+2. Set **Additional details** as
    needed.
    1. If your game server executable needs to access
       other AWS resources in your account, specify an
       IAM **Instance role** with the
       necessary permissions. For more information,
       including how to authorize other server-side
-      applications (such as CloudWatch agent), see [Communicate with other AWS resources from
-      your fleets](gamelift-sdk-server-resources.md "gamelift-sdk-server-resources.md").
+      applications (such as CloudWatch agent), see [Connect your Amazon GameLift Servers hosted game server to other AWS resources](gamelift-sdk-server-resources.md "gamelift-sdk-server-resources.md").
       This setting can't be changed after you create the
       fleet.
 
@@ -83,39 +70,41 @@ In this step, specify some fleet-wide settings.
    clients use this certificate to authenticate a game
    server when connecting and encrypt all client/server
    communication. For each instance in a TLS-enabled
-   fleet, Amazon GameLift Servers also creates a new DNS entry with the
+   fleet. Amazon GameLift Servers also creates a new DNS entry with the
    certificate. This setting can't be changed after you
-   create the fleet. 3. If you want to combine metric data for this fleet
-   and others, specify a **Metric
-   group** name. Use the same metric group
+   create the fleet. 3. Amazon GameLift Servers emits metric data for each individual fleet. If you want to combine metric data for multiple fleets,
+   specify a **Metric group** name. Use the same metric group
    name for all fleets that you want to combine
-   together. View metrics for the metric group to see
-   the aggregated data.
+   metrics for. Use CloudWatch to view the aggregated metric group data.
 
-3. (Optional) Add **Tags** to the fleet
+3. Add **Tags** to the fleet
    resource. Each tag consists of a key and an optional value,
    both of which you define. Assign tags to AWS resources
-   that you want to categorize in useful ways, such as by
+   that you want to categorize, such as by
    purpose, owner, or environment. Choose **Add new
    tag** for each tag that you want to add.
 4. Choose **Next** to continue the
    workflow.
 
-**Step 3 Define instance details**
+**Step 2 Define instance details**
 
-In this step, specify the type of hosting resources to use and
-where you want to deploy them. By choosing multiple locations, you
-can deploy your game server to a wider geographical location, which
-puts them closer to your players and minimizes latency. Not all EC2
-instance types are available in all locations.
+In this step, select the type of hardware resources to use for
+your game servers and specify where you want to deploy them. By
+choosing multiple locations, you can deploy your game server to a
+wider geographical location, which puts them closer to your players
+and minimizes latency. All EC2 instances in a fleet must be the same
+type. Not all instance types are available in all locations.
 
 ###### For a minimal fleet configuration:
 
-- Don't add remote locations.
+- Start with deploying to the home location only. You
+  don't need to add remote locations for initial
+  development and testing.
 - Set fleet type set to "On-Demand". Spot fleets require
   additional setup work.
 - Set instance type to "c5.large". This commonly used
-  instance type is available in all AWS Regions.
+  instance type is available in all AWS Regions. You can
+  optimize your hardware usage later.
 
 1. In **Instance deployment**, specify fleet
    locations and type.
@@ -131,7 +120,7 @@ instance types are available in all locations.
    To learn more about supported locations, including
    how to use an AWS Region that isn't enabled by
    default, see [Amazon GameLift Servers service locations](gamelift-regions.md "gamelift-regions.md") for managed
-   hosting. Also review Amazon GameLift Servers [quotas](https://aws.amazon.com/general/latest/gr/gamelift.html#limits_gamelift "https://aws.amazon.com/general/latest/gr/gamelift.html#limits_gamelift") on locations per fleet. 2. Choose to use either **On-demand** or
+   hosting. Also review Amazon GameLift Servers [quotas](../../../general/latest/gr/gamelift.md#limits_gamelift "../../../general/latest/gr/gamelift.md#limits_gamelift") on locations per fleet. 2. Choose to use either **On-demand** or
    **Spot** instances for this fleet. For
    more information about fleet types, see [On-Demand Instances versus Spot
    Instances](gamelift-compute.md#gamelift-compute-spot "gamelift-compute.md#gamelift-compute-spot").
@@ -159,10 +148,9 @@ types supported by Amazon GameLift Servers, see the API reference for [EC2Instan
 
 ###### Note
 
-Graviton Arm instances require an Amazon GameLift Servers server build on Linux OS.
-Server SDK 5.1.1 or newer is required for C++ and C#.
-Server SDK 5.0 or newer is required for Go.
-These instances provide no out-of-the-box support for Mono installation on Amazon Linux 2023 (AL2023) or Amazon Linux 2 (AL2). 3. Choose **Next** to continue the
+Graviton Arm instances require a server build for a Linux AMI.
+Server SDK 5.1.1 or newer is required for C++ and C#. Server SDK 5.0 or newer is required for Go.
+These instances do not provide out-of-the-box support for Mono installation on Amazon Linux 2023 (AL2023) or Amazon Linux 2 (AL2). 3. Choose **Next** to continue the
 workflow.
 
 **Step 4 Configure runtime**
@@ -196,10 +184,9 @@ can update these fleet settings at any time.
       `C:\game`. On Linux instances,
       game servers are built to `/local/game`.
       Examples:
-      `C:\game\MyGame\server.exe`,
-      `/local/game/MyGame/server.exe`,
+      `C:\game\MyGame\server.exe`
       or
-      `MyRealtimeLaunchScript.js`.
+      `/local/game/MyGame/server.exe`.
    2. Enter optional **Launch
       parameters** to pass to your game
       executable. Example: `+sv_port 33435
@@ -277,8 +264,8 @@ settings aren't allowed after the fleet has been created:
 
 - Compute type: You can't convert a managed EC2 fleet to an
   Anywhere fleet.
-- Build or script: To deploy an update to your game server
-  build or script, you must create a new fleet.
+- Game server binary: To deploy an update to your game
+  server build, you must create a new fleet.
 - Additional options, including instance role and TLS
   certificate generation.
 - Instance details, including fleet type (Spot or On-Demand)

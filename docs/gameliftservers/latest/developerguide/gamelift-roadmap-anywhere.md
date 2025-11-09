@@ -4,7 +4,7 @@ This roadmap guides you through how to develop a hosting solution for your
 multiplayer game to use with your own
 resources (on-premises hardware or virtual machines). Amazon GameLift Servers offers several game hosting options;
 for more information on these
-options, see [Amazon GameLift Servers solutions](gamelift-intro-flavors.md "gamelift-intro-flavors.md").
+options, see [Amazon GameLift Servers game hosting options](gamelift-intro-flavors.md "gamelift-intro-flavors.md").
 
 With Amazon GameLift Servers Anywhere hosting, your game server is hosted on computing resources that you
 supply and manage. You can create an Anywhere fleet with the configurations that you need
@@ -29,21 +29,21 @@ for an Anywhere fleet:
   solution.
   An Amazon GameLift Servers Anywhere solution is composed of the following components:
 
-- One or more Amazon GameLift Servers Anywhere fleets with your on-premises or other hosting
-  resources, managed with your existing configuration management and deployment
-  tooling. (You can optionally use the AWS Systems Manager.)
 - A game server build, integrated with the server SDK for Amazon GameLift Servers, to deploy across all
   fleets.
 - A game client and backend service, integrated with the AWS SDK, to interact with
   the Amazon GameLift Servers service and request game sessions.
-- An Amazon GameLift Servers queue to place new game sessions with available game servers across all
-  fleets.
+- An Amazon GameLift Servers queue or other placement mechanism to place new game sessions with
+  available game servers across all fleets.
 - (Optional) A FlexMatch matchmaker to create multi-player matches and set up game
   sessions for them.
+- One or more Amazon GameLift Servers Anywhere fleets with your on-premises or other hosting
+  resources, managed with your existing configuration management and deployment
+  tooling. (You can optionally use the AWS Systems Manager.)
   This roadmap presents a streamlined path to getting your multiplayer game up and running
   successfully with Amazon GameLift Servers Anywhere hosting. After you have the necessary components in place,
   you can continue to iterate on game development and customize your hosting solution. As you
-  get closer to launch, see these [Preparing your game for launch with Amazon GameLift Servers hosting](gamelift_quickstart_customservers_checklist.md "gamelift_quickstart_customservers_checklist.md") for help with preparing
+  get closer to launch, see these [Prepare for launch with Amazon GameLift Servers hosting](gamelift_quickstart_customservers_checklist.md "gamelift_quickstart_customservers_checklist.md") for help with preparing
   your hosting solution for production-level usage.
 
 ###### Get a jump start with the Amazon GameLift Servers plugin for Unreal Engine and Unity
@@ -52,7 +52,7 @@ For faster deployment, try the [Amazon GameLift Servers plugin](https://github.c
 guided UI workflows to quickly deploy your game server with minimal setup, so you can
 try out your game components in action.
 Then you can build on
-this foundation to create a custom hosting solution for your game. For more details, see [Explore with the Amazon GameLift Servers plugin](getting-started-plugin.md "getting-started-plugin.md").
+this foundation to create a custom hosting solution for your game. For more details, see [Prepare your Unreal or Unity game with the Amazon GameLift Servers plugin](getting-started-plugin.md "getting-started-plugin.md").
 
 Add functionality to your game server so that it can communicate with the Amazon GameLift Servers
 service when it's deployed for hosting.
@@ -62,7 +62,7 @@ service when it's deployed for hosting.
   available in C++, C#, and Go. [Download a Amazon GameLift Servers server
   SDK](https://aws.amazon.com/gamelift/servers/getting-started-sdks/ "https://aws.amazon.com/gamelift/servers/getting-started-sdks/").
 - **Modify your game server code to add server SDK
-  functionality.** For guidance, see [Integrate games with custom game servers](integration-custom-intro.md "integration-custom-intro.md"). At a minimum, do the following:
+  functionality.** For guidance, see [Prepare a game for hosting with Amazon GameLift Servers](integration-intro.md "integration-intro.md"). At a minimum, do the following:
   - Add code to initialize the Amazon GameLift Servers SDK and establish a WebSocket
     connection with the Amazon GameLift Servers service. Use the server SDK action
     `InitSdk()` and include server parameters, which are
@@ -100,14 +100,13 @@ service when it's deployed for hosting.
   hosting.** The backend service communicates with the Amazon GameLift Servers service
   and delivers connection information to a game client. This functionality
   includes starting game sessions, placing players into games, and retrieving game
-  session information. For guidance, see [Integrate games with custom game servers](integration-custom-intro.md "integration-custom-intro.md"). At a minimum, do the
+  session information. For guidance, see [Prepare a game for hosting with Amazon GameLift Servers](integration-intro.md "integration-intro.md"). At a minimum, do the
   following:
   - Get the AWS SDK for Amazon GameLift Servers and add it to your backend service
     project. See [Amazon GameLift Servers SDK
     resources for client services](gamelift-supported.md#gamelift-supported-clients "gamelift-supported.md#gamelift-supported-clients").
   - Add code to initialize an Amazon GameLift Servers client and store key
-    settings. See [Set up Amazon GameLift Servers on a backend
-    service](gamelift-sdk-client-api.md#gamelift-sdk-client-api-initialize "gamelift-sdk-client-api.md#gamelift-sdk-client-api-initialize").
+    settings. See [Set up the Amazon GameLift Servers API](gamelift-sdk-client-api.md#gamelift-sdk-client-api-initialize "gamelift-sdk-client-api.md#gamelift-sdk-client-api-initialize").
   - Add functionality to call the AWS SDK action
     `CreateGameSession()` and provide game session connection
     information to a game client. See [Create a game session on a
@@ -120,8 +119,7 @@ service when it's deployed for hosting.
   `StartMatchmaking()` if you're using FlexMatch).
 
   For guidance on designing your backend service, see
-  [Design your game client
-  service](gamelift_quickstart_customservers_designbackend.md "gamelift_quickstart_customservers_designbackend.md").
+  [Build a backend service for Amazon GameLift Servers](gamelift_quickstart_customservers_designbackend.md "gamelift_quickstart_customservers_designbackend.md").
 
 - **Add functionality to your game client that lets players
   join a hosted game session.** The game client makes requests to
@@ -202,10 +200,9 @@ handling these tasks with scripts, you can remove them:
   useful to ensure that they are updated regularly, and shutting down computes
   can save costs when they're not needed.
 - If your game server needs to communicate other AWS resources, set up IAM
-  roles to manage access. See [Communicate with other AWS resources from
-  your fleets](gamelift-sdk-server-resources.md "gamelift-sdk-server-resources.md").
+  roles to manage access. See [Connect your Amazon GameLift Servers hosted game server to other AWS resources](gamelift-sdk-server-resources.md "gamelift-sdk-server-resources.md").
 - Determine where geographically you want to position game servers. Add
-  remote locations to your managed fleets. See [Customize your Amazon GameLift Servers EC2 managed fleets](fleets-design.md "fleets-design.md").
+  remote locations to your managed fleets. See [Hosting resource customizations](fleets-design.md "fleets-design.md").
 - Optimize fleet performance by selecting compute resource configurations,
   then configure the runtime instructions to run an optimal number of server
   processes per compute.

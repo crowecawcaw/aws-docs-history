@@ -1,4 +1,10 @@
-# Track game hosting in the Amazon GameLift Servers console
+# Manage game hosting resources with Amazon GameLift Servers
+
+Manage Amazon GameLift Servers resources, including builds, fleets, game session queues, and matchmakers. You can use the
+Amazon GameLift Servers console to scan resource lists, or view resource details including metrics. You can also retrieve resource information
+using the AWS SDK or AWS CLI for Amazon GameLift Servers
+
+## Amazon GameLift Servers console features
 
 Use the Amazon GameLift Servers console to view and manage your game hosting resources and ongoing hosting activity in near real time. The
 console offers a graphical interface for most of the functionality of the service API for Amazon GameLift Servers. You can use the console to:
@@ -19,12 +25,8 @@ console offers a graphical interface for most of the functionality of the servic
 ###### Topics
 
 - [Hosting dashboard in the Amazon GameLift Servers
-  dashboard](gamelift-console-dashboard.md "gamelift-console-dashboard.md")
-- [Game server builds in the Amazon GameLift Servers dashboard](gamelift-console-builds.md "gamelift-console-builds.md")
-- [Amazon GameLift Servers Realtime scripts in the Amazon GameLift Servers console](gamelift-console-scripts.md "gamelift-console-scripts.md")
+  console](gamelift-console-dashboard.md "gamelift-console-dashboard.md")
+- [Game server builds](gamelift-console-builds.md "gamelift-console-builds.md")
 - [Fleets in the Amazon GameLift Servers console](gamelift-console-fleets.md "gamelift-console-fleets.md")
-- [Fleet details in the Amazon GameLift Servers console](gamelift-console-fleets-metrics.md "gamelift-console-fleets-metrics.md")
-- [Game and player sessions in
-  the Amazon GameLift Servers console](gamelift-console-game-player-sessions-metrics.md "gamelift-console-game-player-sessions-metrics.md")
 - [Aliases in the Amazon GameLift Servers console](gamelift-console-aliases.md "gamelift-console-aliases.md")
 - [Game session queues in the Amazon GameLift Servers console](queues-console.md "queues-console.md")

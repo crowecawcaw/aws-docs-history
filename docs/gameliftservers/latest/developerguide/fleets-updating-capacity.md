@@ -3,7 +3,7 @@
 When you create a new fleet, Amazon GameLift Servers automatically sets the desired instances to one
 instance in each fleet location. Then, Amazon GameLift Servers deploys one new instance in each location. To
 change fleet capacity, you can add a target-based auto scaling policy, or you can manually
-set the number of instances that you want for a location. For more information, see [Scaling fleet capacity](gamelift-howitworks.md#gamelift-howitworks-capacity "gamelift-howitworks.md#gamelift-howitworks-capacity").
+set the number of instances that you want for a location.
 
 Setting a fleet's capacity manually can be useful when you don't need auto scaling or when
 you need to hold capacity at a specified level. Manually setting capacity works only if you
@@ -32,7 +32,7 @@ Console
 3. On the **Fleets** page, choose the name of an active fleet to open the fleet's
    detail page.
 4. On the **Scaling** tab, under **Suspended
-   auto-scaling locations**, select each location that you
+   auto scaling locations**, select each location that you
    want to suspend auto scaling for, and then choose
    **Suspend**.
 5. Under **Scaling capacity**, select a location

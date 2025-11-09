@@ -1,9 +1,7 @@
-# Deploy a custom server build for Amazon GameLift Servers
-
-hosting
+# Create a game server build for Amazon GameLift Servers
 
 After you integrate your game server with Amazon GameLift Servers (see
-[Preparing games for Amazon GameLift Servers](integration-intro.md "integration-intro.md")), install the game server
+[Prepare a game for hosting with Amazon GameLift Servers](integration-intro.md "integration-intro.md")), install the game server
 software onto your compute resources for hosting. This process varies depending on the type of Amazon GameLift Servers
 hosting you're using.
 
@@ -31,5 +29,3 @@ activity back to the service.
   script](gamelift-build-cli-uploading-install.md "gamelift-build-cli-uploading-install.md")
 - [Create a Amazon GameLift Servers build resource for
   managed hosting](gamelift-build-cli-uploading-builds.md "gamelift-build-cli-uploading-builds.md")
-- [Update a game server build
-  for Amazon GameLift Servers managed hosting](gamelift-build-cli-uploading-update-build-files.md "gamelift-build-cli-uploading-update-build-files.md")

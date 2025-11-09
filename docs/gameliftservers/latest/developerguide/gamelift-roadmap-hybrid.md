@@ -4,7 +4,7 @@ with Amazon GameLift Servers
 
 This roadmap guides you through how to develop a hosting solution for your multiplayer
 game. Amazon GameLift Servers offers several game hosting options; for more information on these
-options, see [Amazon GameLift Servers solutions](gamelift-intro-flavors.md "gamelift-intro-flavors.md").
+options, see [Amazon GameLift Servers game hosting options](gamelift-intro-flavors.md "gamelift-intro-flavors.md").
 
 A hybrid solution uses a combination of hosting resources, including cloud-based
 resources managed by Amazon GameLift Servers and your own self-managed hosting resources. For a more
@@ -15,12 +15,6 @@ resources.
 
 A hybrid architecture consists of the following components:
 
-- One or more Amazon GameLift Servers managed fleets, which use Amazon Elastic Compute Cloud (Amazon EC2)
-  instances optimized for multiplayer game hosting.
-- One or more Amazon GameLift Servers Anywhere fleets, which use your existing on-premises
-  or other hosting resources, including your configuration management
-  and deployment tooling. (You can optionally use the
-  AWS Systems Manager.)
 - A single game server build, integrated with the server SDK for Amazon GameLift Servers, to
   deploy across all fleets.
 - A single game client and backend service, integrated with the AWS
@@ -28,14 +22,21 @@ A hybrid architecture consists of the following components:
   sessions.
 - A shared Amazon GameLift Servers queue to place new game sessions with available game
   servers and balance load across all fleets.
-- The Amazon GameLift Servers Agent, which is deployed with an Anywhere fleet, to simplify
-  server process management tasks across computes in all fleets.
+- (Optional) A process manager agent, which is deployed with an Anywhere
+  fleet, to simplify server process management tasks across computes
+  in all fleets.
 - (Optional) A FlexMatch matchmaker to create multi-player matches and set
   up game sessions for them.
+- One or more Amazon GameLift Servers managed fleets, which use Amazon Elastic Compute Cloud (Amazon EC2)
+  instances optimized for multiplayer game hosting.
+- One or more Amazon GameLift Servers Anywhere fleets, which use your existing on-premises
+  or other hosting resources, including your configuration management
+  and deployment tooling. (You can optionally use the
+  AWS Systems Manager.)
   This roadmap presents a streamlined path to getting your multiplayer game up and
   running successfully in a hybrid hosting solution with Amazon GameLift Servers. After you have the
   necessary components in place, you can continue to iterate on game development and
-  customize your hosting solution. As you get closer to launch, see these [Preparing your game for launch with Amazon GameLift Servers hosting](gamelift_quickstart_customservers_checklist.md "gamelift_quickstart_customservers_checklist.md") for help with
+  customize your hosting solution. As you get closer to launch, see these [Prepare for launch with Amazon GameLift Servers hosting](gamelift_quickstart_customservers_checklist.md "gamelift_quickstart_customservers_checklist.md") for help with
   preparing your hosting solution for production-level usage.
 
 ###### Get a jump start with the Amazon GameLift Servers plugin
@@ -58,7 +59,7 @@ managed fleet or an Anywhere fleet.
   server SDK for Amazon GameLift Servers](https://aws.amazon.com/gamelift/servers/getting-started-sdks/ "https://aws.amazon.com/gamelift/servers/getting-started-sdks/").
 - **Modify your game server code to
   add server SDK functionality.** For
-  guidance, see [Integrate games with custom game servers](integration-custom-intro.md "integration-custom-intro.md"). At a
+  guidance, see [Prepare a game for hosting with Amazon GameLift Servers](integration-intro.md "integration-intro.md"). At a
   minimum, do the following:
   - Add code to initialize the Amazon GameLift Servers SDK and
     establish a WebSocket connection with the Amazon GameLift Servers
@@ -111,14 +112,13 @@ managed fleet or an Anywhere fleet.
   delivers connection information to a game client.
   This functionality includes starting game sessions,
   placing players into games, and retrieving game
-  session information. For guidance, see [Integrate games with custom game servers](integration-custom-intro.md "integration-custom-intro.md"). At a
+  session information. For guidance, see [Prepare a game for hosting with Amazon GameLift Servers](integration-intro.md "integration-intro.md"). At a
   minimum, do the following:
   - Get the AWS SDK for Amazon GameLift Servers and add it
     to your backend service project. See [Amazon GameLift Servers SDK
     resources for client services](gamelift-supported.md#gamelift-supported-clients "gamelift-supported.md#gamelift-supported-clients").
   - Add code to initialize an Amazon GameLift Servers
-    client and store key settings. See [Set up Amazon GameLift Servers on a backend
-    service](gamelift-sdk-client-api.md#gamelift-sdk-client-api-initialize "gamelift-sdk-client-api.md#gamelift-sdk-client-api-initialize").
+    client and store key settings. See [Set up the Amazon GameLift Servers API](gamelift-sdk-client-api.md#gamelift-sdk-client-api-initialize "gamelift-sdk-client-api.md#gamelift-sdk-client-api-initialize").
   - Add functionality to call the AWS SDK
     action `CreateGameSession()` and
     provide game session connection information to a
@@ -135,8 +135,7 @@ managed fleet or an Anywhere fleet.
   FlexMatch).
 
   For guidance on designing your backend
-  service, see [Design your game client
-  service](gamelift_quickstart_customservers_designbackend.md "gamelift_quickstart_customservers_designbackend.md").
+  service, see [Build a backend service for Amazon GameLift Servers](gamelift_quickstart_customservers_designbackend.md "gamelift_quickstart_customservers_designbackend.md").
 
 - **Add functionality to your game
   client that lets players join a hosted game
@@ -256,15 +255,14 @@ scripts, you can remove them:
   script with your build files, dependencies and
   supporting software. You can use the same build
   software with both your Anywhere and managed fleets.
-  See [Deploy a custom server build for Amazon GameLift Servers
-  hosting](gamelift-build-cli-uploading.md "gamelift-build-cli-uploading.md").
+  See [Create a game server build for Amazon GameLift Servers](gamelift-build-cli-uploading.md "gamelift-build-cli-uploading.md").
   You can upload your build to Amazon GameLift Servers using either the
   console or the AWS CLI.
 
 Before uploading your build, decide in what
 AWS Region you want to create the managed fleet.
 You must upload the build to the same Region. For
-more on choosing a fleet location, see [Fleet location](gamelift-compute.md#gamelift-compute-location "gamelift-compute.md#gamelift-compute-location").
+more on choosing a fleet location, see [Geographic locations](gamelift-compute.md#gamelift-compute-location "gamelift-compute.md#gamelift-compute-location").
 
 - **Create a managed EC2
   fleet.** You can use the Amazon GameLift Servers console or
@@ -310,18 +308,17 @@ more on choosing a fleet location, see [Fleet location](gamelift-compute.md#game
   save costs when they're not needed.
 - If your game server needs to communicate other AWS
   resources, set up IAM roles to manage access. See
-  [Communicate with other AWS resources from
-  your fleets](gamelift-sdk-server-resources.md "gamelift-sdk-server-resources.md").
+  [Connect your Amazon GameLift Servers hosted game server to other AWS resources](gamelift-sdk-server-resources.md "gamelift-sdk-server-resources.md").
 - Determine where geographically you want to position
   game servers. Add remote locations to your managed
-  fleets. See [Customize your Amazon GameLift Servers EC2 managed fleets](fleets-design.md "fleets-design.md").
+  fleets. See [Hosting resource customizations](fleets-design.md "fleets-design.md").
 - For managed fleets, consider using Spot fleets for
-  cost savings. See [Tutorial: Create an Amazon GameLift Servers queue with Spot Instances](tutorial-queues-spot.md "tutorial-queues-spot.md").
+  cost savings. See [Reduce game hosting costs with Spot fleets](fleets-spot.md "fleets-spot.md") .
 - Optimize fleet performance by selecting compute
   resource configurations, then configure your the
   runtime instructions to run the optimal number of
   server processes per compute. Do this for both
-  Anywhere fleets and managed fleets. See [Manage how Amazon GameLift Servers launches game servers](fleets-multiprocess.md "fleets-multiprocess.md").
+  Anywhere fleets and managed fleets. See [Optimize game server runtime configuration on managed Amazon GameLift Servers](fleets-multiprocess.md "fleets-multiprocess.md").
 - Experiment with game session placement options for
   managed fleets, including customizing prioritization
   settings. See [Customize a game session queue](queues-design.md "queues-design.md").
@@ -338,7 +335,7 @@ more on choosing a fleet location, see [Fleet location](gamelift-compute.md#game
   analytics and logging. See [Monitoring Amazon GameLift Servers](monitoring-overview.md "monitoring-overview.md"). Create
   metric groups to aggregate analytics for all your
   hosting resources.
-- Automate your deployment using [infrastructure as code (IaC)](../../../whitepapers/latest/introduction-devops-aws/infrastructure-as-code.md "../../../whitepapers/latest/introduction-devops-aws/infrastructure-as-code.md"). See [Managing Amazon GameLift Servers hosting resources using AWS CloudFormation](resources-cloudformation.md "resources-cloudformation.md").
+- Automate your deployment using [infrastructure as code (IaC)](../../../whitepapers/latest/introduction-devops-aws/infrastructure-as-code.md "../../../whitepapers/latest/introduction-devops-aws/infrastructure-as-code.md"). See [Manage Amazon GameLift Servers hosting resources using AWS CloudFormation](resources-cloudformation.md "resources-cloudformation.md").
 
 Amazon GameLift Servers supports the use of AWS CloudFormation templates for any
 deployment-specific configurations. You can also use

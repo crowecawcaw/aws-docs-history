@@ -22,7 +22,7 @@ To get the Fast Build Update Tool and learn more about how to use it, visit the 
 You can update mutable fleet attributes, port settings, and runtime configurations
 using the Amazon GameLift Servers console or the AWS CLI. To change scaling limits, see [Auto-scale fleet capacity with Amazon GameLift Servers](fleets-autoscaling.md "fleets-autoscaling.md").
 
-Amazon GameLift Servers console
+Console
 
 1. In the [Amazon GameLift Servers console](https://console.aws.amazon.com/gamelift/ "https://console.aws.amazon.com/gamelift/"), in the navigation pane, choose
    **Fleets**.

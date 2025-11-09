@@ -1,43 +1,135 @@
 # Choose compute resources for a managed fleet
 
-To deploy your game servers and host game sessions in the cloud, Amazon GameLift Servers provides
-managed fleets that use [Amazon Elastic Compute Cloud (Amazon EC2) resources](../../../AWSEC2/latest/UserGuide/Instances.md "../../../AWSEC2/latest/UserGuide/Instances.md") called
-_instances_. Use the following topics to help decide what type of EC2
-instances you want to use for your managed hosting solution and how to configure them to run
-your game server software.
+For Amazon GameLift Servers managed hosting, including managed EC2 and managed containers, the service
+deploys your game servers to fleets of computing resources in the AWS Cloud. When you
+create a managed fleet, you want to configure the hosting resources to best suit your game.
+This topic discusses key decision points when choosing and configuring your game hosting
+fleets.
 
 ###### Note
 
-If you plan to use hosting resources that you own, either on-premises hardware or
-other cloud-based hosting, consider options for hybrid hosting with Amazon GameLift Servers Anywhere. See
-[Setting up a hosting fleet with Amazon GameLift Servers](fleets-intro.md "fleets-intro.md").
+If you're building a hybrid solution with both Anywhere and Amazon GameLift Servers managed fleets, use these topics to
+design managed fleets to supplement your own self-managed resources. See
+[Deploy hosting fleets for Amazon GameLift Servers](fleets-intro.md "fleets-intro.md").
 
 ###### Topics
 
-- [Fleet location](#gamelift-compute-location "#gamelift-compute-location")
-- [On-Demand Instances versus Spot
-  Instances](#gamelift-compute-spot "#gamelift-compute-spot")
+- [Geographic locations](#gamelift-compute-location "#gamelift-compute-location")
 - [Operating systems](#gamelift-compute-os "#gamelift-compute-os")
 - [Instance types](#gamelift-compute-instance "#gamelift-compute-instance")
+- [On-Demand Instances versus Spot
+  Instances](#gamelift-compute-spot "#gamelift-compute-spot")
 - [Service quotas](#gamelift-service-limits "#gamelift-service-limits")
 
-## Fleet location
+## Geographic locations
 
-Consider the geographic locations where you plan to deploy your game servers. Instance
-type availability varies by AWS Region and Local Zone.
+Consider where you plan to deploy your game servers. In general, you want to put your
+game servers as close as possible to your players to deliver the best possible player
+experience. For Amazon GameLift Servers managed hosting, you can choose to put game servers in any of
+the supported AWS Regions and Local Zones. If you're building a hybrid solution, consider
+how managed fleet deployment can supplement the locations of your self-managed
+Amazon GameLift Servers Anywhere fleets.
 
-For multi-location fleets, instance availability and quotas depend on a combination of
-the fleet's home Region and selected remote locations. For more information about fleet
-locations, see [Amazon GameLift Servers service locations](gamelift-regions.md "gamelift-regions.md").
+For most development and testing scenarios, deploying to a single location makes
+sense. As you prepare for launch and beyond, there are many reasons to deploy across
+multiple geographic locations. These include supporting a widespread group of players
+and improving overall game hosting resilience and reliability. Multiple locations can
+also boost player experience by speeding up game session placement and enabling more
+choices when optimizing placements for latency and cost.
 
-Consider using [UDP ping beacons](reference-udp-ping-beacons.md "reference-udp-ping-beacons.md") to collect network latency data
-in various geographical locations to anticipate the latency between player devices and
-potential fleet locations. These special endpoints accept UDP messages instead of
-traditional ICMP pings, providing accurate latency measurements to help you select
-optimal fleet locations.
+For a list of locations that are supported by Amazon GameLift Servers and more information about
+locations for all fleet types, see [Amazon GameLift Servers service locations](gamelift-regions.md "gamelift-regions.md").
 
-For Amazon GameLift Servers Anywhere fleets, you determine the location of your physical
-hardware. For more information about custom locations, see [Locations for Amazon GameLift Servers Anywhere](gamelift-regions.md#gamelift-regions-anywhere "gamelift-regions.md#gamelift-regions-anywhere").
+Multi-location fleets
+
+A single managed fleet can deploy resources to multiple locations. You can manually
+set capacity for each individual location in a multi-location fleet.
+
+Advantages of using a multi-location fleet:
+
+- Simplified fleet deployment and management – You supply the game server
+  software and fleet configuration, and Amazon GameLift Servers deploys it to fleet instances
+  across multiple locations (build once, deploy anywhere). In a production fleet,
+  you can view and manage all locations in a fleet instead of having to manage
+  multiple fleets each located in a different region.
+- Local Zone availability – If you want to use a Local Zone you must create a
+  multi-location fleet with an AWS Region home location and Local Zones as remote
+  locations. Local Zones are extensions of AWS Regions that can deliver even lower
+  latency to areas and customers that need it. You can add a Local Zone to any
+  multi-location fleet; you don't need to include the Local Zone's parent AWS Region.
+- Compatibility with game session queues – You can build game session
+  placement queues with one or more multi-location fleets. This approach gives the
+  queue flexibility when prioritizing and choosing locations to host a new game
+  session.
+- Efficient resource utilization – With auto-scaling turned on, Amazon GameLift Servers
+  can better optimize capacity scaling across all locations in a fleet.
+
+Tips for using multi-location fleets:
+
+- Check for quotas on the number of locations per AWS Region or fleet. See
+  [Amazon GameLift Servers service quotas](../../../general/latest/gr/gamelift.md#limits_gamelift "../../../general/latest/gr/gamelift.md#limits_gamelift").
+- Not all instance types are available in all locations. Depending on your
+  chosen locations, you might have limited instance type options. The Amazon GameLift Servers
+  console provides useful tools to help you find the right balance of locations
+  and instance types.
+- Consider using [UDP ping beacons](reference-udp-ping-beacons.md "reference-udp-ping-beacons.md") to collect player latency
+  data for all your fleet locations. Amazon GameLift Servers can use this data to optimize game
+  sessions for low latency and prevent players from joining sessions with
+  unacceptably high latency. These special endpoints accept UDP messages instead
+  of traditional ICMP pings, providing accurate latency measurements to help you
+  select optimal fleet locations.
+
+## Operating systems
+
+All instances in a managed fleet are deployed with an Amazon machine image (AMI) that
+provides a complete runtime environment for your game server software. For managed EC2
+fleets, you specify the game server build's operating system when you upload the build
+to Amazon GameLift Servers. For managed container fleets, you specify the operating system in the
+container group definition. For more information about the latest AMI versions, see
+[Amazon GameLift Servers AMI versions](reference-ec2-ami-version-history.md "reference-ec2-ami-version-history.md").
+
+AMI versions are regularly updated. When you create a new fleet, Amazon GameLift Servers assigns the
+latest available version of the AMI you selected for your game build. All instances that
+are deployed in that fleet use the same version. To keep your AMI version up to date
+with the latest security and software updates, you need to regularly replace your
+fleets. As a best practice, we recommend replacing your managed fleets every 30 days to
+maintain the runtime environment for your game servers. For guidance, see [Security best practices for Amazon GameLift Servers](security-best-practices.md "security-best-practices.md").
+
+## Instance types
+
+A managed fleet's instance type determines the kind of hardware that is deployed for
+all fleet instances, and instance types are generally available in various sizes. All
+Amazon GameLift Servers managed fleet use Amazon EC2 instances, and support a wide range of instance types that
+offer different combinations of computing power, memory, storage, and networking
+capabilities. The availability of instance types varies depending on the locations you
+choose.
+
+The Amazon GameLift Servers console provides useful tools to help you find the right instance types for
+your game build and your deployment locations. For managed container fleets, the console
+also offers guidance on your game's CPU power and memory requirements.
+
+When choosing from available instance types for your game, consider:
+
+- The compute architecture of your game server: x64 or Arm (AWS Graviton).
+
+###### Note
+
+Graviton Arm instances require a server build for a Linux AMI.
+Server SDK 5.1.1 or newer is required for C++ and C#. Server SDK 5.0 or newer is required for Go.
+These instances do not provide out-of-the-box support for Mono installation on Amazon Linux 2023 (AL2023) or Amazon Linux 2 (AL2).
+
+- The computing, memory, and storage requirements of your game server build.
+- The size of your instance type. In addition to meeting the requirements of
+  your game server software executables, larger instance type sizes can run
+  multiple game server processes and/or containers on each instance. Factors to
+  consider include cost (is it cheaper to run a few large instances or many small
+  instances). Also consider how game session capacity might be impacted by adding
+  or removing instances during fleet scaling events or when shutting down
+  unhealthy instances. If each instance runs many game server processes
+  concurrently, adding or removing an instance can significantly affect ame
+  hosting capacity.
+
+For more information about instance types, see [Amazon EC2 Instance Types](https://aws.amazon.com/ec2/instance-types/ "https://aws.amazon.com/ec2/instance-types/").
 
 ## On-Demand Instances versus Spot
 
@@ -48,67 +140,37 @@ but they differ in availability and cost.
 
 ###### On-Demand Instances
 
-You can acquire an On-Demand Instance when you need it, and keep it for as long as
-you want. On-Demand Instances have a fixed cost, meaning you pay for the amount of
-time that you use them, and there are no long-term commitments.
+You can acquire an On-Demand Instance when you need it and keep it for as long as
+you want. On-Demand Instances have a fixed cost, meaning you pay only for the amount
+of time that you use them. There are no long-term commitments.
 
 ###### Spot Instances
 
 Spot Instances can offer a cost-efficient alternative to On-Demand Instances by
 utilizing unused AWS computing capacity. Spot Instance prices fluctuate based on
-the supply and demand for each instance type in each location. AWS can interrupt
-Spot Instances whenever it needs the capacity back. Amazon GameLift Servers uses queues and the FleetIQ
-algorithm to determine that AWS is going to interrupt a Spot Instance, it puts the
-instance in a recycling state. Then, when there are no active game sessions on the
-instance, Amazon GameLift Servers tries to replace it.
+the supply and demand for each instance type in each location. AWS can reclaim
+Spot Instances with a two-minute notification whenever it needs the capacity back,
+and game sessions actively running on a reclaimed instance are interrupted.
 
-For more information about how to use Spot Instances, see [Design a queue for Spot Instances](spot-tasks.md "spot-tasks.md").
+Amazon GameLift Servers offers several tools to help mitigate the likelihood of Spot interruptions
+to your game sessions. A spot viability algorithm tracks instance type historical data
+to anticipate when the risk of interruption reaches a critical point and avoids placing
+new game sessions on Spot Instances of that type. If an interruption does occur, your
+game servers can use the notification to gracefully end a game session for
+players.
 
-## Operating systems
+Game hosting with Spot fleets must use a queue for game session placement. A queue is
+able to prioritize game session placements based on Spot fleet viability, cost, and
+other factors. See these topics for more information about how to take advantage of Spot
+for your game server hosting:
 
-Amazon GameLift Servers instances support game server builds that run on Microsoft Windows or Amazon Linux. When
-you upload a game build to Amazon GameLift Servers, specify the operating system for the game. When you
-create an Amazon EC2 fleet to deploy the game build, Amazon GameLift Servers automatically sets up instances
-with the build's operating system. For more information about supported game server
-operating systems, see [Get Amazon GameLift Servers development tools](gamelift-supported.md "gamelift-supported.md").
-
-When using a Amazon GameLift Servers Anywhere fleet, you can use any operating system that
-your hardware supports. Amazon GameLift Servers Anywhere fleets require you to deploy your game build to
-the hardware while using Amazon GameLift Servers to manage your resources in one place.
-
-## Instance types
-
-An Amazon EC2 fleet's instance type determines the kind of hardware that the instances use.
-Different instance types offer different combinations of computing power, memory,
-storage, and networking capabilities.
-
-When choosing from available instance types for your game, consider:
-
-- The compute architecture of your game server: x64 or Arm (AWS Graviton).
-
-###### Note
-
-Graviton Arm instances require an Amazon GameLift Servers server build on Linux OS.
-Server SDK 5.1.1 or newer is required for C++ and C#.
-Server SDK 5.0 or newer is required for Go.
-These instances provide no out-of-the-box support for Mono installation on Amazon Linux 2023 (AL2023) or Amazon Linux 2 (AL2).
-
-- The computing, memory, and storage requirements of your game server build.
-- The number of server processes that you plan to run per instance.
-
-By using a larger instance type, you may be able to run multiple server processes on
-each instance. This can reduce the number of instances required to meet player demand.
-
-For more information:
-
-- About instance types, see [Amazon EC2 Instance
-  Types](https://aws.amazon.com/ec2/instance-types/ "https://aws.amazon.com/ec2/instance-types/").
-- About running multiple processes per instance, see [Manage how Amazon GameLift Servers launches game servers](fleets-multiprocess.md "fleets-multiprocess.md").
+- [Reduce game hosting costs with Spot fleets](fleets-spot.md "fleets-spot.md")
+- [Build a queue for Spot Instances](spot-tasks.md "spot-tasks.md")
 
 ## Service quotas
 
-To see the default service quotas for Amazon GameLift Servers, and the current quotas for your
-AWS account, do the following:
+You can view default service quotas for Amazon GameLift Servers and current quota status for your
+AWS account using the following tools:
 
 - For general service quota information for Amazon GameLift Servers, see [Amazon GameLift Servers
   endpoints and quotas](../../../general/latest/gr/gamelift.md "../../../general/latest/gr/gamelift.md") in the

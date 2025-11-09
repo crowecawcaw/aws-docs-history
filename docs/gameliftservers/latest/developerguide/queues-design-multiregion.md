@@ -3,7 +3,7 @@
 We recommend a multi-location design for all queues. This design can improve placement
 speed and hosting resiliency. A multi-location design is required to use player latency
 data to put players into game sessions with minimal latency. If you're building
-multi-location queues that use Spot Instance fleets, follow the instructions in [Tutorial: Create an Amazon GameLift Servers queue with Spot Instances](tutorial-queues-spot.md "tutorial-queues-spot.md").
+multi-location queues that use Spot Instance fleets, follow the instructions in [Reduce game hosting costs with Spot fleets](fleets-spot.md "fleets-spot.md") .
 
 One way to create a multi-location queue is to add a [multi-location fleet](gamelift-regions.md#gamelift-regions-hosting "gamelift-regions.md#gamelift-regions-hosting") to a queue. That way,
 the queue can place game sessions in any of the fleet's locations. You can also add

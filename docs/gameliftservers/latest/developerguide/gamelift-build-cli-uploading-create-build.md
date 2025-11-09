@@ -126,7 +126,7 @@ _Example_
 
 ```
 aws gamelift create-build \
-    --operating-system WINDOWS_2016 \
+ --operating-system WINDOWS\_2022 \
     --storage-location "Bucket"="my_game_build_files","Key"="mygame_build_101.zip","RoleArn"="arn:aws:iam::111122223333:role/gamelift" \
     --name "My Game Nightly Build" \
     --build-version "build 101" \

@@ -1,10 +1,16 @@
 # Game session queues in the Amazon GameLift Servers console
 
+The queue resource represents your configuration of the game session placement component. It determines how
+Amazon GameLift Servers searches for and chooses the best possible compute resource to host a new game session, based on your configuration choices.
+
+View information about game session queues in the Amazon GameLift Servers console or using the or AWS SDK for Amazon GameLift Servers.
+
+Console
 You can view information on all queues, which are used to process requests for new game sessions. The queues page
 shows game session queues in the currently selected AWS Region. From the **Queues** page, you
 can create a new queue, delete existing queues, or open a details page for a selected queue.
 Each queue details page contains the queue's configuration and metrics data. For more
-information about queues, see [Managing game session placement with Amazon GameLift Servers queues](queues-intro.md "queues-intro.md").
+information about queues, see [Configure game session placement](queues-intro.md "queues-intro.md").
 
 The queues page displays the following summary information for each queue. You can adjust the table content as needed using the **Preferences**
 tool (see the ![Gear icon representing settings or configuration options.](images/settings.png)
@@ -19,7 +25,7 @@ account user and are automatically applied whenever you view this page.
   queue configuration. Amazon GameLift Servers places new game sessions on any fleet in the
   queue.
 
-## View queue details
+###### View queue details
 
 You can access detailed information on any queue, including the queue configuration and
 metrics. To open a queue details page, go to the **Queues** page and choose
@@ -38,9 +44,7 @@ On this page you can do the following:
 To restore a deleted queue, create a new queue with the deleted queue's
 name.
 
-### Details
-
-###### Overview
+###### Details
 
 The **Overview** section displays the queue's Amazon Resource
 Name (**ARN**) and the **Timeout**. You can use
@@ -60,7 +64,7 @@ data** that is added to all events created by this queue.
 The **Tags** table displays the keys and values used to tag the
 resource. For more information about tagging, see [Tagging AWS resources](../../../general/latest/gr/aws_tagging.md "../../../general/latest/gr/aws_tagging.md").
 
-### Metrics
+###### Metrics
 
 The **Metrics** tab shows a graphical representation of queue metrics
 over time.
@@ -73,7 +77,7 @@ detect issues with the overall queue design.
 Queue metrics are also available in Amazon CloudWatch. For descriptions of available metrics,
 see [Amazon GameLift Servers metrics for queues](monitoring-cloudwatch.md#gamelift-metrics-queue "monitoring-cloudwatch.md#gamelift-metrics-queue").
 
-### Destinations
+###### Destinations
 
 The **Destinations** tab shows all fleets or aliases listed for the
 queue.
@@ -85,7 +89,9 @@ game session placement requests override the default order by providing player l
 data. This data tells Amazon GameLift Servers to search for an available destination with the lowest
 average player latency. For more information about designing your queues, see [Customize a game session queue](queues-design.md "queues-design.md").
 
-### Session placement
+###### Session placement
+
+Configuration settings that customize the placement process for your game.
 
 ###### Player latency policies
 
@@ -107,3 +113,8 @@ a game sessions details.
 The **Location order** section shows the default order that the
 queue uses when placing game sessions. The queue uses this order if you haven't
 defined other types of priority.
+
+AWS SDK
+Use the following AWS CLI commands to retrieve information about this resource:
+
+- [DescribeGameSessionQueues](../apireference/API_DescribeGameSessionQueues.md "../apireference/API_DescribeGameSessionQueues.md")

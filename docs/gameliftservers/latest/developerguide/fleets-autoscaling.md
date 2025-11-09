@@ -1,6 +1,6 @@
 # Auto-scale fleet capacity with Amazon GameLift Servers
 
-Use auto-scaling in Amazon GameLift Servers to dynamically scale your fleet capacity in response to game
+Use auto scaling in Amazon GameLift Servers to dynamically scale your fleet capacity in response to game
 server activity. As players arrive and start game sessions, auto scaling can add more
 instances; as player demand wanes, auto scaling can terminate unneeded instances. Auto
 scaling is an effective way to minimize your hosting resources and costs, while still

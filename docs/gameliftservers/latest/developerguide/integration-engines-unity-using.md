@@ -223,12 +223,12 @@ for hosting with Amazon GameLift Servers, consider these potential next steps:
   example, you might want to add player sessions with unique player IDs, set up
   matchmaking backfill, or manage game server access to your other AWS resources
   (such as a database or content storage service). See these topics for guidance:
-  - [Add Amazon GameLift Servers to your game server](gamelift-sdk-server-api.md "gamelift-sdk-server-api.md")
+  - [Add Amazon GameLift Servers to your game server with the server
+    SDK](gamelift-sdk-server-api.md "gamelift-sdk-server-api.md")
   - [C++ (Unreal) server SDK 5.x for
     Amazon GameLift Servers -- Actions](integration-server-sdk5-unreal-actions.md "integration-server-sdk5-unreal-actions.md")
 
 - Customize your game client component to request game sessions, receive
   connection information, and connect directly to a game server to play a game.
   See these topics for guidance:
-  - [Integrate your game client
-    withAmazon GameLift Servers](gamelift-sdk-client.md "gamelift-sdk-client.md")
+  - [Integrate Amazon GameLift Servers game client functionality](gamelift-sdk-client-api.md "gamelift-sdk-client-api.md")

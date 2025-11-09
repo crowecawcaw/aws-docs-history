@@ -1,6 +1,6 @@
 # Hosting dashboard in the Amazon GameLift Servers
 
-dashboard
+console
 
 Use the Amazon GameLift Servers console dashboard to get a high-level snapshot about the current status of
 the Amazon GameLift Servers hosting resources in your AWS account. The **Amazon GameLift Servers dashboard** provides a view of the

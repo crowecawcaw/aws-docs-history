@@ -1,5 +1,11 @@
-# Game server builds in the Amazon GameLift Servers dashboard
+# Game server builds
 
+The build resource represents your game server software. You upload your build package to
+Amazon GameLift Servers for deployment to managed EC2 fleets.
+
+View information about game server builds in the Amazon GameLift Servers console or using the or AWS SDK for Amazon GameLift Servers.
+
+Console
 On the **Builds** page of the [Amazon GameLift Servers
 console](https://console.aws.amazon.com/gamelift/ "https://console.aws.amazon.com/gamelift/"), you can view information about and manage all the game server builds
 that you've uploaded to Amazon GameLift Servers for deployment on managed EC2 fleets. In the navigation pane,
@@ -41,7 +47,8 @@ only.
   build file uploaded to Amazon GameLift Servers.
 - **Fleets** – The number of fleets deployed
   with the build.
-  From this page you can do any of the following:
+
+From this page you can do any of the following:
 
 - View build details. Choose a build's name to open its build details page.
 - Create a new fleet from a build. Select a build, and then choose **Create
@@ -50,10 +57,17 @@ only.
 - Delete a build. Select a build, and then choose
   **Delete**.
 
-## Build details
+###### Build details
 
 On the **Builds** page, choose a build's name to open its details
-page. The **Overview** section of the details page displays the same
-build summary information as the **Builds** page. The
-**Fleets** section shows a list of fleets created with the build,
-including the same summary information as the [Fleets page](gamelift-console-fleets.md "gamelift-console-fleets.md").
+page. The **Overview** section of the details page displays
+the same build summary information as the **Builds** page.
+The **Fleets** section shows a list of fleets that are
+running the build, including the same summary information as the [Fleets
+page](gamelift-console-fleets.md "gamelift-console-fleets.md").
+
+AWS SDK
+Use the following AWS CLI commands to retrieve information about this resource:
+
+- [ListBuild](../apireference/API_ListBuilds.md "../apireference/API_ListBuilds.md")
+- [DescribeBuild](../apireference/API_DescribeBuild.md "../apireference/API_DescribeBuild.md")
