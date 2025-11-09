@@ -167,10 +167,23 @@ following table includes a list of denylist operators that are considered in thi
 section, and includes links to their procedures for delisting an IP address.
 
 | Denylist operator                   | Link to delisting procedures                                                                                                     |
-| ----------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Spamhaus                            | [Spamhaus website](https://www.spamhaus.org/lookup/ "https://www.spamhaus.org/lookup/")                                          |
+| ----------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| Spamhaus                            | [Spamhaus<br>website](https://www.spamhaus.org/lookup/ "https://www.spamhaus.org/lookup/")                                       |
 | Barracuda                           | [Barracuda website](https://www.barracudacentral.org/rbl/removal-request "https://www.barracudacentral.org/rbl/removal-request") |
-| Cloudmark Sender Intelligence (CSI) | [Cloudmark sender intelligence website](https://csi.cloudmark.com/en/reset/ "https://csi.cloudmark.com/en/reset/")               |
+| Cloudmark Sender Intelligence (CSI) | [Cloudmark sender<br>intelligence website](https://csi.cloudmark.com/en/reset/ "https://csi.cloudmark.com/en/reset/")            |
 | LashBack                            | [LashBack website](https://blacklist.lashback.com/ "https://blacklist.lashback.com/")                                            |
-| Passive Spam Block List (PSBL)      | [Passive spam block list website](https://psbl.org/remove "https://psbl.org/remove")                                             |
-| SpamCop                             | [SpamCop website](https://www.spamcop.net/fom-serve/cache/298.html "https://www.spamcop.net/fom-serve/cache/298.html")           | ## Domain authentication This section contains information about the various methods that you can use to authenticate your domains. To configure DKIM or SPF authentication for a domain, you must add specific records to the DNS configuration for the domain. To view these records, choose **View the DNS record**. The procedures for updating the DNS records for a domain vary depending on which DNS or web hosting provider that you use. See your provider's documentation for more information about adding DNS records. |
+| Passive Spam Block List (PSBL)      | [Passive spam block list<br>website](https://psbl.org/remove "https://psbl.org/remove")                                          |
+| SpamCop                             | [SpamCop<br>website](https://www.spamcop.net/fom-serve/cache/298.html "https://www.spamcop.net/fom-serve/cache/298.html")        |
+
+## Domain
+
+authentication
+
+This section contains information about the various methods that you can use to
+authenticate your domains. To configure DKIM or SPF authentication for a domain, you
+must add specific records to the DNS configuration for the domain. To view these
+records, choose **View the DNS record**.
+
+The procedures for updating the DNS records for a domain vary depending on which DNS
+or web hosting provider that you use. See your provider's documentation for more
+information about adding DNS records.

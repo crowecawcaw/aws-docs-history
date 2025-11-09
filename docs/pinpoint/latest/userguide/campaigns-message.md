@@ -710,9 +710,15 @@ or more from this list. 4. Choose **Send message**.
    **Send a test message to**, choose one of the options
    in the following table.
 
-| If you're sending...       | Choose...                                    | And then enter...                                                                                           |
-| -------------------------- | -------------------------------------------- | ----------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
-| An email                   | **Email addresses**                          | A comma-separated list of valid email addresses.                                                            |
-| An in-app message          | Either **Endpoint IDs** or **A Segment**.    | A comma-separated list of endpoint IDs, or a single segment. You can also build a new segment for the test. |
-| An SMS message             | **Phone numbers**                            | A comma-separated list of E.164-formatted phone numbers.                                                    |
-| A mobile push notification | Either **Endpoint IDs** or **Device tokens** | A comma-separated list of endpoint IDs or device tokens, depending on the type of address you chose.        | 3. Choose **Send message**. ###### Next [Schedule the campaign](campaigns-schedule.md "campaigns-schedule.md") |
+| If you're sending...       | Choose...                                              | And then enter...                                                                                                 |
+| -------------------------- | ------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------- |
+| An email                   | **Email addresses**                                    | A comma-separated list of valid email addresses.                                                                  |
+| An in-app message          | Either **Endpoint IDs\*<br>• or **A<br>Segment\*\*.    | A comma-separated list of endpoint IDs, or a single<br>segment. You can also build a new segment for the<br>test. |
+| An SMS message             | **Phone numbers**                                      | A comma-separated list of E.164-formatted phone<br>numbers.                                                       |
+| A mobile push notification | Either **Endpoint IDs\*<br>• or<br>**Device tokens\*\* | A comma-separated list of endpoint IDs or device tokens,<br>depending on the type of address you chose.           |
+
+3. Choose **Send message**.
+
+###### Next
+
+[Schedule the campaign](campaigns-schedule.md "campaigns-schedule.md")
