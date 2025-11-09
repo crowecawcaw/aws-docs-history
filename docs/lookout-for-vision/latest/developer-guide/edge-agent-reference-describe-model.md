@@ -65,10 +65,10 @@ The status message for the model.
 
 ## Status codes
 
-| Code             | Number | Description                                                                         |
-| ---------------- | ------ | ----------------------------------------------------------------------------------- |
-| OK               | 0      | The call was successful.                                                            |
-| UNKNOWN          | 2      | An unknown error has occurred.                                                      |
-| INVALID_ARGUMENT | 3      | One or more input parameters are invalid. Check the error message for more details. |
-| NOT_FOUND        | 5      | A model with the supplied name wasn't found.                                        |
-| INTERNAL         | 13     | An internal error has occurred.                                                     |
+| Code             | Number | Description                                                                            |
+| ---------------- | ------ | -------------------------------------------------------------------------------------- |
+| OK               | 0      | The call was successful.                                                               |
+| UNKNOWN          | 2      | An unknown error has occurred.                                                         |
+| INVALID_ARGUMENT | 3      | One or more input parameters are invalid. Check the error<br>message for more details. |
+| NOT_FOUND        | 5      | A model with the supplied name wasn't found.                                           |
+| INTERNAL         | 13     | An internal error has occurred.                                                        |

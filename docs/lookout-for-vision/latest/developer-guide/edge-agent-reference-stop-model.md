@@ -42,11 +42,11 @@ see [ModelStatus](edge-agent-reference-enums-model-status.md "edge-agent-referen
 
 ## Status codes
 
-| Code                | Number | Description                                                                         |
-| ------------------- | ------ | ----------------------------------------------------------------------------------- |
-| OK                  | 0      | The model is stopping.                                                              |
-| UNKNOWN             | 2      | An unknown error has occurred.                                                      |
-| INVALID_ARGUMENT    | 3      | One or more input parameters are invalid. Check the error message for more details. |
-| NOT_FOUND           | 5      | A model with the supplied name wasn't found.                                        |
-| FAILED_PRECONDITION | 9      | The method was called for a model that is not in the RUNNING state.                 |
-| INTERNAL            | 13     | An internal error has occurred.                                                     |
+| Code                | Number | Description                                                                            |
+| ------------------- | ------ | -------------------------------------------------------------------------------------- |
+| OK                  | 0      | The model is stopping.                                                                 |
+| UNKNOWN             | 2      | An unknown error has occurred.                                                         |
+| INVALID_ARGUMENT    | 3      | One or more input parameters are invalid. Check<br>the error message for more details. |
+| NOT_FOUND           | 5      | A model with the supplied name wasn't found.                                           |
+| FAILED_PRECONDITION | 9      | The method was called for a model that is not in the<br>RUNNING state.                 |
+| INTERNAL            | 13     | An internal error has occurred.                                                        |

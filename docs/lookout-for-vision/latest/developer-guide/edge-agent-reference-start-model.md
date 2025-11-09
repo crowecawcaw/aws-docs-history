@@ -47,12 +47,12 @@ see [ModelStatus](edge-agent-reference-enums-model-status.md "edge-agent-referen
 
 ## Status codes
 
-| Code                | Number | Description                                                                                                                                                    |
-| ------------------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| OK                  | 0      | The model is starting                                                                                                                                          |
-| UNKNOWN             | 2      | An unknown error has occurred.                                                                                                                                 |
-| INVALID_ARGUMENT    | 3      | One or more input parameters are invalid. Check the error message for more details.                                                                            |
-| NOT_FOUND           | 5      | A model with the supplied name wasn't found.                                                                                                                   |
-| RESOURCE_EXHAUSTED  | 8      | There isn't enough resources to perform this operation. For example, there is isn't enough memory to load the model. Check the error message for more details. |
-| FAILED_PRECONDITION | 9      | The method was called for model that is not in the STOPPED or FAILED state.                                                                                    |
-| INTERNAL            | 13     | An internal error has occurred.                                                                                                                                |
+| Code                | Number | Description                                                                                                                                                       |
+| ------------------- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| OK                  | 0      | The model is starting                                                                                                                                             |
+| UNKNOWN             | 2      | An unknown error has occurred.                                                                                                                                    |
+| INVALID_ARGUMENT    | 3      | One or more input parameters are invalid. Check<br>the error message for more details.                                                                            |
+| NOT_FOUND           | 5      | A model with the supplied name wasn't found.                                                                                                                      |
+| RESOURCE_EXHAUSTED  | 8      | There isn't enough resources to perform this operation. For example,<br>there is isn't enough memory to load the model. Check the error message for more details. |
+| FAILED_PRECONDITION | 9      | The method was called for model that is not in the STOPPED or FAILED state.                                                                                       |
+| INTERNAL            | 13     | An internal error has occurred.                                                                                                                                   |
