@@ -35,8 +35,6 @@ Before starting this tutorial, review the [Prerequisites](b2b-tutorials.md#tutor
   configuration](inbound-tutorial-step6-testing.md "inbound-tutorial-step6-testing.md")
 - [Step 7: Monitor your inbound
   workflow](inbound-tutorial-step7-monitoring.md "inbound-tutorial-step7-monitoring.md")
-- [Testing notes - Documentation team
-  validation](inbound-tutorial-testing-notes.md "inbound-tutorial-testing-notes.md")
 - [Cleanup steps](inbound-tutorial-cleanup.md "inbound-tutorial-cleanup.md")
 - [Next steps](#inbound-tutorial-conclusion "#inbound-tutorial-conclusion")
 

@@ -14,10 +14,16 @@ AWS B2B Data Interchange is supported in the following regions: N. Virginia, Ohi
 Your AWS account has the following quotas related to AWS B2B Data Interchange.
 
 | Resource                                            | Default | Adjustable       |
-| --------------------------------------------------- | ------- | ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| --------------------------------------------------- | ------- | ---------------- |
 | Maximum number of profiles per account              | 5       | Yes (up to 50)   |
 | Maximum number of trading capabilities per account  | 100     | Yes (up to 200)  |
 | Maximum number of transformers per account          | 500     | Yes (up to 5000) |
 | Maximum number of partnerships per account          | 700     | Yes (up to 1000) |
 | Maximum electronic data interchange (EDI) file size | 150 MB  | No               |
-| Maximum output JSON/XML file size                   | 512 MB  | No               | For more information about supported AWS Regions, endpoints, and service quotas, see [AWS B2B Data Interchange endpoints and quotas](../../../general/latest/gr/b2bi-service.md "../../../general/latest/gr/b2bi-service.md") in the _Amazon Web Services General Reference_. For information about troubleshooting quota-related issues, see [Troubleshooting AWS B2B Data Interchange](troubleshooting.md "troubleshooting.md"). |
+| Maximum output JSON/XML file size                   | 512 MB  | No               |
+
+For more information about supported AWS Regions, endpoints, and service quotas, see
+[AWS B2B Data Interchange
+endpoints and quotas](../../../general/latest/gr/b2bi-service.md "../../../general/latest/gr/b2bi-service.md") in the _Amazon Web Services General Reference_.
+
+For information about troubleshooting quota-related issues, see [Troubleshooting AWS B2B Data Interchange](troubleshooting.md "troubleshooting.md").
