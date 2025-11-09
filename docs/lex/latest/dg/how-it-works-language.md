@@ -17,21 +17,29 @@ Languages and Locales
 
 Amazon Lex V1 supports the following languages and locales.
 
-| Code                                                                                      | Language and locale             |
-| ----------------------------------------------------------------------------------------- | ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| de-DE                                                                                     | German (German)                 |
-| en-AU                                                                                     | English (Australia)             |
-| en-GB                                                                                     | English (UK)                    |
-| en-IN                                                                                     | English (India)                 |
-| en-US                                                                                     | English (US)                    |
-| es-419                                                                                    | Spanish (Latin America)         |
-| es-ES                                                                                     | Spanish (Spain)                 |
-| es-US                                                                                     | Spanish (US)                    |
-| fr-CA                                                                                     | French (Canada)                 |
-| fr-FR                                                                                     | French (France)                 |
-| it-IT                                                                                     | Italian (Italy)                 |
-| ja-JP                                                                                     | Japanese (Japan)                |
-| ko-KR                                                                                     | Korean (Korea)                  | ## Languages and Locales Supported by Amazon Lex Features All Amazon Lex features are supported in all languages and locales except as listed in this table. |
-| Feature                                                                                   | Supported languages and locales |
-| ---                                                                                       | ---                             |
-| [Setting Intent Context](context-mgmt-active-context.md "context-mgmt-active-context.md") | English (US) (en-US)            |
+| Code   | Language and locale     |
+| ------ | ----------------------- |
+| de-DE  | German (German)         |
+| en-AU  | English (Australia)     |
+| en-GB  | English (UK)            |
+| en-IN  | English (India)         |
+| en-US  | English (US)            |
+| es-419 | Spanish (Latin America) |
+| es-ES  | Spanish (Spain)         |
+| es-US  | Spanish (US)            |
+| fr-CA  | French (Canada)         |
+| fr-FR  | French (France)         |
+| it-IT  | Italian (Italy)         |
+| ja-JP  | Japanese (Japan)        |
+| ko-KR  | Korean (Korea)          |
+
+## Languages and Locales
+
+Supported by Amazon Lex Features
+
+All Amazon Lex features are supported in all languages and locales
+except as listed in this table.
+
+| Feature                                                                                      | Supported languages and locales |
+| -------------------------------------------------------------------------------------------- | ------------------------------- |
+| [Setting Intent<br>Context](context-mgmt-active-context.md "context-mgmt-active-context.md") | English (US) (en-US)            |

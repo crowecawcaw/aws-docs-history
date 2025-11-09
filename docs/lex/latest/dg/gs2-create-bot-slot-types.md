@@ -36,6 +36,10 @@ through [Step 4](#slotTypeFinish "#slotTypeFinish") using
 the values in the following table:
 
 | Name      | Description      | Values               | Slot name | Prompt                             |
-| --------- | ---------------- | -------------------- | --------- | ---------------------------------- | ------------------------------------------------------------------------------------------------------------ |
+| --------- | ---------------- | -------------------- | --------- | ---------------------------------- |
 | Sizes     | Available sizes  | small, medium, large | size      | What size pizza?                   |
-| PizzaKind | Available pizzas | veg, cheese          | pizzaKind | Do you want a veg or cheese pizza? | ## Next Step [Configure the Intent](gs2-create-bot-configure-intent.md "gs2-create-bot-configure-intent.md") |
+| PizzaKind | Available pizzas | veg, cheese          | pizzaKind | Do you want a veg or cheese pizza? |
+
+## Next Step
+
+[Configure the Intent](gs2-create-bot-configure-intent.md "gs2-create-bot-configure-intent.md")

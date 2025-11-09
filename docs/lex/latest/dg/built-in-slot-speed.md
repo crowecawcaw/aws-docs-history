@@ -16,9 +16,9 @@ The following examples show how the
 `AMAZON.SpeedUnit` slot type captures speed
 units.
 
-| Speed unit                                         | Abbreviation |
-| -------------------------------------------------- | ------------ |
-| miles per hour, mph, MPH, m/h                      | mph          |
-| kilometers per hour, km per hour, kmph, KMPH, km/h | kmph         |
-| meters per second, mps, MPS, m/s                   | mps          |
-| nautical miles per hour, knots, knot               | knot         |
+| Speed unit                                            | Abbreviation |
+| ----------------------------------------------------- | ------------ |
+| miles per hour, mph, MPH, m/h                         | mph          |
+| kilometers per hour, km per hour, kmph,<br>KMPH, km/h | kmph         |
+| meters per second, mps, MPS, m/s                      | mps          |
+| nautical miles per hour, knots, knot                  | knot         |

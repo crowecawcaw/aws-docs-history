@@ -99,7 +99,7 @@ depends on the region that you are using for your
 bot.
 
 | Region                   | Default time zone     |
-| ------------------------ | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------------------ | --------------------- |
 | US East (N. Virginia)    | `America/New_York`    |
 | US West (Oregon)         | `America/Los_Angeles` |
 | Asia Pacific (Singapore) | `Asia/Singapore`      |
@@ -107,4 +107,65 @@ bot.
 | Asia Pacific (Tokyo)     | `Asia/Tokyo`          |
 | Europe (Frankfurt)       | `Europe/Berlin`       |
 | Europe (Ireland)         | `Europe/Dublin`       |
-| Europe (London)          | `Europe/London`       | For example, if the user responds `tomorrow` in response to the prompt "Which day would you like your package delivered?" the actual _date_ that the package is delivered depends on the user's time zone. For example, when it is 01:00 September 16 in New York, it is 22:00 September 15 in Los Angeles. If your service is running in the US East (N. Virginia) Region and a person in Los Angeles orders a package to be delivered "tomorrow" using the default time zone, the package would be delivered on the 17th, not the 16th. However, if you set the `x-amz-lex:time-zone` request attribute to `America/Los_Angeles`, the package would be delivered on the 16th. You can set the attribute to any of the Internet Assigned Number Authority (IANA) time zone names. For the list of time zone names, see the [List of tz database time zones](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones "https://en.wikipedia.org/wiki/List_of_tz_database_time_zones") on Wikipedia. ## Setting User-Defined Request Attributes A _user-defined request attribute_ is data that you send to your bot in each request. You send the information in the `amz-lex-request-attributes` header of a `PostContent` request or in the `requestAttributes` field of a `PostText` request. To send request attributes to Amazon Lex, you create a string-to-string map of the attributes. The following shows how to map request attributes: `{ "attributeName": "attributeValue", "attributeName": "attributeValue" }` For the `PostText` operation, you insert the map into the body of the request using the `requestAttributes` field, as follows: `"requestAttributes": { "attributeName": "attributeValue", "attributeName": "attributeValue" }` For the `PostContent` operation, you base64 encode the map, and then send it as the `x-amz-lex-request-attributes` header. If you are sending binary or structured data in a request attribute, you must first transform the data to a simple string. For more information, see [Setting Complex Attributes](context-mgmt-complex-attributes.md "context-mgmt-complex-attributes.md"). |
+| Europe (London)          | `Europe/London`       |
+
+For example, if the user responds `tomorrow` in
+response to the prompt "Which day would you like your
+package delivered?" the actual _date_
+that the package is delivered depends on the user's time
+zone. For example, when it is 01:00 September 16 in New
+York, it is 22:00 September 15 in Los Angeles. If your
+service is running in the US East (N. Virginia) Region and a
+person in Los Angeles orders a package to be delivered
+"tomorrow" using the default time zone, the package would be
+delivered on the 17th, not the 16th. However, if you set the
+`x-amz-lex:time-zone` request attribute to
+`America/Los_Angeles`, the package would be
+delivered on the 16th.
+
+You can set the attribute to any of the Internet Assigned
+Number Authority (IANA) time zone names. For the list of
+time zone names, see the [List of tz database time zones](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones "https://en.wikipedia.org/wiki/List_of_tz_database_time_zones") on
+Wikipedia.
+
+## Setting User-Defined Request
+
+Attributes
+
+A _user-defined request attribute_ is data
+that you send to your bot in each request. You send the
+information in the `amz-lex-request-attributes`
+header of a `PostContent` request or in the
+`requestAttributes` field of a
+`PostText` request.
+
+To send request attributes to Amazon Lex, you create a
+string-to-string map of the attributes. The following shows how
+to map request attributes:
+
+```
+{
+   "attributeName": "attributeValue",
+   "attributeName": "attributeValue"
+}
+```
+
+For the `PostText` operation, you insert the map
+into the body of the request using the
+`requestAttributes` field, as follows:
+
+```
+"requestAttributes": {
+   "attributeName": "attributeValue",
+   "attributeName": "attributeValue"
+}
+```
+
+For the `PostContent` operation, you base64 encode
+the map, and then send it as the
+`x-amz-lex-request-attributes` header.
+
+If you are sending binary or structured data in a request
+attribute, you must first transform the data to a simple string.
+For more information, see [Setting Complex
+Attributes](context-mgmt-complex-attributes.md "context-mgmt-complex-attributes.md").

@@ -97,7 +97,7 @@ API to send requests. For more information, see [PostText](API_runtime_PostText.
     Then, Amazon Lex returns the following
     response:
 
-    ![JSON data sent in response to a request for the FlowerType slot.](/images/lex/latest/dg/images/gs-1-details-20.png)
+    ![JSON data sent in response to a request for the FlowerType slot.](images/gs-1-details-20.png)
 
     The client displays the message in the
     response.

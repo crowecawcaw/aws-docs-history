@@ -376,7 +376,7 @@ following steps, see [PostText](API_runtime_PostText.md "API_runtime_PostText.md
        configuration and sends the following response back
        to the client:
 
-    ![JSON data to ask for the PickupTime slot.](/images/lex/latest/dg/images/gs-1-details-30.png)
+    ![JSON data to ask for the PickupTime slot.](images/gs-1-details-30.png)
 
     The client displays the message in the response
     – "Deliver the roses at what time on
