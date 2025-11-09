@@ -14,7 +14,9 @@ requirements are met.
 
 You will need to allow ingress to your Wickr server on the following ports:
 
-- 443/TCP for HTTPS and TCP Calling traffic
+- 443/TCP for HTTPS
+- Calling TCP Proxy Only - The TCP proxy port configured for TCP Calling traffic in
+  KOTS
 - 16384-19999/UDP for UDP Calling traffic
 - LAN Only - 30000/TCP for Accessing the KOTS Admin Console
   **System requirements**
