@@ -135,5 +135,27 @@ Resource Names (ARN) and AWS Service Namespaces](../../../general/latest/gr/aws-
 _Amazon Web Services General Reference_.
 
 | Resource Type  | ARN Format                                                      |
-| -------------- | --------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Resource Group | `arn:aws:resource-groups:`region`:`account`:group/`group-name`` | ## How tagging works Tags are key and value pairs that act as metadata for organizing your AWS resources. With most AWS resources, you have the option of adding tags when you create the resource, whether it's an Amazon EC2 instance, an Amazon S3 bucket, or other resource. However, you can also add tags to multiple, supported resources at once by using Tag Editor. You build a query for resources of various types, and then add, remove, or replace tags for the resources in your search results. Tag-based queries assign an `AND` operator to tags, so any resource that matches the specified resource types and all specified tags is returned by the query. ###### Important Do not store personally identifiable information (PII) or other confidential or sensitive information in tags. We use tags to provide you with billing and administration services. Tags are not intended to be used for private or sensitive data. For more information about tagging, see the [Tag Editor User Guide](../../../tag-editor/latest/userguide.md "../../../tag-editor/latest/userguide.md"). You can tag [supported resources](supported-resources.md "supported-resources.md") by using Tag Editor, and some additional resources by using tagging functionality in the service console in which you create and manage the resource. |
+| -------------- | --------------------------------------------------------------- |
+| Resource Group | `arn:aws:resource-groups:`region`:`account`:group/`group-name`` |
+
+## How tagging works
+
+Tags are key and value pairs that act as metadata for organizing your AWS resources.
+With most AWS resources, you have the option of adding tags when you create the
+resource, whether it's an Amazon EC2 instance, an Amazon S3 bucket, or other resource. However,
+you can also add tags to multiple, supported resources at once by using Tag Editor. You
+build a query for resources of various types, and then add, remove, or replace tags for
+the resources in your search results. Tag-based queries assign an `AND`
+operator to tags, so any resource that matches the specified resource types and all
+specified tags is returned by the query.
+
+###### Important
+
+Do not store personally identifiable information (PII) or other confidential or
+sensitive information in tags. We use tags to provide you with billing and
+administration services. Tags are not intended to be used for private or sensitive
+data.
+
+For more information about tagging, see the [Tag Editor User Guide](../../../tag-editor/latest/userguide.md "../../../tag-editor/latest/userguide.md"). You can tag [supported resources](supported-resources.md "supported-resources.md") by using Tag Editor, and some
+additional resources by using tagging functionality in the service console in which you
+create and manage the resource.
