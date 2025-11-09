@@ -35,8 +35,7 @@ _AWS WAF Developer Guide_.
 
 ###### Note
 
-You pay standard AWS WAF pricing. You don't incur any additional costs for using AWS WAF web ACLs for your App Runner services.
-For more information about
+You pay standard AWS WAF pricing. You don't incur any additional costs for using AWS WAF web ACLs for your App Runner services.  For more information about
 pricing, see [AWS WAF Pricing](https://aws.amazon.com/waf/pricing "https://aws.amazon.com/waf/pricing").
 
 ## Associating WAF web ACLs to your App Runner service

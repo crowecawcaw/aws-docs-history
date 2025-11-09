@@ -145,7 +145,7 @@ The following diagram outlines the steps for creating an App Runner service:
 
 With automatic deployment, each new commit to your repository source directory automatically deploys a new version of your service.
 
-![Source and deployment settings while creating an App Runner service](images/getting-started-create-source-depl.png) 3. Configure application build.
+![Source and deployment settings while creating an App Runner service](/images/apprunner/latest/dg/images/getting-started-create-source-depl.png) 3. Configure application build.
 
     1. On the **Configure build** page, for **Configuration file**, choose **Configure all settings
      here**.

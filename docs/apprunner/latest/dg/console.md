@@ -63,7 +63,7 @@ down by using the filter text box. For more information about connected accounts
 1. Open the [App Runner console](https://console.aws.amazon.com/apprunner "https://console.aws.amazon.com/apprunner"), and in the **Regions** list, select your AWS Region.
 2. In the navigation pane, choose **Connected accounts**.
 
-![App Runner Connected accounts page](images/console-connections-github.png)
+![App Runner Connected accounts page](/images/apprunner/latest/dg/images/console-connections-github.png)
 
 Things you can do here:
 
