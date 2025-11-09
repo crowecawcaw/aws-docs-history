@@ -135,9 +135,9 @@ throughput of your event source mapping. To ensure maximum performance, you may 
 settings independently. For details about configuring provisioned mode, see the following sections:
 
 - [Configuring provisioned mode for Amazon MSK
-  event source mappings](msk-scaling-modes.md "msk-scaling-modes.md")
+  event source mappings](kafka-scaling-modes.md "kafka-scaling-modes.md")
 - [Configuring provisioned mode for self-managed Apache Kafka
-  event source mappings](with-kafka-process.md#services-kafka-provisioned-mode "with-kafka-process.md#services-kafka-provisioned-mode")
+  event source mappings](kafka-scaling-modes.md#kafka-provisioned-mode "kafka-scaling-modes.md#kafka-provisioned-mode")
 
 To minimize latency when using Kafka event source mappings in provisioned mode, set `MaximumBatchingWindowInSeconds` to 0.
 This setting ensures that Lambda will start processing the next batch

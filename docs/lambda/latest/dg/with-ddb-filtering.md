@@ -311,11 +311,11 @@ To properly filter events from DynamoDB sources, both the data field and your fi
 must be in valid JSON format. If either field isn't in a valid JSON format, Lambda drops the message or throws an exception. The following
 table summarizes the specific behavior:
 
-| Incoming data format | Filter pattern format for data properties | Resulting action                                                                                                                                              |
-| -------------------- | ----------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Valid JSON           | Valid JSON                                | Lambda filters based on your filter criteria.                                                                                                                 |
-| Valid JSON           | No filter pattern for data properties     | Lambda filters (on the other metadata properties only) based on your filter criteria.                                                                         |
-| Valid JSON           | Non-JSON                                  | Lambda throws an exception at the time of the event source mapping creation or update. The filter pattern for data properties must be in a valid JSON format. |
-| Non-JSON             | Valid JSON                                | Lambda drops the record.                                                                                                                                      |
-| Non-JSON             | No filter pattern for data properties     | Lambda filters (on the other metadata properties only) based on your filter criteria.                                                                         |
-| Non-JSON             | Non-JSON                                  | Lambda throws an exception at the time of the event source mapping creation or update. The filter pattern for data properties must be in a valid JSON format. |
+| Incoming data format | Filter pattern format for data properties | Resulting action                                                                                                                                                 |
+| -------------------- | ----------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Valid JSON           | Valid JSON                                | Lambda filters based on your filter criteria.                                                                                                                    |
+| Valid JSON           | No filter pattern for data properties     | Lambda filters (on the other metadata properties only) based on your filter criteria.                                                                            |
+| Valid JSON           | Non-JSON                                  | Lambda throws an exception at the time of the event source mapping creation or update. The filter pattern<br>for data properties must be in a valid JSON format. |
+| Non-JSON             | Valid JSON                                | Lambda drops the record.                                                                                                                                         |
+| Non-JSON             | No filter pattern for data properties     | Lambda filters (on the other metadata properties only) based on your filter criteria.                                                                            |
+| Non-JSON             | Non-JSON                                  | Lambda throws an exception at the time of the event source mapping creation or update. The filter pattern<br>for data properties must be in a valid JSON format. |

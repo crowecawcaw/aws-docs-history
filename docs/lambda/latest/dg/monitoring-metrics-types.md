@@ -259,11 +259,17 @@ source mapping metrics are available for Amazon SQS, Kinesis, and DynamoDB strea
 following availability matrix summarizes the supported metrics for each type of event source.
 
 | Event source mapping metric               | Support for Amazon SQS | Support for Kinesis and DynamoDB streams |
-| ----------------------------------------- | ---------------------- | ---------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ----------------------------------------- | ---------------------- | ---------------------------------------- |
 | `PolledEventCount`                        | Yes                    | Yes                                      |
 | `FilteredOutEventCount`                   | Yes                    | Yes                                      |
 | `InvokedEventCount`                       | Yes                    | Yes                                      |
 | `FailedInvokeEventCount`                  | Yes                    | Yes                                      |
 | `DroppedEventCount`                       | No                     | Yes                                      |
 | `OnFailureDestinationDeliveredEventCount` | No                     | Yes                                      |
-| `DeletedEventCount`                       | Yes                    | No                                       | In addition, if your event source mapping is in [provisioned mode](invocation-eventsourcemapping.md#invocation-eventsourcemapping-provisioned-mode "invocation-eventsourcemapping.md#invocation-eventsourcemapping-provisioned-mode"), Lambda provides the following metric: <br>• `ProvisionedPollers` – For event source mappings in provisioned mode, the number of event pollers that are actively running. View this metric using the `MAX` metric. |
+| `DeletedEventCount`                       | Yes                    | No                                       |
+
+In addition, if your event source mapping is in [provisioned mode](invocation-eventsourcemapping.md#invocation-eventsourcemapping-provisioned-mode "invocation-eventsourcemapping.md#invocation-eventsourcemapping-provisioned-mode"), Lambda provides the following metric:
+
+- `ProvisionedPollers` – For event source mappings in provisioned mode,
+  the number of event pollers that are actively running. View this metric using the
+  `MAX` metric.

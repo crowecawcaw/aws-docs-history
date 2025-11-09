@@ -21,6 +21,12 @@ There are two main ways to use Lambda with Apache Kafka:
 
 - [Using Lambda with Amazon MSK](with-msk.md "with-msk.md")
 - [Using Lambda with self-managed Apache Kafka](with-kafka.md "with-kafka.md")
+- [Apache Kafka event poller scaling modes in Lambda](kafka-scaling-modes.md "kafka-scaling-modes.md")
+- [Customizable consumer group ID in Lambda](kafka-consumer-group-id.md "kafka-consumer-group-id.md")
+- [Apache Kafka polling and stream starting positions in Lambda](kafka-starting-positions.md "kafka-starting-positions.md")
+- [Capturing discarded batches for Amazon MSK and self-managed Apache Kafka event sources](kafka-on-failure.md "kafka-on-failure.md")
+- [Filtering events from Amazon MSK and self-managed Apache Kafka event sources](kafka-filtering.md "kafka-filtering.md")
 - [Using schema registries with Kafka event sources in Lambda](services-consume-kafka-events.md "services-consume-kafka-events.md")
 - [Low latency processing for Kafka event
   sources](with-kafka-low-latency.md "with-kafka-low-latency.md")
+- [Troubleshooting Kafka event source mapping errors](with-kafka-troubleshoot.md "with-kafka-troubleshoot.md")

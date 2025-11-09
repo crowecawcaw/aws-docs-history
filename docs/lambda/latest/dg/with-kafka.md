@@ -2,17 +2,28 @@
 
 This topic describes how to use Lambda with a self-managed Kafka cluster. In AWS terminology, a self-managed
 cluster includes non-AWS hosted Kafka clusters. For example, you can host your Kafka cluster with a cloud provider
-such as [Confluent Cloud](https://www.confluent.io/confluent-cloud/ "https://www.confluent.io/confluent-cloud/").
+such as [Confluent Cloud](https://www.confluent.io/confluent-cloud/ "https://www.confluent.io/confluent-cloud/") or [Redpanda](https://www.redpanda.com/ "https://www.redpanda.com/").
 
-Apache Kafka as an event source operates similarly to using Amazon Simple Queue Service (Amazon SQS) or Amazon Kinesis. Lambda internally polls for
-new messages from the event source and then synchronously invokes the target Lambda function. Lambda reads the
-messages in batches and provides these to your function as an event payload. The maximum batch size is configurable
-(the default is 100 messages). For more information, see [Batching behavior](invocation-eventsourcemapping.md#invocation-eventsourcemapping-batching "invocation-eventsourcemapping.md#invocation-eventsourcemapping-batching").
+This chapter explains how to use a self-managed Apache Kafka cluster as an event source for your Lambda function. The general
+process for integrating self-managed Apache Kafka with Lambda involves the following steps:
+
+1. **[Cluster and network setup](with-kafka-cluster-network.md "with-kafka-cluster-network.md")**
+   – First, set up your self-managed Apache Kafka cluster with the correct networking configuration to allow Lambda to access your cluster.
+2. **[Event source mapping setup](with-kafka-configure.md "with-kafka-configure.md")**
+   – Then, create the [event source mapping](invocation-eventsourcemapping.md "invocation-eventsourcemapping.md")
+   resource that Lambda needs to securely connect your Apache Kafka cluster to your function.
+3. **[Function and permissions setup](with-kafka-permissions.md "with-kafka-permissions.md")**
+   – Finally, ensure that your function is correctly set up, and has the necessary permissions in its
+   [execution role](lambda-intro-execution-role.md "lambda-intro-execution-role.md").
+   Apache Kafka as an event source operates similarly to using Amazon Simple Queue Service (Amazon SQS) or Amazon Kinesis. Lambda internally polls for
+   new messages from the event source and then synchronously invokes the target Lambda function. Lambda reads the
+   messages in batches and provides these to your function as an event payload. The maximum batch size is configurable
+   (the default is 100 messages). For more information, see [Batching behavior](invocation-eventsourcemapping.md#invocation-eventsourcemapping-batching "invocation-eventsourcemapping.md#invocation-eventsourcemapping-batching").
 
 To optimize the throughput of your self-managed Apache Kafka event source mapping, configure provisioned mode. In provisioned
 mode, you can define the minimum and maximum number of event pollers allocated to your event source mapping.
 This can improve the ability of your event source mapping to handle unexpected message spikes. For more
-information, see [provisioned mode](with-kafka-process.md#services-kafka-provisioned-mode "with-kafka-process.md#services-kafka-provisioned-mode").
+information, see [provisioned mode](kafka-scaling-modes.md#kafka-provisioned-mode "kafka-scaling-modes.md#kafka-provisioned-mode").
 
 ###### Warning
 
@@ -29,11 +40,9 @@ event source for AWS Lambda](https://aws.amazon.com/blogs/compute/using-self-hos
 ###### Topics
 
 - [Example event](#smaa-sample-event "#smaa-sample-event")
+- [Configuring your self-managed Apache Kafka cluster and network for Lambda](with-kafka-cluster-network.md "with-kafka-cluster-network.md")
+- [Configuring Lambda execution role permissions](with-kafka-permissions.md "with-kafka-permissions.md")
 - [Configuring self-managed Apache Kafka event sources for Lambda](with-kafka-configure.md "with-kafka-configure.md")
-- [Processing self-managed Apache Kafka messages with Lambda](with-kafka-process.md "with-kafka-process.md")
-- [Using event filtering with a self-managed Apache Kafka event source](with-kafka-filtering.md "with-kafka-filtering.md")
-- [Capturing discarded batches for a self-managed Apache Kafka event source](with-kafka-on-failure.md "with-kafka-on-failure.md")
-- [Troubleshooting self-managed Apache Kafka event source mapping errors](with-kafka-troubleshoot.md "with-kafka-troubleshoot.md")
 
 ## Example event
 

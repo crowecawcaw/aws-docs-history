@@ -1,21 +1,19 @@
-# Using event filtering with a self-managed Apache Kafka event source
+# Filtering events from Amazon MSK and self-managed Apache Kafka event sources
 
 You can use event filtering to control which records from a stream or queue Lambda sends to your function.
 For general information about how event filtering works, see [Control which events Lambda sends to your function](invocation-eventfiltering.md "invocation-eventfiltering.md").
 
-This section focuses on event filtering for self-managed Apache Kafka event sources.
-
 ###### Note
 
-Self-managed Apache Kafka event source mappings only support filtering on the `value` key.
+Amazon MSK and self-managed Apache Kafka event source mappings only support filtering on the `value` key.
 
 ###### Topics
 
-- [Self-managed Apache Kafka event filtering basics](#filtering-smak "#filtering-smak")
+- [Kafka event filtering basics](#filtering-kafka "#filtering-kafka")
 
-## Self-managed Apache Kafka event filtering basics
+## Kafka event filtering basics
 
-Suppose a producer is writing messages to a topic in your self-managed Apache Kafka cluster, either in valid JSON format or as plain strings. An example record
+Suppose a producer is writing messages to a topic in your Kafka cluster, either in valid JSON format or as plain strings. An example record
 would look like the following, with the message converted to a Base64 encoded string in the `value` field.
 
 ```
@@ -107,7 +105,7 @@ FilterCriteria:
     - Pattern: '{ "value" : { "device_ID" : [ { "prefix":  "AB" } ] } }'
 ```
 
-With self-managed Apache Kafka, you can also filter records where the message is a plain string. Suppose you want to ignore those messages where the string is
+With Kafka, you can also filter records where the message is a plain string. Suppose you want to ignore those messages where the string is
 "error". The `FilterCriteria` object would look as follows.
 
 ```
@@ -170,7 +168,7 @@ FilterCriteria:
     - Pattern: '{ "value" : [ { "anything-but": [ "error" ] } ] }'
 ```
 
-Self-managed Apache Kafka messages must be UTF-8 encoded strings, either plain strings or in JSON format. That's because Lambda decodes Kafka byte arrays into UTF-8 before
+Kafka messages must be UTF-8 encoded strings, either plain strings or in JSON format. That's because Lambda decodes Kafka byte arrays into UTF-8 before
 applying filter criteria. If your messages use another encoding, such as UTF-16 or ASCII, or if the message format doesn't match the
 `FilterCriteria` format, Lambda processes metadata filters only. The following table summarizes the specific behavior:
 

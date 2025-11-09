@@ -15,6 +15,14 @@ create PowerShell deployment packages, and deploy PowerShell functions to the AW
 Lambda provides the following runtimes for .NET languages:
 
 | Name                    | Identifier | Operating system  | Deprecation date | Block function create | Block function update |
-| ----------------------- | ---------- | ----------------- | ---------------- | --------------------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| ----------------------- | ---------- | ----------------- | ---------------- | --------------------- | --------------------- |
 | .NET 9 (container only) | `dotnet9`  | Amazon Linux 2023 | Not scheduled    | Not scheduled         | Not scheduled         |
-| .NET 8                  | `dotnet8`  | Amazon Linux 2023 | Nov 10, 2026     | Dec 10, 2026          | Jan 11, 2027          | ###### Topics <br>• [Setting Up a PowerShell Development Environment](powershell-devenv.md "powershell-devenv.md") <br>• [Deploy PowerShell Lambda functions with .zip file archives](powershell-package.md "powershell-package.md") <br>• [Define Lambda function handler in PowerShell](powershell-handler.md "powershell-handler.md") <br>• [Using the Lambda context object to retrieve PowerShell function information](powershell-context.md "powershell-context.md") <br>• [Log and monitor Powershell Lambda functions](powershell-logging.md "powershell-logging.md") |
+| .NET 8                  | `dotnet8`  | Amazon Linux 2023 | Nov 10, 2026     | Dec 10, 2026          | Jan 11, 2027          |
+
+###### Topics
+
+- [Setting Up a PowerShell Development Environment](powershell-devenv.md "powershell-devenv.md")
+- [Deploy PowerShell Lambda functions with .zip file archives](powershell-package.md "powershell-package.md")
+- [Define Lambda function handler in PowerShell](powershell-handler.md "powershell-handler.md")
+- [Using the Lambda context object to retrieve PowerShell function information](powershell-context.md "powershell-context.md")
+- [Log and monitor Powershell Lambda functions](powershell-logging.md "powershell-logging.md")

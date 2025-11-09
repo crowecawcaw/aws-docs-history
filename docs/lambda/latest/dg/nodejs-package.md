@@ -126,11 +126,237 @@ directory, and any binaries in the `/opt/bin` directory. To ensure
 that Lambda properly finds your layer content, you can also create a layer
 with the following structure:
 
-````
+```
 custom-layer.zip
 └ lib
-| lib_1
-| lib_2 └ bin
-| bin_1
-| bin_2 ``` After you package your layer, see [Creating and deleting layers in Lambda](creating-deleting-layers.md "creating-deleting-layers.md") and [Adding layers to functions](adding-layers.md "adding-layers.md") to complete your layer setup. ## Dependency search path and runtime-included libraries The Node.js runtime includes a number of common libraries, as well as a version of the AWS SDK for JavaScript. If you want to use a different version of a runtime-included library, you can do this by bundling it with your function or by adding it as a dependency in your deployment package. For example, you can use a different version of the SDK by adding it to your .zip deployment package. You can also include it in a [Lambda layer](chapter-layers.md "chapter-layers.md") for your function. When you use an `import` or `require` statement in your code, the Node.js runtime searches the directories in the `NODE_PATH` path until it finds the module. By default, the first location the runtime searches is the directory into which your .zip deployment package is decompressed and mounted (`/var/task`). If you include a version of a runtime-included library in your deployment package, this version will take precedence over the version included in the runtime. Dependencies in your deployment package also have precedence over dependencies in layers. When you add a dependency to a layer, Lambda extracts this to `/opt/nodejs/nodexx/node_modules` where `nodexx` represents the version of the runtime you are using. In the search path, this directory has precedence over the directory containing the runtime-included libraries (`/var/lang/lib/node_modules`). Libraries in function layers therefore have precedence over versions included in the runtime. You can see the full search path for your Lambda function by adding the following line of code. ``` console.log(process.env.NODE_PATH) ``` You can also add dependencies in a separate folder inside your .zip package. For example, you might add a custom module to a folder in your .zip package called `common`. When your .zip package is decompressed and mounted, this folder is placed inside the `/var/task` directory. To use a dependency from a folder in your .zip deployment package in your code, use an `import { } from` or `const { } = require()` statement, depending on whether you are using CJS or ESM module resolution. For example: ``` import { myModule } from './common' ``` If you bundle your code with `esbuild`, `rollup`, or similar, the dependencies used by your function are bundled together in one or more files. We recommend using this method to vend dependencies whenever possible. Compared to adding dependencies to your deployment package, bundling your code results in improved performance due to the reduction in I/O operations. ## Creating and updating Node.js Lambda functions using .zip files After you have created your .zip deployment package, you can use it to create a new Lambda function or update an existing one. You can deploy your .zip package using the Lambda console, the AWS Command Line Interface, and the Lambda API. You can also create and update Lambda functions using AWS Serverless Application Model (AWS SAM) and AWS CloudFormation. The maximum size for a .zip deployment package for Lambda is 250 MB (unzipped). Note that this limit applies to the combined size of all the files you upload, including any Lambda layers. The Lambda runtime needs permission to read the files in your deployment package. In Linux permissions octal notation, Lambda needs 644 permissions for non-executable files (rw-r--r--) and 755 permissions (rwxr-xr-x) for directories and executable files. In Linux and MacOS, use the `chmod` command to change file permissions on files and directories in your deployment package. For example, to give a non-executable file the correct permissions, run the following command. ``` `chmod 644 <filepath>` ``` To change file permissions in Windows, see [Set, View, Change, or Remove Permissions on an Object](https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731667(v=ws.10) "https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731667(v=ws.10)") in the Microsoft Windows documentation. ###### Note If you don't grant Lambda the permissions it needs to access directories in your deployment package, Lambda sets the permissions for those directories to 755 (rwxr-xr-x). ### Creating and updating functions with .zip files using the console To create a new function, you must first create the function in the console, then upload your .zip archive. To update an existing function, open the page for your function, then follow the same procedure to add your updated .zip file. If your .zip file is less than 50MB, you can create or update a function by uploading the file directly from your local machine. For .zip files greater than 50MB, you must upload your package to an Amazon S3 bucket first. For instructions on how to upload a file to an Amazon S3 bucket using the AWS Management Console, see [Getting started with Amazon S3](../../../AmazonS3/latest/userguide/GetStartedWithS3.md "../../../AmazonS3/latest/userguide/GetStartedWithS3.md"). To upload files using the AWS CLI, see [Move objects](../../../cli/latest/userguide/cli-services-s3-commands.md#using-s3-commands-managing-objects-move "../../../cli/latest/userguide/cli-services-s3-commands.md#using-s3-commands-managing-objects-move") in the *AWS CLI User Guide*. ###### Note You cannot change the [deployment package type](../api/API_CreateFunction.md#lambda-CreateFunction-request-PackageType "../api/API_CreateFunction.md#lambda-CreateFunction-request-PackageType") (.zip or container image) for an existing function. For example, you cannot convert a container image function to use a .zip file archive. You must create a new function. ###### To create a new function (console) 1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions "https://console.aws.amazon.com/lambda/home#/functions") of the Lambda console and choose **Create Function**. 2. Choose **Author from scratch**. 3. Under **Basic information**, do the following: 1. For **Function name**, enter the name for your function. 2. For **Runtime**, select the runtime you want to use. 3. (Optional) For **Architecture**, choose the instruction set architecture for your function. The default architecture is x86\_64. Ensure that the .zip deployment package for your function is compatible with the instruction set architecture you select. 4. (Optional) Under **Permissions**, expand **Change default execution role**. You can create a new **Execution role** or use an existing one. 5. Choose **Create function**. Lambda creates a basic 'Hello world' function using your chosen runtime. ###### To upload a .zip archive from your local machine (console) 1. In the [Functions page](https://console.aws.amazon.com/lambda/home#/functions "https://console.aws.amazon.com/lambda/home#/functions") of the Lambda console, choose the function you want to upload the .zip file for. 2. Select the **Code** tab. 3. In the **Code source** pane, choose **Upload from**. 4. Choose **.zip file**. 5. To upload the .zip file, do the following: 1. Select **Upload**, then select your .zip file in the file chooser. 2. Choose **Open**. 3. Choose **Save**. ###### To upload a .zip archive from an Amazon S3 bucket (console) 1. In the [Functions page](https://console.aws.amazon.com/lambda/home#/functions "https://console.aws.amazon.com/lambda/home#/functions") of the Lambda console, choose the function you want to upload a new .zip file for. 2. Select the **Code** tab. 3. In the **Code source** pane, choose **Upload from**. 4. Choose **Amazon S3 location**. 5. Paste the Amazon S3 link URL of your .zip file and choose **Save**. ### Updating .zip file functions using the console code editor For some functions with .zip deployment packages, you can use the Lambda console’s built-in code editor to update your function code directly. To use this feature, your function must meet the following criteria: <br>• Your function must use one of the interpreted language runtimes (Python, Node.js, or Ruby) <br>• Your function’s deployment package must be smaller than 50 MB (unzipped). Function code for functions with container image deployment packages cannot be edited directly in the console. ###### To update function code using the console code editor 1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions "https://console.aws.amazon.com/lambda/home#/functions") of the Lambda console and select your function. 2. Select the **Code** tab. 3. In the **Code source** pane, select your source code file and edit it in the integrated code editor. 4. In the **DEPLOY** section, choose **Deploy** to update your function's code: ![Deploy button in the Lambda console code editor](images/getting-started-tutorial/deploy-console.png) ### Creating and updating functions with .zip files using the AWS CLI You can can use the [AWS CLI](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md") to create a new function or to update an existing one using a .zip file. Use the [create-function](../../../cli/latest/reference/lambda/create-function.md "../../../cli/latest/reference/lambda/create-function.md") and [update-function-code](../../../cli/latest/reference/lambda/create-function.md "../../../cli/latest/reference/lambda/create-function.md") commands to deploy your .zip package. If your .zip file is smaller than 50MB, you can upload the .zip package from a file location on your local build machine. For larger files, you must upload your .zip package from an Amazon S3 bucket. For instructions on how to upload a file to an Amazon S3 bucket using the AWS CLI, see [Move objects](../../../cli/latest/userguide/cli-services-s3-commands.md#using-s3-commands-managing-objects-move "../../../cli/latest/userguide/cli-services-s3-commands.md#using-s3-commands-managing-objects-move") in the *AWS CLI User Guide*. ###### Note If you upload your .zip file from an Amazon S3 bucket using the AWS CLI, the bucket must be located in the same AWS Region as your function. To create a new function using a .zip file with the AWS CLI, you must specify the following: <br>• The name of your function (`--function-name`) <br>• Your function’s runtime (`--runtime`) <br>• The Amazon Resource Name (ARN) of your function’s [execution role](lambda-intro-execution-role.md "lambda-intro-execution-role.md") (`--role`) <br>• The name of the handler method in your function code (`--handler`) You must also specify the location of your .zip file. If your .zip file is located in a folder on your local build machine, use the `--zip-file` option to specify the file path, as shown in the following example command. ``` `aws lambda create-function --function-name myFunction \ --runtime nodejs22.x --handler index.handler \ --role arn:aws:iam::111122223333:role/service-role/my-lambda-role \ --zip-file fileb://myFunction.zip` ``` To specify the location of .zip file in an Amazon S3 bucket, use the `--code` option as shown in the following example command. You only need to use the `S3ObjectVersion` parameter for versioned objects. ``` `aws lambda create-function --function-name myFunction \ --runtime nodejs22.x --handler index.handler \ --role arn:aws:iam::111122223333:role/service-role/my-lambda-role \ --code S3Bucket=amzn-s3-demo-bucket,S3Key=myFileName.zip,S3ObjectVersion=myObjectVersion` ``` To update an existing function using the CLI, you specify the the name of your function using the `--function-name` parameter. You must also specify the location of the .zip file you want to use to update your function code. If your .zip file is located in a folder on your local build machine, use the `--zip-file` option to specify the file path, as shown in the following example command. ``` `aws lambda update-function-code --function-name myFunction \ --zip-file fileb://myFunction.zip` ``` To specify the location of .zip file in an Amazon S3 bucket, use the `--s3-bucket` and `--s3-key` options as shown in the following example command. You only need to use the `--s3-object-version` parameter for versioned objects. ``` `aws lambda update-function-code --function-name myFunction \ --s3-bucket amzn-s3-demo-bucket --s3-key myFileName.zip --s3-object-version myObject Version` ``` ### Creating and updating functions with .zip files using the Lambda API To create and update functions using a .zip file archive, use the following API operations: <br>• [CreateFunction](../api/API_CreateFunction.md "../api/API_CreateFunction.md") <br>• [UpdateFunctionCode](../api/API_UpdateFunctionCode.md "../api/API_UpdateFunctionCode.md") ### Creating and updating functions with .zip files using AWS SAM The AWS Serverless Application Model (AWS SAM) is a toolkit that helps streamline the process of building and running serverless applications on AWS. You define the resources for your application in a YAML or JSON template and use the AWS SAM command line interface (AWS SAM CLI) to build, package, and deploy your applications. When you build a Lambda function from an AWS SAM template, AWS SAM automatically creates a .zip deployment package or container image with your function code and any dependencies you specify. To learn more about using AWS SAM to build and deploy Lambda functions, see [Getting started with AWS SAM](../../../serverless-application-model/latest/developerguide/serverless-getting-started.md "../../../serverless-application-model/latest/developerguide/serverless-getting-started.md") in the *AWS Serverless Application Model Developer Guide*. You can also use AWS SAM to create a Lambda function using an existing .zip file archive. To create a Lambda function using AWS SAM, you can save your .zip file in an Amazon S3 bucket or in a local folder on your build machine. For instructions on how to upload a file to an Amazon S3 bucket using the AWS CLI, see [Move objects](../../../cli/latest/userguide/cli-services-s3-commands.md#using-s3-commands-managing-objects-move "../../../cli/latest/userguide/cli-services-s3-commands.md#using-s3-commands-managing-objects-move") in the *AWS CLI User Guide*. In your AWS SAM template, the `AWS::Serverless::Function` resource specifies your Lambda function. In this resource, set the following properties to create a function using a .zip file archive: <br>• `PackageType` - set to `Zip` <br>• `CodeUri` - set to the function code's Amazon S3 URI, path to local folder, or [FunctionCode](../../../serverless-application-model/latest/developerguide/sam-property-function-functioncode.md "../../../serverless-application-model/latest/developerguide/sam-property-function-functioncode.md") object <br>• `Runtime` - Set to your chosen runtime With AWS SAM, if your .zip file is larger than 50MB, you don’t need to upload it to an Amazon S3 bucket first. AWS SAM can upload .zip packages up to the maximum allowed size of 250MB (unzipped) from a location on your local build machine. To learn more about deploying functions using .zip file in AWS SAM, see [AWS::Serverless::Function](../../../serverless-application-model/latest/developerguide/sam-resource-function.md "../../../serverless-application-model/latest/developerguide/sam-resource-function.md") in the *AWS SAM Developer Guide*. ### Creating and updating functions with .zip files using AWS CloudFormation You can use AWS CloudFormation to create a Lambda function using a .zip file archive. To create a Lambda function from a .zip file, you must first upload your file to an Amazon S3 bucket. For instructions on how to upload a file to an Amazon S3 bucket using the AWS CLI, see [Move objects](../../../cli/latest/userguide/cli-services-s3-commands.md#using-s3-commands-managing-objects-move "../../../cli/latest/userguide/cli-services-s3-commands.md#using-s3-commands-managing-objects-move") in the *AWS CLI User Guide.* In your AWS CloudFormation template, the `AWS::Lambda::Function` resource specifies your Lambda function. In this resource, set the following properties to create a function using a .zip file archive: <br>• `PackageType` - Set to `Zip` <br>• `Code` - Enter the Amazon S3 bucket name and the .zip file name in the `S3Bucket` and `S3Key` fields <br>• `Runtime` - Set to your chosen runtime The .zip file that AWS CloudFormation generates cannot exceed 4MB. To learn more about deploying functions using .zip file in AWS CloudFormation, see [AWS::Lambda::Function](../../../AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.md") in the *AWS CloudFormation User Guide*.
-````
+    | lib_1
+    | lib_2
+└ bin
+    | bin_1
+    | bin_2
+```
+
+After you package your layer, see [Creating and deleting layers in Lambda](creating-deleting-layers.md "creating-deleting-layers.md")
+and [Adding layers to functions](adding-layers.md "adding-layers.md") to complete your layer setup.
+
+## Dependency search path and runtime-included libraries
+
+The Node.js runtime includes a number of common libraries, as well as a version of the AWS SDK for JavaScript. If you want to use a different version of a runtime-included library, you can do this by bundling it with your function or by adding it as a
+dependency in your deployment package. For example, you can use a different version of the SDK by adding it to your .zip deployment package.
+You can also include it in a [Lambda layer](chapter-layers.md "chapter-layers.md") for your function.
+
+When you use an `import` or `require` statement in your code, the Node.js runtime searches the directories in the `NODE_PATH`
+path until it finds the module. By default, the first location the runtime searches is the directory into which your .zip deployment package is
+decompressed and mounted (`/var/task`). If you include a version of a runtime-included library in your deployment package, this
+version will take precedence over the version included in the runtime. Dependencies in your deployment package also have precedence over
+dependencies in layers.
+
+When you add a dependency to a layer, Lambda extracts this to `/opt/nodejs/nodexx/node_modules` where `nodexx`
+represents the version of the runtime you are using. In the search path, this directory has precedence over the directory containing the
+runtime-included libraries (`/var/lang/lib/node_modules`). Libraries in function layers therefore have precedence over versions
+included in the runtime.
+
+You can see the full search path for your Lambda function by adding the following line of code.
+
+```
+console.log(process.env.NODE_PATH)
+```
+
+You can also add dependencies in a separate folder inside your .zip package. For example, you might add a custom module to a folder in
+your .zip package called `common`. When your .zip package is decompressed and mounted, this folder is placed inside the `/var/task` directory.
+To use a dependency from a folder in your .zip deployment package in your code, use an `import { } from` or `const { } = require()` statement,
+depending on whether you are using CJS or ESM module resolution. For example:
+
+```
+import { myModule } from './common'
+```
+
+If you bundle your code with `esbuild`, `rollup`, or similar, the dependencies used by your function are bundled together in one
+or more files. We recommend using this method to vend dependencies whenever possible. Compared to adding dependencies to your deployment package,
+bundling your code results in improved performance due to the reduction in I/O operations.
+
+## Creating and updating Node.js Lambda functions using .zip files
+
+After you have created your .zip deployment package, you can use it to create a new Lambda function or update an existing one. You can deploy
+your .zip package using the Lambda console, the AWS Command Line Interface, and the Lambda API. You can also create and update Lambda functions using
+AWS Serverless Application Model (AWS SAM) and AWS CloudFormation.
+
+The maximum size for a .zip deployment package for Lambda is 250 MB (unzipped). Note that this limit applies to the combined size of all the files you upload,
+including any Lambda layers.
+
+The Lambda runtime needs permission to read the files in your deployment package. In Linux permissions octal notation, Lambda needs 644 permissions
+for non-executable files (rw-r--r--) and 755 permissions (rwxr-xr-x) for directories and executable files.
+
+In Linux and MacOS, use the `chmod` command to change file permissions on files and directories in your deployment package. For
+example, to give a non-executable file the correct permissions, run the following command.
+
+```
+`chmod 644 <filepath>`
+```
+
+To change file permissions in Windows, see [Set, View, Change, or Remove Permissions on an Object](<https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731667(v=ws.10)> "https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731667(v=ws.10)")
+in the Microsoft Windows documentation.
+
+###### Note
+
+If you don't grant Lambda the permissions it needs to access directories in your deployment package, Lambda sets the permissions for those directories to 755 (rwxr-xr-x).
+
+### Creating and updating functions with .zip files using the console
+
+To create a new function, you must first create the function in the console, then upload your .zip archive. To update an existing function, open the page for your function, then follow the same procedure to add your updated .zip file.
+
+If your .zip file is less than 50MB, you can create or update a function by uploading the file directly from your local machine. For .zip files greater than 50MB, you must upload your package to an Amazon S3 bucket first. For instructions on how to upload a file to an Amazon S3 bucket using the AWS Management Console, see [Getting started with Amazon S3](../../../AmazonS3/latest/userguide/GetStartedWithS3.md "../../../AmazonS3/latest/userguide/GetStartedWithS3.md"). To upload files using the AWS CLI, see [Move objects](../../../cli/latest/userguide/cli-services-s3-commands.md#using-s3-commands-managing-objects-move "../../../cli/latest/userguide/cli-services-s3-commands.md#using-s3-commands-managing-objects-move") in the _AWS CLI User Guide_.
+
+###### Note
+
+You cannot change the [deployment package type](../api/API_CreateFunction.md#lambda-CreateFunction-request-PackageType "../api/API_CreateFunction.md#lambda-CreateFunction-request-PackageType") (.zip or container image) for an existing function. For example, you cannot convert a container image function to use a .zip file archive. You must create a new function.
+
+###### To create a new function (console)
+
+1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions "https://console.aws.amazon.com/lambda/home#/functions") of the Lambda console and choose **Create Function**.
+2. Choose **Author from scratch**.
+3. Under **Basic information**, do the following:
+   1. For **Function name**, enter the name for your function.
+   2. For **Runtime**, select the runtime you want to use.
+   3. (Optional) For **Architecture**, choose the instruction set architecture for your function. The default architecture is x86_64. Ensure that the .zip deployment package for your function is compatible with the instruction set architecture you select.
+
+4. (Optional) Under **Permissions**, expand **Change default execution role**. You can create a new **Execution role** or use an existing one.
+5. Choose **Create function**. Lambda creates a basic 'Hello world' function using your chosen runtime.
+
+###### To upload a .zip archive from your local machine (console)
+
+1. In the [Functions page](https://console.aws.amazon.com/lambda/home#/functions "https://console.aws.amazon.com/lambda/home#/functions") of the Lambda console, choose the function you want to upload the .zip file for.
+2. Select the **Code** tab.
+3. In the **Code source** pane, choose **Upload from**.
+4. Choose **.zip file**.
+5. To upload the .zip file, do the following:
+   1. Select **Upload**, then select your .zip file in the file chooser.
+   2. Choose **Open**.
+   3. Choose **Save**.
+
+###### To upload a .zip archive from an Amazon S3 bucket (console)
+
+1. In the [Functions page](https://console.aws.amazon.com/lambda/home#/functions "https://console.aws.amazon.com/lambda/home#/functions") of the Lambda console, choose the function you want to upload a new .zip file for.
+2. Select the **Code** tab.
+3. In the **Code source** pane, choose **Upload from**.
+4. Choose **Amazon S3 location**.
+5. Paste the Amazon S3 link URL of your .zip file and choose **Save**.
+
+### Updating .zip file functions using the console code editor
+
+For some functions with .zip deployment packages, you can use the Lambda console’s built-in code editor to update your function code directly. To use this feature, your function must meet the following criteria:
+
+- Your function must use one of the interpreted language runtimes (Python, Node.js, or Ruby)
+- Your function’s deployment package must be smaller than 50 MB (unzipped).
+
+Function code for functions with container image deployment packages cannot be edited directly in the console.
+
+###### To update function code using the console code editor
+
+1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions "https://console.aws.amazon.com/lambda/home#/functions") of the Lambda console and select your function.
+2. Select the **Code** tab.
+3. In the **Code source** pane, select your source code file and edit it in the integrated code editor.
+4. In the **DEPLOY** section, choose **Deploy** to update your function's code:
+
+![Deploy button in the Lambda console code editor](images/getting-started-tutorial/deploy-console.png)
+
+### Creating and updating functions with .zip files using the AWS CLI
+
+You can can use the [AWS CLI](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md") to create a new function or to update an existing one using a .zip file. Use the [create-function](../../../cli/latest/reference/lambda/create-function.md "../../../cli/latest/reference/lambda/create-function.md")
+and [update-function-code](../../../cli/latest/reference/lambda/create-function.md "../../../cli/latest/reference/lambda/create-function.md") commands to deploy your .zip
+package. If your .zip file is smaller than 50MB, you can upload the .zip package from a file location on your local build machine. For larger files,
+you must upload your .zip package from an Amazon S3 bucket. For instructions on how to upload a file to an Amazon S3 bucket using the AWS CLI, see [Move objects](../../../cli/latest/userguide/cli-services-s3-commands.md#using-s3-commands-managing-objects-move "../../../cli/latest/userguide/cli-services-s3-commands.md#using-s3-commands-managing-objects-move") in the _AWS CLI User Guide_.
+
+###### Note
+
+If you upload your .zip file from an Amazon S3 bucket using the AWS CLI, the bucket must be located in the same AWS Region as your function.
+
+To create a new function using a .zip file with the AWS CLI, you must specify the following:
+
+- The name of your function (`--function-name`)
+- Your function’s runtime (`--runtime`)
+- The Amazon Resource Name (ARN) of your function’s [execution role](lambda-intro-execution-role.md "lambda-intro-execution-role.md") (`--role`)
+- The name of the handler method in your function code (`--handler`)
+
+You must also specify the location of your .zip file. If your .zip file is located in a folder on your local build machine, use the `--zip-file` option to specify the file path, as shown in the following example command.
+
+```
+`aws lambda create-function --function-name myFunction \
+--runtime nodejs22.x --handler index.handler \
+--role arn:aws:iam::111122223333:role/service-role/my-lambda-role \
+--zip-file fileb://myFunction.zip`
+```
+
+To specify the location of .zip file in an Amazon S3 bucket, use the `--code` option as shown in the following example command. You only
+need to use the `S3ObjectVersion` parameter for versioned objects.
+
+```
+`aws lambda create-function --function-name myFunction \
+--runtime nodejs22.x --handler index.handler \
+--role arn:aws:iam::111122223333:role/service-role/my-lambda-role \
+--code S3Bucket=amzn-s3-demo-bucket,S3Key=myFileName.zip,S3ObjectVersion=myObjectVersion`
+```
+
+To update an existing function using the CLI, you specify the the name of your function using the `--function-name` parameter. You
+must also specify the location of the .zip file you want to use to update your function code. If your .zip file is located in a folder on your
+local build machine, use the `--zip-file` option to specify the file path, as shown in the following example command.
+
+```
+`aws lambda update-function-code --function-name myFunction \
+--zip-file fileb://myFunction.zip`
+```
+
+To specify the location of .zip file in an Amazon S3 bucket, use the `--s3-bucket` and `--s3-key` options as shown in the
+following example command. You only need to use the `--s3-object-version` parameter for versioned objects.
+
+```
+`aws lambda update-function-code --function-name myFunction \
+--s3-bucket amzn-s3-demo-bucket --s3-key myFileName.zip --s3-object-version myObject Version`
+```
+
+### Creating and updating functions with .zip files using the Lambda API
+
+To create and update functions using a .zip file archive, use the following API operations:
+
+- [CreateFunction](../api/API_CreateFunction.md "../api/API_CreateFunction.md")
+- [UpdateFunctionCode](../api/API_UpdateFunctionCode.md "../api/API_UpdateFunctionCode.md")
+
+### Creating and updating functions with .zip files using AWS SAM
+
+The AWS Serverless Application Model (AWS SAM) is a toolkit that helps streamline the process of building and running serverless applications on AWS. You define the resources for your application in a
+YAML or JSON template and use the AWS SAM command line interface (AWS SAM CLI) to build, package, and deploy your applications. When you build a Lambda function from an AWS SAM template,
+AWS SAM automatically creates a .zip deployment package or container image with your function code and any dependencies you specify. To learn more about using AWS SAM to build and deploy
+Lambda functions, see [Getting started with AWS SAM](../../../serverless-application-model/latest/developerguide/serverless-getting-started.md "../../../serverless-application-model/latest/developerguide/serverless-getting-started.md") in the
+_AWS Serverless Application Model Developer Guide_.
+
+You can also use AWS SAM to create a Lambda function using an existing .zip file archive. To create a Lambda function using AWS SAM, you can save your .zip file in
+an Amazon S3 bucket or in a local folder on your build machine. For instructions on how to upload a file to an Amazon S3 bucket using the AWS CLI,
+see [Move objects](../../../cli/latest/userguide/cli-services-s3-commands.md#using-s3-commands-managing-objects-move "../../../cli/latest/userguide/cli-services-s3-commands.md#using-s3-commands-managing-objects-move") in the _AWS CLI User Guide_.
+
+In your AWS SAM template, the `AWS::Serverless::Function` resource specifies your Lambda function. In this resource, set the following
+properties to create a function using a .zip file archive:
+
+- `PackageType` - set to `Zip`
+- `CodeUri` - set to the function code's Amazon S3 URI, path to local folder, or [FunctionCode](../../../serverless-application-model/latest/developerguide/sam-property-function-functioncode.md "../../../serverless-application-model/latest/developerguide/sam-property-function-functioncode.md") object
+- `Runtime` - Set to your chosen runtime
+
+With AWS SAM, if your .zip file is larger than 50MB, you don’t need to upload it to an Amazon S3 bucket first. AWS SAM can upload .zip packages up to
+the maximum allowed size of 250MB (unzipped) from a location on your local build machine.
+
+To learn more about deploying functions using .zip file in AWS SAM, see [AWS::Serverless::Function](../../../serverless-application-model/latest/developerguide/sam-resource-function.md "../../../serverless-application-model/latest/developerguide/sam-resource-function.md") in the _AWS SAM Developer Guide_.
+
+### Creating and updating functions with .zip files using AWS CloudFormation
+
+You can use AWS CloudFormation to create a Lambda function using a .zip file archive. To create a Lambda function from a .zip file, you must first upload
+your file to an Amazon S3 bucket. For instructions on how to upload a file to an Amazon S3 bucket using the AWS CLI, see [Move objects](../../../cli/latest/userguide/cli-services-s3-commands.md#using-s3-commands-managing-objects-move "../../../cli/latest/userguide/cli-services-s3-commands.md#using-s3-commands-managing-objects-move")
+in the _AWS CLI User Guide._
+
+In your AWS CloudFormation template, the `AWS::Lambda::Function` resource specifies your Lambda function. In this resource, set the following
+properties to create a function using a .zip file archive:
+
+- `PackageType` - Set to `Zip`
+- `Code` - Enter the Amazon S3 bucket name and the .zip file name in the `S3Bucket` and `S3Key` fields
+- `Runtime` - Set to your chosen runtime
+
+The .zip file that AWS CloudFormation generates cannot exceed 4MB. To learn more about deploying functions using .zip file in AWS CloudFormation, see [AWS::Lambda::Function](../../../AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.md")
+in the _AWS CloudFormation User Guide_.

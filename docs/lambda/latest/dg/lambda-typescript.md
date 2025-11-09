@@ -8,6 +8,86 @@ about the SDK versions included with the Node.js runtimes, see [Runtime-included
 Lambda supports the following Node.js runtimes.
 
 | Name       | Identifier   | Operating system  | Deprecation date | Block function create | Block function update |
-| ---------- | ------------ | ----------------- | ---------------- | --------------------- | --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ---------- | ------------ | ----------------- | ---------------- | --------------------- | --------------------- |
 | Node.js 22 | `nodejs22.x` | Amazon Linux 2023 | Apr 30, 2027     | Jun 1, 2027           | Jul 1, 2027           |
-| Node.js 20 | `nodejs20.x` | Amazon Linux 2023 | Apr 30, 2026     | Jun 1, 2026           | Jul 1, 2026           | ###### Topics <br>• [Setting up a TypeScript development environment](#typescript-dev "#typescript-dev") <br>• [Type definitions for Lambda](#typescript-type-definitions "#typescript-type-definitions") <br>• [Define Lambda function handler in TypeScript](typescript-handler.md "typescript-handler.md") <br>• [Deploy transpiled TypeScript code in Lambda with .zip file archives](typescript-package.md "typescript-package.md") <br>• [Deploy transpiled TypeScript code in Lambda with container images](typescript-image.md "typescript-image.md") <br>• [Using the Lambda context object to retrieve TypeScript function information](typescript-context.md "typescript-context.md") <br>• [Log and monitor TypeScript Lambda functions](typescript-logging.md "typescript-logging.md") <br>• [Tracing TypeScript code in AWS Lambda](typescript-tracing.md "typescript-tracing.md") ## Setting up a TypeScript development environment Use a local integrated development environment (IDE) or text editor to write your TypeScript function code. You can’t create TypeScript code on the Lambda console. You can use either [esbuild](https://esbuild.github.io/ "https://esbuild.github.io/") or Microsoft's TypeScript compiler (`tsc`) to transpile your TypeScript code into JavaScript. The [AWS Serverless Application Model (AWS SAM)](../../../serverless-application-model/latest/developerguide/serverless-getting-started.md "../../../serverless-application-model/latest/developerguide/serverless-getting-started.md") and the [AWS Cloud Development Kit (AWS CDK)](../../../cdk/v2/guide/getting_started.md "../../../cdk/v2/guide/getting_started.md") both use esbuild. When using esbuild, consider the following: <br>• There are several [TypeScript caveats](https://esbuild.github.io/content-types/#typescript-caveats "https://esbuild.github.io/content-types/#typescript-caveats"). <br>• You must configure your TypeScript transpilation settings to match the Node.js runtime that you plan to use. For more information, see [Target](https://esbuild.github.io/api/#target "https://esbuild.github.io/api/#target") in the esbuild documentation. For an example of a **tsconfig.json** file that demonstrates how to target a specific Node.js version supported by Lambda, refer to the [TypeScript GitHub repository](https://github.com/tsconfig/bases/blob/main/bases/node14.json "https://github.com/tsconfig/bases/blob/main/bases/node14.json"). <br>• esbuild doesn’t perform type checks. To check types, use the `tsc` compiler. Run `tsc -noEmit` or add a `"noEmit"` parameter to your **tsconfig.json** file, as shown in the following example. This configures `tsc` to not emit JavaScript files. After checking types, use esbuild to convert the TypeScript files into JavaScript. ###### Example tsconfig.json ``{ "compilerOptions": { "target": "es2020", "strict": true, "preserveConstEnums": true, `"noEmit": true,` "sourceMap": false, "module":"commonjs", "moduleResolution":"node", "esModuleInterop": true, "skipLibCheck": true, "forceConsistentCasingInFileNames": true, "isolatedModules": true, }, "exclude": ["node_modules", "**/*.test.ts"] }`` ## Type definitions for Lambda The [@types/aws-lambda](https://www.npmjs.com/package/@types/aws-lambda "https://www.npmjs.com/package/@types/aws-lambda") package provides type definitions for Lambda functions. Install this package when your function uses any of the following: <br>• Common AWS event sources, such as: + `APIGatewayProxyEvent`: For [Amazon API Gateway proxy integrations](../../../apigateway/latest/developerguide/set-up-lambda-proxy-integrations.md "../../../apigateway/latest/developerguide/set-up-lambda-proxy-integrations.md") + `SNSEvent`: For [Amazon Simple Notification Service notifications](with-sns.md "with-sns.md") + `SQSEvent`: For [Amazon Simple Queue Service messages](with-sqs.md "with-sqs.md") + `S3Event`: For [S3 trigger events](with-s3.md "with-s3.md") + `DynamoDBStreamEvent`: For [Amazon DynamoDB Streams](with-ddb.md "with-ddb.md") <br>• The Lambda [Context](typescript-context.md "typescript-context.md") object <br>• The [callback](typescript-handler.md#typescript-handler-callback "typescript-handler.md#typescript-handler-callback") handler pattern To add the Lambda type definitions to your function, install `@types/aws-lambda` as a development dependency: `npm install -D @types/aws-lambda` Then, import the types from `aws-lambda`: `import { Context, S3Event, APIGatewayProxyEvent } from 'aws-lambda'; export const handler = async (event: S3Event, context: Context) => { // Function code };` The `import ... from 'aws-lambda'` statement imports the type definitions. It does not import the `aws-lambda` npm package, which is an unrelated third-party tool. For more information, see [aws-lambda](https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/aws-lambda "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/aws-lambda") in the DefinitelyTyped GitHub repository. ###### Note You don't need [@types/aws-lambda](https://www.npmjs.com/package/@types/aws-lambda "https://www.npmjs.com/package/@types/aws-lambda") when using your own custom type definitions. For an example function that defines its own type for an event object, see [Example TypeScript Lambda function code](typescript-handler.md#typescript-example-code "typescript-handler.md#typescript-example-code"). |
+| Node.js 20 | `nodejs20.x` | Amazon Linux 2023 | Apr 30, 2026     | Jun 1, 2026           | Jul 1, 2026           |
+
+###### Topics
+
+- [Setting up a TypeScript development environment](#typescript-dev "#typescript-dev")
+- [Type definitions for Lambda](#typescript-type-definitions "#typescript-type-definitions")
+- [Define Lambda function handler in TypeScript](typescript-handler.md "typescript-handler.md")
+- [Deploy transpiled TypeScript code in Lambda with .zip file archives](typescript-package.md "typescript-package.md")
+- [Deploy transpiled TypeScript code in Lambda with container images](typescript-image.md "typescript-image.md")
+- [Using the Lambda context object to retrieve TypeScript function information](typescript-context.md "typescript-context.md")
+- [Log and monitor TypeScript Lambda functions](typescript-logging.md "typescript-logging.md")
+- [Tracing TypeScript code in AWS Lambda](typescript-tracing.md "typescript-tracing.md")
+
+## Setting up a TypeScript development environment
+
+Use a local integrated development environment (IDE) or text editor to write your TypeScript function code. You can’t create TypeScript code on the Lambda console.
+
+You can use either [esbuild](https://esbuild.github.io/ "https://esbuild.github.io/") or Microsoft's TypeScript compiler (`tsc`) to transpile your TypeScript code into JavaScript. The [AWS Serverless Application Model (AWS SAM)](../../../serverless-application-model/latest/developerguide/serverless-getting-started.md "../../../serverless-application-model/latest/developerguide/serverless-getting-started.md") and the [AWS Cloud Development Kit (AWS CDK)](../../../cdk/v2/guide/getting_started.md "../../../cdk/v2/guide/getting_started.md") both use esbuild.
+
+When using esbuild, consider the following:
+
+- There are several [TypeScript caveats](https://esbuild.github.io/content-types/#typescript-caveats "https://esbuild.github.io/content-types/#typescript-caveats").
+- You must configure your TypeScript transpilation settings to match the Node.js runtime that you plan to use. For more information, see [Target](https://esbuild.github.io/api/#target "https://esbuild.github.io/api/#target") in the esbuild documentation. For an example of a **tsconfig.json** file that demonstrates how to target a specific Node.js version supported by Lambda, refer to the [TypeScript GitHub repository](https://github.com/tsconfig/bases/blob/main/bases/node14.json "https://github.com/tsconfig/bases/blob/main/bases/node14.json").
+- esbuild doesn’t perform type checks. To check types, use the `tsc` compiler. Run `tsc -noEmit` or add a `"noEmit"` parameter to your **tsconfig.json** file, as shown in the following example. This configures `tsc` to not emit JavaScript files. After checking types, use esbuild to convert the TypeScript files into JavaScript.
+
+###### Example tsconfig.json
+
+```
+ {
+  "compilerOptions": {
+    "target": "es2020",
+    "strict": true,
+    "preserveConstEnums": true,
+    `"noEmit": true,`
+    "sourceMap": false,
+    "module":"commonjs",
+    "moduleResolution":"node",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true,
+  },
+  "exclude": ["node_modules", "**/*.test.ts"]
+}
+```
+
+## Type definitions for Lambda
+
+The [@types/aws-lambda](https://www.npmjs.com/package/@types/aws-lambda "https://www.npmjs.com/package/@types/aws-lambda") package provides type definitions for Lambda functions. Install this package when your function uses any of the following:
+
+- Common AWS event sources, such as:
+  - `APIGatewayProxyEvent`: For [Amazon API Gateway proxy integrations](../../../apigateway/latest/developerguide/set-up-lambda-proxy-integrations.md "../../../apigateway/latest/developerguide/set-up-lambda-proxy-integrations.md")
+  - `SNSEvent`: For [Amazon Simple Notification Service notifications](with-sns.md "with-sns.md")
+  - `SQSEvent`: For [Amazon Simple Queue Service messages](with-sqs.md "with-sqs.md")
+  - `S3Event`: For [S3 trigger events](with-s3.md "with-s3.md")
+  - `DynamoDBStreamEvent`: For [Amazon DynamoDB Streams](with-ddb.md "with-ddb.md")
+
+- The Lambda [Context](typescript-context.md "typescript-context.md") object
+- The [callback](typescript-handler.md#typescript-handler-callback "typescript-handler.md#typescript-handler-callback") handler pattern
+
+To add the Lambda type definitions to your function, install `@types/aws-lambda` as a development dependency:
+
+```
+npm install -D @types/aws-lambda
+```
+
+Then, import the types from `aws-lambda`:
+
+```
+import { Context, S3Event, APIGatewayProxyEvent } from 'aws-lambda';
+
+export const handler = async (event: S3Event, context: Context) => {
+    // Function code
+};
+```
+
+The `import ... from 'aws-lambda'` statement imports the type definitions. It does not import the `aws-lambda` npm package, which is an unrelated third-party tool. For more information, see [aws-lambda](https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/aws-lambda "https://github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/aws-lambda") in the DefinitelyTyped GitHub repository.
+
+###### Note
+
+You don't need [@types/aws-lambda](https://www.npmjs.com/package/@types/aws-lambda "https://www.npmjs.com/package/@types/aws-lambda") when using your own custom type definitions. For an example function that defines its own type for an event object, see [Example TypeScript Lambda function code](typescript-handler.md#typescript-example-code "typescript-handler.md#typescript-example-code").

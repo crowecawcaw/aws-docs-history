@@ -10,11 +10,8 @@ it resides in. If you need to set up your cluster or VPC, see [Configuring your 
 ###### Topics
 
 - [Using an Amazon MSK cluster as an event source](#msk-esm-overview "#msk-esm-overview")
+- [Configuring Amazon MSK ycluster authentication methods in Lambda](msk-cluster-auth.md "msk-cluster-auth.md")
 - [Creating a Lambda event source mapping for an Amazon MSK event source](msk-esm-create.md "msk-esm-create.md")
-- [Configuring cluster authentication methods in Lambda](msk-cluster-auth.md "msk-cluster-auth.md")
-- [Customizable consumer group ID in Lambda](msk-cgid.md "msk-cgid.md")
-- [Polling and stream starting positions in Lambda](msk-starting-positions.md "msk-starting-positions.md")
-- [Event poller scaling modes in Lambda](msk-scaling-modes.md "msk-scaling-modes.md")
 - [Creating cross-account event source mappings in Lambda](msk-cross-account.md "msk-cross-account.md")
 - [All Amazon MSK event source configuration parameters in Lambda](msk-esm-parameters.md "msk-esm-parameters.md")
 
@@ -25,7 +22,7 @@ as an [event source](invocation-eventsourcemapping.md "invocation-eventsourcemap
 
 Lambda reads event data from the Kafka topics that you specify as `Topics` in a
 [CreateEventSourceMapping](../api/API_CreateEventSourceMapping.md "../api/API_CreateEventSourceMapping.md") request, based on the [starting
-position](msk-starting-positions.md "msk-starting-positions.md") that you specify. After successful processing, your Kafka topic is committed to your
+position](kafka-starting-positions.md "kafka-starting-positions.md") that you specify. After successful processing, your Kafka topic is committed to your
 Kafka cluster.
 
 Lambda reads messages sequentially for each Kafka topic partition. A single Lambda payload can contain

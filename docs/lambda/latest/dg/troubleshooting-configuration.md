@@ -115,13 +115,122 @@ duration statistics:
 To find the errors generated across the 1000 invocations, you can use the CloudWatch Insights query language. The
 following query excludes informational logs to report only the errors:
 
-````
+```
 fields @timestamp, @message
 | sort @timestamp desc
 | filter @message not like 'EXTENSION'
 | filter @message not like 'Lambda Insights'
-| filter @message not like 'INFO'
+| filter @message not like 'INFO' 
 | filter @message not like 'REPORT'
 | filter @message not like 'END'
-| filter @message not like 'START' ``` When run against the log group for this function, this shows that timeouts were responsible for the periodic errors: ![debugging ops figure 6](images/debugging-ops-figure-6.png) ## Asynchronous results returned to a later invocation For function code that uses asynchronous patterns, it’s possible for the callback results from one invocation to be returned in a future invocation. This example uses Node.js, but the same logic can apply to other runtimes using asynchronous patterns. The function uses the traditional callback syntax in JavaScript. It calls an asynchronous function with an incremental counter that tracks the number of invocations: ``` let seqId = 0 exports.handler = async (event, context) => { console.log(`Starting: sequence Id=${++seqId}`) doWork(seqId, function(id) { console.log(`Work done: sequence Id=${id}`) }) } function doWork(id, callback) { setTimeout(() => callback(id), 3000) } ``` When invoked several times in succession, the results of the callbacks occur in subsequent invocations: ![debugging ops figure 7](images/debugging-ops-figure-7.png) 1. The code calls the `doWork` function, providing a callback function as the last parameter. 2. The `doWork` function takes some period of time to complete before invoking the callback. 3. The function’s logging indicates that the invocation is ending before the `doWork` function finishes execution. Additionally, after starting an iteration, callbacks from previous iterations are being processed, as shown in the logs. In JavaScript, asynchronous callbacks are handled with an [event loop](https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop "https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop"). Other runtimes use different mechanisms to handle concurrency. When the function’s execution environment ends, Lambda freezes the environment until the next invocation. After it resumes, JavaScript continues processing the event loop, which in this case includes an asynchronous callback from a previous invocation. Without this context, it can appear that the function is running code for no reason, and returning arbitrary data. In fact, it is really an artifact of how runtime concurrency and the execution environments interact. This creates the potential for private data from a previous invocation to appear in a subsequent invocation. There are two ways to prevent or detect this behavior. First, JavaScript provides the [async and await keywords](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function") to simplify asynchronous development and also force code execution to wait for an asynchronous call to complete. The function above can be rewritten using this approach as follows: ``` let seqId = 0 exports.handler = async (event) => { console.log(`Starting: sequence Id=${++seqId}`) const result = await doWork(seqId) console.log(`Work done: sequence Id=${result}`) } function doWork(id) { return new Promise(resolve => { setTimeout(() => resolve(id), 4000) }) } ``` Using this syntax prevents the handler from exiting before the asynchronous function is finished. In this case, if the callback takes longer than the Lambda function’s timeout, the function will throw an error, instead of returning the callback result in a later invocation: ![debugging ops figure 8](images/debugging-ops-figure-8.png) 1. The code calls the asynchronous `doWork` function using the await keyword in the handler. 2. The `doWork` function takes some period of time to complete before resolving the promise. 3. The function times out because `doWork` takes longer than the timeout limit allows and the callback result is not returned in a later invocation. Generally, you should make sure any background processes or callbacks in the code are complete before the code exits. If this is not possible in your use case, you can use an identifier to ensure that the callback belongs to the current invocation. To do this, you can use the *awsRequestId* provided by the context object. By passing this value to the asynchronous callback, you can compare the passed value with the current value to detect if the callback originated from another invocation: ``` let currentContext exports.handler = async (event, context) => { console.log(`Starting: request id=$\{context.awsRequestId}`) currentContext = context doWork(context.awsRequestId, function(id) { if (id != currentContext.awsRequestId) { console.info(`This callback is from another invocation.`) } }) } function doWork(id, callback) { setTimeout(() => callback(id), 3000) } ``` ![debugging ops figure 9](images/debugging-ops-figure-9.png) 1. The Lambda function handler takes the context parameter, which provides access to a unique invocation request ID. 2. The `awsRequestId` is passed to the doWork function. In the callback, the ID is compared with the `awsRequestId` of the current invocation. If these values are different, the code can take action accordingly.
-````
+| filter @message not like 'START'
+```
+
+When run against the log group for this function, this shows that timeouts were responsible for the periodic errors:
+
+![debugging ops figure 6](images/debugging-ops-figure-6.png)
+
+## Asynchronous results returned to a later invocation
+
+For function code that uses asynchronous patterns, it’s possible for the callback results from one invocation
+to be returned in a future invocation. This example uses Node.js, but the same logic can apply to other runtimes
+using asynchronous patterns. The function uses the traditional callback syntax in JavaScript. It calls an
+asynchronous function with an incremental counter that tracks the number of invocations:
+
+```
+let seqId = 0
+
+exports.handler = async (event, context) => {
+    console.log(`Starting: sequence Id=${++seqId}`)
+    doWork(seqId, function(id) {
+        console.log(`Work done: sequence Id=${id}`)
+    })
+}
+
+function doWork(id, callback) {
+    setTimeout(() => callback(id), 3000)
+}
+```
+
+When invoked several times in succession, the results of the callbacks occur in subsequent invocations:
+
+![debugging ops figure 7](images/debugging-ops-figure-7.png)
+
+1. The code calls the `doWork` function, providing a callback function as the last parameter.
+2. The `doWork` function takes some period of time to complete before invoking the callback.
+3. The function’s logging indicates that the invocation is ending before the `doWork` function
+   finishes execution. Additionally, after starting an iteration, callbacks from previous iterations are being
+   processed, as shown in the logs.
+
+In JavaScript, asynchronous callbacks are handled with an
+[event loop](https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop "https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop"). Other runtimes use
+different mechanisms to handle concurrency. When the function’s execution environment ends, Lambda freezes the environment
+until the next invocation. After it resumes, JavaScript continues processing the event loop, which in this case includes
+an asynchronous callback from a previous invocation. Without this context, it can appear that the function is running
+code for no reason, and returning arbitrary data. In fact, it is really an artifact of how runtime concurrency and the
+execution environments interact.
+
+This creates the potential for private data from a previous invocation to appear in a subsequent invocation. There are
+two ways to prevent or detect this behavior. First, JavaScript provides the
+[async and await
+keywords](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function") to simplify asynchronous development and also force code execution to wait for an asynchronous call to
+complete. The function above can be rewritten using this approach as follows:
+
+```
+let seqId = 0
+exports.handler = async (event) => {
+    console.log(`Starting: sequence Id=${++seqId}`)
+    const result = await doWork(seqId)
+    console.log(`Work done: sequence Id=${result}`)
+}
+
+function doWork(id) {
+  return new Promise(resolve => {
+    setTimeout(() => resolve(id), 4000)
+  })
+}
+```
+
+Using this syntax prevents the handler from exiting before the asynchronous function is finished. In this case, if
+the callback takes longer than the Lambda function’s timeout, the function will throw an error, instead of returning the
+callback result in a later invocation:
+
+![debugging ops figure 8](images/debugging-ops-figure-8.png)
+
+1. The code calls the asynchronous `doWork` function using the await keyword in the handler.
+2. The `doWork` function takes some period of time to complete before resolving the promise.
+3. The function times out because `doWork` takes longer than the timeout limit allows and the
+   callback result is not returned in a later invocation.
+
+Generally, you should make sure any background processes or callbacks in the code are complete before the code exits.
+If this is not possible in your use case, you can use an identifier to ensure that the callback belongs to the current
+invocation. To do this, you can use the _awsRequestId_ provided by the context object. By passing this
+value to the asynchronous callback, you can compare the passed value with the current value to detect if the callback
+originated from another invocation:
+
+```
+let currentContext
+
+exports.handler = async (event, context) => {
+    console.log(`Starting: request id=$\{context.awsRequestId}`)
+    currentContext = context
+
+    doWork(context.awsRequestId, function(id) {
+        if (id != currentContext.awsRequestId) {
+            console.info(`This callback is from another invocation.`)
+        }
+    })
+
+}
+
+function doWork(id, callback) {
+    setTimeout(() => callback(id), 3000)
+
+}
+```
+
+![debugging ops figure 9](images/debugging-ops-figure-9.png)
+
+1. The Lambda function handler takes the context parameter, which provides access to a unique invocation request ID.
+2. The `awsRequestId` is passed to the doWork function. In the callback, the ID is compared with the
+   `awsRequestId` of the current invocation. If these values are different, the code can take action accordingly.

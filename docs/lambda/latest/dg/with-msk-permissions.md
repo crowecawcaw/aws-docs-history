@@ -13,7 +13,6 @@ to your execution role. Alternatively, you can add each permission manually.
 - [Cluster access permissions](#msk-cluster-access-permissions "#msk-cluster-access-permissions")
 - [VPC permissions](#msk-vpc-permissions "#msk-vpc-permissions")
 - [Optional permissions](#msk-optional-permissions "#msk-optional-permissions")
-- [Troubleshooting common authentication and authorization errors](#msk-permissions-errors "#msk-permissions-errors")
 
 ## Basic permissions
 
@@ -86,64 +85,4 @@ Additionally, if you want to send records of failed invocations to an on-failure
   [s3:PutObject](../../../AmazonS3/latest/API/API_PutObject.md "../../../AmazonS3/latest/API/API_PutObject.md") and
   [s3:ListBucket](../../../AmazonS3/latest/API/API_ListBucket.md "../../../AmazonS3/latest/API/API_ListBucket.md") - Enables writing and listing objects in an Amazon S3 bucket
 
-## Troubleshooting common authentication and authorization errors
-
-If any of the permissions required to consume data from the Amazon MSK cluster are missing, Lambda displays one of
-the following error messages in the event source mapping under **LastProcessingResult**.
-For more information about each supported authentication method, see [Configuring cluster authentication methods in Lambda](msk-cluster-auth.md "msk-cluster-auth.md").
-
-###### Error messages
-
-- [Cluster failed to authorize Lambda](#msk-authorize-errors "#msk-authorize-errors")
-- [SASL authentication failed](#msk-sasl-errors "#msk-sasl-errors")
-- [Server failed to authenticate Lambda](#msk-mtls-errors "#msk-mtls-errors")
-- [Provided certificate or private key is invalid](#msk-key-errors "#msk-key-errors")
-
-### Cluster failed to authorize Lambda
-
-For SASL/SCRAM or mTLS, this error indicates that the provided user doesn't have all of the following
-required Kafka access control list (ACL) permissions:
-
-- DescribeConfigs Cluster
-- Describe Group
-- Read Group
-- Describe Topic
-- Read Topic
-
-For IAM access control, your function's execution role is missing one or more of the permissions required
-to access the group or topic. Review the list of required permissions on this page.
-
-When you create either Kafka ACLs or an IAM policy with the required Kafka cluster permissions, specify
-the topic and group as resources. The topic name must match the topic in the event source mapping. The group
-name must match the event source mapping's UUID.
-
-After you add the required permissions to the execution role, it might take several minutes for the changes
-to take effect.
-
-### SASL authentication failed
-
-For SASL/SCRAM, this error indicates that the provided user name and password aren't valid.
-
-For IAM access control, the execution role is missing the `kafka-cluster:Connect` permission
-for the MSK cluster. Add this permission to the role and specify the cluster's Amazon Resource Name (ARN) as a
-resource.
-
-You might see this error occurring intermittently. The cluster rejects connections after the number of TCP
-connections exceeds the [Amazon MSK service
-quota](../../../msk/latest/developerguide/limits.md "../../../msk/latest/developerguide/limits.md"). Lambda backs off and retries until a connection is successful. After Lambda connects to the
-cluster and polls for records, the last processing result changes to `OK`.
-
-### Server failed to authenticate Lambda
-
-This error indicates that the Amazon MSK Kafka brokers failed to authenticate with Lambda. This can occur for
-any of the following reasons:
-
-- You didn't provide a client certificate for mTLS authentication.
-- You provided a client certificate, but the brokers aren't configured to use mTLS.
-- A client certificate isn't trusted by the brokers.
-
-### Provided certificate or private key is invalid
-
-This error indicates that the Amazon MSK consumer couldn't use the provided certificate or private key. Make
-sure that the certificate and key use PEM format, and that the private key encryption uses a PBES1
-algorithm. See [Configuring the mTLS secret](msk-cluster-auth.md#mtls-auth-secret "msk-cluster-auth.md#mtls-auth-secret") for more information.
+For troubleshooting authentication and authorization errors, see [Troubleshooting Kafka event source mapping errors](with-kafka-troubleshoot.md "with-kafka-troubleshoot.md").

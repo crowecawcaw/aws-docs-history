@@ -309,10 +309,266 @@ want Lambda to send to CloudWatch Logs. Note the mapping of the log levels used 
 `ILambdaLogger`.
 
 | Lambda log level     | Equivalent Microsoft level | Standard usage                                                                      |
-| -------------------- | -------------------------- | ----------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| -------------------- | -------------------------- | ----------------------------------------------------------------------------------- |
 | TRACE (most detail)  | Trace                      | The most fine-grained information used to trace the path of your code's execution   |
 | DEBUG                | Debug                      | Detailed information for system debugging                                           |
 | INFO                 | Information                | Messages that record the normal operation of your function                          |
 | WARN                 | Warning                    | Messages about potential errors that may lead to unexpected behavior if unaddressed |
 | ERROR                | Error                      | Messages about problems that prevent the code from performing as expected           |
-| FATAL (least detail) | Critical                   | Messages about serious errors that cause the application to stop functioning        | Lambda sends logs of the selected detail level and lower to CloudWatch. For example, if you configure a log level of WARN, Lambda will send logs corresponding to the WARN, ERROR, and FATAL levels. ## Additional logging tools and libraries [Powertools for AWS Lambda (.NET)](../../../powertools/dotnet.md "../../../powertools/dotnet.md") is a developer toolkit to implement Serverless best practices and increase developer velocity. The [Logging utility](../../../powertools/dotnet/core/logging.md "../../../powertools/dotnet/core/logging.md") provides a Lambda optimized logger which includes additional information about function context across all your functions with output structured as JSON. Use this utility to do the following: <br>• Capture key fields from the Lambda context, cold start and structures logging output as JSON <br>• Log Lambda invocation events when instructed (disabled by default) <br>• Print all the logs only for a percentage of invocations via log sampling (disabled by default) <br>• Append additional keys to structured log at any point in time <br>• Use a custom log formatter (Bring Your Own Formatter) to output logs in a structure compatible with your organization’s Logging RFC ## Using Powertools for AWS Lambda (.NET) and AWS SAM for structured logging Follow the steps below to download, build, and deploy a sample Hello World C# application with integrated [Powertools for AWS Lambda (.NET)](https://docs.powertools.aws.dev/lambda-dotnet "https://docs.powertools.aws.dev/lambda-dotnet") modules using the AWS SAM. This application implements a basic API backend and uses Powertools for emitting logs, metrics, and traces. It consists of an Amazon API Gateway endpoint and a Lambda function. When you send a GET request to the API Gateway endpoint, the Lambda function invokes, sends logs and metrics using Embedded Metric Format to CloudWatch, and sends traces to AWS X-Ray. The function returns a `hello world` message. ###### Prerequisites To complete the steps in this section, you must have the following: <br>• .NET 8 <br>• [AWS CLI version 2](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md") <br>• [AWS SAM CLI version 1.75 or later](../../../serverless-application-model/latest/developerguide/serverless-sam-cli-install.md "../../../serverless-application-model/latest/developerguide/serverless-sam-cli-install.md"). If you have an older version of the AWS SAM CLI, see [Upgrading the AWS SAM CLI](../../../serverless-application-model/latest/developerguide/manage-sam-cli-versions.md#manage-sam-cli-versions-upgrade "../../../serverless-application-model/latest/developerguide/manage-sam-cli-versions.md#manage-sam-cli-versions-upgrade"). ###### Deploy a sample AWS SAM application 1. Initialize the application using the Hello World TypeScript template. `sam init --app-template hello-world-powertools-dotnet --name sam-app --package-type Zip --runtime dotnet6 --no-tracing` 2. Build the app. `cd sam-app && sam build` 3. Deploy the app. `sam deploy --guided` 4. Follow the on-screen prompts. To accept the default options provided in the interactive experience, press `Enter`. ###### Note For **HelloWorldFunction may not have authorization defined, Is this okay?**, make sure to enter `y`. 5. Get the URL of the deployed application: ``aws cloudformation describe-stacks --stack-name sam-app --query 'Stacks[0].Outputs[?OutputKey==`HelloWorldApi`].OutputValue' --output text`` 6. Invoke the API endpoint: `` curl -X GET `<URL_FROM_PREVIOUS_STEP>` `` If successful, you'll see this response: `{"message":"hello world"}` 7. To get the logs for the function, run [sam logs](../../../serverless-application-model/latest/developerguide/sam-cli-command-reference-sam-logs.md "../../../serverless-application-model/latest/developerguide/sam-cli-command-reference-sam-logs.md"). For more information, see [Working with logs](../../../serverless-application-model/latest/developerguide/serverless-sam-cli-logging.md "../../../serverless-application-model/latest/developerguide/serverless-sam-cli-logging.md") in the _AWS Serverless Application Model Developer Guide_. `sam logs --stack-name sam-app` The log output looks like this: `2025/02/20/[$LATEST]4eaf8445ba7a4a93b999cb17fbfbecd8 2025-09-20T14:15:27.988000 INIT_START Runtime Version: dotnet:6.v13        Runtime Version ARN: arn:aws:lambda:ap-southeast-2::runtime:699f346a05dae24c58c45790bc4089f252bf17dae3997e79b17d939a288aa1ec 2025/02/20/[$LATEST]4eaf8445ba7a4a93b999cb17fbfbecd8 2025-09-20T14:15:28.229000 START RequestId: bed25b38-d012-42e7-ba28-f272535fb80e Version: $LATEST 2025/02/20/[$LATEST]4eaf8445ba7a4a93b999cb17fbfbecd8 2025-09-20T14:15:29.259000 2025-09-20T14:15:29.201Z        bed25b38-d012-42e7-ba28-f272535fb80e    info   {"_aws":{"Timestamp":1676902528962,"CloudWatchMetrics":[{"Namespace":"sam-app-logging","Metrics":[{"Name":"ColdStart","Unit":"Count"}],"Dimensions":[["FunctionName"],["Service"]]}]},"FunctionName":"sam-app-HelloWorldFunction-haKIoVeose2p","Service":"PowertoolsHelloWorld","ColdStart":1} 2025/02/20/[$LATEST]4eaf8445ba7a4a93b999cb17fbfbecd8 2025-09-20T14:15:30.479000 2025-09-20T14:15:30.479Z        bed25b38-d012-42e7-ba28-f272535fb80e    info   {"ColdStart":true,"XrayTraceId":"1-63f3807f-5dbcb9910c96f50742707542","CorrelationId":"d3d4de7f-4ccc-411a-a549-4d67b2fdc015","FunctionName":"sam-app-HelloWorldFunction-haKIoVeose2p","FunctionVersion":"$LATEST","FunctionMemorySize":256,"FunctionArn":"arn:aws:lambda:ap-southeast-2:123456789012:function:sam-app-HelloWorldFunction-haKIoVeose2p","FunctionRequestId":"bed25b38-d012-42e7-ba28-f272535fb80e","Timestamp":"2025-09-20T14:15:30.4602970Z","Level":"Information","Service":"PowertoolsHelloWorld","Name":"AWS.Lambda.Powertools.Logging.Logger","Message":"Hello world API - HTTP 200"} 2025/02/20/[$LATEST]4eaf8445ba7a4a93b999cb17fbfbecd8 2025-09-20T14:15:30.599000 2025-09-20T14:15:30.599Z        bed25b38-d012-42e7-ba28-f272535fb80e    info   {"_aws":{"Timestamp":1676902528922,"CloudWatchMetrics":[{"Namespace":"sam-app-logging","Metrics":[{"Name":"ApiRequestCount","Unit":"Count"}],"Dimensions":[["Service"]]}]},"Service":"PowertoolsHelloWorld","ApiRequestCount":1} 2025/02/20/[$LATEST]4eaf8445ba7a4a93b999cb17fbfbecd8 2025-09-20T14:15:30.680000 END RequestId: bed25b38-d012-42e7-ba28-f272535fb80e 2025/02/20/[$LATEST]4eaf8445ba7a4a93b999cb17fbfbecd8 2025-09-20T14:15:30.680000 REPORT RequestId: bed25b38-d012-42e7-ba28-f272535fb80e  Duration: 2450.99 ms   Billed Duration: 2692 ms Memory Size: 256 MB     Max Memory Used: 74 MB  Init Duration: 240.05 ms XRAY TraceId: 1-63f3807f-5dbcb9910c96f50742707542       SegmentId: 16b362cd5f52cba0` 8. This is a public API endpoint that is accessible over the internet. We recommend that you delete the endpoint after testing. `sam delete` ### Managing log retention Log groups aren't deleted automatically when you delete a function. To avoid storing logs indefinitely, delete the log group, or configure a retention period after which CloudWatch automatically deletes the logs. To set up log retention, add the following to your AWS SAM template: `Resources: HelloWorldFunction: Type: AWS::Serverless::Function Properties: # Omitting other properties LogGroup: Type: AWS::Logs::LogGroup Properties: LogGroupName: !Sub "/aws/lambda/${HelloWorldFunction}" RetentionInDays: 7` ## Viewing logs in the Lambda console You can use the Lambda console to view log output after you invoke a Lambda function. If your code can be tested from the embedded **Code** editor, you will find logs in the **execution results**. When you use the console test feature to invoke a function, you'll find **Log output** in the **Details** section. ## Viewing logs in the CloudWatch console You can use the Amazon CloudWatch console to view logs for all Lambda function invocations. ###### To view logs on the CloudWatch console 1. Open the [Log groups page](https://console.aws.amazon.com/cloudwatch/home?#logs: "https://console.aws.amazon.com/cloudwatch/home?#logs:") on the CloudWatch console. 2. Choose the log group for your function (**/aws/lambda/`your-function-name`**). 3. Choose a log stream. Each log stream corresponds to an [instance of your function](lambda-runtime-environment.md "lambda-runtime-environment.md"). A log stream appears when you update your Lambda function, and when additional instances are created to handle multiple concurrent invocations. To find logs for a specific invocation, we recommend instrumenting your function with AWS X-Ray. X-Ray records details about the request and the log stream in the trace. ## Viewing logs using the AWS Command Line Interface (AWS CLI) The AWS CLI is an open-source tool that enables you to interact with AWS services using commands in your command line shell. To complete the steps in this section, you must have the [AWS CLI version 2](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md"). You can use the [AWS CLI](../../../cli/latest/userguide/cli-chap-welcome.md "../../../cli/latest/userguide/cli-chap-welcome.md") to retrieve logs for an invocation using the `--log-type` command option. The response contains a `LogResult` field that contains up to 4 KB of base64-encoded logs from the invocation. ###### Example retrieve a log ID The following example shows how to retrieve a _log ID_ from the `LogResult` field for a function named `my-function`. `` `aws lambda invoke --function-name my-function out --log-type Tail` `` You should see the following output: `{ "StatusCode": 200, "LogResult": "U1RBUlQgUmVxdWVzdElkOiA4N2QwNDRiOC1mMTU0LTExZTgtOGNkYS0yOTc0YzVlNGZiMjEgVmVyc2lvb...", "ExecutedVersion": "$LATEST" }` ###### Example decode the logs In the same command prompt, use the `base64` utility to decode the logs. The following example shows how to retrieve base64-encoded logs for `my-function`. ``` `aws lambda invoke --function-name my-function out --log-type Tail \ --query 'LogResult' --output text --cli-binary-format raw-in-base64-out | base64 --decode` ``` The **cli-binary-format** option is required if you're using AWS CLI version 2. To make this the default setting, run `aws configure set cli-binary-format raw-in-base64-out`. For more information, see [AWS CLI supported global command line options](../../../cli/latest/userguide/cli-configure-options.md#cli-configure-options-list "../../../cli/latest/userguide/cli-configure-options.md#cli-configure-options-list") in the *AWS Command Line Interface User Guide for Version 2*. You should see the following output: ``` START RequestId: 57f231fb-1730-4395-85cb-4f71bd2b87b8 Version: $LATEST "AWS_SESSION_TOKEN": "AgoJb3JpZ2luX2VjELj...", "_X_AMZN_TRACE_ID": "Root=1-5d02e5ca-f5792818b6fe8368e5b51d50;Parent=191db58857df8395;Sampled=0"",ask/lib:/opt/lib", END RequestId: 57f231fb-1730-4395-85cb-4f71bd2b87b8 REPORT RequestId: 57f231fb-1730-4395-85cb-4f71bd2b87b8  Duration: 79.67 ms      Billed Duration: 80 ms         Memory Size: 128 MB     Max Memory Used: 73 MB ``` The `base64`utility is available on Linux, macOS, and [Ubuntu on Windows](https://docs.microsoft.com/en-us/windows/wsl/install-win10 "https://docs.microsoft.com/en-us/windows/wsl/install-win10"). macOS users may need to use`base64 -D`. ###### Example get-logs.sh script In the same command prompt, use the following script to download the last five log events. The script uses `sed`to remove quotes from the output file, and sleeps for 15 seconds to allow time for the logs to become available. The output includes the response from Lambda and the output from the`get-log-events`command. Copy the contents of the following code sample and save in your Lambda project directory as`get-logs.sh`. The **cli-binary-format** option is required if you're using AWS CLI version 2. To make this the default setting, run `aws configure set cli-binary-format raw-in-base64-out`. For more information, see [AWS CLI supported global command line options](../../../cli/latest/userguide/cli-configure-options.md#cli-configure-options-list "../../../cli/latest/userguide/cli-configure-options.md#cli-configure-options-list") in the *AWS Command Line Interface User Guide for Version 2*. ``` #!/bin/bash aws lambda invoke --function-name my-function --cli-binary-format raw-in-base64-out --payload '{"key": "value"}' out sed -i'' -e 's/"//g' out sleep 15 aws logs get-log-events --log-group-name /aws/lambda/`my-function`--log-stream-name`stream1` --limit 5 ``` ###### Example macOS and Linux (only) In the same command prompt, macOS and Linux users may need to run the following command to ensure the script is executable. ``` `chmod -R 755 get-logs.sh` ``` ###### Example retrieve the last five log events In the same command prompt, run the following script to get the last five log events. ``` `./get-logs.sh` `You should see the following output:` { "StatusCode": 200, "ExecutedVersion": "$LATEST" } { "events": [ { "timestamp": 1559763003171, "message": "START RequestId: 4ce9340a-b765-490f-ad8a-02ab3415e2bf Version: $LATEST\n", "ingestionTime": 1559763003309 }, { "timestamp": 1559763003173, "message": "2019-06-05T19:30:03.173Z\t4ce9340a-b765-490f-ad8a-02ab3415e2bf\tINFO\tENVIRONMENT VARIABLES\r{\r  \"AWS_LAMBDA_FUNCTION_VERSION\": \"$LATEST\",\r ...", "ingestionTime": 1559763018353 }, { "timestamp": 1559763003173, "message": "2019-06-05T19:30:03.173Z\t4ce9340a-b765-490f-ad8a-02ab3415e2bf\tINFO\tEVENT\r{\r \"key\": \"value\"\r}\n", "ingestionTime": 1559763018353 }, { "timestamp": 1559763003218, "message": "END RequestId: 4ce9340a-b765-490f-ad8a-02ab3415e2bf\n", "ingestionTime": 1559763018353 }, { "timestamp": 1559763003218, "message": "REPORT RequestId: 4ce9340a-b765-490f-ad8a-02ab3415e2bf\tDuration: 26.73 ms\tBilled Duration: 27 ms \tMemory Size: 128 MB\tMax Memory Used: 75 MB\t\n", "ingestionTime": 1559763018353 } ], "nextForwardToken": "f/34783877304859518393868359594929986069206639495374241795", "nextBackwardToken": "b/34783877303811383369537420289090800615709599058929582080" } ``` ## Deleting logs Log groups aren't deleted automatically when you delete a function. To avoid storing logs indefinitely, delete the log group, or [configure a retention period](../../../AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.md#SettingLogRetention "../../../AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.md#SettingLogRetention") after which logs are deleted automatically. |
+| FATAL (least detail) | Critical                   | Messages about serious errors that cause the application to stop functioning        |
+
+Lambda sends logs of the selected detail level and lower to CloudWatch. For example, if you configure a log level of WARN, Lambda will send logs
+corresponding to the WARN, ERROR, and FATAL levels.
+
+## Additional logging tools and libraries
+
+[Powertools for AWS Lambda (.NET)](../../../powertools/dotnet.md "../../../powertools/dotnet.md") is a developer toolkit to implement Serverless best practices and increase developer velocity. The [Logging utility](../../../powertools/dotnet/core/logging.md "../../../powertools/dotnet/core/logging.md") provides a Lambda optimized logger which includes additional information about function context across all your functions with output structured as JSON. Use this utility to do the following:
+
+- Capture key fields from the Lambda context, cold start and structures logging output as JSON
+- Log Lambda invocation events when instructed (disabled by default)
+- Print all the logs only for a percentage of invocations via log sampling (disabled by default)
+- Append additional keys to structured log at any point in time
+- Use a custom log formatter (Bring Your Own Formatter) to output logs in a structure compatible with your organization’s Logging RFC
+
+## Using Powertools for AWS Lambda (.NET) and AWS SAM for structured logging
+
+Follow the steps below to download, build, and deploy a sample Hello World C# application with integrated [Powertools for AWS Lambda (.NET)](https://docs.powertools.aws.dev/lambda-dotnet "https://docs.powertools.aws.dev/lambda-dotnet") modules using the AWS SAM. This application implements a
+basic API backend and uses Powertools for emitting logs, metrics, and traces. It consists of an Amazon API Gateway endpoint and a Lambda function.
+When you send a GET request to the API Gateway endpoint, the Lambda function invokes, sends logs and metrics using Embedded Metric Format to CloudWatch, and
+sends traces to AWS X-Ray. The function returns a `hello world` message.
+
+###### Prerequisites
+
+To complete the steps in this section, you must have the following:
+
+- .NET 8
+- [AWS CLI version 2](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md")
+- [AWS SAM CLI version 1.75 or later](../../../serverless-application-model/latest/developerguide/serverless-sam-cli-install.md "../../../serverless-application-model/latest/developerguide/serverless-sam-cli-install.md"). If you have an older version of the AWS SAM CLI, see [Upgrading the AWS SAM CLI](../../../serverless-application-model/latest/developerguide/manage-sam-cli-versions.md#manage-sam-cli-versions-upgrade "../../../serverless-application-model/latest/developerguide/manage-sam-cli-versions.md#manage-sam-cli-versions-upgrade").
+
+###### Deploy a sample AWS SAM application
+
+1. Initialize the application using the Hello World TypeScript template.
+
+```
+sam init --app-template hello-world-powertools-dotnet --name sam-app --package-type Zip --runtime dotnet6 --no-tracing
+```
+
+2. Build the app.
+
+```
+cd sam-app && sam build
+```
+
+3. Deploy the app.
+
+```
+sam deploy --guided
+```
+
+4. Follow the on-screen prompts. To accept the default options provided in the interactive experience, press `Enter`.
+
+###### Note
+
+For **HelloWorldFunction may not have authorization defined, Is this okay?**, make sure to enter `y`. 5. Get the URL of the deployed application:
+
+```
+aws cloudformation describe-stacks --stack-name sam-app --query 'Stacks[0].Outputs[?OutputKey==`HelloWorldApi`].OutputValue' --output text
+```
+
+6. Invoke the API endpoint:
+
+```
+curl -X GET `<URL_FROM_PREVIOUS_STEP>`
+```
+
+If successful, you'll see this response:
+
+```
+{"message":"hello world"}
+```
+
+7. To get the logs for the function, run [sam logs](../../../serverless-application-model/latest/developerguide/sam-cli-command-reference-sam-logs.md "../../../serverless-application-model/latest/developerguide/sam-cli-command-reference-sam-logs.md"). For more information, see [Working with logs](../../../serverless-application-model/latest/developerguide/serverless-sam-cli-logging.md "../../../serverless-application-model/latest/developerguide/serverless-sam-cli-logging.md") in the _AWS Serverless Application Model Developer Guide_.
+
+```
+sam logs --stack-name sam-app
+```
+
+The log output looks like this:
+
+```
+2025/02/20/[$LATEST]4eaf8445ba7a4a93b999cb17fbfbecd8 2025-09-20T14:15:27.988000 INIT_START Runtime Version: dotnet:6.v13        Runtime Version ARN: arn:aws:lambda:ap-southeast-2::runtime:699f346a05dae24c58c45790bc4089f252bf17dae3997e79b17d939a288aa1ec
+2025/02/20/[$LATEST]4eaf8445ba7a4a93b999cb17fbfbecd8 2025-09-20T14:15:28.229000 START RequestId: bed25b38-d012-42e7-ba28-f272535fb80e Version: $LATEST
+2025/02/20/[$LATEST]4eaf8445ba7a4a93b999cb17fbfbecd8 2025-09-20T14:15:29.259000 2025-09-20T14:15:29.201Z        bed25b38-d012-42e7-ba28-f272535fb80e    info   {"_aws":{"Timestamp":1676902528962,"CloudWatchMetrics":[{"Namespace":"sam-app-logging","Metrics":[{"Name":"ColdStart","Unit":"Count"}],"Dimensions":[["FunctionName"],["Service"]]}]},"FunctionName":"sam-app-HelloWorldFunction-haKIoVeose2p","Service":"PowertoolsHelloWorld","ColdStart":1}
+2025/02/20/[$LATEST]4eaf8445ba7a4a93b999cb17fbfbecd8 2025-09-20T14:15:30.479000 2025-09-20T14:15:30.479Z        bed25b38-d012-42e7-ba28-f272535fb80e    info   {"ColdStart":true,"XrayTraceId":"1-63f3807f-5dbcb9910c96f50742707542","CorrelationId":"d3d4de7f-4ccc-411a-a549-4d67b2fdc015","FunctionName":"sam-app-HelloWorldFunction-haKIoVeose2p","FunctionVersion":"$LATEST","FunctionMemorySize":256,"FunctionArn":"arn:aws:lambda:ap-southeast-2:123456789012:function:sam-app-HelloWorldFunction-haKIoVeose2p","FunctionRequestId":"bed25b38-d012-42e7-ba28-f272535fb80e","Timestamp":"2025-09-20T14:15:30.4602970Z","Level":"Information","Service":"PowertoolsHelloWorld","Name":"AWS.Lambda.Powertools.Logging.Logger","Message":"Hello world API - HTTP 200"}
+2025/02/20/[$LATEST]4eaf8445ba7a4a93b999cb17fbfbecd8 2025-09-20T14:15:30.599000 2025-09-20T14:15:30.599Z        bed25b38-d012-42e7-ba28-f272535fb80e    info   {"_aws":{"Timestamp":1676902528922,"CloudWatchMetrics":[{"Namespace":"sam-app-logging","Metrics":[{"Name":"ApiRequestCount","Unit":"Count"}],"Dimensions":[["Service"]]}]},"Service":"PowertoolsHelloWorld","ApiRequestCount":1}
+2025/02/20/[$LATEST]4eaf8445ba7a4a93b999cb17fbfbecd8 2025-09-20T14:15:30.680000 END RequestId: bed25b38-d012-42e7-ba28-f272535fb80e
+2025/02/20/[$LATEST]4eaf8445ba7a4a93b999cb17fbfbecd8 2025-09-20T14:15:30.680000 REPORT RequestId: bed25b38-d012-42e7-ba28-f272535fb80e  Duration: 2450.99 ms   Billed Duration: 2692 ms Memory Size: 256 MB     Max Memory Used: 74 MB  Init Duration: 240.05 ms
+XRAY TraceId: 1-63f3807f-5dbcb9910c96f50742707542       SegmentId: 16b362cd5f52cba0
+```
+
+8. This is a public API endpoint that is accessible over the internet. We recommend that you delete the endpoint after testing.
+
+```
+sam delete
+```
+
+### Managing log retention
+
+Log groups aren't deleted automatically when you delete a function. To avoid storing logs indefinitely, delete
+the log group, or configure a retention period after which CloudWatch automatically deletes the logs. To set up log retention, add the following to your AWS SAM template:
+
+```
+Resources:
+  HelloWorldFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      # Omitting other properties
+
+  LogGroup:
+    Type: AWS::Logs::LogGroup
+    Properties:
+      LogGroupName: !Sub "/aws/lambda/${HelloWorldFunction}"
+      RetentionInDays: 7
+```
+
+## Viewing logs in the Lambda console
+
+You can use the Lambda console to view log output after you invoke a Lambda function.
+
+If your code can be tested from the embedded **Code** editor, you will find logs in the **execution results**. When you use the console test feature to invoke a function, you'll find **Log output** in the **Details** section.
+
+## Viewing logs in the CloudWatch console
+
+You can use the Amazon CloudWatch console to view logs for all Lambda function invocations.
+
+###### To view logs on the CloudWatch console
+
+1. Open the [Log groups page](https://console.aws.amazon.com/cloudwatch/home?#logs: "https://console.aws.amazon.com/cloudwatch/home?#logs:") on the CloudWatch console.
+2. Choose the log group for your function (**/aws/lambda/`your-function-name`**).
+3. Choose a log stream.
+
+Each log stream corresponds to an [instance of your function](lambda-runtime-environment.md "lambda-runtime-environment.md"). A log stream appears when you update your Lambda function, and when additional instances are created to handle multiple concurrent invocations. To find logs for a specific invocation, we recommend instrumenting your function with AWS X-Ray. X-Ray records details about the request and the log stream in the trace.
+
+## Viewing logs using the AWS Command Line Interface (AWS CLI)
+
+The AWS CLI is an open-source tool that enables you to interact with AWS services using commands in your command line shell. To complete the steps in this section, you must have the [AWS CLI version 2](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md").
+
+You can use the [AWS CLI](../../../cli/latest/userguide/cli-chap-welcome.md "../../../cli/latest/userguide/cli-chap-welcome.md") to retrieve logs for an invocation using the `--log-type` command option. The response contains a `LogResult` field that contains up to 4 KB of base64-encoded logs from the invocation.
+
+###### Example retrieve a log ID
+
+The following example shows how to retrieve a _log ID_ from the `LogResult` field for a function named `my-function`.
+
+```
+`aws lambda invoke --function-name my-function out --log-type Tail`
+```
+
+You should see the following output:
+
+```
+{
+    "StatusCode": 200,
+    "LogResult": "U1RBUlQgUmVxdWVzdElkOiA4N2QwNDRiOC1mMTU0LTExZTgtOGNkYS0yOTc0YzVlNGZiMjEgVmVyc2lvb...",
+    "ExecutedVersion": "$LATEST"
+}
+```
+
+###### Example decode the logs
+
+In the same command prompt, use the `base64` utility to decode the logs. The following example shows how to retrieve base64-encoded logs for `my-function`.
+
+```
+`aws lambda invoke --function-name my-function out --log-type Tail \
+--query 'LogResult' --output text --cli-binary-format raw-in-base64-out | base64 --decode`
+```
+
+The **cli-binary-format** option is required if you're using AWS CLI version 2. To make this the default setting, run `aws configure set cli-binary-format raw-in-base64-out`. For more information, see [AWS CLI supported global command line options](../../../cli/latest/userguide/cli-configure-options.md#cli-configure-options-list "../../../cli/latest/userguide/cli-configure-options.md#cli-configure-options-list") in the _AWS Command Line Interface User Guide for Version 2_.
+
+You should see the following output:
+
+```
+START RequestId: 57f231fb-1730-4395-85cb-4f71bd2b87b8 Version: $LATEST
+"AWS_SESSION_TOKEN": "AgoJb3JpZ2luX2VjELj...", "_X_AMZN_TRACE_ID": "Root=1-5d02e5ca-f5792818b6fe8368e5b51d50;Parent=191db58857df8395;Sampled=0"",ask/lib:/opt/lib",
+END RequestId: 57f231fb-1730-4395-85cb-4f71bd2b87b8
+REPORT RequestId: 57f231fb-1730-4395-85cb-4f71bd2b87b8  Duration: 79.67 ms      Billed Duration: 80 ms         Memory Size: 128 MB     Max Memory Used: 73 MB
+```
+
+The `base64` utility is available on Linux, macOS, and [Ubuntu on Windows](https://docs.microsoft.com/en-us/windows/wsl/install-win10 "https://docs.microsoft.com/en-us/windows/wsl/install-win10"). macOS users may need to use `base64 -D`.
+
+###### Example get-logs.sh script
+
+In the same command prompt, use the following script to download the last five log events. The script uses `sed` to remove quotes from the output file, and sleeps for 15 seconds to allow time for the logs to become available. The output includes the response from Lambda and the output from the `get-log-events` command.
+
+Copy the contents of the following code sample and save in your Lambda project directory as `get-logs.sh`.
+
+The **cli-binary-format** option is required if you're using AWS CLI version 2. To make this the default setting, run `aws configure set cli-binary-format raw-in-base64-out`. For more information, see [AWS CLI supported global command line options](../../../cli/latest/userguide/cli-configure-options.md#cli-configure-options-list "../../../cli/latest/userguide/cli-configure-options.md#cli-configure-options-list") in the _AWS Command Line Interface User Guide for Version 2_.
+
+```
+#!/bin/bash
+aws lambda invoke --function-name my-function --cli-binary-format raw-in-base64-out --payload '{"key": "value"}' out
+sed -i'' -e 's/"//g' out
+sleep 15
+aws logs get-log-events --log-group-name /aws/lambda/`my-function` --log-stream-name `stream1` --limit 5
+```
+
+###### Example macOS and Linux (only)
+
+In the same command prompt, macOS and Linux users may need to run the following command to ensure the script is executable.
+
+```
+`chmod -R 755 get-logs.sh`
+```
+
+###### Example retrieve the last five log events
+
+In the same command prompt, run the following script to get the last five log events.
+
+```
+`./get-logs.sh`
+```
+
+You should see the following output:
+
+```
+{
+    "StatusCode": 200,
+    "ExecutedVersion": "$LATEST"
+}
+{
+    "events": [
+        {
+            "timestamp": 1559763003171,
+            "message": "START RequestId: 4ce9340a-b765-490f-ad8a-02ab3415e2bf Version: $LATEST\n",
+            "ingestionTime": 1559763003309
+        },
+        {
+            "timestamp": 1559763003173,
+            "message": "2019-06-05T19:30:03.173Z\t4ce9340a-b765-490f-ad8a-02ab3415e2bf\tINFO\tENVIRONMENT VARIABLES\r{\r  \"AWS_LAMBDA_FUNCTION_VERSION\": \"$LATEST\",\r ...",
+            "ingestionTime": 1559763018353
+        },
+        {
+            "timestamp": 1559763003173,
+            "message": "2019-06-05T19:30:03.173Z\t4ce9340a-b765-490f-ad8a-02ab3415e2bf\tINFO\tEVENT\r{\r  \"key\": \"value\"\r}\n",
+            "ingestionTime": 1559763018353
+        },
+        {
+            "timestamp": 1559763003218,
+            "message": "END RequestId: 4ce9340a-b765-490f-ad8a-02ab3415e2bf\n",
+            "ingestionTime": 1559763018353
+        },
+        {
+            "timestamp": 1559763003218,
+            "message": "REPORT RequestId: 4ce9340a-b765-490f-ad8a-02ab3415e2bf\tDuration: 26.73 ms\tBilled Duration: 27 ms \tMemory Size: 128 MB\tMax Memory Used: 75 MB\t\n",
+            "ingestionTime": 1559763018353
+        }
+    ],
+    "nextForwardToken": "f/34783877304859518393868359594929986069206639495374241795",
+    "nextBackwardToken": "b/34783877303811383369537420289090800615709599058929582080"
+}
+```
+
+## Deleting logs
+
+Log groups aren't deleted automatically when you delete a function. To avoid storing logs indefinitely, delete
+the log group, or [configure
+a retention period](../../../AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.md#SettingLogRetention "../../../AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.md#SettingLogRetention") after which logs are deleted automatically.

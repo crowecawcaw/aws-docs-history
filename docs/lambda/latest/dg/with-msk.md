@@ -25,10 +25,8 @@ process for integrating Amazon MSK with Lambda involves the following steps:
 
 - [Example event](#msk-sample-event "#msk-sample-event")
 - [Configuring your Amazon MSK cluster and Amazon VPC network for Lambda](with-msk-cluster-network.md "with-msk-cluster-network.md")
-- [Configuring Amazon MSK event sources for Lambda](with-msk-configure.md "with-msk-configure.md")
 - [Configuring Lambda execution role permissions](with-msk-permissions.md "with-msk-permissions.md")
-- [Using event filtering with an Amazon MSK event source](with-msk-filtering.md "with-msk-filtering.md")
-- [Capturing discarded batches for an Amazon MSK event source](with-msk-on-failure.md "with-msk-on-failure.md")
+- [Configuring Amazon MSK event sources for Lambda](with-msk-configure.md "with-msk-configure.md")
 - [Tutorial: Using an Amazon MSK event source mapping to invoke a Lambda function](services-msk-tutorial.md "services-msk-tutorial.md")
 
 ## Example event

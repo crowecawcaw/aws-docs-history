@@ -11,7 +11,7 @@ configuration details and recommendations to enable low latency workflows.
 To enable low latency processing on a Kafka event source mapping, the following basic
 configuration is required:
 
-- Enable provisioned mode. For more information, see [Configuring provisioned mode](with-kafka-process.md#services-kafka-provisioned-mode "with-kafka-process.md#services-kafka-provisioned-mode").
+- Enable provisioned mode. For more information, see [Provisioned mode](kafka-scaling-modes.md#kafka-provisioned-mode "kafka-scaling-modes.md#kafka-provisioned-mode").
 - Set the event source mapping's `MaximumBatchingWindowInSeconds`
   parameter to 0. For more information, see [Batching behavior](invocation-eventsourcemapping.md#invocation-eventsourcemapping-batching "invocation-eventsourcemapping.md#invocation-eventsourcemapping-batching").
 

@@ -1,10 +1,9 @@
-# Troubleshooting self-managed Apache Kafka event source mapping errors
+# Troubleshooting Kafka event source mapping errors
 
 The following topics provide troubleshooting advice for errors and issues that you might encounter when using
-self-managed Apache Kafka with Lambda. If you find an issue that is not listed here, you can use the
-**Feedback** button on this page to report it.
+Amazon MSK or self-managed Apache Kafka with Lambda.
 
-For more help with troubleshooting, visit the [AWS Knowledge Center](https://aws.amazon.com/premiumsupport/knowledge-center/#AWS_Lambda "https://aws.amazon.com/premiumsupport/knowledge-center/#AWS_Lambda").
+For more help with troubleshooting, visit the [AWS Knowledge Center](https://repost.aws/knowledge-center#AWS_Lambda "https://repost.aws/knowledge-center#AWS_Lambda").
 
 ## Authentication and authorization errors
 
@@ -42,6 +41,14 @@ to take effect.
 For SASL/SCRAM or SASL/PLAIN, this error indicates that the provided sign-in credentials aren't
 valid.
 
+For IAM access control, the execution role is missing the `kafka-cluster:Connect` permission
+for the cluster. Add this permission to the role and specify the cluster's Amazon Resource Name (ARN) as a
+resource.
+
+You might see this error occurring intermittently. The cluster rejects connections after the number of TCP
+connections exceeds the service quota. Lambda backs off and retries until a connection is successful. After Lambda connects to the
+cluster and polls for records, the last processing result changes to `OK`.
+
 ### Server failed to authenticate Lambda
 
 This error indicates that the Kafka broker failed to authenticate Lambda. This can occur for any of the
@@ -56,9 +63,9 @@ following reasons:
 This error indicates that Lambda failed to authenticate the Kafka broker. This can occur for any of the
 following reasons:
 
-- The Kafka brokers use self-signed certificates or a private CA, but didn't provide the server root CA
+- For self-managed Apache Kafka: The Kafka brokers use self-signed certificates or a private CA, but didn't provide the server root CA
   certificate.
-- The server root CA certificate doesn't match the root CA that signed the broker's certificate.
+- For self-managed Apache Kafka: The server root CA certificate doesn't match the root CA that signed the broker's certificate.
 - Hostname validation failed because the broker's certificate doesn't contain the broker's DNS name or IP address as
   a subject alternative name.
 

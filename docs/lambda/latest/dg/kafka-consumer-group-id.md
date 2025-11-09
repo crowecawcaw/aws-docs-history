@@ -1,6 +1,6 @@
 # Customizable consumer group ID in Lambda
 
-When setting up Kafka as an event source, you can specify a
+When setting up Amazon MSK or self-managed Apache Kafka as an event source, you can specify a
 [consumer group](https://developer.confluent.io/learn-more/kafka-on-the-go/consumer-groups/ "https://developer.confluent.io/learn-more/kafka-on-the-go/consumer-groups/") ID.
 This consumer group ID is an existing identifier for the Kafka consumer group that you want your Lambda function to
 join. You can use this feature to seamlessly migrate any ongoing Kafka record processing setups from other
@@ -11,7 +11,7 @@ has other active consumers, Lambda receives only a portion of the messages from 
 to handle all messages in the topic, turn off any other consumers in that consumer group.
 
 Additionally, if you specify a consumer group ID, and Kafka finds a valid existing consumer group with the same
-ID, Lambda ignores the [StartingPosition](msk-starting-positions.md "msk-starting-positions.md") for your event source mapping.
+ID, Lambda ignores the [StartingPosition](kafka-starting-positions.md "kafka-starting-positions.md") for your event source mapping.
 Instead, Lambda begins processing records according to the committed offset of the consumer group. If you specify
 a consumer group ID, and Kafka cannot find an existing consumer group, then Lambda configures your event source
 with the specified `StartingPosition`.

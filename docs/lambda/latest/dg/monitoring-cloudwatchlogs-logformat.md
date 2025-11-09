@@ -25,8 +25,185 @@ Because of this, the size of your function's log messages can increase.
 Lambda currently supports the option to output JSON structured application logs for the following runtimes.
 
 | Runtime | Supported versions                                |
-| ------- | ------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------- | ------------------------------------------------- |
 | Java    | All Java runtimes except Java 8 on Amazon Linux 1 |
 | .NET    | .NET 8                                            |
 | Node.js | Node.js 16 and later                              |
-| Python  | Python 3.8 and later                              | For Lambda to send your function's application logs to CloudWatch in structured JSON format, your function must use the following built-in logging tools to output logs: <br>• **Java** - the `LambdaLogger` logger or Log4j2. <br>• **.NET** - the `ILambdaLogger` instance on the context object. <br>• **Node.js** - The console methods `console.trace`, `console.debug`, `console.log`, `console.info`, `console.error`, and `console.warn` <br>• **Python** - the standard Python `logging` library For more information about using advanced logging controls with supported runtimes, see [Log and monitor Java Lambda functions](java-logging.md "java-logging.md"), [Log and monitor Node.js Lambda functions](nodejs-logging.md "nodejs-logging.md"), and [Log and monitor Python Lambda functions](python-logging.md "python-logging.md"). For other managed Lambda runtimes, Lambda currently only natively supports capturing system logs in structured JSON format. However, you can still capture application logs in structured JSON format in any runtime by using logging tools such as Powertools for AWS Lambda that output JSON formatted log outputs. ## Default log formats Currently, the default log format for all Lambda runtimes is plain text. If you’re already using logging libraries like Powertools for AWS Lambda to generate your function logs in JSON structured format, you don’t need to change your code if you select JSON log formatting. Lambda doesn’t double-encode any logs that are already JSON encoded, so your function’s application logs will continue to be captured as before. ## JSON format for system logs When you configure your function's log format as JSON, each system log item (platform event) is captured as a JSON object that contains key value pairs with the following keys: <br>• `"time"` - the time the log message was generated <br>• `"type"` - the type of event being logged <br>• `"record"` - the contents of the log output The format of the `"record"` value varies according to the type of event being logged. For more information see [Telemetry API Event object types](telemetry-schema-reference.md#telemetry-api-events "telemetry-schema-reference.md#telemetry-api-events"). For more information about the log levels assigned to system log events, see [System log level event mapping](monitoring-cloudwatchlogs-log-level.md#monitoring-cloudwatchlogs-log-level-mapping "monitoring-cloudwatchlogs-log-level.md#monitoring-cloudwatchlogs-log-level-mapping"). For comparison, the following two examples show the same log output in both plain text and structured JSON formats. Note that in most cases, system log events contain more information when output in JSON format than when output in plain text. ###### Example plain text: `2024-03-13 18:56:24.046000 fbe8c1   INIT_START  Runtime Version: python:3.12.v18  Runtime Version ARN: arn:aws:lambda:eu-west-1::runtime:edb5a058bfa782cb9cedc6d534ac8b8c193bc28e9a9879d9f5ebaaf619cd0fc0` ###### Example structured JSON: `{ "time": "2024-03-13T18:56:24.046Z", "type": "platform.initStart", "record": { "initializationType": "on-demand", "phase": "init", "runtimeVersion": "python:3.12.v18", "runtimeVersionArn": "arn:aws:lambda:eu-west-1::runtime:edb5a058bfa782cb9cedc6d534ac8b8c193bc28e9a9879d9f5ebaaf619cd0fc0" } }` ###### Note The [Accessing real-time telemetry data for extensions using the Telemetry API](telemetry-api.md "telemetry-api.md") always emits platform events such as `START` and `REPORT` in JSON format. Configuring the format of the system logs Lambda sends to CloudWatch doesn’t affect Lambda Telemetry API behavior. ## JSON format for application logs When you configure your function's log format as JSON, application log outputs written using supported logging libraries and methods are captured as a JSON object that contains key value pairs with the following keys. <br>• `"timestamp"` - the time the log message was generated <br>• `"level"` - the log level assigned to the message <br>• `"message"` - the contents of the log message <br>• `"requestId"` (Python, .NET, and Node.js) or `"AWSrequestId"` (Java) - the unique request ID for the function invocation Depending on the runtime and logging method that your function uses, this JSON object may also contain additional key pairs. For example, in Node.js, if your function uses `console` methods to log error objects using multiple arguments, The JSON object will contain extra key value pairs with the keys `errorMessage`, `errorType`, and `stackTrace`. To learn more about JSON formatted logs in different Lambda runtimes, see [Log and monitor Python Lambda functions](python-logging.md "python-logging.md"), [Log and monitor Node.js Lambda functions](nodejs-logging.md "nodejs-logging.md"), and [Log and monitor Java Lambda functions](java-logging.md "java-logging.md"). ###### Note The key Lambda uses for the timestamp value is different for system logs and application logs. For system logs, Lambda uses the key `"time"` to maintain consistency with Telemetry API. For application logs, Lambda follows the conventions of the supported runtimes and uses `"timestamp"`. For comparison, the following two examples show the same log output in both plain text and structured JSON formats. ###### Example plain text: `2024-10-27T19:17:45.586Z 79b4f56e-95b1-4643-9700-2807f4e68189 INFO some log message` ###### Example structured JSON: `{ "timestamp":"2024-10-27T19:17:45.586Z", "level":"INFO", "message":"some log message", "requestId":"79b4f56e-95b1-4643-9700-2807f4e68189" }` ## Setting your function's log format To configure the log format for your function, you can use the Lambda console or the AWS Command Line Interface (AWS CLI). You can also configure a function’s log format using the [CreateFunction](../api/API_CreateFunction.md "../api/API_CreateFunction.md") and [UpdateFunctionConfiguration](../api/API_UpdateFunctionConfiguration.md "../api/API_UpdateFunctionConfiguration.md") Lambda API commands, the AWS Serverless Application Model (AWS SAM) [AWS::Serverless::Function](../../../serverless-application-model/latest/developerguide/sam-resource-function.md "../../../serverless-application-model/latest/developerguide/sam-resource-function.md") resource, and the AWS CloudFormation [AWS::Lambda::Function](../../../AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.md") resource. Changing your function’s log format doesn’t affect existing logs stored in CloudWatch Logs. Only new logs will use the updated format. If you change your function's log format to JSON and do not set log level, then Lambda automatically sets your function's application log level and system log level to INFO. This means that Lambda sends only log outputs of level INFO and lower to CloudWatch Logs. To learn more about application and system log-level filtering see [Log-level filtering](monitoring-cloudwatchlogs-log-level.md "monitoring-cloudwatchlogs-log-level.md") ###### Note For Python runtimes, when your function's log format is set to plain text, the default log-level setting is WARN. This means that Lambda only sends log outputs of level WARN and lower to CloudWatch Logs. Changing your function's log format to JSON changes this default behavior. To learn more about logging in Python, see [Log and monitor Python Lambda functions](python-logging.md "python-logging.md"). For Node.js functions that emit embedded metric format (EMF) logs, changing your function's log format to JSON could result in CloudWatch being unable to recognize your metrics. ###### Important If your function uses Powertools for AWS Lambda (TypeScript) or the open-sourced EMF client libraries to emit EMF logs, update your [Powertools](https://github.com/aws-powertools/powertools-lambda-typescript "https://github.com/aws-powertools/powertools-lambda-typescript") and [EMF](https://www.npmjs.com/package/aws-embedded-metrics "https://www.npmjs.com/package/aws-embedded-metrics") libraries to the latest versions to ensure that CloudWatch can continue to parse your logs correctly. If you switch to the JSON log format, we also recommend that you carry out testing to ensure compatibility with your function's embedded metrics. For further advice about node.js functions that emit EMF logs, see [Using embedded metric format (EMF) client libraries with structured JSON logs](nodejs-logging.md#nodejs-logging-advanced-emf "nodejs-logging.md#nodejs-logging-advanced-emf"). ###### To configure a function’s log format (console) 1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions "https://console.aws.amazon.com/lambda/home#/functions") of the Lambda console. 2. Choose a function 3. On the function configuration page, choose **Monitoring and operations tools**. 4. In the **Logging configuration** pane, choose **Edit**. 5. Under **Log content**, for **Log format** select either **Text** or **JSON**. 6. Choose **Save**. ###### To change the log format of an existing function (AWS CLI) <br>• To change the log format of an existing function, use the [update-function-configuration](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lambda/update-function-configuration.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lambda/update-function-configuration.html") command. Set the `LogFormat` option in `LoggingConfig` to either `JSON` or `Text`. `` `aws lambda update-function-configuration \ --function-name myFunction \ --logging-config LogFormat=JSON` `` ###### To set log format when you create a function (AWS CLI) <br>• To configure log format when you create a new function, use the `--logging-config` option in the [create-function](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lambda/create-function.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lambda/create-function.html") command. Set `LogFormat` to either `JSON` or `Text`. The following example command creates a Node.js function that outputs logs in structured JSON. If you don’t specify a log format when you create a function, Lambda will use the default log format for the runtime version you select. For information about default logging formats, see [Default log formats](#monitoring-cloudwatchlogs-format-default "#monitoring-cloudwatchlogs-format-default"). `` `aws lambda create-function \ --function-name myFunction \ --runtime nodejs22.x \ --handler index.handler \ --zip-file fileb://function.zip \ --role arn:aws:iam::123456789012:role/LambdaRole \ --logging-config LogFormat=JSON` `` |
+| Python  | Python 3.8 and later                              |
+
+For Lambda to send your function's application logs to CloudWatch in structured JSON format, your function must use the following built-in
+logging tools to output logs:
+
+- **Java** - the `LambdaLogger` logger or Log4j2.
+- **.NET** - the `ILambdaLogger` instance on the context object.
+- **Node.js** - The console methods `console.trace`, `console.debug`,
+  `console.log`, `console.info`, `console.error`, and `console.warn`
+- **Python** - the standard Python `logging` library
+
+For more information about using advanced logging controls with supported runtimes, see [Log and monitor Java Lambda functions](java-logging.md "java-logging.md"),
+[Log and monitor Node.js Lambda functions](nodejs-logging.md "nodejs-logging.md"), and [Log and monitor Python Lambda functions](python-logging.md "python-logging.md").
+
+For other managed Lambda runtimes, Lambda currently only natively supports capturing system logs in structured JSON format. However, you
+can still capture application logs in structured JSON format in any runtime by using logging tools such as Powertools for AWS Lambda that output
+JSON formatted log outputs.
+
+## Default log formats
+
+Currently, the default log format for all Lambda runtimes is plain text.
+
+If you’re already using logging libraries like Powertools for AWS Lambda to generate your function logs in JSON structured format, you
+don’t need to change your code if you select JSON log formatting. Lambda doesn’t double-encode any logs that are already JSON encoded, so
+your function’s application logs will continue to be captured as before.
+
+## JSON format for system logs
+
+When you configure your function's log format as JSON, each system log item (platform event) is captured as a JSON object that contains
+key value pairs with the following keys:
+
+- `"time"` - the time the log message was generated
+- `"type"` - the type of event being logged
+- `"record"` - the contents of the log output
+
+The format of the `"record"` value varies according to the type of event being logged. For more information see
+[Telemetry API Event object types](telemetry-schema-reference.md#telemetry-api-events "telemetry-schema-reference.md#telemetry-api-events"). For more information about the log levels assigned to system log events, see [System log level event mapping](monitoring-cloudwatchlogs-log-level.md#monitoring-cloudwatchlogs-log-level-mapping "monitoring-cloudwatchlogs-log-level.md#monitoring-cloudwatchlogs-log-level-mapping").
+
+For comparison, the following two examples show the same log output in both plain text and structured JSON formats. Note that in most
+cases, system log events contain more information when output in JSON format than when output in plain text.
+
+###### Example plain text:
+
+```
+2024-03-13 18:56:24.046000 fbe8c1   INIT_START  Runtime Version: python:3.12.v18  Runtime Version ARN: arn:aws:lambda:eu-west-1::runtime:edb5a058bfa782cb9cedc6d534ac8b8c193bc28e9a9879d9f5ebaaf619cd0fc0
+```
+
+###### Example structured JSON:
+
+```
+{
+  "time": "2024-03-13T18:56:24.046Z",
+  "type": "platform.initStart",
+  "record": {
+    "initializationType": "on-demand",
+    "phase": "init",
+    "runtimeVersion": "python:3.12.v18",
+    "runtimeVersionArn": "arn:aws:lambda:eu-west-1::runtime:edb5a058bfa782cb9cedc6d534ac8b8c193bc28e9a9879d9f5ebaaf619cd0fc0"
+  }
+}
+```
+
+###### Note
+
+The [Accessing real-time telemetry data for extensions using the Telemetry API](telemetry-api.md "telemetry-api.md") always emits platform events such as `START` and `REPORT` in JSON format.
+Configuring the format of the system logs Lambda sends to CloudWatch doesn’t affect Lambda Telemetry API behavior.
+
+## JSON format for application logs
+
+When you configure your function's log format as JSON, application log outputs written using supported logging libraries and methods are
+captured as a JSON object that contains key value pairs with the following keys.
+
+- `"timestamp"` - the time the log message was generated
+- `"level"` - the log level assigned to the message
+- `"message"` - the contents of the log message
+- `"requestId"` (Python, .NET, and Node.js) or `"AWSrequestId"` (Java) - the unique request ID for the function
+  invocation
+
+Depending on the runtime and logging method that your function uses, this JSON object may also contain additional key pairs. For example,
+in Node.js, if your function uses `console` methods to log error objects using multiple arguments, The JSON object will contain extra
+key value pairs with the keys `errorMessage`, `errorType`, and `stackTrace`. To learn more about JSON formatted
+logs in different Lambda runtimes, see [Log and monitor Python Lambda functions](python-logging.md "python-logging.md"), [Log and monitor Node.js Lambda functions](nodejs-logging.md "nodejs-logging.md"), and [Log and monitor Java Lambda functions](java-logging.md "java-logging.md").
+
+###### Note
+
+The key Lambda uses for the timestamp value is different for system logs and application logs. For system logs, Lambda uses the key `"time"`
+to maintain consistency with Telemetry API. For application logs, Lambda follows the conventions of the supported runtimes and uses
+`"timestamp"`.
+
+For comparison, the following two examples show the same log output in both plain text and structured JSON formats.
+
+###### Example plain text:
+
+```
+2024-10-27T19:17:45.586Z 79b4f56e-95b1-4643-9700-2807f4e68189 INFO some log message
+```
+
+###### Example structured JSON:
+
+```
+{
+    "timestamp":"2024-10-27T19:17:45.586Z",
+    "level":"INFO",
+    "message":"some log message",
+    "requestId":"79b4f56e-95b1-4643-9700-2807f4e68189"
+}
+```
+
+## Setting your function's log format
+
+To configure the log format for your function, you can use the Lambda console or the AWS Command Line Interface (AWS CLI). You can also configure a
+function’s log format using the [CreateFunction](../api/API_CreateFunction.md "../api/API_CreateFunction.md") and [UpdateFunctionConfiguration](../api/API_UpdateFunctionConfiguration.md "../api/API_UpdateFunctionConfiguration.md") Lambda API
+commands, the AWS Serverless Application Model (AWS SAM) [AWS::Serverless::Function](../../../serverless-application-model/latest/developerguide/sam-resource-function.md "../../../serverless-application-model/latest/developerguide/sam-resource-function.md")
+resource, and the AWS CloudFormation [AWS::Lambda::Function](../../../AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.md")
+resource.
+
+Changing your function’s log format doesn’t affect existing logs stored in CloudWatch Logs. Only new logs will use the updated format.
+
+If you change your function's log format to JSON and do not set log level, then Lambda automatically sets your function's application log
+level and system log level to INFO.
+This means that Lambda sends only log outputs of level INFO and lower to CloudWatch Logs. To learn more about application and system log-level filtering
+see [Log-level filtering](monitoring-cloudwatchlogs-log-level.md "monitoring-cloudwatchlogs-log-level.md")
+
+###### Note
+
+For Python runtimes, when your function's log format is set to plain text, the default log-level setting is WARN. This means that Lambda
+only sends log outputs of level WARN and lower to CloudWatch Logs. Changing your function's log format to JSON changes this default behavior. To
+learn more about logging in Python, see [Log and monitor Python Lambda functions](python-logging.md "python-logging.md").
+
+For Node.js functions that emit embedded metric format (EMF) logs, changing your function's log format to JSON could result in CloudWatch being unable
+to recognize your metrics.
+
+###### Important
+
+If your function uses Powertools for AWS Lambda (TypeScript) or the open-sourced EMF client libraries to emit EMF logs, update your [Powertools](https://github.com/aws-powertools/powertools-lambda-typescript "https://github.com/aws-powertools/powertools-lambda-typescript")
+and [EMF](https://www.npmjs.com/package/aws-embedded-metrics "https://www.npmjs.com/package/aws-embedded-metrics") libraries to the latest versions to ensure that CloudWatch can
+continue to parse your logs correctly. If you switch to the JSON log format, we also recommend that you carry out testing to ensure
+compatibility with your function's embedded metrics. For further advice about node.js functions that emit EMF logs, see [Using embedded metric format (EMF) client libraries with structured JSON logs](nodejs-logging.md#nodejs-logging-advanced-emf "nodejs-logging.md#nodejs-logging-advanced-emf").
+
+###### To configure a function’s log format (console)
+
+1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions "https://console.aws.amazon.com/lambda/home#/functions") of the Lambda console.
+2. Choose a function
+3. On the function configuration page, choose **Monitoring and operations tools**.
+4. In the **Logging configuration** pane, choose **Edit**.
+5. Under **Log content**, for **Log format** select either **Text** or
+   **JSON**.
+6. Choose **Save**.
+
+###### To change the log format of an existing function (AWS CLI)
+
+- To change the log format of an existing function, use the [update-function-configuration](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lambda/update-function-configuration.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lambda/update-function-configuration.html") command. Set the
+  `LogFormat` option in `LoggingConfig` to either
+  `JSON` or `Text`.
+
+```
+`aws lambda update-function-configuration \
+ --function-name myFunction \
+ --logging-config LogFormat=JSON`
+```
+
+###### To set log format when you create a function (AWS CLI)
+
+- To configure log format when you create a new function, use the `--logging-config` option in the [create-function](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lambda/create-function.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lambda/create-function.html")
+  command. Set `LogFormat` to either `JSON` or `Text`. The following example command creates a Node.js function that outputs logs in structured JSON.
+
+If you don’t specify a log format when you create a function, Lambda will use the default log format for the runtime version you
+select. For information about default logging formats, see [Default log formats](#monitoring-cloudwatchlogs-format-default "#monitoring-cloudwatchlogs-format-default").
+
+```
+`aws lambda create-function \
+ --function-name myFunction \
+ --runtime nodejs22.x \
+ --handler index.handler \
+ --zip-file fileb://function.zip \
+ --role arn:aws:iam::123456789012:role/LambdaRole \
+ --logging-config LogFormat=JSON`
+```

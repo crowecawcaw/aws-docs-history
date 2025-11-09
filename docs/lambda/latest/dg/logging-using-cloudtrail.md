@@ -68,5 +68,234 @@ CloudTrail APIs. The **Data APIs logged to CloudTrail** column shows the API
 calls logged to CloudTrail for the resource type.
 
 | Data event type (console) | resources.type value    | Data APIs logged to CloudTrail                        |
-| ------------------------- | ----------------------- | ----------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Lambda**                | `AWS::Lambda::Function` | [Invoke](../api/API_Invoke.md "../api/API_Invoke.md") | You can configure advanced event selectors to filter on the `eventName`, `readOnly`, and `resources.ARN` fields to log only those events that are important to you. The following example is the JSON view of a data event configuration that logs events for a specific function only. For more information about these fields, see [AdvancedFieldSelector](../../../awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.md "../../../awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.md") in the _AWS CloudTrail API Reference_. ``[ { "name": "function-invokes", "fieldSelectors": [ { "field": "eventCategory", "equals": [ "Data" ] }, { "field": "resources.type", "equals": [ "AWS::Lambda::Function" ] }, { "field": "resources.ARN", "equals": [ "`arn:aws:lambda:us-east-1:111122223333:function:hello-world`" ] } ] } ]`` ## Lambda management events in CloudTrail [Management events](../../../awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.md#logging-management-events "../../../awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.md#logging-management-events") provide information about management operations that are performed on resources in your AWS account. These are also known as control plane operations. By default, CloudTrail logs management events. Lambda supports logging the following actions as management events in CloudTrail log files. ###### Note In the CloudTrail log file, the `eventName` might include date and version information, but it is still referring to the same public API action. For example the, `GetFunction` action appears as `GetFunction20150331v2`. The following list specifies when the event name differs from the API action name. <br>• [AddLayerVersionPermission](../api/API_AddLayerVersionPermission.md "../api/API_AddLayerVersionPermission.md") <br>• [AddPermission](../api/API_AddPermission.md "../api/API_AddPermission.md") (event name: `AddPermission20150331v2`) <br>• [CreateAlias](../api/API_CreateAlias.md "../api/API_CreateAlias.md") (event name: `CreateAlias20150331`) <br>• [CreateEventSourceMapping](../api/API_CreateEventSourceMapping.md "../api/API_CreateEventSourceMapping.md") (event name: `CreateEventSourceMapping20150331`) <br>• [CreateFunction](../api/API_CreateFunction.md "../api/API_CreateFunction.md") (event name: `CreateFunction20150331`) (The `Environment` and `ZipFile` parameters are omitted from the CloudTrail logs for `CreateFunction`.) <br>• [CreateFunctionUrlConfig](../api/API_CreateFunctionUrlConfig.md "../api/API_CreateFunctionUrlConfig.md") <br>• [DeleteAlias](../api/API_DeleteAlias.md "../api/API_DeleteAlias.md") (event name: `DeleteAlias20150331`) <br>• [DeleteCodeSigningConfig](../api/API_DeleteCodeSigningConfig.md "../api/API_DeleteCodeSigningConfig.md") <br>• [DeleteEventSourceMapping](../api/API_DeleteEventSourceMapping.md "../api/API_DeleteEventSourceMapping.md") (event name: `DeleteEventSourceMapping20150331`) <br>• [DeleteFunction](../api/API_DeleteFunction.md "../api/API_DeleteFunction.md") (event name: `DeleteFunction20150331`) <br>• [DeleteFunctionConcurrency](../api/API_DeleteFunctionConcurrency.md "../api/API_DeleteFunctionConcurrency.md") (event name: `DeleteFunctionConcurrency20171031`) <br>• [DeleteFunctionUrlConfig](../api/API_DeleteFunctionUrlConfig.md "../api/API_DeleteFunctionUrlConfig.md") <br>• [DeleteProvisionedConcurrencyConfig](../api/API_DeleteProvisionedConcurrencyConfig.md "../api/API_DeleteProvisionedConcurrencyConfig.md") <br>• [GetAlias](../api/API_GetAlias.md "../api/API_GetAlias.md") (event name: `GetAlias20150331`) <br>• [GetEventSourceMapping](../api/API_GetEventSourceMapping.md "../api/API_GetEventSourceMapping.md") <br>• [GetFunction](../api/API_GetFunction.md "../api/API_GetFunction.md") <br>• [GetFunctionUrlConfig](../api/API_GetFunctionUrlConfig.md "../api/API_GetFunctionUrlConfig.md") <br>• [GetFunctionConfiguration](../api/API_GetFunctionConfiguration.md "../api/API_GetFunctionConfiguration.md") <br>• [GetLayerVersionPolicy](../api/API_GetLayerVersionPolicy.md "../api/API_GetLayerVersionPolicy.md") <br>• [GetPolicy](../api/API_GetPolicy.md "../api/API_GetPolicy.md") <br>• [ListEventSourceMappings](../api/API_ListEventSourceMappings.md "../api/API_ListEventSourceMappings.md") <br>• [ListFunctions](../api/API_ListFunctions.md "../api/API_ListFunctions.md") <br>• [ListFunctionUrlConfigs](../api/API_ListFunctionUrlConfigs.md "../api/API_ListFunctionUrlConfigs.md") <br>• [PublishLayerVersion](../api/API_PublishLayerVersion.md "../api/API_PublishLayerVersion.md") (event name: `PublishLayerVersion20181031`) (The `ZipFile` parameter is omitted from the CloudTrail logs for `PublishLayerVersion`.) <br>• [PublishVersion](../api/API_PublishVersion.md "../api/API_PublishVersion.md") (event name: `PublishVersion20150331`) <br>• [PutFunctionConcurrency](../api/API_PutFunctionConcurrency.md "../api/API_PutFunctionConcurrency.md") (event name: `PutFunctionConcurrency20171031`) <br>• [PutFunctionCodeSigningConfig](../api/API_PutFunctionCodeSigningConfig.md "../api/API_PutFunctionCodeSigningConfig.md") <br>• [PutFunctionEventInvokeConfig](../api/API_PutFunctionEventInvokeConfig.md "../api/API_PutFunctionEventInvokeConfig.md") <br>• [PutProvisionedConcurrencyConfig](../api/API_PutProvisionedConcurrencyConfig.md "../api/API_PutProvisionedConcurrencyConfig.md") <br>• [PutRuntimeManagementConfig](../api/API_PutRuntimeManagementConfig.md "../api/API_PutRuntimeManagementConfig.md") <br>• [RemovePermission](../api/API_RemovePermission.md "../api/API_RemovePermission.md") (event name: `RemovePermission20150331v2`) <br>• [TagResource](../api/API_TagResource.md "../api/API_TagResource.md") (event name: `TagResource20170331v2`) <br>• [UntagResource](../api/API_UntagResource.md "../api/API_UntagResource.md") (event name: `UntagResource20170331v2`) <br>• [UpdateAlias](../api/API_UpdateAlias.md "../api/API_UpdateAlias.md") (event name: `UpdateAlias20150331`) <br>• [UpdateCodeSigningConfig](../api/API_UpdateCodeSigningConfig.md "../api/API_UpdateCodeSigningConfig.md") <br>• [UpdateEventSourceMapping](../api/API_UpdateEventSourceMapping.md "../api/API_UpdateEventSourceMapping.md") (event name: `UpdateEventSourceMapping20150331`) <br>• [UpdateFunctionCode](../api/API_UpdateFunctionCode.md "../api/API_UpdateFunctionCode.md") (event name: `UpdateFunctionCode20150331v2`) (The `ZipFile` parameter is omitted from the CloudTrail logs for `UpdateFunctionCode`.) <br>• [UpdateFunctionConfiguration](../api/API_UpdateFunctionConfiguration.md "../api/API_UpdateFunctionConfiguration.md") (event name: `UpdateFunctionConfiguration20150331v2`) (The `Environment` parameter is omitted from the CloudTrail logs for `UpdateFunctionConfiguration`.) <br>• [UpdateFunctionEventInvokeConfig](../api/API_UpdateFunctionEventInvokeConfig.md "../api/API_UpdateFunctionEventInvokeConfig.md") <br>• [UpdateFunctionUrlConfig](../api/API_UpdateFunctionUrlConfig.md "../api/API_UpdateFunctionUrlConfig.md") ## Using CloudTrail to troubleshoot disabled Lambda event sources When you change the state of an event source mapping using the [UpdateEventSourceMapping](../api/API_UpdateEventSourceMapping.md "../api/API_UpdateEventSourceMapping.md") API action, the API call is logged as a management event in CloudTrail. Event source mappings can also transition directly to the `Disabled` state due to errors. For the following services, Lambda publishes the `LambdaESMDisabled` data event to CloudTrail when your event source transitions to the Disabled state: <br>• Amazon Simple Queue Service (Amazon SQS) <br>• Amazon DynamoDB <br>• Amazon Kinesis Lambda doesn't support this event for any other event source mapping types. To receive alerts when event source mappings for supported services transition to the `Disabled` state, set up an alarm in Amazon CloudWatch using the `LambdaESMDisabled` CloudTrail event. To learn more about setting up a CloudWatch alarm, see [Creating CloudWatch alarms for CloudTrail events: examples](../../../awscloudtrail/latest/userguide/cloudwatch-alarms-for-cloudtrail.md "../../../awscloudtrail/latest/userguide/cloudwatch-alarms-for-cloudtrail.md"). The `serviceEventDetails` entity in the `LambdaESMDisabled` event message contains one of the following error codes. **`RESOURCE_NOT_FOUND`** The resource specified in the request does not exist. **`FUNCTION_NOT_FOUND`** The function attached to the event source does not exist. **`REGION_NAME_NOT_VALID`** A Region name provided to the event source or function is invalid. **`AUTHORIZATION_ERROR`** Permissions have not been set, or are misconfigured. **`FUNCTION_IN_FAILED_STATE`** The function code does not compile, has encountered an unrecoverable exception, or a bad deployment has occurred. ## Lambda event examples An event represents a single request from any source and includes information about the requested API operation, the date and time of the operation, request parameters, and so on. CloudTrail log files aren't an ordered stack trace of the public API calls, so events don't appear in any specific order. The following example shows CloudTrail log entries for the `GetFunction` and `DeleteFunction` actions. ###### Note The `eventName` might include date and version information, such as `"GetFunction20150331"`, but it is still referring to the same public API. `{ "Records": [ { "eventVersion": "1.03", "userIdentity": { "type": "IAMUser", "principalId": "A1B2C3D4E5F6G7EXAMPLE", "arn": "arn:aws:iam::111122223333:user/myUserName", "accountId": "111122223333", "accessKeyId": "AKIAIOSFODNN7EXAMPLE", "userName": "myUserName" }, "eventTime": "2015-03-18T19:03:36Z", "eventSource": "lambda.amazonaws.com", "eventName": "GetFunction", "awsRegion": "us-east-1", "sourceIPAddress": "127.0.0.1", "userAgent": "Python-httplib2/0.8 (gzip)", "errorCode": "AccessDenied", "errorMessage": "User: arn:aws:iam::111122223333:user/myUserName is not authorized to perform: lambda:GetFunction on resource: arn:aws:lambda:us-west-2:111122223333:function:other-acct-function", "requestParameters": null, "responseElements": null, "requestID": "7aebcd0f-cda1-11e4-aaa2-e356da31e4ff", "eventID": "e92a3e85-8ecd-4d23-8074-843aabfe89bf", "eventType": "AwsApiCall", "recipientAccountId": "111122223333" }, { "eventVersion": "1.03", "userIdentity": { "type": "IAMUser", "principalId": "A1B2C3D4E5F6G7EXAMPLE", "arn": "arn:aws:iam::111122223333:user/myUserName", "accountId": "111122223333", "accessKeyId": "AKIAIOSFODNN7EXAMPLE", "userName": "myUserName" }, "eventTime": "2015-03-18T19:04:42Z", "eventSource": "lambda.amazonaws.com", "eventName": "DeleteFunction20150331", "awsRegion": "us-east-1", "sourceIPAddress": "127.0.0.1", "userAgent": "Python-httplib2/0.8 (gzip)", "requestParameters": { "functionName": "basic-node-task" }, "responseElements": null, "requestID": "a2198ecc-cda1-11e4-aaa2-e356da31e4ff", "eventID": "20b84ce5-730f-482e-b2b2-e8fcc87ceb22", "eventType": "AwsApiCall", "recipientAccountId": "111122223333" } ] }` For information about CloudTrail record contents, see [CloudTrail record contents](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-record-contents.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-record-contents.md") in the _AWS CloudTrail User Guide_. |
+| ------------------------- | ----------------------- | ----------------------------------------------------- |
+| **Lambda**                | `AWS::Lambda::Function` | [Invoke](../api/API_Invoke.md "../api/API_Invoke.md") |
+
+You can configure advanced event selectors to filter on the `eventName`,
+`readOnly`, and `resources.ARN` fields to log only those events that
+are important to you. The following example is the JSON view of a data event configuration
+that logs events for a specific function only. For more information about these fields, see
+[AdvancedFieldSelector](../../../awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.md "../../../awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.md") in the
+_AWS CloudTrail API Reference_.
+
+```
+[
+  {
+    "name": "function-invokes",
+    "fieldSelectors": [
+      {
+        "field": "eventCategory",
+        "equals": [
+          "Data"
+        ]
+      },
+      {
+        "field": "resources.type",
+        "equals": [
+          "AWS::Lambda::Function"
+        ]
+      },
+      {
+        "field": "resources.ARN",
+        "equals": [
+          "`arn:aws:lambda:us-east-1:111122223333:function:hello-world`"
+        ]
+      }
+    ]
+  }
+]
+```
+
+## Lambda management events in CloudTrail
+
+[Management events](../../../awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.md#logging-management-events "../../../awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.md#logging-management-events") provide information about management operations that are performed on resources in your AWS account. These are also known as control plane operations. By default, CloudTrail logs management events.
+
+Lambda supports logging the following actions as management events in CloudTrail log
+files.
+
+###### Note
+
+In the CloudTrail log file, the `eventName` might include date and version
+information, but it is still referring to the same public API action. For example the,
+`GetFunction` action appears as `GetFunction20150331v2`. The
+following list specifies when the event name differs from the API action name.
+
+- [AddLayerVersionPermission](../api/API_AddLayerVersionPermission.md "../api/API_AddLayerVersionPermission.md")
+- [AddPermission](../api/API_AddPermission.md "../api/API_AddPermission.md") (event name: `AddPermission20150331v2`)
+- [CreateAlias](../api/API_CreateAlias.md "../api/API_CreateAlias.md") (event name: `CreateAlias20150331`)
+- [CreateEventSourceMapping](../api/API_CreateEventSourceMapping.md "../api/API_CreateEventSourceMapping.md") (event name:
+  `CreateEventSourceMapping20150331`)
+- [CreateFunction](../api/API_CreateFunction.md "../api/API_CreateFunction.md") (event name: `CreateFunction20150331`)
+
+(The `Environment` and `ZipFile` parameters are omitted from the
+CloudTrail logs for `CreateFunction`.)
+
+- [CreateFunctionUrlConfig](../api/API_CreateFunctionUrlConfig.md "../api/API_CreateFunctionUrlConfig.md")
+- [DeleteAlias](../api/API_DeleteAlias.md "../api/API_DeleteAlias.md") (event name: `DeleteAlias20150331`)
+- [DeleteCodeSigningConfig](../api/API_DeleteCodeSigningConfig.md "../api/API_DeleteCodeSigningConfig.md")
+- [DeleteEventSourceMapping](../api/API_DeleteEventSourceMapping.md "../api/API_DeleteEventSourceMapping.md") (event name:
+  `DeleteEventSourceMapping20150331`)
+- [DeleteFunction](../api/API_DeleteFunction.md "../api/API_DeleteFunction.md") (event name: `DeleteFunction20150331`)
+- [DeleteFunctionConcurrency](../api/API_DeleteFunctionConcurrency.md "../api/API_DeleteFunctionConcurrency.md") (event name:
+  `DeleteFunctionConcurrency20171031`)
+- [DeleteFunctionUrlConfig](../api/API_DeleteFunctionUrlConfig.md "../api/API_DeleteFunctionUrlConfig.md")
+- [DeleteProvisionedConcurrencyConfig](../api/API_DeleteProvisionedConcurrencyConfig.md "../api/API_DeleteProvisionedConcurrencyConfig.md")
+- [GetAlias](../api/API_GetAlias.md "../api/API_GetAlias.md") (event name: `GetAlias20150331`)
+- [GetEventSourceMapping](../api/API_GetEventSourceMapping.md "../api/API_GetEventSourceMapping.md")
+- [GetFunction](../api/API_GetFunction.md "../api/API_GetFunction.md")
+- [GetFunctionUrlConfig](../api/API_GetFunctionUrlConfig.md "../api/API_GetFunctionUrlConfig.md")
+- [GetFunctionConfiguration](../api/API_GetFunctionConfiguration.md "../api/API_GetFunctionConfiguration.md")
+- [GetLayerVersionPolicy](../api/API_GetLayerVersionPolicy.md "../api/API_GetLayerVersionPolicy.md")
+- [GetPolicy](../api/API_GetPolicy.md "../api/API_GetPolicy.md")
+- [ListEventSourceMappings](../api/API_ListEventSourceMappings.md "../api/API_ListEventSourceMappings.md")
+- [ListFunctions](../api/API_ListFunctions.md "../api/API_ListFunctions.md")
+- [ListFunctionUrlConfigs](../api/API_ListFunctionUrlConfigs.md "../api/API_ListFunctionUrlConfigs.md")
+- [PublishLayerVersion](../api/API_PublishLayerVersion.md "../api/API_PublishLayerVersion.md") (event name:
+  `PublishLayerVersion20181031`)
+
+(The `ZipFile` parameter is omitted from the CloudTrail logs for
+`PublishLayerVersion`.)
+
+- [PublishVersion](../api/API_PublishVersion.md "../api/API_PublishVersion.md") (event name: `PublishVersion20150331`)
+- [PutFunctionConcurrency](../api/API_PutFunctionConcurrency.md "../api/API_PutFunctionConcurrency.md") (event name:
+  `PutFunctionConcurrency20171031`)
+- [PutFunctionCodeSigningConfig](../api/API_PutFunctionCodeSigningConfig.md "../api/API_PutFunctionCodeSigningConfig.md")
+- [PutFunctionEventInvokeConfig](../api/API_PutFunctionEventInvokeConfig.md "../api/API_PutFunctionEventInvokeConfig.md")
+- [PutProvisionedConcurrencyConfig](../api/API_PutProvisionedConcurrencyConfig.md "../api/API_PutProvisionedConcurrencyConfig.md")
+- [PutRuntimeManagementConfig](../api/API_PutRuntimeManagementConfig.md "../api/API_PutRuntimeManagementConfig.md")
+- [RemovePermission](../api/API_RemovePermission.md "../api/API_RemovePermission.md") (event name: `RemovePermission20150331v2`)
+- [TagResource](../api/API_TagResource.md "../api/API_TagResource.md") (event name: `TagResource20170331v2`)
+- [UntagResource](../api/API_UntagResource.md "../api/API_UntagResource.md") (event name: `UntagResource20170331v2`)
+- [UpdateAlias](../api/API_UpdateAlias.md "../api/API_UpdateAlias.md") (event name: `UpdateAlias20150331`)
+- [UpdateCodeSigningConfig](../api/API_UpdateCodeSigningConfig.md "../api/API_UpdateCodeSigningConfig.md")
+- [UpdateEventSourceMapping](../api/API_UpdateEventSourceMapping.md "../api/API_UpdateEventSourceMapping.md") (event name:
+  `UpdateEventSourceMapping20150331`)
+- [UpdateFunctionCode](../api/API_UpdateFunctionCode.md "../api/API_UpdateFunctionCode.md") (event name:
+  `UpdateFunctionCode20150331v2`)
+
+(The `ZipFile` parameter is omitted from the CloudTrail logs for
+`UpdateFunctionCode`.)
+
+- [UpdateFunctionConfiguration](../api/API_UpdateFunctionConfiguration.md "../api/API_UpdateFunctionConfiguration.md") (event name:
+  `UpdateFunctionConfiguration20150331v2`)
+
+(The `Environment` parameter is omitted from the CloudTrail logs for
+`UpdateFunctionConfiguration`.)
+
+- [UpdateFunctionEventInvokeConfig](../api/API_UpdateFunctionEventInvokeConfig.md "../api/API_UpdateFunctionEventInvokeConfig.md")
+- [UpdateFunctionUrlConfig](../api/API_UpdateFunctionUrlConfig.md "../api/API_UpdateFunctionUrlConfig.md")
+
+## Using CloudTrail to troubleshoot disabled Lambda event sources
+
+When you change the state of an event source mapping using the [UpdateEventSourceMapping](../api/API_UpdateEventSourceMapping.md "../api/API_UpdateEventSourceMapping.md") API action, the
+API call is logged as a management event in CloudTrail. Event source mappings can also transition directly to the `Disabled`
+state due to errors.
+
+For the following services, Lambda publishes the `LambdaESMDisabled` data event to CloudTrail when your event source
+transitions to the Disabled state:
+
+- Amazon Simple Queue Service (Amazon SQS)
+- Amazon DynamoDB
+- Amazon Kinesis
+
+Lambda doesn't support this event for any other event source mapping types.
+
+To receive alerts when event source mappings for supported services transition to the `Disabled` state,
+set up an alarm in Amazon CloudWatch using the `LambdaESMDisabled` CloudTrail event. To learn more about setting up a CloudWatch
+alarm, see [Creating CloudWatch alarms for
+CloudTrail events: examples](../../../awscloudtrail/latest/userguide/cloudwatch-alarms-for-cloudtrail.md "../../../awscloudtrail/latest/userguide/cloudwatch-alarms-for-cloudtrail.md").
+
+The `serviceEventDetails` entity in the `LambdaESMDisabled` event message contains one of the following
+error codes.
+
+**`RESOURCE_NOT_FOUND`**
+
+The resource specified in the request does not exist.
+
+**`FUNCTION_NOT_FOUND`**
+
+The function attached to the event source does not exist.
+
+**`REGION_NAME_NOT_VALID`**
+
+A Region name provided to the event source or function is invalid.
+
+**`AUTHORIZATION_ERROR`**
+
+Permissions have not been set, or are misconfigured.
+
+**`FUNCTION_IN_FAILED_STATE`**
+
+The function code does not compile, has encountered an unrecoverable exception, or a bad deployment has occurred.
+
+## Lambda event examples
+
+An event represents a single request from any source and includes information about the requested API operation, the date and time of the operation, request parameters, and so on. CloudTrail log files aren't an ordered stack trace of the public API calls, so events don't appear in any specific order.
+
+The following example shows CloudTrail log entries for the `GetFunction` and `DeleteFunction`
+actions.
+
+###### Note
+
+The `eventName` might include date and version information, such as
+`"GetFunction20150331"`, but it is still referring to the same public API.
+
+```
+{
+  "Records": [
+    {
+      "eventVersion": "1.03",
+      "userIdentity": {
+        "type": "IAMUser",
+        "principalId": "A1B2C3D4E5F6G7EXAMPLE",
+        "arn": "arn:aws:iam::111122223333:user/myUserName",
+        "accountId": "111122223333",
+        "accessKeyId": "AKIAIOSFODNN7EXAMPLE",
+        "userName": "myUserName"
+      },
+      "eventTime": "2015-03-18T19:03:36Z",
+      "eventSource": "lambda.amazonaws.com",
+      "eventName": "GetFunction",
+      "awsRegion": "us-east-1",
+      "sourceIPAddress": "127.0.0.1",
+      "userAgent": "Python-httplib2/0.8 (gzip)",
+      "errorCode": "AccessDenied",
+      "errorMessage": "User: arn:aws:iam::111122223333:user/myUserName is not authorized to perform: lambda:GetFunction on resource: arn:aws:lambda:us-west-2:111122223333:function:other-acct-function",
+      "requestParameters": null,
+      "responseElements": null,
+      "requestID": "7aebcd0f-cda1-11e4-aaa2-e356da31e4ff",
+      "eventID": "e92a3e85-8ecd-4d23-8074-843aabfe89bf",
+      "eventType": "AwsApiCall",
+      "recipientAccountId": "111122223333"
+    },
+    {
+      "eventVersion": "1.03",
+      "userIdentity": {
+        "type": "IAMUser",
+        "principalId": "A1B2C3D4E5F6G7EXAMPLE",
+        "arn": "arn:aws:iam::111122223333:user/myUserName",
+        "accountId": "111122223333",
+        "accessKeyId": "AKIAIOSFODNN7EXAMPLE",
+        "userName": "myUserName"
+      },
+      "eventTime": "2015-03-18T19:04:42Z",
+      "eventSource": "lambda.amazonaws.com",
+      "eventName": "DeleteFunction20150331",
+      "awsRegion": "us-east-1",
+      "sourceIPAddress": "127.0.0.1",
+      "userAgent": "Python-httplib2/0.8 (gzip)",
+      "requestParameters": {
+        "functionName": "basic-node-task"
+      },
+      "responseElements": null,
+      "requestID": "a2198ecc-cda1-11e4-aaa2-e356da31e4ff",
+      "eventID": "20b84ce5-730f-482e-b2b2-e8fcc87ceb22",
+      "eventType": "AwsApiCall",
+      "recipientAccountId": "111122223333"
+    }
+  ]
+}
+```
+
+For information about CloudTrail record contents, see [CloudTrail
+record contents](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-record-contents.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-record-contents.md") in the _AWS CloudTrail User Guide_.

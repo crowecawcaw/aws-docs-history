@@ -24,10 +24,10 @@ this creates an event source mapping resource.
    2. For **Topic name**, enter the name of the Kafka topic to consume
       messages from.
    3. For **Consumer group ID**, enter the ID of a Kafka consumer group
-      to join, if applicable. For more information, see [Customizable consumer group ID in Lambda](msk-cgid.md "msk-cgid.md").
+      to join, if applicable. For more information, see [Customizable consumer group ID in Lambda](kafka-consumer-group-id.md "kafka-consumer-group-id.md").
 
 6. For **Cluster authentication**, make the necessary configurations. For more
-   information about cluster authentication, see [Configuring cluster authentication methods in Lambda](msk-cluster-auth.md "msk-cluster-auth.md").
+   information about cluster authentication, see [Configuring Amazon MSK ycluster authentication methods in Lambda](msk-cluster-auth.md "msk-cluster-auth.md").
    - Toggle on **Use authentication** if you want Lambda to perform
      authentication with your MSK cluster when establishing a connection. Authentication
      is recommended.
@@ -39,12 +39,12 @@ this creates an event source mapping resource.
 7. Under **Event poller configuration**, make the necessary configurations.
    - Choose **Activate trigger** to enable the trigger immediately after creation.
    - Choose whether you want to **Configure provisioned mode** for your event source
-     mapping. For more information, see [Event poller scaling modes in Lambda](msk-scaling-modes.md "msk-scaling-modes.md").
+     mapping. For more information, see [Apache Kafka event poller scaling modes in Lambda](kafka-scaling-modes.md "kafka-scaling-modes.md").
      - If you configure provisioned mode, enter a value for **Minimum event pollers**,
        a value for **Maximum event pollers**, or both values.
 
    - For **Starting position**, choose how you want Lambda to start reading from your stream.
-     For more information, see [Polling and stream starting positions in Lambda](msk-starting-positions.md "msk-starting-positions.md").
+     For more information, see [Apache Kafka polling and stream starting positions in Lambda](kafka-starting-positions.md "kafka-starting-positions.md").
 
 8. Under **Batching**, make the necessary configurations. For more information about
    batching, see [Batching behavior](invocation-eventsourcemapping.md#invocation-eventsourcemapping-batching "invocation-eventsourcemapping.md#invocation-eventsourcemapping-batching").
@@ -54,12 +54,12 @@ this creates an event source mapping resource.
       gathering records before invoking the function.
 
 9. Under **Filtering**, make the necessary configurations. For more information about
-   filtering, see [Using event filtering with an Amazon MSK event source](with-msk-filtering.md "with-msk-filtering.md").
+   filtering, see [Filtering events from Amazon MSK and self-managed Apache Kafka event sources](kafka-filtering.md "kafka-filtering.md").
    - For **Filter criteria**, add filter criteria definitions to determine whether
      or not to process an event.
 
 10. Under **Failure handling**, make the necessary configurations. For more information
-    about failure handling, see [Capturing discarded batches for an Amazon MSK event source](with-msk-on-failure.md "with-msk-on-failure.md").
+    about failure handling, see [Capturing discarded batches for Amazon MSK and self-managed Apache Kafka event sources](kafka-on-failure.md "kafka-on-failure.md").
     - For **On-failure destination**, specify the ARN of your on-failure destination.
 
 11. For **Tags**, enter the tags to associate with this event source mapping.

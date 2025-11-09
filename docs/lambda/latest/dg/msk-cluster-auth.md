@@ -1,4 +1,4 @@
-# Configuring cluster authentication methods in Lambda
+# Configuring Amazon MSK ycluster authentication methods in Lambda
 
 Lambda needs permission to access your Amazon MSK cluster, retrieve records, and perform other tasks. Amazon MSK supports
 several ways to authenticate with your MSK cluster.
@@ -27,7 +27,7 @@ the _Amazon Managed Streaming for Apache Kafka Developer Guide_.
 
 ###### Note
 
-Amazon MSK doesn’t support SASL/PLAIN authentication.
+Amazon MSK doesn't support SASL/PLAIN authentication.
 
 ## Mutual TLS authentication
 
@@ -39,11 +39,11 @@ For Amazon MSK integrations with Lambda, your MSK cluster acts as the server, an
 
 - For Lambda to verify your MSK cluster, you configure a client certificate as a secret in Secrets Manager, and
   reference this certificate in your event source mapping configuration. The client certificate must be
-  signed by a certificate authority (CA) in the server’s trust store.
+  signed by a certificate authority (CA) in the server's trust store.
 - The MSK cluster also sends a server certificate to Lambda. The server certificate must be signed by
   a certificate authority (CA) in the AWS trust store.
 
-Amazon MSK doesn’t support self-signed server certificates. All brokers in Amazon MSK use
+Amazon MSK doesn't support self-signed server certificates. All brokers in Amazon MSK use
 [public certificates](../../../msk/latest/developerguide/msk-encryption.md "../../../msk/latest/developerguide/msk-encryption.md")
 signed by [Amazon Trust Services CAs](https://www.amazontrust.com/repository/ "https://www.amazontrust.com/repository/"), which Lambda
 trusts by default.
@@ -120,12 +120,12 @@ authentication for Amazon MSK](../../../msk/latest/developerguide/msk-authentica
 ## IAM authentication
 
 You can use AWS Identity and Access Management (IAM) to authenticate the identity of clients that connect to the MSK cluster.
-With IAM auth, Lambda relies on the permissions in your function’s
+With IAM auth, Lambda relies on the permissions in your function's
 [execution role](lambda-intro-execution-role.md "lambda-intro-execution-role.md") to connect to the cluster, retrieve
 records, and perform other required actions. For a sample policy that contains the necessary permissions,
 see [Create authorization policies for the IAM role](../../../msk/latest/developerguide/create-iam-access-control-policies.md "../../../msk/latest/developerguide/create-iam-access-control-policies.md") in the _Amazon Managed Streaming for Apache Kafka Developer Guide_.
 
-If IAM auth is active on your MSK cluster, and you don’t provide a secret, Lambda automatically defaults
+If IAM auth is active on your MSK cluster, and you don't provide a secret, Lambda automatically defaults
 to using IAM auth.
 
 For more information about IAM authentication in Amazon MSK, see [IAM access control](../../../msk/latest/developerguide/iam-access-control.md "../../../msk/latest/developerguide/iam-access-control.md").

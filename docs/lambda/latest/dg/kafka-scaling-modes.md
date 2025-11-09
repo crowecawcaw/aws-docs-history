@@ -1,16 +1,13 @@
-# Event poller scaling modes in Lambda
+# Apache Kafka event poller scaling modes in Lambda
 
-You can choose between two modes of event poller scaling for your Kafka event source mapping:
+You can choose between two modes of event poller scaling for Amazon MSK and self-managed Apache Kafka event source mappings:
 
-###### Scaling modes
-
-- [On-demand mode (default)](#services-msk-default-mode "#services-msk-default-mode")
-- [Provisioned mode](#services-msk-provisioned-mode "#services-msk-provisioned-mode")
-- [Best practices and considerations when using provisioned mode](#services-msk-provisioned-mode-bp "#services-msk-provisioned-mode-bp")
+- [On-demand mode (default)](#kafka-default-mode "#kafka-default-mode")
+- [Provisioned mode](#kafka-provisioned-mode "#kafka-provisioned-mode")
 
 ## On-demand mode (default)
 
-When you initially create an Amazon MSK event source, Lambda allocates a default number of event pollers
+When you initially create the Kafka event source, Lambda allocates a default number of event pollers
 to process all partitions in the Kafka topic. Lambda automatically scales up or down the number of
 [event pollers](invocation-eventsourcemapping.md#invocation-eventsourcemapping-provisioned-mode "invocation-eventsourcemapping.md#invocation-eventsourcemapping-provisioned-mode") based on message
 load.
@@ -40,9 +37,7 @@ see [AWS Lambda pricing](https://aws.amazon.com/lambda/pricing/ "https://aws.ama
 
 ###### Note
 
-When using provisioned mode, you don't need to create AWS PrivateLink VPC endpoints or grant the
-associated permissions as part of your [network
-configuration](with-msk-cluster-network.md "with-msk-cluster-network.md").
+When using provisioned mode, you don't need to create AWS PrivateLink VPC endpoints or grant the associated permissions as part of your network configuration.
 
 In provisioned mode, the range of accepted values for the minimum number of event pollers
 (`MinimumPollers`) is between 1 and 200, inclusive. The range of
@@ -53,20 +48,20 @@ processing within partitions, Lambda caps the `MaximumPollers` to the
 number of partitions in the topic.
 
 For more details about choosing appropriate values for minimum and maximum event pollers,
-see [Best practices and considerations when using provisioned mode](#services-msk-provisioned-mode-bp "#services-msk-provisioned-mode-bp").
+see [Best practices](#kafka-provisioned-mode-bp "#kafka-provisioned-mode-bp").
 
-You can configure provisioned mode for your Amazon MSK event source mapping using the console
+You can configure provisioned mode for your Kafka event source mapping using the console
 or the Lambda API.
 
-###### To configure provisioned mode for an existing Amazon MSK event source mapping (console)
+###### To configure provisioned mode for an existing event source mapping (console)
 
 1. Open the [Functions page](https://console.aws.amazon.com/lambda/home#/functions "https://console.aws.amazon.com/lambda/home#/functions") of the Lambda console.
-2. Choose the function with the Amazon MSK event source mapping you want to configure
+2. Choose the function with the event source mapping you want to configure
    provisioned mode for.
 3. Choose **Configuration**, then choose **Triggers**.
-4. Choose the Amazon MSK event source mapping that you want to configure provisioned mode for,
+4. Choose the event source mapping that you want to configure provisioned mode for,
    then choose **Edit**.
-5. Under **Event source mapping configuration**, choose **Configure provisioned mode**.
+5. Under **Provisioned mode**, select **Configure**.
    - For **Minimum event pollers**, enter a value between 1 and 200.
      If you don't specify a value, Lambda chooses a default value of 1.
    - For **Maximum event pollers**, enter a value between 1 and 2,000.

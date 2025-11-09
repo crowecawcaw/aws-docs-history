@@ -19,7 +19,7 @@ For the OpenAPI Specification (OAS) definition of the subscription responses ver
   supports.
 
 | Category       | Event type                       | Description                                                              | Event record schema                                                                                        |
-| -------------- | -------------------------------- | ------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| -------------- | -------------------------------- | ------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------- |
 | Platform event | `platform.initStart`             | Function initialization started.                                         | [platform.initStart](#platform-initStart "#platform-initStart") schema                                     |
 | Platform event | `platform.initRuntimeDone`       | Function initialization completed.                                       | [platform.initRuntimeDone](#platform-initRuntimeDone "#platform-initRuntimeDone") schema                   |
 | Platform event | `platform.initReport`            | A report of function initialization.                                     | [platform.initReport](#platform-initReport "#platform-initReport") schema                                  |
@@ -32,4 +32,811 @@ For the OpenAPI Specification (OAS) definition of the subscription responses ver
 | Platform event | `platform.telemetrySubscription` | The extension subscribed to the Telemetry API.                           | [platform.telemetrySubscription](#platform-telemetrySubscription "#platform-telemetrySubscription") schema |
 | Platform event | `platform.logsDropped`           | Lambda dropped log entries.                                              | [platform.logsDropped](#platform-logsDropped "#platform-logsDropped") schema                               |
 | Function logs  | `function`                       | A log line from function code.                                           | [function](#telemetry-api-function "#telemetry-api-function") schema                                       |
-| Extension logs | `extension`                      | A log line from extension code.                                          | [extension](#telemetry-api-extension "#telemetry-api-extension") schema                                    | ###### Contents <br>• [Telemetry API Event object types](telemetry-schema-reference.md#telemetry-api-events "telemetry-schema-reference.md#telemetry-api-events") + [platform.initStart](telemetry-schema-reference.md#platform-initStart "telemetry-schema-reference.md#platform-initStart") + [platform.initRuntimeDone](telemetry-schema-reference.md#platform-initRuntimeDone "telemetry-schema-reference.md#platform-initRuntimeDone") + [platform.initReport](telemetry-schema-reference.md#platform-initReport "telemetry-schema-reference.md#platform-initReport") + [platform.start](telemetry-schema-reference.md#platform-start "telemetry-schema-reference.md#platform-start") + [platform.runtimeDone](telemetry-schema-reference.md#platform-runtimeDone "telemetry-schema-reference.md#platform-runtimeDone") + [platform.report](telemetry-schema-reference.md#platform-report "telemetry-schema-reference.md#platform-report") + [platform.restoreStart](telemetry-schema-reference.md#platform-restoreStart "telemetry-schema-reference.md#platform-restoreStart") + [platform.restoreRuntimeDone](telemetry-schema-reference.md#platform-restoreRuntimeDone "telemetry-schema-reference.md#platform-restoreRuntimeDone") + [platform.restoreReport](telemetry-schema-reference.md#platform-restoreReport "telemetry-schema-reference.md#platform-restoreReport") + [platform.extension](telemetry-schema-reference.md#platform-extension "telemetry-schema-reference.md#platform-extension") + [platform.telemetrySubscription](telemetry-schema-reference.md#platform-telemetrySubscription "telemetry-schema-reference.md#platform-telemetrySubscription") + [platform.logsDropped](telemetry-schema-reference.md#platform-logsDropped "telemetry-schema-reference.md#platform-logsDropped") + [function](telemetry-schema-reference.md#telemetry-api-function "telemetry-schema-reference.md#telemetry-api-function") + [extension](telemetry-schema-reference.md#telemetry-api-extension "telemetry-schema-reference.md#telemetry-api-extension") <br>• [Shared object types](telemetry-schema-reference.md#telemetry-api-objects "telemetry-schema-reference.md#telemetry-api-objects") + [InitPhase](telemetry-schema-reference.md#InitPhase "telemetry-schema-reference.md#InitPhase") + [InitReportMetrics](telemetry-schema-reference.md#InitReportMetrics "telemetry-schema-reference.md#InitReportMetrics") + [InitType](telemetry-schema-reference.md#InitType "telemetry-schema-reference.md#InitType") + [ReportMetrics](telemetry-schema-reference.md#ReportMetrics "telemetry-schema-reference.md#ReportMetrics") + [RestoreReportMetrics](telemetry-schema-reference.md#RestoreReportMetrics "telemetry-schema-reference.md#RestoreReportMetrics") + [RuntimeDoneMetrics](telemetry-schema-reference.md#RuntimeDoneMetrics "telemetry-schema-reference.md#RuntimeDoneMetrics") + [Span](telemetry-schema-reference.md#Span "telemetry-schema-reference.md#Span") + [Status](telemetry-schema-reference.md#Status "telemetry-schema-reference.md#Status") + [TraceContext](telemetry-schema-reference.md#TraceContext "telemetry-schema-reference.md#TraceContext") + [TracingType](telemetry-schema-reference.md#TracingType "telemetry-schema-reference.md#TracingType") ## Telemetry API `Event` object types This section details the types of `Event` objects that the Lambda Telemetry API supports. In the event descriptions, a question mark (`?`) indicates that the attribute may not be present in the object. ### `platform.initStart` A `platform.initStart` event indicates that the function initialization phase has started. A `platform.initStart` `Event` object has the following shape: `Event: Object <br>• time: String <br>• type: String = platform.initStart <br>• record: PlatformInitStart` The `PlatformInitStart` object has the following attributes: <br>• **functionName** – `String` <br>• **functionVersion** – `String` <br>• **initializationType** – `InitType` object <br>• **instanceId?** – `String` <br>• **instanceMaxMemory?** – `Integer` <br>• **phase** – `InitPhase` object <br>• **runtimeVersion?** – `String` <br>• **runtimeVersionArn?** – `String` The following is an example `Event` of type `platform.initStart`: `{ "time": "2022-10-12T00:00:15.064Z", "type": "platform.initStart", "record": { "initializationType": "on-demand", "phase": "init", "runtimeVersion": "nodejs-14.v3", "runtimeVersionArn": "arn", "functionName": "myFunction", "functionVersion": "$LATEST", "instanceId": "82561ce0-53dd-47d1-90e0-c8f5e063e62e", "instanceMaxMemory": 256 } }` ### `platform.initRuntimeDone` A `platform.initRuntimeDone` event indicates that the function initialization phase has completed. A `platform.initRuntimeDone` `Event` object has the following shape: `Event: Object <br>• time: String <br>• type: String = platform.initRuntimeDone <br>• record: PlatformInitRuntimeDone` The `PlatformInitRuntimeDone` object has the following attributes: <br>• **initializationType** – `InitType` object <br>• **phase** – `InitPhase` object <br>• **status** – `Status` object <br>• **spans?** – List of `Span` objects The following is an example `Event` of type `platform.initRuntimeDone`: `{ "time": "2022-10-12T00:01:15.000Z", "type": "platform.initRuntimeDone", "record": { "initializationType": "on-demand" "status": "success", "spans": [ { "name": "someTimeSpan", "start": "2022-06-02T12:02:33.913Z", "durationMs": 70.5 } ] } }` ### `platform.initReport` A `platform.initReport` event contains an overall report of the function initialization phase. A `platform.initReport` `Event` object has the following shape: `Event: Object <br>• time: String <br>• type: String = platform.initReport <br>• record: PlatformInitReport` The `PlatformInitReport` object has the following attributes: <br>• **errorType?** – string <br>• **initializationType** – `InitType` object <br>• **phase** – `InitPhase` object <br>• **metrics** – `InitReportMetrics` object <br>• **spans?** – List of `Span` objects <br>• **status** – `Status` object The following is an example `Event` of type `platform.initReport`: `{ "time": "2022-10-12T00:01:15.000Z", "type": "platform.initReport", "record": { "initializationType": "on-demand", "status": "success", "phase": "init", "metrics": { "durationMs": 125.33 }, "spans": [ { "name": "someTimeSpan", "start": "2022-06-02T12:02:33.913Z", "durationMs": 90.1 } ] } }` ### `platform.start` A `platform.start` event indicates that the function invocation phase has started. A `platform.start` `Event` object has the following shape: `Event: Object <br>• time: String <br>• type: String = platform.start <br>• record: PlatformStart` The `PlatformStart` object has the following attributes: <br>• **requestId** – `String` <br>• **version?** – `String` <br>• **tracing?** – `TraceContext` The following is an example `Event` of type `platform.start`: `{ "time": "2022-10-12T00:00:15.064Z", "type": "platform.start", "record": { "requestId": "6d68ca91-49c9-448d-89b8-7ca3e6dc66aa", "version": "$LATEST", "tracing": { "spanId": "54565fb41ac79632", "type": "X-Amzn-Trace-Id", "value": "Root=1-62e900b2-710d76f009d6e7785905449a;Parent=0efbd19962d95b05;Sampled=1" } } }` ### `platform.runtimeDone` A `platform.runtimeDone` event indicates that the function invocation phase has completed. A `platform.runtimeDone` `Event` object has the following shape: `Event: Object <br>• time: String <br>• type: String = platform.runtimeDone <br>• record: PlatformRuntimeDone` The `PlatformRuntimeDone` object has the following attributes: <br>• **errorType?** – `String` <br>• **metrics?** – `RuntimeDoneMetrics` object <br>• **requestId** – `String` <br>• **status** – `Status` object <br>• **spans?** – List of `Span` objects <br>• **tracing?** – `TraceContext` object The following is an example `Event` of type `platform.runtimeDone`: `{ "time": "2022-10-12T00:01:15.000Z", "type": "platform.runtimeDone", "record": { "requestId": "6d68ca91-49c9-448d-89b8-7ca3e6dc66aa", "status": "success", "tracing": { "spanId": "54565fb41ac79632", "type": "X-Amzn-Trace-Id", "value": "Root=1-62e900b2-710d76f009d6e7785905449a;Parent=0efbd19962d95b05;Sampled=1" }, "spans": [ { "name": "someTimeSpan", "start": "2022-08-02T12:01:23:521Z", "durationMs": 80.0 } ], "metrics": { "durationMs": 140.0, "producedBytes": 16 } } }` ### `platform.report` A `platform.report` event contains an overall report of the function invoke phase. A `platform.report` `Event` object has the following shape: `Event: Object <br>• time: String <br>• type: String = platform.report <br>• record: PlatformReport` The `PlatformReport` object has the following attributes: <br>• **metrics** – `ReportMetrics` object <br>• **requestId** – `String` <br>• **spans?** – List of `Span` objects <br>• **status** – `Status` object <br>• **tracing?** – `TraceContext` object The following is an example `Event` of type `platform.report`: `{ "time": "2022-10-12T00:01:15.000Z", "type": "platform.report", "record": { "metrics": { "billedDurationMs": 694, "durationMs": 693.92, "initDurationMs": 397.68, "maxMemoryUsedMB": 84, "memorySizeMB": 128 }, "requestId": "6d68ca91-49c9-448d-89b8-7ca3e6dc66aa", } }` ### `platform.restoreStart` A `platform.restoreStart` event indicates that a function environment restoration event started. In an environment restoration event, Lambda creates the environment from a cached snapshot rather than initializing it from scratch. For more information, see [Lambda SnapStart](snapstart.md "snapstart.md"). A `platform.restoreStart` `Event` object has the following shape: `Event: Object <br>• time: String <br>• type: String = platform.restoreStart <br>• record: PlatformRestoreStart` The `PlatformRestoreStart` object has the following attributes: <br>• **functionName** – `String` <br>• **functionVersion** – `String` <br>• **instanceId?** – `String` <br>• **instanceMaxMemory?** – `String` <br>• **runtimeVersion?** – `String` <br>• **runtimeVersionArn?** – `String` The following is an example `Event` of type `platform.restoreStart`: `{ "time": "2022-10-12T00:00:15.064Z", "type": "platform.restoreStart", "record": { "runtimeVersion": "nodejs-14.v3", "runtimeVersionArn": "arn", "functionName": "myFunction", "functionVersion": "$LATEST", "instanceId": "82561ce0-53dd-47d1-90e0-c8f5e063e62e", "instanceMaxMemory": 256 } }` ### `platform.restoreRuntimeDone` A `platform.restoreRuntimeDone` event indicates that a function environment restoration event completed. In an environment restoration event, Lambda creates the environment from a cached snapshot rather than initializing it from scratch. For more information, see [Lambda SnapStart](snapstart.md "snapstart.md"). A `platform.restoreRuntimeDone` `Event` object has the following shape: `Event: Object <br>• time: String <br>• type: String = platform.restoreRuntimeDone <br>• record: PlatformRestoreRuntimeDone` The `PlatformRestoreRuntimeDone` object has the following attributes: <br>• **errorType?** – `String` <br>• **spans?** – List of `Span` objects <br>• **status** – `Status` object The following is an example `Event` of type `platform.restoreRuntimeDone`: `{ "time": "2022-10-12T00:00:15.064Z", "type": "platform.restoreRuntimeDone", "record": { "status": "success", "spans": [ { "name": "someTimeSpan", "start": "2022-08-02T12:01:23:521Z", "durationMs": 80.0 } ] } }` ### `platform.restoreReport` A `platform.restoreReport` event contains an overall report of a function restoration event. A `platform.restoreReport` `Event` object has the following shape: `Event: Object <br>• time: String <br>• type: String = platform.restoreReport <br>• record: PlatformRestoreReport` The `PlatformRestoreReport` object has the following attributes: <br>• **errorType?** – string <br>• **metrics?** – `RestoreReportMetrics` object <br>• **spans?** – List of `Span` objects <br>• **status** – `Status` object The following is an example `Event` of type `platform.restoreReport`: `{ "time": "2022-10-12T00:00:15.064Z", "type": "platform.restoreReport", "record": { "status": "success", "metrics": { "durationMs": 15.19 }, "spans": [ { "name": "someTimeSpan", "start": "2022-08-02T12:01:23:521Z", "durationMs": 30.0 } ] } }` ### `platform.extension` An `extension` event contains logs from the extension code. An `extension` `Event` object has the following shape: `Event: Object <br>• time: String <br>• type: String = extension <br>• record: {}` The `PlatformExtension` object has the following attributes: <br>• **events** – List of `String` <br>• **name** – `String` <br>• **state** – `String` The following is an example `Event` of type `platform.extension`: `{ "time": "2022-10-12T00:02:15.000Z", "type": "platform.extension", "record": { "events": [ "INVOKE", "SHUTDOWN" ], "name": "my-telemetry-extension", "state": "Ready" } }` ### `platform.telemetrySubscription` A `platform.telemetrySubscription` event contains information about an extension subscription. A `platform.telemetrySubscription` `Event` object has the following shape: `Event: Object <br>• time: String <br>• type: String = platform.telemetrySubscription <br>• record: PlatformTelemetrySubscription` The `PlatformTelemetrySubscription` object has the following attributes: <br>• **name** – `String` <br>• **state** – `String` <br>• **types** – List of `String` The following is an example `Event` of type `platform.telemetrySubscription`: `{ "time": "2022-10-12T00:02:35.000Z", "type": "platform.telemetrySubscription", "record": { "name": "my-telemetry-extension", "state": "Subscribed", "types": [ "platform", "function" ] } }` ### `platform.logsDropped` A `platform.logsDropped` event contains information about dropped events. Lambda emits the `platform.logsDropped` event when a function outputs logs at too high a rate for Lambda to process them. When Lambda can't send logs to CloudWatch or to the extension subscribed to Telemetry API at the rate the function produces them, it drops logs to prevent the function's execution from slowing down. A `platform.logsDropped` `Event` object has the following shape: `Event: Object <br>• time: String <br>• type: String = platform.logsDropped <br>• record: PlatformLogsDropped` The `PlatformLogsDropped` object has the following attributes: <br>• **droppedBytes** – `Integer` <br>• **droppedRecords** – `Integer` <br>• **reason** – `String` The following is an example `Event` of type `platform.logsDropped`: `{ "time": "2022-10-12T00:02:35.000Z", "type": "platform.logsDropped", "record": { "droppedBytes": 12345, "droppedRecords": 123, "reason": "Some logs were dropped because the downstream consumer is slower than the logs production rate" } }` ### `function` A `function` event contains logs from the function code. A `function` `Event` object has the following shape: `Event: Object <br>• time: String <br>• type: String = function <br>• record: {}` The format of the `record` field depends on whether your function's logs are formatted in plain text or JSON format. to learn more about log format configuration options, see [Configuring JSON and plain text log formats](monitoring-cloudwatchlogs-logformat.md "monitoring-cloudwatchlogs-logformat.md") The following is an example `Event` of type `function` where the log format is plain text: `{ "time": "2022-10-12T00:03:50.000Z", "type": "function", "record": "[INFO] Hello world, I am a function!" }` The following is an example `Event` of type `function` where the log format is JSON: `{ "time": "2022-10-12T00:03:50.000Z", "type": "function", "record": { "timestamp": "2022-10-12T00:03:50.000Z", "level": "INFO", "requestId": "79b4f56e-95b1-4643-9700-2807f4e68189", "message": "Hello world, I am a function!" } }` ###### Note If the schema version you're using is older than the `2022-12-13` version, then the `"record"` is always rendered as a string even when your function's logging format is configured as JSON. ### `extension` A `extension` event contains logs from the extension code. A `extension` `Event` object has the following shape: `Event: Object <br>• time: String <br>• type: String = extension <br>• record: {}` The format of the `record` field depends on whether your function's logs are formatted in plain text or JSON format. to learn more about log format configuration options, see [Configuring JSON and plain text log formats](monitoring-cloudwatchlogs-logformat.md "monitoring-cloudwatchlogs-logformat.md") The following is an example `Event` of type `extension` where the log format is plain text: `{ "time": "2022-10-12T00:03:50.000Z", "type": "extension", "record": "[INFO] Hello world, I am an extension!" }` The following is an example `Event` of type `extension` where the log format is JSON: `{ "time": "2022-10-12T00:03:50.000Z", "type": "extension", "record": { "timestamp": "2022-10-12T00:03:50.000Z", "level": "INFO", "requestId": "79b4f56e-95b1-4643-9700-2807f4e68189", "message": "Hello world, I am an extension!" } }` ###### Note If the schema version you're using is older than the `2022-12-13` version, then the `"record"` is always rendered as a string even when your function's logging format is configured as JSON. ## Shared object types This section details the types of shared objects that the Lambda Telemetry API supports. ### `InitPhase` A string enum that describes the phase when the initialization step occurs. In most cases, Lambda runs the function initialization code during the `init` phase. However, in some error cases, Lambda may re-run the function initialization code during the `invoke` phase. (This is called a _suppressed init_.) <br>• **Type** – `String` <br>• **Valid values** – `init` | `invoke` | `snap-start` ### `InitReportMetrics` An object that contains metrics about an initialization phase. <br>• **Type** – `Object` An `InitReportMetrics` object has the following shape: `InitReportMetrics: Object <br>• durationMs: Double` The following is an example `InitReportMetrics` object: `{ "durationMs": 247.88 }` ### `InitType` A string enum that describes how Lambda initialized the environment. <br>• **Type** – `String` <br>• **Valid values** – `on-demand` | `provisioned-concurrency` ### `ReportMetrics` An object that contains metrics about a completed phase. <br>• **Type** – `Object` A `ReportMetrics` object has the following shape: `ReportMetrics: Object <br>• billedDurationMs: Integer <br>• durationMs: Double <br>• initDurationMs?: Double <br>• maxMemoryUsedMB: Integer <br>• memorySizeMB: Integer <br>• restoreDurationMs?: Double` The following is an example `ReportMetrics` object: `{ "billedDurationMs": 694, "durationMs": 693.92, "initDurationMs": 397.68, "maxMemoryUsedMB": 84, "memorySizeMB": 128 }` ### `RestoreReportMetrics` An object that contains metrics about a completed restoration phase. <br>• **Type** – `Object` A `RestoreReportMetrics` object has the following shape: `RestoreReportMetrics: Object <br>• durationMs: Double` The following is an example `RestoreReportMetrics` object: `{ "durationMs": 15.19 }` ### `RuntimeDoneMetrics` An object that contains metrics about an invocation phase. <br>• **Type** – `Object` A `RuntimeDoneMetrics` object has the following shape: `RuntimeDoneMetrics: Object <br>• durationMs: Double <br>• producedBytes?: Integer` The following is an example `RuntimeDoneMetrics` object: `{ "durationMs": 200.0, "producedBytes": 15 }` ### `Span` An object that contains details about a span. A span represents a unit of work or operation in a trace. For more information about spans, see [Span](https://opentelemetry.io/docs/reference/specification/trace/api/#span "https://opentelemetry.io/docs/reference/specification/trace/api/#span") on the **Tracing API** page of the OpenTelemetry Docs website. Lambda supports the following spans for the `platform.RuntimeDone` event: <br>• The `responseLatency` span describes how long it took your Lambda function to start sending the response. <br>• The `responseDuration` span describes how long it took your Lambda function to finish sending the entire response. <br>• The `runtimeOverhead` span describes how long it took the Lambda runtime to signal that it is ready to process the next function invoke. This is how long the runtime took to call the [next invocation](runtimes-api.md#runtimes-api-next "runtimes-api.md#runtimes-api-next") API to get the next event after returning your function response. The following is an example `responseLatency` span object: `{ "name": "responseLatency", "start": "2022-08-02T12:01:23.521Z", "durationMs": 23.02 }` ### `Status` An object that describes the status of an initialization or invocation phase. If the status is either `failure` or `error`, then the `Status` object also contains an `errorType` field describing the error. <br>• **Type** – `Object` <br>• **Valid status values** – `success` | `failure` | `error` | `timeout` ### `TraceContext` An object that describes the properties of a trace. <br>• **Type** – `Object` A `TraceContext` object has the following shape: `TraceContext: Object <br>• spanId?: String <br>• type: TracingType enum <br>• value: String` The following is an example `TraceContext` object: `{ "spanId": "073a49012f3c312e", "type": "X-Amzn-Trace-Id", "value": "Root=1-62e900b2-710d76f009d6e7785905449a;Parent=0efbd19962d95b05;Sampled=1" }` ### `TracingType` A string enum that describes the type of tracing in a `TraceContext` object. <br>• **Type** – `String` <br>• **Valid values** – `X-Amzn-Trace-Id` |
+| Extension logs | `extension`                      | A log line from extension code.                                          | [extension](#telemetry-api-extension "#telemetry-api-extension") schema                                    |
+
+###### Contents
+
+- [Telemetry API Event object types](telemetry-schema-reference.md#telemetry-api-events "telemetry-schema-reference.md#telemetry-api-events")
+  - [platform.initStart](telemetry-schema-reference.md#platform-initStart "telemetry-schema-reference.md#platform-initStart")
+  - [platform.initRuntimeDone](telemetry-schema-reference.md#platform-initRuntimeDone "telemetry-schema-reference.md#platform-initRuntimeDone")
+  - [platform.initReport](telemetry-schema-reference.md#platform-initReport "telemetry-schema-reference.md#platform-initReport")
+  - [platform.start](telemetry-schema-reference.md#platform-start "telemetry-schema-reference.md#platform-start")
+  - [platform.runtimeDone](telemetry-schema-reference.md#platform-runtimeDone "telemetry-schema-reference.md#platform-runtimeDone")
+  - [platform.report](telemetry-schema-reference.md#platform-report "telemetry-schema-reference.md#platform-report")
+  - [platform.restoreStart](telemetry-schema-reference.md#platform-restoreStart "telemetry-schema-reference.md#platform-restoreStart")
+  - [platform.restoreRuntimeDone](telemetry-schema-reference.md#platform-restoreRuntimeDone "telemetry-schema-reference.md#platform-restoreRuntimeDone")
+  - [platform.restoreReport](telemetry-schema-reference.md#platform-restoreReport "telemetry-schema-reference.md#platform-restoreReport")
+  - [platform.extension](telemetry-schema-reference.md#platform-extension "telemetry-schema-reference.md#platform-extension")
+  - [platform.telemetrySubscription](telemetry-schema-reference.md#platform-telemetrySubscription "telemetry-schema-reference.md#platform-telemetrySubscription")
+  - [platform.logsDropped](telemetry-schema-reference.md#platform-logsDropped "telemetry-schema-reference.md#platform-logsDropped")
+  - [function](telemetry-schema-reference.md#telemetry-api-function "telemetry-schema-reference.md#telemetry-api-function")
+  - [extension](telemetry-schema-reference.md#telemetry-api-extension "telemetry-schema-reference.md#telemetry-api-extension")
+
+- [Shared object types](telemetry-schema-reference.md#telemetry-api-objects "telemetry-schema-reference.md#telemetry-api-objects")
+  - [InitPhase](telemetry-schema-reference.md#InitPhase "telemetry-schema-reference.md#InitPhase")
+  - [InitReportMetrics](telemetry-schema-reference.md#InitReportMetrics "telemetry-schema-reference.md#InitReportMetrics")
+  - [InitType](telemetry-schema-reference.md#InitType "telemetry-schema-reference.md#InitType")
+  - [ReportMetrics](telemetry-schema-reference.md#ReportMetrics "telemetry-schema-reference.md#ReportMetrics")
+  - [RestoreReportMetrics](telemetry-schema-reference.md#RestoreReportMetrics "telemetry-schema-reference.md#RestoreReportMetrics")
+  - [RuntimeDoneMetrics](telemetry-schema-reference.md#RuntimeDoneMetrics "telemetry-schema-reference.md#RuntimeDoneMetrics")
+  - [Span](telemetry-schema-reference.md#Span "telemetry-schema-reference.md#Span")
+  - [Status](telemetry-schema-reference.md#Status "telemetry-schema-reference.md#Status")
+  - [TraceContext](telemetry-schema-reference.md#TraceContext "telemetry-schema-reference.md#TraceContext")
+  - [TracingType](telemetry-schema-reference.md#TracingType "telemetry-schema-reference.md#TracingType")
+
+## Telemetry API `Event` object types
+
+This section details the types of `Event` objects that the Lambda Telemetry API supports. In the
+event descriptions, a question mark (`?`) indicates that the attribute may not be present in the
+object.
+
+### `platform.initStart`
+
+A `platform.initStart` event indicates that the function initialization phase has started. A
+`platform.initStart`
+`Event` object has the following shape:
+
+```
+Event: Object
+- time: String
+- type: String = platform.initStart
+- record: PlatformInitStart
+
+```
+
+The `PlatformInitStart` object has the following attributes:
+
+- **functionName** – `String`
+- **functionVersion** – `String`
+- **initializationType** – `InitType`
+  object
+- **instanceId?** – `String`
+- **instanceMaxMemory?** – `Integer`
+- **phase** – `InitPhase` object
+- **runtimeVersion?** – `String`
+- **runtimeVersionArn?** – `String`
+
+The following is an example `Event` of type `platform.initStart`:
+
+```
+{
+    "time": "2022-10-12T00:00:15.064Z",
+    "type": "platform.initStart",
+    "record": {
+        "initializationType": "on-demand",
+        "phase": "init",
+        "runtimeVersion": "nodejs-14.v3",
+        "runtimeVersionArn": "arn",
+        "functionName": "myFunction",
+        "functionVersion": "$LATEST",
+        "instanceId": "82561ce0-53dd-47d1-90e0-c8f5e063e62e",
+        "instanceMaxMemory": 256
+    }
+}
+```
+
+### `platform.initRuntimeDone`
+
+A `platform.initRuntimeDone` event indicates that the function initialization phase has
+completed. A `platform.initRuntimeDone`
+`Event` object has the following shape:
+
+```
+Event: Object
+- time: String
+- type: String = platform.initRuntimeDone
+- record: PlatformInitRuntimeDone
+```
+
+The `PlatformInitRuntimeDone` object has the following attributes:
+
+- **initializationType** – `InitType`
+  object
+- **phase** – `InitPhase` object
+- **status** – `Status` object
+- **spans?** – List of `Span`
+  objects
+
+The following is an example `Event` of type `platform.initRuntimeDone`:
+
+```
+{
+    "time": "2022-10-12T00:01:15.000Z",
+    "type": "platform.initRuntimeDone",
+    "record": {
+        "initializationType": "on-demand"
+        "status": "success",
+        "spans": [
+            {
+                "name": "someTimeSpan",
+                "start": "2022-06-02T12:02:33.913Z",
+                "durationMs": 70.5
+            }
+        ]
+    }
+}
+```
+
+### `platform.initReport`
+
+A `platform.initReport` event contains an overall report of the function initialization phase. A
+`platform.initReport`
+`Event` object has the following shape:
+
+```
+Event: Object
+- time: String
+- type: String = platform.initReport
+- record: PlatformInitReport
+```
+
+The `PlatformInitReport` object has the following attributes:
+
+- **errorType?** – string
+- **initializationType** – `InitType`
+  object
+- **phase** – `InitPhase` object
+- **metrics** – `InitReportMetrics`
+  object
+- **spans?** – List of `Span`
+  objects
+- **status** – `Status` object
+
+The following is an example `Event` of type `platform.initReport`:
+
+```
+{
+    "time": "2022-10-12T00:01:15.000Z",
+    "type": "platform.initReport",
+    "record": {
+        "initializationType": "on-demand",
+        "status": "success",
+        "phase": "init",
+        "metrics": {
+            "durationMs": 125.33
+        },
+        "spans": [
+            {
+                "name": "someTimeSpan",
+                "start": "2022-06-02T12:02:33.913Z",
+                "durationMs": 90.1
+            }
+        ]
+    }
+}
+```
+
+### `platform.start`
+
+A `platform.start` event indicates that the function invocation phase has started. A
+`platform.start`
+`Event` object has the following shape:
+
+```
+Event: Object
+- time: String
+- type: String = platform.start
+- record: PlatformStart
+```
+
+The `PlatformStart` object has the following attributes:
+
+- **requestId** – `String`
+- **version?** – `String`
+- **tracing?** – `TraceContext`
+
+The following is an example `Event` of type `platform.start`:
+
+```
+{
+    "time": "2022-10-12T00:00:15.064Z",
+    "type": "platform.start",
+    "record": {
+        "requestId": "6d68ca91-49c9-448d-89b8-7ca3e6dc66aa",
+        "version": "$LATEST",
+        "tracing": {
+            "spanId": "54565fb41ac79632",
+            "type": "X-Amzn-Trace-Id",
+            "value": "Root=1-62e900b2-710d76f009d6e7785905449a;Parent=0efbd19962d95b05;Sampled=1"
+        }
+    }
+}
+```
+
+### `platform.runtimeDone`
+
+A `platform.runtimeDone` event indicates that the function invocation phase has completed. A
+`platform.runtimeDone`
+`Event` object has the following shape:
+
+```
+Event: Object
+- time: String
+- type: String = platform.runtimeDone
+- record: PlatformRuntimeDone
+```
+
+The `PlatformRuntimeDone` object has the following attributes:
+
+- **errorType?** – `String`
+- **metrics?** – `RuntimeDoneMetrics`
+  object
+- **requestId** – `String`
+- **status** – `Status` object
+- **spans?** – List of `Span`
+  objects
+- **tracing?** – `TraceContext`
+  object
+
+The following is an example `Event` of type `platform.runtimeDone`:
+
+```
+{
+    "time": "2022-10-12T00:01:15.000Z",
+    "type": "platform.runtimeDone",
+    "record": {
+        "requestId": "6d68ca91-49c9-448d-89b8-7ca3e6dc66aa",
+        "status": "success",
+        "tracing": {
+            "spanId": "54565fb41ac79632",
+            "type": "X-Amzn-Trace-Id",
+            "value": "Root=1-62e900b2-710d76f009d6e7785905449a;Parent=0efbd19962d95b05;Sampled=1"
+        },
+        "spans": [
+            {
+                "name": "someTimeSpan",
+                "start": "2022-08-02T12:01:23:521Z",
+                "durationMs": 80.0
+            }
+        ],
+        "metrics": {
+            "durationMs": 140.0,
+            "producedBytes": 16
+        }
+    }
+}
+```
+
+### `platform.report`
+
+A `platform.report` event contains an overall report of the function invoke phase. A
+`platform.report`
+`Event` object has the following shape:
+
+```
+Event: Object
+- time: String
+- type: String = platform.report
+- record: PlatformReport
+```
+
+The `PlatformReport` object has the following attributes:
+
+- **metrics** – `ReportMetrics`
+  object
+- **requestId** – `String`
+- **spans?** – List of `Span`
+  objects
+- **status** – `Status` object
+- **tracing?** – `TraceContext`
+  object
+
+The following is an example `Event` of type `platform.report`:
+
+```
+{
+    "time": "2022-10-12T00:01:15.000Z",
+    "type": "platform.report",
+    "record": {
+        "metrics": {
+            "billedDurationMs": 694,
+            "durationMs": 693.92,
+            "initDurationMs": 397.68,
+            "maxMemoryUsedMB": 84,
+            "memorySizeMB": 128
+        },
+        "requestId": "6d68ca91-49c9-448d-89b8-7ca3e6dc66aa",
+    }
+}
+```
+
+### `platform.restoreStart`
+
+A `platform.restoreStart` event indicates that a function environment restoration event started.
+In an environment restoration event, Lambda creates the environment from a cached snapshot rather than initializing it
+from scratch. For more information, see [Lambda SnapStart](snapstart.md "snapstart.md"). A
+`platform.restoreStart`
+`Event` object has the following shape:
+
+```
+Event: Object
+- time: String
+- type: String = platform.restoreStart
+- record: PlatformRestoreStart
+```
+
+The `PlatformRestoreStart` object has the following attributes:
+
+- **functionName** – `String`
+- **functionVersion** – `String`
+- **instanceId?** – `String`
+- **instanceMaxMemory?** – `String`
+- **runtimeVersion?** – `String`
+- **runtimeVersionArn?** – `String`
+
+The following is an example `Event` of type `platform.restoreStart`:
+
+```
+{
+    "time": "2022-10-12T00:00:15.064Z",
+    "type": "platform.restoreStart",
+    "record": {
+        "runtimeVersion": "nodejs-14.v3",
+        "runtimeVersionArn": "arn",
+        "functionName": "myFunction",
+        "functionVersion": "$LATEST",
+        "instanceId": "82561ce0-53dd-47d1-90e0-c8f5e063e62e",
+        "instanceMaxMemory": 256
+    }
+}
+```
+
+### `platform.restoreRuntimeDone`
+
+A `platform.restoreRuntimeDone` event indicates that a function environment restoration event completed.
+In an environment restoration event, Lambda creates the environment from a cached snapshot rather than initializing it
+from scratch. For more information, see [Lambda SnapStart](snapstart.md "snapstart.md"). A
+`platform.restoreRuntimeDone`
+`Event` object has the following shape:
+
+```
+Event: Object
+- time: String
+- type: String = platform.restoreRuntimeDone
+- record: PlatformRestoreRuntimeDone
+```
+
+The `PlatformRestoreRuntimeDone` object has the following attributes:
+
+- **errorType?** – `String`
+- **spans?** – List of `Span`
+  objects
+- **status** – `Status` object
+
+The following is an example `Event` of type `platform.restoreRuntimeDone`:
+
+```
+{
+    "time": "2022-10-12T00:00:15.064Z",
+    "type": "platform.restoreRuntimeDone",
+    "record": {
+        "status": "success",
+        "spans": [
+            {
+                "name": "someTimeSpan",
+                "start": "2022-08-02T12:01:23:521Z",
+                "durationMs": 80.0
+            }
+        ]
+    }
+}
+```
+
+### `platform.restoreReport`
+
+A `platform.restoreReport` event contains an overall report of a function restoration event. A
+`platform.restoreReport`
+`Event` object has the following shape:
+
+```
+Event: Object
+- time: String
+- type: String = platform.restoreReport
+- record: PlatformRestoreReport
+```
+
+The `PlatformRestoreReport` object has the following attributes:
+
+- **errorType?** – string
+- **metrics?** – `RestoreReportMetrics`
+  object
+- **spans?** – List of `Span`
+  objects
+- **status** – `Status` object
+
+The following is an example `Event` of type `platform.restoreReport`:
+
+```
+{
+    "time": "2022-10-12T00:00:15.064Z",
+    "type": "platform.restoreReport",
+    "record": {
+        "status": "success",
+        "metrics": {
+            "durationMs": 15.19
+        },
+        "spans": [
+            {
+                "name": "someTimeSpan",
+                "start": "2022-08-02T12:01:23:521Z",
+                "durationMs": 30.0
+            }
+        ]
+    }
+}
+```
+
+### `platform.extension`
+
+An `extension` event contains logs from the extension code. An `extension`
+`Event` object has the following shape:
+
+```
+Event: Object
+- time: String
+- type: String = extension
+- record: {}
+```
+
+The `PlatformExtension` object has the following attributes:
+
+- **events** – List of `String`
+- **name** – `String`
+- **state** – `String`
+
+The following is an example `Event` of type `platform.extension`:
+
+```
+{
+    "time": "2022-10-12T00:02:15.000Z",
+    "type": "platform.extension",
+    "record": {
+        "events": [ "INVOKE", "SHUTDOWN" ],
+        "name": "my-telemetry-extension",
+        "state": "Ready"
+    }
+}
+```
+
+### `platform.telemetrySubscription`
+
+A `platform.telemetrySubscription` event contains information about an extension subscription. A
+`platform.telemetrySubscription`
+`Event` object has the following shape:
+
+```
+Event: Object
+- time: String
+- type: String = platform.telemetrySubscription
+- record: PlatformTelemetrySubscription
+```
+
+The `PlatformTelemetrySubscription` object has the following attributes:
+
+- **name** – `String`
+- **state** – `String`
+- **types** – List of `String`
+
+The following is an example `Event` of type `platform.telemetrySubscription`:
+
+```
+{
+    "time": "2022-10-12T00:02:35.000Z",
+    "type": "platform.telemetrySubscription",
+    "record": {
+        "name": "my-telemetry-extension",
+        "state": "Subscribed",
+        "types": [ "platform", "function" ]
+    }
+}
+```
+
+### `platform.logsDropped`
+
+A `platform.logsDropped` event contains information about dropped events. Lambda emits the
+`platform.logsDropped` event when a function outputs logs at too high a rate for Lambda to process
+them. When Lambda can't send logs to CloudWatch or to the extension subscribed to Telemetry API at the rate the
+function produces them, it drops logs to prevent the function's execution from slowing down. A
+`platform.logsDropped`
+`Event` object has the following shape:
+
+```
+Event: Object
+- time: String
+- type: String = platform.logsDropped
+- record: PlatformLogsDropped
+```
+
+The `PlatformLogsDropped` object has the following attributes:
+
+- **droppedBytes** – `Integer`
+- **droppedRecords** – `Integer`
+- **reason** – `String`
+
+The following is an example `Event` of type `platform.logsDropped`:
+
+```
+{
+    "time": "2022-10-12T00:02:35.000Z",
+    "type": "platform.logsDropped",
+    "record": {
+        "droppedBytes": 12345,
+        "droppedRecords": 123,
+        "reason": "Some logs were dropped because the downstream consumer is slower than the logs production rate"
+    }
+}
+```
+
+### `function`
+
+A `function` event contains logs from the function code. A `function`
+`Event` object has the following shape:
+
+```
+Event: Object
+- time: String
+- type: String = function
+- record: {}
+```
+
+The format of the `record` field depends on whether your function's logs are formatted in plain text or JSON format.
+to learn more about log format configuration options, see [Configuring JSON and plain text log formats](monitoring-cloudwatchlogs-logformat.md "monitoring-cloudwatchlogs-logformat.md")
+
+The following is an example `Event` of type `function` where the log format is plain text:
+
+```
+{
+    "time": "2022-10-12T00:03:50.000Z",
+    "type": "function",
+    "record": "[INFO] Hello world, I am a function!"
+}
+```
+
+The following is an example `Event` of type `function` where the log format is JSON:
+
+```
+{
+    "time": "2022-10-12T00:03:50.000Z",
+    "type": "function",
+    "record": {
+        "timestamp": "2022-10-12T00:03:50.000Z",
+        "level": "INFO",
+        "requestId": "79b4f56e-95b1-4643-9700-2807f4e68189",
+        "message": "Hello world, I am a function!"
+    }
+}
+```
+
+###### Note
+
+If the schema version you're using is older than the `2022-12-13` version, then the `"record"` is always rendered
+as a string even when your function's logging format is configured as JSON.
+
+### `extension`
+
+A `extension` event contains logs from the extension code. A `extension`
+`Event` object has the following shape:
+
+```
+Event: Object
+- time: String
+- type: String = extension
+- record: {}
+```
+
+The format of the `record` field depends on whether your function's logs are formatted in plain text or JSON format.
+to learn more about log format configuration options, see [Configuring JSON and plain text log formats](monitoring-cloudwatchlogs-logformat.md "monitoring-cloudwatchlogs-logformat.md")
+
+The following is an example `Event` of type `extension` where the log format is plain text:
+
+```
+{
+    "time": "2022-10-12T00:03:50.000Z",
+    "type": "extension",
+    "record": "[INFO] Hello world, I am an extension!"
+}
+```
+
+The following is an example `Event` of type `extension` where the log format is JSON:
+
+```
+{
+    "time": "2022-10-12T00:03:50.000Z",
+    "type": "extension",
+    "record": {
+       "timestamp": "2022-10-12T00:03:50.000Z",
+       "level": "INFO",
+       "requestId": "79b4f56e-95b1-4643-9700-2807f4e68189",
+       "message": "Hello world, I am an extension!"
+    }
+}
+```
+
+###### Note
+
+If the schema version you're using is older than the `2022-12-13` version, then the `"record"` is always rendered
+as a string even when your function's logging format is configured as JSON.
+
+## Shared object types
+
+This section details the types of shared objects that the Lambda Telemetry API supports.
+
+### `InitPhase`
+
+A string enum that describes the phase when the initialization step occurs. In most cases, Lambda runs the
+function initialization code during the `init` phase. However, in some error cases, Lambda may re-run
+the function initialization code during the `invoke` phase. (This is called a _suppressed
+init_.)
+
+- **Type** – `String`
+- **Valid values** – `init`|`invoke`|`snap-start`
+
+### `InitReportMetrics`
+
+An object that contains metrics about an initialization phase.
+
+- **Type** – `Object`
+
+An `InitReportMetrics` object has the following shape:
+
+```
+InitReportMetrics: Object
+- durationMs: Double
+```
+
+The following is an example `InitReportMetrics` object:
+
+```
+{
+    "durationMs": 247.88
+}
+```
+
+### `InitType`
+
+A string enum that describes how Lambda initialized the environment.
+
+- **Type** – `String`
+- **Valid values** –
+  `on-demand`|`provisioned-concurrency`
+
+### `ReportMetrics`
+
+An object that contains metrics about a completed phase.
+
+- **Type** – `Object`
+
+A `ReportMetrics` object has the following shape:
+
+```
+ReportMetrics: Object
+- billedDurationMs: Integer
+- durationMs: Double
+- initDurationMs?: Double
+- maxMemoryUsedMB: Integer
+- memorySizeMB: Integer
+- restoreDurationMs?: Double
+```
+
+The following is an example `ReportMetrics` object:
+
+```
+{
+    "billedDurationMs": 694,
+    "durationMs": 693.92,
+    "initDurationMs": 397.68,
+    "maxMemoryUsedMB": 84,
+    "memorySizeMB": 128
+}
+```
+
+### `RestoreReportMetrics`
+
+An object that contains metrics about a completed restoration phase.
+
+- **Type** – `Object`
+
+A `RestoreReportMetrics` object has the following shape:
+
+```
+RestoreReportMetrics: Object
+- durationMs: Double
+```
+
+The following is an example `RestoreReportMetrics` object:
+
+```
+{
+    "durationMs": 15.19
+}
+```
+
+### `RuntimeDoneMetrics`
+
+An object that contains metrics about an invocation phase.
+
+- **Type** – `Object`
+
+A `RuntimeDoneMetrics` object has the following shape:
+
+```
+RuntimeDoneMetrics: Object
+- durationMs: Double
+- producedBytes?: Integer
+```
+
+The following is an example `RuntimeDoneMetrics` object:
+
+```
+{
+    "durationMs": 200.0,
+    "producedBytes": 15
+}
+```
+
+### `Span`
+
+An object that contains details about a span. A span represents a unit of work or operation in a trace. For
+more information about spans, see [Span](https://opentelemetry.io/docs/reference/specification/trace/api/#span "https://opentelemetry.io/docs/reference/specification/trace/api/#span") on the
+**Tracing API** page of the OpenTelemetry Docs website.
+
+Lambda supports the following spans for the `platform.RuntimeDone` event:
+
+- The `responseLatency` span describes how long it took your Lambda function to start
+  sending the response.
+- The `responseDuration` span describes how long it took your Lambda function to finish
+  sending the entire response.
+- The `runtimeOverhead` span describes how long it took the Lambda runtime to signal that it is ready to process the next function invoke. This is how long the runtime took to call the [next invocation](runtimes-api.md#runtimes-api-next "runtimes-api.md#runtimes-api-next") API to get the next event after returning your function response.
+
+The following is an example `responseLatency` span object:
+
+```
+{
+        "name": "responseLatency",
+        "start": "2022-08-02T12:01:23.521Z",
+        "durationMs": 23.02
+      }
+```
+
+### `Status`
+
+An object that describes the status of an initialization or invocation phase. If the status is either
+`failure` or `error`, then the `Status` object also contains an
+`errorType` field describing the error.
+
+- **Type** – `Object`
+- **Valid status values** –
+  `success`|`failure`|`error`|`timeout`
+
+### `TraceContext`
+
+An object that describes the properties of a trace.
+
+- **Type** – `Object`
+
+A `TraceContext` object has the following shape:
+
+```
+TraceContext: Object
+- spanId?: String
+- type: TracingType enum
+- value: String
+```
+
+The following is an example `TraceContext` object:
+
+```
+{
+    "spanId": "073a49012f3c312e",
+    "type": "X-Amzn-Trace-Id",
+    "value": "Root=1-62e900b2-710d76f009d6e7785905449a;Parent=0efbd19962d95b05;Sampled=1"
+}
+```
+
+### `TracingType`
+
+A string enum that describes the type of tracing in a `TraceContext`
+object.
+
+- **Type** – `String`
+- **Valid values** – `X-Amzn-Trace-Id`

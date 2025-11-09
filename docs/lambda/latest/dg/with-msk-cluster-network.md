@@ -68,9 +68,184 @@ common case. However, even if your MSK cluster is in a public subnet within your
 AWS PrivateLink endpoints to enable a secure connection. The following table summarizes the networking
 configuration requirements based on how you configure your MSK cluster and Lambda event source mapping:
 
-| MSK cluster location (in customer-managed VPC) | Lambda event source mapping scaling mode | Required networking configuration                                                                                                                                            |
-| ---------------------------------------------- | ---------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Private subnet                                 | On-demand mode                           | NAT gateway (in your VPC's public subnet), or AWS PrivateLink endpoints (in your VPC's private subnet) to enable access to Lambda, AWS STS, and optionally, Secrets Manager. |
-| Public subnet                                  | On-demand mode                           | AWS PrivateLink endpoints (in your VPC's public subnet) to enable access to Lambda, AWS STS, and optionally, Secrets Manager.                                                |
-| Private subnet                                 | Provisioned mode                         | None                                                                                                                                                                         |
-| Public subnet                                  | Provisioned mode                         | None                                                                                                                                                                         | In addition, the security groups associated with your MSK cluster must allow traffic over the correct ports. Ensure that you have the following security group rules configured: <br>• **Inbound rules** – Allow all traffic on the default broker port. The port that MSK uses depends on the type of authentication on the cluster: `9098` for IAM authentication, `9096` for SASL/SCRAM, and `9094` for TLS. Alternatively, you can use a self-referencing security group rule to allow access from instances within the same security group. <br>• **Outbound rules** – Allow all traffic on port `443` for external destinations if your function needs to communicate with other AWS services. Alternatively, you can use a self-referencing security group rule to limit access to the broker if you don’t need to communicate with other AWS services. <br>• **Amazon VPC endpoint inbound rules** – If you’re using an Amazon VPC endpoint, the security group associated with the endpoint must allow inbound traffic on port `443` from the cluster’s security group. ## Configuring a NAT gateway for an MSK event source You can configure a NAT gateway to allow your event source mapping to poll messages from your cluster, and invoke the function via a path through your VPC. This is required only if your event source mapping uses on-demand mode, and your cluster resides within a private subnet of your VPC. If your cluster resides in a public subnet of your VPC, or your event source mapping uses provisioned mode, you don’t need to configure a NAT gateway. A [NAT gateway](../../../vpc/latest/userguide/vpc-nat-gateway.md "../../../vpc/latest/userguide/vpc-nat-gateway.md") allows resources in a private subnet to access the public internet. If you need private connectivity to Lambda, see [Configuring AWS PrivateLink endpoints for an MSK event source](#msk-vpc-privatelink "#msk-vpc-privatelink") instead. After you configure your NAT gateway, you must configure the appropriate route tables. This allows traffic from your private subnet to route to the public internet via the NAT gateway. ![Diagram of a customer-managed VPC using a NAT Gateway to route traffic from the private subnet to the public internet.](images/MSK-NAT-Gateway.png) The following steps guide you through configuring a NAT gateway using the console. Repeat these steps as necessary for each Availability Zone (AZ). ###### To configure a NAT gateway and proper routing (console) 1. Follow the steps in [Create a NAT gateway](../../../vpc/latest/userguide/nat-gateway-working-with.md "../../../vpc/latest/userguide/nat-gateway-working-with.md"), noting the following: <br>• NAT gateways should always reside in a public subnet. Create NAT gateways with [public connectivity](../../../vpc/latest/userguide/vpc-nat-gateway.md "../../../vpc/latest/userguide/vpc-nat-gateway.md"). <br>• If your MSK cluster is replicated across multiple AZs, create one NAT gateway per AZ. For example, in each AZ, your VPC should have one private subnet containing your cluster, and one public subnet containing your NAT gateway. For a setup with three AZs, you’ll have three private subnets, three public subnets, and three NAT gateways. 2. After you create your NAT gateway, open the [Amazon VPC console](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/") and choose **Route tables** in the left menu. 3. Choose **Create route table**. 4. Associate this route table with the VPC that contains your MSK cluster. Optionally, enter a name for your route table. 5. Choose **Create route table**. 6. Choose the route table you just created. 7. Under the **Subnet associations** tab, choose **Edit subnet associations**. <br>• Associate this route table with the private subnet that contains your MSK cluster. 8. Choose **Edit routes**. 9. Choose **Add route**: 1. For **Destination**, choose `0.0.0.0/0`. 2. For **Target**, choose **NAT gateway**. 3. In the search box, choose the NAT gateway you created in step 1. This should be the NAT gateway in the same AZ as the private subnet that contains your MSK cluster (the private subnet that you associated with this route table in step 6). 10. Choose **Save changes**. ## Configuring AWS PrivateLink endpoints for an MSK event source You can configure AWS PrivateLink endpoints to poll messages from your cluster, and invoke the function via a path through your VPC. These endpoints should allow your MSK cluster to access the following: <br>• The Lambda service <br>• The [AWS Security Token Service (STS)](../../../STS/latest/APIReference/welcome.md "../../../STS/latest/APIReference/welcome.md") <br>• Optionally, the [AWS Secrets Manager](../../../secretsmanager/latest/userguide/intro.md "../../../secretsmanager/latest/userguide/intro.md") service. This is required if the secret required for cluster authentication is stored in Secrets Manager. Configuring PrivateLink endpoints is required only if your event source mapping uses on-demand mode. If your event source mapping uses provisioned mode, Lambda establishes the required connections for you. PrivateLink endpoints allow secure, private access to AWS services over AWS PrivateLink. Alternatively, to configure a NAT gateway to give your MSK cluster access to the public internet, see [Configuring a NAT gateway for an MSK event source](#msk-nat-gateway "#msk-nat-gateway"). After you configure your VPC endpoints, your MSK cluster should have direct and private access to Lambda, STS, and optionally, Secrets Manager. ![Diagram of a customer-managed VPC using AWS PrivateLink endpoints to access AWS services.](images/MSK-PrivateLink-Endpoints.png) The following steps guide you through configuring a PrivateLink endpoint using the console. Repeat these steps as necessary for each endpoint (Lambda, STS, Secrets Manager). ###### To configure VPC PrivateLink endpoints (console) 1. Open the [Amazon VPC console](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/") and choose **Endpoints** in the left menu. 2. Choose **Create endpoint**. 3. Optionally, enter a name for your endpoint. 4. For **Type**, choose **AWS services**. 5. Under **Services**, start typing the name of the service. For example, to create an endpoint to connect to Lambda, type `lambda` in the search box. 6. In the results, you should see the service endpoint in the current region. For example, in the US East (N. Virginia) region, you should see `com.amazonaws.us-east-2.lambda`. Select this service. 7. Under **Network settings**, select the VPC that contains your MSK cluster. 8. Under **Subnets**, select the AZs that your MSK cluster is in. <br>• For each AZ, under **Subnet ID**, choose the private subnet that contains your MSK cluster. 9. Under **Security groups**, select the security groups associated with your MSK cluster. 10. Choose **Create endpoint**. By default, Amazon VPC endpoints have open IAM policies that allow broad access to resources. Best practice is to restrict these policies to perform the needed actions using that endpoint. For example, for your Secrets Manager endpoint, you can modify its policy such that it allows only your function’s execution role to access the secret. ###### Example VPC endpoint policy – Secrets Manager endpoint ``{ "Statement": [ { "Action": "secretsmanager:GetSecretValue", "Effect": "Allow", "Principal": { "AWS": [ `"arn:aws::iam::123456789012:role/my-role"` ] }, "Resource": `"arn:aws::secretsmanager:us-west-2:123456789012:secret:my-secret"` } ] }`` For the AWS STS and Lambda endpoints, you can restrict the calling principal to the Lambda service principal. However, ensure that you use `"Resource": "*"` in these policies. ###### Example VPC endpoint policy – AWS STS endpoint `{ "Statement": [ { "Action": "sts:AssumeRole", "Effect": "Allow", "Principal": { "Service": [ "lambda.amazonaws.com" ] }, "Resource": "*" } ] }` ###### Example VPC endpoint policy – Lambda endpoint `{ "Statement": [ { "Action": "lambda:InvokeFunction", "Effect": "Allow", "Principal": { "Service": [ "lambda.amazonaws.com" ] }, "Resource": "*" } ] }` |
+| MSK cluster location (in customer-managed VPC) | Lambda event source mapping scaling mode | Required networking configuration                                                                                                                                               |
+| ---------------------------------------------- | ---------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Private subnet                                 | On-demand mode                           | NAT gateway (in your VPC's public subnet), or AWS PrivateLink endpoints (in your VPC's<br>private subnet) to enable access to Lambda, AWS STS, and optionally, Secrets Manager. |
+| Public subnet                                  | On-demand mode                           | AWS PrivateLink endpoints (in your VPC's public subnet) to enable access to Lambda, AWS STS,<br>and optionally, Secrets Manager.                                                |
+| Private subnet                                 | Provisioned mode                         | None                                                                                                                                                                            |
+| Public subnet                                  | Provisioned mode                         | None                                                                                                                                                                            |
+
+In addition, the security groups associated with your MSK cluster must allow traffic over the correct ports.
+Ensure that you have the following security group rules configured:
+
+- **Inbound rules** – Allow all traffic on the default broker port.
+  The port that MSK uses depends on the type of authentication on the cluster: `9098` for IAM
+  authentication, `9096` for SASL/SCRAM, and `9094` for TLS. Alternatively, you can
+  use a self-referencing security group rule to allow access from instances within the same security group.
+- **Outbound rules** – Allow all traffic on port `443`
+  for external destinations if your function needs to communicate with other AWS services. Alternatively,
+  you can use a self-referencing security group rule to limit access to the broker if you don’t need to
+  communicate with other AWS services.
+- **Amazon VPC endpoint inbound rules** – If you’re using an Amazon VPC endpoint,
+  the security group associated with the endpoint must allow inbound traffic on port `443` from
+  the cluster’s security group.
+
+## Configuring a NAT gateway for an MSK event source
+
+You can configure a NAT gateway to allow your event source mapping to poll messages from your cluster, and
+invoke the function via a path through your VPC. This is required only if your event source mapping uses on-demand
+mode, and your cluster resides within a private subnet of your VPC. If your cluster resides in a public subnet of
+your VPC, or your event source mapping uses provisioned mode, you don’t need to configure a NAT gateway.
+
+A [NAT gateway](../../../vpc/latest/userguide/vpc-nat-gateway.md "../../../vpc/latest/userguide/vpc-nat-gateway.md") allows resources
+in a private subnet to access the public internet. If you need private connectivity to Lambda, see
+[Configuring AWS PrivateLink endpoints for an MSK event source](#msk-vpc-privatelink "#msk-vpc-privatelink") instead.
+
+After you configure your NAT gateway, you must configure the appropriate route tables. This allows traffic from
+your private subnet to route to the public internet via the NAT gateway.
+
+![Diagram of a customer-managed VPC using a NAT Gateway to route traffic from the private subnet to the public internet.](images/MSK-NAT-Gateway.png)
+
+The following steps guide you through configuring a NAT gateway using the console. Repeat these steps as
+necessary for each Availability Zone (AZ).
+
+###### To configure a NAT gateway and proper routing (console)
+
+1. Follow the steps in [Create a NAT gateway](../../../vpc/latest/userguide/nat-gateway-working-with.md "../../../vpc/latest/userguide/nat-gateway-working-with.md"), noting the following:
+   - NAT gateways should always reside in a public subnet. Create NAT gateways with
+     [public connectivity](../../../vpc/latest/userguide/vpc-nat-gateway.md "../../../vpc/latest/userguide/vpc-nat-gateway.md").
+   - If your MSK cluster is replicated across multiple AZs, create one NAT gateway per AZ. For example,
+     in each AZ, your VPC should have one private subnet containing your cluster, and one public subnet
+     containing your NAT gateway. For a setup with three AZs, you’ll have three private subnets, three
+     public subnets, and three NAT gateways.
+
+2. After you create your NAT gateway, open the [Amazon VPC
+   console](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/") and choose **Route tables** in the left menu.
+3. Choose **Create route table**.
+4. Associate this route table with the VPC that contains your MSK cluster. Optionally, enter a name for
+   your route table.
+5. Choose **Create route table**.
+6. Choose the route table you just created.
+7. Under the **Subnet associations** tab, choose **Edit subnet associations**.
+   - Associate this route table with the private subnet that contains your MSK cluster.
+
+8. Choose **Edit routes**.
+9. Choose **Add route**:
+   1. For **Destination**, choose `0.0.0.0/0`.
+   2. For **Target**, choose **NAT gateway**.
+   3. In the search box, choose the NAT gateway you created in step 1. This should be the NAT gateway
+      in the same AZ as the private subnet that contains your MSK cluster (the private subnet that you
+      associated with this route table in step 6).
+
+10. Choose **Save changes**.
+
+## Configuring AWS PrivateLink endpoints for an MSK event source
+
+You can configure AWS PrivateLink endpoints to poll messages from your cluster, and invoke the function via a path
+through your VPC. These endpoints should allow your MSK cluster to access the following:
+
+- The Lambda service
+- The [AWS Security Token Service (STS)](../../../STS/latest/APIReference/welcome.md "../../../STS/latest/APIReference/welcome.md")
+- Optionally, the [AWS Secrets Manager](../../../secretsmanager/latest/userguide/intro.md "../../../secretsmanager/latest/userguide/intro.md")
+  service. This is required if the secret required for cluster authentication is stored in Secrets Manager.
+
+Configuring PrivateLink endpoints is required only if your event source mapping uses on-demand mode.
+If your event source mapping uses provisioned mode, Lambda establishes the required connections for you.
+
+PrivateLink endpoints allow secure, private access to AWS services over AWS PrivateLink. Alternatively,
+to configure a NAT gateway to give your MSK cluster access to the public internet, see
+[Configuring a NAT gateway for an MSK event source](#msk-nat-gateway "#msk-nat-gateway").
+
+After you configure your VPC endpoints, your MSK cluster should have direct and private access to Lambda,
+STS, and optionally, Secrets Manager.
+
+![Diagram of a customer-managed VPC using AWS PrivateLink endpoints to access AWS services.](images/MSK-PrivateLink-Endpoints.png)
+
+The following steps guide you through configuring a PrivateLink endpoint using the console. Repeat
+these steps as necessary for each endpoint (Lambda, STS, Secrets Manager).
+
+###### To configure VPC PrivateLink endpoints (console)
+
+1. Open the [Amazon VPC console](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/") and choose
+   **Endpoints** in the left menu.
+2. Choose **Create endpoint**.
+3. Optionally, enter a name for your endpoint.
+4. For **Type**, choose **AWS services**.
+5. Under **Services**, start typing the name of the service. For example, to create
+   an endpoint to connect to Lambda, type `lambda` in the search box.
+6. In the results, you should see the service endpoint in the current region. For example, in the
+   US East (N. Virginia) region, you should see `com.amazonaws.us-east-2.lambda`.
+   Select this service.
+7. Under **Network settings**, select the VPC that contains your MSK cluster.
+8. Under **Subnets**, select the AZs that your MSK cluster is in.
+   - For each AZ, under **Subnet ID**, choose the private subnet that
+     contains your MSK cluster.
+
+9. Under **Security groups**, select the security groups associated with your
+   MSK cluster.
+10. Choose **Create endpoint**.
+
+By default, Amazon VPC endpoints have open IAM policies that allow broad access to resources. Best practice
+is to restrict these policies to perform the needed actions using that endpoint. For example, for your
+Secrets Manager endpoint, you can modify its policy such that it allows only your function’s execution role to
+access the secret.
+
+###### Example VPC endpoint policy – Secrets Manager endpoint
+
+```
+{
+    "Statement": [
+        {
+            "Action": "secretsmanager:GetSecretValue",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": [
+                    `"arn:aws::iam::123456789012:role/my-role"`
+                ]
+            },
+            "Resource": `"arn:aws::secretsmanager:us-west-2:123456789012:secret:my-secret"`
+        }
+    ]
+}
+```
+
+For the AWS STS and Lambda endpoints, you can restrict the calling principal to the Lambda service
+principal. However, ensure that you use `"Resource": "*"` in these policies.
+
+###### Example VPC endpoint policy – AWS STS endpoint
+
+```
+{
+    "Statement": [
+        {
+            "Action": "sts:AssumeRole",
+            "Effect": "Allow",
+            "Principal": {
+                "Service": [
+                    "lambda.amazonaws.com"
+                ]
+            },
+            "Resource": "*"
+        }
+    ]
+}
+```
+
+###### Example VPC endpoint policy – Lambda endpoint
+
+```
+{
+    "Statement": [
+        {
+            "Action": "lambda:InvokeFunction",
+            "Effect": "Allow",
+            "Principal": {
+                "Service": [
+                    "lambda.amazonaws.com"
+                ]
+            },
+            "Resource": "*"
+        }
+    ]
+}
+```

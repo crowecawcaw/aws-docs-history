@@ -19,11 +19,11 @@ When the cluster uses [IAM role-based authentication](msk-cluster-auth.md#msk-ia
 you don't need a [SourceAccessConfiguration](../api/API_SourceAccessConfiguration.md "../api/API_SourceAccessConfiguration.md") object. Example:
 
 ```
-`aws lambda create-event-source-mapping \
- --event-source-arn arn:aws:kafka:`us-east-1:111122223333`:vpc-connection/`444455556666/my-cluster-name/51jn98b4-0a61-46cc-b0a6-61g9a3d797d5-7` \
- --topics AWSKafkaTopic \
- --starting-position LATEST \
- --function-name my-kafka-function`
+aws lambda create-event-source-mapping \
+  --event-source-arn arn:aws:kafka:`us-east-1:111122223333`:vpc-connection/`444455556666/my-cluster-name/51jn98b4-0a61-46cc-b0a6-61g9a3d797d5-7` \
+  --topics AWSKafkaTopic \
+  --starting-position LATEST \
+  --function-name my-kafka-function
 ```
 
 ###### Example — Create cross-account event source mapping for cluster that uses SASL/SCRAM authentication

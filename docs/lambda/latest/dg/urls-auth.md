@@ -136,8 +136,8 @@ separately. For example:
 `aws lambda add-permission --function-name my-function \
  --statement-id UrlPolicyInvokeFunction \
  --action `lambda:InvokeFunction` \
- --principal 444455556666
- --invoked-via-function-url true`
+ --principal 444455556666 \
+ --invoked-via-function-url`
 ```
 
 ## Using the `NONE` auth type
@@ -223,7 +223,7 @@ Unless you use the console or AWS SAM to create a function URL with auth type `N
  --statement-id UrlPolicyInvokeFunction \
  --action `lambda:InvokeFunction` \
  --principal * \
- --invoked-via-function-url true`
+ --invoked-via-function-url`
 ```
 
 ###### Note
@@ -279,7 +279,7 @@ JSON
 For fine-grained access control over your function URLs, use condition context keys. Lambda supports the following context keys for function URLs:
 
 - `lambda:FunctionUrlAuthType` – Defines an enum value describing the auth type that your function URL uses. The value can be either `AWS_IAM` or `NONE`.
-- `lambda:InvokedViaFunctionUrl` – Restricts the `lambda:InvokeFunction` action to calls made through the function URL. This ensures that the function can only be invoked using the function URL and not through other invocation methods. For examples of resource-based policies that use the `lambda:InvokedViaFunctionUrl` context key, see the examples in [Using the AWS_IAM auth type](#urls-auth-iam "#urls-auth-iam") and [Using the AWS_IAM auth type](#urls-auth-none "#urls-auth-none").
+- `lambda:InvokedViaFunctionUrl` – Restricts the `lambda:InvokeFunction` action to calls made through the function URL. This ensures that the function can only be invoked using the function URL and not through other invocation methods. For examples of resource-based policies that use the `lambda:InvokedViaFunctionUrl` context key, see the examples in [Using the AWS_IAM auth type](#urls-auth-iam "#urls-auth-iam") and [Using the NONE auth type](#urls-auth-none "#urls-auth-none").
 
 You can use these context keys in policies associated with your function. For example, you might want to
 restrict who can make configuration changes to your function URLs. To deny all `UpdateFunctionUrlConfig`

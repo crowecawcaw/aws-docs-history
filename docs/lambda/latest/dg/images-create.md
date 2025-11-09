@@ -100,7 +100,182 @@ To build a container image using an AWS base image, choose the instructions for 
 
 [AWS OS-only base images](https://gallery.ecr.aws/lambda/provided "https://gallery.ecr.aws/lambda/provided") contain an Amazon Linux distribution and the [runtime interface emulator](https://github.com/aws/aws-lambda-runtime-interface-emulator/ "https://github.com/aws/aws-lambda-runtime-interface-emulator/"). These images are commonly used to create container images for compiled languages, such as [Go](go-image.md#go-image-provided "go-image.md#go-image-provided") and [Rust](lambda-rust.md "lambda-rust.md"), and for a language or language version that Lambda doesn't provide a base image for, such as Node.js 19. You can also use OS-only base images to implement a [custom runtime](runtimes-custom.md "runtimes-custom.md"). To make the image compatible with Lambda, you must include a [runtime interface client](#images-ric "#images-ric") for your language in the image.
 
-| Tags   | Runtime         | Operating system  | Dockerfile                                                                                                                                                                                                                                | Deprecation  |
-| ------ | --------------- | ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| al2023 | OS-only Runtime | Amazon Linux 2023 | [Dockerfile for OS-only Runtime on GitHub](https://github.com/aws/aws-lambda-base-images/blob/provided.al2023/Dockerfile.provided.al2023 "https://github.com/aws/aws-lambda-base-images/blob/provided.al2023/Dockerfile.provided.al2023") | Jun 30, 2029 |
-| al2    | OS-only Runtime | Amazon Linux 2    | [Dockerfile for OS-only Runtime on GitHub](https://github.com/aws/aws-lambda-base-images/blob/provided.al2/Dockerfile.provided.al2 "https://github.com/aws/aws-lambda-base-images/blob/provided.al2/Dockerfile.provided.al2")             | Jun 30, 2026 | Amazon Elastic Container Registry Public Gallery: [gallery.ecr.aws/lambda/provided](https://gallery.ecr.aws/lambda/provided "https://gallery.ecr.aws/lambda/provided") ## Using a non-AWS base image Lambda supports any image that conforms to one of the following image manifest formats: <br>• Docker image manifest V2, schema 2 (used with Docker version 1.10 and newer) <br>• Open Container Initiative (OCI) Specifications (v1.0.0 and up) Lambda supports a maximum uncompressed image size of 10 GB, including all layers. ###### Note <br>• To make the image compatible with Lambda, you must include a [runtime interface client](#images-ric "#images-ric") for your language in the image. <br>• For optimal performance, keep your image manifest size under 25,400 bytes. To reduce image manifest size, minimize the number of layers in your image and reduce annotations. ## Runtime interface clients If you use an [OS-only base image](#runtimes-images-provided "#runtimes-images-provided") or an alternative base image, you must include a runtime interface client in your image. The runtime interface client must extend the [Using the Lambda runtime API for custom runtimes](runtimes-api.md "runtimes-api.md"), which manages the interaction between Lambda and your function code. AWS provides open-source runtime interface clients for the following languages: <br>• [Node.js](nodejs-image.md#nodejs-image-clients "nodejs-image.md#nodejs-image-clients") <br>• [Python](python-image.md#python-image-clients "python-image.md#python-image-clients") <br>• [Java](java-image.md#java-image-clients "java-image.md#java-image-clients") <br>• [.NET](csharp-image.md#csharp-image-clients "csharp-image.md#csharp-image-clients") <br>• [Go](go-image.md#go-image-clients "go-image.md#go-image-clients") <br>• [Ruby](ruby-image.md#ruby-image-clients "ruby-image.md#ruby-image-clients") <br>• [Rust](lambda-rust.md "lambda-rust.md") – The [Rust runtime client](https://github.com/awslabs/aws-lambda-rust-runtime "https://github.com/awslabs/aws-lambda-rust-runtime") is an experimental package. It is subject to change and intended only for evaluation purposes. If you're using a language that doesn't have an AWS-provided runtime interface client, you must create your own. ## Amazon ECR permissions Before you create a Lambda function from a container image, you must build the image locally and upload it to an Amazon ECR repository. When you create the function, specify the Amazon ECR repository URI. Make sure that the permissions for the user or role that creates the function includes `GetRepositoryPolicy` and `SetRepositoryPolicy`. For example, use the IAM console to create a role with the following policy: JSON ``` `{ "Version":"2012-10-17", "Statement": [ { "Sid": "VisualEditor0", "Effect": "Allow", "Action": [ "ecr:SetRepositoryPolicy", "ecr:GetRepositoryPolicy" ], "Resource": "arn:aws:ecr:`us-east-1``:111122223333`:repository/`hello-world`" } ] }` ``` ### Amazon ECR repository policies For a function in the same account as the container image in Amazon ECR, you can add `ecr:BatchGetImage` and `ecr:GetDownloadUrlForLayer` permissions to your Amazon ECR repository policy. The following example shows the minimum policy: `{ "Sid": "LambdaECRImageRetrievalPolicy", "Effect": "Allow", "Principal": { "Service": "lambda.amazonaws.com" }, "Action": [ "ecr:BatchGetImage", "ecr:GetDownloadUrlForLayer" ] }` For more information about Amazon ECR repository permissions, see [Private repository policies](../../../AmazonECR/latest/userguide/repository-policies.md "../../../AmazonECR/latest/userguide/repository-policies.md") in the _Amazon Elastic Container Registry User Guide_. If the Amazon ECR repository does not include these permissions, Lambda attempts to add them automatically. Lambda can add permissions only if the principal calling Lambda has `ecr:getRepositoryPolicy` and `ecr:setRepositoryPolicy` permissions. To view or edit your Amazon ECR repository permissions, follow the directions in [Setting a private repository policy statement](../../../AmazonECR/latest/userguide/set-repository-policy.md "../../../AmazonECR/latest/userguide/set-repository-policy.md") in the _Amazon Elastic Container Registry User Guide_. #### Amazon ECR cross-account permissions A different account in the same region can create a function that uses a container image owned by your account. In the following example, your [Amazon ECR repository permissions policy](../../../AmazonECR/latest/userguide/set-repository-policy.md "../../../AmazonECR/latest/userguide/set-repository-policy.md") needs the following statements to grant access to account number 123456789012. <br>• **CrossAccountPermission** – Allows account 123456789012 to create and update Lambda functions that use images from this ECR repository. <br>• **LambdaECRImageCrossAccountRetrievalPolicy** – Lambda will eventually set a function's state to inactive if it is not invoked for an extended period. This statement is required so that Lambda can retrieve the container image for optimization and caching on behalf of the function owned by 123456789012. ###### Example — Add cross-account permission to your repository JSON `` `{ "Version":"2012-10-17", "Statement": [ { "Sid": "CrossAccountPermission", "Effect": "Allow", "Action": [ "ecr:BatchGetImage", "ecr:GetDownloadUrlForLayer" ], "Principal": { "AWS": "arn:aws:iam::`123456789012`:root" }, "Resource": "arn:aws:ecr:`us-east-1`:`123456789012`:repository/`example-lambda-repository`" }, { "Sid": "LambdaECRImageCrossAccountRetrievalPolicy", "Effect": "Allow", "Action": [ "ecr:BatchGetImage", "ecr:GetDownloadUrlForLayer" ], "Principal": { "Service": "lambda.amazonaws.com" }, "Condition": { "ArnLike": { "aws:sourceARN": "arn:aws:lambda:`us-east-1`:`123456789012`:function:*" } }, "Resource": "arn:aws:ecr:`us-east-1`:`123456789012`:repository/`example-lambda-repository`" } ] }` `` To give access to multiple accounts, you add the account IDs to the Principal list in the `CrossAccountPermission` policy and to the Condition evaluation list in the `LambdaECRImageCrossAccountRetrievalPolicy`. If you are working with multiple accounts in an AWS Organization, we recommend that you enumerate each account ID in the ECR permissions policy. This approach aligns with the AWS security best practice of setting narrow permissions in IAM policies. In addition to Lambda permissions, the user or role that creates the function must also have `BatchGetImage` and `GetDownloadUrlForLayer` permissions. ## Function lifecycle After you upload a new or updated container image, Lambda optimizes the image before the function can process invocations. The optimization process can take a few seconds. The function remains in the `Pending` state until the process completes, when the state transitions to `Active`. You can't invoke the function until it reaches the `Active` state. If a function is not invoked for multiple weeks, Lambda reclaims its optimized version, and the function transitions to the `Inactive` state. To reactivate the function, you must invoke it. Lambda rejects the first invocation and the function enters the `Pending` state until Lambda re-optimizes the image. The function then returns to the `Active` state. Lambda periodically fetches the associated container image from the Amazon ECR repository. If the corresponding container image no longer exists on Amazon ECR or permissions are revoked, the function enters the `Failed` state, and Lambda returns a failure for any function invocations. You can use the Lambda API to get information about a function's state. For more information, see [Lambda function states](functions-states.md "functions-states.md"). |
+| Tags   | Runtime         | Operating system  | Dockerfile                                                                                                                                                                                                                                   | Deprecation  |
+| ------ | --------------- | ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ |
+| al2023 | OS-only Runtime | Amazon Linux 2023 | [Dockerfile<br>for OS-only Runtime on GitHub](https://github.com/aws/aws-lambda-base-images/blob/provided.al2023/Dockerfile.provided.al2023 "https://github.com/aws/aws-lambda-base-images/blob/provided.al2023/Dockerfile.provided.al2023") | Jun 30, 2029 |
+| al2    | OS-only Runtime | Amazon Linux 2    | [Dockerfile<br>for OS-only Runtime on GitHub](https://github.com/aws/aws-lambda-base-images/blob/provided.al2/Dockerfile.provided.al2 "https://github.com/aws/aws-lambda-base-images/blob/provided.al2/Dockerfile.provided.al2")             | Jun 30, 2026 |
+
+Amazon Elastic Container Registry Public Gallery: [gallery.ecr.aws/lambda/provided](https://gallery.ecr.aws/lambda/provided "https://gallery.ecr.aws/lambda/provided")
+
+## Using a non-AWS base image
+
+Lambda
+supports any image that conforms to one of the following image manifest formats:
+
+- Docker image manifest V2, schema 2 (used with Docker version 1.10 and newer)
+- Open Container Initiative (OCI) Specifications (v1.0.0 and up)
+
+Lambda supports a maximum uncompressed image size of 10 GB, including all layers.
+
+###### Note
+
+- To make the image compatible with Lambda, you must include a [runtime interface client](#images-ric "#images-ric") for your language in the image.
+- For optimal performance, keep your image manifest size under 25,400 bytes. To reduce
+  image manifest size, minimize the number of layers in your image and reduce
+  annotations.
+
+## Runtime interface clients
+
+If you use an [OS-only base image](#runtimes-images-provided "#runtimes-images-provided") or an alternative base image, you must include a runtime interface client in your image. The runtime interface client must extend the [Using the Lambda runtime API for custom runtimes](runtimes-api.md "runtimes-api.md"), which manages the interaction between Lambda and your function code. AWS provides open-source runtime interface clients for the following languages:
+
+- [Node.js](nodejs-image.md#nodejs-image-clients "nodejs-image.md#nodejs-image-clients")
+- [Python](python-image.md#python-image-clients "python-image.md#python-image-clients")
+- [Java](java-image.md#java-image-clients "java-image.md#java-image-clients")
+- [.NET](csharp-image.md#csharp-image-clients "csharp-image.md#csharp-image-clients")
+- [Go](go-image.md#go-image-clients "go-image.md#go-image-clients")
+- [Ruby](ruby-image.md#ruby-image-clients "ruby-image.md#ruby-image-clients")
+- [Rust](lambda-rust.md "lambda-rust.md") – The [Rust runtime client](https://github.com/awslabs/aws-lambda-rust-runtime "https://github.com/awslabs/aws-lambda-rust-runtime") is an experimental package. It is subject to change and intended only for evaluation purposes.
+
+If you're using a language that doesn't have an AWS-provided runtime interface client, you must create your own.
+
+## Amazon ECR permissions
+
+Before you create a Lambda function from a container image, you must build the image locally and upload it to an Amazon ECR repository. When you create the function, specify the Amazon ECR repository URI.
+
+Make sure that the permissions for the user or role that creates the function includes `GetRepositoryPolicy` and `SetRepositoryPolicy`.
+
+For example, use the IAM console to create a role with the following policy:
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "VisualEditor0",
+ "Effect": "Allow",
+ "Action": [
+ "ecr:SetRepositoryPolicy",
+ "ecr:GetRepositoryPolicy"
+ ],
+ "Resource": "arn:aws:ecr:`us-east-1``:111122223333`:repository/`hello-world`"
+ }
+ ]
+}`
+
+```
+
+### Amazon ECR repository policies
+
+For a function in the same account as the container image in Amazon ECR, you can add `ecr:BatchGetImage`
+and `ecr:GetDownloadUrlForLayer` permissions to your Amazon ECR repository policy. The following example shows the
+minimum policy:
+
+```
+{
+        "Sid": "LambdaECRImageRetrievalPolicy",
+        "Effect": "Allow",
+        "Principal": {
+          "Service": "lambda.amazonaws.com"
+        },
+        "Action": [
+          "ecr:BatchGetImage",
+          "ecr:GetDownloadUrlForLayer"
+        ]
+    }
+```
+
+For more information about Amazon ECR
+repository permissions, see [Private repository policies](../../../AmazonECR/latest/userguide/repository-policies.md "../../../AmazonECR/latest/userguide/repository-policies.md") in the
+_Amazon Elastic Container Registry User Guide_.
+
+If the Amazon ECR repository does not include these permissions, Lambda attempts to add them automatically. Lambda can add
+permissions only if the principal calling Lambda has `ecr:getRepositoryPolicy` and
+`ecr:setRepositoryPolicy` permissions.
+
+To view or edit your Amazon ECR repository permissions, follow the directions in [Setting a private repository policy statement](../../../AmazonECR/latest/userguide/set-repository-policy.md "../../../AmazonECR/latest/userguide/set-repository-policy.md") in the
+_Amazon Elastic Container Registry User Guide_.
+
+#### Amazon ECR cross-account permissions
+
+A different account in the same region can create a function that uses a container image owned by your
+account. In the following example, your [Amazon ECR repository permissions policy](../../../AmazonECR/latest/userguide/set-repository-policy.md "../../../AmazonECR/latest/userguide/set-repository-policy.md") needs the following statements to
+grant access to account number 123456789012.
+
+- **CrossAccountPermission** – Allows account 123456789012 to create and update Lambda
+  functions that use images from this ECR repository.
+- **LambdaECRImageCrossAccountRetrievalPolicy** – Lambda will eventually set a
+  function's state to inactive if it is not invoked for an extended period. This statement is required so that
+  Lambda can retrieve the container image for optimization and caching on behalf of the function owned by
+
+123456789012.
+
+###### Example — Add cross-account permission to your repository
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "CrossAccountPermission",
+ "Effect": "Allow",
+ "Action": [
+ "ecr:BatchGetImage",
+ "ecr:GetDownloadUrlForLayer"
+ ],
+ "Principal": {
+ "AWS": "arn:aws:iam::`123456789012`:root"
+ },
+ "Resource": "arn:aws:ecr:`us-east-1`:`123456789012`:repository/`example-lambda-repository`"
+ },
+ {
+ "Sid": "LambdaECRImageCrossAccountRetrievalPolicy",
+ "Effect": "Allow",
+ "Action": [
+ "ecr:BatchGetImage",
+ "ecr:GetDownloadUrlForLayer"
+ ],
+ "Principal": {
+ "Service": "lambda.amazonaws.com"
+ },
+ "Condition": {
+ "ArnLike": {
+ "aws:sourceARN": "arn:aws:lambda:`us-east-1`:`123456789012`:function:*"
+ }
+ },
+ "Resource": "arn:aws:ecr:`us-east-1`:`123456789012`:repository/`example-lambda-repository`"
+ }
+ ]
+}`
+
+```
+
+To give access to multiple accounts, you add the account IDs to the Principal list in the
+`CrossAccountPermission` policy and to the Condition evaluation list in the
+`LambdaECRImageCrossAccountRetrievalPolicy`.
+
+If you are working with multiple accounts in an AWS Organization, we recommend that you enumerate each
+account ID in the ECR permissions policy. This approach aligns with the AWS security best practice of setting
+narrow permissions in IAM policies.
+
+In addition to Lambda permissions, the user or role that creates the function must also have `BatchGetImage` and `GetDownloadUrlForLayer` permissions.
+
+## Function lifecycle
+
+After you upload a new or updated container image, Lambda optimizes the image before the function can process invocations. The
+optimization process can take a few seconds. The function remains in the `Pending` state until the
+process completes, when the state transitions to `Active`. You can't invoke the function until it reaches the `Active` state.
+
+If a function is not invoked for multiple weeks, Lambda reclaims its optimized version, and the function
+transitions to the `Inactive` state. To reactivate the function, you must invoke it. Lambda rejects the
+first invocation and the function enters the `Pending` state until Lambda re-optimizes the image. The
+function then returns to the `Active` state.
+
+Lambda periodically fetches the associated container image from the Amazon ECR repository. If the
+corresponding container image no longer exists on Amazon ECR or permissions are revoked, the function enters the `Failed` state, and
+Lambda returns a failure for any function invocations.
+
+You can use the Lambda API to get information about a function's state. For more information, see [Lambda function states](functions-states.md "functions-states.md").

@@ -28,17 +28,91 @@ the `PATH` variable already includes specific folder paths within the
 your layer .zip file should have its dependencies
 in one of the following folder paths:
 
-| Runtime                                                   | Path                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| --------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------ |
-| Node.js                                                   | `nodejs/node_modules`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| `nodejs/node18/node_modules` (`NODE_PATH`)                |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | `nodejs/node20/node_modules` (`NODE_PATH`) |
+| Runtime                                                   | Path                           |
+| --------------------------------------------------------- | ------------------------------ |
+| Node.js                                                   | `nodejs/node_modules`          |
+| `nodejs/node18/node_modules` (`NODE_PATH`)                |
+| `nodejs/node20/node_modules` (`NODE_PATH`)                |
 | `nodejs/node22/node_modules` (`NODE_PATH`)                |
-| Python                                                    | `python`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| Python                                                    | `python`                       |
 | `python/lib/`python3.x`/site-packages` (site directories) |
-| Java                                                      | `java/lib` (`CLASSPATH`)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| Ruby                                                      | `ruby/gems/3.4.0` (`GEM_PATH`)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| Java                                                      | `java/lib` (`CLASSPATH`)       |
+| Ruby                                                      | `ruby/gems/3.4.0` (`GEM_PATH`) |
 | `ruby/lib` (`RUBYLIB`)                                    |
-| All runtimes                                              | `bin` (`PATH`)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| `lib` (`LD_LIBRARY_PATH`)                                 | The following examples show how you can structure the folders in your layer .zip archive. Node.js ###### Example file structure for the AWS X-Ray SDK for Node.js `xray-sdk.zip └ nodejs/node_modules/aws-xray-sdk` Python `python/              *# Required top-level directory* └── requests/ └── boto3/ └── numpy/ └── (dependencies of the other packages)` Ruby ###### Example file structure for the JSON gem ``` json.zip └ ruby/gems/3.4.0/                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | build_info                                 |
-| cache                                                     | doc                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | extensions                                 |
-| gems                                                      | └ json-2.1.0 └ specifications └ json-2.1.0.gemspec `Java ###### Example file structure for the Jackson JAR file` layer_content.zip └ java └ lib └ jackson-core-2.17.0.jar └ <other potential dependencies> └ ... `All ###### Example file structure for the jq library` jq.zip └ bin/jq ``` For language-specific instructions on packaging, creating, and adding a layer, refer to the following pages: <br>• **Node.js** – [Working with layers for Node.js Lambda functions](nodejs-layers.md "nodejs-layers.md") <br>• **Python** – [Working with layers for Python Lambda functions](python-layers.md "python-layers.md") <br>• **Ruby** – [Working with layers for Ruby Lambda functions](ruby-layers.md "ruby-layers.md") <br>• **Java** – [Working with layers for Java Lambda functions](java-layers.md "java-layers.md") We recommend **against** using layers to manage dependencies for Lambda functions written in Go and Rust. This is because Lambda functions written in these languages compile into a single executable, which you provide to Lambda when you deploy your function. This executable contains your compiled function code, along with all of its dependencies. Using layers not only complicates this process, but also leads to increased cold start times because your functions need to manually load extra assemblies into memory during the init phase. To use external dependencies with Go and Rust Lambda functions, include them directly in your deployment package. |
+| All runtimes                                              | `bin` (`PATH`)                 |
+| `lib` (`LD_LIBRARY_PATH`)                                 |
+
+The following examples show how you can structure the folders in your layer .zip archive.
+
+Node.js
+
+###### Example file structure for the AWS X-Ray SDK for Node.js
+
+```
+xray-sdk.zip
+└ nodejs/node_modules/aws-xray-sdk
+```
+
+Python
+
+```
+python/              *# Required top-level directory*
+└── requests/
+└── boto3/
+└── numpy/
+└── (dependencies of the other packages)
+```
+
+Ruby
+
+###### Example file structure for the JSON gem
+
+```
+json.zip
+└ ruby/gems/3.4.0/
+               | build_info
+               | cache
+               | doc
+               | extensions
+               | gems
+               | └ json-2.1.0
+               └ specifications
+                 └ json-2.1.0.gemspec
+```
+
+Java
+
+###### Example file structure for the Jackson JAR file
+
+```
+layer_content.zip
+└ java
+    └ lib
+        └ jackson-core-2.17.0.jar
+        └ <other potential dependencies>
+        └ ...
+```
+
+All
+
+###### Example file structure for the jq library
+
+```
+jq.zip
+└ bin/jq
+```
+
+For language-specific instructions on packaging, creating, and adding
+a layer, refer to the following pages:
+
+- **Node.js** – [Working with layers for Node.js Lambda functions](nodejs-layers.md "nodejs-layers.md")
+- **Python** – [Working with layers for Python Lambda functions](python-layers.md "python-layers.md")
+- **Ruby** – [Working with layers for Ruby Lambda functions](ruby-layers.md "ruby-layers.md")
+- **Java** – [Working with layers for Java Lambda functions](java-layers.md "java-layers.md")
+
+We recommend **against** using layers to manage dependencies for Lambda functions written in Go and Rust. This is
+because Lambda functions written in these languages compile into a single executable, which you provide to Lambda when you deploy your function. This
+executable contains your compiled function code, along with all of its dependencies. Using layers not only complicates this process, but also leads to
+increased cold start times because your functions need to manually load extra assemblies into memory during the init phase.
+
+To use external dependencies with Go and Rust Lambda functions, include them directly in your deployment package.

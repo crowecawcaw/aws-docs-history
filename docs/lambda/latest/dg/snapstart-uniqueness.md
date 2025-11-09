@@ -101,13 +101,95 @@ Software that always gets random numbers from `/dev/random` or `/dev/urandom` al
 
 AWS cryptography libraries automatically maintain randomness with SnapStart beginning with the minimum versions specified in the following table. If you use these libraries with your Lambda functions, make sure that you use the following minimum versions or later versions:
 
+| Library                | Minimum supported version (x86) | Minimum supported version (ARM) |
+| ---------------------- | ------------------------------- | ------------------------------- |
+| AWS libcrypto (AWS-LC) | 1.16.0                          | 1.30.0                          |
+| AWS libcrypto FIPS     | 2.0.13                          | 2.0.13                          |
+
+If you package the preceding cryptographic libraries with your Lambda functions as transitive dependencies through the following libraries, make sure that you use the following minimum versions or later versions:
+
 | Library                              | Minimum supported version (x86) | Minimum supported version (ARM) |
-| ------------------------------------ | ------------------------------- | ------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| AWS libcrypto (AWS-LC)               | 1.16.0                          | 1.30.0                          |
-| AWS libcrypto FIPS                   | 2.0.13                          | 2.0.13                          | If you package the preceding cryptographic libraries with your Lambda functions as transitive dependencies through the following libraries, make sure that you use the following minimum versions or later versions:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| Library                              | Minimum supported version (x86) | Minimum supported version (ARM) |
-| ---                                  | ---                             | ---                             |
+| ------------------------------------ | ------------------------------- | ------------------------------- |
 | AWS SDK for Java 2.x                 | 2.23.20                         | 2.26.12                         |
 | AWS Common Runtime for Java          | 0.29.8                          | 0.29.25                         |
 | Amazon Corretto Crypto Provider      | 2.4.1                           | 2.4.1                           |
-| Amazon Corretto Crypto Provider FIPS | 2.4.1                           | 2.4.1                           | The following examples demonstrate how to use CSPRNGs to guarantee unique number sequences even when the function is restored from a snapshot. Java ###### Example – java.security.SecureRandom ``import java.security.SecureRandom; public class Handler implements RequestHandler<String, String> { `private static SecureRandom rng = new SecureRandom();` @Override public String handleRequest(String event, Context context) { for (int i = 0; i < 10; i++) { System.out.println(rng.next()); } return "Hello, World!"; } }`` Python ###### Example – random.SystemRandom ``import json import random `secure_rng = random.SystemRandom()` def lambda_handler(event, context): `random_numbers = [secure_rng.random() for _ in range(10)]` for number in random_numbers: print(number) return "Hello, World!"`` .NET ###### Example – RandomNumberGenerator ``using Amazon.Lambda.Core; using System.Security.Cryptography; [assembly: LambdaSerializer(typeof(Amazon.Lambda.Serialization.SystemTextJson.DefaultLambdaJsonSerializer))] namespace DotnetSecureRandom; public class Function { public string FunctionHandler() { `using (RandomNumberGenerator rng = RandomNumberGenerator.Create())` { byte[] randomUnsignedInteger32Bytes = new byte[4]; for (int i = 0; i < 10; i++) { rng.GetBytes(randomUnsignedInteger32Bytes); int randomInt32 = BitConverter.ToInt32(randomUnsignedInteger32Bytes, 0); Console.WriteLine("{0:G}", randomInt32); } } return "Hello World!"; } }`` ## SnapStart scanning tool (Java only) Lambda provides a scanning tool for Java to help you check for code that assumes uniqueness. The SnapStart scanning tool is an open-source [SpotBugs](https://spotbugs.github.io/ "https://spotbugs.github.io/") plugin that runs a static analysis against a set of rules. The scanning tool helps identify potential code implementations that might break assumptions regarding uniqueness. For installation instructions and a list of checks that the scanning tool performs, see the [aws-lambda-snapstart-java-rules](https://github.com/aws/aws-lambda-snapstart-java-rules "https://github.com/aws/aws-lambda-snapstart-java-rules") repository on GitHub. To learn more about handling uniqueness with SnapStart, see [Starting up faster with AWS Lambda SnapStart](https://aws.amazon.com/blogs/compute/starting-up-faster-with-aws-lambda-snapstart/ "https://aws.amazon.com/blogs/compute/starting-up-faster-with-aws-lambda-snapstart/") on the AWS Compute Blog. |
+| Amazon Corretto Crypto Provider FIPS | 2.4.1                           | 2.4.1                           |
+
+The following examples demonstrate how to use CSPRNGs to guarantee unique number sequences even when the function is restored from a snapshot.
+
+Java
+
+###### Example – java.security.SecureRandom
+
+```
+import java.security.SecureRandom;
+  public class Handler implements RequestHandler<String, String> {
+    `private static SecureRandom rng = new SecureRandom();`
+    @Override
+    public String handleRequest(String event, Context context) {
+      for (int i = 0; i < 10; i++) {
+        System.out.println(rng.next());
+      }
+      return "Hello, World!";
+    }
+  }
+```
+
+Python
+
+###### Example – random.SystemRandom
+
+```
+import json
+import random
+
+`secure_rng = random.SystemRandom()`
+
+def lambda_handler(event, context):
+    `random_numbers = [secure_rng.random() for _ in range(10)]`
+
+    for number in random_numbers:
+        print(number)
+
+    return "Hello, World!"
+```
+
+.NET
+
+###### Example – RandomNumberGenerator
+
+```
+using Amazon.Lambda.Core;
+using System.Security.Cryptography;
+[assembly: LambdaSerializer(typeof(Amazon.Lambda.Serialization.SystemTextJson.DefaultLambdaJsonSerializer))]
+
+namespace DotnetSecureRandom;
+
+public class Function
+{
+    public string FunctionHandler()
+    {
+        `using (RandomNumberGenerator rng = RandomNumberGenerator.Create())`
+        {
+            byte[] randomUnsignedInteger32Bytes = new byte[4];
+            for (int i = 0; i < 10; i++)
+            {
+                rng.GetBytes(randomUnsignedInteger32Bytes);
+                int randomInt32 = BitConverter.ToInt32(randomUnsignedInteger32Bytes, 0);
+                Console.WriteLine("{0:G}", randomInt32);
+            }
+        }
+        return "Hello World!";
+    }
+}
+```
+
+## SnapStart scanning tool (Java only)
+
+Lambda provides a scanning tool for Java to help you check for code that assumes uniqueness. The SnapStart scanning
+tool is an open-source [SpotBugs](https://spotbugs.github.io/ "https://spotbugs.github.io/") plugin that runs a static
+analysis against a set of rules. The scanning tool helps identify potential code implementations that might break
+assumptions regarding uniqueness. For installation instructions and a list of checks that the scanning tool
+performs, see the [aws-lambda-snapstart-java-rules](https://github.com/aws/aws-lambda-snapstart-java-rules "https://github.com/aws/aws-lambda-snapstart-java-rules") repository on GitHub.
+
+To learn more about handling uniqueness with SnapStart, see [Starting up faster with AWS Lambda SnapStart](https://aws.amazon.com/blogs/compute/starting-up-faster-with-aws-lambda-snapstart/ "https://aws.amazon.com/blogs/compute/starting-up-faster-with-aws-lambda-snapstart/") on the AWS Compute Blog.

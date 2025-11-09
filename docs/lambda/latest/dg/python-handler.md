@@ -148,10 +148,200 @@ You can also pass data into your function as a JSON array, or as any of the othe
 converts these JSON types.
 
 | JSON data type | Python data type                                   |
-| -------------- | -------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| -------------- | -------------------------------------------------- |
 | object         | dictionary (`dict`)                                |
 | array          | list (`list`)                                      |
 | number         | integer (`int`) or floating point number (`float`) |
 | string         | string (`str`)                                     |
 | Boolean        | Boolean (`bool`)                                   |
-| null           | NoneType (`NoneType`)                              | ## Accessing and using the Lambda context object The Lambda context object contains information about the function invocation and execution environment. Lambda passes the context object to your function automatically when it's invoked. You can use the context object to output information about your function's invocation for monitoring purposes. The context object is a Python class that's defined in the [Lambda runtime interface client](https://github.com/aws/aws-lambda-python-runtime-interface-client/blob/main/awslambdaric/lambda_context.py "https://github.com/aws/aws-lambda-python-runtime-interface-client/blob/main/awslambdaric/lambda_context.py"). To return the value of any of the context object properties, use the corresponding method on the context object. For example, the following code snippet assigns the value of the `aws_request_id` property (the identifier for the invocation request) to a variable named `request`. `request = context.aws_request_id` To learn more about using the Lambda context object, and to see a complete list of the available methods and properties, see [Using the Lambda context object to retrieve Python function information](python-context.md "python-context.md"). ## Valid handler signatures for Python handlers When defining your handler function in Python, the function must take two arguments. The first of these arguments is the Lambda [event object](#python-handler-event "#python-handler-event") and the second one is the Lambda [context object](#python-handler-context "#python-handler-context"). By convention, these input arguments are usually named `event` and `context`, but you can give them any names you wish. If you declare your handler function with a single input argument, Lambda will raise an error when it attempts to run your function. The most common way to declare a handler function in Python is as follows: `def lambda_handler(event, context):` You can also use Python type hints in your function declaration, as shown in the following example: `from typing import Dict, Any def lambda_handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:` To use specific AWS typing for events generated by other AWS services and for the context object, add the `aws-lambda-typing` package to your function's deployment package. You can install this library in your development environment by running `pip install aws-lambda-typing`. The following code snippet shows how to use AWS-specific type hints. In this example, the expected event is an Amazon S3 event. `from aws_lambda_typing.events import S3Event from aws_lambda_typing.context import Context from typing import Dict, Any def lambda_handler(event: S3Event, context: Context) -> Dict[str, Any]:` You can't use the Python `async` function type for your handler function. ## Returning a value Optionally, a handler can return a value, which must be JSON serializable. Common return types include `dict`, `list`, `str`, `int`, `float`, and `bool`. What happens to the returned value depends on the [invocation type](lambda-invocation.md "lambda-invocation.md") and the [service](lambda-services.md "lambda-services.md") that invoked the function. For example: <br>• If you use the `RequestResponse` invocation type to [invoke a Lambda function synchronously](invocation-sync.md "invocation-sync.md"), Lambda returns the result of the Python function call to the client invoking the Lambda function (in the HTTP response to the invocation request, serialized into JSON). For example, AWS Lambda console uses the `RequestResponse` invocation type, so when you invoke the function on the console, the console will display the returned value. <br>• If the handler returns objects that can't be serialized by `json.dumps`, the runtime returns an error. <br>• If the handler returns `None`, as Python functions without a `return` statement implicitly do, the runtime returns `null`. <br>• If you use the `Event` invocation type (an [asynchronous invocation](invocation-async.md "invocation-async.md")), the value is discarded. In the example code, the handler returns the following Python dictionary: `{ "statusCode": 200, "message": "Receipt processed successfully" }` The Lambda runtime serializes this dictionary and returns it to the client that invoked the function as a JSON string. ###### Note In Python 3.9 and later releases, Lambda includes the requestId of the invocation in the error response. ## Using the AWS SDK for Python (Boto3) in your handler Often, you'll use Lambda functions to interact with other AWS services and resources. The simplest way to interface with these resources is to use the AWS SDK for Python (Boto3). All [supported Lambda Python runtimes](lambda-runtimes.md#runtimes-supported "lambda-runtimes.md#runtimes-supported") include a version of the SDK for Python. However, we strongly recommend that you include the SDK in your function's deployment package if your code needs to use it. Including the SDK in your deployment package gives you full control over your dependencies and reduces the risk of version misalignment issues with other libraries. See [Runtime dependencies in Python](python-package.md#python-package-dependencies "python-package.md#python-package-dependencies") and [Backward compatibility](runtimes-update.md#runtime-update-compatibility "runtimes-update.md#runtime-update-compatibility") to learn more. To use the SDK for Python in your Lambda function, add the following statement to the import block at the beginning of your function code: `import boto3` Use the `pip install` command to add the `boto3` library to your function's deployment package. For detailed instructions on how to add dependencies to a .zip deployment package, see [Creating a .zip deployment package with dependencies](python-package.md#python-package-create-dependencies "python-package.md#python-package-create-dependencies"). To learn more about adding dependencies to Lambda functions deployed as container images, see [Creating an image from a base image](python-image.md#python-image-create "python-image.md#python-image-create") or [Creating an image from an alternative base image](python-image.md#python-alt-create "python-image.md#python-alt-create"). When using `boto3` in your code, you don't need to provide any credentials to initialize a client. For example, in the example code, we use the following line of code to initialize an Amazon S3 client: `# Initialize the S3 client outside of the handler s3_client = boto3.client('s3')` With Python, Lambda automatically creates environment variables with credentials. The `boto3` SDK checks your function's environment variables for these credentials during initialization. ## Accessing environment variables In your handler code, you can reference [environment variables](configuration-envvars.md "configuration-envvars.md") by using the `os.environ.get` method. In the example code, we reference the defined `RECEIPT_BUCKET` environment variable using the following line of code: `# Access environment variables bucket_name = os.environ.get('RECEIPT_BUCKET')` Don't forget to include an `import os` statement in the import block at the beginning of your code. ## Code best practices for Python Lambda functions Adhere to the guidelines in the following list to use best coding practices when building your Lambda functions: <br>• **Separate the Lambda handler from your core logic.** This allows you to make a more unit-testable function. For example, in Python, this may look like: `def lambda_handler(event, context): foo = event['foo'] bar = event['bar'] result = my_lambda_function(foo, bar) def my_lambda_function(foo, bar): // MyLambdaFunction logic here` <br>• **Control the dependencies in your function's deployment package.** The AWS Lambda execution environment contains a number of libraries. For the Node.js and Python runtimes, these include the AWS SDKs. To enable the latest set of features and security updates, Lambda will periodically update these libraries. These updates may introduce subtle changes to the behavior of your Lambda function. To have full control of the dependencies your function uses, package all of your dependencies with your deployment package. <br>• **Minimize the complexity of your dependencies.** Prefer simpler frameworks that load quickly on [execution environment](lambda-runtime-environment.md "lambda-runtime-environment.md") startup. <br>• **Minimize your deployment package size to its runtime necessities.** This will reduce the amount of time that it takes for your deployment package to be downloaded and unpacked ahead of invocation. **Take advantage of execution environment reuse to improve the performance of your function.** Initialize SDK clients and database connections outside of the function handler, and cache static assets locally in the `/tmp` directory. Subsequent invocations processed by the same instance of your function can reuse these resources. This saves cost by reducing function run time. To avoid potential data leaks across invocations, don’t use the execution environment to store user data, events, or other information with security implications. If your function relies on a mutable state that can’t be stored in memory within the handler, consider creating a separate function or separate versions of a function for each user. **Use a keep-alive directive to maintain persistent connections.** Lambda purges idle connections over time. Attempting to reuse an idle connection when invoking a function will result in a connection error. To maintain your persistent connection, use the keep-alive directive associated with your runtime. For an example, see [Reusing Connections with Keep-Alive in Node.js](../../../sdk-for-javascript/v3/developer-guide/node-reusing-connections.md "../../../sdk-for-javascript/v3/developer-guide/node-reusing-connections.md"). **Use [environment variables](configuration-envvars.md "configuration-envvars.md") to pass operational parameters to your function.** For example, if you are writing to an Amazon S3 bucket, instead of hard-coding the bucket name you are writing to, configure the bucket name as an environment variable. **Avoid using recursive invocations** in your Lambda function, where the function invokes itself or initiates a process that may invoke the function again. This could lead to unintended volume of function invocations and escalated costs. If you see an unintended volume of invocations, set the function reserved concurrency to `0` immediately to throttle all invocations to the function, while you update the code. **Do not use non-documented, non-public APIs** in your Lambda function code. For AWS Lambda managed runtimes, Lambda periodically applies security and functional updates to Lambda's internal APIs. These internal API updates may be backwards-incompatible, leading to unintended consequences such as invocation failures if your function has a dependency on these non-public APIs. See [the API reference](../api/welcome.md "../api/welcome.md") for a list of publicly available APIs. **Write idempotent code.** Writing idempotent code for your functions ensures that duplicate events are handled the same way. Your code should properly validate events and gracefully handle duplicate events. For more information, see [How do I make my Lambda function idempotent?](https://aws.amazon.com/premiumsupport/knowledge-center/lambda-function-idempotent/ "https://aws.amazon.com/premiumsupport/knowledge-center/lambda-function-idempotent/"). |
+| null           | NoneType (`NoneType`)                              |
+
+## Accessing and using the Lambda context object
+
+The Lambda context object contains information about the function invocation and execution environment. Lambda passes the
+context object to your function automatically when it's invoked. You can use the context object to output information about
+your function's invocation for monitoring purposes.
+
+The context object is a Python class that's defined in the [Lambda runtime interface client](https://github.com/aws/aws-lambda-python-runtime-interface-client/blob/main/awslambdaric/lambda_context.py "https://github.com/aws/aws-lambda-python-runtime-interface-client/blob/main/awslambdaric/lambda_context.py").
+To return the value of any of the context object properties, use the corresponding method on the context object. For example, the following code snippet assigns the value of the
+`aws_request_id` property (the identifier for the invocation request) to a variable named `request`.
+
+```
+request = context.aws_request_id
+```
+
+To learn more about using the Lambda context object, and to see a complete list of the available methods and properties, see [Using the Lambda context object to retrieve Python function information](python-context.md "python-context.md").
+
+## Valid handler signatures for Python handlers
+
+When defining your handler function in Python, the function must take two arguments. The first of these arguments is the Lambda [event object](#python-handler-event "#python-handler-event") and the second one
+is the Lambda [context object](#python-handler-context "#python-handler-context"). By convention, these input arguments are usually named `event` and `context`,
+but you can give them any names you wish. If you declare your handler function with a single input argument, Lambda will raise an error when it attempts to run your function.
+The most common way to declare a handler function in Python is as follows:
+
+```
+def lambda_handler(event, context):
+```
+
+You can also use Python type hints in your function declaration, as shown in the following example:
+
+```
+from typing import Dict, Any
+
+def lambda_handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
+```
+
+To use specific AWS typing for events generated by other AWS services and for the context object, add the `aws-lambda-typing` package to your
+function's deployment package. You can install this library in your development environment by running `pip install aws-lambda-typing`.
+The following code snippet shows how to use AWS-specific type hints. In this example, the expected event is an Amazon S3 event.
+
+```
+from aws_lambda_typing.events import S3Event
+from aws_lambda_typing.context import Context
+from typing import Dict, Any
+
+def lambda_handler(event: S3Event, context: Context) -> Dict[str, Any]:
+```
+
+You can't use the Python `async` function type for your handler function.
+
+## Returning a value
+
+Optionally, a handler can return a value, which must be JSON serializable. Common return types include `dict`, `list`, `str`, `int`,
+`float`, and `bool`.
+
+What happens to the returned value depends on the
+[invocation type](lambda-invocation.md "lambda-invocation.md") and the [service](lambda-services.md "lambda-services.md") that
+invoked the function. For example:
+
+- If you use the `RequestResponse` invocation type to
+  [invoke a Lambda function synchronously](invocation-sync.md "invocation-sync.md"), Lambda returns the result of the Python function call
+  to the client invoking the Lambda function (in the HTTP response to the invocation request, serialized into JSON).
+  For example, AWS Lambda console uses the `RequestResponse` invocation type, so when you invoke the function on the
+  console, the console will display the returned value.
+- If the handler returns objects that can't be serialized by `json.dumps`, the runtime returns an error.
+- If the handler returns `None`, as Python functions without a `return` statement implicitly do, the runtime returns `null`.
+- If you use the `Event` invocation type (an [asynchronous invocation](invocation-async.md "invocation-async.md")), the value is discarded.
+
+In the example code, the handler returns the following Python dictionary:
+
+```
+{
+  "statusCode": 200,
+  "message": "Receipt processed successfully"
+}
+```
+
+The Lambda runtime serializes this dictionary and returns it to the client that invoked the function as a JSON string.
+
+###### Note
+
+In Python 3.9 and later releases, Lambda includes the requestId of the invocation in the error response.
+
+## Using the AWS SDK for Python (Boto3) in your handler
+
+Often, you'll use Lambda functions to interact with other AWS services and resources. The simplest way to interface with these resources is
+to use the AWS SDK for Python (Boto3). All [supported Lambda Python runtimes](lambda-runtimes.md#runtimes-supported "lambda-runtimes.md#runtimes-supported") include a version of the SDK for Python. However, we strongly recommend that
+you include the SDK in your function's deployment package if your code needs to use it. Including the SDK in your deployment package gives you full
+control over your dependencies and reduces the risk of version misalignment issues with other libraries. See [Runtime dependencies in Python](python-package.md#python-package-dependencies "python-package.md#python-package-dependencies") and
+[Backward compatibility](runtimes-update.md#runtime-update-compatibility "runtimes-update.md#runtime-update-compatibility") to learn more.
+
+To use the SDK for Python in your Lambda function, add the following statement to the import block at the beginning of your function code:
+
+```
+import boto3
+```
+
+Use the `pip install` command to add the `boto3` library to your function's deployment package. For detailed instructions on how
+to add dependencies to a .zip deployment package, see [Creating a .zip deployment package with dependencies](python-package.md#python-package-create-dependencies "python-package.md#python-package-create-dependencies"). To learn more about adding dependencies to
+Lambda functions deployed as container images, see [Creating an image from a base image](python-image.md#python-image-create "python-image.md#python-image-create") or [Creating an image from an alternative base image](python-image.md#python-alt-create "python-image.md#python-alt-create").
+
+When using `boto3` in your code, you don't need to provide any credentials to initialize a client. For example, in the example code, we
+use the following line of code to initialize an Amazon S3 client:
+
+```
+# Initialize the S3 client outside of the handler
+s3_client = boto3.client('s3')
+```
+
+With Python, Lambda automatically creates environment variables with credentials. The `boto3` SDK checks your function's environment variables for
+these credentials during initialization.
+
+## Accessing environment variables
+
+In your handler code, you can reference [environment variables](configuration-envvars.md "configuration-envvars.md") by using the `os.environ.get` method.
+In the example code, we reference the defined `RECEIPT_BUCKET` environment variable using the following line of code:
+
+```
+# Access environment variables
+bucket_name = os.environ.get('RECEIPT_BUCKET')
+```
+
+Don't forget to include an `import os` statement in the import block at the beginning of your code.
+
+## Code best practices for Python Lambda functions
+
+Adhere to the guidelines in the following list to use best coding practices when building your Lambda functions:
+
+- **Separate the Lambda handler from your core logic.** This allows you to make
+  a more unit-testable function. For example, in Python, this may look like:
+
+```
+def lambda_handler(event, context):
+    foo = event['foo']
+    bar = event['bar']
+    result = my_lambda_function(foo, bar)
+
+def my_lambda_function(foo, bar):
+    // MyLambdaFunction logic here
+
+```
+
+- **Control the dependencies in your function's deployment package.** The
+  AWS Lambda execution environment contains a number of libraries. For the Node.js and Python runtimes, these include the AWS SDKs.
+  To enable the latest set of features and security updates, Lambda will periodically update these libraries.
+  These updates may introduce subtle changes to the behavior of your Lambda function. To have full control of the
+  dependencies your function uses, package all of your dependencies with your deployment package.
+- **Minimize the complexity of your dependencies.** Prefer simpler frameworks
+  that load quickly on [execution environment](lambda-runtime-environment.md "lambda-runtime-environment.md") startup.
+- **Minimize your deployment package size to its runtime necessities.** This
+  will reduce the amount of time that it takes for your deployment package to be downloaded and unpacked ahead
+  of invocation.
+
+**Take advantage of execution environment reuse to improve the performance of your
+function.** Initialize SDK clients and database connections outside of the function handler, and
+cache static assets locally in the `/tmp` directory. Subsequent invocations processed by
+the same instance of your function can reuse these resources. This saves cost by reducing function run time.
+
+To avoid potential data leaks across invocations, don’t use the execution environment to store user data,
+events, or other information with security implications. If your function relies on a mutable state that can’t
+be stored in memory within the handler, consider creating a separate function or separate versions of a
+function for each user.
+
+**Use a keep-alive directive to maintain persistent connections.** Lambda purges idle connections over time.
+Attempting to reuse an idle connection when invoking a function will result in a connection error. To maintain your persistent connection, use the
+keep-alive directive associated with your runtime.
+For an example, see [Reusing Connections with Keep-Alive in Node.js](../../../sdk-for-javascript/v3/developer-guide/node-reusing-connections.md "../../../sdk-for-javascript/v3/developer-guide/node-reusing-connections.md").
+
+**Use [environment variables](configuration-envvars.md "configuration-envvars.md") to pass operational parameters to your function.** For example, if
+you are writing to an Amazon S3 bucket, instead of hard-coding the bucket name you are writing to, configure the
+bucket name as an environment variable.
+
+**Avoid using recursive invocations** in your Lambda function, where the function
+invokes itself or initiates a process that may invoke the function again. This could lead to unintended volume of
+function invocations and escalated costs. If you see an unintended volume of invocations, set the function reserved concurrency
+to `0` immediately to throttle all invocations to the function, while you update the
+code.
+
+**Do not use non-documented, non-public APIs** in your Lambda function code.
+For AWS Lambda managed runtimes, Lambda periodically applies security and functional updates to Lambda's internal APIs.
+These internal API updates may be backwards-incompatible, leading to unintended consequences such as invocation
+failures if your function has a dependency on these non-public APIs. See
+[the API reference](../api/welcome.md "../api/welcome.md") for a list of
+publicly available APIs.
+
+**Write idempotent code.** Writing idempotent code for your functions ensures that
+duplicate events are handled the same way. Your code should properly validate events and gracefully handle
+duplicate events. For more information, see
+[How do I make
+my Lambda function idempotent?](https://aws.amazon.com/premiumsupport/knowledge-center/lambda-function-idempotent/ "https://aws.amazon.com/premiumsupport/knowledge-center/lambda-function-idempotent/").

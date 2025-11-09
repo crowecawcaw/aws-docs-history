@@ -1,4 +1,4 @@
-# Capturing discarded batches for a self-managed Apache Kafka event source
+# Capturing discarded batches for Amazon MSK and self-managed Apache Kafka event sources
 
 To retain records of failed event source mapping invocations, add a destination to your function's event source mapping.
 Each record sent to the destination is a JSON document containing metadata about the failed invocation. For Amazon S3 destinations, Lambda also sends the entire invocation record along with the
@@ -12,7 +12,7 @@ Your execution role must have permissions for the destination:
 - **For SQS destinations:** [sqs:SendMessage](../../../AWSSimpleQueueService/latest/APIReference/API_SendMessage.md "../../../AWSSimpleQueueService/latest/APIReference/API_SendMessage.md")
 - **For SNS destinations:** [sns:Publish](../../../sns/latest/api/API_Publish.md "../../../sns/latest/api/API_Publish.md")
 - **For S3 bucket destinations:** [s3:PutObject](../../../AmazonS3/latest/API/API_PutObject.md "../../../AmazonS3/latest/API/API_PutObject.md") and [s3:ListBucket](../../../AmazonS3/latest/API/ListObjectsV2.md "../../../AmazonS3/latest/API/ListObjectsV2.md")
-  You must deploy a VPC endpoint for your on-failure destination service inside your Apache Kafka cluster VPC.
+  You must deploy a VPC endpoint for your on-failure destination service inside your Kafka cluster VPC.
 
 Additionally, if you configured a KMS key on your destination, Lambda needs the following
 permissions depending on the destination type:
@@ -39,7 +39,7 @@ permissions depending on the destination type:
   [kms:DescribeKey](../../../kms/latest/APIReference/API_DescribeKey.md "../../../kms/latest/APIReference/API_DescribeKey.md"), and
   [kms:ReEncrypt](../../../kms/latest/APIReference/API_ReEncrypt.md "../../../kms/latest/APIReference/API_ReEncrypt.md").
 
-## Configuring on-failure destinations for an self-managed Apache Kafka event source mapping
+## Configuring on-failure destinations for a Kafka event source mapping
 
 To configure an on-failure destination using the console, follow these steps:
 

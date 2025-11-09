@@ -231,31 +231,93 @@ The resulting CloudWatch log file contains a separate field specifying the log l
 A CloudWatch Logs Insights query can then filter on log level. For example, to query for errors only, you can use
 the following query:
 
-````
+```
 fields @timestamp, @message
 | filter @message like /ERROR/
-| sort @timestamp desc ``` ### JSON structured logging JSON is commonly used to provide structure for application logs. In the following example, the logs have been converted to JSON to output three distinct values: ![monitoring observability figure 11](images/monitoring-observability-figure-11.png) The CloudWatch Logs Insights feature automatically discovers values in JSON output and parses the messages as fields, without the need for custom glob or regular expression. By using the JSON-structured logs, the following query finds invocations where the uploaded file was larger than 1 MB, the upload time was more than 1 second, and the invocation was not a cold start: ``` fields @message
+| sort @timestamp desc
+```
+
+### JSON structured logging
+
+JSON is commonly used to provide structure for application logs. In the following example, the logs have
+been converted to JSON to output three distinct values:
+
+![monitoring observability figure 11](images/monitoring-observability-figure-11.png)
+
+The CloudWatch Logs Insights feature automatically discovers values in JSON output and parses the messages as
+fields, without the need for custom glob or regular expression. By using the JSON-structured logs, the
+following query finds invocations where the uploaded file was larger than 1 MB, the upload time was more
+than 1 second, and the invocation was not a cold start:
+
+```
+fields @message
 | filter @message like /INFO/
 | filter uploadedBytes > 1000000
 | filter uploadTimeMS > 1000
-| filter invocation != 1 ``` This query might produce the following result: ![monitoring observability figure 12](images/monitoring-observability-figure-12.png) The discovered fields in JSON are automatically populated in the *Discovered fields* menu on the right side. Standard fields emitted by the Lambda service are prefixed with '@', and you can query on these fields in the same way. Lambda logs always include the fields @timestamp, @logStream, @message, @requestId, @duration, @billedDuration, @type, @maxMemoryUsed, @memorySize. If X-Ray is enabled for a function, logs also include @xrayTraceId and @xraySegmentId. When an AWS event source such as Amazon S3, Amazon SQS, or Amazon EventBridge invokes your function, the entire event is provided to the function as a JSON object input. By logging this event in the first line of the function, you can then query on any of the nested fields using CloudWatch Logs Insights. ### Useful Insights queries The following table shows example Insights queries that can be useful for monitoring Lambda functions.
-| Description | Example query syntax |
-| --- | --- |
-| The last 100 errors | ``` fields Timestamp, LogLevel, Message | filter LogLevel == "ERR"
-| sort @timestamp desc | limit 100 ``` |
-| The top 100 highest billed invocations | ``` filter @type = "REPORT" | fields @requestId, @billedDuration
-| sort by @billedDuration desc | limit 100 ``` |
-| Percentage of cold starts in total invocations | ``` filter @type = "REPORT" | stats sum(strcontains(@message, "Init Duration"))/count(*) * 100 as coldStartPct, avg(@duration) by bin(5m) ```
-| | Percentile report of Lambda duration | ``` filter @type = "REPORT"
-| stats avg(@billedDuration) as Average, percentile(@billedDuration, 99) as NinetyNinth, percentile(@billedDuration, 95) as NinetyFifth, percentile(@billedDuration, 90) as Ninetieth by bin(30m) ``` | | Percentile report of Lambda memory usage | ``` filter @type="REPORT"
-| stats avg(@maxMemoryUsed/1024/1024) as mean_MemoryUsed, min(@maxMemoryUsed/1024/1024) as min_MemoryUsed, max(@maxMemoryUsed/1024/1024) as max_MemoryUsed, percentile(@maxMemoryUsed/1024/1024, 95) as Percentile95 ``` | | Invocations using 100% of assigned memory | ``` filter @type = "REPORT" and @maxMemoryUsed=@memorySize
-| stats count_distinct(@requestId) by bin(30m) ``` | | Average memory used across invocations | ``` avgMemoryUsedPERC, avg(@billedDuration) as avgDurationMS by bin(5m) ```
-| | Visualization of memory statistics | ``` filter @type = "REPORT"
-| stats max(@maxMemoryUsed / 1024 / 1024) as maxMemMB, avg(@maxMemoryUsed / 1024 / 1024) as avgMemMB, min(@maxMemoryUsed / 1024 / 1024) as minMemMB, (avg(@maxMemoryUsed / 1024 / 1024) / max(@memorySize / 1024 / 1024)) * 100 as avgMemUsedPct, avg(@billedDuration) as avgDurationMS by bin(30m) ``` | | Invocations where Lambda exited | ``` filter @message like /Process exited/
-| stats count() by bin(30m) ``` | | Invocations that timed out | ``` filter @message like /Task timed out/
-| stats count() by bin(30m) ``` | | Latency report | ``` filter @type = "REPORT"
-| stats avg(@duration), max(@duration), min(@duration) by bin(5m) ``` | | Over-provisioned memory | ``` filter @type = "REPORT"
-| stats max(@memorySize / 1024 / 1024) as provisonedMemMB, min(@maxMemoryUsed / 1024 / 1024) as smallestMemReqMB, avg(@maxMemoryUsed / 1024 / 1024) as avgMemUsedMB, max(@maxMemoryUsed / 1024 / 1024) as maxMemUsedMB, provisonedMemMB - maxMemUsedMB as overProvisionedMB ``` | ## Log visualization and dashboards For any CloudWatch Logs Insights query, you can export the results to markdown or CSV format. In some cases, it might be more useful to create [visualizations from queries](../../../AmazonCloudWatch/latest/logs/CWL_Insights-Visualizing-Log-Data.md "../../../AmazonCloudWatch/latest/logs/CWL_Insights-Visualizing-Log-Data.md"), providing there is at least one aggregation function. The `stats` function allows you to define aggregations and grouping. The previous *logInsightsJSON* example filtered on upload size and upload time and excluded first invocations. This resulted in a table of data. For monitoring a production system, it may be more useful to visualize minimum, maximum, and average file sizes to find outliers. To do this, apply the stats function with the required aggregates, and group on a time value such as every minute: For example, consider the following query. This is the same example query from the [JSON structured logging](#querying-logs-json "#querying-logs-json") section, but with additional aggregation functions: ``` fields @message | filter @message like /INFO/
-| filter uploadedBytes > 1000000 | filter uploadTimeMS > 1000 | filter invocation != 1
-| stats min(uploadedBytes), avg(uploadedBytes), max(uploadedBytes) by bin (1m) ``` We included these aggregates because it may be more useful to visualize minimum, maximum, and average file sizes to find outliers. You can view the results in the **Visualization** tab: ![monitoring observability figure 14](images/monitoring-observability-figure-14.png) After you have finished building the visualization, you can optionally add the graph to a CloudWatch dashboard. To do this, choose **Add to dashboard** above the visualization. This adds the query as a widget and enables you to select automatic refresh intervals, making it easier to continuously monitor the results: ![monitoring observability figure 15](images/monitoring-observability-figure-15.png)
-````
+| filter invocation != 1
+```
+
+This query might produce the following result:
+
+![monitoring observability figure 12](images/monitoring-observability-figure-12.png)
+
+The discovered fields in JSON are automatically populated in the _Discovered fields_
+menu on the right side. Standard fields emitted by the Lambda service are prefixed with '@', and you can
+query on these fields in the same way. Lambda logs always include the fields @timestamp, @logStream, @message,
+@requestId, @duration, @billedDuration, @type, @maxMemoryUsed, @memorySize. If X-Ray is enabled for a
+function, logs also include @xrayTraceId and @xraySegmentId.
+
+When an AWS event source such as Amazon S3, Amazon SQS, or Amazon EventBridge invokes your function, the entire event
+is provided to the function as a JSON object input. By logging this event in the first line of the
+function, you can then query on any of the nested fields using CloudWatch Logs Insights.
+
+### Useful Insights queries
+
+The following table shows example Insights queries that can be useful for monitoring Lambda functions.
+
+| Description                                    | Example query syntax                                                                |
+| ---------------------------------------------- | ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------- | ---------------- |
+| The last 100 errors                            | ```<br>fields Timestamp, LogLevel, Message<br>                                      | filter LogLevel == "ERR"<br>                                                                                                                                                                                                                                                                                                  | sort @timestamp desc<br>         | limit 100<br>``` |
+| The top 100 highest billed invocations         | ```<br>filter @type = "REPORT"<br>                                                  | fields @requestId, @billedDuration<br>                                                                                                                                                                                                                                                                                        | sort by @billedDuration desc<br> | limit 100<br>``` |
+| Percentage of cold starts in total invocations | ```<br>filter @type = "REPORT"<br>                                                  | stats sum(strcontains(@message, "Init Duration"))/count(\*)<br>• 100 as<br>coldStartPct, avg(@duration)<br>by bin(5m)<br>```                                                                                                                                                                                                  |
+| Percentile report of Lambda duration           | ```<br>filter @type = "REPORT"<br>                                                  | stats<br>avg(@billedDuration) as Average,<br>percentile(@billedDuration, 99) as NinetyNinth,<br>percentile(@billedDuration, 95) as NinetyFifth,<br>percentile(@billedDuration, 90) as Ninetieth<br>by bin(30m)<br>```                                                                                                         |
+| Percentile report of Lambda memory usage       | ```<br>filter @type="REPORT"<br>                                                    | stats avg(@maxMemoryUsed/1024/1024) as mean_MemoryUsed,<br>min(@maxMemoryUsed/1024/1024) as min_MemoryUsed,<br>max(@maxMemoryUsed/1024/1024) as max_MemoryUsed,<br>percentile(@maxMemoryUsed/1024/1024, 95) as Percentile95<br>```                                                                                            |
+| Invocations using 100% of assigned memory      | ```<br>filter @type = "REPORT" and @maxMemoryUsed=@memorySize<br>                   | stats<br>count_distinct(@requestId)<br>by bin(30m)<br>```                                                                                                                                                                                                                                                                     |
+| Average memory used across invocations         | `<br>avgMemoryUsedPERC,<br>avg(@billedDuration) as avgDurationMS<br>by bin(5m)<br>` |
+| Visualization of memory statistics             | ```<br>filter @type = "REPORT"<br>                                                  | stats<br>max(@maxMemoryUsed / 1024 / 1024) as maxMemMB,<br>avg(@maxMemoryUsed / 1024 / 1024) as avgMemMB,<br>min(@maxMemoryUsed / 1024 / 1024) as minMemMB,<br>(avg(@maxMemoryUsed / 1024 / 1024) / max(@memorySize / 1024 / 1024))<br>• 100 as avgMemUsedPct,<br>avg(@billedDuration) as avgDurationMS<br>by bin(30m)<br>``` |
+| Invocations where Lambda exited                | ```<br>filter @message like /Process exited/<br>                                    | stats count() by bin(30m)<br>```                                                                                                                                                                                                                                                                                              |
+| Invocations that timed out                     | ```<br>filter @message like /Task timed out/<br>                                    | stats count() by bin(30m)<br>```                                                                                                                                                                                                                                                                                              |
+| Latency report                                 | ```<br>filter @type = "REPORT"<br>                                                  | stats avg(@duration), max(@duration), min(@duration)<br>by bin(5m)<br>```                                                                                                                                                                                                                                                     |
+| Over-provisioned memory                        | ```<br>filter @type = "REPORT"<br>                                                  | stats max(@memorySize / 1024 / 1024) as provisonedMemMB,<br>min(@maxMemoryUsed / 1024 / 1024) as smallestMemReqMB,<br>avg(@maxMemoryUsed / 1024 / 1024) as avgMemUsedMB,<br>max(@maxMemoryUsed / 1024 / 1024) as maxMemUsedMB,<br>provisonedMemMB<br>• maxMemUsedMB as overProvisionedMB<br>```                               |
+
+## Log visualization and dashboards
+
+For any CloudWatch Logs Insights query, you can export the results to markdown or CSV format. In some cases,
+it might be more useful to create
+[visualizations from queries](../../../AmazonCloudWatch/latest/logs/CWL_Insights-Visualizing-Log-Data.md "../../../AmazonCloudWatch/latest/logs/CWL_Insights-Visualizing-Log-Data.md"), providing there is at least one aggregation function. The `stats`
+function allows you to define aggregations and grouping.
+
+The previous _logInsightsJSON_ example filtered on upload size and upload time and excluded first invocations. This resulted in a table of data. For monitoring a production system, it may be more useful to visualize minimum, maximum, and average file sizes to find outliers. To do this, apply the stats function with the required aggregates, and group on a time value such as every minute:
+
+For example, consider the following query. This is the same example query from the
+[JSON structured logging](#querying-logs-json "#querying-logs-json") section, but with additional aggregation functions:
+
+```
+fields @message
+| filter @message like /INFO/
+| filter uploadedBytes > 1000000
+| filter uploadTimeMS > 1000
+| filter invocation != 1
+| stats min(uploadedBytes), avg(uploadedBytes), max(uploadedBytes) by bin (1m)
+```
+
+We included these aggregates because it may be more useful to visualize minimum, maximum,
+and average file sizes to find outliers. You can view the results in the **Visualization** tab:
+
+![monitoring observability figure 14](images/monitoring-observability-figure-14.png)
+
+After you have finished building the visualization, you can optionally add the graph to a CloudWatch dashboard.
+To do this, choose **Add to dashboard** above the visualization. This adds the query as a
+widget and enables you to select automatic refresh intervals, making it easier to continuously monitor the results:
+
+![monitoring observability figure 15](images/monitoring-observability-figure-15.png)
