@@ -32,7 +32,7 @@ in the `Resources` and `Outputs` sections.
 - [Fn::If](#intrinsic-function-reference-conditions-if "#intrinsic-function-reference-conditions-if")
 - [Fn::Not](#intrinsic-function-reference-conditions-not "#intrinsic-function-reference-conditions-not")
 - [Fn::Or](#intrinsic-function-reference-conditions-or "#intrinsic-function-reference-conditions-or")
-- [Supported functions](#w2294aac24c20c25 "#w2294aac24c20c25")
+- [Supported functions](#w2307aac24c20c25 "#w2307aac24c20c25")
 - [Sample template](#conditions-sample-templates "#conditions-sample-templates")
 
 ## `Fn::And`
@@ -204,11 +204,11 @@ A value to be returned if the specified condition evaluates to
 
 ###### Topics
 
-- [Conditionally choosing a resource](#w2294aac24c20c19b9b5 "#w2294aac24c20c19b9b5")
-- [Conditional outputs](#w2294aac24c20c19b9b7 "#w2294aac24c20c19b9b7")
-- [Conditional array values](#w2294aac24c20c19b9b9 "#w2294aac24c20c19b9b9")
-- [Conditional properties and property values](#w2294aac24c20c19b9c11 "#w2294aac24c20c19b9c11")
-- [Conditional update policies](#w2294aac24c20c19b9c13 "#w2294aac24c20c19b9c13")
+- [Conditionally choosing a resource](#w2307aac24c20c19b9b5 "#w2307aac24c20c19b9b5")
+- [Conditional outputs](#w2307aac24c20c19b9b7 "#w2307aac24c20c19b9b7")
+- [Conditional array values](#w2307aac24c20c19b9b9 "#w2307aac24c20c19b9b9")
+- [Conditional properties and property values](#w2307aac24c20c19b9c11 "#w2307aac24c20c19b9c11")
+- [Conditional update policies](#w2307aac24c20c19b9c13 "#w2307aac24c20c19b9c13")
 
 #### Conditionally choosing a resource
 

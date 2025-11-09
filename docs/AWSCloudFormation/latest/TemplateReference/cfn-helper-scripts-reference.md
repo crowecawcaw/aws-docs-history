@@ -68,8 +68,80 @@ AMI images and for Microsoft Windows (2008 or later), you can download the
 Version 2.0–1 and above of the helper scripts support Python 3.4 and above. If
 you need helper scripts that support an earlier version of Python, see [Release History for CloudFormation Helper Scripts 1.4](releasehistory-aws-cfn-bootstrap.md#releasehistory-aws-cfn-bootstrap-v1 "releasehistory-aws-cfn-bootstrap.md#releasehistory-aws-cfn-bootstrap-v1").
 
-| File format | Download URL                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| TAR.GZ      | [https://s3.amazonaws.com/cloudformation-examples/aws-cfn-bootstrap-py3-latest.tar.gz](https://s3.amazonaws.com/cloudformation-examples/aws-cfn-bootstrap-py3-latest.tar.gz "https://s3.amazonaws.com/cloudformation-examples/aws-cfn-bootstrap-py3-latest.tar.gz") Use Python's pip to install `tar.gz`. To complete the installation for Ubuntu, you must create a symlink: `ln -s /`<path-to-extracted-tar>`/aws-cfn-bootstrap-2.0/init/ubuntu/cfn-hup /etc/init.d/cfn-hup`                                                                                          |
-| ZIP         | [https://s3.amazonaws.com/cloudformation-examples/aws-cfn-bootstrap-py3-latest.zip](https://s3.amazonaws.com/cloudformation-examples/aws-cfn-bootstrap-py3-latest.zip "https://s3.amazonaws.com/cloudformation-examples/aws-cfn-bootstrap-py3-latest.zip")                                                                                                                                                                                                                                                                                                              |
-| EXE         | 32-bit Windows: [https://s3.amazonaws.com/cloudformation-examples/aws-cfn-bootstrap-py3-latest.exe](https://s3.amazonaws.com/cloudformation-examples/aws-cfn-bootstrap-py3-latest.exe "https://s3.amazonaws.com/cloudformation-examples/aws-cfn-bootstrap-py3-latest.exe") 64-bit Windows: [https://s3.amazonaws.com/cloudformation-examples/aws-cfn-bootstrap-py3-win64-latest.exe](https://s3.amazonaws.com/cloudformation-examples/aws-cfn-bootstrap-py3-win64-latest.exe "https://s3.amazonaws.com/cloudformation-examples/aws-cfn-bootstrap-py3-win64-latest.exe") | ## Permissions for helper scripts By default, helper scripts don't require credentials, so you don't need to use the `--access-key`, `--secret-key`, `--role`, or `--credential-file` options. However, if no credentials are specified, CloudFormation checks for stack membership and limits the scope of the call to the stack that the instance belongs to. If you choose to specify an option, we recommend that you specify only one of the following: <br>• `--role` <br>• `--credential-file` <br>• `--access-key` together with `--secret-key` If you do specify an option, keep in mind which permissions the various helper scripts require: <br>• `cfn-signal` requires `cloudformation:SignalResource` <br>• All other helper scripts require `cloudformation:DescribeStackResource` For more information on using CloudFormation-specific actions and condition context keys in IAM policies, see [Control CloudFormation access with AWS Identity and Access Management](../UserGuide/control-access-with-iam.md "../UserGuide/control-access-with-iam.md") in the _AWS CloudFormation User Guide_. ## Using the latest version The helper scripts are updated periodically. If you use the helper scripts, ensure that your launched instances are using the latest version of the scripts: <br>• Include the following command in the `UserData` property of your template before you call the scripts. This command ensures that you get the latest version: `yum install -y aws-cfn-bootstrap` <br>• If you don't include the `yum install` command and you use the `cfn-init`, `cfn-signal`, or `cfn-get-metadata` scripts, then you'll need to manually update the scripts in each Amazon EC2 Linux instance using this command: `sudo yum install -y aws-cfn-bootstrap` ###### Note Running `sudo yum install -y aws-cfn-bootstrap` installs the helper scripts from the `yum` repository. <br>• If you don't include the `yum install` command and you use the `cfn-hup` script, then you'll need to manually update the script in each Amazon EC2 Linux instance using these commands: `sudo yum install -y aws-cfn-bootstrap` `sudo /sbin/service `cfn-hup` restart` ###### Note Running `sudo yum install -y aws-cfn-bootstrap` installs the helper scripts from the `yum` repository. <br>• If you use the source code for the scripts to work with another version of Linux or a different platform, and you have created your own certificate trust store, you'll also need to keep the trust store updated. For the version history of the `aws-cfn-bootstrap` package, see [Release history for AWS CloudFormation helper scripts](releasehistory-aws-cfn-bootstrap.md "releasehistory-aws-cfn-bootstrap.md"). |
+| File format | Download URL                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| TAR.GZ      | [https://s3.amazonaws.com/cloudformation-examples/aws-cfn-bootstrap-py3-latest.tar.gz](https://s3.amazonaws.com/cloudformation-examples/aws-cfn-bootstrap-py3-latest.tar.gz "https://s3.amazonaws.com/cloudformation-examples/aws-cfn-bootstrap-py3-latest.tar.gz")<br>Use Python's pip to install `tar.gz`. To complete the<br>installation for Ubuntu, you must create a symlink:<br>`ln -s<br>/`<path-to-extracted-tar>`/aws-cfn-bootstrap-2.0/init/ubuntu/cfn-hup<br>/etc/init.d/cfn-hup`                                                                              |
+| ZIP         | [https://s3.amazonaws.com/cloudformation-examples/aws-cfn-bootstrap-py3-latest.zip](https://s3.amazonaws.com/cloudformation-examples/aws-cfn-bootstrap-py3-latest.zip "https://s3.amazonaws.com/cloudformation-examples/aws-cfn-bootstrap-py3-latest.zip")                                                                                                                                                                                                                                                                                                                 |
+| EXE         | 32-bit Windows: [https://s3.amazonaws.com/cloudformation-examples/aws-cfn-bootstrap-py3-latest.exe](https://s3.amazonaws.com/cloudformation-examples/aws-cfn-bootstrap-py3-latest.exe "https://s3.amazonaws.com/cloudformation-examples/aws-cfn-bootstrap-py3-latest.exe")<br>64-bit Windows: [https://s3.amazonaws.com/cloudformation-examples/aws-cfn-bootstrap-py3-win64-latest.exe](https://s3.amazonaws.com/cloudformation-examples/aws-cfn-bootstrap-py3-win64-latest.exe "https://s3.amazonaws.com/cloudformation-examples/aws-cfn-bootstrap-py3-win64-latest.exe") |
+
+## Permissions for helper
+
+scripts
+
+By default, helper scripts don't require credentials, so you don't need to use the
+`--access-key`, `--secret-key`, `--role`, or
+`--credential-file` options. However, if no credentials are specified,
+CloudFormation checks for stack membership and limits the scope of the call to the stack that
+the instance belongs to.
+
+If you choose to specify an option, we recommend that you specify only one of the
+following:
+
+- `--role`
+- `--credential-file`
+- `--access-key` together with `--secret-key`
+
+If you do specify an option, keep in mind which permissions the various helper scripts
+require:
+
+- `cfn-signal` requires `cloudformation:SignalResource`
+- All other helper scripts require
+  `cloudformation:DescribeStackResource`
+
+For more information on using CloudFormation-specific actions and condition context keys in
+IAM policies, see [Control CloudFormation access with
+AWS Identity and Access Management](../UserGuide/control-access-with-iam.md "../UserGuide/control-access-with-iam.md") in the _AWS CloudFormation User Guide_.
+
+## Using the latest
+
+version
+
+The helper scripts are updated periodically. If you use the helper scripts, ensure that
+your launched instances are using the latest version of the scripts:
+
+- Include the following command in the `UserData` property of your
+  template before you call the scripts. This command ensures that you get the latest
+  version:
+
+`yum install -y aws-cfn-bootstrap`
+
+- If you don't include the `yum install` command and you use the
+  `cfn-init`, `cfn-signal`, or `cfn-get-metadata`
+  scripts, then you'll need to manually update the scripts in each Amazon EC2 Linux instance
+  using this command:
+
+`sudo yum install -y aws-cfn-bootstrap`
+
+###### Note
+
+Running `sudo yum install -y aws-cfn-bootstrap` installs the helper
+scripts from the `yum` repository.
+
+- If you don't include the `yum install` command and you use the
+  `cfn-hup` script, then you'll need to manually update the script in
+  each Amazon EC2 Linux instance using these commands:
+
+`sudo yum install -y aws-cfn-bootstrap`
+
+`sudo /sbin/service `cfn-hup` restart`
+
+###### Note
+
+Running `sudo yum install -y aws-cfn-bootstrap` installs the helper
+scripts from the `yum` repository.
+
+- If you use the source code for the scripts to work with another version of Linux
+  or a different platform, and you have created your own certificate trust store,
+  you'll also need to keep the trust store updated.
+
+For the version history of the `aws-cfn-bootstrap` package, see [Release history for AWS CloudFormation helper scripts](releasehistory-aws-cfn-bootstrap.md "releasehistory-aws-cfn-bootstrap.md").

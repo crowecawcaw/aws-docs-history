@@ -10,7 +10,7 @@ resources during stack update operations.
 ###### Topics
 
 - [Overview](#aws-resource-update-policies "#aws-resource-update-policies")
-- [AppStream 2.0 update policy](#aws-attribute-update-policy-app-stream-fleet "#aws-attribute-update-policy-app-stream-fleet")
+- [WorkSpaces Applications update policy](#aws-attribute-update-policy-app-stream-fleet "#aws-attribute-update-policy-app-stream-fleet")
 - [AutoScalingReplacingUpdate
   policy](#cfn-attributes-updatepolicy-replacingupdate "#cfn-attributes-updatepolicy-replacingupdate")
 - [AutoScalingRollingUpdate
@@ -73,9 +73,9 @@ resources are updated, as described here:
 The sections that follow describe the syntax and properties for the
 `UpdatePolicy` attribute supported by each resource type.
 
-## AppStream 2.0 update policy
+## WorkSpaces Applications update policy
 
-To stop an AppStream 2.0 fleet before an update and restart it after an update, use the AppStream 2.0
+To stop an WorkSpaces Applications fleet before an update and restart it after an update, use the WorkSpaces Applications
 update policy.
 
 ### Syntax

@@ -24,7 +24,7 @@ Currently, the only CloudFormation resources that support creation policies are:
   configured. For a detailed example, see [Deploying applications on Amazon EC2 with
   CloudFormation](../UserGuide/deploying.md "../UserGuide/deploying.md") in the _AWS CloudFormation User Guide_.
 
-## AppStream 2.0 creation
+## WorkSpaces Applications creation
 
 policy
 
