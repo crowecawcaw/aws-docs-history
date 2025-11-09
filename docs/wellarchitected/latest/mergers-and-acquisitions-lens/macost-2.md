@@ -1,6 +1,4 @@
-# MACOST 2: How do you plan to monitor
-
-usage and cost of combined organizations?
+# MACOST 2: How do you plan to monitor  usage and cost of combined organizations?
 
 Establish policies and procedures to monitor and appropriately
 allocate your costs. This allows you to measure and improve

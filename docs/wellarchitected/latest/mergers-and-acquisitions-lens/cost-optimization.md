@@ -28,8 +28,7 @@ Optimization Pillar whitepaper](../cost-optimization-pillar/welcome.md "../cost-
 
 - [MACOST 1: How is cost optimization
   progressing with AWS hosting for both companies?](macost-1.md "macost-1.md")
-- [MACOST 2: How do you plan to monitor
-  usage and cost of combined organizations?](macost-2.md "macost-2.md")
+- [MACOST 2: How do you plan to monitor  usage and cost of combined organizations?](macost-2.md "macost-2.md")
 - [MACOST 3: How do you plan for data
   transfer and storage charges in case of required data
   integration after mergers and acquisitions
