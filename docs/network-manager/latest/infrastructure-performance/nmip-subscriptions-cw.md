@@ -18,6 +18,12 @@ in the _Amazon CloudWatch User Guide_.
 The following `EC2` namespace metric for Infrastructure Performance is tracked in
 CloudWatch:
 
-| Metric                         | Description                                                                         |
-| ------------------------------ | ----------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| AggregateAWSNetworkPerformance | The latency between Regions, inter-Availability Zones, or intra-Availability Zones. | ###### Manage Infrastructure Performance tasks <br>• [Manage CloudWatch subscriptions using the AWS Network Manager console](nmip-subscriptions-manage.md "nmip-subscriptions-manage.md") <br>• [Manage CloudWatch subscriptions using the AWS CLI](getting-started-nmip-cli.md "getting-started-nmip-cli.md") |
+| Metric                         | Description                                                                               |
+| ------------------------------ | ----------------------------------------------------------------------------------------- |
+| AggregateAWSNetworkPerformance | The latency between Regions, inter-Availability Zones, or<br>intra-Availability<br>Zones. |
+
+###### Manage Infrastructure Performance tasks
+
+- [Manage CloudWatch subscriptions using the AWS Network Manager
+  console](nmip-subscriptions-manage.md "nmip-subscriptions-manage.md")
+- [Manage CloudWatch subscriptions using the AWS CLI](getting-started-nmip-cli.md "getting-started-nmip-cli.md")
