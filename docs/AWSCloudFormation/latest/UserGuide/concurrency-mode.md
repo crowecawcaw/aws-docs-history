@@ -126,12 +126,80 @@ and the **Failure tolerance** (100) +1. Each batch contains 20 failed stack inst
 which then lowers the actual concurrency of each following batch by 20 stack instances.
 
 | **Strict failure tolerance**        | **Batch 1** | **Batch 2** | **Batch 3** | **Batch 4** | **Batch 5** | **Batch 6** |
-| ----------------------------------- | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ----------------------------------- | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- |
 | **Actual concurrency count**        | 101         | 81          | 61          | 41          | 21          | -           |
 | **Failed instance count**           | 20          | 20          | 20          | 20          | 20          | -           |
-| **Successful stack instance count** | 81          | 61          | 41          | 21          | 1           | -           | The operation using **Strict failure tolerance** completed 305 stack instance deployments in 5 batches by the time the StackSet operation reached the **Failure tolerance** of 100 stack instances. The StackSet operation successfully deploys 205 stack instances before it fails. ### Soft failure tolerance This example using **Soft failure tolerance** mode maintains the same actual concurrency count defined by the **Maximum concurrent accounts** value of 250 stack instances, regardless of the number of failed instances. The StackSet operations keeps the same actual concurrency until it reaches the **Failure tolerance** value of 100 instances. In following table, the initial actual concurrency of the first batch is 250 stack instances. The actual concurrency is 250 because the **Maximum concurrent accounts** value is set to 250 and **Soft failure tolerance** mode allows StackSets to use this value as the actual concurrency, regardless of the number of failures. Even though there are 50 failures in each of the batches for this example, the actual concurrency remains unaffected.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| **Successful stack instance count** | 81          | 61          | 41          | 21          | 1           | -           |
+
+The operation using **Strict failure tolerance** completed 305 stack instance deployments in 5
+batches by the time the StackSet operation reached the **Failure tolerance** of 100 stack
+instances. The StackSet operation successfully deploys 205 stack instances before it fails.
+
+### Soft failure tolerance
+
+This example using **Soft failure tolerance** mode maintains the same actual concurrency count
+defined by the **Maximum concurrent accounts** value of 250 stack instances, regardless of the
+number of failed instances. The StackSet operations keeps the same actual concurrency until it reaches the
+**Failure tolerance** value of 100 instances.
+
+In following table, the initial actual concurrency of the first batch is 250 stack instances. The actual
+concurrency is 250 because the **Maximum concurrent accounts** value is set to 250 and
+**Soft failure tolerance** mode allows StackSets to use this value as the actual concurrency,
+regardless of the number of failures. Even though there are 50 failures in each of the batches for this example, the
+actual concurrency remains unaffected.
+
 | **Soft failure tolerance**          | **Batch 1** | **Batch 2** | **Batch 3** | **Batch 4** | **Batch 5** | **Batch 6** |
-| ---                                 | ---         | ---         | ---         | ---         | ---         | ---         |
+| ----------------------------------- | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- |
 | **Actual concurrency count**        | 250         | 250         | -           | -           | -           | -           |
 | **Failed instance count**           | 50          | 50          | -           | -           | -           | -           |
-| **Successful stack instance count** | 200         | 200         | -           | -           | -           | -           | Using the same **Maximum concurrent accounts** value and **Failure tolerance** value, the operation using **Soft failure tolerance** mode completed 500 stack instance deployments in 2 batches. The StackSet operation successfully deploys 400 stack instances before it fails. ## Choosing your Concurrency Mode (console) When creating or updating a StackSet, on the **Set deployment options** page, for **Concurrency mode**, choose **Strict failure tolerance** or **Soft failure tolerance**. ## Choosing your Concurrency Mode (AWS CLI) You can use the `ConcurrencyMode` parameter with the following StackSets commands: <br>• [create-stack-instances](../../../cli/latest/reference/cloudformation/create-stack-instances.md "../../../cli/latest/reference/cloudformation/create-stack-instances.md") <br>• [delete-stack-instances](../../../cli/latest/reference/cloudformation/delete-stack-instances.md "../../../cli/latest/reference/cloudformation/delete-stack-instances.md") <br>• [detect-stack-set-drift](../../../cli/latest/reference/cloudformation/detect-stack-set-drift.md "../../../cli/latest/reference/cloudformation/detect-stack-set-drift.md") <br>• [import-stacks-to-stack-set](../../../cli/latest/reference/cloudformation/import-stacks-to-stack-set.md "../../../cli/latest/reference/cloudformation/import-stacks-to-stack-set.md") <br>• [update-stack-instances](../../../cli/latest/reference/cloudformation/update-stack-instances.md "../../../cli/latest/reference/cloudformation/update-stack-instances.md") <br>• [update-stack-set](../../../cli/latest/reference/cloudformation/update-stack-set.md "../../../cli/latest/reference/cloudformation/update-stack-set.md") These commands have an existing parameter called `--operation-preferences` that can use the `ConcurrencyMode` setting. `ConcurrencyMode` can be set to one of the following values: <br>• `STRICT_FAILURE_TOLERANCE` <br>• `SOFT_FAILURE_TOLERANCE` The following example creates a stack instance using the `STRICT_FAILURE_TOLERANCE` `ConcurrencyMode`, with a `FailureToleranceCount` set to 10 and a `MaxConcurrentCount` set to 5. ``aws cloudformation create-stack-instances \ --stack-set-name `example-stackset` \ --accounts `123456789012` \ --regions `eu-west-1`  \ --operation-preferences ConcurrencyMode=STRICT_FAILURE_TOLERANCE,FailureToleranceCount=10,MaxConcurrentCount=5`` ###### Note For detailed procedures for creating and updating a StackSet, see the following topics: <br>• [Create StackSets (self-managed permissions)](stacksets-getting-started-create-self-managed.md "stacksets-getting-started-create-self-managed.md") <br>• [Create StackSets (service-managed permissions)](stacksets-orgs-associate-stackset-with-org.md "stacksets-orgs-associate-stackset-with-org.md") <br>• [Update StackSets](stacksets-update.md "stacksets-update.md") |
+| **Successful stack instance count** | 200         | 200         | -           | -           | -           | -           |
+
+Using the same **Maximum concurrent accounts** value and **Failure
+tolerance** value, the operation using **Soft failure tolerance** mode completed 500
+stack instance deployments in 2 batches. The StackSet operation successfully deploys 400 stack instances before it
+fails.
+
+## Choosing your Concurrency Mode (console)
+
+When creating or updating a StackSet, on the **Set deployment options** page,
+for **Concurrency mode**, choose **Strict failure tolerance** or **Soft failure
+tolerance**.
+
+## Choosing your Concurrency Mode (AWS CLI)
+
+You can use the `ConcurrencyMode` parameter with the following StackSets commands:
+
+- [create-stack-instances](../../../cli/latest/reference/cloudformation/create-stack-instances.md "../../../cli/latest/reference/cloudformation/create-stack-instances.md")
+- [delete-stack-instances](../../../cli/latest/reference/cloudformation/delete-stack-instances.md "../../../cli/latest/reference/cloudformation/delete-stack-instances.md")
+- [detect-stack-set-drift](../../../cli/latest/reference/cloudformation/detect-stack-set-drift.md "../../../cli/latest/reference/cloudformation/detect-stack-set-drift.md")
+- [import-stacks-to-stack-set](../../../cli/latest/reference/cloudformation/import-stacks-to-stack-set.md "../../../cli/latest/reference/cloudformation/import-stacks-to-stack-set.md")
+- [update-stack-instances](../../../cli/latest/reference/cloudformation/update-stack-instances.md "../../../cli/latest/reference/cloudformation/update-stack-instances.md")
+- [update-stack-set](../../../cli/latest/reference/cloudformation/update-stack-set.md "../../../cli/latest/reference/cloudformation/update-stack-set.md")
+
+These commands have an existing parameter called `--operation-preferences` that can use the
+`ConcurrencyMode` setting. `ConcurrencyMode` can be set to one of the following values:
+
+- `STRICT_FAILURE_TOLERANCE`
+- `SOFT_FAILURE_TOLERANCE`
+
+The following example creates a stack instance using the `STRICT_FAILURE_TOLERANCE`
+`ConcurrencyMode`, with a `FailureToleranceCount` set to 10 and a
+`MaxConcurrentCount` set to 5.
+
+```
+aws cloudformation create-stack-instances \
+  --stack-set-name `example-stackset` \
+  --accounts `123456789012` \
+  --regions `eu-west-1`  \
+  --operation-preferences ConcurrencyMode=STRICT_FAILURE_TOLERANCE,FailureToleranceCount=10,MaxConcurrentCount=5
+```
+
+###### Note
+
+For detailed procedures for creating and updating a StackSet, see the following topics:
+
+- [Create
+  StackSets (self-managed permissions)](stacksets-getting-started-create-self-managed.md "stacksets-getting-started-create-self-managed.md")
+- [Create
+  StackSets (service-managed permissions)](stacksets-orgs-associate-stackset-with-org.md "stacksets-orgs-associate-stackset-with-org.md")
+- [Update StackSets](stacksets-update.md "stacksets-update.md")

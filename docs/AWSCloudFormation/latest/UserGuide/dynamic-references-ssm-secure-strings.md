@@ -51,7 +51,7 @@ Resources that support the `ssm-secure` dynamic reference pattern
 include:
 
 | Resource                                                                                                                                                                          | Property type                                                                                                                                                                                                                                       | Properties           |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------- |
 | [AWS::DirectoryService::MicrosoftAD](../TemplateReference/aws-resource-directoryservice-microsoftad.md "../TemplateReference/aws-resource-directoryservice-microsoftad.md")       |                                                                                                                                                                                                                                                     | `Password`           |
 | [AWS::DirectoryService::SimpleAD](../TemplateReference/aws-resource-directoryservice-simplead.md "../TemplateReference/aws-resource-directoryservice-simplead.md")                |                                                                                                                                                                                                                                                     | `Password`           |
 | [AWS::ElastiCache::ReplicationGroup](../TemplateReference/aws-resource-elasticache-replicationgroup.md "../TemplateReference/aws-resource-elasticache-replicationgroup.md")       |                                                                                                                                                                                                                                                     | `AuthToken`          |
@@ -62,4 +62,71 @@ include:
 | [AWS::OpsWorks::Stack](../TemplateReference/aws-resource-opsworks-stack.md "../TemplateReference/aws-resource-opsworks-stack.md")                                                 | [RdsDbInstances](../TemplateReference/aws-properties-opsworks-stack-rdsdbinstance.md "../TemplateReference/aws-properties-opsworks-stack-rdsdbinstance.md")                                                                                         | `DbPassword`         |
 | [AWS::RDS::DBCluster](../TemplateReference/aws-resource-rds-dbcluster.md "../TemplateReference/aws-resource-rds-dbcluster.md")                                                    |                                                                                                                                                                                                                                                     | `MasterUserPassword` |
 | [AWS::RDS::DBInstance](../TemplateReference/aws-resource-rds-dbinstance.md "../TemplateReference/aws-resource-rds-dbinstance.md")                                                 |                                                                                                                                                                                                                                                     | `MasterUserPassword` |
-| [AWS::Redshift::Cluster](../TemplateReference/aws-resource-redshift-cluster.md "../TemplateReference/aws-resource-redshift-cluster.md")                                           |                                                                                                                                                                                                                                                     | `MasterUserPassword` | ## Reference pattern To reference a secure string value from Systems Manager Parameter Store in your CloudFormation template, use the following `ssm-secure` reference pattern. ``{{resolve:ssm-secure:`parameter-name`:`version`}}`` Your reference must adhere to the following regular expression pattern for parameter-name and version: `{{resolve:ssm-secure:[a-zA-Z0-9_.\-/]+(:\d+)?}}` `parameter-name` The name of the parameter in the Parameter Store. The parameter name is case-sensitive. Required. `version` An integer that specifies the version of the parameter to use. If you don't specify the exact version, CloudFormation uses the latest version of the parameter whenever you create or update the stack. For more information, see [Working with parameter versions](../../../systems-manager/latest/userguide/sysman-paramstore-versions.md "../../../systems-manager/latest/userguide/sysman-paramstore-versions.md") in the _AWS Systems Manager User Guide_. Optional. ## Example The following example uses an `ssm-secure` dynamic reference to set the password for an IAM user to a secure string stored in Parameter Store. As specified, CloudFormation will use version `10` of the `IAMUserPassword` parameter for stack and change set operations. ### JSON ``"MyIAMUser": { "Type": "AWS::IAM::User", "Properties": { "UserName": "MyUserName", "LoginProfile": { "Password": "{{resolve:ssm-secure:`IAMUserPassword:10`}}" } } }`` ### YAML ``MyIAMUser: Type: AWS::IAM::User Properties: UserName: 'MyUserName' LoginProfile: Password: '{{resolve:ssm-secure:`IAMUserPassword:10`}}'`` |
+| [AWS::Redshift::Cluster](../TemplateReference/aws-resource-redshift-cluster.md "../TemplateReference/aws-resource-redshift-cluster.md")                                           |                                                                                                                                                                                                                                                     | `MasterUserPassword` |
+
+## Reference pattern
+
+To reference a secure string value from Systems Manager Parameter Store in your CloudFormation
+template, use the following `ssm-secure` reference pattern.
+
+```
+{{resolve:ssm-secure:`parameter-name`:`version`}}
+```
+
+Your reference must adhere to the following regular expression pattern for
+parameter-name and version:
+
+```
+{{resolve:ssm-secure:[a-zA-Z0-9_.\-/]+(:\d+)?}}
+```
+
+`parameter-name`
+
+The name of the parameter in the Parameter Store. The parameter name
+is case-sensitive.
+
+Required.
+
+`version`
+
+An integer that specifies the version of the parameter to use. If you
+don't specify the exact version, CloudFormation uses the latest version of
+the parameter whenever you create or update the stack. For more
+information, see [Working with
+parameter versions](../../../systems-manager/latest/userguide/sysman-paramstore-versions.md "../../../systems-manager/latest/userguide/sysman-paramstore-versions.md") in the
+_AWS Systems Manager User Guide_.
+
+Optional.
+
+## Example
+
+The following example uses an `ssm-secure` dynamic reference to set the
+password for an IAM user to a secure string stored in Parameter Store. As
+specified, CloudFormation will use version `10` of
+the `IAMUserPassword` parameter for stack and
+change set operations.
+
+### JSON
+
+```
+  "MyIAMUser": {
+    "Type": "AWS::IAM::User",
+    "Properties": {
+      "UserName": "MyUserName",
+      "LoginProfile": {
+        "Password": "{{resolve:ssm-secure:`IAMUserPassword:10`}}"
+      }
+    }
+  }
+```
+
+### YAML
+
+```
+  MyIAMUser:
+    Type: AWS::IAM::User
+    Properties:
+      UserName: 'MyUserName'
+      LoginProfile:
+        Password: '{{resolve:ssm-secure:`IAMUserPassword:10`}}'
+```

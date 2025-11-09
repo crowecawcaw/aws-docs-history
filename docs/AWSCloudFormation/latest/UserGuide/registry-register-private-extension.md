@@ -82,8 +82,7 @@ The command returns the following output.
 If the extension you are registering is a Hook, this next step is required.
 You must specify `ENABLED` for the `HookInvocationStatus`
 property. This operation enables the Hook’s properties that are defined in the
-Hook’s schema `properties` section. For more information, see [Hook configuration schema syntax reference](../../../cloudformation-cli/latest/hooks-userguide/hook-configuration-schema.md "../../../cloudformation-cli/latest/hooks-userguide/hook-configuration-schema.md") in the _AWS CloudFormation
-Hooks User Guide_.
+Hook’s schema `properties` section. For more information, see [Hook configuration schema syntax reference](../../../cloudformation-cli/latest/hooks-userguide/hook-configuration-schema.md "../../../cloudformation-cli/latest/hooks-userguide/hook-configuration-schema.md") in the _AWS CloudFormation Hooks User Guide_.
 
 ###### To specify the configuration data for a Hook (AWS CLI)
 

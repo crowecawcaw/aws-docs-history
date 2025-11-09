@@ -84,10 +84,35 @@ configuration of the resource import to avoid unexpected changes.
 
 This table describes the various status types used with the resource import feature.
 
-| Import operation status       | Description                                                                        |
-| ----------------------------- | ---------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `IMPORT_IN_PROGRESS`          | The import operation is in progress.                                               |
-| `IMPORT_COMPLETE`             | The import operation completed for all resources in the stack.                     |
-| `IMPORT_ROLLBACK_IN_PROGRESS` | The rollback import operation is rolling back the previous template configuration. |
-| `IMPORT_ROLLBACK_FAILED`      | The import rollback operation failed.                                              |
-| `IMPORT_ROLLBACK_COMPLETE`    | The import rolled back to the previous template configuration.                     | ## Considerations during an import operation <br>• After the import is complete and before performing subsequent stack operations, we recommend running drift detection on imported resources. Drift detection ensures that the template configuration matches the actual configuration. For more information, see [Detect drift on an entire CloudFormation stack](detect-drift-stack.md "detect-drift-stack.md"). <br>• Import operations don't allow new resource creations, resource deletions, or changes to property configurations. <br>• Each resource to import must have a `DeletionPolicy` attribute for the import operation to succeed. The `DeletionPolicy` can be set to any possible value. Only the resources you're importing need a `DeletionPolicy`. Resources that are already part of the stack don't need a `DeletionPolicy`. <br>• You can't import the same resource into multiple stacks. <br>• You can use the `cloudformation:ImportResourceTypes` IAM policy condition to control which resource types users can work with during an import operation. For more information, see [Policy condition keys for CloudFormation](control-access-with-iam.md#using-iam-conditions "control-access-with-iam.md#using-iam-conditions"). <br>• The CloudFormation stack limits apply when importing resources. For more information on limits, see [Understand CloudFormation quotas](cloudformation-limits.md "cloudformation-limits.md"). ## Additional resources To resolve stack drift with a resource import, see [Resolve drift with an import operation](resource-import-resolve-drift.md "resource-import-resolve-drift.md"). |
+| Import operation status       | Description                                                                           |
+| ----------------------------- | ------------------------------------------------------------------------------------- |
+| `IMPORT_IN_PROGRESS`          | The import operation is in progress.                                                  |
+| `IMPORT_COMPLETE`             | The import operation completed for all resources in the stack.                        |
+| `IMPORT_ROLLBACK_IN_PROGRESS` | The rollback import operation is rolling back the previous template<br>configuration. |
+| `IMPORT_ROLLBACK_FAILED`      | The import rollback operation failed.                                                 |
+| `IMPORT_ROLLBACK_COMPLETE`    | The import rolled back to the previous template configuration.                        |
+
+## Considerations during an import
+
+operation
+
+- After the import is complete and before performing subsequent stack operations, we
+  recommend running drift detection on imported resources. Drift detection ensures that the
+  template configuration matches the actual configuration. For more information, see [Detect drift on an entire CloudFormation stack](detect-drift-stack.md "detect-drift-stack.md").
+- Import operations don't allow new resource creations, resource deletions, or changes to
+  property configurations.
+- Each resource to import must have a `DeletionPolicy` attribute for the import
+  operation to succeed. The `DeletionPolicy` can be set to any possible value. Only
+  the resources you're importing need a `DeletionPolicy`. Resources that are already
+  part of the stack don't need a `DeletionPolicy`.
+- You can't import the same resource into multiple stacks.
+- You can use the `cloudformation:ImportResourceTypes` IAM policy condition to
+  control which resource types users can work with during an import operation. For more
+  information, see [Policy condition keys for CloudFormation](control-access-with-iam.md#using-iam-conditions "control-access-with-iam.md#using-iam-conditions").
+- The CloudFormation stack limits apply when importing resources. For more information on
+  limits, see [Understand CloudFormation quotas](cloudformation-limits.md "cloudformation-limits.md").
+
+## Additional resources
+
+To resolve stack drift with a resource import, see [Resolve drift with an import
+operation](resource-import-resolve-drift.md "resource-import-resolve-drift.md").
