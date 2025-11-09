@@ -115,6 +115,26 @@ topic you specified. To create a permissions policy, run the following command.
 aws iam create-policy --policy-name `AWSIoTFleetwiseAccessIotTopicPermissionsPolicy` --policy-document file://`permissions-policy`.json
 ```
 
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": [
+ "iot:Publish"
+ ],
+ "Resource": [
+ "`topic-arn`"
+ ]
+ }
+ ]
+}`
+
+```
+
 ###### To attach the permissions policy to your IAM role
 
 1. From the output, copy the Amazon Resource Name (ARN) of the permissions
@@ -195,6 +215,48 @@ JSON
 
 The following bucket policy is for all campaigns in an account in an AWS
 Region.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Principal": {
+ "Service": [
+ "iotfleetwise.amazonaws.com"
+ ]
+ },
+ "Action": [
+ "s3:ListBucket"
+ ],
+ "Resource": "arn:aws:s3:::`bucket-name`"
+ },
+ {
+ "Effect": "Allow",
+ "Principal": {
+ "Service": [
+ "iotfleetwise.amazonaws.com"
+ ]
+ },
+ "Action": [
+ "s3:GetObject",
+ "s3:PutObject"
+ ],
+ "Resource": "arn:aws:s3:::`bucket-name`/*",
+ "Condition": {
+ "StringLike": {
+ "aws:SourceArn": "arn:aws:iotfleetwise:`region`:`account-id`:campaign/*",
+ "aws:SourceAccount": "`account-id`"
+ }
+ }
+ }
+ ]
+}`
+
+```
 
 If you have a KMS key attached to your S3 bucket, the key will need the following
 policy. For information about key management, see [Protecting data using
@@ -317,6 +379,35 @@ create a permissions policy, run the following command.
 aws iam create-policy --policy-name `AWSIoTFleetwiseAccessTimestreamPermissionsPolicy` --policy-document file://`permissions-policy`.json
 ```
 
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "timestreamIngestion",
+ "Effect": "Allow",
+ "Action": [
+ "timestream:WriteRecords",
+ "timestream:Select",
+ "timestream:DescribeTable"
+ ],
+ "Resource": "`table-arn`"
+ },
+ {
+ "Sid": "timestreamDescribeEndpoint",
+ "Effect": "Allow",
+ "Action": [
+ "timestream:DescribeEndpoints"
+ ],
+ "Resource": "*"
+ }
+ ]
+}`
+
+```
+
 ###### To attach the permissions policy to your IAM role
 
 1. From the output, copy the Amazon Resource Name (ARN) of the permissions
@@ -420,8 +511,25 @@ In this example, replace:
   number.
 - `<VEHICLE_NAME>` with the IoT thing
   name for your vehicle .
-  The following example shows how to grant permissions to generate the payload
-  for the actuator for a specific vehicle.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": "iotfleetwise:GenerateCommandPayload",
+ "Resource": "arn:aws:iot:`us-east-1`:`111122223333`:thing/`<VEHICLE_NAME>`"
+ }
+ ]
+}`
+
+```
+
+The following example shows how to grant permissions to generate the payload
+for the actuator for a specific vehicle.
 
 In this example, replace:
 
@@ -433,8 +541,33 @@ In this example, replace:
   name for your vehicle.
 - `<SIGNAL_FQN>` with the name of
   the signal, such as `<Vehicle.actuator2>`.
-  The following example shows how to grant permissions to generate the payload
-  for a specific vehicle and state template.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "Statement1",
+ "Effect": "Allow",
+ "Action": "iotfleetwise:GenerateCommandPayload",
+ "Resource": "arn:aws:iot:`us-east-1`:`111122223333`:thing/`<VEHICLE_NAME>`",
+ "Condition": {
+ "ForAnyValue:StringEquals": {
+ "iotfleetwise:Signals": [
+ "`<SIGNAL_FQN>`"
+ ]
+ }
+ }
+ }
+ ]
+}`
+
+```
+
+The following example shows how to grant permissions to generate the payload
+for a specific vehicle and state template.
 
 In this example, replace:
 
@@ -446,8 +579,29 @@ In this example, replace:
   name for your vehicle.
 - `<STATE_TEMPLATE_ID>` with the identifier of
   your state template.
-  If you've enabled customer managed KMS keys for AWS IoT FleetWise, then
-  the following example shows how to grant permissions to generate the payload.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "Statement1",
+ "Effect": "Allow",
+ "Action": "iotfleetwise:GenerateCommandPayload",
+ "Resource": [
+ "arn:aws:iot:`us-east-1`:`111122223333`:thing/`<VEHICLE_NAME>`",
+ "arn:aws:iotfleetwise:`us-east-1`:`111122223333`:state-template/`<STATE_TEMPLATE_ID>`"
+ ]
+ }
+ ]
+}`
+
+```
+
+If you've enabled customer managed KMS keys for AWS IoT FleetWise, then
+the following example shows how to grant permissions to generate the payload.
 
 In this example, replace:
 
@@ -457,3 +611,24 @@ In this example, replace:
   number.
 - `<KMS_KEY_ID>` with the ID of your
   KMS key.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": "iotfleetwise:GenerateCommandPayload",
+ "Resource": "*"
+ },
+ {
+ "Effect": "Allow",
+ "Action": "kms:Decrypt",
+ "Resource": "arn:aws:kms:`us-east-1`:`111122223333`:key/`<KMS_KEY_ID>`"
+ }
+ ]
+}`
+
+```

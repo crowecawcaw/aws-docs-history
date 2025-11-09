@@ -63,6 +63,27 @@ range of allowed IPv4 addresses by using IP address condition operators. Since a
 addresses are outside the allowed range, this policy prevents communication using IPv6
 addresses.
 
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "IPAllow",
+ "Effect": "Allow",
+ "Principal": "*",
+ "Action": "iotfleetwise:*",
+ "Resource": "arn:aws:iotfleetwise:`us-east-1`:`111122223333`:*",
+ "Condition": {
+ "IpAddress": {"aws:SourceIp": "54.240.143.0/24"}
+ }
+ }
+ ]
+}`
+
+```
+
 To include IPv6 addresses, you can modify the policy's Condition element to allow both
 IPv4 (54.240.143.0/24) and IPv6 (2001:DB8:1234:5678::/64) address ranges as shown in the
 following example.
@@ -95,5 +116,38 @@ AWS IoT FleetWise when using IPv4 and the dual-stack modes. For more information
 endpoints, see [AWS IoT FleetWise endpoints](../../../general/latest/gr/iotfleetwise.md "../../../general/latest/gr/iotfleetwise.md").
 
 | Endpoint      | IPv4 address                          | Dual-stack mode                 |
-| ------------- | ------------------------------------- | ------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Control plane | iotfleetwise.`<region>`.amazonaws.com | iotfleetwise.`<region>`.api.aws | When using the AWS CLI and AWS SDKs, you can use a `AWS_USE_DUALSTACK_ENDPOINT` environment variable, or the `use_dualstack_endpoint` parameter, which is a shared config file setting, to change to a dual-stack endpoint. You can also specify the dual-stack endpoint directly as an override of the AWS IoT FleetWise endpoint in the config file. For more information, see [Dual-stack and FIPS endpoints](../../../sdkref/latest/guide/feature-endpoints.md "../../../sdkref/latest/guide/feature-endpoints.md"). When you use the AWS CLI, you can set the configuration value `use_dualstack_endpoint` as `true` in a profile in your AWS Config file. This will direct all AWS IoT FleetWise requests made by the commands to the dual-stack endpoint for the specified region. You specify the region in the config file or in a command using the `--region` option. `$ aws configure set default.iotfleetwise.use_dualstack_endpoint true` Instead of using the dual-stack endpoints for all commands, to use these endpoints for specific commands: <br>• You can use the dual-stack endpoint for specific commands by setting the `--endpoint-url` parameter for those commands. For example, in the following command, you can replace the `<endpoint-url>` to `iotfleetwise.`<region>`.api.aws`. `` aws iotfleetwise list-fleets \ --endpoint-url `<endpoint-url>` `` <br>• You can set up separate profiles in your AWS Config file. For example, create one profile that sets `use_dualstack_endpoint` to true, and a profile that does not set `use_dualstack_endpoint`. When you run a command, specify which profile you want to use, depending upon whether or not you want to use the dual-stack endpoint. |
+| ------------- | ------------------------------------- | ------------------------------- |
+| Control plane | iotfleetwise.`<region>`.amazonaws.com | iotfleetwise.`<region>`.api.aws |
+
+When using the AWS CLI and AWS SDKs, you can use a `AWS_USE_DUALSTACK_ENDPOINT` environment
+variable, or the `use_dualstack_endpoint` parameter, which is a shared config file setting, to
+change to a dual-stack endpoint. You can also specify the dual-stack endpoint directly as an override of the
+AWS IoT FleetWise endpoint in the config file. For more information, see [Dual-stack and FIPS endpoints](../../../sdkref/latest/guide/feature-endpoints.md "../../../sdkref/latest/guide/feature-endpoints.md").
+
+When you use the AWS CLI, you can set the configuration value `use_dualstack_endpoint` as
+`true` in a profile in your AWS Config file. This will direct all AWS IoT FleetWise requests
+made by the commands to the dual-stack endpoint for the specified region. You specify the region in the
+config file or in a command using the `--region` option.
+
+```
+$ aws configure set default.iotfleetwise.use_dualstack_endpoint true
+```
+
+Instead of using the dual-stack endpoints for all commands, to use these endpoints for specific
+commands:
+
+- You can use the dual-stack endpoint for specific commands by setting the `--endpoint-url`
+  parameter for those commands. For example, in the following command, you can replace the
+  `<endpoint-url>` to
+  `iotfleetwise.`<region>`.api.aws`.
+
+```
+aws iotfleetwise list-fleets \
+  --endpoint-url `<endpoint-url>`
+```
+
+- You can set up separate profiles in your AWS Config file. For example, create
+  one profile that sets `use_dualstack_endpoint` to true, and a profile that
+  does not set `use_dualstack_endpoint`. When you run a command, specify
+  which profile you want to use, depending upon whether or not you want to use the
+  dual-stack endpoint.

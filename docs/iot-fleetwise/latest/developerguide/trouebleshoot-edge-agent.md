@@ -139,7 +139,19 @@ If your vehicle supports extended Controller Area Network (CAN bus) arbitration
 
 | Resource | Quota | Adjustable | Note |
 | --- | --- | --- | --- |
-| Value of the signal ID | The signal ID must be less than or equal to 50,000 | Yes | The Edge Agent software won't collect data from signals that have an ID greater than 50,000. We recommend that you check how many signals the signal catalog contains before you change this quota. |
-| Number of active data collection schemes per vehicle | 256 | Yes | We recommend that you check how many campaigns that you've created in the cloud and how many schemes each campaign contains before you change this quota. |
-| Size of the signal history buffer | 20 MB | Yes | If the quota is breached, the Edge Agent software stops collecting new data. | ## Issue: [ERROR] [AwsIotConnectivityModule::connect]: [Connection failed with error] or [WARN] [AwsIotChannel::send]: [No alive MQTT Connection.] **Solution:** You might see this error when the Edge Agent software isn't connected to the cloud. By default, the Edge Agent software sends a ping request to AWS IoT Core every minute and waits for three minutes. If there's no response, the Edge Agent software automatically reestablishes the connection to the cloud.
+| Value of the signal ID | The signal ID must be less than or equal to 50,000 | Yes | The Edge Agent software won't collect data from signals that have an ID<br>greater than 50,000. We recommend that you check how many signals<br>the signal catalog contains before you change this quota. |
+| Number of active data collection schemes per vehicle | 256 | Yes | We recommend that you check how many campaigns that you've<br>created in the cloud and how many schemes each campaign contains<br>before you change this quota. |
+| Size of the signal history buffer | 20 MB | Yes | If the quota is breached, the Edge Agent software stops collecting new<br>data. |
+
+
+## Issue: [ERROR]
+ [AwsIotConnectivityModule::connect]: [Connection failed with error] or [WARN]
+ [AwsIotChannel::send]: [No alive MQTT Connection.]
+
+
+**Solution:** You might see this error when the
+ Edge Agent software isn't connected to the cloud. By default, the Edge Agent software sends a ping
+ request to AWS IoT Core every minute and waits for three minutes. If there's no
+ response, the Edge Agent software automatically reestablishes the connection to the
+ cloud.
 ```
