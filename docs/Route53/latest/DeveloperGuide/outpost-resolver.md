@@ -26,10 +26,27 @@ account team is notified and will contact you to help you upgrade AWS Outposts.
 The following table describes how Route 53 on Outposts features compare with Amazon Route 53
 features.
 
-| Route 53 on Outposts compared to Route 53 | Feature                                                                                                                                                                      | Availability in Route 53 on Outposts                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| ----------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Route 53 Resolver                         | Yes. Resolver maintains a local cache of records for applications hosted on Outpost rack, the peered VPC in the AWS Region, and any publicly accessible host names.          |
-| Health checks                             | No. Health checks are calculated and reported from the AWS Region. If an Outpost disconnects from the cloud, the endpoints fail open and can't fail over to a backup.        |
-| Resolver endpoints                        | Yes. Resolver endpoints on Outpost rack allow DNS queries to be forwarded and received from DNS servers on-premises. Only the IPv4 endpoint type is available for endpoints. |
-| Route 53 Resolver DNS Firewall            | Not available.                                                                                                                                                               |
-| Traffic flow                              | Not available.                                                                                                                                                               | ## Route 53 Resolver behavior when AWS Outposts is disconnected from the VPC If the AWS Outposts is disconnected from the AWS Region, the Resolver on Outpost behaves as follows: <br>• Control plane changes are not available. <br>• Health checks and DNS failover capability are not available. <br>• DNS queries for resources that are hosted locally on the Outposts are resolved but in some cases the response might be stale if the IP address for the resource was updated while the Outpost was in a disconnected state. <br>• DNS queries for resources hosted on the in-Region VPC are resolvable. However, the resources will not be accessible until the Outpost connection to the AWS Region is restored. <br>• DNS queries for public DNS resources can be resolved if they are available in the Route 53 Resolver cache on Outpost. |
+| Route 53 on Outposts compared to Route 53 | Feature                                                                                                                                                                            | Availability in Route 53 on Outposts |
+| ----------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------ |
+| Route 53 Resolver                         | Yes. Resolver maintains a local cache of records for applications<br>hosted on Outpost rack, the peered VPC in the AWS Region, and any<br>publicly accessible host names.          |
+| Health checks                             | No. Health checks are calculated and reported from the<br>AWS Region. If an Outpost disconnects from the cloud, the<br>endpoints fail open and can't fail over to a backup.        |
+| Resolver endpoints                        | Yes. Resolver endpoints on Outpost rack allow DNS queries to be<br>forwarded and received from DNS servers on-premises.<br>Only the IPv4 endpoint type is available for endpoints. |
+| Route 53 Resolver DNS Firewall            | Not available.                                                                                                                                                                     |
+| Traffic flow                              | Not available.                                                                                                                                                                     |
+
+## Route 53 Resolver behavior when AWS Outposts is
+
+disconnected from the VPC
+
+If the AWS Outposts is disconnected from the AWS Region, the Resolver on Outpost behaves as follows:
+
+- Control plane changes are not available.
+- Health checks and DNS failover capability are not available.
+- DNS queries for resources that are hosted locally on the Outposts are resolved
+  but in some cases the response might be stale if the IP address for the resource
+  was updated while the Outpost was in a disconnected state.
+- DNS queries for resources hosted on the in-Region VPC are resolvable. However,
+  the resources will not be accessible until the Outpost connection to the
+  AWS Region is restored.
+- DNS queries for public DNS resources can be resolved if they are available in
+  the Route 53 Resolver cache on Outpost.

@@ -98,9 +98,182 @@ see [Working with records](rrsets-working-with.md "rrsets-working-with.md").
 
 Get the IPv4 and IPv6 addresses of the name servers in the reusable delegation set, and fill in the following table.
 
-| Name of a name server in your reusable delegation set (example: Ns-2048.awsdns-64.com) | IPv4 and IPv6 addresses                                             | Name that you want to assign to the white-label name server (example: ns1.example.com) |
-| -------------------------------------------------------------------------------------- | ------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|                                                                                        | IPv4: IPv6:                                                         |                                                                                        |
-|                                                                                        | IPv4: IPv6:                                                         |                                                                                        |
-|                                                                                        | IPv4: IPv6:                                                         |                                                                                        |
-|                                                                                        | IPv4: IPv6:                                                         |                                                                                        | For example, suppose the four name servers for your reusable delegation set are: <br>• ns-2048.awsdns-64.com <br>• ns-2049.awsdns-65.net <br>• ns-2050.awsdns-66.org <br>• ns-2051.awsdns-67.co.uk Here are the Linux and Windows commands that you'd run to get the IP addresses for the first of your four name servers: **dig commands for Linux** `% dig A ns-2048.awsdns-64.com +short 192.0.2.117` `% dig AAAA ns-2048.awsdns-64.com +short 2001:db8:85a3::8a2e:370:7334` **nslookup command for Windows** `c:\> nslookup ns-2048.awsdns-64.com Non-authoritative answer: Name:    ns-2048.awsdns-64.com Addresses:  2001:db8:85a3::8a2e:370:7334 192.0.2.117` ## Step 5: Create records for white-label name servers In the hosted zone that has the same name (such as example.com) as the domain name of the white-label name servers (such as ns1.example.com), create eight records: <br>• One A record for each white-label name server <br>• One AAAA record for each white-label name server ###### Important If you're using the same white-label name servers for two or more hosted zones, do not perform this step for the other hosted zones. For each record, specify the following values. Refer to the table that you filled in for the previous step: **Routing policy** Specify **Simple routing**. **Record name** The name that you want to assign to one of your white-label name servers, for example, ns1.example.com. For the prefix (ns1 in this example), you can use any value that is valid in a domain name. **Value/Route traffic to** The IPv4 or IPv6 address of one of the Route 53 name servers in your reusable delegation set. ###### Important If you specify the wrong IP addresses when you created records for your white-label name servers, your website or web application will become unavailable on the internet when you perform subsequent steps. Even if you correct the IP addresses immediately, your website or web application will remain unavailable for the duration of the TTL. **Record type** Specify **A** when you're creating records for the IPv4 addresses. Specify **AAAA** when you're creating records for the IPv6 addresses. **TTL (seconds)** This value is the amount of time that DNS resolvers cache the information in this record before forwarding another DNS query to Route 53. We recommend that you specify an initial value of 60 seconds or less, so that you can recover quickly if you accidentally specify incorrect values in these records. ## Step 6: Update NS and SOA records Update SOA and NS records in the hosted zones that you want to use white-label name servers for. Perform Step 6 through Step 8 for one hosted zone and the corresponding domain at a time, then repeat for another hosted zone and domain. ###### Important Start with the Amazon Route 53 hosted zone that has the same domain name (such as example.com) as the white-label name servers (such as ns1.example.com). 1. Update the SOA record by replacing the name of the Route 53 name server with the name of one of your white-label name servers **Example** Replace the name of the Route 53 name server: ``ns-2048.awsdns-64.net.` hostmaster.example.com. 1 7200 900 1209600 60` with the name of one of your white-label name servers: ``ns1.example.com.` hostmaster.example.com. 1 7200 900 1209600 60` ###### Note You changed the last value, the time to live (TTL), in [Step 2: Create or recreate Amazon Route 53 hosted zones, and change the TTL for NS and SOA records](#white-label-name-servers-create-hosted-zones "#white-label-name-servers-create-hosted-zones"). For information about updating records by using the Route 53 console, see [Editing records](resource-record-sets-editing.md "resource-record-sets-editing.md"). 2. In the NS record, make note of the names of the current name servers for the domain, so you can revert to these name servers if necessary. 3. Update the NS record. Replace the name of the Route 53 name servers with the names of your four white-label name servers, for example, `ns1.example.com`, `ns2.example.com`, `ns3.example.com`, and `ns4.example.com`. ## Step 7: Create glue records and change the registrar's name servers Use the method provided by the registrar to create glue records and change the registrar's name servers: 1. Add glue records: <br>• **If you're updating the domain that has the same domain name as the white-label name servers** – Create four glue records for which the names and IP addresses match the values that you got in step 4. Include both the IPv4 and the IPv6 address for a white-label name server in the corresponding glue record, for example: **ns1.example.com** – IP addresses = 192.0.2.117 and 2001:db8:85a3::8a2e:370:7334 Registrars use a variety of terminology for glue records. You might also see this referred to as registering new name servers or something similar. <br>• **If you're updating another domain** – If Route 53 is your DNS service, you must first complete the step in the previous bullet and create the glue records that match the domain name. Then skip to step 2 in this procedure. 2. Change the name servers for the domain to the names of your white-label name servers. If you're using Amazon Route 53 as your DNS service, see [Adding or changing name servers and glue records for a domain](domain-name-servers-glue-records.md "domain-name-servers-glue-records.md"). ## Step 8: Monitor traffic for the website or application Monitor the traffic for the website or application for which you created glue records and changed name servers in Step 7: <br>• **If the traffic stops** – Use the method provided by the registrar to change the name servers for the domain back to the previous Route 53 name servers. These are the name servers that you made note of in step 6b. Then determine what went wrong. <br>• **If the traffic is unaffected** – Repeat Step 6 through Step 8 for the rest of the hosted zones for which you want to use the same white-label name servers. ## Step 9: Change TTLs back to their original values For all of the hosted zones that are now using white-label name servers, change the following values: <br>• Change the TTL for the NS record for the hosted zone to a more typical value for NS records, for example, 172800 seconds (two days). <br>• Change the minimum TTL for the SOA record for the hosted zone to a more typical value for SOA records, for example, 900 seconds. This is the last value in the SOA record. ## Step 10: (Optional) contact recursive DNS services _Optional_ If you're using Amazon Route 53 geolocation routing, contact the recursive DNS services that support the edns-client-subnet extension of EDNS0, and give them the names of your white-label name servers. This ensures that these DNS services will continue to route DNS queries to the optimal Route 53 location based on the approximate geographical location that the query came from. |
+| Name of a name server in your reusable delegation set (example: Ns-2048.awsdns-64.com) | IPv4 and IPv6 addresses | Name that you want to assign to the white-label name server (example: ns1.example.com) |
+| -------------------------------------------------------------------------------------- | ----------------------- | -------------------------------------------------------------------------------------- |
+|                                                                                        | IPv4:<br>IPv6:          |                                                                                        |
+|                                                                                        | IPv4:<br>IPv6:          |                                                                                        |
+|                                                                                        | IPv4:<br>IPv6:          |                                                                                        |
+|                                                                                        | IPv4:<br>IPv6:          |                                                                                        |
+
+For example, suppose the four name servers for your reusable delegation set are:
+
+- ns-2048.awsdns-64.com
+- ns-2049.awsdns-65.net
+- ns-2050.awsdns-66.org
+- ns-2051.awsdns-67.co.uk
+
+Here are the Linux and Windows commands that you'd run to get the IP addresses for the first of your four name servers:
+
+**dig commands for Linux**
+
+```
+% dig A ns-2048.awsdns-64.com +short
+192.0.2.117
+```
+
+```
+% dig AAAA ns-2048.awsdns-64.com +short
+2001:db8:85a3::8a2e:370:7334
+```
+
+**nslookup command for Windows**
+
+```
+c:\> nslookup ns-2048.awsdns-64.com
+Non-authoritative answer:
+Name:    ns-2048.awsdns-64.com
+Addresses:  2001:db8:85a3::8a2e:370:7334
+          192.0.2.117
+```
+
+## Step 5: Create records for
+
+white-label name servers
+
+In the hosted zone that has the same name (such as example.com) as the domain name of the
+white-label name servers (such as ns1.example.com), create eight records:
+
+- One A record for each white-label name server
+- One AAAA record for each white-label name server
+
+###### Important
+
+If you're using the same white-label name servers for two or more hosted zones, do not perform this step
+for the other hosted zones.
+
+For each record, specify the following values. Refer to the table that you filled in for the previous step:
+
+**Routing policy**
+
+Specify **Simple routing**.
+
+**Record name**
+
+The name that you want to assign to one of your white-label name
+servers, for example, ns1.example.com. For the prefix (ns1 in this
+example), you can use any value that is valid in a domain name.
+
+**Value/Route traffic to**
+
+The IPv4 or IPv6 address of one of the Route 53 name servers in your
+reusable delegation set.
+
+###### Important
+
+If you specify the wrong IP addresses when you created records for
+your white-label name servers, your website or web application will
+become unavailable on the internet when you perform subsequent
+steps. Even if you correct the IP addresses immediately, your
+website or web application will remain unavailable for the duration
+of the TTL.
+
+**Record type**
+
+Specify **A** when you're creating records for the
+IPv4 addresses.
+
+Specify **AAAA** when you're creating records for the
+IPv6 addresses.
+
+**TTL (seconds)**
+
+This value is the amount of time that DNS resolvers cache the
+information in this record before forwarding another DNS query to Route 53.
+We recommend that you specify an initial value of 60 seconds or less, so
+that you can recover quickly if you accidentally specify incorrect
+values in these records.
+
+## Step 6: Update NS and SOA records
+
+Update SOA and NS records in the hosted zones that you want to use white-label name servers for. Perform Step 6 through Step 8
+for one hosted zone and the corresponding domain at a time, then repeat for another hosted zone and domain.
+
+###### Important
+
+Start with the Amazon Route 53 hosted zone that has the same domain name (such as example.com) as the
+white-label name servers (such as ns1.example.com).
+
+1. Update the SOA record by replacing the name of the Route 53 name server with the name of one of your
+   white-label name servers
+
+**Example**
+
+Replace the name of the Route 53 name server:
+
+``ns-2048.awsdns-64.net.` hostmaster.example.com. 1 7200 900 1209600 60`
+
+with the name of one of your white-label name servers:
+
+``ns1.example.com.` hostmaster.example.com. 1 7200 900 1209600 60`
+
+###### Note
+
+You changed the last value, the time to live (TTL), in
+[Step 2: Create or recreate Amazon Route 53 hosted zones,
+and change the TTL for NS and SOA records](#white-label-name-servers-create-hosted-zones "#white-label-name-servers-create-hosted-zones").
+
+For information about updating records by using the Route 53 console, see
+[Editing records](resource-record-sets-editing.md "resource-record-sets-editing.md"). 2. In the NS record, make note of the names of the current name servers for the domain, so you can revert
+to these name servers if necessary. 3. Update the NS record. Replace the name of the Route 53 name servers with the names of your
+four white-label name servers, for example, `ns1.example.com`, `ns2.example.com`,
+`ns3.example.com`, and `ns4.example.com`.
+
+## Step 7: Create glue records and change the registrar's name servers
+
+Use the method provided by the registrar to create glue records and change the registrar's name servers:
+
+1. Add glue records:
+   - **If you're updating the domain that has the same domain name as the white-label name servers** –
+     Create four glue records for which the names and IP addresses match the values that you got in step 4. Include both the
+     IPv4 and the IPv6 address for a white-label name server in the corresponding glue record, for example:
+
+   **ns1.example.com** – IP addresses = 192.0.2.117 and 2001:db8:85a3::8a2e:370:7334
+
+   Registrars use a variety of terminology for glue records. You might also see this referred to as
+   registering new name servers or something similar.
+   - **If you're updating another domain** – If Route 53 is your DNS service, you must first complete the
+     step in the previous bullet and create the glue records that match the domain name. Then skip to step 2 in
+     this procedure.
+
+2. Change the name servers for the domain to the names of your white-label name servers.
+
+If you're using Amazon Route 53 as your DNS service, see
+[Adding or changing name servers and
+glue records for a domain](domain-name-servers-glue-records.md "domain-name-servers-glue-records.md").
+
+## Step 8: Monitor traffic for the website or application
+
+Monitor the traffic for the website or application for which you created glue records and changed name servers
+in Step 7:
+
+- **If the traffic stops** – Use the method provided by the registrar
+  to change the name servers for the domain back to the previous Route 53 name servers. These are the name servers that you
+  made note of in step 6b. Then determine what went wrong.
+- **If the traffic is unaffected** – Repeat Step 6 through Step 8 for the rest of the
+  hosted zones for which you want to use the same white-label name servers.
+
+## Step 9: Change TTLs back to their original values
+
+For all of the hosted zones that are now using white-label name servers, change the following values:
+
+- Change the TTL for the NS record for the hosted zone to a more typical value for NS records,
+  for example, 172800 seconds (two days).
+- Change the minimum TTL for the SOA record for the hosted zone to a more typical value for SOA records,
+  for example, 900 seconds. This is the last value in the SOA record.
+
+## Step 10: (Optional) contact recursive DNS services
+
+_Optional_ If you're using Amazon Route 53 geolocation routing, contact the recursive DNS services
+that support the edns-client-subnet extension of EDNS0, and give them the names of your white-label name servers.
+This ensures that these DNS services will continue to route DNS queries to the optimal Route 53 location based on the
+approximate geographical location that the query came from.

@@ -754,8 +754,74 @@ ICANN.
 
 All email comes from one of the following email addresses.
 
-| TLDs                | Email address that authorization email comes from                                                                                                                                                                            |
-| ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| .com.au and .net.au | no-reply@ispapi.net The email contains a link to http://transfers.ispapi.net.                                                                                                                                                |
-| .fr                 | nic@nic.fr, if you're changing the registrant contact for a .fr domain name at the same time that you're transferring the domain. (The email is sent both to the current registrant contact and the new registrant contact.) |
-| All others          | One of the following email addresses: <br>• noreply@registrar.amazon <br>• noreply@domainnameverification.net                                                                                                                | To determine who the registrar is for your TLD, see [Domains that you can register with Amazon Route 53](registrar-tld-list.md "registrar-tld-list.md"). ### Approval from the current registrar If the registrant contact authorizes the transfer, we start to work with your current registrar to transfer your domain. This step might take up to ten days, depending on the TLD for your domain: <br>• [Generic top-level domains](registrar-tld-list-generic.md "registrar-tld-list-generic.md") – take up to seven days <br>• [Geographic top-level domains](registrar-tld-list-geographic.md "registrar-tld-list-geographic.md") (also known as country code top-level domains) – take up to ten days If your current registrar doesn't reply to our transfer request, which is common among registrars, the transfer happens automatically. If your current registrar rejects the transfer request, we send an email notification to the current registrant contact. The registrant needs to contact the current registrar and resolve the issues with the transfer. ### What happens next When your domain transfer has been approved, we send another email to the registrant contact. For more information about the process, see [Viewing the status of a domain transfer](domain-transfer-to-route-53-status.md "domain-transfer-to-route-53-status.md"). We charge your AWS account for the domain transfer as soon as the transfer is complete. For a list of charges by TLD, see [Amazon Route 53 Pricing for Domain Registration](https://d32ze2gidvkk54.cloudfront.net/Amazon_Route_53_Domain_Registration_Pricing_20140731.pdf "https://d32ze2gidvkk54.cloudfront.net/Amazon_Route_53_Domain_Registration_Pricing_20140731.pdf"). ###### Note This is a one-time charge, so the charge doesn't appear in your CloudWatch billing metrics. For more information about CloudWatch metrics, see [Using Amazon CloudWatch metrics](../../../AmazonCloudWatch/latest/monitoring/working_with_metrics.md "../../../AmazonCloudWatch/latest/monitoring/working_with_metrics.md") in the _Amazon CloudWatch User Guide_. ## Step 7: Update the domain configuration After the transfer is complete, you can optionally change the following settings: **Transfer lock** To transfer the domain to Route 53, you had to disable the transfer lock. If you want to re-enable the lock to prevent unauthorized transfers, see [Locking a domain to prevent unauthorized transfer to another registrar](domain-lock.md "domain-lock.md"). **Automatic renewal** We configure the transferred domain to automatically renew as the expiration date approaches. For information about how to change this setting, see [Enabling or disabling automatic renewal for a domain](domain-enable-disable-auto-renewal.md "domain-enable-disable-auto-renewal.md"). **Extended registration period** By default, Route 53 renews the domain annually. If you want to register the domain for a longer period, see [Extending the registration period for a domain](domain-extend.md "domain-extend.md"). **DNSSEC** For information about configuring DNSSEC for the domain, see [Configuring DNSSEC for a domain](domain-configure-dnssec.md "domain-configure-dnssec.md"). |
+| TLDs                | Email address that authorization email comes from                                                                                                                                                                                     |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| .com.au and .net.au | no-reply@ispapi.net<br>The email contains a link to<br>http://transfers.ispapi.net.                                                                                                                                                   |
+| .fr                 | nic@nic.fr, if you're changing the registrant contact for<br>a .fr domain name at the same time that you're transferring<br>the domain. (The email is sent both to the current<br>registrant contact and the new registrant contact.) |
+| All others          | One of the following email addresses:<br>• noreply@registrar.amazon<br>• noreply@domainnameverification.net                                                                                                                           |
+
+To determine who the registrar is for your TLD, see [Domains that you can register with Amazon Route 53](registrar-tld-list.md "registrar-tld-list.md").
+
+### Approval from the current registrar
+
+If the registrant contact authorizes the transfer, we start to work with your
+current registrar to transfer your domain. This step might take up to ten days,
+depending on the TLD for your domain:
+
+- [Generic top-level domains](registrar-tld-list-generic.md "registrar-tld-list-generic.md") – take up to
+  seven days
+- [Geographic top-level domains](registrar-tld-list-geographic.md "registrar-tld-list-geographic.md") (also known as
+  country code top-level domains) – take up to ten days
+
+If your current registrar doesn't reply to our transfer request, which is
+common among registrars, the transfer happens automatically. If your current
+registrar rejects the transfer request, we send an email notification to the
+current registrant contact. The registrant needs to contact the current
+registrar and resolve the issues with the transfer.
+
+### What
+
+happens next
+
+When your domain transfer has been approved, we send another email to the
+registrant contact. For more information about the process, see [Viewing the status of a domain
+transfer](domain-transfer-to-route-53-status.md "domain-transfer-to-route-53-status.md").
+
+We charge your AWS account for the domain transfer as soon as the transfer
+is complete. For a list of charges by TLD, see [Amazon Route 53 Pricing for Domain Registration](https://d32ze2gidvkk54.cloudfront.net/Amazon_Route_53_Domain_Registration_Pricing_20140731.pdf "https://d32ze2gidvkk54.cloudfront.net/Amazon_Route_53_Domain_Registration_Pricing_20140731.pdf").
+
+###### Note
+
+This is a one-time charge, so the charge doesn't appear in your CloudWatch
+billing metrics. For more information about CloudWatch metrics, see [Using Amazon CloudWatch
+metrics](../../../AmazonCloudWatch/latest/monitoring/working_with_metrics.md "../../../AmazonCloudWatch/latest/monitoring/working_with_metrics.md") in the _Amazon CloudWatch User Guide_.
+
+## Step 7: Update
+
+the domain configuration
+
+After the transfer is complete, you can optionally change the following
+settings:
+
+**Transfer lock**
+
+To transfer the domain to Route 53, you had to disable the transfer lock.
+If you want to re-enable the lock to prevent unauthorized transfers, see
+[Locking a domain to prevent unauthorized transfer to
+another registrar](domain-lock.md "domain-lock.md").
+
+**Automatic renewal**
+
+We configure the transferred domain to automatically renew as the
+expiration date approaches. For information about how to change this
+setting, see [Enabling or disabling automatic
+renewal for a domain](domain-enable-disable-auto-renewal.md "domain-enable-disable-auto-renewal.md").
+
+**Extended registration period**
+
+By default, Route 53 renews the domain annually. If you want to register
+the domain for a longer period, see [Extending the registration period for a domain](domain-extend.md "domain-extend.md").
+
+**DNSSEC**
+
+For information about configuring DNSSEC for the domain, see [Configuring DNSSEC for a domain](domain-configure-dnssec.md "domain-configure-dnssec.md").

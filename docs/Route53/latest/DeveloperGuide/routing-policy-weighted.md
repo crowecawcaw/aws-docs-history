@@ -41,7 +41,7 @@ The following table details the behavior when the 0-weight record includes a hea
 check:
 
 |                        | Record 1  | Record 2  | Record 3  |
-| ---------------------- | --------- | --------- | --------- | ------------------------------------------------------------------------------------------------- |
+| ---------------------- | --------- | --------- | --------- |
 | Weight                 | 1         | 1         | 0         |
 | Includes health check? | Yes       | Yes       | Yes       |
 |                        |
@@ -58,17 +58,21 @@ check:
 | DNS query answered?    | Yes       | Yes       | No        |
 |                        |
 | Health check status    | Healthy   | Healthy   | Healthy   |
-| DNS query answered?    | Yes       | Yes       | No        | The following table details the behavior when the 0-weight record doesn't include a health check: |
-|                        | Record 1  | Record 2  | Record 3  |
-| ---                    | ---       | ---       | ---       |
-| Weight                 | 1         | 1         | 0         |
-| Includes health check? | Yes       | Yes       | No        |
-|                        |
-| Health check status    | Healthy   | Healthy   | N/A       |
 | DNS query answered?    | Yes       | Yes       | No        |
+
+The following table details the behavior when the 0-weight record doesn't include a health
+check:
+
+|                        | Record 1  | Record 2  | Record 3 |
+| ---------------------- | --------- | --------- | -------- |
+| Weight                 | 1         | 1         | 0        |
+| Includes health check? | Yes       | Yes       | No       |
 |                        |
-| Health check status    | Unhealthy | Unhealthy | N/A       |
-| DNS query answered?    | No        | No        | Yes       |
+| Health check status    | Healthy   | Healthy   | N/A      |
+| DNS query answered?    | Yes       | Yes       | No       |
 |                        |
-| Health check status    | Unhealthy | Healthy   | N/A       |
-| DNS query answered?    | No        | Yes       | No        |
+| Health check status    | Unhealthy | Unhealthy | N/A      |
+| DNS query answered?    | No        | No        | Yes      |
+|                        |
+| Health check status    | Unhealthy | Healthy   | N/A      |
+| DNS query answered?    | No        | Yes       | No       |

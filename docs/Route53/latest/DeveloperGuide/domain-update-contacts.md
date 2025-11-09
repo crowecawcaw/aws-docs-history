@@ -262,8 +262,133 @@ ICANN.
 
 The email comes from one of the following email addresses.
 
-| TLDs            | Email address that authorization email comes from                                                             |
-| --------------- | ------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| .fr             | nic@nic.fr                                                                                                    |
-| .com.au .net.au | noreply@emailverification.info                                                                                |
-| All others      | One of the following email addresses: <br>• noreply@registrar.amazon <br>• noreply@domainnameverification.net | 9. If you encounter issues while updating contact information, you can contact AWS Support for free. For more information, see [Contacting AWS Support about domain registration issues](domain-contact-support.md "domain-contact-support.md"). For information about the API you can use to update the contact information, see [UpdateDomainContact](../APIReference/API_domains_UpdateDomainContact.md "../APIReference/API_domains_UpdateDomainContact.md"). ## Changing the owner of a domain when the registry requires a Change of Domain Ownership form If the registry for your domain requires you to complete a Change of Domain Ownership and submit the form to AWS Support, perform the following procedure. To determine whether you need to perform this procedure, see the following topics: <br>• To determine whether the value you're changing is considered a change of owner, see [What triggers a domain ownership change?](#domain-update-contacts-who-is-domain-owner "#domain-update-contacts-who-is-domain-owner"). <br>• To determine whether a Change of Domain Ownership form is required for your domain, see [TLDs that require special processing to change the owner](#domain-update-contacts-tlds "#domain-update-contacts-tlds"). ###### To change the owner of a domain when the registry requires a Change of Domain Ownership form 1. See the introduction to this topic to determine whether the registry for your domain requires special processing to change the owner of the domain. If so, and if a Change of Domain Ownership form is required, continue with this procedure. If no Change of Domain Ownership form is required, perform the procedure in the applicable topic instead. 2. Download the [Change of Domain Ownership Form](samples/ChangeOfOwnerForm.md "samples/ChangeOfOwnerForm.md"). The file is compressed into a .zip file. 3. Fill out the form. 4. For the registrant contact for the former owner of the domain _and_ for the new owner, get a copy of a signed proof of identity (identity card, driver's license, passport, or other legal proof of identity). In addition, if a legal entity is listed as the registrant organization, gather the following information for the former owner of the domain _and_ for the new owner: <br>• Proof that the organization that the domain is registered to exists. <br>• Proof that the representatives for the former owner and the new owner are authorized to act on the organization's behalf. This document must be a certified legal document that contains both the name of the organization and the names of the representatives as signing officers (for example, CEO, President, or Executive Director). 5. Scan the Change of Domain Ownership form and the required proof. Save the scanned documents in a common format, such as a .pdf file or a .png file. 6. Using the AWS account that the domain is currently registered to, sign in to the [AWS Support Center](https://console.aws.amazon.com/support/cases#/create?issueType=customer-service&serviceCode=service-domains&categoryCode=change-of-ownership "https://console.aws.amazon.com/support/cases#/create?issueType=customer-service&serviceCode=service-domains&categoryCode=change-of-ownership"). ###### Important You must sign in either by using the root account or by using a user that has been granted IAM permissions in one or more of the following ways: <br>• The user is assigned the **AdministratorAccess** managed policy. <br>• The user is assigned the **AmazonRoute53DomainsFullAccess** managed policy. <br>• The user is assigned the **AmazonRoute53FullAccess** managed policy.If you don't sign in either by using the root account or by using a user that has the required permissions, we can't update the domain owner. This requirement prevents unauthorized users from changing the owner of a domain. 7. Specify the following values: **Regarding** Accept the default value of **Account and billing**. **Service** Accept the default value of **Domains**. **Category** Accept the default value of **Change of Ownership**. **Severity** Accept the default value of **General question**. Choose **Next step: Additional information** **Subject** Specify Change the owner of a domain. **Description** Provide the following information: <br>• Domain that you want to change the owner for <br>• [12-digit account ID](../../../general/latest/gr/acct-identifiers.md#FindingYourAccountIdentifiers "../../../general/latest/gr/acct-identifiers.md#FindingYourAccountIdentifiers") of the AWS account that the domain is registered to **Add attachment** Upload the documents that you scanned in step 5. **Contact method** Specify a contact method and enter the applicable values. 8. Choose **Submit**. An AWS Support engineer reviews the information that you provided and updates the settings. The engineer will either contact you when the update is finished or contact you for more information. |
+| TLDs               | Email address that authorization email comes from                                                           |
+| ------------------ | ----------------------------------------------------------------------------------------------------------- |
+| .fr                | nic@nic.fr                                                                                                  |
+| .com.au<br>.net.au | noreply@emailverification.info                                                                              |
+| All others         | One of the following email addresses:<br>• noreply@registrar.amazon<br>• noreply@domainnameverification.net |
+
+9. If you encounter issues while updating contact information, you can
+   contact AWS Support for free. For more information, see [Contacting AWS Support about domain registration issues](domain-contact-support.md "domain-contact-support.md").
+
+For information about the API you can use to update the contact information, see
+[UpdateDomainContact](../APIReference/API_domains_UpdateDomainContact.md "../APIReference/API_domains_UpdateDomainContact.md").
+
+## Changing the owner of
+
+a domain when the registry requires a Change of Domain Ownership form
+
+If the registry for your domain requires you to complete a Change of Domain
+Ownership and submit the form to AWS Support, perform the following procedure. To
+determine whether you need to perform this procedure, see the following
+topics:
+
+- To determine whether the value you're changing is considered a change of
+  owner, see [What triggers a domain
+  ownership change?](#domain-update-contacts-who-is-domain-owner "#domain-update-contacts-who-is-domain-owner").
+- To determine whether a Change of Domain Ownership form is required for
+  your domain, see [TLDs that require special processing
+  to change the owner](#domain-update-contacts-tlds "#domain-update-contacts-tlds").
+
+###### To change
+
+the owner of a domain when the registry requires a Change of Domain Ownership
+form
+
+1. See the introduction to this topic to determine whether the registry for
+   your domain requires special processing to change the owner of the domain.
+   If so, and if a Change of Domain Ownership form is required, continue with
+   this procedure.
+
+If no Change of Domain Ownership form is required, perform the procedure
+in the applicable topic instead. 2. Download the [Change of Domain Ownership Form](samples/ChangeOfOwnerForm.md "samples/ChangeOfOwnerForm.md"). The file is compressed into a
+.zip file. 3. Fill out the form. 4. For the registrant contact for the former owner of the domain
+_and_ for the new owner, get a copy of a signed proof
+of identity (identity card, driver's license, passport, or other legal proof
+of identity).
+
+In addition, if a legal entity is listed as the registrant organization,
+gather the following information for the former owner of the domain
+_and_ for the new owner:
+
+    * Proof that the organization that the domain is registered to
+     exists.
+    * Proof that the representatives for the former owner and the new
+     owner are authorized to act on the organization's behalf. This
+     document must be a certified legal document that contains both the
+     name of the organization and the names of the representatives as
+     signing officers (for example, CEO, President, or Executive
+     Director).
+
+5. Scan the Change of Domain Ownership form and the required proof. Save the
+   scanned documents in a common format, such as a .pdf file or a .png
+   file.
+6. Using the AWS account that the domain is currently registered to, sign
+   in to the [AWS Support Center](https://console.aws.amazon.com/support/cases#/create?issueType=customer-service&serviceCode=service-domains&categoryCode=change-of-ownership "https://console.aws.amazon.com/support/cases#/create?issueType=customer-service&serviceCode=service-domains&categoryCode=change-of-ownership").
+
+###### Important
+
+You must sign in either by using the root account or by using a user
+that has been granted IAM permissions in one or more of the following
+ways:
+
+    * The user is assigned the
+     **AdministratorAccess** managed
+     policy.
+    * The user is assigned the
+     **AmazonRoute53DomainsFullAccess** managed
+     policy.
+    * The user is assigned the
+     **AmazonRoute53FullAccess** managed
+     policy.If you don't sign in either by using the root account or by using a
+
+user that has the required permissions, we can't update the domain
+owner. This requirement prevents unauthorized users from changing the
+owner of a domain. 7. Specify the following values:
+
+**Regarding**
+
+Accept the default value of **Account and
+billing**.
+
+**Service**
+
+Accept the default value of
+**Domains**.
+
+**Category**
+
+Accept the default value of **Change of
+Ownership**.
+
+**Severity**
+
+Accept the default value of **General question**.
+
+Choose **Next step: Additional
+information**
+
+**Subject**
+
+Specify Change the owner of a domain.
+
+**Description**
+
+Provide the following information:
+
+    * Domain that you want to change the owner for
+    * [12-digit account ID](../../../general/latest/gr/acct-identifiers.md#FindingYourAccountIdentifiers "../../../general/latest/gr/acct-identifiers.md#FindingYourAccountIdentifiers") of the AWS account
+     that the domain is registered to
+
+**Add attachment**
+
+Upload the documents that you scanned in step 5.
+
+**Contact method**
+
+Specify a contact method and enter the applicable
+values. 8. Choose **Submit**.
+
+An AWS Support engineer reviews the information that you provided and
+updates the settings. The engineer will either contact you when the update
+is finished or contact you for more information.

@@ -47,7 +47,12 @@ When DNS query is made for a conflicting domain name, the most specific one wins
 following table includes examples of the evaluation order:
 
 | DNS query             | Profile rule     | VPC rule              | Evaluated rule |
-| --------------------- | ---------------- | --------------------- | -------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| --------------------- | ---------------- | --------------------- | -------------- |
 | example.com           | example.com      | example.com           | Local VPC      |
 | test.example.com      | test.example.com | example.com           | Profile        |
-| marketing.example.com | None             | marketing.example.com | Local VPC      | ## Route 53 Profiles Region availability To view the Region availability and the endpoints, see [Service endpoints for Route 53](../../../general/latest/gr/r53.md "../../../general/latest/gr/r53.md") in the _AWS General Reference_ guide. |
+| marketing.example.com | None             | marketing.example.com | Local VPC      |
+
+## Route 53 Profiles Region availability
+
+To view the Region availability and the endpoints, see [Service endpoints for Route 53](../../../general/latest/gr/r53.md "../../../general/latest/gr/r53.md") in the
+_AWS General Reference_ guide.
