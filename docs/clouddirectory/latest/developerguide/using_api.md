@@ -1,4 +1,4 @@
-Amazon Cloud Directory will no longer be open to new customers starting on November 7, 2025. For alternatives to Cloud Directory, explore [Amazon DynamoDB](https://aws.amazon.com/dynamodb/ "https://aws.amazon.com/dynamodb/") and [Amazon Neptune](https://aws.amazon.com/neptune/ "https://aws.amazon.com/neptune/"). If you need help choosing the right alternative for your use case, or for any other questions, contact [AWS Support](https://aws.amazon.com/support/ "https://aws.amazon.com/support/").
+Amazon Cloud Directory is no longer be open to new customers. For alternatives to Cloud Directory, explore [Amazon DynamoDB](https://aws.amazon.com/dynamodb/ "https://aws.amazon.com/dynamodb/") and [Amazon Neptune](https://aws.amazon.com/neptune/ "https://aws.amazon.com/neptune/"). If you need help choosing the right alternative for your use case, or for any other questions, contact [AWS Support](https://aws.amazon.com/support/ "https://aws.amazon.com/support/").
 
 # Using the Cloud Directory APIs
 
@@ -39,7 +39,7 @@ The following table lists all of the Cloud Directory APIs and how they can impac
 for your AWS account.
 
 | API                          | Eventually Consistent Read 1 | Strongly Consistent Read 2 | Write 3 | Metadata 4 |
-| ---------------------------- | ---------------------------- | -------------------------- | ------- | ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ---------------------------- | ---------------------------- | -------------------------- | ------- | ---------- |
 | AddFacetToObject             |                              |                            | **X**   |            |
 | ApplySchema                  |                              |                            |         | **X**      |
 | AttachObject                 |                              |                            | **X**   |            |
@@ -105,4 +105,18 @@ for your AWS account.
 | UpdateSchema                 |                              |                            |         | **X**      |
 | UpdateTypedLinkFacet         |                              |                            |         | **X**      |
 | UpgradeAppliedSchema         |                              |                            |         | **X**      |
-| UpgradePublishedSchema       |                              |                            |         | **X**      | 1 Eventually Consistent Read APIs are called with the EVENTUAL consistency level 2 Strongly Consistent Read APIs are called with the SERIALIZABLE consistency level 3 Write APIs are billed as write API calls 4 Metadata APIs are NOT billed but are categorized as Metadata API calls For additional information about billing, see [Amazon Cloud Directory Pricing](https://aws.amazon.com/cloud-directory/pricing/ "https://aws.amazon.com/cloud-directory/pricing/"). |
+| UpgradePublishedSchema       |                              |                            |         | **X**      |
+
+1 Eventually Consistent Read APIs are called with the EVENTUAL
+consistency level
+
+2 Strongly Consistent Read APIs are called with the
+SERIALIZABLE consistency level
+
+3 Write APIs are billed as write API
+calls
+
+4 Metadata APIs are NOT billed but are categorized as Metadata
+API calls
+
+For additional information about billing, see [Amazon Cloud Directory Pricing](https://aws.amazon.com/cloud-directory/pricing/ "https://aws.amazon.com/cloud-directory/pricing/").
