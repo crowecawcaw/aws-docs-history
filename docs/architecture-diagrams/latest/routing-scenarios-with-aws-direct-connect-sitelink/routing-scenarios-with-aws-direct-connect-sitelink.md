@@ -154,6 +154,10 @@ Contributors to this reference architecture diagram include:
 To be notified about updates to this reference architecture diagram, subscribe to the RSS feed.
 
 | Change              | Description                                     | Date          |
-| ------------------- | ----------------------------------------------- | ------------- | ----------------------------------------------------------------------------------------------------------- |
+| ------------------- | ----------------------------------------------- | ------------- |
 | Minor update        | Update AS PATH prefixes.                        | July 24, 2023 |
-| Initial publication | Reference architecture diagram first published. | April 2, 2023 | ###### Note To subscribe to RSS updates, you must have an RSS plugin enabled for the browser you are using. |
+| Initial publication | Reference architecture diagram first published. | April 2, 2023 |
+
+###### Note
+
+To subscribe to RSS updates, you must have an RSS plugin enabled for the browser you are using.
