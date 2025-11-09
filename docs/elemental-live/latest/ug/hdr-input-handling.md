@@ -38,7 +38,7 @@ The following table specifies the handling that is available for color
 spaces in the input.
 
 | Color space             | Elemental Live can correct the color space metadata |
-| ----------------------- | --------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ----------------------- | --------------------------------------------------- |
 | 601                     | Yes                                                 |
 | 709                     | Yes                                                 |
 | SDR 2020                | Yes                                                 |
@@ -46,4 +46,14 @@ spaces in the input.
 | HLG                     | Yes                                                 |
 | Dolby Vision 5.0        | No                                                  |
 | Dolby Vision 8.1        | No                                                  |
-| Unsupported color space | No                                                  | To decide how to handle the color space metadata, use the following three steps. ###### Topics <br>• [Step 1: Decide on the input handling](color-space-input-procedure.md "color-space-input-procedure.md") <br>• [Step 2: Choose a clean-up scenario](color-space-cleanup-scenarios.md "color-space-cleanup-scenarios.md") <br>• [Step 3: Set up each input](color-space-event-input-setup.md "color-space-event-input-setup.md") |
+| Unsupported color space | No                                                  |
+
+To decide how to handle the color space metadata, use the following
+three steps.
+
+###### Topics
+
+- [Step 1: Decide on the input handling](color-space-input-procedure.md "color-space-input-procedure.md")
+- [Step 2: Choose a clean-up
+  scenario](color-space-cleanup-scenarios.md "color-space-cleanup-scenarios.md")
+- [Step 3: Set up each input](color-space-event-input-setup.md "color-space-event-input-setup.md")

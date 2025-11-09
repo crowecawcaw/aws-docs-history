@@ -102,11 +102,11 @@ This table shows where the parameters mentioned in this section are
 located. The first column shows the location on the web interface. The
 second column shows the location in the event XML.
 
-| Location of parameter on web interface                 | Location of tag in XML                                                                                                                                                    |
-| ------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Streams – Video > Advanced > Adaptive Quantization** | stream_assembly/video_description/`codec`/adaptive_quantization where `codec` is one of the following: <br>• `h264_settings` <br>• `mpeg2_settings` <br>• `h265_settings` |
-| **Streams – Video > Advanced > Spatial AQ**            | stream_assembly/video_description/`codec`/spatial_aq where `codec` is one of the following: <br>• `h264_settings` <br>• `mpeg2_settings` <br>• `h265_settings`            |
-| **Streams – Video > Advanced > Temporal AQ**           | stream_assembly/video_description/`codec`/temporal_aq where `codec` is one of the following: <br>• `h264_settings` <br>• `mpeg2_settings` <br>• `h265_settings`           |
-| **Streams – Video > Advanced > Flicker AQ**            | stream_assembly/video_description/`codec`/flicker_aq where `codec` is one of the following: <br>• `h264_settings` <br>• `h265_settings`                                   |
-| **Streams – Video > Advanced > Framing AQ**            | stream_assembly/video_description/mpeg2_settings/framing_aq                                                                                                               |
-| **Streams – Video > Advanced > Softness**              | stream_assembly/video_description/`codec`/softness where `codec` is one of the following: <br>• `h264_settings` <br>• `mpeg2_settings`                                    |
+| Location of parameter on web interface                    | Location of tag in XML                                                                                                                                                       |
+| --------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Streams – Video > Advanced > Adaptive<br>Quantization** | stream_assembly/video_description/`codec`/adaptive_quantization<br>where `codec` is one of the<br>following:<br>• `h264_settings`<br>• `mpeg2_settings`<br>• `h265_settings` |
+| **Streams – Video > Advanced > Spatial<br>AQ**            | stream_assembly/video_description/`codec`/spatial_aq<br>where `codec` is one of the<br>following:<br>• `h264_settings`<br>• `mpeg2_settings`<br>• `h265_settings`            |
+| **Streams – Video > Advanced > Temporal<br>AQ**           | stream_assembly/video_description/`codec`/temporal_aq<br>where `codec` is one of the<br>following:<br>• `h264_settings`<br>• `mpeg2_settings`<br>• `h265_settings`           |
+| **Streams – Video > Advanced > Flicker<br>AQ**            | stream_assembly/video_description/`codec`/flicker_aq<br>where `codec` is one of the<br>following:<br>• `h264_settings`<br>• `h265_settings`                                  |
+| **Streams – Video > Advanced > Framing<br>AQ**            | stream_assembly/video_description/mpeg2_settings/framing_aq                                                                                                                  |
+| **Streams – Video > Advanced > Softness**                 | stream_assembly/video_description/`codec`/softness<br>where `codec` is one of the<br>following:<br>• `h264_settings`<br>• `mpeg2_settings`                                   |

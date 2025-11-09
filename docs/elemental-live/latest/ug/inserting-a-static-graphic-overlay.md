@@ -1,7 +1,32 @@
 # Procedure
 
 |     | Step                                                                | Methods available                      |
-| --- | ------------------------------------------------------------------- | -------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| --- | ------------------------------------------------------------------- | -------------------------------------- |
 | 1.  | Create the event with the desired static overlays.                  | Use the REST API or the web interface. |
 | 2.  | Start the event.                                                    | Use the REST API or the web interface. |
-| 3.  | While the event is running, set up more static overlays as desired. | Use the REST API.                      | You can implement all features described in this section via REST as well as the web interface. This section describes how to use the web interface to insert a graphic overlay. For instructions on doing so via REST, see [Using the REST API for static overlays](using-the-rest-api-for-static-overlays.md "using-the-rest-api-for-static-overlays.md"). The following are valid web interface and REST API combinations: <br>• Initial setup via web interface and run-time changes via the REST API. <br>• Initial setup and run-time changes via the REST API. If you use the web interface to perform the initial setup, note the following restrictions: <br>• You cannot specify more than 8 static overlays in the event. <br>• You must set up all the static overlays before the event starts to run; there is no mechanism for changing static overlays at runtime via the web interface. ###### Topics <br>• [Step A: Prepare the overlay asset](step-a-prepare-the-overlay-asset.md "step-a-prepare-the-overlay-asset.md") <br>• [Step B: Initial setup](step-b-initial-setup.md "step-b-initial-setup.md") <br>• [Step C: Manage overlays on a running event](step-c-manage-overlays-on-a-running-event.md "step-c-manage-overlays-on-a-running-event.md") |
+| 3.  | While the event is running, set up more static overlays as desired. | Use the REST API.                      |
+
+You can implement all features described in this section via REST as well as the web
+interface. This section describes how to use the web interface to insert a graphic
+overlay. For instructions on doing so via REST, see [Using the REST
+API for static overlays](using-the-rest-api-for-static-overlays.md "using-the-rest-api-for-static-overlays.md").
+
+The following are valid web interface and REST API combinations:
+
+- Initial setup via web interface and run-time changes via the REST API.
+- Initial setup and run-time changes via the REST API.
+  If you use the web interface to perform the initial setup, note the following
+  restrictions:
+
+- You cannot specify more than 8 static overlays in the event.
+- You must set up all the static overlays before the event starts to run; there
+  is no mechanism for changing static overlays at runtime via the web interface.
+
+###### Topics
+
+- [Step A:
+  Prepare the overlay asset](step-a-prepare-the-overlay-asset.md "step-a-prepare-the-overlay-asset.md")
+- [Step B: Initial
+  setup](step-b-initial-setup.md "step-b-initial-setup.md")
+- [Step
+  C: Manage overlays on a running event](step-c-manage-overlays-on-a-running-event.md "step-c-manage-overlays-on-a-running-event.md")

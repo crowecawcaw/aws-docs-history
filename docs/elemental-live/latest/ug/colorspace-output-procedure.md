@@ -31,9 +31,9 @@ Follow this procedure in each output.
 4. Complete fields in the **Video** section as
    described in the following table
 
-| Field                                              | Description                                                                                                 |
-| -------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
-| **Video Codec**                                    | Choose any codec.                                                                                           |
-| **Advanced**, then **Insert Color Metadata**       | Leave this field checked. You should never remove the color metadata if you are converting the color space. |
-| **Video Range**                                    | Choose the correct option. For details, choose the icon above the field.                                    |
-| **Preprocessors**, then **Color Space Conversion** | Choose the correct conversion: **Force 601** **Force 709** **Force SDR2020** **Force HLG 2020**             |
+| Field                                                 | Description                                                                                                       |
+| ----------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| **Video Codec**                                       | Choose any codec.                                                                                                 |
+| **Advanced**, then **Insert Color<br>Metadata**       | Leave this field checked.<br>You should never remove the color metadata if you are converting<br>the color space. |
+| **Video Range**                                       | Choose the correct option. For details, choose the icon above the<br>field.                                       |
+| **Preprocessors**, then **Color Space<br>Conversion** | Choose the correct conversion:<br>**Force 601**<br>**Force 709**<br>**Force SDR2020**<br>**Force HLG 2020**       |

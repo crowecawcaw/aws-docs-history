@@ -54,7 +54,7 @@ to the desired value:
 
 ## Location of fields
 
-| Location of field on web interface                                       | Location of tag in XML                                                       |
-| ------------------------------------------------------------------------ | ---------------------------------------------------------------------------- |
-| Streams > Advanced >Preprocessors > Deinterlacer > Deinterlace Algorithm | stream_assembly/video_description/video_preprocessors/deinterlacer/algorithm |
-| Streams > Advanced >Preprocessors > Deinterlacer > Force Mode            | stream_assembly/video_description/video_preprocessors/deinterlacer/force     |
+| Location of field on web interface                                          | Location of tag in XML                                                       |
+| --------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| Streams > Advanced >Preprocessors > Deinterlacer > Deinterlace<br>Algorithm | stream_assembly/video_description/video_preprocessors/deinterlacer/algorithm |
+| Streams > Advanced >Preprocessors > Deinterlacer > Force<br>Mode            | stream_assembly/video_description/video_preprocessors/deinterlacer/force     |

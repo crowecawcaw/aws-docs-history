@@ -21,8 +21,10 @@
 4. Set the following fields to match the control that
    you're using.
 
-| Option for control       | Value for Active                                                                                     | Value for <enable_rest> | Value for <enable_scte35> |
-| ------------------------ | ---------------------------------------------------------------------------------------------------- | ----------------------- | ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| Authoring system control | Unchecked                                                                                            | Unchecked               | Unchecked                 |
-| REST API control         | Checked or unchecked, depending on whether you want the motion overlay to show when the event starts | Checked                 | Unchecked                 |
-| SCTE 35 control          | Unchecked                                                                                            | Unchecked               | Checked                   | For detailed information about the fields, see [Fields for an HTML5 asset](html5-set-up-event-fields.md "html5-set-up-event-fields.md"). |
+| Option for control       | Value for Active                                                                                           | Value for <enable_rest> | Value for <enable_scte35> |
+| ------------------------ | ---------------------------------------------------------------------------------------------------------- | ----------------------- | ------------------------- |
+| Authoring system control | Unchecked                                                                                                  | Unchecked               | Unchecked                 |
+| REST API control         | Checked or unchecked, depending on whether<br>you want the motion overlay to show when the<br>event starts | Checked                 | Unchecked                 |
+| SCTE 35 control          | Unchecked                                                                                                  | Unchecked               | Checked                   |
+
+For detailed information about the fields, see [Fields for an HTML5 asset](html5-set-up-event-fields.md "html5-set-up-event-fields.md").

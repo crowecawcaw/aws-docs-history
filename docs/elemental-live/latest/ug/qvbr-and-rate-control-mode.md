@@ -50,7 +50,51 @@ percentage to 90%. The buffer contributes to a smooth playout.
 The following table lists the recommended values for this mode:
 
 | Viewing device | Quality level | Max bitrate            |
-| -------------- | ------------- | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| -------------- | ------------- | ---------------------- |
 | Primary screen | 8 to 10       | 4,000,000 to 6,000,000 |
 | PC or tablet   | 7             | 1,500,000 to 3,000,000 |
-| Smartphone     | 6             | 1,000,000 to 1,500,000 | With this mode, the bitrate can change with each frame (in order to obtain at least the specified quality), but it cannot exceed the maximum bitrate. Elemental Live does not attempt to maintain an average bitrate. It always hits the maximum bitrate if that is necessary to obtain the specified quality. On the other hand, if the quality can be obtained with lower bitrates, Elemental Live does not use a higher bitrate. ###### Variable bitrate mode (VBR) With variable bitrate mode (VBR), you specify an average bitrate and a maximum bitrate. Video quality and bitrate vary, depending on the video complexity. Select VBR instead of QVBR if you want to maintain a specific average bitrate over the duration of the channel. If bitrate does not need to be constrained, then consider using QVBR. When selecting VBR, try to assess the expected complexity of the video, and set a suitable average bitrate. Set the maximum bitrate to accommodate expected spikes. Set the Buffer size to twice (2x) the Max bitrate and set the Buffer fill percentage to 90%. The buffer contributes to a smooth playout. With this mode, the bitrate can change with each frame (in order to obtain the best quality) but it cannot exceed the specified maximum bitrate. Elemental Live also ensures that as the channel progresses, the stream meets the specified average bitrate. This mode is useful when you expect short spikes in the complexity of the video. Elemental Live aims for the average bitrate but spikes to the maximum bitrate for a short time when necessary. ###### Constant bitrate mode (CBR) With constant bitrate mode (CBR), you specify a bitrate. Video quality varies, depending on the video complexity. Select CBR only if you distribute your assets to devices that cannot handle variable bitrates. But if it is acceptable for the bitrate to occasionally differ from a specified rate, then consider using VBR or QVBR instead. Over the duration of the channel, you might obtain both a lower bitrate and better quality with VBR or QVBR. When selecting CBR, set the bitrate to balance the video quality and the output bitrate. Set the Buffer size to twice (2x) the Max bitrate and set the Buffer fill percentage to 90%. The buffer contributes to a smooth playout. With this mode, the output always matches the specified bitrate. Sometimes that bitrate results in higher-quality video, and sometimes it results in lower-quality video. |
+| Smartphone     | 6             | 1,000,000 to 1,500,000 |
+
+With this mode, the bitrate can change with each frame (in order to obtain at least the
+specified quality), but it cannot exceed the maximum bitrate. Elemental Live does not attempt
+to maintain an average bitrate. It always hits the maximum bitrate if that is necessary to
+obtain the specified quality. On the other hand, if the quality can be obtained with lower
+bitrates, Elemental Live does not use a higher bitrate.
+
+###### Variable bitrate mode (VBR)
+
+With variable bitrate mode (VBR), you specify an average bitrate and a maximum
+bitrate. Video quality and bitrate vary, depending on the video complexity.
+
+Select VBR instead of QVBR if you want to maintain a specific average bitrate over the
+duration of the channel. If bitrate does not need to be constrained, then consider using
+QVBR.
+
+When selecting VBR, try to assess the expected complexity of the video, and set a
+suitable average bitrate. Set the maximum bitrate to accommodate expected spikes. Set the
+Buffer size to twice (2x) the Max bitrate and set the Buffer fill percentage to 90%. The
+buffer contributes to a smooth playout.
+
+With this mode, the bitrate can change with each frame (in order to obtain the best
+quality) but it cannot exceed the specified maximum bitrate. Elemental Live also ensures that
+as the channel progresses, the stream meets the specified average bitrate. This mode is
+useful when you expect short spikes in the complexity of the video. Elemental Live aims for
+the average bitrate but spikes to the maximum bitrate for a short time when
+necessary.
+
+###### Constant bitrate mode (CBR)
+
+With constant bitrate mode (CBR), you specify a bitrate. Video quality varies,
+depending on the video complexity.
+
+Select CBR only if you distribute your assets to devices that cannot handle variable
+bitrates. But if it is acceptable for the bitrate to occasionally differ from a specified
+rate, then consider using VBR or QVBR instead. Over the duration of the channel, you might
+obtain both a lower bitrate and better quality with VBR or QVBR.
+
+When selecting CBR, set the bitrate to balance the video quality and the output bitrate.
+Set the Buffer size to twice (2x) the Max bitrate and set the Buffer fill percentage to
+90%. The buffer contributes to a smooth playout.
+
+With this mode, the output always matches the specified bitrate. Sometimes that bitrate
+results in higher-quality video, and sometimes it results in lower-quality video.

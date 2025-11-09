@@ -31,6 +31,6 @@ following are the settings and internal algorithms tied to the scan type:
 
 ## Location of fields
 
-| Location of field on web interface                | Location of tag in XML                                                                           |
-| ------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
-| Streams – Video > Advanced > Force Field Pictures | stream_assembly/video_description/`codec`/force_field_pictures where `codec` is: `h264_settings` |
+| Location of field on web interface                | Location of tag in XML                                                                                 |
+| ------------------------------------------------- | ------------------------------------------------------------------------------------------------------ |
+| Streams – Video > Advanced > Force Field Pictures | stream_assembly/video_description/`codec`/force_field_pictures<br>where `codec` is:<br>`h264_settings` |

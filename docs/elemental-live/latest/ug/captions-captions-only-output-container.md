@@ -14,12 +14,18 @@ external captions file and include it in a raw container that contains only
 that captions file.
 
 | Source input container | Source caption format                            | Supported output captions                   |
-| ---------------------- | ------------------------------------------------ | ------------------------------------------- | ---------------- | ------------------------------------------------ |
+| ---------------------- | ------------------------------------------------ | ------------------------------------------- |
 | Any container          | SRT                                              | SMI, SMPTE-TT, SRT, TTML, EBU-TT-D, Web-VTT |
-| SMI                    | SMI, SMPTE-TT, SRT, TTML, EBU-TT-D, Web-VTT      |                                             | TTML             | SMI, SMPTE-TT, SRT, TTML, EBU-TT-D, Web-VTT      |
-| SMPTE-TT               | SMI, SMPTE-TT, SRT, TTML, EBU-TT-D, Web-VTT      |                                             | STL              | SMI, SMPTE-TT, SRT, TTML, EBU-TT-D, Web-VTT      |
-| Embedded               | SCC, SMI, SMPTE-TT, SRT, TTML, EBU-TT-D, Web-VTT |                                             | SCC              | SCC, SMI, SMPTE-TT, SRT, TTML, EBU-TT-D, Web-VTT |
-| SCTE-20                | SCC, SMI, SMPTE-TT, SRT, TTML, EBU-TT-D, Web-VTT |                                             | SCTE-20+Embedded | SCC, SMI, SMPTE-TT, SRT, TTML, EBU-TT-D, Web-VTT |
-| Embedded+SCTE-20       | SCC, SMI, SMPTE-TT, SRT, TTML, EBU-TT-D, Web-VTT |                                             | Ancillary Data   | SCC, SMI, SMPTE-TT, SRT, TTML, EBU-TT-D, Web-VTT |
-| Teletext               | SMI, SMPTE-TT, SRT, TTML, EBU-TT-D, Web-VTT      |                                             | DVBSub           | SMPTE-TT                                         |
+| SMI                    | SMI, SMPTE-TT, SRT, TTML, EBU-TT-D, Web-VTT      |
+| TTML                   | SMI, SMPTE-TT, SRT, TTML, EBU-TT-D, Web-VTT      |
+| SMPTE-TT               | SMI, SMPTE-TT, SRT, TTML, EBU-TT-D, Web-VTT      |
+| STL                    | SMI, SMPTE-TT, SRT, TTML, EBU-TT-D, Web-VTT      |
+| Embedded               | SCC, SMI, SMPTE-TT, SRT, TTML, EBU-TT-D, Web-VTT |
+| SCC                    | SCC, SMI, SMPTE-TT, SRT, TTML, EBU-TT-D, Web-VTT |
+| SCTE-20                | SCC, SMI, SMPTE-TT, SRT, TTML, EBU-TT-D, Web-VTT |
+| SCTE-20+Embedded       | SCC, SMI, SMPTE-TT, SRT, TTML, EBU-TT-D, Web-VTT |
+| Embedded+SCTE-20       | SCC, SMI, SMPTE-TT, SRT, TTML, EBU-TT-D, Web-VTT |
+| Ancillary Data         | SCC, SMI, SMPTE-TT, SRT, TTML, EBU-TT-D, Web-VTT |
+| Teletext               | SMI, SMPTE-TT, SRT, TTML, EBU-TT-D, Web-VTT      |
+| DVBSub                 | SMPTE-TT                                         |
 | SCTE-27                | SMPTE-TT                                         |

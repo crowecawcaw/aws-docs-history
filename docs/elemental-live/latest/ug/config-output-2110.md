@@ -227,11 +227,60 @@ procedure:
   number of channels, as specified in the following table.
 - Set the same sample rate for every encode in the Elemental Live stream.
 
-| Number of audio channels | Maximum sample rate (Hz)       | Maximum packet time (microseconds) |
-| ------------------------ | ------------------------------ | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Up to 4                  | 96,000                         | 1000                               |
-| Up to 8                  | 48,000                         | 1000                               |
-| Up to 32                 | 96,000                         | 125                                |
-| Up to 64                 | 48,000                         | 125                                | **Setting the packet rate for any of the Dolby codecs** Complete the **Packet Time** field (in the output section). Follow this procedure: <br>• Identify the number of audio tracks in all the encodes in this Elemental Live stream. <br>• Choose a packet time that falls within the limits for the number of tracks, as specified in the following table. |
-| Number of audio tracks   | Packet time (microseconds)     |                                    | ---                                                                                                                                                                                                                                                                                                                                                           | --- |
-| Up to 3                  | 125 or 1000. We recommend 1000 |                                    | Up to 24                                                                                                                                                                                                                                                                                                                                                      | 125 | Note that the sample rate is always 48,000 Hz. ## Set up the ancillary data stream ###### To set up the ancillary data stream You set up the ancillary data stream to include embedded captions. You can optionally configure how you want to handle ad avails. These ad avails might be in the source and/or might be ad avails that you insert using the API. 1. Complete the **Outputs** section in the same way that you completed the section for the video. Make sure you enter an RTP payload type that is unique in this SMPTE 2110 output group. 2. Complete the video stream for this output so that it is identical to the video that you set up in the video output. In our example, the video stream in this ancillary data output is stream 3, and the video in the video output is stream 1. 3. If you want to pass through ad avails, complete these fields in the **Outputs** section: <br>• **Enable SCTE 35 Passthrough** – Set the check box to checked. <br>• **SCTE 104 messages line number** – Enter the line number that you identified when you [designed the ancillary data](s2110-out-design-workflow.md#2110-output-design-anc-data "s2110-out-design-workflow.md#2110-output-design-anc-data"). 4. If you want include embedded captions in the output, follow this procedure: <br>• Make sure that you have set up the event so that the captions in the input are converted to embedded captions in the output (or that the embedded source captions are passed through). For information about setting up captions, see [Setting up for captions](setting-up-for-captions.md "setting-up-for-captions.md"). <br>• In the **Outputs** section for the ancillary data, for **CEA-608-E captions line number**, enter the line number that you identified when you [designed the ancillary data](s2110-out-design-workflow.md#2110-output-design-anc-data "s2110-out-design-workflow.md#2110-output-design-anc-data"). |
+| Number of audio channels | Maximum sample rate (Hz) | Maximum packet time (microseconds) |
+| ------------------------ | ------------------------ | ---------------------------------- |
+| Up to 4                  | 96,000                   | 1000                               |
+| Up to 8                  | 48,000                   | 1000                               |
+| Up to 32                 | 96,000                   | 125                                |
+| Up to 64                 | 48,000                   | 125                                |
+
+**Setting the packet rate for any of the Dolby
+codecs**
+
+Complete the **Packet Time** field (in the output section). Follow
+this procedure:
+
+- Identify the number of audio tracks in all the encodes in this Elemental Live
+  stream.
+- Choose a packet time that falls within the limits for the number of tracks, as
+  specified in the following table.
+
+| Number of audio tracks | Packet time (microseconds)     |
+| ---------------------- | ------------------------------ |
+| Up to 3                | 125 or 1000. We recommend 1000 |
+| Up to 24               | 125                            |
+
+Note that the sample rate is always 48,000 Hz.
+
+## Set up the ancillary data stream
+
+###### To set up the ancillary data stream
+
+You set up the ancillary data stream to include embedded captions. You can
+optionally configure how you want to handle ad avails. These ad avails might be in
+the source and/or might be ad avails that you insert using the API.
+
+1. Complete the **Outputs** section in the same way that you
+   completed the section for the video. Make sure you enter an RTP payload type that
+   is unique in this SMPTE 2110 output group.
+2. Complete the video stream for this output so that it is identical to the video
+   that you set up in the video output. In our example, the video stream in this
+   ancillary data output is stream 3, and the video in the video output is stream 1.
+3. If you want to pass through ad avails, complete these fields in the
+   **Outputs** section:
+   - **Enable SCTE 35 Passthrough** – Set the check box to
+     checked.
+   - **SCTE 104 messages line number** – Enter the line
+     number that you identified when you [designed the ancillary
+     data](s2110-out-design-workflow.md#2110-output-design-anc-data "s2110-out-design-workflow.md#2110-output-design-anc-data").
+
+4. If you want include embedded captions in the output, follow this
+   procedure:
+   - Make sure that you have set up the event so that the captions in the
+     input are converted to embedded captions in the output (or that the embedded
+     source captions are passed through). For information about setting up
+     captions, see [Setting up for captions](setting-up-for-captions.md "setting-up-for-captions.md").
+   - In the **Outputs** section for the ancillary data, for
+     **CEA-608-E captions line number**, enter the line
+     number that you identified when you [designed the ancillary
+     data](s2110-out-design-workflow.md#2110-output-design-anc-data "s2110-out-design-workflow.md#2110-output-design-anc-data").

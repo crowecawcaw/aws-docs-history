@@ -59,13 +59,19 @@ mode, the message type and the segmentation type. Then in the last
 three columns, identify how Elemental Live handles that
 combination.
 
-| Mode                   | Message type ID        | Segmentation type ID               | Handled as an ad avail event | Not handled as an ad avail event | Handled as another type of event |
-| ---------------------- | ---------------------- | ---------------------------------- | ---------------------------- | -------------------------------- | -------------------------------- | ------------------------- | --- | --- | --- |
-| Splice Insert Mode     | Splice Insert          | No segmentation descriptor present | X                            |                                  |                                  |
-| Provider advertisement | X                      |                                    |                              |                                  | Distributor advertisement        | X                         |     |     |
-| Placement opportunity  | X                      |                                    |                              |                                  | Other type                       |                           |     | X   |
-| Time Signal            | Provider advertisement | X                                  |                              |                                  |                                  | Distributor advertisement | X   |     |     |
-| Placement opportunity  | X                      |                                    |                              |                                  | Other type                       |                           |     | X   |
-| Time Signal APOS Mode  | Splice Insert          | Any                                |                              | X                                |                                  |
-| Time Signal            | Provider advertisement |                                    | X                            |                                  |                                  | Distributor advertisement |     | X   |     |
-| Placement opportunity  | X                      |                                    |                              |                                  | Other type                       |                           |     | X   |
+| Mode                      | Message type ID        | Segmentation type ID               | Handled as an ad avail event | Not handled as an ad avail event | Handled as another type of event |
+| ------------------------- | ---------------------- | ---------------------------------- | ---------------------------- | -------------------------------- | -------------------------------- |
+| Splice Insert Mode        | Splice Insert          | No segmentation descriptor present | X                            |                                  |                                  |
+| Provider advertisement    | X                      |                                    |                              |
+| Distributor advertisement | X                      |                                    |                              |
+| Placement opportunity     | X                      |                                    |                              |
+| Other type                |                        |                                    | X                            |
+| Time Signal               | Provider advertisement | X                                  |                              |                                  |
+| Distributor advertisement | X                      |                                    |                              |
+| Placement opportunity     | X                      |                                    |                              |
+| Other type                |                        |                                    | X                            |
+| Time Signal APOS Mode     | Splice Insert          | Any                                |                              | X                                |                                  |
+| Time Signal               | Provider advertisement |                                    | X                            |                                  |
+| Distributor advertisement |                        | X                                  |                              |
+| Placement opportunity     | X                      |                                    |                              |
+| Other type                |                        |                                    | X                            |

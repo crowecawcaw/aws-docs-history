@@ -19,16 +19,16 @@ The rules are as follows:
   captions only from specific container types. See the table that
   follows.
 
-| Container in file input      | Elemental Live can extract captions from the container? |
-| ---------------------------- | ------------------------------------------------------- |
-| Adobe Flash                  |                                                         |
-| Audio Video Interleave (AVI) |                                                         |
-| HLS                          | Yes                                                     |
-| Matroska                     |                                                         |
-| MP4                          | Yes                                                     |
-| MPEG Transport Stream (TS)   | Yes                                                     |
-| MPEG-1 System Stream         |                                                         |
-| MXF                          | Yes                                                     |
-| No container                 | Yes                                                     |
-| QuickTime                    | Yes                                                     |
-| WAV                          | Yes                                                     |
+| Container<br>in file input   | Elemental Live<br>can<br>extract<br>captions<br>from<br>the container? |
+| ---------------------------- | ---------------------------------------------------------------------- |
+| Adobe Flash                  |                                                                        |
+| Audio Video Interleave (AVI) |                                                                        |
+| HLS                          | Yes                                                                    |
+| Matroska                     |                                                                        |
+| MP4                          | Yes                                                                    |
+| MPEG Transport Stream (TS)   | Yes                                                                    |
+| MPEG-1 System Stream         |                                                                        |
+| MXF                          | Yes                                                                    |
+| No container                 | Yes                                                                    |
+| QuickTime                    | Yes                                                                    |
+| WAV                          | Yes                                                                    |

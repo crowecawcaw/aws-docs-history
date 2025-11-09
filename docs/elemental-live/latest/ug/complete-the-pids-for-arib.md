@@ -11,8 +11,9 @@ that contains these captions.
 2. Complete the ARIB Captions field and the ARIB Captions PID field as
    follows:
 
-| ARIB Captions PID Control | ARIB Captions PID                 | Result                                                                                |
-| ------------------------- | --------------------------------- | ------------------------------------------------------------------------------------- | ------------------ | ------------------------------------------------------------------------------------- |
-| Unchecked                 | Ignore.                           | A PID will automatically be assigned during encoding; this value could be any number. |
-| Checked                   | Type a decimal or hexadecimal.    | This PID will be used for the captions.                                               |
-| Leave the default (507)   | The PID for captions will be 507. |                                                                                       | Delete the default | A PID will automatically be assigned during encoding; this value could be any number. |
+| ARIB Captions PID Control | ARIB Captions PID                                                                        | Result                                                                                   |
+| ------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| Unchecked                 | Ignore.                                                                                  | A PID will automatically be assigned during encoding; this value could be<br>any number. |
+| Checked                   | Type a decimal or hexadecimal.                                                           | This PID will be used for the captions.                                                  |
+| Leave the default (507)   | The PID for captions will be 507.                                                        |
+| Delete the default        | A PID will automatically be assigned during encoding; this value could be<br>any number. |

@@ -135,15 +135,51 @@ diagram.
 The following table describes how Elemental Live handles patching requests, depending on
 which input is currently active. Read across each row.
 
-| Scenario | Current active input | Result                                                                                                                                                                                                                                                                  |
-| -------- | -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 1        | Input A              | Elemental Live stops ingesting input A and starts to ingest input C. Both these inputs are on the same network.                                                                                                                                                         |
-| 2        | Input B              | Elemental Live stops ingesting input B and starts to ingest input D. Both these inputs are on the same network.                                                                                                                                                         |
-| 3        | Input C              | Elemental Live stops ingesting input C and starts to ingest input A. Both these inputs are on the same network.                                                                                                                                                         |
-| 4        | Input D              | Elemental Live stops ingesting input D and starts to ingest input B. Both these inputs are on the same network.                                                                                                                                                         | This diagram illustrates scenario 1. The NMOS controller sends a patching request by sending new SDP content for RG1. When Elemental Live receives the request, it sets up the standby input (input C) with the new content, then switches from input A to input C. Input C becomes the active input. The event starts to process the studio feed from network 1 instead of the curling rink feed from network 1. The visual impact during the patch is controlled by the setting of the [Use make-before-break field](s2110-nmos-configure.md "s2110-nmos-configure.md"). Typically, the NMOS controller will also send a patching request by sending new SDP content for RG2 (scenario 2). In this way, the hot backup for input C will be input D, which is the same content (the studio) but on the other network. ![](images/2110-input-scenario-C-6.png) If the NMOS controller doesn't patch RG2, Elemental Live still prepares input D (the hot backup for input C). But for the source, the current source for RG2, which is source 2. This source is on the other network, so if input C fails, a failover will succeed. But the content will be curling, not the studio. The following diagram illustrates this undesirable setup. ![](images/2110-input-scenario-C-7.png) ## How failover works at runtime The following table describes how Elemental Live handles input failures, depending on which input is currently active. Read across each row. |
-| Scenario | Current active input | Result                                                                                                                                                                                                                                                                  |
-| ---      | ---                  | ---                                                                                                                                                                                                                                                                     |
-| 1        | Input A              | If input A fails, the event fails over to input B, which is the hot backup for input A. So Elemental Live switches to the other network).                                                                                                                               |
-| 2        | Input B              | Input B is active until the failback rules (to input A) take effect.If input B fails before the failback rules come into effect, Elemental Live follows the standard input failure behavior, which means it will repeat frames and so on, then finally display a slate. |
-| 3        | Input C              | If input C fails, the event fails over to input D, which is the hot backup for input C. So Elemental Live switches to the other network).                                                                                                                               |
-| 4        | Input D              | Input D is active until the failback rules (to input C) take effect.If input D fails before the failback rules come into effect, Elemental Live follows the standard input failure behavior, which means it will repeat frames and so on, then finally display a slate. | This diagram illustrates scenario 1. Elemental Live stops ingesting input A and starts to ingest input B (the hot backup for input A). Note that both input A and input C are affected when the network goes offline, as shown in the diagram. The event starts to process the studio feed from network 2 instead of network 1. ![](images/2110-input-scenario-C-5.png)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| Scenario | Current active input | Result                                                                                                             |
+| -------- | -------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| 1        | Input A              | Elemental Live stops ingesting input A and starts to ingest input C. Both<br>these inputs are on the same network. |
+| 2        | Input B              | Elemental Live stops ingesting input B and starts to ingest input D. Both<br>these inputs are on the same network. |
+| 3        | Input C              | Elemental Live stops ingesting input C and starts to ingest input A. Both<br>these inputs are on the same network. |
+| 4        | Input D              | Elemental Live stops ingesting input D and starts to ingest input B. Both<br>these inputs are on the same network. |
+
+This diagram illustrates scenario 1. The NMOS controller sends a patching request
+by sending new SDP content for RG1. When Elemental Live receives the request, it sets up the
+standby input (input C) with the new content, then switches from input A to input C.
+Input C becomes the active input. The event starts to process the studio feed from
+network 1 instead of the curling rink feed from network 1. The visual impact during
+the patch is controlled by the setting of the [Use make-before-break field](s2110-nmos-configure.md "s2110-nmos-configure.md").
+
+Typically, the NMOS controller will also send a patching request by sending new
+SDP content for RG2 (scenario 2). In this way, the hot backup for input C will be
+input D, which is the same content (the studio) but on the other network.
+
+![](images/2110-input-scenario-C-6.png)
+
+If the NMOS controller doesn't patch RG2, Elemental Live still prepares input D (the hot
+backup for input C). But for the source, the current source for RG2, which is source 2. This source is on the other network, so if input C fails, a failover will succeed.
+But the content will be curling, not the studio.
+
+The following diagram illustrates this undesirable setup.
+
+![](images/2110-input-scenario-C-7.png)
+
+## How failover works at
+
+runtime
+
+The following table describes how Elemental Live handles input failures, depending on which
+input is currently active. Read across each row.
+
+| Scenario | Current active input | Result                                                                                                                                                                                                                                                                              |
+| -------- | -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1        | Input A              | If input A fails, the event fails over to input B, which is the hot<br>backup for input A. So Elemental Live switches to the other network).                                                                                                                                        |
+| 2        | Input B              | Input B is active until the failback rules (to input A) take<br>effect.If input B fails before the failback rules come into<br>effect, Elemental Live follows the standard input failure behavior, which means<br>it will repeat frames and so on, then finally display a<br>slate. |
+| 3        | Input C              | If input C fails, the event fails over to input D, which is the hot<br>backup for input C. So Elemental Live switches to the other network).                                                                                                                                        |
+| 4        | Input D              | Input D is active until the failback rules (to input C) take<br>effect.If input D fails before the failback rules come into<br>effect, Elemental Live follows the standard input failure behavior, which means<br>it will repeat frames and so on, then finally display a<br>slate. |
+
+This diagram illustrates scenario 1. Elemental Live stops ingesting input A and starts to
+ingest input B (the hot backup for input A). Note that both input A and input C are
+affected when the network goes offline, as shown in the diagram. The event starts to
+process the studio feed from network 2 instead of network 1.
+
+![](images/2110-input-scenario-C-5.png)

@@ -17,10 +17,63 @@ an event.
 In the following table, each row shows a valid combination of the two
 fields and the result of that combination.
 
-| Color Space field                     | Force Color field      | HDR Master Display Information field                                                                              | Result                                                                                                                                                                                                                                                                                                                  |
-| ------------------------------------- | ---------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **FOLLOW**                            | This field is ignored. |                                                                                                                   | Passthrough. Elemental Live doesn't change the color space metadata.                                                                                                                                                                                                                                                    |
-| **REC_601** or **REC_709** or **HLG** | **Force**              |                                                                                                                   | Cleanup. Elemental Live marks all the content as using the specified color space.                                                                                                                                                                                                                                       |
-| **HDR10**                             | **Force**              | See /[Tips for HDR master display information](#color-space-input-display-data "#color-space-input-display-data") | Cleanup. Elemental Live marks all the content as using HDR10, and sets the metadata to the specified values.                                                                                                                                                                                                            |
-| **REC_601** or **REC_709** or **HLG** | **Fallback**           |                                                                                                                   | Cleanup. Elemental Live marks the content as using the specified color space only for portions that are marked as follows: <br>• Unmarked <br>• Marked as unknown <br>• Marked with an unsupported color space                                                                                                          |
-| **HDR10**                             | **Fallback**           | See /[Tips for HDR master display information](#color-space-input-display-data "#color-space-input-display-data") | Cleanup. Elemental Live marks the content as using the specified color space only for portions that are marked as follows: <br>• Unmarked <br>• Marked as unknown <br>• Marked with an unsupported color spaceElemental Live marks the relevant portions as using HDR10, and sets the metadata to the specified values. | ## Tips for HDR master display information The HDR Master Display Information fields appear in the color space fields if you set the **Color Space** field to HDR10. Take the appropriate action: <br>• Complete these fields only if your plan is to pass through this color space to the output, and only if the content provider has told you that the content currently doesn't include this metadata. For details about a field on the web interface, choose the question mark next to the field. If the content provider has told you that the content already contains the metadata, leave these fields blank. Make sure to obtain values used in the color grading process for the input. You can't use the defaults or null values and expect to obtain valid color results. It's better to set the fields to null values, rather than to make up values. <br>• Don't complete these fields if your plan is to convert from this HDR10 color space to another color space. ### Red, green, blue, white point x and y Your content provider might provide numbers like this for X and Y points: <br>• G (x=0.265, y=0.690) <br>• B (x=0.150, y=0.060) <br>• R (x=0.680, y=0.320) You must convert these numbers to numbers like this: <br>• G (13250, 34500) <br>• B (7500, 3000) <br>• R (34000, 16000) To convert between the two formats, divide each number by 0.00002 as per the HEVC specification. For example, 0.265 divided by 0.00002 is 13250. ### Max luminance and min luminance The maximum and minimum luminance are given in units of **0.0001 candelas per square meter**. Your content provider might provide this value in candelas per square meter instead. If so, then convert these numbers by multiplying by 10,000, then entering the result in the web interface. For example, a value of 1000.0000 cd/m2 for max luminance would be converted to 10,000,000 and entered as that in the web interface. |
+| Color Space field                                  | Force Color field      | HDR Master Display Information field                                                                              | Result                                                                                                                                                                                                                                                                                                                        |
+| -------------------------------------------------- | ---------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **FOLLOW**                                         | This field is ignored. |                                                                                                                   | Passthrough. Elemental Live doesn't change the color space<br>metadata.                                                                                                                                                                                                                                                       |
+| **REC_601\*<br>• or **REC_709**<br>or<br>**HLG\*\* | **Force**              |                                                                                                                   | Cleanup. Elemental Live marks all the content as using the<br>specified color space.                                                                                                                                                                                                                                          |
+| **HDR10**                                          | **Force**              | See /[Tips for HDR master display information](#color-space-input-display-data "#color-space-input-display-data") | Cleanup. Elemental Live marks all the content as using HDR10, and<br>sets the metadata to the specified values.                                                                                                                                                                                                               |
+| **REC_601\*<br>• or **REC_709**<br>or<br>**HLG\*\* | **Fallback**           |                                                                                                                   | Cleanup. Elemental Live marks the content as using the specified<br>color space only for portions that are marked as follows:<br>• Unmarked<br>• Marked as unknown<br>• Marked with an unsupported color space                                                                                                                |
+| **HDR10**                                          | **Fallback**           | See /[Tips for HDR master display information](#color-space-input-display-data "#color-space-input-display-data") | Cleanup. Elemental Live marks the content as using the<br>specified color space only for portions that are marked as<br>follows:<br>• Unmarked<br>• Marked as unknown<br>• Marked with an unsupported color spaceElemental Live marks the relevant portions as using<br>HDR10, and sets the metadata to the specified values. |
+
+## Tips for HDR master display information
+
+The HDR Master Display Information fields appear in the color space
+fields if you set the **Color Space** field to HDR10. Take
+the appropriate action:
+
+- Complete these fields only if your plan is to pass through this
+  color space to the output, and only if the content provider has told you
+  that the content currently doesn't include this metadata. For details
+  about a field on the web interface, choose the question mark next to the
+  field.
+
+If the content provider has told you that the content already
+contains the metadata, leave these fields blank.
+
+Make sure to obtain values used in the color grading process for the
+input. You can't use the defaults or null values and expect to obtain
+valid color results. It's better to set the fields to null values, rather
+than to make up values.
+
+- Don't complete these fields if your plan is to convert from this
+  HDR10 color space to another color space.
+
+### Red, green, blue, white point x and y
+
+Your content provider might provide numbers like this for X and Y
+points:
+
+- G (x=0.265, y=0.690)
+- B (x=0.150, y=0.060)
+- R (x=0.680, y=0.320)
+
+You must convert these numbers to numbers like this:
+
+- G (13250, 34500)
+- B (7500, 3000)
+- R (34000, 16000)
+
+To convert between the two formats, divide each number by 0.00002 as
+per the HEVC specification.
+
+For example, 0.265 divided by 0.00002 is 13250.
+
+### Max luminance and min luminance
+
+The maximum and minimum luminance are given in units of **0.0001 candelas per square meter**. Your content
+provider might provide this value in candelas per square meter instead. If
+so, then convert these numbers by multiplying by 10,000, then entering the
+result in the web interface.
+
+For example, a value of 1000.0000 cd/m2 for max luminance would be
+converted to 10,000,000 and entered as that in the web interface.

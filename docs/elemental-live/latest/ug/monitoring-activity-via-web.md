@@ -20,8 +20,20 @@ Elemental Live web interface.
 information
 
 | Input background | Icon in control column | State          |
-| ---------------- | ---------------------- | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ---------------- | ---------------------- | -------------- |
 | Green            | Spinner icon           | Active         |
 | Green            | Arrow icon             | Prepared       |
 | Brown            | Arrow icon             | Being prepared |
-| Gray             | Arrow icon             | Idle           | The orange numbers down the left side are on-screen numbers, for display purposes only. The numbers in the ID column are the REST IDs of the inputs. ## Controls The operator can click the triangle to switch to that input. The input will become Active. Processing will stop on the current Active input. |
+| Gray             | Arrow icon             | Idle           |
+
+The orange numbers down the left side are on-screen
+numbers, for display purposes only.
+
+The numbers in the ID column are the REST IDs of the
+inputs.
+
+## Controls
+
+The operator can click the triangle to switch to that
+input. The input will become Active. Processing will stop on
+the current Active input.
