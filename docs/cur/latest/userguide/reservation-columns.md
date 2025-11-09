@@ -4,4 +4,445 @@ Columns under the **reservation** header in AWS Cost and Usage Reports
 provide details about reserved resources.
 
 [A](#r-A "#r-A") | B | C | D | [E](#r-E "#r-E") | F | G | H | I | J | K | L | [M](#r-M "#r-M") | [N](#r-N "#r-N") | O
-| P | Q | [R](#r-R "#r-R") | [S](#r-S "#r-S") | [T](#r-T "#r-T") | [U](#r-U "#r-U") | VWXYZ ## A ### reservation/AmortizedUpfrontCostForUsage <br>• **Description:** The initial upfront payment for all upfront RIs and partial upfront RIs amortized for usage time. The value is equal to: `RIAmortizedUpfrontFeeForBillingPeriod` \* `The normalized usage amount for DiscountedUsage line items` / `The normalized usage amount for the RIFee`. Because there are no upfront payments for no upfront RIs, the value for a no upfront RI is `0`. We do not provide this value for Dedicated Host reservations at this time. The change will be made in a future update. <br>• **Line items applicable:** DiscountedUsage <br>• **Sample values:** `0.05`, `0.17`, `0.15` <br>• **Services:** + Amazon EC2 + OpenSearch Service + Amazon DynamoDB + Amazon Redshift + Amazon ElastiCache + Amazon RDS ### reservation/AmortizedUpfrontFeeForBillingPeriod <br>• **Description:** Describes how much of the upfront fee for this reservation is costing you for the billing period. The initial upfront payment for all upfront RIs and partial upfront RIs, amortized over this month. Because there are no upfront fees for no upfront RIs, the value for no upfront RIs is `0`. We do not provide this value for Dedicated Host reservations at this time. The change will be made in a future update. <br>• **Line items applicable:** RIFee <br>• **Sample values:** `29.15`, `200.67`, `214.43` <br>• **Services:** + Amazon EC2 + OpenSearch Service + Amazon DynamoDB + Amazon Redshift + Amazon ElastiCache + Amazon RDS ### reservation/AvailabilityZone <br>• **Description:** The Availability Zone of the resource that is associated with this line item. <br>• **Line items applicable:** Fee, Refund, RIFee <br>• **Sample values:** `us-east-1`, `us-east-1b`, `eu-west-1b`, `ap-southeast-2a` <br>• **Services:** + Amazon EC2 ## E ### reservation/EffectiveCost <br>• **Description:** The sum of both the upfront and hourly rate of your RI, averaged into an effective hourly rate. `EffectiveCost` is calculated by taking the `amortizedUpfrontCostForUsage` and adding it to the `recurringFeeForUsage`. For more information, see [Amazon EC2 Reserved Instances Pricing](https://aws.amazon.com/ec2/pricing/reserved-instances/pricing/ "https://aws.amazon.com/ec2/pricing/reserved-instances/pricing/"). <br>• **Line items applicable:** DiscountedUsage <br>• **Sample values:** `0.23`, `0.68`, `0.10` <br>• **Services:** + Amazon EC2 + OpenSearch Service + Amazon DynamoDB + Amazon ElastiCache + Amazon RDS ### reservation/EndTime <br>• **Description:** The end date of the associated RI lease term. <br>• **Line items applicable:** RIFee <br>• **Sample values:** `2019-05-15T04:23:14.000Z`, `2020-02-08T17:32:15.000Z`, `2019-07-14T00:00:33.000Z` <br>• **Services:** + Amazon EC2 + OpenSearch Service + Amazon Redshift + Amazon ElastiCache + Amazon RDS ## M ### reservation/ModificationStatus <br>• **Description:** Shows whether the RI lease was modified or if it is unaltered. + **Original:** The purchased RI was never modified. + **System:** The purchased RI was modified using the console or API. + **Manual:** The purchased RI was modified using AWS Support assistance. + **ManualWithData:** The purchased RI was modified using AWS Support assistance, and AWS calculated estimates for the RI. <br>• **Line items applicable:** RIFee <br>• **Sample values:** `Original`, `System`, `Manual`, `ManualWithData` <br>• **Services:** + Amazon EC2 + OpenSearch Service + Amazon DynamoDB + Amazon Redshift + Amazon ElastiCache + Amazon RDS ## N ### reservation/NetAmortizedUpfrontCostForUsage The initial upfront payment for All Upfront RIs and Partial Upfront RIs amortized for usage time, if applicable. This column is included in your report only when your account has a discount in the applicable billing period. ### reservation/NetAmortizedUpfrontFeeForBillingPeriod The cost of the reservation's upfront fee for the billing period. This column is included in your report only when your account has a discount in the applicable billing period. ### reservation/NetEffectiveCost The sum of both the upfront fee and the hourly rate of your RI, averaged into an effective hourly rate. This column is included in your report only when your account has a discount in the applicable billing period. ### reservation/NetRecurringFeeForUsage The after-discount cost of the recurring usage fee. This column is included in your report only when your account has a discount in the applicable billing period. ### reservation/NetUnusedAmortizedUpfrontFeeForBillingPeriod The net unused amortized upfront fee for the billing period. This column is included in your report only when your account has a discount in the applicable billing period. ### reservation/NetUnusedRecurringFee The recurring fees associated with unused reservation hours for Partial Upfront and No Upfront RIs after discounts. This column is included in your report only when your account has a discount in the applicable billing period. ### reservation/NetUpfrontValue The upfront value of the RI with discounts applied. This column is included in your report only when your account has a discount in the applicable billing period. ### reservation/NormalizedUnitsPerReservation <br>• **Description:** The number of normalized units for each instance of a reservation subscription. <br>• **Line items applicable:** RIFee <br>• **Sample values:** `1316`, `54.5`, `319` <br>• **Services:** + Amazon RDS ### reservation/NumberOfReservations <br>• **Description:** The number of reservations that are covered by this subscription. For example, one RI subscription might have four associated RI reservations. <br>• **Line items applicable:** Fee, RIFee, Refund, Credit <br>• **Sample values:** `5`, `50`, `500` <br>• **Services:** + Amazon EC2 + OpenSearch Service + Amazon DynamoDB + Amazon Redshift + Amazon ElastiCache + Amazon RDS ## R ### reservation/RecurringFeeForUsage <br>• **Description:** The recurring fee amortized for usage time, for partial upfront RIs and no upfront RIs. The value is equal to: `The unblended cost of the RIFee` \* `The sum of the normalized usage amount of Usage line items` / `The normalized usage amount of the RIFee for size flexible Reserved Instances`. Because all upfront RIs don't have recurring fee payments greater than `0`, the value for all upfront RIs is `0`. <br>• **Line items applicable:** DiscountedUsage <br>• **Sample values:** `0.139`, `0.729`, `0.018` <br>• **Services:** + Amazon EC2 + OpenSearch Service + Amazon DynamoDB + Amazon ElastiCache + Amazon RDS ### reservation/ReservationARN <br>• **Description:** The Amazon Resource Name (ARN) of the RI that this line item benefited from. This is also called the "RI Lease ID". This is a unique identifier of this particular AWS Reserved Instance. The value string also contains the AWS service name and the Region where the RI was purchased. <br>• **Line items applicable:** Fee, RIFee, DiscountedUsage, Refund, Credit <br>• **Sample values:** `arn:aws:ec2:us-east-1:074108124787:reserved-instances/1d3fbc13-f181-4c40-9dd6-12b345678de9`, `arn:aws:ec2:us-east-1:499958231354:reserved-instances/be41234c3-b5c0-403e-a80c-1cfd12345678` <br>• **Services:** + Amazon EC2 + OpenSearch Service + Amazon DynamoDB + Amazon Redshift + Amazon ElastiCache + Amazon RDS ## S ### reservation/StartTime <br>• **Description:** The start date of the term of the associated Reserved Instance. <br>• **Line items applicable:** RIFee <br>• **Sample values:** `2018-07-29T02:56:10.000Z`, `2017-08-21T15:58:47.000Z`, `2019-02-01T22:01:34.000Z` <br>• **Services:** + Amazon EC2 + OpenSearch Service + Amazon Redshift + Amazon ElastiCache + Amazon RDS ### reservation/SubscriptionId <br>• **Description:** A unique identifier that maps a line item with the associated offer. We recommend you use the RI ARN as your identifier of an AWS Reserved Instance, but both can be used. <br>• **Line items applicable:** Fee, RIFee, DiscountedUsage, Refund, Credit, and Usage <br>• **Sample values:** `123456789`, `111122222`, `333344444` <br>• **Services:** + Amazon EC2 + OpenSearch Service + Amazon DynamoDB + Amazon Redshift + Amazon ElastiCache + Amazon RDS ## T ### reservation/TotalReservedNormalizedUnits <br>• **Description:** The total number of reserved normalized units for all instances for a reservation subscription. AWS computes total normalized units by multiplying the `reservation/NormalizedUnitsPerReservation` with `reservation/NumberOfReservations`. <br>• **Line items applicable:** DiscountedUsage <br>• **Sample values:** `40320`, `3647.99`, `17928.77` <br>• **Services:** + Amazon EC2 + Amazon RDS ### reservation/TotalReservedUnits <br>• **Description:** `TotalReservedUnits` populates for both Fee and RIFee line items with distinct values. + Fee line items: The total number of units reserved, for the total quantity of leases purchased in your subscription for the entire term. This is calculated by multiplying the `NumberOfReservations` with `UnitsPerReservation`. For example, 5 RIs x 744 hours per month x 12 months = 44,640. + RIFee line items (monthly recurring costs): The total number of available units in your subscription, such as the total number of Amazon EC2 hours in a specific RI subscription. For example, 5 RIs x 744 hours = 3,720. <br>• **Line items applicable:** Fee, RIFee, Refund, Credit <br>• **Sample values:** `26208`, `98.19`, `15796` <br>• **Services:** + Amazon EC2 + OpenSearch Service + Amazon DynamoDB + Amazon Redshift + Amazon ElastiCache + Amazon RDS ## U ### reservation/UnitsPerReservation <br>• **Description:** `UnitsPerReservation` populates for both Fee and RIFee line items with distinct values. + Fee line items: The total number of units reserved for the subscription, such as the total number of RI hours purchased for the term of the subscription. For example 744 hours per month x 12 months = 8,928 total hours/units. + RIFee line items (monthly recurring costs): The total number of available units in your subscription, such as the total number of Amazon EC2 hours in a specific RI subscription. For example, 1 unit x 744 hours = 744. <br>• **Line items applicable:** Fee, RIFee, Refund, Credit <br>• **Sample values:** `334.0`, `486.72`, `18455` <br>• **Services:** + Amazon EC2 + OpenSearch Service + Amazon DynamoDB + Amazon Redshift + Amazon ElastiCache + Amazon RDS ### reservation/UnusedAmortizedUpfrontFeeForBillingPeriod <br>• **Description:** The amortized-upfront-fee-for-billing-period-column amortized portion of the initial upfront fee for all upfront RIs and partial upfront RIs. Because there are no upfront payments for no upfront RIs, the value for no upfront RIs is `0`. We do not provide this value for Dedicated Host reservations at this time. The change will be made in a future update. <br>• **Line items applicable:** RIFee <br>• **Sample values:** `6.05`, `1.97`, `0.17` <br>• **Services:** + Amazon EC2 + OpenSearch Service + Amazon Redshift + Amazon ElastiCache + Amazon RDS ### reservation/UnusedNormalizedUnitQuantity <br>• **Description:** The number of unused normalized units for a size-flexible Regional RI that you didn't use during this billing period. <br>• **Line items applicable:** RIFee <br>• **Sample values:** `25.00`, `3.50`, `274.33` <br>• **Services:** + Amazon RDS ### reservation/UnusedQuantity <br>• **Description:** The number of RI hours that you didn't use during this billing period. <br>• **Line items applicable:** RIFee line item <br>• **Sample values:** `209.65110408`, `191.00000000`, `176.00000000` <br>• **Services:** + Amazon EC2 + OpenSearch Service + Amazon Redshift + Amazon ElastiCache + Amazon RDS ### reservation/UnusedRecurringFee <br>• **Description:** The recurring fees associated with your unused reservation hours for partial upfront and no upfront RIs. Because all upfront RIs don't have recurring fees greater than `0`, the value for All Upfront RIs is `0`. <br>• **Line items applicable:** RIFee <br>• **Sample values:** `0.02971114`, `0.19190000`, `1.37280000` <br>• **Services:** + Amazon EC2 + OpenSearch Service + Amazon Redshift + Amazon ElastiCache + Amazon RDS ### reservation/UpfrontValue <br>• **Description:** The upfront price paid for your AWS Reserved Instance. For no upfront RIs, this value is `0`. <br>• **Line items applicable:** RIFee <br>• **Sample values:** `150.00`, `1000.00`, `2000.00` <br>• **Services:** + Amazon EC2 + OpenSearch Service + Amazon Redshift + Amazon ElastiCache + Amazon RDS
+| P | Q | [R](#r-R "#r-R") | [S](#r-S "#r-S") | [T](#r-T "#r-T") |
+[U](#r-U "#r-U") | VWXYZ
+
+## A
+
+### reservation/AmortizedUpfrontCostForUsage
+
+- **Description:** The initial upfront
+  payment for all upfront RIs and partial upfront RIs amortized for usage
+  time. The value is equal to:
+  `RIAmortizedUpfrontFeeForBillingPeriod` \* `The
+normalized usage amount for DiscountedUsage line items` /
+  `The normalized usage amount for the RIFee`. Because
+  there are no upfront payments for no upfront RIs, the value for a no
+  upfront RI is `0`. We do not provide this value for Dedicated
+  Host reservations at this time. The change will be made in a future
+  update.
+- **Line items applicable:**
+  DiscountedUsage
+- **Sample values:**
+  `0.05`, `0.17`, `0.15`
+- **Services:**
+  - Amazon EC2
+  - OpenSearch Service
+  - Amazon DynamoDB
+  - Amazon Redshift
+  - Amazon ElastiCache
+  - Amazon RDS
+
+### reservation/AmortizedUpfrontFeeForBillingPeriod
+
+- **Description:** Describes how much of
+  the upfront fee for this reservation is costing you for the billing
+  period. The initial upfront payment for all upfront RIs and partial
+  upfront RIs, amortized over this month. Because there are no upfront
+  fees for no upfront RIs, the value for no upfront RIs is `0`.
+  We do not provide this value for Dedicated Host reservations at this
+  time. The change will be made in a future update.
+- **Line items applicable:** RIFee
+- **Sample values:**
+  `29.15`, `200.67`, `214.43`
+- **Services:**
+  - Amazon EC2
+  - OpenSearch Service
+  - Amazon DynamoDB
+  - Amazon Redshift
+  - Amazon ElastiCache
+  - Amazon RDS
+
+### reservation/AvailabilityZone
+
+- **Description:** The Availability Zone of
+  the resource that is associated with this line item.
+- **Line items applicable:** Fee, Refund,
+  RIFee
+- **Sample values:**
+  `us-east-1`, `us-east-1b`,
+  `eu-west-1b`, `ap-southeast-2a`
+- **Services:**
+  - Amazon EC2
+
+## E
+
+### reservation/EffectiveCost
+
+- **Description:** The sum of both the
+  upfront and hourly rate of your RI, averaged into an effective hourly
+  rate. `EffectiveCost` is calculated by taking the
+  `amortizedUpfrontCostForUsage` and adding it to the
+  `recurringFeeForUsage`. For more information, see [Amazon EC2 Reserved Instances Pricing](https://aws.amazon.com/ec2/pricing/reserved-instances/pricing/ "https://aws.amazon.com/ec2/pricing/reserved-instances/pricing/").
+- **Line items applicable:**
+  DiscountedUsage
+- **Sample values:**
+  `0.23`, `0.68`, `0.10`
+- **Services:**
+  - Amazon EC2
+  - OpenSearch Service
+  - Amazon DynamoDB
+  - Amazon ElastiCache
+  - Amazon RDS
+
+### reservation/EndTime
+
+- **Description:** The end date of the
+  associated RI lease term.
+- **Line items applicable:** RIFee
+- **Sample values:**
+  `2019-05-15T04:23:14.000Z`,
+  `2020-02-08T17:32:15.000Z`,
+  `2019-07-14T00:00:33.000Z`
+- **Services:**
+  - Amazon EC2
+  - OpenSearch Service
+  - Amazon Redshift
+  - Amazon ElastiCache
+  - Amazon RDS
+
+## M
+
+### reservation/ModificationStatus
+
+- **Description:** Shows whether the RI
+  lease was modified or if it is unaltered.
+  - **Original:** The purchased RI
+    was never modified.
+  - **System:** The purchased RI was
+    modified using the console or API.
+  - **Manual:** The purchased RI was
+    modified using AWS Support assistance.
+  - **ManualWithData:** The purchased
+    RI was modified using AWS Support assistance, and AWS calculated
+    estimates for the RI.
+
+- **Line items applicable:** RIFee
+- **Sample values:**
+  `Original`, `System`, `Manual`,
+  `ManualWithData`
+- **Services:**
+  - Amazon EC2
+  - OpenSearch Service
+  - Amazon DynamoDB
+  - Amazon Redshift
+  - Amazon ElastiCache
+  - Amazon RDS
+
+## N
+
+### reservation/NetAmortizedUpfrontCostForUsage
+
+The initial upfront payment for All Upfront RIs and Partial Upfront RIs
+amortized for usage time, if applicable. This column is included in your report
+only when your account has a discount in the applicable billing period.
+
+### reservation/NetAmortizedUpfrontFeeForBillingPeriod
+
+The cost of the reservation's upfront fee for the billing period. This column
+is included in your report only when your account has a discount in the
+applicable billing period.
+
+### reservation/NetEffectiveCost
+
+The sum of both the upfront fee and the hourly rate of your RI, averaged into
+an effective hourly rate. This column is included in your report only when your
+account has a discount in the applicable billing period.
+
+### reservation/NetRecurringFeeForUsage
+
+The after-discount cost of the recurring usage fee. This column is included in
+your report only when your account has a discount in the applicable billing
+period.
+
+### reservation/NetUnusedAmortizedUpfrontFeeForBillingPeriod
+
+The net unused amortized upfront fee for the billing period. This column is
+included in your report only when your account has a discount in the applicable
+billing period.
+
+### reservation/NetUnusedRecurringFee
+
+The recurring fees associated with unused reservation hours for Partial
+Upfront and No Upfront RIs after discounts. This column is included in your
+report only when your account has a discount in the applicable billing
+period.
+
+### reservation/NetUpfrontValue
+
+The upfront value of the RI with discounts applied. This column is included in
+your report only when your account has a discount in the applicable billing
+period.
+
+### reservation/NormalizedUnitsPerReservation
+
+- **Description:** The number of normalized
+  units for each instance of a reservation subscription.
+- **Line items applicable:** RIFee
+- **Sample values:**
+  `1316`, `54.5`, `319`
+- **Services:**
+  - Amazon RDS
+
+### reservation/NumberOfReservations
+
+- **Description:** The number of
+  reservations that are covered by this subscription. For example, one RI
+  subscription might have four associated RI reservations.
+- **Line items applicable:** Fee, RIFee,
+  Refund, Credit
+- **Sample values:**
+  `5`, `50`, `500`
+- **Services:**
+  - Amazon EC2
+  - OpenSearch Service
+  - Amazon DynamoDB
+  - Amazon Redshift
+  - Amazon ElastiCache
+  - Amazon RDS
+
+## R
+
+### reservation/RecurringFeeForUsage
+
+- **Description:** The recurring fee
+  amortized for usage time, for partial upfront RIs and no upfront RIs.
+  The value is equal to: `The unblended cost of the RIFee` \*
+  `The sum of the normalized usage amount of Usage line
+items` / `The normalized usage amount of the RIFee for
+size flexible Reserved Instances`. Because all upfront RIs
+  don't have recurring fee payments greater than `0`, the
+  value for all upfront RIs is `0`.
+- **Line items applicable:**
+  DiscountedUsage
+- **Sample values:**
+  `0.139`, `0.729`, `0.018`
+- **Services:**
+  - Amazon EC2
+  - OpenSearch Service
+  - Amazon DynamoDB
+  - Amazon ElastiCache
+  - Amazon RDS
+
+### reservation/ReservationARN
+
+- **Description:** The Amazon Resource Name
+  (ARN) of the RI that this line item benefited from. This is also called
+  the "RI Lease ID". This is a unique identifier of this
+  particular AWS Reserved Instance. The value string also contains the
+  AWS service name and the Region where the RI was purchased.
+- **Line items applicable:** Fee, RIFee,
+  DiscountedUsage, Refund, Credit
+- **Sample values:**
+  `arn:aws:ec2:us-east-1:074108124787:reserved-instances/1d3fbc13-f181-4c40-9dd6-12b345678de9`,
+  `arn:aws:ec2:us-east-1:499958231354:reserved-instances/be41234c3-b5c0-403e-a80c-1cfd12345678`
+- **Services:**
+  - Amazon EC2
+  - OpenSearch Service
+  - Amazon DynamoDB
+  - Amazon Redshift
+  - Amazon ElastiCache
+  - Amazon RDS
+
+## S
+
+### reservation/StartTime
+
+- **Description:** The start date of the
+  term of the associated Reserved Instance.
+- **Line items applicable:** RIFee
+- **Sample values:**
+  `2018-07-29T02:56:10.000Z`,
+  `2017-08-21T15:58:47.000Z`,
+  `2019-02-01T22:01:34.000Z`
+- **Services:**
+  - Amazon EC2
+  - OpenSearch Service
+  - Amazon Redshift
+  - Amazon ElastiCache
+  - Amazon RDS
+
+### reservation/SubscriptionId
+
+- **Description:** A unique identifier that
+  maps a line item with the associated offer. We recommend you use the RI
+  ARN as your identifier of an AWS Reserved Instance, but both can be
+  used.
+- **Line items applicable:** Fee, RIFee,
+  DiscountedUsage, Refund, Credit, and Usage
+- **Sample values:**
+  `123456789`, `111122222`,
+  `333344444`
+- **Services:**
+  - Amazon EC2
+  - OpenSearch Service
+  - Amazon DynamoDB
+  - Amazon Redshift
+  - Amazon ElastiCache
+  - Amazon RDS
+
+## T
+
+### reservation/TotalReservedNormalizedUnits
+
+- **Description:** The total number of
+  reserved normalized units for all instances for a reservation
+  subscription. AWS computes total normalized units by multiplying the
+  `reservation/NormalizedUnitsPerReservation` with
+  `reservation/NumberOfReservations`.
+- **Line items applicable:**
+  DiscountedUsage
+- **Sample values:**
+  `40320`, `3647.99`, `17928.77`
+- **Services:**
+  - Amazon EC2
+  - Amazon RDS
+
+### reservation/TotalReservedUnits
+
+- **Description:**
+  `TotalReservedUnits` populates for both Fee and RIFee line
+  items with distinct values.
+
+      + Fee line items: The total number of units reserved, for the
+       total quantity of leases purchased in your subscription for the
+       entire term.
+
+
+      This is calculated by multiplying the
+       `NumberOfReservations` with
+       `UnitsPerReservation`. For example, 5 RIs x 744
+       hours per month x 12 months = 44,640.
+      + RIFee line items (monthly recurring costs): The
+       total number of available units in your subscription, such as
+       the total number of Amazon EC2 hours in a specific RI
+       subscription.
+
+
+      For example, 5 RIs x 744 hours = 3,720.
+
+- **Line items applicable:** Fee, RIFee,
+  Refund, Credit
+- **Sample values:**
+  `26208`, `98.19`, `15796`
+- **Services:**
+  - Amazon EC2
+  - OpenSearch Service
+  - Amazon DynamoDB
+  - Amazon Redshift
+  - Amazon ElastiCache
+  - Amazon RDS
+
+## U
+
+### reservation/UnitsPerReservation
+
+- **Description:**
+  `UnitsPerReservation` populates for both Fee and RIFee line
+  items with distinct values.
+
+      + Fee line items: The total number of units reserved for the
+       subscription, such as the total number of RI hours purchased for
+       the term of the subscription.
+
+
+      For example 744 hours per month x 12 months = 8,928
+       total hours/units.
+      + RIFee line items (monthly recurring costs): The
+       total number of available units in your subscription, such as
+       the total number of Amazon EC2 hours in a specific RI
+       subscription.
+
+
+      For example, 1 unit x 744 hours = 744.
+
+- **Line items applicable:** Fee, RIFee,
+  Refund, Credit
+- **Sample values:**
+  `334.0`, `486.72`, `18455`
+- **Services:**
+  - Amazon EC2
+  - OpenSearch Service
+  - Amazon DynamoDB
+  - Amazon Redshift
+  - Amazon ElastiCache
+  - Amazon RDS
+
+### reservation/UnusedAmortizedUpfrontFeeForBillingPeriod
+
+- **Description:** The
+  amortized-upfront-fee-for-billing-period-column amortized portion of the
+  initial upfront fee for all upfront RIs and partial upfront RIs. Because
+  there are no upfront payments for no upfront RIs, the value for no
+  upfront RIs is `0`. We do not provide this value for
+  Dedicated Host reservations at this time. The change will be made in a
+  future update.
+- **Line items applicable:** RIFee
+- **Sample values:**
+  `6.05`, `1.97`, `0.17`
+- **Services:**
+  - Amazon EC2
+  - OpenSearch Service
+  - Amazon Redshift
+  - Amazon ElastiCache
+  - Amazon RDS
+
+### reservation/UnusedNormalizedUnitQuantity
+
+- **Description:** The number of unused
+  normalized units for a size-flexible Regional RI that you didn't
+  use during this billing period.
+- **Line items applicable:** RIFee
+- **Sample values:**
+  `25.00`, `3.50`, `274.33`
+- **Services:**
+  - Amazon RDS
+
+### reservation/UnusedQuantity
+
+- **Description:** The number of RI hours
+  that you didn't use during this billing period.
+- **Line items applicable:** RIFee line
+  item
+- **Sample values:**
+  `209.65110408`, `191.00000000`,
+  `176.00000000`
+- **Services:**
+  - Amazon EC2
+  - OpenSearch Service
+  - Amazon Redshift
+  - Amazon ElastiCache
+  - Amazon RDS
+
+### reservation/UnusedRecurringFee
+
+- **Description:** The recurring fees
+  associated with your unused reservation hours for partial upfront and no
+  upfront RIs. Because all upfront RIs don't have recurring fees
+  greater than `0`, the value for All Upfront RIs is
+  `0`.
+- **Line items applicable:** RIFee
+- **Sample values:**
+  `0.02971114`, `0.19190000`,
+  `1.37280000`
+- **Services:**
+  - Amazon EC2
+  - OpenSearch Service
+  - Amazon Redshift
+  - Amazon ElastiCache
+  - Amazon RDS
+
+### reservation/UpfrontValue
+
+- **Description:** The upfront price paid
+  for your AWS Reserved Instance. For no upfront RIs, this value is
+  `0`.
+- **Line items applicable:** RIFee
+- **Sample values:**
+  `150.00`, `1000.00`, `2000.00`
+- **Services:**
+  - Amazon EC2
+  - OpenSearch Service
+  - Amazon Redshift
+  - Amazon ElastiCache
+  - Amazon RDS

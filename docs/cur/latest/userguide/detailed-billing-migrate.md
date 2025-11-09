@@ -125,33 +125,100 @@ needed. When you begin using a new AWS service, AWS CUR can dynamically start to
 include new data in the report that might be useful in your case. The manifest
 file provides a map of all columns present in the report.
 
-| Equivalent Column Names for DBR and AWS CUR | DBR column name                                                                                                 | AWS CUR column name                                                                                                                                                                                                          |
-| ------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------- | -------- |
-| InvoiceId                                   | bill/InvoiceId                                                                                                  |
-| PayerAccountId                              | bill/PayerAccountId                                                                                             |
-| LinkedAccountId                             | lineItem/UsageAccountId                                                                                         |
-| ProductName                                 | product/ProductName                                                                                             |
-| SubscriptionId                              | reservation/subscriptionid                                                                                      |
-| UsageType                                   | lineItem/UsageType                                                                                              |
-| Operation                                   | lineItem/Operation                                                                                              |
-| AvailabilityZone                            | lineItem/AvailabilityZone                                                                                       |
-| ReservedInstance                            | Not Supported                                                                                                   |
-| ItemDescription                             | lineItem/LineItemDescription                                                                                    |
-| UsageStartDate                              | lineItem/UsageStartDate                                                                                         |
-| UsageEndDate                                | lineItem/UsageEndDate                                                                                           |
-| UsageQuantity                               | lineItem/UsageAmount                                                                                            |
-| BlendedRate                                 | lineItem/BlendedRate                                                                                            |
-| BlendedCost                                 | lineItem/BlendedCost                                                                                            |
-| UnBlendedRate                               | lineItem/UnblendedRate                                                                                          |
-| UnBlendedCost                               | lineItem/UnblendedCost                                                                                          |
-| ResourceId                                  | lineItem/ResourceId                                                                                             |
-| RecordType                                  | Not Supported                                                                                                   |
-| PricingplanId                               | Not Supported                                                                                                   |
-| RateID                                      | pricing/RateId                                                                                                  | ###### Note There's no equivalent for RecordId in AWS CUR. But, you can gather this information by combining identity/LineItemId, identity/TimeInterval, and bill/BillType. Retrieving DBR RecordType values through AWS CUR | RecordType values in DBR                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | Syntax to retrieve RecordType through AWS CUR | Use case |
-| ---                                         | ---                                                                                                             | ---                                                                                                                                                                                                                          |
-| LineItem                                    | SELECT SUM(line_item_unblended_cost) FROM [CUR] WHERE line_item_line_item_type = 'Usage'                        | Usage line item partitions out usage costs from one-time charges (for example, upfront RI payment).                                                                                                                          |
-| InvoiceTotal                                | SELECT (bill_invoice_id), sum(line_item_unblended_cost) FROM [CUR] GROUP BY bill_invoice_id                     | You can use invoice total to reconcile your costs between Invoices and Cost and Usage Reports.                                                                                                                               |
-| AccountTotal                                | SELECT line_item_usage_account_id, sum(line_item_unblended_cost) FROM [CUR] GROUP BY line_item_usage_account_id | You can use account total to isolate costs related to your member accounts for charge back purposes.                                                                                                                         |
-| StatementTotal                              | SELECT SUM(line_item_unblended_cost) FROM [CUR]                                                                 | You can use statement total to understand your costs for the billing period.                                                                                                                                                 |
-| Discount                                    | SELECT SUM(line_item_unblended_cost) FROM [CUR] WHERE line_item_line_item_type = 'Discount'                     | You can use discount line items to identify all of your discount-related line items.                                                                                                                                         |
-| Rounding                                    | Not yet supported                                                                                               | Not yet supported                                                                                                                                                                                                            | ## Reporting on advanced charge types ### Refunds AWS CUR: Refunds are identified by filtering for the `lineItem/LineItemDescription = ‘Refund’` string. DBR: Refunds are identified by checking the ItemDescription column for the `‘Refund’` substring. ### Credits AWS CUR: Credits are identified by filtering for the `lineItem/LineItemDescription = ‘Credit’` string. DBR: Credits are identified by checking the ItemDescription column for the `‘Credit’` substring. ### Taxes AWS CUR: Taxes are identified by filtering for the `lineItem/LineItemDescription = ‘Tax’` string. DBR: Taxes are identified by checking the ItemDescription column for the `‘Tax’` substring. ### Identifying reservation-related upfront costs AWS CUR: Reservation-related upfront costs are identified by filtering for the `"lineItem/LineItemType" = 'Fee'` string. DBR: Reservation-related upfront costs are identified by checking the UsageType column for the `'HeavyUsage'` substring, and whether the `'SubscriptionId'` is null. ### Identifying reservation-related monthly fees AWS CUR: Reservation-related monthly fees are identified by filtering for the `"lineItem/LineItemType" = 'RIfee'` string. DBR: Reservation-related monthly fees are identified by checking the UsageType column for the `'HeavyUsage'` substring. ### Identifying instances that received reserved instance benefits AWS CUR: Reservation-related upfront fees are identified by filtering for the `"lineItem/LineItemType" = 'DiscountedUsage'` string. DBR: Reservation-related upfront fees are identified by checking the ReservedInstance column for the `'Y'` substring. |
+| Equivalent Column Names for DBR and AWS CUR | DBR column name              | AWS CUR column name |
+| ------------------------------------------- | ---------------------------- | ------------------- |
+| InvoiceId                                   | bill/InvoiceId               |
+| PayerAccountId                              | bill/PayerAccountId          |
+| LinkedAccountId                             | lineItem/UsageAccountId      |
+| ProductName                                 | product/ProductName          |
+| SubscriptionId                              | reservation/subscriptionid   |
+| UsageType                                   | lineItem/UsageType           |
+| Operation                                   | lineItem/Operation           |
+| AvailabilityZone                            | lineItem/AvailabilityZone    |
+| ReservedInstance                            | Not Supported                |
+| ItemDescription                             | lineItem/LineItemDescription |
+| UsageStartDate                              | lineItem/UsageStartDate      |
+| UsageEndDate                                | lineItem/UsageEndDate        |
+| UsageQuantity                               | lineItem/UsageAmount         |
+| BlendedRate                                 | lineItem/BlendedRate         |
+| BlendedCost                                 | lineItem/BlendedCost         |
+| UnBlendedRate                               | lineItem/UnblendedRate       |
+| UnBlendedCost                               | lineItem/UnblendedCost       |
+| ResourceId                                  | lineItem/ResourceId          |
+| RecordType                                  | Not Supported                |
+| PricingplanId                               | Not Supported                |
+| RateID                                      | pricing/RateId               |
+
+###### Note
+
+There's no equivalent for RecordId in AWS CUR. But, you can gather this
+information by combining identity/LineItemId, identity/TimeInterval, and
+bill/BillType.
+
+| Retrieving DBR RecordType values through AWS CUR | RecordType values in DBR                                                                                              | Syntax to retrieve RecordType through AWS CUR                                                           | Use case |
+| ------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | -------- |
+| LineItem                                         | SELECT SUM(line_item_unblended_cost) FROM [CUR] WHERE<br>line_item_line_item_type = 'Usage'                           | Usage line item partitions out usage costs from one-time<br>charges (for example, upfront RI payment).  |
+| InvoiceTotal                                     | SELECT (bill_invoice_id), sum(line_item_unblended_cost)<br>FROM [CUR] GROUP BY bill_invoice_id                        | You can use invoice total to reconcile your costs between<br>Invoices and Cost and Usage Reports.       |
+| AccountTotal                                     | SELECT line_item_usage_account_id,<br>sum(line_item_unblended_cost) FROM [CUR] GROUP BY<br>line_item_usage_account_id | You can use account total to isolate costs related to<br>your member accounts for charge back purposes. |
+| StatementTotal                                   | SELECT SUM(line_item_unblended_cost) FROM [CUR]                                                                       | You can use statement total to understand your costs for<br>the billing period.                         |
+| Discount                                         | SELECT SUM(line_item_unblended_cost) FROM [CUR] WHERE<br>line_item_line_item_type = 'Discount'                        | You can use discount line items to identify all of your<br>discount-related line items.                 |
+| Rounding                                         | Not yet supported                                                                                                     | Not yet supported                                                                                       |
+
+## Reporting on advanced charge
+
+types
+
+### Refunds
+
+AWS CUR: Refunds are identified by filtering for the
+`lineItem/LineItemDescription = ‘Refund’` string.
+
+DBR: Refunds are identified by checking the ItemDescription column for the
+`‘Refund’` substring.
+
+### Credits
+
+AWS CUR: Credits are identified by filtering for the
+`lineItem/LineItemDescription = ‘Credit’` string.
+
+DBR: Credits are identified by checking the ItemDescription column for the
+`‘Credit’` substring.
+
+### Taxes
+
+AWS CUR: Taxes are identified by filtering for the
+`lineItem/LineItemDescription = ‘Tax’` string.
+
+DBR: Taxes are identified by checking the ItemDescription column for the
+`‘Tax’` substring.
+
+### Identifying reservation-related
+
+upfront costs
+
+AWS CUR: Reservation-related upfront costs are identified by filtering for the
+`"lineItem/LineItemType" = 'Fee'` string.
+
+DBR: Reservation-related upfront costs are identified by checking the
+UsageType column for the `'HeavyUsage'` substring, and whether the
+`'SubscriptionId'` is null.
+
+### Identifying reservation-related
+
+monthly fees
+
+AWS CUR: Reservation-related monthly fees are identified by filtering for the
+`"lineItem/LineItemType" = 'RIfee'` string.
+
+DBR: Reservation-related monthly fees are identified by checking the UsageType
+column for the `'HeavyUsage'` substring.
+
+### Identifying instances that received
+
+reserved instance benefits
+
+AWS CUR: Reservation-related upfront fees are identified by filtering for the
+`"lineItem/LineItemType" = 'DiscountedUsage'` string.
+
+DBR: Reservation-related upfront fees are identified by checking the
+ReservedInstance column for the `'Y'` substring.

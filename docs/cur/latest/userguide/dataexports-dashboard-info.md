@@ -14,12 +14,12 @@ solution, see [AWS well architected labs](https://wellarchitectedlabs.com/cost/2
 The following table summarizes the differences between a Cost and Usage Dashboard and Cloud
 Intelligence Dashboards (CID):
 
-| Feature                                       | Cost and Usage Dashboard                | Cloud Intelligence Dashboards                                                           |
-| --------------------------------------------- | --------------------------------------- | --------------------------------------------------------------------------------------- |
-| Deployment                                    | Seamless deployment from AWS console    | CloudFormation, Command Line, or Terraform                                              |
-| Deployment options for AWS Organizations      | In management account only              | In management account or delegated linked account                                       |
-| Multiple AWS Organizations aggregation        | No                                      | Yes                                                                                     |
-| High-level cost and usage insights            | Yes                                     | Yes                                                                                     |
-| Resource-level details                        | No                                      | Yes                                                                                     |
-| Reserved Instances and Savings Plans insights | No                                      | Yes                                                                                     |
-| Supported data sources                        | Cost and Usage Summary (dashboard view) | Cost and Usage Report (CUR), Compute Optimizer, Trusted Advisor, Cost Anomaly Detection |
+| Feature                                       | Cost and Usage Dashboard                | Cloud Intelligence Dashboards                                                              |
+| --------------------------------------------- | --------------------------------------- | ------------------------------------------------------------------------------------------ |
+| Deployment                                    | Seamless deployment from AWS console    | CloudFormation, Command Line, or Terraform                                                 |
+| Deployment options for AWS Organizations      | In management account only              | In management account or delegated linked account                                          |
+| Multiple AWS Organizations aggregation        | No                                      | Yes                                                                                        |
+| High-level cost and usage insights            | Yes                                     | Yes                                                                                        |
+| Resource-level details                        | No                                      | Yes                                                                                        |
+| Reserved Instances and Savings Plans insights | No                                      | Yes                                                                                        |
+| Supported data sources                        | Cost and Usage Summary (dashboard view) | Cost and Usage Report (CUR), Compute Optimizer, Trusted Advisor, Cost Anomaly<br>Detection |

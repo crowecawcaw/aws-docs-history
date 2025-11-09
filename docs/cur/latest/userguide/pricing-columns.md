@@ -8,4 +8,73 @@ fees (`RIFee`). The columns include but are not limited to the
 following:
 
 A | B | C | D | E | F | G | H | I | J | K | [L](#pr-L "#pr-L") | M | N | O | [P](#pr-P "#pr-P") | Q | [R](#pr-R "#pr-R")
-| S | [T](#pr-T "#pr-T") | [U](#pr-U "#pr-U") | VWXYZ ## L ### pricing/LeaseContractLength The length of time that your RI is reserved for. ## O ### pricing/OfferingClass <br>• **Description:** Describes the offering class of the Reserved Instance. When you purchase a Reserved Instance, you can choose between a Standard or Convertible offering class. <br>• **Sample values:** `Standard`, `Convertible` <br>• **Services:** + Amazon DynamoDB + Amazon EC2 + Amazon ElastiCache + OpenSearch Service + Amazon RDS + Amazon Redshift ## P ### pricing/publicOnDemandCost The total cost for the line item based on public On-Demand Instance rates. If you have SKUs with multiple On-Demand public costs, the equivalent cost for the highest tier is displayed. For example, services offering free-tiers or tiered pricing. ### pricing/publicOnDemandRate The public On-Demand Instance rate in this billing period for the specific line item of usage. If you have SKUs with multiple On-Demand public rates, the equivalent rate for the highest tier is displayed. For example, services offering free-tiers or tiered pricing. ### pricing/PurchaseOption How you chose to pay for this line item. Valid values are `All Upfront`, `Partial Upfront`, and `No Upfront`. ## R ### pricing/RateCode A unique code for a product/ offer/ pricing-tier combination. The product and term combinations can have multiple price dimensions, such as low-use tier, and high-use tier. ### pricing/RateId The ID of the rate for a line item. ## T ### pricing/term Whether your AWS usage is Reserved or On-Demand. ## U ### pricing/unit The pricing unit that AWS used for calculating your usage cost. For example, the pricing unit for Amazon EC2 instance usage is in hours.
+| S | [T](#pr-T "#pr-T") | [U](#pr-U "#pr-U") | VWXYZ
+
+## L
+
+### pricing/LeaseContractLength
+
+The length of time that your RI is reserved for.
+
+## O
+
+### pricing/OfferingClass
+
+- **Description:** Describes the offering
+  class of the Reserved Instance. When you purchase a Reserved Instance,
+  you can choose between a Standard or Convertible offering class.
+- **Sample values:**
+  `Standard`, `Convertible`
+- **Services:**
+  - Amazon DynamoDB
+  - Amazon EC2
+  - Amazon ElastiCache
+  - OpenSearch Service
+  - Amazon RDS
+  - Amazon Redshift
+
+## P
+
+### pricing/publicOnDemandCost
+
+The total cost for the line item based on public On-Demand Instance rates. If
+you have SKUs with multiple On-Demand public costs, the equivalent cost for the
+highest tier is displayed. For example, services offering free-tiers or tiered
+pricing.
+
+### pricing/publicOnDemandRate
+
+The public On-Demand Instance rate in this billing period for the specific
+line item of usage. If you have SKUs with multiple On-Demand public rates, the
+equivalent rate for the highest tier is displayed. For example, services
+offering free-tiers or tiered pricing.
+
+### pricing/PurchaseOption
+
+How you chose to pay for this line item. Valid values are `All
+ Upfront`, `Partial Upfront`, and `No
+ Upfront`.
+
+## R
+
+### pricing/RateCode
+
+A unique code for a product/ offer/ pricing-tier combination. The product and
+term combinations can have multiple price dimensions, such as low-use tier, and high-use tier.
+
+### pricing/RateId
+
+The ID of the rate for a line item.
+
+## T
+
+### pricing/term
+
+Whether your AWS usage is Reserved or On-Demand.
+
+## U
+
+### pricing/unit
+
+The pricing unit that AWS used for calculating your usage cost. For example,
+the pricing unit for Amazon EC2 instance usage is in hours.
