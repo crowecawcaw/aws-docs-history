@@ -71,4 +71,4 @@ following actions:
 - Operate in a fully distributed, leaderless manner across multiple Availability
   Zones with decoupled compute and storage layers.
 
-For more information, see [DDL and distributed transactions in Aurora DSQL](working-with-ddl.md "working-with-ddl.md").
+For more on using the EXPLAIN command in PostgreSQL, see [DDL and distributed transactions in Aurora DSQL](working-with-ddl.md "working-with-ddl.md").

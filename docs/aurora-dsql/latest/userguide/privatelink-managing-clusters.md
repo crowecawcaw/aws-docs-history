@@ -381,9 +381,19 @@ AWS PrivateLink
 The following table lists common issues and solutions relating to
 AWS PrivateLink with Aurora DSQL.
 
-| Issue                  | Possible Cause                         | Solution                                                                                          |
-| ---------------------- | -------------------------------------- | ------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Connection timeout     | Security group not properly configured | Use Amazon VPC Reachability Analyzer to ensure your networking setup allows traffic on port 5432. |
-| DNS resolution failure | Private DNS not enabled                | Verify that the Amazon VPC endpoint was created with private DNS enabled.                         |
-| Authentication failure | Incorrect credentials or expired token | Generate a new authentication token and verify the user name.                                     |
-| Service name not found | Incorrect cluster ID                   | Double-check your cluster ID and AWS Region when fetching the service name.                       | ### Related Resources For more information, see the following resources: <br>• [Amazon Aurora DSQL User Guide](../../../AmazonRDS/latest/AuroraUserGuide/aurora-dsql.md "../../../AmazonRDS/latest/AuroraUserGuide/aurora-dsql.md") <br>• [AWS PrivateLink Documentation](../../../vpc/latest/privatelink/what-is-privatelink.md "../../../vpc/latest/privatelink/what-is-privatelink.md") <br>• [Access AWS services through AWS PrivateLink](../../../vpc/latest/privatelink/privatelink-access-aws-services.md "../../../vpc/latest/privatelink/privatelink-access-aws-services.md") |
+| Issue                  | Possible Cause                         | Solution                                                                                             |
+| ---------------------- | -------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| Connection timeout     | Security group not properly configured | Use Amazon VPC Reachability Analyzer to ensure your networking<br>setup allows traffic on port 5432. |
+| DNS resolution failure | Private DNS not enabled                | Verify that the Amazon VPC endpoint was created with private<br>DNS enabled.                         |
+| Authentication failure | Incorrect credentials or expired token | Generate a new authentication token and verify the user<br>name.                                     |
+| Service name not found | Incorrect cluster ID                   | Double-check your cluster ID and AWS Region when<br>fetching the service name.                       |
+
+### Related Resources
+
+For more information, see the following resources:
+
+- [Amazon
+  Aurora DSQL User Guide](../../../AmazonRDS/latest/AuroraUserGuide/aurora-dsql.md "../../../AmazonRDS/latest/AuroraUserGuide/aurora-dsql.md")
+- [AWS PrivateLink
+  Documentation](../../../vpc/latest/privatelink/what-is-privatelink.md "../../../vpc/latest/privatelink/what-is-privatelink.md")
+- [Access AWS services through AWS PrivateLink](../../../vpc/latest/privatelink/privatelink-access-aws-services.md "../../../vpc/latest/privatelink/privatelink-access-aws-services.md")

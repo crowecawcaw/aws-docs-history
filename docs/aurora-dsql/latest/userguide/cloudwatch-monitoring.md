@@ -12,21 +12,26 @@ Actionable metrics like query timeouts and OCC conflict rate are included to hel
 identify performance issues and concurrency conflicts. Session-related metrics, both
 active and total, offer insights into the current load on the system.
 
-| CloudWatch Metric Name | Metric                   | Unit                  | Description                                                                                |
-| ---------------------- | ------------------------ | --------------------- | ------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| ReadOnlyTransactions   | Read-only transactions   | none                  | The number of read-only transactions                                                       |
-| TotalTransactions      | Total transactions       | none                  | The total number of transactions executed on the system, including read-only transactions. |
-| QueryTimeouts          | Query timeouts           | none                  | The number of queries which have timed out due to hitting the maximum transaction time     |
-| OccConflicts           | OCC conflicts            | none                  | The number of transactions aborted due to key level OCC                                    |
-| CommitLatency          | Commit Latency           | milliseconds          | Time spent by commit phase of query execution (P50)                                        |
-| BytesWritten           | Bytes Written            | bytes                 | Bytes written to storage                                                                   |
-| BytesRead              | Bytes Read               | bytes                 | Bytes read from storage                                                                    |
-| ComputeTime            | QP compute time          | milliseconds          | QP wall clock time                                                                         |
-| ClusterStorageSize     | Cluster Storage Size     | bytes                 | Cluster size                                                                               | ## Usage metrics Aurora DSQL measures all request-based activity, such as query processing, reads, and writes, using a single normalized billing unit called Distributed Processing Unit (DPU). |
-| CloudWatch Metric Name | Metric                   | Dimension: ResourceId | Unit                                                                                       | Description                                                                                                                                                                                     |
-| ---                    | ---                      | ---                   | ---                                                                                        | ---                                                                                                                                                                                             |
-| WriteDPU               | Write Units              | <cluster-id>          | DPU                                                                                        | Approximates the write active-use component of your Aurora DSQL cluster DPU usage.                                                                                                              |
-| MultiRegionWriteDPU    | Multi-Region Write Units | <cluster-id>          | DPU                                                                                        | Applicable for Multi-Region clusters: Approximates the multi-Region write active-use component of your Aurora DSQL cluster DPU usage.                                                           |
-| ReadDPU                | Read Units               | <cluster-id>          | DPU                                                                                        | Approximates the read active-use component of your Aurora DSQL cluster DPU usage.                                                                                                               |
-| ComputeDPU             | Compute Units            | <cluster-id>          | DPU                                                                                        | Approximates the compute active-use component of your Aurora DSQL cluster DPU usage.                                                                                                            |
-| TotalDPU               | Total Units              | <cluster-id>          | DPU                                                                                        | Approximates the total active-use component of your Aurora DSQL cluster DPU usage.                                                                                                              |
+| CloudWatch Metric Name | Metric                 | Unit         | Description                                                                                   |
+| ---------------------- | ---------------------- | ------------ | --------------------------------------------------------------------------------------------- |
+| ReadOnlyTransactions   | Read-only transactions | none         | The number of read-only transactions                                                          |
+| TotalTransactions      | Total transactions     | none         | The total number of transactions executed on the system, including read-only<br>transactions. |
+| QueryTimeouts          | Query timeouts         | none         | The number of queries which have timed out due to hitting the maximum<br>transaction time     |
+| OccConflicts           | OCC conflicts          | none         | The number of transactions aborted due to key level OCC                                       |
+| CommitLatency          | Commit Latency         | milliseconds | Time spent by commit phase of query execution (P50)                                           |
+| BytesWritten           | Bytes Written          | bytes        | Bytes written to storage                                                                      |
+| BytesRead              | Bytes Read             | bytes        | Bytes read from storage                                                                       |
+| ComputeTime            | QP compute time        | milliseconds | QP wall clock time                                                                            |
+| ClusterStorageSize     | Cluster Storage Size   | bytes        | Cluster size                                                                                  |
+
+## Usage metrics
+
+Aurora DSQL measures all request-based activity, such as query processing, reads, and writes, using a single normalized billing unit called Distributed Processing Unit (DPU).
+
+| CloudWatch Metric Name | Metric                   | Dimension: ResourceId | Unit | Description                                                                                                                              |
+| ---------------------- | ------------------------ | --------------------- | ---- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| WriteDPU               | Write Units              | <cluster-id>          | DPU  | Approximates the write active-use component of your Aurora DSQL cluster DPU<br>usage.                                                    |
+| MultiRegionWriteDPU    | Multi-Region Write Units | <cluster-id>          | DPU  | Applicable for Multi-Region clusters: Approximates the multi-Region write<br>active-use component of your Aurora DSQL cluster DPU usage. |
+| ReadDPU                | Read Units               | <cluster-id>          | DPU  | Approximates the read active-use component of your Aurora DSQL cluster DPU<br>usage.                                                     |
+| ComputeDPU             | Compute Units            | <cluster-id>          | DPU  | Approximates the compute active-use component of your Aurora DSQL cluster DPU<br>usage.                                                  |
+| TotalDPU               | Total Units              | <cluster-id>          | DPU  | Approximates the total active-use component of your Aurora DSQL cluster DPU<br>usage.                                                    |

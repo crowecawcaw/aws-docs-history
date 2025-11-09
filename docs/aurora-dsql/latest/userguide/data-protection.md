@@ -54,6 +54,12 @@ Encryption and signing of data in transit between AWS CLI, SDK, or API clients a
   automatically sign the requests for you with the access key that you specify
   when you configure the tools.
 
+#### FIPS compliance
+
+Aurora DSQL dataplane endpoints (cluster endpoints used for database connections) use FIPS 140-2 validated cryptographic modules by default. No separate FIPS endpoints are required for cluster connections.
+
+For control plane operations, Aurora DSQL provides dedicated FIPS endpoints in supported regions. For more information about control plane FIPS endpoints, see [Aurora DSQL endpoints and quotas](../../../general/latest/gr/dsql.md "../../../general/latest/gr/dsql.md") in the _AWS General Reference_.
+
 For encryption at rest, see [Encryption at rest in Aurora DSQL](data-encryption.md#encryption-at-rest "data-encryption.md#encryption-at-rest").
 
 ### Inter-network traffic privacy

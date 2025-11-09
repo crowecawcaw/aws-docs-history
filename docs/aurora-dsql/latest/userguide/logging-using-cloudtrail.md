@@ -92,6 +92,25 @@ value, which you would specify when configuring advanced event selectors using t
 CloudTrail APIs. The **Data APIs logged to CloudTrail** column shows the API
 calls logged to CloudTrail for the resource type.
 
-| Resource type (console) | resources.type value | Data APIs logged to CloudTrail           |
-| ----------------------- | -------------------- | ---------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Amazon Aurora DSQL**  | `AWS::DSQL::Cluster` | <br>• `DbConnect` <br>• `DbConnectAdmin` | You can configure advanced event selectors to filter on the `eventName` and `resources.ARN` fields to log only filtered events. For more information about these fields, see [AdvancedFieldSelector](../../../awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.md "../../../awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.md") in the _AWS CloudTrail API Reference_. The following example shows how to use AWS CLI to configure `dsql-data-events-trail` to receive data events for Aurora DSQL. `aws cloudtrail put-event-selectors \ --region us-east-1 \ --trail-name dsql-data-events-trail \ --advanced-event-selectors '[{ "Name": "Log DSQL Data Events", "FieldSelectors": [ { "Field": "eventCategory", "Equals": ["Data"] }, { "Field": "resources.type", "Equals": ["AWS::DSQL::Cluster"] } ]}]'` |
+| Resource type (console) | resources.type value | Data APIs logged to CloudTrail      |
+| ----------------------- | -------------------- | ----------------------------------- |
+| **Amazon Aurora DSQL**  | `AWS::DSQL::Cluster` | • `DbConnect`<br>• `DbConnectAdmin` |
+
+You can configure advanced event selectors to filter on the `eventName` and
+`resources.ARN` fields to log only filtered events. For more information about
+these fields, see [AdvancedFieldSelector](../../../awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.md "../../../awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.md") in the
+_AWS CloudTrail API Reference_.
+
+The following example shows how to use AWS CLI to configure
+`dsql-data-events-trail` to receive data events for Aurora DSQL.
+
+```
+aws cloudtrail put-event-selectors \
+--region us-east-1 \
+--trail-name dsql-data-events-trail \
+--advanced-event-selectors '[{
+"Name": "Log DSQL Data Events",
+    "FieldSelectors": [
+       { "Field": "eventCategory", "Equals": ["Data"] },
+       { "Field": "resources.type", "Equals": ["AWS::DSQL::Cluster"] } ]}]'
+```

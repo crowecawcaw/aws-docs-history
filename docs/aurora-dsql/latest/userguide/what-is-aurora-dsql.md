@@ -87,15 +87,65 @@ locations for compliance.
 The following table shows the AWS Regions where Aurora DSQL is currently available and the
 endpoint for each AWS Region.
 
-| Region Name           | Region         | Endpoint                                           | Protocol    |
-| --------------------- | -------------- | -------------------------------------------------- | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| US East (Ohio)        | us-east-2      | dsql.us-east-2.api.aws dsql-fips.us-east-2.api.aws | HTTPS HTTPS |
-| US East (N. Virginia) | us-east-1      | dsql.us-east-1.api.aws dsql-fips.us-east-1.api.aws | HTTPS HTTPS |
-| US West (Oregon)      | us-west-2      | dsql.us-west-2.api.aws dsql-fips.us-west-2.api.aws | HTTPS HTTPS |
-| Asia Pacific (Osaka)  | ap-northeast-3 | dsql.ap-northeast-3.api.aws                        | HTTPS       |
-| Asia Pacific (Seoul)  | ap-northeast-2 | dsql.ap-northeast-2.api.aws                        | HTTPS       |
-| Asia Pacific (Tokyo)  | ap-northeast-1 | dsql.ap-northeast-1.api.aws                        | HTTPS       |
-| Europe (Frankfurt)    | eu-central-1   | dsql.eu-central-1.api.aws                          | HTTPS       |
-| Europe (Ireland)      | eu-west-1      | dsql.eu-west-1.api.aws                             | HTTPS       |
-| Europe (London)       | eu-west-2      | dsql.eu-west-2.api.aws                             | HTTPS       |
-| Europe (Paris)        | eu-west-3      | dsql.eu-west-3.api.aws                             | HTTPS       | ### Multi-Region cluster availability for Aurora DSQL You can create Aurora DSQL multi-Region clusters within specific AWS Region sets. Each Region set groups geographically related Regions that can work together in a multi-Region cluster. #### US Regions <br>• US East (N. Virginia) <br>• US East (Ohio) <br>• US West (Oregon) #### Asia Pacific Regions <br>• Asia Pacific (Osaka) <br>• Asia Pacific (Seoul) <br>• Asia Pacific (Tokyo) #### European Regions <br>• Europe (Frankfurt) <br>• Europe (Ireland) <br>• Europe (London) <br>• Europe (Paris) #### Important Limitations Multi-Region clusters must be created within a single Region set. For example, you can't create a cluster that includes both US East (N. Virginia) and Europe (Ireland) Regions. ###### Important Aurora DSQL currently doesn't support cross-continent multi-Region clusters. ## Pricing for Aurora DSQL For cost information, see [Aurora DSQL pricing](https://aws.amazon.com/rds/aurora/dsql/pricing/ "https://aws.amazon.com/rds/aurora/dsql/pricing/"). ## What's next? For information about the core components in Aurora DSQL and to get started with the service, see the following: <br>• [Getting started with Aurora DSQL](getting-started.md "getting-started.md") <br>• [SQL feature compatibility in Aurora DSQL](working-with-postgresql-compatibility.md "working-with-postgresql-compatibility.md") <br>• [Accessing Aurora DSQL](getting-started.md#accessing "getting-started.md#accessing") <br>• [Aurora DSQL and PostgreSQL](working-with.md "working-with.md") |
+| Region Name           | Region         | Endpoint                                              | Protocol       |
+| --------------------- | -------------- | ----------------------------------------------------- | -------------- |
+| US East (Ohio)        | us-east-2      | dsql.us-east-2.api.aws<br>dsql-fips.us-east-2.api.aws | HTTPS<br>HTTPS |
+| US East (N. Virginia) | us-east-1      | dsql.us-east-1.api.aws<br>dsql-fips.us-east-1.api.aws | HTTPS<br>HTTPS |
+| US West (Oregon)      | us-west-2      | dsql.us-west-2.api.aws<br>dsql-fips.us-west-2.api.aws | HTTPS<br>HTTPS |
+| Asia Pacific (Osaka)  | ap-northeast-3 | dsql.ap-northeast-3.api.aws                           | HTTPS          |
+| Asia Pacific (Seoul)  | ap-northeast-2 | dsql.ap-northeast-2.api.aws                           | HTTPS          |
+| Asia Pacific (Tokyo)  | ap-northeast-1 | dsql.ap-northeast-1.api.aws                           | HTTPS          |
+| Europe (Frankfurt)    | eu-central-1   | dsql.eu-central-1.api.aws                             | HTTPS          |
+| Europe (Ireland)      | eu-west-1      | dsql.eu-west-1.api.aws                                | HTTPS          |
+| Europe (London)       | eu-west-2      | dsql.eu-west-2.api.aws                                | HTTPS          |
+| Europe (Paris)        | eu-west-3      | dsql.eu-west-3.api.aws                                | HTTPS          |
+
+### Multi-Region cluster availability
+
+for Aurora DSQL
+
+You can create Aurora DSQL multi-Region clusters within specific AWS Region sets. Each Region
+set groups geographically related Regions that can work together in a multi-Region
+cluster.
+
+#### US Regions
+
+- US East (N. Virginia)
+- US East (Ohio)
+- US West (Oregon)
+
+#### Asia Pacific Regions
+
+- Asia Pacific (Osaka)
+- Asia Pacific (Seoul)
+- Asia Pacific (Tokyo)
+
+#### European Regions
+
+- Europe (Frankfurt)
+- Europe (Ireland)
+- Europe (London)
+- Europe (Paris)
+
+#### Important Limitations
+
+Multi-Region clusters must be created within a single Region set. For example, you can't create a cluster that includes both US East (N. Virginia) and Europe (Ireland) Regions.
+
+###### Important
+
+Aurora DSQL currently doesn't support cross-continent multi-Region clusters.
+
+## Pricing for Aurora DSQL
+
+For cost information, see [Aurora DSQL pricing](https://aws.amazon.com/rds/aurora/dsql/pricing/ "https://aws.amazon.com/rds/aurora/dsql/pricing/").
+
+## What's next?
+
+For information about the core components in Aurora DSQL and to get started with the service, see
+the following:
+
+- [Getting started with Aurora DSQL](getting-started.md "getting-started.md")
+- [SQL feature compatibility in
+  Aurora DSQL](working-with-postgresql-compatibility.md "working-with-postgresql-compatibility.md")
+- [Accessing Aurora DSQL](getting-started.md#accessing "getting-started.md#accessing")
+- [Aurora DSQL and PostgreSQL](working-with.md "working-with.md")

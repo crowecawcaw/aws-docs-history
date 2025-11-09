@@ -237,11 +237,281 @@ The protocol is supported over TCP/IP and also over Unix-domain sockets. The fol
 shows how Aurora DSQL supports the [PostgreSQL
 protocol](https://www.postgresql.org/docs/current/protocol.html "https://www.postgresql.org/docs/current/protocol.html").
 
-| PostgreSQL                                | Aurora DSQL                       | Notes                                                                                                                                                                                                                                                                                                                                       |
-| ----------------------------------------- | --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------- | ------------------------------------------ | ------------------------------------------ | ------------------------------------------ | ------------------------------------------ | ----------------------------------------- | ---------------------------------------- | ----------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Role (also known as User or Group)        | Database Role                     | Aurora DSQL creates a role for you named `admin`. When you create custom database roles, you must use the `admin` role to associate them with IAM roles for authenticating when connecting to your cluster. For more information, see [Configure custom database roles](using-database-and-iam-roles.md "using-database-and-iam-roles.md"). |
-| Host (also known as hostname or hostspec) | Cluster Endpoint                  | Aurora DSQL single-Region clusters provide a single managed endpoint and automatically redirect traffic if there is unavailability within the Region.                                                                                                                                                                                       |
-| Port                                      | N/A – use default `5432`          | This is the PostgreSQL default.                                                                                                                                                                                                                                                                                                             |
-| Database (dbname)                         | use `postgres`                    | Aurora DSQL creates this database for you when you create the cluster.                                                                                                                                                                                                                                                                      |
-| SSL Mode                                  | SSL is always enabled server-side | In Aurora DSQL, Aurora DSQL supports the `require` SSL Mode. Connections without SSL are rejected by Aurora DSQL.                                                                                                                                                                                                                           |
-| Password                                  | Authentication Token              | Aurora DSQL requires temporary authentication tokens instead of long-lived passwords. To learn more, see [Generating an authentication token in Amazon Aurora DSQL](SECTION_authentication-token.md "SECTION_authentication-token.md").                                                                                                     | ## Step 1: Create an Aurora DSQL single-Region cluster The basic unit of Aurora DSQL is the cluster, which is where you store your data. In this task, you create a cluster in a single AWS Region. ###### To create a single-Region cluster in Aurora DSQL 1. Sign in to the AWS Management Console and open the Aurora DSQL console at [https://console.aws.amazon.com/dsql](https://console.aws.amazon.com/dsql "https://console.aws.amazon.com/dsql"). 2. Choose **Create cluster** and then **Single-Region**. 3. (Optional) In **Cluster settings**, select any of the following options: <br>• Select **Customize encryption settings (advanced)** to choose or create an AWS KMS key. <br>• Select **Enable deletion protection** to prevent a delete operation from removing your cluster. By default, deletion protection is selected. 4. (Optional) In **Tags**, choose or enter a tag for this cluster. 5. Choose **Create cluster**. ## Step 2: Connect to your Aurora DSQL cluster A _cluster endpoint_ is automatically generated when you create an Aurora DSQL cluster based on its cluster ID and Region. The naming format is ``clusterid`.dsql.`region`.on.aws`. A client uses the endpoint to create a network connection to your cluster. Authentication is managed using IAM so you don't need to store credentials in the database. An *authentication token* is a unique string of characters that is generated dynamically. The token is only used for authentication and doesn't affect the connection after it is established. Before attempting to connect, make sure that your IAM identity has the `dsql:DbConnectAdmin` permission, as described in [Prerequisites](#getting-started-prereqs "#getting-started-prereqs"). ###### Note To optimize database connection speed, use the PostgreSQL version 17 client and set `PGSSLNEGOTIATION` to direct: `PGSSLNEGOTIATION=direct`. ###### To connect to your cluster with an authentication token 1. In the Aurora DSQL console, choose the cluster that you want to connect to. 2. Choose **Connect**. 3. Copy the endpoint from **Endpoint (Host)**. 4. Make sure that you **Connect as admin** is chosen in the **Authentication token (Password)** section. 5. Copy the generated authentication token. This token is valid for 15 minutes. 6. On the operating system command line, use the following command to start `psql` and connect to your cluster. Replace ``your_cluster_endpoint``with the cluster endpoint that you copied previously. ``` PGSSLMODE=require \ psql --dbname postgres \ --username admin \ --host`your_cluster_endpoint` ``` When prompted for a password, enter the authentication token that you copied previously. If you try to reconnect using an expired token, the connection request is denied. For more information, see [Generating an authentication token in Amazon Aurora DSQL](SECTION_authentication-token.md "SECTION_authentication-token.md"). 7. Press **Enter**. You should see a PostgreSQL prompt. ``` postgres=> ``` If you get an access denied error, make sure that your IAM identity has the `dsql:DbConnectAdmin`permission. If you have the permission and continue to get access deny errors, see [Troubleshoot IAM](../../../IAM/latest/UserGuide/troubleshoot.md "../../../IAM/latest/UserGuide/troubleshoot.md") and [How can I troubleshoot access denied or unauthorized operation errors with an IAM policy?](https://repost.aws/knowledge-center/troubleshoot-iam-policy-issues "https://repost.aws/knowledge-center/troubleshoot-iam-policy-issues"). ## Step 3: Run sample SQL commands in Aurora DSQL Test your Aurora DSQL cluster by running SQL statements. The following sample statements require the data files named`department-insert-multirow.sql`and`invoice.csv`, which you can download from the [aws-samples/aurora-dsql-samples](https://github.com/aws-samples/aurora-dsql-samples/tree/main/quickstart_data "https://github.com/aws-samples/aurora-dsql-samples/tree/main/quickstart_data") repository on GitHub. ###### To run sample SQL commands in Aurora DSQL 1. Create a schema named `example`. ``` CREATE SCHEMA example; ``` 2. Create an invoice table that uses an automatically generated UUID as the primary key. ``` CREATE TABLE example.invoice( id UUID PRIMARY KEY DEFAULT gen_random_uuid(), created timestamp, purchaser int, amount float); ``` 3. Create a secondary index that uses the empty table. ``` CREATE INDEX ASYNC invoice_created_idx on example.invoice(created); ``` 4. Create a department table. ``` CREATE TABLE example.department(id INT PRIMARY KEY UNIQUE, name text, email text); ``` 5. Use the command `psql \include`to load the file named`department-insert-multirow.sql`that you downloaded from the [aws-samples/aurora-dsql-samples](https://github.com/aws-samples/aurora-dsql-samples/tree/main/quickstart_data "https://github.com/aws-samples/aurora-dsql-samples/tree/main/quickstart_data") repository on GitHub. Replace`my-path`with the path to your local copy. ``` \include`my-path`/department-insert-multirow.sql ``` 6. Use the command `psql \copy`to load the file named`invoice.csv`that you downloaded from the [aws-samples/aurora-dsql-samples](https://github.com/aws-samples/aurora-dsql-samples/tree/main/quickstart_data "https://github.com/aws-samples/aurora-dsql-samples/tree/main/quickstart_data") repository on GitHub. Replace`my-path`with the path to your local copy. ``` \copy example.invoice(created, purchaser, amount) from`my-path`/invoice.csv csv `7. Query the departments and sort them by their total sales.` SELECT name, sum(amount) AS sum_amount FROM example.department LEFT JOIN example.invoice ON department.id=invoice.purchaser GROUP BY name HAVING sum(amount) > 0 ORDER BY sum_amount DESC; `The following sample output shows that Department One has the most sales.` name | sum_amount --------------------------+-------------------- Example Department One | 32628.75608634601 Example Department Three | 32427.43955110429 Example Department Eight | 32256.810987098102 Example Department Five | 31391.14891163639 Example Department Seven | 31253.236846746757 Example Department Six | 29699.06014910414 Example Department Two | 29465.58360076501 Example Department Four | 28764.19185819191 (8 rows) ``## Step 4: Create a multi-Region cluster When you create a multi-Region cluster, you specify the following Regions: **Remote Region** This is the Region in which you create a second cluster. You create a second cluster in this Region and peer it to your initial cluster. Aurora DSQL replicates all writes on the initial cluster to the remote cluster. You can read and write on any cluster. **Witness Region** This Region receives all data that is written to the multi-Region cluster. However, witness Regions don't host client endpoints and don't provide user data access. A limited window of the encrypted transaction log is maintained in witness Regions. This log facilitates recovery and supports transactional quorum if a Region becomes unavailable. The following example shows how to create an initial cluster, create a second cluster in a different Region, and then peer the two clusters to create a multi-Region cluster. It also demonstrates cross-Region write replication and consistent reads from both Regional endpoints. ###### To create a multi-Region cluster 1. Sign in to the AWS Management Console and open the Aurora DSQL console at [https://console.aws.amazon.com/dsql](https://console.aws.amazon.com/dsql "https://console.aws.amazon.com/dsql"). 2. In the navigation pane, choose **Clusters**. 3. Choose **Create cluster** and then **Multi-Region**. 4. (Optional) In **Cluster settings**, select any of the following options for your initial cluster: <br>• Select **Customize encryption settings (advanced)** to choose or create an AWS KMS key. <br>• Select **Enable deletion protection** to prevent a delete operation from removing your cluster. By default, deletion protection is selected. 5. In **Multi-Region settings**, choose the following options for your initial cluster: <br>• In **Witness Region**, choose a Region. Currently, only US-based Regions are supported for witness Regions in multi-Region clusters. <br>• (Optional) In **Remote Region cluster ARN**, enter an ARN for an existing cluster in another Region. If no cluster exists to serve as the second cluster in your multi-Region cluster, complete setup after you create the initial cluster. 6. (Optional) Choose tags for your initial cluster. 7. Choose **Create cluster** to create your initial cluster. If you didn't enter an ARN in the previous step, the console shows the **Cluster setup pending** notification. 8. In the **Cluster setup pending** notification, choose **Complete multi-Region cluster setup**. This action initiates creation of a second cluster in another Region. 9. Choose one of the following options for your second cluster: <br>• **Add remote Region cluster ARN** – Choose this option if a cluster exists, and you want it to be the second cluster in your multi-Region cluster. <br>• **Create cluster in another Region** – Choose this option to create a second cluster. In **Remote Region**, choose the Region for this second cluster. 10. Choose **Create cluster in `your-second-region`**, where `your-second-region` is the location of your second cluster. The console opens in your second Region. 11. (Optional) Choose cluster settings for your second cluster. For example, you can choose an AWS KMS key. 12. Choose **Create cluster** to create your second cluster. 13. Choose **Peer in `initial-cluster-region`**, where is `initial-cluster-region` is the Region that hosts the first cluster that you created. 14. When prompted, choose **Confirm**. This step completes the creation of your multi-Region cluster. ###### To connect to your second cluster 1. Open the Aurora DSQL console and choose the Region for your second cluster. 2. Choose **Clusters**. 3. Select the row for the second cluster in your multi-Region cluster. 4. In **Actions**, choose **Open in CloudShell**. 5. Choose **Connect as admin**. 6. Choose **Launch CloudShell**. 7. Choose **Run**. 8. Create a sample schema by following the steps in [Step 3: Run sample SQL commands in Aurora DSQL](#getting-started-sql "#getting-started-sql"). **Example transactions**`` CREATE SCHEMA example; CREATE TABLE example.invoice(id UUID PRIMARY KEY DEFAULT gen_random_uuid(), created timestamp, purchaser int, amount float); CREATE INDEX ASYNC invoice_created_idx on example.invoice(created); CREATE TABLE example.department(id INT PRIMARY KEY UNIQUE, name text, email text); ``9. Use `psql` `copy` and `include` commands to load sample data. For more information, see [Step 3: Run sample SQL commands in Aurora DSQL](#getting-started-sql "#getting-started-sql").`` \copy example.invoice(created, purchaser, amount) from samples/invoice.csv csv \include samples/department-insert-multirow.sql `###### To query data in the second cluster from the Region hosting your initial cluster 1. In the Aurora DSQL console, choose the Region for your initial cluster. 2. Choose **Clusters**. 3. Select the row for the second cluster in your multi-Region cluster. 4. In **Actions**, choose **Open in CloudShell**. 5. Choose **Connect as admin**. 6. Choose **Launch CloudShell**. 7. Choose **Run**. 8. Query the data that you inserted into the second cluster.` SELECT name, sum(amount) AS sum_amount FROM example.department LEFT JOIN example.invoice ON department.id=invoice.purchaser GROUP BY name HAVING sum(amount) > 0 ORDER BY sum_amount DESC; ``` |
+| PostgreSQL                                | Aurora DSQL                       | Notes                                                                                                                                                                                                                                                                                                                                                   |
+| ----------------------------------------- | --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Role (also known as User or Group)        | Database Role                     | Aurora DSQL creates a role for you named `admin`. When you create custom<br>database roles, you must use the `admin` role to associate them with IAM<br>roles for authenticating when connecting to your cluster. For more information, see<br>[Configure<br>custom database roles](using-database-and-iam-roles.md "using-database-and-iam-roles.md"). |
+| Host (also known as hostname or hostspec) | Cluster Endpoint                  | Aurora DSQL single-Region clusters provide a single managed endpoint and automatically<br>redirect traffic if there is unavailability within the Region.                                                                                                                                                                                                |
+| Port                                      | N/A – use default `5432`          | This is the PostgreSQL default.                                                                                                                                                                                                                                                                                                                         |
+| Database (dbname)                         | use `postgres`                    | Aurora DSQL creates this database for you when you create the cluster.                                                                                                                                                                                                                                                                                  |
+| SSL Mode                                  | SSL is always enabled server-side | In Aurora DSQL, Aurora DSQL supports the `require` SSL Mode. Connections without<br>SSL are rejected by Aurora DSQL.                                                                                                                                                                                                                                    |
+| Password                                  | Authentication Token              | Aurora DSQL requires temporary authentication tokens instead of long-lived passwords.<br>To learn more, see [Generating an authentication token in Amazon Aurora DSQL](SECTION_authentication-token.md "SECTION_authentication-token.md").                                                                                                              |
+
+## Step 1: Create an Aurora DSQL single-Region
+
+cluster
+
+The basic unit of Aurora DSQL is the cluster, which is where you store your data. In this task,
+you create a cluster in a single AWS Region.
+
+###### To create a single-Region cluster in Aurora DSQL
+
+1. Sign in to the AWS Management Console and open the Aurora DSQL console at [https://console.aws.amazon.com/dsql](https://console.aws.amazon.com/dsql "https://console.aws.amazon.com/dsql").
+2. Choose **Create cluster** and then
+   **Single-Region**.
+3. (Optional) In **Cluster settings**, select any of the following
+   options:
+   - Select **Customize encryption settings (advanced)** to choose or
+     create an AWS KMS key.
+   - Select **Enable deletion protection** to prevent a delete operation
+     from removing your cluster. By default, deletion protection is selected.
+
+4. (Optional) In **Tags**, choose or enter a tag for this cluster.
+5. Choose **Create cluster**.
+
+## Step 2: Connect to your Aurora DSQL cluster
+
+A _cluster endpoint_ is automatically generated when you create an
+Aurora DSQL cluster based on its cluster ID and Region. The naming format is
+``clusterid`.dsql.`region`.on.aws`.
+A client uses the endpoint to create a network connection to your cluster.
+
+Authentication is managed using IAM so you don't need to store credentials in the
+database. An _authentication token_ is a unique string of characters that is
+generated dynamically. The token is only used for authentication and doesn't affect the
+connection after it is established. Before attempting to connect, make sure that your IAM
+identity has the `dsql:DbConnectAdmin` permission, as described in [Prerequisites](#getting-started-prereqs "#getting-started-prereqs").
+
+###### Note
+
+To optimize database connection speed, use the PostgreSQL version 17 client and set
+`PGSSLNEGOTIATION` to direct: `PGSSLNEGOTIATION=direct`.
+
+###### To connect to your cluster with an authentication token
+
+1. In the Aurora DSQL console, choose the cluster that you want to connect to.
+2. Choose **Connect**.
+3. Copy the endpoint from **Endpoint (Host)**.
+4. Make sure that you **Connect as admin** is chosen in the
+   **Authentication token (Password)** section.
+5. Copy the generated authentication token. This token is valid for 15 minutes.
+6. On the operating system command line, use the following command to start `psql`
+   and connect to your cluster. Replace
+   `your_cluster_endpoint` with the cluster endpoint that
+   you copied previously.
+
+```
+PGSSLMODE=require \
+  psql --dbname postgres \
+  --username admin \
+  --host `your_cluster_endpoint`
+```
+
+When prompted for a password, enter the authentication token that you copied previously.
+If you try to reconnect using an expired token, the connection request is denied. For more
+information, see [Generating an authentication token in Amazon Aurora DSQL](SECTION_authentication-token.md "SECTION_authentication-token.md"). 7. Press **Enter**. You should see a PostgreSQL prompt.
+
+```
+postgres=>
+```
+
+If you get an access denied error, make sure that your IAM identity has the
+`dsql:DbConnectAdmin` permission. If you have the permission and continue to get
+access deny errors, see [Troubleshoot IAM](../../../IAM/latest/UserGuide/troubleshoot.md "../../../IAM/latest/UserGuide/troubleshoot.md") and [How can I
+troubleshoot access denied or unauthorized operation errors with an IAM policy?](https://repost.aws/knowledge-center/troubleshoot-iam-policy-issues "https://repost.aws/knowledge-center/troubleshoot-iam-policy-issues").
+
+## Step 3: Run sample SQL commands in Aurora DSQL
+
+Test your Aurora DSQL cluster by running SQL statements. The following sample statements require
+the data files named `department-insert-multirow.sql` and `invoice.csv`,
+which you can download from the [aws-samples/aurora-dsql-samples](https://github.com/aws-samples/aurora-dsql-samples/tree/main/quickstart_data "https://github.com/aws-samples/aurora-dsql-samples/tree/main/quickstart_data") repository on GitHub.
+
+###### To run sample SQL commands in Aurora DSQL
+
+1. Create a schema named `example`.
+
+```
+CREATE SCHEMA example;
+```
+
+2. Create an invoice table that uses an automatically generated UUID as the primary key.
+
+```
+CREATE TABLE example.invoice(
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    created timestamp,
+    purchaser int,
+    amount float);
+```
+
+3. Create a secondary index that uses the empty table.
+
+```
+CREATE INDEX ASYNC invoice_created_idx on example.invoice(created);
+```
+
+4. Create a department table.
+
+```
+CREATE TABLE example.department(id INT PRIMARY KEY UNIQUE, name text, email text);
+```
+
+5. Use the command `psql \include` to load the file named
+   `department-insert-multirow.sql` that you downloaded from the [aws-samples/aurora-dsql-samples](https://github.com/aws-samples/aurora-dsql-samples/tree/main/quickstart_data "https://github.com/aws-samples/aurora-dsql-samples/tree/main/quickstart_data") repository on GitHub. Replace
+   `my-path` with the path to your local copy.
+
+```
+\include `my-path`/department-insert-multirow.sql
+```
+
+6. Use the command `psql \copy` to load the file named `invoice.csv`
+   that you downloaded from the [aws-samples/aurora-dsql-samples](https://github.com/aws-samples/aurora-dsql-samples/tree/main/quickstart_data "https://github.com/aws-samples/aurora-dsql-samples/tree/main/quickstart_data") repository on GitHub. Replace
+   `my-path` with the path to your local copy.
+
+```
+\copy example.invoice(created, purchaser, amount) from `my-path`/invoice.csv csv
+```
+
+7. Query the departments and sort them by their total sales.
+
+```
+SELECT name, sum(amount) AS sum_amount
+FROM example.department LEFT JOIN example.invoice ON department.id=invoice.purchaser
+GROUP BY name
+HAVING sum(amount) > 0
+ORDER BY sum_amount DESC;
+```
+
+The following sample output shows that Department One has the most sales.
+
+```
+           name           |     sum_amount
+--------------------------+--------------------
+ Example Department One   |  32628.75608634601
+ Example Department Three |  32427.43955110429
+ Example Department Eight | 32256.810987098102
+ Example Department Five  |  31391.14891163639
+ Example Department Seven | 31253.236846746757
+ Example Department Six   |  29699.06014910414
+ Example Department Two   |  29465.58360076501
+ Example Department Four  |  28764.19185819191
+(8 rows)
+```
+
+## Step 4: Create a multi-Region cluster
+
+When you create a multi-Region cluster, you specify the following Regions:
+
+**Remote Region**
+
+This is the Region in which you create a second cluster. You create a second cluster in
+this Region and peer it to your initial cluster. Aurora DSQL replicates all writes on the initial
+cluster to the remote cluster. You can read and write on any cluster.
+
+**Witness Region**
+
+This Region receives all data that is written to the multi-Region cluster. However,
+witness Regions don't host client endpoints and don't provide user data access. A limited
+window of the encrypted transaction log is maintained in witness Regions. This log facilitates
+recovery and supports transactional quorum if a Region becomes unavailable.
+
+The following example shows how to create an initial cluster, create a second cluster in a
+different Region, and then peer the two clusters to create a multi-Region cluster. It also
+demonstrates cross-Region write replication and consistent reads from both Regional
+endpoints.
+
+###### To create a multi-Region cluster
+
+1. Sign in to the AWS Management Console and open the Aurora DSQL console at [https://console.aws.amazon.com/dsql](https://console.aws.amazon.com/dsql "https://console.aws.amazon.com/dsql").
+2. In the navigation pane, choose **Clusters**.
+3. Choose **Create cluster** and then
+   **Multi-Region**.
+4. (Optional) In **Cluster settings**, select any of the following options
+   for your initial cluster:
+   - Select **Customize encryption settings (advanced)** to choose or
+     create an AWS KMS key.
+   - Select **Enable deletion protection** to prevent a delete operation
+     from removing your cluster. By default, deletion protection is selected.
+
+5. In **Multi-Region settings**, choose the following options for your
+   initial cluster:
+   - In **Witness Region**, choose a Region. Currently, only US-based
+     Regions are supported for witness Regions in multi-Region clusters.
+   - (Optional) In **Remote Region cluster ARN**, enter an ARN for an
+     existing cluster in another Region. If no cluster exists to serve as the second cluster in
+     your multi-Region cluster, complete setup after you create the initial cluster.
+
+6. (Optional) Choose tags for your initial cluster.
+7. Choose **Create cluster** to create your initial cluster. If you didn't
+   enter an ARN in the previous step, the console shows the **Cluster setup
+   pending** notification.
+8. In the **Cluster setup pending** notification, choose **Complete
+   multi-Region cluster setup**. This action initiates creation of a second cluster in
+   another Region.
+9. Choose one of the following options for your second cluster:
+   - **Add remote Region cluster ARN** – Choose this option if a
+     cluster exists, and you want it to be the second cluster in your multi-Region cluster.
+   - **Create cluster in another Region** – Choose this option to
+     create a second cluster. In **Remote Region**, choose the Region for this
+     second cluster.
+
+10. Choose **Create cluster in
+    `your-second-region`**, where
+    `your-second-region` is the location of your second cluster. The
+    console opens in your second Region.
+11. (Optional) Choose cluster settings for your second cluster. For example, you can choose an
+    AWS KMS key.
+12. Choose **Create cluster** to create your second cluster.
+13. Choose **Peer in `initial-cluster-region`**,
+    where is `initial-cluster-region` is the Region that hosts the first
+    cluster that you created.
+14. When prompted, choose **Confirm**. This step completes the creation of
+    your multi-Region cluster.
+
+###### To connect to your second cluster
+
+1. Open the Aurora DSQL console and choose the Region for your second cluster.
+2. Choose **Clusters**.
+3. Select the row for the second cluster in your multi-Region cluster.
+4. In **Actions**, choose **Open in CloudShell**.
+5. Choose **Connect as admin**.
+6. Choose **Launch CloudShell**.
+7. Choose **Run**.
+8. Create a sample schema by following the steps in [Step 3: Run sample SQL commands in Aurora DSQL](#getting-started-sql "#getting-started-sql").
+
+**Example transactions**
+
+```
+CREATE SCHEMA example;
+CREATE TABLE example.invoice(id UUID PRIMARY KEY DEFAULT gen_random_uuid(), created timestamp, purchaser int, amount float);
+CREATE INDEX ASYNC invoice_created_idx on example.invoice(created);
+CREATE TABLE example.department(id INT PRIMARY KEY UNIQUE, name text, email text);
+```
+
+9. Use `psql`
+   `copy` and `include` commands to load sample data. For more information,
+   see [Step 3: Run sample SQL commands in Aurora DSQL](#getting-started-sql "#getting-started-sql").
+
+```
+\copy example.invoice(created, purchaser, amount) from samples/invoice.csv csv
+\include samples/department-insert-multirow.sql
+```
+
+###### To query data in the second cluster from the Region hosting your initial cluster
+
+1. In the Aurora DSQL console, choose the Region for your initial cluster.
+2. Choose **Clusters**.
+3. Select the row for the second cluster in your multi-Region cluster.
+4. In **Actions**, choose **Open in CloudShell**.
+5. Choose **Connect as admin**.
+6. Choose **Launch CloudShell**.
+7. Choose **Run**.
+8. Query the data that you inserted into the second cluster.
+
+```
+SELECT name, sum(amount) AS sum_amount
+FROM example.department
+LEFT JOIN example.invoice ON department.id=invoice.purchaser
+GROUP BY name
+HAVING sum(amount) > 0
+ORDER BY sum_amount DESC;
+```
