@@ -1,8 +1,6 @@
 # Services in AWS GovCloud (US) Regions
 
-The following sections describe the differences between the AWS GovCloud (US) Regions and the
-standard AWS Region US East (N. Virginia). They include links to documentation and describe the export-controlled content
-(where you can and can't enter or process export-controlled data) for each service.
+The following sections describe the differences between the AWS GovCloud (US) Regions and the standard AWS Region US East (N. Virginia). They include links to documentation and describe the export-controlled content (where you can and can’t enter or process export-controlled data) for each service.
 
 ###### Topics
 
@@ -67,7 +65,7 @@ standard AWS Region US East (N. Virginia). They include links to documentation a
 - [AWS Mainframe Modernization in AWS GovCloud (US)](govcloud-mainframe-modernization.md "govcloud-mainframe-modernization.md")
 - [AWS Marketplace in AWS GovCloud (US)](govcloud-marketplace.md "govcloud-marketplace.md")
 - [AWS Modular Data Center in AWS GovCloud (US)](govcloud-mdc.md "govcloud-mdc.md")
-- [AWS Network Firewall in AWS GovCloud (US)](govcloud-nf.md "govcloud-nf.md")
+- [AWSNetwork Firewall in AWS GovCloud (US)](govcloud-nf.md "govcloud-nf.md")
 - [AWS Organizations in AWS GovCloud (US)](govcloud-organizations.md "govcloud-organizations.md")
 - [AWS Outposts in AWS GovCloud (US)](govcloud-outposts.md "govcloud-outposts.md")
 - [AWS ParallelCluster in AWS GovCloud (US)](govcloud-parallelcluster.md "govcloud-parallelcluster.md")
@@ -97,7 +95,7 @@ standard AWS Region US East (N. Virginia). They include links to documentation a
 - [AWS WickrGov in AWS GovCloud (US)](govcloud-wickr.md "govcloud-wickr.md")
 - [AWS X-Ray in AWS GovCloud (US)](govcloud-xray.md "govcloud-xray.md")
 - [Amazon API Gateway in AWS GovCloud (US)](govcloud-abp.md "govcloud-abp.md")
-- [Amazon AppStream 2.0 in AWS GovCloud (US)](govcloud-appstream2.md "govcloud-appstream2.md")
+- [Amazon WorkSpaces Applications in AWS GovCloud (US)](govcloud-appstream2.md "govcloud-appstream2.md")
 - [Amazon Athena in AWS GovCloud (US)](govcloud-athena.md "govcloud-athena.md")
 - [Amazon Aurora with MySQL and PostgreSQL compatibility in AWS GovCloud (US)](govcloud-aurora.md "govcloud-aurora.md")
 - [Amazon Bedrock in AWS GovCloud (US)](govcloud-bedrock.md "govcloud-bedrock.md")

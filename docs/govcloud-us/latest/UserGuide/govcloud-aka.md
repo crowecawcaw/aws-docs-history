@@ -14,12 +14,8 @@ This service has no differences between the AWS GovCloud (US) Region and the sta
 
 ## Export-controlled content
 
-For AWS Services architected within the AWS GovCloud (US) Regions, the following list explains
-how certain components of data may leave the AWS GovCloud (US) Regions in the normal course of the service offerings.
-The list can be used as a guide to help meet applicable customer compliance obligations.
-Data not included in the following list remains within the AWS GovCloud (US) Regions.
+For AWS Services architected within the AWS GovCloud (US) Regions, the following list explains how certain components of data may leave the AWS GovCloud (US) Regions in the normal course of the service offerings. The list can be used as a guide to help meet applicable customer compliance obligations. Data not included in the following list remains within the AWS GovCloud (US) Regions.
 
 - Application names
 
-If you are processing export-controlled data with this service,
-use the SSL (HTTPS) endpoint to maintain export compliance. For more information, see [Service Endpoints](using-govcloud-endpoints.md "using-govcloud-endpoints.md").
+If you are processing export-controlled data with this service, use the SSL (HTTPS) endpoint to maintain export compliance. For more information, see [Service Endpoints](using-govcloud-endpoints.md "using-govcloud-endpoints.md").

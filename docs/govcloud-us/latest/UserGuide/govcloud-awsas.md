@@ -10,25 +10,18 @@ With AWS Auto Scaling, you can quickly discover the scalable AWS resources for y
 
 ## Documentation for AWS Auto Scaling
 
-For more information about anything in the above list, see the documentation for the specific
-service at [AWS documentation](https://aws.amazon.com/documentation/ "https://aws.amazon.com/documentation/").
+For more information about anything in the above list, see the documentation for the specific service at [AWS documentation](https://aws.amazon.com/documentation/ "https://aws.amazon.com/documentation/").
 
-For
-information about scaling Amazon EC2 instances in AWS GovCloud (US), see [Amazon EC2 Auto Scaling](govcloud-as.md "govcloud-as.md") in
-this guide.
+For information about scaling Amazon EC2 instances in AWS GovCloud (US), see [Amazon EC2 Auto Scaling](govcloud-as.md "govcloud-as.md") in this guide.
 
 For more information about AWS Auto Scaling and Application Auto Scaling, see [AWS Auto Scaling documentation](https://aws.amazon.com/documentation/autoscaling/ "https://aws.amazon.com/documentation/autoscaling/").
 
 ## Export-controlled content
 
-For AWS Services architected within the AWS GovCloud (US) Regions, the following list explains
-how certain components of data may leave the AWS GovCloud (US) Regions in the normal course of the service offerings.
-The list can be used as a guide to help meet applicable customer compliance obligations.
-Data not included in the following list remains within the AWS GovCloud (US) Regions.
+For AWS Services architected within the AWS GovCloud (US) Regions, the following list explains how certain components of data may leave the AWS GovCloud (US) Regions in the normal course of the service offerings. The list can be used as a guide to help meet applicable customer compliance obligations. Data not included in the following list remains within the AWS GovCloud (US) Regions.
 
 - Auto Scaling is not permitted to contain export-controlled data.
-- For example, do not enter export-controlled data in the following
-  fields:
+- For example, do not enter export-controlled data in the following fields:
   - Scaling plan names
   - Scaling policy names
   - Scaling policy configurations

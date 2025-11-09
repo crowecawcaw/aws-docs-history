@@ -37,15 +37,11 @@ The following actions/provider types are not supported:
 
 ## Documentation for AWS CodePipeline
 
-[AWS CodePipeline
-documentation](../../../codepipeline/latest/userguide/welcome.md "../../../codepipeline/latest/userguide/welcome.md").
+[AWS CodePipeline documentation](../../../codepipeline/latest/userguide/welcome.md "../../../codepipeline/latest/userguide/welcome.md").
 
 ## Export-controlled content
 
-For AWS Services architected within the AWS GovCloud (US) Regions, the following list explains
-how certain components of data may leave the AWS GovCloud (US) Regions in the normal course of the service offerings.
-The list can be used as a guide to help meet applicable customer compliance obligations.
-Data not included in the following list remains within the AWS GovCloud (US) Regions.
+For AWS Services architected within the AWS GovCloud (US) Regions, the following list explains how certain components of data may leave the AWS GovCloud (US) Regions in the normal course of the service offerings. The list can be used as a guide to help meet applicable customer compliance obligations. Data not included in the following list remains within the AWS GovCloud (US) Regions.
 
 - Pipeline Name
 - Stage Name

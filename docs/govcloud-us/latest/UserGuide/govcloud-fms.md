@@ -4,23 +4,18 @@ AWS Firewall Manager simplifies your administration and maintenance tasks across
 
 ## How AWS Firewall Manager differs for AWS GovCloud (US)
 
-- AWS Marketplace managed rule groups for AWS WAF cannot be used with Firewall Manager security policies in AWS GovCloud (US). Managed rule groups are collections of predefined, ready-to-use rules that AWS and AWS Marketplace sellers write and maintain for you. AWS managed rule groups are provided free of charge with AWS WAF and are available for use in AWS GovCloud (US) with Firewall Manager security policies. AWS Marketplace rule groups are provided for subscription by AWS Marketplace sellers and aren't available for use in AWS GovCloud (US) with Firewall Manager.
+- AWS Marketplace managed rule groups for AWS WAF cannot be used with Firewall Manager security policies in AWS GovCloud (US). Managed rule groups are collections of predefined, ready-to-use rules that AWS and AWS Marketplace sellers write and maintain for you. AWS managed rule groups are provided free of charge with AWS WAF and are available for use in AWS GovCloud (US) with Firewall Manager security policies. AWS Marketplace rule groups are provided for subscription by AWS Marketplace sellers and aren’t available for use in AWS GovCloud (US) with Firewall Manager.
 - Firewall Manager security policies for AWS WAF cannot be enabled on Amazon CloudFront distributions in AWS GovCloud (US).
 - Firewall Manager does not support AWS Shield Advanced or AWS WAF Classic.
 
 ## Documentation for AWS Firewall Manager
 
-[AWS Firewall Manager documentation](../../../waf/latest/developerguide/fms-chapter.md "../../../waf/latest/developerguide/fms-chapter.md").
+link: [AWS Firewall Manager documentation](../../../waf/latest/developerguide/fms-chapter.md "../../../waf/latest/developerguide/fms-chapter.md").
 
 ## Export-controlled content
 
-For AWS Services architected within the AWS GovCloud (US) Regions, the following list explains
-how certain components of data may leave the AWS GovCloud (US) Regions in the normal course of the service offerings.
-The list can be used as a guide to help meet applicable customer compliance obligations.
-Data not included in the following list remains within the AWS GovCloud (US) Regions.
+For AWS Services architected within the AWS GovCloud (US) Regions, the following list explains how certain components of data may leave the AWS GovCloud (US) Regions in the normal course of the service offerings. The list can be used as a guide to help meet applicable customer compliance obligations. Data not included in the following list remains within the AWS GovCloud (US) Regions.
 
-- AWS Firewall Manager metadata is not permitted to contain export-controlled
-  data. For example, do not enter export-controlled data into user input fields
-  such as the following:
+- AWS Firewall Manager metadata is not permitted to contain export-controlled data. For example, do not enter export-controlled data into user input fields such as the following:
   - Firewall Manager policy name
   - Resource Tag/Key values

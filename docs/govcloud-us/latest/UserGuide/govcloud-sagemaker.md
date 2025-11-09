@@ -1,6 +1,6 @@
 # Amazon SageMaker AI in AWS GovCloud (US)
 
-Amazon SageMaker AI is a fully managed machine learning service. With Amazon SageMaker AI, data scientists and developers can quickly and easily build and train machine learning models, and then directly deploy them into a production-ready hosted environment. It provides an integrated Jupyter authoring notebook instance for easy access to your data sources for exploration and analysis, so you don't have to manage servers. It also provides common machine learning algorithms that are optimized to run efficiently against extremely large data in a distributed environment. With native support for bring-your-own-algorithms and frameworks, Amazon SageMaker AI provides flexible distributed training options that adjust to your specific workflows.
+Amazon SageMaker AI is a fully managed machine learning service. With Amazon SageMaker AI, data scientists and developers can quickly and easily build and train machine learning models, and then directly deploy them into a production-ready hosted environment. It provides an integrated Jupyter authoring notebook instance for easy access to your data sources for exploration and analysis, so you don’t have to manage servers. It also provides common machine learning algorithms that are optimized to run efficiently against extremely large data in a distributed environment. With native support for bring-your-own-algorithms and frameworks, Amazon SageMaker AI provides flexible distributed training options that adjust to your specific workflows.
 
 ###### Topics
 
@@ -39,16 +39,9 @@ SageMaker Jumpstart in GovCloud only provides support for open-weight models. Yo
 
 ## Export-controlled content
 
-For AWS Services architected within the AWS GovCloud (US) Regions, the following list explains
-how certain components of data may leave the AWS GovCloud (US) Regions in the normal course of the service offerings.
-The list can be used as a guide to help meet applicable customer compliance obligations.
-Data not included in the following list remains within the AWS GovCloud (US) Regions.
+For AWS Services architected within the AWS GovCloud (US) Regions, the following list explains how certain components of data may leave the AWS GovCloud (US) Regions in the normal course of the service offerings. The list can be used as a guide to help meet applicable customer compliance obligations. Data not included in the following list remains within the AWS GovCloud (US) Regions.
 
-- Amazon SageMaker AI metadata is not permitted to contain export-controlled data. This
-  metadata includes all configuration data that you enter when creating and
-  maintaining your NotebookInstances, NotebookInstanceLifecycleConfigs, Endpoints,
-  Models, EndpointConfigs, TrainingJobs, HyperParameterTuningJobs, and
-  BatchTransformJobs.
+- Amazon SageMaker AI metadata is not permitted to contain export-controlled data. This metadata includes all configuration data that you enter when creating and maintaining your NotebookInstances, NotebookInstanceLifecycleConfigs, Endpoints, Models, EndpointConfigs, TrainingJobs, HyperParameterTuningJobs, and BatchTransformJobs.
 
 Do not enter export-controlled data in the following console fields:
 
@@ -67,5 +60,4 @@ Do not enter export-controlled data in the following console fields:
     + Input Channel Name
     + Any resource tag or value
     + Names of any metrics emitted by algorithms
-    + Names of any training or inference container environment
-     variables
+    + Names of any training or inference container environment variables

@@ -13,18 +13,17 @@ With AWS Lambda, you can run code without provisioning or managing servers. You 
 - Lambda integration with Infrastructure Composer is not available.
 - The [Future runtime launch dates](../../../lambda/latest/dg/lambda-runtimes.md#runtimes-future "../../../lambda/latest/dg/lambda-runtimes.md#runtimes-future") are not applicable.
 - The Amazon CloudWatch Logs Live Tail integration in the Lambda console is not available.
-- AWS KMS customer managed key encryption for .zip deployment packages is not available.
+- AWS KMS
+  customer managed key encryption for .zip deployment packages is not available.
 - Lambda SnapStart for Python and .NET is not available.
-- CloudWatch Application Signals for Lambda functions is not available.
+- CloudWatch
+  Application Signals for Lambda functions is not available.
 - Event source mapping metrics are not available.
 - Provisioned mode for event source mappings is not available.
 - Amazon S3 as a destination for Kinesis, DynamoDB, and async invoke is not available.
 - Monitoring Lambda function logs with Amazon S3 or Firehose is not yet available.
-- AWS Lambda managed layers have different versions in AWS GovCloud (US) Regions compared to
-  commercial Regions. Verify layer availability and versions when migrating
-  functions between Regions.
-- The deprecation schedule for the .NET 6 runtime is different from the schedule provided in the
-  [Lambda Developer Guide](../../../lambda/latest/dg/lambda-runtimes.md#runtimes-supported "../../../lambda/latest/dg/lambda-runtimes.md#runtimes-supported").
+- AWS Lambda managed layers have different versions in AWS GovCloud (US) Regions compared to commercial Regions. Verify layer availability and versions when migrating functions between Regions.
+- The deprecation schedule for the .NET 6 runtime is different from the schedule provided in the [Lambda Developer Guide](../../../lambda/latest/dg/lambda-runtimes.md#runtimes-supported "../../../lambda/latest/dg/lambda-runtimes.md#runtimes-supported").
 
 Lambda will deprecate the .NET 6 runtime on July 31, 2025. We recommend that you migrate .NET 6 functions to .NET 8, which is now available. Until the deprecation date, Lambda will continue to apply patches to the .NET 6 operating system (OS), but not to the .NET 6 language runtime.
 
@@ -34,10 +33,7 @@ Lambda will deprecate the .NET 6 runtime on July 31, 2025. We recommend that you
 
 ## Export-controlled content
 
-For AWS Services architected within the AWS GovCloud (US) Regions, the following list explains
-how certain components of data may leave the AWS GovCloud (US) Regions in the normal course of the service offerings.
-The list can be used as a guide to help meet applicable customer compliance obligations.
-Data not included in the following list remains within the AWS GovCloud (US) Regions.
+For AWS Services architected within the AWS GovCloud (US) Regions, the following list explains how certain components of data may leave the AWS GovCloud (US) Regions in the normal course of the service offerings. The list can be used as a guide to help meet applicable customer compliance obligations. Data not included in the following list remains within the AWS GovCloud (US) Regions.
 
 - Do not enter export-controlled data in the following console fields:
   - Function name

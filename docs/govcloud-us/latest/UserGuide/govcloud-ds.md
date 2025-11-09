@@ -11,8 +11,7 @@ The following list details the differences for using this service in AWS GovClou
   - Simple AD
   - Amazon Cloud Directory
 
-- The following AWS apps and services are not currently supported by
-  AWS Directory Service:
+- The following AWS apps and services are not currently supported by AWS Directory Service:
   - Amazon WorkDocs
   - Amazon WorkMail
   - Amazon Chime
@@ -25,42 +24,30 @@ The following list details the differences for using this service in AWS GovClou
   - AWS Managed Microsoft AD (Hybrid Edition)
 
 - Only signature version 4 signing is supported.
-- You can use the [AWS Command Line
-  Interface (AWS CLI)](https://aws.amazon.com/cli/ "https://aws.amazon.com/cli/") to interact with AWS Directory Service and other
-  AWS services through the command line. For more information, see [AWS CLI](../../../cli/index.md "../../../cli/index.md")
-  documentation.
+- You can use the [AWS Command Line Interface (AWS CLI)](https://aws.amazon.com/cli/ "https://aws.amazon.com/cli/") to interact with AWS Directory Service and other AWS services through the command line. For more information, see [AWS CLI](../../../cli/index.md "../../../cli/index.md") documentation.
 
 ###### Note
 
-If you are using the Amazon Linux AMI, the AWS CLI is already installed
-and configured.
+If you are using the Amazon Linux AMI, the AWS CLI is already installed and configured.
 
-- To connect to AWS Directory Service by using the command line or APIs, use the following
-  [endpoints](using-govcloud-endpoints.md "using-govcloud-endpoints.md"):
-  - https://ds-fips.us-gov-west-1.amazonaws.com
-  - https://ds.us-gov-west-1.amazonaws.com
-  - https://ds-fips.us-gov-east-1.amazonaws.com
-  - https://ds.us-gov-east-1.amazonaws.com
+- To connect to AWS Directory Service by using the command line or APIs, use the following [endpoints](using-govcloud-endpoints.md "using-govcloud-endpoints.md"):
+  - [https://ds-fips.us-gov-west-1.amazonaws.com](https://ds-fips.us-gov-west-1.amazonaws.com "https://ds-fips.us-gov-west-1.amazonaws.com")
+  - [https://ds.us-gov-west-1.amazonaws.com](https://ds.us-gov-west-1.amazonaws.com "https://ds.us-gov-west-1.amazonaws.com")
+  - [https://ds-fips.us-gov-east-1.amazonaws.com](https://ds-fips.us-gov-east-1.amazonaws.com "https://ds-fips.us-gov-east-1.amazonaws.com")
+  - [https://ds.us-gov-east-1.amazonaws.com](https://ds.us-gov-east-1.amazonaws.com "https://ds.us-gov-east-1.amazonaws.com")
 
-- Automatic DNS forwarding is not enabled by default and must be
-  configured.
+- Automatic DNS forwarding is not enabled by default and must be configured.
 - The AWS Directory Service Data API is not available.
 
 ## Documentation for AWS Directory Service
 
-[AWS Directory Service
-documentation](../../../directory-service/index.md "../../../directory-service/index.md").
+[AWS Directory Service documentation](../../../directory-service/index.md "../../../directory-service/index.md").
 
 ## Export-controlled content
 
-For AWS Services architected within the AWS GovCloud (US) Regions, the following list explains
-how certain components of data may leave the AWS GovCloud (US) Regions in the normal course of the service offerings.
-The list can be used as a guide to help meet applicable customer compliance obligations.
-Data not included in the following list remains within the AWS GovCloud (US) Regions.
+For AWS Services architected within the AWS GovCloud (US) Regions, the following list explains how certain components of data may leave the AWS GovCloud (US) Regions in the normal course of the service offerings. The list can be used as a guide to help meet applicable customer compliance obligations. Data not included in the following list remains within the AWS GovCloud (US) Regions.
 
-- AWS Directory Service metadata is not permitted to contain export-controlled data. This
-  metadata includes all configuration data that you enter when creating and
-  maintaining your AWS Directory Service directory except passwords.
+- AWS Directory Service metadata is not permitted to contain export-controlled data. This metadata includes all configuration data that you enter when creating and maintaining your AWS Directory Service directory except passwords.
 
 Do not enter export-controlled data in the following console fields:
 

@@ -6,8 +6,7 @@ AWS IoT Device Defender is a fully managed service that helps you secure your fl
 
 - Amazon Cognito related checks in Device Defender Audit are not available.
 - Role alias related and key quality related checks in Device Defender Audit are not available.
-- AWS IoT Device Defender ML Detect feature is not available in the
-  AWS GovCloud (US) Regions.
+- AWS IoT Device Defender ML Detect feature is not available in the AWS GovCloud (US) Regions.
 
 ## Documentation for AWS IoT Device Defender
 
@@ -15,10 +14,7 @@ AWS IoT Device Defender is a fully managed service that helps you secure your fl
 
 ## Export-controlled content
 
-For AWS Services architected within the AWS GovCloud (US) Regions, the following list explains
-how certain components of data may leave the AWS GovCloud (US) Regions in the normal course of the service offerings.
-The list can be used as a guide to help meet applicable customer compliance obligations.
-Data not included in the following list remains within the AWS GovCloud (US) Regions.
+For AWS Services architected within the AWS GovCloud (US) Regions, the following list explains how certain components of data may leave the AWS GovCloud (US) Regions in the normal course of the service offerings. The list can be used as a guide to help meet applicable customer compliance obligations. Data not included in the following list remains within the AWS GovCloud (US) Regions.
 
 - Security Profile Name
 - Behavior Name

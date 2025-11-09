@@ -12,15 +12,10 @@ This service has no differences between the AWS GovCloud (US) and the standard A
 
 ## Export-controlled content
 
-For AWS Services architected within the AWS GovCloud (US) Regions, the following list explains
-how certain components of data may leave the AWS GovCloud (US) Regions in the normal course of the service offerings.
-The list can be used as a guide to help meet applicable customer compliance obligations.
-Data not included in the following list remains within the AWS GovCloud (US) Regions.
+For AWS Services architected within the AWS GovCloud (US) Regions, the following list explains how certain components of data may leave the AWS GovCloud (US) Regions in the normal course of the service offerings. The list can be used as a guide to help meet applicable customer compliance obligations. Data not included in the following list remains within the AWS GovCloud (US) Regions.
 
 - No export-controlled data can be entered, stored, or processed in Amazon SWF.
-- Amazon SWF metadata is not permitted to contain export-controlled data. This metadata
-  includes all of the configuration data that you enter when setting up and maintaining your
-  workflows.
+- Amazon SWF metadata is not permitted to contain export-controlled data. This metadata includes all of the configuration data that you enter when setting up and maintaining your workflows.
 
 For example, do not enter export-controlled data in the following fields:
 
@@ -30,7 +25,5 @@ For example, do not enter export-controlled data in the following fields:
     + Activity type version
     + Execution workflow ID
     + Activity task ID
-    + The `input`, `result`, or `details` arguments to
-     workflow executions
-    + The `input`, `result`, or `details` arguments to
-     activity tasks
+    + The `input`, `result`, or `details` arguments to workflow executions
+    + The `input`, `result`, or `details` arguments to activity tasks

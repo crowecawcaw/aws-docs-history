@@ -4,8 +4,7 @@ Amazon Athena is an interactive query service that makes it easy to analyze data
 
 ## How Athena differs for AWS GovCloud (US)
 
-- Granting AWS Lake Formation permissions to Amazon Athena users who authenticate through the
-  JDBC or ODBC driver using a SAML identity provider is not supported.
+- Granting AWS Lake Formation permissions to Amazon Athena users who authenticate through the JDBC or ODBC driver using a SAML identity provider is not supported.
 
 ## Documentation for Amazon Athena
 
@@ -13,13 +12,9 @@ Amazon Athena is an interactive query service that makes it easy to analyze data
 
 ## Export-controlled content
 
-For AWS Services architected within the AWS GovCloud (US) Regions, the following list explains
-how certain components of data may leave the AWS GovCloud (US) Regions in the normal course of the service offerings.
-The list can be used as a guide to help meet applicable customer compliance obligations.
-Data not included in the following list remains within the AWS GovCloud (US) Regions.
+For AWS Services architected within the AWS GovCloud (US) Regions, the following list explains how certain components of data may leave the AWS GovCloud (US) Regions in the normal course of the service offerings. The list can be used as a guide to help meet applicable customer compliance obligations. Data not included in the following list remains within the AWS GovCloud (US) Regions.
 
-- Amazon Athena metadata is not permitted
-  to contain export-controlled data. This metadata includes:
+- Amazon Athena metadata is not permitted to contain export-controlled data. This metadata includes:
   - Database Name
   - Table Name
   - Partitions

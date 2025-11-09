@@ -4,9 +4,7 @@ Amazon Elastic Block Store (Amazon EBS) provides block level storage volumes for
 
 ## How Amazon Elastic Block Store differs for AWS GovCloud (US)
 
-- The [copy snapshot commands](../../../AWSEC2/latest/UserGuide/ebs-copy-snapshot.md "../../../AWSEC2/latest/UserGuide/ebs-copy-snapshot.md")
-  can be used, but only allow you to copy snapshots available to your account within AWS GovCloud (US) Regions.
-  If you specify a source or destination Region to copy to or from, the commands will return an error.
+- The [copy snapshot commands](../../../AWSEC2/latest/UserGuide/ebs-copy-snapshot.md "../../../AWSEC2/latest/UserGuide/ebs-copy-snapshot.md") can be used, but only allow you to copy snapshots available to your account within AWS GovCloud (US) Regions. If you specify a source or destination Region to copy to or from, the commands will return an error.
 - Use SSL (HTTPS) when you make calls to the service in AWS GovCloud (US) Regions. In other AWS Regions, you can use HTTP or HTTPS.
 - Amazon EBS Multi-Attach is not available.
 
@@ -18,14 +16,9 @@ For Amazon EBS User Guide, see [Amazon Elastic Block Store documentation](../../
 
 ## Export-controlled content
 
-For AWS Services architected within the AWS GovCloud (US) Regions, the following list explains
-how certain components of data may leave the AWS GovCloud (US) Regions in the normal course of the service offerings.
-The list can be used as a guide to help meet applicable customer compliance obligations.
-Data not included in the following list remains within the AWS GovCloud (US) Regions.
+For AWS Services architected within the AWS GovCloud (US) Regions, the following list explains how certain components of data may leave the AWS GovCloud (US) Regions in the normal course of the service offerings. The list can be used as a guide to help meet applicable customer compliance obligations. Data not included in the following list remains within the AWS GovCloud (US) Regions.
 
-- Amazon EBS metadata is not permitted to contain export-controlled data. This
-  metadata includes all configuration data that you enter when creating and
-  maintaining your Amazon EBS volumes.
+- Amazon EBS metadata is not permitted to contain export-controlled data. This metadata includes all configuration data that you enter when creating and maintaining your Amazon EBS volumes.
 - Do not enter export-controlled data in the following fields:
   - Volume names
   - Snapshot names

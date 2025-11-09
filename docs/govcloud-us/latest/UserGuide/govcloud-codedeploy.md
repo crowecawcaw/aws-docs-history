@@ -6,11 +6,7 @@ AWS CodeDeploy is a deployment service that enables developers to automate the d
 
 - The new AWS CodeDeploy console is not available in the AWS GovCloud (US) Regions
 - Use TLS (HTTPS) when you make calls to the service in AWS GovCloud (US) Regions. In other regions, you can use HTTP or HTTPS.
-- Several procedures in the CodeDeploy User Guide require the customer to substitute the
-  name of a region-specific Amazon S3 bucket or bucket ARN. These procedures are for tasks
-  such as restricting bucket access and downloading installation files, samples, and
-  templates. In AWS GovCloud (US) Regions, the formats for accessing these
-  resources do not follow the same patterns as for other Regions.
+- Several procedures in the CodeDeploy User Guide require the customer to substitute the name of a region-specific Amazon S3 bucket or bucket ARN. These procedures are for tasks such as restricting bucket access and downloading installation files, samples, and templates. In AWS GovCloud (US) Regions, the formats for accessing these resources do not follow the same patterns as for other Regions.
 - ECS capacity providers are not supported.
 - Automatically updating outdated instances is not supported.
 - CodeDeploy does not have a VPC endpoint powered by PrivateLink.
@@ -19,7 +15,7 @@ AWS CodeDeploy is a deployment service that enables developers to automate the d
 
 Use the values presented here to complete CodeDeploy procedures in the AWS GovCloud (US).
 
-### CodeDeploy Amazon S3 resources bucket
+### CodeDeployAmazon S3 resources bucket
 
 Name of the Amazon S3 bucket containing CodeDeploy files:
 
@@ -27,7 +23,7 @@ Name of the Amazon S3 bucket containing CodeDeploy files:
 aws-codedeploy-us-gov-west-1
 ```
 
-### CodeDeploy Amazon S3 bucket ARN
+### CodeDeployAmazon S3 bucket ARN
 
 ARN of the Amazon S3 bucket containing CodeDeploy files:
 
@@ -43,9 +39,7 @@ wget command for downloading the CodeDeploy agent on Linux and Ubuntu instances:
 wget https://aws-codedeploy-us-gov-west-1.s3-us-gov-west-1.amazonaws.com/latest/install
 ```
 
-### Sample application
-
-locations
+### Sample application locations
 
 Location of sample CodeDeploy applications:
 
@@ -63,19 +57,15 @@ https://s3-us-gov-west-1.amazonaws.com/aws-codedeploy-us-gov-west-1/samples/late
 
 ### AWS CloudFormation template location
 
-Location of AWS CloudFormation template for launching Amazon EC2 instance configured for CodeDeploy
-deployments:
+Location of AWS CloudFormation template for launching Amazon EC2 instance configured for CodeDeploy deployments:
 
 ```
 https://s3-us-gov-west-1.amazonaws.com/aws-codedeploy-us-gov-west-1/templates/latest/CodeDeploy_SampleCF_Template.json
 ```
 
-### Downloading
+### Downloading CodeDeploy installer and updater (Windows Server)
 
-CodeDeploy installer and updater (Windows Server)
-
-Links for downloading CodeDeploy installer and updater for Windows Server
-instances:
+Links for downloading CodeDeploy installer and updater for Windows Server instances:
 
 - Installer:
 
@@ -89,15 +79,11 @@ https://aws-codedeploy-us-gov-west-1.s3-us-gov-west-1.amazonaws.com/latest/coded
 https://aws-codedeploy-us-gov-west-1.s3-us-gov-west-1.amazonaws.com/latest/codedeploy-agent-updater.msi
 ```
 
-For more information about AWS CodeDeploy, see the [AWS CodeDeploy
-documentation](https://aws.amazon.com/documentation/codedeploy/ "https://aws.amazon.com/documentation/codedeploy/").
+For more information about AWS CodeDeploy, see the [AWS CodeDeploy documentation](https://aws.amazon.com/documentation/codedeploy/ "https://aws.amazon.com/documentation/codedeploy/").
 
 ## Export-controlled content
 
-For AWS Services architected within the AWS GovCloud (US) Regions, the following list explains
-how certain components of data may leave the AWS GovCloud (US) Regions in the normal course of the service offerings.
-The list can be used as a guide to help meet applicable customer compliance obligations.
-Data not included in the following list remains within the AWS GovCloud (US) Regions.
+For AWS Services architected within the AWS GovCloud (US) Regions, the following list explains how certain components of data may leave the AWS GovCloud (US) Regions in the normal course of the service offerings. The list can be used as a guide to help meet applicable customer compliance obligations. Data not included in the following list remains within the AWS GovCloud (US) Regions.
 
 - **Application Details:**
   - Name

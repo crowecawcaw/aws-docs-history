@@ -7,8 +7,7 @@ AWS Storage Gateway is a service that connects an on-premises software appliance
 - A file gateway created inside AWS GovCloud (US) cannot connect to a bucket outside of the AWS GovCloud (US) Regions.
 - A file gateway created outside of AWS GovCloud (US) cannot connect to a bucket inside AWS GovCloud (US).
 - TLS-enabled endpoint are available.
-- [AWS Storage Gateway Hardware Appliance](../../../storagegateway/latest/userguide/HardwareAppliance.md "../../../storagegateway/latest/userguide/HardwareAppliance.md") is not supported for use with the AWS Storage Gateway service running
-  in the AWS GovCloud (US) Region.
+- [AWS Storage Gateway Hardware Appliance](../../../storagegateway/latest/userguide/HardwareAppliance.md "../../../storagegateway/latest/userguide/HardwareAppliance.md") is not supported for use with the AWS Storage Gateway service running in the AWS GovCloud (US) Region.
 
 ## Documentation for AWS Storage Gateway
 
@@ -16,14 +15,9 @@ AWS Storage Gateway is a service that connects an on-premises software appliance
 
 ## Export-controlled content
 
-For AWS Services architected within the AWS GovCloud (US) Regions, the following list explains
-how certain components of data may leave the AWS GovCloud (US) Regions in the normal course of the service offerings.
-The list can be used as a guide to help meet applicable customer compliance obligations.
-Data not included in the following list remains within the AWS GovCloud (US) Regions.
+For AWS Services architected within the AWS GovCloud (US) Regions, the following list explains how certain components of data may leave the AWS GovCloud (US) Regions in the normal course of the service offerings. The list can be used as a guide to help meet applicable customer compliance obligations. Data not included in the following list remains within the AWS GovCloud (US) Regions.
 
-- AWS Storage Gateway metadata is not permitted to contain export-controlled data. This
-  metadata includes all configuration data that you enter when creating and
-  maintaining your gateway in AWS Storage Gateway, including but not limited to:
+- AWS Storage Gateway metadata is not permitted to contain export-controlled data. This metadata includes all configuration data that you enter when creating and maintaining your gateway in AWS Storage Gateway, including but not limited to:
 
       + Storage Gateway name
       + Tape barcode

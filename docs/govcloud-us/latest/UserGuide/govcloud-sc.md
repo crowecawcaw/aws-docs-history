@@ -13,13 +13,6 @@ AWS Service Catalog allows organizations to create and manage catalogs of IT ser
 
 ## Export-controlled content
 
-For AWS Services architected within the AWS GovCloud (US) Regions, the following list explains
-how certain components of data may leave the AWS GovCloud (US) Regions in the normal course of the service offerings.
-The list can be used as a guide to help meet applicable customer compliance obligations.
-Data not included in the following list remains within the AWS GovCloud (US) Regions.
+For AWS Services architected within the AWS GovCloud (US) Regions, the following list explains how certain components of data may leave the AWS GovCloud (US) Regions in the normal course of the service offerings. The list can be used as a guide to help meet applicable customer compliance obligations. Data not included in the following list remains within the AWS GovCloud (US) Regions.
 
-- No export-controlled data may be entered, stored, or processed by AWS Service
-  Catalog. For example, AWS Service Catalog metadata is not permitted to contain
-  export-controlled data. This metadata includes all the configuration data that
-  you enter when creating and maintaining your Products, Actions, and Tag
-  Options.
+- No export-controlled data may be entered, stored, or processed by AWS Service Catalog. For example, AWS Service Catalog metadata is not permitted to contain export-controlled data. This metadata includes all the configuration data that you enter when creating and maintaining your Products, Actions, and Tag Options.

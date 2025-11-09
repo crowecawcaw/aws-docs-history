@@ -8,10 +8,8 @@ AWS CodeBuild is a fully managed continuous integration service that compiles so
 - The Linux GPU environment types are not available in the AWS GovCloud (US) Regions.
 - The `2xlarge` compute type is not available in the AWS GovCloud (US) Regions.
 - The ability to pause a running build and then use AWS Systems Manager Session Manager to connect to the build container is not available in the AWS GovCloud (US) Regions.
-- The public builds feature of CodeBuild is not available in the
-  AWS GovCloud (US) Regions.
-- Windows managed and custom images are not available in the
-  AWS GovCloud (US) Regions.
+- The public builds feature of CodeBuild is not available in the AWS GovCloud (US) Regions.
+- Windows managed and custom images are not available in the AWS GovCloud (US) Regions.
 - Batch Configuration is not available in the AWS GovCloud (US) Regions.
 - Compute Fleets are not available in AWS GovCloud (US) Regions.
 
@@ -21,9 +19,6 @@ AWS CodeBuild is a fully managed continuous integration service that compiles so
 
 ## Export-controlled content
 
-For AWS Services architected within the AWS GovCloud (US) Regions, the following list explains
-how certain components of data may leave the AWS GovCloud (US) Regions in the normal course of the service offerings.
-The list can be used as a guide to help meet applicable customer compliance obligations.
-Data not included in the following list remains within the AWS GovCloud (US) Regions.
+For AWS Services architected within the AWS GovCloud (US) Regions, the following list explains how certain components of data may leave the AWS GovCloud (US) Regions in the normal course of the service offerings. The list can be used as a guide to help meet applicable customer compliance obligations. Data not included in the following list remains within the AWS GovCloud (US) Regions.
 
 - This service can generate metadata from customer-defined configurations. AWS suggests customers do not enter export-controlled information in console fields, descriptions, resource names, and tagging information.

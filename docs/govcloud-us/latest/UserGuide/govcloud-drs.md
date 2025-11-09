@@ -26,9 +26,9 @@ AWS Elastic Disaster Recovery minimizes downtime and data loss with fast, reliab
 
 ## Determining if your account has a default Amazon VPC
 
-In AWS GovCloud (US) Regions, you must launch all Amazon EC2 instances in an Amazon Virtual Private Cloud (Amazon VPC). In some cases, your account might have a default VPC, where you launch all your Amazon EC2 instances. If your account doesn't have a default VPC, you must create a VPC before you can launch Amazon EC2 instances. For more information, see [What is Amazon VPC?](../../../vpc/latest/userguide/what-is-amazon-vpc.md "../../../vpc/latest/userguide/what-is-amazon-vpc.md") in the Amazon VPC User Guide.
+In AWS GovCloud (US) Regions, you must launch all Amazon EC2 instances in an Amazon Virtual Private Cloud (Amazon VPC). In some cases, your account might have a default VPC, where you launch all your Amazon EC2 instances. If your account doesn’t have a default VPC, you must create a VPC before you can launch Amazon EC2 instances. For more information, see [What is Amazon VPC?](../../../vpc/latest/userguide/what-is-amazon-vpc.md "../../../vpc/latest/userguide/what-is-amazon-vpc.md") in the Amazon VPC User Guide.
 
-If you don't want a default VPC for your AWS Elastic Disaster Recovery account in AWS GovCloud (US), you can delete the default VPC and default subnets. The default VPC and subnets will not be recreated. However, you still need to create a VPC before launching instances.
+If you don’t want a default VPC for your AWS Elastic Disaster Recovery account in AWS GovCloud (US), you can delete the default VPC and default subnets. The default VPC and subnets will not be recreated. However, you still need to create a VPC before launching instances.
 
 If you deleted your default VPC, you can create a new one. For more information, see [Creating a Default VPC](../../../vpc/latest/userguide/default-vpc.md#create-default-vpc "../../../vpc/latest/userguide/default-vpc.md#create-default-vpc").
 
