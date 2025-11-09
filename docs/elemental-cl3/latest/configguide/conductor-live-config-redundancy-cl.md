@@ -44,8 +44,19 @@ that this node is now the primary node.
    **Add**. See the table for information
    on each field.
 
-| Field                                | Description                                                                                                                                                                                                                                                                                    |
-| ------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Redundancy Group Name**            | Any name that you choose.                                                                                                                                                                                                                                                                      |
-| **Virtual IP Address**               | A valid IPv4 address. The address must meet these conditions: <br>• It must be an address on your network that will never be allocated to any other host. <br>• It must be on the same subnet as the Conductor Live nodes.                                                                     |
-| **Virtual Router Identifier (VRID)** | The VRID must meet these conditions: <br>• It must be an integer 1–254. <br>• The value must not conflict with any other instance of `keepalived` (or any other VRRP service) that's running on the network. You must make sure that there are no conflicts. Elemental Live can't detect them. | ###### To add Conductor Live nodes Follow these steps on the primary Conductor Live node. 1. On the **Redundancy** page, select the Conductor Live redundancy group. Choose **Add HA Nodes**. 2. On the dialog, select a Conductor Live node from the **Nodes** dropdown list. 3. Choose **Add** . |
+| Field                                   | Description                                                                                                                                                                                                                                                                                                    |
+| --------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Redundancy Group<br>Name**            | Any name that you choose.                                                                                                                                                                                                                                                                                      |
+| **Virtual IP<br>Address**               | A valid IPv4 address. The address must<br>meet these conditions:<br>• It must be an address on your<br>network that will never be allocated to<br>any other host.<br>• It must be on the same subnet as<br>the Conductor Live nodes.                                                                           |
+| **Virtual Router Identifier<br>(VRID)** | The VRID must meet these conditions:<br>• It must be an integer 1–254.<br>• The value must not conflict with<br>any other instance of<br>`keepalived` (or any<br>other VRRP service) that's running on<br>the network. You must make sure that<br>there are no conflicts. Elemental Live can't<br>detect them. |
+
+###### To add Conductor Live nodes
+
+Follow these steps on the primary Conductor Live node.
+
+1. On the **Redundancy** page, select the
+   Conductor Live redundancy group. Choose **Add HA
+   Nodes**.
+2. On the dialog, select a Conductor Live node from the
+   **Nodes** dropdown list.
+3. Choose **Add** .

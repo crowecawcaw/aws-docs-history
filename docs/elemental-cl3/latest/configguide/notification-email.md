@@ -32,13 +32,36 @@ eventually filling the partition and causing disk alert errors.
     2. Complete the **Global Alert Notification** fields as
      described in the following table and choose **Update**:
 
-| Field                | Instructions                                                                                                                                                                                                                                                             |
-| -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Email**            | Enter the email address of the alert recipient. Required if you don't provide a URL in the **Web Callback URL** field.                                                                                                                                                   |
-| **Web Callback URL** | If you want to receive web server notifications too, enter the URL of the appropriate `.php` file on your web server.For instructions on how to configure your web server for notifications, see [Web callback notification](notification-web.md "notification-web.md"). |
-| **Notify**           | Select when you want to be notified, either when the alert is raised or when it's cleared. You can choose both options.                                                                                                                                                  | **Subscribe to individual alerts** 1. On the Conductor Live web interface, go to the **Stats** page and choose **Notifications**. 2. On the **Notifications** page, find the alert that you want to be notified on and choose the plus sign (+) to expand it. 3. Complete the fields as described in the following table and choose **Save**. |
-| Field                | Instructions                                                                                                                                                                                                                                                             |
-| ---                  | ---                                                                                                                                                                                                                                                                      |
-| **Email**            | Enter the email address of the alert recipient. Required if you don't provide a URL in the **Web Callback URL** field.                                                                                                                                                   |
-| **Web Callback URL** | If you want to receive web server notifications too, enter the URL of the appropriate `.php` file on your web server.For instructions on how to configure your web server for notifications, see [Web callback notification](notification-web.md "notification-web.md"). |
-| **Notify**           | Select when you want to be notified, either when the alert is raised or when it's cleared. You can choose both options.                                                                                                                                                  | 4. For each alert that you want to be notified on, find the alert, then expand and complete the fields. 2. If your network doesn't allow open relay messages, configure the sendmail server to relay the messages. For steps, see [Configure sendmail relay server](notification-email-sendmail.md "notification-email-sendmail.md").         |
+
+
+
+    | Field | Instructions |
+    | --- | --- |
+    | **Email** | Enter the email address of the alert recipient. Required if<br>you don't provide a URL in the **Web Callback URL**<br>field. |
+    | **Web Callback URL** | If you want to receive web server notifications too, enter the URL<br>of the appropriate `.php` file on your web<br>server.For instructions on how to configure your web server for<br>notifications, see [Web callback notification](notification-web.md "notification-web.md"). |
+    | **Notify** | Select when you want to be notified, either when the alert is<br>raised or when it's cleared. You can choose both options. |
+
+**Subscribe to individual alerts**
+
+    1. On the Conductor Live web interface, go to the **Stats**
+     page and choose **Notifications**.
+    2. On the **Notifications** page, find the
+     alert that you want to be notified on and choose the plus
+     sign (+) to expand it.
+    3. Complete the fields as described in the following table and choose
+     **Save**.
+
+
+
+
+    | Field | Instructions |
+    | --- | --- |
+    | **Email** | Enter the email address of the alert recipient. Required if<br>you don't provide a URL in the **Web Callback URL**<br>field. |
+    | **Web Callback URL** | If you want to receive web server notifications too, enter the URL<br>of the appropriate `.php` file on your web<br>server.For instructions on how to configure your web server for<br>notifications, see [Web callback notification](notification-web.md "notification-web.md"). |
+    | **Notify** | Select when you want to be notified, either when the alert is<br>raised or when it's cleared. You can choose both options. |
+    4. For each alert that you want to be notified on, find the
+     alert, then expand and complete the fields.
+
+2. If your network doesn't allow open relay messages, configure the sendmail server to
+   relay the messages. For steps, see [Configure sendmail relay
+   server](notification-email-sendmail.md "notification-email-sendmail.md").

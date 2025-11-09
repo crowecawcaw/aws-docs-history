@@ -25,7 +25,18 @@ you include `--config-auth`, then the script disables authentication.
 
 5. Answer the prompts as follows:
 
-| Prompt                                                                     | Value to enter |
-| -------------------------------------------------------------------------- | -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `Httpd must be restarted, which may interrupt REST commands. Restart now?` | `Y`            |
-| `Do you wish to update the admin user?`                                    | `N`            | When you return to the web interface, you are not prompted to log in, and the menu to enable or disable node authentication on the worker nodes has disappeared. 6. The `configure` command in the previous step disables user authentication but leaves HTTPS enabled. Therefore, if you also want to disable HTTPS, enter the configure command as follows: `[elemental@hostname elemental_se]$ sudo ./configure --https --skip-all` 7. If applicable, [re-enable HA](conductor-live-config-ha.md "conductor-live-config-ha.md"). |
+| Prompt                                                                        | Value to enter |
+| ----------------------------------------------------------------------------- | -------------- |
+| `Httpd must be restarted, which may interrupt REST commands. Restart<br>now?` | `Y`            |
+| `Do you wish to update the admin user?`                                       | `N`            |
+
+When you return to the web interface, you are not prompted to log in, and the menu to
+enable or disable node authentication on the worker nodes has disappeared. 6. The `configure` command in the previous step disables user authentication
+but leaves HTTPS enabled. Therefore, if you also want to disable HTTPS, enter the
+configure command as follows:
+
+```
+[elemental@hostname elemental_se]$ sudo ./configure --https --skip-all
+```
+
+7. If applicable, [re-enable HA](conductor-live-config-ha.md "conductor-live-config-ha.md").

@@ -166,9 +166,9 @@ cluster.
 
 Following is a summary of the users that you must explicitly create.
 
-| Type of user                             | How created                                                                                                                                            |
-| ---------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Regular administrators on Conductor Live | You manually add these users by [working on the primary Conductor Live](conductor-live-config-users.md "conductor-live-config-users.md")               |
-| Operators on Conductor Live              | You manually add these users by [working on the primary Conductor Live](conductor-live-config-users.md "conductor-live-config-users.md")               |
-| Viewers on Conductor Live                | You manually add these users by [working on the primary Conductor Live](conductor-live-config-users.md "conductor-live-config-users.md")               |
-| Regular administrators on worker nodes   | You manually add these users by [working on each worker node](config-conductor-live-users-add-workers.md "config-conductor-live-users-add-workers.md") |
+| Type of user                             | How created                                                                                                                                               |
+| ---------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Regular administrators on Conductor Live | You manually add these users by [working on the primary Conductor Live](conductor-live-config-users.md "conductor-live-config-users.md")                  |
+| Operators on Conductor Live              | You manually add these users by [working on the primary Conductor Live](conductor-live-config-users.md "conductor-live-config-users.md")                  |
+| Viewers on Conductor Live                | You manually add these users by [working on the primary Conductor Live](conductor-live-config-users.md "conductor-live-config-users.md")                  |
+| Regular administrators on worker nodes   | You manually add these users by [working on each worker<br>node](config-conductor-live-users-add-workers.md "config-conductor-live-users-add-workers.md") |
