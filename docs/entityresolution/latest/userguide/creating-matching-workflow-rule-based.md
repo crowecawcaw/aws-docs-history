@@ -22,13 +22,24 @@ When AWS Entity Resolution finds a match between two or more records in your dat
 You can use the following chart to compare the two **Rule types** and
 determine which one suits your use case.
 
-| Rule type comparison chart                                               | Use case | Advanced rule type       | Simple rule type                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| ------------------------------------------------------------------------ | -------- | ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Schema mappings mapped one-to-one with input types                       | Yes      | No                       |
-| Schema mapping with multiple data columns mapped to the same input types | No       | Yes                      |
-| Supports Exact and Fuzzy matching                                        | Yes      | No (Exact matching only) |
-| Supports AND, OR, and parentheses operators                              | Yes      | No (AND operator only)   |
-| Supports batch workflows                                                 | Yes      | Yes                      |
-| Supports incremental workflows                                           | Yes      | Yes                      |
-| Supports real-time workflows                                             | No       | Yes                      |
-| Supports ID mapping workflows                                            | No       | Yes                      | After you have determined which rule type you want to use, use the following topics to create a rule-based matching workflow with either the **Advanced** or **Simple** rule type. ###### Topics <br>• [Creating a rule-based matching workflow with the Advanced rule type](rule-based-mw-advanced.md "rule-based-mw-advanced.md") <br>• [Creating a rule-based matching workflow with the Simple rule type](rule-based-mw-simple.md "rule-based-mw-simple.md") |
+| Rule type comparison chart                                                  | Use case | Advanced rule type       | Simple rule type |
+| --------------------------------------------------------------------------- | -------- | ------------------------ | ---------------- |
+| Schema mappings mapped one-to-one with input types                          | Yes      | No                       |
+| Schema mapping with multiple data columns mapped to the same input<br>types | No       | Yes                      |
+| Supports Exact and Fuzzy matching                                           | Yes      | No (Exact matching only) |
+| Supports AND, OR, and parentheses operators                                 | Yes      | No (AND operator only)   |
+| Supports batch workflows                                                    | Yes      | Yes                      |
+| Supports incremental workflows                                              | Yes      | Yes                      |
+| Supports real-time workflows                                                | No       | Yes                      |
+| Supports ID mapping workflows                                               | No       | Yes                      |
+
+After you have determined which rule type you want to use, use the following topics to
+create a rule-based matching workflow with either the **Advanced** or
+**Simple** rule type.
+
+###### Topics
+
+- [Creating a rule-based matching workflow with the
+  Advanced rule type](rule-based-mw-advanced.md "rule-based-mw-advanced.md")
+- [Creating a rule-based matching workflow with the
+  Simple rule type](rule-based-mw-simple.md "rule-based-mw-simple.md")

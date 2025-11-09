@@ -523,7 +523,44 @@ Use JSON editor
    1. Start building the schema in the JSON editor or choose one of the following
       options based on your goal:
 
-| Your goal                          | Recommended option                                                 |
-| ---------------------------------- | ------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Start building your schema mapping | **Insert sample JSON** and then edit the information as necessary. |
-| Use an existing JSON file          | **Import from file**                                               | ###### Note Normalization is only supported for the following **types**: `NAME`, `ADDRESS`, `PHONE`, and `EMAIL_ADRESS`. If you want to normalize the `NAME` subtypes, then assign the following subtypes to the `NAME` **groupName**: `NAME_FIRST`, `NAME_MIDDLE`, and `NAME_LAST` If you want to normalize the `ADDRESS` subtypes, then assign the following subtypes to the `ADDRESS` **groupName**: `ADDRESS_STREET1`, `ADDRESS_STREET2`, `ADDRESS_STREET3`, `ADDRESS_CITY`, `ADDRESS_STATE`, `ADDRESS_COUNTRY`, and `ADDRESS_POSTALCODE`. If you want to normalize the `PHONE` subtypes, then assign the following subtypes to the `PHONE` **groupName**: `PHONE_NUMBER` and `PHONE_COUNTRYCODE`. 2. Choose **Next**. 6. For **Step 3: Review and create**: 1. Review the selections that you made for the previous steps and edit if necessary. 2. Choose **Create schema mapping**. ###### Note You can’t modify a schema mapping after you associate it with a workflow. You can clone a schema mapping if you want to use an existing configuration to create a new schema mapping. After you create the schema mapping, you're ready to [create a matching workflow](create-matching-workflow.md "create-matching-workflow.md") or [create an ID namespace](id-namespace.md "id-namespace.md"). |
+   | Your goal                          | Recommended option                                                         |
+   | ---------------------------------- | -------------------------------------------------------------------------- |
+   | Start building your schema mapping | \*_Insert sample JSON_<br>• and then edit the<br>information as necessary. |
+   | Use an existing JSON file          | **Import from file**                                                       |
+
+   ###### Note
+
+   Normalization is only supported for the following
+   **types**: `NAME`, `ADDRESS`,
+   `PHONE`, and `EMAIL_ADRESS`.
+
+   If you want to normalize the `NAME` subtypes, then assign the
+   following subtypes to the `NAME`
+   **groupName**: `NAME_FIRST`,
+   `NAME_MIDDLE`, and `NAME_LAST`
+
+   If you want to normalize the `ADDRESS` subtypes, then assign
+   the following subtypes to the `ADDRESS`
+   **groupName**: `ADDRESS_STREET1`,
+   `ADDRESS_STREET2`, `ADDRESS_STREET3`,
+   `ADDRESS_CITY`, `ADDRESS_STATE`,
+   `ADDRESS_COUNTRY`, and `ADDRESS_POSTALCODE`.
+
+   If you want to normalize the `PHONE` subtypes, then assign the
+   following subtypes to the `PHONE`
+   **groupName**: `PHONE_NUMBER` and
+   `PHONE_COUNTRYCODE`. 2. Choose **Next**.
+
+6. For **Step 3: Review and create**:
+   1. Review the selections that you made for the previous steps and edit if
+      necessary.
+   2. Choose **Create schema mapping**.
+
+   ###### Note
+
+   You can’t modify a schema mapping after you associate it with a workflow.
+   You can clone a schema mapping if you want to use an existing configuration to
+   create a new schema mapping.
+
+After you create the schema mapping, you're ready to [create a
+matching workflow](create-matching-workflow.md "create-matching-workflow.md") or [create an ID namespace](id-namespace.md "id-namespace.md").

@@ -203,5 +203,297 @@ Replace each `<user input placeholder>` with your own
 information.
 
 |               |                               |
-| ------------- | ----------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `<KMSKeyARN>` | AWS KMS Amazon Resource Name. | Similarly, the IAM entity invoking the [`StartMatchingJob` API](../apireference/API_StartMatchingJob.md "../apireference/API_StartMatchingJob.md") must have `kms:Decrypt` and `kms:GenerateDataKey` permissions on the customer managed KMS key provided in the matching workflow. For more information about [specifying permissions in a policy](../../../kms/latest/developerguide/control-access-overview.md#overview-policy-elements "../../../kms/latest/developerguide/control-access-overview.md#overview-policy-elements"), see the _AWS Key Management Service Developer Guide_. For more information about [troubleshooting key access](../../../kms/latest/developerguide/policy-evaluation.md#example-no-iam "../../../kms/latest/developerguide/policy-evaluation.md#example-no-iam"), see the _AWS Key Management Service Developer Guide_. ### Specifying a customer managed key for AWS Entity Resolution You can specify a customer managed key as a second layer encryption for the following resources: [Matching workflow](../apireference/API_CreateMatchingWorkflow.md "../apireference/API_CreateMatchingWorkflow.md") – When you create a matching workflow resource, you can specify the data key by entering a **KMSArn**, which AWS Entity Resolution uses to encrypt the identifiable personal data stored by the resource. **KMSArn** – Enter a key ARN, which is a [key identifier](../../../kms/latest/developerguide/concepts.md#key-id "../../../kms/latest/developerguide/concepts.md#key-id") for an AWS KMS customer managed key. You can specify a customer managed key as a second layer encryption for the following resources if you are creating or running an ID mapping workflow across two AWS accounts: [ID mapping workflow](../apireference/API_CreateIdMappingWorkflow.md "../apireference/API_CreateIdMappingWorkflow.md") or [Start ID mapping workflow](../apireference/API_StartIdMappingJob.md "../apireference/API_StartIdMappingJob.md") – When you create a ID mapping workflow resource or start an ID mapping workflow job, you can specify the data key by entering a **KMSArn**, which AWS Entity Resolution uses to encrypt the identifiable personal data stored by the resource. **KMSArn** – Enter a key ARN, which is a [key identifier](../../../kms/latest/developerguide/concepts.md#key-id "../../../kms/latest/developerguide/concepts.md#key-id") for an AWS KMS customer managed key. ### Monitoring your encryption keys for AWS Entity Resolution Service When you use an AWS KMS customer managed key with your AWS Entity Resolution Service resources, you can use [AWS CloudTrail](../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md "../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md") or [Amazon CloudWatch Logs](../../../AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.md "../../../AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.md") to track requests that AWS Entity Resolution sends to AWS KMS. The following examples are AWS CloudTrail events for `CreateGrant`, `GenerateDataKey`, `Decrypt`, and `DescribeKey` to monitor AWS KMS operations called by AWS Entity Resolution to access data encrypted by your customer managed key: ###### Topics <br>• [CreateGrant](#create-grant "#create-grant") <br>• [DescribeKey](#kms-creategrant "#kms-creategrant") <br>• [GenerateDataKey](#kms-generatedatakey "#kms-generatedatakey") <br>• [Decrypt](#kms-decrypt "#kms-decrypt") #### CreateGrant When you use an AWS KMS customer managed key to encrypt your matching workflow resource, AWS Entity Resolution sends a `CreateGrant` request on your behalf to access the KMS key in your AWS account. The grant that AWS Entity Resolution creates are specific to the resource associated with the AWS KMS customer managed key. In addition, AWS Entity Resolution uses the `RetireGrant` operation to remove a grant when you delete a resource. The following example event records the `CreateGrant` operation: `{ "eventVersion": "1.08", "userIdentity": { "type": "AssumedRole", "principalId": "AROAIGDTESTANDEXAMPLE:Sampleuser01", "arn": "arn:aws:sts::111122223333:assumed-role/Admin/Sampleuser01", "accountId": "111122223333", "accessKeyId": "AKIAIOSFODNN7EXAMPLE3", "sessionContext": { "sessionIssuer": { "type": "Role", "principalId": "AROAIGDTESTANDEXAMPLE:Sampleuser01", "arn": "arn:aws:sts::111122223333:assumed-role/Admin/Sampleuser01", "accountId": "111122223333", "userName": "Admin" }, "webIdFederationData": {}, "attributes": { "mfaAuthenticated": "false", "creationDate": "2021-04-22T17:02:00Z" } }, "invokedBy": "entityresolution.amazonaws.com" }, "eventTime": "2021-04-22T17:07:02Z", "eventSource": "kms.amazonaws.com", "eventName": "CreateGrant", "awsRegion": "us-west-2", "sourceIPAddress": "172.12.34.56", "userAgent": "ExampleDesktop/1.0 (V1; OS)", "requestParameters": { "retiringPrincipal": "entityresolution.region.amazonaws.com", "operations": [ "GenerateDataKey", "Decrypt", ], "keyId": "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-123456SAMPLE", "granteePrincipal": "entityresolution.region.amazonaws.com" }, "responseElements": { "grantId": "0ab0ac0d0b000f00ea00cc0a0e00fc00bce000c000f0000000c0bc0a0000aaafSAMPLE", "keyId": "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-123456SAMPLE", }, "requestID": "ff000af-00eb-00ce-0e00-ea000fb0fba0SAMPLE", "eventID": "ff000af-00eb-00ce-0e00-ea000fb0fba0SAMPLE", "readOnly": false, "resources": [ { "accountId": "111122223333", "type": "AWS::KMS::Key", "ARN": "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-123456SAMPLE" } ], "eventType": "AwsApiCall", "managementEvent": true, "eventCategory": "Management", "recipientAccountId": "111122223333" }` #### DescribeKey AWS Entity Resolution uses the `DescribeKey` operation to verify if the AWS KMS customer managed key associated with your matching resource exists in the account and Region. The following example event records the `DescribeKey` operation. `{ "eventVersion": "1.08", "userIdentity": { "type": "AssumedRole", "principalId": "AROAIGDTESTANDEXAMPLE:Sampleuser01", "arn": "arn:aws:sts::111122223333:assumed-role/Admin/Sampleuser01", "accountId": "111122223333", "accessKeyId": "AKIAIOSFODNN7EXAMPLE3", "sessionContext": { "sessionIssuer": { "type": "Role", "principalId": "AROAIGDTESTANDEXAMPLE:Sampleuser01", "arn": "arn:aws:sts::111122223333:assumed-role/Admin/Sampleuser01", "accountId": "111122223333", "userName": "Admin" }, "webIdFederationData": {}, "attributes": { "mfaAuthenticated": "false", "creationDate": "2021-04-22T17:02:00Z" } }, "invokedBy": "entityresolution.amazonaws.com" }, "eventTime": "2021-04-22T17:07:02Z", "eventSource": "kms.amazonaws.com", "eventName": "DescribeKey", "awsRegion": "us-west-2", "sourceIPAddress": "172.12.34.56", "userAgent": "ExampleDesktop/1.0 (V1; OS)", "requestParameters": { "keyId": "00dd0db0-0000-0000-ac00-b0c000SAMPLE" }, "responseElements": null, "requestID": "ff000af-00eb-00ce-0e00-ea000fb0fba0SAMPLE", "eventID": "ff000af-00eb-00ce-0e00-ea000fb0fba0SAMPLE", "readOnly": true, "resources": [ { "accountId": "111122223333", "type": "AWS::KMS::Key", "ARN": "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-123456SAMPLE" } ], "eventType": "AwsApiCall", "managementEvent": true, "eventCategory": "Management", "recipientAccountId": "111122223333" }` #### GenerateDataKey When you enable an AWS KMS customer managed key for your matching workflow resource, AWS Entity Resolution sends a `GenerateDataKey` request through Amazon Simple Storage Service (Amazon S3) to AWS KMS that specifies the AWS KMS customer managed key for the resource. The following example event records the `GenerateDataKey` operation. `{ "eventVersion": "1.08", "userIdentity": { "type": "AWSService", "invokedBy": "s3.amazonaws.com" }, "eventTime": "2021-04-22T17:07:02Z", "eventSource": "kms.amazonaws.com", "eventName": "GenerateDataKey", "awsRegion": "us-west-2", "sourceIPAddress": "172.12.34.56", "userAgent": "ExampleDesktop/1.0 (V1; OS)", "requestParameters": { "keySpec": "AES_256", "keyId": "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-123456SAMPLE" }, "responseElements": null, "requestID": "ff000af-00eb-00ce-0e00-ea000fb0fba0SAMPLE", "eventID": "ff000af-00eb-00ce-0e00-ea000fb0fba0SAMPLE", "readOnly": true, "resources": [ { "accountId": "111122223333", "type": "AWS::KMS::Key", "ARN": "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-123456SAMPLE" } ], "eventType": "AwsApiCall", "managementEvent": true, "eventCategory": "Management", "recipientAccountId": "111122223333", "sharedEventID": "57f5dbee-16da-413e-979f-2c4c6663475e" }` #### Decrypt When you enable an AWS KMS customer managed key for your matching workflow resource, AWS Entity Resolution sends a `Decrypt` request through Amazon Simple Storage Service (Amazon S3) to AWS KMS that specifies the AWS KMS customer managed key for the resource. The following example event records the `Decrypt` operation. `{ "eventVersion": "1.08", "userIdentity": { "type": "AWSService", "invokedBy": "s3.amazonaws.com" }, "eventTime": "2021-04-22T17:10:51Z", "eventSource": "kms.amazonaws.com", "eventName": "Decrypt", "awsRegion": "us-west-2", "sourceIPAddress": "172.12.34.56", "userAgent": "ExampleDesktop/1.0 (V1; OS)", "requestParameters": { "keyId": "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-123456SAMPLE", "encryptionAlgorithm": "SYMMETRIC_DEFAULT" }, "responseElements": null, "requestID": "ff000af-00eb-00ce-0e00-ea000fb0fba0SAMPLE", "eventID": "ff000af-00eb-00ce-0e00-ea000fb0fba0SAMPLE", "readOnly": true, "resources": [ { "accountId": "111122223333", "type": "AWS::KMS::Key", "ARN": "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-123456SAMPLE" } ], "eventType": "AwsApiCall", "managementEvent": true, "eventCategory": "Management", "recipientAccountId": "111122223333", "sharedEventID": "dc129381-1d94-49bd-b522-f56a3482d088" }` ### Considerations AWS Entity Resolution doesn't support updating a matching workflow with a new customer managed KMS key. In such cases, you can create a new workflow with the customer managed KMS key. ### Learn more The following resources provide more information about data encryption at rest. For more information about [AWS Key Management Service basic concepts](../../../kms/latest/developerguide/concepts.md "../../../kms/latest/developerguide/concepts.md"), see the _AWS Key Management Service Developer Guide_. For more information about [Security best practices for AWS Key Management Service](../../../kms/latest/developerguide/best-practices.md "../../../kms/latest/developerguide/best-practices.md"), see the _AWS Key Management Service Developer Guide_. |
+| ------------- | ----------------------------- |
+| `<KMSKeyARN>` | AWS KMS Amazon Resource Name. |
+
+Similarly, the IAM entity invoking the [`StartMatchingJob` API](../apireference/API_StartMatchingJob.md "../apireference/API_StartMatchingJob.md") must have `kms:Decrypt` and
+`kms:GenerateDataKey` permissions on the customer managed KMS key provided in
+the matching workflow.
+
+For more information about [specifying permissions in a policy](../../../kms/latest/developerguide/control-access-overview.md#overview-policy-elements "../../../kms/latest/developerguide/control-access-overview.md#overview-policy-elements"), see the _AWS Key Management Service
+Developer Guide_.
+
+For more information about [troubleshooting key access](../../../kms/latest/developerguide/policy-evaluation.md#example-no-iam "../../../kms/latest/developerguide/policy-evaluation.md#example-no-iam"), see the _AWS Key Management Service Developer
+Guide_.
+
+### Specifying a customer managed key for AWS Entity Resolution
+
+You can specify a customer managed key as a second layer encryption for the following
+resources:
+
+[Matching
+workflow](../apireference/API_CreateMatchingWorkflow.md "../apireference/API_CreateMatchingWorkflow.md") – When you create a matching workflow resource, you can specify
+the data key by entering a **KMSArn**, which AWS Entity Resolution uses to
+encrypt the identifiable personal data stored by the resource.
+
+**KMSArn** – Enter a key ARN, which is a [key
+identifier](../../../kms/latest/developerguide/concepts.md#key-id "../../../kms/latest/developerguide/concepts.md#key-id") for an AWS KMS customer managed key.
+
+You can specify a customer managed key as a second layer encryption for the following
+resources if you are creating or running an ID mapping workflow across two
+AWS accounts:
+
+[ID mapping
+workflow](../apireference/API_CreateIdMappingWorkflow.md "../apireference/API_CreateIdMappingWorkflow.md") or [Start ID mapping
+workflow](../apireference/API_StartIdMappingJob.md "../apireference/API_StartIdMappingJob.md") – When you create a ID mapping workflow resource or start an ID
+mapping workflow job, you can specify the data key by entering a **KMSArn**, which AWS Entity Resolution uses to encrypt the identifiable personal data stored
+by the resource.
+
+**KMSArn** – Enter a key ARN, which is a [key
+identifier](../../../kms/latest/developerguide/concepts.md#key-id "../../../kms/latest/developerguide/concepts.md#key-id") for an AWS KMS customer managed key.
+
+### Monitoring your encryption keys for AWS Entity Resolution
+
+Service
+
+When you use an AWS KMS customer managed key with your AWS Entity Resolution Service resources, you
+can use [AWS CloudTrail](../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md "../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md") or [Amazon CloudWatch Logs](../../../AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.md "../../../AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.md") to track requests that AWS Entity Resolution sends to AWS KMS.
+
+The following examples are AWS CloudTrail events for `CreateGrant`,
+`GenerateDataKey`, `Decrypt`, and `DescribeKey` to
+monitor AWS KMS operations called by AWS Entity Resolution to access data encrypted by your customer
+managed key:
+
+###### Topics
+
+- [CreateGrant](#create-grant "#create-grant")
+- [DescribeKey](#kms-creategrant "#kms-creategrant")
+- [GenerateDataKey](#kms-generatedatakey "#kms-generatedatakey")
+- [Decrypt](#kms-decrypt "#kms-decrypt")
+
+#### CreateGrant
+
+When you use an AWS KMS customer managed key to encrypt your matching workflow resource,
+AWS Entity Resolution sends a `CreateGrant` request on your behalf to access the KMS key
+in your AWS account. The grant that AWS Entity Resolution creates are specific to the resource
+associated with the AWS KMS customer managed key. In addition, AWS Entity Resolution uses the
+`RetireGrant` operation to remove a grant when you delete a resource.
+
+The following example event records the `CreateGrant` operation:
+
+```
+
+{
+    "eventVersion": "1.08",
+    "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "AROAIGDTESTANDEXAMPLE:Sampleuser01",
+        "arn": "arn:aws:sts::111122223333:assumed-role/Admin/Sampleuser01",
+        "accountId": "111122223333",
+        "accessKeyId": "AKIAIOSFODNN7EXAMPLE3",
+        "sessionContext": {
+            "sessionIssuer": {
+                "type": "Role",
+                "principalId": "AROAIGDTESTANDEXAMPLE:Sampleuser01",
+                "arn": "arn:aws:sts::111122223333:assumed-role/Admin/Sampleuser01",
+                "accountId": "111122223333",
+                "userName": "Admin"
+            },
+            "webIdFederationData": {},
+            "attributes": {
+                "mfaAuthenticated": "false",
+                "creationDate": "2021-04-22T17:02:00Z"
+            }
+        },
+        "invokedBy": "entityresolution.amazonaws.com"
+    },
+    "eventTime": "2021-04-22T17:07:02Z",
+    "eventSource": "kms.amazonaws.com",
+    "eventName": "CreateGrant",
+    "awsRegion": "us-west-2",
+    "sourceIPAddress": "172.12.34.56",
+    "userAgent": "ExampleDesktop/1.0 (V1; OS)",
+    "requestParameters": {
+        "retiringPrincipal": "entityresolution.region.amazonaws.com",
+        "operations": [
+            "GenerateDataKey",
+            "Decrypt",
+        ],
+        "keyId": "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-123456SAMPLE",
+        "granteePrincipal": "entityresolution.region.amazonaws.com"
+    },
+    "responseElements": {
+        "grantId": "0ab0ac0d0b000f00ea00cc0a0e00fc00bce000c000f0000000c0bc0a0000aaafSAMPLE",
+        "keyId": "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-123456SAMPLE",
+    },
+    "requestID": "ff000af-00eb-00ce-0e00-ea000fb0fba0SAMPLE",
+    "eventID": "ff000af-00eb-00ce-0e00-ea000fb0fba0SAMPLE",
+    "readOnly": false,
+    "resources": [
+        {
+            "accountId": "111122223333",
+            "type": "AWS::KMS::Key",
+            "ARN": "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-123456SAMPLE"
+        }
+    ],
+    "eventType": "AwsApiCall",
+    "managementEvent": true,
+    "eventCategory": "Management",
+    "recipientAccountId": "111122223333"
+}
+```
+
+#### DescribeKey
+
+AWS Entity Resolution uses the `DescribeKey` operation to verify if the AWS KMS customer
+managed key associated with your matching resource exists in the account and
+Region.
+
+The following example event records the `DescribeKey` operation.
+
+```
+{
+    "eventVersion": "1.08",
+    "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "AROAIGDTESTANDEXAMPLE:Sampleuser01",
+        "arn": "arn:aws:sts::111122223333:assumed-role/Admin/Sampleuser01",
+        "accountId": "111122223333",
+        "accessKeyId": "AKIAIOSFODNN7EXAMPLE3",
+        "sessionContext": {
+            "sessionIssuer": {
+                "type": "Role",
+                "principalId": "AROAIGDTESTANDEXAMPLE:Sampleuser01",
+                "arn": "arn:aws:sts::111122223333:assumed-role/Admin/Sampleuser01",
+                "accountId": "111122223333",
+                "userName": "Admin"
+            },
+            "webIdFederationData": {},
+            "attributes": {
+                "mfaAuthenticated": "false",
+                "creationDate": "2021-04-22T17:02:00Z"
+            }
+        },
+        "invokedBy": "entityresolution.amazonaws.com"
+    },
+    "eventTime": "2021-04-22T17:07:02Z",
+    "eventSource": "kms.amazonaws.com",
+    "eventName": "DescribeKey",
+    "awsRegion": "us-west-2",
+    "sourceIPAddress": "172.12.34.56",
+    "userAgent": "ExampleDesktop/1.0 (V1; OS)",
+    "requestParameters": {
+        "keyId": "00dd0db0-0000-0000-ac00-b0c000SAMPLE"
+    },
+    "responseElements": null,
+    "requestID": "ff000af-00eb-00ce-0e00-ea000fb0fba0SAMPLE",
+    "eventID": "ff000af-00eb-00ce-0e00-ea000fb0fba0SAMPLE",
+    "readOnly": true,
+    "resources": [
+        {
+            "accountId": "111122223333",
+            "type": "AWS::KMS::Key",
+            "ARN": "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-123456SAMPLE"
+        }
+    ],
+    "eventType": "AwsApiCall",
+    "managementEvent": true,
+    "eventCategory": "Management",
+    "recipientAccountId": "111122223333"
+}
+```
+
+#### GenerateDataKey
+
+When you enable an AWS KMS customer managed key for your matching workflow resource,
+AWS Entity Resolution sends a `GenerateDataKey` request through Amazon Simple Storage Service (Amazon S3) to AWS KMS
+that specifies the AWS KMS customer managed key for the resource.
+
+The following example event records the `GenerateDataKey` operation.
+
+```
+{
+    "eventVersion": "1.08",
+    "userIdentity": {
+        "type": "AWSService",
+        "invokedBy": "s3.amazonaws.com"
+    },
+    "eventTime": "2021-04-22T17:07:02Z",
+    "eventSource": "kms.amazonaws.com",
+    "eventName": "GenerateDataKey",
+    "awsRegion": "us-west-2",
+    "sourceIPAddress": "172.12.34.56",
+    "userAgent": "ExampleDesktop/1.0 (V1; OS)",
+    "requestParameters": {
+        "keySpec": "AES_256",
+        "keyId": "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-123456SAMPLE"
+    },
+    "responseElements": null,
+    "requestID": "ff000af-00eb-00ce-0e00-ea000fb0fba0SAMPLE",
+    "eventID": "ff000af-00eb-00ce-0e00-ea000fb0fba0SAMPLE",
+    "readOnly": true,
+    "resources": [
+        {
+            "accountId": "111122223333",
+            "type": "AWS::KMS::Key",
+            "ARN": "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-123456SAMPLE"
+        }
+    ],
+    "eventType": "AwsApiCall",
+    "managementEvent": true,
+    "eventCategory": "Management",
+    "recipientAccountId": "111122223333",
+    "sharedEventID": "57f5dbee-16da-413e-979f-2c4c6663475e"
+}
+```
+
+#### Decrypt
+
+When you enable an AWS KMS customer managed key for your matching workflow resource,
+AWS Entity Resolution sends a `Decrypt` request through Amazon Simple Storage Service (Amazon S3) to AWS KMS that
+specifies the AWS KMS customer managed key for the resource.
+
+The following example event records the `Decrypt` operation.
+
+```
+{
+    "eventVersion": "1.08",
+    "userIdentity": {
+        "type": "AWSService",
+        "invokedBy": "s3.amazonaws.com"
+    },
+    "eventTime": "2021-04-22T17:10:51Z",
+    "eventSource": "kms.amazonaws.com",
+    "eventName": "Decrypt",
+    "awsRegion": "us-west-2",
+    "sourceIPAddress": "172.12.34.56",
+    "userAgent": "ExampleDesktop/1.0 (V1; OS)",
+    "requestParameters": {
+        "keyId": "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-123456SAMPLE",
+        "encryptionAlgorithm": "SYMMETRIC_DEFAULT"
+    },
+    "responseElements": null,
+    "requestID": "ff000af-00eb-00ce-0e00-ea000fb0fba0SAMPLE",
+    "eventID": "ff000af-00eb-00ce-0e00-ea000fb0fba0SAMPLE",
+    "readOnly": true,
+    "resources": [
+        {
+            "accountId": "111122223333",
+            "type": "AWS::KMS::Key",
+            "ARN": "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-123456SAMPLE"
+        }
+    ],
+    "eventType": "AwsApiCall",
+    "managementEvent": true,
+    "eventCategory": "Management",
+    "recipientAccountId": "111122223333",
+    "sharedEventID": "dc129381-1d94-49bd-b522-f56a3482d088"
+}
+```
+
+### Considerations
+
+AWS Entity Resolution doesn't support updating a matching workflow with a new customer managed
+KMS key. In such cases, you can create a new workflow with the customer managed
+KMS key.
+
+### Learn more
+
+The following resources provide more information about data encryption at rest.
+
+For more information about [AWS Key
+Management Service basic concepts](../../../kms/latest/developerguide/concepts.md "../../../kms/latest/developerguide/concepts.md"), see the _AWS Key Management Service
+Developer Guide_.
+
+For more information about [Security
+best practices for AWS Key Management Service](../../../kms/latest/developerguide/best-practices.md "../../../kms/latest/developerguide/best-practices.md"), see the _AWS Key Management Service Developer Guide_.

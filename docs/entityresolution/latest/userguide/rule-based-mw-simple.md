@@ -51,17 +51,247 @@ rule type using the console
     4. To specify the **Service access** permissions, choose an
        option and take the recommended action.
 
-| Option                                                                      | Recommended action                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| --------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Create and use a new service role**                                       | <br>• AWS Entity Resolution creates a service role with the required policy for this table. <br>• The default **Service role name** is `entityresolution-matching-workflow-<timestamp>`. <br>• You must have permissions to create roles and attach policies. <br>• If your input data is encrypted, you can choose the **This data is encrypted with a KMS key** option and then enter an **AWS KMS key** that will be used to decrypt your data input.                                                                                                                 |
-| **Use an existing service role**                                            | 1. Choose an **Existing service role name** from the dropdown list. The list of roles are displayed if you have permissions to list roles. If you don't have permissions to list roles, you can enter the Amazon Resource Name (ARN) of the role that you want to use. If there are no existing service roles, the option to **Use an existing service role** is unavailable. 2. View the service role by choosing the **View in IAM** external link. By default, AWS Entity Resolution doesn't attempt to update the existing role policy to add necessary permissions. | 5. (Optional) To enable **Tags** for the resource, choose **Add new tag**, and then enter the **Key** and **Value** pair. 6. Choose **Next**. 5. For **Step 2: Choose matching technique**: 1. For **Matching method**, choose **Rule-based matching**. 2. For **Rule type**, choose **Simple**. ![Choose matching technique screen with the Simple rule-based matching option selected.](images/choose-matching-method-rule-based-simple.PNG) 3. For **Processing cadence**, select one of the following options. <br>• Choose **Manual** to run a workflow on demand for a bulk update <br>• Choose **Automatic** to run a workflow as soon as new data is in your S3 bucket ###### Note If you choose **Automatic**, ensure that you have Amazon EventBridge notifications turned on for your S3 bucket. For instructions on enabling Amazon EventBridge using the S3 console, see [Enabling Amazon EventBridge](../../../AmazonS3/latest/userguide/enable-event-notifications-eventbridge.md "../../../AmazonS3/latest/userguide/enable-event-notifications-eventbridge.md") in the _Amazon S3 User Guide_. 4. (Optional) For **Index only for ID mapping**, You can choose to **Turn on** the ability to only index the data and not generate IDs. By default, matching workflow generate IDs after the data is indexed. 5. For **Matching rules**, enter a **Rule name** and then choose the **Match keys** for that rule. You can create up to 15 rules and you can apply up to 15 different match keys across your rules to define match criteria. ![Matching rules interface with fields to enter rule name and select match keys.](images/matching-rules.PNG) 6. For **Comparison type**, choose one of the following options based on your goal.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| Your goal                                                                   | Recommended option                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| ---                                                                         | ---                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| Find any combination of matches across data stored in multiple input fields | **Multiple input fields**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| Limit comparison to a single input field                                    | **Single input field**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | ![Comparison type options: Multiple input fields to find matches across data stored in multiple fields, or Single input field to limit comparison within one field.](images/comparison-type.PNG) 7. Choose **Next**. 6. For **Step 3: Specify data output and format**: 1. For **Data output destination and format**, choose the **Amazon S3 location** for the data output and whether the **Data format** will be **Normalized data** or **Original data**. 2. For **Encryption**, if you choose to **Customize encryption settings**, enter the **AWS KMS key** ARN. 3. View the **System generated output**. 4. For **Data output**, decide which fields you want to include, hide, or mask, and then take the recommended actions based on your goals.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| Your goal                                                                   | Recommended action                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| ---                                                                         | ---                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| Include fields                                                              | Keep the output state as **Included**.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| Hide fields (exclude from output)                                           | Choose the **Output field**, and then choose **Hide**.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| Mask fields                                                                 | Choose the **Output field**, and then choose **Hash output**.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| Reset the previous settings                                                 | Choose **Reset**.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | 5. Choose **Next**. 7. For **Step 4: Review and create**: 1. Review the selections that you made for the previous steps and edit if necessary. 2. Choose **Create and run**. A message appears, indicating that the matching workflow has been created and that the job has started. 8. On the matching workflow details page, on the **Metrics** tab, view the following under **Last job metrics**: <br>• The **Job ID**. <br>• The **Status** of the matching workflow job: **Queued**, **In progress**, **Completed**, **Failed** <br>• The **Time completed** for the workflow job. <br>• The number of **Records processed**. <br>• The number of **Records not processed**. <br>• The **Unique match IDs generated**. <br>• The number of **Input records**. You can also view the job metrics for matching workflow jobs that have been previously run under the **Job history**. 9. After the matching workflow job completes (**Status** is **Completed**), you can go to the **Data output** tab and then select your **Amazon S3 location** to view the results. 10. (**Manual** processing type only) If you have created a **Rule-based matching** workflow with the **Manual** processing type, you can run the matching workflow anytime by choosing **Run workflow** on the matching workflow details page. API ###### To create a rule-based matching workflow with the **Simple** rule type using the API ###### Note By default, the workflow uses standard (batch) processing. To use incremental (automatic processing, you must explicitly configure it. 1. Open a terminal or command prompt to make the API request. 2. Create a POST request to the following endpoint: `/matchingworkflows` 3. In the request header, set the Content-type to application/json. ###### Note For a complete list of supported programming languages, see the _[AWS Entity Resolution API Reference](../apireference/Welcome.md "../apireference/Welcome.md")_. 4. For the request body, provide the following required JSON parameters: ```{ "description": "`string`", "incrementalRunConfig": { "incrementalRunType": "`string`" }, "inputSourceConfig": [ { "applyNormalization": `boolean`, "inputSourceARN": "`string`", "schemaName": "`string`" } ], "outputSourceConfig": [ { "applyNormalization": `boolean`, "KMSArn": "`string`", "output": [ { "hashed": boolean, "name": "`string`" } ], "outputS3Path": "`string`" } ], "resolutionTechniques": { "providerProperties": { "intermediateSourceConfiguration": { "intermediateS3Path": "`string`" }, "providerConfiguration": `JSON value`, "providerServiceArn": "`string`" }, "resolutionType": "RULE_MATCHING", "ruleBasedProperties": { "attributeMatchingModel": "`string`", "matchPurpose": "`string`", "rules": [ { "matchingKeys": [ "`string`" ], "ruleName": "`string`" } ] }, "ruleConditionProperties": { "rules": [ { "condition": "`string`", "ruleName": "`string`" } ] } }, "roleArn": "`string`", "tags": { "string" : "`string`" }, "workflowName": "``string``" }``` Where: <br>• `workflowName` (required) – Must be unique and between 1–255 characters matching pattern [a-zA-Z\_0-9-]\* <br>• `inputSourceConfig` (required) – List of 1–20 input source configurations <br>• `outputSourceConfig` (required) – Exactly one output source configuration <br>• `resolutionTechniques` (required) – Set to "RULE_MATCHING" for rule-based matching <br>• `roleArn` (required) – IAM role ARN for workflow execution <br>• `ruleConditionProperties` (required) – List of rule conditions and the name of the matching rule. Optional parameters include: <br>• `description` – Up to 255 characters <br>• `incrementalRunConfig` – Incremental run type configuration <br>• `tags` – Up to 200 key-value pairs 5. (Optional) To use incremental processing instead of the default standard (batch) processing, add the following parameter to the request body: `"incrementalRunConfig": { "incrementalRunType": "AUTOMATIC" }` 6. Send the request. 7. If successful, you'll receive a response with status code 200 and a JSON body containing: `{ "workflowArn": "string", "workflowName": "string", // Plus all configured workflow details }` 8. If the call is unsuccessful, you might receive one of these errors: <br>• 400 – ConflictException if the workflow name already exists <br>• 400 – ValidationException if the input fails validation <br>• 402 – ExceedsLimitException if account limits are exceeded <br>• 403 – AccessDeniedException if you don't have sufficient access <br>• 429 – ThrottlingException if the request was throttled <br>• 500 – InternalServerException if there's an internal service failure |
+    | Option                                | Recommended action                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+    | ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+    | **Create and use a new service role** | • AWS Entity Resolution creates a service role with the required policy<br>for this table.<br>• The default **Service role name** is<br>`entityresolution-matching-workflow-<timestamp>`.<br>• You must have permissions to create roles and attach<br>policies.<br>• If your input data is encrypted, you can choose the<br>**This data is encrypted with a KMS key**<br>option and then enter an \*_AWS KMS key_<br>• that<br>will be used to decrypt your data input.                                                                                                                                                  |
+    | **Use an existing service role**      | 1. Choose an **Existing service role name**<br>from the dropdown list.<br>The list of roles are displayed if you have permissions to<br>list roles.<br>If you don't have permissions to list roles, you can enter<br>the Amazon Resource Name (ARN) of the role that you want to<br>use.<br>If there are no existing service roles, the option to<br>**Use an existing service role\*<br>• is<br>unavailable.<br>2. View the service role by choosing the **View in<br>IAM\*<br>• external link.<br>By default, AWS Entity Resolution doesn't attempt to update the existing<br>role policy to add necessary permissions. |
+    5. (Optional) To enable **Tags** for the resource, choose
+       **Add new tag**, and then enter the
+       **Key** and **Value** pair.
+    6. Choose **Next**.
+
+5.  For **Step 2: Choose matching technique**:
+    1. For **Matching method**, choose **Rule-based
+       matching**.
+    2. For **Rule type**, choose
+       **Simple**.
+
+    ![Choose matching technique screen with the Simple rule-based matching option selected.](images/choose-matching-method-rule-based-simple.PNG) 3. For **Processing cadence**, select one of the following
+    options.
+
+        * Choose **Manual** to run a workflow on demand for a
+         bulk update
+        * Choose **Automatic** to run a workflow as soon as new
+         data is in your S3 bucket
+
+    ###### Note
+
+    If you choose **Automatic**, ensure that you have
+    Amazon EventBridge notifications turned on for your S3 bucket. For instructions on
+    enabling Amazon EventBridge using the S3 console, see [Enabling Amazon EventBridge](../../../AmazonS3/latest/userguide/enable-event-notifications-eventbridge.md "../../../AmazonS3/latest/userguide/enable-event-notifications-eventbridge.md") in the _Amazon S3 User
+    Guide_. 4. (Optional) For **Index only for ID mapping**, You can
+    choose to **Turn on** the ability to only index the data and
+    not generate IDs.
+
+    By default, matching workflow generate IDs after the data is indexed. 5. For **Matching rules**, enter a **Rule
+    name** and then choose the **Match keys** for that
+    rule.
+
+    You can create up to 15 rules and you can apply up to 15 different match
+    keys across your rules to define match criteria.
+
+    ![Matching rules interface with fields to enter rule name and select match keys.](images/matching-rules.PNG) 6. For **Comparison type**, choose one of the following
+    options based on your goal.
+
+    | Your goal                                                                      | Recommended option        |
+    | ------------------------------------------------------------------------------ | ------------------------- |
+    | Find any combination of matches across data stored in multiple<br>input fields | **Multiple input fields** |
+    | Limit comparison to a single input field                                       | **Single input field**    |
+
+    ![Comparison type options: Multiple input fields to find matches across data stored in multiple fields, or Single input field to limit comparison within one field.](images/comparison-type.PNG) 7. Choose **Next**.
+
+6.  For **Step 3: Specify data output and format**:
+    1. For **Data output destination and format**, choose the
+       **Amazon S3 location** for the data output and whether the
+       **Data format** will be **Normalized
+       data** or **Original data**.
+    2. For **Encryption**, if you choose to **Customize
+       encryption settings**, enter the **AWS KMS key**
+       ARN.
+    3. View the **System generated output**.
+    4. For **Data output**, decide which fields you want to
+       include, hide, or mask, and then take the recommended actions based on your
+       goals.
+
+    | Your goal                         | Recommended action                                               |
+    | --------------------------------- | ---------------------------------------------------------------- |
+    | Include fields                    | Keep the output state as **Included**.                           |
+    | Hide fields (exclude from output) | Choose the **Output field**, and then choose<br>**Hide**.        |
+    | Mask fields                       | Choose the **Output field**, and then choose<br>**Hash output**. |
+    | Reset the previous settings       | Choose **Reset**.                                                |
+    5. Choose **Next**.
+
+7.  For **Step 4: Review and create**:
+    1. Review the selections that you made for the previous steps and edit if
+       necessary.
+    2. Choose **Create and run**.
+
+    A message appears, indicating that the matching workflow has been created
+    and that the job has started.
+
+8.  On the matching workflow details page, on the **Metrics**
+    tab, view the following under **Last job metrics**:
+
+        * The **Job ID**.
+        * The **Status** of the matching workflow job:
+         **Queued**, **In progress**,
+         **Completed**, **Failed**
+        * The **Time completed** for the workflow job.
+        * The number of **Records processed**.
+        * The number of **Records not processed**.
+        * The **Unique match IDs generated**.
+        * The number of **Input records**.
+
+    You can also view the job metrics for matching workflow jobs that have been
+    previously run under the **Job history**.
+
+9.  After the matching workflow job completes (**Status** is
+    **Completed**), you can go to the **Data
+    output** tab and then select your **Amazon S3 location** to
+    view the results.
+10. (**Manual** processing type only) If you have created a
+    **Rule-based matching** workflow with the
+    **Manual** processing type, you can run the matching workflow
+    anytime by choosing **Run workflow** on the matching workflow
+    details page.
+
+API
+
+###### To create a rule-based matching workflow with the **Simple**
+
+rule type using the API
+
+###### Note
+
+By default, the workflow uses standard (batch) processing. To use incremental
+(automatic processing, you must explicitly configure it.
+
+1. Open a terminal or command prompt to make the API request.
+2. Create a POST request to the following endpoint:
+
+```
+/matchingworkflows
+```
+
+3. In the request header, set the Content-type to application/json.
+
+###### Note
+
+For a complete list of supported programming languages, see the _[AWS Entity Resolution API Reference](../apireference/Welcome.md "../apireference/Welcome.md")_. 4. For the request body, provide the following required JSON parameters:
+
+```
+{
+   "description": "`string`",
+   "incrementalRunConfig": {
+      "incrementalRunType": "`string`"
+   },
+   "inputSourceConfig": [
+      {
+         "applyNormalization": `boolean`,
+         "inputSourceARN": "`string`",
+         "schemaName": "`string`"
+      }
+   ],
+   "outputSourceConfig": [
+      {
+         "applyNormalization": `boolean`,
+         "KMSArn": "`string`",
+         "output": [
+            {
+               "hashed": boolean,
+               "name": "`string`"
+            }
+         ],
+         "outputS3Path": "`string`"
+      }
+   ],
+   "resolutionTechniques": {
+      "providerProperties": {
+         "intermediateSourceConfiguration": {
+            "intermediateS3Path": "`string`"
+         },
+         "providerConfiguration": `JSON value`,
+         "providerServiceArn": "`string`"
+      },
+      "resolutionType": "RULE_MATCHING",
+      "ruleBasedProperties": {
+         "attributeMatchingModel": "`string`",
+         "matchPurpose": "`string`",
+         "rules": [
+            {
+               "matchingKeys": [ "`string`" ],
+               "ruleName": "`string`"
+            }
+         ]
+      },
+      "ruleConditionProperties": {
+         "rules": [
+            {
+               "condition": "`string`",
+               "ruleName": "`string`"
+            }
+         ]
+      }
+   },
+   "roleArn": "`string`",
+   "tags": {
+      "string" : "`string`"
+   },
+   "workflowName": "``string``"
+}
+```
+
+Where:
+
+    * `workflowName` (required) – Must be unique and between
+     1–255 characters matching pattern [a-zA-Z\_0-9-]\*
+    * `inputSourceConfig` (required) – List of 1–20
+     input source configurations
+    * `outputSourceConfig` (required) – Exactly one output
+     source configuration
+    * `resolutionTechniques` (required) – Set to
+     "RULE\_MATCHING" for rule-based matching
+    * `roleArn` (required) – IAM role ARN for workflow
+     execution
+    * `ruleConditionProperties` (required) – List of rule
+     conditions and the name of the matching rule.
+
+Optional parameters include:
+
+    * `description` – Up to 255 characters
+    * `incrementalRunConfig` – Incremental run type
+     configuration
+    * `tags` – Up to 200 key-value pairs
+
+5. (Optional) To use incremental processing instead of the default standard
+   (batch) processing, add the following parameter to the request body:
+
+```
+"incrementalRunConfig": {
+   "incrementalRunType": "AUTOMATIC"
+}
+
+```
+
+6. Send the request.
+7. If successful, you'll receive a response with status code 200 and a JSON body
+   containing:
+
+```
+{
+   "workflowArn": "string",
+   "workflowName": "string",
+   // Plus all configured workflow details
+}
+
+```
+
+8. If the call is unsuccessful, you might receive one of these errors:
+   - 400 – ConflictException if the workflow name already exists
+   - 400 – ValidationException if the input fails validation
+   - 402 – ExceedsLimitException if account limits are exceeded
+   - 403 – AccessDeniedException if you don't have sufficient
+     access
+   - 429 – ThrottlingException if the request was throttled
+   - 500 – InternalServerException if there's an internal service
+     failure

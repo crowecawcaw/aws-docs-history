@@ -65,6 +65,6 @@ JSON
 In the preceding permissions policy, replace each `<user input
  placeholder>` with your own information.
 
-|                  |                                                                                                         |
-| ---------------- | ------------------------------------------------------------------------------------------------------- |
-| `staging-bucket` | The Amazon S3 bucket that temporarily stores your data while running a provider service-based workflow. |
+|                  |                                                                                                            |
+| ---------------- | ---------------------------------------------------------------------------------------------------------- |
+| `staging-bucket` | The Amazon S3 bucket that temporarily stores your data while running a provider<br>service-based workflow. |

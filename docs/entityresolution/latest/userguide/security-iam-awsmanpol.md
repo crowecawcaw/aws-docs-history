@@ -87,7 +87,7 @@ View details about updates to AWS managed policies for AWS Entity Resolution sin
 began tracking these changes. For automatic alerts about changes to this page, subscribe to
 the RSS feed on the AWS Entity Resolution Document history page.
 
-| Change                                                             | Description                                                                                                         | Date             |
-| ------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------- | ---------------- |
-| `AWSEntityResolutionConsoleFullAccess` – Update to existing policy | Added `ADXReadAccess` and `ManageEventBridgeRules` to enable the provider services option in the matching workflow. | October 16, 2023 |
-| AWS Entity Resolution started tracking changes                     | AWS Entity Resolution started tracking changes for its AWS managed policies.                                        | August 18, 2023  |
+| Change                                                                | Description                                                                                                               | Date             |
+| --------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ---------------- |
+| `AWSEntityResolutionConsoleFullAccess` – Update to<br>existing policy | Added `ADXReadAccess` and<br>`ManageEventBridgeRules` to enable the provider services<br>option in the matching workflow. | October 16, 2023 |
+| AWS Entity Resolution started tracking changes                        | AWS Entity Resolution started tracking changes for its AWS managed<br>policies.                                           | August 18, 2023  |
