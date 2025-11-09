@@ -32,7 +32,7 @@ batch size supported by the target, the pipe won’t invoke the target.
 ### Supported batchable targets
 
 | Target                       | Maximum batch size |
-| ---------------------------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| ---------------------------- | ------------------ |
 | CloudWatch Logs              | 10,000             |
 | EventBridge event bus        | 10                 |
 | Firehose stream              | 500                |
@@ -40,4 +40,84 @@ batch size supported by the target, the pipe won’t invoke the target.
 | Lambda function              | customer defined   |
 | Step Functions state machine | customer defined   |
 | Amazon SNS topic             | 10                 |
-| Amazon SQS queue             | 10                 | The following enrichments and targets receive the full batch event payload for processing and are constrained by the total payload size of the event, rather than the size of the batch: <br>• Step Functions state machine (262144 characters) <br>• Lambda function (6MB) ### Partial batch failure For Amazon SQS and stream sources, such as Kinesis and DynamoDB, EventBridge Pipes supports partial batch failure handling of target failures. If the target supports batching and only part of the batch succeeds, EventBridge automatically retries batching the remainder of the payload. For the most up-to-date enriched content, this retry occurs through the entire pipe, including re-invoking any configured enrichment. Partial batch failure handling of the enrichment is not supported. For Lambda and Step Functions targets, you can also specify a partial failure by returning a payload with defined structure from the target. This indicates events that need to be retried. **Example partial failure payload structure** `{ "batchItemFailures": [ { "itemIdentifier": "id2" }, { "itemIdentifier": "id4" } ]` In the example, the `itemIdentifier` match the ID of the events handled by your target from their original source. For Amazon SQS, this is the `messageId`. For Kinesis and DynamoDB, this is the `eventID`. For EventBridge Pipes to adequately handle partial batch failures from the targets, these fields need to be included in any array payload returned by the enrichment. ## Throughput and concurrency behavior Every event or batch of events received by a pipe that travel to an enrichment or target is considered a pipe _execution_. A pipe in `STARTED` state continuously polls for events from the source, scaling up and down depending on the available backlog and configured batching settings. For quotas on concurrent pipe executions, and number of pipes per account and Region, see [EventBridge Pipes quotas](eb-quota.md#eb-pipes-limits "eb-quota.md#eb-pipes-limits"). By default, a single pipe will scale to the following maximum concurrent executions, depending on the source: <br>• DynamoDB – The concurrent executions can climb as high as the `ParallelizationFactor` configured on the pipe multiplied by the number of shards in the stream. <br>• Apache Kafka – The concurrent executions can climb as high the number of partitions on the topic, up to 1000. <br>• Kinesis – The concurrent execxutions can climb as high as the `ParallelizationFactor` configured on the pipe multiplied by the number of shards in the stream. <br>• Amazon MQ – 5 <br>• Amazon SQS – 1250 If you have requirements for higher maximum polling throughputs or concurrency limits, [contact support](https://console.aws.amazon.com/support/home?#/case/create?issueType=technical "https://console.aws.amazon.com/support/home?#/case/create?issueType=technical"). ###### Note The execution limits are considered best-effort safety limitations. Although polling isn't throttled below these values, a pipe or account might burst higher than these recommend values. Pipe executions are limited to a maximum of 5 minutes including the enrichment and target processing. This limit currently can't be increased. Pipes with strictly ordered sources, such as Amazon SQS FIFO queues, Kinesis and DynamoDB Streams, or Apache Kafka topics) are further limited in concurrency by the configuration of the source, such as the number of message group IDs for FIFO queues or the number of shards for Kinesis queues. Because ordering is strictly guaranteedwithin these constraints, a pipe with an ordered source can't exceed those concurrency limits. |
+| Amazon SQS queue             | 10                 |
+
+The following enrichments and targets receive the full batch event payload for
+processing and are constrained by the total payload size of the event, rather than the size
+of the batch:
+
+- Step Functions state machine (262144 characters)
+- Lambda function (6MB)
+
+### Partial batch failure
+
+For Amazon SQS and stream sources, such as Kinesis and DynamoDB, EventBridge Pipes supports partial batch
+failure handling of target failures. If the target supports batching and only part of the
+batch succeeds, EventBridge automatically retries batching the remainder of the payload. For the
+most up-to-date enriched content, this retry occurs through the entire pipe, including
+re-invoking any configured enrichment.
+
+Partial batch failure handling of the enrichment is not supported.
+
+For Lambda and Step Functions
+targets, you can also specify a partial failure by
+returning a payload with defined structure from the target. This indicates events that need
+to be retried.
+
+**Example partial failure payload structure**
+
+```
+{
+  "batchItemFailures": [
+    {
+      "itemIdentifier": "id2"
+    },
+    {
+      "itemIdentifier": "id4"
+    }
+]
+```
+
+In the example, the `itemIdentifier` match the ID of the events handled by
+your target from their original source. For Amazon SQS, this is the `messageId`. For
+Kinesis and DynamoDB, this is the `eventID`. For EventBridge Pipes to adequately handle
+partial batch failures from the targets, these fields need to be included in any array
+payload returned by the enrichment.
+
+## Throughput and concurrency behavior
+
+Every event or batch of events received by a pipe that travel to an enrichment or target
+is considered a pipe _execution_. A pipe in `STARTED` state
+continuously polls for events from the source, scaling up and down depending on the available
+backlog and configured batching settings.
+
+For quotas on concurrent pipe executions, and number of pipes per account and Region, see [EventBridge Pipes quotas](eb-quota.md#eb-pipes-limits "eb-quota.md#eb-pipes-limits").
+
+By default, a single pipe will scale to the following maximum concurrent executions, depending on the source:
+
+- DynamoDB – The concurrent executions can climb as high as the `ParallelizationFactor` configured on the pipe
+  multiplied by the number of shards in the stream.
+- Apache Kafka – The concurrent executions can climb as high
+  the number of partitions on the topic, up to 1000.
+- Kinesis – The concurrent execxutions can climb as high as the `ParallelizationFactor` configured on the pipe
+  multiplied by the number of shards in the stream.
+- Amazon MQ – 5
+- Amazon SQS – 1250
+
+If you have requirements for higher maximum polling throughputs or concurrency limits, [contact
+support](https://console.aws.amazon.com/support/home?#/case/create?issueType=technical "https://console.aws.amazon.com/support/home?#/case/create?issueType=technical").
+
+###### Note
+
+The execution limits are considered best-effort safety limitations. Although polling
+isn't throttled below these values, a pipe or account might burst higher than these
+recommend values.
+
+Pipe executions are limited to a maximum of 5 minutes including the enrichment and target
+processing. This limit currently can't be increased.
+
+Pipes with strictly ordered sources, such as Amazon SQS FIFO queues, Kinesis and DynamoDB
+Streams, or Apache Kafka topics) are further limited in concurrency by the configuration of the
+source, such as the number of message group IDs for FIFO queues or the number of shards for
+Kinesis queues. Because ordering is strictly guaranteedwithin these constraints, a pipe with an
+ordered source can't exceed those concurrency limits.

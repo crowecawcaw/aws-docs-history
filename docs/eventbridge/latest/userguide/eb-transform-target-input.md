@@ -118,13 +118,117 @@ target. Using the previous event and _Input Path_, the following
 _Input Template_ examples will transform the event to the example
 output before routing it to a target.
 
-| Description                                             | Template                                                                                                                                                           | Output                                                                                                                                                                                                       |
-| ------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Simple string**                                       | `"instance <instance> is in <state>"`                                                                                                                              | `"instance i-0123456789 is in RUNNING"`                                                                                                                                                                      |
-| **String with escaped quotes**                          | `"instance \"<instance>\" is in <state>"`                                                                                                                          | `"instance \"i-0123456789\" is in RUNNING"` Note that this is the behavior in the EventBridge console. The AWS CLI escapes the slash characters and the result is `"instance "i-0123456789" is in RUNNING"`. |
-| **Simple JSON**                                         | `{ "instance" : <instance>, "state": <state> }`                                                                                                                    | `{ "instance" : "i-0123456789", "state": "RUNNING" }`                                                                                                                                                        |
-| **JSON with strings and variables**                     | `{ "instance" : <instance>, "state": "<state>", "instanceStatus": "instance \"<instance>\" is in <state>" }`                                                       | `{ "instance" : "i-0123456789", "state": "RUNNING", "instanceStatus": "instance \"i-0123456789\" is in RUNNING" }`                                                                                           |
-| **JSON with a mix of variables and static information** | `{ "instance" : <instance>, "state": [ 9, <state>, true ], "Transformed" : "Yes" }`                                                                                | `{ "instance" : "i-0123456789", "state": [ 9, "RUNNING", true ], "Transformed" : "Yes" }`                                                                                                                    |
-| **Including reserved variables in JSON**                | `{ "instance" : <instance>, "state": <state>, "ruleArn" : <aws.events.rule-arn>, "ruleName" : <aws.events.rule-name>, "originalEvent" : <aws.events.event.json> }` | `{ "instance" : "i-0123456789", "state": "RUNNING", "ruleArn" : "arn:aws:events:us-east-2:123456789012:rule/example", "ruleName" : "example", "originalEvent" : { ... // commented for brevity } }`          |
-| **Including reserved variables in a string**            | `"<aws.events.rule-name> triggered"`                                                                                                                               | `"example triggered"`                                                                                                                                                                                        |
-| **Amazon CloudWatch log group**                         | `{ "timestamp" : <timestamp>, "message": "instance \"<instance>\" is in <state>" }`                                                                                | `{ "timestamp" : 2015-11-11T21:29:54Z, "message": "instance "i-0123456789" is in RUNNING }`                                                                                                                  | ## Transforming input by using the EventBridge API For information about using the EventBridge API to transform input, see [Use Input Transformer to extract data from an event and input that data to the target](../APIReference/API_PutTargets.md#API_PutTargets_Example_2 "../APIReference/API_PutTargets.md#API_PutTargets_Example_2"). ## Transforming input by using AWS CloudFormation For information about using AWS CloudFormation to transform input, see [AWS::Events::Rule InputTransformer](../../../AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-inputtransformer.md "../../../AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-inputtransformer.md"). ## Common Issues with transforming input These are some common issues when transforming input in EventBridge: <br>• For Strings, quotes are required. <br>• There is no validation when creating JSON path for your template. <br>• If you specify a variable to match a JSON path that doesn't exist in the event, that variable isn't created and won't appear in the output. <br>• JSON properties like `aws.events.event.json` can only be used as the value of a JSON field, not inline in other strings. <br>• EventBridge doesn't escape values extracted by _Input Path_, when populating the _Input Template_ for a target. <br>• If a JSON path references a JSON object or array, but the variable is referenced in a string, EventBridge removes any internal quotes to ensure a valid string. For example, for a variable `<detail>` pointed at `$.detail`, "Detail is <detail>" would result in EventBridge removing quotes from the object. Therefore, if you want to output a JSON object based on a single JSON path variable, you must place it as a key. In this example, `{"detail": <detail>}`. <br>• Quotes are not required for variables that represent strings. They are permitted, but EventBridge automatically adds quotes to string variable values during transformation, to ensure the transformation output is valid JSON. EventBridge does not add quotes to variables that represent JSON objects or arrays. Do not add quotes for variables that represent JSON objects or arrays. For example, the following input template includes variables that represent both strings and JSON objects: `{ "ruleArn" : <aws.events.rule-arn>, "ruleName" : <aws.events.rule-name>, "originalEvent" : <aws.events.event.json> }` Resulting in valid JSON with proper quotation: `{ "ruleArn" : "arn:aws:events:us-east-2:123456789012:rule/example", "ruleName" : "example", "originalEvent" : { ... // commented for brevity } }` <br>• For (non-JSON) text output as multi-line strings, wrap each separate line in your input template in double quotes. For example, if you were matching [Amazon Inspector Finding](../../../inspector/latest/user/eventbridge-integration.md#event-finding "../../../inspector/latest/user/eventbridge-integration.md#event-finding") events against the following event pattern: `{ "detail": { "severity": ["HIGH"], "status": ["ACTIVE"] }, "detail-type": ["Inspector2 Finding"], "source": ["inspector2"] }` And using the following input path: `{ "account": "$.detail.awsAccountId", "ami": "$.detail.resources[0].details.awsEc2Instance.imageId", "arn": "$.detail.findingArn", "description": "$.detail.description", "instance": "$.detail.resources[0].id", "platform": "$.detail.resources[0].details.awsEc2Instance.platform", "region": "$.detail.resources[0].region", "severity": "$.detail.severity", "time": "$.time", "title": "$.detail.title", "type": "$.detail.type" }` You could use the input template below to generate multi-line string output: `"<severity> severity finding <title>" "Description: <description>" "ARN: \"<arn>\"" "Type: <type>" "AWS Account: <account>" "Region: <region>" "EC2 Instance: <instance>" "Platform: <platform>" "AMI: <ami>"` |
+| Description                                                | Template                                                                                                                                                                                     | Output                                                                                                                                                                                                                              |
+| ---------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Simple string**                                          | `<br>"instance <instance> is in <state>"<br>`                                                                                                                                                | `<br>"instance i-0123456789 is in RUNNING"<br>`                                                                                                                                                                                     |
+| **String with escaped quotes**                             | `<br>"instance \"<instance>\" is in <state>"<br>`                                                                                                                                            | `<br>"instance \"i-0123456789\" is in RUNNING"<br>`<br>Note that this is the behavior in the EventBridge console. The AWS CLI<br>escapes the slash characters and the result is `"instance<br>"i-0123456789" is in RUNNING"`.       |
+| **Simple JSON**                                            | `<br>{<br>"instance" : <instance>,<br>"state": <state><br>}<br>`                                                                                                                             | `<br>{<br>"instance" : "i-0123456789",<br>"state": "RUNNING"<br>}<br>`                                                                                                                                                              |
+| **JSON with strings and variables**                        | `<br>{<br>"instance" : <instance>,<br>"state": "<state>",<br>"instanceStatus": "instance \"<instance>\" is in <state>"<br>}<br>`                                                             | `<br>{<br>"instance" : "i-0123456789",<br>"state": "RUNNING",<br>"instanceStatus": "instance \"i-0123456789\" is in RUNNING"<br>}<br>`                                                                                              |
+| **JSON with a mix of variables and static<br>information** | `<br>{<br>"instance" : <instance>,<br>"state": [ 9, <state>, true ],<br>"Transformed" : "Yes"<br>}<br>`                                                                                      | `<br>{<br>"instance" : "i-0123456789",<br>"state": [<br>9,<br>"RUNNING",<br>true<br>],<br>"Transformed" : "Yes"<br>}<br>`                                                                                                           |
+| **Including reserved variables in<br>JSON**                | `<br>{<br>"instance" : <instance>,<br>"state": <state>,<br>"ruleArn" : <aws.events.rule-arn>,<br>"ruleName" : <aws.events.rule-name>,<br>"originalEvent" : <aws.events.event.json><br>}<br>` | `<br>{<br>"instance" : "i-0123456789",<br>"state": "RUNNING",<br>"ruleArn" : "arn:aws:events:us-east-2:123456789012:rule/example",<br>"ruleName" : "example",<br>"originalEvent" : {<br>... // commented for brevity<br>}<br>}<br>` |
+| **Including reserved variables in a<br>string**            | `<br>"<aws.events.rule-name> triggered"<br>`                                                                                                                                                 | `<br>"example triggered"<br>`                                                                                                                                                                                                       |
+| **Amazon CloudWatch log group**                            | `<br>{<br>"timestamp" : <timestamp>,<br>"message": "instance \"<instance>\" is in <state>"<br>}<br>`                                                                                         | `<br>{<br>"timestamp" : 2015-11-11T21:29:54Z,<br>"message": "instance "i-0123456789" is in RUNNING<br>}<br>`                                                                                                                        |
+
+## Transforming input by using the EventBridge
+
+API
+
+For information about using the EventBridge API to transform input, see [Use Input Transformer to extract data from an event and input that data to the
+target](../APIReference/API_PutTargets.md#API_PutTargets_Example_2 "../APIReference/API_PutTargets.md#API_PutTargets_Example_2").
+
+## Transforming input by using AWS CloudFormation
+
+For information about using AWS CloudFormation to transform input, see [AWS::Events::Rule InputTransformer](../../../AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-inputtransformer.md "../../../AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-inputtransformer.md").
+
+## Common Issues with transforming
+
+input
+
+These are some common issues when transforming input in EventBridge:
+
+- For Strings, quotes are required.
+- There is no validation when creating JSON path for your template.
+- If you specify a variable to match a JSON path that doesn't exist in the event, that
+  variable isn't created and won't appear in the output.
+- JSON properties like `aws.events.event.json` can only be used as the value of a JSON field, not inline in other strings.
+- EventBridge doesn't escape values extracted by _Input Path_,
+  when populating the _Input Template_ for a target.
+- If a JSON path references a JSON object or array, but the variable is referenced in a string, EventBridge removes any internal quotes to ensure a valid string.
+  For example, for a variable `<detail>` pointed at `$.detail`, "Detail is <detail>" would result in EventBridge removing quotes from the object.
+
+Therefore, if you want to output a JSON object based on a single JSON path variable, you must place it as a key. In this example, `{"detail": <detail>}`.
+
+- Quotes are not required for variables that represent strings. They are permitted, but EventBridge automatically adds quotes to string variable values during transformation,
+  to ensure the transformation output is valid JSON. EventBridge does not add quotes to variables that represent JSON objects or arrays. Do not add quotes for variables that
+  represent JSON objects or arrays.
+
+For example, the following input template includes variables that represent both strings and JSON objects:
+
+```
+{
+  "ruleArn" : <aws.events.rule-arn>,
+  "ruleName" : <aws.events.rule-name>,
+  "originalEvent" : <aws.events.event.json>
+}
+```
+
+Resulting in valid JSON with proper quotation:
+
+```
+{
+  "ruleArn" : "arn:aws:events:us-east-2:123456789012:rule/example",
+  "ruleName" : "example",
+  "originalEvent" : {
+    ... // commented for brevity
+  }
+}
+```
+
+- For (non-JSON) text output as multi-line strings, wrap each separate line in
+  your input template in double quotes.
+
+For example, if you were matching [Amazon Inspector Finding](../../../inspector/latest/user/eventbridge-integration.md#event-finding "../../../inspector/latest/user/eventbridge-integration.md#event-finding") events against the
+following event pattern:
+
+```
+{
+  "detail": {
+    "severity": ["HIGH"],
+    "status": ["ACTIVE"]
+  },
+  "detail-type": ["Inspector2 Finding"],
+  "source": ["inspector2"]
+}
+```
+
+And using the following input path:
+
+```
+{
+  "account": "$.detail.awsAccountId",
+  "ami": "$.detail.resources[0].details.awsEc2Instance.imageId",
+  "arn": "$.detail.findingArn",
+  "description": "$.detail.description",
+  "instance": "$.detail.resources[0].id",
+  "platform": "$.detail.resources[0].details.awsEc2Instance.platform",
+  "region": "$.detail.resources[0].region",
+  "severity": "$.detail.severity",
+  "time": "$.time",
+  "title": "$.detail.title",
+  "type": "$.detail.type"
+}
+```
+
+You could use the input template below to generate multi-line string output:
+
+```
+"<severity> severity finding <title>"
+"Description: <description>"
+"ARN: \"<arn>\""
+"Type: <type>"
+"AWS Account: <account>"
+"Region: <region>"
+"EC2 Instance: <instance>"
+"Platform: <platform>"
+"AMI: <ami>"
+```

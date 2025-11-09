@@ -81,7 +81,7 @@ creates a new CloudWatch log group to which it sends log records containing the
 The following table lists the execution steps included in each log level.
 
 | Step                                | TRACE | INFO | ERROR | OFF |
-| ----------------------------------- | ----- | ---- | ----- | --- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ----------------------------------- | ----- | ---- | ----- | --- |
 | Execution Failed                    | x     | x    | x     |     |
 | Execution Partially Failed          | x     | x    | x     |     |
 | Execution Started                   | x     | x    |       |     |
@@ -110,4 +110,101 @@ The following table lists the execution steps included in each log level.
 | Target Stage Succeeded              | x     | x    |       |     |
 | Target Transformation Failed        | x     | x    | x     |     |
 | Target Transformation Started       | x     |      |       |     |
-| Target Transformation Succeeded     | x     |      |       |     | ## Including execution data in EventBridge Pipes logs You can specify for EventBridge to include _execution data_ in the records it generates. Execution data includes fields representing the event batch payload, as well as the request sent to and the response from the enrichment and target. Execution data is useful for troubleshooting and debugging. The `payload` field contains the actual contents of each event included in the batch, enabling you to correlate individual events to a specific pipe execution. If you choose to include execution data, it is included for all log destinations specified for the pipe. ###### Important These fields may contain sensitive information. EventBridge makes no attempt to redact the contents of these fields during logging. When including execution data, EventBridge adds the following fields to the relevant records: <br>• **`payload`** Represents the contents of the event batch being processed by the pipe. EventBridge includes the `payload` field in records generated at steps where the event batch contents may have been updated. This includes the following steps: + `EXECUTION_STARTED` + `ENRICHMENT_TRANSFORMATION_SUCCEEDED` + `ENRICHMENT_STAGE_SUCCEEDED` + `TARGET_TRANSFORMATION_SUCCEEDED` + `TARGET_STAGE_SUCCEEDED` <br>• **`awsRequest`** Represents the request sent to the enrichment or target as a JSON string. For requests sent to an API destination, this represents the HTTP request sent to that endpoint. EventBridge includes the `awsRequest` field in records generated at the final steps of enrichment and targeting; that is, after EventBridge has executed or attempted to execute the request against the specified enrichment or target service. This includes the following steps: + `ENRICHMENT_INVOCATION_FAILED` + `ENRICHMENT_INVOCATION_SUCCEEDED` + `TARGET_INVOCATION_FAILED` + `TARGET_INVOCATION_PARTIALLY_FAILED` + `TARGET_INVOCATION_SUCCEEDED` <br>• **`awsResponse`** Represents the response returned by the enrichment or target, in JSON format. For requests sent to an API destination, this represents the HTTP response returned from that endpoint. As with `awsRequest`, EventBridge includes the `awsResponse` field in records generated at the final steps of enrichment and targeting; that is, after EventBridge has executed or attempted to execute a request against the specified enrichment or target service and received a response. This includes the following steps: + `ENRICHMENT_INVOCATION_FAILED` + `ENRICHMENT_INVOCATION_SUCCEEDED` + `TARGET_INVOCATION_FAILED` + `TARGET_INVOCATION_PARTIALLY_FAILED` + `TARGET_INVOCATION_SUCCEEDED` For a discussion of pipe execution steps, see [EventBridge Pipes execution steps](eb-pipes-logs-execution-steps.md "eb-pipes-logs-execution-steps.md"). ### Truncating execution data in EventBridge Pipes log records If you choose to have EventBridge include execution data in a pipe's log records, there is a possibility that a record may exceed the 256 KB size limit. To prevent this, EventBridge automatically truncates the execution data fields, in the following order. EventBridge truncates each field entirely before progressing to truncate the next field. EventBridge truncates field data simply by removing characters from the end of the data string; no attempt is made to truncate based on data importance, and truncation will invalidate JSON formatting. <br>• `payload` <br>• `awsRequest` <br>• `awsResponse` If EventBridge does truncate fields in the event, the `truncatedFields` field includes a list of the truncated data fields. ## Error reporting in EventBridge Pipes log records EventBridge also includes error data, where available, in pipe execution steps that represent failure states. These steps include: <br>• `ExecutionThrottled` <br>• `ExecutionTimeout` <br>• `ExecutionFailed` <br>• `ExecutionPartiallyFailed` <br>• `EnrichmentTransformationFailed` <br>• `EnrichmentInvocationFailed` <br>• `EnrichmentStageFailed` <br>• `TargetTransformationFailed` <br>• `TargetInvocationFailed` <br>• `TargetInvocationPartiallyFailed` <br>• `TargetStageFailed` <br>• `TargetStagePartiallyFailed` |
+| Target Transformation Succeeded     | x     |      |       |     |
+
+## Including execution data in EventBridge Pipes logs
+
+You can specify for EventBridge to include _execution data_ in the records it generates. Execution data includes fields representing
+the event batch payload, as well as the request sent to and the response from the enrichment and target.
+
+Execution data is useful for troubleshooting and debugging. The `payload` field contains the actual contents of each event included in the batch,
+enabling you to correlate individual events to a specific pipe execution.
+
+If you choose to include execution data, it is included for all log destinations specified for the pipe.
+
+###### Important
+
+These fields may contain sensitive information. EventBridge makes no attempt to redact the contents
+of these fields during logging.
+
+When including execution data, EventBridge adds the following fields to the relevant records:
+
+- **`payload`**
+
+Represents the contents of the event batch being processed by the pipe.
+
+EventBridge includes the `payload` field in records generated at steps where the event batch contents may have been updated.
+This includes the following steps:
+
+    + `EXECUTION_STARTED`
+    + `ENRICHMENT_TRANSFORMATION_SUCCEEDED`
+    + `ENRICHMENT_STAGE_SUCCEEDED`
+    + `TARGET_TRANSFORMATION_SUCCEEDED`
+    + `TARGET_STAGE_SUCCEEDED`
+
+- **`awsRequest`**
+
+Represents the request sent to the enrichment or target as a JSON string. For requests
+sent to an API destination, this represents the HTTP request sent to that endpoint.
+
+EventBridge includes the `awsRequest` field in records generated at the final steps of enrichment and targeting; that is,
+after EventBridge has executed or attempted to execute the request against the specified
+enrichment or target service. This includes the following steps:
+
+    + `ENRICHMENT_INVOCATION_FAILED`
+    + `ENRICHMENT_INVOCATION_SUCCEEDED`
+    + `TARGET_INVOCATION_FAILED`
+    + `TARGET_INVOCATION_PARTIALLY_FAILED`
+    + `TARGET_INVOCATION_SUCCEEDED`
+
+- **`awsResponse`**
+
+Represents the response returned by the enrichment or target, in JSON format. For
+requests sent to an API destination, this represents the HTTP response returned from that
+endpoint.
+
+As with `awsRequest`, EventBridge includes the `awsResponse` field in records generated at the final steps of enrichment and targeting; that is,
+after EventBridge has executed or attempted to execute a request against the specified
+enrichment or target service and received a response. This includes the following steps:
+
+    + `ENRICHMENT_INVOCATION_FAILED`
+    + `ENRICHMENT_INVOCATION_SUCCEEDED`
+    + `TARGET_INVOCATION_FAILED`
+    + `TARGET_INVOCATION_PARTIALLY_FAILED`
+    + `TARGET_INVOCATION_SUCCEEDED`
+
+For a discussion of pipe execution steps, see [EventBridge Pipes execution steps](eb-pipes-logs-execution-steps.md "eb-pipes-logs-execution-steps.md").
+
+### Truncating execution data in EventBridge
+
+Pipes log records
+
+If you choose to have EventBridge include execution data in a pipe's log records, there is a
+possibility that a record may exceed the 256 KB size limit. To prevent this, EventBridge
+automatically truncates the execution data fields, in the following order. EventBridge truncates
+each field entirely before progressing to truncate the next field. EventBridge truncates field data
+simply by removing characters from the end of the data string; no attempt is made to
+truncate based on data importance, and truncation will invalidate JSON formatting.
+
+- `payload`
+- `awsRequest`
+- `awsResponse`
+
+If EventBridge does truncate fields in the event, the `truncatedFields` field includes a list of the truncated data fields.
+
+## Error reporting in EventBridge Pipes log records
+
+EventBridge also includes error data, where available, in pipe execution steps that represent failure states. These steps include:
+
+- `ExecutionThrottled`
+- `ExecutionTimeout`
+- `ExecutionFailed`
+- `ExecutionPartiallyFailed`
+- `EnrichmentTransformationFailed`
+- `EnrichmentInvocationFailed`
+- `EnrichmentStageFailed`
+- `TargetTransformationFailed`
+- `TargetInvocationFailed`
+- `TargetInvocationPartiallyFailed`
+- `TargetStageFailed`
+- `TargetStagePartiallyFailed`

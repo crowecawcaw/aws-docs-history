@@ -69,12 +69,121 @@ to API destinations
 In addition to the authorization headers defined for the connection used for an
 API destination, EventBridge includes the following headers in each request.
 
-| Header key      | Header value                                                                                                                                    |
-| --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| User-Agent      | Amazon/EventBridge/ApiDestinations                                                                                                              |
-| Content-Type    | If no custom Content-Type value is specified, EventBridge includes the following default value as Content-Type: application/json; charset=utf-8 |
-| Range           | bytes=0-1048575                                                                                                                                 |
-| Accept-Encoding | gzip,deflate                                                                                                                                    |
-| Connection      | close                                                                                                                                           |
-| Content-Length  | An entity header that indicates the size of the entity-body, in bytes, sent to the recipient.                                                   |
-| Host            | A request header that specifies the host and port number of the server where the request is being sent.                                         | ### Headers that cannot be overridden in requests to API destinations EventBridge does not allow you to override the following headers: <br>• User-Agent <br>• Range ### Headers EventBridge removes from requests to API destinations EventBridge removes the following headers for all API destination requests: <br>• A-IM <br>• Accept-Charset <br>• Accept-Datetime <br>• Accept-Encoding <br>• Cache-Control <br>• Connection <br>• Content-Encoding <br>• Content-Length <br>• Content-MD5 <br>• Date <br>• Expect <br>• Forwarded <br>• From <br>• Host <br>• HTTP2-Settings <br>• If-Match <br>• If-Modified-Since <br>• If-None-Match <br>• If-Range <br>• If-Unmodified-Since <br>• Max-Forwards <br>• Origin <br>• Pragma <br>• Proxy-Authorization <br>• Range <br>• Referer <br>• TE <br>• Trailer <br>• Transfer-Encoding <br>• User-Agent <br>• Upgrade <br>• Via <br>• Warning ## API destination error codes When EventBridge tries to deliver an event to an API destination and an error occurs, EventBridge does the following: <br>• Retries events associated with error codes `401`, `407`, `409`, `429`, and `5xx`. <br>• Does not retry events associated with error codes `1xx`, `2xx`, `3xx`, and `4xx` (other than those noted above). EventBridge API destinations read the standard HTTP response header `Retry-After` to find out how long to wait before making a follow-up request. For event buses, EventBridge chooses the more conservative value between the defined retry policy and the `Retry-After` header. If `Retry-After` value is negative, EventBridge stops retrying delivery for that event. ## How invocation rate affects event delivery If you set the invocation rate per second to a value much lower than the number of invocations generated, events may not be delivered within the 24 hour retry time for events. For example, if you set the invocation rate to 10 invocations per second, but thousands of events per second are generated, you will quickly have a backlog of events to deliver that exceeds 24 hours. To ensure that no events are lost, set up a dead-letter queue to send events with failed invocations to so you can process the events at a later time. For more information, see [Using dead-letter queues to process undelivered events in EventBridge](eb-rule-dlq.md "eb-rule-dlq.md"). ## Region availability API destinations to public HTTPS endpoints are supported in the following AWS Regions: <br>• US East (N. Virginia) <br>• US East (Ohio) <br>• US West (N. California) <br>• US West (Oregon) <br>• Africa (Cape Town) <br>• Asia Pacific (Hong Kong) <br>• Asia Pacific (Tokyo) <br>• Asia Pacific (Seoul) <br>• Asia Pacific (Osaka) <br>• Asia Pacific (Mumbai) <br>• Asia Pacific (Hyderabad) <br>• Asia Pacific (Singapore) <br>• Asia Pacific (Sydney) <br>• Asia Pacific (Jakarta) <br>• Canada (Central) <br>• China (Beijing) <br>• China (Ningxia) <br>• Europe (Frankfurt) <br>• Europe (Zurich) <br>• Europe (Stockholm) <br>• Europe (Milan) <br>• Europe (Spain) <br>• Europe (Ireland) <br>• Europe (London) <br>• Europe (Paris) <br>• Middle East (UAE) <br>• Middle East (Bahrain) <br>• South America (São Paulo) |
+| Header key      | Header value                                                                                                                                          |
+| --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| User-Agent      | Amazon/EventBridge/ApiDestinations                                                                                                                    |
+| Content-Type    | If no custom Content-Type value is specified, EventBridge includes<br>the following default value as Content-Type:<br>application/json; charset=utf-8 |
+| Range           | bytes=0-1048575                                                                                                                                       |
+| Accept-Encoding | gzip,deflate                                                                                                                                          |
+| Connection      | close                                                                                                                                                 |
+| Content-Length  | An entity header that indicates the size of the entity-body,<br>in bytes, sent to the recipient.                                                      |
+| Host            | A request header that specifies the host and port number of<br>the server where the request is being sent.                                            |
+
+### Headers that cannot be
+
+overridden in requests to API destinations
+
+EventBridge does not allow you to override the following headers:
+
+- User-Agent
+- Range
+
+### Headers EventBridge removes from
+
+requests to API destinations
+
+EventBridge removes the following headers for all API destination requests:
+
+- A-IM
+- Accept-Charset
+- Accept-Datetime
+- Accept-Encoding
+- Cache-Control
+- Connection
+- Content-Encoding
+- Content-Length
+- Content-MD5
+- Date
+- Expect
+- Forwarded
+- From
+- Host
+- HTTP2-Settings
+- If-Match
+- If-Modified-Since
+- If-None-Match
+- If-Range
+- If-Unmodified-Since
+- Max-Forwards
+- Origin
+- Pragma
+- Proxy-Authorization
+- Range
+- Referer
+- TE
+- Trailer
+- Transfer-Encoding
+- User-Agent
+- Upgrade
+- Via
+- Warning
+
+## API destination error codes
+
+When EventBridge tries to deliver an event to an API destination and an error occurs, EventBridge
+does the following:
+
+- Retries events associated with error codes `401`, `407`, `409`, `429`, and `5xx`.
+- Does not retry events associated with error codes `1xx`, `2xx`, `3xx`, and `4xx`
+  (other than those noted above).
+
+EventBridge API destinations read the standard HTTP response header `Retry-After`
+to find out how long to wait before making a follow-up request. For event buses, EventBridge
+chooses the more conservative value between the defined retry policy and the
+`Retry-After` header. If `Retry-After` value is negative, EventBridge
+stops retrying delivery for that event.
+
+## How invocation rate affects event
+
+delivery
+
+If you set the invocation rate per second to a value much lower than the number of
+invocations generated, events may not be delivered within the 24 hour retry time for
+events. For example, if you set the invocation rate to 10 invocations per second, but
+thousands of events per second are generated, you will quickly have a backlog of events
+to deliver that exceeds 24 hours. To ensure that no events are lost, set up a
+dead-letter queue to send events with failed invocations to so you can process the
+events at a later time. For more information, see [Using dead-letter queues to process undelivered events in EventBridge](eb-rule-dlq.md "eb-rule-dlq.md").
+
+## Region availability
+
+API destinations to public HTTPS endpoints are supported in the following AWS Regions:
+
+- US East (N. Virginia)
+- US East (Ohio)
+- US West (N. California)
+- US West (Oregon)
+- Africa (Cape Town)
+- Asia Pacific (Hong Kong)
+- Asia Pacific (Tokyo)
+- Asia Pacific (Seoul)
+- Asia Pacific (Osaka)
+- Asia Pacific (Mumbai)
+- Asia Pacific (Hyderabad)
+- Asia Pacific (Singapore)
+- Asia Pacific (Sydney)
+- Asia Pacific (Jakarta)
+- Canada (Central)
+- China (Beijing)
+- China (Ningxia)
+- Europe (Frankfurt)
+- Europe (Zurich)
+- Europe (Stockholm)
+- Europe (Milan)
+- Europe (Spain)
+- Europe (Ireland)
+- Europe (London)
+- Europe (Paris)
+- Middle East (UAE)
+- Middle East (Bahrain)
+- South America (São Paulo)

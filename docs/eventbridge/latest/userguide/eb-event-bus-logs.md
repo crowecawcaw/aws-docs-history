@@ -119,7 +119,7 @@ previous log levels.
 The following table lists the event processing steps included in each log level.
 
 | Step                                  | TRACE | INFO | ERROR | OFF |
-| ------------------------------------- | ----- | ---- | ----- | --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------------------------------- | ----- | ---- | ----- | --- |
 | Event Ingested                        | x     | x    |       |     |
 | Event Ingestion Failed                | x     | x    | x     |     |
 | Event Received                        | x     |      |       |     |
@@ -135,4 +135,52 @@ The following table lists the event processing steps included in each log level.
 | Invocation Throttle Started           | x     | x    | x     |     |
 | No Rules Matched                      | x     | x    |       |     |
 | Rule Matched                          | x     | x    |       |     |
-| Rule Matching Started                 | x     |      |       |     | ## Including detail data in event bus logs You can specify for EventBridge to include more granular information in the logs it generates. This data can be useful for troubleshooting and debugging. If you select this option, EventBridge includes this data in the relevant records for all the specified log destinations. Detail information includes the following fields: <br>• `event_detail`: The details of the event itself. <br>• `target_input`: The request EventBridge sends to the target. <br>• `target_properties`: ## Truncating data in event bus logs Due to log destination constraints, EventBridge limits log records to 1 MB. If a log record exceeds this limit, EventBridge truncates the record by removing the following fields in the following order: <br>• `target_input` <br>• `target_properties` <br>• `target_response_body` EventBridge removes the `event_detail` field from the following log record types if necessary: <br>• `EVENT_RECEIVED` <br>• `EVENT_INGESTED` <br>• `EVENT_INGESTED_FAILED` <br>• `RULE_MATCH_STARTED` If truncation is necessary, EventBridge removes the entire field. If EventBridge does truncate fields in the event, the `dropped_fields` field includes a list of the excised data fields. ## Error reporting in event bus logs EventBridge also includes error data, where available, in steps that represent failure states. These steps include: <br>• `EVENT_INGEST_FAILURE` <br>• `INVOCATION_THROTTLE_START` <br>• `INVOCATION_ATTEMPT_THROTTLE` <br>• `INVOCATION_ATTEMPT_RETRYABLE_FAILURE` <br>• `INVOCATION_ATTEMPT_PERMANENT_FAILURE` <br>• `INVOCATION_FAILURE` <br>• `INVOCATION_DLQ` |
+| Rule Matching Started                 | x     |      |       |     |
+
+## Including detail data in event bus
+
+logs
+
+You can specify for EventBridge to include more granular information in the logs it generates.
+This data can be useful for troubleshooting and debugging. If you select this option, EventBridge includes this data in the relevant records for all the specified log destinations.
+
+Detail information includes the following fields:
+
+- `event_detail`: The details of the event itself.
+- `target_input`: The request EventBridge sends to the target.
+- `target_properties`:
+
+## Truncating data in event bus logs
+
+Due to log destination constraints, EventBridge limits log records to 1 MB. If a log record
+exceeds this limit, EventBridge truncates the record by removing the following fields in the
+following order:
+
+- `target_input`
+- `target_properties`
+- `target_response_body`
+
+EventBridge removes the `event_detail` field from the following log record types if necessary:
+
+- `EVENT_RECEIVED`
+- `EVENT_INGESTED`
+- `EVENT_INGESTED_FAILED`
+- `RULE_MATCH_STARTED`
+
+If truncation is necessary, EventBridge removes the entire field.
+
+If EventBridge does truncate fields in the event, the `dropped_fields` field
+includes a list of the excised data fields.
+
+## Error reporting in event bus logs
+
+EventBridge also includes error data, where available, in steps that represent failure states.
+These steps include:
+
+- `EVENT_INGEST_FAILURE`
+- `INVOCATION_THROTTLE_START`
+- `INVOCATION_ATTEMPT_THROTTLE`
+- `INVOCATION_ATTEMPT_RETRYABLE_FAILURE`
+- `INVOCATION_ATTEMPT_PERMANENT_FAILURE`
+- `INVOCATION_FAILURE`
+- `INVOCATION_DLQ`

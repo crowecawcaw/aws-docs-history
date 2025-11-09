@@ -54,8 +54,128 @@ the **Event type** list on the CloudTrail console. The
 **APIs logged to CloudTrail** column shows the API calls logged to
 CloudTrail for the resource type.
 
-| Event type (console) | APIs logged to CloudTrail                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Event bus**        | <br>• [DescribeEventBus](../API_DescribeRule.md "../API_DescribeRule.md")                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| **Event bus rule**   | <br>• [DeleteRule](../API_DeleteRule.md "../API_DeleteRule.md") <br>• [DescribeRule](../API_DescribeRule.md "../API_DescribeRule.md") <br>• [DisableRule](../API_DisableRule.md "../API_DisableRule.md") <br>• [EnableRule](../API_EnableRule.md "../API_EnableRule.md") <br>• [ListRuleNamesByTarget](../API_ListRuleNamesByTarget.md "../API_ListRuleNamesByTarget.md") <br>• [ListRules](../API_ListRules.md "../API_ListRules.md") <br>• [ListTargetsByRule](../API_ListTargetsByRule.md "../API_ListTargetsByRule.md") <br>• [PutRule](../API_PutRule.md "../API_PutRule.md") <br>• [PutTargets](../API_PutTargets.md "../API_PutTargets.md") <br>• [RemoveTargets](../API_RemoveTargets.md "../API_RemoveTargets.md") <br>• [TestEventPattern](../API_TestEventPattern.md "../API_TestEventPattern.md") |
-| **Pipe**             | <br>• [CreatePipe](../pipes-reference/API_CreatePipe.md "../pipes-reference/API_CreatePipe.md") <br>• [DeletePipe](../pipes-reference/API_DeletePipe.md "../pipes-reference/API_DeletePipe.md") <br>• [DescribePipe](../pipes-reference/API_DescribePipe.md "../pipes-reference/API_DescribePipe.md") <br>• [ListPipes](../pipes-reference/API_ListPipes.md "../pipes-reference/API_ListPipes.md") <br>• [StartPipe](../pipes-reference/API_StartPipe.md "../pipes-reference/API_StartPipe.md") <br>• [StopPipe](../pipes-reference/API_StopPipe.md "../pipes-reference/API_StopPipe.md") <br>• [UpdatePipe](../pipes-reference/API_UpdatePipe.md "../pipes-reference/API_UpdatePipe.md")                                                                                                                     | ## EventBridge event examples An event represents a single request from any source and includes information about the requested API operation, the date and time of the operation, request parameters, and so on. CloudTrail log files aren't an ordered stack trace of the public API calls, so events don't appear in any specific order. The following example shows a CloudTrail event that demonstrates the `PutRule` operation. `{ "eventVersion":"1.03", "userIdentity":{ "type":"Root", "principalId":"123456789012", "arn":"arn:aws:iam::123456789012:root", "accountId":"123456789012", "accessKeyId":"AKIAIOSFODNN7EXAMPLE", "sessionContext":{ "attributes":{ "mfaAuthenticated":"false", "creationDate":"2015-11-17T23:56:15Z" } } }, "eventTime":"2015-11-18T00:11:28Z", "eventSource":"events.amazonaws.com", "eventName":"PutRule", "awsRegion":"us-east-1", "sourceIPAddress":"AWS Internal", "userAgent":"AWS CloudWatch Console", "requestParameters":{ "description":"", "name":"cttest2", "state":"ENABLED", "eventPattern":"{\"source\":[\"aws.ec2\"],\"detail-type\":[\"EC2 Instance State-change Notification\"]}", "scheduleExpression":"" }, "responseElements":{ "ruleArn":"arn:aws:events:us-east-1:123456789012:rule/cttest2" }, "requestID":"e9caf887-8d88-11e5-a331-3332aa445952", "eventID":"49d14f36-6450-44a5-a501-b0fdcdfaeb98", "eventType":"AwsApiCall", "apiVersion":"2015-10-07", "recipientAccountId":"123456789012" }` For information about CloudTrail record contents, see [CloudTrail record contents](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-record-contents.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-record-contents.md") in the _AWS CloudTrail User Guide_. ## CloudTrail log entries for actions taken by EventBridge Pipes EventBridge Pipes assumes the provided IAM role when reading events from sources, invoking enrichments, or invoking targets. For CloudTrail entries related to actions taken in your account on all enrichments, targets, and Amazon SQS, Kinesis, and DynamoDB sources, the `sourceIPAddress` and `invokedBy` fields will include `pipes.amazonaws.com`. **Sample CloudTrail log entry for all enrichments, targets, and Amazon SQS, Kinesis, and DynamoDB sources** `{ "eventVersion": "1.08", "userIdentity": { "type": "AssumedRole", "principalId": "...", "arn": "arn:aws:sts::111222333444:assumed-role/...", "accountId": "111222333444", "accessKeyId": "...", "sessionContext": { "sessionIssuer": { "type": "Role", "principalId": "...", "arn": "...", "accountId": "111222333444", "userName": "userName" }, "webIdFederationData": {}, "attributes": { "creationDate": "2022-09-22T21:41:15Z", "mfaAuthenticated": "false" } }, "invokedBy": "pipes.amazonaws.com" }, "eventTime": ",,,", "eventName": "...", "awsRegion": "us-west-2", "sourceIPAddress": "pipes.amazonaws.com", "userAgent": "pipes.amazonaws.com", "requestParameters": { ... }, "responseElements": null, "requestID": "...", "eventID": "...", "readOnly": true, "eventType": "AwsApiCall", "managementEvent": true, "recipientAccountId": "...", "eventCategory": "Management" }` For all other sources, the `sourceIPAddress` field of the CloudTrail log entries will have a dynamic IP address and shouldn't be relied upon for any integration or event categorization. In addition, these entries won't have the `invokedBy` field. **Sample CloudTrail log entry for all other sources** `{ "eventVersion": "1.08", "userIdentity": { ... }, "eventTime": ",,,", "eventName": "...", "awsRegion": "us-west-2", "sourceIPAddress": "127.0.0.1", "userAgent": "Python-httplib2/0.8 (gzip)", }` |
+| Event type (console) | APIs logged to CloudTrail                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Event bus**        | • [DescribeEventBus](../API_DescribeRule.md "../API_DescribeRule.md")                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| **Event bus rule**   | • [DeleteRule](../API_DeleteRule.md "../API_DeleteRule.md")<br>• [DescribeRule](../API_DescribeRule.md "../API_DescribeRule.md")<br>• [DisableRule](../API_DisableRule.md "../API_DisableRule.md")<br>• [EnableRule](../API_EnableRule.md "../API_EnableRule.md")<br>• [ListRuleNamesByTarget](../API_ListRuleNamesByTarget.md "../API_ListRuleNamesByTarget.md")<br>• [ListRules](../API_ListRules.md "../API_ListRules.md")<br>• [ListTargetsByRule](../API_ListTargetsByRule.md "../API_ListTargetsByRule.md")<br>• [PutRule](../API_PutRule.md "../API_PutRule.md")<br>• [PutTargets](../API_PutTargets.md "../API_PutTargets.md")<br>• [RemoveTargets](../API_RemoveTargets.md "../API_RemoveTargets.md")<br>• [TestEventPattern](../API_TestEventPattern.md "../API_TestEventPattern.md") |
+| **Pipe**             | • [CreatePipe](../pipes-reference/API_CreatePipe.md "../pipes-reference/API_CreatePipe.md")<br>• [DeletePipe](../pipes-reference/API_DeletePipe.md "../pipes-reference/API_DeletePipe.md")<br>• [DescribePipe](../pipes-reference/API_DescribePipe.md "../pipes-reference/API_DescribePipe.md")<br>• [ListPipes](../pipes-reference/API_ListPipes.md "../pipes-reference/API_ListPipes.md")<br>• [StartPipe](../pipes-reference/API_StartPipe.md "../pipes-reference/API_StartPipe.md")<br>• [StopPipe](../pipes-reference/API_StopPipe.md "../pipes-reference/API_StopPipe.md")<br>• [UpdatePipe](../pipes-reference/API_UpdatePipe.md "../pipes-reference/API_UpdatePipe.md")                                                                                                                 |
+
+## EventBridge event examples
+
+An event represents a single request from any source and includes information about the requested API operation, the date and time of the operation, request parameters, and so on. CloudTrail log files aren't an ordered stack trace of the public API calls, so events don't appear in any specific order.
+
+The following example shows a CloudTrail event that demonstrates the `PutRule` operation.
+
+```
+{
+  "eventVersion":"1.03",
+  "userIdentity":{
+    "type":"Root",
+    "principalId":"123456789012",
+    "arn":"arn:aws:iam::123456789012:root",
+    "accountId":"123456789012",
+    "accessKeyId":"AKIAIOSFODNN7EXAMPLE",
+    "sessionContext":{
+      "attributes":{
+      "mfaAuthenticated":"false",
+      "creationDate":"2015-11-17T23:56:15Z"
+      }
+    }
+  },
+  "eventTime":"2015-11-18T00:11:28Z",
+  "eventSource":"events.amazonaws.com",
+  "eventName":"PutRule",
+  "awsRegion":"us-east-1",
+  "sourceIPAddress":"AWS Internal",
+  "userAgent":"AWS CloudWatch Console",
+  "requestParameters":{
+    "description":"",
+    "name":"cttest2",
+    "state":"ENABLED",
+    "eventPattern":"{\"source\":[\"aws.ec2\"],\"detail-type\":[\"EC2 Instance State-change Notification\"]}",
+    "scheduleExpression":""
+  },
+  "responseElements":{
+    "ruleArn":"arn:aws:events:us-east-1:123456789012:rule/cttest2"
+  },
+  "requestID":"e9caf887-8d88-11e5-a331-3332aa445952",
+  "eventID":"49d14f36-6450-44a5-a501-b0fdcdfaeb98",
+  "eventType":"AwsApiCall",
+  "apiVersion":"2015-10-07",
+  "recipientAccountId":"123456789012"
+}
+```
+
+For information about CloudTrail record contents, see [CloudTrail
+record contents](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-record-contents.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-record-contents.md") in the _AWS CloudTrail User Guide_.
+
+## CloudTrail log entries for actions taken by EventBridge Pipes
+
+EventBridge Pipes assumes the provided IAM role when reading events from sources, invoking enrichments, or invoking targets. For CloudTrail entries related to actions taken in your
+account on all enrichments, targets, and Amazon SQS, Kinesis, and DynamoDB sources, the `sourceIPAddress` and `invokedBy` fields will include
+`pipes.amazonaws.com`.
+
+**Sample CloudTrail log entry for all enrichments, targets, and Amazon SQS, Kinesis, and DynamoDB sources**
+
+```
+{
+  "eventVersion": "1.08",
+  "userIdentity": {
+    "type": "AssumedRole",
+    "principalId": "...",
+    "arn": "arn:aws:sts::111222333444:assumed-role/...",
+    "accountId": "111222333444",
+    "accessKeyId": "...",
+    "sessionContext": {
+      "sessionIssuer": {
+        "type": "Role",
+        "principalId": "...",
+        "arn": "...",
+        "accountId": "111222333444",
+        "userName": "userName"
+      },
+      "webIdFederationData": {},
+      "attributes": {
+        "creationDate": "2022-09-22T21:41:15Z",
+        "mfaAuthenticated": "false"
+      }
+    },
+    "invokedBy": "pipes.amazonaws.com"
+  },
+  "eventTime": ",,,",
+  "eventName": "...",
+  "awsRegion": "us-west-2",
+  "sourceIPAddress": "pipes.amazonaws.com",
+  "userAgent": "pipes.amazonaws.com",
+  "requestParameters": {
+    ...
+  },
+  "responseElements": null,
+  "requestID": "...",
+  "eventID": "...",
+  "readOnly": true,
+  "eventType": "AwsApiCall",
+  "managementEvent": true,
+  "recipientAccountId": "...",
+  "eventCategory": "Management"
+}
+```
+
+For all other sources, the `sourceIPAddress` field of the CloudTrail log entries will have a dynamic IP address and shouldn't be
+relied upon for any integration or event categorization. In addition, these entries won't have the `invokedBy` field.
+
+**Sample CloudTrail log entry for all other sources**
+
+```
+{
+  "eventVersion": "1.08",
+  "userIdentity": {
+    ...
+  },
+  "eventTime": ",,,",
+  "eventName": "...",
+  "awsRegion": "us-west-2",
+  "sourceIPAddress": "127.0.0.1",
+  "userAgent": "Python-httplib2/0.8 (gzip)",
+}
+```

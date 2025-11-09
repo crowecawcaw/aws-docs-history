@@ -22,12 +22,25 @@ events](event-reference.md#event-reference-connections "event-reference.md#event
 **Public APIs**
 
 | Authorization method     | Success      | Connectivity failure  | Authorization failure |
-| ------------------------ | ------------ | --------------------- | --------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------------------ | ------------ | --------------------- | --------------------- |
 | Basic or API Key         | `AUTHORIZED` | n/a                   | `DEAUTHORIZED`        |
 | OAuth (public endpoint)  | `AUTHORIZED` | n/a                   | `DEAUTHORIZED`        |
-| OAuth (private endpoint) | `AUTHORIZED` | `FAILED_CONNECTIVITY` | `DEAUTHORIZED`        | **Private APIs**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| Authorization method     | Success      | Connectivity failure  | Authorization failure |
-| ---                      | ---          | ---                   | ---                   |
-| Basic or API Key         | `ACTIVE`     | `FAILED_CONNECTIVITY` | `DEAUTHORIZED`        |
-| OAuth (public endpoint)  | `ACTIVE`     | `FAILED_CONNECTIVITY` | `DEAUTHORIZED`        |
-| OAuth (private endpoint) | `ACTIVE`     | `FAILED_CONNECTIVITY` | `DEAUTHORIZED`        | When you create a connection to a private API, there can be a delay of up to several minutes from when the connection is successfully created to when you can successfully make HTTPS calls to the private API. During this period: <br>• Private OAuth connection will be in `AUTHORIZING` state, and will transition to `AUTHORIZED` when OAuth token exchange is successfully completed. <br>• The connection will update to `ACTIVE` status, and EventBridge will retry any invocations from event buses or pipes. If you are using the connection in an HTTP task within a Step Functions workflow, you can configure retries on `httpTimeoutExceptions` to retry any calls to the private API that happen during this period. |
+| OAuth (private endpoint) | `AUTHORIZED` | `FAILED_CONNECTIVITY` | `DEAUTHORIZED`        |
+
+**Private APIs**
+
+| Authorization method     | Success  | Connectivity failure  | Authorization failure |
+| ------------------------ | -------- | --------------------- | --------------------- |
+| Basic or API Key         | `ACTIVE` | `FAILED_CONNECTIVITY` | `DEAUTHORIZED`        |
+| OAuth (public endpoint)  | `ACTIVE` | `FAILED_CONNECTIVITY` | `DEAUTHORIZED`        |
+| OAuth (private endpoint) | `ACTIVE` | `FAILED_CONNECTIVITY` | `DEAUTHORIZED`        |
+
+When you create a connection to a private API, there can be a delay of up to several
+minutes from when the connection is successfully created to when you can successfully
+make HTTPS calls to the private API. During this period:
+
+- Private OAuth connection will be in `AUTHORIZING` state,
+  and will transition to `AUTHORIZED` when OAuth token exchange is successfully completed.
+- The connection will update to `ACTIVE` status,
+  and EventBridge will retry any invocations from event buses or pipes.
+  If you are using the connection in an HTTP task within a Step Functions workflow, you can configure retries on `httpTimeoutExceptions` to retry any calls to the private API that happen during this period.
