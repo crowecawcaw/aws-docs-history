@@ -79,8 +79,7 @@ console relies on. For more information about these console APIs, see the [Servi
 - [DeletePermissionsBoundaryFromPermissionSet](../APIReference/API_DeletePermissionsBoundaryFromPermissionSet.md "../APIReference/API_DeletePermissionsBoundaryFromPermissionSet.md")
 - [DeletePermissionSet](../APIReference/API_DeletePermissionSet.md "../APIReference/API_DeletePermissionSet.md")
 - [DeleteTrustedTokenIssuer](../APIReference/API_DeleteTrustedTokenIssuer.md "../APIReference/API_DeleteTrustedTokenIssuer.md")
-- [DescribeAccountAssignmentCreationStatus
-  s](../APIReference/API_DescribeAccountAssignmentCreationStatus.md "../APIReference/API_DescribeAccountAssignmentCreationStatus.md")
+- [DescribeAccountAssignmentCreationStatus s](../APIReference/API_DescribeAccountAssignmentCreationStatus.md "../APIReference/API_DescribeAccountAssignmentCreationStatus.md")
 - [DescribeAccountAssignmentDeletionStatus](../APIReference/API_DescribeAccountAssignmentDeletionStatus.md "../APIReference/API_DescribeAccountAssignmentDeletionStatus.md")
 - [DescribeApplication](../APIReference/API_DescribeApplication.md "../APIReference/API_DescribeApplication.md")
 - [DescribeApplicationAssignment](../APIReference/API_DescribeApplicationAssignment.md "../APIReference/API_DescribeApplicationAssignment.md")

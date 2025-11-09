@@ -24,19 +24,131 @@ administrative tasks. For more information, see [Delegated administration](deleg
 For each task and account type, the following table indicates whether the IAM Identity Center
 administrative task can be performed by users in the account.
 
-| IAM Identity Center administrative tasks                                   | Member account | Delegated administrator account | Management account |
-| -------------------------------------------------------------------------- | -------------- | ------------------------------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Read users or groups (reading the group itself and the group's membership) | Yes            | Yes                             | Yes                |
-| Add, edit, or delete users or groups                                       | No             | Yes\*                           | Yes                |
-| Enable or disable user access                                              | No             | Yes                             | Yes                |
-| Enable, disable, or manage incoming attributes                             | No             | Yes                             | Yes                |
-| Change or manage identity sources                                          | No             | Yes                             | Yes                |
-| Create, edit, or delete customer managed applications                      | No             | Yes                             | Yes                |
-| Create, edit, or delete AWS managed applications                           | Yes            | Yes                             | Yes                |
-| Configure MFA                                                              | No             | Yes                             | Yes                |
-| Manage permission sets not provisioned in the management account           | No             | Yes                             | Yes                |
-| Manage permission sets provisioned in the management account               | No             | No                              | Yes                |
-| Enable IAM Identity Center                                                 | No             | No                              | Yes                |
-| Delete IAM Identity Center configuration                                   | No             | No                              | Yes                |
-| Enable or disable user access in the management account                    | No             | No                              | Yes                |
-| Register or deregister a member account as a delegated administrator       | No             | No                              | Yes                | \*Refer to the best practices for delegated administration regarding user and group assignments to the management account. ## Assigning AWS account access You can use _permission sets_ to simplify how you assign users and groups in your organization access to AWS accounts. Permission sets are stored in IAM Identity Center and define the level of access that users and groups have to an AWS account. You can create a single permission set and assign it to multiple AWS accounts within your organization. You can also assign multiple permission sets to the same user. For more information about permission sets, see [Create, manage, and delete permission sets](permissionsets.md "permissionsets.md"). ###### Note You can also assign your users single sign-on access to applications. For information, see [Configure access to applications](manage-your-applications.md "manage-your-applications.md"). ## End-user experience The _AWS access portal_ provides IAM Identity Center users with single sign-on access to all their assigned AWS accounts and applications through a web portal. The AWS access portal is different from the [AWS Management Console](../../../awsconsolehelpdocs/latest/gsg/learn-whats-new.md "../../../awsconsolehelpdocs/latest/gsg/learn-whats-new.md"), which is a collection of service consoles for managing AWS resources. When you create a permission set, the name that you specify for the permission set appears in the AWS access portal as an available role. Users sign in to the AWS access portal, choose an AWS account, and then choose the role. After they choose the role, they can access AWS services by using the AWS Management Console or retrieve temporary credentials to access AWS services programmatically. To open the AWS Management Console or retrieve temporary credentials to access AWS programmatically, users complete the following steps: 1. Users open a browser window and use the sign-in URL that you provide to navigate to the AWS access portal. 2. Using their directory credentials, they sign in to the AWS access portal. 3. After authentication, on the AWS access portal page, they choose the **Accounts** tab to display the list of AWS accounts to which they have access. 4. Users then choose the AWS account that they want to use. 5. Below the name of the AWS account, any permission sets to which users are assigned appear as available roles. For example, if you assigned user `john_stiles` to the `PowerUser` permission set, the role displays in the AWS access portal as `PowerUser/john_stiles`. Users who are assigned multiple permission sets choose which role to use. Users can choose their role to access the AWS Management Console. 6. In addition to the role, AWS access portal users can retrieve temporary credentials for command line or programmatic access by choosing **Access keys**. For step-by-step guidance that you can provide to your workforce users, see [Setting up and using the AWS access portal](using-the-portal.md "using-the-portal.md") and [Getting IAM Identity Center user credentials for the AWS CLI or AWS SDKs](howtogetcredentials.md "howtogetcredentials.md"). ## Enforcing and limiting access When you enable IAM Identity Center, IAM Identity Center creates a service-linked role. You can also use service control policies (SCPs). ### Delegating and enforcing access A _service-linked role_ is a type of IAM role that is linked directly to an AWS service. After you enable IAM Identity Center, IAM Identity Center can create a service-linked role in each AWS account in your organization. This role provides predefined permissions that allow IAM Identity Center to delegate and enforce which users have single sign-on access to specific AWS accounts in your organization in AWS Organizations. You need to assign one or more users with access to an account, to use this role. For more information, see [Understanding service-linked roles in IAM Identity Center](slrconcept.md "slrconcept.md") and [Using service-linked roles for IAM Identity Center](using-service-linked-roles.md "using-service-linked-roles.md"). ### Limiting access to the identity store from member accounts For the identity store service used by IAM Identity Center, users who have access to a member account can use API actions that require **Read** permissions. Member accounts have access to **Read** actions on both the **sso-directory** and **identitystore** namespaces. For more information, see [Actions, resources, and condition keys for AWS IAM Identity Center directory](../../../service-authorization/latest/reference/list_awsiamidentitycenterdirectory.md "../../../service-authorization/latest/reference/list_awsiamidentitycenterdirectory.md") and [Actions, resources, and condition keys for AWS Identity Store](../../../service-authorization/latest/reference/list_awsidentitystore.md "../../../service-authorization/latest/reference/list_awsidentitystore.md") in the _Service Authorization Reference_. To prevent users in member accounts from using API operations in the identity store, you can [attach a service control policy (SCP)](../../../organizations/latest/userguide/orgs_manage_policies_scps_attach.md "../../../organizations/latest/userguide/orgs_manage_policies_scps_attach.md"). An SCP is a type of organization policy that you can use to manage permissions in your organization. The following example SCP prevents users in member accounts from accessing any API operation in the identity store. `{ "Sid": "ExplicitlyBlockIdentityStoreAccess", "Effect": "Deny", "Action": ["identitystore:*", "sso-directory:*"], "Resource": "*" }` ###### Note To ensure your AWS managed applications function well with your IAM Identity Center you should avoid applying this SCP to the AWS accounts where you deployed those applications. Also, if you use delegated administration, you should avoid applying this SCP to the delegated administration account. For more information, see [Best practices](delegated-admin.md#delegated-admin-best-practices "delegated-admin.md#delegated-admin-best-practices"). For more information, see [Service control policies (SCPs)](../../../organizations/latest/userguide/orgs_manage_policies_scps.md "../../../organizations/latest/userguide/orgs_manage_policies_scps.md") in the _AWS Organizations User Guide_. |
+| IAM Identity Center administrative tasks                                      | Member account | Delegated administrator account | Management account |
+| ----------------------------------------------------------------------------- | -------------- | ------------------------------- | ------------------ |
+| Read users or groups (reading the group itself and the group's<br>membership) | Yes            | Yes                             | Yes                |
+| Add, edit, or delete users or groups                                          | No             | Yes\*                           | Yes                |
+| Enable or disable user access                                                 | No             | Yes                             | Yes                |
+| Enable, disable, or manage incoming attributes                                | No             | Yes                             | Yes                |
+| Change or manage identity sources                                             | No             | Yes                             | Yes                |
+| Create, edit, or delete customer managed applications                         | No             | Yes                             | Yes                |
+| Create, edit, or delete AWS managed applications                              | Yes            | Yes                             | Yes                |
+| Configure MFA                                                                 | No             | Yes                             | Yes                |
+| Manage permission sets not provisioned in the management<br>account           | No             | Yes                             | Yes                |
+| Manage permission sets provisioned in the management account                  | No             | No                              | Yes                |
+| Enable IAM Identity Center                                                    | No             | No                              | Yes                |
+| Delete IAM Identity Center configuration                                      | No             | No                              | Yes                |
+| Enable or disable user access in the management account                       | No             | No                              | Yes                |
+| Register or deregister a member account as a delegated<br>administrator       | No             | No                              | Yes                |
+
+\*Refer to the best practices for delegated administration regarding user and group
+assignments to the management account.
+
+## Assigning AWS account access
+
+You can use _permission sets_ to simplify how you assign users and
+groups in your organization access to AWS accounts. Permission sets are stored in
+IAM Identity Center and define the level of access that users and groups have to an AWS account. You
+can create a single permission set and assign it to multiple AWS accounts within your
+organization. You can also assign multiple permission sets to the same user.
+
+For more information about permission sets, see [Create, manage, and delete permission sets](permissionsets.md "permissionsets.md").
+
+###### Note
+
+You can also assign your users single sign-on access to applications. For
+information, see [Configure access to applications](manage-your-applications.md "manage-your-applications.md").
+
+## End-user experience
+
+The _AWS access portal_ provides IAM Identity Center users with single sign-on access
+to all their assigned AWS accounts and applications through a web portal. The
+AWS access portal is different from the [AWS Management Console](../../../awsconsolehelpdocs/latest/gsg/learn-whats-new.md "../../../awsconsolehelpdocs/latest/gsg/learn-whats-new.md"),
+which is a collection of service consoles for managing AWS resources.
+
+When you create a permission set, the name that you specify for the permission set
+appears in the AWS access portal as an available role. Users sign in to the AWS access portal,
+choose an AWS account, and then choose the role. After they choose the role, they can
+access AWS services by using the AWS Management Console or retrieve temporary credentials to
+access AWS services programmatically.
+
+To open the AWS Management Console or retrieve temporary credentials to access AWS
+programmatically, users complete the following steps:
+
+1. Users open a browser window and use the sign-in URL that you provide to
+   navigate to the AWS access portal.
+2. Using their directory credentials, they sign in to the AWS access portal.
+3. After authentication, on the AWS access portal page, they choose the
+   **Accounts** tab to display the list of AWS accounts to
+   which they have access.
+4. Users then choose the AWS account that they want to use.
+5. Below the name of the AWS account, any permission sets to which users are
+   assigned appear as available roles. For example, if you assigned user
+   `john_stiles` to the `PowerUser` permission set, the
+   role displays in the AWS access portal as `PowerUser/john_stiles`. Users
+   who are assigned multiple permission sets choose which role to use. Users can
+   choose their role to access the AWS Management Console.
+6. In addition to the role, AWS access portal users can retrieve temporary credentials
+   for command line or programmatic access by choosing **Access
+   keys**.
+
+For step-by-step guidance that you can provide to your workforce users, see [Setting up and using the AWS access portal](using-the-portal.md "using-the-portal.md") and [Getting IAM Identity Center user credentials for the AWS CLI or AWS
+SDKs](howtogetcredentials.md "howtogetcredentials.md").
+
+## Enforcing and limiting access
+
+When you enable IAM Identity Center, IAM Identity Center creates a service-linked role. You can also use service
+control policies (SCPs).
+
+### Delegating and enforcing
+
+access
+
+A _service-linked role_ is a type of IAM role that is linked
+directly to an AWS service. After you enable IAM Identity Center, IAM Identity Center can create a
+service-linked role in each AWS account in your organization. This role provides
+predefined permissions that allow IAM Identity Center to delegate and enforce which users have
+single sign-on access to specific AWS accounts in your organization in AWS Organizations.
+You need to assign one or more users with access to an account, to use this role.
+For more information, see [Understanding service-linked roles in IAM Identity Center](slrconcept.md "slrconcept.md")
+and [Using service-linked roles for
+IAM Identity Center](using-service-linked-roles.md "using-service-linked-roles.md").
+
+### Limiting access to the
+
+identity store from member accounts
+
+For the identity store service used by IAM Identity Center, users who have access to a member
+account can use API actions that require **Read** permissions.
+Member accounts have access to **Read** actions on both the
+**sso-directory** and **identitystore**
+namespaces. For more information, see [Actions, resources, and condition keys for AWS IAM Identity Center directory](../../../service-authorization/latest/reference/list_awsiamidentitycenterdirectory.md "../../../service-authorization/latest/reference/list_awsiamidentitycenterdirectory.md") and
+[Actions, resources, and condition keys for AWS Identity Store](../../../service-authorization/latest/reference/list_awsidentitystore.md "../../../service-authorization/latest/reference/list_awsidentitystore.md") in the
+_Service Authorization Reference_.
+
+To prevent users in member accounts from using API operations in the identity
+store, you can [attach a service control policy (SCP)](../../../organizations/latest/userguide/orgs_manage_policies_scps_attach.md "../../../organizations/latest/userguide/orgs_manage_policies_scps_attach.md"). An SCP is a type of organization
+policy that you can use to manage permissions in your organization. The following
+example SCP prevents users in member accounts from accessing any API operation in
+the identity store.
+
+```
+        {
+            "Sid": "ExplicitlyBlockIdentityStoreAccess",
+            "Effect": "Deny",
+            "Action": ["identitystore:*", "sso-directory:*"],
+            "Resource": "*"
+        }
+```
+
+###### Note
+
+To ensure your AWS managed applications function well with your IAM Identity Center you
+should avoid applying this SCP to the AWS accounts where you deployed those
+applications. Also, if you use delegated administration, you should avoid
+applying this SCP to the delegated administration account. For more information,
+see [Best practices](delegated-admin.md#delegated-admin-best-practices "delegated-admin.md#delegated-admin-best-practices").
+
+For more information, see [Service
+control policies (SCPs)](../../../organizations/latest/userguide/orgs_manage_policies_scps.md "../../../organizations/latest/userguide/orgs_manage_policies_scps.md") in the
+_AWS Organizations User Guide_.

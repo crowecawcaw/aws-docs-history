@@ -171,17 +171,17 @@ register a public client.
 
 IAM Identity Center OIDC service when registering a public client
 
-| Scope                                 | Description                                                                                           | Services supported by                  |
-| ------------------------------------- | ----------------------------------------------------------------------------------------------------- | -------------------------------------- |
-| `sso:account:access`                  | Access IAM Identity Center managed accounts and permission sets.                                      | IAM Identity Center                    |
-| `codewhisperer:analysis`              | Enable access to Amazon Q Developer code analysis.                                                    | AWS Builder ID and IAM Identity Center |
-| `codewhisperer:completions`           | Enable access to Amazon Q inline code suggestions.                                                    | AWS Builder ID and IAM Identity Center |
-| `codewhisperer:conversations`         | Enable access to Amazon Q chat.                                                                       | AWS Builder ID and IAM Identity Center |
-| `codewhisperer:taskassist`            | Enable access to Amazon Q Developer Agent for software development.                                   | AWS Builder ID and IAM Identity Center |
-| `codewhisperer:transformations`       | Enable access to Amazon Q Developer Agent for code transformation.                                    | AWS Builder ID and IAM Identity Center |
-| `codecatalyst:read_write`             | Read and write to your Amazon CodeCatalyst resources, allowing access to all your existing resources. | AWS Builder ID and IAM Identity Center |
-| `verified_access:application:connect` | Enable AWS Verified Access                                                                            | AWS Verified Access                    |
-| `redshift:connect`                    | Connect to Amazon Redshift                                                                            | Amazon Redshift                        |
-| `datazone:domain:access`              | Access your DataZone Domain Execution Role                                                            | Amazon DataZone                        |
-| `nosqlworkbench:datamodeladviser`     | Create and read data models                                                                           | NoSQL Workbench                        |
-| `transform:read_write`                | Enable access to AWS Transform Agent for code transformation                                          | AWS Transform                          |
+| Scope                                 | Description                                                                                              | Services supported by                  |
+| ------------------------------------- | -------------------------------------------------------------------------------------------------------- | -------------------------------------- |
+| `sso:account:access`                  | Access IAM Identity Center managed accounts and permission<br>sets.                                      | IAM Identity Center                    |
+| `codewhisperer:analysis`              | Enable access to Amazon Q Developer code analysis.                                                       | AWS Builder ID and IAM Identity Center |
+| `codewhisperer:completions`           | Enable access to Amazon Q inline code<br>suggestions.                                                    | AWS Builder ID and IAM Identity Center |
+| `codewhisperer:conversations`         | Enable access to Amazon Q chat.                                                                          | AWS Builder ID and IAM Identity Center |
+| `codewhisperer:taskassist`            | Enable access to Amazon Q Developer Agent for software<br>development.                                   | AWS Builder ID and IAM Identity Center |
+| `codewhisperer:transformations`       | Enable access to Amazon Q Developer Agent for code<br>transformation.                                    | AWS Builder ID and IAM Identity Center |
+| `codecatalyst:read_write`             | Read and write to your Amazon CodeCatalyst resources, allowing<br>access to all your existing resources. | AWS Builder ID and IAM Identity Center |
+| `verified_access:application:connect` | Enable AWS Verified Access                                                                               | AWS Verified Access                    |
+| `redshift:connect`                    | Connect to Amazon Redshift                                                                               | Amazon Redshift                        |
+| `datazone:domain:access`              | Access your DataZone Domain Execution Role                                                               | Amazon DataZone                        |
+| `nosqlworkbench:datamodeladviser`     | Create and read data models                                                                              | NoSQL Workbench                        |
+| `transform:read_write`                | Enable access to AWS Transform Agent for code transformation                                             | AWS Transform                          |

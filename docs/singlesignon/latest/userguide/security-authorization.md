@@ -17,37 +17,51 @@ actions as long as there is no explicit deny on any of the actions. Instances cr
 after November 15, 2023 use [newer API
 actions](../APIReference/API_Operations.md "../APIReference/API_Operations.md") for authorization in the IAM Identity Center console.
 
-| Console operation name used before November 15, 2023 | API action used after November 15, 2023  |
-| ---------------------------------------------------- | ---------------------------------------- | --------------------------------------- | --------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------- | -------------------------------------- |
-| AssociateProfile                                     | CreateApplicationAssignment              |
-| CreateManagedApplicationInstance                     | CreateApplicationInstance                | CreateApplication                       |
-| CreateManagedApplicationInstance                     | PutApplicationAuthenticationMethod       |
-| DeleteApplicationInstance                            | DeleteManagedApplicationInstance         | DeleteApplication                       |
-| DeleteSSO                                            | DeleteInstance                           |
-| DisassociateProfile                                  | DeleteApplicationAssignment              |
-| GetApplicationTemplate                               | DescribeApplicationProvider              |
-| GetManagedApplicationInstance                        | DescribeApplication                      |
-| GetSharedSsoConfiguration                            | DescribeInstance                         |
-| ListApplicationInstances                             | ListApplications                         |
-| ListApplicationTemplates                             | ListApplicationProviders                 |
-| ListDirectoryAssociations                            | DescribeInstance                         |
-| ListProfileAssociations                              | ListApplicationAssignments               |
-| UpdateApplicationInstanceDisplayData                 | UpdateApplicationInstanceStatus          | UpdateManagedApplicationInstanceStatus  | UpdateApplication                       | ## API actions after October 2020 Instances of IAM Identity Center that were created before October 15, 2020 honor both old and new API actions as long as there is no explicit deny on any of the actions. Instances created after October 15, 2020 use [newer API actions](../APIReference/API_Operations.md "../APIReference/API_Operations.md") for authorization in the IAM Identity Center console. |
-| Operation name                                       | API actions used before October 15, 2020 | API actions used after October 15, 2020 |
-| ---                                                  | ---                                      | ---                                     |
-| AssociateProfile                                     | AssociateProfile                         | CreateAccountAssignment                 |
-| AttachManagedPolicy                                  | PutPermissionsPolicy                     | AttachManagedPolicyToPermissionSet      |
-| CreatePermissionSet                                  | CreatePermissionSet                      | CreatePermissionSet                     |
-| DeleteApplicationInstanceForAWsAccount               | DeleteApplicationInstance                | DeleteTrust                             | DeleteAccountAssignment                 |
-| DeleteApplicationProfileForAwsAccount                | DeleteProfile                            | DeleteAccountAssignment                 |                                         | DeletePermissionsPolicy                                                                                                                                                                                                                                                                                                                                                                                   | DeletePermissionsPolicy     | DeleteInlinePolicyFromPermissionSet    |
-| DeletePermissionSet                                  | DeletePermissionSet                      | DeletePermissionSet                     |                                         | DescribePermissionsPolicies                                                                                                                                                                                                                                                                                                                                                                               | DescribePermissionsPolicies | ListManagedPoliciesInPermissionSet     |
-| DetachManagedPolicy                                  | DeletePermissionsPolicy                  | DetachManagedPolicyFromPermissionSet    |                                         | DisassociateProfile                                                                                                                                                                                                                                                                                                                                                                                       | DisassociateProfile         | DeleteAccountAssignment                |
-| GetApplicationInstanceForAWSAccount                  | GetApplicationInstance                   | ListAccountAssignments                  |                                         | GetAWSAccountProfileStatus                                                                                                                                                                                                                                                                                                                                                                                | GetProfile                  | ListPermissionSetsProvisionedToAccount |
-| GetPermissionSet                                     | GetPermissionSet                         | DescribePermissionSet                   |                                         | GetPermissionsPolicy                                                                                                                                                                                                                                                                                                                                                                                      | GetPermissionsPolicy        | GetInlinePolicyForPermissionSet        |
-| ListAccountsWithProvisionedPermissionSet             | ListApplicationInstances                 | GetApplicationInstance                  | ListAccountsForProvisionedPermissionSet |
-| ListAWSAccountProfiles                               | ListProfiles                             | GetProfile                              | ListPermissionSetsProvisionedToAccount  |
-| ListPermissionSets                                   | ListPermissionSets                       | ListPermissionSets                      |                                         | ListProfileAssociations                                                                                                                                                                                                                                                                                                                                                                                   | ListProfileAssociations     | ListAccountAssignments                 |
-| ProvisionApplicationInstanceForAWSAccount            | GetApplicationInstance                   | CreateApplicationInstance               | CreateAccountAssignment                 |
-| ProvisionApplicationProfileForAWSAccountInstance     | GetProfile                               | CreateProfile                           | UpdateProfile                           | CreateAccountAssignment                                                                                                                                                                                                                                                                                                                                                                                   |
-| ProvisionSAMLProvider                                | GetTrust                                 | CreateTrust                             | UpdateTrust                             | CreateAccountAssignment                                                                                                                                                                                                                                                                                                                                                                                   |
-| PutPermissionsPolicy                                 | PutPermissionsPolicy                     | PutInlinePolicyToPermissionSet          |                                         | UpdatePermissionSet                                                                                                                                                                                                                                                                                                                                                                                       | UpdatePermissionSet         | UpdatePermissionSet                    |
+| Console operation name used before November 15, 2023 | API action used after November 15, 2023 |
+| ---------------------------------------------------- | --------------------------------------- | ------------------------------------------ | ----------------- |
+| AssociateProfile                                     | CreateApplicationAssignment             |
+| CreateManagedApplicationInstance                     | <br>CreateApplicationInstance           | CreateApplication                          |
+| CreateManagedApplicationInstance                     | PutApplicationAuthenticationMethod      |
+| DeleteApplicationInstance                            | <br>DeleteManagedApplicationInstance    | DeleteApplication                          |
+| DeleteSSO                                            | DeleteInstance                          |
+| DisassociateProfile                                  | DeleteApplicationAssignment             |
+| GetApplicationTemplate                               | DescribeApplicationProvider             |
+| GetManagedApplicationInstance                        | DescribeApplication                     |
+| GetSharedSsoConfiguration                            | DescribeInstance                        |
+| ListApplicationInstances                             | ListApplications                        |
+| ListApplicationTemplates                             | ListApplicationProviders                |
+| ListDirectoryAssociations                            | DescribeInstance                        |
+| ListProfileAssociations                              | ListApplicationAssignments              |
+| UpdateApplicationInstanceDisplayData                 | <br>UpdateApplicationInstanceStatus     | <br>UpdateManagedApplicationInstanceStatus | UpdateApplication |
+
+## API actions after October 2020
+
+Instances of IAM Identity Center that were created before October 15, 2020 honor both old and new API actions
+as long as there is no explicit deny on any of the actions. Instances created after
+October 15, 2020 use [newer API actions](../APIReference/API_Operations.md "../APIReference/API_Operations.md") for authorization in the IAM Identity Center console.
+
+| Operation name                                   | API actions used before October 15, 2020 | API actions used after October 15, 2020 |
+| ------------------------------------------------ | ---------------------------------------- | --------------------------------------- | --------------------------------------- | ----------------------- |
+| AssociateProfile                                 | AssociateProfile                         | CreateAccountAssignment                 |
+| AttachManagedPolicy                              | PutPermissionsPolicy                     | AttachManagedPolicyToPermissionSet      |
+| CreatePermissionSet                              | CreatePermissionSet                      | CreatePermissionSet                     |
+| DeleteApplicationInstanceForAWsAccount           | DeleteApplicationInstance                | DeleteTrust                             | DeleteAccountAssignment                 |
+| DeleteApplicationProfileForAwsAccount            | DeleteProfile                            | DeleteAccountAssignment                 |
+| DeletePermissionsPolicy                          | DeletePermissionsPolicy                  | DeleteInlinePolicyFromPermissionSet     |
+| DeletePermissionSet                              | DeletePermissionSet                      | DeletePermissionSet                     |
+| DescribePermissionsPolicies                      | DescribePermissionsPolicies              | ListManagedPoliciesInPermissionSet      |
+| DetachManagedPolicy                              | DeletePermissionsPolicy                  | DetachManagedPolicyFromPermissionSet    |
+| DisassociateProfile                              | DisassociateProfile                      | DeleteAccountAssignment                 |
+| GetApplicationInstanceForAWSAccount              | GetApplicationInstance                   | ListAccountAssignments                  |
+| GetAWSAccountProfileStatus                       | GetProfile                               | ListPermissionSetsProvisionedToAccount  |
+| GetPermissionSet                                 | GetPermissionSet                         | DescribePermissionSet                   |
+| GetPermissionsPolicy                             | GetPermissionsPolicy                     | GetInlinePolicyForPermissionSet         |
+| ListAccountsWithProvisionedPermissionSet         | ListApplicationInstances                 | GetApplicationInstance                  | ListAccountsForProvisionedPermissionSet |
+| ListAWSAccountProfiles                           | ListProfiles                             | GetProfile                              | ListPermissionSetsProvisionedToAccount  |
+| ListPermissionSets                               | ListPermissionSets                       | ListPermissionSets                      |
+| ListProfileAssociations                          | ListProfileAssociations                  | ListAccountAssignments                  |
+| ProvisionApplicationInstanceForAWSAccount        | GetApplicationInstance                   | CreateApplicationInstance               | CreateAccountAssignment                 |
+| ProvisionApplicationProfileForAWSAccountInstance | GetProfile                               | CreateProfile                           | UpdateProfile                           | CreateAccountAssignment |
+| ProvisionSAMLProvider                            | GetTrust                                 | CreateTrust                             | UpdateTrust                             | CreateAccountAssignment |
+| PutPermissionsPolicy                             | PutPermissionsPolicy                     | PutInlinePolicyToPermissionSet          |
+| UpdatePermissionSet                              | UpdatePermissionSet                      | UpdatePermissionSet                     |

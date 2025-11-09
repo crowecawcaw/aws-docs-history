@@ -43,11 +43,20 @@ depending on the instance type you want to create:
 Use the following table to compare the capabilities provided by the instance type:
 
 | Capability                                                                   | Instance in the AWS Organizations management account (recommended) | Instance in a member account | Instance in a standalone AWS account |
-| ---------------------------------------------------------------------------- | ------------------------------------------------------------------ | ---------------------------- | ------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ---------------------------------------------------------------------------- | ------------------------------------------------------------------ | ---------------------------- | ------------------------------------ |
 | Manage users                                                                 | Yes                                                                | Yes                          | Yes                                  |
 | AWS access portal for single-sign on access to your AWS managed applications | Yes                                                                | Yes                          | Yes                                  |
 | OAuth 2.0 (OIDC) customer managed applications                               | Yes                                                                | Yes                          | Yes                                  |
 | Multi-account permissions                                                    | Yes                                                                | No                           | No                                   |
 | AWS access portal for single-sign on access to your AWS accounts             | Yes                                                                | No                           | No                                   |
 | SAML 2.0 customer managed applications                                       | Yes                                                                | No                           | No                                   |
-| Delegated administrator can manage instance                                  | Yes                                                                | No                           | No                                   | For more information about AWS managed applications and IAM Identity Center, see [AWS managed applications that you can use with IAM Identity Center](awsapps-that-work-with-identity-center.md "awsapps-that-work-with-identity-center.md"). ###### Topics <br>• [Organization instances of IAM Identity Center](organization-instances-identity-center.md "organization-instances-identity-center.md") <br>• [Account instances of IAM Identity Center](account-instances-identity-center.md "account-instances-identity-center.md") <br>• [Delete your IAM Identity Center instance](delete-config.md "delete-config.md") |
+| Delegated administrator can manage instance                                  | Yes                                                                | No                           | No                                   |
+
+For more information about AWS managed applications and IAM Identity Center, see [AWS managed applications
+that you can use with IAM Identity Center](awsapps-that-work-with-identity-center.md "awsapps-that-work-with-identity-center.md").
+
+###### Topics
+
+- [Organization instances of IAM Identity Center](organization-instances-identity-center.md "organization-instances-identity-center.md")
+- [Account instances of IAM Identity Center](account-instances-identity-center.md "account-instances-identity-center.md")
+- [Delete your IAM Identity Center instance](delete-config.md "delete-config.md")
