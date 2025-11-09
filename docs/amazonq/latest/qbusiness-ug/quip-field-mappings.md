@@ -50,29 +50,41 @@ Amazon Q supports crawling [Quip Threads](https://quip.com/dev/automation/docume
 mappings.
 
 | Quip field name   | Index field name  | Description | Data type   |
-| ----------------- | ----------------- | ----------- | ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ----------------- | ----------------- | ----------- | ----------- |
 | qp_authors        | \_authors         | Default     | String list |
 | qp_category       | \_category        | Default     | String      |
 | qp_file_type      | qp_file_type      | Custom      | String      |
 | qp_document_title | qp_document_title | Custom      | String      |
 | qp_source_uri     | \_source_uri      | Default     | String      |
 | qp_created_at     | \_created_at      | Default     | Date        |
-| qp_updated_at     | \_last_updated_at | Default     | Date        | ## Message Amazon Q supports crawling [Quip Messages](https://quip.com/dev/automation/documentation/current#tag/Messages "https://quip.com/dev/automation/documentation/current#tag/Messages") and offers the following message field mappings. |
-| Quip field name   | Index field name  | Description | Data type   |
-| ---               | ---               | ---         | ---         |
-| qp_authors        | \_authors         | Default     | String list |
-| qp_category       | \_category        | Default     | String      |
-| qp_source_uri     | \_source_uri      | Default     | String      |
-| qp_parent_file    | qp_parent_file    | Custom      | String      |
-| qp_created_at     | \_created_at      | Default     | Date        |
-| qp_updated_at     | \_last_updated_at | Default     | Date        | ## Attachment Amazon Q supports crawling Quip attachments and offers the following attachment field mappings.                                                                                                                                   |
-| Quip field name   | Index field name  | Description | Data type   |
-| ---               | ---               | ---         | ---         |
-| qp_authors        | \_authors         | Default     | String list |
-| qp_category       | \_category        | Default     | String      |
-| qp_source_uri     | \_source_uri      | Default     | String      |
-| qp_file_type      | qp_file_type      | Custom      | String      |
-| qp_parent_file    | qp_parent_file    | Custom      | String      |
-| qp_blob_id        | qp_blob_id        | Custom      | String      |
-| qp_created_at     | \_created_at      | Default     | Date        |
 | qp_updated_at     | \_last_updated_at | Default     | Date        |
+
+## Message
+
+Amazon Q supports crawling [Quip Messages](https://quip.com/dev/automation/documentation/current#tag/Messages "https://quip.com/dev/automation/documentation/current#tag/Messages") and offers the following message field
+mappings.
+
+| Quip field name | Index field name  | Description | Data type   |
+| --------------- | ----------------- | ----------- | ----------- |
+| qp_authors      | \_authors         | Default     | String list |
+| qp_category     | \_category        | Default     | String      |
+| qp_source_uri   | \_source_uri      | Default     | String      |
+| qp_parent_file  | qp_parent_file    | Custom      | String      |
+| qp_created_at   | \_created_at      | Default     | Date        |
+| qp_updated_at   | \_last_updated_at | Default     | Date        |
+
+## Attachment
+
+Amazon Q supports crawling Quip attachments and offers the
+following attachment field mappings.
+
+| Quip field name | Index field name  | Description | Data type   |
+| --------------- | ----------------- | ----------- | ----------- |
+| qp_authors      | \_authors         | Default     | String list |
+| qp_category     | \_category        | Default     | String      |
+| qp_source_uri   | \_source_uri      | Default     | String      |
+| qp_file_type    | qp_file_type      | Custom      | String      |
+| qp_parent_file  | qp_parent_file    | Custom      | String      |
+| qp_blob_id      | qp_blob_id        | Custom      | String      |
+| qp_created_at   | \_created_at      | Default     | Date        |
+| qp_updated_at   | \_last_updated_at | Default     | Date        |

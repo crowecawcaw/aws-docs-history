@@ -41,13 +41,16 @@ associated reserved and custom attributes.
 ## Web Pages
 
 | Web Crawler field name | Index field name | Description | Data type      |
-| ---------------------- | ---------------- | ----------- | -------------- | -------------- |
+| ---------------------- | ---------------- | ----------- | -------------- |
 | category               | \_category       | Default     | String         |
 | sourceUrl              | \_source_uri     | Default     | String         |
 | title                  | \_document_title | Default     | String         |
-| htmlSize               | wc_html_size     | Custom      | Long (numeric) | ## Attachments |
+| htmlSize               | wc_html_size     | Custom      | Long (numeric) |
+
+## Attachments
+
 | Web Crawler field name | Index field name | Description | Data type      |
-| ---                    | ---              | ---         | ---            |
+| ---------------------- | ---------------- | ----------- | -------------- |
 | category               | \_category       | Default     | String         |
 | sourceUrl              | \_source_uri     | Default     | String         |
 | fileName               | wc_file_name     | Custom      | String         |

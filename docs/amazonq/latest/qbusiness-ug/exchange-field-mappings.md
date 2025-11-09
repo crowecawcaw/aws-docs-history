@@ -44,7 +44,7 @@ Amazon Q reserved/default index fields.
 ## Mails
 
 | Microsoft Exchange field name | Index field name       | Description | Data type   |
-| ----------------------------- | ---------------------- | ----------- | ----------- | -------------- |
+| ----------------------------- | ---------------------- | ----------- | ----------- |
 | createdDateTime               | \_created_at           | Default     | Date        |
 | lastModifiedDateTime          | \_last_updated_at      | Default     | Date        |
 | uri                           | \_source_uri           | Default     | String      |
@@ -61,58 +61,70 @@ Amazon Q reserved/default index fields.
 | replyTo                       | xchng_replyTo          | Custom      | String      |
 | folder                        | xchng_folder           | Custom      | String      |
 | title                         | xchng_title            | Custom      | String      |
-| flagStatus                    | xchng_flagStatus       | Custom      | String      | ## Calendar    |
-| Microsoft Exchange field name | Index field name       | Description | Data type   |
-| ---                           | ---                    | ---         | ---         |
-| location                      | xchng_location         | Custom      | String      |
-| organizer                     | xchng_organizer        | Custom      | String      |
-| subject                       | xchng_subject          | Custom      | String      |
-| weblink                       | \_source_uri           | Default     | String      |
-| createdDateTime               | \_created_at           | Default     | Date        |
-| lastModifiedDateTime          | \_last_updated_at      | Default     | Date        |
-| eventStartTime                | xchng_eventStartTime   | Default     | Date        |
-| eventEndTime                  | xchng_eventEndTime     | Default     | Date        |
-| attendees                     | xchng_attendees        | Custom      | String      |
-| recurrence                    | xchng_Recurrence       | Custom      | String      |
-| category                      | \_category             | Default     | String      |
-| isReminderOn                  | xchng_isReminderOn     | Custom      | String      |
-| sensitivity                   | xchng_sensitivity      | Custom      | String      |
-| isOnlineMeeting               | xchng_isOnlineMeeting  | Custom      | String      |
-| seriesMasterId                | xchng_seriesMasterId   | Custom      | String      |
-| isCancelled                   | xchng_isCancelled      | Custom      | String      | ## Attachments |
-| Microsoft Exchange field name | Index field name       | Description | Data type   |
-| ---                           | ---                    | ---         | ---         |
-| title                         | xchng_title            | Custom      | String      |
-| lastModifiedDateTime          | \_last_updated_at      | Default     | Date        |
-| category                      | \_category             | Default     | String      |
-| contentType                   | \_file_type            | Default     | String      |
-| size                          | xchng_size             | Custom      | String      |
-| url                           | \_source_uri           | Default     | String      | ## OneNotes    |
-| Microsoft Exchange field name | Index field name       | Description | Data type   |
-| ---                           | ---                    | ---         | ---         |
-| isShared                      | xchng_isShared         | Custom      | String      |
-| link                          | xchng_links            | Custom      | String      |
-| title                         | xchng_title            | Custom      | String      |
-| lastUpdatedBy                 | xchng_lastUpdatedBy    | Custom      | String      |
-| lastModifiedDateTime          | \_last_updated_at      | Default     | Date        |
-| createdDateTime               | \_created_at           | Default     | Date        |
-| category                      | \_category             | Default     | String      |
-| createdBy                     | xchng_createdBy        | Custom      | String      |
-| userRole                      | xchng_useRole          | Custom      | String      | ## Contacts    |
-| Microsoft Exchange field name | Index field name       | Description | Data type   |
-| ---                           | ---                    | ---         | ---         |
-| contactName                   | xchng_contactName      | Custom      | String      |
-| emailAddress                  | xchng_email            | Custom      | String      |
-| companyName                   | xchng_companyName      | Custom      | String      |
-| manager                       | xchng_manager          | Custom      | String      |
-| jobTitle                      | xchng_jobtitle         | Custom      | String      |
-| location                      | xchng_officeLocation   | Custom      | String      |
-| mobilePhone                   | xchng_mobile           | Custom      | String      |
-| birthday                      | xchng_birthday         | Custom      | Date        |
-| homeAddress                   | xchng_homeAddress      | Custom      | String      |
-| businessAddress               | xchng_businessAddress  | Custom      | String      |
-| department                    | xchng_department       | Custom      | String      |
-| profession                    | xchng_profession       | Custom      | String      |
-| createdAt                     | \_created_at           | Default     | Date        |
-| category                      | \_category             | Default     | String      |
-| url                           | \_source_uri           | Custom      | String      |
+| flagStatus                    | xchng_flagStatus       | Custom      | String      |
+
+## Calendar
+
+| Microsoft Exchange field name | Index field name      | Description | Data type |
+| ----------------------------- | --------------------- | ----------- | --------- |
+| location                      | xchng_location        | Custom      | String    |
+| organizer                     | xchng_organizer       | Custom      | String    |
+| subject                       | xchng_subject         | Custom      | String    |
+| weblink                       | \_source_uri          | Default     | String    |
+| createdDateTime               | \_created_at          | Default     | Date      |
+| lastModifiedDateTime          | \_last_updated_at     | Default     | Date      |
+| eventStartTime                | xchng_eventStartTime  | Default     | Date      |
+| eventEndTime                  | xchng_eventEndTime    | Default     | Date      |
+| attendees                     | xchng_attendees       | Custom      | String    |
+| recurrence                    | xchng_Recurrence      | Custom      | String    |
+| category                      | \_category            | Default     | String    |
+| isReminderOn                  | xchng_isReminderOn    | Custom      | String    |
+| sensitivity                   | xchng_sensitivity     | Custom      | String    |
+| isOnlineMeeting               | xchng_isOnlineMeeting | Custom      | String    |
+| seriesMasterId                | xchng_seriesMasterId  | Custom      | String    |
+| isCancelled                   | xchng_isCancelled     | Custom      | String    |
+
+## Attachments
+
+| Microsoft Exchange field name | Index field name  | Description | Data type |
+| ----------------------------- | ----------------- | ----------- | --------- |
+| title                         | xchng_title       | Custom      | String    |
+| lastModifiedDateTime          | \_last_updated_at | Default     | Date      |
+| category                      | \_category        | Default     | String    |
+| contentType                   | \_file_type       | Default     | String    |
+| size                          | xchng_size        | Custom      | String    |
+| url                           | \_source_uri      | Default     | String    |
+
+## OneNotes
+
+| Microsoft Exchange field name | Index field name    | Description | Data type |
+| ----------------------------- | ------------------- | ----------- | --------- |
+| isShared                      | xchng_isShared      | Custom      | String    |
+| link                          | xchng_links         | Custom      | String    |
+| title                         | xchng_title         | Custom      | String    |
+| lastUpdatedBy                 | xchng_lastUpdatedBy | Custom      | String    |
+| lastModifiedDateTime          | \_last_updated_at   | Default     | Date      |
+| createdDateTime               | \_created_at        | Default     | Date      |
+| category                      | \_category          | Default     | String    |
+| createdBy                     | xchng_createdBy     | Custom      | String    |
+| userRole                      | xchng_useRole       | Custom      | String    |
+
+## Contacts
+
+| Microsoft Exchange field name | Index field name      | Description | Data type |
+| ----------------------------- | --------------------- | ----------- | --------- |
+| contactName                   | xchng_contactName     | Custom      | String    |
+| emailAddress                  | xchng_email           | Custom      | String    |
+| companyName                   | xchng_companyName     | Custom      | String    |
+| manager                       | xchng_manager         | Custom      | String    |
+| jobTitle                      | xchng_jobtitle        | Custom      | String    |
+| location                      | xchng_officeLocation  | Custom      | String    |
+| mobilePhone                   | xchng_mobile          | Custom      | String    |
+| birthday                      | xchng_birthday        | Custom      | Date      |
+| homeAddress                   | xchng_homeAddress     | Custom      | String    |
+| businessAddress               | xchng_businessAddress | Custom      | String    |
+| department                    | xchng_department      | Custom      | String    |
+| profession                    | xchng_profession      | Custom      | String    |
+| createdAt                     | \_created_at          | Default     | Date      |
+| category                      | \_category            | Default     | String    |
+| url                           | \_source_uri          | Custom      | String    |

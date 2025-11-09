@@ -43,7 +43,10 @@ sources.
 At the end of both workflows, ISVs can retrieve the data that they have access to
 using the Amazon Q index.
 
-| Comparison of onboarding options                                                     | Scenario                             | Onboarding with Amazon Q Business | Onboarding with the ISV                                                             |
-| ------------------------------------------------------------------------------------ | ------------------------------------ | --------------------------------- | ----------------------------------------------------------------------------------- |
-| Where is the Amazon Q Business application environment created?                      | Amazon Q Business customer's account | ISV's account                     |
-| Who sets up Amazon Q Business application environment and underlying Amazon Q index? | Amazon Q Business customer           | ISV on behalf of the customer     | We recommend that ISVs use both onboarding workflows to best support all customers. |
+| Comparison of onboarding options                                                        | Scenario                             | Onboarding with Amazon Q Business | Onboarding with the ISV |
+| --------------------------------------------------------------------------------------- | ------------------------------------ | --------------------------------- | ----------------------- |
+| Where is the Amazon Q Business application environment created?                         | Amazon Q Business customer's account | ISV's account                     |
+| Who sets up Amazon Q Business application environment and underlying Amazon Q<br>index? | Amazon Q Business customer           | ISV on behalf of the customer     |
+
+We recommend that ISVs use both onboarding workflows to best support all
+customers.

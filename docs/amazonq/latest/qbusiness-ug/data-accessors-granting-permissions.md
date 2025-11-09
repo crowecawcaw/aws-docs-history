@@ -176,6 +176,8 @@ ISVs:
   `arn:aws:iam::891377073540:role/Karini-AmazonQ-Data-Accessor-Role`
 - Revinova —
   `arn:aws:iam::833755663361:role/revinova_q_business_isv_role`
+- Planview (available in `us-west-2` only) —
+  `arn:aws:iam::431569694887:role/ep-copilot-production-us-west-2-q-index-role-tti`
 
 ### Action
 

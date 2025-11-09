@@ -43,14 +43,17 @@ and custom attributes.
 
 ## Projects
 
+| Jira field name | Index field name | Description | Data type   |
+| --------------- | ---------------- | ----------- | ----------- |
+| title           | j_title          | Custom      | String      |
+| project_key     | j_project_key    | Custom      | String      |
+| lead            | j_lead           | Custom      | String list |
+| url             | \_source_uri     | Default     | String      |
+
+## Issues
+
 | Jira field name | Index field name  | Description | Data type   |
-| --------------- | ----------------- | ----------- | ----------- | -------------- |
-| title           | j_title           | Custom      | String      |
-| project_key     | j_project_key     | Custom      | String      |
-| lead            | j_lead            | Custom      | String list |
-| url             | \_source_uri      | Default     | String      | ## Issues      |
-| Jira field name | Index field name  | Description | Data type   |
-| ---             | ---               | ---         | ---         |
+| --------------- | ----------------- | ----------- | ----------- |
 | title           | j_title           | Custom      | String      |
 | issue_key       | j_issue_key       | Custom      | String      |
 | status          | j_status          | Custom      | String      |
@@ -72,9 +75,12 @@ and custom attributes.
 | votes           | j_votes           | Custom      | String      |
 | watchers        | j_watchers        | Custom      | String      |
 | due             | j_due             | Custom      | String      |
-| resolved        | j_resolved        | Custom      | String      | ## Comments    |
+| resolved        | j_resolved        | Custom      | String      |
+
+## Comments
+
 | Jira field name | Index field name  | Description | Data type   |
-| ---             | ---               | ---         | ---         |
+| --------------- | ----------------- | ----------- | ----------- |
 | authors         | \_authors         | Default     | String list |
 | title           | j_title           | Custom      | String      |
 | createdAt       | \_created_at      | Default     | Date        |
@@ -82,19 +88,25 @@ and custom attributes.
 | project_name    | j_project_name    | Custom      | String      |
 | project_key     | j_project_key     | Custom      | String      |
 | issue_key       | j_issue_key       | Custom      | String      |
-| url             | \_source_uri      | Default     | String      | ## Attachments |
-| Jira field name | Index field name  | Description | Data type   |
-| ---             | ---               | ---         | ---         |
-| title           | j_title           | Custom      | String      |
-| authors         | \_authors         | Default     | String list |
-| size            | j_size            | Custom      | String      |
-| createdAt       | \_created_at      | Default     | Date        |
 | url             | \_source_uri      | Default     | String      |
-| project_name    | j_project_name    | Custom      | String      |
-| project_key     | j_project_key     | Custom      | String      |
-| issue_key       | j_issue_key       | Custom      | String      | ## Worklogs    |
+
+## Attachments
+
+| Jira field name | Index field name | Description | Data type   |
+| --------------- | ---------------- | ----------- | ----------- |
+| title           | j_title          | Custom      | String      |
+| authors         | \_authors        | Default     | String list |
+| size            | j_size           | Custom      | String      |
+| createdAt       | \_created_at     | Default     | Date        |
+| url             | \_source_uri     | Default     | String      |
+| project_name    | j_project_name   | Custom      | String      |
+| project_key     | j_project_key    | Custom      | String      |
+| issue_key       | j_issue_key      | Custom      | String      |
+
+## Worklogs
+
 | Jira field name | Index field name  | Description | Data type   |
-| ---             | ---               | ---         | ---         |
+| --------------- | ----------------- | ----------- | ----------- |
 | title           | j_title           | Custom      | String      |
 | authors         | \_authors         | Default     | String list |
 | createdAt       | \_created_at      | Default     | Date        |

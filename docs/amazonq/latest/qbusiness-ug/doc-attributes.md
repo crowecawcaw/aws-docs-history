@@ -132,8 +132,14 @@ are shown in the following table. Additionally, document attributes can be used 
 perform the operations outlined.
 
 | Data type   | Searchable | Filterable | Boostable |
-| ----------- | ---------- | ---------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ----------- | ---------- | ---------- | --------- |
 | Date        | Yes        | Yes        | Yes       |
 | Number      | Yes        | Yes        | Yes       |
 | String      | Yes        | Yes        | Yes       |
-| String list | Yes        | Yes        | Yes       | ###### Note You can’t change an index field type after it has been created. For more information on filtering and boosting using document attributes, see [Filtering using document-attributes](metadata-filtering.md "metadata-filtering.md") and [Boosting using document attributes](metadata-boosting.md "metadata-boosting.md"). |
+| String list | Yes        | Yes        | Yes       |
+
+###### Note
+
+You can’t change an index field type after it has been created.
+
+For more information on filtering and boosting using document attributes, see [Filtering using document-attributes](metadata-filtering.md "metadata-filtering.md") and [Boosting using document attributes](metadata-boosting.md "metadata-boosting.md").

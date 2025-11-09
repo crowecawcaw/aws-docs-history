@@ -41,11 +41,14 @@ mappings.
 
 Calendar
 
+| Google Calendar field name | Index field name | Description | Data type |
+| -------------------------- | ---------------- | ----------- | --------- |
+| sourceUrl                  | \_sourceUrl      | Default     | String    |
+
+Events
+
 | Google Calendar field name | Index field name      | Description | Data type  |
-| -------------------------- | --------------------- | ----------- | ---------- | ------ |
-| sourceUrl                  | \_sourceUrl           | Default     | String     | Events |
-| Google Calendar field name | Index field name      | Description | Data type  |
-| ---                        | ---                   | ---         | ---        |
+| -------------------------- | --------------------- | ----------- | ---------- |
 | Location                   | gcal_location         | Custom      | String     |
 | eventStartTime             | gcal_event_start_time | Custom      | Date       |
 | eventEndTime               | gcal_event_end_time   | Custom      | Date       |

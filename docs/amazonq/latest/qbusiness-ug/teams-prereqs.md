@@ -20,9 +20,28 @@ have:**
   want to crawl. _(Application level permissions required for new connector)_ All permissions must be at _application_ level, not delegated. The following table shows permissions by corresponding
   entity.
 
-| Entity           | Required permissions for data sync                                                                                         | Required permissions for identity sync |
-| ---------------- | -------------------------------------------------------------------------------------------------------------------------- | -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Channel Post     | + ChannelMessage.Read.All + Group.Read.All + User.Read + User.Read.All                                                     | TeamMember.Read.All                    |
-| Chat Message     | + Chat.Read.All + ChatMessage.Read.All + ChatMember.Read.All + User.Read + User.Read.All + Group.Read.All                  | TeamMember.Read.All                    |
-| Calendar Meeting | + Chat.Read.All + ChatMessage.Read.All + ChatMember.Read.All + User.Read + User.Read.All + Group.Read.All + Files.Read.All | TeamMember.Read.All                    |
-| Meeting Notes    | + User.Read + User.Read.All + Group.Read.All + Files.Read.All                                                              | TeamMember.Read.All                    | <br>• Generated Microsoft Teams OAuth 2.0 credentials containing a client ID, client secret, username, and password. You need these credentials to authenticate Amazon Q to access Microsoft Teams. **In your AWS account, make sure you have:** <br>• Created a Amazon Q Business application. <br>• Created a [Amazon Q Business retriever and added an index](select-retriever.md "select-retriever.md"). <br>• Created an [IAM role](iam-roles.md#iam-roles-ds "iam-roles.md#iam-roles-ds") for your data source and, if using the Amazon Q API, noted the ARN of the IAM role. <br>• Stored your Microsoft Teams authentication credentials in an AWS Secrets Manager secret and, if using the Amazon Q API, noted the ARN of the secret. ###### Note If you’re a console user, you can create the IAM role and Secrets Manager secret as part of configuring your Amazon Q application on the console. For a list of things to consider while configuring your data source, see [Data source connector configuration best practices](connector-best-practices.md "connector-best-practices.md"). |
+| Entity           | Required permissions for data sync                                                                                                           | Required permissions for identity sync |
+| ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------- |
+| Channel Post     | + ChannelMessage.Read.All<br>+ Group.Read.All<br>+ User.Read<br>+ User.Read.All                                                              | TeamMember.Read.All                    |
+| Chat Message     | + Chat.Read.All<br>+ ChatMessage.Read.All<br>+ ChatMember.Read.All<br>+ User.Read<br>+ User.Read.All<br>+ Group.Read.All                     | TeamMember.Read.All                    |
+| Calendar Meeting | + Chat.Read.All<br>+ ChatMessage.Read.All<br>+ ChatMember.Read.All<br>+ User.Read<br>+ User.Read.All<br>+ Group.Read.All<br>+ Files.Read.All | TeamMember.Read.All                    |
+| Meeting Notes    | + User.Read<br>+ User.Read.All<br>+ Group.Read.All<br>+ Files.Read.All                                                                       | TeamMember.Read.All                    |
+
+- Generated Microsoft Teams
+  OAuth 2.0 credentials containing a client ID, client secret,
+  username, and password. You need these credentials to authenticate Amazon Q to access Microsoft Teams.
+  **In your AWS account, make sure you have:**
+
+- Created a Amazon Q Business application.
+- Created a [Amazon Q Business retriever and added an index](select-retriever.md "select-retriever.md").
+- Created an [IAM role](iam-roles.md#iam-roles-ds "iam-roles.md#iam-roles-ds") for your data source and, if using the Amazon Q API, noted the ARN of the IAM role.
+- Stored your Microsoft Teams authentication credentials in an AWS Secrets Manager
+  secret and, if using the Amazon Q API, noted the ARN of the
+  secret.
+
+###### Note
+
+If you’re a console user, you can create the IAM role and Secrets Manager
+secret as part of configuring your Amazon Q application on the
+console.
+For a list of things to consider while configuring your data source, see [Data source connector configuration best practices](connector-best-practices.md "connector-best-practices.md").

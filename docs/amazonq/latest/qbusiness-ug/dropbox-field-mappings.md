@@ -42,7 +42,7 @@ the associated reserved and custom attributes.
 ## Files
 
 | Dropbox field name | Index field name    | Description | Data type      |
-| ------------------ | ------------------- | ----------- | -------------- | -------------------------- |
+| ------------------ | ------------------- | ----------- | -------------- |
 | sourceUrl          | \_source_uri        | Default     | String         |
 | category           | \_category          | Default     | String         |
 | fileName           | dbx_file_name       | Custom      | String         |
@@ -51,9 +51,12 @@ the associated reserved and custom attributes.
 | serverModifiedDate | dbx_server_modified | Custom      | Date           |
 | fileSize           | dbx_file_size       | Custom      | Long (numeric) |
 | pathDisplay        | dbx_path_display    | Custom      | String         |
-| tags               | dbx_tags            | Custom      | String         | ## Dropbox Paper           |
+| tags               | dbx_tags            | Custom      | String         |
+
+## Dropbox Paper
+
 | Dropbox field name | Index field name    | Description | Data type      |
-| ---                | ---                 | ---         | ---            |
+| ------------------ | ------------------- | ----------- | -------------- |
 | sourceUrl          | \_source_uri        | Default     | String         |
 | category           | \_category          | Default     | String         |
 | fileName           | dbx_file_name       | Custom      | String         |
@@ -62,9 +65,12 @@ the associated reserved and custom attributes.
 | serverModifiedDate | dbx_server_modified | Custom      | Date           |
 | fileSize           | dbx_file_size       | Custom      | Long (numeric) |
 | pathDisplay        | dbx_path_display    | Custom      | String         |
-| tags               | dbx_tags            | Custom      | String         | ## Dropbox Paper Templates |
+| tags               | dbx_tags            | Custom      | String         |
+
+## Dropbox Paper Templates
+
 | Dropbox field name | Index field name    | Description | Data type      |
-| ---                | ---                 | ---         | ---            |
+| ------------------ | ------------------- | ----------- | -------------- |
 | sourceUrl          | \_source_uri        | Default     | String         |
 | category           | \_category          | Default     | String         |
 | fileName           | dbx_file_name       | Custom      | String         |
@@ -73,9 +79,12 @@ the associated reserved and custom attributes.
 | serverModifiedDate | dbx_server_modified | Custom      | Date           |
 | fileSize           | dbx_file_size       | Custom      | Long (numeric) |
 | pathDisplay        | dbx_path_display    | Custom      | String         |
-| tags               | dbx_tags            | Custom      | String         | ## Shortcuts               |
+| tags               | dbx_tags            | Custom      | String         |
+
+## Shortcuts
+
 | Dropbox field name | Index field name    | Description | Data type      |
-| ---                | ---                 | ---         | ---            |
+| ------------------ | ------------------- | ----------- | -------------- |
 | sourceUrl          | \_source_uri        | Default     | String         |
 | category           | \_category          | Default     | String         |
 | fileName           | dbx_file_name       | Custom      | String         |

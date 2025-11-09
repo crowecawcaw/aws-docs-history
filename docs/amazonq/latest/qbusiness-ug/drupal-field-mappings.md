@@ -40,20 +40,23 @@ the associated reserved and custom attributes.
 
 ## Contents
 
+| Drupal field name | Index field name | Entity       | Category | Field type |
+| ----------------- | ---------------- | ------------ | -------- | ---------- |
+| title             | dpl_title        | All Entities | Default  | String     |
+| sourceUrl         | dpl_source_url   | All Entities | Default  | String     |
+| createdAt         | dpl_created_date | All Entities | Default  | Date       |
+| updatedAt         | dpl_updated_date | All Entities | Default  | Date       |
+| published         | dpl_published    | All Entities | Default  | String     |
+| tag               | dpl_tag          | All Entities | Default  | String     |
+| author            | dpl_author       | All Entities | Default  | String     |
+| category          | dpl_category     | All Entities | Default  | String     |
+| visibility        | dpl_visibility   | All Entities | Default  | String     |
+| viewId            | dpl_view_id      | All Entities | Default  | String     |
+
+## Comments
+
 | Drupal field name | Index field name     | Entity       | Category | Field type |
-| ----------------- | -------------------- | ------------ | -------- | ---------- | -------------- |
-| title             | dpl_title            | All Entities | Default  | String     |
-| sourceUrl         | dpl_source_url       | All Entities | Default  | String     |
-| createdAt         | dpl_created_date     | All Entities | Default  | Date       |
-| updatedAt         | dpl_updated_date     | All Entities | Default  | Date       |
-| published         | dpl_published        | All Entities | Default  | String     |
-| tag               | dpl_tag              | All Entities | Default  | String     |
-| author            | dpl_author           | All Entities | Default  | String     |
-| category          | dpl_category         | All Entities | Default  | String     |
-| visibility        | dpl_visibility       | All Entities | Default  | String     |
-| viewId            | dpl_view_id          | All Entities | Default  | String     | ## Comments    |
-| Drupal field name | Index field name     | Entity       | Category | Field type |
-| ---               | ---                  | ---          | ---      | ---        |
+| ----------------- | -------------------- | ------------ | -------- | ---------- |
 | title             | dpl_comment_title    | All Entities | Default  | String     |
 | sourceUrl         | dpl_source_url       | All Entities | Default  | String     |
 | createdAt         | dpl_created_date     | All Entities | Default  | Date       |
@@ -63,9 +66,12 @@ the associated reserved and custom attributes.
 | category          | dpl_category         | All Entities | Default  | String     |
 | parentEntityId    | dpl_parent_entity_id | All Entities | Default  | String     |
 | visibility        | dpl_visibility       | All Entities | Default  | String     |
-| viewId            | dpl_view_id          | All Entities | Default  | String     | ## Attachments |
+| viewId            | dpl_view_id          | All Entities | Default  | String     |
+
+## Attachments
+
 | Drupal field name | Index field name     | Entity       | Category | Field type |
-| ---               | ---                  | ---          | ---      | ---        |
+| ----------------- | -------------------- | ------------ | -------- | ---------- |
 | fileName          | dpl_file_name        | All Entities | Default  | String     |
 | sourceUrl         | dpl_source_url       | All Entities | Default  | String     |
 | createdAt         | dpl_created_date     | All Entities | Default  | Date       |

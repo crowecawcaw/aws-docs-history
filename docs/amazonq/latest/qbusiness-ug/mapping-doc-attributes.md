@@ -37,6 +37,8 @@ and the API.
   attributes to index fields](#mapping-data-source-doc-attributes "#mapping-data-source-doc-attributes")
 - [Ingesting attributes using the
   BatchPutDocument API operation](#custom-attributes-batch "#custom-attributes-batch")
+- [Using aggregations and dynamic
+  filtering in chat](#using-aggregations-in-chat "#using-aggregations-in-chat")
 
 ## Mapping document attributes
 
@@ -244,3 +246,43 @@ attributes. The following example is a custom field or attribute that adds
         "_category": "Vacation policy"
     }
 ```
+
+## Using aggregations and dynamic
+
+filtering in chat
+
+###### Note
+
+Using aggregations and dynamic filtering in chat is only supported in [**Advanced search**](agentic-rag.md "agentic-rag.md").
+
+###### Warning
+
+To ensure optimal performance and accuracy, perform a `FORCED_FULL_CRAWL` on your data source first before using
+the features.
+
+### Supported aggregations
+
+The Amazon Q API supports the following aggregations:
+
+1. `SUM`: Logic to perform a summation upon any numeric data
+   field. For example, "What is the total sum of tickets in status Open?"
+2. `AVERAGE`: Logic to perform an average upon any numeric data
+   field. For example, "What is my average watcher amount for the last
+   week?"
+3. `COUNT`: Logic to perform a distinct count of unique values
+   across any type of data field. For example, "Give me the count of unique
+   customer names in the sales database."
+4. `LIST_ALL`: Logic to gather a subset of available values for
+   any field. For example, "List all reports on Sunday Sales ticket
+   repository."
+
+Using the mathematical aggregations, users can quickly gather statistical and
+analytical queries on any data in their data source.
+
+### Filtering and Sorting
+
+Amazon Q also offers the ability to intelligently ascertain user intent and
+apply filtering or sorting across any number of fields. For example, users can
+query against specific time ranges, values, or string matches by text alone.
+Sorting can also be inferred through text, for example, "Show me the top 5
+accounts sorted by sales data from the last month."

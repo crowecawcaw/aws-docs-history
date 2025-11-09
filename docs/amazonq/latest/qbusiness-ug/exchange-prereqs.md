@@ -11,6 +11,22 @@ have:**
   secret.
 - Added the following permissions for the connector application:
 
-| **Microsoft Graph**                                                                                                                                                                                                                                                                        | **Office 365 Exchange Online**   |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| + Mail.Read (Application) + Mail.ReadBasic (Application) + Mail.ReadBasic.All (Application) + Calendars.Read (Application) + User.Read.All Application) + Contacts.Read (Application) + Notes.Read.All (Application) + Directory.Read.All (Application) + EWS.AccessAsUser.All (Delegated) | full_access_as_app (Application) | **In your AWS account, make sure you have:** <br>• Created a Amazon Q Business application. <br>• Created a [Amazon Q Business retriever and added an index](select-retriever.md "select-retriever.md"). <br>• Created an [IAM role](iam-roles.md#iam-roles-ds "iam-roles.md#iam-roles-ds") for your data source and, if using the Amazon Q API, noted the ARN of the IAM role. <br>• Stored your Microsoft Exchange authentication credentials in an AWS Secrets Manager secret and, if using the Amazon Q API, noted the ARN of the secret. ###### Note If you’re a console user, you can create the IAM role and Secrets Manager secret as part of configuring your Amazon Q application on the console. For a list of things to consider while configuring your data source, see [Data source connector configuration best practices](connector-best-practices.md "connector-best-practices.md"). |
+| **Microsoft<br>Graph**                                                                                                                                                                                                                                                                                             | **Office 365 Exchange<br>Online** |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------- |
+| + Mail.Read (Application)<br>+ Mail.ReadBasic (Application)<br>+ Mail.ReadBasic.All (Application)<br>+ Calendars.Read (Application)<br>+ User.Read.All Application)<br>+ Contacts.Read (Application)<br>+ Notes.Read.All (Application)<br>+ Directory.Read.All (Application)<br>+ EWS.AccessAsUser.All (Delegated) | full_access_as_app (Application)  |
+
+**In your AWS account, make sure you have:**
+
+- Created a Amazon Q Business application.
+- Created a [Amazon Q Business retriever and added an index](select-retriever.md "select-retriever.md").
+- Created an [IAM role](iam-roles.md#iam-roles-ds "iam-roles.md#iam-roles-ds") for your data source and, if using the Amazon Q API, noted the ARN of the IAM role.
+- Stored your Microsoft Exchange authentication credentials in an AWS Secrets Manager
+  secret and, if using the Amazon Q API, noted the ARN of the
+  secret.
+
+###### Note
+
+If you’re a console user, you can create the IAM role and Secrets Manager
+secret as part of configuring your Amazon Q application on the
+console.
+For a list of things to consider while configuring your data source, see [Data source connector configuration best practices](connector-best-practices.md "connector-best-practices.md").

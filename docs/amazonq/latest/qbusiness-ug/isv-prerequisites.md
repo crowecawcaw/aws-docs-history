@@ -67,3 +67,17 @@ Portal ID from Revinova.
    for display, and it will show the portal IDs in the grid.
 6. You can get the ID for the portal from the corresponding
    row.
+
+Planview
+Your Planview Tenant ID is a unique identifier in UUID/GUID format (e.g., 12345678-1234-1234-1234-123456789abc).
+
+For Planview, the Tenant ID information can be found in their integration
+documentation. You can use the following resource to retrieve the Tenant ID
+for Planview Viz integration with Amazon Q Business.
+
+1. Refer to the [Planview Amazon Q Business Integration FAQ](https://success.planview.com/Planview_Viz/FAQs/General/Planview_Amazon_Q_Business_Integration_FAQ "https://success.planview.com/Planview_Viz/FAQs/General/Planview_Amazon_Q_Business_Integration_FAQ") for detailed
+   instructions on retrieving your Tenant ID.
+
+###### Note
+
+Planview data accessor is only available in the `us-west-2` region.

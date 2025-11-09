@@ -46,7 +46,7 @@ Amazon Q will generate responses from data in the document title and body.
 ## Documents
 
 | Alfresco field name | Index field name  | Description | Data type      |
-| ------------------- | ----------------- | ----------- | -------------- | ----------- |
+| ------------------- | ----------------- | ----------- | -------------- |
 | creationTime        | \_created_at      | Default     | Date           |
 | lastModified        | \_last_updated_at | Default     | Date           |
 | author              | \_authors         | Default     | String list    |
@@ -58,9 +58,12 @@ Amazon Q will generate responses from data in the document title and body.
 | size                | al_document_size  | Custom      | Long (numeric) |
 | versionType         | al_version_type   | Custom      | String         |
 | title               | al_document_title | Custom      | String         |
-| repositoryId        | al_repository_id  | Custom      | String         | ## Comments |
+| repositoryId        | al_repository_id  | Custom      | String         |
+
+## Comments
+
 | Alfresco field name | Index field name  | Description | Data type      |
-| ---                 | ---               | ---         | ---            |
+| ------------------- | ----------------- | ----------- | -------------- |
 | creationTime        | \_created_at      | Default     | Date           |
 | lastModified        | \_last_updated_at | Default     | Date           |
 | author              | \_authors         | Default     | String list    |

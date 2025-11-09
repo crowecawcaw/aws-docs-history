@@ -136,7 +136,7 @@ The following table provides information about important JSON keys to configure 
 | `type`                            | The type of data source. Must be `MSTEAMSV2` for the new Teams connector.                                                                                            |
 | `connectionConfiguration`         | Configuration information for connecting to the Teams data source.                                                                                                   |
 | `tenantId`                        | The Microsoft Teams tenant ID in UUID v4 format.                                                                                                                     |
-| `secretArn`                       | The Amazon Resource Name (ARN) of a Secrets Manager secret that contains the key-value pairs required to connect to your Microsoft Teams.                            |
+| `secretArn`                       | The Amazon Resource Name (ARN) of a Secrets Manager secret that contains the key-value pairs<br>required to connect to your Microsoft Teams.                         |
 | `dataEntityConfiguration`         | Configuration for the types of data entities to crawl from Teams.                                                                                                    |
 | `crawlChatMessages`               | A Boolean value to specify whether to crawl chat messages. Set to `true` to include chat messages in the crawl, or `false` to exclude them.                          |
 | `crawlChannelPosts`               | A Boolean value to specify whether to crawl channel posts. Set to `true` to include channel posts in the crawl, or `false` to exclude them.                          |

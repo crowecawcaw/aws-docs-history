@@ -82,7 +82,113 @@ selection in the CloudTrail console. The **Amazon Q Apps resource types
 column** shows the `resources.type` value that you would specify
 to log data events for the resource.
 
-| Data event type (console)     | Amazon Q Apps resource types  | Supported data events                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| ----------------------------- | ----------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Amazon Q Apps                 | `AWS::QApps::QApp`            | <br>• `CreateQApp` <br>• `CopyQApp` <br>• `UpdateQApp` <br>• `DeleteQApp` <br>• `AssociateQAppWithUser` <br>• `DisassociateQAppFromUser` <br>• `ImportDocumentToQApp` <br>• `ImportDocumentToQAppSession` <br>• `CreateLibraryItemReview` <br>• `StartQAppSession` <br>• `StopQAppSession` <br>• `GetQApp` <br>• `ListQApps` <br>• `ImportDocument` <br>• `GetQAppSession` <br>• `UpdateQAppSession` <br>• `AssociateLibraryItemReview` <br>• `DisassociateLibraryItemReview` |
-| Amazon Q Business application | `AWS::QBusiness::Application` | <br>• `CreateSubscriptionToken` <br>• `PredictProblemStatementFromConversation` <br>• `PredictQAppFromProblemStatement` <br>• `PredictQApp`                                                                                                                                                                                                                                                                                                                                   | You can log these API operations by configuring advanced event selectors to record data events for theAmazon Q Apps resource types: `AWS::QApps::QApp` and `AWS::QBusiness::Application`. To configure advanced event selectors, you can use either the CloudTrail console or the AWS CLI: <br>• From the CloudTrail console, choose the **Data event type** for which you want to log data events. Additionally, you can filter on the `eventName` and `resources.ARN` fields by choosing a custom log selector template. For more information, see [Logging data events with the AWS Management Console](../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md#logging-data-events-console "../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md#logging-data-events-console") in the _AWS CloudTrail User Guide_. <br>• From the AWS CLI, specify the `resources.type` value for which you want to log data events and set the `eventCategory` equal to `Data`. For more information, see [Logging data events with the AWS CLI](../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md#creating-data-event-selectors-with-the-AWS-CLI "../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md#creating-data-event-selectors-with-the-AWS-CLI") in the _AWS CloudTrail User Guide_. The following example shows how to configure a trail to log allAmazon Q Apps data events for allAmazon Q Apps resource types. `aws cloudtrail put-event-selectors --trail-name trailName \ --advanced-event-selectors \ '[ { "Name": "Log all data events on anAmazon Q Apps", "FieldSelectors": [ { "Field": "eventCategory", "Equals": ["Data"] }, { "Field": "resources.type", "Equals": ["AWS::QApps::QApp"] } ] } ]'` You can additionally filter on the `eventName` and `resources.ARN` fields. For more information about configuring these fields, see [AdvancedFieldSelector](../../../awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.md "../../../awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.md") in the _AWS CloudTrail API Reference_. ###### Note Additional charges apply for data events. For more information about CloudTrail pricing, see [AWS CloudTrail Pricing](https://aws.amazon.com/cloudtrail/pricing/ "https://aws.amazon.com/cloudtrail/pricing/"). ## UnderstandingAmazon Q Apps log file entries A trail is a configuration that enables delivery of events as log files to an Amazon S3 bucket that you specify. CloudTrail log files contain one or more log entries. An event represents a single request from any source and includes information about the requested action, the date and time of the action, request parameters, and so on. CloudTrail log files aren't an ordered stack trace of the API calls, so they don't appear in any specific order. The following example shows a CloudTrail log entry that demonstrates the `GetLibraryItem` action. `{ "eventVersion": "1.09", "userIdentity": { "type": "AssumedRole", "principalId": "principal ID", "arn": "ARN", "accountId": "account ID", "accessKeyId": "access key ID", "sessionContext": { "sessionIssuer": { "type": "Role", "principalId": "principal ID", "arn": "ARN", "accountId": "account ID", "userName": "user name" }, "attributes": { "creationDate": "yyyy-mm-ddThh:mm:ssZ", "mfaAuthenticated": "false" } }, "onBehalfOf": { "userId": "user ID", "identityStoreArn": "ARN" } }, "eventTime": "yyyy-mm-ddThh:mm:ssZ", "eventSource": "qapps.amazonaws.com", "eventName": "GetLibraryItem", "awsRegion": "region", "sourceIPAddress": "source IP address", "userAgent": "user agent", "requestParameters": { "input": "query input", "idc-application-arn": "ARN", "application-id": "Q application ID" }, "requestID": "request ID", "eventID": "event ID", "readOnly": true, "eventType": "AwsApiCall", "managementEvent": true, "recipientAccountId": "account ID", "eventCategory": "Management" }` |
+| Data event type (console)     | Amazon Q Apps resource types  | Supported data events                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| ----------------------------- | ----------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Amazon Q Apps                 | `AWS::QApps::QApp`            | • `CreateQApp`<br>• `CopyQApp`<br>• `UpdateQApp`<br>• `DeleteQApp`<br>• `AssociateQAppWithUser`<br>• `DisassociateQAppFromUser`<br>• `ImportDocumentToQApp`<br>• `ImportDocumentToQAppSession`<br>• `CreateLibraryItemReview`<br>• `StartQAppSession`<br>• `StopQAppSession`<br>• `GetQApp`<br>• `ListQApps`<br>• `ImportDocument`<br>• `GetQAppSession`<br>• `UpdateQAppSession`<br>• `AssociateLibraryItemReview`<br>• `DisassociateLibraryItemReview` |
+| Amazon Q Business application | `AWS::QBusiness::Application` | • `CreateSubscriptionToken`<br>• `PredictProblemStatementFromConversation`<br>• `PredictQAppFromProblemStatement`<br>• `PredictQApp`                                                                                                                                                                                                                                                                                                                     |
+
+You can log these API operations by configuring advanced event selectors to record
+data events for theAmazon Q Apps resource types: `AWS::QApps::QApp` and
+`AWS::QBusiness::Application`. To configure advanced event selectors, you
+can use either the CloudTrail console or the AWS CLI:
+
+- From the CloudTrail console, choose the **Data event type** for
+  which you want to log data events. Additionally, you can filter on the
+  `eventName` and `resources.ARN` fields by choosing a
+  custom log selector template. For more information, see [Logging data events with the AWS Management Console](../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md#logging-data-events-console "../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md#logging-data-events-console") in the
+  _AWS CloudTrail User Guide_.
+- From the AWS CLI, specify the `resources.type` value for which you
+  want to log data events and set the `eventCategory` equal to
+  `Data`. For more information, see [Logging data events with the AWS CLI](../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md#creating-data-event-selectors-with-the-AWS-CLI "../../../awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.md#creating-data-event-selectors-with-the-AWS-CLI") in the _AWS CloudTrail User
+  Guide_. The following example shows how to configure a trail to
+  log allAmazon Q Apps data events for allAmazon Q Apps resource types.
+
+```
+aws cloudtrail put-event-selectors --trail-name trailName \
+--advanced-event-selectors \
+'[
+  {
+    "Name": "Log all data events on anAmazon Q Apps",
+    "FieldSelectors": [
+      { "Field": "eventCategory", "Equals": ["Data"] },
+      { "Field": "resources.type", "Equals": ["AWS::QApps::QApp"] }
+    ]
+  }
+]'
+
+
+
+```
+
+You can additionally filter on the `eventName` and
+`resources.ARN` fields. For more information about configuring these
+fields, see [AdvancedFieldSelector](../../../awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.md "../../../awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.md") in the _AWS CloudTrail API
+Reference_.
+
+###### Note
+
+Additional charges apply for data events. For more information about CloudTrail pricing,
+see [AWS CloudTrail
+Pricing](https://aws.amazon.com/cloudtrail/pricing/ "https://aws.amazon.com/cloudtrail/pricing/").
+
+## UnderstandingAmazon Q Apps log file
+
+entries
+
+A trail is a configuration that enables delivery of events as log files to an Amazon S3
+bucket that you specify. CloudTrail log files contain one or more log entries. An event
+represents a single request from any source and includes information about the requested
+action, the date and time of the action, request parameters, and so on. CloudTrail log files
+aren't an ordered stack trace of the API calls, so they don't appear in any specific
+order.
+
+The following example shows a CloudTrail log entry that demonstrates the
+`GetLibraryItem` action.
+
+```
+{
+    "eventVersion": "1.09",
+    "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "principal ID",
+        "arn": "ARN",
+        "accountId": "account ID",
+        "accessKeyId": "access key ID",
+        "sessionContext": {
+            "sessionIssuer": {
+                "type": "Role",
+                "principalId": "principal ID",
+                "arn": "ARN",
+                "accountId": "account ID",
+                "userName": "user name"
+            },
+            "attributes": {
+                "creationDate": "yyyy-mm-ddThh:mm:ssZ",
+                "mfaAuthenticated": "false"
+            }
+        },
+        "onBehalfOf": {
+            "userId": "user ID",
+            "identityStoreArn": "ARN"
+        }
+    },
+    "eventTime": "yyyy-mm-ddThh:mm:ssZ",
+    "eventSource": "qapps.amazonaws.com",
+    "eventName": "GetLibraryItem",
+    "awsRegion": "region",
+    "sourceIPAddress": "source IP address",
+    "userAgent": "user agent",
+    "requestParameters": {
+        "input": "query input",
+        "idc-application-arn": "ARN",
+        "application-id": "Q application ID"
+    },
+    "requestID": "request ID",
+    "eventID": "event ID",
+    "readOnly": true,
+    "eventType": "AwsApiCall",
+    "managementEvent": true,
+    "recipientAccountId": "account ID",
+    "eventCategory": "Management"
+}
+```

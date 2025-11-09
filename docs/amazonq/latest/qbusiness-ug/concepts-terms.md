@@ -146,7 +146,7 @@ enterprise data with verified independent software vendors (ISVs) using Amazon Q
 Amazon Q index, enhancing their applications with your organization's
 knowledge. By granting controlled access to your data, you can leverage third-party
 tools while maintaining security and data access compliance. Data accessors include
-verified software providers such as Asana, Miro, Zoom, and PagerDuty. For more
+verified software providers such as Asana, Miro, Zoom, PagerDuty, and Planview. For more
 information, see [Share your enterprise data with data accessors](data-accessors.md "data-accessors.md").
 
 ## Data source

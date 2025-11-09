@@ -157,7 +157,7 @@ View details about updates to AWS managed policies for Amazon Q Business since
 this service began tracking these changes. For automatic alerts about changes to this page,
 subscribe to the RSS feed on the [Amazon Q Business Document history page](../business-use-dg/doc-history.md "../business-use-dg/doc-history.md").
 
-| Change                                              | Description                                                                                                                | Date             |
-| --------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- | ---------------- |
-| AWS managed policy: QBusinessQuicksightPluginPolicy | Added AWS managed policy QBusinessQuicksightPluginPolicy to access Amazon Quick Suite resources for the QuickSight plugin. | December 3, 2024 |
-| Amazon Q Business started tracking changes          | Amazon Q Business started tracking changes for its AWS managed policies.                                                   | April 30, 2024   |
+| Change                                              | Description                                                                                                                   | Date             |
+| --------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- | ---------------- |
+| AWS managed policy: QBusinessQuicksightPluginPolicy | Added AWS managed policy QBusinessQuicksightPluginPolicy to access<br>Amazon Quick Suite resources for the QuickSight plugin. | December 3, 2024 |
+| Amazon Q Business started tracking changes          | Amazon Q Business started tracking changes for its AWS managed<br>policies.                                                   | April 30, 2024   |

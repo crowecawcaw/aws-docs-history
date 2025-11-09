@@ -47,7 +47,7 @@ Amazon Q supports crawling [AEM Pages](https://experienceleague.adobe.com/docs/e
 mappings.
 
 | Adobe Experience Manager (AEM) field name | Index field name     | Description | Data type   |
-| ----------------------------------------- | -------------------- | ----------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ----------------------------------------- | -------------------- | ----------- | ----------- |
 | aem_page_source_uri                       | \_source_uri         | Default     | String      |
 | aem_page_createdBy                        | \_authors            | Default     | String list |
 | aem_page_template                         | aem_page_template    | Custom      | String      |
@@ -55,9 +55,15 @@ mappings.
 | aem_page_createdAt                        | \_created_at         | Default     | Date        |
 | aem_page_lastModified                     | \_last_updated_at    | Default     | Date        |
 | aem_page_lastReplicatedBy                 | aem_page_publisher   | Custom      | String      |
-| aem_page_lastReplicatedAt                 | aem_page_publishedAt | Custom      | Date        | ## Assets Amazon Q supports crawling [AEM Assets](https://experienceleague.adobe.com/docs/experience-manager-cloud-service/content/assets/overview.html?lang=en "https://experienceleague.adobe.com/docs/experience-manager-cloud-service/content/assets/overview.html?lang=en") and offers the following asset field mappings. |
+| aem_page_lastReplicatedAt                 | aem_page_publishedAt | Custom      | Date        |
+
+## Assets
+
+Amazon Q supports crawling [AEM Assets](https://experienceleague.adobe.com/docs/experience-manager-cloud-service/content/assets/overview.html?lang=en "https://experienceleague.adobe.com/docs/experience-manager-cloud-service/content/assets/overview.html?lang=en") and offers the following asset field
+mappings.
+
 | Adobe Experience Manager (AEM) field name | Index field name     | Description | Data type   |
-| ---                                       | ---                  | ---         | ---         |
+| ----------------------------------------- | -------------------- | ----------- | ----------- |
 | aem_page_source_uri                       | \_source_uri         | Default     | String      |
 | aem_page_createdBy                        | \_authors            | Default     | String list |
 | aem_entity_type                           | \_category           | Default     | String      |

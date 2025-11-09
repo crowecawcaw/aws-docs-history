@@ -67,7 +67,10 @@ choose **Create a new role** to avoid errors. 10. In **Sync scope**, configure w
 
     	If you choose this option, the IAM role for the data source must have read permissions for the Amazon S3 bucket where the file is stored.
     	* **Specific users** – Choose this option to manually specify individual users. You can add a maximum of 10 users using this option. To add more than 10 users, create a file containing the usernames and choose **Users from a user name file**.
-    2. **Maximum single file size** – Set the maximum file size for crawling. Files exceeding this limit won't be indexed. The default is 50 MB. Note that hard limits on processing apply: videos are capped at 10GB (10,240MB), audio files at 2GB (2,048MB), and other files at 50MB. Files with extracted text exceeding 5MB won't be indexed.
+    2. **Maximum single file size** – Set the maximum file size for crawling. Files with size upto 10
+    GB/10,240 MB for video files, 2 GB/2,048 MB for audio files, 500 MB for PDF/Word/PowerPoint documents, and 50
+    MB for all other supported documents can get indexed. Note that regardless of file type, any
+    file with extracted text exceeding 30 MB won't be indexed.
     3. **Additional configuration - *optional*** – All content will be indexed by default. However, you can also limit the scope with these additional options:
 
 

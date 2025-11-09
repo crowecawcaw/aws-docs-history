@@ -56,83 +56,143 @@ and custom attributes.
 Amazon Q supports crawling [Zendesk Tickets](https://developer.zendesk.com/api-reference/ticketing/tickets/tickets/ "https://developer.zendesk.com/api-reference/ticketing/tickets/tickets/") and offers the following ticket field
 mappings.
 
-| Zendesk field name | Index field name     | Description | Data type      |
-| ------------------ | -------------------- | ----------- | -------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| ticketChannel      | zd-channel           | Custom      | String         |
-| category           | \_category           | Default     | String         |
-| authors            | \_authors            | Default     | String list    |
-| assignee           | zd_assignee          | Custom      | String         |
-| tags               | zd_tags              | Custom      | String list    |
-| status             | zd_status            | Custom      | String         |
-| sourceUrl          | \_source_uri         | Default     | String         |
-| createdAt          | \_created_at         | Default     | Date           |
-| updatedAt          | \_last_updated_at    | Default     | Date           |
-| organizationName   | zd_organization_name | Custom      | String         | ## Ticket comments Amazon Q supports crawling [Zendesk Ticket Comments](https://developer.zendesk.com/api-reference/ticketing/tickets/ticket_comments/ "https://developer.zendesk.com/api-reference/ticketing/tickets/ticket_comments/") and offers the following ticket comment field mappings.                                             |
-| Zendesk field name | Index field name     | Description | Data type      |
-| ---                | ---                  | ---         | ---            |
-| category           | \_category           | Default     | String         |
-| authors            | \_authors            | Default     | String list    |
-| status             | zd_status            | Custom      | String         |
-| sourceUrl          | \_source_uri         | Default     | String         |
-| createdAt          | \_created_at         | Default     | Date           |
-| updatedAt          | \_last_updated_at    | Default     | Date           |
-| organizationName   | zd_organization_name | Custom      | String         | ## Ticket comment attachment Amazon Q supports crawling [Zendesk Ticket Comment Attachments](https://developer.zendesk.com/api-reference/ticketing/tickets/ticket-attachments/ "https://developer.zendesk.com/api-reference/ticketing/tickets/ticket-attachments/") and offers the following ticket comment attachment field mappings.       |
-| Zendesk field name | Index field name     | Description | Data type      |
-| ---                | ---                  | ---         | ---            |
-| category           | \_category           | Default     | String         |
-| authors            | \_authors            | Default     | String list    |
-| status             | zd_status            | Custom      | String         |
-| sourceUrl          | \_source_uri         | Default     | String         |
-| createdAt          | \_created_at         | Default     | Date           |
-| updatedAt          | \_last_updated_at    | Default     | Date           |
-| organizationName   | zd_organization_name | Custom      | String         | ## Article Amazon Q supports crawling [Zendesk Articles](https://developer.zendesk.com/api-reference/help_center/help-center-api/articles/ "https://developer.zendesk.com/api-reference/help_center/help-center-api/articles/") and offers the following article field mappings.                                                             |
-| Zendesk field name | Index field name     | Description | Data type      |
-| ---                | ---                  | ---         | ---            |
-| authors            | \_authors            | Default     | String list    |
-| labels             | zd_article_labels    | Custom      | String list    |
-| section            | zd_article_section   | Custom      | String list    |
-| sourceUrl          | \_source_uri         | Default     | String         |
-| createdAt          | \_created_at         | Default     | Date           |
-| updatedAt          | \_last_updated_at    | Default     | Date           | ## Article comment Amazon Q supports crawling [Zendesk Article Comments](https://developer.zendesk.com/api-reference/help_center/help-center-api/article_comments/ "https://developer.zendesk.com/api-reference/help_center/help-center-api/article_comments/") and offers the following article comment field mappings.                     |
-| Zendesk field name | Index field name     | Description | Data type      |
-| ---                | ---                  | ---         | ---            |
-| authors            | \_authors            | Default     | String list    |
-| labels             | zd_article_labels    | Custom      | String list    |
-| section            | zd_article_section   | Custom      | String list    |
-| sourceUrl          | \_source_uri         | Default     | String         |
-| createdAt          | \_created_at         | Default     | Date           |
-| updatedAt          | \_last_updated_at    | Default     | Date           | ## Article comment attachment Amazon Q supports crawling [Zendesk Article Comment Attachments](https://developer.zendesk.com/api-reference/ticketing/tickets/ticket-attachments/ "https://developer.zendesk.com/api-reference/ticketing/tickets/ticket-attachments/") and offers the following article comment attachment field mappings.    |
-| Zendesk field name | Index field name     | Description | Data type      |
-| ---                | ---                  | ---         | ---            |
-| authors            | \_authors            | Default     | String list    |
-| labels             | zd_article_labels    | Custom      | String list    |
-| fileName           | zd_file_name         | Custom      | String         |
-| fileType           | \_file_type          | Default     | String         |
-| fileSize           | zd_file_size         | Custom      | Long (numeric) |
-| section            | zd_article_section   | Custom      | String list    |
-| sourceUrl          | \_source_uri         | Default     | String         |
-| createdAt          | \_created_at         | Default     | Date           |
-| updatedAt          | \_last_updated_at    | Default     | Date           | ## Community topic Amazon Q supports crawling [Zendesk Community Topics](https://developer.zendesk.com/api-reference/help_center/help-center-templates/community_topic_page/ "https://developer.zendesk.com/api-reference/help_center/help-center-templates/community_topic_page/") and offers the following community topic field mappings. |
-| Zendesk field name | Index field name     | Description | Data type      |
-| ---                | ---                  | ---         | ---            |
-| topicName          | zd_topic_name        | Custom      | String         |
-| sourceUrl          | \_source_uri         | Default     | String         |
-| createdAt          | \_created_at         | Default     | Date           |
-| updatedAt          | \_last_updated_at    | Default     | Date           |
-| category           | \_category           | Default     | String         | ## Community post Amazon Q supports crawling [Zendesk Community Posts](https://developer.zendesk.com/api-reference/help_center/help-center-templates/community_post_page/ "https://developer.zendesk.com/api-reference/help_center/help-center-templates/community_post_page/") and offers the following community post field mappings.      |
-| Zendesk field name | Index field name     | Description | Data type      |
-| ---                | ---                  | ---         | ---            |
-| postName           | zd_post_name         | Custom      | String         |
-| topicName          | zd_topic_name        | Custom      | String         |
-| sourceUrl          | \_source_uri         | Default     | String         |
-| createdAt          | \_created_at         | Default     | Date           |
-| updatedAt          | \_last_updated_at    | Default     | Date           |
-| category           | \_category           | Default     | String         | ## Community post comment Amazon Q supports crawling [Zendesk Community Post Comments](https://developer.zendesk.com/api-reference/help_center/help-center-api/post_comments/ "https://developer.zendesk.com/api-reference/help_center/help-center-api/post_comments/") and offers the following community post comment field mappings.      |
-| Zendesk field name | Index field name     | Description | Data type      |
-| ---                | ---                  | ---         | ---            |
-| postName           | zd_post_name         | Custom      | String         |
-| topicName          | zd_topic_name        | Custom      | String         |
-| sourceUrl          | \_source_uri         | Default     | String         |
-| createdAt          | \_created_at         | Default     | Date           |
-| updatedAt          | \_last_updated_at    | Default     | Date           |
-| category           | \_category           | Default     | String         |
+| Zendesk field name | Index field name     | Description | Data type   |
+| ------------------ | -------------------- | ----------- | ----------- |
+| ticketChannel      | zd-channel           | Custom      | String      |
+| category           | \_category           | Default     | String      |
+| authors            | \_authors            | Default     | String list |
+| assignee           | zd_assignee          | Custom      | String      |
+| tags               | zd_tags              | Custom      | String list |
+| status             | zd_status            | Custom      | String      |
+| sourceUrl          | \_source_uri         | Default     | String      |
+| createdAt          | \_created_at         | Default     | Date        |
+| updatedAt          | \_last_updated_at    | Default     | Date        |
+| organizationName   | zd_organization_name | Custom      | String      |
+
+## Ticket
+
+comments
+
+Amazon Q supports crawling [Zendesk Ticket Comments](https://developer.zendesk.com/api-reference/ticketing/tickets/ticket_comments/ "https://developer.zendesk.com/api-reference/ticketing/tickets/ticket_comments/") and offers the following ticket
+comment field mappings.
+
+| Zendesk field name | Index field name     | Description | Data type   |
+| ------------------ | -------------------- | ----------- | ----------- |
+| category           | \_category           | Default     | String      |
+| authors            | \_authors            | Default     | String list |
+| status             | zd_status            | Custom      | String      |
+| sourceUrl          | \_source_uri         | Default     | String      |
+| createdAt          | \_created_at         | Default     | Date        |
+| updatedAt          | \_last_updated_at    | Default     | Date        |
+| organizationName   | zd_organization_name | Custom      | String      |
+
+## Ticket
+
+comment attachment
+
+Amazon Q supports crawling [Zendesk Ticket Comment Attachments](https://developer.zendesk.com/api-reference/ticketing/tickets/ticket-attachments/ "https://developer.zendesk.com/api-reference/ticketing/tickets/ticket-attachments/") and offers the
+following ticket comment attachment field mappings.
+
+| Zendesk field name | Index field name     | Description | Data type   |
+| ------------------ | -------------------- | ----------- | ----------- |
+| category           | \_category           | Default     | String      |
+| authors            | \_authors            | Default     | String list |
+| status             | zd_status            | Custom      | String      |
+| sourceUrl          | \_source_uri         | Default     | String      |
+| createdAt          | \_created_at         | Default     | Date        |
+| updatedAt          | \_last_updated_at    | Default     | Date        |
+| organizationName   | zd_organization_name | Custom      | String      |
+
+## Article
+
+Amazon Q supports crawling [Zendesk Articles](https://developer.zendesk.com/api-reference/help_center/help-center-api/articles/ "https://developer.zendesk.com/api-reference/help_center/help-center-api/articles/") and offers the following article field
+mappings.
+
+| Zendesk field name | Index field name   | Description | Data type   |
+| ------------------ | ------------------ | ----------- | ----------- |
+| authors            | \_authors          | Default     | String list |
+| labels             | zd_article_labels  | Custom      | String list |
+| section            | zd_article_section | Custom      | String list |
+| sourceUrl          | \_source_uri       | Default     | String      |
+| createdAt          | \_created_at       | Default     | Date        |
+| updatedAt          | \_last_updated_at  | Default     | Date        |
+
+## Article
+
+comment
+
+Amazon Q supports crawling [Zendesk Article Comments](https://developer.zendesk.com/api-reference/help_center/help-center-api/article_comments/ "https://developer.zendesk.com/api-reference/help_center/help-center-api/article_comments/") and offers the following
+article comment field mappings.
+
+| Zendesk field name | Index field name   | Description | Data type   |
+| ------------------ | ------------------ | ----------- | ----------- |
+| authors            | \_authors          | Default     | String list |
+| labels             | zd_article_labels  | Custom      | String list |
+| section            | zd_article_section | Custom      | String list |
+| sourceUrl          | \_source_uri       | Default     | String      |
+| createdAt          | \_created_at       | Default     | Date        |
+| updatedAt          | \_last_updated_at  | Default     | Date        |
+
+## Article
+
+comment attachment
+
+Amazon Q supports crawling [Zendesk Article Comment Attachments](https://developer.zendesk.com/api-reference/ticketing/tickets/ticket-attachments/ "https://developer.zendesk.com/api-reference/ticketing/tickets/ticket-attachments/") and offers the
+following article comment attachment field mappings.
+
+| Zendesk field name | Index field name   | Description | Data type      |
+| ------------------ | ------------------ | ----------- | -------------- |
+| authors            | \_authors          | Default     | String list    |
+| labels             | zd_article_labels  | Custom      | String list    |
+| fileName           | zd_file_name       | Custom      | String         |
+| fileType           | \_file_type        | Default     | String         |
+| fileSize           | zd_file_size       | Custom      | Long (numeric) |
+| section            | zd_article_section | Custom      | String list    |
+| sourceUrl          | \_source_uri       | Default     | String         |
+| createdAt          | \_created_at       | Default     | Date           |
+| updatedAt          | \_last_updated_at  | Default     | Date           |
+
+## Community
+
+topic
+
+Amazon Q supports crawling [Zendesk Community Topics](https://developer.zendesk.com/api-reference/help_center/help-center-templates/community_topic_page/ "https://developer.zendesk.com/api-reference/help_center/help-center-templates/community_topic_page/") and offers the following
+community topic field mappings.
+
+| Zendesk field name | Index field name  | Description | Data type |
+| ------------------ | ----------------- | ----------- | --------- |
+| topicName          | zd_topic_name     | Custom      | String    |
+| sourceUrl          | \_source_uri      | Default     | String    |
+| createdAt          | \_created_at      | Default     | Date      |
+| updatedAt          | \_last_updated_at | Default     | Date      |
+| category           | \_category        | Default     | String    |
+
+## Community post
+
+Amazon Q supports crawling [Zendesk Community Posts](https://developer.zendesk.com/api-reference/help_center/help-center-templates/community_post_page/ "https://developer.zendesk.com/api-reference/help_center/help-center-templates/community_post_page/") and offers the following
+community post field mappings.
+
+| Zendesk field name | Index field name  | Description | Data type |
+| ------------------ | ----------------- | ----------- | --------- |
+| postName           | zd_post_name      | Custom      | String    |
+| topicName          | zd_topic_name     | Custom      | String    |
+| sourceUrl          | \_source_uri      | Default     | String    |
+| createdAt          | \_created_at      | Default     | Date      |
+| updatedAt          | \_last_updated_at | Default     | Date      |
+| category           | \_category        | Default     | String    |
+
+## Community post
+
+comment
+
+Amazon Q supports crawling [Zendesk Community Post Comments](https://developer.zendesk.com/api-reference/help_center/help-center-api/post_comments/ "https://developer.zendesk.com/api-reference/help_center/help-center-api/post_comments/") and offers the following
+community post comment field mappings.
+
+| Zendesk field name | Index field name  | Description | Data type |
+| ------------------ | ----------------- | ----------- | --------- |
+| postName           | zd_post_name      | Custom      | String    |
+| topicName          | zd_topic_name     | Custom      | String    |
+| sourceUrl          | \_source_uri      | Default     | String    |
+| createdAt          | \_created_at      | Default     | Date      |
+| updatedAt          | \_last_updated_at | Default     | Date      |
+| category           | \_category        | Default     | String    |

@@ -42,34 +42,43 @@ custom attributes.
 
 ## Files and folders
 
-| Box field name  | Index field name    | Description | Data type   |
-| --------------- | ------------------- | ----------- | ----------- | ------------ |
-| bx_createdAt    | \_created_at        | Default     | Date        |
-| bx_modifiedAt   | \_last_updated_at   | Default     | Date        |
-| bx_authors      | \_authors           | Default     | String list |
-| bx_uri          | \_source_uri        | Default     | String      |
-| bx_size         | bx_file_size        | Custom      | String      |
-| bx_category     | \_category          | Default     | String      | ## Comments  |
-| Box field name  | Index field name    | Description | Data type   |
-| ---             | ---                 | ---         | ---         |
-| bx_createdAt    | \_created_at        | Default     | Date        |
-| bx_modifiedAt   | \_last_updated_at   | Default     | Date        |
-| bx_author       | \_authors           | Custom      | String      |
-| bx_parentFile   | bx_comment_item     | Custom      | String      |
-| bx_category     | \_category          | Default     | String      | ## Tasks     |
-| Box field name  | Index field name    | Description | Data type   |
-| ---             | ---                 | ---         | ---         |
-| bx_createdAt    | \_created_at        | Default     | Date        |
-| bx_action       | bx_task_action      | Custom      | String      |
-| bx_taskComplete | bx_task_completed   | Custom      | String      |
-| bx_taskItem     | bx_task_item        | Custom      | String      |
-| bx_taskAssigned | bx_task_assigned_to | Custom      | String      |
-| bx_author       | bx_author           | Custom      | String      |
-| bx_category     | \_category          | Default     | String      |
-| bx_uri          | \_source_uri        | Default     | String      | ## Web links |
-| Box field name  | Index field name    | Description | Data type   |
-| ---             | ---                 | ---         | ---         |
-| bx_createdAt    | \_created_at        | Default     | Date        |
-| bx_author       | bx_author           | Custom      | String      |
-| bx_category     | \_category          | Default     | String      |
-| bx_uri          | \_source_uri        | Default     | String      |
+| Box field name | Index field name  | Description | Data type   |
+| -------------- | ----------------- | ----------- | ----------- |
+| bx_createdAt   | \_created_at      | Default     | Date        |
+| bx_modifiedAt  | \_last_updated_at | Default     | Date        |
+| bx_authors     | \_authors         | Default     | String list |
+| bx_uri         | \_source_uri      | Default     | String      |
+| bx_size        | bx_file_size      | Custom      | String      |
+| bx_category    | \_category        | Default     | String      |
+
+## Comments
+
+| Box field name | Index field name  | Description | Data type |
+| -------------- | ----------------- | ----------- | --------- |
+| bx_createdAt   | \_created_at      | Default     | Date      |
+| bx_modifiedAt  | \_last_updated_at | Default     | Date      |
+| bx_author      | \_authors         | Custom      | String    |
+| bx_parentFile  | bx_comment_item   | Custom      | String    |
+| bx_category    | \_category        | Default     | String    |
+
+## Tasks
+
+| Box field name  | Index field name    | Description | Data type |
+| --------------- | ------------------- | ----------- | --------- |
+| bx_createdAt    | \_created_at        | Default     | Date      |
+| bx_action       | bx_task_action      | Custom      | String    |
+| bx_taskComplete | bx_task_completed   | Custom      | String    |
+| bx_taskItem     | bx_task_item        | Custom      | String    |
+| bx_taskAssigned | bx_task_assigned_to | Custom      | String    |
+| bx_author       | bx_author           | Custom      | String    |
+| bx_category     | \_category          | Default     | String    |
+| bx_uri          | \_source_uri        | Default     | String    |
+
+## Web links
+
+| Box field name | Index field name | Description | Data type |
+| -------------- | ---------------- | ----------- | --------- |
+| bx_createdAt   | \_created_at     | Default     | Date      |
+| bx_author      | bx_author        | Custom      | String    |
+| bx_category    | \_category       | Default     | String    |
+| bx_uri         | \_source_uri     | Default     | String    |

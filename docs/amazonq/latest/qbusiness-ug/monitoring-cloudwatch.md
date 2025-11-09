@@ -50,10 +50,39 @@ The following table shows some common uses for the metrics. These are suggestion
 get you started, not a comprehensive list.
 
 | How do I?                                                    | Relevant metrics                                                                        |
-| ------------------------------------------------------------ | --------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------------------------------------------------------ | --------------------------------------------------------------------------------------- |
 | How do I track how many documents were indexed successfully? | Use the `DocumentsIndexed` metrics.                                                     |
-| How do I monitor end user experience for Amazon Q Business?  | Use the `ThumbsUpCount` and `ThumbsDownCount` metrics.                                  |
+| How do I monitor end user experience for Amazon Q Business?  | Use the `ThumbsUpCount` and `ThumbsDownCount`<br>metrics.                               |
 | How do I track how many users used Q Apps                    | Use the `ActiveUsers` metric.                                                           |
 | How do I track API operation success rates?                  | Use the `success` and `failure` metrics with appropriate `MethodType` dimensions.       |
 | How do I monitor individual API operation performance?       | Use the `latency` metric with specific `MethodType` dimensions.                         |
-| How do I monitor chat response performance and latency?      | Use the `TimeToFirstToken` and `Latency` metrics with API name dimension set to "Chat". | You must have the appropriate CloudWatch permissions to monitor Amazon Q Business with CloudWatch. For more information, see [Identity and access management for Amazon CloudWatch](../../../AmazonCloudWatch/latest/monitoring/auth-and-access-control-cw.md "../../../AmazonCloudWatch/latest/monitoring/auth-and-access-control-cw.md") in the _Amazon CloudWatch User Guide_. ## Viewing metrics The following steps show how to access Amazon Q Business or Amazon Q Apps metrics using the CloudWatch console. ###### To view metrics (console) 1. Open the CloudWatch console at [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch "https://console.aws.amazon.com/cloudwatch"). 2. Choose **Metrics**, choose the **All Metrics** tab, and then choose **AWS/QBusiness** or **AWS/QApps**. ###### Note Some Q Apps metrics might be emitted using a different namespace. 3. Choose the metric dimension. 4. Choose the metric that you want from the list, and choose a time period for the graph. ###### Note You can use the `Sum` statistic to aggregate all metrics with the unit `Count`. For more information on CloudWatch statistics and how to use them, see [CloudWatch statistics definitions](../../../AmazonCloudWatch/latest/monitoring/Statistics-definitions.md "../../../AmazonCloudWatch/latest/monitoring/Statistics-definitions.md") in the _Amazon CloudWatch User Guide_. |
+| How do I monitor chat response performance and latency?      | Use the `TimeToFirstToken` and `Latency` metrics with API name dimension set to "Chat". |
+
+You must have the appropriate CloudWatch permissions to monitor Amazon Q Business with
+CloudWatch. For more information, see [Identity and
+access management for Amazon CloudWatch](../../../AmazonCloudWatch/latest/monitoring/auth-and-access-control-cw.md "../../../AmazonCloudWatch/latest/monitoring/auth-and-access-control-cw.md") in the _Amazon CloudWatch User
+Guide_.
+
+## Viewing metrics
+
+The following steps show how to access Amazon Q Business or Amazon Q Apps metrics
+using the CloudWatch console.
+
+###### To view metrics (console)
+
+1. Open the CloudWatch console at [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch "https://console.aws.amazon.com/cloudwatch").
+2. Choose **Metrics**, choose the **All Metrics**
+   tab, and then choose **AWS/QBusiness** or
+   **AWS/QApps**.
+
+###### Note
+
+Some Q Apps metrics might be emitted using a different namespace. 3. Choose the metric dimension. 4. Choose the metric that you want from the list, and choose a time period for the
+graph.
+
+###### Note
+
+You can use the `Sum` statistic to aggregate all metrics with the unit
+`Count`. For more information on CloudWatch statistics and how to use them, see
+[CloudWatch statistics
+definitions](../../../AmazonCloudWatch/latest/monitoring/Statistics-definitions.md "../../../AmazonCloudWatch/latest/monitoring/Statistics-definitions.md") in the _Amazon CloudWatch User Guide_.

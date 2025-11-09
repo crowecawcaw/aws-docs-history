@@ -18,6 +18,6 @@ Amazon Q offers two kinds of attributes to map to index fields:
 The following table lists the Microsoft OneDrive data source connector entities and their
 associated attributes that you can map to Amazon Q index fields.
 
-| Entity | Attributes                                                                                                                                     | Field type                                                                                        |
-| ------ | ---------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
-| File   | <br>• createdBy <br>• createdDateTime <br>• lastModifiedBy <br>• lastModifiedDateTime <br>• name <br>• parentReference <br>• size <br>• webUrl | <br>• String <br>• Date <br>• String <br>• Date <br>• String <br>• String <br>• Long <br>• String |
+| Entity | Attributes                                                                                                                          | Field type                                                                             |
+| ------ | ----------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| File   | • createdBy<br>• createdDateTime<br>• lastModifiedBy<br>• lastModifiedDateTime<br>• name<br>• parentReference<br>• size<br>• webUrl | • String<br>• Date<br>• String<br>• Date<br>• String<br>• String<br>• Long<br>• String |

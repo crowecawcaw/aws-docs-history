@@ -59,18 +59,21 @@ document body Amazon Q reserved/default index fields.
 
 ## Repository
 
+| GitHub (Cloud) field name | Index field name         | Description | Data type   |
+| ------------------------- | ------------------------ | ----------- | ----------- |
+| Description               | \_document_body          | Default     | String      |
+| repositoryName            | gh_repository_name       | Custom      | String      |
+| repositoryVisibility      | gh_repository_visibility | Custom      | String      |
+| category                  | \_category               | Default     | String      |
+| owner                     | \_authors                | Default     | String list |
+| sourceUrl                 | \_source_uri             | Default     | String      |
+| createdAt                 | \_created_at             | Default     | Date        |
+| updatedAt                 | \_last_updated_at        | Default     | Date        |
+
+## Repository Commit
+
 | GitHub (Cloud) field name | Index field name         | Description | Data type      |
-| ------------------------- | ------------------------ | ----------- | -------------- | -------------------------- |
-| Description               | \_document_body          | Default     | String         |
-| repositoryName            | gh_repository_name       | Custom      | String         |
-| repositoryVisibility      | gh_repository_visibility | Custom      | String         |
-| category                  | \_category               | Default     | String         |
-| owner                     | \_authors                | Default     | String list    |
-| sourceUrl                 | \_source_uri             | Default     | String         |
-| createdAt                 | \_created_at             | Default     | Date           |
-| updatedAt                 | \_last_updated_at        | Default     | Date           | ## Repository Commit       |
-| GitHub (Cloud) field name | Index field name         | Description | Data type      |
-| ---                       | ---                      | ---         | ---            |
+| ------------------------- | ------------------------ | ----------- | -------------- |
 | Description               | \_document_body          | Default     | String         |
 | repositoryName            | gh_repository_name       | Custom      | String         |
 | repositoryVisibility      | gh_repository_visibility | Custom      | String         |
@@ -82,9 +85,12 @@ document body Amazon Q reserved/default index fields.
 | updatedAt                 | \_last_updated_at        | Default     | Date           |
 | fileName                  | gh_file_name             | Default     | String         |
 | fileSize                  | gh_size                  | Default     | Long (numeric) |
-| branchName                | gh_branch_name           | Default     | String         | ## Issue Document          |
+| branchName                | gh_branch_name           | Default     | String         |
+
+## Issue Document
+
 | GitHub (Cloud) field name | Index field name         | Description | Data type      |
-| ---                       | ---                      | ---         | ---            |
+| ------------------------- | ------------------------ | ----------- | -------------- |
 | repositoryName            | gh_repository_name       | Custom      | String         |
 | repositoryVisibility      | gh_repository_visibility | Custom      | String         |
 | category                  | \_category               | Default     | String         |
@@ -98,9 +104,12 @@ document body Amazon Q reserved/default index fields.
 | issueFileName             | gh_file_name             | Custom      | String         |
 | issueState                | gh_issue_state           | Custom      | String         |
 | issueLabel                | gh_issue_labels          | Default     | String list    |
-| issueAssignee             | gh_issue_assignee        | Default     | String list    | ## Issue Comment           |
+| issueAssignee             | gh_issue_assignee        | Default     | String list    |
+
+## Issue Comment
+
 | GitHub (Cloud) field name | Index field name         | Description | Data type      |
-| ---                       | ---                      | ---         | ---            |
+| ------------------------- | ------------------------ | ----------- | -------------- |
 | repositoryName            | gh_repository_name       | Custom      | String         |
 | repositoryVisibility      | gh_repository_visibility | Custom      | String         |
 | category                  | \_category               | Default     | String         |
@@ -112,9 +121,12 @@ document body Amazon Q reserved/default index fields.
 | updatedAt                 | \_last_updated_at        | Default     | Date           |
 | issueState                | gh_issue_state           | Custom      | String         |
 | issueLabel                | gh_issue_labels          | Default     | String list    |
-| issueAssignee             | gh_issue_assignee        | Default     | String list    | ## Issue Attachment        |
+| issueAssignee             | gh_issue_assignee        | Default     | String list    |
+
+## Issue Attachment
+
 | GitHub (Cloud) field name | Index field name         | Description | Data type      |
-| ---                       | ---                      | ---         | ---            |
+| ------------------------- | ------------------------ | ----------- | -------------- |
 | repositoryName            | gh_repository_name       | Custom      | String         |
 | repositoryVisibility      | gh_repository_visibility | Custom      | String         |
 | category                  | \_category               | Default     | String         |
@@ -128,9 +140,14 @@ document body Amazon Q reserved/default index fields.
 | issueFileType             | \_file_type              | Custom      | String         |
 | issueState                | gh_issue_state           | Custom      | String         |
 | issueLabel                | gh_issue_labels          | Default     | String list    |
-| issueAssignee             | gh_issue_assignee        | Default     | String list    | ## Pull Request Comment    |
+| issueAssignee             | gh_issue_assignee        | Default     | String list    |
+
+## Pull Request
+
+Comment
+
 | GitHub (Cloud) field name | Index field name         | Description | Data type      |
-| ---                       | ---                      | ---         | ---            |
+| ------------------------- | ------------------------ | ----------- | -------------- |
 | repositoryName            | gh_repository_name       | Custom      | String         |
 | repositoryVisibility      | gh_repository_visibility | Custom      | String         |
 | category                  | \_category               | Default     | String         |
@@ -142,9 +159,14 @@ document body Amazon Q reserved/default index fields.
 | updatedAt                 | \_last_updated_at        | Default     | Date           |
 | PRState                   | gh_pr_state              | Custom      | String         |
 | PRLabel                   | gh_pr_labels             | Default     | String list    |
-| PRAssignee                | gh_pr_assignee           | Default     | String list    | ## Pull Request Document   |
+| PRAssignee                | gh_pr_assignee           | Default     | String list    |
+
+## Pull Request
+
+Document
+
 | GitHub (Cloud) field name | Index field name         | Description | Data type      |
-| ---                       | ---                      | ---         | ---            |
+| ------------------------- | ------------------------ | ----------- | -------------- |
 | repositoryName            | gh_repository_name       | Custom      | String         |
 | repositoryVisibility      | gh_repository_visibility | Custom      | String         |
 | category                  | \_category               | Default     | String         |
@@ -158,9 +180,14 @@ document body Amazon Q reserved/default index fields.
 | PRFileType                | \_file_type              | Custom      | String         |
 | PRState                   | gh_pr_state              | Custom      | String         |
 | PRLabel                   | gh_pr_labels             | Default     | String list    |
-| PRAssignee                | gh_pr_assignee           | Default     | String list    | ## Pull Request Attachment |
+| PRAssignee                | gh_pr_assignee           | Default     | String list    |
+
+## Pull Request
+
+Attachment
+
 | GitHub (Cloud) field name | Index field name         | Description | Data type      |
-| ---                       | ---                      | ---         | ---            |
+| ------------------------- | ------------------------ | ----------- | -------------- |
 | repositoryName            | gh_repository_name       | Custom      | String         |
 | repositoryVisibility      | gh_repository_visibility | Custom      | String         |
 | category                  | \_category               | Default     | String         |
