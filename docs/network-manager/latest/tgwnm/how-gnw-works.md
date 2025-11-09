@@ -94,24 +94,24 @@ After you register a transit gateway, you can view and monitor the resources in 
 network.
 
 | **Amazon VPC resources**          |
-| --------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Resource**                      | **Related resources**                                                                                                                                 |
-| Transit gateway                   | <br>• Transit gateway attachment <br>• Transit gateway route table                                                                                    |
-| Transit gateway attachment        | <br>• Direct Connect gateway <br>• Transit gateway <br>• Transit gateway attachment <br>• Transit Gateway Connect peer <br>• VPC <br>• VPN connection |
-| Transit gateway route table       | <br>• Transit gateway                                                                                                                                 |
-| Transit Gateway Connect peer      | <br>• Device <br>• Transit gateway attachment                                                                                                         |
+| --------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Resource**                      | **Related resources**                                                                                                                        |
+| Transit gateway                   | • Transit gateway attachment<br>• Transit gateway route table                                                                                |
+| Transit gateway attachment        | • Direct Connect gateway<br>• Transit gateway<br>• Transit gateway attachment<br>• Transit Gateway Connect peer<br>• VPC<br>• VPN connection |
+| Transit gateway route table       | • Transit gateway                                                                                                                            |
+| Transit Gateway Connect peer      | • Device<br>• Transit gateway attachment                                                                                                     |
 | **AWS VPN resources**             |
-| **Resource**                      | **Related resources**                                                                                                                                 |
-| Customer gateway                  | <br>• Device <br>• VPN connection                                                                                                                     |
-| VPN connection                    | <br>• Customer gateway <br>• Transit gateway attachment                                                                                               |
+| **Resource**                      | **Related resources**                                                                                                                        |
+| Customer gateway                  | • Device<br>• VPN connection                                                                                                                 |
+| VPN connection                    | • Customer gateway<br>• Transit gateway attachment                                                                                           |
 | **AWS Direct Connect resources**  |
-| **Resource**                      | **Related resources**                                                                                                                                 |
-| Direct Connect connection         | <br>• Virtual interface                                                                                                                               |
-| Direct Connect gateway            | <br>• Transit gateway attachment <br>• Virtual interface                                                                                              |
-| Virtual interface                 | <br>• Direct Connect connection <br>• Direct Connect gateway                                                                                          |
+| **Resource**                      | **Related resources**                                                                                                                        |
+| Direct Connect connection         | • Virtual interface                                                                                                                          |
+| Direct Connect gateway            | • Transit gateway attachment<br>• Virtual interface                                                                                          |
+| Virtual interface                 | • Direct Connect connection<br>• Direct Connect gateway                                                                                      |
 | **AWS Network Manager resources** |
-| **Resource**                      | **Related resources**                                                                                                                                 |
-| Connection                        | <br>• Device                                                                                                                                          |
-| Device                            | <br>• Connection <br>• Customer gateway <br>• Link <br>• Site <br>• Transit Gateway Connect peer                                                      |
-| Link                              | <br>• Device <br>• Site                                                                                                                               |
-| Site                              | <br>• Device <br>• Link                                                                                                                               |
+| **Resource**                      | **Related resources**                                                                                                                        |
+| Connection                        | • Device                                                                                                                                     |
+| Device                            | • Connection<br>• Customer gateway<br>• Link<br>• Site<br>• Transit Gateway Connect peer                                                     |
+| Link                              | • Device<br>• Site                                                                                                                           |
+| Site                              | • Device<br>• Link                                                                                                                           |

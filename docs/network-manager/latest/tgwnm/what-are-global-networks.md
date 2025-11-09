@@ -93,7 +93,7 @@ Network Manager supports Internet Protocol version 6 (IPv6) on dual-stack endpoi
 AWS Global Networks for Transit Gateways is available in the following AWS Regions:
 
 | AWS Region     | Description               |
-| -------------- | ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| -------------- | ------------------------- |
 | af-south-1     | Africa (Cape Town)        |
 | ap-east-1      | Asia Pacific (Hong Kong)  |
 | ap-northeast-1 | Asia Pacific (Tokyo)      |
@@ -125,4 +125,18 @@ AWS Global Networks for Transit Gateways is available in the following AWS Regio
 | us-west-1      | US West (N. California)   |
 | us-west-2      | US West (Oregon)          |
 | us-gov-east-1  | AWS GovCloud (US-East)    |
-| us-gov-west-1  | AWS GovCloud (US-West)    | ## How to get started with global networks for transit gateways Use the following resources to help you use global networks: <br>• [How AWS Global Networks for Transit Gateways works](how-gnw-works.md "how-gnw-works.md") <br>• [Get started](gnw-getting-started.md "gnw-getting-started.md") <br>• [Access transit gateway network dashboards using AWS Network Manager](nm-monitoring-console.md "nm-monitoring-console.md") ## Pricing There are no additional fees for using global networks to manage transit gateways networks. You are charged the standard fees for the network resources that you manage in your global network (such as transit gateways). For more information about pricing, see [AWS Transit Gateway pricing](https://aws.amazon.com/transit-gateway/pricing/ "https://aws.amazon.com/transit-gateway/pricing/"). |
+| us-gov-west-1  | AWS GovCloud (US-West)    |
+
+## How to get started with global networks for transit gateways
+
+Use the following resources to help you use global networks:
+
+- [How AWS Global Networks for Transit Gateways works](how-gnw-works.md "how-gnw-works.md")
+- [Get started](gnw-getting-started.md "gnw-getting-started.md")
+- [Access transit gateway network dashboards using AWS Network Manager](nm-monitoring-console.md "nm-monitoring-console.md")
+
+## Pricing
+
+There are no additional fees for using global networks to manage transit gateways networks. You are
+charged the standard fees for the network resources that you manage in your global
+network (such as transit gateways). For more information about pricing, see [AWS Transit Gateway pricing](https://aws.amazon.com/transit-gateway/pricing/ "https://aws.amazon.com/transit-gateway/pricing/").

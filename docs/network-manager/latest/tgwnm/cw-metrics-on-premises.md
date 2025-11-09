@@ -15,18 +15,34 @@ outside what you consider an acceptable range.
 The `AWS/NetworkManager` namespace includes the following metrics
 for devices.
 
-| Metric            | Description                                                                                                                                                                                   |
-| ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ |
-| `DataIn`          | The number of bytes received by the device.                                                                                                                                                   |
-| `DataOut`         | The number of bytes sent by the device.                                                                                                                                                       |
-| `TunnelDownCount` | The number of VPN tunnels on the device that have a DOWN status. Static VPN tunnels with a DOWN status, and BGP VPN tunnels with any state other than ESTABLISHED, are included in the count. | ## Metric dimensions for devices To filter the metrics for your devices, use the following dimensions. |
-| Dimension         | Description                                                                                                                                                                                   |
-| ---               | ---                                                                                                                                                                                           |
-| `DeviceId`        | Filters the metric data by the device.                                                                                                                                                        | ## Link metrics The `AWS/NetworkManager` namespace includes the following metrics for links.           |
-| Metric            | Description                                                                                                                                                                                   |
-| ---               | ---                                                                                                                                                                                           |
-| `DataIn`          | The number of bytes received by the on-premises network using this link.                                                                                                                      |
-| `DataOut`         | The number of bytes sent from the on-premises network using this link.                                                                                                                        | ## Metric dimensions for links To filter the metrics for your links, use the following dimensions.     |
-| Dimension         | Description                                                                                                                                                                                   |
-| ---               | ---                                                                                                                                                                                           |
-| `LinkId`          | Filters the metric data by the link.                                                                                                                                                          |
+| Metric            | Description                                                                                                                                                                                            |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `DataIn`          | The number of bytes received by the device.                                                                                                                                                            |
+| `DataOut`         | The number of bytes sent by the device.                                                                                                                                                                |
+| `TunnelDownCount` | The number of VPN tunnels on the device that have a DOWN<br>status. Static VPN tunnels with a DOWN status, and BGP VPN<br>tunnels with any state other than ESTABLISHED, are included in<br>the count. |
+
+## Metric dimensions for devices
+
+To filter the metrics for your devices, use the following dimensions.
+
+| Dimension  | Description                            |
+| ---------- | -------------------------------------- |
+| `DeviceId` | Filters the metric data by the device. |
+
+## Link metrics
+
+The `AWS/NetworkManager` namespace includes the following metrics
+for links.
+
+| Metric    | Description                                                                 |
+| --------- | --------------------------------------------------------------------------- |
+| `DataIn`  | The number of bytes received by the on-premises network using<br>this link. |
+| `DataOut` | The number of bytes sent from the on-premises network using<br>this link.   |
+
+## Metric dimensions for links
+
+To filter the metrics for your links, use the following dimensions.
+
+| Dimension | Description                          |
+| --------- | ------------------------------------ |
+| `LinkId`  | Filters the metric data by the link. |
