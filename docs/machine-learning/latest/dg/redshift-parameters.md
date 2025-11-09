@@ -124,7 +124,7 @@ The Amazon ML console converts Amazon Redshift data types to Amazon ML data type
 conversion scheme.
 
 | Amazon Redshift Data Types | Amazon Redshift Aliases           | Amazon ML Data Type |
-| -------------------------- | --------------------------------- | ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| -------------------------- | --------------------------------- | ------------------- |
 | SMALLINT                   | INT2                              | NUMERIC             |
 | INTEGER                    | INT, INT4                         | NUMERIC             |
 | BIGINT                     | INT8                              | NUMERIC             |
@@ -135,4 +135,32 @@ conversion scheme.
 | CHAR                       | CHARACTER, NCHAR, BPCHAR          | CATEGORICAL         |
 | VARCHAR                    | CHARACTER VARYING, NVARCHAR, TEXT | TEXT                |
 | DATE                       |                                   | TEXT                |
-| TIMESTAMP                  | TIMESTAMP WITHOUT TIME ZONE       | TEXT                | To be converted to Amazon ML `Binary` data types, the values of the Amazon Redshift Booleans in your data must be supported Amazon ML Binary values. If your Boolean data type has unsupported values, Amazon ML converts them to the most specific data type it can. For example, if an Amazon Redshift Boolean has the values `0`, `1`, and `2`, Amazon ML converts the Boolean to a `Numeric` data type. For more information about supported binary values, see [Using the AttributeType Field](creating-a-data-schema-for-amazon-ml.md#assigning-data-types "creating-a-data-schema-for-amazon-ml.md#assigning-data-types"). If Amazon ML can't figure out a data type, it defaults to `Text`. After Amazon ML converts the schema, you can review and correct the assigned Amazon ML data types in the Create Datasource wizard, and revise the schema before Amazon ML creates the datasource. **Amazon S3 Staging Location** Use this parameter to specify the name of the Amazon S3 staging location where Amazon ML stores the results of the Amazon Redshift SQL query. After creating the datasource, Amazon ML uses the data in the staging location instead of returning to Amazon Redshift. ###### Note Because Amazon ML assumes the IAM role defined by the Amazon ML Amazon Redshift role, Amazon ML has permissions to access any objects in the specified Amazon S3 staging location. Because of this, we recommend that you store only files that don't contain sensitive information in the Amazon S3 staging location. For example, if your root bucket is `s3://mybucket/`, we suggest that you create a location to store only the files that you want Amazon ML to access, such as `s3://mybucket/AmazonMLInput/`. |
+| TIMESTAMP                  | TIMESTAMP WITHOUT TIME ZONE       | TEXT                |
+
+To be converted to Amazon ML `Binary` data types, the values of the Amazon Redshift
+Booleans in your data must be supported Amazon ML Binary values. If your Boolean data type
+has unsupported values, Amazon ML converts them to the most specific data type it can. For
+example, if an Amazon Redshift Boolean has the values `0`, `1`, and
+`2`, Amazon ML converts the Boolean to a `Numeric` data type. For
+more information about supported binary values, see [Using the AttributeType Field](creating-a-data-schema-for-amazon-ml.md#assigning-data-types "creating-a-data-schema-for-amazon-ml.md#assigning-data-types").
+
+If Amazon ML can't figure out a data type, it defaults to `Text`.
+
+After Amazon ML converts the schema, you can review and correct the assigned Amazon ML data
+types in the Create Datasource wizard, and revise the schema before Amazon ML creates the
+datasource.
+
+**Amazon S3 Staging Location**
+
+Use this parameter to specify the name of the Amazon S3 staging location where Amazon ML
+stores the results of the Amazon Redshift SQL query. After creating the datasource, Amazon ML uses
+the data in the staging location instead of returning to Amazon Redshift.
+
+###### Note
+
+Because Amazon ML assumes the IAM role defined by the Amazon ML Amazon Redshift role, Amazon ML has
+permissions to access any objects in the specified Amazon S3 staging location. Because of
+this, we recommend that you store only files that don't contain sensitive information
+in the Amazon S3 staging location. For example, if your root bucket is
+`s3://mybucket/`, we suggest that you create a location to store only the
+files that you want Amazon ML to access, such as `s3://mybucket/AmazonMLInput/`.

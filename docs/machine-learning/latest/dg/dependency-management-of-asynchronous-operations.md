@@ -35,5 +35,5 @@ different AmazonML actions
 | **In order to…**                                  | **You must have…**                       |
 | ------------------------------------------------- | ---------------------------------------- |
 | Create an ML model (createMLModel)                | Datasource with computed data statistics |
-| Create a batch prediction (createBatchPrediction) | Datasource ML model                      |
-| Create a batch evaluation (createBatchEvaluation) | Datasource ML model                      |
+| Create a batch prediction (createBatchPrediction) | Datasource<br>ML model                   |
+| Create a batch evaluation (createBatchEvaluation) | Datasource<br>ML model                   |

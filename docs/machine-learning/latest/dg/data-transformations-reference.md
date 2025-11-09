@@ -302,12 +302,13 @@ predictive. For a real-world example, the following table shows
 the results of applying the Cartesian processor to the input
 variables binding and title:
 
-| Textbook
-| Title
-| Binding
-| Cartesian product of no_punct(Title) and Binding
-|
-| --- | --- | --- | --- |
-| 1 | Economics: Principles, Problems, Policies | Hardcover | {"Economics_Hardcover", "Principles_Hardcover", "Problems_Hardcover", "Policies_Hardcover"} |
-| 0 | The Invisible Heart: An Economics Romance | Softcover | {"The_Softcover", "Invisible_Softcover", "Heart_Softcover", "An_Softcover", "Economics_Softcover", "Romance_Softcover"} |
-| 0 | Fun With Problems | Softcover | {"Fun_Softcover", "With_Softcover", "Problems_Softcover"} | The following example shows how to apply the Cartesian transformer to var1 and var2: cartesian(var1, var2)
+| Textbook | Title                                     | Binding   | Cartesian product of no_punct(Title) and Binding                                                                                    |
+| -------- | ----------------------------------------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| 1        | Economics: Principles, Problems, Policies | Hardcover | {"Economics_Hardcover",<br>"Principles_Hardcover",<br>"Problems_Hardcover",<br>"Policies_Hardcover"}                                |
+| 0        | The Invisible Heart: An Economics Romance | Softcover | {"The_Softcover",<br>"Invisible_Softcover",<br>"Heart_Softcover", "An_Softcover",<br>"Economics_Softcover",<br>"Romance_Softcover"} |
+| 0        | Fun With Problems                         | Softcover | {"Fun_Softcover", "With_Softcover",<br>"Problems_Softcover"}                                                                        |
+
+The following example shows how to apply the Cartesian
+transformer to var1 and var2:
+
+cartesian(var1, var2)

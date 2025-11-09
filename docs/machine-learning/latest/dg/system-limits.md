@@ -19,19 +19,24 @@ probably makes sense to raise that limit for your account.
 The following table shows default per-account limits in Amazon ML.
 Not all of these limits can be raised by AWS customer service.
 
-| **Limit Type**                                           | **System Limit**                 |
-| -------------------------------------------------------- | -------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Size of each observations                                | 100 KB                           |
-| Size of training data \*                                 | 100 GB                           |
-| Size of batch prediction input                           | 1 TB                             |
-| Size of batch prediction input (number of records)       | 100 million                      |
-| Number of variables in a data file (schema)              | 1,000                            |
-| Recipe complexity (number of processed output variables) | 10,000                           |
-| TPS for each real-time prediction endpoint               | 200                              |
-| Total TPS for all real-time prediction endpoints         | 10,000                           |
-| Total RAM for all real-time prediction endpoints         | 10 GB                            |
-| Number of simultaneous jobs                              | 25                               |
-| Longest run time for any job                             | 7 days                           |
-| Number of classes for multiclass ML models               | 100                              |
-| ML model size                                            | Minimum of 1 MB, maximum of 2 GB |
-| Number of tags per object                                | 50                               | <br>• The size of your data files is limited to ensure that jobs finish in a timely manner. Jobs that have been running for more than seven days will be automatically terminated, resulting in a FAILED status. |
+| **Limit Type**                                           | **System Limit**                    |
+| -------------------------------------------------------- | ----------------------------------- |
+| Size of each observations                                | 100 KB                              |
+| Size of training data \*                                 | 100 GB                              |
+| Size of batch prediction input                           | 1 TB                                |
+| Size of batch prediction input (number of records)       | 100 million                         |
+| Number of variables in a data file (schema)              | 1,000                               |
+| Recipe complexity (number of processed output variables) | 10,000                              |
+| TPS for each real-time prediction endpoint               | 200                                 |
+| Total TPS for all real-time prediction endpoints         | 10,000                              |
+| Total RAM for all real-time prediction endpoints         | 10 GB                               |
+| Number of simultaneous jobs                              | 25                                  |
+| Longest run time for any job                             | 7 days                              |
+| Number of classes for multiclass ML models               | 100                                 |
+| ML model size                                            | Minimum of 1<br>MB, maximum of 2 GB |
+| Number of tags per object                                | 50                                  |
+
+- The size of your data files is limited to ensure that jobs
+  finish in a timely manner. Jobs that have been running for
+  more than seven days will be automatically terminated,
+  resulting in a FAILED status.
