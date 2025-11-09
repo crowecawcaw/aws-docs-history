@@ -1,5 +1,17 @@
 # Architecture selection
 
-| SCPERF01: How do you select the best performing architecture? |
-| ------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|                                                               | Performance objectives for workloads can vary depending on the criticality of the workload. While more stringent performance requirements are expected for critical supply chain systems, such as global supply and demand, sourcing and procurement, and inbound and outbound logistics, cloud workloads still benefit from defining performance requirements. ###### Best practices <br>• [SCPERF01-BP01 Use internal and external risk to determine performance requirements](scperf01-bp01.md "scperf01-bp01.md") <br>• [SCPERF01-BP02 Factor in rate of increase in load, traffic, and scale-out intervals](scperf01-bp02.md "scperf01-bp02.md") |
+| SCPERF01: How do you select the best<br>performing architecture? |
+| ---------------------------------------------------------------- |
+|                                                                  |
+
+Performance objectives for workloads can vary depending on the
+criticality of the workload. While more stringent performance
+requirements are expected for critical supply chain systems, such
+as global supply and demand, sourcing and procurement, and inbound
+and outbound logistics, cloud workloads still benefit from
+defining performance requirements.
+
+###### Best practices
+
+- [SCPERF01-BP01 Use internal and external risk to determine performance requirements](scperf01-bp01.md "scperf01-bp01.md")
+- [SCPERF01-BP02 Factor in rate of increase in load, traffic, and scale-out intervals](scperf01-bp02.md "scperf01-bp02.md")
