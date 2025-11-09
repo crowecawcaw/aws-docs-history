@@ -218,6 +218,6 @@ View details about updates to AWS managed policies for AWS RAM since this servic
 began tracking these changes. For automatic alerts about changes to this page, subscribe
 to the RSS feed on the AWS RAM Document history page.
 
-| Change                                               | Description                                                                    | Date               |
-| ---------------------------------------------------- | ------------------------------------------------------------------------------ | ------------------ |
-| AWS Resource Access Manager started tracking changes | AWS RAM documented its existing managed policies and started tracking changes. | September 16, 2021 |
+| Change                                               | Description                                                                       | Date               |
+| ---------------------------------------------------- | --------------------------------------------------------------------------------- | ------------------ |
+| AWS Resource Access Manager started tracking changes | AWS RAM documented its existing managed policies and started<br>tracking changes. | September 16, 2021 |

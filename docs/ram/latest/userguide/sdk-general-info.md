@@ -5,7 +5,7 @@ languages. Each SDK provides an API, code examples, and documentation that help 
 to build applications in their preferred language.
 
 | SDK documentation                                                                         | Code examples                                                                                                                                                                           |
-| ----------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| ----------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [AWS SDK for C++](../../../sdk-for-cpp.md "../../../sdk-for-cpp.md")                      | [AWS SDK for C++ code examples](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/cpp")                          |
 | [AWS SDK for Go](../../../sdk-for-go.md "../../../sdk-for-go.md")                         | [AWS SDK for Go code examples](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2 "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/gov2")                         |
 | [AWS SDK for Java](../../../sdk-for-java.md "../../../sdk-for-java.md")                   | [AWS SDK for Java code examples](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2 "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/javav2")                   |
@@ -13,4 +13,8 @@ to build applications in their preferred language.
 | [AWS SDK for .NET](../../../sdk-for-net.md "../../../sdk-for-net.md")                     | [AWS SDK for .NET code examples](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3 "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/dotnetv3")               |
 | [AWS SDK for PHP](../../../sdk-for-php.md "../../../sdk-for-php.md")                      | [AWS SDK for PHP code examples](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/php")                          |
 | [AWS SDK for Python (Boto3)](../../../pythonsdk.md "../../../pythonsdk.md")               | [AWS SDK for Python (Boto3) code examples](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/python")         |
-| [AWS SDK for Ruby](../../../sdk-for-ruby.md "../../../sdk-for-ruby.md")                   | [AWS SDK for Ruby code examples](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby")                       | ###### Example availability Can't find what you need? Request a code example with the feedback link. |
+| [AWS SDK for Ruby](../../../sdk-for-ruby.md "../../../sdk-for-ruby.md")                   | [AWS SDK for Ruby code examples](https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby "https://github.com/awsdocs/aws-doc-sdk-examples/tree/main/ruby")                       |
+
+###### Example availability
+
+Can't find what you need? Request a code example with the feedback link.

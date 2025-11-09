@@ -17,11 +17,84 @@ resource share
 
 The following are the only resource types that support leaving a resource share.
 
-| Service             | Resource type                                                                                                                   |
-| ------------------- | ------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Amazon Aurora       | `rds:Cluster`                                                                                                                   |
-| Amazon EC2          | `ec2:CapacityReservation` `ec2:DedicatedHost`                                                                                   |
-| AWS License Manager | `license-manager:LicenseConfiguration`                                                                                          |
-| AWS Outposts        | `ec2:LocalGatewayRouteTable` `outposts:Outpost` `outposts:Site`                                                                 |
-| Amazon Route 53     | `route53resolver:ResolverRule`                                                                                                  |
-| Amazon VPC          | `ec2:CoipPool` `ec2:PrefixList` `ec2:Subnet` `ec2:TrafficMirrorTarget` `ec2:TransitGateway` `ec2:TransitGatewayMulticastDomain` | ## How to leave a resource share Console ###### To leave a resource share 1. Navigate to the **[Shared with me : Resource shares](https://console.aws.amazon.com/ram/home#SharedResourceShares: "https://console.aws.amazon.com/ram/home#SharedResourceShares:")** page in the AWS RAM console. 2. Because AWS RAM resource shares exist in specific AWS Regions, choose the appropriate AWS Region from the dropdown list in the upper-right corner of the console. To see resource shares that contain global resources, you must set the AWS Region to US East (N. Virginia), (`us-east-1`). For more information about sharing global resources, see [Sharing Regional resources compared to global resources](working-with-regional-vs-global.md "working-with-regional-vs-global.md"). 3. Select the resource share you want to leave. 4. Choose **Leave resource share**, and in the confirmation dialog box, choose **Leave**. AWS CLI ###### To leave a resource share You can use the [disassociate-resource-share](../../../cli/latest/reference/ram/disassociate-resource-share.md "../../../cli/latest/reference/ram/disassociate-resource-share.md") command to leave a resource share. The following example commands causes the AWS account that calls the command to lose access to the resources shared by the resource share specified by the ARN. You must direct the request to the service endpoint in the AWS Region that contains the resource share that you want to leave. 1. First, retrieve the list of resource shares to retrieve the ARN of the resource share that you want to leave. `` `$` `aws ram get-resource-shares \ --region us-east-1 \ --resource-owner OTHER-ACCOUNTS` `{ "resourceShares": [ { "resourceShareArn": "arn:aws:ram:us-east-1:111111111111:resource-share/8b831ba0-63df-4608-be3c-19096b1ee16e", "name": "Prod Environment Shared Licenses", "owningAccountId": "111111111111", "allowExternalPrincipals": true, "status": "ACTIVE", "creationTime": "2021-09-21T08:50:41.308000-07:00", "lastUpdatedTime": "2021-09-21T08:50:41.308000-07:00", "featureSet": "STANDARD" } ] }` `` 2. Then, you can run the command to leave that resource share. Note that you must also specify your account ID, `123456789012`, as the principal to disassociate from the specified resource share, which is shared by account `111111111111`. `` `$` `aws ram disassociate-resource-share \ --region us-east-1 \ --resource-share-arn arn:aws:ram:us-east-1:111111111111:resource-share/8b831ba0-63df-4608-be3c-19096b1ee16e \ --principals 123456789012` `{ "resourceShareAssociations": [ { "resourceShareArn": "arn:aws:ram:us-east-1:111111111111:resource-share/8b831ba0-63df-4608-be3c-19096b1ee16e", "associatedEntity": "123456789012", "associationType": "PRINCIPAL", "status": "DISASSOCIATING", "external": false } ] }` `` |
+| Service             | Resource type                                                                                                                                  |
+| ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| Amazon Aurora       | `rds:Cluster`                                                                                                                                  |
+| Amazon EC2          | `ec2:CapacityReservation`<br>`ec2:DedicatedHost`                                                                                               |
+| AWS License Manager | `license-manager:LicenseConfiguration`                                                                                                         |
+| AWS Outposts        | `ec2:LocalGatewayRouteTable`<br>`outposts:Outpost`<br>`outposts:Site`                                                                          |
+| Amazon Route 53     | `route53resolver:ResolverRule`                                                                                                                 |
+| Amazon VPC          | `ec2:CoipPool`<br>`ec2:PrefixList`<br>`ec2:Subnet`<br>`ec2:TrafficMirrorTarget`<br>`ec2:TransitGateway`<br>`ec2:TransitGatewayMulticastDomain` |
+
+## How to leave a resource share
+
+Console
+
+###### To leave a resource share
+
+1. Navigate to the **[Shared with me : Resource shares](https://console.aws.amazon.com/ram/home#SharedResourceShares: "https://console.aws.amazon.com/ram/home#SharedResourceShares:")** page in the AWS RAM
+   console.
+2. Because AWS RAM resource shares exist in specific AWS Regions, choose the appropriate AWS Region from the dropdown list in the upper-right corner of the console. To see resource shares that contain global resources, you must set the AWS Region to US East (N. Virginia), (`us-east-1`). For more information about sharing global resources, see [Sharing Regional resources compared to
+   global resources](working-with-regional-vs-global.md "working-with-regional-vs-global.md").
+3. Select the resource share you want to leave.
+4. Choose **Leave resource share**, and in the
+   confirmation dialog box, choose **Leave**.
+
+AWS CLI
+
+###### To leave a resource share
+
+You can use the [disassociate-resource-share](../../../cli/latest/reference/ram/disassociate-resource-share.md "../../../cli/latest/reference/ram/disassociate-resource-share.md") command to leave a resource
+share.
+
+The following example commands causes the AWS account that calls the
+command to lose access to the resources shared by the resource share specified by the
+ARN. You must direct the request to the service endpoint in the AWS Region
+that contains the resource share that you want to leave.
+
+1. First, retrieve the list of resource shares to retrieve the ARN of the resource share
+   that you want to leave.
+
+```
+`$` `aws ram get-resource-shares \
+ --region us-east-1 \
+ --resource-owner OTHER-ACCOUNTS`
+`{
+ "resourceShares": [
+ {
+ "resourceShareArn": "arn:aws:ram:us-east-1:111111111111:resource-share/8b831ba0-63df-4608-be3c-19096b1ee16e",
+ "name": "Prod Environment Shared Licenses",
+ "owningAccountId": "111111111111",
+ "allowExternalPrincipals": true,
+ "status": "ACTIVE",
+ "creationTime": "2021-09-21T08:50:41.308000-07:00",
+ "lastUpdatedTime": "2021-09-21T08:50:41.308000-07:00",
+ "featureSet": "STANDARD"
+ }
+ ]
+}`
+```
+
+2. Then, you can run the command to leave that resource share. Note that you
+   must also specify your account ID,
+   `123456789012`, as the principal to
+   disassociate from the specified resource share, which is shared by account
+   `111111111111`.
+
+```
+`$` `aws ram disassociate-resource-share \
+ --region us-east-1 \
+ --resource-share-arn arn:aws:ram:us-east-1:111111111111:resource-share/8b831ba0-63df-4608-be3c-19096b1ee16e \
+ --principals 123456789012`
+                        `{
+ "resourceShareAssociations": [
+ {
+ "resourceShareArn": "arn:aws:ram:us-east-1:111111111111:resource-share/8b831ba0-63df-4608-be3c-19096b1ee16e",
+ "associatedEntity": "123456789012",
+ "associationType": "PRINCIPAL",
+ "status": "DISASSOCIATING",
+ "external": false
+ }
+ ]
+}`
+```
