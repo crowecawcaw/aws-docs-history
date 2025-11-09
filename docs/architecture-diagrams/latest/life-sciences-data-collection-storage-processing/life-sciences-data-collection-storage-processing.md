@@ -72,5 +72,9 @@ For additional information, refer to
 To be notified about updates to this reference architecture diagram, subscribe to the RSS feed.
 
 | Change              | Description                                     | Date          |
-| ------------------- | ----------------------------------------------- | ------------- | ----------------------------------------------------------------------------------------------------------- |
-| Initial publication | Reference architecture diagram first published. | July 20, 2022 | ###### Note To subscribe to RSS updates, you must have an RSS plugin enabled for the browser you are using. |
+| ------------------- | ----------------------------------------------- | ------------- |
+| Initial publication | Reference architecture diagram first published. | July 20, 2022 |
+
+###### Note
+
+To subscribe to RSS updates, you must have an RSS plugin enabled for the browser you are using.
