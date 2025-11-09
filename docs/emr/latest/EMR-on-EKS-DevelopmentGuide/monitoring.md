@@ -34,10 +34,74 @@ event processing using CloudWatch Events because rules seek to match patterns in
 information, see [Amazon EventBridge event patterns](../../../eventbridge/latest/userguide/eb-event-patterns.md "../../../eventbridge/latest/userguide/eb-event-patterns.md") and Amazon EMR on EKS Events in the _[Amazon EventBridge User
 Guide](../../../eventbridge/latest/userguide/eb-service-event.md#emr_event_type "../../../eventbridge/latest/userguide/eb-service-event.md#emr_event_type")_.
 
-| Job run state change events | State | Severity                                                                                                                                                               | Message                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| --------------------------- | ----- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| SUBMITTED                   | INFO  | Job Run `JobRunId` (`JobRunName`) was successfully submitted to virtual cluster `VirtualClusterId` at `Time` UTC.                                                      |
-| RUNNING                     | INFO  | Job Run `JobRunId` (`JobRunName`) in virtual cluster `VirtualClusterId` started running at `Time`.                                                                     |
-| COMPLETED                   | INFO  | Job Run `jobRunId` (`JobRunName`) in virtual cluster `VirtualClusterId` completed at `Time`. The Job Run started running at `Time` and took `Num` minutes to complete. |
-| CANCELLED                   | WARN  | Cancellation request has succeeded for Job Run `JobRunId` (`JobRunName`) in virtual cluster `VirtualClusterId` at `Time` and the Job Run is now cancelled.             |
-| FAILED                      | ERROR | Job Run `JobRunId` (`JobRunName`) in virtual cluster `VirtualClusterId` failed at `Time`.                                                                              | ## Automate Amazon EMR on EKS with CloudWatch Events You can use Amazon CloudWatch Events to automate your AWS services to respond to system events such as application availability issues or resource changes. Events from AWS services are delivered to CloudWatch Events in near real time. You can write simple rules to indicate which events are of interest to you and what automated actions to take when an event matches a rule. The actions that can be automatically triggered include the following: <br>• Invoking an AWS Lambda function <br>• Invoking Amazon EC2 Run Command <br>• Relaying the event to Amazon Kinesis Data Streams <br>• Activating an AWS Step Functions state machine <br>• Notifying an Amazon Simple Notification Service (SNS) topic or an Amazon Simple Queue Service (SQS) queue Some examples of using CloudWatch Events with Amazon EMR on EKS include the following: <br>• Activating a Lambda function when a job run succeeds <br>• Notifying an Amazon SNS topic when a job run fails CloudWatch Events for "`detail-type:`" "`EMR Job Run State Change`" are generated by Amazon EMR on EKS for `SUBMITTED`, `RUNNING`, `CANCELLED`, `FAILED` and `COMPLETED` state changes. ## Example: Set up a rule that invokes Lambda Use the following steps to set up a CloudWatch Events rule that invokes Lambda when there is an "EMR Job Run State Change" event. `aws events put-rule \ --name cwe-test \ --event-pattern '{"detail-type": ["EMR Job Run State Change"]}'` Add the Lambda function that you own as a new target and give CloudWatch Events permission to invoke the Lambda function as follows. Replace `123456789012` with your account ID. ``aws events put-targets \ --rule cwe-test \ --targets Id=1,Arn=arn:aws:lambda:us-east-1:`123456789012`:function:MyFunction`` `aws lambda add-permission \ --function-name MyFunction \ --statement-id MyId \ --action 'lambda:InvokeFunction' \ --principal events.amazonaws.com` ###### Note You cannot write a program that depends on the order or existence of notification events, as they might be out of sequence or missing. Events are emitted on a best effort basis. ## Monitor job’s driver pod with a retry policy using Amazon CloudWatch Events Using CloudWatch events, you can monitor driver pods that have been created in jobs that have retry policies. For more information, see [Monitoring a job with a retry policy](jobruns-using-retry-policies.md#monitoring-retry "jobruns-using-retry-policies.md#monitoring-retry") in this guide. |
+| Job run state change events | State | Severity                                                                                                                                                                           | Message |
+| --------------------------- | ----- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
+| SUBMITTED                   | INFO  | Job Run `JobRunId` (`JobRunName`) was<br>successfully submitted to virtual cluster `VirtualClusterId` at<br>`Time` UTC.                                                            |
+| RUNNING                     | INFO  | Job Run `JobRunId` (`JobRunName`) in<br>virtual cluster `VirtualClusterId` started running at<br>`Time`.                                                                           |
+| COMPLETED                   | INFO  | Job Run `jobRunId` (`JobRunName`) in<br>virtual cluster `VirtualClusterId` completed at<br>`Time`. The Job Run started running at<br>`Time` and took `Num` minutes to<br>complete. |
+| CANCELLED                   | WARN  | Cancellation request has succeeded for Job Run `JobRunId`<br>(`JobRunName`) in virtual cluster<br>`VirtualClusterId` at `Time` and the Job<br>Run is now cancelled.                |
+| FAILED                      | ERROR | Job Run `JobRunId` (`JobRunName`) in<br>virtual cluster `VirtualClusterId` failed at<br>`Time`.                                                                                    |
+
+## Automate Amazon EMR on EKS with CloudWatch Events
+
+You can use Amazon CloudWatch Events to automate your AWS services to respond to system events such as
+application availability issues or resource changes. Events from AWS services are delivered to
+CloudWatch Events in near real time. You can write simple rules to indicate which events are of interest to
+you and what automated actions to take when an event matches a rule. The actions that can be
+automatically triggered include the following:
+
+- Invoking an AWS Lambda function
+- Invoking Amazon EC2 Run Command
+- Relaying the event to Amazon Kinesis Data Streams
+- Activating an AWS Step Functions state machine
+- Notifying an Amazon Simple Notification Service (SNS) topic or an Amazon Simple Queue Service (SQS) queue
+
+Some examples of using CloudWatch Events with Amazon EMR on EKS include the following:
+
+- Activating a Lambda function when a job run succeeds
+- Notifying an Amazon SNS topic when a job run fails
+
+CloudWatch Events for "`detail-type:`" "`EMR Job Run State Change`"
+are generated by Amazon EMR on EKS for `SUBMITTED`, `RUNNING`,
+`CANCELLED`, `FAILED` and `COMPLETED` state changes.
+
+## Example: Set up a rule that invokes Lambda
+
+Use the following steps to set up a CloudWatch Events rule that invokes Lambda when there is an "EMR Job
+Run State Change"
+event.
+
+```
+aws events put-rule \
+--name cwe-test \
+--event-pattern '{"detail-type": ["EMR Job Run State Change"]}'
+```
+
+Add the Lambda function that you own as a new target and give CloudWatch Events permission to invoke the
+Lambda function as follows. Replace `123456789012` with your account ID.
+
+```
+aws events put-targets \
+--rule cwe-test \
+--targets Id=1,Arn=arn:aws:lambda:us-east-1:`123456789012`:function:MyFunction
+```
+
+```
+aws lambda add-permission \
+--function-name MyFunction \
+--statement-id MyId \
+--action 'lambda:InvokeFunction' \
+--principal events.amazonaws.com
+```
+
+###### Note
+
+You cannot write a program that depends on the order or existence of notification events,
+as they might be out of sequence or missing. Events are emitted on a best effort basis.
+
+## Monitor job’s driver pod with a retry policy
+
+using Amazon CloudWatch Events
+
+Using CloudWatch events, you can monitor driver pods that have been created in jobs that have
+retry policies. For more information, see [Monitoring a job with a retry policy](jobruns-using-retry-policies.md#monitoring-retry "jobruns-using-retry-policies.md#monitoring-retry") in this guide.

@@ -74,17 +74,35 @@ Release notes for Amazon EMR on EKS 7.8.0
 
 For use with [StartJobRun](../../../emr-on-eks/latest/APIReference/API_StartJobRun.md "../../../emr-on-eks/latest/APIReference/API_StartJobRun.md") and [CreateManagedEndpoint](../../../emr-on-eks/latest/APIReference/API_CreateManagedEndpoint.md "../../../emr-on-eks/latest/APIReference/API_CreateManagedEndpoint.md") APIs:
 
+| Classifications     | Descriptions                                                                                   |
+| ------------------- | ---------------------------------------------------------------------------------------------- |
+| `core-site`         | Change values in the `core-site.xml` Hadoop file.                                              |
+| `emrfs-site`        | Change EMRFS settings.                                                                         |
+| `spark-metrics`     | Change values in the `metrics.properties` Spark file.                                          |
+| `spark-defaults`    | Change values in the `spark-defaults.conf` Spark file.                                         |
+| `spark-env`         | Change values in the Spark environment.                                                        |
+| `spark-hive-site`   | Change values in the `hive-site.xml` Spark file.                                               |
+| `spark-log4j2`      | Change values in the `log4j2.properties` Spark file.                                           |
+| `emr-job-submitter` | Configuration for [job submitter<br>pod](emr-eks-job-submitter.md "emr-eks-job-submitter.md"). |
+
+For use specifically with [CreateManagedEndpoint](../../../emr-on-eks/latest/APIReference/API_CreateManagedEndpoint.md "../../../emr-on-eks/latest/APIReference/API_CreateManagedEndpoint.md") APIs:
+
 | Classifications            | Descriptions                                                                                |
-| -------------------------- | ------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `core-site`                | Change values in the `core-site.xml` Hadoop file.                                           |
-| `emrfs-site`               | Change EMRFS settings.                                                                      |
-| `spark-metrics`            | Change values in the `metrics.properties` Spark file.                                       |
-| `spark-defaults`           | Change values in the `spark-defaults.conf` Spark file.                                      |
-| `spark-env`                | Change values in the Spark environment.                                                     |
-| `spark-hive-site`          | Change values in the `hive-site.xml` Spark file.                                            |
-| `spark-log4j2`             | Change values in the `log4j2.properties` Spark file.                                        |
-| `emr-job-submitter`        | Configuration for [job submitter pod](emr-eks-job-submitter.md "emr-eks-job-submitter.md"). | For use specifically with [CreateManagedEndpoint](../../../emr-on-eks/latest/APIReference/API_CreateManagedEndpoint.md "../../../emr-on-eks/latest/APIReference/API_CreateManagedEndpoint.md") APIs:                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| Classifications            | Descriptions                                                                                |
-| ---                        | ---                                                                                         |
-| `jeg-config`               | Change values in Jupyter Enterprise Gateway `jupyter_enterprise_gateway_config.py` file.    |
-| `jupyter-kernel-overrides` | Change value for the Kernel Image in Jupyter Kernel Spec file.                              | Configuration classifications allow you to customize applications. These often correspond to a configuration XML file for the application, such as `spark-hive-site.xml`. For more information, see [Configure Applications](../ReleaseGuide/emr-configure-apps.md "../ReleaseGuide/emr-configure-apps.md"). ## Changes The following changes are included with the 7.8.0 release of Amazon EMR on EKS: <br>• Native-FGAC features, including: + Iceberg support to run jobs that perform actions on Non-Lake Formation Tables in a fine-grained access control(FGAC) virtual cluster. (There is a fallback to IAM.) + S3 table support <br>• Spark connect |
+| -------------------------- | ------------------------------------------------------------------------------------------- |
+| `jeg-config`               | Change values in Jupyter Enterprise Gateway<br>`jupyter_enterprise_gateway_config.py` file. |
+| `jupyter-kernel-overrides` | Change value for the Kernel Image in Jupyter Kernel Spec file.                              |
+
+Configuration classifications allow you to customize applications. These often correspond
+to a configuration XML file for the application, such as `spark-hive-site.xml`. For
+more information, see [Configure
+Applications](../ReleaseGuide/emr-configure-apps.md "../ReleaseGuide/emr-configure-apps.md").
+
+## Changes
+
+The following changes are included with the 7.8.0 release of Amazon EMR on EKS:
+
+- Native-FGAC features, including:
+  - Iceberg support to run jobs that perform actions on Non-Lake Formation Tables in a fine-grained access control(FGAC) virtual cluster. (There is a fallback to IAM.)
+  - S3 table support
+
+- Spark connect

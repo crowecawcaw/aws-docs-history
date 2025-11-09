@@ -58,9 +58,50 @@ jdbc:redshift:iam://`examplecluster.abc123xyz789`.`us-west-2`.redshift.amazonaws
 The following permissions are required for your job execution role when it
 meets the provided conditions.
 
-| Permission                           | Conditions when required for job execution role                                                                    |
-| ------------------------------------ | ------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `redshift:GetClusterCredentials`     | Required for JDBC driver to fetch the credentials from Amazon Redshift                                             |
-| `redshift:DescribeCluster`           | Required if you specify the Amazon Redshift cluster and AWS Region in the JDBC URL instead of endpoint             |
-| `redshift-serverless:GetCredentials` | Required for JDBC driver to fetch the credentials from Amazon Redshift Serverless                                  |
-| `redshift-serverless:GetWorkgroup`   | Required if you are using Amazon Redshift Serverless and you specify the URL in terms of workgroup name and Region | Your job execution role policy should have the following permissions. ``{ "Effect": "Allow", "Action": [ "redshift:GetClusterCredentials", "redshift:DescribeCluster", "redshift-serverless:GetCredentials", "redshift-serverless:GetWorkgroup" ], "Resource": [ "arn:aws:redshift:`AWS_REGION`:`ACCOUNT_ID`:dbname:`CLUSTER_NAME`/`DATABASE_NAME`", "arn:aws:redshift:`AWS_REGION`:`ACCOUNT_ID`:dbuser:`DATABASE_NAME`/`USER_NAME`" ] }`` ## Authenticate to Amazon Redshift with a JDBC driver **Set username and password inside the JDBC URL** To authenticate a Spark job to an Amazon Redshift cluster, you can specify the Amazon Redshift database name and password in the JDBC URL. ###### Note If you pass the database credentials in the URL, anyone who has access to the URL can also access the credentials. This method isn't generally recommended because it's not a secure option. If security isn't a concern for your application, you can use the following format to set the username and password in the JDBC URL: `` jdbc:redshift://redshifthost:5439/database?user=`username`&password=`password` `` |
+| Permission                           | Conditions when required for job execution role                                                                       |
+| ------------------------------------ | --------------------------------------------------------------------------------------------------------------------- |
+| `redshift:GetClusterCredentials`     | Required for JDBC driver to fetch the credentials from<br>Amazon Redshift                                             |
+| `redshift:DescribeCluster`           | Required if you specify the Amazon Redshift cluster and AWS Region<br>in the JDBC URL instead of endpoint             |
+| `redshift-serverless:GetCredentials` | Required for JDBC driver to fetch the credentials from<br>Amazon Redshift Serverless                                  |
+| `redshift-serverless:GetWorkgroup`   | Required if you are using Amazon Redshift Serverless and you specify<br>the URL in terms of workgroup name and Region |
+
+Your job execution role policy should have the following permissions.
+
+```
+{
+            "Effect": "Allow",
+            "Action": [
+                "redshift:GetClusterCredentials",
+                "redshift:DescribeCluster",
+                "redshift-serverless:GetCredentials",
+                "redshift-serverless:GetWorkgroup"
+            ],
+            "Resource": [
+                "arn:aws:redshift:`AWS_REGION`:`ACCOUNT_ID`:dbname:`CLUSTER_NAME`/`DATABASE_NAME`",
+                "arn:aws:redshift:`AWS_REGION`:`ACCOUNT_ID`:dbuser:`DATABASE_NAME`/`USER_NAME`"
+            ]
+        }
+```
+
+## Authenticate to Amazon Redshift with a JDBC
+
+driver
+
+**Set username and password inside the JDBC
+URL**
+
+To authenticate a Spark job to an Amazon Redshift cluster, you can specify the Amazon Redshift
+database name and password in the JDBC URL.
+
+###### Note
+
+If you pass the database credentials in the URL, anyone who has access to
+the URL can also access the credentials. This method isn't generally
+recommended because it's not a secure option.
+
+If security isn't a concern for your application, you can use the following
+format to set the username and password in the JDBC URL:
+
+```
+jdbc:redshift://redshifthost:5439/database?user=`username`&password=`password`
+```

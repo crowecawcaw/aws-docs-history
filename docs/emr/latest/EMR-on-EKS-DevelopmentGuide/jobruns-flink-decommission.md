@@ -92,8 +92,8 @@ spec:
 This section covers most of the configurations that you can specify for your
 decommissioning needs.
 
-| Key                                                              | Description                                                                                                                           | Default value | Acceptable values                 |
-| ---------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- | ------------- | --------------------------------- |
-| `cluster.taskmanager.graceful-decommission.enabled`              | Enable graceful decommission of Task Manager.                                                                                         | `true`        | `true`, `false`                   |
-| `jobmanager.adaptive-scheduler.combined-restart.enabled`         | Enable combined restart mechanism in Adaptive Scheduler.                                                                              | `false`       | `true`, `false`                   |
-| `jobmanager.adaptive-scheduler.combined-restart.window-interval` | The combined restart window interval to perfom merged restarts for the job. An integer without a unit is interpreted as milliseconds. | `1m`          | Examples: `30`, `60s`, `3m`, `1h` |
+| Key                                                              | Description                                                                                                                                 | Default value | Acceptable values                    |
+| ---------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- | ------------- | ------------------------------------ |
+| `cluster.taskmanager.graceful-decommission.enabled`              | Enable graceful decommission of Task Manager.                                                                                               | `true`        | `true`, `false`                      |
+| `jobmanager.adaptive-scheduler.combined-restart.enabled`         | Enable combined restart mechanism in Adaptive Scheduler.                                                                                    | `false`       | `true`, `false`                      |
+| `jobmanager.adaptive-scheduler.combined-restart.window-interval` | The combined restart window interval to perfom merged restarts for<br>the job. An integer without a unit is interpreted as<br>milliseconds. | `1m`          | Examples: `30`, `60s`, `3m`,<br>`1h` |

@@ -46,17 +46,34 @@ Release notes for Amazon EMR on EKS 6.12.0
 
 For use with [StartJobRun](../../../emr-on-eks/latest/APIReference/API_StartJobRun.md "../../../emr-on-eks/latest/APIReference/API_StartJobRun.md") and [CreateManagedEndpoint](../../../emr-on-eks/latest/APIReference/API_CreateManagedEndpoint.md "../../../emr-on-eks/latest/APIReference/API_CreateManagedEndpoint.md") APIs:
 
+| Classifications     | Descriptions                                                                                   |
+| ------------------- | ---------------------------------------------------------------------------------------------- |
+| `core-site`         | Change values in the `core-site.xml` Hadoop file.                                              |
+| `emrfs-site`        | Change EMRFS settings.                                                                         |
+| `spark-metrics`     | Change values in the `metrics.properties` Spark file.                                          |
+| `spark-defaults`    | Change values in the `spark-defaults.conf` Spark file.                                         |
+| `spark-env`         | Change values in the Spark environment.                                                        |
+| `spark-hive-site`   | Change values in the `hive-site.xml` Spark file.                                               |
+| `spark-log4j`       | Change values in the `log4j2.properties` Spark file.                                           |
+| `emr-job-submitter` | Configuration for [job submitter<br>pod](emr-eks-job-submitter.md "emr-eks-job-submitter.md"). |
+
+For use specifically with [CreateManagedEndpoint](../../../emr-on-eks/latest/APIReference/API_CreateManagedEndpoint.md "../../../emr-on-eks/latest/APIReference/API_CreateManagedEndpoint.md") APIs:
+
 | Classifications            | Descriptions                                                                                |
-| -------------------------- | ------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `core-site`                | Change values in the `core-site.xml` Hadoop file.                                           |
-| `emrfs-site`               | Change EMRFS settings.                                                                      |
-| `spark-metrics`            | Change values in the `metrics.properties` Spark file.                                       |
-| `spark-defaults`           | Change values in the `spark-defaults.conf` Spark file.                                      |
-| `spark-env`                | Change values in the Spark environment.                                                     |
-| `spark-hive-site`          | Change values in the `hive-site.xml` Spark file.                                            |
-| `spark-log4j`              | Change values in the `log4j2.properties` Spark file.                                        |
-| `emr-job-submitter`        | Configuration for [job submitter pod](emr-eks-job-submitter.md "emr-eks-job-submitter.md"). | For use specifically with [CreateManagedEndpoint](../../../emr-on-eks/latest/APIReference/API_CreateManagedEndpoint.md "../../../emr-on-eks/latest/APIReference/API_CreateManagedEndpoint.md") APIs:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| Classifications            | Descriptions                                                                                |
-| ---                        | ---                                                                                         |
-| `jeg-config`               | Change values in Jupyter Enterprise Gateway `jupyter_enterprise_gateway_config.py` file.    |
-| `jupyter-kernel-overrides` | Change value for the Kernel Image in Jupyter Kernel Spec file.                              | Configuration classifications allow you to customize applications. These often correspond to a configuration XML file for the application, such as `spark-hive-site.xml`. For more information, see [Configure Applications](../ReleaseGuide/emr-configure-apps.md "../ReleaseGuide/emr-configure-apps.md"). ## Notable features The following features are included with the 6.12 release of Amazon EMR on EKS. <br>• **Java 17** - With Amazon EMR on EKS 6.12 and higher, you can launch Spark with Java 17 runtime. To do this, pass `emr-6.12.0-java17-latest` as a release label. We recommend that you validate and run performance tests before you move your production workloads from earlier versions of the Java image to the Java 17 image. |
+| -------------------------- | ------------------------------------------------------------------------------------------- |
+| `jeg-config`               | Change values in Jupyter Enterprise Gateway<br>`jupyter_enterprise_gateway_config.py` file. |
+| `jupyter-kernel-overrides` | Change value for the Kernel Image in Jupyter Kernel Spec file.                              |
+
+Configuration classifications allow you to customize applications. These often correspond
+to a configuration XML file for the application, such as `spark-hive-site.xml`. For
+more information, see [Configure
+Applications](../ReleaseGuide/emr-configure-apps.md "../ReleaseGuide/emr-configure-apps.md").
+
+## Notable features
+
+The following features are included with the 6.12 release of Amazon EMR on EKS.
+
+- **Java 17** - With Amazon EMR on EKS 6.12 and higher, you can launch
+  Spark with Java 17 runtime. To do this, pass `emr-6.12.0-java17-latest` as a
+  release label. We recommend that you validate and run performance tests before you move your
+  production workloads from earlier versions of the Java image to the Java 17 image.
