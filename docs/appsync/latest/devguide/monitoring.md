@@ -1002,28 +1002,95 @@ group for your GraphQL API, and then choose **AWS AppSync queries** under
 The following query returns the top 10 GraphQL requests with maximum tokens
 consumed:
 
-````
+```
 filter @message like "Tokens Consumed"
 | parse @message "* Tokens Consumed: *" as requestId, tokens
 | sort tokens desc
 | display requestId, tokens
-| limit 10 ``` The following query returns the top 10 resolvers with maximum latency: ``` fields resolverArn, duration
+| limit 10
+```
+
+The following query returns the top 10 resolvers with maximum latency:
+
+```
+  fields resolverArn, duration
 | filter logType = "Tracing"
 | limit 10
-| sort duration desc ``` The following query returns the most frequently invoked resolvers: ``` fields ispresent(resolverArn) as isRes
+| sort duration desc
+```
+
+The following query returns the most frequently invoked resolvers:
+
+```
+  fields ispresent(resolverArn) as isRes
 | stats count() as invocationCount by resolverArn
 | filter isRes and logType = "Tracing"
 | limit 10
-| sort invocationCount desc ``` The following query returns resolvers with the most errors in mapping templates: ``` fields ispresent(resolverArn) as isRes
+| sort invocationCount desc
+```
+
+The following query returns resolvers with the most errors in mapping templates:
+
+```
+  fields ispresent(resolverArn) as isRes
 | stats count() as errorCount by resolverArn, logType
 | filter isRes and (logType = "RequestMapping" or logType = "ResponseMapping") and fieldInError
 | limit 10
-| sort errorCount desc ``` The following query returns resolver latency statistics: ``` fields ispresent(resolverArn) as isRes
+| sort errorCount desc
+```
+
+The following query returns resolver latency statistics:
+
+```
+  fields ispresent(resolverArn) as isRes
 | stats min(duration), max(duration), avg(duration) as avg_dur by resolverArn
 | filter isRes and logType = "Tracing"
 | limit 10
-| sort avg_dur desc ``` The following query returns field latency statistics: ``` stats min(duration), max(duration), avg(duration) as avg_dur by concat(parentType, '/', fieldName) as fieldKey
+| sort avg_dur desc
+```
+
+The following query returns field latency statistics:
+
+```
+  stats min(duration), max(duration), avg(duration) as avg_dur
+  by concat(parentType, '/', fieldName) as fieldKey
 | filter logType = "Tracing"
 | limit 10
-| sort avg_dur desc ``` The results of CloudWatch Logs Insights queries can be exported to CloudWatch dashboards. ## Analyze your logs with OpenSearch Service You can search, analyze, and visualize your AWS AppSync logs with Amazon OpenSearch Service to identify performance bottlenecks and root causes of operational issues. You can identify resolvers with the maximum latency and errors. In addition, you can use OpenSearch Dashboards to create dashboards with powerful visualizations. OpenSearch Dashboards is an open source data visualization and exploration tool available in OpenSearch Service. Using OpenSearch Dashboards, you can continuously monitor the performance and health of your GraphQL operations. For example, you can create dashboards to visualize the P90 latency of your GraphQL requests and drill down into the P90 latencies of each resolver. When using OpenSearch Service, use **“cwl\*”** as the filter pattern to search OpenSearch indexes. OpenSearch Service indexes the logs streamed from CloudWatch Logs with a prefix of **“cwl-”**. To differentiate AWS AppSync API logs from other CloudWatch logs sent to OpenSearch Service, we recommend adding an additional filter expression of `graphQLAPIID.keyword=`YourGraphQLAPIID`` to your search. ## Log format migration Log events that AWS AppSync generates on or after May 8, 2019 are formatted as fully structured JSON. To analyze GraphQL requests prior to May 8, 2019, you can migrate older logs to fully structured JSON using a script available in the [GitHub Sample](https://github.com/aws-samples/aws-appsync-cwl-migrator "https://github.com/aws-samples/aws-appsync-cwl-migrator"). If you need to use the log format prior to May 8, 2019, create a support ticket with the following settings: set **Type** to **Account Management** and then set **Category** to **General Account Question**. You can also use [metric filters](../../../AmazonCloudWatch/latest/logs/CloudWatchLogsConcepts.md "../../../AmazonCloudWatch/latest/logs/CloudWatchLogsConcepts.md") in CloudWatch to turn log data into numerical CloudWatch metrics, so that you can graph or set an alarm on them.
-````
+| sort avg_dur desc
+```
+
+The results of CloudWatch Logs Insights queries can be exported to CloudWatch dashboards.
+
+## Analyze your logs
+
+with OpenSearch Service
+
+You can search, analyze, and visualize your AWS AppSync logs with Amazon OpenSearch Service to identify
+performance bottlenecks and root causes of operational issues. You can identify resolvers
+with the maximum latency and errors. In addition, you can use OpenSearch Dashboards to
+create dashboards with powerful visualizations. OpenSearch Dashboards is an open source data
+visualization and exploration tool available in OpenSearch Service. Using OpenSearch Dashboards, you can
+continuously monitor the performance and health of your GraphQL operations. For example,
+you can create dashboards to visualize the P90 latency of your GraphQL requests and drill
+down into the P90 latencies of each resolver.
+
+When using OpenSearch Service, use **“cwl\*”** as the filter pattern to
+search OpenSearch indexes. OpenSearch Service indexes the logs streamed from CloudWatch Logs with a prefix of
+**“cwl-”**. To differentiate AWS AppSync API logs from other
+CloudWatch logs sent to OpenSearch Service, we recommend adding an additional filter expression of
+`graphQLAPIID.keyword=`YourGraphQLAPIID`` to your
+search.
+
+## Log format migration
+
+Log events that AWS AppSync generates on or after May 8, 2019 are formatted as fully
+structured JSON. To analyze GraphQL requests prior to May 8, 2019, you can migrate older
+logs to fully structured JSON using a script available in the [GitHub Sample](https://github.com/aws-samples/aws-appsync-cwl-migrator "https://github.com/aws-samples/aws-appsync-cwl-migrator"). If
+you need to use the log format prior to May 8, 2019, create a support ticket with the
+following settings: set **Type** to **Account
+Management** and then set **Category** to **General
+Account Question**.
+
+You can also use [metric filters](../../../AmazonCloudWatch/latest/logs/CloudWatchLogsConcepts.md "../../../AmazonCloudWatch/latest/logs/CloudWatchLogsConcepts.md") in
+CloudWatch to turn log data into numerical CloudWatch metrics, so that you can graph or set an alarm on
+them.

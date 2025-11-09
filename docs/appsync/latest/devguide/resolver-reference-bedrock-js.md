@@ -354,59 +354,257 @@ occur.
 
 ## Type reference
 
-````
+```
 export type BedrockMessage = {
   role: 'user' | 'assistant' | string;
   content: BedrockMessageContent[];
 };
 
 export type BedrockMessageContent =
-| { text: string }
-| { guardContent: BedrockGuardContent }
-| { toolResult: BedrockToolResult }
-| { toolUse: BedrockToolUse }; export type BedrockGuardContent = { text: BedrockGuardContentText; }; export type BedrockGuardContentText = { text: string; qualifiers?: ('grounding_source' | 'query' | 'guard_content' | string)[]; }; export type BedrockToolResult = { content: BedrockToolResultContent[]; toolUseId: string; status?: string; }; export type BedrockToolResultContent = { json: any } | { text: string }; export type BedrockToolUse = { input: any; name: string; toolUseId: string; }; export type ConversePayload = { modelId: string; body: any; guardrailIdentifier?: string; guardrailVersion?: string; guardrailTrace?: string; }; export type BedrockGuardrailConfig = { guardrailIdentifier: string; guardrailVersion: string; trace: string; }; export type BedrockInferenceConfig = { maxTokens?: number; temperature?: number; stopSequences?: string[]; topP?: number; }; export type BedrockPromptVariableValues = { text: string; }; export type BedrockToolConfig = { tools: BedrockTool[]; toolChoice?: BedrockToolChoice; }; export type BedrockTool = { toolSpec: BedrockToolSpec; }; export type BedrockToolSpec = { name: string; description?: string; inputSchema: BedrockInputSchema; }; export type BedrockInputSchema = { json: any; }; export type BedrockToolChoice =
-| { tool: BedrockSpecificToolChoice }
-| { auto: any }
-| { any: any }; export type BedrockSpecificToolChoice = { name: string; }; export type BedrockSystemContent =
-| { guardContent: BedrockGuardContent }
-| { text: string }; export type BedrockConverseOutput = { message?: BedrockMessage; }; export type BedrockConverseMetrics = { latencyMs: number; }; export type BedrockTokenUsage = { inputTokens: number; outputTokens: number; totalTokens: number; }; export type BedrockConverseTrace = { guardrail?: BedrockGuardrailTraceAsssessment; }; export type BedrockGuardrailTraceAsssessment = { inputAssessment?: { [key: string]: BedrockGuardrailAssessment }; modelOutput?: string[]; outputAssessments?: { [key: string]: BedrockGuardrailAssessment }; }; export type BedrockGuardrailAssessment = { contentPolicy?: BedrockGuardrailContentPolicyAssessment; contextualGroundingPolicy?: BedrockGuardrailContextualGroundingPolicyAssessment; invocationMetrics?: BedrockGuardrailInvocationMetrics; sensitiveInformationPolicy?: BedrockGuardrailSensitiveInformationPolicyAssessment; topicPolicy?: BedrockGuardrailTopicPolicyAssessment; wordPolicy?: BedrockGuardrailWordPolicyAssessment; }; export type BedrockGuardrailContentPolicyAssessment = { filters: BedrockGuardrailContentFilter[]; }; export type BedrockGuardrailContentFilter = { action: 'BLOCKED' | string; confidence: 'NONE' | 'LOW' | 'MEDIUM' | 'HIGH' | string; type:
-| 'INSULTS'
-| 'HATE'
-| 'SEXUAL'
-| 'VIOLENCE'
-| 'MISCONDUCT'
-| 'PROMPT_ATTACK'
-| string; filterStrength: 'NONE' | 'LOW' | 'MEDIUM' | 'HIGH' | string; }; export type BedrockGuardrailContextualGroundingPolicyAssessment = { filters: BedrockGuardrailContextualGroundingFilter; }; export type BedrockGuardrailContextualGroundingFilter = { action: 'BLOCKED' | 'NONE' | string; score: number; threshold: number; type: 'GROUNDING' | 'RELEVANCE' | string; }; export type BedrockGuardrailInvocationMetrics = { guardrailCoverage?: BedrockGuardrailCoverage; guardrailProcessingLatency?: number; usage?: BedrockGuardrailUsage; }; export type BedrockGuardrailCoverage = { textCharacters?: BedrockGuardrailTextCharactersCoverage; }; export type BedrockGuardrailTextCharactersCoverage = { guarded?: number; total?: number; }; export type BedrockGuardrailUsage = { contentPolicyUnits: number; contextualGroundingPolicyUnits: number; sensitiveInformationPolicyFreeUnits: number; sensitiveInformationPolicyUnits: number; topicPolicyUnits: number; wordPolicyUnits: number; }; export type BedrockGuardrailSensitiveInformationPolicyAssessment = { piiEntities: BedrockGuardrailPiiEntityFilter[]; regexes: BedrockGuardrailRegexFilter[]; }; export type BedrockGuardrailPiiEntityFilter = { action: 'BLOCKED' | 'ANONYMIZED' | string; match: string; type:
-| 'ADDRESS'
-| 'AGE'
-| 'AWS_ACCESS_KEY'
-| 'AWS_SECRET_KEY'
-| 'CA_HEALTH_NUMBER'
-| 'CA_SOCIAL_INSURANCE_NUMBER'
-| 'CREDIT_DEBIT_CARD_CVV'
-| 'CREDIT_DEBIT_CARD_EXPIRY'
-| 'CREDIT_DEBIT_CARD_NUMBER'
-| 'DRIVER_ID'
-| 'EMAIL'
-| 'INTERNATIONAL_BANK_ACCOUNT_NUMBER'
-| 'IP_ADDRESS'
-| 'LICENSE_PLATE'
-| 'MAC_ADDRESS'
-| 'NAME'
-| 'PASSWORD'
-| 'PHONE'
-| 'PIN'
-| 'SWIFT_CODE'
-| 'UK_NATIONAL_HEALTH_SERVICE_NUMBER'
-| 'UK_NATIONAL_INSURANCE_NUMBER'
-| 'UK_UNIQUE_TAXPAYER_REFERENCE_NUMBER'
-| 'URL'
-| 'USERNAME'
-| 'US_BANK_ACCOUNT_NUMBER'
-| 'US_BANK_ROUTING_NUMBER'
-| 'US_INDIVIDUAL_TAX_IDENTIFICATION_NUMBER'
-| 'US_PASSPORT_NUMBER'
-| 'US_SOCIAL_SECURITY_NUMBER'
-| 'VEHICLE_IDENTIFICATION_NUMBER'
-| string; }; export type BedrockGuardrailRegexFilter = { action: 'BLOCKED' | 'ANONYMIZED' | string; match?: string; name?: string; regex?: string; }; export type BedrockGuardrailTopicPolicyAssessment = { topics: BedrockGuardrailTopic[]; }; export type BedrockGuardrailTopic = { action: 'BLOCKED' | string; name: string; type: 'DENY' | string; }; export type BedrockGuardrailWordPolicyAssessment = { customWords: BedrockGuardrailCustomWord[]; managedWordLists: BedrockGuardrailManagedWord[]; }; export type BedrockGuardrailCustomWord = { action: 'BLOCKED' | string; match: string; }; export type BedrockGuardrailManagedWord = { action: 'BLOCKED' | string; match: string; type: 'PROFANITY' | string; }; ```
-````
+  | { text: string }
+  | { guardContent: BedrockGuardContent }
+  | { toolResult: BedrockToolResult }
+  | { toolUse: BedrockToolUse };
+
+export type BedrockGuardContent = {
+  text: BedrockGuardContentText;
+};
+
+export type BedrockGuardContentText = {
+  text: string;
+  qualifiers?: ('grounding_source' | 'query' | 'guard_content' | string)[];
+};
+
+export type BedrockToolResult = {
+  content: BedrockToolResultContent[];
+  toolUseId: string;
+  status?: string;
+};
+
+export type BedrockToolResultContent = { json: any } | { text: string };
+
+export type BedrockToolUse = {
+  input: any;
+  name: string;
+  toolUseId: string;
+};
+
+export type ConversePayload = {
+  modelId: string;
+  body: any;
+  guardrailIdentifier?: string;
+  guardrailVersion?: string;
+  guardrailTrace?: string;
+};
+
+export type BedrockGuardrailConfig = {
+  guardrailIdentifier: string;
+  guardrailVersion: string;
+  trace: string;
+};
+
+export type BedrockInferenceConfig = {
+  maxTokens?: number;
+  temperature?: number;
+  stopSequences?: string[];
+  topP?: number;
+};
+
+export type BedrockPromptVariableValues = {
+  text: string;
+};
+
+export type BedrockToolConfig = {
+  tools: BedrockTool[];
+  toolChoice?: BedrockToolChoice;
+};
+
+export type BedrockTool = {
+  toolSpec: BedrockToolSpec;
+};
+
+export type BedrockToolSpec = {
+  name: string;
+  description?: string;
+  inputSchema: BedrockInputSchema;
+};
+
+export type BedrockInputSchema = {
+  json: any;
+};
+
+export type BedrockToolChoice =
+  | { tool: BedrockSpecificToolChoice }
+  | { auto: any }
+  | { any: any };
+
+export type BedrockSpecificToolChoice = {
+  name: string;
+};
+
+export type BedrockSystemContent =
+  | { guardContent: BedrockGuardContent }
+  | { text: string };
+
+export type BedrockConverseOutput = {
+  message?: BedrockMessage;
+};
+
+export type BedrockConverseMetrics = {
+  latencyMs: number;
+};
+
+export type BedrockTokenUsage = {
+  inputTokens: number;
+  outputTokens: number;
+  totalTokens: number;
+};
+
+export type BedrockConverseTrace = {
+  guardrail?: BedrockGuardrailTraceAsssessment;
+};
+
+export type BedrockGuardrailTraceAsssessment = {
+  inputAssessment?: { [key: string]: BedrockGuardrailAssessment };
+  modelOutput?: string[];
+  outputAssessments?: { [key: string]: BedrockGuardrailAssessment };
+};
+
+export type BedrockGuardrailAssessment = {
+  contentPolicy?: BedrockGuardrailContentPolicyAssessment;
+  contextualGroundingPolicy?: BedrockGuardrailContextualGroundingPolicyAssessment;
+  invocationMetrics?: BedrockGuardrailInvocationMetrics;
+  sensitiveInformationPolicy?: BedrockGuardrailSensitiveInformationPolicyAssessment;
+  topicPolicy?: BedrockGuardrailTopicPolicyAssessment;
+  wordPolicy?: BedrockGuardrailWordPolicyAssessment;
+};
+
+export type BedrockGuardrailContentPolicyAssessment = {
+  filters: BedrockGuardrailContentFilter[];
+};
+
+export type BedrockGuardrailContentFilter = {
+  action: 'BLOCKED' | string;
+  confidence: 'NONE' | 'LOW' | 'MEDIUM' | 'HIGH' | string;
+  type:
+    | 'INSULTS'
+    | 'HATE'
+    | 'SEXUAL'
+    | 'VIOLENCE'
+    | 'MISCONDUCT'
+    | 'PROMPT_ATTACK'
+    | string;
+  filterStrength: 'NONE' | 'LOW' | 'MEDIUM' | 'HIGH' | string;
+};
+
+export type BedrockGuardrailContextualGroundingPolicyAssessment = {
+  filters: BedrockGuardrailContextualGroundingFilter;
+};
+
+export type BedrockGuardrailContextualGroundingFilter = {
+  action: 'BLOCKED' | 'NONE' | string;
+  score: number;
+  threshold: number;
+  type: 'GROUNDING' | 'RELEVANCE' | string;
+};
+
+export type BedrockGuardrailInvocationMetrics = {
+  guardrailCoverage?: BedrockGuardrailCoverage;
+  guardrailProcessingLatency?: number;
+  usage?: BedrockGuardrailUsage;
+};
+
+export type BedrockGuardrailCoverage = {
+  textCharacters?: BedrockGuardrailTextCharactersCoverage;
+};
+
+export type BedrockGuardrailTextCharactersCoverage = {
+  guarded?: number;
+  total?: number;
+};
+
+export type BedrockGuardrailUsage = {
+  contentPolicyUnits: number;
+  contextualGroundingPolicyUnits: number;
+  sensitiveInformationPolicyFreeUnits: number;
+  sensitiveInformationPolicyUnits: number;
+  topicPolicyUnits: number;
+  wordPolicyUnits: number;
+};
+
+export type BedrockGuardrailSensitiveInformationPolicyAssessment = {
+  piiEntities: BedrockGuardrailPiiEntityFilter[];
+  regexes: BedrockGuardrailRegexFilter[];
+};
+
+export type BedrockGuardrailPiiEntityFilter = {
+  action: 'BLOCKED' | 'ANONYMIZED' | string;
+  match: string;
+  type:
+    | 'ADDRESS'
+    | 'AGE'
+    | 'AWS_ACCESS_KEY'
+    | 'AWS_SECRET_KEY'
+    | 'CA_HEALTH_NUMBER'
+    | 'CA_SOCIAL_INSURANCE_NUMBER'
+    | 'CREDIT_DEBIT_CARD_CVV'
+    | 'CREDIT_DEBIT_CARD_EXPIRY'
+    | 'CREDIT_DEBIT_CARD_NUMBER'
+    | 'DRIVER_ID'
+    | 'EMAIL'
+    | 'INTERNATIONAL_BANK_ACCOUNT_NUMBER'
+    | 'IP_ADDRESS'
+    | 'LICENSE_PLATE'
+    | 'MAC_ADDRESS'
+    | 'NAME'
+    | 'PASSWORD'
+    | 'PHONE'
+    | 'PIN'
+    | 'SWIFT_CODE'
+    | 'UK_NATIONAL_HEALTH_SERVICE_NUMBER'
+    | 'UK_NATIONAL_INSURANCE_NUMBER'
+    | 'UK_UNIQUE_TAXPAYER_REFERENCE_NUMBER'
+    | 'URL'
+    | 'USERNAME'
+    | 'US_BANK_ACCOUNT_NUMBER'
+    | 'US_BANK_ROUTING_NUMBER'
+    | 'US_INDIVIDUAL_TAX_IDENTIFICATION_NUMBER'
+    | 'US_PASSPORT_NUMBER'
+    | 'US_SOCIAL_SECURITY_NUMBER'
+    | 'VEHICLE_IDENTIFICATION_NUMBER'
+    | string;
+};
+
+export type BedrockGuardrailRegexFilter = {
+  action: 'BLOCKED' | 'ANONYMIZED' | string;
+  match?: string;
+  name?: string;
+  regex?: string;
+};
+
+export type BedrockGuardrailTopicPolicyAssessment = {
+  topics: BedrockGuardrailTopic[];
+};
+
+export type BedrockGuardrailTopic = {
+  action: 'BLOCKED' | string;
+  name: string;
+  type: 'DENY' | string;
+};
+
+export type BedrockGuardrailWordPolicyAssessment = {
+  customWords: BedrockGuardrailCustomWord[];
+  managedWordLists: BedrockGuardrailManagedWord[];
+};
+
+export type BedrockGuardrailCustomWord = {
+  action: 'BLOCKED' | string;
+  match: string;
+};
+
+export type BedrockGuardrailManagedWord = {
+  action: 'BLOCKED' | string;
+  match: string;
+  type: 'PROFANITY' | string;
+};
+```

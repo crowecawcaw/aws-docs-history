@@ -86,7 +86,7 @@ GraphQL API. Note that to support creating new rows, tables need a primary key, 
 can use multiple columns. AWS AppSync maps table columns to type fields as follows:
 
 | Data type  | Field type |
-| ---------- | ---------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ---------- | ---------- |
 | VARCHAR    | String     |
 | CHAR       | String     |
 | BINARY     | String     |
@@ -119,4 +119,158 @@ can use multiple columns. AWS AppSync maps table columns to type fields as follo
 | DATETIME   | String     |
 | TIME       | AWSTime    |
 | JSON       | AWSJson    |
-| ENUM       | ENUM       | 5. Once table discovery is complete, the **Database** section will be populated with your information. In the new **Database tables** section, the data from the table may already be populated and converted to a type for your schema. If you don't see some of the required data, you can check for it by choosing **Add tables**, clicking on the checkboxes for those types in the modal that appears, then choosing **Add**. To remove a type from the **Database tables** section, click on the checkbox next to the type you want to remove, then choose **Remove**. The removed types will be placed in the **Add tables** modal if you want to add them again later. Note that AWS AppSync uses the table names as type names, but you can rename them - for example, changing a plural table name like `movies` to the type name `Movie`. To rename a type in the **Database tables** section, click on the checkbox of the type you want to rename, then click on the _pencil_ icon in the **Type name** column. To preview the content of the schema based on your selections, choose **Preview schema**. Note that this schema cannot be empty, so you'll have to have at least one table converted to a type. Also, this schema cannot exceed 1 MB in size. 1. Under **Service role**, choose whether to create a new service role specifically for this import or use an existing role. 6. Choose **Next**. 7. Next, choose whether to create a read-only API (queries only) or an API for reading and writing data (with queries and mutations). The latter also supports real-time subscriptions triggered by mutations. 8. Choose **Next**. 9. Review your choices and then choose **Create API**. AWS AppSync will create the API and attach resolvers to queries and mutations. The generated API is fully operational and can be extended as needed. ## Using the introspection feature (API) You can use the `StartDataSourceIntrospection` introspection API to discover models in your database programmatically. For more details on the command, see using the [`StartDataSourceIntrospection`](../APIReference/API_StartDataSourceIntrospection.md "../APIReference/API_StartDataSourceIntrospection.md") API. To use `StartDataSourceIntrospection`, provide your Aurora cluster Amazon Resource Name (ARN), database name, and AWS Secrets Manager secret ARN. The command starts the introspection process. You can retrieve the results with the `GetDataSourceIntrospection` command. You can specify whether the command should return the Storage Definition Language (SDL) string for the discovered models. This is useful for generating an SDL schema definition directly from the discovered models. For example, if you have the following Data definition language (DDL) statement for a simple `Todos` table: `create table if not exists public.todos ( id serial constraint todos_pk primary key, description text, due timestamp, "createdAt" timestamp default now() );` You start the introspection with the following. `aws appsync start-data-source-introspection \ --rds-data-api-config resourceArn=<cluster-arn>,secretArn=<secret-arn>,databaseName=database` Next, use the `GetDataSourceIntrospection` command to retrieve the result. `aws appsync get-data-source-introspection \ --introspection-id a1234567-8910-abcd-efgh-identifier \ --include-models-sdl` This returns the following result. `{ "introspectionId": "a1234567-8910-abcd-efgh-identifier", "introspectionStatus": "SUCCESS", "introspectionStatusDetail": null, "introspectionResult": { "models": [ { "name": "todos", "fields": [ { "name": "description", "type": { "kind": "Scalar", "name": "String", "type": null, "values": null }, "length": 0 }, { "name": "due", "type": { "kind": "Scalar", "name": "AWSDateTime", "type": null, "values": null }, "length": 0 }, { "name": "id", "type": { "kind": "NonNull", "name": null, "type": { "kind": "Scalar", "name": "Int", "type": null, "values": null }, "values": null }, "length": 0 }, { "name": "createdAt", "type": { "kind": "Scalar", "name": "AWSDateTime", "type": null, "values": null }, "length": 0 } ], "primaryKey": { "name": "PRIMARY_KEY", "fields": [ "id" ] }, "indexes": [], "sdl": "type todos\n{\ndescription: String\n\ndue: AWSDateTime\n\nid: Int!\n\ncreatedAt: AW SDateTime\n}\n" } ], "nextToken": null } }` |
+| ENUM       | ENUM       |
+
+5. Once table discovery is complete, the **Database**
+   section will be populated with your information. In the new **Database tables** section, the data from the table may already be
+   populated and converted to a type for your schema. If you don't see some of the
+   required data, you can check for it by choosing **Add
+   tables**, clicking on the checkboxes for those types in the modal that
+   appears, then choosing **Add**.
+
+To remove a type from the **Database tables**
+section, click on the checkbox next to the type you want to remove, then choose
+**Remove**. The removed types will be placed in the
+**Add tables** modal if you want to add them again
+later.
+
+Note that AWS AppSync uses the table names as type names, but you can rename them - for
+example, changing a plural table name like `movies` to the
+type name `Movie`. To rename a type in the **Database tables** section, click on the checkbox of the type
+you want to rename, then click on the _pencil_ icon
+in the **Type name** column.
+
+To preview the content of the schema based on your selections, choose **Preview schema**. Note that this schema cannot be empty, so
+you'll have to have at least one table converted to a type. Also, this schema cannot
+exceed 1 MB in size.
+
+    1. Under **Service role**, choose whether to
+     create a new service role specifically for this import or use an existing
+     role.
+
+6. Choose **Next**.
+7. Next, choose whether to create a read-only API (queries only) or an API for
+   reading and writing data (with queries and mutations). The latter also supports
+   real-time subscriptions triggered by mutations.
+8. Choose **Next**.
+9. Review your choices and then choose **Create API**.
+   AWS AppSync will create the API and attach resolvers to queries and mutations. The
+   generated API is fully operational and can be extended as needed.
+
+## Using the introspection feature (API)
+
+You can use the `StartDataSourceIntrospection` introspection API to discover
+models in your database programmatically. For more details on the command, see using the
+[`StartDataSourceIntrospection`](../APIReference/API_StartDataSourceIntrospection.md "../APIReference/API_StartDataSourceIntrospection.md") API.
+
+To use `StartDataSourceIntrospection`, provide your Aurora cluster Amazon
+Resource Name (ARN), database name, and AWS Secrets Manager secret ARN. The
+command starts the introspection process. You can retrieve the results with the
+`GetDataSourceIntrospection` command. You can specify whether the command
+should return the Storage Definition Language (SDL) string for the discovered models. This
+is useful for generating an SDL schema definition directly from the discovered
+models.
+
+For example, if you have the following Data definition language (DDL) statement for a
+simple `Todos` table:
+
+```
+create table if not exists public.todos
+(
+id serial constraint todos_pk primary key,
+description text,
+due timestamp,
+"createdAt" timestamp default now()
+);
+```
+
+You start the introspection with the following.
+
+```
+aws appsync start-data-source-introspection \
+  --rds-data-api-config resourceArn=<cluster-arn>,secretArn=<secret-arn>,databaseName=database
+```
+
+Next, use the `GetDataSourceIntrospection` command to retrieve the
+result.
+
+```
+aws appsync get-data-source-introspection \
+  --introspection-id a1234567-8910-abcd-efgh-identifier \
+  --include-models-sdl
+
+```
+
+This returns the following result.
+
+```
+{
+    "introspectionId": "a1234567-8910-abcd-efgh-identifier",
+    "introspectionStatus": "SUCCESS",
+    "introspectionStatusDetail": null,
+    "introspectionResult": {
+        "models": [
+            {
+                "name": "todos",
+                "fields": [
+                    {
+                        "name": "description",
+                        "type": {
+                            "kind": "Scalar",
+                            "name": "String",
+                            "type": null,
+                            "values": null
+                        },
+                        "length": 0
+                    },
+                    {
+                        "name": "due",
+                        "type": {
+                            "kind": "Scalar",
+                            "name": "AWSDateTime",
+                            "type": null,
+                            "values": null
+                        },
+                        "length": 0
+                    },
+                    {
+                        "name": "id",
+                        "type": {
+                            "kind": "NonNull",
+                            "name": null,
+                            "type": {
+                                "kind": "Scalar",
+                                "name": "Int",
+                                "type": null,
+                                "values": null
+                            },
+                            "values": null
+                        },
+                        "length": 0
+                    },
+                    {
+                        "name": "createdAt",
+                        "type": {
+                            "kind": "Scalar",
+                            "name": "AWSDateTime",
+                            "type": null,
+                            "values": null
+                        },
+                        "length": 0
+                    }
+                ],
+                "primaryKey": {
+                    "name": "PRIMARY_KEY",
+                    "fields": [
+                        "id"
+                    ]
+                },
+                "indexes": [],
+                "sdl": "type todos\n{\ndescription: String\n\ndue: AWSDateTime\n\nid: Int!\n\ncreatedAt: AW
+SDateTime\n}\n"
+            }
+        ],
+        "nextToken": null
+    }
+}
+```

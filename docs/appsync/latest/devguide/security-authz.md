@@ -544,7 +544,7 @@ contain JSON fields of `kty` and `kid`.
 AWS AppSync supports a wide range of signing algorithms.
 
 | Signing algorithms |
-| ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------------ |
 | RS256              |
 | RS384              |
 | RS512              |
@@ -556,4 +556,380 @@ AWS AppSync supports a wide range of signing algorithms.
 | HS512              |
 | ES256              |
 | ES384              |
-| ES512              | We recommend that you use the RSA algorithms. Tokens issued by the provider must include the time at which the token was issued (`iat`) and may include the time at which it was authenticated (`auth_time`). You can provide TTL values for issued time (`iatTTL`) and authentication time (`authTTL`) in your OpenID Connect configuration for additional validation. If your provider authorizes multiple applications, you can also provide a regular expression (`clientId`) that is used to authorize by client ID. When the `clientId` is present in your OpenID Connect configuration, AWS AppSync validates the claim by requiring the `clientId` to match with either the `aud` or `azp` claim in the token. To validate multiple client IDs use the pipeline operator (“ | ”) which is an “or” in regular expression. For example, if your OIDC application has four clients with client IDs such as 0A1S2D, 1F4G9H, 1J6L4B, 6GS5MG, to validate only the first three client IDs, you would place 1F4G9H | 1J6L4B | 6GS5MG in the client ID field. If an API is configured with multiple authorization types, AWS AppSync validates the issuer (iss claim) present in the JWT token from request headers by comparing it against the issuer URL specified in the API configuration. However, when an API is configured with only OPENID_CONNECT authorization, AWS AppSync skips this issuer URL validation step. ## AMAZON_COGNITO_USER_POOLS authorization This authorization type enforces OIDC tokens provided by Amazon Cognito User Pools. Your application can leverage the users and groups in both your user pools and user pools from another AWS account and associate these with GraphQL fields for controlling access. When using Amazon Cognito User Pools, you can create groups that users belong to. This information is encoded in a JWT token that your application sends to AWS AppSync in an authorization header when sending GraphQL operations. You can use GraphQL directives on the schema to control which groups can invoke which resolvers on a field, thereby giving more controlled access to your customers. For example, suppose you have the following GraphQL schema: `schema { query: Query mutation: Mutation } type Query { posts:[Post!]! } type Mutation { addPost(id:ID!, title:String!):Post! } ...` If you have two groups in Amazon Cognito User Pools - bloggers and readers - and you want to restrict the readers so that they cannot add new entries, then your schema should look like this: `schema { query: Query mutation: Mutation }` `type Query { posts:[Post!]! @aws_auth(cognito_groups: ["Bloggers", "Readers"]) } type Mutation { addPost(id:ID!, title:String!):Post! @aws_auth(cognito_groups: ["Bloggers"]) } ...` Note that you can omit the `@aws_auth` directive if you want to default to a specific grant-or-deny strategy on access. You can specify the grant-or-deny strategy in the user pool configuration when you create your GraphQL API via the console or via the following CLI command: `$ aws appsync --region us-west-2 create-graphql-api --authentication-type AMAZON_COGNITO_USER_POOLS  --name userpoolstest --user-pool-config '{ "userPoolId":"test", "defaultEffect":"ALLOW", "awsRegion":"us-west-2"}'` ## Using additional authorization modes When you add additional authorization modes, you can directly configure the authorization setting at the AWS AppSync GraphQL API level (that is, the `authenticationType` field that you can directly configure on the `GraphqlApi` object) and it acts as the default on the schema. This means that any type that doesn’t have a specific directive has to pass the API level authorization setting. At the schema level, you can specify additional authorization modes using directives on the schema. You can specify authorization modes on individual fields in the schema. For example, for `API_KEY` authorization you would use `@aws_api_key` on schema object type definitions/fields. The following directives are supported on schema fields and object type definitions: <br>• `@aws_api_key` - To specify the field is `API_KEY` authorized. <br>• `@aws_iam` - To specify that the field is `AWS_IAM` authorized. <br>• `@aws_oidc` - To specify that the field is `OPENID_CONNECT` authorized. <br>• `@aws_cognito_user_pools` - To specify that the field is `AMAZON_COGNITO_USER_POOLS` authorized. <br>• `@aws_lambda` - To specify that the field is `AWS_LAMBDA` authorized. You can’t use the `@aws_auth` directive along with additional authorization modes. `@aws_auth` works only in the context of `AMAZON_COGNITO_USER_POOLS` authorization with no additional authorization modes. However, you can use the `@aws_cognito_user_pools` directive in place of the `@aws_auth` directive, using the same arguments. The main difference between the two is that you can specify `@aws_cognito_user_pools` on any field and object type definitions. To understand how the additional authorization modes work and how they can be specified on a schema, let’s have a look at the following schema: `schema { query: Query mutation: Mutation } type Query { getPost(id: ID): Post getAllPosts(): [Post] @aws_api_key } type Mutation { addPost( id: ID! author: String! title: String! content: String! url: String! ): Post! } type Post @aws_api_key @aws_iam { id: ID! author: String title: String content: String url: String ups: Int! downs: Int! version: Int! } ...` For this schema, assume that `AWS_IAM` is the default authorization type on the AWS AppSync GraphQL API. This means that fields that don’t have a directive are protected using `AWS_IAM`. For example, that’s the case for the `getPost` field on the `Query` type. Schema directives enable you to use more than one authorization mode. For example, you can have `API_KEY` configured as an additional authorization mode on the AWS AppSync GraphQL API, and you can mark a field using the `@aws_api_key` directive (for example, `getAllPosts` in this example). Directives work at the field level so you need to give `API_KEY` access to the `Post` type too. You can do this either by marking each field in the `Post` type with a directive, or by marking the `Post` type with the `@aws_api_key` directive. To further restrict access to fields in the `Post` type you can use directives against individual fields in the `Post` type as shown following. For example, you can add a `restrictedContent` field to the `Post` type and restrict access to it by using the `@aws_iam` directive. `AWS_IAM` authenticated requests could access `restrictedContent`, however, `API_KEY` requests wouldn’t be able to access it. `type Post @aws_api_key @aws_iam{ id: ID! author: String title: String content: String url: String ups: Int! downs: Int! version: Int! restrictedContent: String! @aws_iam } ...` ## Fine-grained access control The preceding information demonstrates how to restrict or grant access to certain GraphQL fields. If you want to set access controls on the data based on certain conditions (for example, based on the user that’s making a call and whether the user owns the data) you can use mapping templates in your resolvers. You can also perform more complex business logic, which we describe in [Filtering Information](#aws-appsync-filtering-information "#aws-appsync-filtering-information"). This section shows how to set access controls on your data using a DynamoDB resolver mapping template. Before proceeding any further, if you’re not familiar with mapping templates in AWS AppSync, you may want to review the [Resolver mapping template reference](resolver-mapping-template-reference.md#aws-appsync-resolver-mapping-template-reference "resolver-mapping-template-reference.md#aws-appsync-resolver-mapping-template-reference") and the [Resolver mapping template reference for DynamoDB](resolver-mapping-template-reference-dynamodb.md#aws-appsync-resolver-mapping-template-reference-dynamodb "resolver-mapping-template-reference-dynamodb.md#aws-appsync-resolver-mapping-template-reference-dynamodb"). In the following example using DynamoDB, suppose you’re using the preceding blog post schema, and only users that created a post are allowed to edit it. The evaluation process would be for the user to gain credentials in their application, using Amazon Cognito User Pools for example, and then pass these credentials as part of a GraphQL operation. The mapping template will then substitute a value from the credentials (like the username)in a conditional statement which will then be compared to a value in your database. ![Diagram showing authentication flow from user login to database operation using AWS services.](images/FGAC.png) To add this functionality, add a GraphQL field of `editPost` as follows: `schema { query: Query mutation: Mutation } type Query { posts:[Post!]! } type Mutation { editPost(id:ID!, title:String, content:String):Post addPost(id:ID!, title:String!):Post! } ...` The resolver mapping template for `editPost` (shown in an example at the end of this section) needs to perform a logical check against your data store to allow only the user that created a post to edit it. Since this is an edit operation, it corresponds to an `UpdateItem` in DynamoDB. You can perform a conditional check before performing this action, using context passed through for user identity validation. This is stored in an `Identity` object that has the following values: `{ "accountId" : "12321434323", "cognitoIdentityPoolId" : "", "cognitoIdentityId" : "", "sourceIP" : "", "caller" : "ThisistheprincipalARN", "username" : "username", "userArn" : "Sameasabove" }` To use this object in a DynamoDB`UpdateItem` call, you need to store the user identity information in the table for comparison. First, your `addPost` mutation needs to store the creator. Second, your `editPost` mutation needs to perform the conditional check before updating. Here is an example of the resolver code for `addPost` that stores the user identity as an `Author` column: `import { util, Context } from '@aws-appsync/utils'; import { put } from '@aws-appsync/utils/dynamodb'; export function request(ctx) { const { id: postId, ...item } = ctx.args; return put({ key: { postId }, item: { ...item, Author: ctx.identity.username }, condition: { postId: { attributeExists: false } }, }); } export const response = (ctx) => ctx.result;` Note that the `Author` attribute is populated from the `Identity` object, which came from the application. Finally, here is an example of the resolver code for `editPost`, which only updates the content of the blog post if the request comes from the user that created the post: `import { util, Context } from '@aws-appsync/utils'; import { put } from '@aws-appsync/utils/dynamodb'; export function request(ctx) { const { id, ...item } = ctx.args; return put({ key: { id }, item, condition: { author: { contains: ctx.identity.username } }, }); } export const response = (ctx) => ctx.result;` This example uses a `PutItem` that overwrites all values rather than an `UpdateItem`, but the same concept applies on the `condition` statement block. ## Filtering information There may be cases where you cannot control the response from your data source, but you don’t want to send unnecessary information to clients on a successful write or read to the data source. In these cases, you can filter information by using a response mapping template. For example, suppose you don’t have an appropriate index on your blog post DynamoDB table (such as an index on `Author`). You could use the following resolver: `import { util, Context } from '@aws-appsync/utils'; import { get } from '@aws-appsync/utils/dynamodb'; export function request(ctx) { return get({ key: { ctx.args.id } }); } export function response(ctx) { if (ctx.result.author === ctx.identity.username) { return ctx.result; } return null; }` The request handler fetches the item even if the caller isn’t the author who created the post. To prevent this from returning all data, the response handler checks to make sure the caller matches the item’s author. If the caller doesn’t match this check, only a null response is returned. ## Data source access AWS AppSync communicates with data sources using Identity and Access Management ([IAM](https://aws.amazon.com/iam/ "https://aws.amazon.com/iam/")) roles and access policies. If you are using an existing role, a Trust Policy needs to be added in order for AWS AppSync to assume the role. The trust relationship will look like below: JSON `` `{ "Version":"2012-10-17", "Statement": [ { "Effect": "Allow", "Principal": { "Service": "appsync.amazonaws.com" }, "Action": "sts:AssumeRole" } ] }` `` It’s important to scope down the access policy on the role to only have permissions to act on the minimal set of resources necessary. When using the AppSync console to create a data source and create a role, this is done automatically for you. However when using a built in sample template from the IAM console to create a role outside of the AWS AppSync console the permissions will not be automatically scoped down on a resource and you should perform this action before moving your application to production. |
+| ES512              |
+
+We recommend that you use the RSA algorithms. Tokens issued by the provider must include
+the time at which the token was issued (`iat`) and may include the time at which
+it was authenticated (`auth_time`). You can provide TTL values for issued time
+(`iatTTL`) and authentication time (`authTTL`) in your OpenID
+Connect configuration for additional validation. If your provider authorizes multiple
+applications, you can also provide a regular expression (`clientId`) that is
+used to authorize by client ID. When the `clientId` is present in your OpenID
+Connect configuration, AWS AppSync validates the claim by requiring the
+`clientId` to match with either the `aud` or `azp`
+claim in the token.
+
+To validate multiple client IDs use the pipeline operator (“|”) which is an “or” in
+regular expression. For example, if your OIDC application has four clients with client IDs
+such as 0A1S2D, 1F4G9H, 1J6L4B, 6GS5MG, to validate only the first three client IDs, you
+would place 1F4G9H|1J6L4B|6GS5MG in the client ID field.
+
+If an API is configured with multiple authorization types, AWS AppSync validates the issuer
+(iss claim) present in the JWT token from request headers by comparing it against the
+issuer URL specified in the API configuration. However, when an API is configured with only
+OPENID_CONNECT authorization, AWS AppSync skips this issuer URL validation step.
+
+## AMAZON_COGNITO_USER_POOLS
+
+authorization
+
+This authorization type enforces OIDC tokens provided by Amazon Cognito User Pools. Your
+application can leverage the users and groups in both your user pools and user pools from
+another AWS account and associate these with GraphQL fields for controlling
+access.
+
+When using Amazon Cognito User Pools, you can create groups that users belong to. This
+information is encoded in a JWT token that your application sends to AWS AppSync in an
+authorization header when sending GraphQL operations. You can use GraphQL directives on the
+schema to control which groups can invoke which resolvers on a field, thereby giving more
+controlled access to your customers.
+
+For example, suppose you have the following GraphQL schema:
+
+```
+schema {
+   query: Query
+   mutation: Mutation
+}
+
+type Query {
+   posts:[Post!]!
+}
+
+type Mutation {
+   addPost(id:ID!, title:String!):Post!
+}
+...
+```
+
+If you have two groups in Amazon Cognito User Pools - bloggers and readers - and you want to
+restrict the readers so that they cannot add new entries, then your schema should look like
+this:
+
+```
+schema {
+   query: Query
+   mutation: Mutation
+}
+```
+
+```
+type Query {
+   posts:[Post!]!
+   @aws_auth(cognito_groups: ["Bloggers", "Readers"])
+}
+
+type Mutation {
+   addPost(id:ID!, title:String!):Post!
+   @aws_auth(cognito_groups: ["Bloggers"])
+}
+...
+```
+
+Note that you can omit the `@aws_auth` directive if you want to default to a
+specific grant-or-deny strategy on access. You can specify the grant-or-deny strategy in
+the user pool configuration when you create your GraphQL API via the console or via the
+following CLI command:
+
+```
+$ aws appsync --region us-west-2 create-graphql-api --authentication-type AMAZON_COGNITO_USER_POOLS  --name userpoolstest --user-pool-config '{ "userPoolId":"test", "defaultEffect":"ALLOW", "awsRegion":"us-west-2"}'
+```
+
+## Using additional authorization
+
+modes
+
+When you add additional authorization modes, you can directly configure the
+authorization setting at the AWS AppSync GraphQL API level (that is, the
+`authenticationType` field that you can directly configure on the
+`GraphqlApi` object) and it acts as the default on the schema. This means
+that any type that doesn’t have a specific directive has to pass the API level
+authorization setting.
+
+At the schema level, you can specify additional authorization modes using directives on
+the schema. You can specify authorization modes on individual fields in the schema. For
+example, for `API_KEY` authorization you would use `@aws_api_key` on
+schema object type definitions/fields. The following directives are supported on schema
+fields and object type definitions:
+
+- `@aws_api_key` - To specify the field is `API_KEY`
+  authorized.
+- `@aws_iam` - To specify that the field is `AWS_IAM`
+  authorized.
+- `@aws_oidc` - To specify that the field is `OPENID_CONNECT`
+  authorized.
+- `@aws_cognito_user_pools` - To specify that the field is
+  `AMAZON_COGNITO_USER_POOLS` authorized.
+- `@aws_lambda` - To specify that the field is `AWS_LAMBDA`
+  authorized.
+
+You can’t use the `@aws_auth` directive along with additional authorization
+modes. `@aws_auth` works only in the context of
+`AMAZON_COGNITO_USER_POOLS` authorization with no additional authorization
+modes. However, you can use the `@aws_cognito_user_pools` directive in place of
+the `@aws_auth` directive, using the same arguments. The main difference between
+the two is that you can specify `@aws_cognito_user_pools` on any field and
+object type definitions.
+
+To understand how the additional authorization modes work and how they can be specified
+on a schema, let’s have a look at the following schema:
+
+```
+schema {
+   query: Query
+   mutation: Mutation
+}
+
+type Query {
+   getPost(id: ID): Post
+   getAllPosts(): [Post]
+   @aws_api_key
+}
+
+type Mutation {
+   addPost(
+      id: ID!
+      author: String!
+      title: String!
+      content: String!
+      url: String!
+   ): Post!
+}
+
+type Post @aws_api_key @aws_iam {
+   id: ID!
+   author: String
+   title: String
+   content: String
+   url: String
+   ups: Int!
+   downs: Int!
+   version: Int!
+}
+...
+```
+
+For this schema, assume that `AWS_IAM` is the default authorization type on
+the AWS AppSync GraphQL API. This means that fields that don’t have a directive are
+protected using `AWS_IAM`. For example, that’s the case for the
+`getPost` field on the `Query` type. Schema directives enable you
+to use more than one authorization mode. For example, you can have `API_KEY`
+configured as an additional authorization mode on the AWS AppSync GraphQL API, and you
+can mark a field using the `@aws_api_key` directive (for example,
+`getAllPosts` in this example). Directives work at the field level so you
+need to give `API_KEY` access to the `Post` type too. You can do this
+either by marking each field in the `Post` type with a directive, or by marking
+the `Post` type with the `@aws_api_key` directive.
+
+To further restrict access to fields in the `Post` type you can use
+directives against individual fields in the `Post` type as shown
+following.
+
+For example, you can add a `restrictedContent` field to the `Post`
+type and restrict access to it by using the `@aws_iam` directive.
+`AWS_IAM` authenticated requests could access `restrictedContent`,
+however, `API_KEY` requests wouldn’t be able to access it.
+
+```
+type Post @aws_api_key @aws_iam{
+   id: ID!
+   author: String
+   title: String
+   content: String
+   url: String
+   ups: Int!
+   downs: Int!
+   version: Int!
+   restrictedContent: String!
+   @aws_iam
+}
+...
+```
+
+## Fine-grained access control
+
+The preceding information demonstrates how to restrict or grant access to certain
+GraphQL fields. If you want to set access controls on the data based on certain conditions
+(for example, based on the user that’s making a call and whether the user owns the data)
+you can use mapping templates in your resolvers. You can also perform more complex business
+logic, which we describe in [Filtering
+Information](#aws-appsync-filtering-information "#aws-appsync-filtering-information").
+
+This section shows how to set access controls on your data using a DynamoDB resolver
+mapping template.
+
+Before proceeding any further, if you’re not familiar with mapping templates in
+AWS AppSync, you may want to review the [Resolver mapping template
+reference](resolver-mapping-template-reference.md#aws-appsync-resolver-mapping-template-reference "resolver-mapping-template-reference.md#aws-appsync-resolver-mapping-template-reference") and the [Resolver mapping
+template reference for DynamoDB](resolver-mapping-template-reference-dynamodb.md#aws-appsync-resolver-mapping-template-reference-dynamodb "resolver-mapping-template-reference-dynamodb.md#aws-appsync-resolver-mapping-template-reference-dynamodb").
+
+In the following example using DynamoDB, suppose you’re using the preceding blog post
+schema, and only users that created a post are allowed to edit it. The evaluation process
+would be for the user to gain credentials in their application, using Amazon Cognito User
+Pools for example, and then pass these credentials as part of a GraphQL operation. The
+mapping template will then substitute a value from the credentials (like the username)in a
+conditional statement which will then be compared to a value in your database.
+
+![Diagram showing authentication flow from user login to database operation using AWS services.](images/FGAC.png)
+
+To add this functionality, add a GraphQL field of `editPost` as
+follows:
+
+```
+schema {
+   query: Query
+   mutation: Mutation
+}
+
+type Query {
+   posts:[Post!]!
+}
+
+type Mutation {
+   editPost(id:ID!, title:String, content:String):Post
+   addPost(id:ID!, title:String!):Post!
+}
+...
+```
+
+The resolver mapping template for `editPost` (shown in an example at the end
+of this section) needs to perform a logical check against your data store to allow only the
+user that created a post to edit it. Since this is an edit operation, it corresponds to an
+`UpdateItem` in DynamoDB. You can perform a conditional check before performing
+this action, using context passed through for user identity validation. This is stored in
+an `Identity` object that has the following values:
+
+```
+{
+   "accountId" : "12321434323",
+   "cognitoIdentityPoolId" : "",
+   "cognitoIdentityId" : "",
+   "sourceIP" : "",
+   "caller" : "ThisistheprincipalARN",
+   "username" : "username",
+   "userArn" : "Sameasabove"
+}
+```
+
+To use this object in a DynamoDB`UpdateItem` call, you need to store the user
+identity information in the table for comparison. First, your `addPost` mutation
+needs to store the creator. Second, your `editPost` mutation needs to perform
+the conditional check before updating.
+
+Here is an example of the resolver code for `addPost` that stores the user
+identity as an `Author` column:
+
+```
+import { util, Context } from '@aws-appsync/utils';
+import { put } from '@aws-appsync/utils/dynamodb';
+
+export function request(ctx) {
+	const { id: postId, ...item } = ctx.args;
+	return put({
+		key: { postId },
+		item: { ...item, Author: ctx.identity.username },
+		condition: { postId: { attributeExists: false } },
+	});
+}
+
+export const response = (ctx) => ctx.result;
+```
+
+Note that the `Author` attribute is populated from the `Identity`
+object, which came from the application.
+
+Finally, here is an example of the resolver code for `editPost`, which only
+updates the content of the blog post if the request comes from the user that created the
+post:
+
+```
+import { util, Context } from '@aws-appsync/utils';
+import { put } from '@aws-appsync/utils/dynamodb';
+
+export function request(ctx) {
+	const { id, ...item } = ctx.args;
+	return put({
+		key: { id },
+		item,
+		condition: { author: { contains: ctx.identity.username } },
+	});
+}
+
+export const response = (ctx) => ctx.result;
+```
+
+This example uses a `PutItem` that overwrites all values rather than an
+`UpdateItem`, but the same concept applies on the `condition`
+statement block.
+
+## Filtering information
+
+There may be cases where you cannot control the response from your data source, but you
+don’t want to send unnecessary information to clients on a successful write or read to the
+data source. In these cases, you can filter information by using a response mapping
+template.
+
+For example, suppose you don’t have an appropriate index on your blog post DynamoDB table
+(such as an index on `Author`). You could use the following resolver:
+
+```
+import { util, Context } from '@aws-appsync/utils';
+import { get } from '@aws-appsync/utils/dynamodb';
+
+export function request(ctx) {
+	return get({ key: { ctx.args.id } });
+}
+
+export function response(ctx) {
+	if (ctx.result.author === ctx.identity.username) {
+		return ctx.result;
+	}
+	return null;
+}
+```
+
+The request handler fetches the item even if the caller isn’t the author who created the
+post. To prevent this from returning all data, the response handler checks to make sure the
+caller matches the item’s author. If the caller doesn’t match this check, only a null
+response is returned.
+
+## Data source access
+
+AWS AppSync communicates with data sources using Identity and Access Management ([IAM](https://aws.amazon.com/iam/ "https://aws.amazon.com/iam/")) roles and access policies. If you are using an existing role,
+a Trust Policy needs to be added in order for AWS AppSync to assume the role. The trust
+relationship will look like below:
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Principal": {
+ "Service": "appsync.amazonaws.com"
+ },
+ "Action": "sts:AssumeRole"
+ }
+ ]
+}`
+
+```
+
+It’s important to scope down the access policy on the role to only have permissions to
+act on the minimal set of resources necessary. When using the AppSync console to create a
+data source and create a role, this is done automatically for you. However when using a
+built in sample template from the IAM console to create a role outside of the AWS AppSync
+console the permissions will not be automatically scoped down on a resource and you should
+perform this action before moving your application to production.

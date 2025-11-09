@@ -55,7 +55,7 @@ When implementing pipeline resolvers, there is a general structure they follow:
   you to perform some final operations on the final function's response before passing it to the
   GraphQL response.
 
-![GraphQL request flow diagram showing interactions between request, data sources, and response components.](images/appsync-js-resolver-logic.png)
+![GraphQL request flow diagram showing interactions between request, data sources, and response components.](/images/appsync/latest/devguide/images/appsync-js-resolver-logic.png)
 
 ## Resolver handler structure
 
@@ -182,9 +182,66 @@ In a resolver, each step in the chain of handlers must be aware of the state of 
 previous steps. The result from one handler can be stored and passed to another as an argument. GraphQL
 defines four basic resolver arguments:
 
-| Resolver base arguments       | Description                                                                                                                                        |
-| ----------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `obj`, `root`, `parent`, etc. | The result of the parent.                                                                                                                          |
-| `args`                        | The arguments provided to the field in the GraphQL query.                                                                                          |
-| `context`                     | A value which is provided to every resolver and holds important contextual information like the currently logged in user, or access to a database. |
-| `info`                        | A value which holds field-specific information relevant to the current query as well as the schema details.                                        | In AWS AppSync, the `context` (ctx) argument can hold all of the data mentioned above. It's an object that's created per request and contains data like authorization credentials, result data, errors, request metadata, etc. The context is an easy way for programmers to manipulate data coming from other parts of the request. Take this snippet again: `/** <br>• Performs a scan on the dynamodb data source */ export function request(ctx) { return { operation: 'Scan' }; } /** <br>• return a list of scanned post items */ export function response(ctx) { return ctx.result.items; }` The request is given the context (ctx) as the argument; this is the state of the request. It performs a scan for all items in a table, then stores the result back in the context in `result`. The context is then passed to the response argument, which accesses the `result` and returns its contents. ## Requests and Parsing When you make a query to your GraphQL service, it must run through a parsing and validation process before being executed. Your request will be parsed and translated into an abstract syntax tree. The content of the tree is validated by running through several validation algorithms against your schema. After the validation step, the nodes of the tree are traversed and processed. Resolvers are invoked, the results are stored in the context, and the response is returned. For example, take this query: `query { Person {  //object type name  //scalar age   //scalar } }` We're returning `Person` with a `name` and `age` fields. When running this query, the tree will look something like this: ![Hierarchical diagram showing query, Person, name, and age nodes connected by arrows.](images/ast-1.png) From the tree, it appears that this request will search the root for the `Query` in the schema. Inside of the query, the `Person` field will be resolved. From previous examples, we know that this could be an input from the user, a list of values, etc. `Person` is most likely tied to an object type holding the fields we need (`name` and `age`). Once these two child fields are found, they are resolved in the order given (`name` followed by `age`). Once the tree is completely resolved, the request is completed and will be sent back to the client. |
+| Resolver base arguments       | Description                                                                                                                                           |
+| ----------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `obj`, `root`, `parent`, etc. | The result of the parent.                                                                                                                             |
+| `args`                        | The arguments provided to the field in the GraphQL query.                                                                                             |
+| `context`                     | A value which is provided to every resolver and holds important contextual information<br>like the currently logged in user, or access to a database. |
+| `info`                        | A value which holds field-specific information relevant to the current query as well as<br>the schema details.                                        |
+
+In AWS AppSync, the `context` (ctx)
+argument can hold all of the data mentioned above. It's an object that's created per request and contains
+data like authorization credentials, result data, errors, request metadata, etc. The context is an easy
+way for programmers to manipulate data coming from other parts of the request. Take this snippet
+again:
+
+```
+/**
+ * Performs a scan on the dynamodb data source
+ */
+export function request(ctx) {
+  return { operation: 'Scan' };
+}
+
+/**
+ * return a list of scanned post items
+ */
+export function response(ctx) {
+  return ctx.result.items;
+}
+```
+
+The request is given the context (ctx) as the argument; this is the state of the request. It performs
+a scan for all items in a table, then stores the result back in the context in `result`. The
+context is then passed to the response argument, which accesses the `result` and returns its
+contents.
+
+## Requests and Parsing
+
+When you make a query to your GraphQL service, it must run through a parsing and validation process
+before being executed. Your request will be parsed and translated into an abstract syntax tree. The
+content of the tree is validated by running through several validation algorithms against your schema.
+After the validation step, the nodes of the tree are traversed and processed. Resolvers are invoked, the
+results are stored in the context, and the response is returned. For example, take this query:
+
+```
+query {
+  Person {  //object type
+    name  //scalar
+    age   //scalar
+  }
+}
+```
+
+We're returning `Person` with a `name` and `age` fields. When running
+this query, the tree will look something like this:
+
+![Hierarchical diagram showing query, Person, name, and age nodes connected by arrows.](images/ast-1.png)
+
+From the tree, it appears that this request will search the root for the `Query` in the
+schema. Inside of the query, the `Person` field will be resolved. From previous examples, we
+know that this could be an input from the user, a list of values, etc. `Person` is most likely
+tied to an object type holding the fields we need (`name` and `age`). Once these
+two child fields are found, they are resolved in the order given (`name` followed by
+`age`). Once the tree is completely resolved, the request is completed and will be sent
+back to the client.
