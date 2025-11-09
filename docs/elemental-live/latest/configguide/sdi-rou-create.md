@@ -18,12 +18,12 @@ Create the router on the Elemental Live node.
 3. Complete the **Add New Router** fields as described in the table and
    choose **Create**.
 
-| Field           | Description                                                           |
-| --------------- | --------------------------------------------------------------------- |
-| **Name**        | The name that appears in the **Inputs** field on events and profiles. |
-| **IP Address**  | The IP address of the router, excluding the protocol.                 |
-| **Max Inputs**  | Typically, the number of physical inputs on the router.               |
-| **Max Outputs** | Typically, the number physical outputs on the router.                 |
-| **Level**       | Available for XY Terminal, NV9000, SW-P-08, and Pass-Through.         |
-| **User**        | Available for NV9000.                                                 |
-| **Matrix ID**   | Available for SW-P-08                                                 |
+| Field           | Description                                                                   |
+| --------------- | ----------------------------------------------------------------------------- |
+| **Name**        | The name that appears in the \*_Inputs_<br>• field on events and<br>profiles. |
+| **IP Address**  | The IP address of the router, excluding the protocol.                         |
+| **Max Inputs**  | Typically, the number of physical inputs on the router.                       |
+| **Max Outputs** | Typically, the number physical outputs on the router.                         |
+| **Level**       | Available for XY Terminal, NV9000, SW-P-08, and Pass-Through.                 |
+| **User**        | Available for NV9000.                                                         |
+| **Matrix ID**   | Available for SW-P-08                                                         |
