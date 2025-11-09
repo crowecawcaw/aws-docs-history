@@ -1,9 +1,11 @@
-AWS HealthOmics variant stores and annotation stores will no longer be open to new customers starting
-November 7th, 2025. If you would like to use variant stores or annotation stores,
-sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see
-[AWS HealthOmics variant store and annotation store availability change](variant-store-availability-change.md "variant-store-availability-change.md").
-
 # HealthOmics analytics
+
+###### Important
+
+AWS HealthOmics variant stores and annotation stores are no longer open to new customers.
+Existing customers can continue to use the service as normal.
+For more information, see
+[AWS HealthOmics variant store and annotation store availability change](variant-store-availability-change.md "variant-store-availability-change.md").
 
 HealthOmics analytics supports the storage and analysis of genomic variants and annotations. Analytics provides
 two types of storage resources - Variant stores and Annotation stores. You use these resources to store, transform,
@@ -25,7 +27,7 @@ must use Athena query engine version 3. To read more about Athena query engine v
 - [Creating HealthOmics variant store import jobs](parsing-annotation-stores.md "parsing-annotation-stores.md")
 - [Creating HealthOmics annotation stores](creating-and-managing-annotation-store.md "creating-and-managing-annotation-store.md")
 - [Creating import jobs for HealthOmics annotation stores](annotation-store-import-jobs.md "annotation-store-import-jobs.md")
-- [Creating new versions of HealthOmics annotation stores](annotation-store-versioning.md "annotation-store-versioning.md")
+- [Creating HealthOmics annotation store versions](annotation-store-versioning.md "annotation-store-versioning.md")
 - [Deleting HealthOmics analytics stores](deleting-a-store-examples.md "deleting-a-store-examples.md")
 - [Querying HealthOmics analytics data](analytics-query-data.md "analytics-query-data.md")
 - [Sharing HealthOmics analytics stores](cross-account-sharing.md "cross-account-sharing.md")

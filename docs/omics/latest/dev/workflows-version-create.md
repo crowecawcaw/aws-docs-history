@@ -1,8 +1,3 @@
-AWS HealthOmics variant stores and annotation stores will no longer be open to new customers starting
-November 7th, 2025. If you would like to use variant stores or annotation stores,
-sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see
-[AWS HealthOmics variant store and annotation store availability change](variant-store-availability-change.md "variant-store-availability-change.md").
-
 # Create a workflow version
 
 When you create a new version of a workflow, you need to specify the configuration values for the new version.
@@ -186,11 +181,99 @@ new version in the **Workflows and versions** table.
 You can create a workflow version using the `CreateWorkflowVersion` API operation.
 For optional parameters, HealthOmics uses the following defaults:
 
-| Parameter                             | Default                                                                                                                                                                                             |
-| ------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Engine                                | Determined from the workflow definition                                                                                                                                                             |
-| Storage type                          | STATIC                                                                                                                                                                                              |
-| Storage capacity (for static storage) | 1200 GiB                                                                                                                                                                                            |
-| Main                                  | Determined based on the contents of the workflow definition folder. For details, see [HealthOmics workflow definition requirements](workflow-defn-requirements.md "workflow-defn-requirements.md"). |
-| Accelerators                          | none                                                                                                                                                                                                |
-| Tags                                  | none                                                                                                                                                                                                | The following CLI example creates a workflow version with static storage as the default run storage: `aws omics create-workflow-version \ --workflow-id 1234567  \ --version-name "my_version" \ --engine WDL \ --definition-zip fileb://workflow-crambam.zip \ --description "my version description" \ --main file://workflow-params.json \ --parameter-template file://workflow-params.json \ --storage-type='STATIC'   \ --storage-capacity 1200   \ --tags example123=string  \ --accelerators GPU` If your workflow definition file located in an Amazon S3 folder, enter the location using the `definition-uri` parameter instead of `definition-zip`. For more information, see [CreateWorkflowVersion](../api/API_CreateWorkflowVersion.md "../api/API_CreateWorkflowVersion.md") in the AWS HealthOmics API Reference. You receive the following response to the `create-workflow-version` request. `{ "workflowId": "1234567", "versionName": "my_version", "arn": "arn:aws:omics:us-west-2:123456789012:workflow/1234567/version/3", "status": "ACTIVE", "tags": { "environment": "production", "owner": "team-alpha" }, "uuid": "0ac9a563-355c-fc7a-1b47-a115167af8a2" }` ## Create a workflow version using an SDK You can create a workflow using one of the SDKs. The following example shows how to create a workflow version using the Python SDK `import boto3 omics = boto3.client('omics') with open('definition.zip', 'rb') as f: definition = f.read() response = omics.create_workflow_version( workflowId='1234567', versionName='my_version', requestId='my_request_1' definitionZip=definition, parameterTemplate={ ... } )` ## Verify the status of a workflow version After you create your workflow version, you can verify the status and view other details of the workflow using **get-workflow-version**, as shown. `aws omics get-workflow-version --workflow-id 9876543 --version-name "my_version"` The response gives you your workflow details, including the status, as shown. `{ "workflowId": "1234567", "versionName": "3.0.0", "arn": "arn:aws:omics:us-west-2:123456789012:workflow/1234567/version/3.0.0", "status": "ACTIVE", "description": ... "uuid": "0ac9a563-355c-fc7a-1b47-a115167af8a2" }` Before you can start a run with this workflow version, the status must transition to `ACTIVE`. |
+| Parameter                             | Default                                                                                                                                                                                                |
+| ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Engine                                | Determined from the workflow definition                                                                                                                                                                |
+| Storage type                          | STATIC                                                                                                                                                                                                 |
+| Storage capacity (for static storage) | 1200 GiB                                                                                                                                                                                               |
+| Main                                  | Determined based on the contents of the workflow definition folder. For details,<br>see [HealthOmics workflow definition requirements](workflow-defn-requirements.md "workflow-defn-requirements.md"). |
+| Accelerators                          | none                                                                                                                                                                                                   |
+| Tags                                  | none                                                                                                                                                                                                   |
+
+The following CLI example creates a workflow version with static storage as the default run storage:
+
+```
+aws omics create-workflow-version \
+--workflow-id 1234567  \
+--version-name "my_version" \
+--engine WDL \
+--definition-zip fileb://workflow-crambam.zip \
+--description "my version description" \
+--main file://workflow-params.json \
+--parameter-template file://workflow-params.json \
+--storage-type='STATIC'   \
+--storage-capacity 1200   \
+--tags example123=string  \
+--accelerators GPU
+```
+
+If your workflow definition file is located in an Amazon S3 folder, enter the location using the
+`definition-uri` parameter instead of `definition-zip`. For more information, see [CreateWorkflowVersion](../api/API_CreateWorkflowVersion.md "../api/API_CreateWorkflowVersion.md") in the
+AWS HealthOmics API Reference.
+
+You receive the following response to the `create-workflow-version` request.
+
+```
+{
+  "workflowId": "1234567",
+  "versionName": "my_version",
+  "arn": "arn:aws:omics:us-west-2:123456789012:workflow/1234567/version/3",
+  "status": "ACTIVE",
+  "tags": {
+    "environment": "production",
+    "owner": "team-alpha"
+  },
+  "uuid": "0ac9a563-355c-fc7a-1b47-a115167af8a2"
+}
+```
+
+## Create a workflow version using an SDK
+
+You can create a workflow using one of the SDKs.
+
+The following example shows how to create a workflow version using the Python SDK
+
+```
+import boto3
+
+omics = boto3.client('omics')
+
+with open('definition.zip', 'rb') as f:
+   definition = f.read()
+
+response = omics.create_workflow_version(
+   workflowId='1234567',
+   versionName='my_version',
+   requestId='my_request_1'
+   definitionZip=definition,
+   parameterTemplate={ ... }
+)
+```
+
+## Verify the status of a workflow version
+
+After you create your workflow version, you can verify the status and view other details of the workflow using
+**get-workflow-version**, as shown.
+
+```
+aws omics get-workflow-version
+--workflow-id 9876543
+--version-name "my_version"
+```
+
+The response gives you your workflow details, including the status, as
+shown.
+
+```
+{
+  "workflowId": "1234567",
+  "versionName": "3.0.0",
+  "arn": "arn:aws:omics:us-west-2:123456789012:workflow/1234567/version/3.0.0",
+  "status": "ACTIVE",
+  "description": ...
+  "uuid": "0ac9a563-355c-fc7a-1b47-a115167af8a2"
+}
+```
+
+Before you can start a run with this workflow version, the status must transition to
+`ACTIVE`.

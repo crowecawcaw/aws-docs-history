@@ -1,8 +1,3 @@
-AWS HealthOmics variant stores and annotation stores will no longer be open to new customers starting
-November 7th, 2025. If you would like to use variant stores or annotation stores,
-sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see
-[AWS HealthOmics variant store and annotation store availability change](variant-store-availability-change.md "variant-store-availability-change.md").
-
 # CWL workflow definition specifics
 
 Workflows written in Common Workflow Language, or CWL, offer similar functionality to workflows written in
@@ -15,14 +10,94 @@ HealthOmics workflows don't support operation processes. To learn more about ope
 see the [CWL
 documentation](https://www.commonwl.org/user_guide/topics/operations.html "https://www.commonwl.org/user_guide/topics/operations.html").
 
-To convert an existing CWL workflow definition file to use HealthOmics, make the following changes:
+Best practice is to define a separate CWL workflow for each container that you use. We recommend that you don't
+hardcode the dockerPull entry with a fixed Amazon ECR URI.
+
+###### Topics
+
+- [Convert CWL workflows to use HealthOmics](#workflow-cwl-convert "#workflow-cwl-convert")
+- [Opt out of task retry using omicsRetryOn5xx](#workflow-cwl-retry-5xx "#workflow-cwl-retry-5xx")
+- [Examples](#workflow-cwl-examples "#workflow-cwl-examples")
+
+## Convert CWL workflows to use HealthOmics
+
+To convert an existing CWL workflow definition to use HealthOmics, make the following changes:
 
 - Replace all Docker container URIs with Amazon ECR URIs.
 - Make sure that all the workflow files are declared in the main workflow as input, and all
   variables are explicitly defined.
 - Make sure that all JavaScript code is strict-mode complaint.
-  CWL workflows should be defined for each container used. It isn't recommended to
-  hardcode the dockerPull entry with a fixed Amazon ECR URI.
+
+## Opt out of task retry using `omicsRetryOn5xx`
+
+HealthOmics supports task retries if the task failed because of service errors (5XX HTTP status codes). By default,
+HealthOmics attempts up to two retries of a failed task. For more information about task retry in HealthOmics, see [Task Retries](monitoring-runs.md#run-status-task-retries "monitoring-runs.md#run-status-task-retries").
+
+To opt out of task retry for service errors, configure the `omicsRetryOn5xx` directive in the
+workflow definition. You can define this directive under requirements or hints. We recommend adding the directive
+as a hint for portability.
+
+```
+requirements:
+  ResourceRequirement:
+    omicsRetryOn5xx: false
+
+hints:
+  ResourceRequirement:
+    omicsRetryOn5xx: false
+```
+
+Requirements override hints. If a task implementation provides a resource requirement in hints that is also
+provided by requirements in an enclosing workflow, the enclosing requirements takes precedence.
+
+If the same task requirement appears at different levels of the workflow, HealthOmics uses the most specific
+entry from `requirements` (or `hints`, if there are no entries in `requirements`).
+The following list shows the order of precedence that HealthOmics uses to apply configuration settings, from
+lowest to highest priority:
+
+- Workflow level
+- Step level
+- Task section of the workflow definition
+
+The following example shows how to configure the `omicsRetryOn5xx` directive at different levels of
+the workflow. In this example, the workflow-level requirement overrides the workflow level hints. The requirements
+configurations at the task and step levels override the hints configurations.
+
+```
+class: Workflow
+# Workflow-level requirement and hint
+requirements:
+  ResourceRequirement:
+    omicsRetryOn5xx: false
+
+hints:
+  ResourceRequirement:
+    omicsRetryOn5xx: false  # The value in requirements overrides this value
+
+steps:
+  task_step:
+    # Step-level requirement
+    requirements:
+      ResourceRequirement:
+        omicsRetryOn5xx: false
+    # Step-level hint
+    hints:
+      ResourceRequirement:
+        omicsRetryOn5xx: false
+    run:
+      class: CommandLineTool
+      # Task-level requirement
+      requirements:
+        ResourceRequirement:
+          omicsRetryOn5xx: false
+      # Task-level hint
+      hints:
+        ResourceRequirement:
+          omicsRetryOn5xx: false
+
+```
+
+## Examples
 
 The following is an example of a workflow written in CWL.
 

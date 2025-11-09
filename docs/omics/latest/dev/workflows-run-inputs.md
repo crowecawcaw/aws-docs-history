@@ -1,8 +1,3 @@
-AWS HealthOmics variant stores and annotation stores will no longer be open to new customers starting
-November 7th, 2025. If you would like to use variant stores or annotation stores,
-sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see
-[AWS HealthOmics variant store and annotation store availability change](variant-store-availability-change.md "variant-store-availability-change.md").
-
 # HealthOmics run inputs
 
 If the workflow definition specifies input files for the workflow or workflow tasks, HealthOmics stages the files to a
@@ -83,16 +78,39 @@ sections describe how each engine handles various scenarios.
 If the input parameter includes a double-slash in the middle or at the end of the URI, the WDL engine
 retains the double-slash.
 
+| Input parameter                       | Expected location                     |
+| ------------------------------------- | ------------------------------------- |
+| s3://myfiles/runs/inputs//file1.fastq | s3://myfiles/runs/inputs//file1.fastq |
+| s3://myfiles/runs/inputs//            | s3://myfiles/runs/inputs//            |
+
+#### Nextflow
+
+If the input parameter includes a double-slash in the middle of the URI, the Nextflow engine retains
+double-slash. For a double-slash at the end of the URI, the Nextflow engine resolves it to a single
+slash.
+
+| Input parameter                       | Expected location                     |
+| ------------------------------------- | ------------------------------------- |
+| s3://myfiles/runs/inputs//file1.fastq | s3://myfiles/runs/inputs//file1.fastq |
+| s3://myfiles//runs/inputs//\*.gz      | s3://myfiles//runs/inputs//\*.gz      |
+| s3://myfiles//runs/inputs//           | s3://myfiles//runs/inputs/            |
+
+#### CWL
+
+If the input parameter includes a double-slash in the middle or at the end of the URI, the CWL engine
+retains the double-slash.
+
 | Input parameter                        | Expected location                      |
-| -------------------------------------- | -------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| s3://myfiles/runs/inputs//file1.fastq  | s3://myfiles/runs/inputs//file1.fastq  |
-| s3://myfiles/runs/inputs//             | s3://myfiles/runs/inputs//             | #### Nextflow If the input parameter includes a double-slash in the middle of the URI, the Nextflow engine retains double-slash. For a double-slash at the end of the URI, the Nextflow engine resolves it to a single slash.                                                                                                                                                                                                                                                                                                                                                                                                     |
-| Input parameter                        | Expected location                      |
-| ---                                    | ---                                    |
-| s3://myfiles/runs/inputs//file1.fastq  | s3://myfiles/runs/inputs//file1.fastq  |
-| s3://myfiles//runs/inputs//\*.gz       | s3://myfiles//runs/inputs//\*.gz       |
-| s3://myfiles//runs/inputs//            | s3://myfiles//runs/inputs/             | #### CWL If the input parameter includes a double-slash in the middle or at the end of the URI, the CWL engine retains the double-slash.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| Input parameter                        | Expected location                      |
-| ---                                    | ---                                    |
+| -------------------------------------- | -------------------------------------- |
 | s3://myfiles//runs/inputs//file1.fastq | s3://myfiles//runs/inputs//file1.fastq |
-| s3://myfiles//runs/inputs//            | s3://myfiles//runs/inputs//            | ## Amazon S3 input archive states HealthOmics can retrieve Amazon S3 objects that S3 delivers in real time. For objects that are in the following archived storage states, **restore** the objects to make them available to HealthOmics: <br>• Flexible Retrieval or Deep Archive storage classes in Amazon S3 Glacier. <br>• Archived Access or Deep Archive Access tiers in Intelligent tiering. For information about restoring objects, see [Restoring an archived object](../../../AmazonS3/latest/userguide/restoring-objects.md "../../../AmazonS3/latest/userguide/restoring-objects.md") in the _Amazon S3 User Guide_. |
+| s3://myfiles//runs/inputs//            | s3://myfiles//runs/inputs//            |
+
+## Amazon S3 input archive states
+
+HealthOmics can retrieve Amazon S3 objects that S3 delivers in real time. For objects that are in the following archived
+storage states, **restore** the objects to make them available to HealthOmics:
+
+- Flexible Retrieval or Deep Archive storage classes in Amazon S3 Glacier.
+- Archived Access or Deep Archive Access tiers in Intelligent tiering.
+
+For information about restoring objects, see [Restoring an archived object](../../../AmazonS3/latest/userguide/restoring-objects.md "../../../AmazonS3/latest/userguide/restoring-objects.md") in the _Amazon S3 User Guide_.

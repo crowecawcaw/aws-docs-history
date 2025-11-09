@@ -1,8 +1,3 @@
-AWS HealthOmics variant stores and annotation stores will no longer be open to new customers starting
-November 7th, 2025. If you would like to use variant stores or annotation stores,
-sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see
-[AWS HealthOmics variant store and annotation store availability change](variant-store-availability-change.md "variant-store-availability-change.md").
-
 # IAM permissions for HealthOmics
 
 You can use AWS Identity and Access Management (IAM) to manage access to the HealthOmics API and resources such as stores and workflows. For

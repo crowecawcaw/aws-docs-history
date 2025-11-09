@@ -1,8 +1,3 @@
-AWS HealthOmics variant stores and annotation stores will no longer be open to new customers starting
-November 7th, 2025. If you would like to use variant stores or annotation stores,
-sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see
-[AWS HealthOmics variant store and annotation store availability change](variant-store-availability-change.md "variant-store-availability-change.md").
-
 # Adding a tag to a HealthOmics resource
 
 Adding tags to a
@@ -25,8 +20,7 @@ For
 example, to add tags to a sequence store while it's being created, you would use the
 following command in the AWS CLI. The name of the sequence store is MySequenceStore, and
 the two added tags with keys are key1 and key2 with values as value1 and value2
-respectively
-:
+respectively :
 
 ```
 aws omics create-sequence-store --name "MySequenceStore" --tags key1=value1,key2=value2

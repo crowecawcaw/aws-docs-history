@@ -1,8 +1,3 @@
-AWS HealthOmics variant stores and annotation stores will no longer be open to new customers starting
-November 7th, 2025. If you would like to use variant stores or annotation stores,
-sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see
-[AWS HealthOmics variant store and annotation store availability change](variant-store-availability-change.md "variant-store-availability-change.md").
-
 # Run lifecycle in a HealthOmics workflow
 
 You can track the progress of a run by monitoring the run status. HealthOmics updates the run status as a run proceeds
@@ -101,8 +96,7 @@ A user initiated a request to cancel the run.
 
 ## Task Retries
 
-HealthOmics supports task retries in WDL and Nextflow workflows, for tasks that fail because of service errors (5XX
-HTTP status codes).
+HealthOmics supports task retries for tasks that fail because of service errors (5XX HTTP status codes).
 
 If every task in the run eventually completes, even if they required retries, HealthOmics transitions the run to
 Completed. HealthOmics assigns a new task ID to each retry, so the run includes task IDs for the failed attempts and the
@@ -112,11 +106,14 @@ By default, HealthOmics attempts up to two retries of a failed task. You can opt
 or for all tasks in a workflow. Task retry is useful to address intermittent service errors.
 However, you might consider opting out a task that is idempotent.
 
-For a WDL workflow, you can configure task retry behavior in the workflow definition. For more information,
-see [Configure WDL task retry behavior](workflow-languages-wdl.md#workflow-wdl-task-retry "workflow-languages-wdl.md#workflow-wdl-task-retry").
+For specific information about each workflow definition language, see the following topics:
 
-For a Nextflow workflow, you can configure task retry behavior in the Nextflow config file or the workflow
-definition. For more information, see [Configure Nextflow task retry behavior](workflow-definition-nextflow.md#workflow-nexflow-retry-5xx "workflow-definition-nextflow.md#workflow-nexflow-retry-5xx").
+- WDL – Configure task retry behavior in the workflow definition.
+  See [Configure WDL task retry behavior](workflow-languages-wdl.md#workflow-wdl-task-retry "workflow-languages-wdl.md#workflow-wdl-task-retry").
+- Nextflow – Configure task retry behavior in the Nextflow config file or the workflow definition.
+  See [Configure Nextflow task retry behavior](workflow-definition-nextflow.md#workflow-nextflow-retry-5xx "workflow-definition-nextflow.md#workflow-nextflow-retry-5xx").
+- CWL – Configure task retry behavior in the workflow definition.
+  See [Configure CWL task retry behavior](workflow-languages-cwl.md#workflow-cwl-retry-5xx "workflow-languages-cwl.md#workflow-cwl-retry-5xx").
 
 ## Pricing implications of run status
 

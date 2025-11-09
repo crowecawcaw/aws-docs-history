@@ -1,8 +1,3 @@
-AWS HealthOmics variant stores and annotation stores will no longer be open to new customers starting
-November 7th, 2025. If you would like to use variant stores or annotation stores,
-sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see
-[AWS HealthOmics variant store and annotation store availability change](variant-store-availability-change.md "variant-store-availability-change.md").
-
 # Create a private workflow
 
 Create a workflow using the HealthOmics console, AWS CLI commands, or one of the AWS SDKs.
@@ -26,13 +21,18 @@ container image. You have the following options for hosting the container image:
 
 - Synchronize the container image with the contents of a supported third-party registry.
   Prerequisites for this option:
-  - In the ECR private registry, configure a pull through cache rule for each upstream registry. For more
-    information, see [Image mappings](workflows-ecr.md#ecr-pull-through-mapping-format "workflows-ecr.md#ecr-pull-through-mapping-format") .
-  - Configure the ECR resource policy as described in [Amazon ECR permissions](permissions-ecr.md "permissions-ecr.md").
-  - Create repository creation templates. The template defines settings for when Amazon ECR creates the private
-    repository for an upstream registry.
-  - Create prefix mappings to remap container image references in the workflow definition to ECR cache
-    namespaces.
+
+      + In the ECR private registry, configure a pull through cache rule for each upstream registry. For more
+       information, see [Image mappings](workflows-ecr.md#ecr-pull-through-mapping-format "workflows-ecr.md#ecr-pull-through-mapping-format") .
+      + Configure the ECR resource policy as described in [Amazon ECR permissions](permissions-ecr.md "permissions-ecr.md").
+      + Create repository creation templates. The template defines settings for when Amazon ECR creates the private
+       repository for an upstream registry.
+      + Create prefix mappings to remap container image references in the workflow definition to ECR cache
+       namespaces.
+
+  When you create a workflow, you provide a workflow definition that contains information about the workflow,
+  runs, and tasks. HealthOmics can retrieve the workflow definition as a .zip archive stored locally or in an Amazon S3
+  bucket, or from a supported Git-based repository.
 
 ###### Topics
 
@@ -177,7 +177,7 @@ For **Source of mapping file**, select one of the following options:
 
 ## Creating a workflow using the CLI
 
-After you define your workflow and the parameters, you can create a workflow using the CLI as shown.
+If your workflow files and the parameter template file are on your local machine, you can create a workflow using the following CLI command.
 
 ```
 aws omics create-workflow  \
@@ -186,11 +186,7 @@ aws omics create-workflow  \
   --parameter-template file://my-parameter-template.json
 ```
 
-If your workflow definition file located in an Amazon S3 folder, enter the location using the
-`definition-uri` parameter instead of `definition-zip`. For more information, see [CreateWorkflow](../api/API_CreateWorkflow.md "../api/API_CreateWorkflow.md") in the
-AWS HealthOmics API Reference.
-
-The `create-workflow` request responds with the following:
+The `create-workflow` operation returns the following response:
 
 ```
 {
@@ -211,11 +207,63 @@ AWS HealthOmics API Reference.
 
 ###### Topics
 
-- [Configure pull through cache mapping parameters](#create-prefix-mapping-parameters "#create-prefix-mapping-parameters")
-- [Specify the definition-uri parameter](#create-defn-uri-parameter "#create-defn-uri-parameter")
+- [Specify the workflow definition Amazon S3 location](#create-defn-uri-parameter "#create-defn-uri-parameter")
 - [Specify the main definition file](#create-main-parameter "#create-main-parameter")
-- [Using the run storage parameters](#create-run-storage-parameter "#create-run-storage-parameter")
-- [Using the accelerators parameter](#create-accelerator-parameter "#create-accelerator-parameter")
+- [Specify the run storage type](#create-run-storage-parameter "#create-run-storage-parameter")
+- [Specify the GPU configuration](#create-accelerator-parameter "#create-accelerator-parameter")
+- [Configure pull through cache mapping parameters](#create-prefix-mapping-parameters "#create-prefix-mapping-parameters")
+
+#### Specify the workflow definition Amazon S3 location
+
+If your workflow definition file is located in an Amazon S3 folder, specify the location using the
+`definition-uri` parameter, as shown in the following example. If your account does not own the Amazon S3
+bucket, provide the owner's AWS account ID.
+
+```
+aws omics create-workflow  \
+  --name Test  \
+  --definition-uri s3://omics-bucket/workflow-definition/  \
+  --owner-id  123456789012
+    ...
+```
+
+#### Specify the **main** definition file
+
+If you are including multiple workflow definition files, use the `main` parameter to specify
+the main definition file for your workflow.
+
+```
+aws omics create-workflow  \
+  --name Test  \
+  --main multi_workflow/workflow2.wdl  \
+    ...
+```
+
+#### Specify the run storage type
+
+You can specify the default run storage type (DYNAMIC or STATIC) and run storage capacity (required for
+static storage). For more information about run storage types, see [Run storage types in HealthOmics workflows](workflows-run-types.md "workflows-run-types.md").
+
+```
+aws omics create-workflow  \
+  --name my_workflow   \
+  --definition-zip fileb://my-definition.zip \
+  --parameter-template file://my-parameter-template.json   \
+  --storage-type 'STATIC'  \
+  --storage-capacity 1200  \
+```
+
+#### Specify the GPU configuration
+
+Use the accelerators parameter to create a workflow that runs on an accelerated-compute instance. The
+following example shows how to use the `accelerators` parameter. You specify the GPU configuration
+in the workflow definition. See [Accelerated-computing instances](memory-and-compute-tasks.md#workflow-task-accelerated-computing-instances "memory-and-compute-tasks.md#workflow-task-accelerated-computing-instances").
+
+```
+aws omics create-workflow --name ``workflow name`` \
+   --definition-uri s3://amzn-s3-demo-bucket1/GPUWorkflow.zip \
+   --accelerators GPU
+```
 
 #### Configure pull through cache mapping parameters
 
@@ -271,61 +319,6 @@ aws omics create-workflow  \
      ...
 --container-registry-map-uri s3://amzn-s3-demo-bucket1/test.zip
     ...
-```
-
-#### Specify the **definition-uri** parameter
-
-If you are including multiple workflow definition files, use the `main` parameter to specify
-which file is the main definition file for your workflow.
-
-If you uploaded your workflow definition file to an Amazon S3 folder, specify the location using the
-`definition-uri` parameter, as shown in the following example. If your account does not own the Amazon S3
-bucket, provide the owner's AWS account ID.
-
-```
-aws omics create-workflow  \
-  --name Test  \
-  --definition-uri s3://omics-bucket/workflow-definition/  \
-  --owner-id  123456789012
-    ...
-```
-
-#### Specify the **main** definition file
-
-If you are including multiple workflow definition files, use the `main` parameter to specify
-the main definition file for your workflow.
-
-```
-aws omics create-workflow  \
-  --name Test  \
-  --main multi_workflow/workflow2.wdl  \
-    ...
-```
-
-#### Using the run storage parameters
-
-You can specify the default run storage type (DYNAMIC or STATIC) and run storage capacity (required for
-static storage). For more information about run storage types, see [Run storage types in HealthOmics workflows](workflows-run-types.md "workflows-run-types.md").
-
-```
-aws omics create-workflow  \
-  --name my_workflow   \
-  --definition-zip fileb://my-definition.zip \
-  --parameter-template file://my-parameter-template.json   \
-  --storage-type 'STATIC'  \
-  --storage-capacity 1200  \
-```
-
-#### Using the **accelerators** parameter
-
-Use the accelerators parameter to create a workflow that runs on an accelerated-compute instance. The
-following example shows how to use the `accelerators` parameter. You specify the GPU configuration
-in the workflow definition. See [Accelerated-computing instances](memory-and-compute-tasks.md#workflow-task-accelerated-computing-instances "memory-and-compute-tasks.md#workflow-task-accelerated-computing-instances").
-
-```
-aws omics create-workflow --name ``workflow name`` \
-   --definition-uri s3://amzn-s3-demo-bucket1/GPUWorkflow.zip \
-   --accelerators GPU
 ```
 
 ## Creating a workflow using an SDK

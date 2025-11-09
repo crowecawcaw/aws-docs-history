@@ -1,8 +1,3 @@
-AWS HealthOmics variant stores and annotation stores will no longer be open to new customers starting
-November 7th, 2025. If you would like to use variant stores or annotation stores,
-sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see
-[AWS HealthOmics variant store and annotation store availability change](variant-store-availability-change.md "variant-store-availability-change.md").
-
 # Nextflow workflow definition specifics
 
 HealthOmics suppports Nextflow DSL1 and DSL2. For details, see [Nextflow version support](workflows-lang-versions.md#workflows-lang-versions-nextflow "workflows-lang-versions.md#workflows-lang-versions-nextflow").
@@ -62,13 +57,13 @@ the order of precedence that HealthOmics uses to apply configuration settings, f
 
 ###### Topics
 
-- [Opt out of task retry using omicsRetryOn5xx](#workflow-nexflow-retry-5xx "#workflow-nexflow-retry-5xx")
+- [Opt out of task retry using omicsRetryOn5xx](#workflow-nextflow-retry-5xx "#workflow-nextflow-retry-5xx")
 - [Set task duration using the time directive](#time-directive-nextflow "#time-directive-nextflow")
 
 ### Opt out of task retry using `omicsRetryOn5xx`
 
-HealthOmics supports task retries if the task failed because of service errors (5XX HTTP status codes). By default,
-HealthOmics attempts up to two retries of a failed task.
+For Nextflow v23 and v24, HealthOmics supports task retries if the task failed because of service errors (5XX HTTP
+status codes). By default, HealthOmics attempts up to two retries of a failed task.
 
 You can configure `omicsRetryOn5xx` to opt out of task retry for service errors. For more
 information about task retry in HealthOmics, see [Task Retries](monitoring-runs.md#run-status-task-retries "monitoring-runs.md#run-status-task-retries").

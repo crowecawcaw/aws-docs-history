@@ -1,8 +1,3 @@
-AWS HealthOmics variant stores and annotation stores will no longer be open to new customers starting
-November 7th, 2025. If you would like to use variant stores or annotation stores,
-sign up prior to that date. Existing customers can continue to use the service as normal. For more information, see
-[AWS HealthOmics variant store and annotation store availability change](variant-store-availability-change.md "variant-store-availability-change.md").
-
 # AWS managed policies for AWS HealthOmics
 
 An AWS managed policy is a standalone policy that is created and administered by AWS. AWS managed policies are designed
@@ -113,8 +108,8 @@ View details about updates to AWS managed policies for HealthOmics since this se
 began tracking these changes. For automatic alerts about changes to this page, subscribe
 to the RSS feed on the HealthOmics Document history page.
 
-| Change                                       | Description                                                                                                                                                                                                                         | Date              |
-| -------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- |
-| AmazonOmicsFullAccess - New policy added     | HealthOmics added a new policy to grant a user full access to all actions and resources. To learn more, see [AmazonOmicsFullAccess](#security-iam-awsmanpol-AmazonOmicsFullAccess "#security-iam-awsmanpol-AmazonOmicsFullAccess"). | February 23, 2023 |
-| HealthOmics started tracking changes         | HealthOmics started tracking changes for its AWS managed policies.                                                                                                                                                                  | November 29, 2022 |
-| AmazonOmicsReadOnlyAccess - New policy added | HealthOmics added a new policy that limits access to read only. To learn more, [AmazonOmicsReadOnlyAccess](#security-iam-awsmanpol-AmazonOmicsReadOnlyAccess "#security-iam-awsmanpol-AmazonOmicsReadOnlyAccess").                  | November 29, 2022 |
+| Change                                          | Description                                                                                                                                                                                                                         | Date              |
+| ----------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- |
+| AmazonOmicsFullAccess<br>• New policy added     | HealthOmics added a new policy to grant a user full access to all actions and resources. To learn more, see [AmazonOmicsFullAccess](#security-iam-awsmanpol-AmazonOmicsFullAccess "#security-iam-awsmanpol-AmazonOmicsFullAccess"). | February 23, 2023 |
+| HealthOmics started tracking<br>changes         | HealthOmics started tracking changes for its AWS managed<br>policies.                                                                                                                                                               | November 29, 2022 |
+| AmazonOmicsReadOnlyAccess<br>• New policy added | HealthOmics added a new policy that limits access to read only. To learn more, [AmazonOmicsReadOnlyAccess](#security-iam-awsmanpol-AmazonOmicsReadOnlyAccess "#security-iam-awsmanpol-AmazonOmicsReadOnlyAccess").                  | November 29, 2022 |
