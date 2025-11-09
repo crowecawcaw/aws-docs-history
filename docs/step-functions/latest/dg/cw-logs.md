@@ -92,7 +92,7 @@ For more information about the execution data displayed for Express Workflow exe
 [Standard and Express console experience differences](concepts-view-execution-details.md#console-exp-differences "concepts-view-execution-details.md#console-exp-differences").
 
 | Event Type                   | `ALL`  | `ERROR`      | `FATAL`      | `OFF`        |
-| ---------------------------- | ------ | ------------ | ------------ | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| ---------------------------- | ------ | ------------ | ------------ | ------------ |
 | ChoiceStateEntered           | Logged | _Not logged_ | _Not logged_ | _Not logged_ |
 | ChoiceStateExited            | Logged | _Not logged_ | _Not logged_ | _Not logged_ |
 | ExecutionAborted             | Logged | Logged       | Logged       | _Not logged_ |
@@ -143,4 +143,48 @@ For more information about the execution data displayed for Express Workflow exe
 | TaskTimedOut                 | Logged | Logged       | _Not logged_ | _Not logged_ |
 | WaitStateAborted             | Logged | Logged       | _Not logged_ | _Not logged_ |
 | WaitStateEntered             | Logged | _Not logged_ | _Not logged_ | _Not logged_ |
-| WaitStateExited              | Logged | _Not logged_ | _Not logged_ | _Not logged_ | ## Troubleshooting logging to CloudWatch Logs If your state machine cannot send logs to CloudWatch Logs or you receive the error: "`AccessDeniedException : The state machine IAM Role is not authorized to access the Log Destination`", try the following steps: 1. Verify your state machine's execution role has permission to log to CloudWatch Logs. When you call [CreateStateMachine](../apireference/API_CreateStateMachine.md "../apireference/API_CreateStateMachine.md") or [UpdateStateMachine](../apireference/API_UpdateStateMachine.md "../apireference/API_UpdateStateMachine.md") API endpoints, make sure the IAM role specified in the `roleArn` parameter provides the necessary permissions, shown in the preceding IAM policy example. 2. Verify the CloudWatch Logs resource policy does not exceed the 5,120 character limit. If the policy exceeds the character limit, prefix your log group names with `/aws/vendedlogs/states` to grant permissions to your state machines and avoid the limit. When you create a log group in the Step Functions console, the suggested log group names are already prefixed with `/aws/vendedlogs/states`. For more information on logging best practices, see [Avoiding CloudWatch resource policy size limits](sfn-best-practices.md#bp-cwl "sfn-best-practices.md#bp-cwl"). 3. Verify the number of CloudWatch Logs log resource policies in the account is less than **ten**. CloudWatch Logs has a quota of ten resource policies per region, per account. If you try to enable logging on a state machine that already has ten resource policies, the state machine will not be created nor updated, and you will receive an error. For more information about logging quotas, see [CloudWatch Logs quotas](../../../AmazonCloudWatch/latest/logs/cloudwatch_limits_cwl.md "../../../AmazonCloudWatch/latest/logs/cloudwatch_limits_cwl.md") To verify the problem, check the number of resource policies using the CLI command: [`aws logs describe-resource-policies`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/logs/describe-resource-policies.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/logs/describe-resource-policies.html") To resolve the problem, modify your existing resource policies. First, back up the existing policies. Then, join similar actions or resources into a new policy and use the following CLI command to create a new delivery source in the account: [`aws logs put-delivery-source`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/logs/put-delivery-source.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/logs/put-delivery-source.html") After backing up and updating the policies, remove any unused policies with the following command: [`aws logs delete-resource-policy --policy-name <PolicyNameToBeDeleted>`](../../../cli/latest/reference/logs/delete-resource-policy.md "../../../cli/latest/reference/logs/delete-resource-policy.md") |
+| WaitStateExited              | Logged | _Not logged_ | _Not logged_ | _Not logged_ |
+
+## Troubleshooting logging to CloudWatch Logs
+
+If your state machine cannot send logs to CloudWatch Logs or you receive the error:
+"`AccessDeniedException : The state machine IAM Role is not authorized to access
+ the Log Destination`", try the following steps:
+
+1. Verify your state machine's execution role has permission to log to CloudWatch Logs.
+
+When you call [CreateStateMachine](../apireference/API_CreateStateMachine.md "../apireference/API_CreateStateMachine.md") or
+[UpdateStateMachine](../apireference/API_UpdateStateMachine.md "../apireference/API_UpdateStateMachine.md") API endpoints, make sure the IAM role specified in the `roleArn` parameter provides the necessary permissions, shown in the preceding IAM policy example. 2. Verify the CloudWatch Logs resource policy does not exceed the 5,120 character limit.
+
+If the policy exceeds the character limit, prefix your log group names with
+`/aws/vendedlogs/states` to grant permissions to your state machines
+and avoid the limit.
+
+When you create a log group in the Step Functions console, the suggested log group
+names are already prefixed with `/aws/vendedlogs/states`. For more
+information on logging best practices, see [Avoiding CloudWatch resource policy size limits](sfn-best-practices.md#bp-cwl "sfn-best-practices.md#bp-cwl"). 3. Verify the number of CloudWatch Logs log resource policies in the account is less than
+**ten**.
+
+CloudWatch Logs has a quota of ten resource policies per region, per account. If you try
+to enable logging on a state machine that already has ten resource policies, the
+state machine will not be created nor updated, and you will receive an error.
+For more information about logging quotas, see [CloudWatch Logs quotas](../../../AmazonCloudWatch/latest/logs/cloudwatch_limits_cwl.md "../../../AmazonCloudWatch/latest/logs/cloudwatch_limits_cwl.md")
+
+To verify the problem, check the number of resource policies using the CLI
+command:
+
+[`aws logs describe-resource-policies`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/logs/describe-resource-policies.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/logs/describe-resource-policies.html")
+
+To resolve the problem, modify your existing resource policies.
+
+First, back up the existing policies. Then, join similar actions or resources
+into a new policy and use the following CLI command to create a new delivery
+source in the account:
+
+[`aws logs put-delivery-source`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/logs/put-delivery-source.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/logs/put-delivery-source.html")
+
+After backing up and updating the policies, remove any unused policies with
+the following command:
+
+[`aws logs delete-resource-policy --policy-name
+ <PolicyNameToBeDeleted>`](../../../cli/latest/reference/logs/delete-resource-policy.md "../../../cli/latest/reference/logs/delete-resource-policy.md")

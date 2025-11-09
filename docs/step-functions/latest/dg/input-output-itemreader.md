@@ -171,6 +171,27 @@ header:
 
 Step Functions supports headers of up to 10 KiB for text delimited files.
 
+- `ItemsPointer`
+
+_Optional_. You can specify this field when `InputType` is `JSON`.
+
+`ItemsPointer` uses JSONPointer syntax to select a specific array or object nested within your JSON file. JSONPointer is a standardized syntax designed exclusively for navigating and referencing locations within JSON documents.
+
+JSONPointer syntax uses forward slashes (/) to separate each level of nesting, with array indices represented as numbers without brackets. For example:
+
+    + `/Data/Contents` - references the Contents array within the Data object
+    + `/Data/Contents/0` - references the first element of the Contents array
+
+The target array's starting position must be within the first 16MB of the JSON file, and the JSONPointer path must be less than 2000 characters in length.
+
+For example, if your JSON file contains:
+
+```
+{"data": {"items": [{"id": 1}, {"id": 2}]}}
+```
+
+You would specify `"ItemsPointer": "/data/items"` to process the items array.
+
 - `MaxItems`
 
 By default, the `Map` state iterates over all items in the specified
@@ -277,7 +298,7 @@ The input can be a JSON array, a JSON object, or an array within a node of a JSO
 Step Functions will iterate directly over the elements of an array, or the key-value
 pairs of a JSON object.
 
-To select a specific node that contains an array from a JSON object, you can use the
+To select a specific node that contains a nested JSON array or object from the input, you can use the
 `ItemsPath (Map, JSONPath only)` or use a JSONata expression in
 the `Items` field for JSONata states.
 

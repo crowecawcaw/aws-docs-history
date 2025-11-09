@@ -252,11 +252,85 @@ This example tests if the HTTP Task calls the specified HTTPS API, `https://http
 
 The TestState API returns JSON data as escaped strings in its response. The following AWS CLI example extends [Example 3](#test-trace-level-cli "#test-trace-level-cli") and uses the `jq` utility to filter and print the HTTP response that the TestState API returns in a human-readable format. For information about `jq` and its installation instructions, see [jq](https://stedolan.github.io/jq/ "https://stedolan.github.io/jq/") on _GitHub_.
 
-````
+```
 aws stepfunctions test-state \
     --definition '{"Type": "Task", "Resource": "arn:aws:states:::http:invoke", "Parameters": {"Method": "GET", "Authentication": {"ConnectionArn": "arn:aws:events:`region`:`account-id`:connection/`MyConnection/0000000-0000-0000-0000-000000000000"`}, "ApiEndpoint": "https://httpbin.org/get", "Headers": {"definitionHeader": "h1"}, "RequestBody": {"message": "Hello from Step Functions!"}, "QueryParameters": {"queryParam": "q1"}}, "End": true}' \
     --role-arn arn:aws:iam::`account-id`:role/`myRole` \
     --inspection-level TRACE \
     --reveal-secrets \
-| `jq '.inspectionData.response.body | fromjson'` ``` The following example shows the output returned in a human-readable format. ``` { "args": { `"QueryParam1": "QueryParamValue1", "queryParam": "q1"` }, "headers": { "Authorization": "Basic XXXXXXXX", "Content-Type": "application/json; charset=UTF-8", "Customheader1": "CustomHeaderValue1", "Definitionheader": "h1", "Host": "httpbin.org", "Range": "bytes=0-262144", "Transfer-Encoding": "chunked", "User-Agent": "Amazon|StepFunctions|HttpInvoke|`region`", "X-Amzn-Trace-Id": "Root=1-0000000-0000-0000-0000-000000000000" }, "origin": "`12.34.567.891`", "url": "`https://httpbin.org/get?queryParam=q1&QueryParam1=QueryParamValue1`" } ``` ## Testing and debugging input and output data flow The `TestState` API is helpful for testing and debugging the data that flows through your workflow. This section provides some key concepts and explains how to use the TestState for this purpose. ### Key concepts In Step Functions, the process of filtering and manipulating JSON data as it passes through the states in your state machine is called *input and output processing*. For information about how this works, see [Processing input and output in Step Functions](concepts-input-output-filtering.md "concepts-input-output-filtering.md"). All the [state](workflow-states.md "workflow-states.md") types in the [Amazon States Language](concepts-amazon-states-language.md "concepts-amazon-states-language.md") (ASL) (Task, Parallel, Map, Pass, Wait, Choice, Succeed, and Fail) share a set of common fields for filtering and manipulating the JSON data that passes through them. These fields are: [InputPath](input-output-inputpath-params.md#input-output-inputpath "input-output-inputpath-params.md#input-output-inputpath"), [Parameters](input-output-inputpath-params.md#input-output-parameters "input-output-inputpath-params.md#input-output-parameters"), [ResultSelector](input-output-inputpath-params.md#input-output-resultselector "input-output-inputpath-params.md#input-output-resultselector"), [Specifying state output using ResultPath in Step Functions](input-output-resultpath.md "input-output-resultpath.md"), and [Filtering state output using OutputPath](input-output-example.md#input-output-outputpath "input-output-example.md#input-output-outputpath"). Support for each field [varies across states](https://states-language.net/spec.html#state-type-table "https://states-language.net/spec.html#state-type-table"). At runtime, Step Functions applies each field in a specific order. The following diagram shows the order in which these fields are applied to the data inside a Task state: ![Order of filters: InputPath, Parameters, ResultSelector, ResultPath, and OutputPath.](images/input-output-processing.png) The following list describes the order of application of the input and output processing fields shown in the diagram. 1. *State input* is the JSON data passed to the current state from a previous state. 2. [InputPath](input-output-inputpath-params.md#input-output-inputpath "input-output-inputpath-params.md#input-output-inputpath") filters a portion of the raw state input. 3. [Parameters](input-output-inputpath-params.md#input-output-parameters "input-output-inputpath-params.md#input-output-parameters") configures the set of values to pass to the [Task](state-task.md "state-task.md"). 4. The task performs work and returns a result. 5. [ResultSelector](input-output-inputpath-params.md#input-output-resultselector "input-output-inputpath-params.md#input-output-resultselector") selects a set of values to keep from the task result. 6. [Specifying state output using ResultPath in Step Functions](input-output-resultpath.md "input-output-resultpath.md") combines the result with the raw state input, or replaces the result with it. 7. [Filtering state output using OutputPath](input-output-example.md#input-output-outputpath "input-output-example.md#input-output-outputpath") filters a portion of the output to pass along to the next state. 8. *State output* is the JSON data passed from the current state to the next state. These input and output processing fields are optional. If you don’t use any of these fields in your state definition, the task will consume the raw state input, and return the task result as the state output. ### Using TestState to inspect input and output processing When you call the `TestState` API and set the `inspectionLevel` parameter to `DEBUG`, the API response includes an object called `inspectionData`. This object contains fields to help you inspect how data was filtered or manipulated within the state when it was executed. The following example shows the `inspectionData` object for a Task state. ``` "inspectionData":   { "input": string, "afterInputPath": string, "afterParameters": string, "result": string, "afterResultSelector": string, "afterResultPath": string, "output": string } ``` In this example, each field that contains the `after` prefix, shows the data after a particular field was applied. For example, `afterInputPath` shows the effect of applying the `InputPath` field to filter the raw state input. The following diagram maps each [ASL definition](concepts-amazon-states-language.md "concepts-amazon-states-language.md") field to its corresponding field in the `inspectionData` object: ![Diagram showing the mapping of ASL fields to inspectionData.](images/inspection-data-after-fields.png) For examples of using the TestState API to debug input and output processing, see the following: <br>• [Testing a state using the DEBUG inspection level in the Step Functions console](#test-state-debug-level "#test-state-debug-level") <br>• [Testing a state using the DEBUG inspection level in the AWS CLI](#test-debug-level-cli "#test-debug-level-cli")
-````
+    | `jq '.inspectionData.response.body | fromjson'`
+```
+
+The following example shows the output returned in a human-readable format.
+
+```
+{
+  "args": {
+    `"QueryParam1": "QueryParamValue1",
+ "queryParam": "q1"`
+  },
+  "headers": {
+    "Authorization": "Basic XXXXXXXX",
+    "Content-Type": "application/json; charset=UTF-8",
+    "Customheader1": "CustomHeaderValue1",
+    "Definitionheader": "h1",
+    "Host": "httpbin.org",
+    "Range": "bytes=0-262144",
+    "Transfer-Encoding": "chunked",
+    "User-Agent": "Amazon|StepFunctions|HttpInvoke|`region`",
+    "X-Amzn-Trace-Id": "Root=1-0000000-0000-0000-0000-000000000000"
+  },
+  "origin": "`12.34.567.891`",
+  "url": "`https://httpbin.org/get?queryParam=q1&QueryParam1=QueryParamValue1`"
+}
+```
+
+## Testing and debugging input and output data flow
+
+The `TestState` API is helpful for testing and debugging the data that flows through your workflow. This section provides some key concepts and explains how to use the TestState for this purpose.
+
+### Key concepts
+
+In Step Functions, the process of filtering and manipulating JSON data as it passes through the states in your state machine is called _input and output processing_. For information about how this works, see [Processing input and output in Step Functions](concepts-input-output-filtering.md "concepts-input-output-filtering.md").
+
+All the [state](workflow-states.md "workflow-states.md") types in the [Amazon States Language](concepts-amazon-states-language.md "concepts-amazon-states-language.md") (ASL) (Task, Parallel, Map, Pass, Wait, Choice, Succeed, and Fail) share a set of common fields for filtering and manipulating the JSON data that passes through them. These fields are: [InputPath](input-output-inputpath-params.md#input-output-inputpath "input-output-inputpath-params.md#input-output-inputpath"), [Parameters](input-output-inputpath-params.md#input-output-parameters "input-output-inputpath-params.md#input-output-parameters"), [ResultSelector](input-output-inputpath-params.md#input-output-resultselector "input-output-inputpath-params.md#input-output-resultselector"), [Specifying state output using ResultPath in Step Functions](input-output-resultpath.md "input-output-resultpath.md"), and [Filtering state output using OutputPath](input-output-example.md#input-output-outputpath "input-output-example.md#input-output-outputpath"). Support for each field [varies across states](https://states-language.net/spec.html#state-type-table "https://states-language.net/spec.html#state-type-table"). At runtime, Step Functions applies each field in a specific order. The following diagram shows the order in which these fields are applied to the data inside a Task state:
+
+![Order of filters: InputPath, Parameters, ResultSelector, ResultPath, and OutputPath.](images/input-output-processing.png)
+
+The following list describes the order of application of the input and output processing fields shown in the diagram.
+
+1. _State input_ is the JSON data passed to the current state from a previous state.
+2. [InputPath](input-output-inputpath-params.md#input-output-inputpath "input-output-inputpath-params.md#input-output-inputpath") filters a portion of the raw state input.
+3. [Parameters](input-output-inputpath-params.md#input-output-parameters "input-output-inputpath-params.md#input-output-parameters") configures the set of values to pass to the [Task](state-task.md "state-task.md").
+4. The task performs work and returns a result.
+5. [ResultSelector](input-output-inputpath-params.md#input-output-resultselector "input-output-inputpath-params.md#input-output-resultselector") selects a set of values to keep from the task result.
+6. [Specifying state output using ResultPath in Step Functions](input-output-resultpath.md "input-output-resultpath.md") combines the result with the raw state input, or replaces the result with it.
+7. [Filtering state output using OutputPath](input-output-example.md#input-output-outputpath "input-output-example.md#input-output-outputpath") filters a portion of the output to pass along to the next state.
+8. _State output_ is the JSON data passed from the current state to the next state.
+
+These input and output processing fields are optional. If you don’t use any of these fields in your state definition, the task will consume the raw state input, and return the task result as the state output.
+
+### Using TestState to inspect input and output processing
+
+When you call the `TestState` API and set the `inspectionLevel` parameter to `DEBUG`, the API response includes an object called `inspectionData`. This object contains fields to help you inspect how data was filtered or manipulated within the state when it was executed. The following example shows the `inspectionData` object for a Task state.
+
+```
+"inspectionData":   {
+  "input": string,
+  "afterInputPath": string,
+  "afterParameters": string,
+  "result": string,
+  "afterResultSelector": string,
+  "afterResultPath": string,
+  "output": string
+}
+```
+
+In this example, each field that contains the `after` prefix, shows the data after a particular field was applied. For example, `afterInputPath` shows the effect of applying the `InputPath` field to filter the raw state input. The following diagram maps each [ASL definition](concepts-amazon-states-language.md "concepts-amazon-states-language.md") field to its corresponding field in the `inspectionData` object:
+
+![Diagram showing the mapping of ASL fields to inspectionData.](images/inspection-data-after-fields.png)
+
+For examples of using the TestState API to debug input and output processing, see the following:
+
+- [Testing a state using the DEBUG inspection level in the Step Functions console](#test-state-debug-level "#test-state-debug-level")
+- [Testing a state using the DEBUG inspection level in the AWS CLI](#test-debug-level-cli "#test-debug-level-cli")

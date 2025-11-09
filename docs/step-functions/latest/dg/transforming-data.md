@@ -84,7 +84,7 @@ Some examples:
 - `"Arguments" : {"field1" : "{% $name %}"}` in a `Task` state
 - `"Items": [1, "{% $two %}", 3]` in a `Map` state
 
-Not all ASL fields accept JSONata. For example, each state’s `Type` field must be set to a constant string. Similarly, the `Task` state’s `Resource` field must be a constant string. The `Map` state `Items` field will accept a JSON array or a JSONata expression that must evaluate to an array.
+Not all ASL fields accept JSONata. For example, each state’s `Type` field must be set to a constant string. Similarly, the `Task` state’s `Resource` field must be a constant string. The `Map` state `Items` field will accept a JSON array, a JSON object, or a JSONata expression that must evaluate to an array or object.
 
 ## Reserved variable : $states
 
@@ -155,7 +155,7 @@ ASL requires developers use `Path` versions of fields, as in `TimeoutSecondsPath
 - JSONPath legacy example: `"TimeoutSecondsPath": "$timeout"`
 - JSONata : `"TimeoutSeconds": "{% $timeout %}"`
 
-Similarly, the `Map` state `ItemsPath` has been replaced with the `Items` field which accepts a JSON array or a JSONata expression that must evaluate to an array.
+Similarly, the `Map` state `ItemsPath` has been replaced with the `Items` field which accepts a JSON array, a JSON object, or a JSONata expression that must evaluate to an array or object.
 
 ### JSON Objects
 

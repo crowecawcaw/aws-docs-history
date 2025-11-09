@@ -107,24 +107,23 @@ machine's name must include only characters that the AWS Security Token Service 
 supports. For more information, see [AssumeRole](../../../STS/latest/APIReference/API_AssumeRole.md "../../../STS/latest/APIReference/API_AssumeRole.md") in the _AWS Security Token Service API Reference_.
 
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": "sts:AssumeRole",
- "Principal": {
- "AWS": "arn:aws:iam::`123456789012`:role/`InvokeRole`"
- },
- "Condition": {
- "StringEquals": {
- "sts:ExternalId": "arn:aws:states:us-east-2:`123456789012`:stateMachine:`stateMachineName`"
- }
- }
- }
- ]
-}`
-
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": "sts:AssumeRole",
+      "Principal": {
+        "AWS": "arn:aws:iam::`sourceAccountID`:role/`InvokeRole`",
+      },
+      "Condition": {
+        "StringEquals": {
+          "sts:ExternalId": "arn:aws:states:us-east-2:`sourceAccountID`:stateMachine:`stateMachineName`"
+        }
+      }
+    }
+  ]
+}
 ```
 
 ### Permissions required for .sync calls

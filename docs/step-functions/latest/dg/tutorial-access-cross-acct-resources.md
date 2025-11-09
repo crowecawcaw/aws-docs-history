@@ -127,24 +127,23 @@ target account.
    _AWS Security Token Service API Reference_.
 
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": "sts:AssumeRole",
- "Principal": {
- "AWS": "arn:aws:iam::123456789012:role/ExecutionRole"
- },
- "Condition": {
- "StringEquals": {
- "sts:ExternalId": "arn:aws:states:`us-east-1`:123456789012:stateMachine:testCrossAccount"
- }
- }
- }
- ]
-}`
-
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": "sts:AssumeRole",
+      "Principal": {
+        "AWS": "arn:aws:iam::`account-id`:role/ExecutionRole"  // The source account's state machine execution role ARN
+      },
+      "Condition": {  // Control which account and state machine can assume the target IAM role
+        "StringEquals": {
+          "sts:ExternalId": "arn:aws:states:`region`:`account-id`:stateMachine:testCrossAccount"   //// ARN of the state machine that will assume the role.
+        }
+      }
+    }
+  ]
+}
 ```
 
 5. Keep this window open and proceed to the next step for further actions.
@@ -162,17 +161,16 @@ function.
 3. Choose the **JSON** tab and replace the existing content with the following permission. Make sure to replace your Lambda function ARN.
 
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": "lambda:InvokeFunction",
- "Resource": "arn:aws:lambda:us-east-2:111122223333:function:`Echo`"
- }
- ]
-}`
-
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": "lambda:InvokeFunction",
+      "Resource": "arn:aws:lambda:us-east-2:111122223333:function:`Echo`"  // The cross-account AWS resource being accessed
+    }
+  ]
+}
 ```
 
 4. Choose **Review policy**.
@@ -197,17 +195,16 @@ more AWS accounts.
 3. Choose the **JSON** tab and replace the existing content with the following permission. Make sure to replace your Lambda function ARN.
 
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": "sts:AssumeRole",
- "Resource": "arn:aws:iam::111122223333:role/`LambdaRole`"
- }
- ]
-}`
-
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": "sts:AssumeRole",
+      "Resource": "arn:aws:iam::111122223333:role/`LambdaRole`"  // The target role to be assumed
+    }
+  ]
+}
 ```
 
 4. Choose **Review policy**.

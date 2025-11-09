@@ -386,23 +386,371 @@ execution role needs to be granted `kms:GenerateDataKey` and `kms:Decrypt` permi
 The following table shows the AWS KMS permissions you need to provide to Step Functions API callers for the APIs using a **State Machine's AWS KMS key**. You can provide the permissions to
 the key policy or IAM policy for the role.
 
-|                                            |                                      |
-| ------------------------------------------ | ------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **APIs using State Machine's AWS KMS key** | **Required by Caller**               |
-| **CreateStateMachine**                     | kms:DescribeKey, kms:GenerateDataKey |
-| **UpdateStateMachine**                     | kms:DescribeKey, kms:GenerateDataKey |
-| **DescribeStateMachine**                   | kms:Decrypt                          |
-| **DescribeStateMachineForExecution**       | kms:Decrypt                          |
-| **StartExecution**                         | --                                   |
-| **StartSyncExecution**                     | kms:Decrypt                          |
-| **SendTaskSuccess**                        | --                                   |
-| **SendTaskFailure**                        | --                                   |
-| **StopExecution**                          | --                                   |
-| **RedriveExecution**                       | --                                   |
-| **DescribeExecution**                      | kms:Decrypt                          |
-| **GetExecutionHistory**                    | kms:Decrypt                          | The following table shows the AWS KMS permissions you need to provide to Step Functions API callers for the APIs using an **Activity's AWS KMS key**. You can provide the permissions in the key policy or IAM policy for the role.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-|                                            |                                      |
-| ---                                        | ---                                  |
-| **APIs using Activity's AWS KMS key**      | **Required by Caller**               |
-| **CreateActivity**                         | kms:DescribeKey                      |
-| **GetActivityTask**                        | kms:Decrypt                          | ###### When do I grant permissions to the Caller or the Execution role? When an IAM role or user calls the Step Functions API, the Step Functions service calls AWS KMS on behalf of the API caller. In this case, you must grant AWS KMS permission to the API caller. When an execution role calls AWS KMS directly, you must grant AWS KMS permissions on the execution role. ## AWS CloudFormation resources for encryption configuration AWS CloudFormation resource types for Step Functions can provision state machine and activity resources with encryption configurations. By default, Step Functions provides transparent server-side encryption. Both [`AWS::StepFunctions::Activity`](../../../AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-activity.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-activity.md") and [`AWS::StepFunctions::StateMachine`](../../../AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.md") accept an optional `EncryptionConfiguration` property which can configure a customer managed AWS KMS key for server-side encryption. **Prerequisite:** Before you can create a state machine with customer managed AWS KMS keys, your user or role must have AWS KMS permissions to `DescribeKey` and `GenerateDataKey`. Updates to StateMachine requires [No interruption](../../../AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.md#update-no-interrupt "../../../AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.md#update-no-interrupt"). Updates to Activity resources requires: [Replacement](../../../AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.md#update-replacement "../../../AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.md#update-replacement"). To declare an **`EncryptionConfiguration`** property in your AWS CloudFormation template, use the following syntax: **JSON** `{ "KmsKeyId" : String, "KmsDataKeyReusePeriodSeconds" : Integer, "Type" : String }` **YAML** `KmsKeyId: String KmsDataKeyReusePeriodSeconds: Integer Type: String` **Properties** <br>• **Type** - Encryption option for the state machine or activity. _Allowed values_: `CUSTOMER_MANAGED_KMS_KEY` | `AWS_OWNED_KEY` <br>• **KmsKeyId** - Alias, alias ARN, key ID, or key ARN of the symmetric encryption AWS KMS key that encrypts the data key. To specify a AWS KMS key in a different AWS account, the customer must use the key ARN or alias ARN. For information regarding kmsKeyId, see [KeyId](../../../kms/latest/APIReference/API_DescribeKey.md#API_DescribeKey_RequestParameters "../../../kms/latest/APIReference/API_DescribeKey.md#API_DescribeKey_RequestParameters") in AWS KMS docs. <br>• **KmsDataKeyReusePeriodSeconds** - Maximum duration for which SFN will reuse data keys. When the period expires, Step Functions will call `GenerateDataKey`. This setting can only be set when **Type** is `CUSTOMER_MANAGED_KMS_KEY`. The value can range from 60-900 seconds. Default is 300 seconds. ### AWS CloudFormation examples #### Example: StateMachine with customer managed key `AWSTemplateFormatVersion: '2010-09-09' Description: An example template for a Step Functions State Machine. Resources: MyStateMachine: Type: AWS::StepFunctions::StateMachine Properties: StateMachineName: HelloWorld-StateMachine Definition: StartAt: PassState States: PassState: Type: Pass End: true RoleArn: !Sub "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/example" EncryptionConfiguration: KmsKeyId: !Ref MyKmsKey KmsDataKeyReusePeriodSeconds: 100 Type: CUSTOMER_MANAGED_KMS_KEY MyKmsKey: Type: AWS::KMS::Key Properties: Description: Symmetric KMS key used for encryption/decryption` #### Example: Activity with customer managed key `AWSTemplateFormatVersion: '2010-09-09' Description: An example template for a Step Functions Activity. Resources: Activity: Type: AWS::StepFunctions::Activity Properties: Name: ActivityWithKmsEncryption EncryptionConfiguration: KmsKeyId: !Ref MyKmsKey KmsDataKeyReusePeriodSeconds: 100 Type: CUSTOMER_MANAGED_KMS_KEY MyKmsKey: Type: AWS::KMS::Key Properties: Description: Symmetric KMS key used for encryption/decryption` #### Updating encryption for an Activity requires creating a new resource Activity configuration is immutable, and resource names must be unique. To set customer managed keys for encryption, you must create a **new Activity**. If you attempt to change the configuration in your CFN template for an existing activity, you will receive an `ActivityAlreadyExists` exception. To update your activity to include customer managed keys, set a new activity name within your CFN template. The following shows an example that creates a new activity with a customer managed key configuration: **Existing activity definition** `AWSTemplateFormatVersion: '2010-09-09' Description: An example template for a new Step Functions Activity. Resources: Activity: Type: AWS::StepFunctions::Activity Properties: Name: ActivityName EncryptionConfiguration: Type: AWS_OWNED_KEY` **New activity definition** `AWSTemplateFormatVersion: '2010-09-09' Description: An example template for a Step Functions Activity. Resources: Activity: Type: AWS::StepFunctions::Activity Properties: Name: ActivityWithKmsEncryption EncryptionConfiguration: KmsKeyId: !Ref MyKmsKey KmsDataKeyReusePeriodSeconds: 100 Type: CUSTOMER_MANAGED_KMS_KEY MyKmsKey: Type: AWS::KMS::Key Properties: Description: Symmetric KMS key used for encryption/decryption` ## Monitoring your encryption key usage When you use an AWS KMS customer managed key to encrypt your Step Functions resources, you can use CloudTrail to track requests that Step Functions sends to AWS KMS. You can also use the encryption context in audit records and logs to identify how the customer managed key is being used. The encryption context also appears in logs generated by [AWS CloudTrail](../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md "../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md"). The following examples are CloudTrail events for `Decrypt`, `DescribeKey`, and `GenerateDataKey` to monitor AWS KMS operations called by Step Functions to access data encrypted by your customer managed key: Decrypt When you access an encrypted state machine or activity, Step Functions calls the `Decrypt` operation to use the stored encrypted data key to access the encrypted data. The following example event records the `Decrypt` operation: `{ "eventVersion": "1.09", "userIdentity": { "type": "AssumedRole", "principalId": "111122223333:Sampleuser01", "arn": "arn:aws:sts::111122223333:assumed-role/Admin/Sampleuser01", "accountId": "111122223333", "accessKeyId": "ASIAIOSFODNN7EXAMPLE", "sessionContext": { "sessionIssuer": { "type": "Role", "principalId": "111122223333:Sampleuser01", "arn": "arn:aws:sts::111122223333:assumed-role/Admin/Sampleuser01", "accountId": "111122223333", "userName": "Admin" }, "attributes": { "creationDate": "2024-07-05T21:06:27Z", "mfaAuthenticated": "false" } }, "invokedBy": "states.amazonaws.com" }, "eventTime": "2024-07-05T21:12:21Z", "eventSource": "kms.amazonaws.com", "eventName": "Decrypt", "awsRegion": "aa-example-1", "sourceIPAddress": "states.amazonaws.com", "userAgent": "states.amazonaws.com", "requestParameters": { "encryptionAlgorithm": "SYMMETRIC_DEFAULT", "keyId": "arn:aws:kms:aa-example-1:111122223333:key/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111", "encryptionContext": { "aws:states:stateMachineArn": "arn:aws:states:aa-example-1:111122223333:stateMachine:example1" } }, "responseElements": null, "requestID": "ff000af-00eb-00ce-0e00-ea000fb0fba0SAMPLE", "eventID": "ff000af-00eb-00ce-0e00-ea000fb0fba0SAMPLE", "readOnly": true, "resources": [ { "accountId": "111122223333", "type": "AWS::KMS::Key", "ARN": "arn:aws:kms:aa-example-1:111122223333:key/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111" } ], "eventType": "AwsApiCall", "managementEvent": true, "recipientAccountId": "111122223333", "eventCategory": "Management" }` DescribeKey Step Functions uses the `DescribeKey` operation to verify if the AWS KMS customer managed key associated with your State Machine or Activity exists in the account and region. The following example event records the `DescribeKey`operation: `{ "eventVersion": "1.09", "userIdentity": { "type": "AssumedRole", "principalId": "111122223333:Sampleuser01", "arn": "arn:aws:sts::111122223333:assumed-role/Admin/Sampleuser01", "accountId": "111122223333", "accessKeyId": "ASIAIOSFODNN7EXAMPLE", "sessionContext": { "sessionIssuer": { "type": "Role", "principalId": "111122223333:Sampleuser01", "arn": "arn:aws:sts::111122223333:assumed-role/Admin/Sampleuser01", "accountId": "111122223333", "userName": "Admin" }, "attributes": { "creationDate": "2024-07-05T21:06:27Z", "mfaAuthenticated": "false" } }, "invokedBy": "states.amazonaws.com" }, "eventTime": "2024-07-05T21:12:21Z", "eventSource": "kms.amazonaws.com", "eventName": "DescribeKey", "awsRegion": "aa-example-1", "sourceIPAddress": "states.amazonaws.com", "userAgent": "states.amazonaws.com", "requestParameters": { "keyId": "arn:aws:kms:aa-example-1:111122223333:key/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111" }, "responseElements": null, "requestID": "ff000af-00eb-00ce-0e00-ea000fb0fba0SAMPLE", "eventID": "ff000af-00eb-00ce-0e00-ea000fb0fba0SAMPLE", "readOnly": true, "resources": [ { "accountId": "111122223333", "type": "AWS::KMS::Key", "ARN": "arn:aws:kms:aa-example-1:111122223333:key/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111" } ], "eventType": "AwsApiCall", "managementEvent": true, "recipientAccountId": "111122223333", "eventCategory": "Management", "sessionCredentialFromConsole": "true" }` GenerateDataKey When you enable an AWS KMS customer managed key for your State Machine or Activity, Step Functions sends a `GenerateDataKey` request to get a data key to the encrypt state machine definition or execution data. The following example event records the `GenerateDataKey`operation: `{ "eventVersion": "1.09", "userIdentity": { "type": "AssumedRole", "principalId": "111122223333:Sampleuser01", "arn": "arn:aws:sts::111122223333:assumed-role/Admin/Sampleuser01", "accountId": "111122223333", "accessKeyId": "ASIAIOSFODNN7EXAMPLE", "sessionContext": { "sessionIssuer": { "type": "Role", "principalId": "111122223333:Sampleuser01", "arn": "arn:aws:iam::111122223333:role/Admin", "accountId": "111122223333", "userName": "Admin" }, "attributes": { "creationDate": "2024-07-05T21:06:27Z", "mfaAuthenticated": "false" } }, "invokedBy": "states.amazonaws.com" }, "eventTime": "2024-07-05T21:12:21Z", "eventSource": "kms.amazonaws.com", "eventName": "GenerateDataKey", "awsRegion": "aa-example-1", "sourceIPAddress": "states.amazonaws.com", "userAgent": "states.amazonaws.com", "requestParameters": { "keySpec": "AES_256", "encryptionContext": { "aws:states:stateMachineArn": "arn:aws:states:aa-example-1:111122223333:stateMachine:example1" }, "keyId": "arn:aws:kms:aa-example-1:111122223333:key/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111" }, "responseElements": null, "requestID": "ff000af-00eb-00ce-0e00-ea000fb0fba0SAMPLE", "eventID": "ff000af-00eb-00ce-0e00-ea000fb0fba0SAMPLE", "readOnly": true, "resources": [ { "accountId": "111122223333", "type": "AWS::KMS::Key", "ARN": "arn:aws:kms:aa-example-1:111122223333:key/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111" } ], "eventType": "AwsApiCall", "managementEvent": true, "recipientAccountId": "111122223333", "eventCategory": "Management" }` ## FAQs ### What happens if my key is marked for deletion or deleted in AWS KMS? If the key is deleted or marked for deletion in AWS KMS, any related running executions will fail. New executions cannot be started until you remove or change the key associated with the workflow. After a AWS KMS key is deleted, all encrypted data associated with the workflow execution will remain encrypted and can no longer be decrypted, making the data **_unrecoverable_**. ### What happens if a AWS KMS key is disabled in AWS KMS? If a AWS KMS key is disabled in AWS KMS, any related running executions will fail. New executions cannot be started. You can no longer decrypt the data encrypted under that disabled AWS KMS key until it is re-enabled. ### What happens to Execution Status change events sent to EventBridge? Execution Input, Output, Error, and Cause will not be included for execution status change events for workflows that are encrypted using your customer managed AWS KMS key. ## Learn more For information about data encryption at rest, see [AWS Key Management Service concepts](../../../kms/latest/developerguide/concepts.md "../../../kms/latest/developerguide/concepts.md") and [security best practices for AWS Key Management Service](../../../kms/latest/developerguide/best-practices.md "../../../kms/latest/developerguide/best-practices.md") in the _AWS Key Management Service Developer Guide_. |
+|                                               |                                      |
+| --------------------------------------------- | ------------------------------------ |
+| **APIs using State Machine's AWS KMS<br>key** | **Required by Caller**               |
+| **CreateStateMachine**                        | kms:DescribeKey, kms:GenerateDataKey |
+| **UpdateStateMachine**                        | kms:DescribeKey, kms:GenerateDataKey |
+| **DescribeStateMachine**                      | kms:Decrypt                          |
+| **DescribeStateMachineForExecution**          | kms:Decrypt                          |
+| **StartExecution**                            | --                                   |
+| **StartSyncExecution**                        | kms:Decrypt                          |
+| **SendTaskSuccess**                           | --                                   |
+| **SendTaskFailure**                           | --                                   |
+| **StopExecution**                             | --                                   |
+| **RedriveExecution**                          | --                                   |
+| **DescribeExecution**                         | kms:Decrypt                          |
+| **GetExecutionHistory**                       | kms:Decrypt                          |
+
+The following table shows the AWS KMS permissions you need to provide to Step Functions API callers for the APIs using an **Activity's AWS KMS key**. You can provide the
+permissions in the key policy or IAM policy for the role.
+
+|                                          |                        |
+| ---------------------------------------- | ---------------------- |
+| **APIs using Activity's AWS KMS<br>key** | **Required by Caller** |
+| **CreateActivity**                       | kms:DescribeKey        |
+| **GetActivityTask**                      | kms:Decrypt            |
+
+###### When do I grant permissions to the Caller or the Execution role?
+
+When an IAM role or user calls the Step Functions API, the Step Functions service calls AWS KMS on behalf of the API caller. In this case, you must grant AWS KMS permission to the API caller. When an execution role calls AWS KMS directly, you must grant AWS KMS permissions on the execution role.
+
+## AWS CloudFormation resources for encryption configuration
+
+AWS CloudFormation resource types for Step Functions can provision state machine and activity resources with encryption configurations.
+
+By default, Step Functions provides transparent server-side encryption. Both [`AWS::StepFunctions::Activity`](../../../AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-activity.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-activity.md") and [`AWS::StepFunctions::StateMachine`](../../../AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.md") accept an optional `EncryptionConfiguration` property which can configure a customer managed AWS KMS key for server-side encryption.
+
+**Prerequisite:** Before you can create a state machine with customer managed AWS KMS keys, your user or role must have AWS KMS permissions to `DescribeKey` and `GenerateDataKey`.
+
+Updates to StateMachine requires [No interruption](../../../AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.md#update-no-interrupt "../../../AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.md#update-no-interrupt"). Updates to Activity resources requires: [Replacement](../../../AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.md#update-replacement "../../../AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-update-behaviors.md#update-replacement").
+
+To declare an **`EncryptionConfiguration`** property in your AWS CloudFormation template, use the following syntax:
+
+**JSON**
+
+```
+{
+  "KmsKeyId" : String,
+  "KmsDataKeyReusePeriodSeconds" : Integer,
+  "Type" : String
+}
+```
+
+**YAML**
+
+```
+KmsKeyId: String
+KmsDataKeyReusePeriodSeconds: Integer
+Type: String
+```
+
+**Properties**
+
+- **Type** - Encryption option for the state machine or activity. _Allowed values_: `CUSTOMER_MANAGED_KMS_KEY` | `AWS_OWNED_KEY`
+- **KmsKeyId** - Alias, alias ARN, key ID, or key ARN of the symmetric encryption AWS KMS key that encrypts the data key. To specify a AWS KMS key in a different AWS account, the customer must use the key ARN or alias ARN. For information regarding kmsKeyId, see [KeyId](../../../kms/latest/APIReference/API_DescribeKey.md#API_DescribeKey_RequestParameters "../../../kms/latest/APIReference/API_DescribeKey.md#API_DescribeKey_RequestParameters") in AWS KMS docs.
+- **KmsDataKeyReusePeriodSeconds** - Maximum duration for which SFN will reuse data keys. When the period expires, Step Functions will call `GenerateDataKey`. This setting can only be set when **Type** is `CUSTOMER_MANAGED_KMS_KEY`. The value can range from 60-900 seconds. Default is 300 seconds.
+
+### AWS CloudFormation examples
+
+#### Example: StateMachine with customer managed key
+
+```
+AWSTemplateFormatVersion: '2010-09-09'
+Description: An example template for a Step Functions State Machine.
+Resources:
+  MyStateMachine:
+    Type: AWS::StepFunctions::StateMachine
+    Properties:
+      StateMachineName: HelloWorld-StateMachine
+      Definition:
+        StartAt: PassState
+        States:
+          PassState:
+            Type: Pass
+            End: true
+      RoleArn: !Sub "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/example"
+      EncryptionConfiguration:
+        KmsKeyId: !Ref MyKmsKey
+        KmsDataKeyReusePeriodSeconds: 100
+        Type: CUSTOMER_MANAGED_KMS_KEY
+
+  MyKmsKey:
+    Type: AWS::KMS::Key
+    Properties:
+      Description: Symmetric KMS key used for encryption/decryption
+```
+
+#### Example: Activity with customer managed key
+
+```
+AWSTemplateFormatVersion: '2010-09-09'
+Description: An example template for a Step Functions Activity.
+Resources:
+  Activity:
+    Type: AWS::StepFunctions::Activity
+    Properties:
+      Name: ActivityWithKmsEncryption
+      EncryptionConfiguration:
+        KmsKeyId: !Ref MyKmsKey
+        KmsDataKeyReusePeriodSeconds: 100
+        Type: CUSTOMER_MANAGED_KMS_KEY
+
+  MyKmsKey:
+    Type: AWS::KMS::Key
+    Properties:
+      Description: Symmetric KMS key used for encryption/decryption
+
+```
+
+#### Updating encryption for an Activity requires creating a new resource
+
+Activity configuration is immutable, and resource names must be unique. To set customer managed keys for encryption, you must create a **new Activity**. If you attempt to change the configuration in your CFN template for an existing activity, you will receive an `ActivityAlreadyExists` exception.
+
+To update your activity to include customer managed keys, set a new activity name within your CFN template. The following shows an example that creates a new activity with a customer managed key configuration:
+
+**Existing activity definition**
+
+```
+AWSTemplateFormatVersion: '2010-09-09'
+  Description: An example template for a new Step Functions Activity.
+  Resources:
+    Activity:
+    Type: AWS::StepFunctions::Activity
+    Properties:
+      Name: ActivityName
+      EncryptionConfiguration:
+        Type: AWS_OWNED_KEY
+```
+
+**New activity definition**
+
+```
+AWSTemplateFormatVersion: '2010-09-09'
+  Description: An example template for a Step Functions Activity.
+  Resources:
+    Activity:
+      Type: AWS::StepFunctions::Activity
+      Properties:
+        Name: ActivityWithKmsEncryption
+        EncryptionConfiguration:
+          KmsKeyId: !Ref MyKmsKey
+          KmsDataKeyReusePeriodSeconds: 100
+          Type: CUSTOMER_MANAGED_KMS_KEY
+
+    MyKmsKey:
+      Type: AWS::KMS::Key
+      Properties:
+        Description: Symmetric KMS key used for encryption/decryption
+```
+
+## Monitoring your encryption key usage
+
+When you use an AWS KMS customer managed key to encrypt your Step Functions resources, you can use CloudTrail
+to track requests that Step Functions sends to AWS KMS.
+
+You can also use the encryption context in audit records and logs to identify how
+the customer managed key is being used. The encryption context also appears in logs generated by [AWS CloudTrail](../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md "../../../awscloudtrail/latest/userguide/cloudtrail-user-guide.md").
+
+The following examples are CloudTrail events for `Decrypt`, `DescribeKey`, and
+`GenerateDataKey` to monitor AWS KMS operations called by Step Functions to access
+data encrypted by your customer managed key:
+
+Decrypt
+When you access an encrypted state machine or activity, Step Functions
+calls the `Decrypt` operation to use the stored encrypted
+data key to access the encrypted data.
+
+The following example event records the `Decrypt` operation:
+
+```
+{
+  "eventVersion": "1.09",
+  "userIdentity": {
+    "type": "AssumedRole",
+    "principalId": "111122223333:Sampleuser01",
+    "arn": "arn:aws:sts::111122223333:assumed-role/Admin/Sampleuser01",
+    "accountId": "111122223333",
+    "accessKeyId": "ASIAIOSFODNN7EXAMPLE",
+    "sessionContext": {
+      "sessionIssuer": {
+        "type": "Role",
+        "principalId": "111122223333:Sampleuser01",
+        "arn": "arn:aws:sts::111122223333:assumed-role/Admin/Sampleuser01",
+        "accountId": "111122223333",
+        "userName": "Admin"
+      },
+      "attributes": {
+        "creationDate": "2024-07-05T21:06:27Z",
+        "mfaAuthenticated": "false"
+      }
+    },
+    "invokedBy": "states.amazonaws.com"
+  },
+  "eventTime": "2024-07-05T21:12:21Z",
+  "eventSource": "kms.amazonaws.com",
+  "eventName": "Decrypt",
+  "awsRegion": "aa-example-1",
+  "sourceIPAddress": "states.amazonaws.com",
+  "userAgent": "states.amazonaws.com",
+  "requestParameters": {
+        "encryptionAlgorithm": "SYMMETRIC_DEFAULT",
+        "keyId": "arn:aws:kms:aa-example-1:111122223333:key/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+        "encryptionContext": {
+            "aws:states:stateMachineArn": "arn:aws:states:aa-example-1:111122223333:stateMachine:example1"
+        }
+    },
+    "responseElements": null,
+    "requestID": "ff000af-00eb-00ce-0e00-ea000fb0fba0SAMPLE",
+    "eventID": "ff000af-00eb-00ce-0e00-ea000fb0fba0SAMPLE",
+    "readOnly": true,
+    "resources": [
+        {
+            "accountId": "111122223333",
+            "type": "AWS::KMS::Key",
+            "ARN": "arn:aws:kms:aa-example-1:111122223333:key/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111"
+        }
+    ],
+    "eventType": "AwsApiCall",
+    "managementEvent": true,
+    "recipientAccountId": "111122223333",
+    "eventCategory": "Management"
+}
+```
+
+DescribeKey
+Step Functions uses the `DescribeKey` operation to verify if the
+AWS KMS customer managed key associated with your State Machine or Activity
+exists in the account and region.
+
+The following example event records the `DescribeKey`operation:
+
+```
+{
+  "eventVersion": "1.09",
+  "userIdentity": {
+    "type": "AssumedRole",
+    "principalId": "111122223333:Sampleuser01",
+    "arn": "arn:aws:sts::111122223333:assumed-role/Admin/Sampleuser01",
+    "accountId": "111122223333",
+    "accessKeyId": "ASIAIOSFODNN7EXAMPLE",
+    "sessionContext": {
+      "sessionIssuer": {
+        "type": "Role",
+        "principalId": "111122223333:Sampleuser01",
+        "arn": "arn:aws:sts::111122223333:assumed-role/Admin/Sampleuser01",
+        "accountId": "111122223333",
+        "userName": "Admin"
+      },
+      "attributes": {
+        "creationDate": "2024-07-05T21:06:27Z",
+        "mfaAuthenticated": "false"
+      }
+    },
+    "invokedBy": "states.amazonaws.com"
+  },
+  "eventTime": "2024-07-05T21:12:21Z",
+  "eventSource": "kms.amazonaws.com",
+  "eventName": "DescribeKey",
+  "awsRegion": "aa-example-1",
+  "sourceIPAddress": "states.amazonaws.com",
+  "userAgent": "states.amazonaws.com",
+  "requestParameters": {
+    "keyId": "arn:aws:kms:aa-example-1:111122223333:key/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111"
+  },
+  "responseElements": null,
+  "requestID": "ff000af-00eb-00ce-0e00-ea000fb0fba0SAMPLE",
+  "eventID": "ff000af-00eb-00ce-0e00-ea000fb0fba0SAMPLE",
+  "readOnly": true,
+  "resources": [
+    {
+      "accountId": "111122223333",
+      "type": "AWS::KMS::Key",
+      "ARN": "arn:aws:kms:aa-example-1:111122223333:key/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111"
+    }
+  ],
+  "eventType": "AwsApiCall",
+  "managementEvent": true,
+  "recipientAccountId": "111122223333",
+  "eventCategory": "Management",
+  "sessionCredentialFromConsole": "true"
+}
+```
+
+GenerateDataKey
+When you enable an AWS KMS customer managed key for your State Machine or Activity, Step Functions sends a `GenerateDataKey` request to get a data key to the encrypt state machine definition or execution data.
+
+The following example event records the `GenerateDataKey`operation:
+
+```
+{
+  "eventVersion": "1.09",
+  "userIdentity": {
+    "type": "AssumedRole",
+    "principalId": "111122223333:Sampleuser01",
+    "arn": "arn:aws:sts::111122223333:assumed-role/Admin/Sampleuser01",
+    "accountId": "111122223333",
+    "accessKeyId": "ASIAIOSFODNN7EXAMPLE",
+    "sessionContext": {
+      "sessionIssuer": {
+        "type": "Role",
+        "principalId": "111122223333:Sampleuser01",
+        "arn": "arn:aws:iam::111122223333:role/Admin",
+        "accountId": "111122223333",
+        "userName": "Admin"
+      },
+      "attributes": {
+        "creationDate": "2024-07-05T21:06:27Z",
+        "mfaAuthenticated": "false"
+      }
+    },
+    "invokedBy": "states.amazonaws.com"
+  },
+  "eventTime": "2024-07-05T21:12:21Z",
+  "eventSource": "kms.amazonaws.com",
+  "eventName": "GenerateDataKey",
+  "awsRegion": "aa-example-1",
+  "sourceIPAddress": "states.amazonaws.com",
+  "userAgent": "states.amazonaws.com",
+  "requestParameters": {
+    "keySpec": "AES_256",
+    "encryptionContext": {
+      "aws:states:stateMachineArn": "arn:aws:states:aa-example-1:111122223333:stateMachine:example1"
+    },
+    "keyId": "arn:aws:kms:aa-example-1:111122223333:key/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111"
+  },
+  "responseElements": null,
+  "requestID": "ff000af-00eb-00ce-0e00-ea000fb0fba0SAMPLE",
+  "eventID": "ff000af-00eb-00ce-0e00-ea000fb0fba0SAMPLE",
+  "readOnly": true,
+  "resources": [
+    {
+      "accountId": "111122223333",
+      "type": "AWS::KMS::Key",
+      "ARN": "arn:aws:kms:aa-example-1:111122223333:key/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111"
+    }
+  ],
+  "eventType": "AwsApiCall",
+  "managementEvent": true,
+  "recipientAccountId": "111122223333",
+  "eventCategory": "Management"
+}
+```
+
+## FAQs
+
+### What happens if my key is marked for deletion or deleted in AWS KMS?
+
+If the key is deleted or marked for deletion in AWS KMS, any related running executions will fail. New executions cannot be started until you remove or change the key associated with the workflow. After a AWS KMS key is deleted, all encrypted data associated with the workflow execution will remain encrypted and can no longer be decrypted, making the data **_unrecoverable_**.
+
+### What happens if a AWS KMS key is disabled in AWS KMS?
+
+If a AWS KMS key is disabled in AWS KMS, any related running executions will fail. New executions cannot be started. You can no longer decrypt the data encrypted under that disabled AWS KMS key until it is re-enabled.
+
+### What happens to Execution Status change events sent to EventBridge?
+
+Execution Input, Output, Error, and Cause will not be included for execution status change events for workflows that are encrypted using your customer managed AWS KMS key.
+
+## Learn more
+
+For information about data encryption at rest, see [AWS Key Management Service concepts](../../../kms/latest/developerguide/concepts.md "../../../kms/latest/developerguide/concepts.md") and [security best practices for AWS Key Management Service](../../../kms/latest/developerguide/best-practices.md "../../../kms/latest/developerguide/best-practices.md") in the _AWS Key Management Service Developer Guide_.

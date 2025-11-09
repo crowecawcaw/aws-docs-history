@@ -47,10 +47,184 @@ create state machines.
 
 Supported AWS SAM CLI functions include:
 
-| CLI Command  | Description                                                                                                                                                                                                                                                                            |
-| ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| sam init     | Initializes a Serverless Application with an AWS SAM template. Can be used with a SAM template for Step Functions.                                                                                                                                                                     |
-| sam validate | Validates an AWS SAM template.                                                                                                                                                                                                                                                         |
-| sam package  | Packages an AWS SAM application. It creates a ZIP file of your code and dependencies, and then uploads it to Amazon S3. It then returns a copy of your AWS SAM template, replacing references to local artifacts with the Amazon S3 location where the command uploaded the artifacts. |
-| sam deploy   | Deploys an AWS SAM application.                                                                                                                                                                                                                                                        |
-| sam publish  | Publish an AWS SAM application to the AWS Serverless Application Repository. This command takes a packaged AWS SAM template and publishes the application to the specified region.                                                                                                     | ###### Note When using AWS SAM local, you can emulate Lambda and API Gateway locally. However, you can't emulate Step Functions locally using AWS SAM. ## DefinitionSubstitutions in AWS SAM templates You can define state machines using CloudFormation templates with AWS SAM. Using AWS SAM, you can define the state machine inline in the template or in a separate file. The following AWS SAM template includes a state machine that simulates a stock trading workflow. This state machine invokes three Lambda functions to check the price of a stock and determine whether to buy or sell the stock. This transaction is then recorded in an Amazon DynamoDB table. The ARNs for the Lambda functions and DynamoDB table in the following template are specified using [`DefinitionSubstitutions`](../../../AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.md#cfn-stepfunctions-statemachine-definitionsubstitutions "../../../AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.md#cfn-stepfunctions-statemachine-definitionsubstitutions"). ``` AWSTemplateFormatVersion: '2010-09-09' Transform: AWS::Serverless-2016-10-31 Description: | step-functions-stock-trader Sample SAM Template for step-functions-stock-trader Resources: StockTradingStateMachine: Type: AWS::Serverless::StateMachine Properties: DefinitionSubstitutions: StockCheckerFunctionArn: !GetAtt StockCheckerFunction.Arn StockSellerFunctionArn: !GetAtt StockSellerFunction.Arn StockBuyerFunctionArn: !GetAtt StockBuyerFunction.Arn DDBPutItem: !Sub arn:${AWS::Partition}:states:::dynamodb:putItem DDBTable: !Ref TransactionTable Policies: <br>• DynamoDBWritePolicy: TableName: !Ref TransactionTable <br>• LambdaInvokePolicy: FunctionName: !Ref StockCheckerFunction <br>• LambdaInvokePolicy: FunctionName: !Ref StockBuyerFunction <br>• LambdaInvokePolicy: FunctionName: !Ref StockSellerFunction DefinitionUri: statemachine/stock_trader.asl.json StockCheckerFunction: Type: AWS::Serverless::Function Properties: CodeUri: functions/stock-checker/ Handler: app.lambdaHandler Runtime: nodejs18.x Architectures: <br>• x86_64 StockSellerFunction: Type: AWS::Serverless::Function Properties: CodeUri: functions/stock-seller/ Handler: app.lambdaHandler Runtime: nodejs18.x Architectures: <br>• x86_64 StockBuyerFunction: Type: AWS::Serverless::Function Properties: CodeUri: functions/stock-buyer/ Handler: app.lambdaHandler Runtime: nodejs18.x Architectures: <br>• x86_64 TransactionTable: Type: AWS::DynamoDB::Table Properties: AttributeDefinitions: <br>• AttributeName: id AttributeType: S ``` The following code is the state machine definition in the file `stock_trader.asl.json` which is used in the [Create a Step Functions state machine using AWS SAM](tutorial-state-machine-using-sam.md "tutorial-state-machine-using-sam.md") tutorial.This state machine definition contains several `DefinitionSubstitutions` denoted by the `${dollar_sign_brace}`notation. For example, instead of specifying a static Lambda function ARN for the`Check Stock Value`task, the substitution`${StockCheckerFunctionArn}` is used. This substitution is defined in the [DefinitionSubstitutions](#sam-template-def-substitution "#sam-template-def-substitution") property of the template. `DefinitionSubstitutions` is a map of key-value pairs for the state machine resource. In `DefinitionSubstitutions`, ${StockCheckerFunctionArn} maps to the ARN of the `StockCheckerFunction` resource using the CloudFormation intrinsic function [`!GetAtt`](../../../AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-getatt.md "../../../AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-getatt.md"). When you deploy the AWS SAM template, the `DefinitionSubstitutions` in the template are replaced with the actual values. ``` { "Comment": "A state machine that does mock stock trading.", "StartAt": "Check Stock Value", "States": { "Check Stock Value": { "Type": "Task", "Resource": "arn:aws:states:::lambda:invoke", "OutputPath": "$.Payload", "Parameters": { "Payload.$": "$", "FunctionName": "${StockCheckerFunctionArn}" }, "Next": "Buy or Sell?" }, "Buy or Sell?": { "Type": "Choice", "Choices": [ { "Variable": "$.stock_price", "NumericLessThanEquals": 50, "Next": "Buy Stock" } ], "Default": "Sell Stock" }, "Buy Stock": { "Type": "Task", "Resource": "arn:aws:states:::lambda:invoke", "OutputPath": "$.Payload", "Parameters": { "Payload.$": "$", "FunctionName": "${StockBuyerFunctionArn}" }, "Retry": [ { "ErrorEquals": [ "Lambda.ServiceException", "Lambda.AWSLambdaException", "Lambda.SdkClientException", "Lambda.TooManyRequestsException" ], "IntervalSeconds": 1, "MaxAttempts": 3, "BackoffRate": 2 } ], "Next": "Record Transaction" }, "Sell Stock": { "Type": "Task", "Resource": "arn:aws:states:::lambda:invoke", "OutputPath": "$.Payload", "Parameters": { "Payload.$": "$", "FunctionName": "${StockSellerFunctionArn}" }, "Next": "Record Transaction" }, "Record Transaction": { "Type": "Task", "Resource": "arn:aws:states:::dynamodb:putItem", "Parameters": { "TableName": "${DDBTable}", "Item": { "Id": { "S.$": "$.id" }, "Type": { "S.$": "$.type" }, "Price": { "N.$": "$.price" }, "Quantity": { "N.$": "$.qty" }, "Timestamp": { "S.$": "$.timestamp" } } }, "End": true } } } ``` ## Next steps You can learn more about using Step Functions with AWS SAM with the following resources: <br>• Complete the [Create a Step Functions state machine using AWS SAM](tutorial-state-machine-using-sam.md "tutorial-state-machine-using-sam.md") tutorial to create a state machine with AWS SAM. <br>• Specify a [AWS::Serverless::StateMachine](../../../serverless-application-model/latest/developerguide/sam-resource-statemachine.md "../../../serverless-application-model/latest/developerguide/sam-resource-statemachine.md") resource. <br>• Find [AWS SAM Policy Templates](../../../serverless-application-model/latest/developerguide/serverless-policy-templates.md "../../../serverless-application-model/latest/developerguide/serverless-policy-templates.md") to use. <br>• Use [AWS Toolkit for Visual Studio Code](../../../toolkit-for-vscode/latest/userguide/stepfunctions.md "../../../toolkit-for-vscode/latest/userguide/stepfunctions.md") with Step Functions. <br>• Review the [AWS SAM CLI reference](../../../serverless-application-model/latest/developerguide/serverless-sam-cli-command-reference.md "../../../serverless-application-model/latest/developerguide/serverless-sam-cli-command-reference.md") to learn more about the features available in AWS SAM. You can also design and build your workflows in infrastructure as code (IaC) using visual builders, such as Workflow Studio in Infrastructure Composer. For more information, see [Using Workflow Studio in Infrastructure Composer to build Step Functions workflows](use-wfs-in-app-composer.md "use-wfs-in-app-composer.md"). |
+| CLI Command  | Description                                                                                                                                                                                                                                                                                     |
+| ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| sam init     | Initializes a Serverless Application with an AWS SAM template. Can be used with<br>a SAM template for Step Functions.                                                                                                                                                                           |
+| sam validate | Validates an AWS SAM template.                                                                                                                                                                                                                                                                  |
+| sam package  | Packages an AWS SAM application. It creates a ZIP file of your code and<br>dependencies, and then uploads it to Amazon S3. It then returns a copy of your AWS SAM<br>template, replacing references to local artifacts with the Amazon S3 location<br>where the command uploaded the artifacts. |
+| sam deploy   | Deploys an AWS SAM application.                                                                                                                                                                                                                                                                 |
+| sam publish  | Publish an AWS SAM application to the AWS Serverless Application Repository.<br>This command takes a packaged AWS SAM template and publishes the application to<br>the specified region.                                                                                                        |
+
+###### Note
+
+When using AWS SAM local, you can emulate Lambda and API Gateway locally. However, you can't
+emulate Step Functions locally using AWS SAM.
+
+## DefinitionSubstitutions in AWS SAM templates
+
+You can define state machines using CloudFormation templates with AWS SAM. Using AWS SAM, you can define the state machine inline in the template or in a separate file. The following AWS SAM template includes a state machine that simulates a stock trading workflow. This state machine invokes three Lambda functions to check the price of a stock and determine whether to buy or sell the stock. This transaction is then recorded in an Amazon DynamoDB table. The ARNs for the Lambda functions and DynamoDB table in the following template are specified using [`DefinitionSubstitutions`](../../../AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.md#cfn-stepfunctions-statemachine-definitionsubstitutions "../../../AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachine.md#cfn-stepfunctions-statemachine-definitionsubstitutions").
+
+```
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: |
+  step-functions-stock-trader
+  Sample SAM Template for step-functions-stock-trader
+Resources:
+  StockTradingStateMachine:
+    Type: AWS::Serverless::StateMachine
+    Properties:
+      DefinitionSubstitutions:
+        StockCheckerFunctionArn: !GetAtt StockCheckerFunction.Arn
+        StockSellerFunctionArn: !GetAtt StockSellerFunction.Arn
+        StockBuyerFunctionArn: !GetAtt StockBuyerFunction.Arn
+        DDBPutItem: !Sub arn:${AWS::Partition}:states:::dynamodb:putItem
+        DDBTable: !Ref TransactionTable
+      Policies:
+        - DynamoDBWritePolicy:
+            TableName: !Ref TransactionTable
+        - LambdaInvokePolicy:
+            FunctionName: !Ref StockCheckerFunction
+        - LambdaInvokePolicy:
+            FunctionName: !Ref StockBuyerFunction
+        - LambdaInvokePolicy:
+            FunctionName: !Ref StockSellerFunction
+      DefinitionUri: statemachine/stock_trader.asl.json
+  StockCheckerFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: functions/stock-checker/
+      Handler: app.lambdaHandler
+      Runtime: nodejs18.x
+      Architectures:
+        - x86_64
+  StockSellerFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: functions/stock-seller/
+      Handler: app.lambdaHandler
+      Runtime: nodejs18.x
+      Architectures:
+        - x86_64
+  StockBuyerFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: functions/stock-buyer/
+      Handler: app.lambdaHandler
+      Runtime: nodejs18.x
+      Architectures:
+        - x86_64
+  TransactionTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      AttributeDefinitions:
+        - AttributeName: id
+          AttributeType: S
+```
+
+The following code is the state machine definition in the file `stock_trader.asl.json` which is used in the [Create a Step Functions state machine using
+AWS SAM](tutorial-state-machine-using-sam.md "tutorial-state-machine-using-sam.md") tutorial.This state machine definition contains several `DefinitionSubstitutions` denoted by the `${dollar_sign_brace}` notation. For example, instead of specifying a static Lambda function ARN for the `Check Stock Value` task, the substitution `${StockCheckerFunctionArn}` is used. This substitution is defined in the [DefinitionSubstitutions](#sam-template-def-substitution "#sam-template-def-substitution") property of the template. `DefinitionSubstitutions` is a map of key-value pairs for the state machine resource. In `DefinitionSubstitutions`, ${StockCheckerFunctionArn} maps to the ARN of the `StockCheckerFunction` resource using the CloudFormation intrinsic function [`!GetAtt`](../../../AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-getatt.md "../../../AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-getatt.md"). When you deploy the AWS SAM template, the `DefinitionSubstitutions` in the template are replaced with the actual values.
+
+```
+{
+    "Comment": "A state machine that does mock stock trading.",
+    "StartAt": "Check Stock Value",
+    "States": {
+        "Check Stock Value": {
+            "Type": "Task",
+            "Resource": "arn:aws:states:::lambda:invoke",
+            "OutputPath": "$.Payload",
+            "Parameters": {
+                "Payload.$": "$",
+                "FunctionName": "${StockCheckerFunctionArn}"
+            },
+            "Next": "Buy or Sell?"
+        },
+        "Buy or Sell?": {
+            "Type": "Choice",
+            "Choices": [
+                {
+                    "Variable": "$.stock_price",
+                    "NumericLessThanEquals": 50,
+                    "Next": "Buy Stock"
+                }
+            ],
+            "Default": "Sell Stock"
+        },
+        "Buy Stock": {
+            "Type": "Task",
+            "Resource": "arn:aws:states:::lambda:invoke",
+            "OutputPath": "$.Payload",
+            "Parameters": {
+                "Payload.$": "$",
+                "FunctionName": "${StockBuyerFunctionArn}"
+            },
+            "Retry": [
+                {
+                    "ErrorEquals": [
+                        "Lambda.ServiceException",
+                        "Lambda.AWSLambdaException",
+                        "Lambda.SdkClientException",
+                        "Lambda.TooManyRequestsException"
+                    ],
+                    "IntervalSeconds": 1,
+                    "MaxAttempts": 3,
+                    "BackoffRate": 2
+                }
+            ],
+            "Next": "Record Transaction"
+        },
+        "Sell Stock": {
+            "Type": "Task",
+            "Resource": "arn:aws:states:::lambda:invoke",
+            "OutputPath": "$.Payload",
+            "Parameters": {
+                "Payload.$": "$",
+                "FunctionName": "${StockSellerFunctionArn}"
+            },
+            "Next": "Record Transaction"
+        },
+        "Record Transaction": {
+            "Type": "Task",
+            "Resource": "arn:aws:states:::dynamodb:putItem",
+            "Parameters": {
+                "TableName": "${DDBTable}",
+                "Item": {
+                    "Id": {
+                        "S.$": "$.id"
+                    },
+                    "Type": {
+                        "S.$": "$.type"
+                    },
+                    "Price": {
+                        "N.$": "$.price"
+                    },
+                    "Quantity": {
+                        "N.$": "$.qty"
+                    },
+                    "Timestamp": {
+                        "S.$": "$.timestamp"
+                    }
+                }
+            },
+            "End": true
+        }
+    }
+}
+```
+
+## Next steps
+
+You can learn more about using Step Functions with AWS SAM with the following resources:
+
+- Complete the [Create a Step Functions state machine using
+  AWS SAM](tutorial-state-machine-using-sam.md "tutorial-state-machine-using-sam.md") tutorial to create a state machine
+  with AWS SAM.
+- Specify a [AWS::Serverless::StateMachine](../../../serverless-application-model/latest/developerguide/sam-resource-statemachine.md "../../../serverless-application-model/latest/developerguide/sam-resource-statemachine.md") resource.
+- Find [AWS SAM Policy
+  Templates](../../../serverless-application-model/latest/developerguide/serverless-policy-templates.md "../../../serverless-application-model/latest/developerguide/serverless-policy-templates.md") to use.
+- Use [AWS Toolkit for Visual Studio Code](../../../toolkit-for-vscode/latest/userguide/stepfunctions.md "../../../toolkit-for-vscode/latest/userguide/stepfunctions.md") with Step Functions.
+- Review the [AWS SAM
+  CLI reference](../../../serverless-application-model/latest/developerguide/serverless-sam-cli-command-reference.md "../../../serverless-application-model/latest/developerguide/serverless-sam-cli-command-reference.md") to learn more about the features available in AWS SAM.
+
+You can also design and build your workflows in infrastructure as code (IaC) using visual builders, such as Workflow Studio in Infrastructure Composer. For more information, see [Using Workflow Studio in Infrastructure Composer to build Step Functions workflows](use-wfs-in-app-composer.md "use-wfs-in-app-composer.md").

@@ -59,7 +59,7 @@ state transitions.
 For standard workflows, there is a limit on the number of state transitions. When you
 exceed the state transition limit, Step Functions delays state transitions until the bucket for
 the quota is filled. State transition limit throttling can be monitored by reviewing the
-`ExecutionThrottled` metric in the [Execution metrics](procedure-cw-metrics.md#cloudwatch-step-functions-execution-metrics "procedure-cw-metrics.md#cloudwatch-step-functions-execution-metrics") section of
+`ExecutionThrottled` metric in the [Execution Metrics](procedure-cw-metrics.md#cloudwatch-step-functions-execution-metrics "procedure-cw-metrics.md#cloudwatch-step-functions-execution-metrics") section of
 the CloudWatch Metrics page.
 
 ### When I
@@ -71,7 +71,7 @@ Step Functions has a limit of 1,000,000 open executions for each AWS account in 
 this limit, Step Functions throws an `ExecutionLimitExceeded` error. This limit does
 not apply to Express Workflows. You can use the `OpenExecutionCount` to track when you are approaching the `OpenExecutionLimit` and create alarms to proactively notify you in that event.
 `OpenExecutionCount` is an approximate number of open workflows.
-For more information, see [Execution metrics](procedure-cw-metrics.md#cloudwatch-step-functions-execution-metrics "procedure-cw-metrics.md#cloudwatch-step-functions-execution-metrics").
+For more information, see [Execution Metrics](procedure-cw-metrics.md#cloudwatch-step-functions-execution-metrics "procedure-cw-metrics.md#cloudwatch-step-functions-execution-metrics").
 
 ### A
 
@@ -248,10 +248,19 @@ button in the **Executions** tab. For more information, see [Viewing execution d
 
 To list executions based on duration:
 
-````
+```
 fields ispresent(execution_arn) as exec_arn
 | filter exec_arn
 | filter type in ["ExecutionStarted", "ExecutionSucceeded", "ExecutionFailed", "ExecutionAborted", "ExecutionTimedOut"]
-| stats latest(type) as status, tomillis(earliest(event_timestamp)) as UTC_starttime, tomillis(latest(event_timestamp)) as UTC_endtime, latest(event_timestamp) - earliest(event_timestamp) as duration_in_ms  by execution_arn
-| sort duration_in_ms desc ``` To list failed and cancelled executions: ``` fields ispresent(execution_arn) as isRes | filter type in ["ExecutionFailed", "ExecutionAborted", "ExecutionTimedOut"] ```
-````
+| stats latest(type) as status,
+  tomillis(earliest(event_timestamp)) as UTC_starttime,
+  tomillis(latest(event_timestamp)) as UTC_endtime,
+  latest(event_timestamp) - earliest(event_timestamp) as duration_in_ms  by execution_arn
+| sort duration_in_ms desc
+```
+
+To list failed and cancelled executions:
+
+```
+fields ispresent(execution_arn) as isRes | filter type in ["ExecutionFailed", "ExecutionAborted", "ExecutionTimedOut"]
+```

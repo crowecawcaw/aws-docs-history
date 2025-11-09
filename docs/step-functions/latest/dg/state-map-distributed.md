@@ -224,14 +224,14 @@ information, see [ItemReader (Map)](input-output-itemreader.md "input-output-ite
 
 **`Items` (Optional, JSONata only)**
 
-A JSON array or a JSONata expression that must evaluate to an array.
+A JSON array, a JSON object, or a JSONata expression that must evaluate to an array or object.
 
 **`ItemsPath` (Optional, JSONPath only)**
 
 Specifies a [reference path](amazon-states-language-paths.md#amazon-states-language-reference-paths "amazon-states-language-paths.md#amazon-states-language-reference-paths") using the [JsonPath](https://datatracker.ietf.org/wg/jsonpath/about/ "https://datatracker.ietf.org/wg/jsonpath/about/") syntax to select
-the JSON node that contains an array of items inside the state input.
+the JSON node that contains an array of items or an object with key-value pairs inside the state input.
 
-In Distributed mode, you specify this field only when you use a JSON array
+In Distributed mode, you specify this field only when you use a JSON array or object
 from a previous step as your state input. For more information, see [ItemsPath (Map, JSONPath only)](input-output-itemspath.md "input-output-itemspath.md").
 
 **`ItemSelector` (Optional, JSONPath only)**

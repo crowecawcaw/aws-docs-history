@@ -103,6 +103,139 @@ the ID in the Context object with `$$.Execution.Id`. For more information, see
 Nested state machines return the following:
 
 | Resource              | Output |
-| --------------------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| --------------------- | ------ |
 | startExecution.sync   | String |
-| startExecution.sync:2 | JSON   | Both will wait for the nested state machine to complete, but they return different `Output` formats. For example, if you create a Lambda function that returns the object `{ "MyKey": "MyValue" }`, you would get the following responses: For startExecution.sync: ``{ `<other fields>` "Output": "{ \"MyKey\": \"MyValue\" }" }`` For startExecution.sync:2: ``{ `<other fields>` "Output": { "MyKey": "MyValue" } }`` ### Configuring IAM permissions for nested state machines A parent state machine determines if a child state machine has completed execution using polling and events. Polling requires permission for `states:DescribeExecution` while events sent through EventBridge to Step Functions require permissions for `events:PutTargets`, `events:PutRule`, and `events:DescribeRule`. If these permissions are missing from your IAM role, there may be a delay before a parent state machine becomes aware of the completion of the child state machine's execution. For a state machine that calls `StartExecution` for a single nested workflow execution, use an IAM policy that limits permissions to that state machine. ## IAM policies for calling nested Step Functions workflows For a state machine that calls `StartExecution` for a single nested workflow execution, use an IAM policy that limits permissions to that state machine. `` `{ "Version":"2012-10-17", "Statement": [ { "Effect": "Allow", "Action": [ "states:StartExecution" ], "Resource": [ "arn:aws:states:`us-east-1`:`123456789012`:stateMachine:`myStateMachineName`" ] } ] }` `` For more information, see the following: <br>• [Integrating services with Step Functions](integrate-services.md "integrate-services.md") <br>• [Passing parameters to a service API in Step Functions](connect-parameters.md "connect-parameters.md") <br>• [Start a new AWS Step Functions state machine from a running execution](connect-stepfunctions.md "connect-stepfunctions.md") Synchronous `` `{ "Version":"2012-10-17", "Statement": [ { "Effect": "Allow", "Action": [ "states:StartExecution" ], "Resource": [ "arn:aws:states:`us-east-1`:`123456789012`:stateMachine:`stateMachineName`" ] }, { "Effect": "Allow", "Action": [ "states:DescribeExecution", "states:StopExecution" ], "Resource": [ "arn:aws:states:`us-east-1`:`123456789012`:execution:`myStateMachineName`:*" ] }, { "Effect": "Allow", "Action": [ "events:PutTargets", "events:PutRule", "events:DescribeRule" ], "Resource": [ "arn:aws:events:`us-east-1`:`123456789012`:rule/StepFunctionsGetEventsForStepFunctionsExecutionRule" ] } ] }` `` Asynchronous `` `{ "Version":"2012-10-17", "Statement": [ { "Effect": "Allow", "Action": [ "states:StartExecution" ], "Resource": [ "arn:aws:states:`us-east-1`:`123456789012`:stateMachine:`myStateMachineName`" ] } ] }` `` ###### ARN types required In the policy for **Synchronous**, note that `states:StartExecution` requires a state machine ARN whereas `states:DescribeExecution` and `states:StopExecution` require an execution ARN. If you mistakenly combine all three actions, the JSON will be valid but the IAM policy will be incorrect. An incorrect policy can cause stuck workflows and/or access issues during workflow execution. For more information about nested workflow executions, see [Start workflow executions from a task state in Step Functions](concepts-nested-workflows.md "concepts-nested-workflows.md"). |
+| startExecution.sync:2 | JSON   |
+
+Both will wait for the nested state machine to complete, but they return different
+`Output` formats. For example, if you create a Lambda function that returns
+the object `{ "MyKey": "MyValue" }`, you would get the following
+responses:
+
+For startExecution.sync:
+
+```
+{
+   `<other fields>`
+   "Output": "{ \"MyKey\": \"MyValue\" }"
+}
+```
+
+For startExecution.sync:2:
+
+```
+{
+   `<other fields>`
+   "Output": {
+      "MyKey": "MyValue"
+   }
+}
+```
+
+### Configuring IAM permissions for nested state machines
+
+A parent state machine determines if a child state machine has completed execution using polling and events. Polling requires permission for
+`states:DescribeExecution` while events sent through EventBridge to Step Functions require permissions for `events:PutTargets`, `events:PutRule`,
+and `events:DescribeRule`. If these permissions are missing from your IAM role, there may be a delay before a parent state machine becomes aware of the
+completion of the child state machine's execution.
+
+For a state machine that calls `StartExecution` for a single nested workflow execution, use an IAM policy that limits permissions to that state
+machine.
+
+## IAM policies for calling nested Step Functions workflows
+
+For a state machine that calls `StartExecution` for a single nested workflow
+execution, use an IAM policy that limits permissions to that state machine.
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": [
+ "states:StartExecution"
+ ],
+ "Resource": [
+ "arn:aws:states:`us-east-1`:`123456789012`:stateMachine:`myStateMachineName`"
+ ]
+ }
+ ]
+}`
+
+```
+
+For more information, see the following:
+
+- [Integrating services with Step Functions](integrate-services.md "integrate-services.md")
+- [Passing parameters to a service API in Step Functions](connect-parameters.md "connect-parameters.md")
+- [Start a new AWS Step Functions state machine from a running execution](connect-stepfunctions.md "connect-stepfunctions.md")
+
+Synchronous
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": [
+ "states:StartExecution"
+ ],
+ "Resource": [
+ "arn:aws:states:`us-east-1`:`123456789012`:stateMachine:`stateMachineName`"
+ ]
+ },
+ {
+ "Effect": "Allow",
+ "Action": [
+ "states:DescribeExecution",
+ "states:StopExecution"
+ ],
+ "Resource": [
+ "arn:aws:states:`us-east-1`:`123456789012`:execution:`myStateMachineName`:*"
+ ]
+ },
+ {
+ "Effect": "Allow",
+ "Action": [
+ "events:PutTargets",
+ "events:PutRule",
+ "events:DescribeRule"
+ ],
+ "Resource": [
+ "arn:aws:events:`us-east-1`:`123456789012`:rule/StepFunctionsGetEventsForStepFunctionsExecutionRule"
+ ]
+ }
+ ]
+}`
+
+```
+
+Asynchronous
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": [
+ "states:StartExecution"
+ ],
+ "Resource": [
+ "arn:aws:states:`us-east-1`:`123456789012`:stateMachine:`myStateMachineName`"
+ ]
+ }
+ ]
+}`
+
+```
+
+###### ARN types required
+
+In the policy for **Synchronous**, note that `states:StartExecution` requires a state machine ARN whereas `states:DescribeExecution` and `states:StopExecution` require an execution ARN.
+
+If you mistakenly combine all three actions, the JSON will be valid but the IAM policy will be incorrect. An incorrect policy can cause stuck workflows and/or access issues during workflow execution.
+
+For more information about nested workflow executions, see [Start workflow executions from a task state in Step Functions](concepts-nested-workflows.md "concepts-nested-workflows.md").

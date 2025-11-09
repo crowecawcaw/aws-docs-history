@@ -65,7 +65,164 @@ You can configure advanced event selectors to filter on the `eventName`,
 are important to you. For more information about these fields, see [AdvancedFieldSelector](../../../awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.md "../../../awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.md") in the
 _AWS CloudTrail API Reference_.
 
-| Data event type                  | resources.type value               | Data APIs logged to CloudTrail                    |
-| -------------------------------- | ---------------------------------- | ------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Step Functions state machine** | `AWS::StepFunctions::StateMachine` | <br>• InvokeHTTPEndpoint <br>• StartSyncExecution |
-| **Step Functions activity**      | `AWS::StepFunctions::Activity`     | <br>• GetActivityTask                             | ## Management events in CloudTrail [Management events](../../../awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.md#logging-management-events "../../../awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.md#logging-management-events") provide information about management operations that are performed on resources in your AWS account. These are also known as control plane operations. By default, CloudTrail logs management events. **State Machine** <br>• [CreateStateMachine](../apireference/API_CreateStateMachine.md "../apireference/API_CreateStateMachine.md") <br>• [ListStateMachines](../apireference/API_ListStateMachines.md "../apireference/API_ListStateMachines.md") <br>• [DescribeStateMachine](../apireference/API_DescribeStateMachine.md "../apireference/API_DescribeStateMachine.md") <br>• [UpdateStateMachine](../apireference/API_UpdateStateMachine.md "../apireference/API_UpdateStateMachine.md") <br>• [DeleteStateMachine](../apireference/API_DeleteStateMachine.md "../apireference/API_DeleteStateMachine.md") <br>• [ValidateStateMachineDefinition](../apireference/API_ValidateStateMachineDefinition.md "../apireference/API_ValidateStateMachineDefinition.md") <br>• [TestState](../apireference/API_TestState.md "../apireference/API_TestState.md") **State Machine Alias** <br>• [CreateStateMachineAlias](../apireference/API_CreateStateMachineAlias.md "../apireference/API_CreateStateMachineAlias.md") <br>• [ListStateMachineAliases](../apireference/API_ListStateMachineAliases.md "../apireference/API_ListStateMachineAliases.md") <br>• [DescribeStateMachineAlias](../apireference/API_DescribeStateMachineAlias.md "../apireference/API_DescribeStateMachineAlias.md") <br>• [UpdateStateMachineAlias](../apireference/API_UpdateStateMachineAlias.md "../apireference/API_UpdateStateMachineAlias.md") <br>• [DeleteStateMachineAlias](../apireference/API_DeleteStateMachineAlias.md "../apireference/API_DeleteStateMachineAlias.md") **State Machine Version** <br>• [ListStateMachineVersions](../apireference/API_ListStateMachineVersions.md "../apireference/API_ListStateMachineVersions.md") <br>• [PublishStateMachineVersion](../apireference/API_PublishStateMachineVersion.md "../apireference/API_PublishStateMachineVersion.md") <br>• [DeleteStateMachineVersion](../apireference/API_DeleteStateMachineVersion.md "../apireference/API_DeleteStateMachineVersion.md") **Executions** <br>• [StartExecution](../apireference/API_StartExecution.md "../apireference/API_StartExecution.md") <br>• [StartSyncExecution](../apireference/API_StartSyncExecution.md "../apireference/API_StartSyncExecution.md") <br>• [RedriveExecution](../apireference/API_RedriveExecution.md "../apireference/API_RedriveExecution.md") <br>• [ListExecutions](../apireference/API_ListExecutions.md "../apireference/API_ListExecutions.md") <br>• [DescribeExecution](../apireference/API_DescribeExecution.md "../apireference/API_DescribeExecution.md") <br>• [GetExecutionHistory](../apireference/API_GetExecutionHistory.md "../apireference/API_GetExecutionHistory.md") <br>• [DescribeStateMachineForExecution](../apireference/API_DescribeStateMachineForExecution.md "../apireference/API_DescribeStateMachineForExecution.md") <br>• [StopExecution](../apireference/API_StopExecution.md "../apireference/API_StopExecution.md") **Activity** <br>• [CreateActivity](../apireference/API_CreateActivity.md "../apireference/API_CreateActivity.md") <br>• [ListActivities](../apireference/API_ListActivities.md "../apireference/API_ListActivities.md") <br>• [DescribeActivity](../apireference/API_DescribeActivity.md "../apireference/API_DescribeActivity.md") <br>• [DeleteActivity](../apireference/API_DeleteActivity.md "../apireference/API_DeleteActivity.md") <br>• [GetActivityTask](../apireference/API_GetActivityTask.md "../apireference/API_GetActivityTask.md") **Task Token** <br>• [SendTaskSuccess](../apireference/API_SendTaskSuccess.md "../apireference/API_SendTaskSuccess.md") <br>• [SendTaskHeartbeat](../apireference/API_SendTaskHeartbeat.md "../apireference/API_SendTaskHeartbeat.md") <br>• [SendTaskFailure](../apireference/API_SendTaskFailure.md "../apireference/API_SendTaskFailure.md") **MapRun** <br>• [ListMapRuns](../apireference/API_ListMapRuns.md "../apireference/API_ListMapRuns.md") <br>• [DescribeMapRun](../apireference/API_DescribeMapRun.md "../apireference/API_DescribeMapRun.md") <br>• [UpdateMapRun](../apireference/API_UpdateMapRun.md "../apireference/API_UpdateMapRun.md") **Tags** <br>• [ListTagsForResource](../apireference/API_ListTagsForResource.md "../apireference/API_ListTagsForResource.md") <br>• [TagResource](../apireference/API_TagResource.md "../apireference/API_TagResource.md") <br>• [UntagResource](../apireference/API_UntagResource.md "../apireference/API_UntagResource.md") ## Event examples An event represents a single request from any source and includes information about the requested API operation, the date and time of the operation, request parameters, and so on. CloudTrail log files aren't an ordered stack trace of the public API calls, so events don't appear in any specific order. The following example shows a CloudTrail **data event** that demonstrates `InvokeHTTPEndpoint`. ``{ "eventVersion": "1.09", "userIdentity": { "accountId": "`account-id`", "invokedBy": "states.amazonaws.com" }, "eventTime": "2024-05-01T01:23:45Z", "eventSource": "states.amazonaws.com", "eventName": "InvokeHTTPEndpoint", "awsRegion": "us-east-1", "sourceIPAddress": "states.amazonaws.com", "userAgent": "states.amazonaws.com", "requestParameters": null, "responseElements": null, "eventID": "a1b2c3d4-5678-90ab-cdef-EXAMPLEaaaaa", "readOnly": false, "resources": [ { "accountId": "`account-id`", "type": "AWS::StepFunctions::StateMachine", "ARN": "arn:aws:states:`region`:`account-id`:stateMachine:ExampleStateMachine" } ], "eventType": "AwsServiceEvent", "managementEvent": false, "recipientAccountId": "`account-id`", "serviceEventDetails": { "httpMethod": "GET", "httpEndpoint": "https://example.com" }, "eventCategory": "Data" }`` The following example shows a CloudTrail **management event** that demonstrates the `CreateStateMachine` operation. ``{ "eventVersion": "1.08", "userIdentity": { "type": "IAMUser", "principalId": "AIDAJYDLDBVBI4EXAMPLE", "arn": "arn:aws:iam::`account-id`:user/test-user", "accountId": "`account-id`", "accessKeyId": "AKIAIOSFODNN7EXAMPLE", "userName": "test-user" }, "eventTime": "2024-05-01T01:23:45Z", "eventSource": "states.amazonaws.com", "eventName": "CreateStateMachine", "awsRegion": "`region`", "sourceIPAddress": "`AWS Internal`", "userAgent": "`AWS Internal`", "requestParameters": { "name": "MyStateMachine", "definition": "HIDDEN_DUE_TO_SECURITY_REASONS", "roleArn": "arn:aws:iam::`account-id`:role/MyStateMachineRole", "type": "STANDARD", "loggingConfiguration": { "level": "OFF", "includeExecutionData": false }, "tags": [], "tracingConfiguration": { "enabled": false }, "publish": false }, "responseElements": { "stateMachineArn": "arn:aws:states:`region`:`account-id`:stateMachine:MyStateMachine", "creationDate": "May 1, 2024 1:23:45 AM" }, "requestID": "a1b2c3d4-5678-90ab-cdef-EXAMPLEaaaaa", "eventID": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111", "readOnly": false, "eventType": "AwsApiCall", "managementEvent": true, "recipientAccountId": "`account-id`", "eventCategory": "Management" }`` For information about CloudTrail record contents, see [CloudTrail record contents](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-record-contents.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-record-contents.md") in the _AWS CloudTrail User Guide_. |
+| Data event type                  | resources.type value               | Data APIs logged to CloudTrail               |
+| -------------------------------- | ---------------------------------- | -------------------------------------------- |
+| **Step Functions state machine** | `AWS::StepFunctions::StateMachine` | • InvokeHTTPEndpoint<br>• StartSyncExecution |
+| **Step Functions activity**      | `AWS::StepFunctions::Activity`     | • GetActivityTask                            |
+
+## Management events in CloudTrail
+
+[Management events](../../../awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.md#logging-management-events "../../../awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.md#logging-management-events") provide information about management operations that are performed on resources in your AWS account. These are also known as control plane operations. By default, CloudTrail logs management events.
+
+**State Machine**
+
+- [CreateStateMachine](../apireference/API_CreateStateMachine.md "../apireference/API_CreateStateMachine.md")
+- [ListStateMachines](../apireference/API_ListStateMachines.md "../apireference/API_ListStateMachines.md")
+- [DescribeStateMachine](../apireference/API_DescribeStateMachine.md "../apireference/API_DescribeStateMachine.md")
+- [UpdateStateMachine](../apireference/API_UpdateStateMachine.md "../apireference/API_UpdateStateMachine.md")
+- [DeleteStateMachine](../apireference/API_DeleteStateMachine.md "../apireference/API_DeleteStateMachine.md")
+- [ValidateStateMachineDefinition](../apireference/API_ValidateStateMachineDefinition.md "../apireference/API_ValidateStateMachineDefinition.md")
+- [TestState](../apireference/API_TestState.md "../apireference/API_TestState.md")
+
+**State Machine Alias**
+
+- [CreateStateMachineAlias](../apireference/API_CreateStateMachineAlias.md "../apireference/API_CreateStateMachineAlias.md")
+- [ListStateMachineAliases](../apireference/API_ListStateMachineAliases.md "../apireference/API_ListStateMachineAliases.md")
+- [DescribeStateMachineAlias](../apireference/API_DescribeStateMachineAlias.md "../apireference/API_DescribeStateMachineAlias.md")
+- [UpdateStateMachineAlias](../apireference/API_UpdateStateMachineAlias.md "../apireference/API_UpdateStateMachineAlias.md")
+- [DeleteStateMachineAlias](../apireference/API_DeleteStateMachineAlias.md "../apireference/API_DeleteStateMachineAlias.md")
+
+**State Machine Version**
+
+- [ListStateMachineVersions](../apireference/API_ListStateMachineVersions.md "../apireference/API_ListStateMachineVersions.md")
+- [PublishStateMachineVersion](../apireference/API_PublishStateMachineVersion.md "../apireference/API_PublishStateMachineVersion.md")
+- [DeleteStateMachineVersion](../apireference/API_DeleteStateMachineVersion.md "../apireference/API_DeleteStateMachineVersion.md")
+
+**Executions**
+
+- [StartExecution](../apireference/API_StartExecution.md "../apireference/API_StartExecution.md")
+- [StartSyncExecution](../apireference/API_StartSyncExecution.md "../apireference/API_StartSyncExecution.md")
+- [RedriveExecution](../apireference/API_RedriveExecution.md "../apireference/API_RedriveExecution.md")
+- [ListExecutions](../apireference/API_ListExecutions.md "../apireference/API_ListExecutions.md")
+- [DescribeExecution](../apireference/API_DescribeExecution.md "../apireference/API_DescribeExecution.md")
+- [GetExecutionHistory](../apireference/API_GetExecutionHistory.md "../apireference/API_GetExecutionHistory.md")
+- [DescribeStateMachineForExecution](../apireference/API_DescribeStateMachineForExecution.md "../apireference/API_DescribeStateMachineForExecution.md")
+- [StopExecution](../apireference/API_StopExecution.md "../apireference/API_StopExecution.md")
+
+**Activity**
+
+- [CreateActivity](../apireference/API_CreateActivity.md "../apireference/API_CreateActivity.md")
+- [ListActivities](../apireference/API_ListActivities.md "../apireference/API_ListActivities.md")
+- [DescribeActivity](../apireference/API_DescribeActivity.md "../apireference/API_DescribeActivity.md")
+- [DeleteActivity](../apireference/API_DeleteActivity.md "../apireference/API_DeleteActivity.md")
+- [GetActivityTask](../apireference/API_GetActivityTask.md "../apireference/API_GetActivityTask.md")
+
+**Task Token**
+
+- [SendTaskSuccess](../apireference/API_SendTaskSuccess.md "../apireference/API_SendTaskSuccess.md")
+- [SendTaskHeartbeat](../apireference/API_SendTaskHeartbeat.md "../apireference/API_SendTaskHeartbeat.md")
+- [SendTaskFailure](../apireference/API_SendTaskFailure.md "../apireference/API_SendTaskFailure.md")
+
+**MapRun**
+
+- [ListMapRuns](../apireference/API_ListMapRuns.md "../apireference/API_ListMapRuns.md")
+- [DescribeMapRun](../apireference/API_DescribeMapRun.md "../apireference/API_DescribeMapRun.md")
+- [UpdateMapRun](../apireference/API_UpdateMapRun.md "../apireference/API_UpdateMapRun.md")
+
+**Tags**
+
+- [ListTagsForResource](../apireference/API_ListTagsForResource.md "../apireference/API_ListTagsForResource.md")
+- [TagResource](../apireference/API_TagResource.md "../apireference/API_TagResource.md")
+- [UntagResource](../apireference/API_UntagResource.md "../apireference/API_UntagResource.md")
+
+## Event examples
+
+An event represents a single request from any source and includes information about the requested API operation, the date and time of the operation, request parameters, and so on. CloudTrail log files aren't an ordered stack trace of the public API calls, so events don't appear in any specific order.
+
+The following example shows a CloudTrail **data event** that demonstrates `InvokeHTTPEndpoint`.
+
+```
+{
+    "eventVersion": "1.09",
+    "userIdentity": {
+        "accountId": "`account-id`",
+        "invokedBy": "states.amazonaws.com"
+    },
+    "eventTime": "2024-05-01T01:23:45Z",
+    "eventSource": "states.amazonaws.com",
+    "eventName": "InvokeHTTPEndpoint",
+    "awsRegion": "us-east-1",
+    "sourceIPAddress": "states.amazonaws.com",
+    "userAgent": "states.amazonaws.com",
+    "requestParameters": null,
+    "responseElements": null,
+    "eventID": "a1b2c3d4-5678-90ab-cdef-EXAMPLEaaaaa",
+    "readOnly": false,
+    "resources": [
+        {
+            "accountId": "`account-id`",
+            "type": "AWS::StepFunctions::StateMachine",
+            "ARN": "arn:aws:states:`region`:`account-id`:stateMachine:ExampleStateMachine"
+        }
+    ],
+    "eventType": "AwsServiceEvent",
+    "managementEvent": false,
+    "recipientAccountId": "`account-id`",
+    "serviceEventDetails": {
+        "httpMethod": "GET",
+        "httpEndpoint": "https://example.com"
+    },
+    "eventCategory": "Data"
+}
+```
+
+The following example shows a CloudTrail **management event** that demonstrates the `CreateStateMachine` operation.
+
+```
+{
+    "eventVersion": "1.08",
+    "userIdentity": {
+        "type": "IAMUser",
+        "principalId": "AIDAJYDLDBVBI4EXAMPLE",
+        "arn": "arn:aws:iam::`account-id`:user/test-user",
+        "accountId": "`account-id`",
+        "accessKeyId": "AKIAIOSFODNN7EXAMPLE",
+        "userName": "test-user"
+    },
+    "eventTime": "2024-05-01T01:23:45Z",
+    "eventSource": "states.amazonaws.com",
+    "eventName": "CreateStateMachine",
+    "awsRegion": "`region`",
+    "sourceIPAddress": "`AWS Internal`",
+    "userAgent": "`AWS Internal`",
+    "requestParameters": {
+        "name": "MyStateMachine",
+        "definition": "HIDDEN_DUE_TO_SECURITY_REASONS",
+        "roleArn": "arn:aws:iam::`account-id`:role/MyStateMachineRole",
+        "type": "STANDARD",
+        "loggingConfiguration": {
+            "level": "OFF",
+            "includeExecutionData": false
+        },
+        "tags": [],
+        "tracingConfiguration": {
+            "enabled": false
+        },
+        "publish": false
+    },
+    "responseElements": {
+        "stateMachineArn": "arn:aws:states:`region`:`account-id`:stateMachine:MyStateMachine",
+        "creationDate": "May 1, 2024 1:23:45 AM"
+    },
+    "requestID": "a1b2c3d4-5678-90ab-cdef-EXAMPLEaaaaa",
+    "eventID": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+    "readOnly": false,
+    "eventType": "AwsApiCall",
+    "managementEvent": true,
+    "recipientAccountId": "`account-id`",
+    "eventCategory": "Management"
+}
+```
+
+For information about CloudTrail record contents, see [CloudTrail
+record contents](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-record-contents.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-record-contents.md") in the _AWS CloudTrail User Guide_.

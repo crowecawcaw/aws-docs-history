@@ -126,91 +126,95 @@ Run a Job (.sync)
 _Static resources_
 
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "ecs:RunTask"
- ],
- "Resource": [
- "arn:aws:ecs:`us-east-1`:123456789012:task-definition/`taskDefinition`:`revisionNumber`"
- ]
- },
- {
- "Effect": "Allow",
- "Action": [
- "ecs:StopTask",
- "ecs:DescribeTasks"
- ],
- "Resource": "*"
- },
- {
- "Effect": "Allow",
- "Action": [
- "events:PutTargets",
- "events:PutRule",
- "events:DescribeRule"
- ],
- "Resource": [
- "arn:aws:events:`us-east-1`:123456789012:rule/StepFunctionsGetEventsForECSTaskRule"
- ]
- }
- ]
-}`
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "ecs:RunTask"
+            ],
+            "Resource": [
+                "arn:aws:ecs:`region`:
+`account-id`:task-definition/`taskDefinition`:`revisionNumber`"
+            ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "ecs:StopTask",
+                "ecs:DescribeTasks"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "events:PutTargets",
+                "events:PutRule",
+                "events:DescribeRule"
+            ],
+            "Resource": [
+               "arn:aws:events:`region`:
+`account-id`:rule/StepFunctionsGetEventsForECSTaskRule"
+            ]
+        }
+    ]
+}
+
 
 ```
 
 _Dynamic resources_
 
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "ecs:RunTask",
- "ecs:StopTask",
- "ecs:DescribeTasks"
- ],
- "Resource": "*"
- },
- {
- "Effect": "Allow",
- "Action": [
- "events:PutTargets",
- "events:PutRule",
- "events:DescribeRule"
- ],
- "Resource": [
- "arn:aws:events:`us-east-1`:123456789012:rule/StepFunctionsGetEventsForECSTaskRule"
- ]
- }
- ]
-}`
-
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "ecs:RunTask",
+                "ecs:StopTask",
+                "ecs:DescribeTasks"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "events:PutTargets",
+                "events:PutRule",
+                "events:DescribeRule"
+            ],
+            "Resource": [
+               "arn:aws:events:`region`:
+`account-id`:rule/StepFunctionsGetEventsForECSTaskRule"
+            ]
+        }
+    ]
+}
 ```
 
 Request Response and Callback (.waitForTaskToken)
 _Static resources_
 
 ```
-`{
- "Version":"2012-10-17",
- "Statement": [
- {
- "Effect": "Allow",
- "Action": [
- "ecs:RunTask"
- ],
- "Resource": [
- "arn:aws:ecs:`us-east-1`:123456789012:task-definition/`taskDefinition`:`revisionNumber`"
- ]
- }
- ]
-}`
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "ecs:RunTask"
+            ],
+            "Resource": [
+                "arn:aws:ecs:`region`:
+`account-id`:task-definition/`taskDefinition`:`revisionNumber`"
+            ]
+        }
+    ]
+}
 
 ```
 

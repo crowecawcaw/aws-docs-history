@@ -265,8 +265,104 @@ The API Gateway integration supports two service integration patterns:
 The following output parameters are provided:
 
 | Name           | Type               | Description                           |
-| -------------- | ------------------ | ------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| -------------- | ------------------ | ------------------------------------- |
 | `ResponseBody` | `JSON` or `String` | The response body of the API call.    |
 | `Headers`      | `JSON`             | The response headers.                 |
 | `StatusCode`   | `Integer`          | The HTTP status code of the response. |
-| `StatusText`   | `String`           | The status text of the response.      | An example response: `{ "ResponseBody": { "myBills": [] }, "Headers": { "key": ["value1", "value2"] }, "StatusCode": 200, "StatusText": "OK" }` ## Error handling When an error occurs, an `error` and `cause` is returned as follows: <br>• If the HTTP status code is available, then the error will be returned in the format `ApiGateway.`<HTTP Status Code>``. <br>• If the HTTP status code is not available, then the error will be returned in the format `ApiGateway.`<Exception>``. In both cases, the `cause` is returned as a string. The following example shows a response where an error has occurred: `{ "error": "ApiGateway.403", "cause": "{\"message\":\"Missing Authentication Token\"}" }` ###### Note A status code of `2XX` indicates success, and no error will be returned. All other status codes or thrown exceptions will result in an error. ## IAM policies for calls to Amazon API Gateway The following example templates show how AWS Step Functions generates IAM policies based on the resources in your state machine definition. For more information, see [How Step Functions generates IAM policies for integrated services](service-integration-iam-templates.md "service-integration-iam-templates.md") and [Discover service integration patterns in Step Functions](connect-to-resource.md "connect-to-resource.md"). _Resources_: `` `{ "Version":"2012-10-17", "Statement": [ { "Action": [ "execute-api:Invoke" ], "Resource": [ "arn:aws:execute-api:`us-east-1`:`123456789012`:ENDPOINT/STAGE/GET/pets", "arn:aws:execute-api:`us-east-1`:`123456789012`:ENDPOINT/STAGE/POST/pets" ], "Effect": "Allow" } ] }` `` The following code example shows a resource policy for calling API Gateway. `` `{ "Version":"2012-10-17", "Statement": [ { "Effect": "Allow", "Principal": { "Service": "**states.amazonaws.com**" }, "Action": "execute-api:Invoke", "Resource": "arn:aws:execute-api:`us-east-1`:`123456789012`:myApi-id/`stage-name`/`HTTP-VERB`/`resource-path-specifier`", "Condition": { "StringEquals": { "aws:SourceArn": [ "`<SourceStateMachineArn>`" ] } } } ] }` `` |
+| `StatusText`   | `String`           | The status text of the response.      |
+
+An example response:
+
+```
+{
+    "ResponseBody": {
+        "myBills": []
+    },
+    "Headers": {
+        "key": ["value1", "value2"]
+    },
+    "StatusCode": 200,
+    "StatusText": "OK"
+}
+```
+
+## Error handling
+
+When an error occurs, an `error` and `cause` is returned as
+follows:
+
+- If the HTTP status code is available, then the error will be returned in the
+  format `ApiGateway.`<HTTP Status
+  Code>``.
+- If the HTTP status code is not available, then the error will be returned in
+  the format
+  `ApiGateway.`<Exception>``.
+
+In both cases, the `cause` is returned as a string.
+
+The following example shows a response where an error has occurred:
+
+```
+{
+    "error": "ApiGateway.403",
+    "cause": "{\"message\":\"Missing Authentication Token\"}"
+}
+```
+
+###### Note
+
+A status code of `2XX` indicates success, and no error will be
+returned. All other status codes or thrown exceptions will result in an
+error.
+
+## IAM policies for calls to Amazon API Gateway
+
+The following example templates show how AWS Step Functions generates IAM policies based on the resources in your state machine definition. For more information, see [How Step Functions generates IAM policies for integrated
+services](service-integration-iam-templates.md "service-integration-iam-templates.md") and [Discover service integration patterns in Step Functions](connect-to-resource.md "connect-to-resource.md").
+
+_Resources_:
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Action": [
+ "execute-api:Invoke"
+ ],
+ "Resource": [
+ "arn:aws:execute-api:`us-east-1`:`123456789012`:ENDPOINT/STAGE/GET/pets",
+ "arn:aws:execute-api:`us-east-1`:`123456789012`:ENDPOINT/STAGE/POST/pets"
+ ],
+ "Effect": "Allow"
+ }
+ ]
+}`
+
+```
+
+The following code example shows a resource policy for calling API Gateway.
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Principal": {
+ "Service": "**states.amazonaws.com**"
+ },
+ "Action": "execute-api:Invoke",
+ "Resource": "arn:aws:execute-api:`us-east-1`:`123456789012`:myApi-id/`stage-name`/`HTTP-VERB`/`resource-path-specifier`",
+ "Condition": {
+ "StringEquals": {
+ "aws:SourceArn": [
+ "`<SourceStateMachineArn>`"
+ ]
+ }
+ }
+ }
+ ]
+}`
+
+```
