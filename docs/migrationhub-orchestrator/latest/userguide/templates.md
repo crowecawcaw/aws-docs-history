@@ -1,4 +1,4 @@
-AWS Migration Hub will no longer be open to new customers starting November 7, 2025. To continue using the service, sign up prior to November 7, 2025. For capabilities similar to AWS Migration Hub, explore [AWS Transform](https://aws.amazon.com/transform "https://aws.amazon.com/transform").
+AWS Migration Hub is no longer open to new customers as of November 7, 2025. For capabilities similar to AWS Migration Hub, explore [AWS Transform](https://aws.amazon.com/transform "https://aws.amazon.com/transform").
 
 # Migration Hub Orchestrator templates
 
@@ -26,9 +26,9 @@ Migration Hub Orchestrator offers the following templates to configure your migr
 
 | Template                                                                             | Plugin setup required |
 | ------------------------------------------------------------------------------------ | --------------------- |
-| [Migrate SAP NetWeaver applications to AWS](migrate-sap.md "migrate-sap.md")         | Yes                   |
-| [Rehost applications on Amazon EC2](rehost-on-ec2.md "rehost-on-ec2.md")             | Yes                   |
-| [Rehost SQL server on Amazon EC2](rehost-sql-ec2.md "rehost-sql-ec2.md")             | Yes                   |
+| [Migrate SAP<br>NetWeaver applications to AWS](migrate-sap.md "migrate-sap.md")      | Yes                   |
+| [Rehost<br>applications on Amazon EC2](rehost-on-ec2.md "rehost-on-ec2.md")          | Yes                   |
+| [Rehost SQL<br>server on Amazon EC2](rehost-sql-ec2.md "rehost-sql-ec2.md")          | Yes                   |
 | [Replatform SQL server on Amazon RDS](replatform-sql-rds.md "replatform-sql-rds.md") | Yes                   |
-| [Import virtual machine images to AWS](import-vm-images.md "import-vm-images.md")    | Optional              |
+| [Import<br>virtual machine images to AWS](import-vm-images.md "import-vm-images.md") | Optional              |
 | [Replatform applications to Amazon ECS](replatform-to-ecs.md "replatform-to-ecs.md") | No                    |
