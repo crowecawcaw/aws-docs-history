@@ -26,17 +26,34 @@ you kickstarted with the worker `.iso`.
 
 where -l is a letter, not a number. 3. You are prompted as described in the table below.
 
-| Prompt                                                                             | Action                                                                                                                                         |
-| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `Do you agree to these terms?`                                                     | This prompt appears after you have paged through the EULA (End User License Agreement). Enter `Yes` or `No`. (You must enter Yes to continue.) |
-| `Enter this server’s Hostname`                                                     | Type the hostname of this hardware unit. For example, `statmux-01`                                                                             |
-| `Does eth0 use DHCP to get its IP address?`                                        | Type `Yes` to use DHCP or type `No` to enter a static IP address.                                                                              |
-| `Enter eth0's IP address:`                                                         | If you chose static, type the IP address for this hardware unit.                                                                               |
-| `Enter eth0's NETMASK:`                                                            | If you chose static, type the netmask for this hardware unit.                                                                                  |
-| `Enter eth0's Gateway (or type `none`):`                                           | If you chose static, type `none` or type the gateway for this hardware unit.                                                                   |
-| `Keep this configured nameserver?`                                                 | Skip; you set up a nameserver in the next phase of configuration.                                                                              |
-| `Would you like to configure eth1?`                                                | Type `No`; you can configure eth1 in the next phase of the configuration.                                                                      |
-| `The firewall for this system is currently disabled. Would you like to enable it?` | Skip; you set up the firewall in the next phase of configuration.                                                                              |
-| `For security purposes, we require that you change the default password.`          | This prompt is shown if you are still using the default password.                                                                              |
-| `Select time zone ('n' for more)`                                                  | Enter the time zone you want to show on the web interface of the nodes. This setting does not affect activity via SSH or via the REST API.     |
-| `Would you like to start the Elemental service now?`                               | Type `Yes`.                                                                                                                                    | Then the software will be installed. Finally, this message will appear: `Installation and configuration complete! Please open a web browser and point it to http://xxx.xxx.xxx.xxx to get to the web interface. Enjoy!` 4. Start a web browser and start the AWS Elemental Statmux web interface by typing the following: `http://<hostname>` Make sure the web interface displays. |
+| Prompt                                                                             | Action                                                                                                                                            |
+| ---------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Do you agree to these terms?`                                                     | This prompt appears after you have paged through the EULA (End User License Agreement).<br>Enter `Yes` or `No`. (You must enter Yes to continue.) |
+| `Enter this server’s Hostname`                                                     | Type the hostname of this hardware unit. For example, `statmux-01`                                                                                |
+| `Does eth0 use DHCP to get its IP address?`                                        | Type `Yes` to use DHCP or type `No` to enter a static IP address.                                                                                 |
+| `Enter eth0's IP address:`                                                         | If you chose static, type the IP address for this hardware unit.                                                                                  |
+| `Enter eth0's NETMASK:`                                                            | If you chose static, type the netmask for this hardware unit.                                                                                     |
+| `Enter eth0's Gateway (or type `none`):`                                           | If you chose static, type `none` or type the gateway for this hardware unit.                                                                      |
+| `Keep this configured nameserver?`                                                 | Skip; you set up a nameserver in the next phase of configuration.                                                                                 |
+| `Would you like to configure eth1?`                                                | Type `No`; you can configure eth1 in the next phase of the configuration.                                                                         |
+| `The firewall for this system is currently disabled. Would you like to enable it?` | Skip; you set up the firewall in the next phase of configuration.                                                                                 |
+| `For security purposes, we require that you change the default password.`          | This prompt is shown if you are still using the default password.                                                                                 |
+| `Select time zone ('n' for more)`                                                  | Enter the time zone you want to show on the web interface of the nodes. This setting does not affect activity via SSH or via the REST API.        |
+| `Would you like to start the Elemental service now?`                               | Type `Yes`.                                                                                                                                       |
+
+Then the software will be installed. Finally, this message will appear:
+
+```
+Installation and configuration complete!
+Please open a web browser and point it to http://xxx.xxx.xxx.xxx to get to the web interface.
+Enjoy!
+```
+
+4. Start a web browser and start the AWS Elemental Statmux web interface by typing
+   the following:
+
+```
+http://<hostname>
+```
+
+Make sure the web interface displays.

@@ -16,9 +16,13 @@ and AWS Elemental Live Documentation](../../../elemental-live.md "../../../eleme
 
 3. Use the arrow keys to select each option and complete the field, using the instructions in the following table as a guide.
 
-| Menu Option                                   | Instructions                                                                                                                                                                |
-| --------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `Set Hostname`                                | Change the hostname to a useful name such as `statmux-01` or `statmux-chicago-01`. Do not use localhost as the hostname! Do not use periods or underscores in the hostname. |
-| `Disk layout: Auto-detect`                    | Leave this set at Auto-detect.                                                                                                                                              |
-| `Set Key`                                     | Arrow down to skip this option.                                                                                                                                             |
-| `Install and configure base operating system` | Press Enter to begin the OS installation.                                                                                                                                   | The operating system is installed. 4. For the changes to take effect, reboot the system by pressing **Enter** at the prompt `Press return to quit`. |
+| Menu Option                                   | Instructions                                                                                                                                                                      |
+| --------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Set Hostname`                                | Change the hostname to a useful name such as `statmux-01` or `statmux-chicago-01`.<br>Do not use localhost as the hostname!<br>Do not use periods or underscores in the hostname. |
+| `Disk layout: Auto-detect`                    | Leave this set at Auto-detect.                                                                                                                                                    |
+| `Set Key`                                     | Arrow down to skip this option.                                                                                                                                                   |
+| `Install and configure base operating system` | Press Enter to begin the OS installation.                                                                                                                                         |
+
+The operating system is installed. 4. For the changes to take effect, reboot the system by pressing
+**Enter** at the prompt `Press return to
+ quit`.
