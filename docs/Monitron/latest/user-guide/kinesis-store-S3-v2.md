@@ -42,8 +42,16 @@ console
    - Under **Dynamic partitioning keys**,
      add:
 
-| Key name | JQ expression          |
-| -------- | ---------------------- | ------------------------------------------------------- | ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| project  | .projectName           | "project=\(.)"                                          |
-| site     | .eventPayload.siteName | "site=\(.)"                                             |
-| time     | .timestamp             | sub("[0-9]{2}:[0-9]{2}:[0-9]{2}.[0-9]{3}$"; "00:00:00") | "time=\(.)" | 10. Choose **Apply dynamic partitioning keys** and confirm the generated Amazon S3 bucket prefix is `!{partitionKeyFromQuery:project}/!{partitionKeyFromQuery:site}/!{partitionKeyFromQuery:time}/`. 11. In Amazon S3, objects will use the following key format: `/project={projectName}/site={siteName}/time={yyyy-mm-dd 00:00:00}/{filename}`. 12. Choose **Create delivery stream**. |
+   | Key name | JQ expression          |
+   | -------- | ---------------------- | -------------------------------------------------------------- | ----------- |
+   | project  | .projectName           | "project=\(.)"                                                 |
+   | site     | .eventPayload.siteName | "site=\(.)"                                                    |
+   | time     | .timestamp             | <br>sub("[0-9]{2}:[0-9]{2}:[0-9]{2}.[0-9]{3}$";<br>"00:00:00") | "time=\(.)" |
+
+10. Choose **Apply dynamic partitioning keys** and
+    confirm the generated Amazon S3 bucket prefix is
+    `!{partitionKeyFromQuery:project}/!{partitionKeyFromQuery:site}/!{partitionKeyFromQuery:time}/`.
+11. In Amazon S3, objects will use the following key format:
+    `/project={projectName}/site={siteName}/time={yyyy-mm-dd
+00:00:00}/{filename}`.
+12. Choose **Create delivery stream**.

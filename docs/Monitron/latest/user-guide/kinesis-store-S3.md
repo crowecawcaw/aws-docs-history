@@ -70,15 +70,36 @@ console
    - Under **Dynamic partitioning keys**,
      add:
 
+   | Key name | JQ expression       |
+   | -------- | ------------------- | -------------------------------------------------------------- | ----------- |
+   | project  | .projectDisplayName | "project=\(.)"                                                 |
+   | site     | .siteDisplayName    | "site=\(.)"                                                    |
+   | time     | .timestamp          | <br>sub("[0-9]{2}:[0-9]{2}:[0-9]{2}.[0-9]{3}$";<br>"00:00:00") | "time=\(.)" |
+
+10. Choose **Apply dynamic partitioning keys** and
+    confirm the generated Amazon S3 bucket prefix is
+    `!{partitionKeyFromQuery:project}/!{partitionKeyFromQuery:site}/!{partitionKeyFromQuery:time}/`.
+11. In Amazon S3, objects will use the following key format:
+    `/project={projectName}/site={siteName}/time={yyyy-mm-dd
+00:00:00}/{filename}`.
+12. Choose **Create delivery stream**.
+13. (optional) Use a more granular path.
+
+If you chose a dynamic partition, use the preceeding Amazon S3 key format
+if you plan to use AWS Glue and Athena to query the data. You can also
+choose a finer key format, but the Amazon Athena query will not be
+efficient. Here is an example of setting up a finer Amazon S3 key
+path.
+
+Under **Dynamic partitioning keys**, add:
+
 | Key name | JQ expression              |
-| -------- | -------------------------- | ------------------------------------------------------- | ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| project  | .projectDisplayName        | "project=\(.)"                                          |
-| site     | .siteDisplayName           | "site=\(.)"                                             |
-| time     | .timestamp                 | sub("[0-9]{2}:[0-9]{2}:[0-9]{2}.[0-9]{3}$"; "00:00:00") | "time=\(.)" | 10. Choose **Apply dynamic partitioning keys** and confirm the generated Amazon S3 bucket prefix is `!{partitionKeyFromQuery:project}/!{partitionKeyFromQuery:site}/!{partitionKeyFromQuery:time}/`. 11. In Amazon S3, objects will use the following key format: `/project={projectName}/site={siteName}/time={yyyy-mm-dd 00:00:00}/{filename}`. 12. Choose **Create delivery stream**. 13. (optional) Use a more granular path. If you chose a dynamic partition, use the preceeding Amazon S3 key format if you plan to use AWS Glue and Athena to query the data. You can also choose a finer key format, but the Amazon Athena query will not be efficient. Here is an example of setting up a finer Amazon S3 key path. Under **Dynamic partitioning keys**, add: |
-| Key name | JQ expression              |                                                         | ---         | ---                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| project  | .projectDisplayName        | "project=\(.)"                                          |
-| site     | .siteDisplayName           | "site=\(.)"                                             |
-| asset    | .assetDisplayName          | "asset=\(.)"                                            |
-| position | .sensorPositionDisplayName | "position=\(.)"                                         |
-| sensor   | .sensor.physicalId         | "sensor=\(.)"                                           |
-| date     | .timestamp                 | sub(" [0-9]{2}:[0-9]{2}:[0-9]{2}.[0-9]{3}$"; "")        | "date=\(.)" | In Amazon S3, objects will use the following key format: `/project={projectName}/site={siteName}/asset={assetName}/position={positionName}/sensor={sensorId}/date={yyyy-mm-dd}/time={HH:MM:SS}/{filename}`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| -------- | -------------------------- | --------------------------------------------------- | --------------- |
+| project  | .projectDisplayName        | "project=\(.)"                                      |
+| site     | .siteDisplayName           | "site=\(.)"                                         |
+| asset    | .assetDisplayName          | "asset=\(.)"                                        |
+| position | .sensorPositionDisplayName | "position=\(.)"                                     |
+| sensor   | .sensor.physicalId         | "sensor=\(.)"                                       |
+| date     | .timestamp                 | sub("<br>[0-9]{2}:[0-9]{2}:[0-9]{2}.[0-9]{3}$"; "") | <br>"date=\(.)" |
+
+In Amazon S3, objects will use the following key format: `/project={projectName}/site={siteName}/asset={assetName}/position={positionName}/sensor={sensorId}/date={yyyy-mm-dd}/time={HH:MM:SS}/{filename}`

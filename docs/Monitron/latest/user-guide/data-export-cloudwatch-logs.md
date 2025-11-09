@@ -49,6 +49,41 @@ errorCode
 - The error code
 - Type: String
 - Valid Values: `INTERNAL_SEVER_ERROR |
- KINESIS_RESOURCE_NOT_FOUND |
- KINESIS_PROVISIONED_THROUGHPUT_EXCEEDED | KMS_ACCESS_DENIED
-| KMS_NOT_FOUND | KMS_DISABLED | KMS_INVALID_STATE | KMS_THROTTLING` errorMessage <br>• The detailed error message <br>• Type: String eventId <br>• The unique event ID corresponding to each measurement export <br>• Type: String positionDisplayName <br>• The sensor position name displayed in the App <br>• Type: String sensorId <br>• The physical ID of the sensor from which the measurement is sent <br>• Type: String siteDisplayName <br>• The site name displayed in the App <br>• Type: String timestamp <br>• The timestamp when the measurement is received by Amazon Monitron service in UTC <br>• Type: String <br>• Pattern: yyyy-mm-dd hh:mm:ss.SSS
+KINESIS_RESOURCE_NOT_FOUND |
+KINESIS_PROVISIONED_THROUGHPUT_EXCEEDED | KMS_ACCESS_DENIED
+| KMS_NOT_FOUND | KMS_DISABLED | KMS_INVALID_STATE |
+KMS_THROTTLING`
+
+errorMessage
+
+- The detailed error message
+- Type: String
+
+eventId
+
+- The unique event ID corresponding to each measurement
+  export
+- Type: String
+
+positionDisplayName
+
+- The sensor position name displayed in the App
+- Type: String
+
+sensorId
+
+- The physical ID of the sensor from which the measurement is
+  sent
+- Type: String
+
+siteDisplayName
+
+- The site name displayed in the App
+- Type: String
+
+timestamp
+
+- The timestamp when the measurement is received by Amazon
+  Monitron service in UTC
+- Type: String
+- Pattern: yyyy-mm-dd hh:mm:ss.SSS

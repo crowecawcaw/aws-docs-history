@@ -737,7 +737,153 @@ eventPayload.closureCode.failureMode
   `IMBALANCE` | `LUBRICATION` |
   `MISALIGNMENT` | `OTHER` |
   `RESONANCE` | `ROTATING_LOOSENESS`
-  | `STRUCTURAL_LOOSENESS` | `TRANSMITTED_FAULT` | `UNDETERMINED` eventPayload.closureCode.failureCause <br>• The cause of the failure as selected by the user in the app dropdown when acknowledging a failure. <br>• Type: String <br>• Possible values: `ADMINISTRATION` | `DESIGN` | `FABRICATION` | `MAINTENANCE` | `OPERATION` | `OTHER` | `QUALITY` | `UNDETERMINED` | `WEAR` eventPayload.closureCode.actionTaken <br>• The action taken when closing this anomaly, as selected by the user in the app dropdown. <br>• Type: String <br>• Possible values: `ADJUST` | `CLEAN`
-  | `LUBRICATE` | `MODIFY` | `NO_ACTION` | `OTHER` | `OVERHAUL` | `REPLACE` eventPayload.closureCode.resolvedModels <br>• The set of models which called out the issue. <br>• Type: List of Strings <br>• Possible values: `vibrationISO` | `vibrationML` | `temperatureML` eventPayload.assetPositionId <br>• The identifier of the asset position whose state changed. <br>• Type: String models.temperatureML.persistentClassificationOutput <br>• The persistent classification output from the machine learning based temperature model <br>• Type: Number <br>• Valid Values: `UNKNOWN | HEALTHY | WARNING | ALARM` models.temperatureML.pointwiseClassificationOutput <br>• The point–wise classification output from the machine learning based temperature model <br>• Type: String <br>• Valid Values: `UNKNOWN | INITIALIZING | HEALTHY | WARNING | ALARM` models.vibrationISO.isoClass <br>• The ISO 20816 class (a standard for measurement and evaluation of machine vibration) used by the ISO based vibration model <br>• Type: String <br>• Valid Values: `CLASS1 | CLASS2 | CLASS3 | CLASS4` models.vibrationISO.mutedThreshold <br>• The threshold to mute the notification from the ISO based vibration model <br>• Type: String <br>• Valid Values: `WARNING | ALARM` models.vibrationISO.persistentClassificationOutput <br>• The persistent classification output from the ISO based vibration model <br>• Type: String <br>• Valid Values: `UNKNOWN | HEALTHY | WARNING | ALARM` models.vibrationISO.pointwiseClassificationOutput <br>• The point–wise classification output from the the ISO based vibration model <br>• Type: String <br>• Valid Values: `UNKNOWN | HEALTHY | WARNING | ALARM | MUTED_WARNING | MUTED_ALARM` models.vibrationML.persistentClassificationOutput <br>• The persistent classification output from the machine learning based vibration model <br>• Type: String <br>• Valid Values: `UNKNOWN | HEALTHY | WARNING | ALARM` models.vibrationML.pointwiseClassificationOutput <br>• The point–wise classification output from the machine learning based vibration model <br>• Type: String <br>• Valid Values: `UNKNOWN | INITIALIZING | HEALTHY | WARNING | ALARM` assetState.newState <br>• The machine status after processing the measurement <br>• Type: String <br>• Valid Values: `UNKNOWN | HEALTHY | NEEDS_MAINTENANCE
-| WARNING | ALARM` assetState.previousState <br>• The machine status before processing the measurement <br>• Type: String <br>• Valid Values: `UNKNOWN | HEALTHY | NEEDS_MAINTENANCE
-| WARNING | ALARM` eventPayload.companyName <br>• The name of the company using the asset. <br>• Type: String eventPayload.geoLocation.latitude <br>• The latitude of the site's physical location. <br>• Type: Number eventPayload.geoLocation.longitude <br>• The longitude of the site's physical location. <br>• Type: Number eventPayload.address <br>• The address of the site. <br>• Type: String eventPayload.serialNumber <br>• The serial number of the asset. <br>• Type: String eventPayload.make <br>• The make of the asset. <br>• Type: String eventPayload.model <br>• The model of the asset. <br>• Type: String
+  | `STRUCTURAL_LOOSENESS` |
+  `TRANSMITTED_FAULT` |
+  `UNDETERMINED`
+
+eventPayload.closureCode.failureCause
+
+- The cause of the failure as selected by the user in the
+  app dropdown when acknowledging a failure.
+- Type: String
+- Possible values: `ADMINISTRATION` |
+  `DESIGN` | `FABRICATION` |
+  `MAINTENANCE` | `OPERATION` |
+  `OTHER` | `QUALITY` |
+  `UNDETERMINED` | `WEAR`
+
+eventPayload.closureCode.actionTaken
+
+- The action taken when closing this anomaly, as selected by
+  the user in the app dropdown.
+- Type: String
+- Possible values: `ADJUST` | `CLEAN`
+  | `LUBRICATE` | `MODIFY` |
+  `NO_ACTION` | `OTHER` |
+  `OVERHAUL` | `REPLACE`
+
+eventPayload.closureCode.resolvedModels
+
+- The set of models which called out the issue.
+- Type: List of Strings
+- Possible values: `vibrationISO` |
+  `vibrationML` | `temperatureML`
+
+eventPayload.assetPositionId
+
+- The identifier of the asset position whose state changed.
+- Type: String
+
+models.temperatureML.persistentClassificationOutput
+
+- The persistent classification output from the machine
+  learning based temperature model
+- Type: Number
+- Valid Values: `UNKNOWN | HEALTHY | WARNING |
+ALARM`
+
+models.temperatureML.pointwiseClassificationOutput
+
+- The point–wise classification output from the
+  machine learning based temperature model
+- Type: String
+- Valid Values: `UNKNOWN | INITIALIZING | HEALTHY |
+WARNING | ALARM`
+
+models.vibrationISO.isoClass
+
+- The ISO 20816 class (a standard for measurement and
+  evaluation of machine vibration) used by the ISO based
+  vibration model
+- Type: String
+- Valid Values: `CLASS1 | CLASS2 | CLASS3 |
+CLASS4`
+
+models.vibrationISO.mutedThreshold
+
+- The threshold to mute the notification from the ISO based
+  vibration model
+- Type: String
+- Valid Values: `WARNING | ALARM`
+
+models.vibrationISO.persistentClassificationOutput
+
+- The persistent classification output from the ISO based
+  vibration model
+- Type: String
+- Valid Values: `UNKNOWN | HEALTHY | WARNING |
+ALARM`
+
+models.vibrationISO.pointwiseClassificationOutput
+
+- The point–wise classification output from the the
+  ISO based vibration model
+- Type: String
+- Valid Values: `UNKNOWN | HEALTHY | WARNING | ALARM |
+MUTED_WARNING | MUTED_ALARM`
+
+models.vibrationML.persistentClassificationOutput
+
+- The persistent classification output from the machine
+  learning based vibration model
+- Type: String
+- Valid Values: `UNKNOWN | HEALTHY | WARNING |
+ALARM`
+
+models.vibrationML.pointwiseClassificationOutput
+
+- The point–wise classification output from the
+  machine learning based vibration model
+- Type: String
+- Valid Values: `UNKNOWN | INITIALIZING | HEALTHY |
+WARNING | ALARM`
+
+assetState.newState
+
+- The machine status after processing the measurement
+- Type: String
+- Valid Values: `UNKNOWN | HEALTHY | NEEDS_MAINTENANCE
+| WARNING | ALARM`
+
+assetState.previousState
+
+- The machine status before processing the
+  measurement
+- Type: String
+- Valid Values: `UNKNOWN | HEALTHY | NEEDS_MAINTENANCE
+| WARNING | ALARM`
+
+eventPayload.companyName
+
+- The name of the company using the asset.
+- Type: String
+
+eventPayload.geoLocation.latitude
+
+- The latitude of the site's physical location.
+- Type: Number
+
+eventPayload.geoLocation.longitude
+
+- The longitude of the site's physical location.
+- Type: Number
+
+eventPayload.address
+
+- The address of the site.
+- Type: String
+
+eventPayload.serialNumber
+
+- The serial number of the asset.
+- Type: String
+
+eventPayload.make
+
+- The make of the asset.
+- Type: String
+
+eventPayload.model
+
+- The model of the asset.
+- Type: String

@@ -29,5 +29,23 @@ fix the issue with the asset, it just lets Amazon Monitron know that you are awa
 ![Asset list showing various items with status indicators, including alarms on Sorter 1 and 2.](images/asset_list2.png) 2. Choose the position with the alarm to view the issue.
 
 |                                                                                   |                                                                                 |
-| --------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Sorter 2 interface showing positions, warnings, and asset details for AnyCompany. | Sorter 1 interface showing positions with alarm, warning, and healthy statuses. | 3. To confirm that you are aware of the issue, choose **Acknowledge**. Note that the text on the following screens also indicates whether the alert notification was triggered based on the equipment's vibration or temperature, or by the vibration ISO thresholds or machine learning models. This information can be used by technicians to investigate and fix the issue. After an abnormality has been acknowledged and repaired, resolve the issue in the mobile app. ![Mobile app interface showing pump vibration data with alarm notifications and graphs.](images/mobile-understand-sensor-measurement.png) The status of the asset changes to: ![Blue button labeled "Maintenance" indicating a system or service status.](images/maintenance-badge.png) After the alarm has been acknowledged, the abnormality can be examined and fixed as appropriate. |
+| --------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| Sorter 2 interface showing positions, warnings, and asset details for AnyCompany. | Sorter 1 interface showing positions with alarm, warning, and healthy statuses. |
+
+3. To confirm that you are aware of the issue, choose
+   **Acknowledge**.
+
+Note that the text on the following screens also indicates whether the
+alert notification was triggered based on the equipment's vibration or
+temperature, or by the vibration ISO thresholds or machine learning models.
+This information can be used by technicians to investigate and fix the
+issue. After an abnormality has been acknowledged and repaired, resolve the
+issue in the mobile app.
+
+![Mobile app interface showing pump vibration data with alarm notifications and graphs.](images/mobile-understand-sensor-measurement.png)
+
+The status of the asset changes to:
+
+![Blue button labeled "Maintenance" indicating a system or service status.](images/maintenance-badge.png)
+After the alarm has been acknowledged, the abnormality can be examined and fixed
+as appropriate.

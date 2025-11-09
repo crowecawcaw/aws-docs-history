@@ -49,9 +49,25 @@ To manually install the latest updates:
 1. Sign in to the Amazon Monitron app and choose
    **Update**.
 
-|                                                                                        |                                                                                            |
-| -------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Amazon Monitron app sign-in screen with logo and description of service functionality. | Mobile app interface showing assets list and update notification to version 1.0.0.         | 2. When you select **update**, you'll be directed to Google Play or the App Store. Select **Update** or **Install** to start the update.                                                                                                                                                                                                                                                                                                              |
-|                                                                                        |                                                                                            |
-| ---                                                                                    | ---                                                                                        |
-| Amazon Monitron app interface showing asset details and commission gateway screens.    | Google Play store page for Amazon Monitron app showing rating, downloads, and screenshots. | 3. If you start the update process within the Amazon Monitron app, you'll see a success message in the app once the update has been installed. ![Mobile app interface showing successful update to version 1.0.0 with a list of assets below.](images/app-update-success-screen.png) ###### Note You will not see the success message if the update happens automatically, or if you initiate the update process within the App Store or Google Play. |
+|                                                                                        |                                                                                    |
+| -------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| Amazon Monitron app sign-in screen with logo and description of service functionality. | Mobile app interface showing assets list and update notification to version 1.0.0. |
+
+2. When you select **update**, you'll be directed to Google
+   Play or the App Store. Select **Update** or
+   **Install** to start the update.
+
+|                                                                                     |                                                                                            |
+| ----------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
+| Amazon Monitron app interface showing asset details and commission gateway screens. | Google Play store page for Amazon Monitron app showing rating, downloads, and screenshots. |
+
+3. If you start the update process within the Amazon Monitron app, you'll see a
+   success message in the app once the update has been installed.
+
+![Mobile app interface showing successful update to version 1.0.0 with a list of assets below.](images/app-update-success-screen.png)
+
+###### Note
+
+You will not see the success message if the update happens
+automatically, or if you initiate the update process within the App
+Store or Google Play.

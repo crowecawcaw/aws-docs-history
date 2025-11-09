@@ -36,5 +36,28 @@ name**, **Position type** and
 **Machine class**.
 
 |                                                                       |                                                                       |
-| --------------------------------------------------------------------- | --------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Form to add a position with fields for name, type, and machine class. | Form to add a position with fields for name, type, and machine class. | 4. Choose **Save**. 5. Your position is added to the asset. ![Asset management interface showing positions with various statuses and types.](images/web-app-add-position-4.png) ## To add a sensor position on the mobile app 1. Choose the sensor whose position you want to create or edit from the **Assets** list. 2. Select the **Add position** button. ![Asset management interface showing 6 positions with various status indicators.](images/mobile-app-add-position-1.png) 3. In the dialog box that opens, enter your **Posion name**, **Position type**, and **Machine class**. ![Dialog box for adding a position with fields for name, type, and machine class.](images/mobile-app-add-position-2.png) 4. Choose **Next**. 5. Re-scan your sensor with your mobile device to save the position. ![Mobile phone icon with instructions to scan sensor for position details.](images/mobile-app-add-position-4.png) 6. Your position is added to the asset. ![Asset management interface showing positions with various status indicators.](images/mobile-app-add-position-6.png) |
+| --------------------------------------------------------------------- | --------------------------------------------------------------------- |
+| Form to add a position with fields for name, type, and machine class. | Form to add a position with fields for name, type, and machine class. |
+
+4. Choose **Save**.
+5. Your position is added to the asset.
+
+![Asset management interface showing positions with various statuses and types.](images/web-app-add-position-4.png)
+
+## To add a sensor position on the mobile
+
+app
+
+1. Choose the sensor whose position you want to create or edit from the
+   **Assets** list.
+2. Select the **Add position** button.
+
+![Asset management interface showing 6 positions with various status indicators.](images/mobile-app-add-position-1.png) 3. In the dialog box that opens, enter your **Posion name**,
+**Position type**, and **Machine
+class**.
+
+![Dialog box for adding a position with fields for name, type, and machine class.](images/mobile-app-add-position-2.png) 4. Choose **Next**. 5. Re-scan your sensor with your mobile device to save the position.
+
+![Mobile phone icon with instructions to scan sensor for position details.](images/mobile-app-add-position-4.png) 6. Your position is added to the asset.
+
+![Asset management interface showing positions with various status indicators.](images/mobile-app-add-position-6.png)

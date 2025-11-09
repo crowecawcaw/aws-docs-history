@@ -371,5 +371,12 @@ assetState.newState
 - The machine status after processing the measurement
 - Type: String
 - Valid Values: `UNKNOWN | HEALTHY | NEEDS_MAINTENANCE
-| WARNING | ALARM` assetState.previousState <br>• The machine status before processing the measurement <br>• Type: String <br>• Valid Values: `UNKNOWN | HEALTHY | NEEDS_MAINTENANCE
+| WARNING | ALARM`
+
+assetState.previousState
+
+- The machine status before processing the
+  measurement
+- Type: String
+- Valid Values: `UNKNOWN | HEALTHY | NEEDS_MAINTENANCE
 | WARNING | ALARM`

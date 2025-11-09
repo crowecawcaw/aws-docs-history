@@ -51,6 +51,69 @@ errorCode
 - The error code
 - Type: String
 - Valid Values: `INTERNAL_SEVER_ERROR |
- KINESIS_RESOURCE_NOT_FOUND |
- KINESIS_PROVISIONED_THROUGHPUT_EXCEEDED | KMS_ACCESS_DENIED
-| KMS_NOT_FOUND | KMS_DISABLED | KMS_INVALID_STATE | KMS_THROTTLING` errorMessage <br>• The detailed error message <br>• Type: String eventId <br>• The unique event ID corresponding to each measurement export <br>• Type: String eventType <br>• The current event type <br>• Type: String <br>• Valid values: `measurement` `| gatewayConnected` `| gatewayDisconnected` `| sensorConnected` `| sensorDisconnected` `| assetStateTransition` positionName <br>• The sensor position name displayed in the app <br>• Type: String projectName <br>• The project name displayed in the app and console <br>• Type: String projectID <br>• The unique project ID corresponding to the Amazon Monitron project <br>• Type: String sensorID <br>• The physical ID of the sensor from which the measurement is sent <br>• Type: String gatewayID <br>• The physical ID of the gateway used to transmit data to the Amazon Monitron service <br>• Type: String siteName <br>• The site name displayed in the app <br>• Type: String timestamp <br>• The timestamp when the measurement is received by the Amazon Monitron service in UTC <br>• Type: String <br>• Pattern: yyyy-mm-dd hh:mm:ss.SSS
+KINESIS_RESOURCE_NOT_FOUND |
+KINESIS_PROVISIONED_THROUGHPUT_EXCEEDED | KMS_ACCESS_DENIED
+| KMS_NOT_FOUND | KMS_DISABLED | KMS_INVALID_STATE |
+KMS_THROTTLING`
+
+errorMessage
+
+- The detailed error message
+- Type: String
+
+eventId
+
+- The unique event ID corresponding to each measurement
+  export
+- Type: String
+
+eventType
+
+- The current event type
+- Type: String
+- Valid values: `measurement`
+  `| gatewayConnected`
+  `| gatewayDisconnected`
+  `| sensorConnected`
+  `| sensorDisconnected`
+  `| assetStateTransition`
+
+positionName
+
+- The sensor position name displayed in the app
+- Type: String
+
+projectName
+
+- The project name displayed in the app and console
+- Type: String
+
+projectID
+
+- The unique project ID corresponding to the Amazon Monitron
+  project
+- Type: String
+
+sensorID
+
+- The physical ID of the sensor from which the measurement is
+  sent
+- Type: String
+
+gatewayID
+
+- The physical ID of the gateway used to transmit data to the
+  Amazon Monitron service
+- Type: String
+
+siteName
+
+- The site name displayed in the app
+- Type: String
+
+timestamp
+
+- The timestamp when the measurement is received by the
+  Amazon Monitron service in UTC
+- Type: String
+- Pattern: yyyy-mm-dd hh:mm:ss.SSS

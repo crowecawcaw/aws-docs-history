@@ -21,12 +21,12 @@ Amazon Monitron is currently supported in the following regions:
 
 All Amazon Monitron operations have the following quotas.
 
-| Description                                        | Quota |
-| -------------------------------------------------- | ----- |
-| Maximum number of sites per project                | 50    |
-| Maximum number of assets per site                  | 100   |
-| Maximum number of positions (or sensors) per asset | 20    |
-| Maximum number of gateways per site                | 200   |
-| Maximum number of users per site                   | 20    |
-| Maximum number of custom classes per project       | 25    |
-| Maximum number of positions per custom class       | 500   |
+| Description                                           | Quota |
+| ----------------------------------------------------- | ----- |
+| Maximum number of sites per project                   | 50    |
+| Maximum number of assets per site                     | 100   |
+| Maximum number of positions (or sensors) per<br>asset | 20    |
+| Maximum number of gateways per site                   | 200   |
+| Maximum number of users per site                      | 20    |
+| Maximum number of custom classes per project          | 25    |
+| Maximum number of positions per custom class          | 500   |

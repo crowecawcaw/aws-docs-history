@@ -43,9 +43,14 @@ threshold, the conditions are clearly abnormal and a failure is much more likely
 those circumstances, Amazon Monitron sends an `Alarm` notification to the
 mobile or web app.
 
-|                                                                                                                                       |                                                                                                                                              |
-| ------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Notifications screen showing alarms and warnings for various positions with vibration and temperature data. a mobile app notification | Notifications panel showing alarms and warnings for various positions with detected vibration and temperature issues. a web app notification | In this example, the Position 3 sensor has detected a persistent increase in temperature and vibration, indicating that a potential failure needs to be investigated. |
-|                                                                                                                                       |                                                                                                                                              |
-| ---                                                                                                                                   | ---                                                                                                                                          |
-| Pump monitoring interface showing vibration and temperature alarms with graphical data.                                               | Dashboard showing vibration and temperature data for a pump main asset with alarm notifications.                                             |
+|                                                                                                                                          |                                                                                                                                                 |
+| ---------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| Notifications screen showing alarms and warnings for various positions with vibration and temperature data.<br>a mobile app notification | Notifications panel showing alarms and warnings for various positions with detected vibration and temperature issues.<br>a web app notification |
+
+In this example, the Position 3 sensor has detected a persistent increase in
+temperature and vibration, indicating that a potential failure needs to be
+investigated.
+
+|                                                                                         |                                                                                                  |
+| --------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
+| Pump monitoring interface showing vibration and temperature alarms with graphical data. | Dashboard showing vibration and temperature data for a pump main asset with alarm notifications. |

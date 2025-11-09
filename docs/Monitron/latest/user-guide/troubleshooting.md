@@ -143,6 +143,109 @@ gateway
 If you choose **Add gateway** in your mobile app, but the app
 can't find the gateway, try the following.
 
-|                                                                                                                             |                                                                                                                                 |
-| --------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Smartphone connected to AWS service via Bluetooth, represented by icons and symbols. Bluetooth pairing with a Wi-Fi gateway | Smartphone connected to Amazon device via Bluetooth, illustrated with simple icons. Bluetooth pairing with an Ethernet gateway. | <br>• Make sure that the gateway is turned on. Check the lights on the front of the gateway. If at least one of them is on, then the gateway has power. If the gateway has no power, check the following: + Is the power cord firmly attached to the back of the gateway and the power outlet? + Is the power outlet functioning properly? + Is the gateway power cable working? To test this, try using the cable with another gateway. + Is the outlet where the cable plugs into the gateway clean, with no debris stuck inside? Be sure to check the outlet in the gateway and the connecting end of the cable. <br>• Make sure that the gateway is in commissioning mode. See [Commissioning a Wi-Fi gateway](adding-gateway-Wi-Fi.md "adding-gateway-Wi-Fi.md") or [Commissioning an Ethernet gateway](adding-gateway-ethernet.md "adding-gateway-ethernet.md"). <br>• Make sure your smartphone's Bluetooth is working. + Try switching it off and on. If that doesn't help, restart your phone and check again. + Are you within your smartphone's Bluetooth range? Bluetooth range is typically less than 10 meters. + Is there anything that might be interfering electronically with the Bluetooth signal? See [If your sensor is offline](#trouble-sending-measurements "#trouble-sending-measurements"). If none of these actions resolves the issue, try the following: <br>• Log out of the mobile app and restart it. <br>• [Reset your Wi-Fi gateway](commissioning-button-Wi-Fi.md "commissioning-button-Wi-Fi.md") or [reset your Ethernet gateway](commissioning-button-ethernet.md "commissioning-button-ethernet.md"). ### If commissioning the gateway fails If the Amazon Monitron gateway commissioning process fails, try the following: <br>• Check that the mobile phone running Amazon Monitron App has internet connectivity. <br>• If commissioning of a Wi-Fi gateway fails, try commissioning it using a mobile hotspot provided by your mobile device. If that succeeds, it suggests a configuration issue with the Wi-Fi network or in firewall settings. ### If your gateway goes offline Your mobile or web app may tell you that your gateway is offline, or not connected to the network. In such cases, try the following: <br>• If you recently added the gateway to your configuration, wait for its status to update. A newly commissioned gateway may take up to 20 seconds to go online. <br>• Be sure that you aren't trying to configure a Wi-Fi gateway with static IPs. The Wi-Fi gateway does not currently support static IPs. However, you can configure your network to always assign the same IP address to the same device. <br>• Make sure that your firewall is not blocking the gateway. Amazon Monitron gateways use TCP port 8883. You must allow connections to TCP port 8883 for amazonaws.com subdomains in order to provide firewall access to Amazon Monitron gateways. <br>• Confirm that the issue is not network congestion. There are two ways in which Amazon Monitron may notify you that a gateway is offline: + When looking at information about your gateways in the mobile or web app, you may notice that a gateway is listed as offline. ![Gateway status list showing one offline and two online gateways with their IDs and site names.](images/gateway-offline-status.png) The timestamp for an offline gateway marks the last time Amazon Monitron recieved a signal from that gateway. In this case, you may not have received a notification about the gateway's offline status. Amazon Monitron will not issue a notification every single time a gateway appears to be offline. A newly commissioned gateway is considered offline until it connects to the internet. A gateway on a congested network is considered offline if Amazon Monitron hasn't heard from that gateway in 15 minutes. <br>• Confirm that you're not dealing with a newly commissioned gateway or a newly paired sensor. If so, wait an hour. Sensors send data once per hour. If you don't want to wait, you can [take a one-time measurement](anom-take-measure.md "anom-take-measure.md"). <br>• Confirm that your gateway is connected to a power source. If it is, unplug the gateway and then plug it back in. <br>• If it's a Wi-Fi gateway, check the Wi-Fi connection. If the password for the Wi-Fi network has been changed since the gateway was added, it won't be able to connect. To reconnect, you'll have to delete the gateway and add it again, connecting to the Wi-Fi network using the new password. For more information about how to add a gateway, see [Commissioning a Wi-Fi gateway](adding-gateway-Wi-Fi.md "adding-gateway-Wi-Fi.md") or [Commissioning an Ethernet gateway](adding-gateway-ethernet.md "adding-gateway-ethernet.md"). <br>• If it's an Ethernet gateway, check the network configuration. <br>• Delete the gateway using the Amazon Monitron mobile app, do a factory reset of the gateway, and then install the gateway again. For more information, see [Resetting the Wi-Fi gateway to factory settings](commissioning-button-Wi-Fi.md "commissioning-button-Wi-Fi.md") or [Resetting the Ethernet gateway to factory settings](commissioning-button-ethernet.md "commissioning-button-ethernet.md"). If none of these suggestions helps to get your Amazon Monitron device working again, contact AWS Support. |
+|                                                                                                                                |                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------- |
+| Smartphone connected to AWS service via Bluetooth, represented by icons and symbols.<br>Bluetooth pairing with a Wi-Fi gateway | Smartphone connected to Amazon device via Bluetooth, illustrated with simple icons.<br>Bluetooth pairing with an Ethernet gateway. |
+
+- Make sure that the gateway is turned
+  on.
+
+Check the lights on the front of the gateway. If at least one of them is
+on, then the gateway has power. If the gateway has no power, check the
+following:
+
+    + Is the power cord firmly attached to the back of the gateway and
+     the power outlet?
+    + Is the power outlet functioning properly?
+    + Is the gateway power cable working? To test this, try using the
+     cable with another gateway.
+    + Is the outlet where the cable plugs into the gateway clean, with
+     no debris stuck inside? Be sure to check the outlet in the gateway
+     and the connecting end of the cable.
+
+- Make sure that the gateway is in commissioning
+  mode.
+
+See [Commissioning a Wi-Fi gateway](adding-gateway-Wi-Fi.md "adding-gateway-Wi-Fi.md") or [Commissioning an Ethernet gateway](adding-gateway-ethernet.md "adding-gateway-ethernet.md").
+
+- Make sure your smartphone's Bluetooth is
+  working.
+  - Try switching it off and on. If that doesn't help, restart your
+    phone and check again.
+  - Are you within your smartphone's Bluetooth range? Bluetooth range
+    is typically less than 10 meters.
+  - Is there anything that might be interfering electronically with
+    the Bluetooth signal? See [If your sensor is offline](#trouble-sending-measurements "#trouble-sending-measurements").
+
+If none of these actions resolves the issue, try the following:
+
+- Log out of the mobile app and restart it.
+- [Reset your Wi-Fi gateway](commissioning-button-Wi-Fi.md "commissioning-button-Wi-Fi.md")
+  or [reset your Ethernet
+  gateway](commissioning-button-ethernet.md "commissioning-button-ethernet.md").
+
+### If commissioning the gateway
+
+fails
+
+If the Amazon Monitron gateway commissioning process fails, try the
+following:
+
+- Check that the mobile phone running Amazon Monitron App has internet
+  connectivity.
+- If commissioning of a Wi-Fi gateway fails, try commissioning it using a
+  mobile hotspot provided by your mobile device. If that succeeds, it suggests
+  a configuration issue with the Wi-Fi network or in firewall settings.
+
+### If your gateway goes offline
+
+Your mobile or web app may tell you that your gateway is offline, or not connected
+to the network. In such cases, try the following:
+
+- If you recently added the gateway to your configuration, wait for its
+  status to update. A newly commissioned gateway may take up to 20 seconds to
+  go online.
+- Be sure that you aren't trying to configure a Wi-Fi gateway with static
+  IPs. The Wi-Fi gateway does not currently support static IPs. However, you
+  can configure your network to always assign the same IP address to the same
+  device.
+- Make sure that your firewall is not blocking the gateway. Amazon Monitron gateways use TCP port 8883. You must allow connections to TCP port 8883
+  for amazonaws.com subdomains in order to provide firewall access to Amazon Monitron gateways.
+- Confirm that the issue is not network congestion. There are two ways in
+  which Amazon Monitron may notify you that a gateway is offline:
+  - When looking at information about your gateways in the mobile or
+    web app, you may notice that a gateway is listed as offline.
+
+  ![Gateway status list showing one offline and two online gateways with their IDs and site names.](images/gateway-offline-status.png)
+
+  The timestamp for an offline gateway marks the last time Amazon Monitron recieved a signal from that gateway.
+
+  In this case, you may not have received a notification about the
+  gateway's offline status. Amazon Monitron will not issue a
+  notification every single time a gateway appears to be offline. A
+  newly commissioned gateway is considered offline until it connects
+  to the internet. A gateway on a congested network is considered
+  offline if Amazon Monitron hasn't heard from that gateway in 15
+  minutes.
+
+- Confirm that you're not dealing with a newly commissioned gateway or a
+  newly paired sensor. If so, wait an hour. Sensors send data once per hour.
+  If you don't want to wait, you can [take a
+  one-time measurement](anom-take-measure.md "anom-take-measure.md").
+- Confirm that your gateway is connected to a power source. If it is, unplug
+  the gateway and then plug it back in.
+- If it's a Wi-Fi gateway, check the Wi-Fi connection. If the password for
+  the Wi-Fi network has been changed since the gateway was added, it won't be
+  able to connect. To reconnect, you'll have to delete the gateway and add it
+  again, connecting to the Wi-Fi network using the new password. For more
+  information about how to add a gateway, see [Commissioning a Wi-Fi gateway](adding-gateway-Wi-Fi.md "adding-gateway-Wi-Fi.md") or
+  [Commissioning an Ethernet gateway](adding-gateway-ethernet.md "adding-gateway-ethernet.md").
+- If it's an Ethernet gateway, check the network configuration.
+- Delete the gateway using the Amazon Monitron mobile app, do a factory
+  reset of the gateway, and then install the gateway again. For more
+  information, see [Resetting the Wi-Fi gateway to factory
+  settings](commissioning-button-Wi-Fi.md "commissioning-button-Wi-Fi.md") or [Resetting the Ethernet gateway to
+  factory settings](commissioning-button-ethernet.md "commissioning-button-ethernet.md").
+
+If none of these suggestions helps to get your Amazon Monitron device working
+again, contact AWS Support.

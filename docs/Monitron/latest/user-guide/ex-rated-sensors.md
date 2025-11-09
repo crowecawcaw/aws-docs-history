@@ -19,5 +19,34 @@ warning. For example, you may need to physically remove a sensor from a hazardou
 as it could be a potential ignition source.
 
 |                                                                                               |                                                                                    |
-| --------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Project interface showing assets list with safety notification and various status indicators. | Asset management interface showing positions for Asset 123 with status indicators. | When a sensor has a healthy position status, you can use the sensor to take measurements, view sensor details, or delete the sensor. ![Sensor management interface showing status, details, and actions for monitoring equipment positions.](images/delete-sensor-flow.png) If you need to delete a sensor, make sure it’s in a healthy state first. A sensor’s position must be in a healthy state before you can delete it. If you do remove a sensor that is under safety notification or not in a healthy state, you’ll receive a notification explaining that you must clear the alert first. ###### To clear the alert: 1. In the asset list, select the unhealthy sensor. 2. Review the errors. 3. Select **Acknowledge** to confirm that you understand the active alerts related to the sensor. 4. Select **Resolve** to fix the anomaly that the sensor is reporting. After resolving the issue, the sensor should return to a healthy state. 5. Delete the sensor from either the **Asset list** or the **Position details** page. ![Series of mobile app screens showing sensor management interface with delete and pair options.](images/ex-rated-sensor-delete-flow.png) ![Mobile app interface showing asset management screens with various status indicators and sensor details.](images/ex-rated-sensor-long-view.png) If you try to commission a sensor under a safety notification, the commissioning process will fail. You’ll receive a notification describing the reason for the failure. ![Mobile app screens showing asset management, sensor pairing, and commissioning process with error notifications.](images/ex-rated-sensor-notification.png) |
+| --------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| Project interface showing assets list with safety notification and various status indicators. | Asset management interface showing positions for Asset 123 with status indicators. |
+
+When a sensor has a healthy position status, you can use the sensor to take
+measurements, view sensor details, or delete the sensor.
+
+![Sensor management interface showing status, details, and actions for monitoring equipment positions.](images/delete-sensor-flow.png)
+If you need to delete a sensor, make sure it’s in a healthy state first. A sensor’s
+position must be in a healthy state before you can delete it. If you do remove a sensor
+that is under safety notification or not in a healthy state, you’ll receive a
+notification explaining that you must clear the alert first.
+
+###### To clear the alert:
+
+1. In the asset list, select the unhealthy sensor.
+2. Review the errors.
+3. Select **Acknowledge** to confirm that you understand the
+   active alerts related to the sensor.
+4. Select **Resolve** to fix the anomaly that the sensor is
+   reporting. After resolving the issue, the sensor should return to a healthy
+   state.
+5. Delete the sensor from either the **Asset list**
+   or the **Position details** page.
+
+![Series of mobile app screens showing sensor management interface with delete and pair options.](images/ex-rated-sensor-delete-flow.png)
+
+![Mobile app interface showing asset management screens with various status indicators and sensor details.](images/ex-rated-sensor-long-view.png)
+If you try to commission a sensor under a safety notification, the commissioning
+process will fail. You’ll receive a notification describing the reason for the failure.
+
+![Mobile app screens showing asset management, sensor pairing, and commissioning process with error notifications.](images/ex-rated-sensor-notification.png)
