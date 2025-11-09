@@ -92,9 +92,10 @@ aws ec2 describe-instance-types \
 The following is example output. If your output is missing the baseline bandwidth,
 update to the latest version of the AWS CLI.
 
-````
+```
 ---------------------------------------------
-|           DescribeInstanceTypes           | +--------------+--------------------+-------+
+|           DescribeInstanceTypes           |
++--------------+--------------------+-------+
 |  c5.large    |  Up to 10 Gigabit  |  0.75 |
 |  c5.xlarge   |  Up to 10 Gigabit  |  1.25 |
 |  c5.2xlarge  |  Up to 10 Gigabit  |  2.5  |
@@ -103,5 +104,55 @@ update to the latest version of the AWS CLI.
 |  c5.12xlarge |  12 Gigabit        |  12.0 |
 |  c5.18xlarge |  25 Gigabit        |  25.0 |
 |  c5.24xlarge |  25 Gigabit        |  25.0 |
-|  c5.metal    |  25 Gigabit        |  25.0 | +--------------+--------------------+-------+ ``` PowerShell You can use the [Get-EC2InstanceType](../../../powershell/latest/reference/items/Get-EC2InstanceType.md "../../../powershell/latest/reference/items/Get-EC2InstanceType.md") PowerShell command to display information about an instance type. The following example displays network performance information for all C5 instances. ``` Get-EC2InstanceType -Filter @{Name = "instance-type"; Values = "c5.*" } | ` Select-Object ` InstanceType, @{Name = 'NetworkPerformance'; Expression = {($_.Networkinfo.NetworkCards.NetworkPerformance)}}, @{Name = 'BaselineBandwidthInGbps'; Expression = {($_.Networkinfo.NetworkCards.BaselineBandwidthInGbps)}} | ` Format-Table -AutoSize ``` The following is example output. ``` InstanceType NetworkPerformance BaselineBandwidthInGbps ------------ ------------------ ----------------------- c5.4xlarge   Up to 10 Gigabit                      5.00 c5.xlarge    Up to 10 Gigabit                      1.25 c5.12xlarge  12 Gigabit                           12.00 c5.9xlarge   12 Gigabit                           12.00 c5.24xlarge  25 Gigabit                           25.00 c5.metal     25 Gigabit                           25.00 c5.2xlarge   Up to 10 Gigabit                      2.50 c5.large     Up to 10 Gigabit                      0.75 c5.18xlarge  25 Gigabit                           25.00 ``` ## Monitor instance bandwidth You can use CloudWatch metrics to monitor instance network bandwidth and the packets sent and received. You can use the network performance metrics provided by the Elastic Network Adapter (ENA) driver to monitor when traffic exceeds the network allowances that Amazon EC2 defines at the instance level. You can configure whether Amazon EC2 sends metric data for the instance to CloudWatch using one-minute periods or five-minute periods. It is possible that the network performance metrics would show that an allowance was exceeded and packets were dropped while the CloudWatch instance metrics do not. This can happen when the instance has a short spike in demand for network resources (known as a microburst), but the CloudWatch metrics are not granular enough to reflect these microsecond spikes. ###### Learn more <br>• [Instance metrics](viewing_metrics_with_cloudwatch.md#ec2-cloudwatch-metrics "viewing_metrics_with_cloudwatch.md#ec2-cloudwatch-metrics") <br>• [Monitor network performance](monitoring-network-performance-ena.md "monitoring-network-performance-ena.md")
-````
+|  c5.metal    |  25 Gigabit        |  25.0 |
++--------------+--------------------+-------+
+```
+
+PowerShell
+You can use the [Get-EC2InstanceType](../../../powershell/latest/reference/items/Get-EC2InstanceType.md "../../../powershell/latest/reference/items/Get-EC2InstanceType.md") PowerShell command to display information about an
+instance type. The following example displays network performance information for
+all C5 instances.
+
+```
+Get-EC2InstanceType -Filter @{Name = "instance-type"; Values = "c5.*" } | `
+    Select-Object `
+    InstanceType,
+    @{Name = 'NetworkPerformance'; Expression = {($_.Networkinfo.NetworkCards.NetworkPerformance)}},
+    @{Name = 'BaselineBandwidthInGbps'; Expression = {($_.Networkinfo.NetworkCards.BaselineBandwidthInGbps)}} | `
+Format-Table -AutoSize
+```
+
+The following is example output.
+
+```
+InstanceType NetworkPerformance BaselineBandwidthInGbps
+------------ ------------------ -----------------------
+c5.4xlarge   Up to 10 Gigabit                      5.00
+c5.xlarge    Up to 10 Gigabit                      1.25
+c5.12xlarge  12 Gigabit                           12.00
+c5.9xlarge   12 Gigabit                           12.00
+c5.24xlarge  25 Gigabit                           25.00
+c5.metal     25 Gigabit                           25.00
+c5.2xlarge   Up to 10 Gigabit                      2.50
+c5.large     Up to 10 Gigabit                      0.75
+c5.18xlarge  25 Gigabit                           25.00
+```
+
+## Monitor instance bandwidth
+
+You can use CloudWatch metrics to monitor instance network bandwidth and the packets sent and received.
+You can use the network performance metrics provided by the Elastic Network Adapter (ENA) driver
+to monitor when traffic exceeds the network allowances that Amazon EC2 defines at the instance level.
+
+You can configure whether Amazon EC2 sends metric data for the instance to CloudWatch using one-minute
+periods or five-minute periods. It is possible that the network performance metrics would
+show that an allowance was exceeded and packets were dropped while the CloudWatch instance metrics
+do not. This can happen when the instance has a short spike in demand for network resources
+(known as a microburst), but the CloudWatch metrics are not granular enough to reflect these
+microsecond spikes.
+
+###### Learn more
+
+- [Instance metrics](viewing_metrics_with_cloudwatch.md#ec2-cloudwatch-metrics "viewing_metrics_with_cloudwatch.md#ec2-cloudwatch-metrics")
+- [Monitor network
+  performance](monitoring-network-performance-ena.md "monitoring-network-performance-ena.md")

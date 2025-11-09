@@ -240,8 +240,204 @@ The following table explains the evaluation rules that determine if an AMI is al
 showing how the `AND` or `OR` operator is applied at each
 level:
 
-| Evaluation level                                                                   | Operator | Requirement to be an Allowed AMI                         |
-| ---------------------------------------------------------------------------------- | -------- | -------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Parameter values for `ImageProviders`, `ImageNames`, and `MarketplaceProductCodes` | `OR`     | AMI must match at least one value in each parameter list |
-| `ImageCriterion`                                                                   | `AND`    | AMI must match all parameters in each `ImageCriterion`   |
-| `ImageCriteria`                                                                    | `OR`     | AMI must match any one of the `ImageCriterion`           | Using the preceding evaluation rules, let's see how to apply them to the [ImageCriteria example](#allowed-amis-json-configuration-example "#allowed-amis-json-configuration-example"): <br>• `ImageCriterion` 1: Allows AMIs that have the AWS Marketplace product code `abcdefg1234567890` `OR` <br>• `ImageCriterion` 2: Allows AMIs that meet both of these criteria: + Owned by either account `123456789012` `OR` `123456789013` <br>• `AND` + Created within the last 300 days `OR` <br>• `ImageCriterion` 3: Allows AMIs that meet both of these criteria: + Owned by account `123456789014` <br>• `AND` + Named with the pattern `golden-ami-*` `OR` <br>• `ImageCriterion` 4: Allows AMIs that meet both of these criteria: + Published by Amazon or verified providers (specified by the `amazon` alias) <br>• `AND` + Not deprecated (maximum days since deprecation is `0`) ### Limits The `ImageCriteria` can include up to: <br>• 10 `ImageCriterion` Each `ImageCriterion` can include up to: <br>• 200 values for `ImageProviders` <br>• 50 values for `ImageNames` <br>• 50 values for `MarketplaceProductCodes` **Example of limits** Using the preceding [ImageCriteria example](#allowed-amis-json-configuration-example "#allowed-amis-json-configuration-example"): <br>• There are 4 `ImageCriterion`. Up to 6 more can be added to the request to reach the limit of 10. <br>• In the first `ImageCriterion`, there is 1 value for `MarketplaceProductCodes`. Up to 49 more can be added to this `ImageCriterion` to reach the limit of 50. <br>• In the second `ImageCriterion`, there are 2 values for `ImageProviders`. Up to 198 more can be added to this `ImageCriterion` to reach the limit of 200. <br>• In the third `ImageCriterion`, there is 1 value for `ImageNames`. Up to 49 more can be added to this `ImageCriterion` to reach the limit of 50. ### Allowed AMIs operations The Allowed AMIs feature has three operational states for managing the image criteria: **enabled**, **disabled**, and **audit mode**. These allow you to enable or disable the image criteria, or review them as needed. ###### Enabled When Allowed AMIs is enabled: <br>• The `ImageCriteria` are applied. <br>• Only allowed AMIs are discoverable in the EC2 console and by APIs that use images (for example, that describe, copy, store, or perform other actions that use images). <br>• Instances can only be launched using allowed AMIs. ###### Disabled When Allowed AMIs is disabled: <br>• The `ImageCriteria` are not applied. <br>• No restrictions are placed on AMI discoverability or usage. ###### Audit mode In audit mode: <br>• The `ImageCriteria` are applied, but no restrictions are placed on AMI discoverability or usage. <br>• In the EC2 console, for each AMI, the **Allowed image** field displays either **Yes** or **No** to indicate whether the AMI will be discoverable and available to users in the account when Allowed AMIs is enabled. <br>• In the command line, the response for the `describe-image` operation includes `"ImageAllowed": true` or `"ImageAllowed": false` to indicate whether the AMI will be discoverable and available to users in the account when Allowed AMIs is enabled. <br>• In the EC2 console, the AMI Catalog displays **Not allowed** next to AMIs that won't be discoverable or available to users in the account when Allowed AMIs is enabled. ## Best practices for implementing Allowed AMIs When implementing Allowed AMIs, consider these best practices to ensure a smooth transition and minimize potential disruptions to your AWS environment. 1. **Enable audit mode** Begin by enabling Allowed AMIs in audit mode. This state allows you to see which AMIs would be affected by your criteria without actually restricting access, providing a risk-free evaluation period. 2. **Set Allowed AMIs criteria** Carefully establish which AMI providers align with your organization's security policies, compliance requirements, and operational needs. ###### Note When using AWS managed services like Amazon ECS or Amazon EKS, we recommend specifying the `amazon` alias to allow AMIs created by AWS. These services depend on Amazon-published AMIs to launch instances. Be cautious when setting `CreationDateCondition` restrictions for any AMIs. Setting overly restrictive date conditions (for example, AMIs must be less than 5 days old) can cause instance launch failures if the AMIs, whether from AWS or other providers, are not updated within your specified time frame. We recommend pairing `ImageNames` with `ImageProviders` for better control and specificity. Using `ImageNames` alone might not uniquely identify an AMI. 3. **Check for impact on expected business processes** You can use the console or the CLI to identify any instances that were launched with AMIs that don't meet the specified criteria. This information can guide your decision to either update your launch configurations to use compliant AMIs (for example, specifying a different AMI in a launch template) or adjust your criteria to allow these AMIs. Console: Use the [ec2-instance-launched-with-allowed-ami](../../../config/latest/developerguide/ec2-instance-launched-with-allowed-ami.md "../../../config/latest/developerguide/ec2-instance-launched-with-allowed-ami.md") AWS Config rule to check if running or stopped instances were launched with AMIs that meet your Allowed AMIs criteria. The rule is **NON_COMPLIANT** if an AMI doesn't meet the Allowed AMIs criteria, and **COMPLIANT** if it does. The rule only operates when the Allowed AMIs setting is set to **enabled** or **audit mode**. CLI: Run the [describe-instance-image-metadata](../../../cli/latest/reference/ec2/describe-instance-image-metadata.md "../../../cli/latest/reference/ec2/describe-instance-image-metadata.md") command and filter the response to identify any instances that were launched with AMIs that don't meet the specified criteria. For the console and CLI instructions, see [Find instances launched from AMIs that aren't allowed](manage-settings-allowed-amis.md#identify-instances-with-allowed-AMIs "manage-settings-allowed-amis.md#identify-instances-with-allowed-AMIs"). 4. **Enable Allowed AMIs** Once you've confirmed that the criteria will not adversely affect expected business processes, enable Allowed AMIs. 5. **Monitor instance launches** Continue to monitor instance launches from AMIs across your applications and the AWS managed services you use, such as Amazon EMR, Amazon ECR, Amazon EKS, and AWS Elastic Beanstalk. Check for any unexpected issues and make necessary adjustments to the Allowed AMIs criteria. 6. **Pilot new AMIs** To test third-party AMIs that do not comply with your current Allowed AMIs settings, AWS recommends the following approaches: <br>• Use a separate AWS account: Create an account with no access to your business-critical resources. Ensure that the Allowed AMIs setting is not enabled in this account, or that the AMIs you want to test are explicitly allowed, so that you can test them. <br>• Test in another AWS Region: Use a Region where the third-party AMIs are available, but where you have not yet enabled the Allowed AMIs settings. These approaches help ensure your business-critical resources remain secure while you test new AMIs. ## Required IAM permissions To use the Allowed AMIs feature, you need the following IAM permissions: <br>• `GetAllowedImagesSettings` <br>• `EnableAllowedImagesSettings` <br>• `DisableAllowedImagesSettings` <br>• `ReplaceImageCriteriaInAllowedImagesSettings` |
+| Evaluation level                                                                      | Operator | Requirement to be an Allowed AMI                         |
+| ------------------------------------------------------------------------------------- | -------- | -------------------------------------------------------- |
+| Parameter values for `ImageProviders`, `ImageNames`, and<br>`MarketplaceProductCodes` | `OR`     | AMI must match at least one value in each parameter list |
+| `ImageCriterion`                                                                      | `AND`    | AMI must match all parameters in each `ImageCriterion`   |
+| `ImageCriteria`                                                                       | `OR`     | AMI must match any one of the `ImageCriterion`           |
+
+Using the preceding evaluation rules, let's see how to apply them to the [ImageCriteria example](#allowed-amis-json-configuration-example "#allowed-amis-json-configuration-example"):
+
+- `ImageCriterion` 1: Allows AMIs that have the AWS Marketplace product code
+  `abcdefg1234567890`
+
+`OR`
+
+- `ImageCriterion` 2: Allows AMIs that meet both of these criteria:
+
+      + Owned by either account `123456789012`
+      `OR`
+      `123456789013`
+
+
+
+
+      	- `AND`
+      + Created within the last 300 days
+
+  `OR`
+
+- `ImageCriterion` 3: Allows AMIs that meet both of these criteria:
+
+      + Owned by account `123456789014`
+
+
+
+
+      	- `AND`
+      + Named with the pattern `golden-ami-*`
+
+  `OR`
+
+- `ImageCriterion` 4: Allows AMIs that meet both of these criteria:
+  - Published by Amazon or verified providers (specified by the `amazon`
+    alias)
+    - `AND`
+
+  - Not deprecated (maximum days since deprecation is
+    `0`)
+
+### Limits
+
+The `ImageCriteria` can include up to:
+
+- 10 `ImageCriterion`
+
+Each `ImageCriterion` can include up to:
+
+- 200 values for `ImageProviders`
+- 50 values for `ImageNames`
+- 50 values for `MarketplaceProductCodes`
+
+**Example of limits**
+
+Using the preceding [ImageCriteria example](#allowed-amis-json-configuration-example "#allowed-amis-json-configuration-example"):
+
+- There are 4 `ImageCriterion`. Up to 6 more can be added to the request to
+  reach the limit of 10.
+- In the first `ImageCriterion`, there is 1 value for
+  `MarketplaceProductCodes`. Up to 49 more can be added to this
+  `ImageCriterion` to reach the limit of 50.
+- In the second `ImageCriterion`, there are 2 values for
+  `ImageProviders`. Up to 198 more can be added to this
+  `ImageCriterion` to reach the limit of 200.
+- In the third `ImageCriterion`, there is 1 value for `ImageNames`.
+  Up to 49 more can be added to this `ImageCriterion` to reach the
+  limit of 50.
+
+### Allowed AMIs operations
+
+The Allowed AMIs feature has three operational states for managing the image
+criteria: **enabled**, **disabled**, and
+**audit mode**. These allow you to enable or disable the image
+criteria, or review them as needed.
+
+###### Enabled
+
+When Allowed AMIs is enabled:
+
+- The `ImageCriteria` are applied.
+- Only allowed AMIs are discoverable in the EC2 console and by APIs that use
+  images (for example, that describe, copy, store, or perform other actions
+  that use images).
+- Instances can only be launched using allowed AMIs.
+
+###### Disabled
+
+When Allowed AMIs is disabled:
+
+- The `ImageCriteria` are not applied.
+- No restrictions are placed on AMI discoverability or usage.
+
+###### Audit mode
+
+In audit mode:
+
+- The `ImageCriteria` are applied, but no restrictions are placed
+  on AMI discoverability or usage.
+- In the EC2 console, for each AMI, the **Allowed
+  image** field displays either **Yes** or
+  **No** to indicate whether the AMI will be discoverable
+  and available to users in the account when Allowed AMIs is enabled.
+- In the command line, the response for the `describe-image`
+  operation includes `"ImageAllowed": true` or
+  `"ImageAllowed": false` to indicate whether the AMI will be
+  discoverable and available to users in the account when Allowed AMIs is
+  enabled.
+- In the EC2 console, the AMI Catalog displays **Not
+  allowed** next to AMIs that won't be discoverable or available
+  to users in the account when Allowed AMIs is enabled.
+
+## Best practices for
+
+implementing Allowed AMIs
+
+When implementing Allowed AMIs, consider these best practices to ensure a smooth
+transition and minimize potential disruptions to your AWS environment.
+
+1. **Enable audit mode**
+
+Begin by enabling Allowed AMIs in audit mode. This state allows you to see
+which AMIs would be affected by your criteria without actually restricting
+access, providing a risk-free evaluation period. 2. **Set Allowed AMIs criteria**
+
+Carefully establish which AMI providers align with your organization's
+security policies, compliance requirements, and operational needs.
+
+###### Note
+
+When using AWS managed services like Amazon ECS or Amazon EKS, we recommend specifying the
+`amazon` alias to allow AMIs created by AWS. These services
+depend on Amazon-published AMIs to launch instances.
+
+Be cautious when setting `CreationDateCondition` restrictions for any AMIs.
+Setting overly restrictive date conditions (for example, AMIs must be less
+than 5 days old) can cause instance launch failures if the AMIs, whether
+from AWS or other providers, are not updated within your specified time
+frame.
+
+We recommend pairing `ImageNames` with `ImageProviders` for better
+control and specificity. Using `ImageNames` alone might not
+uniquely identify an AMI. 3. **Check for impact on expected business
+processes**
+
+You can use the console or the CLI to identify any instances that were
+launched with AMIs that don't meet the specified criteria. This information can
+guide your decision to either update your launch configurations to use compliant
+AMIs (for example, specifying a different AMI in a launch template) or adjust
+your criteria to allow these AMIs.
+
+Console: Use the [ec2-instance-launched-with-allowed-ami](../../../config/latest/developerguide/ec2-instance-launched-with-allowed-ami.md "../../../config/latest/developerguide/ec2-instance-launched-with-allowed-ami.md") AWS Config rule to check if
+running or stopped instances were launched with AMIs that meet your Allowed AMIs
+criteria. The rule is **NON_COMPLIANT** if an AMI doesn't meet
+the Allowed AMIs criteria, and **COMPLIANT** if it does. The
+rule only operates when the Allowed AMIs setting is set to
+**enabled** or **audit mode**.
+
+CLI: Run the [describe-instance-image-metadata](../../../cli/latest/reference/ec2/describe-instance-image-metadata.md "../../../cli/latest/reference/ec2/describe-instance-image-metadata.md") command and filter the response to
+identify any instances that were launched with AMIs that don't meet the
+specified criteria.
+
+For the console and CLI instructions, see [Find instances launched from
+AMIs that aren't allowed](manage-settings-allowed-amis.md#identify-instances-with-allowed-AMIs "manage-settings-allowed-amis.md#identify-instances-with-allowed-AMIs"). 4. **Enable Allowed AMIs**
+
+Once you've confirmed that the criteria will not adversely affect expected
+business processes, enable Allowed AMIs. 5. **Monitor instance launches**
+
+Continue to monitor instance launches from AMIs across your applications and
+the AWS managed services you use, such as Amazon EMR, Amazon ECR, Amazon EKS, and AWS Elastic Beanstalk.
+Check for any unexpected issues and make necessary adjustments to the Allowed
+AMIs criteria. 6. **Pilot new AMIs**
+
+To test third-party AMIs that do not comply with your current Allowed AMIs
+settings, AWS recommends the following approaches:
+
+    * Use a separate AWS account: Create an account with no access to your
+     business-critical resources. Ensure that the Allowed AMIs setting is not
+     enabled in this account, or that the AMIs you want to test are
+     explicitly allowed, so that you can test them.
+    * Test in another AWS Region: Use a Region where the third-party AMIs
+     are available, but where you have not yet enabled the Allowed AMIs
+     settings.
+
+These approaches help ensure your business-critical resources remain secure
+while you test new AMIs.
+
+## Required IAM permissions
+
+To use the Allowed AMIs feature, you need the following IAM permissions:
+
+- `GetAllowedImagesSettings`
+- `EnableAllowedImagesSettings`
+- `DisableAllowedImagesSettings`
+- `ReplaceImageCriteriaInAllowedImagesSettings`

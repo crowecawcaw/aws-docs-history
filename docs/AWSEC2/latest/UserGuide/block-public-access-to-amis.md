@@ -39,7 +39,11 @@ whether you have public AMIs. The following table lists the default
 settings:
 
 | AWS account                                    | Block public access for AMIs default setting |
-| ---------------------------------------------- | -------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| ---------------------------------------------- | -------------------------------------------- |
 | New accounts                                   | Enabled                                      |
 | Existing accounts with no public AMIs ¹        | Enabled                                      |
-| Existing accounts with one or more public AMIs | Disabled                                     | ¹ If your account had one or more public AMIs on or after July 15, 2023, **Block public access for AMIs** is disabled by default for your account, even if you subsequently made all the AMIs private. |
+| Existing accounts with one or more public AMIs | Disabled                                     |
+
+¹ If your account had one or more public AMIs on or after July 15, 2023,
+**Block public access for AMIs** is disabled by default for
+your account, even if you subsequently made all the AMIs private.

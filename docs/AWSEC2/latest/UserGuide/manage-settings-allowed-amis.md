@@ -443,13 +443,49 @@ aws ec2 describe-instance-image-metadata \
 
 The following is example output.
 
-````
+```
 --------------------------------------------------
-|          DescribeInstanceImageMetadata         | +----------------------+-------------------------+
+|          DescribeInstanceImageMetadata         |
++----------------------+-------------------------+
 |  i-08fd74f3f1595fdbd |  ami-09245d5773578a1d6  |
 |  i-0b1bf24fd4f297ab9 |  ami-07cccf2bd80ed467f  |
 |  i-026a2eb590b4f7234 |  ami-0c0ec0a3a3a4c34c0  |
 |  i-006a6a4e8870c828f |  ami-0a70b9d193ae8a799  |
 |  i-0781e91cfeca3179d |  ami-00c257e12d6828491  |
-|  i-02b631e2a6ae7c2d9 |  ami-0bfddf4206f1fa7b9  | +----------------------+-------------------------+ ``` PowerShell ###### To find instances launched using AMIs that aren't allowed Use the [Get-EC2InstanceImageMetadata](../../../powershell/latest/reference/items/Get-EC2InstanceImageMetadata.md "../../../powershell/latest/reference/items/Get-EC2InstanceImageMetadata.md") cmdlet. ``` Get-EC2InstanceImageMetadata ` -Filter @{Name="image-allowed";Values="false"} | ` Select InstanceId, @{Name='ImageId'; Expression={($_.ImageMetadata.ImageId)}} ``` The following is example output. ``` InstanceId          ImageId ----------          ------- i-08fd74f3f1595fdbd ami-09245d5773578a1d6 i-0b1bf24fd4f297ab9 ami-07cccf2bd80ed467f i-026a2eb590b4f7234 ami-0c0ec0a3a3a4c34c0 i-006a6a4e8870c828f ami-0a70b9d193ae8a799 i-0781e91cfeca3179d ami-00c257e12d6828491 i-02b631e2a6ae7c2d9 ami-0bfddf4206f1fa7b9 ``` AWS Config You can add the **ec2-instance-launched-with-allowed-ami** AWS Config rule, configure it for your requirements, and then use it to evaluate your instances. For more information, see [Adding AWS Config rules](../../../config/latest/developerguide/evaluate-config_add-rules.md "../../../config/latest/developerguide/evaluate-config_add-rules.md") and [ec2-instance-launched-with-allowed-ami](../../../config/latest/developerguide/ec2-instance-launched-with-allowed-ami.md "../../../config/latest/developerguide/ec2-instance-launched-with-allowed-ami.md") in the *AWS Config Developer Guide*.
-````
+|  i-02b631e2a6ae7c2d9 |  ami-0bfddf4206f1fa7b9  |
++----------------------+-------------------------+
+```
+
+PowerShell
+
+###### To find instances launched using AMIs that aren't allowed
+
+Use the [Get-EC2InstanceImageMetadata](../../../powershell/latest/reference/items/Get-EC2InstanceImageMetadata.md "../../../powershell/latest/reference/items/Get-EC2InstanceImageMetadata.md") cmdlet.
+
+```
+Get-EC2InstanceImageMetadata `
+    -Filter @{Name="image-allowed";Values="false"} | `
+    Select InstanceId, @{Name='ImageId'; Expression={($_.ImageMetadata.ImageId)}}
+```
+
+The following is example output.
+
+```
+InstanceId          ImageId
+----------          -------
+i-08fd74f3f1595fdbd ami-09245d5773578a1d6
+i-0b1bf24fd4f297ab9 ami-07cccf2bd80ed467f
+i-026a2eb590b4f7234 ami-0c0ec0a3a3a4c34c0
+i-006a6a4e8870c828f ami-0a70b9d193ae8a799
+i-0781e91cfeca3179d ami-00c257e12d6828491
+i-02b631e2a6ae7c2d9 ami-0bfddf4206f1fa7b9
+```
+
+AWS Config
+You can add the
+**ec2-instance-launched-with-allowed-ami** AWS Config
+rule, configure it for your requirements, and then use it to evaluate
+your instances.
+
+For more information, see [Adding AWS Config rules](../../../config/latest/developerguide/evaluate-config_add-rules.md "../../../config/latest/developerguide/evaluate-config_add-rules.md") and [ec2-instance-launched-with-allowed-ami](../../../config/latest/developerguide/ec2-instance-launched-with-allowed-ami.md "../../../config/latest/developerguide/ec2-instance-launched-with-allowed-ami.md") in the
+_AWS Config Developer Guide_.

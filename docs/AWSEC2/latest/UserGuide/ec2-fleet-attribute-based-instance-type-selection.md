@@ -1699,9 +1699,10 @@ indicate that there is no limit.
 
 Example output
 
-````
+```
 ------------------------------------------
-|GetInstanceTypesFromInstanceRequirements| +----------------------------------------+
+|GetInstanceTypesFromInstanceRequirements|
++----------------------------------------+
 ||             InstanceTypes            ||
 |+--------------------------------------+|
 ||             InstanceType             ||
@@ -1712,5 +1713,10 @@ Example output
 ||  c5ad.xlarge                         ||
 ||  c5d.xlarge                          ||
 ||  c5n.xlarge                          ||
-||  d2.xlarge                           || ... ``` 4. After identifying instance types that meet your needs, make note of the instance attributes that you used so that you can use them when configuring your fleet request.
-````
+||  d2.xlarge                           ||
+...
+```
+
+4. After identifying instance types that meet your needs, make note of the
+   instance attributes that you used so that you can use them when configuring your
+   fleet request.

@@ -162,10 +162,207 @@ Before you begin, consider the following.
 
 The following table summarizes the possible encryption outcomes.
 
-|                                                             | Original root volume | Specified snapshot or AMI | Encryption by default | Replacement root volume                             | Encryption key used for replacement root volume |
-| ----------------------------------------------------------- | -------------------- | ------------------------- | --------------------- | --------------------------------------------------- | ----------------------------------------------- | ----------- | -------------- | -------------- | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- |
-| **Restore replacement root volume to initial launch state** | Encrypted            | Not applicable            | Not considered        | Encrypted                                           | Same KMS key as original root volume            |
-| Unencrypted                                                 | Not applicable       | Disabled                  | Unencrypted           | Not applicable                                      |                                                 | Unencrypted | Not applicable | Enabled        | Encrypted   | Account's default KMS key for Amazon EBS encryption                                                                                                                                                                                                                  |
-| **Restore replacement root volume from snapshot or AMI**    | Encrypted            | Unencrypted               | Not considered        | Encrypted                                           | Same KMS key as original root volume            |
-| Encrypted                                                   | Encrypted            | Not considered            | Encrypted             | Same KMS key as original root volume                |                                                 | Unencrypted | Unencrypted    | Disabled       | Unencrypted | Not applicable                                                                                                                                                                                                                                                       |
-| Unencrypted                                                 | Unencrypted          | Enabled                   | Encrypted             | Account's default KMS key for Amazon EBS encryption |                                                 | Unencrypted | Encrypted      | Not considered | Encrypted   | If the AMI or snapshot is owned by the account, the replacement volume is encrypted with the AMI or snapshot’s KMS key. If AMI or snapshot is shared with the account, replacement volume is encrypted with the account's default KMS key for Amazon EBS encryption. | ## Replace a root volume When you replace the root volume for an instance, a _root volume replacement task_ is created. You can use the root volume replacement task to monitor the progress and outcome of the replacement process. Console ###### To replace the root volume 1. Open the Amazon EC2 console at [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/"). 2. In the navigation pane, choose **Instances**. 3. Select the instance for which to replace the root volume and choose **Actions**, **Monitor and troubleshoot**, **Replace root volume**. ###### Note The **Replace root volume** action is disabled if the selected instance is not in the `running` state. 4. For **Restore**, choose one of the following options: <br>• **Launch state** – Restore the replacement root volume from the snapshot that was used to create the current root volume. <br>• **Snapshot** – Restore the replacement root volume to the snapshot that you specify. For **Snapshot**, select the snapshot to use. <br>• **Image** – Restore the replacement root volume using the AMI that you specify. For **Image**, select the AMI to use. 5. (Optional) For **Volume initialization rate**, you can specify the Amazon EBS Provisioned Rate for Volume Initialization (volume initialization rate), in MiB/s, at which the snapshot blocks are to be downloaded from Amazon S3 to the volume. For more information, see [Use an Amazon EBS Provisioned Rate for Volume Initialization](../../../ebs/latest/userguide/initalize-volume.md#volume-initialization-rate "../../../ebs/latest/userguide/initalize-volume.md#volume-initialization-rate"). To use the default initialization rate or fast snapshot restore (if it is enabled for the selected snapshot), don't specify a rate. 6. (Optional) To delete the root volume that you are replacing, select **Delete replaced root volume**. 7. Choose **Create replacement task**. 8. To monitor the replacement task, choose the **Storage** tab for the instance and expand **Recent root volume replacement tasks**. AWS CLI ###### To restore the replacement root volume to the launch state Use the [create-replace-root-volume-task](../../../cli/latest/reference/ec2/create-replace-root-volume-task.md "../../../cli/latest/reference/ec2/create-replace-root-volume-task.md") command. For `--instance-id`, specify the ID of the instance for which to replace the root volume. Omit the `--snapshot-id` and `--image-id` parameters. To delete the original root volume after it has been replaced, include `--delete-replaced-root-volume` and specify `true`. To specify the volume initialization rate at which the snapshot blocks are downloaded from Amazon S3 to the volume, for `--volume-initialization-rate`, specify a value between `100` and `300` MiB/s. `` aws ec2 create-replace-root-volume-task \ --instance-id `i-1234567890abcdef0` \ --delete-replaced-root-volume \ --volume-initialization-rate `150` `` ###### To restore the replacement root volume to a specific snapshot Use the [create-replace-root-volume-task](../../../cli/latest/reference/ec2/create-replace-root-volume-task.md "../../../cli/latest/reference/ec2/create-replace-root-volume-task.md") command. For `--instance-id`, specify the ID of the instance for which to replace the root volume. For `--snapshot-id`, specify the ID of the snapshot to use. To delete the original root volume after it has been replaced, include `--delete-replaced-root-volume` and specify `true`. To specify the volume initialization rate at which the snapshot blocks are downloaded from Amazon S3 to the volume, for `--volume-initialization-rate`, specify a value between `100` and `300` MiB/s. `` aws ec2 create-replace-root-volume-task \ --instance-id `i-1234567890abcdef0` \ --snapshot-id `snap-9876543210abcdef0` \ --delete-replaced-root-volume \ --volume-initialization-rate `150` `` ###### To restore the replacement root volume using an AMI Use the [create-replace-root-volume-task](../../../cli/latest/reference/ec2/create-replace-root-volume-task.md "../../../cli/latest/reference/ec2/create-replace-root-volume-task.md") command. For `--instance-id`, specify the ID of the instance for which to replace the root volume. For `--image-id`, specify the ID of the AMI to use. To delete the original root volume after it has been replaced, include `--delete-replaced-root-volume` and specify `true`. To specify the volume initialization rate at which the snapshot blocks are downloaded from Amazon S3 to the volume, for `--volume-initialization-rate`, specify a value between `100` and `300` MiB/s. `` aws ec2 create-replace-root-volume-task \ --instance-id `i-1234567890abcdef0` \ --image-id `ami-09876543210abcdef` \ --delete-replaced-root-volume \ --volume-initialization-rate `150` `` ###### To view the status of a root volume replacement task Use the [describe-replace-root-volume-tasks](../../../cli/latest/reference/ec2/describe-replace-root-volume-tasks.md "../../../cli/latest/reference/ec2/describe-replace-root-volume-tasks.md") command and specify the IDs of the root volume replacement tasks to view. ``aws ec2 describe-replace-root-volume-tasks \ --replace-root-volume-task-ids `replacevol-1234567890abcdef0` \ --query ReplaceRootVolumeTasks[].TaskState`` The following is example output. `[ "succeeded" ]` Alternatively, specify the `instance-id` filter to filter the results by instance. `` `$` aws ec2 describe-replace-root-volume-tasks \ --filters Name=instance-id,Values=`i-1234567890abcdef0` `` PowerShell ###### To restore the replacement root volume to the launch state Use the [New-EC2ReplaceRootVolumeTask](../../../powershell/latest/reference/items/New-EC2ReplaceRootVolumeTask.md "../../../powershell/latest/reference/items/New-EC2ReplaceRootVolumeTask.md") command. For `-InstanceId`, specify the ID of the instance for which to replace the root volume. Omit the `-SnapshotId` and `-ImageId` parameters. To delete the original root volume after it has been replaced, include `-DeleteReplacedRootVolume` and specify `$true`. To specify the volume initialization rate at which the snapshot blocks are downloaded from Amazon S3 to the volume, for `-VolumeInitializationRate`, specify a value between `100` and `300` MiB/s. ``New-EC2ReplaceRootVolumeTask ` -InstanceId `i-1234567890abcdef0` ` -VolumeInitializationRate `150` ` -DeleteReplacedRootVolume $true`` ###### To restore the replacement root volume to a specific snapshot Use the [New-EC2ReplaceRootVolumeTask](../../../powershell/latest/reference/items/New-EC2ReplaceRootVolumeTask.md "../../../powershell/latest/reference/items/New-EC2ReplaceRootVolumeTask.md") command. For `--InstanceId`, specify the ID of the instance for which to replace the root volume. For `-SnapshotId`, specify the ID of the snapshot to use. To delete the original root volume after it has been replaced, include `-DeleteReplacedRootVolume` and specify `$true`. To specify the volume initialization rate at which the snapshot blocks are downloaded from Amazon S3 to the volume, for `-VolumeInitializationRate`, specify a value between `100` and `300` MiB/s. ``New-EC2ReplaceRootVolumeTask ` -InstanceId `i-1234567890abcdef0` ` -SnapshotId `snap-9876543210abcdef0` ` -VolumeInitializationRate `150` ` -DeleteReplacedRootVolume $true`` ###### To restore the replacement root volume using an AMI Use the [New-EC2ReplaceRootVolumeTask](../../../powershell/latest/reference/items/New-EC2ReplaceRootVolumeTask.md "../../../powershell/latest/reference/items/New-EC2ReplaceRootVolumeTask.md") command. For `-InstanceId`, specify the ID of the instance for which to replace the root volume. For `-ImageId`, specify the ID of the AMI to use. To delete the original root volume after it has been replaced, include `-DeleteReplacedRootVolume` and specify `$true`. To specify the volume initialization rate at which the snapshot blocks are downloaded from Amazon S3 to the volume, for `-VolumeInitializationRate`, specify a value between `100` and `300` MiB/s. ``New-EC2ReplaceRootVolumeTask ` -InstanceId `i-1234567890abcdef0` ` -ImageId `ami-0abcdef1234567890` ` -VolumeInitializationRate `150` ` -DeleteReplacedRootVolume $true`` ###### To view the status of a root volume replacement task Use the [Get-EC2ReplaceRootVolumeTask](../../../powershell/latest/reference/items/Get-EC2ReplaceRootVolumeTask.md "../../../powershell/latest/reference/items/Get-EC2ReplaceRootVolumeTask.md") command and specify the IDs of the root volume replacement tasks to view. ``(Get-EC2ReplaceRootVolumeTask ` -ReplaceRootVolumeTaskIds `replacevol-1234567890abcdef0`).TaskState.Value`` The following is example output. `Succeeded` Alternatively, specify the `instance-id` filter to filter the results by instance. ``` `PS C:\>` Get-EC2ReplaceRootVolumeTask -Filters @{Name = 'instance-id'; Values = '`i-1234567890abcdef0`'} | Format-Table ``` |
+|                                                                | Original root volume | Specified snapshot or AMI | Encryption by default | Replacement root volume                                                                                                                                                                                                                                                    | Encryption key used for replacement root volume |
+| -------------------------------------------------------------- | -------------------- | ------------------------- | --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------- |
+| **Restore replacement root volume to<br>initial launch state** | Encrypted            | Not applicable            | Not considered        | Encrypted                                                                                                                                                                                                                                                                  | Same KMS key as original root volume            |
+| Unencrypted                                                    | Not applicable       | Disabled                  | Unencrypted           | Not applicable                                                                                                                                                                                                                                                             |
+| Unencrypted                                                    | Not applicable       | Enabled                   | Encrypted             | Account's default KMS key for Amazon EBS encryption                                                                                                                                                                                                                        |
+| **Restore replacement root volume from snapshot or AMI**       | Encrypted            | Unencrypted               | Not considered        | Encrypted                                                                                                                                                                                                                                                                  | Same KMS key as original root volume            |
+| Encrypted                                                      | Encrypted            | Not considered            | Encrypted             | Same KMS key as original root volume                                                                                                                                                                                                                                       |
+| Unencrypted                                                    | Unencrypted          | Disabled                  | Unencrypted           | Not applicable                                                                                                                                                                                                                                                             |
+| Unencrypted                                                    | Unencrypted          | Enabled                   | Encrypted             | Account's default KMS key for Amazon EBS encryption                                                                                                                                                                                                                        |
+| Unencrypted                                                    | Encrypted            | Not considered            | Encrypted             | If the AMI or snapshot is owned by the account, the replacement volume is encrypted<br>with the AMI or snapshot’s KMS key. If AMI or snapshot is shared with the account,<br>replacement volume is encrypted with the account's default KMS key for Amazon EBS encryption. |
+
+## Replace a root volume
+
+When you replace the root volume for an instance, a _root volume replacement
+task_ is created. You can use the root volume replacement task to monitor the
+progress and outcome of the replacement process.
+
+Console
+
+###### To replace the root volume
+
+1. Open the Amazon EC2 console at
+   [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
+2. In the navigation pane, choose **Instances**.
+3. Select the instance for which to replace the root volume and choose
+   **Actions**, **Monitor and troubleshoot**,
+   **Replace root volume**.
+
+###### Note
+
+The **Replace root volume** action is disabled if the selected
+instance is not in the `running` state. 4. For **Restore**, choose one of the following options:
+
+    * **Launch state** – Restore the replacement root
+     volume from the snapshot that was used to create the current root
+     volume.
+    * **Snapshot** – Restore the replacement root volume to
+     the snapshot that you specify. For **Snapshot**, select the
+     snapshot to use.
+    * **Image** – Restore the replacement root volume using
+     the AMI that you specify. For **Image**, select the AMI to use.
+
+5. (Optional) For **Volume initialization rate**, you can specify the Amazon EBS Provisioned Rate for Volume Initialization
+   (volume initialization rate), in MiB/s, at which the snapshot blocks are to be downloaded from Amazon S3 to the volume. For
+   more information, see [Use an Amazon EBS Provisioned Rate for Volume Initialization](../../../ebs/latest/userguide/initalize-volume.md#volume-initialization-rate "../../../ebs/latest/userguide/initalize-volume.md#volume-initialization-rate"). To use the default initialization rate
+   or fast snapshot restore (if it is enabled for the selected snapshot), don't specify a rate.
+6. (Optional) To delete the root volume that you are replacing, select
+   **Delete replaced root volume**.
+7. Choose **Create replacement task**.
+8. To monitor the replacement task, choose the **Storage** tab for
+   the instance and expand **Recent root volume replacement tasks**.
+
+AWS CLI
+
+###### To restore the replacement root volume to the launch state
+
+Use the [create-replace-root-volume-task](../../../cli/latest/reference/ec2/create-replace-root-volume-task.md "../../../cli/latest/reference/ec2/create-replace-root-volume-task.md") command. For `--instance-id`, specify the ID of the instance
+for which to replace the root volume. Omit the `--snapshot-id` and `--image-id` parameters.
+To delete the original root volume after it has been replaced, include `--delete-replaced-root-volume`
+and specify `true`. To specify the volume initialization rate at which the snapshot blocks are
+downloaded from Amazon S3 to the volume, for `--volume-initialization-rate`, specify a value between
+`100` and `300` MiB/s.
+
+```
+aws ec2 create-replace-root-volume-task \
+--instance-id `i-1234567890abcdef0` \
+--delete-replaced-root-volume \
+--volume-initialization-rate `150`
+```
+
+###### To restore the replacement root volume to a specific snapshot
+
+Use the [create-replace-root-volume-task](../../../cli/latest/reference/ec2/create-replace-root-volume-task.md "../../../cli/latest/reference/ec2/create-replace-root-volume-task.md")
+command. For `--instance-id`, specify the ID of the instance for which to replace the root volume.
+For `--snapshot-id`, specify the ID of the snapshot to use. To delete the original root volume
+after it has been replaced, include `--delete-replaced-root-volume` and specify `true`.
+To specify the volume initialization rate at which the snapshot blocks are downloaded from Amazon S3 to the volume,
+for `--volume-initialization-rate`, specify a value between `100` and `300`
+MiB/s.
+
+```
+aws ec2 create-replace-root-volume-task \
+--instance-id `i-1234567890abcdef0` \
+--snapshot-id `snap-9876543210abcdef0` \
+--delete-replaced-root-volume \
+--volume-initialization-rate `150`
+```
+
+###### To restore the replacement root volume using an AMI
+
+Use the [create-replace-root-volume-task](../../../cli/latest/reference/ec2/create-replace-root-volume-task.md "../../../cli/latest/reference/ec2/create-replace-root-volume-task.md") command. For `--instance-id`, specify the ID of the instance
+for which to replace the root volume. For `--image-id`, specify the ID of the AMI to use. To delete
+the original root volume after it has been replaced, include `--delete-replaced-root-volume` and
+specify `true`. To specify the volume initialization rate at which the snapshot blocks are
+downloaded from Amazon S3 to the volume, for `--volume-initialization-rate`, specify a value between
+`100` and `300` MiB/s.
+
+```
+aws ec2 create-replace-root-volume-task \
+--instance-id `i-1234567890abcdef0` \
+--image-id `ami-09876543210abcdef` \
+--delete-replaced-root-volume \
+--volume-initialization-rate `150`
+```
+
+###### To view the status of a root volume replacement task
+
+Use the [describe-replace-root-volume-tasks](../../../cli/latest/reference/ec2/describe-replace-root-volume-tasks.md "../../../cli/latest/reference/ec2/describe-replace-root-volume-tasks.md") command and specify the IDs of the
+root volume replacement tasks to view.
+
+```
+aws ec2 describe-replace-root-volume-tasks \
+    --replace-root-volume-task-ids `replacevol-1234567890abcdef0` \
+    --query ReplaceRootVolumeTasks[].TaskState
+```
+
+The following is example output.
+
+```
+[
+    "succeeded"
+]
+```
+
+Alternatively, specify the `instance-id` filter to filter the results by instance.
+
+```
+`$` aws ec2 describe-replace-root-volume-tasks \
+    --filters Name=instance-id,Values=`i-1234567890abcdef0`
+```
+
+PowerShell
+
+###### To restore the replacement root volume to the launch state
+
+Use the [New-EC2ReplaceRootVolumeTask](../../../powershell/latest/reference/items/New-EC2ReplaceRootVolumeTask.md "../../../powershell/latest/reference/items/New-EC2ReplaceRootVolumeTask.md")
+command. For `-InstanceId`, specify the ID of the instance for which to replace the root volume. Omit
+the `-SnapshotId` and `-ImageId` parameters. To delete the original root volume after it has
+been replaced, include `-DeleteReplacedRootVolume` and specify `$true`. To specify the volume initialization rate
+at which the snapshot blocks are downloaded from Amazon S3 to the volume, for
+`-VolumeInitializationRate`, specify a value between `100` and `300` MiB/s.
+
+```
+New-EC2ReplaceRootVolumeTask `
+    -InstanceId `i-1234567890abcdef0` `
+    -VolumeInitializationRate `150` `
+    -DeleteReplacedRootVolume $true
+```
+
+###### To restore the replacement root volume to a specific snapshot
+
+Use the [New-EC2ReplaceRootVolumeTask](../../../powershell/latest/reference/items/New-EC2ReplaceRootVolumeTask.md "../../../powershell/latest/reference/items/New-EC2ReplaceRootVolumeTask.md")
+command. For `--InstanceId`, specify the ID of the instance for which to replace the root volume. For
+`-SnapshotId`, specify the ID of the snapshot to use. To delete the original root volume after it has
+been replaced, include `-DeleteReplacedRootVolume` and specify `$true`. To specify the
+volume initialization rate at which the snapshot blocks are downloaded from Amazon S3 to the volume, for
+`-VolumeInitializationRate`, specify a value between `100` and `300` MiB/s.
+
+```
+New-EC2ReplaceRootVolumeTask `
+    -InstanceId `i-1234567890abcdef0` `
+    -SnapshotId `snap-9876543210abcdef0` `
+    -VolumeInitializationRate `150` `
+    -DeleteReplacedRootVolume $true
+```
+
+###### To restore the replacement root volume using an AMI
+
+Use the [New-EC2ReplaceRootVolumeTask](../../../powershell/latest/reference/items/New-EC2ReplaceRootVolumeTask.md "../../../powershell/latest/reference/items/New-EC2ReplaceRootVolumeTask.md")
+command. For `-InstanceId`, specify the ID of the instance for which to replace the root volume. For
+`-ImageId`, specify the ID of the AMI to use. To delete the original root volume after it has been
+replaced, include `-DeleteReplacedRootVolume` and specify `$true`. To specify the volume initialization rate
+at which the snapshot blocks are downloaded from Amazon S3 to the volume, for
+`-VolumeInitializationRate`, specify a value between `100` and `300` MiB/s.
+
+```
+New-EC2ReplaceRootVolumeTask `
+    -InstanceId `i-1234567890abcdef0` `
+    -ImageId `ami-0abcdef1234567890` `
+    -VolumeInitializationRate `150` `
+    -DeleteReplacedRootVolume $true
+```
+
+###### To view the status of a root volume replacement task
+
+Use the [Get-EC2ReplaceRootVolumeTask](../../../powershell/latest/reference/items/Get-EC2ReplaceRootVolumeTask.md "../../../powershell/latest/reference/items/Get-EC2ReplaceRootVolumeTask.md")
+command and specify the IDs of the root volume replacement tasks to view.
+
+```
+(Get-EC2ReplaceRootVolumeTask `
+    -ReplaceRootVolumeTaskIds `replacevol-1234567890abcdef0`).TaskState.Value
+```
+
+The following is example output.
+
+```
+Succeeded
+```
+
+Alternatively, specify the `instance-id` filter to filter the results by instance.
+
+```
+`PS C:\>` Get-EC2ReplaceRootVolumeTask -Filters @{Name = 'instance-id'; Values = '`i-1234567890abcdef0`'} | Format-Table
+```

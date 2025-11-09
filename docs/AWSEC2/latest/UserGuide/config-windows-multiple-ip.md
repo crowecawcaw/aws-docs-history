@@ -89,10 +89,99 @@ incorrectly, the instance could become unreachable.
    choose **Use the following IP address**, enter the following values, and
    then choose **OK**.
 
-| Field                    | Value                                                                                                                 |
-| ------------------------ | --------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **IP address**           | The IPv4 address obtained in step 2 above.                                                                            |
-| **Subnet mask**          | The subnet mask obtained in step 2 above.                                                                             |
-| **Default gateway**      | The default gateway address obtained in step 2 above.                                                                 |
-| **Preferred DNS server** | The DNS server obtained in step 2 above.                                                                              |
-| **Alternate DNS server** | The alternate DNS server obtained in step 2 above. If an alternate DNS server was not listed, leave this field blank. | ###### Important If you set the IP address to any value other than the current IP address, you will lose connectivity to the instance. ![IP Addresses](images/windows-ip-static.png) You will lose RDP connectivity to the Windows instance for a few seconds while the instance converts from using DHCP to static addressing. The instance retains the same IP address information as before, but now this information is static and not managed by DHCP. ## Step 2: Configure a secondary private IP address for your instance After you have set up static IP addressing on your Windows instance, you are ready to prepare a second private IP address. ###### To configure a secondary IP address 1. Open the Amazon EC2 console at [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/"). 2. In the navigation pane, choose **Instances** and select your instance. 3. On the **Networking**, note the secondary IP address. 4. Connect to your instance. 5. On your Windows instance, choose **Start**, **Control Panel**. 6. Choose **Network and Internet**, **Network and Sharing Center**. 7. Select the network interface (Local Area Connection or Ethernet) and choose **Properties**. 8. On the **Local Area Connection Properties** page, choose **Internet Protocol Version 4 (TCP/IPv4)**, **Properties**, **Advanced**. 9. Choose **Add**. 10. In the **TCP/IP Address** dialog box, type the secondary private IP address for **IP address**. For **Subnet mask**, type the same subnet mask that you entered for the primary private IP address in [Step 1: Configure static IP addressing in your instance](#step1 "#step1"), and then choose **Add**. ![TCP/IP Address dialog box](images/windows-ip-add.png) 11. Verify the IP address settings and choose **OK**. ![IP Settings tab](images/windows-ip-advanced-tcpip.png) 12. Choose **OK**, **Close**. 13. To confirm that the secondary IP address has been added to the operating system, run the `ipconfig /all` command in PowerShell. Your output should resemble the following: ``Ethernet adapter Ethernet 4: Connection-specific DNS Suffix  . : Description . . . . . . . . . . . : Amazon Elastic Network Adapter #2 Physical Address. . . . . . . . . : 02-9C-3B-FC-8E-67 DHCP Enabled. . . . . . . . . . . : No Autoconfiguration Enabled . . . . : Yes Link-local IPv6 Address . . . . . : fe80::f4d1:a773:5afa:cd1%7(Preferred) IPv4 Address. . . . . . . . . . . : `10.200.0.128`(Preferred) Subnet Mask . . . . . . . . . . . : 255.255.255.0 IPv4 Address. . . . . . . . . . . : `10.200.0.129`(Preferred) Subnet Mask . . . . . . . . . . . : 255.255.255.0 Default Gateway . . . . . . . . . : 10.200.0.1 DHCPv6 IAID . . . . . . . . . . . : 151166011 DHCPv6 Client DUID. . . . . . . . : 00-01-00-01-2D-67-AC-FC-12-34-9A-BE-A5-E7 DNS Servers . . . . . . . . . . . : 10.200.0.2 NetBIOS over Tcpip. . . . . . . . : Enabled`` ## Step 3: Configure applications to Use the secondary private IP address You can configure any applications to use the secondary private IP address. For example, if your instance is running a website on IIS, you can configure IIS to use the secondary private IP address. ###### To configure IIS to use the secondary private IP address 1. Connect to your instance. 2. Open Internet Information Services (IIS) Manager. 3. In the **Connections** pane, expand **Sites**. 4. Open the context (right-click) menu for your website and choose **Edit Bindings**. 5. In the **Site Bindings** dialog box, for **Type**, choose **http**, **Edit**. 6. In the **Edit Site Binding** dialog box, for **IP address**, select the secondary private IP address. (By default, each website accepts HTTP requests from all IP addresses.) ![IP Addresses](images/windows-ip-iis-site-binding.png) 7. Choose **OK**, **Close**. |
+| Field                    | Value                                                                                                                    |
+| ------------------------ | ------------------------------------------------------------------------------------------------------------------------ |
+| **IP address**           | The IPv4 address obtained in step 2 above.                                                                               |
+| **Subnet mask**          | The subnet mask obtained in step 2 above.                                                                                |
+| **Default gateway**      | The default gateway address obtained in step 2 above.                                                                    |
+| **Preferred DNS server** | The DNS server obtained in step 2 above.                                                                                 |
+| **Alternate DNS server** | The alternate DNS server obtained in step 2 above. If an alternate DNS server was not listed, leave<br>this field blank. |
+
+###### Important
+
+If you set the IP address to any value other than the current IP address,
+you will lose connectivity to the instance.
+
+![IP Addresses](images/windows-ip-static.png)
+
+You will lose RDP connectivity to the Windows instance for a few seconds while the
+instance converts from using DHCP to static addressing. The instance retains the same IP
+address information as before, but now this information is static and not managed by
+DHCP.
+
+## Step 2: Configure a secondary private IP address for your instance
+
+After you have set up static IP addressing on your Windows instance, you are ready to
+prepare a second private IP address.
+
+###### To configure a secondary IP address
+
+1. Open the Amazon EC2 console at
+   [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
+2. In the navigation pane, choose **Instances** and select your
+   instance.
+3. On the **Networking**, note the secondary IP address.
+4. Connect to your instance.
+5. On your Windows instance, choose **Start**, **Control
+   Panel**.
+6. Choose **Network and Internet**, **Network and Sharing
+   Center**.
+7. Select the network interface (Local Area Connection or Ethernet) and choose
+   **Properties**.
+8. On the **Local Area Connection Properties** page, choose
+   **Internet Protocol Version 4 (TCP/IPv4)**,
+   **Properties**, **Advanced**.
+9. Choose **Add**.
+10. In the **TCP/IP Address** dialog box, type the secondary private IP
+    address for **IP address**. For **Subnet
+    mask**, type the same subnet mask that you entered for the primary
+    private IP address in [Step 1: Configure static IP addressing in your instance](#step1 "#step1"), and then
+    choose **Add**.
+
+![TCP/IP Address dialog box](images/windows-ip-add.png) 11. Verify the IP address settings and choose **OK**.
+
+![IP Settings tab](images/windows-ip-advanced-tcpip.png) 12. Choose **OK**, **Close**. 13. To confirm that the secondary IP address has been added to the operating system, run
+the `ipconfig /all` command in PowerShell. Your output should
+resemble the following:
+
+```
+Ethernet adapter Ethernet 4:
+
+   Connection-specific DNS Suffix  . :
+   Description . . . . . . . . . . . : Amazon Elastic Network Adapter #2
+   Physical Address. . . . . . . . . : 02-9C-3B-FC-8E-67
+   DHCP Enabled. . . . . . . . . . . : No
+   Autoconfiguration Enabled . . . . : Yes
+   Link-local IPv6 Address . . . . . : fe80::f4d1:a773:5afa:cd1%7(Preferred)
+   IPv4 Address. . . . . . . . . . . : `10.200.0.128`(Preferred)
+   Subnet Mask . . . . . . . . . . . : 255.255.255.0
+   IPv4 Address. . . . . . . . . . . : `10.200.0.129`(Preferred)
+   Subnet Mask . . . . . . . . . . . : 255.255.255.0
+   Default Gateway . . . . . . . . . : 10.200.0.1
+   DHCPv6 IAID . . . . . . . . . . . : 151166011
+   DHCPv6 Client DUID. . . . . . . . : 00-01-00-01-2D-67-AC-FC-12-34-9A-BE-A5-E7
+   DNS Servers . . . . . . . . . . . : 10.200.0.2
+   NetBIOS over Tcpip. . . . . . . . : Enabled
+```
+
+## Step 3: Configure applications to Use the secondary private IP address
+
+You can configure any applications to use the secondary private IP address. For example, if
+your instance is running a website on IIS, you can configure IIS to use the secondary
+private IP address.
+
+###### To configure IIS to use the secondary private IP address
+
+1. Connect to your instance.
+2. Open Internet Information Services (IIS) Manager.
+3. In the **Connections** pane, expand
+   **Sites**.
+4. Open the context (right-click) menu for your website and choose **Edit
+   Bindings**.
+5. In the **Site Bindings** dialog box, for **Type**,
+   choose **http**, **Edit**.
+6. In the **Edit Site Binding** dialog box, for **IP
+   address**, select the secondary private IP address. (By default, each website
+   accepts HTTP requests from all IP addresses.)
+
+![IP Addresses](images/windows-ip-iis-site-binding.png) 7. Choose **OK**, **Close**.

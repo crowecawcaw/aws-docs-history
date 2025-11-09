@@ -18,19 +18,71 @@ The `AWS/EC2Spot` namespace includes the following metrics for your
 fleet, plus the CloudWatch metrics for the Spot Instances in your fleet. For more information,
 see [Instance metrics](viewing_metrics_with_cloudwatch.md#ec2-cloudwatch-metrics "viewing_metrics_with_cloudwatch.md#ec2-cloudwatch-metrics").
 
-| Metric                         | Description                                                                                                                                                                                                                                                                                                                |
-| ------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `AvailableInstancePoolsCount`  | The Spot capacity pools specified in the fleet request. Units: Count                                                                                                                                                                                                                                                       |
-| `BidsSubmittedForCapacity`     | The capacity for which Amazon EC2 has submitted fleet requests. Units: Count                                                                                                                                                                                                                                               |
-| `EligibleInstancePoolCount`    | The Spot capacity pools specified in the fleet request where Amazon EC2 can fulfill requests. Amazon EC2 does not fulfill requests in pools where the maximum price you're willing to pay for Spot Instances is less than the Spot price or the Spot price is greater than the price for On-Demand Instances. Units: Count |
-| `FulfilledCapacity`            | The capacity that Amazon EC2 has fulfilled. Units: Count                                                                                                                                                                                                                                                                   |
-| `MaxPercentCapacityAllocation` | The maximum value of `PercentCapacityAllocation` across all fleet pools specified in the fleet request. Units: Percent                                                                                                                                                                                                     |
-| `PendingCapacity`              | The difference between `TargetCapacity` and `FulfilledCapacity`. Units: Count                                                                                                                                                                                                                                              |
-| `PercentCapacityAllocation`    | The capacity allocated for the Spot capacity pool for the specified dimensions. To get the maximum value recorded across all Spot capacity pools, use `MaxPercentCapacityAllocation`. Units: Percent                                                                                                                       |
-| `TargetCapacity`               | The target capacity of the fleet request. Units: Count                                                                                                                                                                                                                                                                     |
-| `TerminatingCapacity`          | The capacity that is being terminated because the provisioned capacity is greater than the target capacity. Units: Count                                                                                                                                                                                                   | If the unit of measure for a metric is `Count`, the most useful statistic is `Average`. ## EC2 Fleet and Spot Fleet dimensions To filter the data for your fleet, use the following dimensions.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| Dimensions                     | Description                                                                                                                                                                                                                                                                                                                |
-| ---                            | ---                                                                                                                                                                                                                                                                                                                        |
-| `AvailabilityZone`             | Filter the data by Availability Zone.                                                                                                                                                                                                                                                                                      |
-| `FleetRequestId`               | Filter the data by fleet request.                                                                                                                                                                                                                                                                                          |
-| `InstanceType`                 | Filter the data by instance type.                                                                                                                                                                                                                                                                                          | ## View the CloudWatch metrics for your EC2 Fleet or Spot Fleet You can view the CloudWatch metrics for your fleet using the Amazon CloudWatch console. These metrics are displayed as monitoring graphs. These graphs show data points if the fleet is active. Metrics are grouped first by namespace, and then by the various combinations of dimensions within each namespace. For example, you can view all fleet metrics or fleet metrics groups by fleet request ID, instance type, or Availability Zone. ###### To view fleet metrics 1. Open the CloudWatch console at [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/"). 2. In the navigation pane, expand **Metrics**, and choose **All metrics**. 3. Choose the **EC2 Spot** namespace. ###### Note If the **EC2 Spot** namespace is not displayed, there are two reasons for this. Either you have never used EC2 Fleet or Spot Fleet in the Region—only the AWS services that you're using send metrics to Amazon CloudWatch. Or, if you have used EC2 Fleet or Spot Fleet in the Region, but not for the past two weeks, the namespace does not appear. 4. To filter the metrics by dimension, choose one of the following: <br>• **Fleet Request Metrics** – Group by fleet request <br>• **By Availability Zone** – Group by fleet request and Availability Zone <br>• **By Instance Type** – Group by fleet request and instance type <br>• **By Availability Zone/Instance Type** – Group by fleet request, Availability Zone, and instance type 5. To view the data for a metric, select the checkbox next to the metric. |
+| Metric                         | Description                                                                                                                                                                                                                                                                                                                               |
+| ------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `AvailableInstancePoolsCount`  | The Spot capacity pools specified in the fleet<br>request.<br>Units: Count                                                                                                                                                                                                                                                                |
+| `BidsSubmittedForCapacity`     | The capacity for which Amazon EC2 has submitted fleet<br>requests.<br>Units: Count                                                                                                                                                                                                                                                        |
+| `EligibleInstancePoolCount`    | The Spot capacity pools specified in the fleet request<br>where Amazon EC2 can fulfill requests. Amazon EC2 does not fulfill<br>requests in pools where the maximum price you're willing to<br>pay for Spot Instances is less than the Spot price or the Spot price<br>is greater than the price for On-Demand Instances.<br>Units: Count |
+| `FulfilledCapacity`            | The capacity that Amazon EC2 has fulfilled.<br>Units: Count                                                                                                                                                                                                                                                                               |
+| `MaxPercentCapacityAllocation` | The maximum value of<br>`PercentCapacityAllocation` across all fleet<br>pools specified in the fleet request.<br>Units: Percent                                                                                                                                                                                                           |
+| `PendingCapacity`              | The difference between `TargetCapacity` and<br>`FulfilledCapacity`.<br>Units: Count                                                                                                                                                                                                                                                       |
+| `PercentCapacityAllocation`    | The capacity allocated for the Spot capacity pool for the<br>specified dimensions. To get the maximum value recorded<br>across all Spot capacity pools, use<br>`MaxPercentCapacityAllocation`.<br>Units: Percent                                                                                                                          |
+| `TargetCapacity`               | The target capacity of the fleet request.<br>Units: Count                                                                                                                                                                                                                                                                                 |
+| `TerminatingCapacity`          | The capacity that is being terminated because the<br>provisioned capacity is greater than the target<br>capacity.<br>Units: Count                                                                                                                                                                                                         |
+
+If the unit of measure for a metric is `Count`, the most useful
+statistic is `Average`.
+
+## EC2 Fleet and Spot Fleet dimensions
+
+To filter the data for your fleet, use the following dimensions.
+
+| Dimensions         | Description                           |
+| ------------------ | ------------------------------------- |
+| `AvailabilityZone` | Filter the data by Availability Zone. |
+| `FleetRequestId`   | Filter the data by fleet request.     |
+| `InstanceType`     | Filter the data by instance type.     |
+
+## View the CloudWatch metrics for your EC2 Fleet or
+
+Spot Fleet
+
+You can view the CloudWatch metrics for your fleet using the Amazon CloudWatch console. These
+metrics are displayed as monitoring graphs. These graphs show data points if the
+fleet is active.
+
+Metrics are grouped first by namespace, and then by the various combinations
+of dimensions within each namespace. For example, you can view all fleet metrics
+or fleet metrics groups by fleet request ID, instance type, or Availability
+Zone.
+
+###### To view fleet metrics
+
+1. Open the CloudWatch console at
+   [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
+2. In the navigation pane, expand **Metrics**, and
+   choose **All metrics**.
+3. Choose the **EC2 Spot** namespace.
+
+###### Note
+
+If the **EC2 Spot** namespace is not displayed,
+there are two reasons for this. Either you have never used EC2 Fleet or
+Spot Fleet in the Region—only the AWS services that you're using
+send metrics to Amazon CloudWatch. Or, if you have used EC2 Fleet or Spot Fleet in the
+Region, but not for the past two weeks, the namespace does not
+appear. 4. To filter the metrics by dimension, choose one of the
+following:
+
+    * **Fleet Request Metrics** – Group by
+     fleet request
+    * **By Availability Zone** – Group by
+     fleet request and Availability Zone
+    * **By Instance Type** – Group by fleet
+     request and instance type
+    * **By Availability Zone/Instance Type**
+     – Group by fleet request, Availability Zone, and instance
+     type
+
+5. To view the data for a metric, select the checkbox next to the
+   metric.

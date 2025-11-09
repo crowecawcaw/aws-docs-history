@@ -49,14 +49,151 @@ For more information about bucket names, see [Bucket naming rules](../../../Amaz
 The Spot Instance data feed files are tab-delimited. Each line in the data file corresponds
 to one instance hour and contains the fields listed in the following table.
 
-| Field         | Description                                                                                                                                                                                                                                   |
-| ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `Timestamp`   | The timestamp used to determine the price charged for this instance usage.                                                                                                                                                                    |
-| `UsageType`   | The type of usage and instance type being charged for. For `m1.small` Spot Instances, this field is set to `SpotUsage`. For all other instance types, this field is set to `SpotUsage:`{_instance-type_}. For example, `SpotUsage:c1.medium`. |
-| `Operation`   | The product being charged for. For Linux Spot Instances, this field is set to `RunInstances`. For Windows Spot Instances, this field is set to `RunInstances:0002`. Spot usage is grouped according to Availability Zone.                     |
-| `InstanceID`  | The ID of the Spot Instance that generated this instance usage.                                                                                                                                                                               |
-| `MyBidID`     | The ID for the Spot Instance request that generated this instance usage.                                                                                                                                                                      |
-| `MyMaxPrice`  | The maximum price specified for this Spot request.                                                                                                                                                                                            |
-| `MarketPrice` | The Spot price at the time specified in the `Timestamp` field.                                                                                                                                                                                |
-| `Charge`      | The price charged for this instance usage.                                                                                                                                                                                                    |
-| `Version`     | The data feed version. The possible version is 1.0.                                                                                                                                                                                           | ## Amazon S3 bucket requirements When you subscribe to the data feed, you must specify an Amazon S3 bucket to store the data feed files. Before you choose an Amazon S3 bucket for the data feed, consider the following: <br>• You must have `FULL_CONTROL` permission to the bucket. If you're the bucket owner, you have this permission by default. Otherwise, the bucket owner must grant your AWS account this permission. <br>• When you subscribe to a data feed, these permissions are used to update the bucket ACL to give the AWS data feed account `FULL_CONTROL` permission. The AWS data feed account writes data feed files to the bucket. If your account doesn't have the required permissions, the data feed files cannot be written to the bucket. For more information, see [Logs sent to Amazon S3](../../../AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.md#AWS-logs-infrastructure-S3 "../../../AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.md#AWS-logs-infrastructure-S3") in the _Amazon CloudWatch Logs User Guide_. If you update the ACL and remove the permissions for the AWS data feed account, the data feed files cannot be written to the bucket. You must resubscribe to the data feed to receive the data feed files. <br>• Each data feed file has its own ACL (separate from the ACL for the bucket). The bucket owner has `FULL_CONTROL` permission to the data files. The AWS data feed account has read and write permissions. <br>• If you delete your data feed subscription, Amazon EC2 doesn't remove the read and write permissions for the AWS data feed account on either the bucket or the data files. You must remove these permissions yourself. <br>• If you encrypt your Amazon S3 bucket using server-side encryption with a AWS KMS key stored in AWS Key Management Service (SSE-KMS), you must use a customer managed key. For more information, see [Amazon S3 bucket server-side encryption](../../../AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.md#AWS-logs-SSE-KMS-S3 "../../../AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.md#AWS-logs-SSE-KMS-S3") in the _Amazon CloudWatch Logs User Guide_. ## Subscribe to your Spot Instance data feed You can subscribe to your Spot Instance data feed at any time. You can't complete this task using the Amazon EC2 console. If you get an error that the bucket does not have enough permissions, see the following article for troubleshooting information: [Troubleshoot the data feed for Spot Instances](https://repost.aws/knowledge-center/s3-data-feed-ec2-spot-instances "https://repost.aws/knowledge-center/s3-data-feed-ec2-spot-instances"). AWS CLI ###### To subscribe to your data feed Use the [create-spot-datafeed-subscription](../../../cli/latest/reference/ec2/create-spot-datafeed-subscription.md "../../../cli/latest/reference/ec2/create-spot-datafeed-subscription.md") command. To specify a bucket with a prefix, use the following example: `` aws ec2 create-spot-datafeed-subscription \ --bucket `amzn-s3-demo-bucket` \ --prefix `my-prefix` `` To specify a bucket without a prefix, use the following example: `` aws ec2 create-spot-datafeed-subscription \ --bucket `amzn-s3-demo-bucket` `` PowerShell ###### To subscribe to your data feed Use the [New-EC2SpotDatafeedSubscription](../../../powershell/latest/reference/items/New-EC2SpotDatafeedSubscription.md "../../../powershell/latest/reference/items/New-EC2SpotDatafeedSubscription.md") cmdlet. To specify a bucket with a prefix, use the following example: `` New-EC2SpotDatafeedSubscription ` -Bucket `amzn-s3-demo-bucket` ` -Prefix `my-prefix` `` To specify a bucket without a prefix, use the following example: `` New-EC2SpotDatafeedSubscription ` -Bucket `amzn-s3-demo-bucket` `` ## View the data in your data feed In the AWS Management Console, open AWS CloudShell. Use the following [s3 sync](../../../cli/latest/reference/s3/sync.md "../../../cli/latest/reference/s3/sync.md") command to get the .gz files from the S3 bucket for your data feed and store them in the folder that you specify. `` aws s3 sync s3://`amzn-s3-demo-bucket` ./`data-feed` `` To display the contents of a .gz file, change to the folder where you stored the contents of the S3 bucket. `` cd `data-feed` `` Use the **ls** command to view the names of the files. Use the **zcat** command with the name of the file to display the contents of the compressed file. The following is an example command. ``zcat  `111122223333.2023-12-09-07.001.b959dbc6`.gz`` The following is example output. `#Version: 1.0 #Fields: Timestamp UsageType Operation InstanceID MyBidID MyMaxPrice MarketPrice Charge Version 2023-12-09 07:13:47 UTC USE2-SpotUsage:c7a.medium       RunInstances:SV050      i-0c3e0c0b046e050df     sir-pwq6nmfp    0.0510000000 USD        0.0142000000 USD        0.0142000000 USD        1` ## Delete your Spot Instance data feed When you are finished with the Spot Instance data feed, you can delete it. AWS CLI ###### To delete your data feed Use the [delete-spot-datafeed-subscription](../../../cli/latest/reference/ec2/delete-spot-datafeed-subscription.md "../../../cli/latest/reference/ec2/delete-spot-datafeed-subscription.md") command. `aws ec2 delete-spot-datafeed-subscription` PowerShell ###### To delete your data feed Use the [Remove-EC2SpotDatafeedSubscription](../../../powershell/latest/reference/items/Remove-EC2SpotDatafeedSubscription.md "../../../powershell/latest/reference/items/Remove-EC2SpotDatafeedSubscription.md") cmdlet. `Remove-EC2SpotDatafeedSubscription` |
+| Field         | Description                                                                                                                                                                                                                                                  |
+| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `Timestamp`   | The timestamp used to determine the price charged for this<br>instance usage.                                                                                                                                                                                |
+| `UsageType`   | The type of usage and instance type being charged for. For<br>`m1.small` Spot Instances, this field is set to<br>`SpotUsage`. For all other instance types, this<br>field is set to<br>`SpotUsage:`{_instance-type_}.<br>For example, `SpotUsage:c1.medium`. |
+| `Operation`   | The product being charged for. For Linux Spot Instances, this field is<br>set to `RunInstances`. For Windows Spot Instances, this field<br>is set to `RunInstances:0002`. Spot usage is grouped<br>according to Availability Zone.                           |
+| `InstanceID`  | The ID of the Spot Instance that generated this instance usage.                                                                                                                                                                                              |
+| `MyBidID`     | The ID for the Spot Instance request that generated this instance<br>usage.                                                                                                                                                                                  |
+| `MyMaxPrice`  | The maximum price specified for this Spot request.                                                                                                                                                                                                           |
+| `MarketPrice` | The Spot price at the time specified in the<br>`Timestamp` field.                                                                                                                                                                                            |
+| `Charge`      | The price charged for this instance usage.                                                                                                                                                                                                                   |
+| `Version`     | The data feed version. The possible version is 1.0.                                                                                                                                                                                                          |
+
+## Amazon S3 bucket requirements
+
+When you subscribe to the data feed, you must specify an Amazon S3 bucket to store the data feed
+files.
+
+Before you choose an Amazon S3 bucket for the data feed, consider the following:
+
+- You must have `FULL_CONTROL` permission to the bucket.
+  If you're the bucket owner, you have this permission by default.
+  Otherwise, the bucket owner must grant your AWS account this permission.
+- When you subscribe to a data feed, these permissions are used to update
+  the bucket ACL to give the AWS data feed account `FULL_CONTROL`
+  permission. The AWS data feed account writes data feed files to the bucket.
+  If your account doesn't have the required permissions, the data feed files
+  cannot be written to the bucket. For more information, see [Logs sent to Amazon S3](../../../AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.md#AWS-logs-infrastructure-S3 "../../../AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.md#AWS-logs-infrastructure-S3") in the _Amazon CloudWatch Logs User Guide_.
+
+If you update the ACL and remove the permissions for the AWS data feed
+account, the data feed files cannot be written to the bucket. You must
+resubscribe to the data feed to receive the data feed files.
+
+- Each data feed file has its own ACL (separate from the ACL for the
+  bucket). The bucket owner has `FULL_CONTROL` permission to the
+  data files. The AWS data feed account has read and write permissions.
+- If you delete your data feed subscription, Amazon EC2 doesn't remove the read
+  and write permissions for the AWS data feed account on either the bucket or
+  the data files. You must remove these permissions yourself.
+- If you encrypt your Amazon S3 bucket using server-side encryption with a AWS KMS key stored in
+  AWS Key Management Service (SSE-KMS), you must use a customer managed key. For more information, see [Amazon S3 bucket server-side encryption](../../../AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.md#AWS-logs-SSE-KMS-S3 "../../../AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.md#AWS-logs-SSE-KMS-S3") in the _Amazon CloudWatch Logs User Guide_.
+
+## Subscribe to your Spot Instance data feed
+
+You can subscribe to your Spot Instance data feed at any time. You can't complete this task using the
+Amazon EC2 console.
+
+If you get an error that the bucket does not have enough permissions, see the
+following article for troubleshooting information: [Troubleshoot
+the data feed for Spot Instances](https://repost.aws/knowledge-center/s3-data-feed-ec2-spot-instances "https://repost.aws/knowledge-center/s3-data-feed-ec2-spot-instances").
+
+AWS CLI
+
+###### To subscribe to your data feed
+
+Use the [create-spot-datafeed-subscription](../../../cli/latest/reference/ec2/create-spot-datafeed-subscription.md "../../../cli/latest/reference/ec2/create-spot-datafeed-subscription.md") command.
+
+To specify a bucket with a prefix, use the following example:
+
+```
+aws ec2 create-spot-datafeed-subscription \
+    --bucket `amzn-s3-demo-bucket` \
+    --prefix `my-prefix`
+```
+
+To specify a bucket without a prefix, use the following example:
+
+```
+aws ec2 create-spot-datafeed-subscription \
+    --bucket `amzn-s3-demo-bucket`
+```
+
+PowerShell
+
+###### To subscribe to your data feed
+
+Use the [New-EC2SpotDatafeedSubscription](../../../powershell/latest/reference/items/New-EC2SpotDatafeedSubscription.md "../../../powershell/latest/reference/items/New-EC2SpotDatafeedSubscription.md")
+cmdlet.
+
+To specify a bucket with a prefix, use the following example:
+
+```
+New-EC2SpotDatafeedSubscription `
+    -Bucket `amzn-s3-demo-bucket` `
+    -Prefix `my-prefix`
+```
+
+To specify a bucket without a prefix, use the following example:
+
+```
+New-EC2SpotDatafeedSubscription `
+    -Bucket `amzn-s3-demo-bucket`
+```
+
+## View the data in your data feed
+
+In the AWS Management Console, open AWS CloudShell. Use the following [s3 sync](../../../cli/latest/reference/s3/sync.md "../../../cli/latest/reference/s3/sync.md") command to get the .gz files from the S3 bucket for your data
+feed and store them in the folder that you specify.
+
+```
+aws s3 sync s3://`amzn-s3-demo-bucket` ./`data-feed`
+```
+
+To display the contents of a .gz file, change to the folder where you stored
+the contents of the S3 bucket.
+
+```
+cd `data-feed`
+```
+
+Use the **ls** command to view the names of the files. Use the
+**zcat** command with the name of the file to display the contents
+of the compressed file. The following is an example command.
+
+```
+zcat  `111122223333.2023-12-09-07.001.b959dbc6`.gz
+```
+
+The following is example output.
+
+```
+#Version: 1.0
+#Fields: Timestamp UsageType Operation InstanceID MyBidID MyMaxPrice MarketPrice Charge Version
+2023-12-09 07:13:47 UTC USE2-SpotUsage:c7a.medium       RunInstances:SV050      i-0c3e0c0b046e050df     sir-pwq6nmfp    0.0510000000 USD        0.0142000000 USD        0.0142000000 USD        1
+```
+
+## Delete your Spot Instance data feed
+
+When you are finished with the Spot Instance data feed, you can delete it.
+
+AWS CLI
+
+###### To delete your data feed
+
+Use the [delete-spot-datafeed-subscription](../../../cli/latest/reference/ec2/delete-spot-datafeed-subscription.md "../../../cli/latest/reference/ec2/delete-spot-datafeed-subscription.md") command.
+
+```
+aws ec2 delete-spot-datafeed-subscription
+```
+
+PowerShell
+
+###### To delete your data feed
+
+Use the [Remove-EC2SpotDatafeedSubscription](../../../powershell/latest/reference/items/Remove-EC2SpotDatafeedSubscription.md "../../../powershell/latest/reference/items/Remove-EC2SpotDatafeedSubscription.md") cmdlet.
+
+```
+Remove-EC2SpotDatafeedSubscription
+```

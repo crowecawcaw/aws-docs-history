@@ -128,8 +128,52 @@ While it is possible to copy an unencrypted snapshot to yield an encrypted snaps
 you cannot copy an encrypted snapshot to yield an unencrypted one.
 
 | Scenario | Description                | Supported |
-| -------- | -------------------------- | --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| -------- | -------------------------- | --------- |
 | 1        | Unencrypted to unencrypted | Yes       |
 | 2        | Encrypted to encrypted     | Yes       |
 | 3        | Unencrypted to encrypted   | Yes       |
-| 4        | Encrypted to unencrypted   | No        | ###### Note Encrypting during the `CopyImage` action applies only to Amazon EBS-backed AMIs. Because an Amazon S3-backed AMI does not use snapshots, you can't use copying to change its encryption status. When you copy an AMI without specifying encryption parameters, the backing snapshot is copied with its original encryption status by default. Therefore, if the source AMI is backed by an unencrypted snapshot, the resulting target snapshot will also be unencrypted. Similarly, if the source AMI's snapshot is encrypted, the resulting target snapshot will also be encrypted by the same AWS KMS key. For AMIs backed by multiple snapshots, each target snapshot preserves the encryption state of its corresponding source snapshot. To change the encryption state of the target backing snapshots during an AMI copy, you can specify encryption parameters. The following example shows a non-default case, where encryption parameters are specified with the `CopyImage` action to change the target AMI's encryption state. **Copy an unencrypted source AMI to an encrypted target AMI** In this scenario, an AMI backed by an unencrypted root snapshot is copied to an AMI with an encrypted root snapshot. The `CopyImage` action is invoked with two encryption parameters, including a customer managed key. As a result, the encryption status of the root snapshot changes, so that the target AMI is backed by a root snapshot containing the same data as the source snapshot, but encrypted using the specified key. You incur storage costs for the snapshots in both AMIs, as well as charges for any instances you launch from either AMI. ###### Note Enabling encryption by default has the same effect as setting the `Encrypted` parameter to `true` for all snapshots in the AMI. ![Copy AMI and encrypt snapshot on the fly](images/ami-to-ami-convert.png) Setting the `Encrypted` parameter encrypts the single snapshot for this instance. If you do not specify the `KmsKeyId` parameter, the default customer managed key is used to encrypt the snapshot copy. For more information about copying AMIs with encrypted snapshots, see [Use encryption with EBS-backed AMIs](AMIEncryption.md "AMIEncryption.md"). |
+| 4        | Encrypted to unencrypted   | No        |
+
+###### Note
+
+Encrypting during the `CopyImage` action applies only to Amazon EBS-backed AMIs.
+Because an Amazon S3-backed AMI does not use snapshots, you can't use copying to
+change its encryption status.
+
+When you copy an AMI without specifying encryption parameters, the backing
+snapshot is copied with its original encryption status by default. Therefore, if the
+source AMI is backed by an unencrypted snapshot, the resulting target snapshot will
+also be unencrypted. Similarly, if the source AMI's snapshot is encrypted, the
+resulting target snapshot will also be encrypted by the same AWS KMS key. For AMIs
+backed by multiple snapshots, each target snapshot preserves the encryption state of
+its corresponding source snapshot.
+
+To change the encryption state of the target backing snapshots during an AMI
+copy, you can specify encryption parameters. The following example shows a
+non-default case, where encryption parameters are specified with the
+`CopyImage` action to change the target AMI's encryption
+state.
+
+**Copy an unencrypted source AMI to an encrypted target
+AMI**
+
+In this scenario, an AMI backed by an unencrypted root snapshot is copied to an AMI
+with an encrypted root snapshot. The `CopyImage` action is invoked with
+two encryption parameters, including a customer managed key. As a result, the
+encryption status of the root snapshot changes, so that the target AMI is backed
+by a root snapshot containing the same data as the source snapshot, but encrypted
+using the specified key. You incur storage costs for the snapshots in both
+AMIs, as well as charges for any instances you launch from either AMI.
+
+###### Note
+
+Enabling encryption by default has the same effect as setting the `Encrypted`
+parameter to `true` for all snapshots in the AMI.
+
+![Copy AMI and encrypt snapshot on the fly](images/ami-to-ami-convert.png)
+
+Setting the `Encrypted` parameter encrypts the single snapshot for this
+instance. If you do not specify the `KmsKeyId` parameter, the default
+customer managed key is used to encrypt the snapshot copy.
+
+For more information about copying AMIs with encrypted snapshots, see [Use encryption with EBS-backed AMIs](AMIEncryption.md "AMIEncryption.md").

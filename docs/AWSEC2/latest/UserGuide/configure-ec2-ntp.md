@@ -325,10 +325,245 @@ one second of accuracy:
   minutes).
 
 | Registry path                                                           | Key name            | Data                |
-| ----------------------------------------------------------------------- | ------------------- | ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ----------------------------------------------------------------------- | ------------------- | ------------------- |
 | HKLM:\System\CurrentControlSet\services\w32time\Config                  | UpdateInterval      | 120                 |
 | HKLM:\System\CurrentControlSet\services\w32time\Parameters              | NtpServer           | 169.254.169.123,0x9 |
 | HKLM:\System\CurrentControlSet\services\w32time\Parameters              | Type                | NTP                 |
 | HKLM:\System\CurrentControlSet\services\w32time\TimeProviders\NtpClient | Enabled             | 1                   |
 | HKLM:\System\CurrentControlSet\services\w32time\TimeProviders\NtpClient | InputProvider       | 1                   |
-| HKLM:\System\CurrentControlSet\services\w32time\TimeProviders\NtpClient | SpecialPollInterval | 900                 | ## Connect to the IPv6 endpoint of the Amazon Time Sync Service This section explains how the steps described in [Connect to the IPv4 endpoint of the Amazon Time Sync Service](#configure-amazon-time-service-IPv4 "#configure-amazon-time-service-IPv4") differ if you are configuring your instance to use the local Amazon Time Sync Service through the IPv6 endpoint. It doesn't explain the entire Amazon Time Sync Service configuration process. The IPv6 endpoint is only accessible on [Nitro-based instances](instance-types.md#instance-hypervisor-type "instance-types.md#instance-hypervisor-type"). We don't recommend using both the IPv4 and IPv6 endpoint entries together. The IPv4 and IPv6 NTP packets come from the same local server for your instance. Configuring both IPv4 and IPv6 endpoints is unnecessary and will not improve the accuracy of the time on your instance. Linux Depending on the Linux distribution you're using, when you reach the step to edit the `chrony.conf` file, you'll be using the IPv6 endpoint of the Amazon Time Sync Service (`fd00:ec2::123`) rather than the IPv4 endpoint (`169.254.169.123`): `server fd00:ec2::123 prefer iburst minpoll 4 maxpoll 4` Save the file and verify that chrony is using the `fd00:ec2::123` IPv6 endpoint to synchronize time: `` `[ec2-user ~]$` `chronyc sources -v` `` In the output, if you see the `fd00:ec2::123` IPv6 endpoint, the configuration is complete. Windows When you reach the step to change the NTP server to use the Amazon Time Sync Service, you'll be using the IPv6 endpoint of the Amazon Time Sync Service (`fd00:ec2::123`) rather than the IPv4 endpoint (`169.254.169.123`): `w32tm /config /manualpeerlist:fd00:ec2::123 /syncfromflags:manual /update` Verify that your new settings are using the `fd00:ec2::123` IPv6 endpoint to synchronize time: `w32tm /query /configuration` In the output, verify that `NtpServer` displays the `fd00:ec2::123` IPv6 endpoint. ## Connect to the PTP hardware clock The PTP hardware clock is part of the [AWS Nitro System](../../../ec2/latest/instancetypes/ec2-nitro-instances.md "../../../ec2/latest/instancetypes/ec2-nitro-instances.md"), so it is directly accessible on [supported bare metal and virtualized EC2 instances](#ptp-hardware-clock-requirements "#ptp-hardware-clock-requirements") without using any customer resources. The NTP endpoints for the PTP hardware clock are the same as those for the regular Amazon Time Sync Service. If your instance has a PTP hardware clock and you configured the NTP connection (to either the IPv4 or IPv6 endpoint), your instance time is automatically sourced from the PTP hardware clock over NTP. For Linux instances, you can configure a _direct_ PTP connection, which will give you more accurate time than the NTP connection. Windows instances only support an NTP connection to the PTP hardware clock. ### Requirements The PTP hardware clock is available on an instance when the following requirements are met: <br>• Supported AWS Regions: US East (N. Virginia), US East (Ohio), Asia Pacific (Malaysia), Asia Pacific (Thailand), Asia Pacific (Tokyo), and Europe (Stockholm) <br>• Supported Local Zones: US East (New York City) <br>• Supported instance families: + **General purpose:** M7a, M7g, M7i + **Memory optimized:** R7a, R7g, R7i + **Storage optimized:** I8g, I8ge <br>• (Linux only) ENA driver version 2.10.0 or later installed on a supported operating system. For more information about supported operating systems, see the driver [prerequisites](https://github.com/amzn/amzn-drivers/tree/master/kernel/linux/ena#prerequisites "https://github.com/amzn/amzn-drivers/tree/master/kernel/linux/ena#prerequisites") on _GitHub_. This section describes how to configure your Linux instance to use the local Amazon Time Sync Service through the PTP hardware clock using a direct PTP connection. It requires adding a server entry for the PTP hardware clock in the `chrony` configuration file. ###### To configure a direct PTP connection to the PTP hardware clock (Linux instances only) 1. **Install prerequisites** Connect to your Linux instance and do the following: 1. Install the Linux kernel driver for Elastic Network Adapter (ENA) version 2.10.0 or later. 2. Enable the PTP hardware clock.For the installation instructions, see [Linux kernel driver for Elastic Network Adapter (ENA) family](https://github.com/amzn/amzn-drivers/tree/master/kernel/linux/ena#linux-kernel-driver-for-elastic-network-adapter-ena-family "https://github.com/amzn/amzn-drivers/tree/master/kernel/linux/ena#linux-kernel-driver-for-elastic-network-adapter-ena-family") on _GitHub_. 2. **Verify ENA PTP device** Verify that the ENA PTP hardware clock device shows up on your instance. `` `[ec2-user ~]$` `for file in /sys/class/ptp/*; do echo -n "$file: "; cat "$file/clock_name"; done` `` Expected output `` /sys/class/ptp/ptp`<index>`: ena-ptp-`<PCI slot>` `` Where: <br>• `index` is the kernel-registered PTP hardware clock index. <br>• `PCI slot` is the ENA ethernet controller PCI slot. This is the same slot as shown in `lspci | grep ENA`. Example output ``` /sys/class/ptp/`ptp0`: ena-ptp-`05` ``` If `ena-ptp-`<PCI slot>`` is not in the output, the ENA driver was not correctly installed. Review step 1 in this procedure for installing the driver. 3. **Configure PTP symlink** PTP devices are typically named `/dev/ptp0`, `/dev/ptp1`, and so on, with their index depending on the hardware initialization order. Creating a symlink ensures that applications like chrony consistently reference the correct device, regardless of index changes. The latest Amazon Linux 2023 AMIs include a `udev`rule that creates the`/dev/ptp_ena`symlink, pointing to the correct`/dev/ptp` entry associated with the ENA host. First check if the symlink is present by running the following command. ``` `[ec2-user ~]$` `ls -l /dev/ptp*` ``` Example output ``` crw------- 1 root root 245, 0 Jan 31 2025 /dev/ptp0 lrwxrwxrwx 1 root root      4 Jan 31 2025 /dev/ptp_ena -> ptp0 ``` Where: <br>• `/dev/ptp`<index>`` is the path to the PTP device. <br>• `/dev/ptp_ena` is the constant symlink, which points to the same PTP device. If the `/dev/ptp_ena` symlink is present, skip to Step 4 in this procedure. If it's missing, do the following: 1. Add the following `udev` rule. ``` `[ec2-user ~]$` `echo "SUBSYSTEM==\"ptp\", ATTR{clock_name}==\"ena-ptp-\*\", SYMLINK += \"ptp_ena\"" | sudo tee -a /etc/udev/rules.d/53-ec2-network-interfaces.rules` ``` 2. Reload the `udev` rule, either by rebooting the instance, or by running the following command. ``` `[ec2-user ~]$` `sudo udevadm control --reload-rules && udevadm trigger` ``` 4. **Configure chrony** chrony must be configured to use the `/dev/ptp_ena` symlink instead of directly referencing /`dev/ptp`<index>``. 1. Edit `/etc/chrony.conf` using a text editor and add the following line anywhere in the file. ``` refclock PHC /dev/ptp_ena poll 0 delay 0.000010 prefer ``` 2. Restart chrony. ``` `[ec2-user ~]$` `sudo systemctl restart chronyd` ``` 5. **Verify chrony configuration** Verify that chrony is using the PTP hardware clock to synchronize the time on this instance. ``` `[ec2-user ~]$` `chronyc sources` ``` Expected output ``` MS Name/IP address         Stratum Poll Reach LastRx Last sample =============================================================================== #* PHC0                          0   0    377    1   +2ns[ +1ns] +/-   5031ns ``` In the output that's returned, `\*`indicates the preferred time source.`PHC0` corresponds to the PTP hardware clock. You might need to wait a few seconds after restarting chrony for the asterisk to appear. |
+| HKLM:\System\CurrentControlSet\services\w32time\TimeProviders\NtpClient | SpecialPollInterval | 900                 |
+
+## Connect to the IPv6 endpoint of
+
+the Amazon Time Sync Service
+
+This section explains how the steps described in [Connect to the IPv4 endpoint of the Amazon Time Sync Service](#configure-amazon-time-service-IPv4 "#configure-amazon-time-service-IPv4") differ if you are
+configuring your instance to use the local Amazon Time Sync Service through the IPv6 endpoint. It
+doesn't explain the entire Amazon Time Sync Service configuration process.
+
+The IPv6 endpoint is only accessible on [Nitro-based instances](instance-types.md#instance-hypervisor-type "instance-types.md#instance-hypervisor-type").
+
+We don't recommend using both the IPv4 and IPv6 endpoint entries together. The
+IPv4 and IPv6 NTP packets come from the same local server for your instance.
+Configuring both IPv4 and IPv6 endpoints is unnecessary and will not improve the
+accuracy of the time on your instance.
+
+Linux
+Depending on the Linux distribution you're using, when you reach the step
+to edit the `chrony.conf` file, you'll be using the IPv6 endpoint
+of the Amazon Time Sync Service (`fd00:ec2::123`) rather than the IPv4 endpoint
+(`169.254.169.123`):
+
+```
+server fd00:ec2::123 prefer iburst minpoll 4 maxpoll 4
+```
+
+Save the file and verify that chrony is using the
+`fd00:ec2::123` IPv6 endpoint to synchronize time:
+
+```
+`[ec2-user ~]$` `chronyc sources -v`
+```
+
+In the output, if you see the `fd00:ec2::123` IPv6 endpoint,
+the configuration is complete.
+
+Windows
+When you reach the step to change the NTP server to use the Amazon Time Sync Service, you'll
+be using the IPv6 endpoint of the Amazon Time Sync Service (`fd00:ec2::123`) rather
+than the IPv4 endpoint (`169.254.169.123`):
+
+```
+w32tm /config /manualpeerlist:fd00:ec2::123 /syncfromflags:manual /update
+```
+
+Verify that your new settings are using the `fd00:ec2::123`
+IPv6 endpoint to synchronize time:
+
+```
+w32tm /query /configuration
+```
+
+In the output, verify that `NtpServer` displays the
+`fd00:ec2::123` IPv6 endpoint.
+
+## Connect to the PTP hardware clock
+
+The PTP hardware clock is part of the [AWS Nitro System](../../../ec2/latest/instancetypes/ec2-nitro-instances.md "../../../ec2/latest/instancetypes/ec2-nitro-instances.md"),
+so it is directly accessible on [supported bare metal and virtualized EC2 instances](#ptp-hardware-clock-requirements "#ptp-hardware-clock-requirements") without using any
+customer resources.
+
+The NTP endpoints for the PTP hardware clock are the same as those for the regular
+Amazon Time Sync Service. If your instance has a PTP hardware clock and you configured the NTP
+connection (to either the IPv4 or IPv6 endpoint), your instance time is
+automatically sourced from the PTP hardware clock over NTP.
+
+For Linux instances, you can configure a _direct_
+PTP connection, which will give you more accurate time than the NTP connection.
+Windows instances only support an NTP connection to the PTP hardware clock.
+
+### Requirements
+
+The PTP hardware clock is available on an instance when the following
+requirements are met:
+
+- Supported AWS Regions: US East (N. Virginia), US East (Ohio),
+  Asia Pacific (Malaysia), Asia Pacific (Thailand),
+  Asia Pacific (Tokyo), and Europe (Stockholm)
+- Supported Local Zones: US East (New York City)
+- Supported instance families:
+  - **General purpose:** M7a, M7g, M7i
+  - **Memory optimized:** R7a, R7g, R7i
+  - **Storage optimized:** I8g, I8ge
+
+- (Linux only) ENA driver version 2.10.0 or later installed on a
+  supported operating system. For more information about supported
+  operating systems, see the driver [prerequisites](https://github.com/amzn/amzn-drivers/tree/master/kernel/linux/ena#prerequisites "https://github.com/amzn/amzn-drivers/tree/master/kernel/linux/ena#prerequisites") on _GitHub_.
+
+This section describes how to configure your Linux instance to use the
+local Amazon Time Sync Service through the PTP hardware clock using a direct PTP connection.
+It requires adding a server entry for the PTP hardware clock in the
+`chrony` configuration file.
+
+###### To configure a direct PTP connection to the PTP hardware clock (Linux
+
+instances only)
+
+1. **Install prerequisites**
+
+Connect to your Linux instance and do the following:
+
+    1. Install the Linux kernel driver for Elastic Network
+     Adapter (ENA) version 2.10.0 or later.
+    2. Enable the PTP hardware clock.For the installation instructions, see [Linux kernel driver for Elastic Network Adapter (ENA)
+
+family](https://github.com/amzn/amzn-drivers/tree/master/kernel/linux/ena#linux-kernel-driver-for-elastic-network-adapter-ena-family "https://github.com/amzn/amzn-drivers/tree/master/kernel/linux/ena#linux-kernel-driver-for-elastic-network-adapter-ena-family") on _GitHub_. 2. **Verify ENA PTP device**
+
+Verify that the ENA PTP hardware clock device shows up on your
+instance.
+
+```
+`[ec2-user ~]$` `for file in /sys/class/ptp/*; do echo -n "$file: "; cat "$file/clock_name"; done`
+```
+
+Expected output
+
+```
+/sys/class/ptp/ptp`<index>`: ena-ptp-`<PCI slot>`
+```
+
+Where:
+
+    * ``index`` is the
+     kernel-registered PTP hardware clock index.
+    * ``PCI slot`` is the
+     ENA ethernet controller PCI slot. This is the same slot as
+     shown in `lspci | grep ENA`.
+
+Example output
+
+```
+/sys/class/ptp/`ptp0`: ena-ptp-`05`
+```
+
+If `ena-ptp-`<PCI slot>``
+is not in the output, the ENA driver was not correctly installed.
+Review step 1 in this procedure for installing the driver. 3. **Configure PTP symlink**
+
+PTP devices are typically named `/dev/ptp0`,
+`/dev/ptp1`, and so on, with their index depending on
+the hardware initialization order. Creating a symlink ensures that
+applications like chrony consistently reference the correct device,
+regardless of index changes.
+
+The latest Amazon Linux 2023 AMIs include a `udev` rule that
+creates the `/dev/ptp_ena` symlink, pointing to the
+correct `/dev/ptp` entry associated with the ENA
+host.
+
+First check if the symlink is present by running the following
+command.
+
+```
+`[ec2-user ~]$` `ls -l /dev/ptp*`
+```
+
+Example output
+
+```
+crw------- 1 root root 245, 0 Jan 31 2025 /dev/ptp0
+lrwxrwxrwx 1 root root      4 Jan 31 2025 /dev/ptp_ena -> ptp0
+```
+
+Where:
+
+    * `/dev/ptp`<index>``
+     is the path to the PTP device.
+    * `/dev/ptp_ena` is the constant symlink,
+     which points to the same PTP device.
+
+ 
+
+If the `/dev/ptp_ena` symlink is present, skip to Step
+4 in this procedure. If it's missing, do the following:
+
+    1. Add the following `udev` rule.
+
+
+
+    ```
+    `[ec2-user ~]$` `echo "SUBSYSTEM==\"ptp\", ATTR{clock_name}==\"ena-ptp-*\", SYMLINK += \"ptp_ena\"" | sudo tee -a /etc/udev/rules.d/53-ec2-network-interfaces.rules`
+    ```
+    2. Reload the `udev` rule, either by rebooting the
+     instance, or by running the following command.
+
+
+
+    ```
+    `[ec2-user ~]$` `sudo udevadm control --reload-rules && udevadm trigger`
+    ```
+
+4. **Configure chrony**
+
+chrony must be configured to use the `/dev/ptp_ena`
+symlink instead of directly referencing
+/`dev/ptp`<index>``.
+
+    1. Edit `/etc/chrony.conf` using a text editor and
+     add the following line anywhere in the file.
+
+
+
+    ```
+    refclock PHC /dev/ptp_ena poll 0 delay 0.000010 prefer
+    ```
+    2. Restart chrony.
+
+
+
+    ```
+    `[ec2-user ~]$` `sudo systemctl restart chronyd`
+    ```
+
+5. **Verify chrony
+   configuration**
+
+Verify that chrony is using the PTP hardware clock to synchronize
+the time on this instance.
+
+```
+`[ec2-user ~]$` `chronyc sources`
+```
+
+Expected output
+
+```
+MS Name/IP address         Stratum Poll Reach LastRx Last sample
+===============================================================================
+#* PHC0                          0   0    377    1   +2ns[ +1ns] +/-   5031ns
+```
+
+In the output that's returned, `*` indicates the
+preferred time source. `PHC0` corresponds to the PTP
+hardware clock. You might need to wait a few seconds after
+restarting chrony for the asterisk to appear.

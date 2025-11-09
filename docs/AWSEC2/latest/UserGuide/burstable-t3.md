@@ -48,11 +48,18 @@ each instance type, and indicates the maximum number of instances of each size t
 be launched.
 
 | Instance type | vCPUs | Memory (GiB) | Baseline CPU utilization per vCPU | Network burst bandwidth (Gbps) | Amazon EBS burst bandwidth (Mbps) | Max number of instances per Dedicated Host |
-| ------------- | ----- | ------------ | --------------------------------- | ------------------------------ | --------------------------------- | ------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------- | ----- | ------------ | --------------------------------- | ------------------------------ | --------------------------------- | ------------------------------------------ |
 | t3.nano       | 2     | 0.5          | 5%                                | 5                              | Up to 2,085                       | 192                                        |
 | t3.micro      | 2     | 1            | 10%                               | 5                              | Up to 2,085                       | 192                                        |
 | t3.small      | 2     | 2            | 20%                               | 5                              | Up to 2,085                       | 192                                        |
 | t3.medium     | 2     | 4            | 20%                               | 5                              | Up to 2,085                       | 192                                        |
 | t3.large      | 2     | 8            | 30%                               | 5                              | 2,780                             | 96                                         |
 | t3.xlarge     | 4     | 16           | 40%                               | 5                              | 2,780                             | 48                                         |
-| t3.2xlarge    | 8     | 32           | 40%                               | 5                              | 2,780                             | 24                                         | ###### Monitor CPU utilization for T3 Dedicated Hosts You can use the `DedicatedHostCPUUtilization` Amazon CloudWatch metric to monitor the vCPU utilization of a Dedicated Host. The metric is available in the `EC2` namespace and `Per-Host-Metrics` dimension. For more information, see [Dedicated Host metrics](viewing_metrics_with_cloudwatch.md#dh-metrics "viewing_metrics_with_cloudwatch.md#dh-metrics"). |
+| t3.2xlarge    | 8     | 32           | 40%                               | 5                              | 2,780                             | 24                                         |
+
+###### Monitor CPU utilization for T3 Dedicated Hosts
+
+You can use the `DedicatedHostCPUUtilization` Amazon CloudWatch metric to
+monitor the vCPU utilization of a Dedicated Host. The metric is available in the
+`EC2` namespace and `Per-Host-Metrics` dimension. For more
+information, see [Dedicated Host metrics](viewing_metrics_with_cloudwatch.md#dh-metrics "viewing_metrics_with_cloudwatch.md#dh-metrics").

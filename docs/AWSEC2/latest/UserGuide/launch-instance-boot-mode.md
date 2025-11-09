@@ -47,13 +47,13 @@ determined by a combination of the boot mode parameter of the AMI (column 1), th
 boot mode configuration of the operating system contained in the AMI (column 2), and
 the boot mode support of the instance type (column 3).
 
-| AMI boot mode parameter      | Operating system boot mode configuration | Instance type boot mode support | Resulting instance boot mode |
-| ---------------------------- | ---------------------------------------- | ------------------------------- | ---------------------------- |
-| UEFI                         | UEFI                                     | UEFI                            | UEFI                         |
-| Legacy BIOS                  | Legacy BIOS                              | Legacy BIOS                     | Legacy BIOS                  |
-| UEFI Preferred               | UEFI                                     | UEFI                            | UEFI                         |
-| UEFI Preferred               | UEFI                                     | UEFI and Legacy BIOS            | UEFI                         |
-| UEFI Preferred               | Legacy BIOS                              | Legacy BIOS                     | Legacy BIOS                  |
-| UEFI Preferred               | Legacy BIOS                              | UEFI and Legacy BIOS            | Legacy BIOS                  |
-| No boot mode specified - ARM | UEFI                                     | UEFI                            | UEFI                         |
-| No boot mode specified - x86 | Legacy BIOS                              | UEFI and Legacy BIOS            | Legacy BIOS                  |
+| AMI boot mode parameter         | Operating system boot mode configuration | Instance type boot mode support | Resulting instance boot mode |
+| ------------------------------- | ---------------------------------------- | ------------------------------- | ---------------------------- |
+| UEFI                            | UEFI                                     | UEFI                            | UEFI                         |
+| Legacy BIOS                     | Legacy BIOS                              | Legacy BIOS                     | Legacy BIOS                  |
+| UEFI Preferred                  | UEFI                                     | UEFI                            | UEFI                         |
+| UEFI Preferred                  | UEFI                                     | UEFI and Legacy BIOS            | UEFI                         |
+| UEFI Preferred                  | Legacy BIOS                              | Legacy BIOS                     | Legacy BIOS                  |
+| UEFI Preferred                  | Legacy BIOS                              | UEFI and Legacy BIOS            | Legacy BIOS                  |
+| No boot mode specified<br>• ARM | UEFI                                     | UEFI                            | UEFI                         |
+| No boot mode specified<br>• x86 | Legacy BIOS                              | UEFI and Legacy BIOS            | Legacy BIOS                  |

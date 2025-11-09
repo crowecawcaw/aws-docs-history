@@ -94,7 +94,138 @@ and Savings Plans
 
 The following table highlights key differences between Capacity Reservations, Reserved Instances, and Savings Plans:
 
-|                      | Capacity Reservations                                                                                                                                                                                                                                                                                                                                       | Zonal Reserved Instances                           | Regional Reserved Instances | Savings Plans        |
-| -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------- | --------------------------- | -------------------- | -------------------------------------------------- | ---------------------------------------------------------------------- | ----------------------------------------------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Term**             | No commitment required for immediate-use Capacity Reservations. They can be created, modified, and canceled as needed. With future-dated Capacity Reservations, you specify a commitment duration for which you commit to keeping the capacity in your account. After the commitment duration elapses, you can cancel the Capacity Reservation at any time. | Requires a fixed one-year or three-year commitment |                             | **Capacity benefit** | Capacity reserved in a specific Availability Zone. | No capacity reserved.                                                  |
-| **Billing discount** | No billing discount. †                                                                                                                                                                                                                                                                                                                                      | Provides a billing discount.                       |                             | **Instance Limits**  | Your On-Demand Instance limits per Region apply.   | Default is 20 per Availability Zone. You can request a limit increase. | Default is 20 per Region. You can request a limit increase. | No limit. | † You can combine Capacity Reservations with Savings Plans or Regional Reserved Instances to receive a discount. For more information, see the following: <br>• [Reserved Instances for Amazon EC2 overview](ec2-reserved-instances.md "ec2-reserved-instances.md") <br>• [Savings Plans User Guide](../../../savingsplans/latest/userguide.md "../../../savingsplans/latest/userguide.md") ## Supported platforms You must create the Capacity Reservation with the correct platform to ensure that it properly matches with your instances. Capacity Reservations support the following values for `platform`: <br>• Linux/UNIX <br>• Linux with SQL Server Standard <br>• Linux with SQL Server Web <br>• Linux with SQL Server Enterprise <br>• SUSE Linux <br>• Red Hat Enterprise Linux <br>• RHEL with SQL Server Standard <br>• RHEL with SQL Server Enterprise <br>• RHEL with SQL Server Web <br>• RHEL with HA <br>• RHEL with HA and SQL Server Standard <br>• RHEL with HA and SQL Server Enterprise <br>• Ubuntu Pro <br>• Windows <br>• Windows with SQL Server <br>• Windows with SQL Server Web <br>• Windows with SQL Server Standard <br>• Windows with SQL Server Enterprise To ensure that an instance runs in a specific Capacity Reservation, the platform of the Capacity Reservation must match the platform of the AMI used to launch the instance. For Linux AMIs, it is important to check whether the AMI platform uses the general value **Linux/UNIX** or a more specific value like **SUSE Linux**. Console ###### To check the AMI platform 1. Open the Amazon EC2 console at [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/"). 2. In the navigation pane, choose **AMIs**. 3. Select the AMI. 4. On the **Details** tab, note the value of **Platform details**. AWS CLI ###### To check the AMI platform Use the [describe-images](../../../cli/latest/reference/ec2/describe-images.md "../../../cli/latest/reference/ec2/describe-images.md") command and check the value of `PlatformDetails`. ``aws ec2 describe-images \ --image-ids `ami-0abcdef1234567890` \ --query Images[*].PlatformDetails`` The following is example output. `[ "Linux/UNIX" ]` PowerShell ###### To check the AMI platform Use the [Get-EC2Image](../../../powershell/latest/reference/items/Get-EC2Image.md "../../../powershell/latest/reference/items/Get-EC2Image.md") cmdlet and check the value of `PlatformDetails`. ```Get-EC2Image` -ImageId `ami-0abcdef1234567890` | `Select PlatformDetails ``` The following is example output. ``` PlatformDetails --------------- Linux/UNIX ``` ## Quotas The number of instances for which you are allowed to reserve capacity is based on your account's On-Demand Instance quota. You can reserve capacity for as many instances as that quota allows, minus the number of instances that are already running. Capacity Reservations in the`assessing`, `scheduled`, `pending`,`active`, and `delayed`state count towards your On-Demand Instance quota. ## Limitations Before you create Capacity Reservations, take note of the following limitations and restrictions. <br>• Active and unused Capacity Reservations count toward your On-Demand Instance limits. <br>• Capacity Reservations are not transferable from one AWS account to another. However, you can share Capacity Reservations with other AWS accounts. For more information, see [Shared Capacity Reservations](capacity-reservation-sharing.md "capacity-reservation-sharing.md"). <br>• Zonal Reserved Instance billing discounts do not apply to Capacity Reservations. <br>• Capacity Reservations can be created in cluster placement groups. Spread and partition placement groups are not supported. <br>• Capacity Reservations can't be used with Dedicated Hosts. Capacity Reservations can be used with Dedicated Instances. <br>• [Windows instances] Capacity Reservations can't be used with Bring Your Own License (BYOL). <br>• [Red Hat instances] Capacity Reservations can be used with Bring Your Own License (BYOL). <br>• Capacity Reservations do not ensure that a hibernated instance can resume after you try to start it. <br>• You can request future-dated Capacity Reservations for an instance count with a minimum of 32 vCPUs. For example, if you request a future-dated Capacity Reservation for`m5.xlarge` instances, you must request at least 8 instances (_8 \* m5.xlarge = 32 vCPUs_). <br>• You can request future-dated Capacity Reservations for instance types in the following series only: C, G, I, M, R, and T. |
+|                      | Capacity Reservations                                                                                                                                                                                                                                                                                                                                                      | Zonal Reserved Instances                                                  | Regional Reserved Instances                                 | Savings Plans |
+| -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ----------------------------------------------------------- | ------------- |
+| **Term**             | No commitment required for immediate-use Capacity Reservations. They can be<br>created, modified, and canceled as needed.<br>With future-dated Capacity Reservations, you specify a commitment duration for<br>which you commit to keeping the capacity in your account. After the<br>commitment duration elapses, you can cancel the Capacity Reservation at any<br>time. | Requires a fixed one-year or three-year<br>commitment                     |
+| **Capacity benefit** | Capacity reserved in a specific Availability<br>Zone.                                                                                                                                                                                                                                                                                                                      | No capacity reserved.                                                     |
+| **Billing discount** | No billing discount. †                                                                                                                                                                                                                                                                                                                                                     | Provides a billing discount.                                              |
+| **Instance Limits**  | Your On-Demand Instance limits per Region apply.                                                                                                                                                                                                                                                                                                                           | Default is 20 per Availability Zone. You can request a limit<br>increase. | Default is 20 per Region. You can request a limit increase. | No limit.     |
+
+† You can combine Capacity Reservations with Savings Plans or Regional Reserved Instances to receive a
+discount.
+
+For more information, see the following:
+
+- [Reserved Instances for Amazon EC2 overview](ec2-reserved-instances.md "ec2-reserved-instances.md")
+- [Savings Plans User
+  Guide](../../../savingsplans/latest/userguide.md "../../../savingsplans/latest/userguide.md")
+
+## Supported platforms
+
+You must create the Capacity Reservation with the correct platform to ensure that it properly matches
+with your instances. Capacity Reservations support the following values for
+`platform`:
+
+- Linux/UNIX
+- Linux with SQL Server Standard
+- Linux with SQL Server Web
+- Linux with SQL Server Enterprise
+- SUSE Linux
+- Red Hat Enterprise
+  Linux
+- RHEL with SQL Server Standard
+- RHEL with SQL Server Enterprise
+- RHEL with SQL Server Web
+- RHEL with HA
+- RHEL with HA and SQL Server Standard
+- RHEL with HA and SQL Server Enterprise
+- Ubuntu Pro
+- Windows
+- Windows with SQL Server
+- Windows with SQL Server Web
+- Windows with SQL Server Standard
+- Windows with SQL Server Enterprise
+
+To ensure that an instance runs in a specific Capacity Reservation, the platform of the Capacity Reservation must
+match the platform of the AMI used to launch the instance. For Linux AMIs, it is
+important to check whether the AMI platform uses the general value
+**Linux/UNIX** or a more specific value like **SUSE
+Linux**.
+
+Console
+
+###### To check the AMI platform
+
+1. Open the Amazon EC2 console at
+   [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
+2. In the navigation pane, choose **AMIs**.
+3. Select the AMI.
+4. On the **Details** tab, note the value of **Platform
+   details**.
+
+AWS CLI
+
+###### To check the AMI platform
+
+Use the [describe-images](../../../cli/latest/reference/ec2/describe-images.md "../../../cli/latest/reference/ec2/describe-images.md") command and check the value of
+`PlatformDetails`.
+
+```
+aws ec2 describe-images \
+    --image-ids `ami-0abcdef1234567890` \
+    --query Images[*].PlatformDetails
+```
+
+The following is example output.
+
+```
+[
+    "Linux/UNIX"
+]
+```
+
+PowerShell
+
+###### To check the AMI platform
+
+Use the [Get-EC2Image](../../../powershell/latest/reference/items/Get-EC2Image.md "../../../powershell/latest/reference/items/Get-EC2Image.md")
+cmdlet and check the value of `PlatformDetails`.
+
+```
+Get-EC2Image `
+    -ImageId `ami-0abcdef1234567890` | `
+    Select PlatformDetails
+```
+
+The following is example output.
+
+```
+PlatformDetails
+---------------
+Linux/UNIX
+```
+
+## Quotas
+
+The number of instances for which you are allowed to reserve capacity is based on your
+account's On-Demand Instance quota. You can reserve capacity for as many instances as that quota
+allows, minus the number of instances that are already running.
+
+Capacity Reservations in the `assessing`, `scheduled`, `pending` ,
+`active`, and `delayed` state count towards your On-Demand Instance
+quota.
+
+## Limitations
+
+Before you create Capacity Reservations, take note of the following limitations and
+restrictions.
+
+- Active and unused Capacity Reservations count toward your On-Demand Instance limits.
+- Capacity Reservations are not transferable from one AWS account to another. However, you can
+  share Capacity Reservations with other AWS accounts. For more information, see [Shared Capacity Reservations](capacity-reservation-sharing.md "capacity-reservation-sharing.md").
+- Zonal Reserved Instance billing discounts do not apply to Capacity Reservations.
+- Capacity Reservations can be created in cluster placement groups. Spread and partition
+  placement groups are not supported.
+- Capacity Reservations can't be used with Dedicated Hosts. Capacity Reservations can be used with Dedicated Instances.
+- [Windows instances] Capacity Reservations can't be used with Bring Your Own License
+  (BYOL).
+- [Red Hat instances] Capacity Reservations can be used with Bring Your Own License
+  (BYOL).
+- Capacity Reservations do not ensure that a hibernated instance can resume after you try to
+  start it.
+- You can request future-dated Capacity Reservations for an instance count with a minimum of 32 vCPUs. For
+  example, if you request a future-dated Capacity Reservation for `m5.xlarge`
+  instances, you must request at least 8 instances (_8 \* m5.xlarge = 32
+  vCPUs_).
+- You can request future-dated Capacity Reservations for instance types in the following series only:
+  C, G, I, M, R, and T.

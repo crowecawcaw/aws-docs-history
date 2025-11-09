@@ -72,9 +72,10 @@ aws ec2 describe-instance-types \
 
 The following is example output.
 
-````
+```
 ----------------------------
-|  DescribeInstanceTypes   | +----------------+---------+
+|  DescribeInstanceTypes   |
++----------------+---------+
 |  r6id.16xlarge  |  3800  |
 |  r6idn.16xlarge |  3800  |
 |  r6idn.8xlarge  |  1900  |
@@ -94,5 +95,107 @@ The following is example output.
 |  r6idn.32xlarge |  7600  |
 |  r6idn.metal    |  7600  |
 |  r6id.metal     |  7600  |
-|  r6idn.12xlarge |  2850  | +----------------+--------+ ``` ###### To get complete instance storage details for an instance type Use the [describe-instance-types](../../../cli/latest/reference/ec2/describe-instance-types.md "../../../cli/latest/reference/ec2/describe-instance-types.md") command. ``` aws ec2 describe-instance-types \ --filters "Name=instance-type,Values=`r6id.16xlarge`" \ --query "InstanceTypes[].InstanceStorageInfo" ``` The example output shows that this instance type has two 1900 GB NVMe SSD volumes, for a total of 3800 GB of instance storage. ``` [ { "TotalSizeInGB": 3800, "Disks": [ { "SizeInGB": 1900, "Count": 2, "Type": "ssd" } ], "NvmeSupport": "required", "EncryptionSupport": "required" } ] ``` PowerShell ###### To retrieve instance store volume information Use the [Get-EC2InstanceType](../../../powershell/latest/reference/items/Get-EC2InstanceType.md "../../../powershell/latest/reference/items/Get-EC2InstanceType.md") cmdlet. The following example displays the total size of the instance storage for each instance type in the R6i instance families with instance store volumes. ``` (Get-EC2InstanceType -Filter @{Name="instance-type"; Values="r6i*"},@{Name="instance-storage-supported"; Values="true"}) | Format-Table @{Name="InstanceType";Expression={$_.InstanceType}}, @{Name="TotalSize";Expression={$_.InstanceStorageInfo.TotalSizeInGB}} ``` The following is example output. ``` InstanceType   TotalSize ------------   --------- r6idn.16xlarge      3800 r6id.16xlarge       3800 r6id.xlarge          237 r6idn.8xlarge       1900 r6idn.2xlarge        474 r6id.12xlarge       2850 r6idn.xlarge         237 r6id.2xlarge         474 r6id.4xlarge         950 r6idn.24xlarge      5700 r6id.32xlarge       7600 r6id.24xlarge       5700 r6idn.large          118 r6id.large           118 r6idn.4xlarge        950 r6id.8xlarge        1900 r6id.metal          7600 r6idn.32xlarge      7600 r6idn.metal         7600 r6idn.12xlarge      2850 ``` ###### To get complete instance storage details for an instance type Use the [Get-EC2InstanceType](../../../powershell/latest/reference/items/Get-EC2InstanceType.md "../../../powershell/latest/reference/items/Get-EC2InstanceType.md") cmdlet. The output is converted to JSON format. ``` (Get-EC2InstanceType -Filter @{Name="instance-type"; Values="`r6id.16xlarge`"}).InstanceStorageInfo | ConvertTo-Json ``` The example output shows that this instance type has two 1900 GB NVMe SSD volumes, for a total of 3800 GB of instance storage. ``` { "Disks": [ { "Count": 2, "SizeInGB": 1900, "Type": "ssd" } ], "EncryptionSupport": { "Value": "required" }, "NvmeSupport": { "Value": "required" }, "TotalSizeInGB": 3800 } ```
-````
+|  r6idn.12xlarge |  2850  |
++----------------+--------+
+```
+
+###### To get complete instance storage details for an instance type
+
+Use the [describe-instance-types](../../../cli/latest/reference/ec2/describe-instance-types.md "../../../cli/latest/reference/ec2/describe-instance-types.md")
+command.
+
+```
+aws ec2 describe-instance-types \
+    --filters "Name=instance-type,Values=`r6id.16xlarge`" \
+    --query "InstanceTypes[].InstanceStorageInfo"
+```
+
+The example output shows that this instance type has two 1900 GB NVMe SSD volumes, for a
+total of 3800 GB of instance storage.
+
+```
+[
+    {
+        "TotalSizeInGB": 3800,
+        "Disks": [
+            {
+                "SizeInGB": 1900,
+                "Count": 2,
+                "Type": "ssd"
+            }
+        ],
+        "NvmeSupport": "required",
+        "EncryptionSupport": "required"
+    }
+]
+```
+
+PowerShell
+
+###### To retrieve instance store volume information
+
+Use the [Get-EC2InstanceType](../../../powershell/latest/reference/items/Get-EC2InstanceType.md "../../../powershell/latest/reference/items/Get-EC2InstanceType.md")
+cmdlet. The following example displays the total size of the instance storage for each
+instance type in the R6i instance families with instance store volumes.
+
+```
+(Get-EC2InstanceType -Filter @{Name="instance-type"; Values="r6i*"},@{Name="instance-storage-supported"; Values="true"}) | Format-Table @{Name="InstanceType";Expression={$_.InstanceType}}, @{Name="TotalSize";Expression={$_.InstanceStorageInfo.TotalSizeInGB}}
+```
+
+The following is example output.
+
+```
+InstanceType   TotalSize
+------------   ---------
+r6idn.16xlarge      3800
+r6id.16xlarge       3800
+r6id.xlarge          237
+r6idn.8xlarge       1900
+r6idn.2xlarge        474
+r6id.12xlarge       2850
+r6idn.xlarge         237
+r6id.2xlarge         474
+r6id.4xlarge         950
+r6idn.24xlarge      5700
+r6id.32xlarge       7600
+r6id.24xlarge       5700
+r6idn.large          118
+r6id.large           118
+r6idn.4xlarge        950
+r6id.8xlarge        1900
+r6id.metal          7600
+r6idn.32xlarge      7600
+r6idn.metal         7600
+r6idn.12xlarge      2850
+```
+
+###### To get complete instance storage details for an instance type
+
+Use the [Get-EC2InstanceType](../../../powershell/latest/reference/items/Get-EC2InstanceType.md "../../../powershell/latest/reference/items/Get-EC2InstanceType.md")
+cmdlet. The output is converted to JSON format.
+
+```
+(Get-EC2InstanceType -Filter @{Name="instance-type"; Values="`r6id.16xlarge`"}).InstanceStorageInfo | ConvertTo-Json
+```
+
+The example output shows that this instance type has two 1900 GB NVMe SSD volumes, for a
+total of 3800 GB of instance storage.
+
+```
+{
+  "Disks": [
+    {
+      "Count": 2,
+      "SizeInGB": 1900,
+      "Type": "ssd"
+    }
+  ],
+  "EncryptionSupport": {
+    "Value": "required"
+  },
+  "NvmeSupport": {
+    "Value": "required"
+  },
+  "TotalSizeInGB": 3800
+}
+```

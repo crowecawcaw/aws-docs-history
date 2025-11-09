@@ -138,8 +138,100 @@ the expiration date that's furthest in the future.
 For example, you have the following Convertible Reserved Instances in your account:
 
 | Reserved Instance ID | Term   | Expiration date |
-| -------------------- | ------ | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| -------------------- | ------ | --------------- |
 | aaaa1111             | 1-year | 2018-12-31      |
 | bbbb2222             | 1-year | 2018-07-31      |
 | cccc3333             | 3-year | 2018-06-30      |
-| dddd4444             | 3-year | 2019-12-31      | <br>• You can merge `aaaa1111` and `bbbb2222` and exchange them for a 1-year Convertible Reserved Instance. You cannot exchange them for a 3-year Convertible Reserved Instance. The expiration date of the new Convertible Reserved Instance is 2018-12-31. <br>• You can merge `bbbb2222` and `cccc3333` and exchange them for a 3-year Convertible Reserved Instance. You cannot exchange them for a 1-year Convertible Reserved Instance. The expiration date of the new Convertible Reserved Instance is 2018-07-31. <br>• You can merge `cccc3333` and `dddd4444` and exchange them for a 3-year Convertible Reserved Instance. You cannot exchange them for a 1-year Convertible Reserved Instance. The expiration date of the new Convertible Reserved Instance is 2019-12-31. ## Exchange a portion of a Convertible Reserved Instance You can use the modification process to split your Convertible Reserved Instance into smaller reservations, and then exchange one or more of the new reservations for a new Convertible Reserved Instance. The following examples demonstrate how you can do this. ###### Example: Convertible Reserved Instance with multiple instances In this example, you have a `t2.micro` Convertible Reserved Instance with four instances in the reservation. To exchange two `t2.micro` instances for an `m4.xlarge` instance: 1. Modify the `t2.micro` Convertible Reserved Instance by splitting it into two `t2.micro` Convertible Reserved Instances with two instances each. 2. Exchange one of the new `t2.micro` Convertible Reserved Instances for an `m4.xlarge` Convertible Reserved Instance. ![Modifying and exchange Reserved Instances.](images/ri-split-cri-multiple.png) ###### Example: Convertible Reserved Instance with a single instance In this example, you have a `t2.large` Convertible Reserved Instance. To change it to a smaller `t2.medium` instance and a `m3.medium` instance: 1. Modify the `t2.large` Convertible Reserved Instance by splitting it into two `t2.medium` Convertible Reserved Instances. A single `t2.large` instance has the same instance size footprint as two `t2.medium` instances. 2. Exchange one of the new `t2.medium` Convertible Reserved Instances for an `m3.medium` Convertible Reserved Instance. ![Modify and exchange Reserved Instances.](images/ri-split-cri-single.png) For more information, see [Support for modifying instance sizes](ri-modifying.md#ri-modification-instancemove "ri-modifying.md#ri-modification-instancemove") and [Submit exchange requests](#ri-exchange-process "#ri-exchange-process"). ## Submit exchange requests You can exchange your Convertible Reserved Instances. Reserved Instances that are exchanged are retired. Console ###### To exchange Convertible Reserved Instances 1. Open the Amazon EC2 console at [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/"). 2. Choose **Reserved Instances**, select the Convertible Reserved Instances to exchange, and choose **Actions**, **Exchange Reserved Instance**. 3. Select the attributes of the desired configuration, and choose **Find offering**. 4. Select a new Convertible Reserved Instance. At the bottom of the screen, you can view the number of Reserved Instances that you receive for the exchange, and any additional costs. 5. When you have selected a Convertible Reserved Instance that meets your needs, choose **Review**. 6. Choose **Exchange**, and then **Close**. AWS CLI ###### To exchange a Convertible Reserved Instance 1. Find a new Convertible Reserved Instance that meets your needs by using the [describe-reserved-instances-offerings](../../../cli/latest/reference/ec2/describe-reserved-instances-offerings.md "../../../cli/latest/reference/ec2/describe-reserved-instances-offerings.md") command. 2. Get a quote for the exchange by using the [get-reserved-instances-exchange-quote](../../../cli/latest/reference/ec2/get-reserved-instances-exchange-quote.md "../../../cli/latest/reference/ec2/get-reserved-instances-exchange-quote.md") command. This includes the number of Reserved Instances you get from the exchange, and the true-up cost for the exchange: 3. Perform the exchange by using the [accept-reserved-instances-exchange-quote](../../../cli/latest/reference/ec2/accept-reserved-instances-exchange-quote.md "../../../cli/latest/reference/ec2/accept-reserved-instances-exchange-quote.md") command. PowerShell ###### To exchange a Convertible Reserved Instance 1. Find a new Convertible Reserved Instance that meets your needs by using the [Get-EC2ReservedInstancesOffering](../../../powershell/latest/reference/items/Get-EC2ReservedInstancesOffering.md "../../../powershell/latest/reference/items/Get-EC2ReservedInstancesOffering.md") cmdlet. 2. Get a quote for the exchange by using the [GetEC2-ReservedInstancesExchangeQuote](../../../powershell/latest/reference/items/Get-EC2ReservedInstancesExchangeQuote.md "../../../powershell/latest/reference/items/Get-EC2ReservedInstancesExchangeQuote.md") cmdlet. This includes the number of Reserved Instances you get from the exchange, and the true-up cost for the exchange: 3. Perform the exchange by using the [Approve-EC2ReservedInstancesExchangeQuote](../../../powershell/latest/reference/items/Approve-EC2ReservedInstancesExchangeQuote.md "../../../powershell/latest/reference/items/Approve-EC2ReservedInstancesExchangeQuote.md") cmdlet |
+| dddd4444             | 3-year | 2019-12-31      |
+
+- You can merge `aaaa1111` and `bbbb2222` and exchange
+  them for a 1-year Convertible Reserved Instance. You cannot exchange them for a 3-year Convertible Reserved Instance. The
+  expiration date of the new Convertible Reserved Instance is 2018-12-31.
+- You can merge `bbbb2222` and `cccc3333` and exchange
+  them for a 3-year Convertible Reserved Instance. You cannot exchange them for a 1-year Convertible Reserved Instance. The
+  expiration date of the new Convertible Reserved Instance is 2018-07-31.
+- You can merge `cccc3333` and `dddd4444` and exchange
+  them for a 3-year Convertible Reserved Instance. You cannot exchange them for a 1-year Convertible Reserved Instance. The
+  expiration date of the new Convertible Reserved Instance is 2019-12-31.
+
+## Exchange a portion of a Convertible Reserved Instance
+
+You can use the modification process to split your Convertible Reserved Instance into smaller
+reservations, and then exchange one or more of the new reservations for a new Convertible Reserved Instance.
+The following examples demonstrate how you can do this.
+
+###### Example: Convertible Reserved Instance with multiple instances
+
+In this example, you have a `t2.micro` Convertible Reserved Instance with four instances in
+the reservation. To exchange two `t2.micro` instances for an
+`m4.xlarge` instance:
+
+1. Modify the `t2.micro` Convertible Reserved Instance by splitting it into two
+   `t2.micro` Convertible Reserved Instances with two instances each.
+2. Exchange one of the new `t2.micro` Convertible Reserved Instances for an
+   `m4.xlarge` Convertible Reserved Instance.
+
+![Modifying and exchange Reserved Instances.](images/ri-split-cri-multiple.png)
+
+###### Example: Convertible Reserved Instance with a single instance
+
+In this example, you have a `t2.large` Convertible Reserved Instance. To change it to a
+smaller `t2.medium` instance and a `m3.medium`
+instance:
+
+1. Modify the `t2.large` Convertible Reserved Instance by splitting it into two
+   `t2.medium` Convertible Reserved Instances. A single `t2.large`
+   instance has the same instance size footprint as two
+   `t2.medium` instances.
+2. Exchange one of the new `t2.medium` Convertible Reserved Instances for an
+   `m3.medium` Convertible Reserved Instance.
+
+![Modify and exchange Reserved Instances.](images/ri-split-cri-single.png)
+For more information, see [Support for modifying instance
+sizes](ri-modifying.md#ri-modification-instancemove "ri-modifying.md#ri-modification-instancemove") and [Submit exchange requests](#ri-exchange-process "#ri-exchange-process").
+
+## Submit exchange requests
+
+You can exchange your Convertible Reserved Instances. Reserved Instances that are exchanged are retired.
+
+Console
+
+###### To exchange Convertible Reserved Instances
+
+1. Open the Amazon EC2 console at
+   [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
+2. Choose **Reserved Instances**, select the
+   Convertible Reserved Instances to exchange, and choose **Actions**,
+   **Exchange Reserved Instance**.
+3. Select the attributes of the desired configuration, and choose
+   **Find offering**.
+4. Select a new Convertible Reserved Instance. At the bottom of the screen, you can view
+   the number of Reserved Instances that you receive for the exchange, and any
+   additional costs.
+5. When you have selected a Convertible Reserved Instance that meets your needs, choose
+   **Review**.
+6. Choose **Exchange**, and then
+   **Close**.
+
+AWS CLI
+
+###### To exchange a Convertible Reserved Instance
+
+1. Find a new Convertible Reserved Instance that meets your needs by using the [describe-reserved-instances-offerings](../../../cli/latest/reference/ec2/describe-reserved-instances-offerings.md "../../../cli/latest/reference/ec2/describe-reserved-instances-offerings.md")
+   command.
+2. Get a quote for the exchange by using the [get-reserved-instances-exchange-quote](../../../cli/latest/reference/ec2/get-reserved-instances-exchange-quote.md "../../../cli/latest/reference/ec2/get-reserved-instances-exchange-quote.md") command. This
+   includes the number of Reserved Instances you get from the exchange, and the
+   true-up cost for the exchange:
+3. Perform the exchange by using the [accept-reserved-instances-exchange-quote](../../../cli/latest/reference/ec2/accept-reserved-instances-exchange-quote.md "../../../cli/latest/reference/ec2/accept-reserved-instances-exchange-quote.md")
+   command.
+
+PowerShell
+
+###### To exchange a Convertible Reserved Instance
+
+1. Find a new Convertible Reserved Instance that meets your needs by using the [Get-EC2ReservedInstancesOffering](../../../powershell/latest/reference/items/Get-EC2ReservedInstancesOffering.md "../../../powershell/latest/reference/items/Get-EC2ReservedInstancesOffering.md") cmdlet.
+2. Get a quote for the exchange by using the [GetEC2-ReservedInstancesExchangeQuote](../../../powershell/latest/reference/items/Get-EC2ReservedInstancesExchangeQuote.md "../../../powershell/latest/reference/items/Get-EC2ReservedInstancesExchangeQuote.md") cmdlet. This
+   includes the number of Reserved Instances you get from the exchange, and the
+   true-up cost for the exchange:
+3. Perform the exchange by using the [Approve-EC2ReservedInstancesExchangeQuote](../../../powershell/latest/reference/items/Approve-EC2ReservedInstancesExchangeQuote.md "../../../powershell/latest/reference/items/Approve-EC2ReservedInstancesExchangeQuote.md")
+   cmdlet

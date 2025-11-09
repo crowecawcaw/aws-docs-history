@@ -28,7 +28,7 @@ pages in the Amazon EC2 console, or in the response that is returned by the [des
 command.
 
 | Platform details                                           | Usage operation 2   |
-| ---------------------------------------------------------- | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ---------------------------------------------------------- | ------------------- |
 | Linux/UNIX                                                 | RunInstances        |
 | Red Hat BYOL Linux                                         | RunInstances:00g0 3 |
 | Red Hat Enterprise Linux                                   | RunInstances:0010   |
@@ -47,4 +47,16 @@ command.
 | Windows BYOL                                               | RunInstances:0800   |
 | Windows with SQL Server Enterprise 1                       | RunInstances:0102   |
 | Windows with SQL Server Standard 1                         | RunInstances:0006   |
-| Windows with SQL Server Web 1                              | RunInstances:0202   | 1 If two software licenses are associated with an AMI, the **Platform details** field shows both. 2 If you are running Spot Instances, the [lineitem/Operation](../../../cur/latest/userguide/Lineitem-columns.md#Lineitem-details-O-Operation "../../../cur/latest/userguide/Lineitem-columns.md#Lineitem-details-O-Operation") on your AWS Cost and Usage Report might be different from the **Usage operation** value that is listed here. For example, if `lineitem/Operation` displays `RunInstances:0010:SV006`, it means that Amazon EC2 is running Red Hat Enterprise Linux Spot Instance-hour in US East (N. Virginia) in Zone 6. 3 This appears as RunInstances (Linux/UNIX) in your usage reports. |
+| Windows with SQL Server Web 1                              | RunInstances:0202   |
+
+1 If two software licenses are associated with an AMI, the **Platform
+details** field shows both.
+
+2 If you are running Spot Instances, the [lineitem/Operation](../../../cur/latest/userguide/Lineitem-columns.md#Lineitem-details-O-Operation "../../../cur/latest/userguide/Lineitem-columns.md#Lineitem-details-O-Operation") on your AWS Cost and Usage Report might be
+different from the **Usage operation** value that is listed here. For
+example, if `lineitem/Operation` displays
+`RunInstances:0010:SV006`, it means that Amazon EC2 is running Red Hat Enterprise
+Linux Spot Instance-hour in US East (N. Virginia) in Zone 6.
+
+3 This appears as RunInstances (Linux/UNIX) in
+your usage reports.

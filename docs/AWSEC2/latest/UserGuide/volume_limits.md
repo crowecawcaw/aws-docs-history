@@ -57,7 +57,7 @@ volumes and network interfaces.
 
 - **General purpose:** M7a | M7i | M7i-flex | M8a | M8g | M8gd | M8i | M8i-flex
 - **Compute optimized:** C7a | C7i | C7i-flex | C8g | C8gd | C8gn | C8i | C8i-flex
-- **Memory optimized:** R7a | R7i | R7iz | R8g | R8gb | R8gd | R8gn | R8i | R8i-flex | U7i-6tb | U7i-8tb | U7i-12tb | U7in-16tb | U7in-24tb | U7in-32tb | U7inh-32tb | X8g
+- **Memory optimized:** R7a | R7i | R7iz | R8a | R8g | R8gb | R8gd | R8gn | R8i | R8i-flex | U7i-6tb | U7i-8tb | U7i-12tb | U7in-16tb | U7in-24tb | U7in-32tb | U7inh-32tb | X8g
 - **Storage optimized:** I7i | I7ie | I8g | I8ge
 - **Accelerated computing:** F2 | G6 | G6e | G6f | Gr6 | Gr6f | P4d | P4de | P5 | P5e | P5en | P6-B200 | P6e-GB200 | Trn2 | Trn2u
 - **High performance computing:** Hpc7a
@@ -119,7 +119,22 @@ driver used. That these numbers include the root volume, plus any attached insta
 and Amazon EBS volumes.
 
 | Driver     | Volume Limit |
-| ---------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ---------- | ------------ |
 | AWS PV     | 26           |
 | Citrix PV  | 26           |
-| Red Hat PV | 17           | We recommend that you do not that attach more than 26 volumes to a Xen-based Windows instance with AWS PV or Citrix PV drivers, as it is likely to cause performance issues. To determine which PV drivers your instance is using, or to upgrade your Windows instance from Red Hat to Citrix PV drivers, see [Upgrade PV drivers on EC2 Windows instances](Upgrading_PV_drivers.md "Upgrading_PV_drivers.md"). ###### Important Attaching more than the following number of volumes to a Xen-based Windows instance is supported on a best effort basis only and is not guaranteed. For more information about how device names are related to volumes, see [How volumes are attached and mapped for Amazon EC2 Windows instances](ec2-windows-volumes.md "ec2-windows-volumes.md"). |
+| Red Hat PV | 17           |
+
+We recommend that you do not that attach more than 26 volumes to a Xen-based Windows
+instance with AWS PV or Citrix PV drivers, as it is likely to cause performance issues.
+To determine which PV drivers your instance is using, or to upgrade your Windows instance
+from Red Hat to Citrix PV drivers, see [Upgrade PV drivers on EC2 Windows
+instances](Upgrading_PV_drivers.md "Upgrading_PV_drivers.md").
+
+###### Important
+
+Attaching more than the following number of volumes to a Xen-based Windows instance is
+supported on a best effort basis only and is not guaranteed.
+
+For more information about how device names are related to volumes, see
+[How volumes are attached and mapped for Amazon EC2 Windows
+instances](ec2-windows-volumes.md "ec2-windows-volumes.md").

@@ -60,7 +60,7 @@ Instance types in the following instance families support configurable bandwidth
 
 - **General purpose:** M8a, M8g, M8gd, M8i, M8i-flex
 - **Compute optimized:** C8g, C8gd, C8i, C8i-flex
-- **Memory optimized:** R8g, R8gd, R8i, R8i-flex, X8g
+- **Memory optimized:** R8a, R8g, R8gd, R8i, R8i-flex, X8g
 
 ## Check current bandwidth settings
 
@@ -298,7 +298,7 @@ The following table shows the networking performance, in Gbps, that can be achie
 the `default`, `vpc-1`, and `ebs-1` configurations.
 
 | Instance type     | **`default`**(Baseline / Burst) | **`vpc-1`**(Baseline / Burst) | **`ebs-1`**(Baseline / Burst) |
-| ----------------- | ------------------------------- | ----------------------------- | ----------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ----------------- | ------------------------------- | ----------------------------- | ----------------------------- |
 | c8g.medium        | 0.52 / 12.5                     | 0.65 / 12.5                   | 0.441 / 10.0                  |
 | c8g.large         | 0.937 / 12.5                    | 1.171 / 12.5                  | 0.779 / 10.0                  |
 | c8g.xlarge        | 1.875 / 12.5                    | 2.344 / 12.5                  | 1.562 / 10.0                  |
@@ -399,6 +399,18 @@ the `default`, `vpc-1`, and `ebs-1` configurations.
 | m8i-flex.8xlarge  | 7.5 / 15.0                      | 9.375 / 18.75                 | 6.25 / 12.5                   |
 | m8i-flex.12xlarge | 11.25 / 22.5                    | 14.063 / 28.125               | 9.375 / 18.75                 |
 | m8i-flex.16xlarge | 15.0 / 30.0                     | 18.75 / 37.5                  | 12.5 / 25.0                   |
+| r8a.medium        | 0.52 / 12.5                     | 0.65 / 12.5                   | 0.438 / 10.0                  |
+| r8a.large         | 0.937 / 12.5                    | 1.172 / 12.5                  | 0.774 / 10.0                  |
+| r8a.xlarge        | 1.875 / 12.5                    | 2.344 / 12.5                  | 1.562 / 10.0                  |
+| r8a.2xlarge       | 3.75 / 15.0                     | 4.688 / 15.0                  | 3.125 / 12.5                  |
+| r8a.4xlarge       | 7.5 / 15.0                      | 9.375 / 15.0                  | 6.25 / 12.5                   |
+| r8a.8xlarge       | 15.0                            | 18.75                         | 12.5                          |
+| r8a.12xlarge      | 22.5                            | 28.125                        | 18.75                         |
+| r8a.16xlarge      | 30.0                            | 37.5                          | 25.0                          |
+| r8a.24xlarge      | 40.0                            | 50.0                          | 32.5                          |
+| r8a.48xlarge      | 75.0                            | 93.75                         | 60.0                          |
+| r8a.metal-24xl    | 40.0                            | 50.0                          | 32.5                          |
+| r8a.metal-48xl    | 75.0                            | 93.75                         | 60.0                          |
 | r8g.medium        | 0.52 / 12.5                     | 0.65 / 12.5                   | 0.441 / 10.0                  |
 | r8g.large         | 0.937 / 12.5                    | 1.171 / 12.5                  | 0.779 / 10.0                  |
 | r8g.xlarge        | 1.875 / 12.5                    | 2.344 / 12.5                  | 1.562 / 10.0                  |
@@ -454,9 +466,15 @@ the `default`, `vpc-1`, and `ebs-1` configurations.
 | x8g.24xlarge      | 40.0                            | 50.0                          | 32.5                          |
 | x8g.48xlarge      | 50.0                            | 62.5                          | 40.0                          |
 | x8g.metal-24xl    | 40.0                            | 50.0                          | 32.5                          |
-| x8g.metal-48xl    | 50.0                            | 62.5                          | 40.0                          | ## Amazon EBS performance The following table shows the Amazon EBS performance, in Gbps, that can be achieved with the `default`, `vpc-1`, and `ebs-1` configurations. |
+| x8g.metal-48xl    | 50.0                            | 62.5                          | 40.0                          |
+
+## Amazon EBS performance
+
+The following table shows the Amazon EBS performance, in Gbps, that can be achieved with
+the `default`, `vpc-1`, and `ebs-1` configurations.
+
 | Instance type     | **`default`**(Baseline / Burst) | **`vpc-1`**(Baseline / Burst) | **`ebs-1`**(Baseline / Burst) |
-| ---               | ---                             | ---                           | ---                           |
+| ----------------- | ------------------------------- | ----------------------------- | ----------------------------- |
 | c8g.medium        | 0.315 / 10.0                    | 0.185 / 6.25                  | 0.394 / 10.0                  |
 | c8g.large         | 0.63 / 10.0                     | 0.396 / 6.25                  | 0.788 / 10.0                  |
 | c8g.xlarge        | 1.25 / 10.0                     | 0.781 / 6.25                  | 1.563 / 10.0                  |
@@ -557,6 +575,18 @@ the `default`, `vpc-1`, and `ebs-1` configurations.
 | m8i-flex.8xlarge  | 5.0 / 10.0                      | 3.125 / 6.25                  | 6.25 / 12.5                   |
 | m8i-flex.12xlarge | 7.5 / 15.0                      | 4.687 / 9.375                 | 9.375 / 18.75                 |
 | m8i-flex.16xlarge | 10.0 / 20.0                     | 6.25 / 12.5                   | 12.5 / 25.0                   |
+| r8a.medium        | 0.325 / 10.0                    | 0.195 / 6.25                  | 0.407 / 10.0                  |
+| r8a.large         | 0.65 / 10.0                     | 0.415 / 6.25                  | 0.813 / 10.0                  |
+| r8a.xlarge        | 1.25 / 10.0                     | 0.781 / 6.25                  | 1.563 / 10.0                  |
+| r8a.2xlarge       | 2.5 / 10.0                      | 1.562 / 6.25                  | 3.125 / 10.0                  |
+| r8a.4xlarge       | 5.0 / 10.0                      | 3.125 / 6.25                  | 6.25 / 10.0                   |
+| r8a.8xlarge       | 10.0                            | 6.25                          | 12.5                          |
+| r8a.12xlarge      | 15.0                            | 9.375                         | 18.75                         |
+| r8a.16xlarge      | 20.0                            | 12.5                          | 25.0                          |
+| r8a.24xlarge      | 30.0                            | 20.0                          | 37.5                          |
+| r8a.48xlarge      | 60.0                            | 41.25                         | 75.0                          |
+| r8a.metal-24xl    | 30.0                            | 20.0                          | 37.5                          |
+| r8a.metal-48xl    | 60.0                            | 41.25                         | 75.0                          |
 | r8g.medium        | 0.315 / 10.0                    | 0.185 / 6.25                  | 0.394 / 10.0                  |
 | r8g.large         | 0.63 / 10.0                     | 0.396 / 6.25                  | 0.788 / 10.0                  |
 | r8g.xlarge        | 1.25 / 10.0                     | 0.781 / 6.25                  | 1.563 / 10.0                  |

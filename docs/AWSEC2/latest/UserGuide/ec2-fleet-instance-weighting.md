@@ -53,7 +53,50 @@ target capacity.
 The following table includes examples of calculations to determine the price per unit
 for a fleet with a target capacity of 10.
 
-| Instance type | Instance weight | Target capacity | Number of instances launched           | Price per instance hour | Price per unit hour        |
-| ------------- | --------------- | --------------- | -------------------------------------- | ----------------------- | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `r3.xlarge`   | 2               | 10              | 5 (10 divided by 2)                    | $0.05                   | $0.025 (.05 divided by 2)  |
-| `r3.8xlarge`  | 8               | 10              | 2 (10 divided by 8, result rounded up) | $0.10                   | $0.0125 (.10 divided by 8) | Use the fleet instance weighting as follows to provision the target capacity that you want in the pools with the lowest price per unit at the time of fulfillment: 1. Set the target capacity for your fleet either in instances (the default) or in the units of your choice, such as vCPU, memory, storage, or throughput. 2. Set the price per unit. 3. For each launch specification, specify the weight, which is the number of units that the instance type represents toward the target capacity. ###### Instance weighting example Consider a fleet request with the following configuration: <br>• A target capacity of 24 <br>• A launch specification with an instance type `r3.2xlarge` and a weight of 6 <br>• A launch specification with an instance type `c3.xlarge` and a weight of 5 The weights represent the number of units that instance type represents toward the target capacity. If the first launch specification provides the lowest price per unit (price for `r3.2xlarge` per instance hour divided by 6), the fleet would launch four of these instances (24 divided by 6). If the second launch specification provides the lowest price per unit (price for `c3.xlarge` per instance hour divided by 5), the fleet would launch five of these instances (24 divided by 5, result rounded up). ###### Instance weighting and allocation strategy Consider a fleet request with the following configuration: <br>• A target capacity of 30 Spot Instances <br>• A launch specification with an instance type `c3.2xlarge` and a weight of 8 <br>• A launch specification with an instance type `m3.xlarge` and a weight of 8 <br>• A launch specification with an instance type `r3.xlarge` and a weight of 8 The fleet would launch four instances (30 divided by 8, result rounded up). With the `diversified` strategy, the fleet launches one instance in each of the three pools, and the fourth instance in whichever of the three pools provides the lowest price per unit. |
+| Instance type | Instance weight | Target capacity | Number of instances launched              | Price per instance hour | Price per unit hour           |
+| ------------- | --------------- | --------------- | ----------------------------------------- | ----------------------- | ----------------------------- |
+| `r3.xlarge`   | 2               | 10              | 5<br>(10 divided by 2)                    | $0.05                   | $0.025<br>(.05 divided by 2)  |
+| `r3.8xlarge`  | 8               | 10              | 2<br>(10 divided by 8, result rounded up) | $0.10                   | $0.0125<br>(.10 divided by 8) |
+
+Use the fleet instance weighting as follows to provision the target capacity that you
+want in the pools with the lowest price per unit at the time of fulfillment:
+
+1. Set the target capacity for your fleet either in instances (the default) or in
+   the units of your choice, such as vCPU, memory, storage, or throughput.
+2. Set the price per unit.
+3. For each launch specification, specify the weight, which is the number of
+   units that the instance type represents toward the target capacity.
+
+###### Instance weighting example
+
+Consider a fleet request with the following configuration:
+
+- A target capacity of 24
+- A launch specification with an instance type `r3.2xlarge` and a
+  weight of 6
+- A launch specification with an instance type `c3.xlarge` and a
+  weight of 5
+  The weights represent the number of units that instance type represents toward the
+  target capacity. If the first launch specification provides the lowest price per unit
+  (price for `r3.2xlarge` per instance hour divided by 6), the fleet would
+  launch four of these instances (24 divided by 6).
+
+If the second launch specification provides the lowest price per unit (price for
+`c3.xlarge` per instance hour divided by 5), the fleet would launch five
+of these instances (24 divided by 5, result rounded up).
+
+###### Instance weighting and allocation strategy
+
+Consider a fleet request with the following configuration:
+
+- A target capacity of 30 Spot Instances
+- A launch specification with an instance type `c3.2xlarge` and a
+  weight of 8
+- A launch specification with an instance type `m3.xlarge` and a
+  weight of 8
+- A launch specification with an instance type `r3.xlarge` and a
+  weight of 8
+  The fleet would launch four instances (30 divided by 8, result rounded up). With the
+  `diversified` strategy, the fleet launches one instance in each of the
+  three pools, and the fourth instance in whichever of the three pools provides the lowest
+  price per unit.

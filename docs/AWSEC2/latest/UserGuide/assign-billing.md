@@ -67,12 +67,50 @@ The following table shows which line items appear in the CUR for the Capacity Re
 owner and consumer accounts **before** billing is
 assigned to another account.
 
-| Account                                                               | CUR line items before billing is assigned                 |
-| --------------------------------------------------------------------- | --------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Capacity Reservation owner                                            | <br>• `Reservation` <br>• `BoxUsage` \* <br>• `UnusedBox` |
-| Consumer accounts with which the Capacity Reservation is shared       | <br>• `BoxUsage` \*                                       | The following table shows which line items appear in the CUR for the Capacity Reservation owner and consumer accounts **after** billing is assigned to another account.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| Account                                                               | CUR line items after billing is assigned                  |
-| ---                                                                   | ---                                                       |
-| Capacity Reservation owner                                            | <br>• `BoxUsage` \*                                       |
-| Consumer account to which billing is assigned                         | <br>• `Reservation` <br>• `BoxUsage` \* <br>• `UnusedBox` |
-| Other consumer accounts with which the Capacity Reservation is shared | <br>• `BoxUsage` \*                                       | ###### Note <br>• \* The `BoxUsage` line item appears in an account's CUR only if they have running instances in the Capacity Reservation. For more information about the CUR line items, see [Monitoring Capacity Reservations](../../../cur/latest/userguide/monitor-ondemand-reservations.md "../../../cur/latest/userguide/monitor-ondemand-reservations.md"). <br>• Use the Capacity Reservation ARN in the CUR to determine who owns the Capacity Reservation. If the ARN includes your AWS account ID, you are the Capacity Reservation owner. Otherwise, the Capacity Reservation is owned by a different account but billing is assigned to you. <br>• Cost allocation tags assigned to Capacity Reservation by the owner will not appear in the consumer account's CUR. Cost allocation tags appear in the Capacity Reservation owner's CUR only. ## Considerations Keep the following in mind when assigning billing of a shared Capacity Reservation: <br>• You can't do partial or split billing assignments. Billing of all available capacity of a Capacity Reservation can be assigned to one account at a time. <br>• The available capacity of a Capacity Reservation can change over time. This will impact billing for the assigned account. For example, available capacity can increase if the Capacity Reservation owner increases the size of the Capacity Reservation, or if other consumer accounts stop or terminate their instances running in the Capacity Reservation. <br>• Billing can be assigned only to a consumer account that is consolidated under the same AWS Organizations payer account. Billing is automatically revoked from the consumer account if they leave the organization, or if the Capacity Reservation is no longer shared with them. <br>• Only the Capacity Reservation owner can cancel a pending billing assignment request and revoke billing from an assigned account after the request has been accepted. |
+| Account                                                         | CUR line items before billing is assigned           |
+| --------------------------------------------------------------- | --------------------------------------------------- |
+| Capacity Reservation owner                                      | • `Reservation`<br>• `BoxUsage` \*<br>• `UnusedBox` |
+| Consumer accounts with which the Capacity Reservation is shared | • `BoxUsage` \*                                     |
+
+The following table shows which line items appear in the CUR for the Capacity Reservation
+owner and consumer accounts **after** billing is
+assigned to another account.
+
+| Account                                                               | CUR line items after billing is assigned            |
+| --------------------------------------------------------------------- | --------------------------------------------------- |
+| Capacity Reservation owner                                            | • `BoxUsage` \*                                     |
+| Consumer account to which billing is assigned                         | • `Reservation`<br>• `BoxUsage` \*<br>• `UnusedBox` |
+| Other consumer accounts with which the Capacity Reservation is shared | • `BoxUsage` \*                                     |
+
+###### Note
+
+- \* The `BoxUsage` line item appears in an account's CUR
+  only if they have running instances in the Capacity Reservation. For more
+  information about the CUR line items, see [Monitoring Capacity Reservations](../../../cur/latest/userguide/monitor-ondemand-reservations.md "../../../cur/latest/userguide/monitor-ondemand-reservations.md").
+- Use the Capacity Reservation ARN in the CUR to determine who owns the Capacity Reservation. If the
+  ARN includes your AWS account ID, you are the Capacity Reservation owner.
+  Otherwise, the Capacity Reservation is owned by a different account but billing is
+  assigned to you.
+- Cost allocation tags assigned to Capacity Reservation by the owner will not appear
+  in the consumer account's CUR. Cost allocation tags appear in the
+  Capacity Reservation owner's CUR only.
+
+## Considerations
+
+Keep the following in mind when assigning billing of a shared Capacity Reservation:
+
+- You can't do partial or split billing assignments. Billing of all
+  available capacity of a Capacity Reservation can be assigned to one account at a
+  time.
+- The available capacity of a Capacity Reservation can change over time. This will
+  impact billing for the assigned account. For example, available capacity
+  can increase if the Capacity Reservation owner increases the size of the Capacity Reservation, or if
+  other consumer accounts stop or terminate their instances running in the
+  Capacity Reservation.
+- Billing can be assigned only to a consumer account that is
+  consolidated under the same AWS Organizations payer account. Billing is
+  automatically revoked from the consumer account if they leave the
+  organization, or if the Capacity Reservation is no longer shared with them.
+- Only the Capacity Reservation owner can cancel a pending billing assignment request
+  and revoke billing from an assigned account after the request has been
+  accepted.

@@ -57,18 +57,27 @@ see [Manage device drivers for your EC2 instance](manage-device-drivers.md "mana
 
 The following table summarizes the supported drivers for [Nitro-based instances](instance-types.md#instance-hypervisor-type "instance-types.md#instance-hypervisor-type") by Windows version.
 
-| Version                | Storage driver          | Enhanced networking driver                                                |
-| ---------------------- | ----------------------- | ------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Windows Server 2025    | AWS NVMe latest version | ENA latest version                                                        |
-| Windows Server 2022    | AWS NVMe latest version | ENA latest version                                                        |
-| Windows Server 2019    | AWS NVMe latest version | ENA latest version                                                        |
-| Windows Server 2016    | AWS NVMe latest version | ENA latest version                                                        |
-| Windows Server 2012 R2 | AWS NVMe version 1.5.1  | ENA version 2.6.0                                                         |
-| Windows Server 2008 R2 | AWS NVMe version 1.3.2  | ENA version 2.2.3                                                         | The following table summarizes the supported drivers for [Xen-based instances](instance-types.md#instance-hypervisor-type "instance-types.md#instance-hypervisor-type") by Windows version.                |
-| Version                | Storage driver          | Enhanced networking driver                                                |
-| ---                    | ---                     | ---                                                                       |
-| Windows Server 2022    | AWS PV latest version   | <br>• ENA latest version 1 <br>• Intel VF 2 <br>• AWS PV latest version 3 |
-| Windows Server 2019    | AWS PV latest version   | <br>• ENA latest version 1 <br>• Intel VF 2 <br>• AWS PV latest version 3 |
-| Windows Server 2016    | AWS PV latest version   | <br>• ENA latest version 1 <br>• Intel VF 2 <br>• AWS PV latest version 3 |
-| Windows Server 2012 R2 | AWS PV version 8.4.3    | <br>• ENA version 2.6.0 1 <br>• Intel VF 2 <br>• AWS PV version 8.4.3 3   |
-| Windows Server 2008 R2 | AWS PV version 8.3.5    | <br>• ENA version 2.2.3 1 <br>• Intel VF 2 <br>• AWS PV version 8.3.5 3   | 1 For instance types G3, H1, I3, `m4.16xlarge`, P2, P3, P3dn, and R4. 2 For instance types C3, C4, D2, I2, M4 (excluding `m4.16xlarge`), and R3. 3 For instance types C1, M1, M2, M3, T1, T2, X1, and X1e. |
+| Version                | Storage driver          | Enhanced networking driver |
+| ---------------------- | ----------------------- | -------------------------- |
+| Windows Server 2025    | AWS NVMe latest version | ENA latest version         |
+| Windows Server 2022    | AWS NVMe latest version | ENA latest version         |
+| Windows Server 2019    | AWS NVMe latest version | ENA latest version         |
+| Windows Server 2016    | AWS NVMe latest version | ENA latest version         |
+| Windows Server 2012 R2 | AWS NVMe version 1.5.1  | ENA version 2.6.0          |
+| Windows Server 2008 R2 | AWS NVMe version 1.3.2  | ENA version 2.2.3          |
+
+The following table summarizes the supported drivers for [Xen-based instances](instance-types.md#instance-hypervisor-type "instance-types.md#instance-hypervisor-type") by Windows version.
+
+| Version                | Storage driver        | Enhanced networking driver                                          |
+| ---------------------- | --------------------- | ------------------------------------------------------------------- |
+| Windows Server 2022    | AWS PV latest version | • ENA latest version 1<br>• Intel VF 2<br>• AWS PV latest version 3 |
+| Windows Server 2019    | AWS PV latest version | • ENA latest version 1<br>• Intel VF 2<br>• AWS PV latest version 3 |
+| Windows Server 2016    | AWS PV latest version | • ENA latest version 1<br>• Intel VF 2<br>• AWS PV latest version 3 |
+| Windows Server 2012 R2 | AWS PV version 8.4.3  | • ENA version 2.6.0 1<br>• Intel VF 2<br>• AWS PV version 8.4.3 3   |
+| Windows Server 2008 R2 | AWS PV version 8.3.5  | • ENA version 2.2.3 1<br>• Intel VF 2<br>• AWS PV version 8.3.5 3   |
+
+1 For instance types G3, H1, I3, `m4.16xlarge`, P2, P3, P3dn, and R4.
+
+2 For instance types C3, C4, D2, I2, M4 (excluding `m4.16xlarge`), and R3.
+
+3 For instance types C1, M1, M2, M3, T1, T2, X1, and X1e.

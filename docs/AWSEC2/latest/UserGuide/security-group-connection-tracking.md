@@ -183,12 +183,28 @@ following:
 In the following example, the security group has inbound rules that allow TCP and ICMP
 traffic, and outbound rules that allow all outbound traffic.
 
-| Inbound | Protocol type | Port number    | Source                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| ------- | ------------- | -------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- | ----------- | ----------- |
+| Inbound | Protocol type | Port number    | Source |
+| ------- | ------------- | -------------- | ------ |
 | TCP     | 22 (SSH)      | 203.0.113.1/32 |
 | TCP     | 80 (HTTP)     | 0.0.0.0/0      |
 | TCP     | 80 (HTTP)     | ::/0           |
-| ICMP    | All           | 0.0.0.0/0      | Outbound                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | Protocol type | Port number | Destination |
-| ---     | ---           | ---            |
-| All     | All           | 0.0.0.0/0      |
-| All     | All           | ::/0           | With a direct network connection to the instance or network interface, the tracking behavior is as follows: <br>• Inbound and outbound TCP traffic on port 22 (SSH) is tracked, because the inbound rule allows traffic from 203.0.113.1/32 only, and not all IP addresses (0.0.0.0/0). <br>• Inbound and outbound TCP traffic on port 80 (HTTP) is not tracked, because the inbound and outbound rules allow traffic from all IP addresses. <br>• ICMP traffic is always tracked. If you remove the outbound rule for IPv4 traffic, all inbound and outbound IPv4 traffic is tracked, including traffic on port 80 (HTTP). The same applies for IPv6 traffic if you remove the outbound rule for IPv6 traffic. |
+| ICMP    | All           | 0.0.0.0/0      |
+
+| Outbound | Protocol type | Port number | Destination |
+| -------- | ------------- | ----------- | ----------- |
+| All      | All           | 0.0.0.0/0   |
+| All      | All           | ::/0        |
+
+With a direct network connection to the instance or network interface, the tracking
+behavior is as follows:
+
+- Inbound and outbound TCP traffic on port 22 (SSH) is tracked, because the inbound rule
+  allows traffic from 203.0.113.1/32 only, and not all IP addresses
+  (0.0.0.0/0).
+- Inbound and outbound TCP traffic on port 80 (HTTP) is not tracked, because the inbound
+  and outbound rules allow traffic from all IP addresses.
+- ICMP traffic is always tracked.
+
+If you remove the outbound rule for IPv4 traffic, all inbound and outbound IPv4 traffic is tracked,
+including traffic on port 80 (HTTP). The same applies for IPv6 traffic if you remove the outbound
+rule for IPv6 traffic.

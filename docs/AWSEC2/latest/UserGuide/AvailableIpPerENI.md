@@ -54,10 +54,12 @@ aws ec2 describe-instance-types \
 
 The following is example output.
 
-````
+```
 ---------------------------------------
-|        DescribeInstanceTypes        | +----------+----------+---------------+
-| IPv4addr | MaxENI   |     Type      | +----------+----------+---------------+
+|        DescribeInstanceTypes        |
++----------+----------+---------------+
+| IPv4addr | MaxENI   |     Type      |
++----------+----------+---------------+
 |  30      |  8       |  c5.4xlarge   |
 |  50      |  15      |  c5.24xlarge  |
 |  15      |  4       |  c5.xlarge    |
@@ -66,5 +68,39 @@ The following is example output.
 |  15      |  4       |  c5.2xlarge   |
 |  50      |  15      |  c5.metal     |
 |  30      |  8       |  c5.9xlarge   |
-|  50      |  15      |  c5.18xlarge  | +----------+----------+---------------+ ``` PowerShell ###### To retrieve the maximum network interfaces You can use the [Get-EC2InstanceType](../../../powershell/latest/reference/items/Get-EC2InstanceType.md "../../../powershell/latest/reference/items/Get-EC2InstanceType.md") PowerShell command to display information about an instance type, such as its supported network interfaces and IP addresses per interface. The following example displays this information for all C5 instances. ``` Get-EC2InstanceType -Filter @{Name="instance-type"; Values="c5.*"} | ` Select-Object ` @{Name='Ipv4AddressesPerInterface'; Expression={($_.Networkinfo.Ipv4AddressesPerInterface)}}, @{Name='MaximumNetworkInterfaces'; Expression={($_.Networkinfo.MaximumNetworkInterfaces)}}, InstanceType | ` Format-Table -AutoSize ``` The following is example output. ``` Ipv4AddressesPerInterface MaximumNetworkInterfaces InstanceType ------------------------- ------------------------ ------------ 30                        8 c5.4xlarge 15                        4 c5.xlarge 30                        8 c5.12xlarge 50                       15 c5.24xlarge 30                        8 c5.9xlarge 50                       15 c5.metal 15                        4 c5.2xlarge 10                        3 c5.large 50                       15 c5.18xlarge ```
-````
+|  50      |  15      |  c5.18xlarge  |
++----------+----------+---------------+
+```
+
+PowerShell
+
+###### To retrieve the maximum network interfaces
+
+You can use the [Get-EC2InstanceType](../../../powershell/latest/reference/items/Get-EC2InstanceType.md "../../../powershell/latest/reference/items/Get-EC2InstanceType.md") PowerShell command to display information about an
+instance type, such as its supported network interfaces and IP addresses per interface.
+The following example displays this information for all C5 instances.
+
+```
+Get-EC2InstanceType -Filter @{Name="instance-type"; Values="c5.*"} | `
+Select-Object `
+    @{Name='Ipv4AddressesPerInterface'; Expression={($_.Networkinfo.Ipv4AddressesPerInterface)}},
+    @{Name='MaximumNetworkInterfaces'; Expression={($_.Networkinfo.MaximumNetworkInterfaces)}},
+    InstanceType | `
+Format-Table -AutoSize
+```
+
+The following is example output.
+
+```
+Ipv4AddressesPerInterface MaximumNetworkInterfaces InstanceType
+------------------------- ------------------------ ------------
+                       30                        8 c5.4xlarge
+                       15                        4 c5.xlarge
+                       30                        8 c5.12xlarge
+                       50                       15 c5.24xlarge
+                       30                        8 c5.9xlarge
+                       50                       15 c5.metal
+                       15                        4 c5.2xlarge
+                       10                        3 c5.large
+                       50                       15 c5.18xlarge
+```

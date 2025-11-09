@@ -27,17 +27,23 @@ Windows AMI reference](../../../ec2/latest/windows-ami-reference/windows-amis.md
 The following table shows the major functional differences between EC2Config,
 EC2Launch v1, and EC2Launch v2.
 
-| Feature                            | EC2Config       | EC2Launch v1                                                  | EC2Launch v2                                                                        |
-| ---------------------------------- | --------------- | ------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Run as                             | Windows Service | PowerShell Scripts                                            | Windows Service                                                                     |
-| Supports                           | Legacy OS only  | Windows Server versions: <br>• 2016 <br>• 2019 (LTSC and SAC) | Windows Server versions: <br>• 2016 <br>• 2019 (LTSC and SAC) <br>• 2022 <br>• 2025 |
-| Configuration file                 | XML             | JSON                                                          | JSON/YAML                                                                           |
-| Set Administrator username         | No              | No                                                            | Yes                                                                                 |
-| Compressed user data               | No              | No                                                            | Yes                                                                                 |
-| Local user data baked on AMI       | No              | No                                                            | Yes, configurable                                                                   |
-| Task configuration in user data    | No              | No                                                            | Yes                                                                                 |
-| Configurable wallpaper             | No              | No                                                            | Yes                                                                                 |
-| Customize task run order           | No              | No                                                            | Yes                                                                                 |
-| Configurable tasks                 | 15              | 9                                                             | 20 at launch                                                                        |
-| Supports Windows Event Viewer      | Yes             | No                                                            | Yes                                                                                 |
-| Number of Event Viewer event types | 2               | 0                                                             | 30                                                                                  | ###### Note EC2Config documentation is provided for historical reference only. The operating system versions it runs on are no longer supported by Microsoft. We strongly recommend that you upgrade to the latest launch service. |
+| Feature                            | EC2Config       | EC2Launch v1                                                | EC2Launch v2                                                                    |
+| ---------------------------------- | --------------- | ----------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| Run as                             | Windows Service | PowerShell Scripts                                          | Windows Service                                                                 |
+| Supports                           | Legacy OS only  | Windows Server versions:<br>• 2016<br>• 2019 (LTSC and SAC) | Windows Server versions:<br>• 2016<br>• 2019 (LTSC and SAC)<br>• 2022<br>• 2025 |
+| Configuration file                 | XML             | JSON                                                        | JSON/YAML                                                                       |
+| Set Administrator username         | No              | No                                                          | Yes                                                                             |
+| Compressed user data               | No              | No                                                          | Yes                                                                             |
+| Local user data baked on AMI       | No              | No                                                          | Yes, configurable                                                               |
+| Task configuration in user data    | No              | No                                                          | Yes                                                                             |
+| Configurable wallpaper             | No              | No                                                          | Yes                                                                             |
+| Customize task run order           | No              | No                                                          | Yes                                                                             |
+| Configurable tasks                 | 15              | 9                                                           | 20 at launch                                                                    |
+| Supports Windows Event Viewer      | Yes             | No                                                          | Yes                                                                             |
+| Number of Event Viewer event types | 2               | 0                                                           | 30                                                                              |
+
+###### Note
+
+EC2Config documentation is provided for historical reference only. The operating system
+versions it runs on are no longer supported by Microsoft. We strongly recommend that
+you upgrade to the latest launch service.

@@ -68,8 +68,7 @@ B.
 Before you begin, consider the following.
 
 - EC2 Instance Connect Endpoint is intended specifically for management traffic use cases, not
-  for high volume data transfers. High volume data
-  transfers are
+  for high volume data transfers. High volume data  transfers are
   throttled.
 - You can create an EC2 Instance Connect Endpoint to support traffic to an instance that has a
   private IPv4 address or IPv6 address. The IP address type of the endpoint must

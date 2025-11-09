@@ -842,7 +842,50 @@ data
 The following table lists changes for user data, and cross-references them
 to the EC2Launch v2 agent version that applies.
 
-| User data version | Details                                                                                                                                                                                                                                                   | Introduced in                 |
-| ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 1.1               | <br>• User data tasks run before the `PostReady` stage in the agent config file. <br>• Runs user data before starting the Systems Manager Agent (same behavior as EC2Launch v1 and EC2Config).\*                                                          | EC2Launch v2 version 2.0.1245 |
-| 1.0               | <br>• Will be deprecated. <br>• User data tasks run after the `PostReady` stage in the agent config file. This is not backwards compatible with EC2Launch v1. <br>• Impacted by a race condition between Systems Manager Agent start and user data tasks. | EC2Launch v2 version 2.0.0    | \* When used with the default `agent-config.yml` file. ## EC2Launch v2 exit codes and reboots You can use EC2Launch v2 to define how exit codes are handled by your scripts. By default, the exit code of the last command that is run in a script is reported as the exit code for the entire script. For example, if a script includes three commands and the first command fails but the following ones succeed, the run status is reported as `success` because the final command succeeded. If you want a script to reboot an instance, then you must specify `exit 3010` in your script, even when the reboot is the last step in your script. `exit 3010` instructs EC2Launch v2 to reboot the instance and call the script again until it returns an exit code that is not `3010`, or until the maximum reboot count has been reached. EC2Launch v2 permits a maximum of 5 reboots per task. If you attempt to reboot an instance from a script by using a different mechanism, such as `Restart-Computer`, then the script run status will be inconsistent. For example, it may get stuck in a restart loop or not perform the restart. If you are using an XML user data format that is compatible with older agents, the user data may run more times than you intend it to. For more information, see [Service runs user data more than once](ec2launchv2-troubleshooting.md#ec2launchv2-troubleshooting-user-data-more-than-once "ec2launchv2-troubleshooting.md#ec2launchv2-troubleshooting-user-data-more-than-once") in the Troubleshooting section. ## EC2Launch v2 and Sysprep The EC2Launch v2 service runs Sysprep, a Microsoft tool that enables you to create a customized Windows AMI that can be reused. When EC2Launch v2 calls Sysprep, it uses the files in `%ProgramData%\Amazon\EC2Launch` to determine which operations to perform. You can edit these files indirectly using the **EC2Launch settings** dialog box, or directly using a YAML editor or a text editor. However, there are some advanced settings that aren't available in the **EC2Launch settings** dialog box, so you must edit those entries directly. If you create an AMI from an instance after updating its settings, the new settings are applied to any instance that's launched from the new AMI. For information about creating an AMI, see [Create an Amazon EBS-backed AMI](creating-an-ami-ebs.md "creating-an-ami-ebs.md"). |
+| User data version | Details                                                                                                                                                                                                                                                         | Introduced in                 |
+| ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------- |
+| 1.1               | • User data tasks run before the<br>`PostReady` stage in the agent config<br>file.<br>• Runs user data before starting the Systems Manager Agent<br>(same behavior as EC2Launch v1 and<br>EC2Config).\*                                                         | EC2Launch v2 version 2.0.1245 |
+| 1.0               | • Will be deprecated.<br>• User data tasks run after the<br>`PostReady` stage in the agent config<br>file. This is not backwards compatible with<br>EC2Launch v1.<br>• Impacted by a race condition between Systems Manager<br>Agent start and user data tasks. | EC2Launch v2 version 2.0.0    |
+
+\* When used with the default `agent-config.yml`
+file.
+
+## EC2Launch v2 exit codes and
+
+reboots
+
+You can use EC2Launch v2 to define how exit codes are handled by your scripts. By
+default, the exit code of the last command that is run in a script is reported as
+the exit code for the entire script. For example, if a script includes three
+commands and the first command fails but the following ones succeed, the run status
+is reported as `success` because the final command succeeded.
+
+If you want a script to reboot an instance, then you must specify `exit
+ 3010` in your script, even when the reboot is the last step in your
+script. `exit 3010` instructs EC2Launch v2 to reboot the instance and call
+the script again until it returns an exit code that is not `3010`, or
+until the maximum reboot count has been reached. EC2Launch v2 permits a maximum of 5
+reboots per task. If you attempt to reboot an instance from a script by using a
+different mechanism, such as `Restart-Computer`, then the script run
+status will be inconsistent. For example, it may get stuck in a restart loop or not
+perform the restart.
+
+If you are using an XML user data format that is compatible with older agents, the
+user data may run more times than you intend it to. For more information, see [Service
+runs user data more than once](ec2launchv2-troubleshooting.md#ec2launchv2-troubleshooting-user-data-more-than-once "ec2launchv2-troubleshooting.md#ec2launchv2-troubleshooting-user-data-more-than-once") in the
+Troubleshooting section.
+
+## EC2Launch v2 and Sysprep
+
+The EC2Launch v2 service runs Sysprep, a Microsoft tool that enables you to create a
+customized Windows AMI that can be reused. When EC2Launch v2 calls Sysprep, it uses the
+files in `%ProgramData%\Amazon\EC2Launch` to determine which operations
+to perform. You can edit these files indirectly using the **EC2Launch
+settings** dialog box, or directly using a YAML editor or a text
+editor. However, there are some advanced settings that aren't available in the
+**EC2Launch settings** dialog box, so you must edit those
+entries directly.
+
+If you create an AMI from an instance after updating its settings, the new
+settings are applied to any instance that's launched from the new AMI. For
+information about creating an AMI, see [Create an Amazon EBS-backed AMI](creating-an-ami-ebs.md "creating-an-ami-ebs.md").

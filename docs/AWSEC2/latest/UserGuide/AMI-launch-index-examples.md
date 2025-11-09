@@ -57,35 +57,109 @@ metadata shown here:
 - Instance type: t2.micro
   However, each instance has unique metadata, as shown in the following tables.
 
+| Metadata         | Value                                    |
+| ---------------- | ---------------------------------------- |
+| instance-id      | i-1234567890abcdef0                      |
+| ami-launch-index | 0                                        |
+| public-hostname  | ec2-203-0-113-25.compute-1.amazonaws.com |
+| public-ipv4      | 67.202.51.223                            |
+| local-hostname   | ip-10-251-50-12.ec2.internal             |
+| local-ipv4       | 10.251.50.35                             |
+
 | Metadata         | Value                                     |
-| ---------------- | ----------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- | ----------------------------------------------------------------------------------------------- | ------- | --------------------------------------------------- |
-| instance-id      | i-1234567890abcdef0                       |
-| ami-launch-index | 0                                         |
-| public-hostname  | ec2-203-0-113-25.compute-1.amazonaws.com  |
-| public-ipv4      | 67.202.51.223                             |
-| local-hostname   | ip-10-251-50-12.ec2.internal              |
-| local-ipv4       | 10.251.50.35                              |
-| Metadata         | Value                                     |
-| ---              | ---                                       |
+| ---------------- | ----------------------------------------- |
 | instance-id      | i-0598c7d356eba48d7                       |
 | ami-launch-index | 1                                         |
 | public-hostname  | ec2-67-202-51-224.compute-1.amazonaws.com |
 | public-ipv4      | 67.202.51.224                             |
 | local-hostname   | ip-10-251-50-36.ec2.internal              |
 | local-ipv4       | 10.251.50.36                              |
+
 | Metadata         | Value                                     |
-| ---              | ---                                       |
+| ---------------- | ----------------------------------------- |
 | instance-id      | i-0ee992212549ce0e7                       |
 | ami-launch-index | 2                                         |
 | public-hostname  | ec2-67-202-51-225.compute-1.amazonaws.com |
 | public-ipv4      | 67.202.51.225                             |
 | local-hostname   | ip-10-251-50-37.ec2.internal              |
 | local-ipv4       | 10.251.50.37                              |
+
 | Metadata         | Value                                     |
-| ---              | ---                                       |
+| ---------------- | ----------------------------------------- |
 | instance-id      | i-1234567890abcdef0                       |
 | ami-launch-index | 3                                         |
 | public-hostname  | ec2-67-202-51-226.compute-1.amazonaws.com |
 | public-ipv4      | 67.202.51.226                             |
 | local-hostname   | ip-10-251-50-38.ec2.internal              |
-| local-ipv4       | 10.251.50.38                              | Alice can use the `ami-launch-index` value to determine which portion of the user data is applicable to a particular instance. 1. She connects to one of the instances, and retrieves the `ami-launch-index` for that instance to ensure it is one of the replicas: IMDSv2 `` `[ec2-user ~]$` `TOKEN=`curl -X PUT "http://169.254.169.254/latest/meta-data/api/token" -H "X-aws-ec2-metadata-token-ttl-seconds: 21600"` \ && curl -H "X-aws-ec2-metadata-token: $TOKEN" http://169.254.169.254/latest/meta-data/ami-launch-index` `2` `` For the following steps, the IMDSv2 requests use the stored token from the preceding IMDSv2 command, assuming the token has not expired. IMDSv1 `` `[ec2-user ~]$` `curl http://169.254.169.254/latest/meta-data/ami-launch-index` `2` `` 2. She saves the `ami-launch-index` as a variable. IMDSv2 `` `[ec2-user ~]$` ami_launch_index=`curl -H "X-aws-ec2-metadata-token: $TOKEN" http://169.254.169.254/latest/meta-data/ami-launch-index` `` IMDSv1 `` `[ec2-user ~]$` ami_launch_index=`curl http://169.254.169.254/latest/meta-data/ami-launch-index` `` 3. She saves the user data as a variable. IMDSv2 `` `[ec2-user ~]$` user_data=`curl -H "X-aws-ec2-metadata-token: $TOKEN" http://169.254.169.254/latest/user-data` `` IMDSv1 `` `[ec2-user ~]$` user_data=`curl http://169.254.169.254/latest/user-data` `` 4. Finally, Alice uses the **cut** command to extract the portion of the user data that is applicable to that instance. IMDSv2 ``` `[ec2-user ~]$` `echo $user_data | cut -d" | " -f"$ami_launch_index"` `replicate-every=5min` ``` IMDSv1 ``` `[ec2-user ~]$` `echo $user_data | cut -d" | " -f"$ami_launch_index"` `replicate-every=5min` ``` |
+| local-ipv4       | 10.251.50.38                              |
+
+Alice can use the `ami-launch-index` value to determine which portion of
+the user data is applicable to a particular instance.
+
+1. She connects to one of the instances, and retrieves the
+   `ami-launch-index` for that instance to ensure it is one of the
+   replicas:
+
+IMDSv2
+
+```
+`[ec2-user ~]$` `TOKEN=`curl -X PUT "http://169.254.169.254/latest/meta-data/api/token" -H "X-aws-ec2-metadata-token-ttl-seconds: 21600"` \
+&& curl -H "X-aws-ec2-metadata-token: $TOKEN" http://169.254.169.254/latest/meta-data/ami-launch-index`
+`2`
+```
+
+For the following steps, the IMDSv2 requests use the
+stored token from the preceding IMDSv2 command, assuming the
+token has not expired.
+
+IMDSv1
+
+```
+`[ec2-user ~]$` `curl http://169.254.169.254/latest/meta-data/ami-launch-index`
+`2`
+```
+
+2. She saves the `ami-launch-index` as a variable.
+
+IMDSv2
+
+```
+`[ec2-user ~]$` ami_launch_index=`curl -H "X-aws-ec2-metadata-token: $TOKEN" http://169.254.169.254/latest/meta-data/ami-launch-index`
+```
+
+IMDSv1
+
+```
+`[ec2-user ~]$` ami_launch_index=`curl http://169.254.169.254/latest/meta-data/ami-launch-index`
+```
+
+3. She saves the user data as a variable.
+
+IMDSv2
+
+```
+`[ec2-user ~]$` user_data=`curl -H "X-aws-ec2-metadata-token: $TOKEN" http://169.254.169.254/latest/user-data`
+```
+
+IMDSv1
+
+```
+`[ec2-user ~]$` user_data=`curl http://169.254.169.254/latest/user-data`
+```
+
+4. Finally, Alice uses the **cut** command to extract the portion
+   of the user data that is applicable to that instance.
+
+IMDSv2
+
+```
+`[ec2-user ~]$` `echo $user_data | cut -d"|" -f"$ami_launch_index"`
+`replicate-every=5min`
+```
+
+IMDSv1
+
+```
+`[ec2-user ~]$` `echo $user_data | cut -d"|" -f"$ami_launch_index"`
+`replicate-every=5min`
+```

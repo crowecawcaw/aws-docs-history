@@ -78,7 +78,7 @@ The following table summarizes the supported NVIDIA drivers for each GPU instanc
 type.
 
 | Instance type | Tesla driver | GRID driver | Gaming driver |
-| ------------- | ------------ | ----------- | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------- | ------------ | ----------- | ------------- |
 | G3            | Yes          | Yes         | No            |
 | G4dn          | Yes          | Yes         | Yes           |
 | G5            | Yes          | Yes         | Yes           |
@@ -96,4 +96,21 @@ type.
 | P5e           | Yes          | No          | No            |
 | P5en          | Yes          | No          | No            |
 | P6-B200       | Yes          | No          | No            |
-| P6e-GB200     | Yes          | No          | No            | ¹ This Tesla driver also supports optimized graphics applications specific to the ARM64 platform ## Installation options Use one of the following options to get the NVIDIA drivers required for your GPU instance. **Options** 1. [Use AMIs that include NVIDIA drivers](preinstalled-nvidia-driver.md "preinstalled-nvidia-driver.md") 2. [Install NVIDIA public drivers](public-nvidia-driver.md "public-nvidia-driver.md") 3. [Install NVIDIA GRID drivers (G6, Gr6, G6e, G6f, Gr6f, G5, G4dn, and G3 instances)](nvidia-GRID-driver.md "nvidia-GRID-driver.md") 4. [Install NVIDIA gaming drivers (G6, G6e, G5, and G4dn instances)](nvidia-gaming-driver.md "nvidia-gaming-driver.md") |
+| P6e-GB200     | Yes          | No          | No            |
+
+¹ This Tesla driver also supports optimized graphics applications specific to
+the ARM64 platform
+
+## Installation options
+
+Use one of the following options to get the NVIDIA drivers required for your GPU
+instance.
+
+**Options**
+
+1. [Use AMIs that include NVIDIA drivers](preinstalled-nvidia-driver.md "preinstalled-nvidia-driver.md")
+2. [Install NVIDIA public drivers](public-nvidia-driver.md "public-nvidia-driver.md")
+3. [Install NVIDIA GRID drivers (G6, Gr6, G6e, G6f, Gr6f, G5,
+   G4dn, and G3 instances)](nvidia-GRID-driver.md "nvidia-GRID-driver.md")
+4. [Install NVIDIA gaming drivers (G6, G6e, G5, and G4dn
+   instances)](nvidia-gaming-driver.md "nvidia-gaming-driver.md")

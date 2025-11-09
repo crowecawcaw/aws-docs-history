@@ -123,45 +123,179 @@ credits.
 
 ![In period 1 for the T2 standard, the credit balance is 102 credits.](images/t2-graph1.png)
 
-|                     |                                                                                                                                                                                                           |
-| ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Credit Spend Rate   | 0 credits per 24 hours (0% CPU utilization)                                                                                                                                                               |
-| Credit Earn Rate    | 72 credits per 24 hours                                                                                                                                                                                   |
-| Credit Discard Rate | 0 credits per 24 hours                                                                                                                                                                                    |
-| Credit Balance      | 102 credits (30 launch credits + 72 earned credits)                                                                                                                                                       | ###### Conclusion If there is no CPU utilization after launch, the instance accrues more credits than what it can earn in 24 hours (30 launch credits + 72 earned credits = 102 credits). In a real-world scenario, an EC2 instance consumes a small number of credits while launching and running, which prevents the balance from reaching the maximum theoretical value in this example. ### Period 2: 25 – 36 hours For the next 12 hours, the instance continues to remain idle and earn credits, but the credit balance does not increase. It plateaus at 102 credits (30 launch credits + 72 earned credits). The credit balance has reached its limit of 72 accrued earned credits, so newly earned credits are discarded. ![The credit balance has reached its limit of 72 accrued earned credits.](images/t2-graph2.png)                                                                                                                                                                                                                                                                                         |
-|                     |                                                                                                                                                                                                           |
-| ---                 | ---                                                                                                                                                                                                       |
-| Credit Spend Rate   | 0 credits per 24 hours (0% CPU utilization)                                                                                                                                                               |
-| Credit Earn Rate    | 72 credits per 24 hours (3 credits per hour)                                                                                                                                                              |
-| Credit Discard Rate | 72 credits per 24 hours (100% of credit earn rate)                                                                                                                                                        |
-| Credit Balance      | 102 credits (30 launch credits + 72 earned credits)—balance is unchanged                                                                                                                                  | ###### Conclusion An instance constantly earns credits, but it cannot accrue more earned credits if the credit balance has reached its limit. After the limit is reached, newly earned credits are discarded. Launch credits do not count towards the credit balance limit. If the balance includes accrued launch credits, the balance appears to be over the limit. ### Period 3: 37 – 61 hours For the next 25 hours, the instance uses 2% CPU, which requires 30 credits. In the same period, it earns 75 credits, but the credit balance decreases. The balance decreases because the accrued _launch_ credits are spent first, while newly earned credits are discarded because the credit balance is already at its limit of 72 earned credits. ![Newly earned credits are discarded because the credit balance is already at its limit.](images/t2-graph3.png)                                                                                                                                                                                                                                                     |
-|                     |                                                                                                                                                                                                           |
-| ---                 | ---                                                                                                                                                                                                       |
-| Credit Spend Rate   | 28.8 credits per 24 hours (1.2 credits per hour, 2% CPU utilization, 40% of credit earn rate)—30 credits over 25 hours                                                                                    |
-| Credit Earn Rate    | 72 credits per 24 hours                                                                                                                                                                                   |
-| Credit Discard Rate | 72 credits per 24 hours (100% of credit earn rate)                                                                                                                                                        |
-| Credit Balance      | 72 credits (30 launch credits were spent; 72 earned credits remain unspent)                                                                                                                               | ###### Conclusion An instance spends launch credits first, before spending earned credits. Launch credits do not count towards the credit limit. After the launch credits are spent, the balance can never go higher than what can be earned in 24 hours. Furthermore, while an instance is running, it cannot get more launch credits. ### Period 4: 62 – 72 hours For the next 11 hours, the instance uses 2% CPU, which requires 13.2 credits. This is the same CPU utilization as in the previous period, but the balance does not decrease. It stays at 72 credits. The balance does not decrease because the credit earn rate is higher than the credit spend rate. In the time that the instance spends 13.2 credits, it also earns 33 credits. However, the balance limit is 72 credits, so any earned credits that exceed the limit are discarded. The balance plateaus at 72 credits, which is different from the plateau of 102 credits during Period 2, because there are no accrued launch credits. ![The balance plateaus at 72 credits, because there are no accrued launch credits.](images/t2-graph4.png) |
-|                     |                                                                                                                                                                                                           |
-| ---                 | ---                                                                                                                                                                                                       |
-| Credit Spend Rate   | 28.8 credits per 24 hours (1.2 credits per hour, 2% CPU utilization, 40% of credit earn rate)—13.2 credits over 11 hours                                                                                  |
-| Credit Earn Rate    | 72 credits per 24 hours                                                                                                                                                                                   |
-| Credit Discard Rate | 43.2 credits per 24 hours (60% of credit earn rate)                                                                                                                                                       |
-| Credit Balance      | 72 credits (0 launch credits, 72 earned credits)—balance is at its limit                                                                                                                                  | ###### Conclusion After launch credits are spent, the credit balance limit is determined by the number of credits that an instance can earn in 24 hours. If the instance earns more credits than it spends, newly earned credits over the limit are discarded. ### Period 5: 73 – 75 hours For the next three hours, the instance bursts at 20% CPU utilization, which requires 36 credits. The instance earns nine credits in the same three hours, which results in a net balance decrease of 27 credits. At the end of three hours, the credit balance is 45 accrued earned credits. ![At the end of three hours, the credit balance is 45 accrued earned credits.](images/t2-graph5.png)                                                                                                                                                                                                                                                                                                                                                                                                                               |
-|                     |                                                                                                                                                                                                           |
-| ---                 | ---                                                                                                                                                                                                       |
-| Credit Spend Rate   | 288 credits per 24 hours (12 credits per hour, 20% CPU utilization, 400% of credit earn rate)—36 credits over 3 hours                                                                                     |
-| Credit Earn Rate    | 72 credits per 24 hours (9 credits over 3 hours)                                                                                                                                                          |
-| Credit Discard Rate | 0 credits per 24 hours                                                                                                                                                                                    |
-| Credit Balance      | 45 credits (previous balance (72) - spent credits (36) + earned credits (9))—balance decreases at a rate of 216 credits per 24 hours (spend rate 288/24 + earn rate 72/24 = balance decrease rate 216/24) | ###### Conclusion If an instance spends more credits than it earns, its credit balance decreases. ### Period 6: 76 – 90 hours For the next 15 hours, the instance uses 2% CPU, which requires 18 credits. This is the same CPU utilization as in Periods 3 and 4. However, the balance increases in this period, whereas it decreased in Period 3 and plateaued in Period 4. In Period 3, the accrued launch credits were spent, and any earned credits that exceeded the credit limit were discarded, resulting in a decrease in the credit balance. In Period 4, the instance spent fewer credits than it earned. Any earned credits that exceeded the limit were discarded, so the balance plateaued at its maximum of 72 credits. In this period, there are no accrued launch credits, and the number of accrued earned credits in the balance is below the limit. No earned credits are discarded. Furthermore, the instance earns more credits than it spends, resulting in an increase in the credit balance. ![The instance earns more credits than it spends.](images/t2-graph6.png)                              |
-|                     |                                                                                                                                                                                                           |
-| ---                 | ---                                                                                                                                                                                                       |
-| Credit Spend Rate   | 28.8 credits per 24 hours (1.2 credits per hour, 2% CPU utilization, 40% of credit earn rate)—18 credits over 15 hours                                                                                    |
-| Credit Earn Rate    | 72 credits per 24 hours (45 credits over 15 hours)                                                                                                                                                        |
-| Credit Discard Rate | 0 credits per 24 hours                                                                                                                                                                                    |
-| Credit Balance      | 72 credits (balance increases at a rate of 43.2 credits per 24 hours—change rate = spend rate 28.8/24 + earn rate 72/24)                                                                                  | ###### Conclusion If an instance spends fewer credits than it earns, its credit balance increases. ### Period 7: 91 – 96 hours For the next six hours, the instance remains idle—CPU utilization is 0%—and no credits are spent. This is the same CPU utilization as in Period 2, but the balance does not plateau at 102 credits—it plateaus at 72 credits, which is the credit balance limit for the instance. In Period 2, the credit balance included 30 accrued launch credits. The launch credits were spent in Period 3. A running instance cannot get more launch credits. After its credit balance limit is reached, any earned credits that exceed the limit are discarded. ![Earned credits that exceed the limit are discarded.](images/t2-graph7.png)                                                                                                                                                                                                                                                                                                                                                         |
-|                     |                                                                                                                                                                                                           |
-| ---                 | ---                                                                                                                                                                                                       |
-| Credit Spend Rate   | 0 credits per 24 hours (0% CPU utilization)                                                                                                                                                               |
-| Credit Earn Rate    | 72 credits per 24 hours                                                                                                                                                                                   |
-| Credit Discard Rate | 72 credits per 24 hours (100% of credit earn rate)                                                                                                                                                        |
-| Credit Balance      | 72 credits (0 launch credits, 72 earned credits)                                                                                                                                                          | ###### Conclusion An instance constantly earns credits, but cannot accrue more earned credits if the credit balance limit has been reached. After the limit is reached, newly earned credits are discarded. The credit balance limit is determined by the number of credits that an instance can earn in 24 hours. For more information about credit balance limits, see the [credit table](burstable-credits-baseline-concepts.md#burstable-performance-instances-credit-table "burstable-credits-baseline-concepts.md#burstable-performance-instances-credit-table").                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+|                     |                                                     |
+| ------------------- | --------------------------------------------------- |
+| Credit Spend Rate   | 0 credits per 24 hours (0% CPU utilization)         |
+| Credit Earn Rate    | 72 credits per 24 hours                             |
+| Credit Discard Rate | 0 credits per 24 hours                              |
+| Credit Balance      | 102 credits (30 launch credits + 72 earned credits) |
+
+###### Conclusion
+
+If there is no CPU utilization after launch, the instance accrues more
+credits than what it can earn in 24 hours (30 launch credits + 72 earned
+credits = 102 credits).
+
+In a real-world scenario, an EC2 instance consumes a small number of credits
+while launching and running, which prevents the balance from reaching the maximum
+theoretical value in this example.
+
+### Period 2: 25 – 36 hours
+
+For the next 12 hours, the instance continues to remain idle and earn credits,
+but the credit balance does not increase. It plateaus at 102 credits (30 launch
+credits + 72 earned credits). The credit balance has reached its limit of 72
+accrued earned credits, so newly earned credits are discarded.
+
+![The credit balance has reached its limit of 72 accrued earned credits.](images/t2-graph2.png)
+
+|                     |                                                                             |
+| ------------------- | --------------------------------------------------------------------------- |
+| Credit Spend Rate   | 0 credits per 24 hours (0% CPU utilization)                                 |
+| Credit Earn Rate    | 72 credits per 24 hours (3 credits per hour)                                |
+| Credit Discard Rate | 72 credits per 24 hours (100% of credit earn rate)                          |
+| Credit Balance      | 102 credits (30 launch credits + 72 earned<br>credits)—balance is unchanged |
+
+###### Conclusion
+
+An instance constantly earns credits, but it cannot accrue more earned
+credits if the credit balance has reached its limit. After the limit is
+reached, newly earned credits are discarded. Launch credits do not count
+towards the credit balance limit. If the balance includes accrued launch
+credits, the balance appears to be over the limit.
+
+### Period 3: 37 – 61 hours
+
+For the next 25 hours, the instance uses 2% CPU, which requires 30 credits. In
+the same period, it earns 75 credits, but the credit balance decreases. The
+balance decreases because the accrued _launch_
+credits are spent first, while newly earned credits are discarded because the
+credit balance is already at its limit of 72 earned credits.
+
+![Newly earned credits are discarded because the credit balance is already at its limit.](images/t2-graph3.png)
+
+|                     |                                                                                                                              |
+| ------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| Credit Spend Rate   | 28.8 credits per 24 hours (1.2 credits per hour, 2% CPU<br>utilization, 40% of credit earn rate)—30 credits over 25<br>hours |
+| Credit Earn Rate    | 72 credits per 24 hours                                                                                                      |
+| Credit Discard Rate | 72 credits per 24 hours (100% of credit earn rate)                                                                           |
+| Credit Balance      | 72 credits (30 launch credits were spent; 72 earned credits<br>remain unspent)                                               |
+
+###### Conclusion
+
+An instance spends launch credits first, before spending earned credits.
+Launch credits do not count towards the credit limit. After the launch credits
+are spent, the balance can never go higher than what can be earned in 24 hours.
+Furthermore, while an instance is running, it cannot get more launch
+credits.
+
+### Period 4: 62 – 72 hours
+
+For the next 11 hours, the instance uses 2% CPU, which requires 13.2 credits.
+This is the same CPU utilization as in the previous period, but the balance does
+not decrease. It stays at 72 credits.
+
+The balance does not decrease because the credit earn rate is higher than the
+credit spend rate. In the time that the instance spends 13.2 credits, it also
+earns 33 credits. However, the balance limit is 72 credits, so any earned credits
+that exceed the limit are discarded. The balance plateaus at 72 credits, which is
+different from the plateau of 102 credits during Period 2, because there are no
+accrued launch credits.
+
+![The balance plateaus at 72 credits, because there are no accrued launch credits.](images/t2-graph4.png)
+
+|                     |                                                                                                                                |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| Credit Spend Rate   | 28.8 credits per 24 hours (1.2 credits per hour, 2% CPU<br>utilization, 40% of credit earn rate)—13.2 credits over 11<br>hours |
+| Credit Earn Rate    | 72 credits per 24 hours                                                                                                        |
+| Credit Discard Rate | 43.2 credits per 24 hours (60% of credit earn rate)                                                                            |
+| Credit Balance      | 72 credits (0 launch credits, 72 earned credits)—balance<br>is at its limit                                                    |
+
+###### Conclusion
+
+After launch credits are spent, the credit balance limit is determined by
+the number of credits that an instance can earn in 24 hours. If the instance
+earns more credits than it spends, newly earned credits over the limit are
+discarded.
+
+### Period 5: 73 – 75 hours
+
+For the next three hours, the instance bursts at 20% CPU utilization, which
+requires 36 credits. The instance earns nine credits in the same three hours,
+which results in a net balance decrease of 27 credits. At the end of three hours,
+the credit balance is 45 accrued earned credits.
+
+![At the end of three hours, the credit balance is 45 accrued earned credits.](images/t2-graph5.png)
+
+|                     |                                                                                                                                                                                                                       |
+| ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Credit Spend Rate   | 288 credits per 24 hours (12 credits per hour, 20% CPU<br>utilization, 400% of credit earn rate)—36 credits over 3<br>hours                                                                                           |
+| Credit Earn Rate    | 72 credits per 24 hours (9 credits over 3 hours)                                                                                                                                                                      |
+| Credit Discard Rate | 0 credits per 24 hours                                                                                                                                                                                                |
+| Credit Balance      | 45 credits (previous balance (72)<br>• spent credits (36) + earned<br>credits (9))—balance decreases at a rate of 216 credits per<br>24 hours (spend rate 288/24 + earn rate 72/24 = balance decrease<br>rate 216/24) |
+
+###### Conclusion
+
+If an instance spends more credits than it earns, its credit balance
+decreases.
+
+### Period 6: 76 – 90 hours
+
+For the next 15 hours, the instance uses 2% CPU, which requires 18 credits.
+This is the same CPU utilization as in Periods 3 and 4. However, the balance
+increases in this period, whereas it decreased in Period 3 and plateaued in Period 4.
+
+In Period 3, the accrued launch credits were spent, and any earned credits that
+exceeded the credit limit were discarded, resulting in a decrease in the credit
+balance. In Period 4, the instance spent fewer credits than it earned. Any earned
+credits that exceeded the limit were discarded, so the balance plateaued at its
+maximum of 72 credits.
+
+In this period, there are no accrued launch credits, and the number of accrued
+earned credits in the balance is below the limit. No earned credits are discarded.
+Furthermore, the instance earns more credits than it spends, resulting in an
+increase in the credit balance.
+
+![The instance earns more credits than it spends.](images/t2-graph6.png)
+
+|                     |                                                                                                                                |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| Credit Spend Rate   | 28.8 credits per 24 hours (1.2 credits per hour, 2% CPU<br>utilization, 40% of credit earn rate)—18 credits over 15<br>hours   |
+| Credit Earn Rate    | 72 credits per 24 hours (45 credits over 15 hours)                                                                             |
+| Credit Discard Rate | 0 credits per 24 hours                                                                                                         |
+| Credit Balance      | 72 credits (balance increases at a rate of 43.2 credits per 24<br>hours—change rate = spend rate 28.8/24 + earn rate<br>72/24) |
+
+###### Conclusion
+
+If an instance spends fewer credits than it earns, its credit balance
+increases.
+
+### Period 7: 91 – 96 hours
+
+For the next six hours, the instance remains idle—CPU utilization is
+0%—and no credits are spent. This is the same CPU utilization as in Period
+2, but the balance does not plateau at 102 credits—it plateaus at 72
+credits, which is the credit balance limit for the instance.
+
+In Period 2, the credit balance included 30 accrued launch credits. The launch
+credits were spent in Period 3. A running instance cannot get more launch credits.
+After its credit balance limit is reached, any earned credits that exceed the
+limit are discarded.
+
+![Earned credits that exceed the limit are discarded.](images/t2-graph7.png)
+
+|                     |                                                    |
+| ------------------- | -------------------------------------------------- |
+| Credit Spend Rate   | 0 credits per 24 hours (0% CPU utilization)        |
+| Credit Earn Rate    | 72 credits per 24 hours                            |
+| Credit Discard Rate | 72 credits per 24 hours (100% of credit earn rate) |
+| Credit Balance      | 72 credits (0 launch credits, 72 earned credits)   |
+
+###### Conclusion
+
+An instance constantly earns credits, but cannot accrue more earned credits
+if the credit balance limit has been reached. After the limit is reached, newly
+earned credits are discarded. The credit balance limit is determined by the
+number of credits that an instance can earn in 24 hours. For more information
+about credit balance limits, see the [credit
+table](burstable-credits-baseline-concepts.md#burstable-performance-instances-credit-table "burstable-credits-baseline-concepts.md#burstable-performance-instances-credit-table").

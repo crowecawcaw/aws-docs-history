@@ -24,29 +24,44 @@ For a list of the Region codes used in the billing and usage reports, see [AWS R
 
 ## Instances
 
-| Code                                            | Description                                                            | Units                  |
-| ----------------------------------------------- | ---------------------------------------------------------------------- | ---------------------- | ------------------------ |
-| ``region`-BoxUsage`:`instance-type`             | The running time for On-Demand Instances.                              | Hours                  |
-| ``region`-HostBoxUsage`:`instance-type`         | The running time for instances on Dedicated Hosts.                     | Hours                  |
-| ``region`-SpotUsage`:`instance-type`            | The running time for Spot Instances.                                   | Hours                  | ## Bare metal instances  |
-| Code                                            | Description                                                            | Units                  |
-| ---                                             | ---                                                                    | ---                    |
-| ``region`-BoxUsage`:`instance-family`.metal     | The running time for bare metal On-Demand Instances.                   | Hours                  |
-| ``region`-HostBoxUsage`:`instance-family`.metal | The running time for bare metal instances on Dedicated Hosts.          | Hours                  |
-| ``region`-SpotUsage`:`instance-family`.metal    | The running time for bare metal Spot Instances.                        | Hours                  | ## Dedicated Hosts       |
-| Code                                            | Description                                                            | Units                  |
-| ---                                             | ---                                                                    | ---                    |
-| ``region`-HostUsage`:`host-type`                | The time that Dedicated Hosts are provisioned.                         | Hours                  |
-| ``region`-ReservedHostUsage`:`host-type`        | The time that Dedicated Host Reservations are applied.                 | Hours                  | ## Dedicated Instances   |
-| Code                                            | Description                                                            | Units                  |
-| ---                                             | ---                                                                    | ---                    |
-| ``region`-DedicatedUsage`:`instance-type`       | The running time for Dedicated Instances.                              | Hours + per-Region fee | ## EBS optimization      |
-| Code                                            | Description                                                            | Units                  |
-| ---                                             | ---                                                                    | ---                    |
-| ``region`-EBSOptimized`:`instance-type`         | The time that EBS optimization is enabled.                             | Hours                  | ## Capacity Reservations |
-| Code                                            | Description                                                            | Units                  |
-| ---                                             | ---                                                                    | ---                    |
-| ``region`-Reservation`:`instance-type`          | The reserved instance time for Capacity Reservations.                  | Hours                  |
-| ``region`-UnusedBox`:`instance-type`            | The unused reserved instance time for Capacity Reservations.           | Hours                  |
-| ``region`-DedicatedRes`:`instance-type`         | The reserved instance time for Dedicated Capacity Reservations.        | Hours                  |
-| ``region`-UnusedDed`:`instance-type`            | The unused reserved instance time for Dedicated Capacity Reservations. | Hours                  |
+| Code                                    | Description                                        | Units |
+| --------------------------------------- | -------------------------------------------------- | ----- |
+| ``region`-BoxUsage`:`instance-type`     | The running time for On-Demand Instances.          | Hours |
+| ``region`-HostBoxUsage`:`instance-type` | The running time for instances on Dedicated Hosts. | Hours |
+| ``region`-SpotUsage`:`instance-type`    | The running time for Spot Instances.               | Hours |
+
+## Bare metal instances
+
+| Code                                            | Description                                                   | Units |
+| ----------------------------------------------- | ------------------------------------------------------------- | ----- |
+| ``region`-BoxUsage`:`instance-family`.metal     | The running time for bare metal On-Demand Instances.          | Hours |
+| ``region`-HostBoxUsage`:`instance-family`.metal | The running time for bare metal instances on Dedicated Hosts. | Hours |
+| ``region`-SpotUsage`:`instance-family`.metal    | The running time for bare metal Spot Instances.               | Hours |
+
+## Dedicated Hosts
+
+| Code                                     | Description                                            | Units |
+| ---------------------------------------- | ------------------------------------------------------ | ----- |
+| ``region`-HostUsage`:`host-type`         | The time that Dedicated Hosts are provisioned.         | Hours |
+| ``region`-ReservedHostUsage`:`host-type` | The time that Dedicated Host Reservations are applied. | Hours |
+
+## Dedicated Instances
+
+| Code                                      | Description                               | Units                  |
+| ----------------------------------------- | ----------------------------------------- | ---------------------- |
+| ``region`-DedicatedUsage`:`instance-type` | The running time for Dedicated Instances. | Hours + per-Region fee |
+
+## EBS optimization
+
+| Code                                    | Description                                | Units |
+| --------------------------------------- | ------------------------------------------ | ----- |
+| ``region`-EBSOptimized`:`instance-type` | The time that EBS optimization is enabled. | Hours |
+
+## Capacity Reservations
+
+| Code                                    | Description                                                            | Units |
+| --------------------------------------- | ---------------------------------------------------------------------- | ----- |
+| ``region`-Reservation`:`instance-type`  | The reserved instance time for Capacity Reservations.                  | Hours |
+| ``region`-UnusedBox`:`instance-type`    | The unused reserved instance time for Capacity Reservations.           | Hours |
+| ``region`-DedicatedRes`:`instance-type` | The reserved instance time for Dedicated Capacity Reservations.        | Hours |
+| ``region`-UnusedDed`:`instance-type`    | The unused reserved instance time for Dedicated Capacity Reservations. | Hours |

@@ -54,13 +54,40 @@ The following is example output that shows the key fields that you can use to
 determine the purpose of the network interface: `Description` and
 `InterfaceType`.
 
-````
+```
 -------------------------------------------------------------------------------
-|                          DescribeNetworkInterfaces                          | +---------------------------------------------------+-------------------------+
+|                          DescribeNetworkInterfaces                          |
++---------------------------------------------------+-------------------------+
 |  VPC Endpoint Interface: vpce-0f00567fa8477a1e6   |  interface              |
 |  VPC Endpoint Interface vpce-0d8ddce4be80e4474    |  interface              |
 |  VPC Endpoint Interface vpce-078221a1e27d1ea5b    |  vpc_endpoint           |
 |  Resource Gateway Interface rgw-0bba03f3d56060135 |  interface              |
 |  VPC Endpoint Interface: vpce-0cc199f605eaeace7   |  interface              |
-|  VPC Endpoint Interface vpce-019b90d6f16d4f958    |  interface              | +---------------------------------------------------+-------------------------+ ``` PowerShell ###### To view requester-managed network interfaces Use the [Get-EC2NetworkInterface](../../../powershell/latest/reference/items/Get-EC2NetworkInterface.md "../../../powershell/latest/reference/items/Get-EC2NetworkInterface.md") cmdlet as follows. ``` Get-EC2NetworkInterface -Filter @{Name="requester-managed"; Values="true"} | Select Description, InterfaceType ``` The following is example output that shows the key fields that you can use to determine the purpose of a network interface: `Description` and `InterfaceType`. ``` Description                                      InterfaceType -----------                                      ------------- VPC Endpoint Interface: vpce-0f00567fa8477a1e6   interface VPC Endpoint Interface vpce-0d8ddce4be80e4474    interface VPC Endpoint Interface vpce-078221a1e27d1ea5b    vpc_endpoint Resource Gateway Interface rgw-0bba03f3d56060135 interface VPC Endpoint Interface: vpce-0cc199f605eaeace7   interface VPC Endpoint Interface vpce-019b90d6f16d4f958    interface ```
-````
+|  VPC Endpoint Interface vpce-019b90d6f16d4f958    |  interface              |
++---------------------------------------------------+-------------------------+
+```
+
+PowerShell
+
+###### To view requester-managed network interfaces
+
+Use the [Get-EC2NetworkInterface](../../../powershell/latest/reference/items/Get-EC2NetworkInterface.md "../../../powershell/latest/reference/items/Get-EC2NetworkInterface.md") cmdlet as follows.
+
+```
+Get-EC2NetworkInterface -Filter @{Name="requester-managed"; Values="true"} | Select Description, InterfaceType
+```
+
+The following is example output that shows the key fields that you can use to
+determine the purpose of a network interface: `Description` and
+`InterfaceType`.
+
+```
+Description                                      InterfaceType
+-----------                                      -------------
+VPC Endpoint Interface: vpce-0f00567fa8477a1e6   interface
+VPC Endpoint Interface vpce-0d8ddce4be80e4474    interface
+VPC Endpoint Interface vpce-078221a1e27d1ea5b    vpc_endpoint
+Resource Gateway Interface rgw-0bba03f3d56060135 interface
+VPC Endpoint Interface: vpce-0cc199f605eaeace7   interface
+VPC Endpoint Interface vpce-019b90d6f16d4f958    interface
+```

@@ -95,14 +95,17 @@ processor C-states:
   `r7i.48xlarge` | `r7iz.large` | `r7iz.xlarge` |
   `r7iz.2xlarge` | `r7iz.4xlarge` | `r7iz.8xlarge` |
   `r7iz.12xlarge` | `r7iz.16xlarge` | `r7iz.32xlarge` |
-  `r8i.large` | `r8i.xlarge` | `r8i.2xlarge` |
-  `r8i.4xlarge` | `r8i.8xlarge` | `r8i.12xlarge` |
-  `r8i.16xlarge` | `r8i.24xlarge` | `r8i.32xlarge` |
-  `r8i.48xlarge` | `r8i.96xlarge` | `u-3tb1.56xlarge` |
-  `u-6tb1.56xlarge` | `u-6tb1.112xlarge` | `u-9tb1.112xlarge` |
-  `u-12tb1.112xlarge` | `u-18tb1.112xlarge` | `u-24tb1.112xlarge` |
-  `u7i-6tb.112xlarge` | `u7i-8tb.112xlarge` | `u7i-12tb.224xlarge` |
-  `u7in-16tb.224xlarge` | `u7in-24tb.224xlarge` |
+  `r8a.medium` | `r8a.large` | `r8a.xlarge` |
+  `r8a.2xlarge` | `r8a.4xlarge` | `r8a.8xlarge` |
+  `r8a.12xlarge` | `r8a.16xlarge` | `r8a.24xlarge` |
+  `r8a.48xlarge` | `r8i.large` | `r8i.xlarge` |
+  `r8i.2xlarge` | `r8i.4xlarge` | `r8i.8xlarge` |
+  `r8i.12xlarge` | `r8i.16xlarge` | `r8i.24xlarge` |
+  `r8i.32xlarge` | `r8i.48xlarge` | `r8i.96xlarge` |
+  `u-3tb1.56xlarge` | `u-6tb1.56xlarge` | `u-6tb1.112xlarge` |
+  `u-9tb1.112xlarge` | `u-12tb1.112xlarge` | `u-18tb1.112xlarge` |
+  `u-24tb1.112xlarge` | `u7i-6tb.112xlarge` | `u7i-8tb.112xlarge` |
+  `u7i-12tb.224xlarge` | `u7in-16tb.224xlarge` | `u7in-24tb.224xlarge` |
   `u7in-32tb.224xlarge` | `u7inh-32tb.480xlarge` | `x2idn.32xlarge` |
   `x2iedn.16xlarge` | `x2iedn.32xlarge` | `x2iezn.12xlarge` |
   `z1d.6xlarge` | `z1d.12xlarge`

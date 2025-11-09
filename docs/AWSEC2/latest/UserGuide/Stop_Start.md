@@ -295,10 +295,127 @@ aws ec2 describe-instances \
 
 The following is example output.
 
-````
+```
 ---------------------------------------------------------
-|                   DescribeInstances                   | +---------------------+---------------+-----------------+
+|                   DescribeInstances                   |
++---------------------+---------------+-----------------+
 |  i-0e3e777f4362f1bf7|  t2.micro     |  10.0.12.9      |
 |  i-09453945dcf1529e9|  t2.micro     |  10.0.143.213   |
-|  i-08fd74f3f1595fdbd|  m7i.4xlarge  |  10.0.1.103     | +---------------------+---------------+-----------------+ ``` PowerShell ###### To get the number of EC2 instances in a Region Use the [Get-EC2Instance](../../../powershell/latest/reference/items/Get-EC2Instance.md "../../../powershell/latest/reference/items/Get-EC2Instance.md") cmdlet. ``` (Get-EC2Instance -Region `us-east-2`).Instances.Length ``` The following is example output. ``` 27 ``` ###### To get summary info about your EC2 instances in a Region Use the [Get-EC2Instance](../../../powershell/latest/reference/items/Get-EC2Instance.md "../../../powershell/latest/reference/items/Get-EC2Instance.md") cmdlet. You must run this command in each Region where you have instances. ``` (Get-EC2Instance).Instances | Select InstanceId, InstanceType, PrivateIpAddress ``` The following is example output. ``` InstanceId          InstanceType PrivateIpAddress ----------          ------------ ---------------- i-0e3e777f4362f1bf7 t2.micro     10.0.12.9 i-09453945dcf1529e9 t2.micro     10.0.143.213 i-08fd74f3f1595fdbd m7i.4xlarge  10.0.1.103 ``` ## Find the initial and most recent launch times When you describe an instance, the launch time for the instance is its most recent launch time. After you stop and start an instance, the launch time reflects the new instance start time. To find the initial launch time for an instance, even after stopping and starting it, view the time at which the primary network interface was attached to the instance. Console ###### To find the most recent launch time Select the instance and find **Launch time** under **Instance details** on the **Details** tab. ###### To find the initial launch time Select the instance and find the primary network interface (device index is 0) under **Network interfaces** on the **Networking** tab. AWS CLI ###### To find the initial and most recent launch times Use the following [describe-instances](../../../cli/latest/reference/ec2/describe-instances.md "../../../cli/latest/reference/ec2/describe-instances.md") command to display both the initial launch time and the most recent launch time for the specified instance. ``` aws ec2 describe-instances \ --instance-id `i-1234567890abcdef0` \ --query 'Reservations[].Instances[].{InstanceID:InstanceId,InitialLaunch:NetworkInterfaces[0].Attachment.AttachTime,LastLaunch:LaunchTime}' ``` The following is example output. ``` [ { "InstanceID": "i-1234567890abcdef0", "InitialLaunch": "2024-04-19T00:47:08+00:00", "LastLaunch": "2024-05-27T06:24:06+00:00" } ] ``` PowerShell ###### To find the most recent launch time Use the [Get-EC2Instance](../../../powershell/latest/reference/items/Get-EC2Instance.md "../../../powershell/latest/reference/items/Get-EC2Instance.md") cmdlet. ``` (Get-EC2Instance -InstanceId `i-1234567890abcdef0`).Instances.LaunchTime ``` The following is example output. ``` Monday, May 27, 2024 6:24:06 AM ``` ###### To find the initial launch time Use the [Get-EC2Instance](../../../powershell/latest/reference/items/Get-EC2Instance.md "../../../powershell/latest/reference/items/Get-EC2Instance.md") cmdlet. ``` (Get-EC2Instance -InstanceId `i-1234567890abcdef0`).Instances.NetworkInterfaces.Attachment.AttachTime ``` The following is example output. ``` Friday, April 19, 2024 12:47:08 AM ```
-````
+|  i-08fd74f3f1595fdbd|  m7i.4xlarge  |  10.0.1.103     |
++---------------------+---------------+-----------------+
+```
+
+PowerShell
+
+###### To get the number of EC2 instances in a Region
+
+Use the [Get-EC2Instance](../../../powershell/latest/reference/items/Get-EC2Instance.md "../../../powershell/latest/reference/items/Get-EC2Instance.md") cmdlet.
+
+```
+(Get-EC2Instance -Region `us-east-2`).Instances.Length
+```
+
+The following is example output.
+
+```
+27
+```
+
+###### To get summary info about your EC2 instances in a Region
+
+Use the [Get-EC2Instance](../../../powershell/latest/reference/items/Get-EC2Instance.md "../../../powershell/latest/reference/items/Get-EC2Instance.md") cmdlet. You must run this command in each
+Region where you have instances.
+
+```
+(Get-EC2Instance).Instances | Select InstanceId, InstanceType, PrivateIpAddress
+```
+
+The following is example output.
+
+```
+InstanceId          InstanceType PrivateIpAddress
+----------          ------------ ----------------
+i-0e3e777f4362f1bf7 t2.micro     10.0.12.9
+i-09453945dcf1529e9 t2.micro     10.0.143.213
+i-08fd74f3f1595fdbd m7i.4xlarge  10.0.1.103
+```
+
+## Find the initial and most recent launch
+
+times
+
+When you describe an instance, the launch time for the instance is its most recent
+launch time. After you stop and start an instance, the launch time reflects the new
+instance start time. To find the initial launch time for an instance, even after
+stopping and starting it, view the time at which the primary network interface was
+attached to the instance.
+
+Console
+
+###### To find the most recent launch time
+
+Select the instance and find **Launch time** under
+**Instance details** on the
+**Details** tab.
+
+###### To find the initial launch time
+
+Select the instance and find the primary network interface (device
+index is 0) under **Network interfaces** on the
+**Networking** tab.
+
+AWS CLI
+
+###### To find the initial and most recent launch times
+
+Use the following [describe-instances](../../../cli/latest/reference/ec2/describe-instances.md "../../../cli/latest/reference/ec2/describe-instances.md") command to display both the initial
+launch time and the most recent launch time for the specified
+instance.
+
+```
+aws ec2 describe-instances \
+    --instance-id `i-1234567890abcdef0` \
+    --query 'Reservations[].Instances[].{InstanceID:InstanceId,InitialLaunch:NetworkInterfaces[0].Attachment.AttachTime,LastLaunch:LaunchTime}'
+```
+
+The following is example output.
+
+```
+[
+    {
+        "InstanceID": "i-1234567890abcdef0",
+        "InitialLaunch": "2024-04-19T00:47:08+00:00",
+        "LastLaunch": "2024-05-27T06:24:06+00:00"
+    }
+]
+```
+
+PowerShell
+
+###### To find the most recent launch time
+
+Use the [Get-EC2Instance](../../../powershell/latest/reference/items/Get-EC2Instance.md "../../../powershell/latest/reference/items/Get-EC2Instance.md") cmdlet.
+
+```
+(Get-EC2Instance -InstanceId `i-1234567890abcdef0`).Instances.LaunchTime
+```
+
+The following is example output.
+
+```
+Monday, May 27, 2024 6:24:06 AM
+```
+
+###### To find the initial launch time
+
+Use the [Get-EC2Instance](../../../powershell/latest/reference/items/Get-EC2Instance.md "../../../powershell/latest/reference/items/Get-EC2Instance.md") cmdlet.
+
+```
+(Get-EC2Instance -InstanceId `i-1234567890abcdef0`).Instances.NetworkInterfaces.Attachment.AttachTime
+```
+
+The following is example output.
+
+```
+Friday, April 19, 2024 12:47:08 AM
+```

@@ -56,33 +56,120 @@ security group for Amazon FSx file systems.
 
 The security group includes the following output rules, but no inbound rules.
 
-| Outbound rules | Protocol type | Port number                  | Destination                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| -------------- | ------------- | ---------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| UDP            | 111           | `file system security group` |
-| UDP            | 20001 - 20003 | `file system security group` |
-| UDP            | 4049          | `file system security group` |
-| UDP            | 2049          | `file system security group` |
-| UDP            | 635           | `file system security group` |
-| UDP            | 4045 - 4046   | `file system security group` |
-| TCP            | 4049          | `file system security group` |
-| TCP            | 635           | `file system security group` |
-| TCP            | 2049          | `file system security group` |
-| TCP            | 111           | `file system security group` |
-| TCP            | 4045 - 4046   | `file system security group` |
-| TCP            | 20001 - 20003 | `file system security group` |
-| All            | All           | `file system security group` | The security group that is created and attached to the file system is tagged with `Name=fsx-sg-`1``. The value in the tag is automatically incremented each time the launch instance wizard creates a security group for Amazon FSx file systems. The security group includes the following rules. Inbound rules                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | Protocol type | Port number                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | Source      |
-| ---            | ---           | ---                          |
-| UDP            | 2049          | `instance security group`    |
-| UDP            | 20001 - 20003 | `instance security group`    |
-| UDP            | 4049          | `instance security group`    |
-| UDP            | 111           | `instance security group`    |
-| UDP            | 635           | `instance security group`    |
-| UDP            | 4045 - 4046   | `instance security group`    |
-| TCP            | 4045 - 4046   | `instance security group`    |
-| TCP            | 635           | `instance security group`    |
-| TCP            | 2049          | `instance security group`    |
-| TCP            | 4049          | `instance security group`    |
-| TCP            | 20001 - 20003 | `instance security group`    |
-| TCP            | 111           | `instance security group`    | Outbound rules                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | Protocol type | Port number                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | Destination |
-| ---            | ---           | ---                          |
-| All            | All           | 0.0.0.0/0                    | ### User data script If you choose to automatically attach user data scripts, the launch instance wizard adds the following user data to the instance. This script installs the necessary packages, mounts the file system, and updates your instance settings so that the file system will automatically re-mount whenever the instance restarts. ```#cloud-config package_update: true package_upgrade: true runcmd: <br>• yum install -y nfs-utils <br>• apt-get -y install nfs-common <br>•`svm_id_1`=`svm_id`<br>•`file_system_id_1`=`file_system_id`<br>•`vol_path_1`=`/vol1`<br>•`fsx_mount_point_1`=`/mnt/fsx/fs1` <br>• mkdir -p "${`fsx_mount_point_1`}" <br>• if [ -z "$`svm_id_1`" ]; then printf "\n${`file_system_id_1`}.fsx.`eu-north-1`.amazonaws.com:/${`vol_path_1`} ${`fsx_mount_point_1`} nfs4 nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport,_netdev 0 0\n" >> /etc/fstab; else printf "\n${`svm_id_1`}.${`file_system_id_1`}.fsx.`eu-north-1`.amazonaws.com:/${`vol_path_1`} ${`fsx_mount_point_1`} nfs4 nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport,\_netdev 0 0\n" >> /etc/fstab; fi <br>• retryCnt=15; waitTime=30; while true; do mount -a -t nfs4 defaults; if [ $? = 0 ] |               | [ $retryCnt -lt 1 ]; then echo File system mounted successfully; break; fi; echo File system not available, retrying to mount.; ((retryCnt--)); sleep $waitTime; done; ``` ## Mount an Amazon FSx file system at launch ###### To mount a new or existing Amazon FSx file system at launch 1. Open the Amazon EC2 console at [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/"). 2. In the navigation pane, choose **Instances** and then choose **Launch instance** to open the launch instance wizard. 3. In the **Application and OS Images** section, select the AMI to use. 4. In the **Instance type** section, select the instance type. 5. In the **Key pair** section, select an existing key pair or create a new one. 6. In the **Network settings** section, do the following: 1. Choose **Edit**. 2. If you want to **mount an existing file system**, for **Subnet**, choose the file system's preferred subnet. We recommend that you launch the instance into the same Availability Zone as the file system's preferred subnet to optimize performance. If you want to **create a new file system** to mount to an instance, for **Subnet**, choose the subnet into which to launch the instance. ###### Important You must select a subnet to enable the Amazon FSx functionality in the new launch instance wizard. If you do not select a subnet, you will not be able to mount an existing file system or create a new one. 7. In the **Storage** section, do the following: 1. Configure the volumes as needed. 2. Expand the **File systems** section and select **FSx**. 3. Choose **Add shared file system**. 4. For **File system**, select the file system to mount. ###### Note The list displays all Amazon FSx for NetApp ONTAP and Amazon FSx for OpenZFS file systems in your account in the selected Region. 5. To automatically create and attach the security groups needed to enable access to the file system, select **Automatically create and attach security groups**. If you prefer to create the security groups manually, clear the checkbox. For more information, see [Security groups](#fsx-sg "#fsx-sg"). 6. To automatically attach the user data scripts needed to mount the file system, select **Automatically mount shared file system by attaching required user data script**. If you prefer to provide the user data scripts manually, clear the checkbox. For more information, see [User data script](#fsx-user-data "#fsx-user-data"). 8. In the **Advanced** section, configure the additional instance settings as needed. 9. Choose **Launch**. |
+| Outbound rules | Protocol type    | Port number                  | Destination |
+| -------------- | ---------------- | ---------------------------- | ----------- |
+| UDP            | 111              | `file system security group` |
+| UDP            | 20001<br>• 20003 | `file system security group` |
+| UDP            | 4049             | `file system security group` |
+| UDP            | 2049             | `file system security group` |
+| UDP            | 635              | `file system security group` |
+| UDP            | 4045<br>• 4046   | `file system security group` |
+| TCP            | 4049             | `file system security group` |
+| TCP            | 635              | `file system security group` |
+| TCP            | 2049             | `file system security group` |
+| TCP            | 111              | `file system security group` |
+| TCP            | 4045<br>• 4046   | `file system security group` |
+| TCP            | 20001<br>• 20003 | `file system security group` |
+| All            | All              | `file system security group` |
+
+The security group that is created and attached to the file system is tagged with
+`Name=fsx-sg-`1``. The value in the tag is
+automatically incremented each time the launch instance wizard creates a security
+group for Amazon FSx file systems.
+
+The security group includes the following rules.
+
+| Inbound rules | Protocol type    | Port number               | Source |
+| ------------- | ---------------- | ------------------------- | ------ |
+| UDP           | 2049             | `instance security group` |
+| UDP           | 20001<br>• 20003 | `instance security group` |
+| UDP           | 4049             | `instance security group` |
+| UDP           | 111              | `instance security group` |
+| UDP           | 635              | `instance security group` |
+| UDP           | 4045<br>• 4046   | `instance security group` |
+| TCP           | 4045<br>• 4046   | `instance security group` |
+| TCP           | 635              | `instance security group` |
+| TCP           | 2049             | `instance security group` |
+| TCP           | 4049             | `instance security group` |
+| TCP           | 20001<br>• 20003 | `instance security group` |
+| TCP           | 111              | `instance security group` |
+
+| Outbound rules | Protocol type | Port number | Destination |
+| -------------- | ------------- | ----------- | ----------- |
+| All            | All           | 0.0.0.0/0   |
+
+### User data script
+
+If you choose to automatically attach user data scripts, the launch instance wizard adds the
+following user data to the instance. This script installs the necessary packages, mounts the
+file system, and updates your instance settings so that the file system will automatically
+re-mount whenever the instance restarts.
+
+```
+#cloud-config
+package_update: true
+package_upgrade: true
+runcmd:
+- yum install -y nfs-utils
+- apt-get -y install nfs-common
+- `svm_id_1`=`svm_id`
+- `file_system_id_1`=`file_system_id`
+- `vol_path_1`=`/vol1`
+- `fsx_mount_point_1`=`/mnt/fsx/fs1`
+- mkdir -p "${`fsx_mount_point_1`}"
+- if [ -z "$`svm_id_1`" ]; then printf "\n${`file_system_id_1`}.fsx.`eu-north-1`.amazonaws.com:/${`vol_path_1`} ${`fsx_mount_point_1`} nfs4 nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport,_netdev 0 0\n" >> /etc/fstab; else printf "\n${`svm_id_1`}.${`file_system_id_1`}.fsx.`eu-north-1`.amazonaws.com:/${`vol_path_1`} ${`fsx_mount_point_1`} nfs4 nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2,noresvport,_netdev 0 0\n" >> /etc/fstab; fi
+- retryCnt=15; waitTime=30; while true; do mount -a -t nfs4 defaults; if [ $? = 0 ] || [ $retryCnt -lt 1 ]; then echo File system mounted successfully; break; fi; echo File system not available, retrying to mount.; ((retryCnt--)); sleep $waitTime; done;
+
+```
+
+## Mount an Amazon FSx file system at launch
+
+###### To mount a new or existing Amazon FSx file system at launch
+
+1. Open the Amazon EC2 console at
+   [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
+2. In the navigation pane, choose **Instances** and then choose
+   **Launch instance** to open the launch instance
+   wizard.
+3. In the **Application and OS Images** section, select the AMI to use.
+4. In the **Instance type** section, select the instance type.
+5. In the **Key pair** section, select an existing key pair or create a new
+   one.
+6. In the **Network settings** section, do the following:
+   1. Choose **Edit**.
+   2. If you want to **mount an existing file
+      system**, for **Subnet**, choose the file
+      system's preferred subnet. We recommend that you launch the instance
+      into the same Availability Zone as the file system's preferred subnet to
+      optimize performance.
+
+   If you want to **create a new file system** to mount
+   to an instance, for **Subnet**, choose the subnet into which to
+   launch the instance.
+
+   ###### Important
+
+   You must select a subnet to enable the Amazon FSx functionality in the new launch
+   instance wizard. If you do not select a subnet, you will not be able to mount
+   an existing file system or create a new one.
+
+7. In the **Storage** section, do the following:
+   1. Configure the volumes as needed.
+   2. Expand the **File systems** section and select **FSx**.
+   3. Choose **Add shared file system**.
+   4. For **File system**, select the file system to mount.
+
+   ###### Note
+
+   The list displays all Amazon FSx for NetApp ONTAP and Amazon FSx for OpenZFS file
+   systems in your account in the selected Region. 5. To automatically create and attach the security groups needed to enable access to
+   the file system, select **Automatically create and attach security groups**.
+   If you prefer to create the security groups manually, clear the checkbox. For more
+   information, see [Security groups](#fsx-sg "#fsx-sg"). 6. To automatically attach the user data scripts needed to mount the file system, select
+   **Automatically mount shared file system by attaching required user data
+   script**. If you prefer to provide the user data scripts manually, clear
+   the checkbox. For more information, see [User data script](#fsx-user-data "#fsx-user-data").
+
+8. In the **Advanced** section, configure the additional instance settings as
+   needed.
+9. Choose **Launch**.

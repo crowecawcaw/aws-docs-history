@@ -236,7 +236,7 @@ instance store volumes is determined by the instance type. For more information,
 see [Instance store volume limits for EC2 instances](instance-store-volumes.md "instance-store-volumes.md").
 
 | Location                          | Device name |
-| --------------------------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| --------------------------------- | ----------- |
 | Bus Number 0, Target ID 78, LUN 0 | xvdca       |
 | Bus Number 0, Target ID 79, LUN 0 | xvdcb       |
 | Bus Number 0, Target ID 80, LUN 0 | xvdcc       |
@@ -248,9 +248,15 @@ see [Instance store volume limits for EC2 instances](instance-store-volumes.md "
 | Bus Number 0, Target ID 86, LUN 0 | xvdci       |
 | Bus Number 0, Target ID 87, LUN 0 | xvdcj       |
 | Bus Number 0, Target ID 88, LUN 0 | xvdck       |
-| Bus Number 0, Target ID 89, LUN 0 | xvdcl       | ### EBS volumes The following table describes how the Citrix PV and AWS PV drivers map non-NVME EBS volumes to Windows volumes. |
+| Bus Number 0, Target ID 89, LUN 0 | xvdcl       |
+
+### EBS volumes
+
+The following table describes how the Citrix PV and AWS PV drivers map
+non-NVME EBS volumes to Windows volumes.
+
 | Location                          | Device name |
-| ---                               | ---         |
+| --------------------------------- | ----------- |
 | Bus Number 0, Target ID 0, LUN 0  | /dev/sda1   |
 | Bus Number 0, Target ID 1, LUN 0  | xvdb        |
 | Bus Number 0, Target ID 2, LUN 0  | xvdc        |

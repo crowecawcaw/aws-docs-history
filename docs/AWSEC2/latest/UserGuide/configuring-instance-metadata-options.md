@@ -200,7 +200,7 @@ precedence, as follows:
   setting on the AMI.
 
 | Launch parameter          | Account level default | AMI default | Resulting instance configuration |
-| ------------------------- | --------------------- | ----------- | -------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------------------- | --------------------- | ----------- | -------------------------------- |
 | V2 only (token required)  | No preference         | V2 only     | V2 only                          |
 | V2 only (token required)  | V2 only               | V2 only     | V2 only                          |
 | V2 only (token required)  | V1 or V2              | V2 only     | V2 only                          |
@@ -218,4 +218,37 @@ precedence, as follows:
 | V1 or V2 (token optional) | V1 or V2              | null        | V1 or V2                         |
 | Not set                   | No preference         | null        | V1 or V2                         |
 | Not set                   | V2 only               | null        | V2 only                          |
-| Not set                   | V1 or V2              | null        | V1 or V2                         | ## Use IAM condition keys to restrict instance metadata options You can use IAM condition keys in an IAM policy or SCP as follows: <br>• Allow an instance to launch only if it's configured to require the use of IMDSv2 <br>• Restrict the number of allowed hops <br>• Turn off access to instance metadata ###### Tasks <br>• [Configure instance metadata options for new instances](configuring-IMDS-new-instances.md "configuring-IMDS-new-instances.md") <br>• [Modify instance metadata options for existing instances](configuring-IMDS-existing-instances.md "configuring-IMDS-existing-instances.md") ###### Note You should proceed cautiously and conduct careful testing before making any changes. Take note of the following: <br>• If you enforce the use of IMDSv2, applications or agents that use IMDSv1 for instance metadata access will break. <br>• If you turn off all access to instance metadata, applications or agents that rely on instance metadata access to function will break. <br>• For IMDSv2, you must use `/latest/api/token` when retrieving the token. <br>• (Windows only) If your PowerShell version is earlier than 4.0, you must [update to Windows Management Framework 4.0](https://devblogs.microsoft.com/powershell/windows-management-framework-wmf-4-0-update-now-available-for-windows-server-2012-windows-server-2008-r2-sp1-and-windows-7-sp1/ "https://devblogs.microsoft.com/powershell/windows-management-framework-wmf-4-0-update-now-available-for-windows-server-2012-windows-server-2008-r2-sp1-and-windows-7-sp1/") to require the use of IMDSv2. |
+| Not set                   | V1 or V2              | null        | V1 or V2                         |
+
+## Use IAM condition keys to restrict
+
+instance metadata options
+
+You can use IAM condition keys in an IAM policy or SCP as follows:
+
+- Allow an instance to launch only if it's configured to require the use of
+  IMDSv2
+- Restrict the number of allowed hops
+- Turn off access to instance metadata
+
+###### Tasks
+
+- [Configure instance metadata options
+  for new instances](configuring-IMDS-new-instances.md "configuring-IMDS-new-instances.md")
+- [Modify instance metadata
+  options for existing instances](configuring-IMDS-existing-instances.md "configuring-IMDS-existing-instances.md")
+
+###### Note
+
+You should proceed cautiously and conduct careful testing before making any
+changes. Take note of the following:
+
+- If you enforce the use of IMDSv2, applications or agents that use
+  IMDSv1 for instance metadata access will break.
+- If you turn off all access to instance metadata, applications or agents
+  that rely on instance metadata access to function will break.
+- For IMDSv2, you must use `/latest/api/token` when
+  retrieving the token.
+- (Windows only) If your PowerShell version is earlier than 4.0, you must
+  [update to Windows Management Framework 4.0](https://devblogs.microsoft.com/powershell/windows-management-framework-wmf-4-0-update-now-available-for-windows-server-2012-windows-server-2008-r2-sp1-and-windows-7-sp1/ "https://devblogs.microsoft.com/powershell/windows-management-framework-wmf-4-0-update-now-available-for-windows-server-2012-windows-server-2008-r2-sp1-and-windows-7-sp1/") to require the use
+  of IMDSv2.

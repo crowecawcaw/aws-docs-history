@@ -111,10 +111,10 @@ Amazon EC2 AMIs with EC2 Fast Launch enabled send metrics to Amazon CloudWatch. 
 or an API to list the metrics that EC2 Fast Launch sends to CloudWatch. The `AWS/EC2`
 namespace includes the following EC2 Fast Launch metrics:
 
-| Metric                                  | Description                                                                                                                                                 |
-| --------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| NumberOfAvailableFastLaunchSnapshots    | The number of pre-provisioned snapshots available per EC2 Fast Launch enabled AMI.                                                                          |
-| NumberOfInstancesFastLaunched           | The number of instances per EC2 Fast Launch enabled AMI that were launched from pre-provisioned snapshots.                                                  |
-| NumberOfInstancesNotFastLaunched        | The number of instances per EC2 Fast Launch enabled AMI that resulted in a cold boot due to the lack of available pre-provisioned snapshots at launch time. |
-| FastLaunchSnapshotUsedToRefillStartTime | The timestamp when Amazon EC2 launched a new image from a EC2 Fast Launch enabled AMI to create another snapshot after an existing snapshot was used.       |
-| FastLaunchSnapshotCreationTime          | Measures the time it took for Amazon EC2 to launch an instance and create a snapshot for a EC2 Fast Launch enabled AMI.                                     |
+| Metric                                  | Description                                                                                                                                                       |
+| --------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| NumberOfAvailableFastLaunchSnapshots    | The number of pre-provisioned snapshots available per EC2 Fast Launch<br>enabled AMI.                                                                             |
+| NumberOfInstancesFastLaunched           | The number of instances per EC2 Fast Launch enabled AMI that were launched<br>from pre-provisioned snapshots.                                                     |
+| NumberOfInstancesNotFastLaunched        | The number of instances per EC2 Fast Launch enabled AMI that resulted<br>in a cold boot due to the lack of available pre-provisioned snapshots at<br>launch time. |
+| FastLaunchSnapshotUsedToRefillStartTime | The timestamp when Amazon EC2 launched a new image from a EC2 Fast Launch enabled<br>AMI to create another snapshot after an existing snapshot was used.          |
+| FastLaunchSnapshotCreationTime          | Measures the time it took for Amazon EC2 to launch an instance and create a snapshot<br>for a EC2 Fast Launch enabled AMI.                                        |

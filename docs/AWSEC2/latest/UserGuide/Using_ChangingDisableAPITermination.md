@@ -120,9 +120,16 @@ protection, the request fails with the following results:
 Suppose that you have the following four instances across two Availability
 Zones.
 
-| Instance       | Availability Zone | Terminate protection                                                                                                                                                                                                                                                                                                                                                                        |
-| -------------- | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Instance 1** | AZ A              | `Disabled`                                                                                                                                                                                                                                                                                                                                                                                  |
+| Instance       | Availability Zone | Terminate protection |
+| -------------- | ----------------- | -------------------- |
+| **Instance 1** | AZ A              | `Disabled`           |
 | **Instance 2** | `Disabled`        |
-| **Instance 3** | AZ B              | `Enabled`                                                                                                                                                                                                                                                                                                                                                                                   |
-| **Instance 4** | `Disabled`        | If you attempt to terminate all of these instances in the same request, the request reports failure with the following results: <br>• **Instance 1** and **Instance 2** are successfully terminated because neither instance is enabled for termination protection. <br>• **Instance 3** and **Instance 4** fail to terminate because **Instance 3** is enabled for termination protection. |
+| **Instance 3** | AZ B              | `Enabled`            |
+| **Instance 4** | `Disabled`        |
+
+If you attempt to terminate all of these instances in the same request, the
+request reports failure with the following results:
+
+- **Instance 1** and **Instance 2** are successfully terminated because neither
+  instance is enabled for termination protection.
+- **Instance 3** and **Instance 4** fail to terminate because **Instance 3** is enabled for termination protection.

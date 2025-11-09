@@ -37,7 +37,7 @@ pending, stopping, stopped, and hibernated states do not count towards your On-D
 quotas. Capacity Reservations count toward your On-Demand Instance quotas, even if they are unused.
 
 | Name                                                             | Default | Adjustable                                                                                                                                                                 |
-| ---------------------------------------------------------------- | ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ---------------------------------------------------------------- | ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Running On-Demand DL instances                                   | 0       | [Yes](https://console.aws.amazon.com/servicequotas/home/services/ec2/quotas/L-6E869C2A "https://console.aws.amazon.com/servicequotas/home/services/ec2/quotas/L-6E869C2A") |
 | Running On-Demand F instances                                    | 0       | [Yes](https://console.aws.amazon.com/servicequotas/home/services/ec2/quotas/L-74FC7D96 "https://console.aws.amazon.com/servicequotas/home/services/ec2/quotas/L-74FC7D96") |
 | Running On-Demand G and VT instances                             | 0       | [Yes](https://console.aws.amazon.com/servicequotas/home/services/ec2/quotas/L-DB2E81BA "https://console.aws.amazon.com/servicequotas/home/services/ec2/quotas/L-DB2E81BA") |
@@ -47,4 +47,54 @@ quotas. Capacity Reservations count toward your On-Demand Instance quotas, even 
 | Running On-Demand P instances                                    | 0       | [Yes](https://console.aws.amazon.com/servicequotas/home/services/ec2/quotas/L-417A185B "https://console.aws.amazon.com/servicequotas/home/services/ec2/quotas/L-417A185B") |
 | Running On-Demand Standard (A, C, D, H, I, M, R, T, Z) instances | 5       | [Yes](https://console.aws.amazon.com/servicequotas/home/services/ec2/quotas/L-1216C47A "https://console.aws.amazon.com/servicequotas/home/services/ec2/quotas/L-1216C47A") |
 | Running On-Demand Trn instances                                  | 0       | [Yes](https://console.aws.amazon.com/servicequotas/home/services/ec2/quotas/L-2C3B7624 "https://console.aws.amazon.com/servicequotas/home/services/ec2/quotas/L-2C3B7624") |
-| Running On-Demand X instances                                    | 0       | [Yes](https://console.aws.amazon.com/servicequotas/home/services/ec2/quotas/L-7295265B "https://console.aws.amazon.com/servicequotas/home/services/ec2/quotas/L-7295265B") | For information about the different instance families, generations, and sizes, see the [Amazon EC2 Instance Types Guide](../../../ec2/latest/instancetypes/instance-types.md "../../../ec2/latest/instancetypes/instance-types.md"). You can launch any combination of instance types that meet your changing application needs, as long as the number of vCPUs does not exceed your account quota. For example, with a Standard instance quota of 256 vCPUs, you could launch 32 `m5.2xlarge` instances (32 x 8 vCPUs) or 16 `c5.4xlarge` instances (16 x 16 vCPUs). For more information, see [EC2 On-Demand Instance limits](https://aws.amazon.com/ec2/faqs/#EC2_On-Demand_Instance_limits "https://aws.amazon.com/ec2/faqs/#EC2_On-Demand_Instance_limits"). ###### Tasks <br>• [Monitor On-Demand Instance quotas and usage](#monitoring-on-demand-limits "#monitoring-on-demand-limits") <br>• [Request a quota increase](#vcpu-limits-request-increase "#vcpu-limits-request-increase") ### Monitor On-Demand Instance quotas and usage You can view and manage your On-Demand Instance quotas for each Region using the following methods. ###### To view your current quotas using the Service Quotas console 1. Open the Service Quotas console at [https://console.aws.amazon.com/servicequotas/home/services/ec2/quotas/](https://console.aws.amazon.com/servicequotas/home/services/ec2/quotas/ "https://console.aws.amazon.com/servicequotas/home/services/ec2/quotas/"). 2. From the navigation bar, select a Region. 3. In the filter field, enter `On-Demand`. 4. The **Applied quota value** column displays the maximum number of vCPUs for each On-Demand Instance quota type for your account. ###### To view your current quotas using the AWS Trusted Advisor console Open [Service limits page](https://console.aws.amazon.com/trustedadvisor/home?#/category/service-limits "https://console.aws.amazon.com/trustedadvisor/home?#/category/service-limits") in the AWS Trusted Advisor console. ###### To configure CloudWatch alarms With Amazon CloudWatch metrics integration, you can monitor your EC2 usage against your quotas. You can also configure alarms to warn about approaching quotas. For more information, see [Service Quotas and Amazon CloudWatch alarms](../../../servicequotas/latest/userguide/configure-cloudwatch.md "../../../servicequotas/latest/userguide/configure-cloudwatch.md") in the _Service Quotas User Guide_. ### Request a quota increase Even though Amazon EC2 automatically increases your On-Demand Instance quotas based on your usage, you can request a quota increase if necessary. For example, if you intend to launch more instances than your current quota allows, you can request a quota increase by using the Service Quotas console described in [Amazon EC2 service quotas](ec2-resource-limits.md "ec2-resource-limits.md"). ## Query the prices of On-Demand Instances You can use the Price List Service API or the AWS Price List API to query the prices of On-Demand Instances. For more information, see [Using the AWS Price List API](../../../awsaccountbilling/latest/aboutv2/price-changes.md "../../../awsaccountbilling/latest/aboutv2/price-changes.md") in the _AWS Billing User Guide_. |
+| Running On-Demand X instances                                    | 0       | [Yes](https://console.aws.amazon.com/servicequotas/home/services/ec2/quotas/L-7295265B "https://console.aws.amazon.com/servicequotas/home/services/ec2/quotas/L-7295265B") |
+
+For information about the different instance families, generations, and sizes, see
+the [Amazon EC2 Instance Types Guide](../../../ec2/latest/instancetypes/instance-types.md "../../../ec2/latest/instancetypes/instance-types.md").
+
+You can launch any combination of instance types that meet your changing application
+needs, as long as the number of vCPUs does not exceed your account quota. For example,
+with a Standard instance quota of 256 vCPUs, you could launch 32 `m5.2xlarge`
+instances (32 x 8 vCPUs) or 16 `c5.4xlarge` instances (16 x 16 vCPUs). For
+more information, see [EC2 On-Demand Instance limits](https://aws.amazon.com/ec2/faqs/#EC2_On-Demand_Instance_limits "https://aws.amazon.com/ec2/faqs/#EC2_On-Demand_Instance_limits").
+
+###### Tasks
+
+- [Monitor On-Demand Instance quotas and usage](#monitoring-on-demand-limits "#monitoring-on-demand-limits")
+- [Request a quota increase](#vcpu-limits-request-increase "#vcpu-limits-request-increase")
+
+### Monitor On-Demand Instance quotas and usage
+
+You can view and manage your On-Demand Instance quotas for each Region using the following methods.
+
+###### To view your current quotas using the Service Quotas console
+
+1. Open the Service Quotas console at [https://console.aws.amazon.com/servicequotas/home/services/ec2/quotas/](https://console.aws.amazon.com/servicequotas/home/services/ec2/quotas/ "https://console.aws.amazon.com/servicequotas/home/services/ec2/quotas/").
+2. From the navigation bar, select a Region.
+3. In the filter field, enter `On-Demand`.
+4. The **Applied quota value** column displays the maximum
+   number of vCPUs for each On-Demand Instance quota type for your account.
+
+###### To view your current quotas using the AWS Trusted Advisor console
+
+Open [Service limits page](https://console.aws.amazon.com/trustedadvisor/home?#/category/service-limits "https://console.aws.amazon.com/trustedadvisor/home?#/category/service-limits") in the AWS Trusted Advisor console.
+
+###### To configure CloudWatch alarms
+
+With Amazon CloudWatch metrics integration, you can monitor your EC2 usage against your
+quotas. You can also configure alarms to warn about approaching quotas. For more information, see [Service
+Quotas and Amazon CloudWatch alarms](../../../servicequotas/latest/userguide/configure-cloudwatch.md "../../../servicequotas/latest/userguide/configure-cloudwatch.md") in the _Service Quotas User Guide_.
+
+### Request a quota increase
+
+Even though Amazon EC2 automatically increases your On-Demand Instance quotas based on your usage,
+you can request a quota increase if necessary. For example, if you intend to launch
+more instances than your current quota allows, you can request a quota increase by
+using the
+Service Quotas console described in [Amazon EC2 service quotas](ec2-resource-limits.md "ec2-resource-limits.md").
+
+## Query the prices of On-Demand Instances
+
+You can use the Price List Service API or the AWS Price List API to query the
+prices of On-Demand Instances. For more information, see [Using the AWS Price List API](../../../awsaccountbilling/latest/aboutv2/price-changes.md "../../../awsaccountbilling/latest/aboutv2/price-changes.md")
+in the _AWS Billing User Guide_.

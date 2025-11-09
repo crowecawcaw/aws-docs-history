@@ -213,9 +213,10 @@ aws ec2 describe-instance-types \
 
 The following is example output.
 
-````
+```
 ---------------------------
-|  DescribeInstanceTypes  | +----------------+--------+
+|  DescribeInstanceTypes  |
++----------------+--------+
 |  r7gd.xlarge   |  237   |
 |  r7gd.8xlarge  |  1900  |
 |  r7gd.16xlarge |  3800  |
@@ -224,5 +225,103 @@ The following is example output.
 |  r7gd.2xlarge  |  474   |
 |  r7gd.metal    |  3800  |
 |  r7gd.large    |  118   |
-|  r7gd.12xlarge |  2850  | +----------------+--------+ ``` ### Example 4: Find an instance type that supports hibernation The following example displays the instance types that support hibernation. ``` aws ec2 describe-instance-types \ --filters "Name=hibernation-supported,Values=true" \ --region `us-east-2` \ --query "InstanceTypes[*].[InstanceType]" \ --output text | sort ``` The output is a list of instance types, sorted alphabetically. The following is the start of the output only. ``` c4.2xlarge c4.4xlarge c4.8xlarge c4.large c4.xlarge c5.12xlarge c5.18xlarge c5.2xlarge c5.4xlarge c5.9xlarge ... ``` ## Find an instance type using the Tools for PowerShell You can use the [Get-EC2InstanceType](../../../powershell/latest/reference/items/Get-EC2InstanceType.md "../../../powershell/latest/reference/items/Get-EC2InstanceType.md") and [Get-EC2InstanceTypeOffering](../../../powershell/latest/reference/items/Get-EC2InstanceTypeOffering.md "../../../powershell/latest/reference/items/Get-EC2InstanceTypeOffering.md") cmdlets to find the instance types that meet your needs. ###### Examples <br>• [Find an instance type by Availability Zone](#find-instance-type-by-az-ps "#find-instance-type-by-az-ps") <br>• [Find an instance type by available memory size](#find-instance-type-by-memory-ps "#find-instance-type-by-memory-ps") <br>• [Find an instance type by available instance storage](#find-instance-type-by-storage-ps "#find-instance-type-by-storage-ps") <br>• [Find an instance type that supports hibernation](#find-instance-type-hibernation-ps "#find-instance-type-hibernation-ps") ### Find an instance type by Availability Zone The following example displays only the instance types offered in the specified Availability Zone. ``` (Get-EC2InstanceTypeOffering ` -LocationType "availability-zone" ` -Region `us-east-2` ` -Filter @{Name="location"; Values="`us-east-2a`"}).InstanceType | Sort-Object ` ``` ### Find an instance type by available memory size The following example displays only current generation instance types with 64 GiB (65536 MiB) of memory. ``` (Get-EC2InstanceType ` -Filter @{Name="current-generation"; Values="true"}, @{Name="memory-info.size-in-mib"; Values="65536"}).InstanceType | Sort-Object ``` ### Find an instance type by available instance storage The following example displays the total size of instance storage for all R7 instances with instance store volumes. ``` Get-EC2InstanceType ` -Filter @{Name="instance-type"; Values="r7*"}, @{Name="instance-storage-supported"; Values="true"} | ` Select InstanceType, @{Name="TotalSizeInGB"; Expression={($_.InstanceStorageInfo.TotalSizeInGB)}} ``` The following is example output. ``` InstanceType  TotalSizeInGB ------------  ------------- r7gd.8xlarge           1900 r7gd.16xlarge          3800 r7gd.xlarge             237 r7gd.4xlarge            950 r7gd.medium              59 r7gd.2xlarge            474 r7gd.large              118 r7gd.metal             3800 r7gd.12xlarge          2850 ``` ### Find an instance type that supports hibernation The following example displays the instance types that support hibernation. ``` (Get-EC2InstanceType ` -Filter @{Name="hibernation-supported"; Values="true"}).InstanceType | Sort-Object ```
-````
+|  r7gd.12xlarge |  2850  |
++----------------+--------+
+```
+
+### Example 4: Find an instance type that supports hibernation
+
+The following example displays the instance types that support hibernation.
+
+```
+aws ec2 describe-instance-types \
+    --filters "Name=hibernation-supported,Values=true" \
+    --region `us-east-2` \
+    --query "InstanceTypes[*].[InstanceType]" \
+    --output text | sort
+```
+
+The output is a list of instance types, sorted alphabetically. The following is the start of the output
+only.
+
+```
+c4.2xlarge
+c4.4xlarge
+c4.8xlarge
+c4.large
+c4.xlarge
+c5.12xlarge
+c5.18xlarge
+c5.2xlarge
+c5.4xlarge
+c5.9xlarge
+...
+```
+
+## Find an instance type using the Tools for PowerShell
+
+You can use the [Get-EC2InstanceType](../../../powershell/latest/reference/items/Get-EC2InstanceType.md "../../../powershell/latest/reference/items/Get-EC2InstanceType.md") and [Get-EC2InstanceTypeOffering](../../../powershell/latest/reference/items/Get-EC2InstanceTypeOffering.md "../../../powershell/latest/reference/items/Get-EC2InstanceTypeOffering.md") cmdlets to find the instance types that meet your needs.
+
+###### Examples
+
+- [Find an instance type by Availability Zone](#find-instance-type-by-az-ps "#find-instance-type-by-az-ps")
+- [Find an instance type by available memory size](#find-instance-type-by-memory-ps "#find-instance-type-by-memory-ps")
+- [Find an instance type by available instance storage](#find-instance-type-by-storage-ps "#find-instance-type-by-storage-ps")
+- [Find an instance type that supports hibernation](#find-instance-type-hibernation-ps "#find-instance-type-hibernation-ps")
+
+### Find an instance type by Availability Zone
+
+The following example displays only the instance types offered in the specified Availability Zone.
+
+```
+(Get-EC2InstanceTypeOffering `
+    -LocationType "availability-zone" `
+    -Region `us-east-2` `
+    -Filter @{Name="location"; Values="`us-east-2a`"}).InstanceType | Sort-Object `
+```
+
+### Find an instance type by available memory size
+
+The following example displays only current generation instance types with 64 GiB (65536 MiB) of memory.
+
+```
+(Get-EC2InstanceType `
+    -Filter @{Name="current-generation"; Values="true"},
+            @{Name="memory-info.size-in-mib"; Values="65536"}).InstanceType | Sort-Object
+```
+
+### Find an instance type by available instance storage
+
+The following example displays the total size of instance storage for all R7 instances with instance store volumes.
+
+```
+Get-EC2InstanceType `
+    -Filter @{Name="instance-type"; Values="r7*"},
+            @{Name="instance-storage-supported"; Values="true"} | `
+     Select InstanceType, @{Name="TotalSizeInGB"; Expression={($_.InstanceStorageInfo.TotalSizeInGB)}}
+```
+
+The following is example output.
+
+```
+InstanceType  TotalSizeInGB
+------------  -------------
+r7gd.8xlarge           1900
+r7gd.16xlarge          3800
+r7gd.xlarge             237
+r7gd.4xlarge            950
+r7gd.medium              59
+r7gd.2xlarge            474
+r7gd.large              118
+r7gd.metal             3800
+r7gd.12xlarge          2850
+```
+
+### Find an instance type that supports hibernation
+
+The following example displays the instance types that support hibernation.
+
+```
+(Get-EC2InstanceType `
+    -Filter @{Name="hibernation-supported"; Values="true"}).InstanceType | Sort-Object
+```

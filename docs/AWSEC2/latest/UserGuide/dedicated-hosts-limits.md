@@ -68,8 +68,37 @@ Table](https://aws.amazon.com/ec2/dedicated-hosts/pricing/#host-configuration "h
 
 The following table shows example instance type combinations:
 
-| Instance family | Example instance type combinations                                                                                                                               |
-| --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| R5              | <br>• Example 1: 4 x `r5.4xlarge` + 4 x `r5.2xlarge` <br>• Example 2: 1 x `r5.12xlarge` + 1 x `r5.4xlarge` + 1 x `r5.2xlarge` + 5 x `r5.xlarge` + 2 x `r5.large` |
-| C5              | <br>• Example 1: 1 x `c5.9xlarge` + 2 x `c5.4xlarge` + 1 x `c5.xlarge` <br>• Example 2: 4 x `c5.4xlarge` + 1 x `c5.xlarge` + 2 x `c5.large`                      |
-| M5              | <br>• Example 1: 4 x `m5.4xlarge` + 4 x `m5.2xlarge` <br>• Example 2: 1 x `m5.12xlarge` + 1 x `m5.4xlarge` + 1 x `m5.2xlarge` + 5 x `m5.xlarge` + 2 x `m5.large` | ###### Considerations Keep the following in mind when working with Dedicated Hosts that support multiple instance types: <br>• Using multiple instance types on the same host is possible only within the same instance family. <br>• When mixing instance types, to maximize host utilization, we recommend launching larger instance types first followed by smaller instance types. + Depending on the combination and launch order of the instance types on a Dedicated Host, it may not be physically possible to maximize the utilization of the host. When mixing instance types on a host, some capacity might be available on the host but not usable. For example, you might see 16 vCPUs available on an r5n host but may not be able to launch a 4xlarge instance on the host even though r5n.4xlarge runs on 16 vCPUs. ###### Note If you enable an A1 Dedicated Host for multiple instance types, you can launch only a mix of `a1.xlarge` and `a1.2xlarge` instances on that host. If you launch an `a1.medium` or `a1.large` instance on that host, you will be restricted to launching only more of that same instance type on the host. A single `a1.4xlarge` instance consumes all capacity on the host. If you require a host for either `a1.medium` or `a1.large` instances, we recommend that you allocate separate hosts for those instance types. |
+| Instance family | Example instance type combinations                                                                                                                                      |
+| --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| R5              | • Example 1: 4 x `r5.4xlarge` + 4 x<br>`r5.2xlarge`<br>• Example 2: 1 x `r5.12xlarge` + 1 x<br>`r5.4xlarge` + 1 x<br>`r5.2xlarge` + 5 x `r5.xlarge`<br>+ 2 x `r5.large` |
+| C5              | • Example 1: 1 x `c5.9xlarge` + 2 x<br>`c5.4xlarge` + 1 x<br>`c5.xlarge`<br>• Example 2: 4 x `c5.4xlarge` + 1 x<br>`c5.xlarge` + 2 x<br>`c5.large`                      |
+| M5              | • Example 1: 4 x `m5.4xlarge` + 4 x<br>`m5.2xlarge`<br>• Example 2: 1 x `m5.12xlarge` + 1 x<br>`m5.4xlarge` + 1 x<br>`m5.2xlarge` + 5 x `m5.xlarge`<br>+ 2 x `m5.large` |
+
+###### Considerations
+
+Keep the following in mind when working with Dedicated Hosts that support multiple
+instance types:
+
+- Using multiple instance types on the same host is possible only within
+  the same instance family.
+- When mixing instance types, to maximize host utilization, we recommend
+  launching larger instance types first followed by smaller instance types.
+  - Depending on the combination and launch order of the instance
+    types on a Dedicated Host, it may not be physically possible to
+    maximize the utilization of the host. When mixing instance types
+    on a host, some capacity might be available on the host but not
+    usable. For example, you might see 16 vCPUs available on an r5n
+    host but may not be able to launch a 4xlarge instance on the host
+    even though r5n.4xlarge runs on 16 vCPUs.
+
+###### Note
+
+If you enable an A1 Dedicated Host for multiple instance types, you can
+launch only a mix of `a1.xlarge` and `a1.2xlarge`
+instances on that host. If you launch an `a1.medium` or
+`a1.large` instance on that host, you will be restricted to
+launching only more of that same instance type on the host. A single
+`a1.4xlarge` instance consumes all capacity on the host. If you
+require a host for either `a1.medium` or `a1.large`
+instances, we recommend that you allocate separate hosts for those instance
+types.

@@ -2,10 +2,239 @@
 
 Amazon EC2 instance
 
-|                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Tutorial objective** | Learn how to quickly launch an Amazon EC2 instance by using the default settings in the Amazon EC2 launch instance wizard. Also learn how to review the instance configuration fields and terminate the instance.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| **EC2 experience**     | Beginner                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| **Duration**           | 10 minutes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| **Cost**               | Free Tier eligible When you create your AWS account, you can get started with Amazon EC2 for free using the [AWS Free Tier](https://aws.amazon.com/free/ "https://aws.amazon.com/free/"). If you created your AWS account before July 15, 2025, it's less than 12 months old, and you haven't already exceeded the Free Tier benefits for Amazon EC2, it won't cost you anything to complete this tutorial, because we help you select options that are within the Free Tier benefits. Otherwise, you'll incur the standard Amazon EC2 usage fees from the time that you launch the instance (even if it remains idle) until you terminate it. If you created your AWS account on or after July 15, 2025, it's less than 6 months old, and you haven't used up all your credits, it won't cost you anything to complete this tutorial, because we help you select options that are within the Free Tier benefits. For information on how to determine whether you're eligible for the Free Tier, see [Track your Free Tier usage for Amazon EC2](ec2-free-tier-usage.md "ec2-free-tier-usage.md"). |
-| **Prerequisites**      | <br>• You must have an AWS account, configure a user with administrator access, and use the administrator user to sign into the AWS Management Console. Not sure how to do this? Try this tutorial: [Setting Up Your AWS Environment](https://aws.amazon.com/getting-started/guides/setup-environment/ "https://aws.amazon.com/getting-started/guides/setup-environment/") <br>• You must have general familiarity with the AWS console. Not sure where to start? Try this getting started guide: [Getting Started with the AWS Management Console](https://aws.amazon.com/getting-started/hands-on/getting-started-with-aws-management-console/ "https://aws.amazon.com/getting-started/hands-on/getting-started-with-aws-management-console/")                                                                                                                                                                                                                                                                                                                                                   | ## Tutorial overview This tutorial is designed for beginners with no prior experience using Amazon EC2. We'll guide you through the steps for creating—we call it _launching_—your very first EC2 instance using the EC2 console. An _instance_ is essentially a web server in the AWS Cloud. After launching your instance, we'll show you how to find it in the console. Finally, to help you manage costs, we'll show you how to delete—we call it _terminate_—your instance. This tutorial is divided into the following short tasks. You must complete each task before moving to the next one. <br>• [Task 1: Launch your instance](#task-1-quickly-launch-instance "#task-1-quickly-launch-instance") <br>• [Task 2: Find your instance](#task-2-find-your-first-instance-in-the-console "#task-2-find-your-first-instance-in-the-console") <br>• [Task 3: View your instance configuration](#task-3-view-your-first-instance-configuration "#task-3-view-your-first-instance-configuration") <br>• [Task 4: Terminate your instance](#task-4-terminate-your-first-instance "#task-4-terminate-your-first-instance") ## Task 1: Launch your instance In this task, you'll take the quickest path to launching your instance by doing only the essentials. We'll use the EC2 launch instance wizard, a web-based form that provides all the fields for configuring and launching your instance. It simplifies the process by providing default values for the instance configuration fields. ###### Before you start Make sure you've completed the prerequisites listed in the preceding table, including signing into the AWS Management Console with your administrator user. ###### Follow these steps to quickly launch your instance 1. **Open the Amazon EC2 console:** Go to [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/"). 2. **Open the EC2 launch instance wizard:** From the EC2 dashboard, choose **Launch instance**. The **Launch an instance** web-based form opens. This is the EC2 launch instance wizard. 3. **Name your instance:** Under **Name and tags**, for **Name**, enter a descriptive name like `My first EC2 instance`. While naming your instance isn't required, it helps identify your instance later. 4. **Proceed without a key pair:** Under **Key pair (login)**, for **Key pair name**, choose **Proceed without a key pair (Not recommended)**. A key pair can be used for secure login. However, because we won't be logging into the instance in this tutorial, you don't need a key pair for now. 5. **Launch your instance:** In the **Summary** panel on the right, choose **Launch instance**. Amazon EC2 quickly launches your instance using the default settings. A **Success** banner confirms the launch. **Congratulations!** You've successfully launched your very first EC2 instance! ## Task 2: Find your instance In this task, you'll locate the instance that you just launched in the EC2 console. ###### Follow these steps to find your instance in the EC2 console 1. **Open the **Instances** page:** If you're still on the success page, choose **Instances** in the breadcrumb at the top of the screen. You might need to choose the three ellipses first to access it. If you've navigated away, choose **Instances** from the navigation pane. 2. **Locate your instance:** In the **Name** column, find your instance by the name you gave it. ## Task 3: View your instance configuration In this task, you'll become familiar with viewing your instance's configuration details. ###### Follow these steps to view your instance's configuration 1. **Locate the instance ID:** In the **Instance ID** column, take note of your instance's unique ID. It begins with **i–** followed by 17 alphanumeric characters, for example, **i-01aeed690c9fb5322**. The instance ID is automatically assigned to your instance when it's launched. 2. **Open the instance details page:** In the **Instance ID** column, choose the ID link to open the instance details page where you can review its configuration. 3. **Explore instance configuration details:** Take a few minutes to explore the configuration details of your instance. In the next tutorial, we'll dive deeper into the configuration. For now, use this time to familiarize yourself with the instance details page. **Tip:** To quickly find a field, press Ctrl+F or command+F on your keyboard. 1. **Instance type:** Can you find the instance type? It might be **t3.micro**, for example. 2. **Public IPv4 address:** Can you find the public IPv4 address that was allocated to your instance? It's in a format similar to the following example: **34.242.148.128**. 3. **Instance owner:** Can you identify the owner of this instance? It's you! Your AWS account number is listed under the **Owner** field. 4. **Instance tags:** The name you gave your instance is actually a tag. Can you find your instance tags? Choose the **Tags** tab. The key is **Name**, and the value is the name you provided. 5. **Launch time:** Can you find when you launched your instance? Choose the **Details** tab and find the **Launch time** field. 6. **Instance state:** Can you verify the state of your instance? It should be **Running**. Take a few more minutes to explore the other instance configuration fields. When you're ready, proceed to the next task. ## Task 4: Terminate your instance ###### Warning **Terminating an instance is permanent and irreversible.** After you terminate an instance, you can no longer connect to it, and it can't be recovered. All attached Amazon EBS volumes that are configured to be deleted on termination are also permanently deleted and can't be recovered. All data stored on instance store volumes is permanently lost. For more information, see [How instance termination works](how-ec2-instance-termination-works.md "how-ec2-instance-termination-works.md"). Before you terminate an instance, ensure that you have backed up all data that you need to retain after the termination to persistent storage. In this task, you'll delete your instance to preserve your Free Tier benefits. In EC2, _terminate_ is the term used for deleting an instance. ###### Follow these steps to terminate your instance 1. **Initiate termination:** If you're still on the instance details page, choose the **Instance state** menu (top right), and then choose **Terminate (delete) instance**. If you've navigated away, choose **Instances** from the navigation pane. Then, on the **Instances** page, select the checkbox next to the name of your instance, and then choose the **Instance state** menu (top right), and choose **Terminate (delete) instance**. 2. **Confirm termination:** In the **Terminate (delete) instance** window that opens, choose the **Terminate (delete)** button to confirm that you want to terminate your instance. 3. **Monitor instance state:** On the **Instances** page, check the **Instance state** column. The state of your instance changes to **Shutting-down**. If you don't see the full text, try widening the column. Once the instance has shut down, Amazon EC2 deletes the instance, and it disappears from the **Instances** page. ## Key takeaways In this tutorial, you covered the following key concepts: <br>• _Instance_ refers to an Amazon EC2 web server in the AWS Cloud. <br>• _Launch_ refers to creating an EC2 instance. <br>• _Terminate_ refers to deleting an EC2 instance. <br>• The EC2 launch instance wizard contains default values for instance configuration, allowing for a quick and easy instance launch. <br>• The instance ID is a unique identifier automatically assigned to your instance, while the instance name is an optional tag that you can assign for easier identification. ## Next steps To build confidence in launching and terminating instances, consider repeating the steps in this tutorial. Be sure to terminate any instances that you launch to preserve your Free Tier benefits. Once you're comfortable with these basics, move onto the next tutorial, which provides a deeper dive into key instance configuration fields. |
+|                        |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| ---------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Tutorial objective** | Learn how to quickly launch an Amazon EC2 instance by using the default<br>settings in the Amazon EC2 launch instance wizard. Also learn how to<br>review the instance configuration fields and terminate the<br>instance.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| **EC2 experience**     | Beginner                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| **Duration**           | 10 minutes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| **Cost**               | Free Tier eligible<br>When you create your AWS account, you can get started with Amazon EC2<br>for free using the [AWS Free Tier](https://aws.amazon.com/free/ "https://aws.amazon.com/free/").<br>If you created your AWS account before July 15, 2025, it's less<br>than 12 months old, and you haven't already exceeded the Free Tier<br>benefits for Amazon EC2, it won't cost you anything to complete this<br>tutorial, because we help you select options that are within the<br>Free Tier benefits. Otherwise, you'll incur the standard Amazon EC2<br>usage fees from the time that you launch the instance (even if it<br>remains idle) until you terminate it.<br>If you created your AWS account on or after July 15, 2025, it's<br>less than 6 months old, and you haven't used up all your credits, it<br>won't cost you anything to complete this tutorial, because we help<br>you select options that are within the Free Tier benefits.<br>For information on how to determine whether<br>you're eligible for the Free Tier, see [Track your Free Tier usage for Amazon EC2](ec2-free-tier-usage.md "ec2-free-tier-usage.md"). |
+| **Prerequisites**      | • You must have an AWS account, configure a user with<br>administrator access, and use the administrator user to sign<br>into the AWS Management Console. Not sure how to do this? Try this<br>tutorial: [Setting<br>Up Your AWS Environment](https://aws.amazon.com/getting-started/guides/setup-environment/ "https://aws.amazon.com/getting-started/guides/setup-environment/")<br>• You must have general familiarity with the AWS console.<br>Not sure where to start? Try this getting started guide:<br>[Getting Started with the AWS Management Console](https://aws.amazon.com/getting-started/hands-on/getting-started-with-aws-management-console/ "https://aws.amazon.com/getting-started/hands-on/getting-started-with-aws-management-console/")                                                                                                                                                                                                                                                                                                                                                                                   |
+
+## Tutorial
+
+overview
+
+This tutorial is designed for beginners with no prior experience using Amazon EC2.
+We'll guide you through the steps for creating—we call it _launching_—your very first EC2 instance using the
+EC2 console. An _instance_ is essentially a web
+server in the AWS Cloud. After launching your instance, we'll show you how to find
+it in the console. Finally, to help you manage costs, we'll show you how to
+delete—we call it _terminate_—your
+instance.
+
+This tutorial is divided into the following short tasks. You must complete each
+task before moving to the next one.
+
+- [Task 1: Launch your
+  instance](#task-1-quickly-launch-instance "#task-1-quickly-launch-instance")
+- [Task 2: Find your
+  instance](#task-2-find-your-first-instance-in-the-console "#task-2-find-your-first-instance-in-the-console")
+- [Task 3: View your
+  instance configuration](#task-3-view-your-first-instance-configuration "#task-3-view-your-first-instance-configuration")
+- [Task 4: Terminate your
+  instance](#task-4-terminate-your-first-instance "#task-4-terminate-your-first-instance")
+
+## Task 1: Launch your
+
+instance
+
+In this task, you'll take the quickest path to launching your instance by doing
+only the essentials. We'll use the EC2 launch instance wizard, a web-based form that
+provides all the fields for configuring and launching your instance. It simplifies
+the process by providing default values for the instance configuration
+fields.
+
+###### Before you start
+
+Make sure you've completed the prerequisites listed in the preceding table,
+including signing into the AWS Management Console with your administrator user.
+
+###### Follow these steps to quickly launch your instance
+
+1. **Open the Amazon EC2 console:**
+
+Go to [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/"). 2. **Open the EC2 launch instance
+wizard:**
+
+From the EC2 dashboard, choose **Launch
+instance**.
+
+The **Launch an instance** web-based form opens. This is
+the EC2 launch instance wizard. 3. **Name your instance:**
+
+Under **Name and tags**, for **Name**,
+enter a descriptive name like `My first EC2
+ instance`.
+
+While naming your instance isn't required, it helps identify your instance
+later. 4. **Proceed without a key pair:**
+
+Under **Key pair (login)**, for **Key pair
+name**, choose **Proceed without a key pair (Not
+recommended)**.
+
+A key pair can be used for secure login. However, because we won't be
+logging into the instance in this tutorial, you don't need a key pair for
+now. 5. **Launch your instance:**
+
+In the **Summary** panel on the right, choose
+**Launch instance**.
+
+Amazon EC2 quickly launches your instance using the default settings. A
+**Success** banner confirms the launch.
+
+**Congratulations!** You've successfully launched
+your very first EC2 instance!
+
+## Task 2: Find your
+
+instance
+
+In this task, you'll locate the instance that you just launched in the EC2
+console.
+
+###### Follow these steps to find your instance in the EC2 console
+
+1. **Open the **Instances**
+   page:**
+
+If you're still on the success page, choose **Instances**
+in the breadcrumb at the top of the screen. You might need to choose the
+three ellipses first to access it.
+
+If you've navigated away, choose **Instances** from the
+navigation pane. 2. **Locate your instance:**
+
+In the **Name** column, find your instance by the name
+you gave it.
+
+## Task 3: View your
+
+instance configuration
+
+In this task, you'll become familiar with viewing your instance's configuration
+details.
+
+###### Follow these steps to view your instance's configuration
+
+1. **Locate the instance ID:**
+
+In the **Instance ID** column, take note of your
+instance's unique ID. It begins with **i–** followed
+by 17 alphanumeric characters, for example,
+**i-01aeed690c9fb5322**.
+
+The instance ID is automatically assigned to your instance when it's
+launched. 2. **Open the instance details page:**
+
+In the **Instance ID** column, choose the ID link to open
+the instance details page where you can review its configuration. 3. **Explore instance configuration
+details:**
+
+Take a few minutes to explore the configuration details of your instance.
+In the next tutorial, we'll dive deeper into the configuration. For now, use
+this time to familiarize yourself with the instance details page.
+
+**Tip:** To quickly find a field, press
+Ctrl+F or command+F on your keyboard.
+
+    1. **Instance type:** Can you find the
+     instance type? It might be **t3.micro**, for
+     example.
+    2. **Public IPv4 address:** Can you find
+     the public IPv4 address that was allocated to your instance? It's in
+     a format similar to the following example:
+     **34.242.148.128**.
+    3. **Instance owner:** Can you identify
+     the owner of this instance? It's you! Your AWS account number is
+     listed under the **Owner** field.
+    4. **Instance tags:** The name you gave
+     your instance is actually a tag. Can you find your instance tags?
+     Choose the **Tags** tab. The key is
+     **Name**, and the value is the name you
+     provided.
+    5. **Launch time:** Can you find when
+     you launched your instance? Choose the **Details**
+     tab and find the **Launch time** field.
+    6. **Instance state:** Can you verify
+     the state of your instance? It should be
+     **Running**.
+
+Take a few more minutes to explore the other instance configuration fields. When
+you're ready, proceed to the next task.
+
+## Task 4: Terminate your
+
+instance
+
+###### Warning
+
+**Terminating an instance is permanent and irreversible.**
+
+After you terminate an instance, you can no longer connect to it, and it can't be recovered.
+All attached Amazon EBS volumes that are configured to be deleted on termination are also permanently
+deleted and can't be recovered. All data stored on instance store volumes is permanently lost.
+For more information, see [How instance termination
+works](how-ec2-instance-termination-works.md "how-ec2-instance-termination-works.md").
+
+Before you terminate an instance, ensure that you have backed up all data that you need to
+retain after the termination to persistent storage.
+
+In this task, you'll delete your instance to preserve your Free Tier benefits. In
+EC2, _terminate_ is the term used for deleting an
+instance.
+
+###### Follow these steps to terminate your instance
+
+1. **Initiate termination:**
+
+If you're still on the instance details page, choose the
+**Instance state** menu (top right), and then choose
+**Terminate (delete) instance**.
+
+If you've navigated away, choose **Instances** from the
+navigation pane. Then, on the **Instances** page, select
+the checkbox next to the name of your instance, and then choose the
+**Instance state** menu (top right), and choose
+**Terminate (delete) instance**. 2. **Confirm termination:**
+
+In the **Terminate (delete) instance** window that opens,
+choose the **Terminate (delete)** button to confirm that
+you want to terminate your instance. 3. **Monitor instance state:**
+
+On the **Instances** page, check the **Instance
+state** column. The state of your instance changes to
+**Shutting-down**. If you don't see the full text, try
+widening the column.
+
+Once the instance has shut down, Amazon EC2 deletes the instance, and it
+disappears from the **Instances** page.
+
+## Key
+
+takeaways
+
+In this tutorial, you covered the following key concepts:
+
+- _Instance_ refers to an Amazon EC2 web server
+  in the AWS Cloud.
+- _Launch_ refers to creating an EC2
+  instance.
+- _Terminate_ refers to deleting an EC2
+  instance.
+- The EC2 launch instance wizard contains default values for instance
+  configuration, allowing for a quick and easy instance launch.
+- The instance ID is a unique identifier automatically assigned to your
+  instance, while the instance name is an optional tag that you can assign for
+  easier identification.
+
+## Next
+
+steps
+
+To build confidence in launching and terminating instances, consider repeating the
+steps in this tutorial. Be sure to terminate any instances that you launch to
+preserve your Free Tier benefits.
+
+Once you're comfortable with these basics, move onto the next tutorial, which
+provides a deeper dive into key instance configuration fields.

@@ -32,7 +32,7 @@ supported instance type.
 - [Network bandwidth](ec2-instance-network-bandwidth.md "ec2-instance-network-bandwidth.md")
 - [Enhanced networking](enhanced-networking.md "enhanced-networking.md")
 - [Elastic Fabric Adapter](efa.md "efa.md")
-- [Instance topology](ec2-instance-topology.md "ec2-instance-topology.md")
+- [EC2 topology](ec2-instance-topology.md "ec2-instance-topology.md")
 - [Placement groups](placement-groups.md "placement-groups.md")
 - [Network MTU](network_mtu.md "network_mtu.md")
 - [Virtual private clouds](using-vpc.md "using-vpc.md")

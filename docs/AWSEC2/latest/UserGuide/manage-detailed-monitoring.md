@@ -12,7 +12,117 @@ attached EBS volumes. For more information, see [Amazon CloudWatch metrics for A
 The following table highlights the differences between basic monitoring and detailed
 monitoring for your instances.
 
-| Monitoring type         | Description                                                                                                                                                                                                | Charges                                                                                                                                                                                                                                                                                             |
-| ----------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **Basic monitoring**    | Status check metrics are available in 1-minute periods. All other metrics are available in 5-minute periods.                                                                                               | No charge.                                                                                                                                                                                                                                                                                          |
-| **Detailed monitoring** | You can get metrics in 1-minute periods, provided you enable detailed monitoring for the instance. Once you've enabled detailed monitoring, you can aggregate the data across groups of similar instances. | You are charged per metric that Amazon EC2 sends to CloudWatch. You are not charged for data storage. For more information, see **Paid tier** on the [Amazon CloudWatch pricing page](https://aws.amazon.com/cloudwatch/pricing/#Paid_tier "https://aws.amazon.com/cloudwatch/pricing/#Paid_tier"). | ###### Contents <br>• [Required permissions](#iam-detailed-monitoring "#iam-detailed-monitoring") <br>• [Enable detailed monitoring at launch](#enable-detailed-monitoring "#enable-detailed-monitoring") <br>• [Manage detailed monitoring](#disable-detailed-monitoring "#disable-detailed-monitoring") ## Required permissions To enable detailed monitoring for an instance, your user must have permission to use the [MonitorInstances](../APIReference/API_MonitorInstances.md "../APIReference/API_MonitorInstances.md") API action. To turn off detailed monitoring for an instance, your user must have permission to use the [UnmonitorInstances](../APIReference/API_UnmonitorInstances.md "../APIReference/API_UnmonitorInstances.md") API action. ## Enable detailed monitoring at launch Use the following procedures to enable detailed monitoring at launch. By default, your instance uses basic monitoring. Console ###### To enable detailed monitoring when launching an instance When launching an instance using the Amazon EC2 console, under **Advanced details**, select the **Detailed CloudWatch monitoring** checkbox. AWS CLI ###### To enable detailed monitoring when launching an instance Use the [run-instances](../../../cli/latest/reference/ec2/run-instances.md "../../../cli/latest/reference/ec2/run-instances.md") command with the `--monitoring` option. `--monitoring Enabled=true` PowerShell ###### To enable detailed monitoring when launching an instance Use the [New-EC2Instance](../../../powershell/latest/reference/items/New-EC2Instance.md "../../../powershell/latest/reference/items/New-EC2Instance.md") cmdlet with the `-Monitoring` parameter. `-Monitoring $true` ## Manage detailed monitoring Use the following procedures to manage detailed monitoring for a running or stopped instance. Console ###### To manage detailed monitoring 1. Open the Amazon EC2 console at [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/"). 2. In the navigation pane, choose **Instances**. 3. Select the instance. 4. Choose **Actions**, **Monitor and troubleshoot**, **Manage detailed monitoring**. 5. On the **Detailed monitoring** page, for **Detailed monitoring**, do one of the following: <br>• Detailed monitoring – Select **Enable**. <br>• Basic monitoring – Clear **Enable**. 6. Choose **Confirm**. AWS CLI ###### To enable detailed monitoring Use the following [monitor-instances](../../../cli/latest/reference/ec2/monitor-instances.md "../../../cli/latest/reference/ec2/monitor-instances.md") command. `` aws ec2 monitor-instances --instance-ids `i-1234567890abcdef0` `` ###### To disable detailed monitoring Use the [unmonitor-instances](../../../cli/latest/reference/ec2/unmonitor-instances.md "../../../cli/latest/reference/ec2/unmonitor-instances.md") command. `` aws ec2 unmonitor-instances --instance-ids `i-1234567890abcdef0` `` PowerShell ###### To enable detailed monitoring Use the [Start-EC2InstanceMonitoring](../../../powershell/latest/reference/items/Start-EC2InstanceMonitoring.md "../../../powershell/latest/reference/items/Start-EC2InstanceMonitoring.md") cmdlet. `` Start-EC2InstanceMonitoring -InstanceId `i-1234567890abcdef0` `` ###### To disable detailed monitoring Use the [Stop-EC2InstanceMonitoring](../../../powershell/latest/reference/items/Stop-EC2InstanceMonitoring.md "../../../powershell/latest/reference/items/Stop-EC2InstanceMonitoring.md") cmdlet. `` Stop-EC2InstanceMonitoring -InstanceId `i-1234567890abcdef0` `` |
+| Monitoring type         | Description                                                                                                                                                                                                         | Charges                                                                                                                                                                                                                                                                                                   |
+| ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Basic monitoring**    | Status check metrics are available in 1-minute periods.<br>All other metrics are available in 5-minute periods.                                                                                                     | No charge.                                                                                                                                                                                                                                                                                                |
+| **Detailed monitoring** | You can get metrics in 1-minute periods, provided you enable detailed monitoring for the<br>instance.<br>Once you've enabled detailed monitoring, you can aggregate the data across<br>groups of similar instances. | You are charged per metric that Amazon EC2 sends to CloudWatch. You are not charged for<br>data storage. For more information, see **Paid tier**<br>on the [Amazon CloudWatch pricing page](https://aws.amazon.com/cloudwatch/pricing/#Paid_tier "https://aws.amazon.com/cloudwatch/pricing/#Paid_tier"). |
+
+###### Contents
+
+- [Required permissions](#iam-detailed-monitoring "#iam-detailed-monitoring")
+- [Enable detailed monitoring at launch](#enable-detailed-monitoring "#enable-detailed-monitoring")
+- [Manage detailed monitoring](#disable-detailed-monitoring "#disable-detailed-monitoring")
+
+## Required permissions
+
+To enable detailed monitoring for an instance, your user must
+have permission to use the [MonitorInstances](../APIReference/API_MonitorInstances.md "../APIReference/API_MonitorInstances.md")
+API action. To turn off detailed monitoring for an instance, your
+user must have permission to use the [UnmonitorInstances](../APIReference/API_UnmonitorInstances.md "../APIReference/API_UnmonitorInstances.md")
+API action.
+
+## Enable detailed monitoring at launch
+
+Use the following procedures to enable detailed monitoring at launch. By default,
+your instance uses basic monitoring.
+
+Console
+
+###### To enable detailed monitoring when launching an instance
+
+When launching an instance using the Amazon EC2 console, under **Advanced
+details**, select the **Detailed CloudWatch monitoring**
+checkbox.
+
+AWS CLI
+
+###### To enable detailed monitoring when launching an instance
+
+Use the [run-instances](../../../cli/latest/reference/ec2/run-instances.md "../../../cli/latest/reference/ec2/run-instances.md")
+command with the `--monitoring` option.
+
+```
+--monitoring Enabled=true
+```
+
+PowerShell
+
+###### To enable detailed monitoring when launching an instance
+
+Use the [New-EC2Instance](../../../powershell/latest/reference/items/New-EC2Instance.md "../../../powershell/latest/reference/items/New-EC2Instance.md")
+cmdlet with the `-Monitoring` parameter.
+
+```
+-Monitoring $true
+```
+
+## Manage detailed monitoring
+
+Use the following procedures to manage detailed monitoring for a running or stopped instance.
+
+Console
+
+###### To manage detailed monitoring
+
+1. Open the Amazon EC2 console at
+   [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
+2. In the navigation pane, choose **Instances**.
+3. Select the instance.
+4. Choose **Actions**, **Monitor and troubleshoot**,
+   **Manage detailed monitoring**.
+5. On the **Detailed monitoring** page, for **Detailed
+   monitoring**, do one of the following:
+   - Detailed monitoring – Select **Enable**.
+   - Basic monitoring – Clear **Enable**.
+
+6. Choose **Confirm**.
+
+AWS CLI
+
+###### To enable detailed monitoring
+
+Use the following [monitor-instances](../../../cli/latest/reference/ec2/monitor-instances.md "../../../cli/latest/reference/ec2/monitor-instances.md")
+command.
+
+```
+aws ec2 monitor-instances --instance-ids `i-1234567890abcdef0`
+```
+
+###### To disable detailed monitoring
+
+Use the [unmonitor-instances](../../../cli/latest/reference/ec2/unmonitor-instances.md "../../../cli/latest/reference/ec2/unmonitor-instances.md")
+command.
+
+```
+aws ec2 unmonitor-instances --instance-ids `i-1234567890abcdef0`
+```
+
+PowerShell
+
+###### To enable detailed monitoring
+
+Use the [Start-EC2InstanceMonitoring](../../../powershell/latest/reference/items/Start-EC2InstanceMonitoring.md "../../../powershell/latest/reference/items/Start-EC2InstanceMonitoring.md")
+cmdlet.
+
+```
+Start-EC2InstanceMonitoring -InstanceId `i-1234567890abcdef0`
+```
+
+###### To disable detailed monitoring
+
+Use the [Stop-EC2InstanceMonitoring](../../../powershell/latest/reference/items/Stop-EC2InstanceMonitoring.md "../../../powershell/latest/reference/items/Stop-EC2InstanceMonitoring.md")
+cmdlet.
+
+```
+Stop-EC2InstanceMonitoring -InstanceId `i-1234567890abcdef0`
+```

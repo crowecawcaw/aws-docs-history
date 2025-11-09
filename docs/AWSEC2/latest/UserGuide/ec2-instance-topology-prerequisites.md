@@ -1,14 +1,16 @@
-# Prerequisites for Amazon EC2 instance topology
+# Prerequisites for Amazon EC2
 
-Before you describe the instance topology for your instances, ensure that your instances
-meet the following requirements.
+topology
 
-###### Requirements to describe the topology of your instances
+To describe your Amazon EC2 topology, ensure that your instances and Capacity Reservations meet the
+following prerequisites.
+
+###### Prerequisites for:
 
 - [AWS Regions](#inst-net-topology-prereqs-regions "#inst-net-topology-prereqs-regions")
 - [Instance types](#inst-net-topology-prereqs-instance-types "#inst-net-topology-prereqs-instance-types")
-- [Instance state](#inst-net-topology-prereqs-instance-state "#inst-net-topology-prereqs-instance-state")
-- [IAM permission](#ec2-instance-topology-iam-permissions "#ec2-instance-topology-iam-permissions")
+- [State](#inst-net-topology-prereqs-instance-state "#inst-net-topology-prereqs-instance-state")
+- [IAM permissions](#ec2-instance-topology-iam-permissions "#ec2-instance-topology-iam-permissions")
 
 ## AWS Regions
 
@@ -16,21 +18,32 @@ Supported AWS Regions:
 
 - US East (N. Virginia), US East (Ohio), US West (N. California),
   US West (Oregon)
-- Asia Pacific (Melbourne), Asia Pacific (Mumbai), Asia Pacific (Seoul),
-  Asia Pacific (Singapore), Asia Pacific (Sydney),
+- Africa (Cape Town)
+- Asia Pacific (Jakarta), Asia Pacific (Hong Kong), Asia Pacific (Hyderabad),
+  Asia Pacific (Melbourne), Asia Pacific (Mumbai), Asia Pacific (Osaka),
+  Asia Pacific (Seoul), Asia Pacific (Singapore), Asia Pacific (Sydney),
   Asia Pacific (Tokyo)
 - Canada (Central)
 - Europe (Frankfurt), Europe (Ireland), Europe (London),
-  Europe (Paris), Europe (Spain), Europe (Stockholm)
+  Europe (Paris), Europe (Spain), Europe (Stockholm),
+  Europe (Zurich)
 - Israel (Tel Aviv)
+- Middle East (Bahrain), Middle East (UAE)
 - South America (São Paulo)
 - AWS GovCloud (US-West)
+
+The DescribeCapacityReservationTopology API is not supported in
+Israel (Tel Aviv) and AWS GovCloud (US-West).
 
 ## Instance types
 
 Supported instance types:
 
-- Returns 3 network nodes in the response
+- Returns 3\* network nodes in the response
+  - `g6e.xlarge` | `g6e.2xlarge` |
+    `g6e.4xlarge` | `g6e.8xlarge` |
+    `g6e.12xlarge` | `g6e.16xlarge` |
+    `g6e.24xlarge` | `g6e.48xlarge`
   - `hpc6a.48xlarge` | `hpc6id.32xlarge` |
     `hpc7a.12xlarge` | `hpc7a.24xlarge` |
     `hpc7a.48xlarge` | `hpc7a.96xlarge` |
@@ -44,20 +57,31 @@ Supported instance types:
     `trn1n.32xlarge` | `trn2.48xlarge` |
     `trn2u.48xlarge`
 
-- Returns 4 network nodes in the response
+- Returns 4\* network nodes in the response
   - `p6-b200.48xlarge`
 
-The available instance types vary by Region. For more information, see
-[Amazon EC2 instance types by Region](../../../ec2/latest/instancetypes/ec2-instance-regions.md "../../../ec2/latest/instancetypes/ec2-instance-regions.md").
+\* The number of network nodes returned is only applicable when using the
+DescribeInstanceTopology API. For the DescribeCapacityReservationTopology API, the
+number of network nodes returned will vary depending on the type and state of the
+Capacity Reservation.
 
-## Instance state
+The available instance types vary by Region. For more information, see [Amazon EC2 instance types by
+Region](../../../ec2/latest/instancetypes/ec2-instance-regions.md "../../../ec2/latest/instancetypes/ec2-instance-regions.md").
 
-Instances must be in the `running` state. You can’t get instance
-topology information for instances that are in another state.
+## State
 
-## IAM permission
+- For `DescribeInstanceTopology` – Instances must be
+  in the `running` state.
+- For `DescribeCapacityReservationTopology` – Capacity Reservations
+  must be in the `pending` or `active` state.
 
-Your IAM identity (user, user group, or role) requires the following IAM
-permission:
+You can’t get topology information for instances or Capacity Reservations in any other
+state.
+
+## IAM permissions
+
+Your IAM identity (user, user group, or role) requires the following
+permissions:
 
 - `ec2:DescribeInstanceTopology`
+- `ec2:DescribeCapacityReservationTopology`

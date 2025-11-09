@@ -236,10 +236,8 @@ set the `--reboot-migration` parameter to
 `disabled`.
 
 ```
-aws ec2 modify-instance-maintenance-options \
-
-    --instance-id `i-0abcdef1234567890` \
-
+aws ec2 modify-instance-maintenance-options \ 
+    --instance-id `i-0abcdef1234567890` \ 
     --reboot-migration disabled
 ```
 
@@ -250,10 +248,8 @@ set the `--reboot-migration` parameter to
 `default`.
 
 ```
-aws ec2 modify-instance-maintenance-options \
-
-    --instance-id `i-0abcdef1234567890` \
-
+aws ec2 modify-instance-maintenance-options \ 
+    --instance-id `i-0abcdef1234567890` \ 
     --reboot-migration default
 ```
 

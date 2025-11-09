@@ -16,8 +16,7 @@ and scaling policies are created with Application Auto Scaling.
 Spot Fleet supports the following types of automatic scaling:
 
 - [Target tracking scaling](spot-fleet-target-tracking.md "spot-fleet-target-tracking.md")
-  – Increase or decrease
-  the current capacity of the fleet by targeting a
+  – Increase or decrease  the current capacity of the fleet by targeting a
   value for a specific metric. This is similar to the way that your thermostat
   maintains the temperature of your home—you select the desired temperature
   and the thermostat does the rest.
