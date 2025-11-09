@@ -9,11 +9,14 @@ more information, see the [Amazon CloudWatch User Guide](../../../AmazonCloudWat
 The re:Post Private service reports the following metrics
 in the `AWS/rePostPrivate` namespace.
 
-| Metric           | Description                                                                                       |
-| ---------------- | ------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------- |
-| `NumberOfSpaces` | The number of private re:Posts in the current account. Units: Count                               |
-| `NumberOfUsers`  | The number of users in a private re:Post. This metric uses spaceId as a dimension. Units: Count   |
-| `ContentSize`    | The amount of content in a private re:Post. This metric uses spaceId as a dimension. Units: Bytes | The following dimensions are supported for the re:Post Private metrics. |
-| Dimension        | Description                                                                                       |
-| ---              | ---                                                                                               |
-| `spaceId`        | The unique identifier for the private re:Post.                                                    |
+| Metric           | Description                                                                                          |
+| ---------------- | ---------------------------------------------------------------------------------------------------- |
+| `NumberOfSpaces` | The number of private re:Posts in the current account.<br>Units: Count                               |
+| `NumberOfUsers`  | The number of users in a private re:Post. This metric uses spaceId as a dimension.<br>Units: Count   |
+| `ContentSize`    | The amount of content in a private re:Post. This metric uses spaceId as a dimension.<br>Units: Bytes |
+
+The following dimensions are supported for the re:Post Private metrics.
+
+| Dimension | Description                                    |
+| --------- | ---------------------------------------------- |
+| `spaceId` | The unique identifier for the private re:Post. |
