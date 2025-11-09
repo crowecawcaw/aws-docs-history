@@ -84,11 +84,50 @@ Region where Amazon FSx for Lustre is available. For more information, see the A
 _AWS General Reference_. 2. For **Parameters**, review the parameters for the template and modify
 them for the needs of your file system. This solution uses the following default values.
 
-| Parameter                            | Default               | Description                                                                                                                           |
-| ------------------------------------ | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Amazon FSx for Lustre file system ID | No default value      | The file system ID for the file system that you want to back up.                                                                      |
-| CRON schedule pattern for backups.   | 0 0/4 \* \* ? \*      | The schedule to run the CloudWatch event, triggering a new backup and deleting old backups outside of the retention period.           |
-| Backup retention (days)              | 7                     | The number of days to keep user-initiated backups. The Lambda function deletes user-initiated backups older than this number of days. |
-| Name for backups                     | user-scheduled backup | The name for these backups, which appears in the **Backup Name** column of the Amazon FSx for Lustre Management Console.              |
-| Backup notifications                 | Yes                   | Choose whether to be notified when backups are successfully initiated. A notification is always sent if there's an error.             |
-| Email address                        | No default value      | The email address to subscribe to the SNS notifications.                                                                              | 3. Choose **Next**. 4. For **Options**, choose **Next**. 5. For **Review**, review and confirm the settings. You must select the check box acknowledging that the template create IAM resources. 6. Choose **Create** to deploy the stack. You can view the status of the stack in the AWS CloudFormation console in the **Status** column. You should see a status of **CREATE_COMPLETE** in about five minutes. ### Additional options You can use the Lambda function created by this solution to perform custom scheduled backups of more than one Amazon FSx for Lustre file system. The file system ID is passed to the Amazon FSx for Lustre function in the input JSON for the CloudWatch event. The default JSON passed to the Lambda function is as follows, where the values for `FileSystemId` and `SuccessNotification` are passed from the parameters specified when launching the AWS CloudFormation stack. `{ "start-backup": "true", "purge-backups": "true", "filesystem-id": "${FileSystemId}", "notify_on_success": "${SuccessNotification}" }` To schedule backups for an additional Amazon FSx for Lustre file system, create another CloudWatch event rule. You do so using the Schedule event source, with the Lambda function created by this solution as the target. Choose **Constant (JSON text)** under **Configure Input**. For the JSON input, simply substitute the file system ID of the Amazon FSx for Lustre file system to back up in place of `${FileSystemId}`. Also, substitute either `Yes` or `No` in place of `${SuccessNotification}` in the JSON above. Any additional CloudWatch Event rules you create manually aren't part of the Amazon FSx for Lustre custom scheduled backup solution AWS CloudFormation stack. Thus, they aren't removed if you delete the stack. |
+| Parameter                            | Default                  | Description                                                                                                                              |
+| ------------------------------------ | ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| Amazon FSx for Lustre file system ID | No default value         | The file system ID for the file system that you want to back up.                                                                         |
+| CRON schedule pattern for backups.   | 0 0/4 \<br>• \<br>• ? \* | The schedule to run the CloudWatch event, triggering a new backup and deleting old backups<br>outside of the retention period.           |
+| Backup retention (days)              | 7                        | The number of days to keep user-initiated backups. The Lambda function deletes<br>user-initiated backups older than this number of days. |
+| Name for backups                     | user-scheduled backup    | The name for these backups, which appears in the **Backup Name**<br>column of the Amazon FSx for Lustre Management Console.              |
+| Backup notifications                 | Yes                      | Choose whether to be notified when backups are successfully initiated. A<br>notification is always sent if there's an error.             |
+| Email address                        | No default value         | The email address to subscribe to the SNS notifications.                                                                                 |
+
+3. Choose **Next**.
+4. For **Options**, choose **Next**.
+5. For **Review**, review and confirm the settings. You must select the
+   check box acknowledging that the template create IAM resources.
+6. Choose **Create** to deploy the stack.
+
+You can view the status of the stack in the AWS CloudFormation console in the **Status**
+column. You should see a status of **CREATE_COMPLETE** in about five
+minutes.
+
+### Additional options
+
+You can use the Lambda function created by this solution to perform custom scheduled backups
+of more than one Amazon FSx for Lustre file system. The file system ID is passed to the Amazon FSx for Lustre function in the
+input JSON for the CloudWatch event. The default JSON passed to the Lambda function is as follows, where
+the values for `FileSystemId` and `SuccessNotification` are passed from the
+parameters specified when launching the AWS CloudFormation stack.
+
+```
+{
+	"start-backup": "true",
+	"purge-backups": "true",
+	"filesystem-id": "${FileSystemId}",
+	"notify_on_success": "${SuccessNotification}"
+}
+
+```
+
+To schedule backups for an additional Amazon FSx for Lustre file system, create another CloudWatch event rule. You
+do so using the Schedule event source, with the Lambda function created by this solution as the
+target. Choose **Constant (JSON text)** under **Configure
+Input**. For the JSON input, simply substitute the file system ID of the Amazon FSx for Lustre file
+system to back up in place of `${FileSystemId}`. Also, substitute either
+`Yes` or `No` in place of `${SuccessNotification}` in the JSON
+above.
+
+Any additional CloudWatch Event rules you create manually aren't part of the Amazon FSx for Lustre custom
+scheduled backup solution AWS CloudFormation stack. Thus, they aren't removed if you delete the stack.

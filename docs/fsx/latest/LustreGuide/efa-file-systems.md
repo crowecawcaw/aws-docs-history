@@ -23,6 +23,7 @@ performance between EC2 instances with ENA Express](../../../AWSEC2/latest/UserG
 
 - [Considerations when using EFA-enabled file systems](#efa-considerations "#efa-considerations")
 - [Prerequisites for using EFA-enabled file systems](#efa-prerequisites "#efa-prerequisites")
+- [Creating an EFA-enabled file system](#create-efa-file-system "#create-efa-file-system")
 
 ## Considerations when using EFA-enabled file systems
 
@@ -86,3 +87,27 @@ The following are prerequisites for using EFA-enabled file systems:
 - Enable ENA Express on network interfaces for your client instances.
   For details, see [Review ENA Express settings
   for your EC2 instance](../../../AWSEC2/latest/UserGuide/ena-express-list-view.md "../../../AWSEC2/latest/UserGuide/ena-express-list-view.md") in the _Amazon EC2 User Guide_.
+
+## Creating an EFA-enabled file system
+
+This section contains instructions on how to create an FSx for Lustre EFA-enabled file system
+using the AWS CLI. For information on how to create an EFA-enabled file system using the Amazon FSx console,
+see [Step 1: Create your FSx for Lustre file system](getting-started.md#getting-started-step1 "getting-started.md#getting-started-step1").
+
+Use the [create-file-system](../../../cli/latest/reference/fsx/create-file-system.md "../../../cli/latest/reference/fsx/create-file-system.md") CLI command (or the equivalent [CreateFileSystem](../APIReference/API_CreateFileSystem.md "../APIReference/API_CreateFileSystem.md") API operation). The following
+example creates an FSx for Lustre EFA-enabled file system with a
+`PERSISTENT_2` deployment type.
+
+```
+`aws fsx create-file-system\
+ --storage-capacity 4800 \
+ --storage-type SSD \
+ --file-system-type LUSTRE \
+ --file-system-type-version 2.15 \
+ --subnet-ids subnet-01234567890 \
+ --security-group-ids sg-0123456789abcdefg \
+ --lustre-configuration '{"DeploymentType": "PERSISTENT_2", "EfaSupport": true}'`
+```
+
+After successfully creating the file system, Amazon FSx returns the file
+system's description in JSON format.

@@ -124,11 +124,53 @@ Each FSx for Lustre file system has a maximum limit of 1024 EFA connections acro
 The `configure-efa-fsx-lustre-client.sh` script automatically configures EFA interfaces based on the instance type.
 
 | Instance Type                               | Default Number of EFA Interfaces |
-| ------------------------------------------- | -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| ------------------------------------------- | -------------------------------- |
 | p6e-gb200.36xlarge                          | 8                                |
 | p6-b200.48xlarge                            | 8                                |
 | p5en.48xlarge                               | 8                                |
 | p5e.48xlarge                                | 8                                |
 | p5.48xlarge                                 | 8                                |
 | Other instances with multiple network cards | 2                                |
-| Other instances with a single network card  | 1                                | Each configured EFA interface on a client instance counts as one connection against the 1024 EFA connection limit when connected to an FSx for Lustre file system. ### Managing EFA interfaces manually Instances with more EFA interfaces typically support higher throughput. You can customize the number of interfaces to optimize performance for your specific workloads, as long as you stay within the total EFA connection limit. You can manually manage EFA interfaces using the following commands: 1. View available EFA devices: `` `for interface in /sys/class/infiniband/*; do if [ ! -e "$interface/device/driver" ]; then continue; fi driver=$(basename "$(realpath "$interface/device/driver")") if [ "$driver" != "efa" ]; then continue; fi echo $(basename $interface) done` `` 2. View currently configured interfaces: `` `sudo lnetctl net show` `` 3. Add an EFA interface: `` `sudo lnetctl net add --net efa --if `device_name` —peer-credits 32` `` Replace `device_name` with an actual device name from the list in step 1. 4. Remove an EFA interface: ``` `sudo lnetctl net del --net efa --if `device_name`` ``` Replace `device_name` with an actual device name from the list in step 2. |
+| Other instances with a single network card  | 1                                |
+
+Each configured EFA interface on a client instance counts as one connection against the
+1024 EFA connection limit when connected to an FSx for Lustre file system.
+
+### Managing EFA interfaces manually
+
+Instances with more EFA interfaces typically support higher throughput. You can customize the number
+of interfaces to optimize performance for your specific workloads, as long as you stay within the total
+EFA connection limit.
+
+You can manually manage EFA interfaces using the following commands:
+
+1. View available EFA devices:
+
+```
+`for interface in /sys/class/infiniband/*; do
+ if [ ! -e "$interface/device/driver" ]; then continue; fi
+ driver=$(basename "$(realpath "$interface/device/driver")")
+ if [ "$driver" != "efa" ]; then continue; fi
+ echo $(basename $interface)
+done`
+```
+
+2. View currently configured interfaces:
+
+```
+`sudo lnetctl net show`
+```
+
+3. Add an EFA interface:
+
+```
+`sudo lnetctl net add --net efa --if `device_name` —peer-credits 32`
+```
+
+Replace `device_name` with an actual device name from the list in step 1. 4. Remove an EFA interface:
+
+```
+`sudo lnetctl net del --net efa --if `device_name``
+```
+
+Replace `device_name` with an actual device name from the list in step 2.

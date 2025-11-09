@@ -89,6 +89,8 @@ echo "Searching in $ROOT_DIR for all released objects using $THREADS threads"
 echo "This may take a while depending on the size of the filesystem..."
 
 # Find all released files in the specified lustre directory using parallel
+# If you get false positives for file names/paths that include the word 'released',
+# you can grep 'released exists archived' instead of just 'released'
 time sudo lfs find "$ROOT_DIR" -type f | \
 parallel --will-cite -j "$THREADS" -n 1000 "sudo lfs hsm_state {} | grep released" > "$OUTPUT_FILE"
 
