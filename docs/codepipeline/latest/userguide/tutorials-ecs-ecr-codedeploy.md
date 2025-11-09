@@ -303,9 +303,483 @@ Resources:
    deployment action in CodePipeline. Your files should look like this in your local
    directory:
 
-````
+```
 /tmp
-|my-demo-repo
-|-- appspec.yaml
-|-- taskdef.json ``` 2. Choose the method you want to use to upload your files: 1. To use your git command line from a cloned repository on your local computer: 1. Change directories to your local repository: ``` `(For Linux, macOS, or Unix)` cd /tmp/my-demo-repo `(For Windows)` cd c:\temp\my-demo-repo ``` 2. Run the following command to stage all of your files at once: ``` git add -A ``` 3. Run the following command to commit the files with a commit message: ``` git commit -m "Added task definition files" ``` 4. Run the following command to push the files from your local repo to your CodeCommit repository: ``` git push ``` 2. To use the CodeCommit console to upload your files: 1. Open the CodeCommit console, and choose your repository from the **Repositories** list. 2. Choose **Add file**, and then choose **Upload file**. 3. Choose **Choose file**, and then browse for your file. Commit the change by entering your user name and email address. Choose **Commit changes**. 4. Repeat this step for each file you want to upload. ## Step 3: Create your Application Load Balancer and target groups In this section, you create an Amazon EC2 Application Load Balancer. You use the subnet names and target group values you create with your load balancer later, when you create your Amazon ECS service. You can create an Application Load Balancer or a Network Load Balancer. The load balancer must use a VPC with two public subnets in different Availability Zones. In these steps, you confirm your default VPC, create a load balancer, and then create two target groups for your load balancer. For more information, see [Target Groups for Your Network Load Balancers](../../../elasticloadbalancing/latest/network/load-balancer-target-groups.md "../../../elasticloadbalancing/latest/network/load-balancer-target-groups.md"). ###### To verify your default VPC and public subnets 1. Sign in to the AWS Management Console and open the Amazon VPC console at [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/"). 2. Verify the default VPC to use. In the navigation pane, choose **Your VPCs**. Note which VPC shows **Yes** in the **Default VPC** column. This is the default VPC. It contains default subnets for you to select. 3. Choose **Subnets**. Choose two subnets that show **Yes** in the **Default subnet** column. ###### Note Make a note of your subnet IDs. You need them later in this tutorial. 4. Choose the subnets, and then choose the **Description** tab. Verify that the subnets you want to use are in different Availability Zones. 5. Choose the subnets, and then choose the **Route Table** tab. To verify that each subnet you want to use is a public subnet, confirm that a gateway row is included in the route table. ###### To create an Amazon EC2 Application Load Balancer 1. Sign in to the AWS Management Console and open the Amazon EC2 console at [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/"). 2. In the navigation pane, choose **Load Balancers**. 3. Choose **Create Load Balancer**. 4. Choose **Application Load Balancer**, and then choose **Create**. 5. In **Name**, enter the name of your load balancer. 6. In **Scheme**, choose **internet-facing**. 7. In **IP address type**, choose **ipv4**. 8. Configure two listener ports for your load balancer: 1. Under **Load Balancer Protocol**, choose **HTTP**. Under **Load Balancer Port**, enter `80`. 2. Choose **Add listener**. 3. Under **Load Balancer Protocol** for the second listener, choose **HTTP**. Under **Load Balancer Port**, enter `8080`. 9. Under **Availability Zones**, in **VPC**, choose the default VPC. Next, choose the two default subnets you want to use. 10. Choose **Next: Configure Security Settings**. 11. Choose **Next: Configure Security Groups**. 12. Choose **Select an existing security group**, and make a note of the security group ID. 13. Choose **Next: Configure Routing**. 14. In **Target group**, choose **New target group** and configure your first target group: 1. In **Name**, enter a target group name (for example, `target-group-1`). 2. In **Target type**, choose **IP**. 3. In **Protocol** choose **HTTP**. In **Port**, enter `80`. 4. Choose **Next: Register Targets**. 15. Choose **Next: Review**, and then choose **Create**. ###### To create a second target group for your load balancer 1. After your load balancer is provisioned, open the Amazon EC2 console. In the navigation pane, choose **Target Groups**. 2. Choose **Create target group**. 3. In **Name**, enter a target group name (for example, `target-group-2`). 4. In **Target type**, choose **IP**. 5. In **Protocol** choose **HTTP**. In **Port**, enter `8080`. 6. In **VPC**, choose the default VPC. 7. Choose **Create**. ###### Note You must have two target groups created for your load balancer in order for your deployment to run. You only need to make a note of the ARN of your first target group. This ARN is used in the `create-service` JSON file in the next step. ###### To update your load balancer to include your second target group 1. Open the Amazon EC2 console. In the navigation pane, choose **Load Balancers**. 2. Choose your load balancer, and then choose the **Listeners** tab. Choose the listener with port 8080, and then choose **Edit**. 3. Choose the pencil icon next to **Forward to**. Choose your second target group, and then choose the check mark. Choose **Update** to save the updates. ## Step 4: Create your Amazon ECS cluster and service In this section, you create an Amazon ECS cluster and service where CodeDeploy routes traffic during deployment (to an Amazon ECS cluster rather than EC2 instances). To create your Amazon ECS service, you must use the subnet names, security group, and target group value you created with your load balancer to create your service. ###### Note When you use these steps to create your Amazon ECS cluster, you use the **Networking only** cluster template, which provisions AWS Fargate containers. AWS Fargate is a technology that manages your container instance infrastructure for you. You do not need to choose or manually create Amazon EC2 instances for your Amazon ECS cluster. ###### To create an Amazon ECS cluster 1. Open the Amazon ECS classic console at [https://console.aws.amazon.com/ecs/](https://console.aws.amazon.com/ecs/ "https://console.aws.amazon.com/ecs/"). 2. In the navigation pane, choose **Clusters**. 3. Choose **Create cluster**. 4. Choose the **Networking only** cluster template that uses AWS Fargate, and then choose **Next step**. 5. Enter a cluster name on the **Configure cluster** page. You can add an optional tag for your resource. Choose **Create**. ###### To create an Amazon ECS service Use the AWS CLI to create your service in Amazon ECS. 1. Create a JSON file and name it `create-service.json`. Paste the following into the JSON file. For the `taskDefinition` field, when you register a task definition in Amazon ECS, you give it a family. This is similar to a name for multiple versions of the task definition, specified with a revision number. In this example, use "`ecs-demo:1`" for the family and revision number in your file. Use the subnet names, security group, and target group value you created with your load balancer in [Step 3: Create your Application Load Balancer and target groups](#tutorials-ecs-ecr-codedeploy-loadbal "#tutorials-ecs-ecr-codedeploy-loadbal") . ###### Note You need to include your target group ARN in this file. Open the Amazon EC2 console and from the navigation pane, under **LOAD BALANCING**, choose **Target Groups**. Choose your first target group. Copy your ARN from the **Description** tab. ``` { "taskDefinition": "`family`:`revision-number`", "cluster": "`my-cluster`", "loadBalancers": [ { "targetGroupArn": "`target-group-arn`", "containerName": "sample-website", "containerPort": 80 } ], "desiredCount": 1, "launchType": "FARGATE", "schedulingStrategy": "REPLICA", "deploymentController": { "type": "CODE_DEPLOY" }, "networkConfiguration": { "awsvpcConfiguration": { "subnets": [ "`subnet-1`", "`subnet-2`" ], "securityGroups": [ "`security-group`" ], "assignPublicIp": "ENABLED" } } } ``` 2. Run the **create-service** command, specifying the JSON file: ###### Important Be sure to include `file://` before the file name. It is required in this command. This example creates a service named `my-service`. ###### Note This example command creates a service named my-service. If you already have a service with this name, the command returns an error. ``` aws ecs create-service --service-name my-service --cli-input-json file://create-service.json ``` The output returns the description fields for your service. 3. Run the **describe-services** command to verify that your service was created. ``` aws ecs describe-services --cluster `cluster-name` --services `service-name` ``` ## Step 5: Create your CodeDeploy application and deployment group (ECS compute platform) When you create a CodeDeploy application and deployment group for the Amazon ECS compute platform, the application is used during a deployment to reference the correct deployment group, target groups, listeners, and traffic rerouting behavior. ###### To create a CodeDeploy application 1. Open the CodeDeploy console and choose **Create application**. 2. In **Application name**, enter the name you want to use. 3. In **Compute platform**, choose **Amazon ECS**. 4. Choose **Create application**. ###### To create a CodeDeploy deployment group 1. On your application page's **Deployment groups** tab, choose **Create deployment group**. 2. In **Deployment group name**, enter a name that describes the deployment group. 3. In **Service role**, choose a service role that grants CodeDeploy access to Amazon ECS. To create a new service role, follow these steps: 1. Open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/")). 2. From the console dashboard, choose **Roles**. 3. Choose **Create role**. 4. Under **Select type of trusted entity**, select **AWS service**. Under **Choose a use case**, select **CodeDeploy**. Under **Select your use case**, select **CodeDeploy - ECS**. Choose **Next: Permissions**. The `AWSCodeDeployRoleForECS` managed policy is already attached to the role. 5. Choose **Next: Tags**, and **Next: Review**. 6. Enter a name for the role (for example, `CodeDeployECSRole`), and then choose **Create role**. 4. In **Environment configuration**, choose your Amazon ECS cluster name and service name. 5. From **Load balancers**, choose the name of the load balancer that serves traffic to your Amazon ECS service. 6. From **Production listener port**, choose the port and protocol for the listener that serves production traﬃc to your Amazon ECS service. From **Test listener port**, choose the port and protocol for the test listener. 7. From **Target group 1 name** and **Target group 2 name**, choose the target groups used to route traffic during your deployment. Make sure that these are the target groups you created for your load balancer. 8. Choose **Reroute traffic immediately** to determine how long after a successful deployment to reroute traffic to your updated Amazon ECS task. 9. Choose **Create deployment group**. ## Step 6: Create your pipeline In this section, you create a pipeline with the following actions: <br>• A CodeCommit action where the source artifacts are the task definition and the AppSpec file. <br>• A source stage with an Amazon ECR source action where the source artifact is the image file. <br>• A deployment stage with an Amazon ECS deploy action where the deployment runs with a CodeDeploy application and deployment group. ###### To create a two-stage pipeline with the wizard 1. Sign in to the AWS Management Console and open the CodePipeline console at [http://console.aws.amazon.com/codesuite/codepipeline/home](http://console.aws.amazon.com/codesuite/codepipeline/home "http://console.aws.amazon.com/codesuite/codepipeline/home"). 2. On the **Welcome** page, **Getting started** page, or the **Pipelines** page, choose **Create pipeline**. 3. On the **Step 1: Choose creation option** page, under **Creation options**, choose the **Build custom pipeline** option. Choose **Next**. 4. In **Step 2: Choose pipeline settings**, in **Pipeline name**, enter `MyImagePipeline`. 5. CodePipeline provides V1 and V2 type pipelines, which differ in characteristics and price. The V2 type is the only type you can choose in the console. For more information, see [pipeline types](pipeline-types-planning.md "pipeline-types-planning.md"). For information about pricing for CodePipeline, see [Pricing](https://aws.amazon.com/codepipeline/pricing/ "https://aws.amazon.com/codepipeline/pricing/"). 6. In **Service role**, choose **New service role** to allow CodePipeline to create a service role in IAM. 7. Leave the settings under **Advanced settings** at their defaults, and then choose **Next**. 8. In **Step 3: Add source stage**, in **Source provider**, choose **AWS CodeCommit**. In **Repository name**, choose the name of the CodeCommit repository you created in [Step 1: Create a CodeCommit repository](tutorials-simple-codecommit.md#codecommit-create-repository "tutorials-simple-codecommit.md#codecommit-create-repository"). In **Branch name**, choose the name of the branch that contains your latest code update. Choose **Next**. 9. In **Step 4: Add build stage**, choose **Skip build stage**, and then accept the warning message by choosing **Skip** again. Choose **Next**. 10. In **Step 5: Add test stage**, choose **Skip test stage**, and then accept the warning message by choosing **Skip** again. Choose **Next**. 11. In **Step 6: Add deploy stage**: 1. In **Deploy provider**, choose **Amazon ECS (Blue/Green)**. In **Application name**, enter or choose the application name from the list, such as `codedeployapp`. In **Deployment group**, enter or choose the deployment group name from the list, such as `codedeploydeplgroup`. ###### Note The name "Deploy" is the name given by default to the stage created in the **Step 4: Deploy** step, just as "Source" is the name given to the first stage of the pipeline. 2. Under **Amazon ECS task definition**, choose **SourceArtifact**. In the field, enter `taskdef.json`. 3. Under **AWS CodeDeploy AppSpec file**, choose **SourceArtifact**. In the field, enter `appspec.yaml`. ###### Note At this point, do not fill in any information under **Dynamically update task definition image**. 4. Choose **Next**. 12. In **Step 7: Review**, review the information, and then choose **Create pipeline**. ###### To add an Amazon ECR source action to your pipeline View your pipeline and add an Amazon ECR source action to your pipeline. 1. Choose your pipeline. In the upper left, choose **Edit**. 2. In the source stage, choose **Edit stage**. 3. Add a parallel action by choosing **+ Add action** next to your CodeCommit source action. 4. In **Action name**, enter a name (for example, `Image`). 5. In **Action provider**, choose **Amazon ECR**. ![Add an Amazon ECR source action to your pipeline.](images/ECR-source-action.png) 6. In **Repository name**, choose the name of your Amazon ECR repository. 7. In **Image tag**, specify the image name and version, if different from latest. 8. In **Output artifacts**, choose the output artifact default (for example, `MyImage`) that contains the image name and repository URI information you want the next stage to use. 9. Choose **Save** on the action screen. Choose **Done** on the stage screen. Choose **Save** on the pipeline. A message shows the Amazon CloudWatch Events rule to be created for the Amazon ECR source action. ###### To wire your source artifacts to the deploy action 1. Choose **Edit** on your Deploy stage and choose the icon to edit the **Amazon ECS (Blue/Green)** action. 2. Scroll to the bottom of the pane. In **Input artifacts**, choose **Add**. Add the source artifact from your new Amazon ECR repository (for example, `MyImage`). 3. In **Task Definition**, choose **SourceArtifact**, and then verify `taskdef.json` is entered. 4. In **AWS CodeDeploy AppSpec File**, choose **SourceArtifact**, and then verify `appspec.yaml` is entered. 5. In **Dynamically update task definition image**, in **Input Artifact with Image URI**, choose **MyImage**, and then enter the placeholder text that is used in the `taskdef.json` file:`IMAGE1_NAME`. Choose **Save**. 6. In the AWS CodePipeline pane, choose **Save pipeline change**, and then choose **Save change**. View your updated pipeline. After this example pipeline is created, the action configuration for the console entries appears in the pipeline structure as follows: ``` "configuration": { "AppSpecTemplateArtifact": "SourceArtifact", "AppSpecTemplatePath": "appspec.yaml", "TaskDefinitionTemplateArtifact": "SourceArtifact", "TaskDefinitionTemplatePath": "taskdef.json", "ApplicationName": "codedeployapp", "DeploymentGroupName": "codedeploydeplgroup", "Image1ArtifactName": "MyImage", "Image1ContainerName": "IMAGE1_NAME" }, ``` 7. To submit your changes and start a pipeline build, choose **Release change**, and then choose **Release**. 8. Choose the deployment action to view it in CodeDeploy and see the progress of the traffic shifting. ###### Note You might see a deployment step that shows an optional wait time. By default, CodeDeploy waits one hour after a successful deployment before it terminates the original task set. You can use this time to roll back or terminate the task, but your deployment otherwise completes when the task set is terminated. ## Step 7: Make a change to your pipeline and verify deployment Make a change to your image and then push the change to your Amazon ECR repository. This triggers your pipeline to run. Verify that your image source change is deployed.
-````
+  |my-demo-repo
+    |-- appspec.yaml
+    |-- taskdef.json
+```
+
+2. Choose the method you want to use to upload your files:
+   1. To use your git command line from a cloned repository on your local
+      computer:
+      1. Change directories to your local repository:
+
+      ```
+      `(For Linux, macOS, or Unix)` cd /tmp/my-demo-repo
+      `(For Windows)` cd c:\temp\my-demo-repo
+      ```
+
+      2. Run the following command to stage all of your files at
+         once:
+
+      ```
+      git add -A
+      ```
+
+      3. Run the following command to commit the files with a commit
+         message:
+
+      ```
+      git commit -m "Added task definition files"
+      ```
+
+      4. Run the following command to push the files from your local
+         repo to your CodeCommit repository:
+
+      ```
+      git push
+      ```
+
+   2. To use the CodeCommit console to upload your files:
+      1. Open the CodeCommit console, and choose your repository from the
+         **Repositories** list.
+      2. Choose **Add file**, and then choose
+         **Upload file**.
+      3. Choose **Choose file**, and then browse for
+         your file. Commit the change by entering your user name and
+         email address. Choose **Commit
+         changes**.
+      4. Repeat this step for each file you want to upload.
+
+## Step 3: Create your Application
+
+Load Balancer and target groups
+
+In this section, you create an Amazon EC2 Application Load Balancer. You use the subnet
+names and target group values you create with your load balancer later, when you create
+your Amazon ECS service. You can create an Application Load Balancer or a Network Load
+Balancer. The load balancer must use a VPC with two public subnets in different
+Availability Zones. In these steps, you confirm your default VPC, create a load
+balancer, and then create two target groups for your load balancer. For more
+information, see [Target Groups
+for Your Network Load Balancers](../../../elasticloadbalancing/latest/network/load-balancer-target-groups.md "../../../elasticloadbalancing/latest/network/load-balancer-target-groups.md").
+
+###### To verify your default VPC and public subnets
+
+1. Sign in to the AWS Management Console and open the Amazon VPC console at
+   [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
+2. Verify the default VPC to use. In the navigation pane, choose **Your
+   VPCs**. Note which VPC shows **Yes** in the
+   **Default VPC** column. This is the default VPC. It
+   contains default subnets for you to select.
+3. Choose **Subnets**. Choose two subnets that show
+   **Yes** in the **Default subnet**
+   column.
+
+###### Note
+
+Make a note of your subnet IDs. You need them later in this
+tutorial. 4. Choose the subnets, and then choose the **Description** tab.
+Verify that the subnets you want to use are in different Availability
+Zones. 5. Choose the subnets, and then choose the **Route Table** tab.
+To verify that each subnet you want to use is a public subnet, confirm that a
+gateway row is included in the route table.
+
+###### To create an Amazon EC2 Application Load Balancer
+
+1. Sign in to the AWS Management Console and open the Amazon EC2 console at
+   [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
+2. In the navigation pane, choose **Load Balancers**.
+3. Choose **Create Load Balancer**.
+4. Choose **Application Load Balancer**, and then choose
+   **Create**.
+5. In **Name**, enter the name of your load balancer.
+6. In **Scheme**, choose
+   **internet-facing**.
+7. In **IP address type**, choose
+   **ipv4**.
+8. Configure two listener ports for your load balancer:
+   1. Under **Load Balancer Protocol**, choose
+      **HTTP**. Under **Load Balancer
+      Port**, enter `80`.
+   2. Choose **Add listener**.
+   3. Under **Load Balancer Protocol** for the second
+      listener, choose **HTTP**. Under **Load
+      Balancer Port**, enter `8080`.
+
+9. Under **Availability Zones**, in **VPC**,
+   choose the default VPC. Next, choose the two default subnets you want to
+   use.
+10. Choose **Next: Configure Security Settings**.
+11. Choose **Next: Configure Security Groups**.
+12. Choose **Select an existing security group**, and make a note
+    of the security group ID.
+13. Choose **Next: Configure Routing**.
+14. In **Target group**, choose **New target
+    group** and configure your first target group:
+    1. In **Name**, enter a target group name (for example,
+       `target-group-1`).
+    2. In **Target type**, choose
+       **IP**.
+    3. In **Protocol** choose **HTTP**. In
+       **Port**, enter `80`.
+    4. Choose **Next: Register Targets**.
+
+15. Choose **Next: Review**, and then choose
+    **Create**.
+
+###### To create a second target group for your load balancer
+
+1. After your load balancer is provisioned, open the Amazon EC2 console. In the
+   navigation pane, choose **Target Groups**.
+2. Choose **Create target group**.
+3. In **Name**, enter a target group name (for example,
+   `target-group-2`).
+4. In **Target type**, choose **IP**.
+5. In **Protocol** choose **HTTP**. In
+   **Port**, enter `8080`.
+6. In **VPC**, choose the default VPC.
+7. Choose **Create**.
+
+###### Note
+
+You must have two target groups created for your load balancer in order
+for your deployment to run. You only need to make a note of the ARN of your
+first target group. This ARN is used in the
+`create-service` JSON file in the next step.
+
+###### To update your load balancer to include your second target group
+
+1. Open the Amazon EC2 console. In the navigation pane, choose **Load
+   Balancers**.
+2. Choose your load balancer, and then choose the **Listeners**
+   tab. Choose the listener with port 8080, and then choose
+   **Edit**.
+3. Choose the pencil icon next to **Forward to**. Choose your
+   second target group, and then choose the check mark. Choose
+   **Update** to save the updates.
+
+## Step 4: Create your Amazon ECS cluster
+
+and service
+
+In this section, you create an Amazon ECS cluster and service where CodeDeploy routes traffic
+during deployment (to an Amazon ECS cluster rather than EC2 instances). To create your Amazon ECS
+service, you must use the subnet names, security group, and target group value you
+created with your load balancer to create your service.
+
+###### Note
+
+When you use these steps to create your Amazon ECS cluster, you use the **Networking only** cluster template, which provisions AWS
+Fargate containers. AWS Fargate is a technology that manages your container
+instance infrastructure for you. You do not need to choose or manually create Amazon EC2
+instances for your Amazon ECS cluster.
+
+###### To create an Amazon ECS cluster
+
+1. Open the Amazon ECS classic console at
+   [https://console.aws.amazon.com/ecs/](https://console.aws.amazon.com/ecs/ "https://console.aws.amazon.com/ecs/").
+2. In the navigation pane, choose **Clusters**.
+3. Choose **Create cluster**.
+4. Choose the **Networking only** cluster template that uses
+   AWS Fargate, and then choose **Next step**.
+5. Enter a cluster name on the **Configure cluster** page. You
+   can add an optional tag for your resource. Choose
+   **Create**.
+
+###### To create an Amazon ECS service
+
+Use the AWS CLI to create your service in Amazon ECS.
+
+1. Create a JSON file and name it `create-service.json`. Paste
+   the following into the JSON file.
+
+For the `taskDefinition` field, when you register a task definition
+in Amazon ECS, you give it a family. This is similar to a name for multiple versions
+of the task definition, specified with a revision number. In this example, use
+"`ecs-demo:1`" for the family and revision number in your file.
+Use the subnet names, security group, and target group value you created with
+your load balancer in [Step 3: Create your Application
+Load Balancer and target groups](#tutorials-ecs-ecr-codedeploy-loadbal "#tutorials-ecs-ecr-codedeploy-loadbal") .
+
+###### Note
+
+You need to include your target group ARN in this file. Open the Amazon EC2
+console and from the navigation pane, under **LOAD
+BALANCING**, choose **Target Groups**. Choose
+your first target group. Copy your ARN from the
+**Description** tab.
+
+```
+{
+    "taskDefinition": "`family`:`revision-number`",
+    "cluster": "`my-cluster`",
+    "loadBalancers": [
+        {
+            "targetGroupArn": "`target-group-arn`",
+            "containerName": "sample-website",
+            "containerPort": 80
+        }
+    ],
+    "desiredCount": 1,
+    "launchType": "FARGATE",
+    "schedulingStrategy": "REPLICA",
+    "deploymentController": {
+        "type": "CODE_DEPLOY"
+    },
+    "networkConfiguration": {
+        "awsvpcConfiguration": {
+            "subnets": [
+                "`subnet-1`",
+                "`subnet-2`"
+            ],
+            "securityGroups": [
+                "`security-group`"
+            ],
+            "assignPublicIp": "ENABLED"
+        }
+    }
+}
+```
+
+2. Run the **create-service** command, specifying the JSON
+   file:
+
+###### Important
+
+Be sure to include `file://` before the file name. It is required in this command.
+
+This example creates a service named `my-service`.
+
+###### Note
+
+This example command creates a service named my-service. If you already
+have a service with this name, the command returns an error.
+
+```
+aws ecs create-service --service-name my-service --cli-input-json file://create-service.json
+```
+
+The output returns the description fields for your service. 3. Run the **describe-services** command to verify that your
+service was created.
+
+```
+aws ecs describe-services --cluster `cluster-name` --services `service-name`
+```
+
+## Step 5: Create your CodeDeploy
+
+application and deployment group (ECS compute platform)
+
+When you create a CodeDeploy application and deployment group for the Amazon ECS compute
+platform, the application is used during a deployment to reference the correct
+deployment group, target groups, listeners, and traffic rerouting behavior.
+
+###### To create a CodeDeploy application
+
+1. Open the CodeDeploy console and choose **Create
+   application**.
+2. In **Application name**, enter the name you want to
+   use.
+3. In **Compute platform**, choose **Amazon
+   ECS**.
+4. Choose **Create application**.
+
+###### To create a CodeDeploy deployment group
+
+1. On your application page's **Deployment groups** tab, choose
+   **Create deployment group**.
+2. In **Deployment group name**, enter a name that describes the
+   deployment group.
+3. In **Service role**, choose a service role that grants CodeDeploy
+   access to Amazon ECS. To create a new service role, follow these steps:
+   1. Open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/")).
+   2. From the console dashboard, choose **Roles**.
+   3. Choose **Create role**.
+   4. Under **Select type of trusted entity**, select
+      **AWS service**. Under **Choose a use
+      case**, select **CodeDeploy**. Under
+      **Select your use case**, select
+      **CodeDeploy - ECS**. Choose **Next:
+      Permissions**. The `AWSCodeDeployRoleForECS`
+      managed policy is already attached to the role.
+   5. Choose **Next: Tags**, and **Next:
+      Review**.
+   6. Enter a name for the role (for example,
+      `CodeDeployECSRole`), and then choose
+      **Create role**.
+
+4. In **Environment configuration**, choose your Amazon ECS cluster
+   name and service name.
+5. From **Load balancers**, choose the name of the load balancer
+   that serves traffic to your Amazon ECS service.
+6. From **Production listener port**, choose the port and
+   protocol for the listener that serves production traﬃc to your Amazon ECS service.
+   From **Test listener port**, choose the port and protocol for
+   the test listener.
+7. From **Target group 1 name** and **Target group 2
+   name**, choose the target groups used to route traffic during your
+   deployment. Make sure that these are the target groups you created for your load
+   balancer.
+8. Choose **Reroute traffic immediately** to determine how long
+   after a successful deployment to reroute traffic to your updated Amazon ECS
+   task.
+9. Choose **Create deployment group**.
+
+## Step 6: Create your pipeline
+
+In this section, you create a pipeline with the following actions:
+
+- A CodeCommit action where the source artifacts are the task definition and the
+  AppSpec file.
+- A source stage with an Amazon ECR source action where the source artifact is the
+  image file.
+- A deployment stage with an Amazon ECS deploy action where the deployment runs with
+  a CodeDeploy application and deployment group.
+
+###### To create a two-stage pipeline with the wizard
+
+1. Sign in to the AWS Management Console and open the CodePipeline console at [http://console.aws.amazon.com/codesuite/codepipeline/home](http://console.aws.amazon.com/codesuite/codepipeline/home "http://console.aws.amazon.com/codesuite/codepipeline/home").
+2. On the **Welcome** page, **Getting started**
+   page, or the **Pipelines** page, choose **Create
+   pipeline**.
+3. On the **Step 1: Choose creation option** page, under
+   **Creation options**, choose the **Build custom
+   pipeline** option. Choose **Next**.
+4. In **Step 2: Choose pipeline settings**, in
+   **Pipeline name**, enter
+   `MyImagePipeline`.
+5. CodePipeline provides V1 and V2 type pipelines, which differ in characteristics and
+   price. The V2 type is the only type you can choose in the console. For more
+   information, see [pipeline types](pipeline-types-planning.md "pipeline-types-planning.md"). For information about pricing for CodePipeline, see [Pricing](https://aws.amazon.com/codepipeline/pricing/ "https://aws.amazon.com/codepipeline/pricing/").
+6. In **Service role**, choose **New service
+   role** to allow CodePipeline to create a service role in IAM.
+7. Leave the settings under **Advanced settings** at their
+   defaults, and then choose **Next**.
+8. In **Step 3: Add source stage**, in **Source
+   provider**, choose **AWS CodeCommit**. In
+   **Repository name**, choose the name of the CodeCommit
+   repository you created in [Step 1: Create a CodeCommit repository](tutorials-simple-codecommit.md#codecommit-create-repository "tutorials-simple-codecommit.md#codecommit-create-repository"). In **Branch name**, choose the name of the branch that contains your
+   latest code update.
+
+Choose **Next**. 9. In **Step 4: Add build stage**, choose **Skip build
+stage**, and then accept the warning message by choosing
+**Skip** again. Choose **Next**. 10. In **Step 5: Add test stage**, choose **Skip test
+stage**, and then accept the warning message by choosing
+**Skip** again.
+
+Choose **Next**. 11. In **Step 6: Add deploy stage**:
+
+    1. In **Deploy provider**, choose **Amazon ECS
+     (Blue/Green)**. In **Application name**,
+     enter or choose the application name from the list, such as
+     `codedeployapp`. In **Deployment
+     group**, enter or choose the deployment group name from the
+     list, such as `codedeploydeplgroup`.
+
+
+
+
+
+    ###### Note
+
+    The name "Deploy" is the name given by default to the stage
+     created in the **Step 4: Deploy** step, just as
+     "Source" is the name given to the first stage of the
+     pipeline.
+    2. Under **Amazon ECS task definition**, choose
+     **SourceArtifact**. In the field, enter
+     `taskdef.json`.
+    3. Under **AWS CodeDeploy AppSpec file**, choose
+     **SourceArtifact**. In the field, enter
+     `appspec.yaml`.
+
+
+    ###### Note
+
+    At this point, do not fill in any information under
+     **Dynamically update task definition
+     image**.
+    4. Choose **Next**.
+
+12. In **Step 7: Review**, review the information, and then
+    choose **Create pipeline**.
+
+###### To add an Amazon ECR source action to your pipeline
+
+View your pipeline and add an Amazon ECR source action to your pipeline.
+
+1. Choose your pipeline. In the upper left, choose
+   **Edit**.
+2. In the source stage, choose **Edit stage**.
+3. Add a parallel action by choosing **+ Add action** next to
+   your CodeCommit source action.
+4. In **Action name**, enter a name (for example,
+   `Image`).
+5. In **Action provider**, choose **Amazon
+   ECR**.
+
+![Add an Amazon ECR source action to your pipeline.](images/ECR-source-action.png) 6. In **Repository name**, choose the name of your Amazon ECR
+repository. 7. In **Image tag**, specify the image name and version, if
+different from latest. 8. In **Output artifacts**, choose the output artifact default
+(for example, `MyImage`) that contains the image name and
+repository URI information you want the next stage to use. 9. Choose **Save** on the action screen. Choose
+**Done** on the stage screen. Choose
+**Save** on the pipeline. A message shows the Amazon CloudWatch Events
+rule to be created for the Amazon ECR source action.
+
+###### To wire your source artifacts to the deploy action
+
+1. Choose **Edit** on your Deploy stage and choose the icon to
+   edit the **Amazon ECS (Blue/Green)** action.
+2. Scroll to the bottom of the pane. In **Input artifacts**,
+   choose **Add**. Add the source artifact from your new Amazon ECR
+   repository (for example, `MyImage`).
+3. In **Task Definition**, choose **SourceArtifact**, and then verify
+   `taskdef.json` is entered.
+4. In **AWS CodeDeploy AppSpec File**, choose **SourceArtifact**, and then verify
+   `appspec.yaml` is entered.
+5. In **Dynamically update task definition image**, in
+   **Input Artifact with Image URI**, choose
+   **MyImage**, and then enter the placeholder text that is
+   used in the `taskdef.json` file:`IMAGE1_NAME`. Choose **Save**.
+6. In the AWS CodePipeline pane, choose **Save pipeline change**, and
+   then choose **Save change**. View your updated pipeline.
+
+After this example pipeline is created, the action configuration for the
+console entries appears in the pipeline structure as follows:
+
+```
+"configuration": {
+  "AppSpecTemplateArtifact": "SourceArtifact",
+  "AppSpecTemplatePath": "appspec.yaml",
+  "TaskDefinitionTemplateArtifact": "SourceArtifact",
+  "TaskDefinitionTemplatePath": "taskdef.json",
+  "ApplicationName": "codedeployapp",
+  "DeploymentGroupName": "codedeploydeplgroup",
+  "Image1ArtifactName": "MyImage",
+  "Image1ContainerName": "IMAGE1_NAME"
+},
+
+```
+
+7. To submit your changes and start a pipeline build, choose **Release
+   change**, and then choose **Release**.
+8. Choose the deployment action to view it in CodeDeploy and see the progress of the
+   traffic shifting.
+
+###### Note
+
+You might see a deployment step that shows an optional wait time. By
+default, CodeDeploy waits one hour after a successful deployment before it
+terminates the original task set. You can use this time to roll back or
+terminate the task, but your deployment otherwise completes when the task
+set is terminated.
+
+## Step 7: Make a change to your
+
+pipeline and verify deployment
+
+Make a change to your image and then push the change to your Amazon ECR repository. This
+triggers your pipeline to run. Verify that your image source change is deployed.

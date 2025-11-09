@@ -348,7 +348,7 @@ For more information, see [https://kubernetes.io/docs/reference/kubectl/quick-re
    in the example
    below.
 
-````
+```
 mychart
 |-- Chart.yaml
 |-- charts
@@ -357,5 +357,63 @@ mychart
 |   |-- _helpers.tpl
 |   |-- deployment.yaml
 |   |-- ingress.yaml
-|   `-- service.yaml `-- values.yaml ``` 3. Add the file to the root level of your repository. ## Step 6: Creating your pipeline Use the CodePipeline wizard to create your pipeline stages and connect your source repository. ###### To create your pipeline 1. Open the CodePipeline console at [https://console.aws.amazon.com/codepipeline/](https://console.aws.amazon.com/codepipeline/ "https://console.aws.amazon.com/codepipeline/"). 2. On the **Welcome** page, **Getting started** page, or the **Pipelines** page, choose **Create pipeline**. 3. On the **Step 1: Choose creation option** page, under **Creation options**, choose the **Build custom pipeline** option. Choose **Next**. 4. In **Step 2: Choose pipeline settings**, in **Pipeline name**, enter `MyEKSPipeline`. 5. CodePipeline provides V1 and V2 type pipelines, which differ in characteristics and price. The V2 type is the only type you can choose in the console. For more information, see [pipeline types](pipeline-types-planning.md "pipeline-types-planning.md"). For information about pricing for CodePipeline, see [Pricing](https://aws.amazon.com/codepipeline/pricing/ "https://aws.amazon.com/codepipeline/pricing/"). 6. In **Service role**, choose the service role that you updated in Step 3. 7. Leave the settings under **Advanced settings** at their defaults, and then choose **Next**. 8. On the **Step 3: Add source stage** page, for **Source provider**, choose **to create a connection to your GitHub repository**. 9. On the **Step 4: Add build stage** page, choose **Skip**. 10. On the **Step 5: Add deploy stage** page, choose **Amazon EKS**. ![Deploy configuration form with Helm selected, showing fields for release name and chart location.](images/eks-action-example.png) 1. Under **Deploy configuration type**, choose **Helm**. 2. In **Helm chart location**, enter the release name, such as `my-release`. For **Helm chart location**, enter the path for your helm chart files, such as `mychart`. 3. Choose **Next**. 11. On the **Step 6: Review** page, review your pipeline configuration and choose **Create pipeline** to create the pipeline. ![A console diagram showing a successful pipeline run with the deploy action added to your pipeline.](images/eks-deploy-pipeline.png) 12. After the pipeline runs successfully, choose **View details** to view the logs on the action to view the action output.
-````
+|   `-- service.yaml
+`-- values.yaml
+
+```
+
+3. Add the file to the root level of your repository.
+
+## Step 6: Creating your pipeline
+
+Use the CodePipeline wizard to create your pipeline stages and connect your source
+repository.
+
+###### To create your pipeline
+
+1. Open the CodePipeline console at
+   [https://console.aws.amazon.com/codepipeline/](https://console.aws.amazon.com/codepipeline/ "https://console.aws.amazon.com/codepipeline/").
+2. On the **Welcome** page, **Getting started**
+   page, or the **Pipelines** page, choose **Create
+   pipeline**.
+3. On the **Step 1: Choose creation option** page, under
+   **Creation options**, choose the **Build custom
+   pipeline** option. Choose **Next**.
+4. In **Step 2: Choose pipeline settings**, in
+   **Pipeline name**, enter
+   `MyEKSPipeline`.
+5. CodePipeline provides V1 and V2 type pipelines, which differ in characteristics and
+   price. The V2 type is the only type you can choose in the console. For more
+   information, see [pipeline types](pipeline-types-planning.md "pipeline-types-planning.md"). For information about pricing for CodePipeline, see [Pricing](https://aws.amazon.com/codepipeline/pricing/ "https://aws.amazon.com/codepipeline/pricing/").
+6. In **Service role**, choose the service role that you updated
+   in Step 3.
+7. Leave the settings under **Advanced settings** at their
+   defaults, and then choose **Next**.
+8. On the **Step 3: Add source stage** page, for
+   **Source provider**, choose **to create a
+   connection to your GitHub repository**.
+9. On the **Step 4: Add build stage** page, choose
+   **Skip**.
+10. On the **Step 5: Add deploy stage** page, choose
+    **Amazon EKS**.
+
+![Deploy configuration form with Helm selected, showing fields for release name and chart location.](images/eks-action-example.png)
+
+    1. Under **Deploy configuration type**, choose
+     **Helm**.
+    2. In
+     **Helm chart location**, enter the release name,
+     such as `my-release`. For **Helm
+     chart location**, enter the path
+     for
+     your
+     helm chart files, such as
+     `mychart`.
+    3. Choose **Next**.
+
+11. On the **Step 6: Review** page, review your pipeline
+    configuration and choose **Create pipeline** to create the
+    pipeline.
+
+![A console diagram showing a successful pipeline run with the deploy action added to your pipeline.](images/eks-deploy-pipeline.png) 12. After the pipeline runs successfully, choose **View details**
+to view the logs on the action to view the action output.

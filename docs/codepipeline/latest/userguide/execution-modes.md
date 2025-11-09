@@ -69,9 +69,171 @@ SUPERSEDED or QUEUED mode will be cancelled.
 
 The following table provides more detail.
 
-| Mode change                                     | Pending and active execution details                                                                              | Pipeline state details                                                                                             |
-| ----------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| SUPERSEDED to SUPERSEDED / SUPERSEDED to QUEUED | <br>• Active executions are cancelled after in-progress actions complete. <br>• Pending executions are cancelled. | The pipeline state, such as **cancelled**, is preserved between the version of the first mode and the second mode. |
-| QUEUED to QUEUED / QUEUED to SUPERSEDED         | <br>• Active executions are cancelled after in-progress actions complete. <br>• Pending executions are cancelled. | The pipeline state, such as cancelled, is preserved between the version of the first mode and the second mode.     |
-| PARALLEL to PARALLEL                            | All executions are allowed to run independently of pipeline definition updates.                                   | Empty. Parallel mode does not have a pipeline state.                                                               |
-| SUPERSEDED to PARALLEL / QUEUED to PARALLEL     | <br>• Active executions are cancelled after in-progress actions complete. <br>• Pending executions are cancelled. | Empty. Parallel mode does not have a pipeline state.                                                               | ## Set or change the pipeline execution mode (console) You can use the console to set the pipeline execution mode. 1. Sign in to the AWS Management Console and open the CodePipeline console at [http://console.aws.amazon.com/codesuite/codepipeline/home](http://console.aws.amazon.com/codesuite/codepipeline/home "http://console.aws.amazon.com/codesuite/codepipeline/home"). The names and status of all pipelines associated with your AWS account are displayed. 2. In **Name**, choose the name of the pipeline you want to edit. 3. On the pipeline details page, choose **Edit**. 4. On the **Edit** page, choose **Edit: Pipeline properties**. 5. Choose the mode for your pipeline. <br>• **Superseded** <br>• **Queued (Pipeline type V2 required)** <br>• **Parallel (Pipeline type V2 required)** 6. On the **Edit** page, choose **Done**. ## Set the pipeline execution mode (CLI) To use the AWS CLI to set the pipeline execution mode, use the `create-pipeline` or `update-pipeline` command. 1. Open a terminal session (Linux, macOS, or Unix) or command prompt (Windows) and run the **get-pipeline** command to copy the pipeline structure into a JSON file. For example, for a pipeline named `MyFirstPipeline`, enter the following command: `` aws codepipeline get-pipeline --name `MyFirstPipeline` >`pipeline.json` `` This command returns nothing, but the file you created should appear in the directory where you ran the command. 2. Open the JSON file in any plain-text editor and modify the structure of the file to reflect the pipeline execution mode you want to set, such as QUEUED. `"executionMode": "QUEUED"` The following example shows how you would set the execution mode to QUEUED in an example pipeline with two stages. ``{ "pipeline": { "name": "MyPipeline", "roleArn": "arn:aws:iam::111122223333:role/service-role/AWSCodePipelineServiceRole-us-east-1-dkpippe", "artifactStore": { "type": "S3", "location": "`bucket`" }, "stages": [ { "name": "Source", "actions": [ { "name": "Source", "actionTypeId": { "category": "Source", "owner": "AWS", "provider": "CodeCommit", "version": "1" }, "runOrder": 1, "configuration": { "BranchName": "main", "OutputArtifactFormat": "CODE_ZIP", "PollForSourceChanges": "true", "RepositoryName": "MyDemoRepo" }, "outputArtifacts": [ { "name": "SourceArtifact" } ], "inputArtifacts": [], "region": "us-east-1", "namespace": "SourceVariables" } ] }, { "name": "Build", "actions": [ { "name": "Build", "actionTypeId": { "category": "Build", "owner": "AWS", "provider": "CodeBuild", "version": "1" }, "runOrder": 1, "configuration": { "ProjectName": "MyBuildProject" }, "outputArtifacts": [ { "name": "BuildArtifact" } ], "inputArtifacts": [ { "name": "SourceArtifact" } ], "region": "us-east-1", "namespace": "BuildVariables" } ] } ], "version": 1, "executionMode": "QUEUED" } }`` 3. If you are working with the pipeline structure retrieved using the **get-pipeline** command, you must modify the structure in the JSON file. You must remove the `metadata` lines from the file so the **update-pipeline** command can use it. Remove the section from the pipeline structure in the JSON file (the `"metadata": { }` lines and the `"created"`, `"pipelineARN"`, and `"updated"` fields). For example, remove the following lines from the structure: ``"metadata": { "pipelineArn": "arn:aws:codepipeline:`region`:`account-ID`:`pipeline-name`", "created": "`date`", "updated": "`date`" }`` Save the file. 4. To apply your changes, run the **update-pipeline** command, specifying the pipeline JSON file: ###### Important Be sure to include `file://` before the file name. It is required in this command. `` aws codepipeline update-pipeline --cli-input-json file://`pipeline.json` `` This command returns the entire structure of the edited pipeline. ###### Note The **update-pipeline** command stops the pipeline. If a revision is being run through the pipeline when you run the **update-pipeline** command, that run is stopped. You must start the pipeline manually to run that revision through the updated pipeline. |
+| Mode change                                     | Pending and active execution details                                                                            | Pipeline state details                                                                                                |
+| ----------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
+| SUPERSEDED to SUPERSEDED / SUPERSEDED to QUEUED | • Active executions are cancelled after in-progress actions<br>complete.<br>• Pending executions are cancelled. | The pipeline state, such as **cancelled**, is preserved between the version of the first<br>mode and the second mode. |
+| QUEUED to QUEUED / QUEUED to SUPERSEDED         | • Active executions are cancelled after in-progress actions<br>complete.<br>• Pending executions are cancelled. | The pipeline state, such as cancelled, is preserved between the<br>version of the first mode and the second mode.     |
+| PARALLEL to PARALLEL                            | All executions are allowed to run independently of pipeline<br>definition updates.                              | Empty. Parallel mode does not have a pipeline state.                                                                  |
+| SUPERSEDED to PARALLEL / QUEUED to PARALLEL     | • Active executions are cancelled after in-progress actions<br>complete.<br>• Pending executions are cancelled. | Empty. Parallel mode does not have a pipeline state.                                                                  |
+
+## Set or change the pipeline execution mode (console)
+
+You can use the console to set the pipeline execution mode.
+
+1. Sign in to the AWS Management Console and open the CodePipeline console at [http://console.aws.amazon.com/codesuite/codepipeline/home](http://console.aws.amazon.com/codesuite/codepipeline/home "http://console.aws.amazon.com/codesuite/codepipeline/home").
+
+The names and status of all pipelines associated with your AWS account are
+displayed. 2. In **Name**, choose the name of the pipeline you want to
+edit. 3. On the pipeline details page, choose **Edit**. 4. On the **Edit** page, choose **Edit: Pipeline
+properties**. 5. Choose the mode for your pipeline.
+
+    * **Superseded**
+    * **Queued (Pipeline type V2
+     required)**
+    * **Parallel (Pipeline type V2
+     required)**
+
+6. On the **Edit** page, choose
+   **Done**.
+
+## Set the pipeline execution mode (CLI)
+
+To use the AWS CLI to set the pipeline execution mode, use the
+`create-pipeline` or `update-pipeline` command.
+
+1. Open a terminal session (Linux, macOS, or Unix) or command prompt (Windows) and run the
+   **get-pipeline** command to copy the pipeline structure into
+   a JSON file. For example, for a pipeline named
+   `MyFirstPipeline`, enter the following
+   command:
+
+```
+aws codepipeline get-pipeline --name `MyFirstPipeline` >`pipeline.json`
+```
+
+This command returns nothing, but the file you created should appear in the
+directory where you ran the command. 2. Open the JSON file in any plain-text editor and modify the structure of the
+file to reflect the pipeline execution mode you want to set, such as
+QUEUED.
+
+```
+"executionMode": "QUEUED"
+```
+
+The following example shows how you would set the execution mode to QUEUED in
+an example pipeline with two stages.
+
+```
+{
+    "pipeline": {
+        "name": "MyPipeline",
+        "roleArn": "arn:aws:iam::111122223333:role/service-role/AWSCodePipelineServiceRole-us-east-1-dkpippe",
+        "artifactStore": {
+            "type": "S3",
+            "location": "`bucket`"
+        },
+        "stages": [
+            {
+                "name": "Source",
+                "actions": [
+                    {
+                        "name": "Source",
+                        "actionTypeId": {
+                            "category": "Source",
+                            "owner": "AWS",
+                            "provider": "CodeCommit",
+                            "version": "1"
+                        },
+                        "runOrder": 1,
+                        "configuration": {
+                            "BranchName": "main",
+                            "OutputArtifactFormat": "CODE_ZIP",
+                            "PollForSourceChanges": "true",
+                            "RepositoryName": "MyDemoRepo"
+                        },
+                        "outputArtifacts": [
+                            {
+                                "name": "SourceArtifact"
+                            }
+                        ],
+                        "inputArtifacts": [],
+                        "region": "us-east-1",
+                        "namespace": "SourceVariables"
+                    }
+                ]
+            },
+            {
+                "name": "Build",
+                "actions": [
+                    {
+                        "name": "Build",
+                        "actionTypeId": {
+                            "category": "Build",
+                            "owner": "AWS",
+                            "provider": "CodeBuild",
+                            "version": "1"
+                        },
+                        "runOrder": 1,
+                        "configuration": {
+                            "ProjectName": "MyBuildProject"
+                        },
+                        "outputArtifacts": [
+                            {
+                                "name": "BuildArtifact"
+                            }
+                        ],
+                        "inputArtifacts": [
+                            {
+                                "name": "SourceArtifact"
+                            }
+                        ],
+                        "region": "us-east-1",
+                        "namespace": "BuildVariables"
+                    }
+                ]
+            }
+        ],
+        "version": 1,
+        "executionMode": "QUEUED"
+    }
+}
+```
+
+3. If you are working with the pipeline structure retrieved using the
+   **get-pipeline** command, you must modify the structure in
+   the JSON file. You must remove the `metadata` lines from the file so
+   the **update-pipeline** command can use it. Remove the section
+   from the pipeline structure in the JSON file (the `"metadata": { }`
+   lines and the `"created"`, `"pipelineARN"`, and
+   `"updated"` fields).
+
+For example, remove the following lines from the structure:
+
+```
+"metadata": {
+  "pipelineArn": "arn:aws:codepipeline:`region`:`account-ID`:`pipeline-name`",
+  "created": "`date`",
+  "updated": "`date`"
+  }
+```
+
+Save the file. 4. To apply your changes, run the **update-pipeline** command,
+specifying the pipeline JSON file:
+
+###### Important
+
+Be sure to include `file://` before the file name. It is required in this command.
+
+```
+aws codepipeline update-pipeline --cli-input-json file://`pipeline.json`
+```
+
+This command returns the entire structure of the edited pipeline.
+
+###### Note
+
+The **update-pipeline** command stops the pipeline. If a
+revision is being run through the pipeline when you run the
+**update-pipeline** command, that run is stopped. You
+must start the pipeline manually to run that revision through the updated
+pipeline.

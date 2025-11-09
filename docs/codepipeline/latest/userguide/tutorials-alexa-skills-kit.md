@@ -105,9 +105,163 @@ ask api get-model --skill-id `skill-ID` --locale `locale` >
    deployment action in AWS CodePipeline. Your files should look like this in your local
    directory:
 
-````
+```
 skill.json
 /interactionModel
   /custom
-|en-US.json ``` 2. Choose the method you want to use to upload your files: 1. To use the Git command line from a cloned repository on your local computer: 1. Run the following command to stage all of your files at once: ``` git add -A ``` 2. Run the following command to commit the files with a commit message: ``` git commit -m "Added Alexa skill files" ``` 3. Run the following command to push the files from your local repo to your CodeCommit repository: ``` git push ``` 2. To use the CodeCommit console to upload your files: 1. Open the CodeCommit console, and choose your repository from the **Repositories** list. 2. Choose **Add file**, and then choose **Upload file**. 3. Choose **Choose file**, and then browse for your file. Commit the change by entering your user name and email address. Choose **Commit changes**. 4. Repeat this step for each file you want to upload. ## Step 3: Use ASK CLI commands to create a refresh token CodePipeline uses a refresh token based on the client ID and secret in your Amazon developer account to authorize actions it performs on your behalf. In this section, you use the ASK CLI to create the token. You use these credentials when you use the **Create Pipeline** wizard. ###### To create a refresh token with your Amazon developer account credentials 1. Use the following command: ``` ask util generate-lwa-tokens ``` 2. When prompted, enter your client ID and secret as shown in this example: ``` **? Please type in the client ID:** amzn1.application-client.example112233445566 **? Please type in the client secret:** example112233445566 ``` 3. The sign-in browser page displays. Sign in with your Amazon developer account credentials. 4. Return to the command line screen. The access token and refresh token are generated in the output. Copy the refresh token returned in the output. ## Step 4: Create your pipeline In this section, you create a pipeline with the following actions: <br>• A source stage with a CodeCommit action where the source artifacts are the Alexa skill files that support your skill. <br>• A deployment stage with an Alexa Skills Kit deploy action. ###### To create a pipeline with the wizard 1. Sign in to the AWS Management Console and open the CodePipeline console at [http://console.aws.amazon.com/codesuite/codepipeline/home](http://console.aws.amazon.com/codesuite/codepipeline/home "http://console.aws.amazon.com/codesuite/codepipeline/home"). 2. Choose the AWS Region where you want to create the project and its resources. The Alexa skill runtime is available only in the following Regions: <br>• Asia Pacific (Tokyo) <br>• Europe (Ireland) <br>• US East (N. Virginia) <br>• US West (Oregon) 3. On the **Welcome** page, **Getting started** page, or the **Pipelines** page, choose **Create pipeline**. 4. On the **Step 1: Choose creation option** page, under **Creation options**, choose the **Build custom pipeline** option. Choose **Next**. 5. In **Step 2: Choose pipeline settings**, in **Pipeline name**, enter `MyAlexaPipeline`. 6. CodePipeline provides V1 and V2 type pipelines, which differ in characteristics and price. The V2 type is the only type you can choose in the console. For more information, see [pipeline types](pipeline-types-planning.md "pipeline-types-planning.md"). For information about pricing for CodePipeline, see [Pricing](https://aws.amazon.com/codepipeline/pricing/ "https://aws.amazon.com/codepipeline/pricing/"). 7. In **Service role**, choose **New service role** to allow CodePipeline to create a service role in IAM. 8. Leave the settings under **Advanced settings** at their defaults, and then choose **Next**. 9. In **Step 3: Add source stage**, in **Source provider**, choose **AWS CodeCommit**. In **Repository name**, choose the name of the CodeCommit repository you created in [Step 1: Create a CodeCommit repository](tutorials-simple-codecommit.md#codecommit-create-repository "tutorials-simple-codecommit.md#codecommit-create-repository"). In **Branch name**, choose the name of the branch that contains your latest code update. After you select the repository name and branch, a message shows the Amazon CloudWatch Events rule to be created for this pipeline. Choose **Next**. 10. In **Step 4: Add build stage**, choose **Skip build stage**, and then accept the warning message by choosing **Skip** again. Choose **Next**. 11. In **Step 5: Add test stage**, choose **Skip test stage**, and then accept the warning message by choosing **Skip** again. Choose **Next**. 12. In **Step 6: Add deploy stage**: 1. In **Deploy provider**, choose **Alexa Skills Kit**. 2. In **Alexa skill ID**, enter the skill ID assigned to your skill in the Alexa Skills Kit developer console. 3. In **Client ID**, enter the ID of the application you registered. 4. In **Client secret**, enter the secret you chose when you registered. 5. In **Refresh token**, enter the token you generated in step 3. ![The Step 6: Deploy page for an Alexa Skills Kit action](images/alexa-deploy.png) 6. Choose **Next**. 13. In **Step 7: Review**, review the information, and then choose **Create pipeline**. ## Step 5: Make a change to any source file and verify deployment Make a change to your skill and then push the change to your repository. This triggers your pipeline to run. Verify that your skill is updated in the [Alexa Skills Kit developer console](https://developer.amazon.com/alexa/console/ask "https://developer.amazon.com/alexa/console/ask").
-````
+    |en-US.json
+```
+
+2. Choose the method you want to use to upload your files:
+   1. To use the Git command line from a cloned repository on your local
+      computer:
+      1. Run the following command to stage all of your files at
+         once:
+
+      ```
+      git add -A
+      ```
+
+      2. Run the following command to commit the files with a commit
+         message:
+
+      ```
+      git commit -m "Added Alexa skill files"
+      ```
+
+      3. Run the following command to push the files from your local
+         repo to your CodeCommit repository:
+
+      ```
+      git push
+      ```
+
+   2. To use the CodeCommit console to upload your files:
+      1. Open the CodeCommit console, and choose your repository from the
+         **Repositories** list.
+      2. Choose **Add file**, and then choose
+         **Upload file**.
+      3. Choose **Choose file**, and then browse for
+         your file. Commit the change by entering your user name and
+         email address. Choose **Commit
+         changes**.
+      4. Repeat this step for each file you want to upload.
+
+## Step 3: Use ASK CLI commands to
+
+create a refresh token
+
+CodePipeline uses a refresh token based on the client ID and secret in your Amazon developer
+account to authorize actions it performs on your behalf. In this section, you use the
+ASK CLI to create the token. You use these credentials when you use the **Create
+Pipeline** wizard.
+
+###### To create a refresh token with your Amazon developer account credentials
+
+1. Use the following command:
+
+```
+ask util generate-lwa-tokens
+```
+
+2. When prompted, enter your client ID and secret as shown in this example:
+
+```
+**? Please type in the client ID:**
+amzn1.application-client.example112233445566
+**? Please type in the client secret:**
+example112233445566
+```
+
+3. The sign-in browser page displays. Sign in with your Amazon developer account
+   credentials.
+4. Return to the command line screen. The access token and refresh token are
+   generated in the output. Copy the refresh token returned in the output.
+
+## Step 4: Create your pipeline
+
+In this section, you create a pipeline with the following actions:
+
+- A source stage with a CodeCommit action where the source artifacts are the Alexa
+  skill files that support your skill.
+- A deployment stage with an Alexa Skills Kit deploy action.
+
+###### To create a pipeline with the wizard
+
+1. Sign in to the AWS Management Console and open the CodePipeline console at [http://console.aws.amazon.com/codesuite/codepipeline/home](http://console.aws.amazon.com/codesuite/codepipeline/home "http://console.aws.amazon.com/codesuite/codepipeline/home").
+2. Choose the AWS Region where you want to create the project and its
+   resources. The Alexa skill runtime is available only in the following
+   Regions:
+   - Asia Pacific (Tokyo)
+   - Europe (Ireland)
+   - US East (N. Virginia)
+   - US West (Oregon)
+
+3. On the **Welcome** page, **Getting started**
+   page, or the **Pipelines** page, choose **Create
+   pipeline**.
+4. On the **Step 1: Choose creation option** page, under
+   **Creation options**, choose the **Build custom
+   pipeline** option. Choose **Next**.
+5. In **Step 2: Choose pipeline settings**, in
+   **Pipeline name**, enter
+   `MyAlexaPipeline`.
+6. CodePipeline provides V1 and V2 type pipelines, which differ in characteristics and
+   price. The V2 type is the only type you can choose in the console. For more
+   information, see [pipeline types](pipeline-types-planning.md "pipeline-types-planning.md"). For information about pricing for CodePipeline, see [Pricing](https://aws.amazon.com/codepipeline/pricing/ "https://aws.amazon.com/codepipeline/pricing/").
+7. In **Service role**, choose **New service
+   role** to allow CodePipeline to create a service role in IAM.
+8. Leave the settings under **Advanced settings** at their
+   defaults, and then choose **Next**.
+9. In **Step
+   3:
+   Add source stage**, in **Source provider**, choose
+   **AWS CodeCommit**. In **Repository name**,
+   choose the name of the CodeCommit repository you created in [Step 1: Create a CodeCommit repository](tutorials-simple-codecommit.md#codecommit-create-repository "tutorials-simple-codecommit.md#codecommit-create-repository"). In **Branch name**, choose the name of the branch that contains your
+   latest code update.
+
+After you select the repository name and branch, a message shows the Amazon CloudWatch Events
+rule to be created for this pipeline.
+
+Choose **Next**. 10. In **Step
+4:
+Add build stage**, choose **Skip build stage**,
+and then accept the warning message by choosing **Skip**
+again.
+
+Choose **Next**. 11. In **Step 5: Add test stage**, choose **Skip test
+stage**, and then accept the warning message by choosing
+**Skip** again.
+
+Choose **Next**. 12. In **Step
+6:
+Add deploy stage**:
+
+    1. In **Deploy provider**, choose **Alexa Skills
+     Kit**.
+    2. In **Alexa skill ID**, enter the skill ID assigned to
+     your skill in the Alexa Skills Kit developer console.
+    3. In **Client ID**, enter the ID of the application you
+     registered.
+    4. In **Client secret**, enter the secret you chose when
+     you registered.
+    5. In **Refresh token**, enter the token you generated
+     in step 3.
+
+
+
+    ![The Step 6: Deploy page for an Alexa Skills Kit action](images/alexa-deploy.png)
+    6. Choose **Next**.
+
+13. In **Step
+    7:
+    Review**, review the information, and then choose **Create
+    pipeline**.
+
+## Step 5: Make a change to any source
+
+file and verify deployment
+
+Make a change to your skill and then push the change to your repository. This triggers
+your pipeline to run. Verify that your skill is updated in the [Alexa Skills Kit developer
+console](https://developer.amazon.com/alexa/console/ask "https://developer.amazon.com/alexa/console/ask").
