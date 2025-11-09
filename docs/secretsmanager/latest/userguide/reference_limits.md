@@ -13,7 +13,7 @@ the secret use applies only to the quotas in account A.
 ## Secrets Manager quotas
 
 | Name                                                                                                                                                                      | Default                                  | Adjustable | Description                                                                                                                                                                                                |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------- | ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------- | ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Combined rate of DeleteResourcePolicy, GetResourcePolicy, PutResourcePolicy, and ValidateResourcePolicy API requests                                                      | Each supported Region: 50 per second     | No         | The maximum transactions per second for DeleteResourcePolicy, GetResourcePolicy, PutResourcePolicy, and ValidateResourcePolicy API requests combined.                                                      |
 | Combined rate of PutSecretValue, RemoveRegionsFromReplication, ReplicateSecretToRegion, StopReplicationToReplica, UpdateSecret, and UpdateSecretVersionStage API requests | Each supported Region: 50 per second     | No         | The maximum transactions per second for PutSecretValue, RemoveRegionsFromReplication, ReplicateSecretToRegion, StopReplicationToReplica, UpdateSecret, and UpdateSecretVersionStage API requests combined. |
 | Combined rate of RestoreSecret API requests                                                                                                                               | Each supported Region: 50 per second     | No         | The maximum transactions per second for RestoreSecret API requests.                                                                                                                                        |
@@ -31,4 +31,46 @@ the secret use applies only to the quotas in account A.
 | Secret value size                                                                                                                                                         | Each supported Region: 65,536 Bytes      | No         | The maximum size of an encrypted secret value. If the secret value is a string, then this is the number of characters permitted in the secret value.                                                       |
 | Secrets                                                                                                                                                                   | Each supported Region: 500,000           | No         | The maximum number of secrets in each AWS Region of this AWS account.                                                                                                                                      |
 | Staging labels attached across all versions of a secret                                                                                                                   | Each supported Region: 20                | No         | The maximum number of staging labels attached across all versions of a secret.                                                                                                                             |
-| Versions per secret                                                                                                                                                       | Each supported Region: 100               | No         | The maximum number of versions of a secret.                                                                                                                                                                | ## Add retries to your application Your AWS client might see calls to Secrets Manager fail due to unexpected issues on the client side. Or calls might fail due to rate limiting from Secrets Manager. When you exceed an API request quota, Secrets Manager throttles the request. It rejects an otherwise valid request and returns a throttling error. For both kinds of failures, we recommend you retry the call after a brief waiting period. This is called a [backoff and retry strategy](../../../general/latest/gr/api-retries.md "../../../general/latest/gr/api-retries.md"). If you experience the following errors, you might want to add retries to your application code: ###### Transient errors and exceptions <br>• `RequestTimeout` <br>• `RequestTimeoutException` <br>• `PriorRequestNotComplete` <br>• `ConnectionError` <br>• `HTTPClientError` ###### Service-side throttling and limit errors and exceptions <br>• `Throttling` <br>• `ThrottlingException` <br>• `ThrottledException` <br>• `RequestThrottledException` <br>• `TooManyRequestsException` <br>• `ProvisionedThroughputExceededException` <br>• `TransactionInProgressException` <br>• `RequestLimitExceeded` <br>• `BandwidthLimitExceeded` <br>• `LimitExceededException` <br>• `RequestThrottled` <br>• `SlowDown` For more information, as well as example code, on retries, exponential backoff, and jitter, see the following resources: <br>• [Exponential Backoff and Jitter](https://aws.amazon.com/blogs/architecture/exponential-backoff-and-jitter/ "https://aws.amazon.com/blogs/architecture/exponential-backoff-and-jitter/") <br>• [Timeouts, retries and backoff with jitter](https://aws.amazon.com/builders-library/timeouts-retries-and-backoff-with-jitter "https://aws.amazon.com/builders-library/timeouts-retries-and-backoff-with-jitter") <br>• [Error retries and exponential backoff in AWS](../../../general/latest/gr/api-retries.md "../../../general/latest/gr/api-retries.md"). |
+| Versions per secret                                                                                                                                                       | Each supported Region: 100               | No         | The maximum number of versions of a secret.                                                                                                                                                                |
+
+## Add retries to your application
+
+Your AWS client might see calls to Secrets Manager fail due to unexpected issues on the client
+side. Or calls might fail due to rate limiting from Secrets Manager. When you exceed an API request
+quota, Secrets Manager throttles the request. It rejects an otherwise valid request and returns a
+throttling error. For both kinds of failures, we recommend you retry the call
+after a brief waiting period. This is called a [backoff and retry strategy](../../../general/latest/gr/api-retries.md "../../../general/latest/gr/api-retries.md").
+
+If you experience the following errors, you might want to add retries to your application
+code:
+
+###### Transient errors and exceptions
+
+- `RequestTimeout`
+- `RequestTimeoutException`
+- `PriorRequestNotComplete`
+- `ConnectionError`
+- `HTTPClientError`
+
+###### Service-side throttling and limit errors and exceptions
+
+- `Throttling`
+- `ThrottlingException`
+- `ThrottledException`
+- `RequestThrottledException`
+- `TooManyRequestsException`
+- `ProvisionedThroughputExceededException`
+- `TransactionInProgressException`
+- `RequestLimitExceeded`
+- `BandwidthLimitExceeded`
+- `LimitExceededException`
+- `RequestThrottled`
+- `SlowDown`
+
+For more information, as well as example code, on retries, exponential backoff, and
+jitter, see the following resources:
+
+- [Exponential Backoff and Jitter](https://aws.amazon.com/blogs/architecture/exponential-backoff-and-jitter/ "https://aws.amazon.com/blogs/architecture/exponential-backoff-and-jitter/")
+- [Timeouts, retries and backoff with jitter](https://aws.amazon.com/builders-library/timeouts-retries-and-backoff-with-jitter "https://aws.amazon.com/builders-library/timeouts-retries-and-backoff-with-jitter")
+- [Error retries and
+  exponential backoff in AWS](../../../general/latest/gr/api-retries.md "../../../general/latest/gr/api-retries.md").
