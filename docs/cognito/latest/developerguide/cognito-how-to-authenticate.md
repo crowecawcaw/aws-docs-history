@@ -87,8 +87,8 @@ configuration.
 ###### Related resources
 
 - [User pool managed login](cognito-user-pools-managed-login.md "cognito-user-pools-managed-login.md")
-- [Scopes, M2M, and APIs with
-  resource servers](cognito-user-pools-define-resource-servers.md "cognito-user-pools-define-resource-servers.md")
+- [Scopes, M2M, and resource
+  servers](cognito-user-pools-define-resource-servers.md "cognito-user-pools-define-resource-servers.md")
 - [User pool endpoints and
   managed login reference](cognito-userpools-server-contract-reference.md "cognito-userpools-server-contract-reference.md")
 
@@ -235,8 +235,8 @@ to silently redirect to their IdP sign-in page.
 
 - [User pool sign-in with third party
   identity providers](cognito-user-pools-identity-federation.md "cognito-user-pools-identity-federation.md")
-- [Scopes, M2M, and APIs with
-  resource servers](cognito-user-pools-define-resource-servers.md "cognito-user-pools-define-resource-servers.md")
+- [Scopes, M2M, and resource
+  servers](cognito-user-pools-define-resource-servers.md "cognito-user-pools-define-resource-servers.md")
 - [User pool endpoints and
   managed login reference](cognito-userpools-server-contract-reference.md "cognito-userpools-server-contract-reference.md")
 

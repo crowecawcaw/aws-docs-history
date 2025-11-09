@@ -283,8 +283,59 @@ client secret from the previous section.
    to.
 
 | Social identity provider | Example scopes          |
-| ------------------------ | ----------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------------------ | ----------------------- |
 | Facebook                 | `public_profile, email` |
 | Google                   | `profile email openid`  |
 | Login with Amazon        | `profile postal_code`   |
-| Sign in with Apple       | `email name`            | Your app user is prompted to consent to providing these attributes to your app. For more information about social provider scopes, see the documentation from Google, Facebook, Login with Amazon, or Sign in with Apple. With Sign in with Apple, the following are user scenarios where scopes might not be returned: <br>• An end user encounters failures after leaving Apple’s sign in page (these can be from internal failures within Amazon Cognito or anything written by the developer). <br>• The service ID identifier is used across user pools and/or other authentication services. <br>• A developer adds additional scopes after the user signs in. Users only retrieve new information when they authenticate and when they refresh their tokens. <br>• A developer deletes the user and then the user signs in again without removing the app from their Apple ID profile. 8. Map attributes from your identity provider to your user pool. For more information, see [Things to know about mappings](cognito-user-pools-specifying-attribute-mapping.md#cognito-user-pools-specifying-attribute-mapping-requirements "cognito-user-pools-specifying-attribute-mapping.md#cognito-user-pools-specifying-attribute-mapping-requirements"). 9. Choose **Create**. 10. From the **App clients** menu, choose one of the app clients in the list and **Edit hosted UI settings**. Add the new social identity provider to the app client under **Identity providers**. 11. Choose **Save changes**. ## Test your social IdP configuration You can create a login URL by using the elements from the previous two sections. Use it to test your social IdP configuration. `` https://`mydomain.auth.us-east-1.amazoncognito.com`/login?response_type=code&client_id=`1example23456789`&redirect_uri=`https://www.example.com` `` You can find your domain on the user pool **Domain name** console page. The client_id is on the **App client settings** page. Use your callback URL for the **redirect_uri** parameter. This is the URL of the page where your user will be redirected after a successful authentication. ###### Note Amazon Cognito cancels authentication requests that do not complete within 5 minutes, and redirects the user to managed login. The page displays a `Something went wrong` error message. |
+| Sign in with Apple       | `email name`            |
+
+Your app user is prompted to consent to providing these attributes to your app.
+For more information about social provider scopes, see the documentation from Google,
+Facebook, Login with Amazon, or Sign in with Apple.
+
+With Sign in with Apple, the following are user scenarios where scopes might not
+be returned:
+
+    * An end user encounters failures after leaving Apple’s sign in page (these can
+     be from internal failures within Amazon Cognito or anything written by the
+     developer).
+    * The service ID identifier is used across user pools and/or other
+     authentication services.
+    * A developer adds additional scopes after the user signs in. Users only
+     retrieve new information when they authenticate and when they refresh their
+     tokens.
+    * A developer deletes the user and then the user signs in again without removing
+     the app from their Apple ID profile.
+
+8. Map attributes from your identity provider to your user pool. For more
+   information, see [Things to know about mappings](cognito-user-pools-specifying-attribute-mapping.md#cognito-user-pools-specifying-attribute-mapping-requirements "cognito-user-pools-specifying-attribute-mapping.md#cognito-user-pools-specifying-attribute-mapping-requirements").
+9. Choose **Create**.
+10. From the **App clients** menu, choose one of the app clients in
+    the list and **Edit hosted UI settings**. Add the new social identity
+    provider to the app client under **Identity providers**.
+11. Choose **Save changes**.
+
+## Test your social IdP
+
+configuration
+
+You can create a login URL by using the elements from the previous two sections.
+Use it to test your social IdP configuration.
+
+```
+
+https://`mydomain.auth.us-east-1.amazoncognito.com`/login?response_type=code&client_id=`1example23456789`&redirect_uri=`https://www.example.com`
+
+```
+
+You can find your domain on the user pool **Domain name** console
+page. The client_id is on the **App client settings** page. Use
+your callback URL for the **redirect_uri** parameter. This is the
+URL of the page where your user will be redirected after a successful
+authentication.
+
+###### Note
+
+Amazon Cognito cancels authentication requests that do not complete within 5
+minutes, and redirects the user to managed login. The page displays a
+`Something went wrong` error message.

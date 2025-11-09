@@ -26,6 +26,8 @@ model](https://aws.amazon.com/compliance/shared-responsibility-model/ "https://a
 - [Data protection in Amazon Cognito](data-protection.md "data-protection.md")
 - [Identity and access management for Amazon Cognito](security-iam.md "security-iam.md")
 - [Logging and monitoring in Amazon Cognito](monitoring.md "monitoring.md")
+- [Access Amazon Cognito user pools using an interface endpoint
+  (AWS PrivateLink)](vpc-interface-endpoints.md "vpc-interface-endpoints.md")
 - [Compliance validation for Amazon Cognito](compliance-validation.md "compliance-validation.md")
 - [Resilience in Amazon Cognito](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md")
 - [Infrastructure security in Amazon Cognito](infrastructure-security.md "infrastructure-security.md")

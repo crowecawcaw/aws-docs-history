@@ -121,46 +121,148 @@ can
 | Authorization server | Issue access tokens to authorize user access to APIs |
 | SAML 2.0 service provider | Transform SAML assertions into ID and access tokens |
 | OIDC relying party | Transform OIDC tokens into ID and access tokens |
-| Social provider relying party | Transform ID tokens from Apple, Facebook, Amazon, or Google to your own ID and access tokens |
-| Authentication frontend service | Sign up, manage, and authenticate users with managed login |
-| API support for your own UI | Create, manage and authenticate users through authentication API requests in supported AWS SDKs¹ |
-| Multi-factor authentication | Use SMS messages, TOTPs, or your user's device as an additional authentication factor¹ |
-| Security monitoring & response | Secure against malicious activity and insecure passwords¹ |
-| Customize authentication flows | Build your own authentication mechanism, or add custom steps to existing flows² |
-| Groups | Create logical groupings of users, and a hierarchy of IAM role claims when you pass tokens to identity pools |
-| Customize tokens | Customize your ID and access tokens with new, modified, and suppressed claims |
-| Customize user attributes | Assign values to user attributes and add your own custom attributes | ¹ Feature is unavailable to federated users. ² Feature is unavailable to federated and managed login users. For more information about user pools, see [Getting started with user pools](getting-started-user-pools.md "getting-started-user-pools.md") and the [Amazon Cognito user pools API reference](../../../cognito-user-identity-pools/latest/APIReference.md "../../../cognito-user-identity-pools/latest/APIReference.md"). ### Identity pools An identity pool is a collection of unique identifiers, or identities, that you assign to your users or guests and authorize to receive temporary AWS credentials. When you present proof of authentication to an identity pool in the form of the trusted claims from a SAML 2.0, OpenID Connect (OIDC), or OAuth 2.0 social identity provider (IdP), you associate your user with an identity in the identity pool. The token that your identity pool creates for the identity can retrieve temporary session credentials from AWS Security Token Service (AWS STS). To complement authenticated identities, you can also configure an identity pool to authorize AWS access without IdP authentication. You can offer custom proof of authentication with [Developer-authenticated identities](developer-authenticated-identities.md "developer-authenticated-identities.md"). You can also grant temporary AWS credentials to guest users, with [unauthenticated identities](identity-pools.md#authenticated-and-unauthenticated-identities "identity-pools.md#authenticated-and-unauthenticated-identities"). With identity pools, you have two ways to integrate with IAM policies in your AWS account. You can use these two features together or individually. ###### Role-based access control When your user passes claims to your identity pool, Amazon Cognito chooses the IAM role that it requests. To customize the role’s permissions to your needs, you apply IAM policies to each role. For example, if your user demonstrates that they are in the marketing department, they receive credentials for a role with policies tailored to marketing department access needs. Amazon Cognito can request a default role, a role based on rules that query your user’s claims, or a role based on your user’s group membership in a user pool. You can also configure the role trust policy so that IAM trusts only your identity pool to generate temporary sessions. ###### Attributes for access control Your identity pool reads attributes from your user’s claims, and maps them to principal tags in your user’s temporary session. You can then configure your IAM resource-based policies to allow or deny access to resources based on IAM principals that carry the session tags from your identity pool. For example, if your user demonstrates that they are in the marketing department, AWS STS tags their session `Department: marketing`. Your Amazon S3 bucket permits read operations based on an [aws:PrincipalTag](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-principaltag "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-principaltag") condition that requires a value of `marketing` for the `Department` tag. **Features of Amazon Cognito identity pools**| Feature | Description |
-| Amazon Cognito user pool relying party | Exchange an ID token from your user pool for web identity credentials from AWS STS |
-| SAML 2.0 service provider | Exchange SAML assertions for web identity credentials from AWS STS |
-| OIDC relying party | Exchange OIDC tokens for web identity credentials from AWS STS |
-| Social provider relying party | Exchange OAuth tokens from Amazon, Facebook, Google, Apple, and Twitter for web identity credentials from AWS STS |
-| Custom relying party | With AWS credentials, exchange claims in any format for web identity credentials from AWS STS |
-| Unauthenticated access | Issue limited-access web identity credentials from AWS STS without authentication |
-| Role-based access control | Choose an IAM role for your authenticated user based on their claims, and configure your roles to only be assumed in the context of your identity pool |
-| Attribute-based access control | Convert claims into principal tags for your AWS STS temporary session, and use IAM policies to filter resource access based on principal tags | For more information about identity pools, see [Getting started with Amazon Cognito identity pools](getting-started-with-identity-pools.md "getting-started-with-identity-pools.md") and the [Amazon Cognito identity pools API reference](../../../cognitoidentity/latest/APIReference.md "../../../cognitoidentity/latest/APIReference.md"). ## Amazon Cognito user pools and identity pools comparison
-| Feature | Description | User pools | Identity pools |
-| --- | --- | --- | --- |
-| OIDC identity provider | Issue OIDC ID tokens to authenticate app users | ✓ | |
-| User directory | Store user profiles for authentication | ✓ | |
-| Authorize API access | Issue access tokens to authorize user access to APIs (including user profile self-service API operations), databases, and other resources that accept OAuth scopes | ✓ | |
-| IAM web identity authorization | Generate tokens that you can exchange with AWS STS for temporary AWS credentials | | ✓ |
-| SAML 2.0 service provider & OIDC identity provider | Issue customized OIDC tokens based on claims from a SAML 2.0 identity provider | ✓ | |
-| OIDC relying party & OIDC identity provider | Issue customized OIDC tokens based on claims from an OIDC identity provider | ✓ | |
-| OAuth 2.0 relying party & OIDC identity provider | Issue customized OIDC tokens based on scopes from OAuth 2.0 social providers like Apple and Google | ✓ | |
-| SAML 2.0 service provider & credentials broker | Issue temporary AWS credentials based on claims from a SAML 2.0 identity provider | | ✓ |
-| OIDC relying party & credentials broker | Issue temporary AWS credentials based on claims from an OIDC identity provider | | ✓ |
-| Social provider relying party & credentials broker | Issue temporary AWS credentials based on JSON web tokens from developer applications with social providers like Apple and Google | | ✓ |
-| Amazon Cognito user pool relying party & credentials broker | Issue temporary AWS credentials based on JSON web tokens from Amazon Cognito user pools | | ✓ |
-| Custom relying party & credentials broker | Issue temporary AWS credentials to arbitrary identities, authorized by developer IAM credentials | | ✓ |
-| Authentication frontend service | Sign up, manage, and authenticate users with managed login | ✓ | |
-| API support for your own authentication UI | Create, manage and authenticate users through API requests in supported AWS SDKs¹ | ✓ | |
-| MFA | Use SMS messages, TOTPs, or your user's device as an additional authentication factor¹ | ✓ | |
-| Security monitoring & response | Protect against malicious activity and insecure passwords¹ | ✓ | |
-| Customize authentication flows | Build your own authentication mechanism, or add custom steps to existing flows¹ | ✓ | |
-| User groups | Create logical groupings of users, and a hierarchy of IAM role claims when you pass tokens to identity pools | ✓ | |
-| Customize tokens | Customize your ID and access tokens with new, modified, and suppressed claims and scopes | ✓ | |
-| AWS WAF web ACLs | Monitor and control requests to your authentication front end with AWS WAF | ✓ | |
-| Customize user attributes | Assign values to user attributes and add your own custom attributes | ✓ | |
-| Unauthenticated access | Issue limited-access web identity credentials from AWS STS without authentication | | ✓ |
-| Role-based access control | Choose an IAM role for your authenticated user based on their claims, and configure your role trust to limit access to web identity users | | ✓ |
-| Attribute-based access control | Transform user claims into principal tags for your AWS STS temporary session, and use IAM policies to filter resource access based on principal tags | | ✓ | ¹ Feature is not available to federated users. ## Getting started with Amazon Cognito For example user pool applications, see [Getting started with user pools](getting-started-user-pools.md "getting-started-user-pools.md"). For an introduction to identity pools, see [Getting started with Amazon Cognito identity pools](getting-started-with-identity-pools.md "getting-started-with-identity-pools.md"). For links to guided setup experiences with user pools and identity pools, see [Guided setup options for Amazon Cognito](cognito-guided-setup.md "cognito-guided-setup.md"). To get started with an AWS SDK, see [AWS Developer Tools](https://aws.amazon.com/products/developer-tools "https://aws.amazon.com/products/developer-tools"). For developer resources specific to Amazon Cognito, see [Amazon Cognito developer resources](https://aws.amazon.com/cognito/dev-resources/ "https://aws.amazon.com/cognito/dev-resources/"). To use Amazon Cognito, you need an AWS account. For more information, see [Getting started with AWS](cognito-getting-started-account-iam.md "cognito-getting-started-account-iam.md"). ## Regional availability Amazon Cognito is available in multiple AWS Regions worldwide. In each Region, Amazon Cognito is distributed across multiple Availability Zones. These Availability Zones are physically isolated from each other, but are united by private, low-latency, high-throughput, and highly redundant network connections. These Availability Zones enable AWS to provide services, including Amazon Cognito, with very high levels of availability and redundancy, while also minimizing latency. To see if Amazon Cognito is currently available in any AWS Region, see [AWS Services by Region](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/ "https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/"). To learn about regional API service endpoints, see [AWS regions and endpoints](../../../general/latest/gr/rande.md##cognito_identity_region "../../../general/latest/gr/rande.md##cognito_identity_region") in the _Amazon Web Services General Reference_. To learn more about the number of Availability Zones that are available in each Region, see [AWS global infrastructure](https://aws.amazon.com/about-aws/global-infrastructure/ "https://aws.amazon.com/about-aws/global-infrastructure/"). ## Pricing for Amazon Cognito For information about Amazon Cognito pricing, see [Amazon Cognito pricing](https://aws.amazon.com/cognito/pricing/ "https://aws.amazon.com/cognito/pricing/").
+| Social provider relying party | Transform ID tokens from Apple, Facebook, Amazon, or Google<br>to your own ID and access tokens |
+| Authentication frontend service | Sign up, manage, and authenticate users with managed<br>login |
+| API support for your own UI | Create, manage and authenticate users through authentication<br>API requests in supported AWS SDKs¹ |
+| Multi-factor authentication | Use SMS messages, TOTPs, or your user's device as an<br>additional authentication factor¹ |
+| Security monitoring & response | Secure against malicious activity and insecure<br>passwords¹ |
+| Customize authentication flows | Build your own authentication mechanism, or add custom steps<br>to existing flows² |
+| Groups | Create logical groupings of users, and a hierarchy of IAM<br>role claims when you pass tokens to identity pools |
+| Customize tokens | Customize your ID and access tokens with new, modified, and<br>suppressed claims |
+| Customize user attributes | Assign values to user attributes and add your own custom<br>attributes |
+
+¹ Feature is unavailable to federated users.
+
+² Feature is unavailable to federated and managed login users.
+
+For more information about user pools, see [Getting started with user pools](getting-started-user-pools.md "getting-started-user-pools.md") and the [Amazon Cognito user
+pools API reference](../../../cognito-user-identity-pools/latest/APIReference.md "../../../cognito-user-identity-pools/latest/APIReference.md").
+
+### Identity pools
+
+An identity pool is a collection of unique identifiers, or identities, that you assign
+to your users or guests and authorize to receive temporary AWS credentials. When you
+present proof of authentication to an identity pool in the form of the trusted claims from a
+SAML 2.0, OpenID Connect (OIDC), or OAuth 2.0 social identity provider (IdP), you associate
+your user with an identity in the identity pool. The token that your identity pool creates
+for the identity can retrieve temporary session credentials from AWS Security Token Service (AWS STS).
+
+To complement authenticated identities, you can also configure an identity pool to
+authorize AWS access without IdP authentication. You can offer custom proof of
+authentication with [Developer-authenticated identities](developer-authenticated-identities.md "developer-authenticated-identities.md"). You can also grant temporary AWS
+credentials to guest users, with [unauthenticated
+identities](identity-pools.md#authenticated-and-unauthenticated-identities "identity-pools.md#authenticated-and-unauthenticated-identities").
+
+With identity pools, you have two ways to integrate with IAM policies in your
+AWS account. You can use these two features together or individually.
+
+###### Role-based access
+
+control
+
+When your user passes claims to your identity pool, Amazon Cognito chooses the IAM role that
+it requests. To customize the role’s permissions to your needs, you apply IAM policies
+to each role. For example, if your user demonstrates that they are in the marketing
+department, they receive credentials for a role with policies tailored to marketing
+department access needs. Amazon Cognito can request a default role, a role based on rules that
+query your user’s claims, or a role based on your user’s group membership in a user pool.
+You can also configure the role trust policy so that IAM trusts only your identity pool
+to generate temporary sessions.
+
+###### Attributes for access
+
+control
+
+Your identity pool reads attributes from your user’s claims, and maps them to
+principal tags in your user’s temporary session. You can then configure your IAM
+resource-based policies to allow or deny access to resources based on IAM principals
+that carry the session tags from your identity pool. For example, if your user
+demonstrates that they are in the marketing department, AWS STS tags their session
+`Department: marketing`. Your Amazon S3 bucket permits read operations based on an
+[aws:PrincipalTag](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-principaltag "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md#condition-keys-principaltag") condition that requires a value of
+`marketing` for the `Department` tag.
+
+**Features of Amazon Cognito identity pools**| Feature | Description |
+| Amazon Cognito user pool relying party | Exchange an ID token from your user pool for web identity<br>credentials from AWS STS |
+| SAML 2.0 service provider | Exchange SAML assertions for web identity credentials from<br>AWS STS |
+| OIDC relying party | Exchange OIDC tokens for web identity credentials from<br>AWS STS |
+| Social provider relying party | Exchange OAuth tokens from Amazon, Facebook, Google, Apple,<br>and Twitter for web identity credentials from AWS STS |
+| Custom relying party | With AWS credentials, exchange claims in any format for<br>web identity credentials from AWS STS |
+| Unauthenticated access | Issue limited-access web identity credentials from AWS STS<br>without authentication |
+| Role-based access control | Choose an IAM role for your authenticated user based on<br>their claims, and configure your roles to only be assumed in the context of your<br>identity pool |
+| Attribute-based access control | Convert claims into principal tags for your AWS STS temporary<br>session, and use IAM policies to filter resource access based on principal tags |
+
+For more information about identity pools, see [Getting started with Amazon Cognito identity
+pools](getting-started-with-identity-pools.md "getting-started-with-identity-pools.md") and the [Amazon Cognito identity
+pools API reference](../../../cognitoidentity/latest/APIReference.md "../../../cognitoidentity/latest/APIReference.md").
+
+## Amazon Cognito user pools and identity pools
+
+comparison
+
+| Feature                                                     | Description                                                                                                                                                              | User pools | Identity pools |
+| ----------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | -------------- |
+| OIDC identity provider                                      | Issue OIDC ID tokens to authenticate app users                                                                                                                           | ✓          |                |
+| User directory                                              | Store user profiles for authentication                                                                                                                                   | ✓          |                |
+| Authorize API access                                        | Issue access tokens to authorize user access to APIs<br>(including user profile self-service API operations), databases, and other resources<br>that accept OAuth scopes | ✓          |                |
+| IAM web identity authorization                              | Generate tokens that you can exchange with AWS STS for temporary<br>AWS credentials                                                                                      |            | ✓              |
+| SAML 2.0 service provider & OIDC identity provider          | Issue customized OIDC tokens based on claims from a SAML 2.0<br>identity provider                                                                                        | ✓          |                |
+| OIDC relying party & OIDC identity provider                 | Issue customized OIDC tokens based on claims from an OIDC<br>identity provider                                                                                           | ✓          |                |
+| OAuth 2.0 relying party & OIDC identity provider            | Issue customized OIDC tokens based on scopes from OAuth 2.0<br>social providers like Apple and Google                                                                    | ✓          |                |
+| SAML 2.0 service provider & credentials broker              | Issue temporary AWS credentials based on claims from a SAML<br>2.0 identity provider                                                                                     |            | ✓              |
+| OIDC relying party & credentials broker                     | Issue temporary AWS credentials based on claims from an OIDC<br>identity provider                                                                                        |            | ✓              |
+| Social provider relying party & credentials broker          | Issue temporary AWS credentials based on JSON web tokens<br>from developer applications with social providers like Apple and Google                                      |            | ✓              |
+| Amazon Cognito user pool relying party & credentials broker | Issue temporary AWS credentials based on JSON web tokens<br>from Amazon Cognito user pools                                                                               |            | ✓              |
+| Custom relying party & credentials broker                   | Issue temporary AWS credentials to arbitrary identities,<br>authorized by developer IAM credentials                                                                      |            | ✓              |
+| Authentication frontend service                             | Sign up, manage, and authenticate users with managed<br>login                                                                                                            | ✓          |                |
+| API support for your own authentication UI                  | Create, manage and authenticate users through API requests in<br>supported AWS SDKs¹                                                                                     | ✓          |                |
+| MFA                                                         | Use SMS messages, TOTPs, or your user's device as an<br>additional authentication factor¹                                                                                | ✓          |                |
+| Security monitoring & response                              | Protect against malicious activity and insecure<br>passwords¹                                                                                                            | ✓          |                |
+| Customize authentication flows                              | Build your own authentication mechanism, or add custom steps<br>to existing flows¹                                                                                       | ✓          |                |
+| User groups                                                 | Create logical groupings of users, and a hierarchy of IAM<br>role claims when you pass tokens to identity pools                                                          | ✓          |                |
+| Customize tokens                                            | Customize your ID and access tokens with new, modified, and<br>suppressed claims and scopes                                                                              | ✓          |                |
+| AWS WAF web ACLs                                            | Monitor and control requests to your authentication front end<br>with AWS WAF                                                                                            | ✓          |                |
+| Customize user attributes                                   | Assign values to user attributes and add your own custom<br>attributes                                                                                                   | ✓          |                |
+| Unauthenticated access                                      | Issue limited-access web identity credentials from AWS STS<br>without authentication                                                                                     |            | ✓              |
+| Role-based access control                                   | Choose an IAM role for your authenticated user based on<br>their claims, and configure your role trust to limit access to web identity users                             |            | ✓              |
+| Attribute-based access control                              | Transform user claims into principal tags for your AWS STS<br>temporary session, and use IAM policies to filter resource access based on principal<br>tags               |            | ✓              |
+
+¹ Feature is not available to federated users.
+
+## Getting started with Amazon Cognito
+
+For example user pool applications, see [Getting started with user pools](getting-started-user-pools.md "getting-started-user-pools.md").
+
+For an introduction to identity pools, see [Getting started with Amazon Cognito identity
+pools](getting-started-with-identity-pools.md "getting-started-with-identity-pools.md").
+
+For links to guided setup experiences with user pools and identity pools, see [Guided setup options for Amazon Cognito](cognito-guided-setup.md "cognito-guided-setup.md").
+
+To get started with an AWS SDK, see [AWS Developer Tools](https://aws.amazon.com/products/developer-tools "https://aws.amazon.com/products/developer-tools"). For developer resources
+specific to Amazon Cognito, see [Amazon Cognito developer
+resources](https://aws.amazon.com/cognito/dev-resources/ "https://aws.amazon.com/cognito/dev-resources/").
+
+To use Amazon Cognito, you need an AWS account. For more information, see [Getting started with AWS](cognito-getting-started-account-iam.md "cognito-getting-started-account-iam.md").
+
+## Regional availability
+
+Amazon Cognito is available in multiple AWS Regions worldwide. In each Region, Amazon Cognito is
+distributed across multiple Availability Zones. These Availability Zones are physically
+isolated from each other, but are united by private, low-latency, high-throughput, and highly
+redundant network connections. These Availability Zones enable AWS to provide services,
+including Amazon Cognito, with very high levels of availability and redundancy, while also minimizing
+latency.
+
+To see if Amazon Cognito is currently available in any AWS Region, see [AWS Services by
+Region](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/ "https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/").
+
+To learn about regional API service endpoints, see [AWS regions and endpoints](../../../general/latest/gr/rande.md##cognito_identity_region "../../../general/latest/gr/rande.md##cognito_identity_region")
+in the _Amazon Web Services General Reference_.
+
+To learn more about the number of Availability Zones that are available in each Region,
+see [AWS global
+infrastructure](https://aws.amazon.com/about-aws/global-infrastructure/ "https://aws.amazon.com/about-aws/global-infrastructure/").
+
+## Pricing for Amazon Cognito
+
+For information about Amazon Cognito pricing, see [Amazon Cognito pricing](https://aws.amazon.com/cognito/pricing/ "https://aws.amazon.com/cognito/pricing/").

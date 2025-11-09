@@ -59,8 +59,8 @@ For more information on using groups to control access to your resources, see [A
 After you configure a domain for your user pool, Amazon Cognito provisions a hosted web UI that
 allows you to add sign-up and sign-in pages to your app. Using this OAuth 2.0 foundation, you
 can create your own resource server to enable your users to access protected resources. For
-more information, see [Scopes, M2M, and APIs with
-resource servers](cognito-user-pools-define-resource-servers.md "cognito-user-pools-define-resource-servers.md").
+more information, see [Scopes, M2M, and resource
+servers](cognito-user-pools-define-resource-servers.md "cognito-user-pools-define-resource-servers.md").
 
 For more information about user pool authentication, see [An example authentication
 session](authentication.md#amazon-cognito-user-pools-authentication-flow "authentication.md#amazon-cognito-user-pools-authentication-flow") and [Understanding

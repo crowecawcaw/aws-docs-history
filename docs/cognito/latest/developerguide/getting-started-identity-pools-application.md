@@ -625,26 +625,1119 @@ explore them:
 
 
 
+    	| Identity provider | Cognito provider key | Purpose |
+    	| --- | --- | --- |
+    	| Google | `accounts.google.com` | OAuth 2.0 tokens from Google<br>Sign-In |
+    	| Facebook | `graph.facebook.com` | Access tokens from Facebook Login |
+    	| Amazon | `www.amazon.com` | OAuth tokens from Login with Amazon |
 
-| Identity provider        | Cognito provider key                                | Purpose                                      |
-| ------------------------ | --------------------------------------------------- | -------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Google                   | `accounts.google.com`                               | OAuth 2.0 tokens from Google Sign-In         |
-| Facebook                 | `graph.facebook.com`                                | Access tokens from Facebook Login            |
-| Amazon                   | `www.amazon.com`                                    | OAuth tokens from Login with Amazon          | After successful authentication with the social provider, your app receives an OAuth response containing the access token and other authentication details: `{ "access_token": "ya29.A0AS3H6NEXAMPLE......", "expires_in": 3599, "scope": "openid https://www.examplesocial....", "token_type": "Bearer", "id_token": "eyJhbGciOiJSUzI1NiIsEXAMPLE......" }` <br>• `GetId()` API request with your identity pool ID and a `Logins`map containing your social provider token `POST GetId { "IdentityPoolId": "us-east-1:a1b2c3d4-5678-90ab-cdef-EXAMPLE11111", "Logins": { "accounts.google.com": "eyJhbGciOiJSUzI1NiIsEXAMPLE......" } }` Response: `{ "IdentityId": "us-east-1:a1b2c3d4-5678-90ab-cdef-EXAMPLE22222" }` <br>• `GetCredentialsForIdentity()` with the returned `IdentityID` and the same `Logins` map `POST GetCredentialsForIdentity { "IdentityId": "us-east-1:a1b2c3d4-5678-90ab-cdef-EXAMPLE22222", "Logins": { "accounts.google.com": "eyJhbGciOiJSUzI1NiIsEXAMPLE......" } }` Response: `{ "Credentials": { "AccessKeyId": "AKIAIOSFODNN7EXAMPLE", "SecretAccessKey": "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY", "SessionToken": "IQoJb3JpZ2luX2VjEEXAMPLE......", "Expiration": "2025-08-07T00:58:21-07:00" }, "IdentityId": "us-east-1:a1b2c3d4-5678-90ab-cdef-EXAMPLE22222" }` **What happened**: Amazon Cognito validated the token against the configured provider, chose an IAM role based on your provider configuration, and called AWS STS on your behalf. Your identity pool then returned temporary credentials. Social identity provider with basic flow This section shows how you can use a social identity provider to sign in a user and, using the basic flow, exchange the provider token in an Amazon Cognito identity pool for temporary credentials to call AWS services. ###### Use social sign-in with the basic flow in the example application 1. In the demo application, navigate to **Interactive demo** section 2. Choose the **Authenticated access** tab. 3. Choose the **Basic flow** tab. 4. Choose a supported social provider you’ve configured, for example **Sign in with Google**, **Sign in with Facebook**, or **Login with Amazon**. 5. Sign in and consent to share user data with the application. 6. The provider redirects back to the app’s redirect URI 7. The app sends the provider token to your identity pool and retrieves temporary AWS credentials 8. The app displays the **Results** panel in web interface. After successful authentication, you will see the web interface displaying the **Results** panel, and you have two options to explore them: 1. **View credentials only** button: Choose this button if you want to directly see temporary AWS credentials generated without the API flow details. `{ "IdentityId": "us-east-1:a1b2c3d4-5678-90ab-cdef-EXAMPLE22222", "Credentials": { "AccessKeyId": "AKIAIOSFODNN7EXAMPLE", "SecretAccessKey": "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY", "SessionToken": "IQoJb3JpZ2luX2VjEEXAMPLE......", "Expiration": "2025-08-12T13:36:17-07:00" } }` 2. **View detailed API flow** button: Choose this button if you want to see the step-by-step API requests. <br>• The app signs in the user with a social IdP and obtains the provider token. Identity pools accept these artifacts from social providers:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| Identity provider        | Cognito provider key                                | Purpose                                      |
-| ---                      | ---                                                 | ---                                          |
-| Google                   | `accounts.google.com`                               | OAuth 2.0 tokens from Google Sign-In         |
-| Facebook                 | `graph.facebook.com`                                | Access tokens from Facebook Login            |
-| Amazon                   | `www.amazon.com`                                    | OAuth tokens from Login with Amazon          | After successful authentication with the social provider, your app receives an OAuth response containing the access token and other authentication details: `{ "access_token": "ya29.A0AS3H6NEXAMPLE......", "expires_in": 3599, "scope": "openid https://www.examplesocial....", "token_type": "Bearer", "id_token": "eyJhbGciOiJSUzI1NiIsEXAMPLE......" }` <br>• `GetId()` API request with your identity pool ID and a `Logins` map containing your social provider token `POST GetId { "IdentityPoolId": "us-east-1:a1b2c3d4-5678-90ab-cdef-EXAMPLE11111", "Logins": { "accounts.google.com": "token..." } }` Response: `{ "IdentityId": "us-east-1:a1b2c3d4-5678-90ab-cdef-EXAMPLE22222" }` <br>• `GetOpenIdToken()` with the returned `IdentityID` and the same Logins map `POST GetOpenIdToken { "IdentityId": "us-east-1:a1b2c3d4-5678-90ab-cdef-EXAMPLE22222", "Logins": { "accounts.google.com": "token..." } }` Response: `{ "IdentityId": "us-east-1:a1b2c3d4-5678-90ab-cdef-EXAMPLE22222", "Token": "eyJraWQiOiJFWAMPLE......" }` <br>• `AssumeRoleWithWebIdentity()` with the OpenID token `POST AssumeRoleWithWebIdentity { "RoleArn": "arn:aws:iam::111122223333:role/Cognito_IdentityPoolAuth_Role", "WebIdentityToken": "eyJraWQiOiJFWAMPLE......" }` Response: `{ "Credentials": { "AccessKeyId": "AKIAIOSFODNN7EXAMPLE", "SecretAccessKey": "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY", "SessionToken": "IQoJb3JpZ2luX2VjEEXAMPLE......", "Expiration": "2025-08-12T14:36:17-07:00" } }` **What happened**: Amazon Cognito validated the token against the configured provider and issued an OpenID token. The application called AWS STS directly to assume an IAM role and receive temporary credentials. ### Understand social access <br>• Social users receive temporary AWS credentials through Amazon Cognito identity pools after authenticating with their social provider. <br>• Each authenticated user gets a unique identity ID that persists across sessions. <br>• These credentials are linked to an IAM role specifically designed for authenticated access, providing broader permissions than guest access. <br>• Social provider tokens are exchanged for AWS credentials, maintaining user identity and permissions. This step explores Amazon Cognito authentication with user pool [managed login](cognito-user-pools-managed-login.md "cognito-user-pools-managed-login.md") integration. When you link a user pool as an IdP to an identity pool, user pool tokens authorize your identity pool to issue temporary credentials. User pool authentication with enhanced flow The enhanced flow provides a streamlined approach to obtaining AWS credentials through Amazon Cognito identity pools with a single API request. ###### Use Amazon Cognito user pool authentication with the identity pool enhanced flow 1. In the demo application, navigate to **Interactive demo** section 2. Choose the **Authenticated access** tab. 3. Choose the **Enhanced flow** tab. 4. Choose **Sign in with Amazon Cognito user pools** 5. Complete sign-in with your username and password in managed login. 6. The user pool redirects back to your application redirect URI with an authorization code. 7. The application exchanges the authorization code with your user pool for JSON web tokens. 8. The application exchanges the ID token with your identity pool for temporary AWS credentials 9. The app displays the **Results** panel in web interface After successful authentication, you will see the web interface displaying the **Results** panel, and you have two options to explore them: 1. **View credentials only** button: Choose this button if you want to directly see temporary AWS credentials generated without the API flow details. `{ "IdentityId": "us-east-1:a1b2c3d4-5678-90ab-cdef-EXAMPLE22222", "Credentials": { "AccessKeyId": "AKIAIOSFODNN7EXAMPLE", "SecretAccessKey": "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY", "SessionToken": "IQoJb3JpZ2luX2VjEEXAMPLE......", "Expiration": "2025-08-12T13:36:17-07:00" } }` 2. **View detailed API flow** button: Choose this button if you want to see the step-by-step API requests. <br>• The app signs in the user with a Amazon Cognito. After successful authentication with the user pool, your app receives an OAuth 2.0 response containing the ID token (JWT). Identity pools accept JWT ID tokens from user pools using this provider key format:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| Identity provider        | Cognito provider key                                | Purpose                                      |
-| ---                      | ---                                                 | ---                                          |
-| Amazon Cognito user pool | `cognito-idp.{region}.amazonaws.com/{user-pool-id}` | JWT ID tokens from Amazon Cognito user pools | After successful authentication with the user pool, your app receives an OAuth 2.0 response containing the ID token (JWT): `{ "id_token": "eyJraWQiOiJFWAMPLE......", "token_type": "Bearer", "expires_in": 3600 }` <br>• `GetId()` API request with your `identityPoolId`and a `Logins` map that includes your user-pool provider key mapped to the `id_token`. Amazon Cognito verified the user pool ID token's signature, issuer, expiry, and audience (`aud`) matches one of the app client IDs you registered for this user pool IdP in the identity pool. `POST GetId { "AccountId": "111122223333", "IdentityPoolId": "us-east-1:1ac4a76d-1fef-48aa-83af-4224799c0b5c", "Logins": { "cognito-idp.us-east-1.amazonaws.com/us-east-1_EXAMPLE123": "eyJraWQiOiJFWAMPLE......" } }` If valid, it finds or creates and returns the user's `IdentityID`. An example response looks like this: `{ "IdentityId": "us-east-1:a1b2c3d4-5678-90ab-cdef-EXAMPLE22222" }` <br>• `GetCredentialsForIdentity()` with the returned `identityPoolId`and a=the same `Logins` map with the `id_token`. Amazon Cognito revalidates the user pool ID token's signature, issuer, expiry, and audience (`aud`) matches one of the app client IDs you registered for this user pool IdP in the identity pool. `POST GetCredentialsForIdentity { "IdentityId": "us-east-1:a1b2c3d4-5678-90ab-cdef-EXAMPLE22222", "Logins": { "cognito-idp.us-east-1.amazonaws.com/us-east-1_EXAMPLE123": "eyJraWQiOiJFWAMPLE......" } }` If valid, it chooses an IAM role (roles-in-token, rules, or default), calls AWS STS on your behalf, and returns temporary AWS credentials. An example response looks like this: `{ "IdentityId": "us-east-1:a1b2c3d4-5678-90ab-cdef-EXAMPLE22222", "Credentials": { "AccessKeyId": "ASIAW7TIP7EJEXAMPLE", "SecretAccessKey": "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY", "SessionToken": "IQoJb3JpZ2luX2VjEEXAMPLE......", "Expiration": "2025-08-12T14:36:17-07:00" } }` User pool authentication with basic flow The basic flow provides granular control over the authentication process with separate API requests for identity retrieval and credential generation. ###### Use Amazon Cognito user pool authentication with the identity pool basic flow 1. In the demo application, navigate to **Interactive demo** section 2. Choose the **Authenticated access** tab. 3. Choose the **Basic flow** tab. 4. Choose **Sign in with Amazon Cognito user pools** 5. Complete sign-in with your username and password in managed login. 6. The user pool redirects back to your application redirect URI with an authorization code. 7. The application exchanges the authorization code with your user pool for JSON web tokens. 8. The application exchanges the ID token with your identity pool for temporary AWS credentials 9. The app displays the **Results** panel in web interface After successful authentication, you will see the web interface displaying the **Results** panel, and you have two options to explore them: 1. **View credentials only** button: Choose this button if you want to directly see temporary AWS credentials generated without the API flow details. `{ "IdentityId": "us-east-1:a1b2c3d4-5678-90ab-cdef-EXAMPLE22222", "Credentials": { "AccessKeyId": "AKIAIOSFODNN7EXAMPLE", "SecretAccessKey": "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY", "SessionToken": "IQoJb3JpZ2luX2VjEEXAMPLE......", "Expiration": "2025-08-12T13:36:17-07:00" } }` 2. **View detailed API flow** button: Choose this button if you want to see the step-by-step API requests. <br>• The app signs in the user with a Amazon Cognito user pool and obtains ID token (JWT) as the artifact. After successful authentication with the user pool, your app receives an OAuth response containing the ID token (JWT). Identity pools use this token for authentication: `{ "id_token": "eyJraWQiOiJFWAMPLE......", "token_type": "Bearer", "expires_in": 3600 }` <br>• `GetId()` API request with your identity pool ID and a `Logins` map that includes your user-pool provider key and the ID token as the value. Amazon Cognito verified the user pool ID token's signature, expiry, and audience (aud) matches one of the app client IDs you registered for this user pool IdP in the identity pool. `POST GetId { "AccountId": "111122223333", "IdentityPoolId": "us-east-1:1ac4a76d-1fef-48aa-83af-4224799c0b5c", "Logins": { "cognito-idp.us-east-1.amazonaws.com/us-east-1_EXAMPLE123": "eyJraWQiOiJFWAMPLE......" } }` If valid, it finds or creates and returns the user's `IdentityID`. An example response looks like this: `{ "IdentityId": "us-east-1:a1b2c3d4-5678-90ab-cdef-EXAMPLE22222" }` <br>• `GetOpenIdToken()` with the returned `IdentityID` and the same `Logins` map `POST GetOpenIdToken { "IdentityId": "us-east-1:a1b2c3d4-5678-90ab-cdef-EXAMPLE22222", "Logins": { "cognito-idp.us-east-1.amazonaws.com/us-east-1_EXAMPLE123": "eyJraWQiOiJFWAMPLE......" } }` Response: `{ "IdentityId": "us-east-1:a1b2c3d4-5678-90ab-cdef-EXAMPLE22222", "Token": "eyJraWQiOiJFWAMPLE......" }` **What happens in this step:** Amazon Cognito issues a short-lived OpenID Connect web identity token from cognito-identity.amazonaws.com that represents this `IdentityId`. The token includes OIDC claims that AWS STS evaluates, including aud (your identity pool ID) and amr (authenticated or unauthenticated). Your IAM role's trust policy must require those claims. <br>• `AssumeRoleWithWebIdentity()` - Your app calls AWS STS directly to exchange the Amazon Cognito OpenID token for temporary AWS credentials `POST sts:AssumeRoleWithWebIdentity { "RoleArn": "arn:aws:iam::111122223333:role/Cognito_IdentityPoolAuth_Role", "WebIdentityToken": "eyJraWQiOiJFWAMPLE......", "RoleSessionName": "CognitoIdentityCredentials" }` Response: `{ "Credentials": { "AccessKeyId": "AKIAIOSFODNN7EXAMPLE", "SecretAccessKey": "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY", "SessionToken": "FwoGZXIvYXdzEEXAMPLE......", "Expiration": "2025-08-12T14:36:17-07:00" }, "AssumedRoleUser": { "AssumedRoleId": "AROAW7TIP7EJYEXAMPLE:CognitoIdentityCredentials", "Arn": "arn:aws:sts::111122223333:assumed-role/Cognito_IdentityPoolAuth_Role/CognitoIdentityCredentials" } }` **What your demo application did:** Your app sent the OpenID token from `GetOpenIdToken()` to AWS STS, requesting temporary credentials. AWS STS performed validation checks and issued credentials: <br>• User pool users receive temporary AWS credentials through Amazon Cognito identity pools. <br>• These credentials are linked to an IAM role specified in your identity pool configuration. <br>• User pool ID tokens are exchanged for AWS credentials through the identity pool. This step explores SAML authentication. Users can sign in with enterprise identity providers that support SAML to access AWS services. The basic flow with SAML isn't supported in the example application. SAML authentication with enhanced flow This section shows how you can use a SAML identity provider to sign in a user and, using the enhanced flow, exchange the SAML assertion in an Amazon Cognito identity pool for temporary AWS credentials to call AWS services. ###### Use SAML authentication with the identity pool enhanced flow 1. In the demo application, navigate to **Interactive demo** section 2. Choose the **Authenticated access** tab. 3. Choose the **Enhanced flow** tab. 4. Choose **Sign in with SAML provider** 5. Complete sign-in with your enterprise credentials. 6. The user pool redirects back to your application redirect URI with a SAML assertion. 7. The application exchanges the authorization code with your user pool for JSON web tokens. 8. The application exchanges the SAML response with your identity pool for temporary AWS credentials 9. The app displays the **Results** panel in web interface After successful authentication, you will see the web interface displaying the **Results** panel, and you have two options to explore them: 1. **View credentials only** button: Choose this button if you want to directly see temporary AWS credentials generated without the API flow details. `{ "IdentityId": "us-east-1:a1b2c3d4-5678-90ab-cdef-EXAMPLE22222", "Credentials": { "AccessKeyId": "AKIAIOSFODNN7EXAMPLE", "SecretAccessKey": "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY", "SessionToken": "IQoJb3JpZ2luX2VjEEXAMPLE......", "Expiration": "2025-08-12T13:36:17-07:00" } }` 2. **View detailed API flow** button: Choose this button if you want to see the step-by-step API requests. <br>• The app signs in the user with a SAML IdP and obtains the SAML response. Identity pools accept SAML assertions from enterprise providers using the SAML provider ARN as the key: |
-| Identity provider        | Cognito provider key                                | Purpose                                      |
-| ---                      | ---                                                 | ---                                          |
-| SAML Provider            | `arn:aws:iam::111122223333:saml-provider/EXAMPLE`   | SAML assertions from enterprise IdPs         | After successful authentication with the SAML provider, your app receives a SAML response via HTTP POST to your callback URL: `{ "saml_response": "PD94bWwgdmVyc2lvbj0iMS4wIiBFWAMPLE...", "provider_arn": "arn:aws:iam::111122223333:saml-provider/EXAMPLE", "status": "Authentication successful" }` <br>• `GetId()` API request with your identity pool ID and a `Logins` map containing your SAML provider ARN and assertion `POST GetId { "AccountId": "111122223333", "IdentityPoolId": "us-east-1:a1b2c3d4-5678-90ab-cdef-EXAMPLE11111", "Logins": { "arn:aws:iam::111122223333:saml-provider/EXAMPLE": "PD94bWwgdmVyc2lvbj0iMS4wIiBFWAMPLE..." } }` Response: `{ "IdentityId": "us-east-1:a1b2c3d4-5678-90ab-cdef-EXAMPLE22222" }` <br>• `GetCredentialsForIdentity()` with the returned `IdentityID`and the same `Logins` map `POST GetCredentialsForIdentity { "IdentityId": "us-east-1:a1b2c3d4-5678-90ab-cdef-EXAMPLE22222", "Logins": { "arn:aws:iam::111122223333:saml-provider/EXAMPLE": "PD94bWwgdmVyc2lvbj0iMS4wIiBFWAMPLE..." } }` Response: `{ "IdentityId": "us-east-1:a1b2c3d4-5678-90ab-cdef-EXAMPLE22222", "Credentials": { "AccessKeyId": "AKIAIOSFODNN7EXAMPLE", "SecretAccessKey": "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY", "SessionToken": "IQoJb3JpZ2luX2VjEEXAMPLE......" } }` **What happened**: Amazon Cognito validated the SAML assertion against the configured provider, chose an IAM role based on SAML attributes or rules, and called AWS STS on your behalf. ### Understand SAML access <br>• Enterprise users receive temporary AWS credentials from Amazon Cognito identity pools after authenticating with their SAML provider. <br>• Each authenticated user gets a unique identity ID that persists across sessions. <br>• These credentials are linked to an IAM role specifically designed for authenticated access, providing broader permissions than guest access. <br>• SAML assertions are exchanged for AWS credentials, maintaining user identity and enterprise attributes. This step explores OIDC authentication with enterprise identity providers. Users can sign in through their organization's enterprise identity provider (such as Azure AD, Okta, or Google Workspace) to access AWS services. Continue reading if you are looking for information about integrating standards-based authentication with your AWS resources. After you implement OIDC authentication, you'll learn how to leverage OIDC claims for fine-grained access control. OIDC authentication with enhanced flow This section shows how you can use an OIDC identity provider to sign in a user and, using the enhanced flow, exchange the OIDC token in an Amazon Cognito identity pool for temporary AWS credentials to call AWS services. ###### Use OIDC sign-in with the identity pool enhanced flow 1. In the demo application, navigate to **Interactive demo** section 2. Choose the **Authenticated access** tab. 3. Choose the **Enhanced flow** tab. 4. Choose **Sign in with OIDC provider** 5. Complete sign-in with your enterprise credentials. 6. The OIDC provider redirects back to the app with an authorization code 7. The application exchanges the authorization code with your user pool for JSON web tokens. 8. The application sends the OIDC token to your identity pool and retrieves temporary AWS credentials. 9. The app displays the **Results** panel in web interface After successful authentication, you will see the web interface displaying the **Results** panel, and you have two options to explore them: 1. **View credentials only** button: Choose this button if you want to directly see temporary AWS credentials generated without the API flow details. `{ "IdentityId": "us-east-1:a1b2c3d4-5678-90ab-cdef-EXAMPLE22222", "Credentials": { "AccessKeyId": "AKIAIOSFODNN7EXAMPLE", "SecretAccessKey": "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY", "SessionToken": "IQoJb3JpZ2luX2VjEEXAMPLE......", "Expiration": "2025-08-12T13:36:17-07:00" } }` 2. **View detailed API flow** button: Choose this button if you want to see the step-by-step API requests. <br>• The app signs in the user with an OIDC IdP and obtains the ID token. Identity pools accept OIDC tokens from enterprise providers:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| Identity provider        | Cognito provider key                                | Purpose                                      |
-| ---                      | ---                                                 | ---                                          |
-| OIDC Provider            | `example-provider.com/oauth2/default`               | OIDC ID tokens from enterprise IdPs          | After successful authentication with the OIDC provider, your app receives an OAuth 2.0 response containing the tokens: `{ "token_type": "Bearer", "expires_in": 3600, "access_token": "eyJraWQiOiJFWAMPLE......", "scope": "email openid profile", "id_token": "eyJraWQiOiJFWAMPLE......" }` <br>• `GetId()` API request with your identity pool ID and a `Logins` map containing your OIDC provider token `POST GetId { "AccountId": "111122223333", "IdentityPoolId": "us-east-1:a1b2c3d4-5678-90ab-cdef-EXAMPLE11111", "Logins": { "example-provider.com/oauth2/default": "eyJraWQiOiJFWAMPLE......" } }` Response: `{ "IdentityId": "us-east-1:a1b2c3d4-5678-90ab-cdef-EXAMPLE22222" }` <br>• `GetCredentialsForIdentity()` with the returned `IdentityID` and the same Logins map `POST GetCredentialsForIdentity { "IdentityId": "us-east-1:a1b2c3d4-5678-90ab-cdef-EXAMPLE22222", "Logins": { "example-provider.com/oauth2/default": "eyJraWQiOiJFWAMPLE......" } }` Response: `{ "IdentityId": "us-east-1:a1b2c3d4-5678-90ab-cdef-EXAMPLE22222", "Credentials": { "AccessKeyId": "AKIAIOSFODNN7EXAMPLE", "SecretAccessKey": "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY", "SessionToken": "IQoJb3JpZ2luX2VjEEXAMPLE......" } }` **What happened**: Amazon Cognito validated the OIDC token against the configured provider, chose an IAM role (default, claim-based, or rule-mapped) and called AWS STS on your behalf. OIDC authentication with basic flow This section shows how you can use an OIDC identity provider to sign in a user and, using the basic flow, exchange the OIDC token in an Amazon Cognito identity pool for temporary AWS credentials to call AWS services. ###### Use OIDC sign-in with the identity pool basic flow 1. In the demo application, navigate to **Interactive demo** section 2. Choose the **Authenticated access** tab. 3. Choose the **Basic flow** tab. 4. Choose **Sign in with OIDC provider** 5. Complete sign-in with your enterprise credentials. 6. The OIDC provider redirects back to the app with an authorization code 7. The application exchanges the authorization code with your user pool for JSON web tokens. 8. The application sends the OIDC token to your identity pool and retrieves temporary AWS credentials. 9. The app displays the **Results** panel in web interface After successful authentication, you will see the web interface displaying the **Results** panel, and you have two options to explore them: 1. **View credentials only** button: Choose this button if you want to directly see temporary AWS credentials generated without the API flow details. `{ "IdentityId": "us-east-1:a1b2c3d4-5678-90ab-cdef-EXAMPLE22222", "Credentials": { "AccessKeyId": "AKIAIOSFODNN7EXAMPLE", "SecretAccessKey": "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY", "SessionToken": "IQoJb3JpZ2luX2VjEEXAMPLE......", "Expiration": "2025-08-12T13:36:17-07:00" } }` 2. **View detailed API flow** button: Choose this button if you want to see the step-by-step API requests. <br>• The app signs in the user with an OIDC IdP and obtains the ID token. Identity pools accept OIDC tokens from enterprise providers:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| Identity provider        | Cognito provider key                                | Purpose                                      |
-| ---                      | ---                                                 | ---                                          |
-| OIDC Provider            | `example-provider.com/oauth2/default`               | OIDC ID tokens from enterprise IdPs          | After successful authentication with the OIDC provider, your app receives an OAuth 2.0 response containing the tokens: `{ "token_type": "Bearer", "expires_in": 3600, "access_token": "eyJraWQiOiJFWAMPLE......", "scope": "openid email profile", "id_token": "eyJraWQiOiJFWAMPLE......" }` <br>• `GetId()` API request with your identity pool ID and a `Logins`map containing your OIDC provider token `POST GetId { "IdentityPoolId": "us-east-1:a1b2c3d4-5678-90ab-cdef-EXAMPLE11111", "Logins": { "example-provider.com/oauth2/default": "eyJraWQiOiJFWAMPLE......" } }` Response: `{ "IdentityId": "us-east-1:a1b2c3d4-5678-90ab-cdef-EXAMPLE22222" }` <br>• `GetOpenIdToken()` with the returned IdentityID and the same `Logins`map `POST GetOpenIdToken { "IdentityId": "us-east-1:a1b2c3d4-5678-90ab-cdef-EXAMPLE22222", "Logins": { "example-provider.com/oauth2/default": "eyJraWQiOiJFWAMPLE......" } }` Response: `{ "IdentityId": "us-east-1:a1b2c3d4-5678-90ab-cdef-EXAMPLE22222", "Token": "eyJraWQiOiJFWAMPLE......" }` <br>• `AssumeRoleWithWebIdentity()` with the OpenID token `POST AssumeRoleWithWebIdentity { "RoleArn": "arn:aws:iam::111122223333:role/Cognito_IdentityPoolAuth_Role", "WebIdentityToken": "eyJraWQiOiJFWAMPLE......" }` Response: `{ "Credentials": { "AccessKeyId": "AKIAIOSFODNN7EXAMPLE", "SecretAccessKey": "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY", "SessionToken": "FwoGZXIvYXdzEEXAMPLE......", "Expiration": "2025-08-12T14:36:17-07:00" } }` **What happened**: Amazon Cognito validated the OIDC token against the configured provider and returned an OpenID token. The application called AWS STS directly to assume the appropriate IAM role and received short-lived credentials. ### Understand OIDC authentication <br>• Standards-based: OIDC is built on OAuth 2.0 and provides standardized identity information. <br>• Token validation: ID tokens can be validated for authenticity. <br>• Claims-based access: OIDC claims can be used for role mapping and access control. <br>• Enterprise integration: Works with popular enterprise identity providers. ## Next steps Now that you’ve set up and explored the demo application, you can: <br>• Configure additional identity providers you haven’t tested yet <br>• Experiment with both enhanced and basic authentication to understand their differences <br>• Customize the demo for your own use case <br>• Integrate Amazon Cognito Identity Pools into your own applications.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+
+    	After successful authentication with the
+    	 social provider, your app receives an OAuth
+    	 response containing the access token and other
+    	 authentication details:
+
+
+
+    	```
+    	{
+    	   "access_token": "ya29.A0AS3H6NEXAMPLE......",
+    	   "expires_in": 3599,
+    	   "scope": "openid https://www.examplesocial....",
+    	   "token_type": "Bearer",
+    	   "id_token": "eyJhbGciOiJSUzI1NiIsEXAMPLE......"
+    	}
+    	```
+    	* `GetId()` API request with your
+    	 identity pool ID and a `Logins`map
+    	 containing your social provider token
+
+
+
+    	```
+    	POST GetId
+    	{
+    	  "IdentityPoolId": "us-east-1:a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+    	  "Logins": {
+    	    "accounts.google.com": "eyJhbGciOiJSUzI1NiIsEXAMPLE......"
+    	  }
+    	}
+    	```
+
+    	Response:
+
+
+
+    	```
+    	{
+    	  "IdentityId": "us-east-1:a1b2c3d4-5678-90ab-cdef-EXAMPLE22222"
+    	}
+    	```
+    	* `GetCredentialsForIdentity()` with
+    	 the returned `IdentityID` and the same
+    	 `Logins` map
+
+
+
+    	```
+    	POST GetCredentialsForIdentity
+    	{
+    	  "IdentityId": "us-east-1:a1b2c3d4-5678-90ab-cdef-EXAMPLE22222",
+    	  "Logins": {
+    	    "accounts.google.com": "eyJhbGciOiJSUzI1NiIsEXAMPLE......"
+    	  }
+    	}
+    	```
+
+    	Response:
+
+
+
+    	```
+    	{
+    	  "Credentials": {
+    	    "AccessKeyId": "AKIAIOSFODNN7EXAMPLE",
+    	    "SecretAccessKey": "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY",
+    	    "SessionToken": "IQoJb3JpZ2luX2VjEEXAMPLE......",
+    	    "Expiration": "2025-08-07T00:58:21-07:00"
+    	  },
+    	  "IdentityId": "us-east-1:a1b2c3d4-5678-90ab-cdef-EXAMPLE22222"
+    	}
+    	```
+
+**What happened**: Amazon Cognito validated the
+token against the configured provider, chose an IAM role based on your
+provider configuration, and called AWS STS on your behalf. Your identity
+pool then returned temporary credentials.
+
+Social identity provider with basic flow
+This section shows how you can use a social identity provider to sign
+in a user and, using the basic flow, exchange the provider token in an
+Amazon Cognito identity pool for temporary credentials to call AWS services.
+
+###### Use social sign-in with the basic flow in the example
+
+application
+
+1. In the demo application, navigate to **Interactive demo** section
+2. Choose the **Authenticated
+   access** tab.
+3. Choose the **Basic flow**
+   tab.
+4. Choose a supported social provider you’ve configured, for
+   example **Sign in with Google**,
+   **Sign in with Facebook**, or
+   **Login with Amazon**.
+5. Sign in and consent to share user data with the
+   application.
+6. The provider redirects back to the app’s redirect URI
+7. The app sends the provider token to your identity pool and
+   retrieves temporary AWS credentials
+8. The app displays the **Results**
+   panel in web interface.
+
+After successful authentication, you will see the web
+interface displaying the **Results** panel, and you have two options to
+explore them:
+
+    1. **View credentials only**
+     button: Choose this button if you want to directly see
+     temporary AWS credentials generated without the API
+     flow details.
+
+
+
+    ```
+    {
+      "IdentityId": "us-east-1:a1b2c3d4-5678-90ab-cdef-EXAMPLE22222",
+      "Credentials": {
+        "AccessKeyId": "AKIAIOSFODNN7EXAMPLE",
+        "SecretAccessKey": "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY",
+        "SessionToken": "IQoJb3JpZ2luX2VjEEXAMPLE......",
+        "Expiration": "2025-08-12T13:36:17-07:00"
+      }
+    }
+    ```
+    2. **View detailed API
+     flow** button: Choose this button if you
+     want to see the step-by-step API requests.
+
+
+
+
+    	* The app signs in the user with a social IdP
+    	 and obtains the provider token. Identity pools
+    	 accept these artifacts from social
+    	 providers:
+
+
+
+
+    	| Identity provider | Cognito provider key | Purpose |
+    	| --- | --- | --- |
+    	| Google | `accounts.google.com` | OAuth 2.0 tokens from Google<br>Sign-In |
+    	| Facebook | `graph.facebook.com` | Access tokens from Facebook Login |
+    	| Amazon | `www.amazon.com` | OAuth tokens from Login with Amazon |
+
+
+    	After successful authentication with the
+    	 social provider, your app receives an OAuth
+    	 response containing the access token and other
+    	 authentication details:
+
+
+
+    	```
+    	{
+    	   "access_token": "ya29.A0AS3H6NEXAMPLE......",
+    	   "expires_in": 3599,
+    	   "scope": "openid https://www.examplesocial....",
+    	   "token_type": "Bearer",
+    	   "id_token": "eyJhbGciOiJSUzI1NiIsEXAMPLE......"
+    	}
+    	```
+    	* `GetId()` API request with your
+    	 identity pool ID and a `Logins` map
+    	 containing your social provider token
+
+
+
+    	```
+    	POST GetId
+    	{
+    	  "IdentityPoolId": "us-east-1:a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+    	  "Logins": {
+    	    "accounts.google.com": "token..."
+    	  }
+    	}
+    	```
+
+    	Response:
+
+
+
+    	```
+    	{
+    	  "IdentityId": "us-east-1:a1b2c3d4-5678-90ab-cdef-EXAMPLE22222"
+    	}
+    	```
+    	* `GetOpenIdToken()` with the returned
+    	 `IdentityID` and the same Logins
+    	 map
+
+
+
+    	```
+    	POST GetOpenIdToken
+    	{
+    	  "IdentityId": "us-east-1:a1b2c3d4-5678-90ab-cdef-EXAMPLE22222",
+    	  "Logins": {
+    	    "accounts.google.com": "token..."
+    	  }
+    	}
+    	```
+
+    	Response:
+
+
+
+    	```
+    	{
+    	  "IdentityId": "us-east-1:a1b2c3d4-5678-90ab-cdef-EXAMPLE22222",
+    	  "Token": "eyJraWQiOiJFWAMPLE......"
+    	}
+    	```
+    	* `AssumeRoleWithWebIdentity()` with the
+    	 OpenID token
+
+
+
+    	```
+    	POST AssumeRoleWithWebIdentity
+    	{
+    	  "RoleArn": "arn:aws:iam::111122223333:role/Cognito_IdentityPoolAuth_Role",
+    	  "WebIdentityToken": "eyJraWQiOiJFWAMPLE......"
+    	}
+    	```
+
+    	Response:
+
+
+
+    	```
+    	{
+    	  "Credentials": {
+    	    "AccessKeyId": "AKIAIOSFODNN7EXAMPLE",
+    	    "SecretAccessKey": "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY",
+    	    "SessionToken": "IQoJb3JpZ2luX2VjEEXAMPLE......",
+    	    "Expiration": "2025-08-12T14:36:17-07:00"
+    	  }
+    	}
+    	```
+
+**What happened**: Amazon Cognito validated the
+token against the configured provider and issued an OpenID token. The
+application called AWS STS directly to assume an IAM role and receive
+temporary credentials.
+
+### Understand social access
+
+- Social users receive temporary AWS credentials through Amazon Cognito
+  identity pools after authenticating with their social provider.
+- Each authenticated user gets a unique identity ID that persists across
+  sessions.
+- These credentials are linked to an IAM role specifically designed
+  for authenticated access, providing broader permissions than guest
+  access.
+- Social provider tokens are exchanged for AWS credentials,
+  maintaining user identity and permissions.
+
+This step explores Amazon Cognito authentication with user pool [managed login](cognito-user-pools-managed-login.md "cognito-user-pools-managed-login.md") integration.
+When you link a user pool as an IdP to an identity pool, user pool tokens authorize
+your identity pool to issue temporary credentials.
+
+User pool authentication with enhanced flow
+The enhanced flow provides a streamlined approach to obtaining AWS
+credentials through Amazon Cognito identity pools with a single API
+request.
+
+###### Use Amazon Cognito user pool authentication with the identity pool
+
+enhanced flow
+
+1. In the demo application, navigate to **Interactive demo** section
+2. Choose the **Authenticated
+   access** tab.
+3. Choose the **Enhanced flow**
+   tab.
+4. Choose **Sign in with
+   Amazon Cognito user pools**
+5. Complete sign-in with your username and password in managed
+   login.
+6. The user pool redirects back to your application redirect URI
+   with an authorization code.
+7. The application exchanges the authorization code with your
+   user pool for JSON web tokens.
+8. The application exchanges the ID token with your identity pool
+   for temporary AWS credentials
+9. The app displays the **Results**
+   panel in web interface
+
+After successful authentication, you will see the web
+interface displaying the **Results** panel, and you have two options to
+explore them:
+
+    1. **View credentials only**
+     button: Choose this button if you want to directly see
+     temporary AWS credentials generated without the API
+     flow details.
+
+
+
+    ```
+    {
+      "IdentityId": "us-east-1:a1b2c3d4-5678-90ab-cdef-EXAMPLE22222",
+      "Credentials": {
+        "AccessKeyId": "AKIAIOSFODNN7EXAMPLE",
+        "SecretAccessKey": "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY",
+        "SessionToken": "IQoJb3JpZ2luX2VjEEXAMPLE......",
+        "Expiration": "2025-08-12T13:36:17-07:00"
+      }
+    }
+    ```
+    2. **View detailed API
+     flow** button: Choose this button if you
+     want to see the step-by-step API requests.
+
+
+
+
+    	* The app signs in the user with a Amazon Cognito. After
+    	 successful authentication with the user pool, your
+    	 app receives an OAuth 2.0 response containing the
+    	 ID token (JWT). Identity pools accept JWT ID
+    	 tokens from user pools using this provider key
+    	 format:
+
+
+
+
+    	| Identity provider | Cognito provider key | Purpose |
+    	| --- | --- | --- |
+    	| Amazon Cognito user pool | `cognito-idp.{region}.amazonaws.com/{user-pool-id}` | JWT ID tokens from Amazon Cognito user pools |
+
+
+    	After successful authentication with the user
+    	 pool, your app receives an OAuth 2.0 response
+    	 containing the ID token (JWT):
+
+
+
+    	```
+    	{
+    	   "id_token": "eyJraWQiOiJFWAMPLE......",
+    	   "token_type": "Bearer",
+    	   "expires_in": 3600
+    	}
+    	```
+    	* `GetId()` API request with your
+    	 `identityPoolId`and a
+    	 `Logins` map that includes your
+    	 user-pool provider key mapped to the
+    	 `id_token`. Amazon Cognito verified the user
+    	 pool ID token's signature, issuer, expiry, and
+    	 audience (`aud`) matches one of the app
+    	 client IDs you registered for this user pool IdP
+    	 in the identity pool.
+
+
+
+    	```
+    	POST GetId
+    	{
+    	  "AccountId": "111122223333",
+    	  "IdentityPoolId": "us-east-1:1ac4a76d-1fef-48aa-83af-4224799c0b5c",
+    	  "Logins": {
+    	    "cognito-idp.us-east-1.amazonaws.com/us-east-1_EXAMPLE123": "eyJraWQiOiJFWAMPLE......"
+    	  }
+    	}
+    	```
+
+    	If valid, it finds or creates and returns the
+    	 user's `IdentityID`. An example
+    	 response looks like this:
+
+
+
+    	```
+    	{
+    	  "IdentityId": "us-east-1:a1b2c3d4-5678-90ab-cdef-EXAMPLE22222"
+    	}
+    	```
+    	* `GetCredentialsForIdentity()` with the
+    	 returned `identityPoolId`and a=the same
+    	 `Logins` map with the
+    	 `id_token`. Amazon Cognito revalidates the user
+    	 pool ID token's signature, issuer, expiry, and
+    	 audience (`aud`) matches one of the app
+    	 client IDs you registered for this user pool IdP
+    	 in the identity pool.
+
+
+
+    	```
+    	POST GetCredentialsForIdentity
+    	{
+    	  "IdentityId": "us-east-1:a1b2c3d4-5678-90ab-cdef-EXAMPLE22222",
+    	  "Logins": {
+    	    "cognito-idp.us-east-1.amazonaws.com/us-east-1_EXAMPLE123": "eyJraWQiOiJFWAMPLE......"
+    	  }
+    	}
+    	```
+
+    	If valid, it chooses an IAM role
+    	 (roles-in-token, rules, or default), calls AWS STS
+    	 on your behalf, and returns temporary AWS
+    	 credentials. An example response looks like
+    	 this:
+
+
+
+    	```
+    	{
+    	  "IdentityId": "us-east-1:a1b2c3d4-5678-90ab-cdef-EXAMPLE22222",
+    	  "Credentials": {
+    	    "AccessKeyId": "ASIAW7TIP7EJEXAMPLE",
+    	    "SecretAccessKey": "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY",
+    	    "SessionToken": "IQoJb3JpZ2luX2VjEEXAMPLE......",
+    	    "Expiration": "2025-08-12T14:36:17-07:00"
+    	  }
+    	}
+    	```
+
+User pool authentication with basic flow
+The basic flow provides granular control over the authentication
+process with separate API requests for identity retrieval and credential
+generation.
+
+###### Use Amazon Cognito user pool authentication with the identity pool basic
+
+flow
+
+1. In the demo application, navigate to **Interactive demo** section
+2. Choose the **Authenticated
+   access** tab.
+3. Choose the **Basic flow**
+   tab.
+4. Choose **Sign in with
+   Amazon Cognito user pools**
+5. Complete sign-in with your username and password in managed
+   login.
+6. The user pool redirects back to your application redirect URI
+   with an authorization code.
+7. The application exchanges the authorization code with your
+   user pool for JSON web tokens.
+8. The application exchanges the ID token with your identity pool
+   for temporary AWS credentials
+9. The app displays the **Results**
+   panel in web interface
+
+After successful authentication, you will see the web
+interface displaying the **Results** panel, and you have two options to
+explore them:
+
+    1. **View credentials only**
+     button: Choose this button if you want to directly see
+     temporary AWS credentials generated without the API
+     flow details.
+
+
+
+    ```
+    {
+      "IdentityId": "us-east-1:a1b2c3d4-5678-90ab-cdef-EXAMPLE22222",
+      "Credentials": {
+        "AccessKeyId": "AKIAIOSFODNN7EXAMPLE",
+        "SecretAccessKey": "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY",
+        "SessionToken": "IQoJb3JpZ2luX2VjEEXAMPLE......",
+        "Expiration": "2025-08-12T13:36:17-07:00"
+      }
+    }
+    ```
+    2. **View detailed API
+     flow** button: Choose this button if you
+     want to see the step-by-step API requests.
+
+
+
+
+    	* The app signs in the user with a Amazon Cognito user
+    	 pool and obtains ID token (JWT) as the artifact.
+    	 After successful authentication with the user
+    	 pool, your app receives an OAuth response
+    	 containing the ID token (JWT). Identity pools use
+    	 this token for authentication:
+
+
+
+    	```
+    	{
+    	   "id_token": "eyJraWQiOiJFWAMPLE......",
+    	   "token_type": "Bearer",
+    	   "expires_in": 3600
+    	}
+    	```
+    	* `GetId()` API request with your
+    	 identity pool ID and a `Logins` map
+    	 that includes your user-pool provider key and the
+    	 ID token as the value. Amazon Cognito verified the user
+    	 pool ID token's signature, expiry, and audience
+    	 (aud) matches one of the app client IDs you
+    	 registered for this user pool IdP in the identity
+    	 pool.
+
+
+
+    	```
+    	POST GetId
+    	{
+    	  "AccountId": "111122223333",
+    	  "IdentityPoolId": "us-east-1:1ac4a76d-1fef-48aa-83af-4224799c0b5c",
+    	  "Logins": {
+    	    "cognito-idp.us-east-1.amazonaws.com/us-east-1_EXAMPLE123": "eyJraWQiOiJFWAMPLE......"
+    	  }
+    	}
+    	```
+
+    	If valid, it finds or creates and returns the
+    	 user's `IdentityID`. An example
+    	 response looks like this:
+
+
+
+    	```
+    	{
+    	  "IdentityId": "us-east-1:a1b2c3d4-5678-90ab-cdef-EXAMPLE22222"
+    	}
+    	```
+    	* `GetOpenIdToken()` with the
+    	 returned `IdentityID` and the same
+    	 `Logins` map
+
+
+
+    	```
+    	POST GetOpenIdToken
+    	{
+    	  "IdentityId": "us-east-1:a1b2c3d4-5678-90ab-cdef-EXAMPLE22222",
+    	  "Logins": {
+    	    "cognito-idp.us-east-1.amazonaws.com/us-east-1_EXAMPLE123": "eyJraWQiOiJFWAMPLE......"
+    	  }
+    	}
+    	```
+
+    	Response:
+
+
+
+    	```
+    	{
+    	  "IdentityId": "us-east-1:a1b2c3d4-5678-90ab-cdef-EXAMPLE22222",
+    	  "Token": "eyJraWQiOiJFWAMPLE......"
+    	}
+    	```
+
+    	**What happens in this
+    	 step:** Amazon Cognito issues a short-lived OpenID
+    	 Connect web identity token from
+    	 cognito-identity.amazonaws.com that represents
+    	 this `IdentityId`. The token includes
+    	 OIDC claims that AWS STS evaluates, including aud
+    	 (your identity pool ID) and amr (authenticated or
+    	 unauthenticated). Your IAM role's trust policy
+    	 must require those claims.
+    	* `AssumeRoleWithWebIdentity()` -
+    	 Your app calls AWS STS directly to exchange the
+    	 Amazon Cognito OpenID token for temporary AWS
+    	 credentials
+
+
+
+    	```
+    	POST sts:AssumeRoleWithWebIdentity
+    	{
+    	  "RoleArn": "arn:aws:iam::111122223333:role/Cognito_IdentityPoolAuth_Role",
+    	  "WebIdentityToken": "eyJraWQiOiJFWAMPLE......",
+    	  "RoleSessionName": "CognitoIdentityCredentials"
+    	}
+    	```
+
+    	Response:
+
+
+
+    	```
+    	{
+    	  "Credentials": {
+    	    "AccessKeyId": "AKIAIOSFODNN7EXAMPLE",
+    	    "SecretAccessKey": "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY",
+    	    "SessionToken": "FwoGZXIvYXdzEEXAMPLE......",
+    	    "Expiration": "2025-08-12T14:36:17-07:00"
+    	  },
+    	  "AssumedRoleUser": {
+    	    "AssumedRoleId": "AROAW7TIP7EJYEXAMPLE:CognitoIdentityCredentials",
+    	    "Arn": "arn:aws:sts::111122223333:assumed-role/Cognito_IdentityPoolAuth_Role/CognitoIdentityCredentials"
+    	  }
+    	}
+    	```
+
+    	**What your demo
+    	 application did:** Your app sent the
+    	 OpenID token from `GetOpenIdToken()` to
+    	 AWS STS, requesting temporary credentials. AWS STS
+    	 performed validation checks and issued
+    	 credentials:
+
+- User pool users receive temporary AWS credentials through Amazon Cognito
+  identity pools.
+- These credentials are linked to an IAM role specified in your
+  identity pool configuration.
+- User pool ID tokens are exchanged for AWS credentials through
+  the identity pool.
+  This step explores SAML authentication. Users can sign in with enterprise identity
+  providers that support SAML to access AWS services. The basic flow with SAML isn't
+  supported in the example application.
+
+SAML authentication with enhanced flow
+This section shows how you can use a SAML identity provider to sign in
+a user and, using the enhanced flow, exchange the SAML assertion in an
+Amazon Cognito identity pool for temporary AWS credentials to call AWS
+services.
+
+###### Use SAML authentication with the identity pool enhanced
+
+flow
+
+1. In the demo application, navigate to **Interactive demo** section
+2. Choose the **Authenticated
+   access** tab.
+3. Choose the **Enhanced flow**
+   tab.
+4. Choose **Sign in with SAML
+   provider**
+5. Complete sign-in with your enterprise credentials.
+6. The user pool redirects back to your application redirect URI
+   with a SAML assertion.
+7. The application exchanges the authorization code with your
+   user pool for JSON web tokens.
+8. The application exchanges the SAML response with your identity
+   pool for temporary AWS credentials
+9. The app displays the **Results**
+   panel in web interface
+
+After successful authentication, you will see the web
+interface displaying the **Results** panel, and you have two options to
+explore them:
+
+    1. **View credentials only**
+     button: Choose this button if you want to directly see
+     temporary AWS credentials generated without the API
+     flow details.
+
+
+
+    ```
+    {
+      "IdentityId": "us-east-1:a1b2c3d4-5678-90ab-cdef-EXAMPLE22222",
+      "Credentials": {
+        "AccessKeyId": "AKIAIOSFODNN7EXAMPLE",
+        "SecretAccessKey": "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY",
+        "SessionToken": "IQoJb3JpZ2luX2VjEEXAMPLE......",
+        "Expiration": "2025-08-12T13:36:17-07:00"
+      }
+    }
+    ```
+    2. **View detailed API
+     flow** button: Choose this button if you
+     want to see the step-by-step API requests.
+
+
+
+
+    	* The app signs in the user with a SAML IdP and
+    	 obtains the SAML response. Identity pools accept
+    	 SAML assertions from enterprise providers using
+    	 the SAML provider ARN as the key:
+
+
+
+
+    	| Identity provider | Cognito provider key | Purpose |
+    	| --- | --- | --- |
+    	| SAML Provider | `arn:aws:iam::111122223333:saml-provider/EXAMPLE` | SAML assertions from enterprise<br>IdPs |
+
+
+    	After successful authentication with the SAML
+    	 provider, your app receives a SAML response via
+    	 HTTP POST to your callback URL:
+
+
+
+    	```
+    	{
+    	  "saml_response": "PD94bWwgdmVyc2lvbj0iMS4wIiBFWAMPLE...",
+    	  "provider_arn": "arn:aws:iam::111122223333:saml-provider/EXAMPLE",
+    	  "status": "Authentication successful"
+    	}
+    	```
+    	* `GetId()` API request with your
+    	 identity pool ID and a `Logins` map
+    	 containing your SAML provider ARN and
+    	 assertion
+
+
+
+    	```
+    	POST GetId
+    	{
+    	  "AccountId": "111122223333",
+    	  "IdentityPoolId": "us-east-1:a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+    	  "Logins": {
+    	    "arn:aws:iam::111122223333:saml-provider/EXAMPLE": "PD94bWwgdmVyc2lvbj0iMS4wIiBFWAMPLE..."
+    	  }
+    	}
+    	```
+
+    	Response:
+
+
+
+    	```
+    	{
+    	  "IdentityId": "us-east-1:a1b2c3d4-5678-90ab-cdef-EXAMPLE22222"
+    	}
+    	```
+    	* `GetCredentialsForIdentity()` with the
+    	 returned `IdentityID`and the same
+    	 `Logins` map
+
+
+
+    	```
+    	POST GetCredentialsForIdentity
+    	{
+    	  "IdentityId": "us-east-1:a1b2c3d4-5678-90ab-cdef-EXAMPLE22222",
+    	  "Logins": {
+    	    "arn:aws:iam::111122223333:saml-provider/EXAMPLE": "PD94bWwgdmVyc2lvbj0iMS4wIiBFWAMPLE..."
+    	  }
+    	}
+    	```
+
+    	Response:
+
+
+
+    	```
+    	{
+    	  "IdentityId": "us-east-1:a1b2c3d4-5678-90ab-cdef-EXAMPLE22222",
+    	  "Credentials": {
+    	    "AccessKeyId": "AKIAIOSFODNN7EXAMPLE",
+    	    "SecretAccessKey": "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY",
+    	    "SessionToken": "IQoJb3JpZ2luX2VjEEXAMPLE......"
+    	  }
+    	}
+    	```
+
+**What happened**: Amazon Cognito validated the
+SAML assertion against the configured provider, chose an IAM role
+based on SAML attributes or rules, and called AWS STS on your
+behalf.
+
+### Understand SAML access
+
+- Enterprise users receive temporary AWS credentials from Amazon Cognito
+  identity pools after authenticating with their SAML provider.
+- Each authenticated user gets a unique identity ID that persists across
+  sessions.
+- These credentials are linked to an IAM role specifically designed
+  for authenticated access, providing broader permissions than guest
+  access.
+- SAML assertions are exchanged for AWS credentials, maintaining user
+  identity and enterprise attributes.
+
+This step explores OIDC authentication with enterprise identity providers. Users
+can sign in through their organization's enterprise identity provider (such as Azure
+AD, Okta, or Google Workspace) to access AWS services. Continue reading if you are
+looking for information about integrating standards-based authentication with your
+AWS resources. After you implement OIDC authentication, you'll learn how to
+leverage OIDC claims for fine-grained access control.
+
+OIDC authentication with enhanced flow
+This section shows how you can use an OIDC identity provider to sign
+in a user and, using the enhanced flow, exchange the OIDC token in an
+Amazon Cognito identity pool for temporary AWS credentials to call AWS
+services.
+
+###### Use OIDC sign-in with the identity pool enhanced flow
+
+1. In the demo application, navigate to **Interactive demo** section
+2. Choose the **Authenticated
+   access** tab.
+3. Choose the **Enhanced flow**
+   tab.
+4. Choose **Sign in with OIDC
+   provider**
+5. Complete sign-in with your enterprise credentials.
+6. The OIDC provider redirects back to the app with an
+   authorization code
+7. The application exchanges the authorization code with your
+   user pool for JSON web tokens.
+8. The application sends the OIDC token to your identity pool and
+   retrieves temporary AWS credentials.
+9. The app displays the **Results**
+   panel in web interface
+
+After successful authentication, you will see the web
+interface displaying the **Results** panel, and you have two options to
+explore them:
+
+    1. **View credentials only**
+     button: Choose this button if you want to directly see
+     temporary AWS credentials generated without the API
+     flow details.
+
+
+
+    ```
+    {
+      "IdentityId": "us-east-1:a1b2c3d4-5678-90ab-cdef-EXAMPLE22222",
+      "Credentials": {
+        "AccessKeyId": "AKIAIOSFODNN7EXAMPLE",
+        "SecretAccessKey": "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY",
+        "SessionToken": "IQoJb3JpZ2luX2VjEEXAMPLE......",
+        "Expiration": "2025-08-12T13:36:17-07:00"
+      }
+    }
+    ```
+    2. **View detailed API
+     flow** button: Choose this button if you
+     want to see the step-by-step API requests.
+
+
+
+
+    	* The app signs in the user with an OIDC IdP
+    	 and obtains the ID token. Identity pools accept
+    	 OIDC tokens from enterprise providers:
+
+
+
+
+    	| Identity provider | Cognito provider key | Purpose |
+    	| --- | --- | --- |
+    	| OIDC Provider | `example-provider.com/oauth2/default` | OIDC ID tokens from enterprise IdPs |
+
+
+    	After successful authentication with the OIDC
+    	 provider, your app receives an OAuth 2.0 response
+    	 containing the tokens:
+
+
+
+    	```
+    	{
+    	  "token_type": "Bearer",
+    	  "expires_in": 3600,
+    	  "access_token": "eyJraWQiOiJFWAMPLE......",
+    	  "scope": "email openid profile",
+    	  "id_token": "eyJraWQiOiJFWAMPLE......"
+    	}
+    	```
+    	* `GetId()` API request with your
+    	 identity pool ID and a `Logins` map
+    	 containing your OIDC provider token
+
+
+
+    	```
+    	POST GetId
+    	{
+    	  "AccountId": "111122223333",
+    	  "IdentityPoolId": "us-east-1:a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+    	  "Logins": {
+    	    "example-provider.com/oauth2/default": "eyJraWQiOiJFWAMPLE......"
+    	  }
+    	}
+    	```
+
+    	Response:
+
+
+
+    	```
+    	{
+    	  "IdentityId": "us-east-1:a1b2c3d4-5678-90ab-cdef-EXAMPLE22222"
+    	}
+    	```
+    	* `GetCredentialsForIdentity()` with the
+    	 returned `IdentityID` and the same
+    	 Logins map
+
+
+
+    	```
+    	POST GetCredentialsForIdentity
+    	{
+    	  "IdentityId": "us-east-1:a1b2c3d4-5678-90ab-cdef-EXAMPLE22222",
+    	  "Logins": {
+    	    "example-provider.com/oauth2/default": "eyJraWQiOiJFWAMPLE......"
+    	  }
+    	}
+    	```
+
+    	Response:
+
+
+
+    	```
+    	{
+    	  "IdentityId": "us-east-1:a1b2c3d4-5678-90ab-cdef-EXAMPLE22222",
+    	  "Credentials": {
+    	    "AccessKeyId": "AKIAIOSFODNN7EXAMPLE",
+    	    "SecretAccessKey": "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY",
+    	    "SessionToken": "IQoJb3JpZ2luX2VjEEXAMPLE......"
+    	  }
+    	}
+    	```
+
+**What happened**: Amazon Cognito validated the
+OIDC token against the configured provider, chose an IAM role
+(default, claim-based, or rule-mapped) and called AWS STS on your
+behalf.
+
+OIDC authentication with basic flow
+This section shows how you can use an OIDC identity provider to sign
+in a user and, using the basic flow, exchange the OIDC token in an Amazon Cognito
+identity pool for temporary AWS credentials to call AWS
+services.
+
+###### Use OIDC sign-in with the identity pool basic flow
+
+1. In the demo application, navigate to **Interactive demo** section
+2. Choose the **Authenticated
+   access** tab.
+3. Choose the **Basic flow**
+   tab.
+4. Choose **Sign in with OIDC
+   provider**
+5. Complete sign-in with your enterprise credentials.
+6. The OIDC provider redirects back to the app with an
+   authorization code
+7. The application exchanges the authorization code with your
+   user pool for JSON web tokens.
+8. The application sends the OIDC token to your identity pool and
+   retrieves temporary AWS credentials.
+9. The app displays the **Results**
+   panel in web interface
+
+After successful authentication, you will see the web
+interface displaying the **Results** panel, and you have two options to
+explore them:
+
+    1. **View credentials only**
+     button: Choose this button if you want to directly see
+     temporary AWS credentials generated without the API
+     flow details.
+
+
+
+    ```
+    {
+      "IdentityId": "us-east-1:a1b2c3d4-5678-90ab-cdef-EXAMPLE22222",
+      "Credentials": {
+        "AccessKeyId": "AKIAIOSFODNN7EXAMPLE",
+        "SecretAccessKey": "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY",
+        "SessionToken": "IQoJb3JpZ2luX2VjEEXAMPLE......",
+        "Expiration": "2025-08-12T13:36:17-07:00"
+      }
+    }
+    ```
+    2. **View detailed API
+     flow** button: Choose this button if you
+     want to see the step-by-step API requests.
+
+
+
+
+    	* The app signs in the user with an OIDC IdP
+    	 and obtains the ID token. Identity pools accept
+    	 OIDC tokens from enterprise providers:
+
+
+
+
+    	| Identity provider | Cognito provider key | Purpose |
+    	| --- | --- | --- |
+    	| OIDC Provider | `example-provider.com/oauth2/default` | OIDC ID tokens from enterprise IdPs |
+
+
+    	After successful authentication with the OIDC
+    	 provider, your app receives an OAuth 2.0 response
+    	 containing the tokens:
+
+
+
+    	```
+    	{
+    	  "token_type": "Bearer",
+    	  "expires_in": 3600,
+    	  "access_token": "eyJraWQiOiJFWAMPLE......",
+    	  "scope": "openid email profile",
+    	  "id_token": "eyJraWQiOiJFWAMPLE......"
+    	}
+    	```
+    	* `GetId()` API request with your
+    	 identity pool ID and a `Logins`map
+    	 containing your OIDC provider token
+
+
+
+    	```
+    	POST GetId
+    	{
+    	  "IdentityPoolId": "us-east-1:a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+    	  "Logins": {
+    	    "example-provider.com/oauth2/default": "eyJraWQiOiJFWAMPLE......"
+    	  }
+    	}
+    	```
+
+    	Response:
+
+
+
+    	```
+    	{
+    	  "IdentityId": "us-east-1:a1b2c3d4-5678-90ab-cdef-EXAMPLE22222"
+    	}
+    	```
+    	* `GetOpenIdToken()` with the returned
+    	 IdentityID and the same
+    	 `Logins`map
+
+
+
+    	```
+    	POST GetOpenIdToken
+    	{
+    	  "IdentityId": "us-east-1:a1b2c3d4-5678-90ab-cdef-EXAMPLE22222",
+    	  "Logins": {
+    	    "example-provider.com/oauth2/default": "eyJraWQiOiJFWAMPLE......"
+    	  }
+    	}
+    	```
+
+    	Response:
+
+
+
+    	```
+    	{
+    	  "IdentityId": "us-east-1:a1b2c3d4-5678-90ab-cdef-EXAMPLE22222",
+    	  "Token": "eyJraWQiOiJFWAMPLE......"
+    	}
+    	```
+    	* `AssumeRoleWithWebIdentity()` with the
+    	 OpenID token
+
+
+
+    	```
+    	POST AssumeRoleWithWebIdentity
+    	{
+    	  "RoleArn": "arn:aws:iam::111122223333:role/Cognito_IdentityPoolAuth_Role",
+    	  "WebIdentityToken": "eyJraWQiOiJFWAMPLE......"
+    	}
+    	```
+
+    	Response:
+
+
+
+    	```
+    	{
+    	  "Credentials": {
+    	    "AccessKeyId": "AKIAIOSFODNN7EXAMPLE",
+    	    "SecretAccessKey": "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY",
+    	    "SessionToken": "FwoGZXIvYXdzEEXAMPLE......",
+    	    "Expiration": "2025-08-12T14:36:17-07:00"
+    	  }
+    	}
+    	```
+
+**What happened**: Amazon Cognito validated the
+OIDC token against the configured provider and returned an OpenID token.
+The application called AWS STS directly to assume the appropriate IAM
+role and received short-lived credentials.
+
+### Understand OIDC
+
+authentication
+
+- Standards-based: OIDC is built on OAuth 2.0 and provides standardized
+  identity information.
+- Token validation: ID tokens can be validated for authenticity.
+- Claims-based access: OIDC claims can be used for role mapping and
+  access control.
+- Enterprise integration: Works with popular enterprise identity
+  providers.
+
+## Next steps
+
+Now that you’ve set up and explored the demo application, you can:
+
+- Configure additional identity providers you haven’t tested yet
+- Experiment with both enhanced and basic authentication to understand their
+  differences
+- Customize the demo for your own use case
+- Integrate Amazon Cognito Identity Pools into your own applications.

@@ -27,8 +27,8 @@ AWS Lambda functions that modify or overhaul the default behavior of Amazon Cogn
 - [Understanding
   user pool JSON web tokens (JWTs)](amazon-cognito-user-pools-using-tokens-with-identity-providers.md "amazon-cognito-user-pools-using-tokens-with-identity-providers.md")
 - [Accessing resources after successful sign-in](accessing-resources.md "accessing-resources.md")
-- [Scopes, M2M, and APIs with
-  resource servers](cognito-user-pools-define-resource-servers.md "cognito-user-pools-define-resource-servers.md")
+- [Scopes, M2M, and resource
+  servers](cognito-user-pools-define-resource-servers.md "cognito-user-pools-define-resource-servers.md")
 - [Configure user pool features](user-pools-configure-features.md "user-pools-configure-features.md")
 - [Using Amazon Cognito user pools security features](managing-security.md "managing-security.md")
 - [User pool endpoints and
@@ -121,8 +121,8 @@ generates [client-credentials grants](https://www.rfc-editor.org/rfc/rfc6749#sec
 
 ###### Related topics
 
-- [Scopes, M2M, and APIs with
-  resource servers](cognito-user-pools-define-resource-servers.md "cognito-user-pools-define-resource-servers.md")
+- [Scopes, M2M, and resource
+  servers](cognito-user-pools-define-resource-servers.md "cognito-user-pools-define-resource-servers.md")
 
 ### Managed login
 

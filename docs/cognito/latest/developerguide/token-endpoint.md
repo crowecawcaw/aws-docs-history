@@ -44,8 +44,8 @@ You can learn more about the user pool app clients and their grant types, client
 secrets, allowed scopes, and client IDs at [Application-specific settings with app
 clients](user-pool-settings-client-apps.md "user-pool-settings-client-apps.md"). You can learn more about M2M
 authorization, client credentials grants, and authorization with access token scopes
-at [Scopes, M2M, and APIs with
-resource servers](cognito-user-pools-define-resource-servers.md "cognito-user-pools-define-resource-servers.md").
+at [Scopes, M2M, and resource
+servers](cognito-user-pools-define-resource-servers.md "cognito-user-pools-define-resource-servers.md").
 
 To retrieve information about a user from their access token, pass it to your
 [userInfo endpoint](userinfo-endpoint.md "userinfo-endpoint.md") or to a

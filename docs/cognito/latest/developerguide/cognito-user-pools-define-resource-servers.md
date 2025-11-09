@@ -1,6 +1,6 @@
-# Scopes, M2M, and APIs with
+# Scopes, M2M, and resource
 
-resource servers
+servers
 
 After you configure a domain for your user pool, Amazon Cognito automatically provisions an OAuth
 2.0 authorization server and a hosted web UI with sign-up and sign-in pages that your app

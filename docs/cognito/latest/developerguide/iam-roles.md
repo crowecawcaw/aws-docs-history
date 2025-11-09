@@ -297,27 +297,425 @@ When you use the enhanced flow, the scope-down policies that Amazon Cognito appl
 user's session prevent them from using any services other than those listed in the
 following table. For a subset of services, only specific actions are allowed.
 
-| Category                         | Service                                                                                                                                                                                               |
-| -------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Analytics                        | Amazon Data Firehose Amazon Managed Service for Apache Flink                                                                                                                                          |
-| Application Integration          | Amazon Simple Queue Service                                                                                                                                                                           |
-| AR & VR                          | Amazon Sumerian¹                                                                                                                                                                                      |
-| Business Applications            | Amazon Mobile Analytics Amazon Simple Email Service                                                                                                                                                   |
-| Compute                          | AWS Lambda                                                                                                                                                                                            |
-| Cryptography & PKI               | AWS Key Management Service¹                                                                                                                                                                           |
-| Database                         | Amazon DynamoDB Amazon SimpleDB                                                                                                                                                                       |
-| Front-end Web & Mobile           | AWS AppSync Amazon Location Service Amazon Simple Notification Service Amazon Pinpoint Amazon Location Service                                                                                        |
-| Game Development                 | Amazon GameLift Servers                                                                                                                                                                               |
-| Internet of Things (IoT)         | AWS IoT                                                                                                                                                                                               |
-| Machine Learning                 | Amazon CodeWhisperer Amazon Comprehend Amazon Lex Amazon Machine Learning Amazon Personalize Amazon Polly Amazon Rekognition Amazon SageMaker AI¹ Amazon Textract¹ Amazon Transcribe Amazon Translate |
-| Management & Governance          | Amazon CloudWatch Amazon CloudWatch Logs                                                                                                                                                              |
-| Networking & Content Delivery    | Amazon API Gateway                                                                                                                                                                                    |
-| Security, Identity, & Compliance | Amazon Cognito user pools                                                                                                                                                                             |
-| Storage                          | Amazon Simple Storage Service                                                                                                                                                                         | ¹ For the AWS services in the following table, the inline policy grants a subset of actions. The table displays the available actions in each.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| AWS service                      | Maximum permissions for unauthenticated enhanced flow users                                                                                                                                           |
-| ---                              | ---                                                                                                                                                                                                   |
-| AWS Key Management Service       | `Encrypt` `Decrypt` `ReEncryptTo` `ReEncryptFrom` `GenerateDataKey` `GenerateDataKeyPair` `GenerateDataKeyPair` `GenerateDataKeyPairWithoutPlaintext` `GenerateDataKeyWithoutPlaintext`               |
-| Amazon SageMaker AI              | `InvokeEndpoint`                                                                                                                                                                                      |
-| Amazon Textract                  | `DetectDocumentText` `AnalyzeDocument`                                                                                                                                                                |
-| Amazon Sumerian                  | `View*`                                                                                                                                                                                               |
-| Amazon Location Service          | `SearchPlaceIndex*` `GetPlace` `CalculateRoute*` `*Geofence` `*Geofences` `*DevicePosition*`                                                                                                          | To grant access to AWS services beyond this list, activate the **basic (classic) authentication flow** in your identity pool. If your users see `NotAuthorizedException` errors from AWS services that are allowed by the policies assigned to the IAM role for unauthenticated users, evaluate whether you can remove that service from your use case. If you can't, switch to the basic flow. ### The inline session policy for guest users Amazon Cognito first applies an inline policy in the request for IAM credentials. The inline session policy restricts your user's effective permissions from including access to any AWS services outside those in the following list. You must also grant permissions to these AWS services in the policies that you apply to the user's IAM role. A user's effective permissions for an assumed-role session are the intersection of the policies assigned to their role, and their session policy. For more information, see [Session policies](../../../IAM/latest/UserGuide/access_policies.md#policies_session "../../../IAM/latest/UserGuide/access_policies.md#policies_session") in the _AWS Identity and Access Management User Guide_. Amazon Cognito adds the following inline policy to sessions for your users in AWS Regions that are enabled by default. For an overview of the net effect of the inline policy and other session policies, see [Services that unauthenticated users can access](#access-policies-scope-down-services "#access-policies-scope-down-services"). JSON `` `{ "Version":"2012-10-17", "Statement": [ { "Effect": "Allow", "Action": [ "cloudwatch:*", "logs:*", "dynamodb:*", "kinesis:*", "mobileanalytics:*", "s3:*", "ses:*", "sns:*", "sqs:*", "lambda:*", "machinelearning:*", "execute-api:*", "iot:*", "gamelift:*", "cognito-identity:*", "cognito-idp:*", "lex:*", "polly:*", "comprehend:*", "translate:*", "transcribe:*", "rekognition:*", "mobiletargeting:*", "firehose:*", "appsync:*", "personalize:*", "sagemaker:InvokeEndpoint", "cognito-sync:*", "codewhisperer:*", "textract:DetectDocumentText", "textract:AnalyzeDocument", "sdb:*" ], "Resource": [ "*" ] } ] }` `` For all other Regions, the inline scope-down policy includes everything listed in the default Regions except for the following `Action` statements. `"cognito-sync:*", "sumerian:View*", "codewhisperer:*", "textract:DetectDocumentText", "textract:AnalyzeDocument", "sdb:*"` ### The AWS managed session policy for guests Amazon Cognito also applies an AWS managed policy as a session policy to the enhanced-flow sessions of unauthenticated guests. This policy limits the scope of unauthenticated users' permissions with the policy `AmazonCognitoUnAuthedIdentitiesSessionPolicy`. You must also grant this permission in the policies that you attach to your unauthenticated IAM role. A user's effective permissions for an assumed-role session are the intersection of the IAM policies assigned to their role, and their session policies. For more information, see [Session policies](../../../IAM/latest/UserGuide/access_policies.md#policies_session "../../../IAM/latest/UserGuide/access_policies.md#policies_session") in the _AWS Identity and Access Management User Guide_. For an overview of the net effect of this AWS managed policy and other session policies, see [Services that unauthenticated users can access](#access-policies-scope-down-services "#access-policies-scope-down-services"). The `AmazonCognitoUnAuthedIdentitiesSessionPolicy` managed policy has the following permissions. JSON `` `{ "Version":"2012-10-17", "Statement": [{ "Effect": "Allow", "Action": [ "rum:PutRumEvents", "polly:*", "comprehend:*", "translate:*", "transcribe:*", "rekognition:*", "mobiletargeting:*", "firehose:*", "personalize:*", "sagemaker:InvokeEndpoint", "geo:GetMap*", "geo:SearchPlaceIndex*", "geo:GetPlace", "geo:CalculateRoute*", "geo:*Geofence", "geo:*Geofences", "geo:*DevicePosition*", "kms:Encrypt", "kms:Decrypt", "kms:ReEncryptTo", "kms:ReEncryptFrom", "kms:GenerateDataKey", "kms:GenerateDataKeyPair", "kms:GenerateDataKeyPairWithoutPlaintext", "kms:GenerateDataKeyWithoutPlaintext" ], "Resource": "*" }] }` `` ### Access policy examples In this section, you can find example Amazon Cognito access policies that grant your users the minimum permissions necessary to do specific operation. You can further limit the permissions for a given identity ID by using policy variables where possible. For example, using ${cognito-identity.amazonaws.com:sub}. For more information, see [Understanding Amazon Cognito Authentication Part 3: Roles and Policies](https://aws.amazon.com/blogs/mobile/understanding-amazon-cognito-authentication-part-3-roles-and-policies/ "https://aws.amazon.com/blogs/mobile/understanding-amazon-cognito-authentication-part-3-roles-and-policies/") on the *AWS Mobile Blog*. ###### Note As a security best practice, policies should include only the permissions that users require to perform their tasks. This means that you should try to always scope access to an individual identity for objects whenever possible. ###### Grant an identity read access to a single object in Amazon S3 The following access policy grants read permissions to an identity to retrieve a single object from a given S3 bucket. JSON ``` `{ "Version":"2012-10-17", "Statement": [ { "Action": [ "s3:GetObject" ], "Effect": "Allow", "Resource": ["arn:aws:s3:::`amzn-s3-demo-bucket`/assets/my_picture.jpg"] } ] }` ``` ###### Grant an identity both read and write access to identity specific paths in Amazon S3 The following access policy grants read and write permissions to access a specific prefix "folder" in an S3 bucket by mapping the prefix to the `${cognito-identity.amazonaws.com:sub}`variable. With this policy, an identity such as`us-east-1:12345678-1234-1234-1234-123456790ab`inserted via`${cognito-identity.amazonaws.com:sub}` can get, put, and list objects into `arn:aws:s3:::amzn-s3-demo-bucket/us-east-1:12345678-1234-1234-1234-123456790ab`. However, the identity would not be granted access to other objects in `arn:aws:s3:::amzn-s3-demo-bucket`. JSON ``` `{ "Version":"2012-10-17", "Statement": [ { "Action": ["s3:ListBucket"], "Effect": "Allow", "Resource": ["arn:aws:s3:::`amzn-s3-demo-bucket`"], "Condition": {"StringLike": {"s3:prefix": ["${cognito-identity.amazonaws.com:sub}/_"]}} }, { "Action": [ "s3:GetObject", "s3:PutObject" ], "Effect": "Allow", "Resource": ["arn:aws:s3:::`amzn-s3-demo-bucket`/${cognito-identity.amazonaws.com:sub}/_"] } ] }` ``` A similar access model is achieved with [Amazon S3 Access Grants](../../../AmazonS3/latest/userguide/access-grants.md "../../../AmazonS3/latest/userguide/access-grants.md"). ###### Assign identities fine-grained access to Amazon DynamoDB The following access policy provides fine-grained access control to DynamoDB resources using Amazon Cognito environment variables. These variables grant access to items in DynamoDB by identity ID. For more information, see [Using IAM Policy Conditions for Fine-Grained Access Control](../../../amazondynamodb/latest/developerguide/specifying-conditions.md "../../../amazondynamodb/latest/developerguide/specifying-conditions.md") in the *Amazon DynamoDB Developer Guide*. JSON ``` `{ "Version":"2012-10-17", "Statement": [ { "Effect": "Allow", "Action": [ "dynamodb:GetItem", "dynamodb:BatchGetItem", "dynamodb:Query", "dynamodb:PutItem", "dynamodb:UpdateItem", "dynamodb:DeleteItem", "dynamodb:BatchWriteItem" ], "Resource": [ "arn:aws:dynamodb:us-west-2:123456789012:table/MyTable" ], "Condition": { "ForAllValues:StringEquals": { "dynamodb:LeadingKeys": ["${cognito-identity.amazonaws.com:sub}"] } } } ] }` ``` ###### Grant an identity permission to invoke a Lambda function The following access policy grants an identity permission to invoke a Lambda function. JSON ``` `{ "Version":"2012-10-17", "Statement": [ { "Effect": "Allow", "Action": "lambda:InvokeFunction", "Resource": [ "arn:aws:lambda:us-west-2:123456789012:function:MyFunction" ] } ] }` ``` ###### Grant an identity permission to publish records to Kinesis Data Streams The following access policy allows an identity to use the `PutRecord` operation with any of the Kinesis Data Streams. It can be applied to users that need to add data records to all streams in an account. For more information, see [Controlling Access to Amazon Kinesis Data Streams Resources Using IAM](../../../streams/latest/dev/controlling-access.md "../../../streams/latest/dev/controlling-access.md") in the *Amazon Kinesis Data Streams Developer Guide*. JSON ``` `{ "Version":"2012-10-17", "Statement": [ { "Effect": "Allow", "Action": "kinesis:PutRecord", "Resource": [ "arn:aws:kinesis:us-east-1:111122223333:stream/stream1" ] } ] }` ``` ###### Grant an identity access to their data in the Amazon Cognito Sync store The following access policy grants an identity permissions to access only their own data in the Amazon Cognito Sync store. JSON ``` `{ "Version":"2012-10-17", "Statement":[{ "Effect":"Allow", "Action":"cognito-sync:_", "Resource":["arn:aws:cognito-sync:us-east-1:123456789012:identitypool/${cognito-identity.amazonaws.com:aud}/identity/${cognito-identity.amazonaws.com:sub}/_"] }] }` ``` ## Role trust and permissions The way these roles differ is in their trust relationships. The following is an example trust policy for an unauthenticated role: JSON ``` `{ "Version":"2012-10-17", "Statement": [ { "Sid": "", "Effect": "Allow", "Principal": { "Federated": "cognito-identity.amazonaws.com" }, "Action": "sts:AssumeRoleWithWebIdentity", "Condition": { "StringEquals": { "cognito-identity.amazonaws.com:aud": "us-east-1:12345678-corner-cafe-123456790ab" }, "ForAnyValue:StringLike": { "cognito-identity.amazonaws.com:amr": "unauthenticated" } } } ] }` ``` This policy grants federated users from `cognito-identity.amazonaws.com`(the issuer of the OpenID Connect token) permission to assume this role. Additionally, the policy restricts the`aud`of the token, in this case the identity pool ID, to match the identity pool. Finally, the policy specifies that one of the array members of the multi-value`amr`claim of the token issued by the Amazon Cognito`GetOpenIdToken`API operation has the value`unauthenticated`. When Amazon Cognito creates a token, it sets the `amr`of the token as either`unauthenticated`or`authenticated`. If `amr`is`authenticated`, the token includes any providers used during authentication. This means that you can create a role that trusts only users that logged in via Facebook by changing the `amr` condition as shown: `"ForAnyValue:StringLike": { "cognito-identity.amazonaws.com:amr": "graph.facebook.com" }` Be careful when changing your trust relationships on your roles, or when trying to use roles across identity pools. If you don't configure your role correctly to trust your identity pool, an exception from STS results, like the following: `AccessDenied -- Not authorized to perform sts:AssumeRoleWithWebIdentity` If you see this message, check that your identity pool and authentication type have an appropriate role. |
+| Category                         | Service                                                                                                                                                                                                                             |
+| -------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Analytics                        | Amazon Data Firehose<br>Amazon Managed Service for Apache Flink                                                                                                                                                                     |
+| Application Integration          | Amazon Simple Queue Service                                                                                                                                                                                                         |
+| AR & VR                          | Amazon Sumerian¹                                                                                                                                                                                                                    |
+| Business Applications            | Amazon Mobile Analytics<br>Amazon Simple Email Service                                                                                                                                                                              |
+| Compute                          | AWS Lambda                                                                                                                                                                                                                          |
+| Cryptography & PKI               | AWS Key Management Service¹                                                                                                                                                                                                         |
+| Database                         | Amazon DynamoDB<br>Amazon SimpleDB                                                                                                                                                                                                  |
+| Front-end Web & Mobile           | AWS AppSync<br>Amazon Location Service<br>Amazon Simple Notification Service<br>Amazon Pinpoint<br>Amazon Location Service                                                                                                          |
+| Game Development                 | Amazon GameLift Servers                                                                                                                                                                                                             |
+| Internet of Things (IoT)         | AWS IoT                                                                                                                                                                                                                             |
+| Machine Learning                 | Amazon CodeWhisperer<br>Amazon Comprehend<br>Amazon Lex<br>Amazon Machine Learning<br>Amazon Personalize<br>Amazon Polly<br>Amazon Rekognition<br>Amazon SageMaker AI¹<br>Amazon Textract¹<br>Amazon Transcribe<br>Amazon Translate |
+| Management & Governance          | Amazon CloudWatch<br>Amazon CloudWatch Logs                                                                                                                                                                                         |
+| Networking & Content Delivery    | Amazon API Gateway                                                                                                                                                                                                                  |
+| Security, Identity, & Compliance | Amazon Cognito user pools                                                                                                                                                                                                           |
+| Storage                          | Amazon Simple Storage Service                                                                                                                                                                                                       |
+
+¹ For the AWS services in the following table, the inline policy grants a
+subset of actions. The table displays the available actions in each.
+
+| AWS service                | Maximum permissions for unauthenticated enhanced flow users                                                                                                                                                     |
+| -------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| AWS Key Management Service | `Encrypt`<br>`Decrypt`<br>`ReEncryptTo`<br>`ReEncryptFrom`<br>`GenerateDataKey`<br>`GenerateDataKeyPair`<br>`GenerateDataKeyPair`<br>`GenerateDataKeyPairWithoutPlaintext`<br>`GenerateDataKeyWithoutPlaintext` |
+| Amazon SageMaker AI        | `InvokeEndpoint`                                                                                                                                                                                                |
+| Amazon Textract            | `DetectDocumentText`<br>`AnalyzeDocument`                                                                                                                                                                       |
+| Amazon Sumerian            | `View*`                                                                                                                                                                                                         |
+| Amazon Location Service    | `SearchPlaceIndex*`<br>`GetPlace`<br>`CalculateRoute*`<br>`*Geofence`<br>`*Geofences`<br>`*DevicePosition*`                                                                                                     |
+
+To grant access to AWS services beyond this list, activate the **basic
+(classic) authentication flow** in your identity pool. If your users see
+`NotAuthorizedException` errors from AWS services that are allowed by the
+policies assigned to the IAM role for unauthenticated users, evaluate whether you can
+remove that service from your use case. If you can't, switch to the basic flow.
+
+### The inline session policy for guest
+
+users
+
+Amazon Cognito first applies an inline policy in the request for IAM credentials. The inline
+session policy restricts your user's effective permissions from including access to any
+AWS services outside those in the following list. You must also grant permissions to
+these AWS services in the policies that you apply to the user's IAM role. A user's
+effective permissions for an assumed-role session are the intersection of the policies
+assigned to their role, and their session policy. For more information, see [Session policies](../../../IAM/latest/UserGuide/access_policies.md#policies_session "../../../IAM/latest/UserGuide/access_policies.md#policies_session") in the _AWS Identity and Access Management User
+Guide_.
+
+Amazon Cognito adds the following inline policy to sessions for your users in AWS Regions
+that are enabled by default. For an overview of the net effect of the inline policy and
+other session policies, see [Services that unauthenticated users
+can access](#access-policies-scope-down-services "#access-policies-scope-down-services").
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": [
+ "cloudwatch:*",
+ "logs:*",
+ "dynamodb:*",
+ "kinesis:*",
+ "mobileanalytics:*",
+ "s3:*",
+ "ses:*",
+ "sns:*",
+ "sqs:*",
+ "lambda:*",
+ "machinelearning:*",
+ "execute-api:*",
+ "iot:*",
+ "gamelift:*",
+ "cognito-identity:*",
+ "cognito-idp:*",
+ "lex:*",
+ "polly:*",
+ "comprehend:*",
+ "translate:*",
+ "transcribe:*",
+ "rekognition:*",
+ "mobiletargeting:*",
+ "firehose:*",
+ "appsync:*",
+ "personalize:*",
+ "sagemaker:InvokeEndpoint",
+ "cognito-sync:*",
+ "codewhisperer:*",
+ "textract:DetectDocumentText",
+ "textract:AnalyzeDocument",
+ "sdb:*"
+ ],
+ "Resource": [
+ "*"
+ ]
+ }
+ ]
+}`
+
+```
+
+For all other Regions, the inline scope-down policy includes everything listed in the
+default Regions except for the following `Action` statements.
+
+```
+                "cognito-sync:*",
+                "sumerian:View*",
+                "codewhisperer:*",
+                "textract:DetectDocumentText",
+                "textract:AnalyzeDocument",
+                "sdb:*"
+```
+
+### The AWS managed session policy for
+
+guests
+
+Amazon Cognito also applies an AWS managed policy as a session policy to the enhanced-flow
+sessions of unauthenticated guests. This policy limits the scope of unauthenticated users'
+permissions with the policy
+`AmazonCognitoUnAuthedIdentitiesSessionPolicy`.
+
+You must also grant this permission in the policies that you attach to your
+unauthenticated IAM role. A user's effective permissions for an assumed-role session are
+the intersection of the IAM policies assigned to their role, and their session policies.
+For more information, see [Session
+policies](../../../IAM/latest/UserGuide/access_policies.md#policies_session "../../../IAM/latest/UserGuide/access_policies.md#policies_session") in the _AWS Identity and Access Management User Guide_.
+
+For an overview of the net effect of this AWS managed policy and other session
+policies, see [Services that unauthenticated users
+can access](#access-policies-scope-down-services "#access-policies-scope-down-services").
+
+The `AmazonCognitoUnAuthedIdentitiesSessionPolicy` managed policy has the
+following permissions.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [{
+ "Effect": "Allow",
+ "Action": [
+ "rum:PutRumEvents",
+ "polly:*",
+ "comprehend:*",
+ "translate:*",
+ "transcribe:*",
+ "rekognition:*",
+ "mobiletargeting:*",
+ "firehose:*",
+ "personalize:*",
+ "sagemaker:InvokeEndpoint",
+ "geo:GetMap*",
+ "geo:SearchPlaceIndex*",
+ "geo:GetPlace",
+ "geo:CalculateRoute*",
+ "geo:*Geofence",
+ "geo:*Geofences",
+ "geo:*DevicePosition*",
+ "kms:Encrypt",
+ "kms:Decrypt",
+ "kms:ReEncryptTo",
+ "kms:ReEncryptFrom",
+ "kms:GenerateDataKey",
+ "kms:GenerateDataKeyPair",
+ "kms:GenerateDataKeyPairWithoutPlaintext",
+ "kms:GenerateDataKeyWithoutPlaintext"
+ ],
+ "Resource": "*"
+ }]
+}`
+
+```
+
+### Access policy examples
+
+In this section, you can find example Amazon Cognito access policies that grant your users the
+minimum permissions necessary to do specific operation. You can further limit the
+permissions for a given identity ID by using policy variables where possible. For example,
+using ${cognito-identity.amazonaws.com:sub}. For more information, see [Understanding Amazon Cognito Authentication Part 3: Roles and Policies](https://aws.amazon.com/blogs/mobile/understanding-amazon-cognito-authentication-part-3-roles-and-policies/ "https://aws.amazon.com/blogs/mobile/understanding-amazon-cognito-authentication-part-3-roles-and-policies/") on the
+_AWS Mobile Blog_.
+
+###### Note
+
+As a security best practice, policies should include only the permissions that users
+require to perform their tasks. This means that you should try to always scope access to
+an individual identity for objects whenever possible.
+
+###### Grant an identity read access to a single object in Amazon S3
+
+The following access policy grants read permissions to an identity to retrieve a
+single object from a given S3 bucket.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Action": [
+ "s3:GetObject"
+ ],
+ "Effect": "Allow",
+ "Resource": ["arn:aws:s3:::`amzn-s3-demo-bucket`/assets/my_picture.jpg"]
+ }
+ ]
+}`
+
+```
+
+###### Grant an identity both read and write access to identity specific paths in
+
+Amazon S3
+
+The following access policy grants read and write permissions to access a specific
+prefix "folder" in an S3 bucket by mapping the prefix to the
+`${cognito-identity.amazonaws.com:sub}` variable.
+
+With this policy, an identity such as
+`us-east-1:12345678-1234-1234-1234-123456790ab` inserted via
+`${cognito-identity.amazonaws.com:sub}` can get, put, and list objects into
+`arn:aws:s3:::amzn-s3-demo-bucket/us-east-1:12345678-1234-1234-1234-123456790ab`. However, the identity would not
+be granted access to other objects in `arn:aws:s3:::amzn-s3-demo-bucket`.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Action": ["s3:ListBucket"],
+ "Effect": "Allow",
+ "Resource": ["arn:aws:s3:::`amzn-s3-demo-bucket`"],
+ "Condition": {"StringLike": {"s3:prefix": ["${cognito-identity.amazonaws.com:sub}/*"]}}
+ },
+ {
+ "Action": [
+ "s3:GetObject",
+ "s3:PutObject"
+ ],
+ "Effect": "Allow",
+ "Resource": ["arn:aws:s3:::`amzn-s3-demo-bucket`/${cognito-identity.amazonaws.com:sub}/*"]
+ }
+ ]
+}`
+
+```
+
+A similar access model is achieved with [Amazon S3 Access Grants](../../../AmazonS3/latest/userguide/access-grants.md "../../../AmazonS3/latest/userguide/access-grants.md").
+
+###### Assign identities fine-grained access to Amazon DynamoDB
+
+The following access policy provides fine-grained access control to DynamoDB resources
+using Amazon Cognito environment variables. These variables grant access to items in DynamoDB by
+identity ID. For more information, see [Using IAM Policy
+Conditions for Fine-Grained Access Control](../../../amazondynamodb/latest/developerguide/specifying-conditions.md "../../../amazondynamodb/latest/developerguide/specifying-conditions.md") in the _Amazon DynamoDB Developer Guide_.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": [
+ "dynamodb:GetItem",
+ "dynamodb:BatchGetItem",
+ "dynamodb:Query",
+ "dynamodb:PutItem",
+ "dynamodb:UpdateItem",
+ "dynamodb:DeleteItem",
+ "dynamodb:BatchWriteItem"
+ ],
+ "Resource": [
+ "arn:aws:dynamodb:us-west-2:123456789012:table/MyTable"
+ ],
+ "Condition": {
+ "ForAllValues:StringEquals": {
+ "dynamodb:LeadingKeys": ["${cognito-identity.amazonaws.com:sub}"]
+ }
+ }
+ }
+ ]
+}`
+
+```
+
+###### Grant an identity permission to invoke a Lambda function
+
+The following access policy grants an identity permission to invoke a Lambda
+function.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": "lambda:InvokeFunction",
+ "Resource": [
+ "arn:aws:lambda:us-west-2:123456789012:function:MyFunction"
+ ]
+ }
+ ]
+ }`
+
+```
+
+###### Grant an identity permission to publish records to Kinesis Data Streams
+
+The following access policy allows an identity to use the `PutRecord`
+operation with any of the Kinesis Data Streams. It can be applied to users that need to add data
+records to all streams in an account. For more information, see [Controlling
+Access to Amazon Kinesis Data Streams Resources Using IAM](../../../streams/latest/dev/controlling-access.md "../../../streams/latest/dev/controlling-access.md") in the _Amazon Kinesis Data Streams Developer Guide_.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": "kinesis:PutRecord",
+ "Resource": [
+ "arn:aws:kinesis:us-east-1:111122223333:stream/stream1"
+ ]
+ }
+ ]
+}`
+
+```
+
+###### Grant an identity access to their data in the Amazon Cognito Sync store
+
+The following access policy grants an identity permissions to access only their own
+data in the Amazon Cognito Sync store.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement":[{
+ "Effect":"Allow",
+ "Action":"cognito-sync:*",
+ "Resource":["arn:aws:cognito-sync:us-east-1:123456789012:identitypool/${cognito-identity.amazonaws.com:aud}/identity/${cognito-identity.amazonaws.com:sub}/*"]
+ }]
+ }`
+
+```
+
+## Role trust and permissions
+
+The way these roles differ is in their trust relationships. The following is an example
+trust policy for an unauthenticated role:
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "",
+ "Effect": "Allow",
+ "Principal": {
+ "Federated": "cognito-identity.amazonaws.com"
+ },
+ "Action": "sts:AssumeRoleWithWebIdentity",
+ "Condition": {
+ "StringEquals": {
+ "cognito-identity.amazonaws.com:aud": "us-east-1:12345678-corner-cafe-123456790ab"
+ },
+ "ForAnyValue:StringLike": {
+ "cognito-identity.amazonaws.com:amr": "unauthenticated"
+ }
+ }
+ }
+ ]
+}`
+
+```
+
+This policy grants federated users from `cognito-identity.amazonaws.com` (the
+issuer of the OpenID Connect token) permission to assume this role. Additionally, the policy
+restricts the `aud` of the token, in this case the identity pool ID, to match the
+identity pool. Finally, the policy specifies that one of the array members of the
+multi-value `amr` claim of the token issued by the Amazon Cognito
+`GetOpenIdToken` API operation has the value
+`unauthenticated`.
+
+When Amazon Cognito creates a token, it sets the `amr` of the token as either
+`unauthenticated` or `authenticated`. If `amr` is
+`authenticated`, the token includes any providers used during authentication.
+This means that you can create a role that trusts only users that logged in via Facebook by
+changing the `amr` condition as shown:
+
+```
+"ForAnyValue:StringLike": {
+  "cognito-identity.amazonaws.com:amr": "graph.facebook.com"
+}
+```
+
+Be careful when changing your trust relationships on your roles, or when trying to use
+roles across identity pools. If you don't configure your role correctly to trust your
+identity pool, an exception from STS results, like the following:
+
+```
+AccessDenied -- Not authorized to perform sts:AssumeRoleWithWebIdentity
+```
+
+If you see this message, check that your identity pool and authentication type have an
+appropriate role.

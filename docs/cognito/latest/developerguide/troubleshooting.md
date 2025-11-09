@@ -365,6 +365,24 @@ checklist to troubleshoot the issue:
 
 For more information, see [Email settings for Amazon Cognito user pools](user-pool-email.md "user-pool-email.md") and [SMS message settings for Amazon Cognito user pools](user-pool-sms-settings.md "user-pool-sms-settings.md").
 
+## Password reset fails with unverified recovery attributes: `Could not reset password for the account, please contact support or try again`
+
+**Problem**
+
+Users receive this error when attempting to reset their password because of unverified recovery methods or MFA configuration conflicts. The error occurs when the user's email or phone number attribute is unverified, or when their MFA settings prevent using the configured recovery method.
+
+**Solution**
+
+Review your user pool's account recovery configuration and the affected user's verification status:
+
+- **Verify recovery settings:** In your user pool, navigate to **Sign In** > **User Account Recovery**. Ensure **Self service account recovery** is enabled and review your **Recovery message delivery method** setting.
+- **Check user attribute verification:** Verify that the user has a verified email address or phone number that matches your recovery method configuration. In the console, go to the user's profile, select **User attributes** > **Edit**, and mark the appropriate attribute as verified.
+- **Resolve MFA conflicts:** Users whose preferred MFA method is email can't receive password-reset codes by email, and users with SMS MFA can't receive codes by SMS. Update your **Recovery message delivery method** to provide alternative options such as **SMS if available, otherwise email** or **Email if available, otherwise SMS**.
+- **Administrative verification:** Use the API operation [AdminUpdateUserAttributes](../../../cognito-user-identity-pools/latest/APIReference/API_AdminUpdateUserAttributes.md "../../../cognito-user-identity-pools/latest/APIReference/API_AdminUpdateUserAttributes.md") to programmatically verify user attributes when console access isn't available.
+
+For more information, see [Passwords, account recovery, and password
+policies](managing-users-passwords.md "managing-users-passwords.md").
+
 ## `SECRET_HASH` errors
 
 **Problem**
@@ -430,5 +448,5 @@ For more information, see [Getting started with user pools](getting-started-user
 
 For additional troubleshooting guidance and community-contributed solutions, you can also explore the following external resources:
 
-- [AWS re:Post Amazon Cognito community](https://repost.aws/tags/TA4IvCeRIxS_-n3_9K6hBrfw/amazon-cognito "https://repost.aws/tags/TA4IvCeRIxS_-n3_9K6hBrfw/amazon-cognito") - Browse community questions and solutions
+- [AWS re:Post Amazon Cognito community](https://repost.aws/tags/TAkhAE7QaGSoKZwd6utGhGDA/amazon-cognito "https://repost.aws/tags/TAkhAE7QaGSoKZwd6utGhGDA/amazon-cognito") - Browse community questions and solutions
 - [AWS Knowledge Center Amazon Cognito articles](https://aws.amazon.com/premiumsupport/knowledge-center/cognito/ "https://aws.amazon.com/premiumsupport/knowledge-center/cognito/") - Curated troubleshooting articles

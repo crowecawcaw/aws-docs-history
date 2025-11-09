@@ -360,8 +360,71 @@ a social IdP
    select the check boxes for the scopes you want access to.
 
 | Social identity provider | Example scopes          |
-| ------------------------ | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------ | --------------- | ----------------------------------------------------------------------------------------------------------- |
+| ------------------------ | ----------------------- |
 | Facebook                 | `public_profile, email` |
 | Google                   | `profile email openid`  |
 | Login with Amazon        | `profile postal_code`   |
-| Sign in with Apple       | `email name`            | Your app user is prompted to consent to providing these attributes to your app. For more information about social provider scopes, see the documentation from Google, Facebook, Login with Amazon, or Sign in with Apple. With Sign in with Apple, the following are user scenarios where scopes might not be returned: <br>• An end user encounters failures after leaving Apple’s sign in page (can be from Internal failures within Amazon Cognito or anything written by the developer) <br>• The service ID identifier is used across user pools and/or other authentication services <br>• A developer adds additional scopes after the end user has signed in before (no new information is retrieved) <br>• A developer deletes the user and then the user signs in again without removing the app from their Apple ID profile 8. Map attributes from your IdP to your user pool. For more information, see [Specifying Identity Provider Attribute Mappings for Your User Pool](cognito-user-pools-specifying-attribute-mapping.md "cognito-user-pools-specifying-attribute-mapping.md"). 9. Choose **Create**. 10. From the **App clients** menu, select an app client from the list. To add the new social identity provider to the app client, navigate to the **Login pages** tab and select **Edit** on **Managed login pages configuration**. 11. Choose **Save changes**. ## Test your social IdP configuration In your application, you must invoke a browser in the user's client so that they can sign in with their social provider. Test sign-in with your social provider after you have completed the setup procedures in the preceding sections. The following example URL loads the sign-in page for your user pool with a prefix domain. `` https://`mydomain.auth.us-east-1.amazoncognito.com`/oauth2/authorize?response_type=code&client_id=`1example23456789`&redirect_uri=`https://www.example.com` `` This link is the page that Amazon Cognito directs you to when you go to the **App clients** menu, select an app client, navigate to the **Login pages** tab, and select **View login page**. For more information about user pool domains, see [Configuring a user pool domain](cognito-user-pools-assign-domain.md "cognito-user-pools-assign-domain.md"). For more information about app clients, including client IDs and callback URLs, see [Application-specific settings with app clients](user-pool-settings-client-apps.md "user-pool-settings-client-apps.md"). The following example link sets up silent redirect to a social provider from the [Authorize endpoint](authorization-endpoint.md "authorization-endpoint.md") with an `identity_provider` query parameter. This URL bypasses interactive user pool sign-in with managed login and goes directly to the IdP sign-in page. ``` https://`mydomain.auth.us-east-1.amazoncognito.com`/oauth2/authorize?identity_provider=`Facebook | Google | LoginWithAmazon | SignInWithApple`&response_type=code&client_id=`1example23456789`&redirect_uri=`https://www.example.com` ``` |
+| Sign in with Apple       | `email name`            |
+
+Your app user is prompted to consent to providing these attributes to your
+app. For more information about social provider scopes, see the
+documentation from Google, Facebook, Login with Amazon, or Sign in with
+Apple.
+
+With Sign in with Apple, the following are user scenarios where scopes
+might not be returned:
+
+    * An end user encounters failures after leaving Apple’s sign in page
+     (can be from Internal failures within Amazon Cognito or anything written by
+     the developer)
+    * The service ID identifier is used across user pools and/or other
+     authentication services
+    * A developer adds additional scopes after the end user has signed
+     in before (no new information is retrieved)
+    * A developer deletes the user and then the user signs in again
+     without removing the app from their Apple ID profile
+
+8. Map attributes from your IdP to your user pool. For more information, see
+   [Specifying Identity Provider Attribute Mappings for Your User
+   Pool](cognito-user-pools-specifying-attribute-mapping.md "cognito-user-pools-specifying-attribute-mapping.md").
+9. Choose **Create**.
+10. From the **App clients** menu, select an app client from
+    the list. To add the new social identity provider to the app client,
+    navigate to the **Login pages** tab and select
+    **Edit** on **Managed login pages
+    configuration**.
+11. Choose **Save changes**.
+
+## Test your social IdP
+
+configuration
+
+In your application, you must invoke a browser in the user's client so that they
+can sign in with their social provider. Test sign-in with your social provider after
+you have completed the setup procedures in the preceding sections. The following
+example URL loads the sign-in page for your user pool with a prefix domain.
+
+```
+
+https://`mydomain.auth.us-east-1.amazoncognito.com`/oauth2/authorize?response_type=code&client_id=`1example23456789`&redirect_uri=`https://www.example.com`
+
+```
+
+This link is the page that Amazon Cognito directs you to when you go to the **App
+clients** menu, select an app client, navigate to the **Login
+pages** tab, and select **View login page**. For more
+information about user pool domains, see [Configuring a user pool domain](cognito-user-pools-assign-domain.md "cognito-user-pools-assign-domain.md"). For more information about app
+clients, including client IDs and callback URLs, see [Application-specific settings with app
+clients](user-pool-settings-client-apps.md "user-pool-settings-client-apps.md").
+
+The following example link sets up silent redirect to a social provider from the
+[Authorize endpoint](authorization-endpoint.md "authorization-endpoint.md")
+with an `identity_provider` query parameter. This URL bypasses
+interactive user pool sign-in with managed login and goes directly to the IdP
+sign-in page.
+
+```
+
+https://`mydomain.auth.us-east-1.amazoncognito.com`/oauth2/authorize?identity_provider=`Facebook|Google|LoginWithAmazon|SignInWithApple`&response_type=code&client_id=`1example23456789`&redirect_uri=`https://www.example.com`
+
+```

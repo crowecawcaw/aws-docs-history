@@ -56,8 +56,8 @@ access token.
 The access token from a client credentials grant is an authorization
 mechanism that contains OAuth 2.0 scopes. Typically, the token contains
 custom scope claims that authorize HTTP operations to access-protected APIs.
-For more information, see [Scopes, M2M, and APIs with
-resource servers](cognito-user-pools-define-resource-servers.md "cognito-user-pools-define-resource-servers.md").
+For more information, see [Scopes, M2M, and resource
+servers](cognito-user-pools-define-resource-servers.md "cognito-user-pools-define-resource-servers.md").
 
 Client credentials grants add costs to your AWS bill. For more
 information, see [Amazon Cognito

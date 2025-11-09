@@ -57,10 +57,248 @@ details.
   like `preferred_username`.
 
 | Identity Provider               | `username` source attribute |
-| ------------------------------- | --------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------------------------- | --------------------------- |
 | Facebook                        | `id`                        |
 | Google                          | `sub`                       |
 | Login with Amazon               | `user_id`                   |
 | Sign in with Apple              | `sub`                       |
 | SAML providers                  | `NameID`                    |
-| OpenID Connect (OIDC) providers | `sub`                       | <br>• When a user pool is [case insensitive](user-pool-case-sensitivity.md "user-pool-case-sensitivity.md"), Amazon Cognito converts the username source attribute to lowercase in federated users' automatically-generated usernames. The following is an example username for a case-sensitive user pool: `MySAML_TestUser@example.com`. The following is the same username for a case-_insensitive_ user pool: `MySAML_testuser@example.com`. In case-insensitive user pools, your Lambda triggers that process the username must account for this modification to any mixed-case claims for user name source attributes. To link your IdP to a user pool that has a different case-sensitivity setting than your current user pool, create a new user pool. <br>• Amazon Cognito must be able to update your mapped user pool attributes when users sign in to your application. When a user signs in through an IdP, Amazon Cognito updates the mapped attributes with the latest information from the IdP. Amazon Cognito updates each mapped attribute, even if its current value already matches the latest information. To ensure that Amazon Cognito can update the attributes, check the following requirements: + All of the user pool custom attributes that you map from your IdP must be _mutable_. You can update mutable custom attributes at any time. By contrast, you can only set a value for a user's _immutable_ custom attribute when you first create the user profile. To create a mutable custom attribute in the Amazon Cognito console, activate the **Mutable** checkbox for the attribute you add when you select **Add custom attributes** in the **Sign-up** menu. Or, if you create your user pool by using the [CreateUserPool](../../../cognito-user-identity-pools/latest/APIReference/API_CreateUserPool.md "../../../cognito-user-identity-pools/latest/APIReference/API_CreateUserPool.md") API operation, you can set the `Mutable` parameter for each of these attributes to `true`. If your IdP sends a value for a mapped immutable attribute, Amazon Cognito returns an error and sign-in fails. + In the app client settings for your application, the mapped attributes must be _writable_. You can set which attributes are writable in the **App clients** page in the Amazon Cognito console. Or, if you create the app client by using the [`CreateUserPoolClient`](../../../cognito-user-identity-pools/latest/APIReference/API_CreateUserPoolClient.md "../../../cognito-user-identity-pools/latest/APIReference/API_CreateUserPoolClient.md") API operation, you can add these attributes to the `WriteAttributes` array. If your IdP sends a value for a mapped non-writable attribute, Amazon Cognito doesn't set the attribute value and proceeds with authentication. <br>• When IdP attributes contain multiple values, Amazon Cognito flattens all values into a single comma-delimited string enclosed in the square-bracket characters `[` and `]`. Amazon Cognito URL form-encodes the values containing non-alphanumeric characters except for `.`, `-`, `*`, and `_`. You must decode and parse the individual values before you use them in your app. <br>• The destination attribute retains any value that your attribute-mapping rules assign to it unless a sign-in or administrative action changes it. Amazon Cognito doesn't remove attributes from users when the source attribute is no longer sent in the provider token or SAML assertion. The following actions remove the value of an attribute from a user pool profile for a federated user: 1. The IdP sends a blank value for the source attribute and a mapping rule applies the blank value to the destination attribute. 2. You clear the value of the mapped attribute with an [DeleteUserAttributes](../../../cognito-user-identity-pools/latest/APIReference/API_DeleteUserAttributes.md "../../../cognito-user-identity-pools/latest/APIReference/API_DeleteUserAttributes.md") or [AdminDeleteUserAttributes](../../../cognito-user-identity-pools/latest/APIReference/API_AdminDeleteUserAttributes.md "../../../cognito-user-identity-pools/latest/APIReference/API_AdminDeleteUserAttributes.md") request. ## Specifying identity provider attribute mappings for your user pool (AWS Management Console) You can use the AWS Management Console to specify attribute mappings for the IdP your user pool. ###### Note Amazon Cognito will map incoming claims to user pool attributes only if the claims exist in the incoming token. If a previously mapped claim no longer exists in the incoming token, it won't be deleted or changed. If your application requires mapping of deleted claims, you can use the Pre-Authentication Lambda trigger to delete the custom attribute during authentication and allow these attributes to repopulate from the incoming token. ###### To specify a social IdP attribute mapping 1. Sign in to the [Amazon Cognito console](https://console.aws.amazon.com/cognito/home "https://console.aws.amazon.com/cognito/home"). If prompted, enter your AWS credentials. 2. In the navigation pane, choose **User Pools**, and choose the user pool you want to edit. 3. Choose the **Social and external providers** menu. 4. Choose **Add an identity provider**, or choose the **Facebook**, **Google**, **Amazon** or **Apple** IdP you have configured. Locate **Attribute mapping** and choose **Edit**. For more information about adding a social IdP, see [Using social identity providers with a user pool](cognito-user-pools-social-idp.md "cognito-user-pools-social-idp.md"). 5. For each attribute you need to map, complete the following steps: 1. Select an attribute from the **User pool attribute** column. This is the attribute that is assigned to the user profile in your user pool. Custom attributes are listed after standard attributes. 2. Select an attribute from the **`<provider>` attribute** column. This will be the attribute passed from the provider directory. Known attributes from the social provider are provided in a drop-down list. 3. To map additional attributes between your IdP and Amazon Cognito, choose **Add another attribute**. 6. Choose **Save changes**. ###### To specify a SAML provider attribute mapping 1. Sign in to the [Amazon Cognito console](https://console.aws.amazon.com/cognito/home "https://console.aws.amazon.com/cognito/home"). If prompted, enter your AWS credentials. 2. In the navigation pane, choose **User Pools**, and choose the user pool you want to edit. 3. Choose the **Social and external providers** menu. 4. Choose **Add an identity provider**, or choose the SAML IdP you have configured. Locate **Attribute mapping**, and choose **Edit**. For more information about adding a SAML IdP, see [Using SAML identity providers with a user pool](cognito-user-pools-saml-idp.md "cognito-user-pools-saml-idp.md"). 5. For each attribute you need to map, complete the following steps: 1. Select an attribute from the **User pool attribute** column. This is the attribute that is assigned to the user profile in your user pool. Custom attributes are listed after standard attributes. 2. Select an attribute from the **SAML attribute** column. This will be the attribute passed from the provider directory. Your IdP might offer sample SAML assertions for reference. Some IdPs use simple names, such as `email`, while others use URL-formatted attribute names similar to: `` `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` `` 3. To map additional attributes between your IdP and Amazon Cognito, choose **Add another attribute**. 6. Choose **Save changes**. ## Specifying identity provider attribute mappings for your user pool (AWS CLI and AWS API) The following request body for [CreateIdentityProvider](../../../cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.md "../../../cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.md") or [UpdateIdentityProvider](../../../cognito-user-identity-pools/latest/APIReference/API_UpdateIdentityProvider.md "../../../cognito-user-identity-pools/latest/APIReference/API_UpdateIdentityProvider.md") maps the SAML provider "MyIdP" attributes `emailaddress`, `birthdate`, and `phone` to the user pool attributes `email`, `birthdate`, and `phone_number`, in that order. This is a complete request body for a SAML 2.0 provider—your request body will vary depending on IdP type and specific details. The attribute mapping is in the `AttributeMapping` parameter. `{ "AttributeMapping": { "email" : "emailaddress", "birthdate" : "birthdate", "phone_number" : "phone" }, "IdpIdentifiers": [ "IdP1", "pdxsaml" ], "ProviderDetails": { "IDPInit": "true", "IDPSignout": "true", "EncryptedResponses" : "true", "MetadataURL": "https://auth.example.com/sso/saml/metadata", "RequestSigningAlgorithm": "rsa-sha256" }, "ProviderName": "MyIdP", "ProviderType": "SAML", "UserPoolId": "us-west-2_EXAMPLE" }` Use the following commands to specify IdP attribute mappings for your user pool. ###### To specify attribute mappings at provider creation time <br>• AWS CLI: `aws cognito-idp create-identity-provider` Example with metadata file: `aws cognito-idp create-identity-provider --user-pool-id `<user_pool_id>` --provider-name=SAML_provider_1 --provider-type SAML --provider-details file:///details.json --attribute-mapping email=http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` Where `details.json` contains: ``{ "MetadataFile": "`<SAML metadata XML>`" }`` ###### Note If the `<SAML metadata XML>` contains any quotations (`"`), they must be escaped (`\"`). Example with metadata URL: ``aws cognito-idp create-identity-provider \ --user-pool-id `us-east-1_EXAMPLE` \ --provider-name=SAML_provider_1 \ --provider-type SAML \ --provider-details MetadataURL=`https://myidp.example.com/saml/metadata` \ --attribute-mapping email=http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`` <br>• API/SDK: [CreateIdentityProvider](../../../cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.md "../../../cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.md") ###### To specify attribute mappings for an existing IdP <br>• AWS CLI: `aws cognito-idp update-identity-provider` Example: `aws cognito-idp update-identity-provider --user-pool-id `<user_pool_id>`--provider-name`<provider_name>` --attribute-mapping email=http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` <br>• API/SDK: [UpdateIdentityProvider](../../../cognito-user-identity-pools/latest/APIReference/API_UpdateIdentityProvider.md "../../../cognito-user-identity-pools/latest/APIReference/API_UpdateIdentityProvider.md") ###### To get information about attribute mapping for a specific IdP <br>• AWS CLI: `aws cognito-idp describe-identity-provider` Example: `aws cognito-idp describe-identity-provider --user-pool-id `<user_pool_id>`--provider-name`<provider_name>`` <br>• API/SDK: [DescribeIdentityProvider](../../../cognito-user-identity-pools/latest/APIReference/API_DescribeIdentityProvider.md "../../../cognito-user-identity-pools/latest/APIReference/API_DescribeIdentityProvider.md") |
+| OpenID Connect (OIDC) providers | `sub`                       |
+
+- When a user pool is [case
+  insensitive](user-pool-case-sensitivity.md "user-pool-case-sensitivity.md"), Amazon Cognito converts the username source attribute to
+  lowercase in federated users' automatically-generated usernames. The
+  following is an example username for a case-sensitive user pool:
+  `MySAML_TestUser@example.com`. The following is the same
+  username for a case-_insensitive_ user
+  pool: `MySAML_testuser@example.com`.
+
+In case-insensitive user pools, your Lambda triggers that process the
+username must account for this modification to any mixed-case claims for
+user name source attributes. To link your IdP to a user pool that has a
+different case-sensitivity setting than your current user pool, create a new
+user pool.
+
+- Amazon Cognito must be able to update your mapped user pool attributes when users
+  sign in to your application. When a user signs in through an IdP, Amazon Cognito
+  updates the mapped attributes with the latest information from the IdP.
+  Amazon Cognito updates each mapped attribute, even if its current value already
+  matches the latest information. To ensure that Amazon Cognito can update the
+  attributes, check the following requirements:
+  - All of the user pool custom attributes that you map from your IdP
+    must be _mutable_. You can update
+    mutable custom attributes at any time. By contrast, you can only set
+    a value for a user's _immutable_
+    custom attribute when you first create the user profile. To create a
+    mutable custom attribute in the Amazon Cognito console, activate the
+    **Mutable** checkbox for the attribute you add
+    when you select **Add custom attributes** in the
+    **Sign-up** menu. Or, if you create your user
+    pool by using the [CreateUserPool](../../../cognito-user-identity-pools/latest/APIReference/API_CreateUserPool.md "../../../cognito-user-identity-pools/latest/APIReference/API_CreateUserPool.md") API operation, you can set the
+    `Mutable` parameter for each of these attributes to
+    `true`. If your IdP sends a value for a mapped
+    immutable attribute, Amazon Cognito returns an error and sign-in
+    fails.
+  - In the app client settings for your application, the mapped
+    attributes must be _writable_. You
+    can set which attributes are writable in the **App
+    clients** page in the Amazon Cognito console. Or, if you create
+    the app client by using the [`CreateUserPoolClient`](../../../cognito-user-identity-pools/latest/APIReference/API_CreateUserPoolClient.md "../../../cognito-user-identity-pools/latest/APIReference/API_CreateUserPoolClient.md") API operation,
+    you can add these attributes to the `WriteAttributes`
+    array. If your IdP sends a value for a mapped non-writable
+    attribute, Amazon Cognito doesn't set the attribute value and proceeds with
+    authentication.
+
+- When IdP attributes contain multiple values, Amazon Cognito flattens all values
+  into a single comma-delimited string enclosed in the square-bracket
+  characters `[` and `]`. Amazon Cognito URL form-encodes the
+  values containing non-alphanumeric characters except for `.`,
+  `-`, `*`, and `_`. You must decode and
+  parse the individual values before you use them in your app.
+- The destination attribute retains any value that your attribute-mapping
+  rules assign to it unless a sign-in or administrative action changes it.
+  Amazon Cognito doesn't remove attributes from users when the source attribute is no
+  longer sent in the provider token or SAML assertion. The following actions
+  remove the value of an attribute from a user pool profile for a federated
+  user:
+  1.  The IdP sends a blank value for the source attribute and a mapping
+      rule applies the blank value to the destination attribute.
+  2.  You clear the value of the mapped attribute with an [DeleteUserAttributes](../../../cognito-user-identity-pools/latest/APIReference/API_DeleteUserAttributes.md "../../../cognito-user-identity-pools/latest/APIReference/API_DeleteUserAttributes.md") or [AdminDeleteUserAttributes](../../../cognito-user-identity-pools/latest/APIReference/API_AdminDeleteUserAttributes.md "../../../cognito-user-identity-pools/latest/APIReference/API_AdminDeleteUserAttributes.md") request.
+
+## Specifying
+
+identity provider attribute mappings for your user pool (AWS Management Console)
+
+You can use the AWS Management Console to specify attribute mappings for the IdP your user
+pool.
+
+###### Note
+
+Amazon Cognito will map incoming claims to user pool attributes only if the claims
+exist in the incoming token. If a previously mapped claim no longer exists in
+the incoming token, it won't be deleted or changed. If your application requires
+mapping of deleted claims, you can use the Pre-Authentication Lambda trigger to
+delete the custom attribute during authentication and allow these attributes to
+repopulate from the incoming token.
+
+###### To specify a social IdP attribute mapping
+
+1. Sign in to the [Amazon Cognito
+   console](https://console.aws.amazon.com/cognito/home "https://console.aws.amazon.com/cognito/home"). If prompted, enter your AWS credentials.
+2. In the navigation pane, choose **User Pools**, and choose
+   the user pool you want to edit.
+3. Choose the **Social and external providers** menu.
+4. Choose **Add an identity provider**, or choose the
+   **Facebook**, **Google**,
+   **Amazon** or **Apple** IdP you have
+   configured. Locate **Attribute mapping** and choose
+   **Edit**.
+
+For more information about adding a social IdP, see [Using social identity providers with a
+user pool](cognito-user-pools-social-idp.md "cognito-user-pools-social-idp.md"). 5. For each attribute you need to map, complete the following steps:
+
+    1. Select an attribute from the **User pool
+     attribute** column. This is the attribute that is
+     assigned to the user profile in your user pool. Custom attributes
+     are listed after standard attributes.
+    2. Select an attribute from the
+     **`<provider>`
+     attribute** column. This will be the attribute passed
+     from the provider directory. Known attributes from the social
+     provider are provided in a drop-down list.
+    3. To map additional attributes between your IdP and Amazon Cognito, choose
+     **Add another attribute**.
+
+6. Choose **Save changes**.
+
+###### To specify a SAML provider attribute mapping
+
+1. Sign in to the [Amazon Cognito
+   console](https://console.aws.amazon.com/cognito/home "https://console.aws.amazon.com/cognito/home"). If prompted, enter your AWS credentials.
+2. In the navigation pane, choose **User Pools**, and choose
+   the user pool you want to edit.
+3. Choose the **Social and external providers** menu.
+4. Choose **Add an identity provider**, or choose the SAML
+   IdP you have configured. Locate **Attribute mapping**, and
+   choose **Edit**. For more information about adding a SAML
+   IdP, see [Using SAML identity providers with a user
+   pool](cognito-user-pools-saml-idp.md "cognito-user-pools-saml-idp.md").
+5. For each attribute you need to map, complete the following steps:
+   1. Select an attribute from the **User pool
+      attribute** column. This is the attribute that is
+      assigned to the user profile in your user pool. Custom attributes
+      are listed after standard attributes.
+   2. Select an attribute from the **SAML attribute**
+      column. This will be the attribute passed from the provider
+      directory.
+
+   Your IdP might offer sample SAML assertions for reference. Some
+   IdPs use simple names, such as `email`, while others use
+   URL-formatted attribute names similar to:
+
+   ```
+   `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`
+   ```
+
+   3. To map additional attributes between your IdP and Amazon Cognito, choose
+      **Add another attribute**.
+
+6. Choose **Save changes**.
+
+## Specifying
+
+identity provider attribute mappings for your user pool (AWS CLI and AWS
+API)
+
+The following request body for [CreateIdentityProvider](../../../cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.md "../../../cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.md") or [UpdateIdentityProvider](../../../cognito-user-identity-pools/latest/APIReference/API_UpdateIdentityProvider.md "../../../cognito-user-identity-pools/latest/APIReference/API_UpdateIdentityProvider.md") maps the SAML provider "MyIdP" attributes
+`emailaddress`, `birthdate`, and `phone` to the
+user pool attributes `email`, `birthdate`, and
+`phone_number`, in that order. This is a complete request body for a
+SAML 2.0 provider—your request body will vary depending on IdP type and
+specific details. The attribute mapping is in the `AttributeMapping`
+parameter.
+
+```
+{
+   "AttributeMapping": {
+      "email" : "emailaddress",
+      "birthdate" : "birthdate",
+      "phone_number" : "phone"
+   },
+   "IdpIdentifiers": [
+      "IdP1",
+      "pdxsaml"
+   ],
+   "ProviderDetails": {
+      "IDPInit": "true",
+      "IDPSignout": "true",
+      "EncryptedResponses" : "true",
+      "MetadataURL": "https://auth.example.com/sso/saml/metadata",
+      "RequestSigningAlgorithm": "rsa-sha256"
+   },
+   "ProviderName": "MyIdP",
+   "ProviderType": "SAML",
+   "UserPoolId": "us-west-2_EXAMPLE"
+}
+```
+
+Use the following commands to specify IdP attribute mappings for your user
+pool.
+
+###### To specify attribute mappings at provider creation time
+
+- AWS CLI: `aws cognito-idp create-identity-provider`
+
+Example with metadata file: `aws cognito-idp create-identity-provider
+ --user-pool-id `<user_pool_id>`
+ --provider-name=SAML_provider_1 --provider-type SAML --provider-details
+ file:///details.json --attribute-mapping
+ email=http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`
+
+Where `details.json` contains:
+
+```
+{
+    "MetadataFile": "`<SAML metadata XML>`"
+}
+```
+
+###### Note
+
+If the `<SAML metadata XML>` contains
+any quotations (`"`), they must be escaped
+(`\"`).
+
+Example with metadata URL:
+
+```
+aws cognito-idp create-identity-provider \
+--user-pool-id `us-east-1_EXAMPLE` \
+--provider-name=SAML_provider_1 \
+--provider-type SAML \
+--provider-details MetadataURL=`https://myidp.example.com/saml/metadata` \
+--attribute-mapping email=http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress
+```
+
+- API/SDK: [CreateIdentityProvider](../../../cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.md "../../../cognito-user-identity-pools/latest/APIReference/API_CreateIdentityProvider.md")
+
+###### To specify attribute mappings for an existing IdP
+
+- AWS CLI: `aws cognito-idp update-identity-provider`
+
+Example: `aws cognito-idp update-identity-provider --user-pool-id
+ `<user_pool_id>`--provider-name
+`<provider_name>` --attribute-mapping
+ email=http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`
+
+- API/SDK: [UpdateIdentityProvider](../../../cognito-user-identity-pools/latest/APIReference/API_UpdateIdentityProvider.md "../../../cognito-user-identity-pools/latest/APIReference/API_UpdateIdentityProvider.md")
+
+###### To get information about attribute mapping for a specific IdP
+
+- AWS CLI: `aws cognito-idp describe-identity-provider`
+
+Example: `aws cognito-idp describe-identity-provider --user-pool-id
+ `<user_pool_id>`--provider-name
+`<provider_name>``
+
+- API/SDK: [DescribeIdentityProvider](../../../cognito-user-identity-pools/latest/APIReference/API_DescribeIdentityProvider.md "../../../cognito-user-identity-pools/latest/APIReference/API_DescribeIdentityProvider.md")

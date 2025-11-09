@@ -173,8 +173,8 @@ custom-built applications.
 A custom scope is one that you define for your own resource server in the
 **Resource Servers**. The format is
 `resource-server-identifier`/`scope`.
-See [Scopes, M2M, and APIs with
-resource servers](cognito-user-pools-define-resource-servers.md "cognito-user-pools-define-resource-servers.md").
+See [Scopes, M2M, and resource
+servers](cognito-user-pools-define-resource-servers.md "cognito-user-pools-define-resource-servers.md").
 
 **Default redirect URI**
 
@@ -295,8 +295,8 @@ scope is one that you define for your own resource server. Default scopes like
 `openid` and `profile` don't apply to nonhuman users.
 
 Because ID tokens are a validation of user attributes, they aren't relevant to M2M
-communication, and a client credentials grants doesn't issue them. See [Scopes, M2M, and APIs with
-resource servers](cognito-user-pools-define-resource-servers.md "cognito-user-pools-define-resource-servers.md").
+communication, and a client credentials grants doesn't issue them. See [Scopes, M2M, and resource
+servers](cognito-user-pools-define-resource-servers.md "cognito-user-pools-define-resource-servers.md").
 
 Client credentials grants add costs to your AWS bill. For more information, see
 [Amazon Cognito Pricing](https://aws.amazon.com/cognito/pricing "https://aws.amazon.com/cognito/pricing").
