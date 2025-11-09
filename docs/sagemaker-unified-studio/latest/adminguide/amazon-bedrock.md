@@ -76,7 +76,6 @@ different level of customization:
 
 - [Configure access to your Amazon Bedrock serverless models for
   the selected AWS accounts and regions](#manage-models "#manage-models")
-- [Enable or disable chat history](#chat-history "#chat-history")
 - [Set default models for the generative AI
   playgrounds in Amazon SageMaker Unified Studio](#set-default-models-for-playground "#set-default-models-for-playground")
 - [Publishing models from associated
@@ -144,21 +143,6 @@ models:
    project** and **Enable in playground** columns to enable or
    disable your models. If you choose to disable a model in a project, confirm the disable
    action in the pop up window that appears.
-
-## Enable or disable chat history
-
-Chat history for the Amazon Bedrock in SageMaker Unified Studio chat playground is enabled
-by default. To disable chat history for your users, use the **Enable chat
-history** toggle in the **Chat history section** of the
-**Playground settings**.
-
-###### Important
-
-Chat history for the Amazon Bedrock in SageMaker Unified Studio playground is in preview
-and should be used as a development aid rather than a definitive record of model behavior.
-While we strive to maintain accuracy in session records, the integrity of stored chat
-interactions cannot be guaranteed. Users and organizations should not rely on chat history
-for critical business decisions, compliance purposes, or official documentation.
 
 ## Set default models for the generative AI
 

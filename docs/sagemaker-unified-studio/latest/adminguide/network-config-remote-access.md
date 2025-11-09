@@ -18,7 +18,7 @@ To configure a VPC isolated from the internet and also enable remote access from
 - Refer to the following table and create VPC endpoints that you require for your use cases and attach them to the Amazon SageMaker Unified Studio Domain VPC:
 
 | Service       | Endpoint                                 | Purpose                                                  | Required for                                                                      |
-| ------------- | ---------------------------------------- | -------------------------------------------------------- | --------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| ------------- | ---------------------------------------- | -------------------------------------------------------- | --------------------------------------------------------------------------------- |
 | STS           | com.amazonaws.<REGION>.sts               | Authentication and temporary credential management       | Service authentication and role assumption                                        |
 | SSM           | com.amazonaws.<REGION>.ssm               | Parameter Store and configuration management             | Runtime configuration retrieval                                                   |
 | SSM-Messages  | com.amazonaws.<REGION>.ssmmessages       | Session Manager communication                            | Secure shell access and command execution                                         |
@@ -26,4 +26,6 @@ To configure a VPC isolated from the internet and also enable remote access from
 | SM Runtime    | com.amazonaws.<REGION>.sagemaker.runtime | Model inference and runtime operations                   | Code execution and model serving                                                  |
 | SM API        | com.amazonaws.<REGION>.sagemaker.api     | SageMaker service API calls                              | Resource management and service operations                                        |
 | DataZone      | com.amazonaws.<REGION>.datazone          | DataZone service access                                  | Data discovery, governance, and sharing capabilities                              |
-| DataZone FIPS | com.amazonaws.<REGION>.datazone-fips     | FIPS-compliant secure access to Amazon DataZone services | Secure data access compliant with Federal Information Processing Standards (FIPS) | To create your own security groups, ensure traffic is allowed to and from the service-created security group for the Project. |
+| DataZone FIPS | com.amazonaws.<REGION>.datazone-fips     | FIPS-compliant secure access to Amazon DataZone services | Secure data access compliant with Federal Information Processing Standards (FIPS) |
+
+To create your own security groups, ensure traffic is allowed to and from the service-created security group for the Project.
