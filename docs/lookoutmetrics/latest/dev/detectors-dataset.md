@@ -173,7 +173,7 @@ URI that has placeholder keys in double curly brackets, which represent the fold
 for each interval.
 
 | Letter                | Date or time component | Presentation | Examples    |
-| --------------------- | ---------------------- | ------------ | ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| --------------------- | ---------------------- | ------------ | ----------- |
 | y                     | Year                   | Year         | 1996; 96    |
 | Y                     | Week year              | Year         | 2009; 09    |
 | M                     | Month in year          | Month        | July;Jul;07 |
@@ -183,4 +183,24 @@ for each interval.
 | k                     | Hour in day (1-24)     | Number       | 24          |
 | k (with AM/PM marker) | Hour in AM/PM (0-11)   | Number       | 11          |
 | m                     | Minute in hour         | Number       | 30          |
-| s                     | Second in minute       | Number       | 55          | ###### Example path structure – daily interval For this example, the path template is `s3://my-lookoutmetrics-dataset-123456789012/continuous/{{yyyy}}/{{MM}}/{{dd}}`. The `continuous` folder has a subfolder structure that indicates the year, month, and day of each one day interval. `s3://my-lookoutmetrics-dataset-123456789012/ historical/ 2020Q2.csv 2020Q3.csv continuous/ 2020/12/01/ 20201201-01.csv 2020/12/02/ 20201202-01.csv 20201202-02.csv` |
+| s                     | Second in minute       | Number       | 55          |
+
+###### Example path structure – daily interval
+
+For this example, the path template is
+`s3://my-lookoutmetrics-dataset-123456789012/continuous/{{yyyy}}/{{MM}}/{{dd}}`. The
+`continuous` folder has a subfolder structure that indicates the year, month, and day of each one
+day interval.
+
+```
+s3://my-lookoutmetrics-dataset-123456789012/
+    historical/
+      2020Q2.csv
+      2020Q3.csv
+    continuous/
+      2020/12/01/
+        20201201-01.csv
+      2020/12/02/
+        20201202-01.csv
+        20201202-02.csv
+```
