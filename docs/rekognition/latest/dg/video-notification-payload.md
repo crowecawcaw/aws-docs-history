@@ -23,11 +23,28 @@ The payload is in the following JSON format:
 }
 ```
 
-| Name      | Description                                                                                                                                                                                                    |
-| --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| JobId     | The job identifier. Matches a job identifier that's returned from a `Start` operation, such as [StartPersonTracking](../APIReference/API_StartPersonTracking.md "../APIReference/API_StartPersonTracking.md"). |
-| Status    | The status of the job. Valid values are SUCCEEDED, FAILED, or ERROR.                                                                                                                                           |
-| API       | The Amazon Rekognition Video operation used to analyze the input video.                                                                                                                                        |
-| JobTag    | Identifier for the job. You specify `JobTag` in a call to Start operation, such as [StartLabelDetection](../APIReference/API_StartLabelDetection.md "../APIReference/API_StartLabelDetection.md").             |
-| Timestamp | The Unix time stamp for when the job finished.                                                                                                                                                                 |
-| Video     | Details about the video that was processed. Includes the file name and the Amazon S3 bucket that the file is stored in.                                                                                        | The following is an example of a successful notification that was sent to an Amazon SNS topic. `{ "JobId": "6de014b0-2121-4bf0-9e31-856a18719e22", "Status": "SUCCEEDED", "API": "LABEL_DETECTION", "Message": "", "Timestamp": 1502230160926, "Video": { "S3ObjectName": "video.mpg", "S3Bucket": "amzn-s3-demo-bucket" } }` |
+| Name      | Description                                                                                                                                                                                                       |
+| --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| JobId     | The job identifier. Matches a job identifier that's returned from<br>a `Start` operation, such as [StartPersonTracking](../APIReference/API_StartPersonTracking.md "../APIReference/API_StartPersonTracking.md"). |
+| Status    | The status of the job. Valid values are SUCCEEDED, FAILED, or<br>ERROR.                                                                                                                                           |
+| API       | The Amazon Rekognition Video operation used to analyze the input video.                                                                                                                                           |
+| JobTag    | Identifier for the job. You specify `JobTag` in a call<br>to Start operation, such as [StartLabelDetection](../APIReference/API_StartLabelDetection.md "../APIReference/API_StartLabelDetection.md").             |
+| Timestamp | The Unix time stamp for when the job finished.                                                                                                                                                                    |
+| Video     | Details about the video that was processed. Includes the file name<br>and the Amazon S3 bucket that the file is stored in.                                                                                        |
+
+The following is an example of a successful notification that was sent to an Amazon SNS
+topic.
+
+```
+{
+  "JobId": "6de014b0-2121-4bf0-9e31-856a18719e22",
+  "Status": "SUCCEEDED",
+  "API": "LABEL_DETECTION",
+  "Message": "",
+  "Timestamp": 1502230160926,
+  "Video": {
+    "S3ObjectName": "video.mpg",
+    "S3Bucket": "amzn-s3-demo-bucket"
+  }
+}
+```

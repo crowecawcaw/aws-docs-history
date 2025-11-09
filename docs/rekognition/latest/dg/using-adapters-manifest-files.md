@@ -85,10 +85,159 @@ response:
 The following information is returned for each entry in the Output
 Manifest:
 
-|                                       |                                                                     |
-| ------------------------------------- | ------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Key Name                              | Description                                                         |
-| `source-ref`                          | Reference to an image in s3 that was provided in the input maniefst |
-| `content-moderation-groundtruth`      | Ground truth annotations that were provided in the input manifest   |
-| `detect-moderation-labels`            | Adapter predictions, part of the testing dataset only               |
-| `detect-moderation-labels-base-model` | Base model predictions, part of the testing dataset only            | Adapter and Base model predictions are returned at ConfidenceTrehsold 5.0 in the format that is similar to the [DetectModerationLabels](../APIReference/API_DetectModerationLabels.md "../APIReference/API_DetectModerationLabels.md") response. The following example shows structure of the Adapter and Base model predictions: `{ "ModerationLabels": [ { "Confidence": number, "Name": "string", "ParentName": "string" } ], "ModerationModelVersion": "string", "ProjectVersion": "string" }` For the complete list of labels returned refer to [Moderating content](moderation.md "moderation.md"). ## Evaluation results manifest On completion of a training job, an evaluation result manifest file is returned. The evaluation results manifest is a JSON file output by the training job, and it contains information on how well the adapter performed on the test data. Amazon S3 Path to the evaluation results manifest can be obtained from the `EvaluationResult.Summary.S3Object` field in the DescribeProejctVersion response. The following example shows the structure of the evaluation results manifest: `{ "AggregatedEvaluationResults": { "F1Score": number }, "EvaluationDetails": { "EvaluationEndTimestamp": "datetime", "Labels": [ "string" ], "NumberOfTestingImages": number, "NumberOfTrainingImages": number, "ProjectVersionArn": "string" }, "ContentModeration": { "InputConfidenceThresholdEvalResults": { "ConfidenceThreshold": float, "AggregatedEvaluationResults": { "BaseModel": { "TruePositive": int, "TrueNegative": int, "FalsePositive": int, "FalseNegative": int }, "Adapter": { "TruePositive": int, "TrueNegative": int, "FalsePositive": int, "FalseNegative": int } }, "LabelEvaluationResults": [ { "Label": "string", "BaseModel": { "TruePositive": int, "TrueNegative": int, "FalsePositive": int, "FalseNegative": int }, "Adapter": { "TruePositive": int, "TrueNegative": int, "FalsePositive": int, "FalseNegative": int } } ] } "AllConfidenceThresholdsEvalResults": [ { "ConfidenceThreshold": float, "AggregatedEvaluationResults": { "BaseModel": { "TruePositive": int, "TrueNegative": int, "FalsePositive": int, "FalseNegative": int }, "Adapter": { "TruePositive": int, "TrueNegative": int, "FalsePositive": int, "FalseNegative": int } }, "LabelEvaluationResults": [ { "Label": "string", "BaseModel": { "TruePositive": int, "TrueNegative": int, "FalsePositive": int, "FalseNegative": int }, "Adapter": { "TruePositive": int, "TrueNegative": int, "FalsePositive": int, "FalseNegative": int } } ] } ] } }` The evaluation manifest file contains: <br>• Aggregated results as defined by `F1Score` <br>• Details for the evaluation job including the ProjectVersionArn, number of training images, number of testing images, and the labels the adapter was trained on. <br>• Aggregated TruePositive, TrueNegative, FalsePositive, and FalseNegative results for both base model and adapter performance. <br>• Per label TruePositive, TrueNegative, FalsePositive, and FalseNegative results for both base model and adapter performance, calculated at the input confidence threshold. <br>• Aggregated and per label TruePositive, TrueNegative, FalsePositive, and FalseNegative results for both base model and adapter performance at different confidence thresholds. The confidence threshold ranges from 5 to 100 in steps of 5. |
+|                                       |                                                                        |
+| ------------------------------------- | ---------------------------------------------------------------------- |
+| Key Name                              | Description                                                            |
+| `source-ref`                          | Reference to an image in s3 that was<br>provided in the input maniefst |
+| `content-moderation-groundtruth`      | Ground truth annotations that were provided<br>in the input manifest   |
+| `detect-moderation-labels`            | Adapter predictions, part of the testing<br>dataset only               |
+| `detect-moderation-labels-base-model` | Base model predictions, part of the testing<br>dataset only            |
+
+Adapter and Base model predictions are returned at ConfidenceTrehsold 5.0 in
+the format that is similar to the [DetectModerationLabels](../APIReference/API_DetectModerationLabels.md "../APIReference/API_DetectModerationLabels.md") response.
+
+The following example shows structure of the Adapter and Base model
+predictions:
+
+```
+{
+   "ModerationLabels": [
+      {
+         "Confidence": number,
+         "Name": "string",
+         "ParentName": "string"
+      }
+   ],
+   "ModerationModelVersion": "string",
+   "ProjectVersion": "string"
+}
+```
+
+For the complete list of labels returned refer to [Moderating content](moderation.md "moderation.md").
+
+## Evaluation results
+
+manifest
+
+On completion of a training job, an evaluation result manifest file is
+returned. The evaluation results manifest is a JSON file output by the training
+job, and it contains information on how well the adapter performed on the test
+data.
+
+Amazon S3 Path to the evaluation results manifest can be obtained from the
+`EvaluationResult.Summary.S3Object` field in the
+DescribeProejctVersion response.
+
+The following example shows the structure of the evaluation results
+manifest:
+
+```
+{
+    "AggregatedEvaluationResults": {
+       "F1Score": number
+    },
+
+    "EvaluationDetails": {
+        "EvaluationEndTimestamp": "datetime",
+        "Labels": [
+            "string"
+        ],
+        "NumberOfTestingImages": number,
+        "NumberOfTrainingImages": number,
+        "ProjectVersionArn": "string"
+    },
+
+    "ContentModeration": {
+        "InputConfidenceThresholdEvalResults": {
+            "ConfidenceThreshold": float,
+            "AggregatedEvaluationResults": {
+                "BaseModel": {
+                    "TruePositive": int,
+                    "TrueNegative": int,
+                    "FalsePositive": int,
+                    "FalseNegative": int
+                },
+                "Adapter": {
+                    "TruePositive": int,
+                    "TrueNegative": int,
+                    "FalsePositive": int,
+                    "FalseNegative": int
+                }
+            },
+            "LabelEvaluationResults": [
+                {
+                    "Label": "string",
+                    "BaseModel": {
+                        "TruePositive": int,
+                        "TrueNegative": int,
+                        "FalsePositive": int,
+                        "FalseNegative": int
+                    },
+                    "Adapter": {
+                        "TruePositive": int,
+                        "TrueNegative": int,
+                        "FalsePositive": int,
+                        "FalseNegative": int
+                    }
+                }
+            ]
+        }
+        "AllConfidenceThresholdsEvalResults": [
+            {
+                "ConfidenceThreshold": float,
+                "AggregatedEvaluationResults": {
+                    "BaseModel": {
+                        "TruePositive": int,
+                        "TrueNegative": int,
+                        "FalsePositive": int,
+                        "FalseNegative": int
+                    },
+                    "Adapter": {
+                        "TruePositive": int,
+                        "TrueNegative": int,
+                        "FalsePositive": int,
+                        "FalseNegative": int
+                    }
+                },
+                "LabelEvaluationResults": [
+                    {
+                       "Label": "string",
+                        "BaseModel": {
+                            "TruePositive": int,
+                            "TrueNegative": int,
+                            "FalsePositive": int,
+                            "FalseNegative": int
+                        },
+                        "Adapter": {
+                            "TruePositive": int,
+                            "TrueNegative": int,
+                            "FalsePositive": int,
+                            "FalseNegative": int
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+}
+
+
+```
+
+The evaluation manifest file contains:
+
+- Aggregated results as defined by
+  `F1Score`
+- Details for the evaluation job including the ProjectVersionArn, number
+  of training images, number of testing images, and the labels the adapter
+  was trained on.
+- Aggregated TruePositive, TrueNegative, FalsePositive, and
+  FalseNegative results for both base model and adapter
+  performance.
+- Per label TruePositive, TrueNegative, FalsePositive, and FalseNegative
+  results for both base model and adapter performance, calculated at the
+  input confidence threshold.
+- Aggregated and per label TruePositive, TrueNegative, FalsePositive,
+  and FalseNegative results for both base model and adapter performance at
+  different confidence thresholds. The confidence threshold ranges from 5
+  to 100 in steps of 5.
