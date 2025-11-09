@@ -14,8 +14,52 @@ error response.
 
 ## Request Parameters
 
-| Name               | Description                                          | Required                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| ------------------ | ---------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- | --- |
-| `DomainName`       | The name of the domain to delete. Type: String       | Yes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | ## Response Elements See [Common Response Elements](SDB_API_CommonResponseElements.md "SDB_API_CommonResponseElements.md"). ## Special Errors |
-| Error              | Description                                          |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | ---                                                                                                                                           | --- |
-| `MissingParameter` | The request must contain the parameter `DomainName`. | ## Examples ### Sample Request `https://sdb.amazonaws.com/ ?Action=DeleteDomain &AWSAccessKeyId=[valid access key id] &DomainName=MyDomain &SignatureVersion=2 &SignatureMethod=HmacSHA256 &Timestamp=2010-01-25T15%3A02%3A20-07%3A00 &Version=2009-04-15 &Signature=[valid signature]` ### Sample Response `**<DeleteDomainResponse>** **<ResponseMetadata>** **<RequestId>**c522638b-31a2-4d69-b376-8c5428744704**</RequestId>** **<BoxUsage>**0.0000219907**</BoxUsage>** **</ResponseMetadata>** **</DeleteDomainResponse>**` ## Related Actions <br>• [CreateDomain](SDB_API_CreateDomain.md "SDB_API_CreateDomain.md") <br>• [ListDomains](SDB_API_ListDomains.md "SDB_API_ListDomains.md") |
+| Name         | Description                                       | Required |
+| ------------ | ------------------------------------------------- | -------- |
+| `DomainName` | The name of the domain to delete.<br>Type: String | Yes      |
+
+## Response Elements
+
+See [Common Response Elements](SDB_API_CommonResponseElements.md "SDB_API_CommonResponseElements.md").
+
+## Special Errors
+
+| Error              | Description                                             |
+| ------------------ | ------------------------------------------------------- |
+| `MissingParameter` | The request must contain the parameter<br>`DomainName`. |
+
+## Examples
+
+### Sample Request
+
+```
+
+https://sdb.amazonaws.com/
+?Action=DeleteDomain
+&AWSAccessKeyId=[valid access key id]
+&DomainName=MyDomain
+&SignatureVersion=2
+&SignatureMethod=HmacSHA256
+&Timestamp=2010-01-25T15%3A02%3A20-07%3A00
+&Version=2009-04-15
+&Signature=[valid signature]
+
+```
+
+### Sample Response
+
+```
+
+**<DeleteDomainResponse>**
+  **<ResponseMetadata>**
+    **<RequestId>**c522638b-31a2-4d69-b376-8c5428744704**</RequestId>**
+    **<BoxUsage>**0.0000219907**</BoxUsage>**
+  **</ResponseMetadata>**
+**</DeleteDomainResponse>**
+
+```
+
+## Related Actions
+
+- [CreateDomain](SDB_API_CreateDomain.md "SDB_API_CreateDomain.md")
+- [ListDomains](SDB_API_ListDomains.md "SDB_API_ListDomains.md")

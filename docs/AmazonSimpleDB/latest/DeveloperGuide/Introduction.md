@@ -150,10 +150,10 @@ You can view the charges for your current billing period at any time by going to
 
 A list of services to which you subscribe appears. 4. Locate the Amazon SimpleDB service.
 
-| Billing Component        | Description                                                                                             |
-| ------------------------ | ------------------------------------------------------------------------------------------------------- |
-| View/Edit Service Button | Enables you to view or change settings associated with the Amazon SimpleDB service.                     |
-| Machine Hour Usage       | Shows the machine hour usage cost, current number of hours consumed, and billing for the current cycle. |
-| Data Transferred         | Shows the data transfer cost, current amount of data transferred, and billing for the current cycle.    |
-| Storage                  | Shows the storage usage cost, average amount of storage consumed, and billing for the current cycle.    |
-| Usage Report             | Shows detailed data used to calculate your bill.                                                        |
+| Billing Component        | Description                                                                                                |
+| ------------------------ | ---------------------------------------------------------------------------------------------------------- |
+| View/Edit Service Button | Enables you to view or change settings associated with the Amazon SimpleDB<br>service.                     |
+| Machine Hour Usage       | Shows the machine hour usage cost, current number of hours consumed,<br>and billing for the current cycle. |
+| Data Transferred         | Shows the data transfer cost, current amount of data transferred, and<br>billing for the current cycle.    |
+| Storage                  | Shows the storage usage cost, average amount of storage consumed, and<br>billing for the current cycle.    |
+| Usage Report             | Shows detailed data used to calculate your bill.                                                           |

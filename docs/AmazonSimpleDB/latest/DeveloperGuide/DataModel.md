@@ -43,4 +43,5 @@ different domains.
 | Item_06 | Motorcycle Parts           | Bodywork  | Fender Eliminator | Blue               |                      | Yamaha | R1    |
 | Item_07 | Motorcycle Parts, Clothing | Clothing  | Leather Pants     | Black              | Small, Medium, Large |        |       |
 
-Regardless of how you store your data, Amazon SimpleDB automatically indexes your data for quick and accurate retrieval.
+Regardless of how you store your data, Amazon SimpleDB automatically indexes your data for quick
+and accurate retrieval.
