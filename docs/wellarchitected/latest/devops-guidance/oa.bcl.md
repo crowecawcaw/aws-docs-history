@@ -1,23 +1,18 @@
-# [OA.BCL.5] Establish clear escalation paths and encourage constructive disagreement
+# [OA.BCL.6] Provide teams the autonomy to make decision that align with organizational objectives
 
 **Category:** FOUNDATIONAL
 
-Optimize issue resolution by establishing clear escalation
-paths and making it part of every team's norms. Define and
-communicate processes for how and when to escalate issues, and
-identify the individuals or groups responsible for making
-decisions. The escalation process should be documented,
-data-driven, and shared broadly so that everyone is aware of
-the steps involved. Encourage open communication and a culture
-of constructive disagreement, where team members can
-respectfully challenge decisions while still committing to a
-strategy as a team once a decision has been made.
-Escalation should not be feared, but instead expected to be
-frequent and fully supported by leadership. Once a decision is
-made through the escalation process, everyone should commit to
-the decision that is made.
+Provide teams with the autonomy to make decisions and changes
+at the lowest level possible. Provide the necessary
+information, policies, and tools to make informed decisions
+aligned with the organization's goals and objectives.
+Establish clear guardrails to guide decisions and achieve
+consistency with the overall strategy while avoiding adverse
+impacts on other teams or the organization. Encourage a
+culture of empowerment, where team members feel confident in
+making decisions and taking action.
 
-Introduce the concept of the _Andon cord_, inspired by Toyota's
-manufacturing process and adopted by companies like Amazon, as an actionable step to help
-team members raise concerns and stop processes when problems arise. The Andon cord serves
-as a mechanism for team members to escalate issues quickly, addressing problems promptly and effectively.
+**Related information:**
+
+- [Amazon's
+  approach to security during development: Ownership](https://youtu.be/NeR7FhHqDGQ?t=632 "https://youtu.be/NeR7FhHqDGQ?t=632")

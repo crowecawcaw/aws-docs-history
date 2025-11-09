@@ -1,39 +1,53 @@
-# [DL.ADS.1] Test deployments in pre-production environments
+# [DL.ADS.2] Implement automatic rollbacks for failed deployments
 
 **Category:** FOUNDATIONAL
 
-Progressively validate software changes across multiple environments, including
-development (alpha) and testing (beta) before deploying into production. Additional staging
-environments can be introduced as needed, such as staging (gamma). These additional
-environments help to prevent the introduction of bugs in production environments, validates
-backwards compatibility, and increases the confidence in the quality of the deployment.
+Implement an automatic rollback strategy to enhance system
+reliability and minimize service disruptions. The strategy
+should be defined as a proactive measure in case of an
+operational event, which prioritizes customer impact
+mitigation even before identifying whether the new deployment
+is the cause of the issue.
 
-Each non-production deployment serves as a gate, only allowing changes to progress to
-the next stage after they pass all validations. Early issue detection and isolation prevent
-propagation to later stages or production. A controlled deployment process includes
-strategies to manage risk and support rollback if issues are identified during these test
-deployments.
+Rollback should be initiated based on alarms linked to key
+metrics like fault rates, latency, CPU usage, memory usage,
+disk usage, and log errors. Additionally, consider both the
+service's overall health and instance-specific
+metrics. Incorporate a waiting period after a deployment to
+closely monitor the system. This allows time to identify
+potential issues that might not be evident immediately,
+especially when the system is under low load. Establish
+methods to prevent deployments during higher-risk times or
+when there are active system issues. This could include
+blocking deployments during when high-severity aggregate
+alarms are raised or during specific time windows. 
 
-One-box testing can be used to test backward compatibility to ensure new code changes
-coexist with and function properly with the existing code base. One-box refers to the
-testing of changes in a single unit of deployment, such as a single container or instance,
-which is configured to use production endpoints. This form of testing can be used to help
-ensure the changes interact efficiently with production endpoints of other services. This
-can be done by creating a dedicated staging environment for cross-service backward
-compatibility (zeta) testing. Services deployed to the zeta stage interact exclusively with
-production endpoints to identify potential integration issues before the code reaches the
-production stage.
+The rollback process should include the redeployment of the last successful code
+revision, artifact version, or container image, and should employ methods like rolling or
+blue/green deployments, or [feature flags](https://aws.amazon.com/systems-manager/features/appconfig#Feature_flags "https://aws.amazon.com/systems-manager/features/appconfig#Feature_flags") for a swift
+rollback with minimal disruption. Consider using the advanced deployment methods introduced
+in this capability for more granular control over deployments. Rollback considerations
+should not be limited to the latest deployments, but also account for latent changes that
+may be the source of current issues. To handle these situations, provide the ability for
+developers to select a specific previously deployed release for rollback.
+
+After the rollback, depending on the specific issue being addressed, consider
+proactively rolling back other environments that could potentially also be affected, even
+if they aren't currently showing any customer impact. Alternatively, if the issue appears to
+be environment-specific, wait for the pipeline to roll forward a new release that includes a
+bug fix. These operational decisions should be supported by the ability to compare the
+changes between the current release and the selected rollback release's deployment
+artifacts, including source code changes and changes in library versions.
 
 **Related information:**
 
-- [What
-  is Continuous Integration?](https://aws.amazon.com/devops/continuous-integration/ "https://aws.amazon.com/devops/continuous-integration/")
-- [What
-  is Continuous Delivery?](https://aws.amazon.com/devops/continuous-delivery/ "https://aws.amazon.com/devops/continuous-delivery/")
-- [Going
-  faster with continuous delivery](https://aws.amazon.com/builders-library/going-faster-with-continuous-delivery?did=ba_card&trk=ba_card "https://aws.amazon.com/builders-library/going-faster-with-continuous-delivery?did=ba_card&trk=ba_card")
+- [Ensuring
+  rollback safety during deployments](https://aws.amazon.com/builders-library/ensuring-rollback-safety-during-deployments/ "https://aws.amazon.com/builders-library/ensuring-rollback-safety-during-deployments/")
+- [My
+  CI/CD pipeline is my release captain: Easy and automatic
+  rollbacks](https://aws.amazon.com/builders-library/cicd-pipeline/#Easy_and_automatic_rollbacks "https://aws.amazon.com/builders-library/cicd-pipeline/#Easy_and_automatic_rollbacks")
 - [Automating
-  safe, hands-off deployments: Test deployments in
-  pre-production environments](https://aws.amazon.com/builders-library/automating-safe-hands-off-deployments/#Test_deployments_in_pre-production_environments "https://aws.amazon.com/builders-library/automating-safe-hands-off-deployments/#Test_deployments_in_pre-production_environments")
+  safe, hands-off deployments](https://aws.amazon.com/builders-library/automating-safe-hands-off-deployments/?did=ba_card&trk=ba_card "https://aws.amazon.com/builders-library/automating-safe-hands-off-deployments/?did=ba_card&trk=ba_card")
 - [Amazon's
-  approach to high-availability deployment](https://youtu.be/bCgD2bX1LI4 "https://youtu.be/bCgD2bX1LI4")
+  approach to high-availability deployment: Rollback
+  alarms](https://youtu.be/bCgD2bX1LI4?t=1669 "https://youtu.be/bCgD2bX1LI4?t=1669")

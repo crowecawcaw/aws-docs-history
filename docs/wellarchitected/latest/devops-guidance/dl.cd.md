@@ -1,33 +1,34 @@
-# [DL.CD.1] Deploy changes to production frequently
+# [DL.CD.7] Remove manual approvals to practice continuous deployment
 
-**Category:** FOUNDATIONAL
+**Category:** OPTIONAL
 
-Frequent deployments to production encourages small, rapid, and iterative changes to
-the code base. Deploying small and validated changes regularly helps mitigate the risk
-associated with each deployment. Frequent deployments not only streamlines the testing and
-validation process, but also expedites the feedback loop, leading to quicker resolution of
-issues.
+Fully automate all stages of the deployment process, allowing developers to push new
+code into the production environment using fully automated delivery pipelines—with no
+manual approval stages required. This is referred to as continuous deployment. Removing
+all manual deployment steps reduces potential errors and increases deployment speed. It
+allows developers to focus more on coding and less on deployment logistics, improving
+efficiency and productivity.
 
-Use a pipeline to automate the deployment of validated changes across various
-environments, including production. This pipeline should be automatically triggered, such as
-by the completion of continuous integration or an updated artifact in an artifact
-repository. Once invoked, the pipeline should automatically begin to deploy changes to
-non-production environments for further testing and validation. Upon successful validation,
-changes can be deployed to the production environment.
+Create fully automated pipelines which perform continuous
+integration and continuous deployment. A pipeline should
+trigger upon code changes being merged into the main release
+branch. This pipeline should perform all necessary quality
+assurance tests, build the application, and deploy the new
+version to the production environment. Automated governance
+capabilities ensure that guardrails are being followed, while
+observability functions such as alerts and logs provide
+visibility.
 
-When working in a DevOps environment, it is important to distinguish between
-_deploying_ and _releasing_. Even after deploying
-changes to production, these changes might not necessarily be visible or accessible to all
-users. By using advanced deployment strategies and employing [feature flags](https://aws.amazon.com/systems-manager/features/appconfig/?whats-new-cards.sort-by=item.additionalFields.postDateTime&whats-new-cards.sort-order=desc&blog-posts-cards.sort-by=item.additionalFields.createdDate&blog-posts-cards.sort-order=desc#Feature_flags "https://aws.amazon.com/systems-manager/features/appconfig/?whats-new-cards.sort-by=item.additionalFields.postDateTime&whats-new-cards.sort-order=desc&blog-posts-cards.sort-by=item.additionalFields.createdDate&blog-posts-cards.sort-order=desc#Feature_flags"), teams can deploy code to production and decide when to release or
-rollback specific features in real time, offering more granular control over releasing new
-features to end users.
+This level of automation is a hallmark of mature DevOps
+practices. However, it is an optional capability as it is not
+always achievable or desired, especially in heavily regulated
+industries or in organizations with strict governance
+controls.
 
-Teams should focus on deploying small changes rather than
-bundling multiple changes into a single, large batch
-deployment. Accumulating changes complicates testing and
-validation, and it becomes challenging to ensure that all
-components interact correctly. The practice of deploying small
-changes demands discipline and commitment, but it improves
-deployment frequency, security, and enhanced collaboration
-while ensuring that the code base remains up-to-date and
-releasable at all times.
+**Related information:**
+
+- [Continuous
+  Delivery vs. Continuous Deployment](https://aws.amazon.com/devops/continuous-delivery/ "https://aws.amazon.com/devops/continuous-delivery/")
+- [Practicing
+  Continuous Integration and Continuous Delivery on
+  AWS](../../../whitepapers/latest/practicing-continuous-integration-continuous-delivery/implementing-continuous-integration-and-continuous-delivery.md "../../../whitepapers/latest/practicing-continuous-integration-continuous-delivery/implementing-continuous-integration-and-continuous-delivery.md")

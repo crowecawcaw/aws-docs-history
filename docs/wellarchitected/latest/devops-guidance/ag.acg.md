@@ -1,16 +1,46 @@
-# [AG.ACG.11] Digital attestation verification for zero trust deployments
+# [AG.ACG.9] Integrate software provenance tracking throughout the development lifecycle
 
 **Category:** RECOMMENDED
 
-Digital attestations are recommended to be created for each action that occurs during the development lifecycle. Attestations serve as evidence of compliance, which can be verified either during or post-deployment. Authorizing deployments by verifying attestations extends a zero trust security model to the development lifecycle. If attestations for the required quality assurance tests, pipeline stages, or manual approvals are missing or invalid, meaning that compliance and change management requirements were not met during the development lifecycle, the deployment can be either prevented or subjected to an exception mechanism for risk acceptance.  
+Software provenance tracking inspects the origin and evolution
+of software components throughout their lifecycle to
+understand where a piece of software originated, its
+development and update history, and its distribution.
+Provenance tracking ensures the integrity of software,
+maintains compliance, and enhances the security of the
+software supply chain throughout the development
+lifecycle. Effective provenance tracking can prevent the
+introduction of insecure components, offer early detection of
+potential vulnerabilities, and provide insights for timely
+remediation.
 
-Incorporate the creation of digital attestations into the development lifecycle. Before deployment, verify that the required attestations have been digitally signed by trusted cryptographic keys and that they meet the change management and compliance policies. If a deployment is found to be non-compliant, you can choose to respond in several ways depending on your security and governance requirements. It can be used as a detective control which allows the deployment to proceed while keeping an audit log of the non-compliance for future investigation. It can also be used as a preventive control, stopping the deployment from proceeding entirely. Pairing this with an exception mechanism you could enforce directive controls to accept the identified risks for a period of time.
+Developers are encouraged to use the best tools for the task
+at hand, often including third-party software components.
+These third-party elements can introduce an additional layer
+of complexity and potential risk. Implementing software
+provenance tracking mitigates these risks by promoting better
+visibility into the lifecycle of software components, thereby
+increasing accountability, transparency, and trust.
 
-This approach to automated governance and change management continuously assesses the integrity of the software throughout the development lifecycle. It provides a method of authorizing deployment based on adherence to governance and compliance requirements, extending zero trust security model principles to the deployment process.
+Provenance tracking should be integrated into all stages of
+the development lifecycle. For instance, source code
+provenance should be tracked at the time of code check-in or
+commit into Version Control Systems like Git, while the
+provenance of third-party components should be verified at the
+time of component acquisition and usage using tools like
+Software Composition Analysis (SCA). A
+[Software
+Bill of Materials (SBOM)](../../../whitepapers/latest/practicing-continuous-integration-continuous-delivery/software-bill-of-materials-sbom.md "../../../whitepapers/latest/practicing-continuous-integration-continuous-delivery/software-bill-of-materials-sbom.md") can be used as a detailed list
+of all components within your software, including the exact
+version, digital signatures, and origin of each one.
+
+Verify provenance at build and deploy time. Use digital signatures and hashing
+algorithms to verify the integrity and provenance of software artifacts as part of the
+deployment pipeline, validating the signature of an artifact against a trusted source
+before it is used. It can also be useful to check running software continuously to
+identify compromised or outdated software components post-deployment.
 
 **Related information:**
 
-- [Software attestations](https://slsa.dev/attestation-model "https://slsa.dev/attestation-model")
-- [in-toto Attestation Framework Spec](https://github.com/in-toto/attestation/blob/main/spec/README.md#in-toto-attestation-framework-spec "https://github.com/in-toto/attestation/blob/main/spec/README.md#in-toto-attestation-framework-spec")
-- [Zero Trust on AWS](https://aws.amazon.com/security/zero-trust/ "https://aws.amazon.com/security/zero-trust/")
-- [Zero Trust Maturity Model](https://www.cisa.gov/sites/default/files/2023-04/zero_trust_maturity_model_v2_508.pdf "https://www.cisa.gov/sites/default/files/2023-04/zero_trust_maturity_model_v2_508.pdf")
+- [SLSA
+  specification](https://slsa.dev/spec/v1.0/ "https://slsa.dev/spec/v1.0/")

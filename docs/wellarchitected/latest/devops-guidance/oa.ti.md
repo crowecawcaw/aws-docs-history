@@ -1,15 +1,13 @@
-# [OA.TI.2] Streamline intra-team communication using tools and processes
+# [OA.TI.11] Offer optional opportunities for cross-team collaboration
 
-**Category:** FOUNDATIONAL
+**Category:** RECOMMENDED
 
-Equip teams with tools to automate and manage their workflows, priorities, and
-decision-making processes. Implement team collaboration, document sharing,
-task creation, and progress monitoring tools. Establish team norms and practices, such as
-lexicons, story pointing, and defining _done_, to streamline intra-team
-communication. Use reporting tools, playbooks, and retrospective sessions to
-improve processes and team norms.
-
-**Related information:**
-
-- [Team
-  Collaboration with Amazon CodeCatalyst](https://aws.amazon.com/blogs/devops/team-collaboration-with-amazon-codecatalyst/ "https://aws.amazon.com/blogs/devops/team-collaboration-with-amazon-codecatalyst/")
+Establish regular communication channels and forums to
+encourage cross-team collaboration and information sharing.
+This can include joint planning sessions, team demos, or
+cross-team retrospectives. Encourage a culture of open
+communication and collaboration across teams, sharing
+knowledge, best practices, and lessons learned. Monitor the
+effectiveness of these cross-team communication and
+collaboration opportunities and adjust the approach as needed
+based on feedback and observed outcomes.

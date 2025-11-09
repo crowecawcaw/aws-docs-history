@@ -1,29 +1,27 @@
-# [DL.SCM.6] Maintain informative repository documentation
+# [DL.SCM.9] Implement plans for deprecating and revoking outdated software components
 
-**Category:** FOUNDATIONAL
+**Category:** RECOMMENDED
 
-Maintaining well-structured and informative repository documentation directly within
-the code base promotes collaboration, simplifies onboarding new team members, and improves
-the ability to maintain software over time. This documentation, often in the form of
-markdown files like `README.md` and `CONTRIBUTING.md`, contains
-information about reviewing, building, contributing to, and otherwise using the project and
-helps ensure that this knowledge lives where the code does, making it easily accessible and
-versioned alongside the code it is applicable to.
+Maintaining an up-to-date and secure code base requires the proactive management of
+components, including removing outdated artifacts, libraries, and repositories. Not only
+does their removal reduce storage costs, but it also mitigates risks associated with
+deploying outdated or potentially vulnerable software. The removal process of outdated
+components should comply with the organization's data retention policies.
 
-Every repository should contain detailed documentation
-providing an overview of the project, its purpose,
-instructions for building and deploying the project,
-guidelines for contributions, and methods for submitting
-feedback or issues. For complex projects, the creation of
-additional, focused documentation files addressing specific
-areas can be beneficial.
+Develop clear plans for the deprecation and revocation of outdated components. These
+plans should include regular audits of the code base to identify deprecated or unused
+artifacts, libraries, and repositories. Establish timelines for deprecation and final
+removal of identified components. Communicate these plans to your development team and
+ensure that they are aware of the timelines.
+
+Consider automating the removal process where feasible, for example, by using scripts
+or automated governance tools that support such functionality. By implementing such plans,
+you can streamline the code base, making it easier to manage and less prone to errors,
+while ensuring security and reducing the risk of system failures.
 
 **Related information:**
 
-- [What
-  Is Repo?](https://aws.amazon.com/what-is/repo/ "https://aws.amazon.com/what-is/repo/")
-- [About
-  READMEs](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes "https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes")
-- [Common
-  special files found in the root directory of a
-  repository](https://github.com/kmindi/special-files-in-repository-root "https://github.com/kmindi/special-files-in-repository-root")
+- [AWS Well-Architected Cost Optimization Pillar: COST04-BP05
+  Enforce data retention policies](../cost-optimization-pillar/cost_decomissioning_resources_data_retention.md "../cost-optimization-pillar/cost_decomissioning_resources_data_retention.md")
+- [AWS Well-Architected Sustainability Pillar: SUS02-BP03 Stop
+  the creation and maintenance of unused assets](../sustainability-pillar/sus_sus_user_a4.md "../sustainability-pillar/sus_sus_user_a4.md")

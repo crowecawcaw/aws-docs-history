@@ -1,57 +1,52 @@
-# [DL.EAC.5] Integrate technical and operational documentation into the development lifecycle
+# [DL.EAC.1] Organize
 
-**Category:** RECOMMENDED
+infrastructure as code for scale
 
-Integrating documentation and code involves creating,
-maintaining, and publishing documentation using the same tools
-and processes used for application development. With this
-approach, changes to systems should be immediately reflected
-in documentation, reducing the risk of discrepancies between
-system behavior and documentation. By making documentation
-part of the development lifecycle, it becomes a living
-document that evolves with the system over time.
+**Category:** FOUNDATIONAL
 
-Documentation should be stored in a versioned source code repository and written in a
-machine-readable markup language, such as Markdown. The documentation can be made directly
-accessible through the repository or through knowledge sharing tools capable of rendering
-the markup language, like Git-based wikis, static site generators, or directly in
-developers' integrated development environments (IDEs).
+Infrastructure as code (IaC) provides consistent and automated infrastructure
+management capabilities which are important to DevOps adoption. Effectively organizing and
+scaling IaC within your organization enhances flexibility, readability, and reusability
+across multiple teams, while streamlining infrastructure provisioning and maintenance.
 
-Code should include clear, insightful comments and commit
-messages should be structured using a machine-readable
-specification, such
-as [Conventional
-Commits](https://www.conventionalcommits.org/en/v1.0.0/ "https://www.conventionalcommits.org/en/v1.0.0/"). This information can be used as a source to
-generate detailed documentation and change logs using tools
-specific to the programming language and platforms being used.
-Many of these tools can create API references, class diagrams,
-or other technical documents from inline comments in your
-source code, ensuring the documentation is always in line with
-the most recent changes. Automate this process by adding a
-stage to the deployment pipeline to generate documentation
-with every change to a main, releasable branch.
+When working with IaC files and artifacts, apply modern
+practices such as modular design for improved management and
+reuse, and maintain thorough in-code documentation for
+clarity. Adopt IaC-specific design patterns, like breaking
+down infrastructure templates into reusable modules. Treat IaC
+testing with the same rigor as other software, focusing on
+security risks like excessive privileges or open security
+groups, while upholding quality standards. Use version
+control for IaC templates to ensure traceable changes,
+reliable rollbacks, and efficient sharing across the
+organization.
 
-This approach is not only limited to documenting code, but also can be used to store
-operational documentation like incident response procedures, disaster recovery plans,
-training material, and onboarding processes. While some aspects of these documents still
-likely require manual effort to create, the benefits of incorporating these documents into
-the development lifecycle include enforced reviews of changes, ability to write tests to
-suggest updating documentation when changes are significant or made to important
-components, and versioning the documents for auditability.
+You must carefully consider your organization's governance structure when deciding
+how to implement IaC at scale. Depending on the specific needs, your organization might find
+one model more suitable than the other, or even adopt a hybrid approach that combines
+elements of both. The right approach to scaling is dependent on factors such as team
+dynamics, operating model, application type, and the desired rate of change.
+
+For example, services like [AWS Service Catalog](https://aws.amazon.com/servicecatalog/ "https://aws.amazon.com/servicecatalog/") and [AWS Proton](https://aws.amazon.com/proton/ "https://aws.amazon.com/proton/") provide
+distinct methods to distribute and consume secure-by-default software components and IaC in
+different ways. Service Catalog suits organizations favoring predefined deployment standards and
+centrally defined resource provisioning, while AWS Proton is ideal for organizations that
+allow development teams to maintain infrastructure and application autonomy. Some
+organizations might prefer to adopt a fully decentralized approach, where individual teams
+provision and manage their own [AWS CloudFormation](https://aws.amazon.com/cloudformation/ "https://aws.amazon.com/cloudformation/") IaC templates. Choose the tools and distribution methods that best
+support your governance model and business goals.
 
 **Related information:**
 
-- [AWS Well-Architected Reliability Pillar: REL12-BP01 Use
-  playbooks to investigate failures](../reliability-pillar/rel_testing_resiliency_playbook_resiliency.md "../reliability-pillar/rel_testing_resiliency_playbook_resiliency.md")
-- [Write
-  the Docs: Docs as Code](https://www.writethedocs.org/guide/docs-as-code/ "https://www.writethedocs.org/guide/docs-as-code/")
-- [One
-  AWS team's move to docs as code](https://www.youtube.com/watch?v=Cxuo3udElcE "https://www.youtube.com/watch?v=Cxuo3udElcE")
-- [AWS Incident Response Playbook Samples](https://github.com/aws-samples/aws-incident-response-playbooks "https://github.com/aws-samples/aws-incident-response-playbooks")
-- [Using
-  code as documentation to save time and share
-  context](https://github.com/readme/guides/code-as-documentation "https://github.com/readme/guides/code-as-documentation")
-- [DocFx](https://dotnet.github.io/docfx/ "https://dotnet.github.io/docfx/")
-- [How
-  to build an automated C# code documentation generator
-  using AWS DevOps](https://aws.amazon.com/blogs/modernizing-with-aws/how-to-build-an-automated-c-code-documentation-generator-using-aws-devops/ "https://aws.amazon.com/blogs/modernizing-with-aws/how-to-build-an-automated-c-code-documentation-generator-using-aws-devops/")
+- [Infrastructure
+  as code - Introduction to DevOps on AWS](../../../whitepapers/latest/introduction-devops-aws/infrastructure-as-code.md "../../../whitepapers/latest/introduction-devops-aws/infrastructure-as-code.md")
+- [Infrastructure
+  as Code on AWS - An Introduction](https://blog.awsfundamentals.com/infrastructure-as-code-on-aws-an-introduction "https://blog.awsfundamentals.com/infrastructure-as-code-on-aws-an-introduction")
+- [Accelerate
+  deployments on AWS with effective governance](https://aws.amazon.com/blogs/architecture/accelerate-deployments-on-aws-with-effective-governance/ "https://aws.amazon.com/blogs/architecture/accelerate-deployments-on-aws-with-effective-governance/")
+- [Source
+  Control concepts](https://aws.amazon.com/devops/source-control/ "https://aws.amazon.com/devops/source-control/")
+- [Design
+  Patterns](https://refactoring.guru/design-patterns "https://refactoring.guru/design-patterns")
+- [Amazon's
+  approach to security during development: Octane](https://youtu.be/NeR7FhHqDGQ?t=1571 "https://youtu.be/NeR7FhHqDGQ?t=1571")
