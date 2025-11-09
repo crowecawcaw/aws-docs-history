@@ -26,7 +26,7 @@ To filter API results, you must specify a filter name, operator, and value.
 The following table lists the available operators.
 
 | Operator             | Key types      |
-| -------------------- | -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| -------------------- | -------------- |
 | `Equals`             | String, Number |
 | `NotEquals`          | String, Number |
 | `LessThan`           | Number         |
@@ -36,4 +36,89 @@ The following table lists the available operators.
 | `In`                 | String         |
 | `Contains`           | String         |
 | `NotContains`        | String         |
-| `BeginsWith`         | String         | ## Filtering by location `ListLocations` supports the following filter names: <br>• `LocationType` – Filters on the location type: + `SMB` + `NFS` + `HDFS` + `OBJECT_STORAGE` + `S3` + `OUTPOST_S3` + `FSX_WINDOWS` + `FSX_LUSTRE` + `FSX_OPENZFS_NFS` + `FSX_ONTAP_NFS` + `FSX_ONTAP_SMB` <br>• `LocationUri` – Filters on the uniform resource identifier (URI) assigned to the location, as returned by the `DescribeLocation*` API call (for example, `s3://`bucket-name`/`your-prefix``for Amazon S3 locations). <br>•`CreationTime`– Filters on the time that the location was created. The input format is`yyyy-MM-dd:mm:ss`in Coordinated Universal Time (UTC). The following AWS CLI example lists all locations of type Amazon S3 that have a location URI starting with the string`"s3://amzn-s3-demo-bucket"` and that were created at or after 2019-12-15 17:15:20 UTC. ``` aws datasync list-locations \ --filters [{Name=`LocationType`, Values=["`S3`"], Operator=`Equals`}, {Name=`LocationUri`, Values=["`s3://amzn-s3-demo-bucket`"], Operator=`BeginsWith`}, {Name=`CreationTime`,Values=["`2019-12-15 17:15:20`"],Operator=`GreaterThanOrEqual`}] ``` This command returns output similar to the following. ``` { "Locations": [ { "LocationArn": "arn:aws:datasync:us-east-1:111122223333:location/loc-333333333abcdef0", "LocationUri": "s3://amzn-s3-demo-bucket1/" }, { "LocationArn": "arn:aws:datasync:us-east-1:123456789012:location/loc-987654321abcdef0", "LocationUri": "s3://amzn-s3-demo-bucket2/" } ] } ``` ## Filtering by task `ListTasks`supports the following filter names. <br>•`LocationId`– Filters on both source and destination locations on Amazon Resource Name (ARN) values. <br>•`CreationTime`– Filters on the time that the task was created. The input format is`yyyy-MM-dd:mm:ss`in UTC. The following AWS CLI example shows the syntax when filtering on`LocationId`. ``` aws datasync list-tasks \ --filters Name=LocationId,Values=arn:aws:datasync:us-east-1:`your-account-id`:location/`your-location-id`,Operator=Contains ``` The output of this command looks similar to the following. ``` { "Tasks": [ { "TaskArn": "arn:aws:datasync:us-east-1:`your-account-id`:task/`your-task-id`", "Status": "AVAILABLE", "Name": "amzn-s3-demo-bucket" } ] } ``` |
+| `BeginsWith`         | String         |
+
+## Filtering by location
+
+`ListLocations` supports the following filter names:
+
+- `LocationType` – Filters on the location
+  type:
+  - `SMB`
+  - `NFS`
+  - `HDFS`
+  - `OBJECT_STORAGE`
+  - `S3`
+  - `OUTPOST_S3`
+  - `FSX_WINDOWS`
+  - `FSX_LUSTRE`
+  - `FSX_OPENZFS_NFS`
+  - `FSX_ONTAP_NFS`
+  - `FSX_ONTAP_SMB`
+
+- `LocationUri` – Filters on the uniform resource
+  identifier (URI) assigned to the location, as returned by the
+  `DescribeLocation*` API call (for example,
+  `s3://`bucket-name`/`your-prefix``
+  for Amazon S3 locations).
+- `CreationTime` – Filters on the time that the
+  location was created. The input format is `yyyy-MM-dd:mm:ss` in
+  Coordinated Universal Time (UTC).
+
+The following AWS CLI example lists all locations of type Amazon S3 that have a location
+URI starting with the string `"s3://amzn-s3-demo-bucket"` and
+that were created at or after 2019-12-15 17:15:20 UTC.
+
+```
+aws datasync list-locations \
+    --filters [{Name=`LocationType`, Values=["`S3`"], Operator=`Equals`}, {Name=`LocationUri`, Values=["`s3://amzn-s3-demo-bucket`"], Operator=`BeginsWith`}, {Name=`CreationTime`,Values=["`2019-12-15 17:15:20`"],Operator=`GreaterThanOrEqual`}]
+```
+
+This command returns output similar to the following.
+
+```
+{
+    "Locations": [
+        {
+            "LocationArn": "arn:aws:datasync:us-east-1:111122223333:location/loc-333333333abcdef0",
+            "LocationUri": "s3://amzn-s3-demo-bucket1/"
+        },
+        {
+            "LocationArn": "arn:aws:datasync:us-east-1:123456789012:location/loc-987654321abcdef0",
+            "LocationUri": "s3://amzn-s3-demo-bucket2/"
+        }
+    ]
+}
+```
+
+## Filtering by task
+
+`ListTasks` supports the following filter names.
+
+- `LocationId` – Filters on both source and
+  destination locations on Amazon Resource Name (ARN) values.
+- `CreationTime` – Filters on the time that the task
+  was created. The input format is `yyyy-MM-dd:mm:ss` in
+  UTC.
+
+The following AWS CLI example shows the syntax when filtering on
+`LocationId`.
+
+```
+aws datasync list-tasks \
+    --filters Name=LocationId,Values=arn:aws:datasync:us-east-1:`your-account-id`:location/`your-location-id`,Operator=Contains
+```
+
+The output of this command looks similar to the following.
+
+```
+{
+    "Tasks": [
+        {
+            "TaskArn": "arn:aws:datasync:us-east-1:`your-account-id`:task/`your-task-id`",
+            "Status": "AVAILABLE",
+            "Name": "amzn-s3-demo-bucket"
+        }
+    ]
+}
+```

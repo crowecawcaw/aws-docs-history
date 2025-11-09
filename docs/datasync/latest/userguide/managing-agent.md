@@ -33,7 +33,17 @@ AWS updates the agent.
 
 The following table describes the status of DataSync agents.
 
-| Agent status | Meaning                                                                                                                                                                                                                                                                                                                    |
-| ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Online       | The agent is configured properly and ready to use. This is the normal running status for an agent.                                                                                                                                                                                                                         |
-| Offline      | The agent has been out of contact with the DataSync service for five minutes or longer. This can happen for a few reasons. For more information, see [What do I do if my agent is offline?](troubleshooting-datasync-agents.md#troubleshoot-agent-offline "troubleshooting-datasync-agents.md#troubleshoot-agent-offline") | ## Troubleshooting your agent While AWS manages the DataSync agent for you, there are situations when you might need to again work directly with it. For example, if your agent goes offline or loses its connection to your on-premises storage system, you can try to resolve these issues in the [agent’s local console](local-console-vm.md "local-console-vm.md"). For more information, see [troubleshooting DataSync agents](troubleshooting-datasync-agents.md "troubleshooting-datasync-agents.md"). |
+| Agent status | Meaning                                                                                                                                                                                                                                                                                                                             |
+| ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Online       | The agent is configured properly and ready to use. This is the<br>normal running status for an agent.                                                                                                                                                                                                                               |
+| Offline      | The agent has been out of contact with the DataSync service for five<br>minutes or longer. This can happen for a few reasons. For more<br>information, see [What do I do if my agent is<br>offline?](troubleshooting-datasync-agents.md#troubleshoot-agent-offline "troubleshooting-datasync-agents.md#troubleshoot-agent-offline") |
+
+## Troubleshooting your agent
+
+While AWS manages the DataSync agent for you, there are situations when you might
+need to again work directly with it. For example, if your agent goes offline or
+loses its connection to your on-premises storage system, you can try to resolve
+these issues in the [agent’s local
+console](local-console-vm.md "local-console-vm.md").
+
+For more information, see [troubleshooting DataSync agents](troubleshooting-datasync-agents.md "troubleshooting-datasync-agents.md").

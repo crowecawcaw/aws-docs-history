@@ -68,11 +68,266 @@ See the following table for a list of options in the DataSync console
 and API for configuring an SMB version with your FSx for ONTAP
 location:
 
-| Console option                                          | API option                                                                                                                                                                                                                                                                     | Description                                                                                                                                                                                                                                                                                         |
-| ------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Automatic                                               | `AUTOMATIC`                                                                                                                                                                                                                                                                    | DataSync and the SMB file server negotiate the highest version of SMB that they mutually support between 2.1 and 3.1.1. This is the default and recommended option. If you instead choose a specific version that your file server doesn't support, you may get an `Operation Not Supported` error. |
-| SMB 3.0.2                                               | `SMB3`                                                                                                                                                                                                                                                                         | Restricts the protocol negotiation to only SMB version 3.0.2.                                                                                                                                                                                                                                       |
-| SMB 2.1                                                 | `SMB2`                                                                                                                                                                                                                                                                         | Restricts the protocol negotiation to only SMB version 2.1.                                                                                                                                                                                                                                         |
-| SMB 2.0                                                 | `SMB2_0`                                                                                                                                                                                                                                                                       | Restricts the protocol negotiation to only SMB version 2.0.                                                                                                                                                                                                                                         | **Required permissions** You must provide DataSync a local user in your SVM or a domain user in your Microsoft Active Directory with the necessary rights to mount and access your files, folders, and file metadata. If you provide a user in your Active Directory, note the following: <br>• If you're using AWS Directory Service for Microsoft Active Directory, the user must be a member of the **AWS Delegated FSx Administrators** group. <br>• If you're using a self-managed Active Directory, the user must be a member of one of two groups: + The **Domain Admins** group, which is the default delegated administrators group. + A custom delegated administrators group with user rights that allow DataSync to copy object ownership permissions and Windows access control lists (ACLs). ###### Important You can't change the delegated administrators group after the file system has been deployed. You must either redeploy the file system or restore it from a backup to use the custom delegated administrator group with the following user rights that DataSync needs to copy metadata. |
-| User right                                              | Description                                                                                                                                                                                                                                                                    |                                                                                                                                                                                                                                                                                                     | ---                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | ---                                                                                                                                             |
-| **Act as part of the operating system** (`SE_TCB_NAME`) | Allows DataSync to copy object ownership, permissions, file metadata, and NTFS discretionary access lists (DACLs). This user right is usually granted to members of the **Domain Admins** and **Backup Operators** groups (both of which are default Active Directory groups). |                                                                                                                                                                                                                                                                                                     | **Manage auditing and security log** (`SE_SECURITY_NAME`)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | Allows DataSync to copy NTFS system access control lists (SACLs). This user right is usually granted to members of the **Domain Admins** group. | <br>• If you want to copy Windows ACLs and are transferring between FSx for ONTAP file systems using SMB (or other types of file systems using SMB), the users that you provide DataSync must belong to the same Active Directory domain or have an Active Directory trust relationship between their domains. **Required authentication protocols** For DataSync to access your SMB share, your FSx for ONTAP file system must use NTLM authentication. DataSync can't access FSx for ONTAP file systems that use Kerberos authentication. **DFS Namespaces** DataSync doesn't support Microsoft Distributed File System (DFS) Namespaces. We recommend specifying an underlying file server or share instead when creating your DataSync location. ### Unsupported protocols DataSync can't access FSx for ONTAP file systems using the iSCSI (Internet Small Computer Systems Interface) protocol. ### Choosing the right protocol To preserve file metadata in FSx for ONTAP migrations, configure your DataSync source and destination locations to use the same protocol. Between the supported protocols, SMB preserves metadata with the highest fidelity (see [Understanding how DataSync handles file and object metadata](metadata-copied.md "metadata-copied.md") for details). When migrating from a Unix (Linux) server or network-attached storage (NAS) share that serves users through NFS, do the following: 1. [Create an NFS location](create-nfs-location.md "create-nfs-location.md") for the Unix (Linux) server or NAS share. (This will be your source location.) 2. Configure the FSx for ONTAP volume you’re transferring data to with the [Unix security style](../../../fsx/latest/ONTAPGuide/managing-volumes.md#volume-security-style "../../../fsx/latest/ONTAPGuide/managing-volumes.md#volume-security-style"). 3. Create a location for your FSx for ONTAP file system that’s configured for NFS. (This will be your destination location.) When migrating from a Windows server or NAS share that serves users through SMB, do the following: 1. [Create an SMB location](create-smb-location.md "create-smb-location.md") for the Windows server or NAS share. (This will be your source location.) 2. Configure the FSx for ONTAP volume you’re transferring data to with the [NTFS security style](../../../fsx/latest/ONTAPGuide/managing-volumes.md#volume-security-style "../../../fsx/latest/ONTAPGuide/managing-volumes.md#volume-security-style"). 3. Create a location for your FSx for ONTAP file system that’s configured for SMB. (This will be your destination location.) If your FSx for ONTAP environment uses multiple protocols, we recommend working with an AWS storage specialist. To learn about best practices for multiprotocol access, see [Enabling multiprotocol workloads with Amazon FSx for NetApp ONTAP](https://aws.amazon.com/blogs/storage/enabling-multiprotocol-workloads-with-amazon-fsx-for-netapp-ontap/ "https://aws.amazon.com/blogs/storage/enabling-multiprotocol-workloads-with-amazon-fsx-for-netapp-ontap/"). ### Accessing SnapLock volumes If you're transferring data to a [SnapLock volume](../../../fsx/latest/ONTAPGuide/snaplock.md "../../../fsx/latest/ONTAPGuide/snaplock.md") on an FSx for ONTAP file system, make sure the SnapLock settings **Autocommit** and **Volume append mode** are disabled on the volume during your transfer. You can re-enable these settings when you're done transferring data. ## Creating your FSx for ONTAP transfer location To create the location, you need an existing FSx for ONTAP file system. If you don't have one, see [Getting started with Amazon FSx for NetApp ONTAP](../../../fsx/latest/ONTAPGuide/getting-started.md "../../../fsx/latest/ONTAPGuide/getting-started.md") in the _Amazon FSx for NetApp ONTAP User Guide_. 1. Open the AWS DataSync console at [https://console.aws.amazon.com/datasync/](https://console.aws.amazon.com/datasync/ "https://console.aws.amazon.com/datasync/"). 2. In the left navigation pane, expand **Data transfer**, then choose **Locations** and **Create location**. 3. For **Location type**, choose **Amazon FSx**. You configure this location as a source or destination later. 4. For **FSx file system**, choose the FSx for ONTAP file system that you want to use as a location. 5. For **Storage virtual machine**, choose a storage virtual machine (SVM) in your file system where you want to copy data to or from. 6. For **Mount path**, specify a path to the file share in that SVM where you'll copy your data. You can specify a junction path (also known as a mount point), qtree path (for NFS file shares), or share name (for SMB file shares). For example, your mount path might be `/vol1`, `/vol1/tree1`, or `/share1`. ###### Tip Don't specify a path in the SVM's root volume. For more information, see [Managing FSx for ONTAP storage virtual machines](../../../fsx/latest/ONTAPGuide/managing-svms.md "../../../fsx/latest/ONTAPGuide/managing-svms.md") in the _Amazon FSx for NetApp ONTAP User Guide_. 7. For **Security groups**, choose up to five Amazon EC2 security groups that provide access to your file system's preferred subnet. The security groups must allow outbound traffic on the following ports (depending on the protocol you use): <br>• NFS – TCP ports 111, 635, and 2049 <br>• SMB – TCP port 445 Your file system's security groups must also allow inbound traffic on the same ports. 8. For **Protocol**, choose the data transfer protocol that DataSync uses to access your file system's SVM. For more information, see [Choosing the right protocol](#create-ontap-location-choosing-protocol "#create-ontap-location-choosing-protocol"). NFS DataSync uses NFS version 3. SMB Configure an SMB version, user, password, and Active Directory domain name (if needed) to access the SVM. <br>• (Optional) Expand **Additional settings** and choose an **SMB version** for DataSync to use when accessing your SVM. By default, DataSync automatically chooses a version based on negotiation with the SMB file server. For more information, see [Using the SMB protocol](#create-ontap-location-smb "#create-ontap-location-smb"). <br>• For **User**, enter a user name that can mount and access the files, folders, and metadata that you want to transfer in the SVM. For more information, see [Using the SMB protocol](#create-ontap-location-smb "#create-ontap-location-smb"). <br>• For **Password**, enter the password of the user that you specified that can access the SVM. <br>• (Optional) For **Active Directory domain name**, enter the fully qualified domain name (FQDN) of the Active Directory that your SVM belongs to. If you have multiple domains in your environment, configuring this setting makes sure that DataSync connects to the right SVM. 9. (Optional) Enter values for the **Key** and **Value** fields to tag the FSx for ONTAP file system. Tags help you manage, filter, and search for your AWS resources. We recommend creating at least a name tag for your location. 10. Choose **Create location**. ###### To create an FSx for ONTAP location by using the AWS CLI 1. Copy the following `create-location-fsx-ontap` command: ``aws datasync create-location-fsx-ontap \ --storage-virtual-machine-arn arn:aws:fsx:`region`:`account-id`:storage-virtual-machine/fs-`file-system-id` \ --security-group-arns arn:aws:ec2:`region`:`account-id`:security-group/`group-id` \ --protocol `data-transfer-protocol`={}`` 2. Specify the following required options in the command: <br>• For `storage-virtual-machine-arn`, specify the fully qualified Amazon Resource Name (ARN) of a storage virtual machine (SVM) in your file system where you want to copy data to or from. This ARN includes the AWS Region where your file system resides, your AWS account, and the file system and SVM IDs. <br>• For `security-group-arns`, specify the ARNs of the Amazon EC2 security groups that provide access to the [network interfaces](required-network-interfaces.md "required-network-interfaces.md") of your file system's preferred subnet. This includes the AWS Region where your Amazon EC2 instance resides, your AWS account, and your security group IDs. You can specify up to five security group ARNs. For more information about security groups, see [File System Access Control with Amazon VPC](../../../fsx/latest/ONTAPGuide/limit-access-security-groups.md "../../../fsx/latest/ONTAPGuide/limit-access-security-groups.md") in the _Amazon FSx for NetApp ONTAP User Guide_. <br>• For `protocol`, configure the protocol that DataSync uses to access your file system's SVM. + For NFS, you can use the default configuration: `--protocol NFS={}` + For SMB, you must specify a user name and password that can access the SVM: `--protocol SMB={User=`smb-user`,Password=`smb-password`}` 3. Run the command. You get a response that shows the location that you just created. `{ "LocationArn": "arn:aws:datasync:us-west-2:123456789012:location/loc-abcdef01234567890" }` |
+| Console option | API option  | Description                                                                                                                                                                                                                                                                                                           |
+| -------------- | ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Automatic      | `AUTOMATIC` | DataSync and the SMB file server negotiate the<br>highest version of SMB that they mutually support<br>between 2.1 and 3.1.1.<br>This is the default and recommended option. If<br>you instead choose a specific version that your<br>file server doesn't support, you may get an<br>`Operation Not Supported` error. |
+| SMB 3.0.2      | `SMB3`      | Restricts the protocol negotiation to only SMB<br>version 3.0.2.                                                                                                                                                                                                                                                      |
+| SMB 2.1        | `SMB2`      | Restricts the protocol negotiation to only SMB<br>version 2.1.                                                                                                                                                                                                                                                        |
+| SMB 2.0        | `SMB2_0`    | Restricts the protocol negotiation to only SMB<br>version 2.0.                                                                                                                                                                                                                                                        |
+
+**Required permissions**
+
+You must provide DataSync a local user in your SVM or a domain user
+in your Microsoft Active Directory with the necessary rights to
+mount and access your files, folders, and file metadata.
+
+If you provide a user in your Active Directory, note the
+following:
+
+- If you're using AWS Directory Service for Microsoft Active Directory, the user must be a
+  member of the **AWS Delegated FSx
+  Administrators** group.
+- If you're using a self-managed Active Directory, the user
+  must be a member of one of two groups:
+  - The **Domain Admins** group,
+    which is the default delegated administrators
+    group.
+  - A custom delegated administrators group with user
+    rights that allow DataSync to copy object ownership
+    permissions and Windows access control lists
+    (ACLs).
+
+  ###### Important
+
+  You can't change the delegated administrators
+  group after the file system has been deployed. You
+  must either redeploy the file system or restore it
+  from a backup to use the custom delegated
+  administrator group with the following user rights
+  that DataSync needs to copy metadata.
+
+  | User right                                                      | Description                                                                                                                                                                                                                                                                                              |
+  | --------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+  | **Act as part of the operating<br>system**<br>(`SE_TCB_NAME`)   | Allows DataSync to copy object ownership,<br>permissions, file metadata, and NTFS discretionary<br>access lists (DACLs).<br>This user right is usually granted to<br>members of the **Domain Admins**<br>and \*_Backup Operators_<br>• groups<br>(both of which are default Active Directory<br>groups). |
+  | **Manage auditing and security<br>log**<br>(`SE_SECURITY_NAME`) | Allows DataSync to copy NTFS system access<br>control lists (SACLs).<br>This user right is usually granted to<br>members of the **Domain Admins**<br>group.                                                                                                                                              |
+
+- If you want to copy Windows ACLs and are transferring
+  between FSx for ONTAP file systems using SMB (or other types of
+  file systems using SMB), the users that you provide DataSync
+  must belong to the same Active Directory domain or have an
+  Active Directory trust relationship between their
+  domains.
+
+**Required authentication protocols**
+
+For DataSync to access your SMB share, your FSx for ONTAP file system
+must use NTLM authentication. DataSync can't access FSx for ONTAP file
+systems that use Kerberos authentication.
+
+**DFS Namespaces**
+DataSync doesn't support Microsoft Distributed File System (DFS) Namespaces. We recommend specifying an underlying file server or share instead when creating your DataSync location.
+
+### Unsupported
+
+protocols
+
+DataSync can't access FSx for ONTAP file systems using the iSCSI (Internet Small
+Computer Systems Interface) protocol.
+
+### Choosing the right
+
+protocol
+
+To preserve file metadata in FSx for ONTAP migrations, configure your DataSync
+source and destination locations to use the same protocol. Between the supported
+protocols, SMB preserves metadata with the highest fidelity (see [Understanding how DataSync handles file and object
+metadata](metadata-copied.md "metadata-copied.md") for
+details).
+
+When migrating from a Unix (Linux) server or network-attached storage (NAS)
+share that serves users through NFS, do the following:
+
+1. [Create an NFS location](create-nfs-location.md "create-nfs-location.md") for
+   the Unix (Linux) server or NAS share. (This will be your source
+   location.)
+2. Configure the FSx for ONTAP volume you’re transferring data to with the
+   [Unix security style](../../../fsx/latest/ONTAPGuide/managing-volumes.md#volume-security-style "../../../fsx/latest/ONTAPGuide/managing-volumes.md#volume-security-style").
+3. Create a location for your FSx for ONTAP file system that’s configured
+   for NFS. (This will be your destination location.)
+
+When migrating from a Windows server or NAS share that serves users through
+SMB, do the following:
+
+1. [Create an SMB location](create-smb-location.md "create-smb-location.md") for
+   the Windows server or NAS share. (This will be your source
+   location.)
+2. Configure the FSx for ONTAP volume you’re transferring data to with the
+   [NTFS security style](../../../fsx/latest/ONTAPGuide/managing-volumes.md#volume-security-style "../../../fsx/latest/ONTAPGuide/managing-volumes.md#volume-security-style").
+3. Create a location for your FSx for ONTAP file system that’s configured
+   for SMB. (This will be your destination location.)
+
+If your FSx for ONTAP environment uses multiple protocols, we recommend working with
+an AWS storage specialist. To learn about best practices for multiprotocol access,
+see [Enabling multiprotocol workloads with Amazon FSx for NetApp
+ONTAP](https://aws.amazon.com/blogs/storage/enabling-multiprotocol-workloads-with-amazon-fsx-for-netapp-ontap/ "https://aws.amazon.com/blogs/storage/enabling-multiprotocol-workloads-with-amazon-fsx-for-netapp-ontap/").
+
+### Accessing SnapLock
+
+volumes
+
+If you're transferring data to a [SnapLock volume](../../../fsx/latest/ONTAPGuide/snaplock.md "../../../fsx/latest/ONTAPGuide/snaplock.md") on an
+FSx for ONTAP file system, make sure the SnapLock settings
+**Autocommit** and **Volume append mode**
+are disabled on the volume during your transfer. You can re-enable these
+settings when you're done transferring data.
+
+## Creating your FSx for ONTAP transfer
+
+location
+
+To create the location, you need an existing FSx for ONTAP file system. If you don't
+have one, see [Getting started with
+Amazon FSx for NetApp ONTAP](../../../fsx/latest/ONTAPGuide/getting-started.md "../../../fsx/latest/ONTAPGuide/getting-started.md") in the _Amazon FSx for NetApp ONTAP User
+Guide_.
+
+1. Open the AWS DataSync console at [https://console.aws.amazon.com/datasync/](https://console.aws.amazon.com/datasync/ "https://console.aws.amazon.com/datasync/").
+2. In the left navigation pane, expand **Data transfer**,
+   then choose **Locations** and **Create
+   location**.
+3. For **Location type**, choose
+   **Amazon FSx**.
+
+You configure this location as a source or destination
+later. 4. For **FSx file system**, choose the FSx for ONTAP
+file system that you want to use as a location. 5. For **Storage virtual machine**, choose a storage
+virtual machine (SVM) in your file system where you want to copy
+data to or from. 6. For **Mount path**, specify a path to the file
+share in that SVM where you'll copy your data.
+
+You can specify a junction path (also known as a mount point),
+qtree path (for NFS file shares), or share name (for SMB file
+shares). For example, your mount path might be `/vol1`,
+`/vol1/tree1`, or `/share1`.
+
+###### Tip
+
+Don't specify a path in the SVM's root volume. For more
+information, see [Managing
+FSx for ONTAP storage virtual machines](../../../fsx/latest/ONTAPGuide/managing-svms.md "../../../fsx/latest/ONTAPGuide/managing-svms.md") in the
+_Amazon FSx for NetApp ONTAP User Guide_. 7. For **Security groups**, choose up to five Amazon EC2
+security groups that provide access to your file system's preferred
+subnet.
+
+The security groups must allow outbound traffic on the following
+ports (depending on the protocol you use):
+
+    * NFS – TCP ports 111,
+     635, and 2049
+    * SMB – TCP port
+     445
+
+Your file system's security groups must also allow inbound traffic
+on the same ports. 8. For **Protocol**, choose the data transfer
+protocol that DataSync uses to access your file system's SVM.
+
+For more information, see [Choosing the right
+protocol](#create-ontap-location-choosing-protocol "#create-ontap-location-choosing-protocol").
+
+NFS
+DataSync uses NFS version 3.
+
+SMB
+Configure an SMB version, user, password, and Active
+Directory domain name (if needed) to access the
+SVM.
+
+    * (Optional) Expand **Additional
+     settings** and choose an **SMB
+     version** for DataSync to use when accessing
+     your SVM.
+
+
+    By default, DataSync automatically chooses a
+     version based on negotiation with the SMB file
+     server. For more information, see [Using the SMB protocol](#create-ontap-location-smb "#create-ontap-location-smb").
+    * For **User**, enter a user
+     name that can mount and access the files, folders,
+     and metadata that you want to transfer in the
+     SVM.
+
+
+    For more information, see [Using the SMB protocol](#create-ontap-location-smb "#create-ontap-location-smb").
+    * For **Password**, enter the
+     password of the user that you specified that can
+     access the SVM.
+    * (Optional) For **Active Directory
+     domain name**, enter the fully qualified
+     domain name (FQDN) of the Active Directory that
+     your SVM belongs to.
+
+
+    If you have multiple domains in your
+     environment, configuring this setting makes sure
+     that DataSync connects to the right SVM.
+
+9. (Optional) Enter values for the **Key** and
+   **Value** fields to tag the FSx for ONTAP file
+   system.
+
+Tags help you manage, filter, and search for your AWS resources.
+We recommend creating at least a name tag for your location. 10. Choose **Create location**.
+
+###### To create an FSx for ONTAP location by using the AWS CLI
+
+1. Copy the following `create-location-fsx-ontap`
+   command:
+
+```
+aws datasync create-location-fsx-ontap \
+   --storage-virtual-machine-arn arn:aws:fsx:`region`:`account-id`:storage-virtual-machine/fs-`file-system-id` \
+   --security-group-arns arn:aws:ec2:`region`:`account-id`:security-group/`group-id` \
+   --protocol `data-transfer-protocol`={}
+```
+
+2. Specify the following required options in the command:
+   - For `storage-virtual-machine-arn`, specify the
+     fully qualified Amazon Resource Name (ARN) of a storage
+     virtual machine (SVM) in your file system where you want to
+     copy data to or from.
+
+   This ARN includes the AWS Region where your file system
+   resides, your AWS account, and the file system and SVM
+   IDs.
+   - For `security-group-arns`, specify the ARNs of
+     the Amazon EC2 security groups that provide access to the [network
+     interfaces](required-network-interfaces.md "required-network-interfaces.md") of your file system's preferred
+     subnet.
+
+   This includes the AWS Region where your Amazon EC2 instance
+   resides, your AWS account, and your security group IDs.
+   You can specify up to five security group ARNs.
+
+   For more information about security groups, see [File System Access Control with Amazon VPC](../../../fsx/latest/ONTAPGuide/limit-access-security-groups.md "../../../fsx/latest/ONTAPGuide/limit-access-security-groups.md") in the
+   _Amazon FSx for NetApp ONTAP User Guide_.
+   - For `protocol`, configure the protocol that
+     DataSync uses to access your file system's SVM.
+     - For NFS, you can use the default
+       configuration:
+
+     `--protocol NFS={}`
+     - For SMB, you must specify a user name and password
+       that can access the SVM:
+
+     `--protocol
+ SMB={User=`smb-user`,Password=`smb-password`}`
+
+3. Run the command.
+
+You get a response that shows the location that you just
+created.
+
+```
+{
+    "LocationArn": "arn:aws:datasync:us-west-2:123456789012:location/loc-abcdef01234567890"
+}
+```

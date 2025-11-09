@@ -77,13 +77,194 @@ table describes the endpoints that DataSync can use to access other cloud object
 storage:
 
 | Other cloud provider                       | Endpoint                                                    |
-| ------------------------------------------ | ----------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------------------------------------ | ----------------------------------------------------------- |
 | Wasabi Cloud Storage                       | `S3.`region`.wasabisys.com`                                 |
 | DigitalOcean Spaces                        | ``region`.digitaloceanspaces.com`                           |
 | Oracle Cloud Infrastructure Object Storage | ``namespace`.compat.objectstorage.`region`.oraclecloud.com` |
 | Cloudflare R2 Storage                      | ``account-id`.r2.cloudflarestorage.com`                     |
 | Backblaze B2 Cloud Storage                 | `S3.`region`.backblazeb2.com`                               |
-| NAVER Cloud Object Storage                 | ``region`.object.ncloudstorage.com` (most regions)          |
+| NAVER Cloud Object Storage                 | ``region`.object.ncloudstorage.com`<br>(most regions)       |
 | Alibaba Cloud Object Storage Service       | ``region`.aliyuncs.com`                                     |
 | IBM Cloud Object Storage                   | `s3.`region`.cloud-object-storage.appdomain.cloud`          |
-| Seagate Lyve Cloud                         | `s3.`region`.lyvecloud.seagate.com`                         | ###### Important For details on how to configure bucket permissions and updated information on storage endpoints, see your cloud provider's documentation. ### Storage credentials DataSync also needs the credentials to access the object storage bucket involved in your transfer. This might be an access key and secret key or something similar depending on how your cloud storage provider refers to these credentials. For more information, see your cloud provider's documentation. ## Considerations when transferring from other cloud object storage When planning to transfer objects to or from another cloud storage provider by using DataSync, there are some things to keep in mind. ###### Topics <br>• [Costs](#other-cloud-considerations-costs "#other-cloud-considerations-costs") <br>• [Storage classes](#other-cloud-considerations-storage-classes "#other-cloud-considerations-storage-classes") <br>• [Object tags](#other-cloud-considerations-object-tags "#other-cloud-considerations-object-tags") <br>• [Transferring to Amazon S3](#other-cloud-considerations-s3 "#other-cloud-considerations-s3") ### Costs The fees associated with moving data in and out of another cloud storage provider can include: <br>• Running an [Amazon EC2](https://aws.amazon.com/ec2/pricing/ "https://aws.amazon.com/ec2/pricing/") instance for your DataSync agent <br>• Transferring the data by using [DataSync](https://aws.amazon.com/datasync/pricing/ "https://aws.amazon.com/datasync/pricing/"), including request charges related to your cloud object storage and [Amazon S3](create-s3-location.md#create-s3-location-s3-requests "create-s3-location.md#create-s3-location-s3-requests") (if S3 is your transfer destination) <br>• Transferring data in or out of your cloud storage (check your cloud provider's pricing) <br>• Storing data in an [AWS storage service](transferring-aws-storage.md "transferring-aws-storage.md") supported by DataSync <br>• Storing data in another cloud provider (check your cloud provider's pricing) ### Storage classes Some cloud storage providers have storage classes (similar to [Amazon S3](create-s3-location.md#using-storage-classes "create-s3-location.md#using-storage-classes")) which DataSync can't read without being restored first. For example, Oracle Cloud Infrastructure Object Storage has an archive storage class. You need to restore objects in that storage class before DataSync can transfer them. For more information, see your cloud provider's documentation. ### Object tags Not all cloud providers support object tags. The ones that do might not allow querying tags through the Amazon S3 API. In either situation, your DataSync transfer task might fail if you try to copy object tags. You can avoid this by clearing the **Copy object tags** checkbox in the DataSync console when creating, starting, or updating your task. ### Transferring to Amazon S3 When transferring to Amazon S3, DataSync can't transfer objects larger than 5 TB. DataSync also can only copy object metadata up to 2 KB. ## Creating your DataSync agent A DataSync agent is required only when transferring data between storage systems in other clouds and Amazon EFS or Amazon FSx, or when using **Basic** mode tasks. You don't need an agent to transfer data between storage systems in other clouds and Amazon S3 using **Enhanced** mode. This section desribes how to deploy and activate an agent on an Amazon EC2 instance in your virtual private cloud (VPC) in AWS. ###### To create an Amazon EC2 agent 1. [Deploy an Amazon EC2 agent](deploy-agents.md#ec2-deploy-agent "deploy-agents.md#ec2-deploy-agent"). 2. [Choose a service endpoint](choose-service-endpoint.md "choose-service-endpoint.md") that the agent uses to communicate with AWS. In this situation, we recommend using a VPC service endpoint. 3. Configure your network to work with [VPC service endpoints](datasync-network.md#using-vpc-endpoint "datasync-network.md#using-vpc-endpoint"). 4. [Activate the agent](activate-agent.md "activate-agent.md"). ## Creating a transfer location for your other cloud object storage You can configure DataSync to use your cloud object storage as a source or destination location. ###### Before you begin Make sure that you know [how DataSync accesses your cloud object storage](#other-cloud-access "#other-cloud-access"). You also need a [DataSync agent](#other-cloud-creating-agent "#other-cloud-creating-agent") that can connect to your cloud object storage. 1. Open the AWS DataSync console at [https://console.aws.amazon.com/datasync/](https://console.aws.amazon.com/datasync/ "https://console.aws.amazon.com/datasync/"). 2. In the left navigation pane, expand **Data transfer**, then choose **Locations** and **Create location**. 3. For **Location type**, choose **Object storage**. 4. For **Server**, enter the [endpoint](#other-cloud-permissions "#other-cloud-permissions") that DataSync can use to access your cloud object storage: <br>• **Wasabi Cloud Storage** – `S3.`region`.wasabisys.com` <br>• **DigitalOcean Spaces** – ``region`.digitaloceanspaces.com` <br>• **Oracle Cloud Infrastructure Object Storage** – ``namespace`.compat.objectstorage.`region`.oraclecloud.com` <br>• **Cloudflare R2 Storage** – ``account-id`.r2.cloudflarestorage.com` <br>• **Backblaze B2 Cloud Storage** – `S3.`region`.backblazeb2.com` <br>• **NAVER Cloud Object Storage** – ``region`.object.ncloudstorage.com` (most regions) <br>• **Alibaba Cloud Object Storage Service** – ``region`.aliyuncs.com`<br>• **IBM Cloud Object Storage** –`s3.`region`.cloud-object-storage.appdomain.cloud`<br>• **Seagate Lyve Cloud** –`s3.`region`.lyvecloud.seagate.com` 5. For **Bucket name**, enter the name of the object storage bucket that you're transferring data to or from. 6. For **Folder**, enter an object preﬁx. DataSync only transfers objects with this prefix. 7. If your transfer requires an agent, choose **Use agents**, then choose the DataSync agent that can connect with your cloud object storage. 8. Expand **Additional settings**. For **Server protocol**, choose **HTTPS**. For **Server port**, choose **443**. 9. Scroll down to the **Authentication** section. Make sure that the **Requires credentials** check box is selected, and then provide DataSync your [storage credentials](#other-cloud-credentials "#other-cloud-credentials"). <br>• For **Access key**, enter the ID to access your cloud object storage. <br>• For **Secret key**, provide the secret key to access your cloud object storage. You can either enter the key directly, or specify an AWS Secrets Manager secret that contains the key. For more information, see [Providing credentials for storage locations](location-credentials.md "location-credentials.md"). 10. (Optional) Enter values for the **Key** and **Value** fields to tag the location. Tags help you manage, filter, and search for your AWS resources. We recommend creating at least a name tag for your location. 11. Choose **Create location**. ## Next steps After you finish creating a DataSync location for your cloud object storage, you can continue setting up your transfer. Here are some next steps to consider: 1. If you haven't already, [create another location](transferring-aws-storage.md "transferring-aws-storage.md") where you plan to transfer your data to or from in AWS. 2. Learn how DataSync [handles metadata and special files](metadata-copied.md "metadata-copied.md") for object storage locations. 3. Configure how your data gets transferred. For example, maybe you only want to [transfer a subset of your data](filtering.md "filtering.md"). ###### Important Make sure that you configure how DataSync copies object tags correctly. For more information, see considerations with [object tags](#other-cloud-considerations-object-tags "#other-cloud-considerations-object-tags"). 4. [Start your transfer](run-task.md "run-task.md"). |
+| Seagate Lyve Cloud                         | `s3.`region`.lyvecloud.seagate.com`                         |
+
+###### Important
+
+For details on how to configure bucket permissions and updated information on
+storage endpoints, see your cloud provider's documentation.
+
+### Storage credentials
+
+DataSync also needs the credentials to access the object storage bucket involved in
+your transfer. This might be an access key and secret key or something similar
+depending on how your cloud storage provider refers to these credentials.
+
+For more information, see your cloud provider's documentation.
+
+## Considerations when transferring from other
+
+cloud object storage
+
+When planning to transfer objects to or from another cloud storage provider by using
+DataSync, there are some things to keep in mind.
+
+###### Topics
+
+- [Costs](#other-cloud-considerations-costs "#other-cloud-considerations-costs")
+- [Storage classes](#other-cloud-considerations-storage-classes "#other-cloud-considerations-storage-classes")
+- [Object tags](#other-cloud-considerations-object-tags "#other-cloud-considerations-object-tags")
+- [Transferring to Amazon S3](#other-cloud-considerations-s3 "#other-cloud-considerations-s3")
+
+### Costs
+
+The fees associated with moving data in and out of another cloud storage provider
+can include:
+
+- Running an [Amazon EC2](https://aws.amazon.com/ec2/pricing/ "https://aws.amazon.com/ec2/pricing/")
+  instance for your DataSync agent
+- Transferring the data by using [DataSync](https://aws.amazon.com/datasync/pricing/ "https://aws.amazon.com/datasync/pricing/"), including request charges related
+  to your cloud object storage and [Amazon S3](create-s3-location.md#create-s3-location-s3-requests "create-s3-location.md#create-s3-location-s3-requests") (if S3 is your
+  transfer destination)
+- Transferring data in or out of your cloud storage (check your cloud
+  provider's pricing)
+- Storing data in an [AWS storage
+  service](transferring-aws-storage.md "transferring-aws-storage.md") supported by DataSync
+- Storing data in another cloud provider (check your cloud provider's
+  pricing)
+
+### Storage classes
+
+Some cloud storage providers have storage classes (similar to [Amazon S3](create-s3-location.md#using-storage-classes "create-s3-location.md#using-storage-classes")) which DataSync can't read without
+being restored first. For example, Oracle Cloud Infrastructure Object
+Storage has an archive storage class. You need to restore objects in
+that storage class before DataSync can transfer them. For more information, see your
+cloud provider's documentation.
+
+### Object tags
+
+Not all cloud providers support object tags. The ones that do might not allow
+querying tags through the Amazon S3 API. In either situation, your DataSync transfer task
+might fail if you try to copy object tags.
+
+You can avoid this by clearing the **Copy object tags** checkbox
+in the DataSync console when creating, starting, or updating your task.
+
+### Transferring to Amazon S3
+
+When transferring to Amazon S3, DataSync can't transfer objects larger than 5 TB. DataSync
+also can only copy object metadata up to 2 KB.
+
+## Creating your DataSync agent
+
+A DataSync agent is required only when transferring data between storage systems in other
+clouds and Amazon EFS or Amazon FSx, or when using **Basic** mode tasks. You
+don't need an agent to transfer data between storage systems in other clouds and Amazon S3
+using **Enhanced** mode. This section desribes how to deploy and
+activate an agent on an Amazon EC2 instance in your virtual private cloud (VPC) in
+AWS.
+
+###### To create an Amazon EC2 agent
+
+1. [Deploy an Amazon EC2 agent](deploy-agents.md#ec2-deploy-agent "deploy-agents.md#ec2-deploy-agent").
+2. [Choose a service endpoint](choose-service-endpoint.md "choose-service-endpoint.md") that
+   the agent uses to communicate with AWS.
+
+In this situation, we recommend using a VPC service endpoint. 3. Configure your network to work with [VPC
+service endpoints](datasync-network.md#using-vpc-endpoint "datasync-network.md#using-vpc-endpoint"). 4. [Activate the agent](activate-agent.md "activate-agent.md").
+
+## Creating a transfer location for
+
+your other cloud object storage
+
+You can configure DataSync to use your cloud object storage as a source or destination
+location.
+
+###### Before you begin
+
+Make sure that you know [how DataSync accesses your
+cloud object storage](#other-cloud-access "#other-cloud-access"). You also need a [DataSync agent](#other-cloud-creating-agent "#other-cloud-creating-agent") that can connect to your
+cloud object storage.
+
+1. Open the AWS DataSync console at [https://console.aws.amazon.com/datasync/](https://console.aws.amazon.com/datasync/ "https://console.aws.amazon.com/datasync/").
+2. In the left navigation pane, expand **Data transfer**,
+   then choose **Locations** and **Create
+   location**.
+3. For **Location type**, choose **Object
+   storage**.
+4. For **Server**, enter the [endpoint](#other-cloud-permissions "#other-cloud-permissions") that DataSync can use to
+   access your cloud object storage:
+   - **Wasabi Cloud Storage**
+     –
+     `S3.`region`.wasabisys.com`
+   - **DigitalOcean Spaces**
+     –
+     ``region`.digitaloceanspaces.com`
+   - **Oracle Cloud Infrastructure Object
+     Storage** –
+     ``namespace`.compat.objectstorage.`region`.oraclecloud.com`
+   - **Cloudflare R2 Storage**
+     –
+     ``account-id`.r2.cloudflarestorage.com`
+   - **Backblaze B2 Cloud
+     Storage** –
+     `S3.`region`.backblazeb2.com`
+   - **NAVER Cloud Object
+     Storage** –
+     ``region`.object.ncloudstorage.com`
+     (most regions)
+   - **Alibaba Cloud Object Storage
+     Service** –
+     ``region`.aliyuncs.com`
+   - **IBM Cloud Object
+     Storage** –
+     `s3.`region`.cloud-object-storage.appdomain.cloud`
+   - **Seagate Lyve Cloud**
+     –
+     `s3.`region`.lyvecloud.seagate.com`
+
+5. For **Bucket name**, enter the name of the object storage
+   bucket that you're transferring data to or from.
+6. For **Folder**, enter an object preﬁx. DataSync only transfers
+   objects with this prefix.
+7. If your transfer requires an agent, choose **Use agents**,
+   then choose the DataSync agent that can connect with your cloud object
+   storage.
+8. Expand **Additional settings**. For **Server
+   protocol**, choose **HTTPS**. For **Server
+   port**, choose **443**.
+9. Scroll down to the **Authentication** section. Make sure that
+   the **Requires credentials** check box is selected, and then
+   provide DataSync your [storage
+   credentials](#other-cloud-credentials "#other-cloud-credentials").
+   - For **Access key**, enter the ID to access your cloud
+     object storage.
+   - For **Secret key**, provide the secret key to access
+     your cloud object storage. You can either enter the key directly, or
+     specify an AWS Secrets Manager secret that contains the key. For more information,
+     see [Providing
+     credentials for storage locations](location-credentials.md "location-credentials.md").
+
+10. (Optional) Enter values for the **Key** and
+    **Value** fields to tag the location.
+
+Tags help you manage, filter, and search for your AWS resources. We
+recommend creating at least a name tag for your location. 11. Choose **Create location**.
+
+## Next steps
+
+After you finish creating a DataSync location for your cloud object storage, you can
+continue setting up your transfer. Here are some next steps to consider:
+
+1. If you haven't already, [create
+   another location](transferring-aws-storage.md "transferring-aws-storage.md") where you plan to transfer your data to or from in
+   AWS.
+2. Learn how DataSync [handles metadata and special
+   files](metadata-copied.md "metadata-copied.md") for object storage locations.
+3. Configure how your data gets transferred. For example, maybe you only want to
+   [transfer a subset of your data](filtering.md "filtering.md").
+
+###### Important
+
+Make sure that you configure how DataSync copies object tags correctly. For
+more information, see considerations with [object
+tags](#other-cloud-considerations-object-tags "#other-cloud-considerations-object-tags"). 4. [Start your transfer](run-task.md "run-task.md").

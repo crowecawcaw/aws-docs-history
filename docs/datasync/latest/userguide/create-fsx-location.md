@@ -54,7 +54,152 @@ Active Directory setup:
   custom delegated administrator group with the following user
   rights that DataSync needs to copy metadata.
 
-| User right                                                | Description                                                                                                                                                                                                                                                                    |
-| --------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Restore files and directories** (`SE_RESTORE_NAME`)     | Allows DataSync to copy object ownership, permissions, file metadata, and NTFS discretionary access lists (DACLs). This user right is usually granted to members of the **Domain Admins** and **Backup Operators** groups (both of which are default Active Directory groups). |
-| **Manage auditing and security log** (`SE_SECURITY_NAME`) | Allows DataSync to copy NTFS system access control lists (SACLs). This user right is usually granted to members of the **Domain Admins** group.                                                                                                                                | <br>• If you want to copy Windows ACLs and are transferring between an SMB file server and FSx for Windows File Server file system or between FSx for Windows File Server file systems, the users that you provide DataSync must belong to the same Active Directory domain or have an Active Directory trust relationship between their domains. ###### Warning Your FSx for Windows File Server file system's SYSTEM user must have **Full control** permissions on all folders in your file system. Do not change the NTFS ACL permissions for this user on your folders. If you do, DataSync can change your file system's permissions in a way that makes your file share inaccessible and prevents file system backups from being usable. For more information on file- and folder-level access, see the*[Amazon FSx for Windows File Server User Guide](../../../fsx/latest/WindowsGuide/limit-access-file-folder.md "../../../fsx/latest/WindowsGuide/limit-access-file-folder.md")*. ### Required authentication protocols Your FSx for Windows File Server must use NTLM authentication for DataSync to access it. DataSync can't access a file server that uses Kerberos authentication. ### DFS Namespaces DataSync doesn't support Microsoft Distributed File System (DFS) Namespaces. We recommend specifying an underlying file server or share instead when creating your DataSync location. For more information, see [Grouping multiple file systems with DFS Namespaces](../../../fsx/latest/WindowsGuide/group-file-systems.md "../../../fsx/latest/WindowsGuide/group-file-systems.md") in the _Amazon FSx for Windows File Server User Guide_. ## Creating your FSx for Windows File Server transfer location Before you begin, make sure that you have an existing FSx for Windows File Server in your AWS Region. For more information, see [Getting started with Amazon FSx](../../../fsx/latest/WindowsGuide/getting-started.md "../../../fsx/latest/WindowsGuide/getting-started.md") in the _Amazon FSx for Windows File Server User Guide_. 1. Open the AWS DataSync console at [https://console.aws.amazon.com/datasync/](https://console.aws.amazon.com/datasync/ "https://console.aws.amazon.com/datasync/"). 2. In the left navigation pane, expand **Data transfer**, then choose **Locations** and **Create location**. 3. For **Location type**, choose **Amazon FSx**. 4. For **FSx file system**, choose the FSx for Windows File Server file system that you want to use as a location. 5. For **Share name**, enter a mount path for your FSx for Windows File Server using forward slashes. This specifies the path where DataSync reads or writes data (depending on if this is a source or destination location). You can also include subdirectories (for example, `/path/to/directory`). 6. For **Security groups**, choose up to five Amazon EC2 security groups that provide access to your file system's preferred subnet. The security groups that you choose must be able to communicate with your file system's security groups. For information about configuring security groups for file system access, see the [_Amazon FSx for Windows File Server User Guide_](../../../fsx/latest/WindowsGuide/limit-access-security-groups.md "../../../fsx/latest/WindowsGuide/limit-access-security-groups.md"). ###### Note If you choose a security group that doesn't allow connections from within itself, do one of the following: <br>• Configure the security group to allow it to communicate within itself. <br>• Choose a different security group that can communicate with the mount target's security group. 7. For **User**, enter the name of a user that can access your FSx for Windows File Server. For more information, see [Required permissions](#create-fsx-windows-location-permissions "#create-fsx-windows-location-permissions"). 8. For **Password**, enter password of the user name. 9. (Optional) For **Domain**, enter the name of the Windows domain that your FSx for Windows File Server file system belongs to. If you have multiple Active Directory domains in your environment, configuring this setting makes sure that DataSync connects to the right file system. 10. (Optional) Enter values for the **Key** and **Value** fields to tag the FSx for Windows File Server. Tags help you manage, filter, and search for your AWS resources. We recommend creating at least a name tag for your location. 11. Choose **Create location**. ###### To create an FSx for Windows File Server location by using the AWS CLI <br>• Use the following command to create an Amazon FSx location. `` aws datasync create-location-fsx-windows \ --fsx-filesystem-arn arn:aws:fsx:`region`:`account-id`:file-system/`filesystem-id` \ --security-group-arns arn:aws:ec2:`region`:`account-id`:security-group/`group-id` \ --user `smb-user` --password `password` `` In the `create-location-fsx-windows` command, do the following: + `fsx-filesystem-arn` – Specify the Amazon Resource Name (ARN) of the file system that you want to transfer to or from. + `security-group-arns` – Specify the ARNs of up to five Amazon EC2 security groups that provide access to your file system's preferred subnet. The security groups that you specify must be able to communicate with your file system's security groups. For information about configuring security groups for file system access, see the [_Amazon FSx for Windows File Server User Guide_](../../../fsx/latest/WindowsGuide/limit-access-security-groups.md "../../../fsx/latest/WindowsGuide/limit-access-security-groups.md"). ###### Note If you choose a security group that doesn't allow connections from within itself, do one of the following: <br>• Configure the security group to allow it to communicate within itself. <br>• Choose a different security group that can communicate with the mount target's security group. + The AWS Region – The Region that you specify is the one where your target Amazon FSx file system is located. The preceding command returns a location ARN similar to the one shown following. `{ "LocationArn": "arn:aws:datasync:us-west-2:111222333444:location/loc-07db7abfc326c50fb" }` |
+  | User right                                                      | Description                                                                                                                                                                                                                                                                                              |
+  | --------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+  | **Restore files and<br>directories**<br>(`SE_RESTORE_NAME`)     | Allows DataSync to copy object ownership,<br>permissions, file metadata, and NTFS discretionary<br>access lists (DACLs).<br>This user right is usually granted to<br>members of the **Domain Admins**<br>and \*_Backup Operators_<br>• groups<br>(both of which are default Active Directory<br>groups). |
+  | **Manage auditing and security<br>log**<br>(`SE_SECURITY_NAME`) | Allows DataSync to copy NTFS system access<br>control lists (SACLs).<br>This user right is usually granted to<br>members of the **Domain Admins**<br>group.                                                                                                                                              |
+
+- If you want to copy Windows ACLs and are transferring between an SMB
+  file server and FSx for Windows File Server file system or between FSx for Windows File Server file
+  systems, the users that you provide DataSync must belong to the same Active
+  Directory domain or have an Active Directory trust relationship between
+  their domains.
+
+###### Warning
+
+Your FSx for Windows File Server file system's SYSTEM user must have **Full
+control** permissions on all folders in your file system. Do
+not change the NTFS ACL permissions for this user on your folders. If you
+do, DataSync can change your file system's permissions in a way that makes your
+file share inaccessible and prevents file system backups from being usable.
+For more information on file- and folder-level access, see
+the*[Amazon FSx for Windows File Server User Guide](../../../fsx/latest/WindowsGuide/limit-access-file-folder.md "../../../fsx/latest/WindowsGuide/limit-access-file-folder.md")*.
+
+### Required
+
+authentication protocols
+
+Your FSx for Windows File Server must use NTLM authentication for DataSync to access it. DataSync
+can't access a file server that uses Kerberos authentication.
+
+### DFS Namespaces
+
+DataSync doesn't support Microsoft Distributed File System (DFS) Namespaces. We recommend specifying an underlying file server or share instead when creating your DataSync location.
+
+For more information, see [Grouping multiple file
+systems with DFS Namespaces](../../../fsx/latest/WindowsGuide/group-file-systems.md "../../../fsx/latest/WindowsGuide/group-file-systems.md") in the
+_Amazon FSx for Windows File Server User Guide_.
+
+## Creating your FSx for Windows File Server transfer
+
+location
+
+Before you begin, make sure that you have an existing FSx for Windows File Server in your
+AWS Region. For more information, see [Getting started with Amazon FSx](../../../fsx/latest/WindowsGuide/getting-started.md "../../../fsx/latest/WindowsGuide/getting-started.md") in
+the _Amazon FSx for Windows File Server User Guide_.
+
+1. Open the AWS DataSync console at [https://console.aws.amazon.com/datasync/](https://console.aws.amazon.com/datasync/ "https://console.aws.amazon.com/datasync/").
+2. In the left navigation pane, expand **Data transfer**,
+   then choose **Locations** and **Create
+   location**.
+3. For **Location type**, choose
+   **Amazon FSx**.
+4. For **FSx file system**, choose the FSx for Windows File Server
+   file system that you want to use as a location.
+5. For **Share name**, enter a mount path for your
+   FSx for Windows File Server using forward slashes.
+
+This specifies the path where DataSync reads or writes data
+(depending on if this is a source or destination location).
+
+You can also include subdirectories (for example,
+`/path/to/directory`). 6. For **Security groups**, choose up to five Amazon EC2
+security groups that provide access to your file system's preferred
+subnet.
+
+The security groups that you choose must be able to communicate
+with your file system's security groups. For information about
+configuring security groups for file system access, see the [_Amazon FSx for Windows File Server User
+Guide_](../../../fsx/latest/WindowsGuide/limit-access-security-groups.md "../../../fsx/latest/WindowsGuide/limit-access-security-groups.md").
+
+###### Note
+
+If you choose a security group that doesn't allow connections
+from within itself, do one of the following:
+
+    * Configure the security group to allow it to
+     communicate within itself.
+    * Choose a different security group that can communicate
+     with the mount target's security group.
+
+7. For **User**, enter the name of a user that can
+   access your FSx for Windows File Server.
+
+For more information, see [Required
+permissions](#create-fsx-windows-location-permissions "#create-fsx-windows-location-permissions"). 8. For **Password**, enter password of the user
+name. 9. (Optional) For **Domain**, enter the name of the
+Windows domain that your FSx for Windows File Server file system belongs to.
+
+If you have multiple Active Directory domains in your environment,
+configuring this setting makes sure that DataSync connects to the right
+file system. 10. (Optional) Enter values for the **Key** and
+**Value** fields to tag the
+FSx for Windows File Server.
+
+Tags help you manage, filter, and search for your AWS resources.
+We recommend creating at least a name tag for your location. 11. Choose **Create location**.
+
+###### To create an FSx for Windows File Server location by using the AWS CLI
+
+- Use the following command to create an Amazon FSx location.
+
+```
+aws datasync create-location-fsx-windows \
+    --fsx-filesystem-arn arn:aws:fsx:`region`:`account-id`:file-system/`filesystem-id` \
+    --security-group-arns arn:aws:ec2:`region`:`account-id`:security-group/`group-id` \
+    --user `smb-user` --password `password`
+```
+
+In the `create-location-fsx-windows` command, do the
+following:
+
+    + `fsx-filesystem-arn` – Specify the
+     Amazon Resource Name (ARN) of the file system that you want
+     to transfer to or from.
+    + `security-group-arns` – Specify the ARNs
+     of up to five Amazon EC2 security groups that provide access to
+     your file system's preferred subnet.
+
+
+    The security groups that you specify must be able to
+     communicate with your file system's security groups. For
+     information about configuring security groups for file
+     system access, see the [*Amazon FSx for Windows File Server User
+     Guide*](../../../fsx/latest/WindowsGuide/limit-access-security-groups.md "../../../fsx/latest/WindowsGuide/limit-access-security-groups.md").
+
+
+    ###### Note
+
+    If you choose a security group that doesn't allow
+     connections from within itself, do one of the
+     following:
+
+
+
+    	- Configure the security group to allow it to
+    	 communicate within itself.
+    	- Choose a different security group that can
+    	 communicate with the mount target's security
+    	 group.
+    + The AWS Region – The Region that you specify is
+     the one where your target Amazon FSx file system is
+     located.
+
+The preceding command returns a location ARN similar to the one shown
+following.
+
+```
+{
+    "LocationArn": "arn:aws:datasync:us-west-2:111222333444:location/loc-07db7abfc326c50fb"
+}
+```

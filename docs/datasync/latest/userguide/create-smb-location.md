@@ -41,19 +41,380 @@ automatically. DataSync supports SMB versions 1.0 and later. For security reason
 See the following table for a list of options in the DataSync
 console and API:
 
-| Console option                                        | API option                                                                                                                                                                                                                                                                     | Description                                                                                                                                                                                                                                                                                         |
-| ----------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Automatic                                             | `AUTOMATIC`                                                                                                                                                                                                                                                                    | DataSync and the SMB file server negotiate the highest version of SMB that they mutually support between 2.1 and 3.1.1. This is the default and recommended option. If you instead choose a specific version that your file server doesn't support, you may get an `Operation Not Supported` error. |
-| SMB 3.0.2                                             | `SMB3`                                                                                                                                                                                                                                                                         | Restricts the protocol negotiation to only SMB version 3.0.2.                                                                                                                                                                                                                                       |
-| SMB 2.1                                               | `SMB2`                                                                                                                                                                                                                                                                         | Restricts the protocol negotiation to only SMB version 2.1.                                                                                                                                                                                                                                         |
-| SMB 2.0                                               | `SMB2_0`                                                                                                                                                                                                                                                                       | Restricts the protocol negotiation to only SMB version 2.0.                                                                                                                                                                                                                                         |
-| SMB 1.0                                               | `SMB1`                                                                                                                                                                                                                                                                         | Restricts the protocol negotiation to only SMB version 1.0.                                                                                                                                                                                                                                         | ### Using NTLM authentication To use NTLM authentication, you provide a user name and password that allows DataSync to access the SMB file server that you're transferring to or from. The user can be a local user on your file server or a domain user in your Microsoft Active Directory. ### Using Kerberos authentication To use Kerberos authentication, you provide a Kerberos principal, Kerberos key table (keytab) file, and Kerberos configuration file that allows DataSync to access the SMB file server that you're transferring to or from. ###### Topics <br>• [Prerequisites](#configuring-smb-kerberos-prerequisites "#configuring-smb-kerberos-prerequisites") <br>• [DataSync configuration options for Kerberos](#configuring-smb-kerberos-options "#configuring-smb-kerberos-options") #### Prerequisites You need to create a couple Kerberos artifacts and configure your network so that DataSync can access your SMB file server. <br>• Create a Kerberos keytab file by using the [ktpass](https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/ktpass "https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/ktpass") or [kutil](https://web.mit.edu/kerberos/krb5-1.12/doc/admin/admin_commands/ktutil.html "https://web.mit.edu/kerberos/krb5-1.12/doc/admin/admin_commands/ktutil.html") utility. The following example creates a keytab file by using `ktpass`. The Kerberos realm that you specify (`MYDOMAIN.ORG`) must be upper case. `ktpass /out C:\YOUR_KEYTAB.keytab /princ HOST/kerberosuser@MYDOMAIN.ORG /mapuser kerberosuser /pass * /crypto AES256-SHA1 /ptype KRB5_NT_PRINCIPAL` <br>• Prepare a simplified version of the Kerberos configuration file (`krb5.conf`). Include information about the realm, the location of the domain admin servers, and mappings of hostnames onto a Kerberos realm. Verify that the `krb5.conf` content is formatted with the correct mixed casing for the realms and domain realm names. For example: `[libdefaults] dns_lookup_realm = true dns_lookup_kdc = true forwardable = true default_realm = MYDOMAIN.ORG [realms] MYDOMAIN.ORG = { kdc = mydomain.org admin_server = mydomain.org } [domain_realm] .mydomain.org = MYDOMAIN.ORG mydomain.org = MYDOMAIN.ORG` <br>• In your network configuration, make sure that your Kerberos Key Distribution Center (KDC) server port is open. The KDC port is typically TCP port 88. #### DataSync configuration options for Kerberos When creating an SMB location that uses Kerberos, you configure the following options. |
-| Console option                                        | API option                                                                                                                                                                                                                                                                     | Description                                                                                                                                                                                                                                                                                         |
-| ---                                                   | ---                                                                                                                                                                                                                                                                            | ---                                                                                                                                                                                                                                                                                                 |
-| **SMB server**                                        | `ServerHostName`                                                                                                                                                                                                                                                               | The domain name of the SMB file server that your DataSync agent will mount. For Kerberos, you can't specify the file server's IP address.                                                                                                                                                           |
-| **Kerberos principal**                                | `KerberosPrincipal`                                                                                                                                                                                                                                                            | An identity in your Kerberos realm that has permission to access the files, folders, and file metadata in your SMB file server. A Kerberos principal might look like `HOST/kerberosuser@MYDOMAIN.ORG`. Principal names are case sensitive.                                                          |
-| **Keytab file**                                       | `KerberosKeytab`                                                                                                                                                                                                                                                               | A Kerberos key table (keytab) file, which includes mappings between your Kerberos principal and encryption keys.                                                                                                                                                                                    |
-| **Kerberos configuration file**                       | `KerberosKrbConf`                                                                                                                                                                                                                                                              | A `krb5.conf` file that defines your Kerberos realm configuration.                                                                                                                                                                                                                                  |
-| **DNS IP addresses** (optional)                       | `DnsIpAddresses`                                                                                                                                                                                                                                                               | The IPv4 addresses for the DNS servers that your SMB file server belongs to. If you have multiple domains in your environment, configuring this makes sure that DataSync connects to the right SMB file server.                                                                                     | ### Required permissions The identity that you provide DataSync must have permission to mount and access your SMB file server's files, folders, and file metadata. If you provide an identity in your Active Directory, it must be a member of an Active Directory group with one or both of the following user rights (depending the [metadata that you want DataSync to copy](configure-metadata.md "configure-metadata.md")):                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| User right                                            | Description                                                                                                                                                                                                                                                                    |                                                                                                                                                                                                                                                                                                     | ---                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | ---                                                                                                                                             |
-| **Restore files and directories** (`SE_RESTORE_NAME`) | Allows DataSync to copy object ownership, permissions, file metadata, and NTFS discretionary access lists (DACLs). This user right is usually granted to members of the **Domain Admins** and **Backup Operators** groups (both of which are default Active Directory groups). |                                                                                                                                                                                                                                                                                                     | **Manage auditing and security log** (`SE_SECURITY_NAME`)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | Allows DataSync to copy NTFS system access control lists (SACLs). This user right is usually granted to members of the **Domain Admins** group. | If you want to copy Windows ACLs and are transferring between an SMB file server and another storage system that uses SMB (such as Amazon FSx for Windows File Server or FSx for ONTAP), the identity that you provide DataSync must belong to the same Active Directory domain or have an Active Directory trust relationship between their domains. ### DFS Namespaces DataSync doesn't support Microsoft Distributed File System (DFS) Namespaces. We recommend specifying an underlying file server or share instead when creating your DataSync location. ## Creating your SMB transfer location Before you begin, you need an SMB file server that you want to transfer data from. 1. Open the AWS DataSync console at [https://console.aws.amazon.com/datasync/](https://console.aws.amazon.com/datasync/ "https://console.aws.amazon.com/datasync/"). 2. In the left navigation pane, expand **Data transfer**, then choose **Locations** and **Create location**. 3. For **Location type**, choose **Server Message Block (SMB)**. You configure this location as a source or destination later. 4. For **Agents**, choose the DataSync agent that can connect to your SMB file server. You can choose more than one agent. For more information, see [Using multiple DataSync agents](do-i-need-datasync-agent.md#multiple-agents "do-i-need-datasync-agent.md#multiple-agents"). 5. For **SMB server**, enter the domain name or IP address of the SMB file server that your DataSync agent will mount. Remember the following with this setting: <br>• You can't specify an IP version 6 (IPv6) address. <br>• If you're using Kerberos authentication, you must specify a domain name. 6. For **Share name**, enter the name of the share exported by your SMB file server where DataSync will read or write data. You can include a subdirectory in the share path (for example, `/path/to/subdirectory`). Make sure that other SMB clients in your network can also mount this path. To copy all the data in the subdirectory, DataSync must be able to mount the SMB share and access all of its data. For more information, see [Required permissions](#configuring-smb-permissions "#configuring-smb-permissions"). 7. (Optional) Expand **Additional settings** and choose an **SMB Version** for DataSync to use when accessing your file server. By default, DataSync automatically chooses a version based on negotiation with the SMB file server. For information, see [Supported SMB versions](#configuring-smb-version "#configuring-smb-version"). 8. For **Authentication type**, choose **NTLM** or **Kerberos**. 9. Do one of the following depending on your authentication type: NTLM <br>• For **User**, enter a user name that can mount your SMB file server and has permission to access the files and folders involved in your transfer. For more information, see [Required permissions](#configuring-smb-permissions "#configuring-smb-permissions"). <br>• For **Password**, enter the password of the user who can mount your SMB file server and has permission to access the files and folders involved in your transfer. <br>• (Optional) For **Domain**, enter the Windows domain name that your SMB file server belongs to. If you have multiple domains in your environment, configuring this setting makes sure that DataSync connects to the right SMB file server. Kerberos <br>• For **Kerberos principal**, specify a principal in your Kerberos realm that has permission to access the files, folders, and file metadata in your SMB file server. A Kerberos principal might look like `HOST/kerberosuser@MYDOMAIN.ORG`. Principal names are case sensitive. Your DataSync task execution will fail if the principal that you specify for this setting doesn’t exactly match the principal that you use to create the keytab file. <br>• For **Keytab file**, upload a keytab file that includes mappings between your Kerberos principal and encryption keys. <br>• For **Kerberos configuration file**, upload a `krb5.conf` file that defines your Kerberos realm configuration. <br>• (Optional) For **DNS IP addresses**, specify up to two IPv4 addresses for the DNS servers that your SMB file server belongs to. If you have multiple domains in your environment, configuring this parameter makes sure that DataSync connects to the right SMB file server. 10. (Optional) Choose **Add tag** to tag your SMB location. _Tags_ are key-value pairs that help you manage, filter, and search for your locations. We recommend creating at least a name tag for your location. 11. Choose **Create location**. The following instructions describe how to create SMB locations with NTLM or Kerberos authentication. NTLM 1. Copy the following `create-location-smb` command. `` aws datasync create-location-smb \ --agent-arns `datasync-agent-arns` \ --server-hostname `smb-server-address` \ --subdirectory `smb-export-path` \ --authentication-type "NTLM" \ --user `user-who-can-mount-share` \ --password `user-password` \ --domain `windows-domain-of-smb-server` `` 2. For `--agent-arns`, specify the DataSync agent that can connect to your SMB file server. You can choose more than one agent. For more information, see [Using multiple DataSync agents](do-i-need-datasync-agent.md#multiple-agents "do-i-need-datasync-agent.md#multiple-agents"). 3. For `--server-hostname`, specify the domain name or IPv4 address of the SMB file server that your DataSync agent will mount. 4. For `--subdirectory`, specify the name of the share exported by your SMB file server where DataSync will read or write data. You can include a subdirectory in the share path (for example, `/path/to/subdirectory`). Make sure that other SMB clients in your network can also mount this path. To copy all the data in the subdirectory, DataSync must be able to mount the SMB share and access all of its data. For more information, see [Required permissions](#configuring-smb-permissions "#configuring-smb-permissions"). 5. For `--user`, specify a user name that can mount your SMB file server and has permission to access the files and folders involved in your transfer. For more information, see [Required permissions](#configuring-smb-permissions "#configuring-smb-permissions"). 6. For `--password`, specify the password of the user who can mount your SMB file server and has permission to access the files and folders involved in your transfer. 7. (Optional) For `--domain`, specify the Windows domain name that your SMB file server belongs to. If you have multiple domains in your environment, configuring this setting makes sure that DataSync connects to the right SMB file server. 8. (Optional) Add the `--version` option if you want DataSync to use a specific SMB version. For more information, see [Supported SMB versions](#configuring-smb-version "#configuring-smb-version"). 9. Run the `create-location-smb` command. If the command is successful, you get a response that shows you the ARN of the location that you created. For example: `{ "arn:aws:datasync:us-east-1:123456789012:location/loc-01234567890example" }` Kerberos 1. Copy the following `create-location-smb` command. `` aws datasync create-location-smb \ --agent-arns `datasync-agent-arns` \ --server-hostname `smb-server-address` \ --subdirectory `smb-export-path` \ --authentication-type "KERBEROS" \ --kerberos-principal "`HOST/kerberosuser@EXAMPLE.COM`" \ --kerberos-keytab "fileb://`path/to/file.keytab`" \ --kerberos-krb5-conf "file://`path/to/`krb5.conf" \ --dns-ip-addresses `array-of-ipv4-addresses` `` 2. For `--agent-arns`, specify the DataSync agent that can connect to your SMB file server. You can choose more than one agent. For more information, see [Using multiple DataSync agents](do-i-need-datasync-agent.md#multiple-agents "do-i-need-datasync-agent.md#multiple-agents"). 3. For `--server-hostname`, specify the domain name of the SMB file server that your DataSync agent will mount. 4. For `--subdirectory`, specify the name of the share exported by your SMB file server where DataSync will read or write data. You can include a subdirectory in the share path (for example, `/path/to/subdirectory`). Make sure that other SMB clients in your network can also mount this path. To copy all the data in the subdirectory, DataSync must be able to mount the SMB share and access all of its data. For more information, see [Required permissions](#configuring-smb-permissions "#configuring-smb-permissions"). 5. For the Kerberos options, do the following: <br>• `--kerberos-principal`: Specify a principal in your Kerberos realm that has permission to access the files, folders, and file metadata in your SMB file server. A Kerberos principal might look like `HOST/kerberosuser@MYDOMAIN.ORG`. Principal names are case sensitive. Your DataSync task execution will fail if the principal that you specify for this option doesn’t exactly match the principal that you use to create the keytab file. <br>• `--kerberos-keytab`: Specify a keytab file that includes mappings between your Kerberos principal and encryption keys. <br>• `--kerberos-krb5-conf`: Specify a `krb5.conf` file that defines your Kerberos realm configuration. <br>• (Optional) `--dns-ip-addresses`: Specify up to two IPv4 addresses for the DNS servers that your SMB file server belongs to. If you have multiple domains in your environment, configuring this parameter makes sure that DataSync connects to the right SMB file server. 6. (Optional) Add the `--version` option if you want DataSync to use a specific SMB version. For more information, see [Supported SMB versions](#configuring-smb-version "#configuring-smb-version"). 7. Run the `create-location-smb` command. If the command is successful, you get a response that shows you the ARN of the location that you created. For example: `{ "arn:aws:datasync:us-east-1:123456789012:location/loc-01234567890example" }` |
+| Console option | API option  | Description                                                                                                                                                                                                                                                                                                           |
+| -------------- | ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Automatic      | `AUTOMATIC` | DataSync and the SMB file server negotiate the<br>highest version of SMB that they mutually support<br>between 2.1 and 3.1.1.<br>This is the default and recommended option. If you instead<br>choose a specific version that your file server doesn't<br>support, you may get an `Operation Not Supported`<br>error. |
+| SMB 3.0.2      | `SMB3`      | Restricts the protocol negotiation to only SMB version<br>3.0.2.                                                                                                                                                                                                                                                      |
+| SMB 2.1        | `SMB2`      | Restricts the protocol negotiation to only SMB version<br>2.1.                                                                                                                                                                                                                                                        |
+| SMB 2.0        | `SMB2_0`    | Restricts the protocol negotiation to only SMB version<br>2.0.                                                                                                                                                                                                                                                        |
+| SMB 1.0        | `SMB1`      | Restricts the protocol negotiation to only SMB version<br>1.0.                                                                                                                                                                                                                                                        |
+
+### Using NTLM
+
+authentication
+
+To use NTLM authentication, you provide a user name and password that allows
+DataSync to access the SMB file server that you're transferring to or from. The
+user can be a local user on your file server or a domain user in your Microsoft
+Active Directory.
+
+### Using Kerberos
+
+authentication
+
+To use Kerberos authentication, you provide a Kerberos principal, Kerberos key
+table (keytab) file, and Kerberos configuration file that allows DataSync to access
+the SMB file server that you're transferring to or from.
+
+###### Topics
+
+- [Prerequisites](#configuring-smb-kerberos-prerequisites "#configuring-smb-kerberos-prerequisites")
+- [DataSync configuration
+  options for Kerberos](#configuring-smb-kerberos-options "#configuring-smb-kerberos-options")
+
+#### Prerequisites
+
+You need to create a couple Kerberos artifacts and configure your network
+so that DataSync can access your SMB file server.
+
+- Create a Kerberos keytab file by using the [ktpass](https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/ktpass "https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/ktpass") or [kutil](https://web.mit.edu/kerberos/krb5-1.12/doc/admin/admin_commands/ktutil.html "https://web.mit.edu/kerberos/krb5-1.12/doc/admin/admin_commands/ktutil.html") utility.
+
+The following example creates a keytab file by using
+`ktpass`. The Kerberos realm that you specify
+(`MYDOMAIN.ORG`) must be upper case.
+
+```
+ktpass /out C:\YOUR_KEYTAB.keytab /princ HOST/kerberosuser@MYDOMAIN.ORG /mapuser kerberosuser /pass * /crypto AES256-SHA1 /ptype KRB5_NT_PRINCIPAL
+```
+
+- Prepare a simplified version of the Kerberos configuration file
+  (`krb5.conf`). Include information about the realm,
+  the location of the domain admin servers, and mappings of hostnames
+  onto a Kerberos realm.
+
+Verify that the `krb5.conf` content is formatted with
+the correct mixed casing for the realms and domain realm names. For
+example:
+
+```
+[libdefaults]
+  dns_lookup_realm = true
+  dns_lookup_kdc = true
+  forwardable = true
+  default_realm = MYDOMAIN.ORG
+
+[realms]
+  MYDOMAIN.ORG = {
+    kdc = mydomain.org
+    admin_server = mydomain.org
+  }
+
+[domain_realm]
+  .mydomain.org = MYDOMAIN.ORG
+  mydomain.org = MYDOMAIN.ORG
+```
+
+- In your network configuration, make sure that your Kerberos Key
+  Distribution Center (KDC) server port is open. The KDC port is
+  typically TCP port 88.
+
+#### DataSync configuration
+
+options for Kerberos
+
+When creating an SMB location that uses Kerberos, you configure the
+following options.
+
+| Console option                     | API option          | Description                                                                                                                                                                                                                                               |
+| ---------------------------------- | ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **SMB server**                     | `ServerHostName`    | The domain name of the SMB file server that your DataSync<br>agent will mount. For Kerberos, you can't specify the<br>file server's IP address.                                                                                                           |
+| **Kerberos principal**             | `KerberosPrincipal` | An identity in your Kerberos realm that has permission<br>to access the files, folders, and file metadata in your<br>SMB file server.<br>A Kerberos principal might look like<br>`HOST/kerberosuser@MYDOMAIN.ORG`.<br>Principal names are case sensitive. |
+| **Keytab file**                    | `KerberosKeytab`    | A Kerberos key table (keytab) file, which includes<br>mappings between your Kerberos principal and encryption<br>keys.                                                                                                                                    |
+| **Kerberos configuration<br>file** | `KerberosKrbConf`   | A `krb5.conf` file that defines your<br>Kerberos realm configuration.                                                                                                                                                                                     |
+| **DNS IP addresses**<br>(optional) | `DnsIpAddresses`    | The IPv4 addresses for the DNS servers that your SMB<br>file server belongs to.<br>If you have multiple domains in your environment,<br>configuring this makes sure that DataSync connects to the<br>right SMB file server.                               |
+
+### Required permissions
+
+The identity that you provide DataSync must have permission to mount and access
+your SMB file server's files, folders, and file metadata.
+
+If you provide an identity in your Active Directory, it must be a member of an
+Active Directory group with one or both of the following user rights (depending
+the [metadata that you want DataSync to
+copy](configure-metadata.md "configure-metadata.md")):
+
+| User right                                                   | Description                                                                                                                                                                                                                                                                                                |
+| ------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Restore files and directories**<br>(`SE_RESTORE_NAME`)     | Allows DataSync to copy object ownership, permissions, file<br>metadata, and NTFS discretionary access lists<br>(DACLs).<br>This user right is usually granted to members of the<br>**Domain Admins\*<br>• and **Backup<br>Operators\*<br>• groups (both of which are default<br>Active Directory groups). |
+| **Manage auditing and security log**<br>(`SE_SECURITY_NAME`) | Allows DataSync to copy NTFS system access control lists<br>(SACLs).<br>This user right is usually granted to members of the<br>\*_Domain Admins_<br>• group.                                                                                                                                              |
+
+If you want to copy Windows ACLs and are transferring between an SMB file
+server and another storage system that uses SMB (such as Amazon FSx for Windows File Server or
+FSx for ONTAP), the identity that you provide DataSync must belong to the same Active
+Directory domain or have an Active Directory trust relationship between their
+domains.
+
+### DFS Namespaces
+
+DataSync doesn't support Microsoft Distributed File System (DFS) Namespaces. We recommend specifying an underlying file server or share instead when creating your DataSync location.
+
+## Creating your SMB transfer
+
+location
+
+Before you begin, you need an SMB file server that you want to transfer data
+from.
+
+1. Open the AWS DataSync console at [https://console.aws.amazon.com/datasync/](https://console.aws.amazon.com/datasync/ "https://console.aws.amazon.com/datasync/").
+2. In the left navigation pane, expand **Data transfer**,
+   then choose **Locations** and **Create
+   location**.
+3. For **Location type**, choose **Server
+   Message Block (SMB)**.
+
+You configure this location as a source or destination
+later. 4. For **Agents**, choose the DataSync agent that can
+connect to your SMB file server.
+
+You can choose more than one agent. For more information, see
+[Using multiple DataSync agents](do-i-need-datasync-agent.md#multiple-agents "do-i-need-datasync-agent.md#multiple-agents"). 5. For **SMB server**, enter the domain name or IP
+address of the SMB file server that your DataSync agent will
+mount.
+
+Remember the following with this setting:
+
+    * You can't specify an IP version 6 (IPv6) address.
+    * If you're using Kerberos authentication, you must specify
+     a domain name.
+
+6. For **Share name**, enter the name of the share
+   exported by your SMB file server where DataSync will read or write
+   data.
+
+You can include a subdirectory in the share path (for example,
+`/path/to/subdirectory`). Make sure that other SMB
+clients in your network can also mount this path.
+
+To copy all the data in the subdirectory, DataSync must be able to
+mount the SMB share and access all of its data. For more
+information, see [Required permissions](#configuring-smb-permissions "#configuring-smb-permissions"). 7. (Optional) Expand **Additional settings** and
+choose an **SMB Version** for DataSync to use when
+accessing your file server.
+
+By default, DataSync automatically chooses a version based on
+negotiation with the SMB file server. For information, see [Supported SMB versions](#configuring-smb-version "#configuring-smb-version"). 8. For **Authentication type**, choose
+**NTLM** or
+**Kerberos**. 9. Do one of the following depending on your authentication
+type:
+
+NTLM
+
+    * For **User**, enter a user
+     name that can mount your SMB file server and has
+     permission to access the files and folders
+     involved in your transfer.
+
+
+    For more information, see [Required permissions](#configuring-smb-permissions "#configuring-smb-permissions").
+    * For **Password**, enter the
+     password of the user who can mount your SMB file
+     server and has permission to access the files and
+     folders involved in your transfer.
+    * (Optional) For **Domain**,
+     enter the Windows domain name that your SMB file
+     server belongs to.
+
+
+    If you have multiple domains in your
+     environment, configuring this setting makes sure
+     that DataSync connects to the right SMB file
+     server.
+
+Kerberos
+
+    * For **Kerberos
+     principal**, specify a principal in your
+     Kerberos realm that has permission to access the
+     files, folders, and file metadata in your SMB file
+     server.
+
+
+    A Kerberos principal might look like
+     `HOST/kerberosuser@MYDOMAIN.ORG`.
+
+
+    Principal names are case sensitive. Your DataSync
+     task execution will fail if the principal that you
+     specify for this setting doesn’t exactly match the
+     principal that you use to create the keytab
+     file.
+    * For **Keytab file**, upload a
+     keytab file that includes mappings between your
+     Kerberos principal and encryption keys.
+    * For **Kerberos configuration
+     file**, upload a `krb5.conf`
+     file that defines your Kerberos realm
+     configuration.
+    * (Optional) For **DNS IP
+     addresses**, specify up to two IPv4
+     addresses for the DNS servers that your SMB file
+     server belongs to.
+
+
+    If you have multiple domains in your
+     environment, configuring this parameter makes sure
+     that DataSync connects to the right SMB file
+     server.
+
+10. (Optional) Choose **Add tag** to tag your SMB
+    location.
+
+_Tags_ are key-value pairs that help you
+manage, filter, and search for your locations. We recommend creating
+at least a name tag for your location. 11. Choose **Create location**.
+The following instructions describe how to create SMB locations with NTLM
+or Kerberos authentication.
+
+NTLM
+
+1. Copy the following `create-location-smb`
+   command.
+
+```
+aws datasync create-location-smb \
+    --agent-arns `datasync-agent-arns` \
+    --server-hostname `smb-server-address` \
+    --subdirectory `smb-export-path` \
+    --authentication-type "NTLM" \
+    --user `user-who-can-mount-share` \
+    --password `user-password` \
+    --domain `windows-domain-of-smb-server`
+```
+
+2. For `--agent-arns`, specify the DataSync agent
+   that can connect to your SMB file server.
+
+You can choose more than one agent. For more
+information, see [Using multiple DataSync agents](do-i-need-datasync-agent.md#multiple-agents "do-i-need-datasync-agent.md#multiple-agents"). 3. For `--server-hostname`, specify the domain
+name or IPv4 address of the SMB file server that your
+DataSync agent will mount. 4. For `--subdirectory`, specify the name of
+the share exported by your SMB file server where DataSync
+will read or write data.
+
+You can include a subdirectory in the share path (for
+example, `/path/to/subdirectory`). Make sure
+that other SMB clients in your network can also mount
+this path.
+
+To copy all the data in the subdirectory, DataSync must
+be able to mount the SMB share and access all of its
+data. For more information, see [Required permissions](#configuring-smb-permissions "#configuring-smb-permissions"). 5. For `--user`, specify a user name that can
+mount your SMB file server and has permission to access
+the files and folders involved in your transfer.
+
+For more information, see [Required permissions](#configuring-smb-permissions "#configuring-smb-permissions"). 6. For `--password`, specify the password of
+the user who can mount your SMB file server and has
+permission to access the files and folders involved in
+your transfer. 7. (Optional) For `--domain`, specify the
+Windows domain name that your SMB file server belongs
+to.
+
+If you have multiple domains in your environment,
+configuring this setting makes sure that DataSync connects
+to the right SMB file server. 8. (Optional) Add the `--version` option if
+you want DataSync to use a specific SMB version. For more
+information, see [Supported SMB versions](#configuring-smb-version "#configuring-smb-version"). 9. Run the `create-location-smb`
+command.
+
+If the command is successful, you get a response that
+shows you the ARN of the location that you created. For
+example:
+
+```
+{
+    "arn:aws:datasync:us-east-1:123456789012:location/loc-01234567890example"
+}
+```
+
+Kerberos
+
+1. Copy the following `create-location-smb`
+   command.
+
+```
+aws datasync create-location-smb \
+    --agent-arns `datasync-agent-arns` \
+    --server-hostname `smb-server-address` \
+    --subdirectory `smb-export-path` \
+    --authentication-type "KERBEROS" \
+    --kerberos-principal "`HOST/kerberosuser@EXAMPLE.COM`" \
+    --kerberos-keytab "fileb://`path/to/file.keytab`" \
+    --kerberos-krb5-conf "file://`path/to/`krb5.conf" \
+    --dns-ip-addresses `array-of-ipv4-addresses`
+```
+
+2. For `--agent-arns`, specify the DataSync agent
+   that can connect to your SMB file server.
+
+You can choose more than one agent. For more
+information, see [Using multiple DataSync agents](do-i-need-datasync-agent.md#multiple-agents "do-i-need-datasync-agent.md#multiple-agents"). 3. For `--server-hostname`, specify the domain
+name of the SMB file server that your DataSync agent will
+mount. 4. For `--subdirectory`, specify the name of
+the share exported by your SMB file server where DataSync
+will read or write data.
+
+You can include a subdirectory in the share path (for
+example, `/path/to/subdirectory`). Make sure
+that other SMB clients in your network can also mount
+this path.
+
+To copy all the data in the subdirectory, DataSync must
+be able to mount the SMB share and access all of its
+data. For more information, see [Required permissions](#configuring-smb-permissions "#configuring-smb-permissions"). 5. For the Kerberos options, do the following:
+
+    * `--kerberos-principal`: Specify a
+     principal in your Kerberos realm that has
+     permission to access the files, folders, and file
+     metadata in your SMB file server.
+
+
+    A Kerberos principal might look like
+     `HOST/kerberosuser@MYDOMAIN.ORG`.
+
+
+    Principal names are case sensitive. Your DataSync
+     task execution will fail if the principal that you
+     specify for this option doesn’t exactly match the
+     principal that you use to create the keytab
+     file.
+    * `--kerberos-keytab`: Specify a
+     keytab file that includes mappings between your
+     Kerberos principal and encryption keys.
+    * `--kerberos-krb5-conf`: Specify a
+     `krb5.conf` file that defines your
+     Kerberos realm configuration.
+    * (Optional) `--dns-ip-addresses`:
+     Specify up to two IPv4 addresses for the DNS
+     servers that your SMB file server belongs to.
+
+
+    If you have multiple domains in your
+     environment, configuring this parameter makes sure
+     that DataSync connects to the right SMB file
+     server.
+
+6. (Optional) Add the `--version` option if
+   you want DataSync to use a specific SMB version. For more
+   information, see [Supported SMB versions](#configuring-smb-version "#configuring-smb-version").
+7. Run the `create-location-smb`
+   command.
+
+If the command is successful, you get a response that
+shows you the ARN of the location that you created. For
+example:
+
+```
+{
+    "arn:aws:datasync:us-east-1:123456789012:location/loc-01234567890example"
+}
+```

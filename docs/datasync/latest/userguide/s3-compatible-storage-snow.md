@@ -167,6 +167,122 @@ hypervisor that you're deploying the agent on:
 3. Configure your network to allow the following traffic between the agent and
    your Amazon S3 compatible storage:
 
-| From           | To                                                                                                                                              | Protocol and port |
-| -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| DataSync agent | A virtual network interface (VNI) for an `s3api` endpoint on your device or cluster. If you have a cluster, it can be any `s3api` endpoint VNI. | TCP 443 (HTTPS)   | If you need to find a VNI on your device or cluster, see [describing your virtual network interfaces](../../../snowball/latest/developer-guide/using-ec2-edge-client.md#ec2-edge-describe-vnic "../../../snowball/latest/developer-guide/using-ec2-edge-client.md#ec2-edge-describe-vnic") on Snowball Edge. 4. [Choose a service endpoint](choose-service-endpoint.md "choose-service-endpoint.md") that the agent uses to communicate with the DataSync service. 5. [Activate your agent](activate-agent.md "activate-agent.md"). ## Configuring the source location for your transfer After you create your agent, you can configure the source location for your DataSync transfer. ###### Note The following instructions assume that you're transferring from Amazon S3 compatible storage, but you can also use this location for a transfer destination. ###### To configure the source location by using the DataSync console 1. Open the AWS DataSync console at [https://console.aws.amazon.com/datasync/](https://console.aws.amazon.com/datasync/ "https://console.aws.amazon.com/datasync/"). 2. In the left navigation pane, expand **Data transfer**. Choose **Tasks**, and then choose **Create task**. 3. On the **Configure source location** page, choose **Create a new location**. 4. For **Location type**, choose **Object storage**. 5. For **Agents**, choose the DataSync agent that you created in your on-premises storage environment. 6. For **Server**, enter the VNI for the `s3api` endpoint that's used by your Amazon S3 compatible storage. If you have a Snowball Edge cluster instead of a single device, you can specify any of the cluster's `s3api` endpoint VNIs. 7. For **Bucket name**, enter the name of the Amazon S3 compatible storage bucket that you're transferring objects from. 8. For **Folder**, enter an object prefix. DataSync only transfers objects with this prefix. 9. To configure the DataSync connection to the Snowball Edge device or cluster, expand **Additional settings** and do the following: 1. For **Server protocol**, choose **HTTPS**. 2. For **Server port**, enter `443`. 3. For **Certificate**, choose the certificate file for the [s3api endpoint connection](#get-certificate-snowballedge "#get-certificate-snowballedge"). 10. Select **Requires credentials**, and enter the **Access key** and **Secret key** to [access the Amazon S3 compatible storage bucket](#get-credentials-snowballedge "#get-credentials-snowballedge") on your Snowball Edge device or cluster. 11. Choose **Next**. ## Configuring the destination location for your transfer Your transfer's destination location must be in the same AWS Region and AWS account where you created your agent. **Before you begin**: Make sure you've [configured the source location](#s3-compatible-storage-source-location "#s3-compatible-storage-source-location") for your transfer. ###### To configure the destination location for your transfer by using the DataSync console 1. On the **Configure destination location** page, choose **Create a new location** or **Choose an existing location** for the AWS storage resource where you're transferring objects to. If you're creating a new location, see one of the following topics: <br>• [Amazon S3](create-s3-location.md "create-s3-location.md") <br>• [Amazon EFS](create-efs-location.md "create-efs-location.md") <br>• [FSx for Windows File Server](create-fsx-location.md "create-fsx-location.md") <br>• [FSx for Lustre](create-lustre-location.md "create-lustre-location.md") <br>• [FSx for OpenZFS](create-openzfs-location.md "create-openzfs-location.md") <br>• [FSx for ONTAP](create-ontap-location.md "create-ontap-location.md") 2. When you're done configuring the destination location, choose **Next**. ## Configuring your transfer settings With DataSync, you can specify a transfer schedule, customize how your data integrity is verified, and specify whether you want to transfer only a subset of objects, among other options. **Before you begin**: Make sure you've [configured the destination location](#s3-compatible-storage-destination-location "#s3-compatible-storage-destination-location") for your transfer. ###### To configure your transfer settings by using the DataSync console 1. On the **Configure settings** page, change the transfer settings or use the defaults. For more information about these settings, see [Choosing what AWS DataSync transfers](task-options.md "task-options.md"). 2. Choose **Next**. 3. Review your transfer details, and then choose **Create task**. ## Starting your transfer After you create your transfer task, you're ready to start moving data. For instructions on starting a task by using the DataSync console or AWS CLI, see [Starting your task](run-task.md#starting-task "run-task.md#starting-task"). ## Limitations <br>• If your source storage system uses the NFS protocol (such as Amazon EFS), DataSync can't transfer files with hard links to a Snowball Edge device. <br>• DataSync can’t transfer objects that are longer than 1,024 bytes from a Snowball Edge device to an S3 bucket. For more information, see the _[Amazon S3 User Guide](../../../AmazonS3/latest/userguide/object-keys.md "../../../AmazonS3/latest/userguide/object-keys.md")_. |
+| From           | To                                                                                                                                                       | Protocol and port |
+| -------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- |
+| DataSync agent | A virtual network interface (VNI) for an<br>`s3api` endpoint on your device or cluster.<br>If you have a cluster, it can be any `s3api`<br>endpoint VNI. | TCP 443 (HTTPS)   |
+
+If you need to find a VNI on your device or cluster, see [describing your virtual network interfaces](../../../snowball/latest/developer-guide/using-ec2-edge-client.md#ec2-edge-describe-vnic "../../../snowball/latest/developer-guide/using-ec2-edge-client.md#ec2-edge-describe-vnic") on
+Snowball Edge. 4. [Choose a service endpoint](choose-service-endpoint.md "choose-service-endpoint.md") that
+the agent uses to communicate with the DataSync service. 5. [Activate your agent](activate-agent.md "activate-agent.md").
+
+## Configuring
+
+the source location for your transfer
+
+After you create your agent, you can configure the source location for your DataSync
+transfer.
+
+###### Note
+
+The following instructions assume that you're transferring from Amazon S3 compatible
+storage, but you can also use this location for a transfer destination.
+
+###### To configure the source location by using the DataSync console
+
+1. Open the AWS DataSync console at [https://console.aws.amazon.com/datasync/](https://console.aws.amazon.com/datasync/ "https://console.aws.amazon.com/datasync/").
+2. In the left navigation pane, expand **Data transfer**. Choose
+   **Tasks**, and then choose **Create
+   task**.
+3. On the **Configure source location** page, choose
+   **Create a new location**.
+4. For **Location type**, choose **Object
+   storage**.
+5. For **Agents**, choose the DataSync agent that you created in your on-premises
+   storage environment.
+6. For **Server**, enter the VNI for the `s3api`
+   endpoint that's used by your Amazon S3 compatible storage.
+
+If you have a Snowball Edge cluster instead of a single device, you can
+specify any of the cluster's `s3api` endpoint VNIs. 7. For **Bucket name**, enter the name of the Amazon S3 compatible
+storage bucket that you're transferring objects from. 8. For **Folder**, enter an object
+prefix.
+
+DataSync only transfers objects with this prefix. 9. To configure the DataSync connection to the Snowball Edge device or cluster,
+expand **Additional settings** and do the following:
+
+    1. For **Server protocol**, choose
+     **HTTPS**.
+    2. For **Server port**, enter
+     `443`.
+    3. For **Certificate**, choose the certificate file for
+     the [s3api
+     endpoint connection](#get-certificate-snowballedge "#get-certificate-snowballedge").
+
+10. Select **Requires credentials**, and enter the
+    **Access key** and **Secret key** to [access the Amazon S3 compatible storage
+    bucket](#get-credentials-snowballedge "#get-credentials-snowballedge") on your Snowball Edge device or cluster.
+11. Choose **Next**.
+
+## Configuring the destination
+
+location for your transfer
+
+Your transfer's destination location must be in the same AWS Region and
+AWS account where you created your agent.
+
+**Before you begin**: Make sure you've [configured
+the source location](#s3-compatible-storage-source-location "#s3-compatible-storage-source-location") for your transfer.
+
+###### To configure the destination location for your transfer by using the DataSync
+
+console
+
+1. On the **Configure destination location** page, choose
+   **Create a new location** or **Choose an existing
+   location** for the AWS storage resource where you're transferring
+   objects to.
+
+If you're creating a new location, see one of the following topics:
+
+    * [Amazon S3](create-s3-location.md "create-s3-location.md")
+    * [Amazon EFS](create-efs-location.md "create-efs-location.md")
+    * [FSx for Windows File Server](create-fsx-location.md "create-fsx-location.md")
+    * [FSx for Lustre](create-lustre-location.md "create-lustre-location.md")
+    * [FSx for OpenZFS](create-openzfs-location.md "create-openzfs-location.md")
+    * [FSx for ONTAP](create-ontap-location.md "create-ontap-location.md")
+
+2. When you're done configuring the destination location, choose
+   **Next**.
+
+## Configuring your transfer
+
+settings
+
+With DataSync, you can specify a transfer schedule, customize how your data integrity is
+verified, and specify whether you want to transfer only a subset of objects, among other
+options.
+
+**Before you begin**: Make sure you've [configured the destination
+location](#s3-compatible-storage-destination-location "#s3-compatible-storage-destination-location") for your transfer.
+
+###### To configure your transfer settings by using the DataSync console
+
+1. On the **Configure settings** page, change the transfer
+   settings or use the defaults.
+
+For more information about these settings, see [Choosing what AWS DataSync transfers](task-options.md "task-options.md"). 2. Choose **Next**. 3. Review your transfer details, and then choose **Create
+task**.
+
+## Starting your transfer
+
+After you create your transfer task, you're ready to start moving data. For
+instructions on starting a task by using the DataSync console or AWS CLI, see [Starting your task](run-task.md#starting-task "run-task.md#starting-task").
+
+## Limitations
+
+- If your source storage system uses the NFS protocol (such as Amazon EFS), DataSync
+  can't transfer files with hard links to a Snowball Edge device.
+- DataSync can’t transfer objects that are longer than 1,024 bytes from a
+  Snowball Edge device to an S3 bucket. For more information, see the
+  _[Amazon S3 User
+  Guide](../../../AmazonS3/latest/userguide/object-keys.md "../../../AmazonS3/latest/userguide/object-keys.md")_.

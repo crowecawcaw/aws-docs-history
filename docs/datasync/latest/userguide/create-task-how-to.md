@@ -123,9 +123,54 @@ You're ready to [start your task](run-task.md "run-task.md").
 When you create a DataSync task, you can check its status to see if it's ready to
 run.
 
-| Console status | API status    | Description                                                                                                                                                                                                                                   |
-| -------------- | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Available      | `AVAILABLE`   | The task is ready to start transferring data.                                                                                                                                                                                                 |
-| Running        | `RUNNING`     | A task execution is in progress. For more information, see [Task execution statuses](run-task.md#understand-task-execution-statuses "run-task.md#understand-task-execution-statuses").                                                        |
-| Unavailable    | `UNAVAILABLE` | A DataSync agent used by the task is offline. For more information, see [What do I do if my agent is offline?](troubleshooting-datasync-agents.md#troubleshoot-agent-offline "troubleshooting-datasync-agents.md#troubleshoot-agent-offline") |
-| Queued         | `QUEUED`      | Another task execution that uses the same DataSync agent is in progress. For more information, see [Knowing when your task is queued](run-task.md#queue-task-execution "run-task.md#queue-task-execution").                                   | ## Partitioning large datasets with multiple tasks If you're transferring a large dataset, such as [migrating](datasync-large-migration.md "datasync-large-migration.md") millions of files or objects, we recommend partitioning your dataset with multiple DataSync tasks. Partitioning your source data across multiple tasks (and possibly [agents](do-i-need-datasync-agent.md#multiple-agents "do-i-need-datasync-agent.md#multiple-agents"), depending on your locations) helps reduce the time it takes DataSync to prepare and transfer your data. Consider some of the ways that you can partition a large dataset across several DataSync tasks: <br>• Create tasks that transfer separate folders. For example, you might create two tasks that target `/FolderA` and `/FolderB`, respectively, in your source storage. <br>• Create tasks that transfer subsets of files, objects, and folders by using a [manifest](transferring-with-manifest.md "transferring-with-manifest.md") or [filters](filtering.md "filtering.md"). Be mindful that this approach can increase the I/O operations on your storage and affect your network bandwidth. For more information, see the blog on [How to accelerate your data transfers with DataSync scale out architectures](https://aws.amazon.com/blogs/storage/how-to-accelerate-your-data-transfers-with-aws-datasync-scale-out-architectures/ "https://aws.amazon.com/blogs/storage/how-to-accelerate-your-data-transfers-with-aws-datasync-scale-out-architectures/"). ## Segmenting transferred data with multiple tasks If you're transferring different sets of data to the same destination, you can create multiple tasks to help segment the data that you transfer. For example, if you're transferring to the same S3 bucket named `MyBucket`, you can create different prefixes in the bucket that correspond to each task. This approach prevents file name conflicts the datasets and allows you to set different permissions for each prefix. Here's how you might set this up: 1. Create three prefixes in the destination `MyBucket` named `task1`, `task2`, and `task3`: <br>• `s3://MyBucket/task1` <br>• `s3://MyBucket/task2` <br>• `s3://MyBucket/task3` 2. Create three DataSync tasks named `task1`, `task2`, and `task3` that transfer to the corresponding prefix in `MyBucket`. |
+| Console status | API status    | Description                                                                                                                                                                                                                                         |
+| -------------- | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Available      | `AVAILABLE`   | The task is ready to start transferring data.                                                                                                                                                                                                       |
+| Running        | `RUNNING`     | A task execution is in progress. For more information, see [Task execution statuses](run-task.md#understand-task-execution-statuses "run-task.md#understand-task-execution-statuses").                                                              |
+| Unavailable    | `UNAVAILABLE` | A DataSync agent used by the task is offline. For more information,<br>see [What do I do if my agent is<br>offline?](troubleshooting-datasync-agents.md#troubleshoot-agent-offline "troubleshooting-datasync-agents.md#troubleshoot-agent-offline") |
+| Queued         | `QUEUED`      | Another task execution that uses the same DataSync agent is in<br>progress. For more information, see [Knowing when your task is queued](run-task.md#queue-task-execution "run-task.md#queue-task-execution").                                      |
+
+## Partitioning large datasets with multiple
+
+tasks
+
+If you're transferring a large dataset, such as [migrating](datasync-large-migration.md "datasync-large-migration.md") millions of files or objects, we
+recommend partitioning your dataset with multiple DataSync tasks. Partitioning your source
+data across multiple tasks (and possibly [agents](do-i-need-datasync-agent.md#multiple-agents "do-i-need-datasync-agent.md#multiple-agents"),
+depending on your locations) helps reduce the time it takes DataSync to prepare and
+transfer your data.
+
+Consider some of the ways that you can partition a large dataset across several DataSync
+tasks:
+
+- Create tasks that transfer separate folders. For example, you might create two
+  tasks that target `/FolderA` and `/FolderB`, respectively,
+  in your source storage.
+- Create tasks that transfer subsets of files, objects, and folders by using a
+  [manifest](transferring-with-manifest.md "transferring-with-manifest.md") or [filters](filtering.md "filtering.md").
+
+Be mindful that this approach can increase the I/O operations on your storage and
+affect your network bandwidth. For more information, see the blog on [How to accelerate your data transfers with DataSync scale out
+architectures](https://aws.amazon.com/blogs/storage/how-to-accelerate-your-data-transfers-with-aws-datasync-scale-out-architectures/ "https://aws.amazon.com/blogs/storage/how-to-accelerate-your-data-transfers-with-aws-datasync-scale-out-architectures/").
+
+## Segmenting transferred data with
+
+multiple tasks
+
+If you're transferring different sets of data to the same destination, you can create
+multiple tasks to help segment the data that you transfer.
+
+For example, if you're transferring to the same S3 bucket named `MyBucket`,
+you can create different prefixes in the bucket that correspond to each task. This
+approach prevents file name conflicts the datasets and allows you to set different
+permissions for each prefix. Here's how you might set this up:
+
+1. Create three prefixes in the destination `MyBucket` named
+   `task1`, `task2`, and `task3`:
+   - `s3://MyBucket/task1`
+   - `s3://MyBucket/task2`
+   - `s3://MyBucket/task3`
+
+2. Create three DataSync tasks named `task1`, `task2`, and
+   `task3` that transfer to the corresponding prefix in
+   `MyBucket`.
