@@ -156,8 +156,154 @@ You can also run the scripts from your local machine.
    - Boto (minimum version 1.15)
    - GitHub scripts
 
-| Platform | Setup instructions                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Windows  | 1. Install Python 3 ([https://www.python.org/downloads/windows/](https://www.python.org/downloads/windows/ "https://www.python.org/downloads/windows/")). 2. Open a command prompt. 3. To install Boto, run: `pip install boto3` 4. Download the script source code from GitHub ([https://github.com/aws-samples/amazon-detective-multiaccount-scripts](https://github.com/aws-samples/amazon-detective-multiaccount-scripts "https://github.com/aws-samples/amazon-detective-multiaccount-scripts")). |
-| Mac      | 1. Install Python 3 ([https://www.python.org/downloads/mac-osx/](https://www.python.org/downloads/macos/ "https://www.python.org/downloads/macos/")). 2. Open a command prompt. 3. To install Boto, run: `pip install boto3` 4. Download the script source code from GitHub ([https://github.com/aws-samples/amazon-detective-multiaccount-scripts](https://github.com/aws-samples/amazon-detective-multiaccount-scripts "https://github.com/aws-samples/amazon-detective-multiaccount-scripts")).     |
-| Linux    | 1. To install Python 3, run one of the following: <br>• `sudo apt-get -y install install python3-pip python3 git` <br>• `sudo yum install git python` 2. To install Boto, run: `sudo pip install boto3` 3. Clone the script source code from [https://github.com/aws-samples/amazon-detective-multiaccount-scripts](https://github.com/aws-samples/amazon-detective-multiaccount-scripts "https://github.com/aws-samples/amazon-detective-multiaccount-scripts").                                      | ## Creating a `.csv` list of member accounts to add or remove To identify the member accounts to add to or remove from the behavior graphs, you provide a `.csv` file that contains the list of accounts. List each account on a separate line. Each member account entry contains the AWS account ID and the account's root user email address. See the following example: `111122223333,srodriguez@example.com 444455556666,rroe@example.com` ## Running `enableDetective.py` You can run the `enableDetective.py` script from an EC2 instance or your local machine. ###### To run `enableDetective.py` 1. Copy the `.csv` file to the `amazon-detective-multiaccount-scripts` directory on your EC2 instance or local machine. 2. Change to the `amazon-detective-multiaccount-scripts` directory. 3. Run the `enableDetective.py` script. ``enableDetective.py --master_account `administratorAccountID` --assume_role `roleName` --input_file `inputFileName` --tags `tagValueList` --enabled_regions `regionList`  --disable_email`` When you run the script, replace the following values: `administratorAccountID` The AWS account ID for the administrator account. `roleName` The name of the AWS role to assume in the administrator account and each member account. `inputFileName` The name of the `.csv` file containing the list of member accounts to add to the administrator account's behavior graphs. `tagValueList` (Optional) A comma-separated list of tag values to assign to a new behavior graph. For each tag value, the format is ``key`=`value``. For example: `--tags Department=Finance,Geo=Americas` `regionList` (Optional) A comma-separated list of Regions in which to add the member accounts to the administrator account's behavior graph. For example: `--enabled_regions us-east-1,us-east-2,us-west-2` The administrator account might not already have Detective enabled in a Region. In that case, the script enables Detective and creates a new behavior graph for the administrator account. If you do not provide a list of Regions, then the script acts across all Regions that Detective supports. `--disable_email` (Optional) If included, Detective does not send invitation emails to the member accounts. ## Running `disableDetective.py` You can run the `disableDetective.py` script from an EC2 instance or your local machine. ###### To run `disableDetective.py` 1. Copy the `.csv` file to the `amazon-detective-multiaccount-scripts` directory. 2. To use the `.csv` file to delete the listed member accounts from the administrator account's behavior graphs across a specified list of Regions, run the `disableDetective.py` script as follows: `` disabledetective.py --master_account `administratorAccountID` --assume_role `roleName` --input_file `inputFileName` --disabled_regions `regionList` `` 3. To disable Detective for the administrator account across all Regions, run the `disableDetective.py` script with the `--delete-master` flag. ``disabledetective.py --master_account `administratorAccountID` --assume_role `roleName` --input_file `inputFileName` --disabled_regions `regionList` --delete_master`` When you run the script, replace the following values: `administratorAccountID` The AWS account ID for the administrator account. `roleName` The name of the AWS role to assume in the administrator account and each member account. `inputFileName` The name of the `.csv` file containing the list of member accounts to remove from the administrator account's behavior graphs. You must provide a `.csv` file even if you are disabling Detective. `regionList` (Optional) A comma-separated list of Regions in which to do one of the following: <br>• Remove the member accounts from the administrator account's behavior graphs. <br>• If the `--delete-master` flag is included, disable Detective. For example: `--disabled_regions us-east-1,us-east-2,us-west-2` If you do not provide a list of Regions, then the script acts across all Regions that Detective supports. |
+| Platform | Setup instructions                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Windows  | 1. Install Python 3 ([https://www.python.org/downloads/windows/](https://www.python.org/downloads/windows/ "https://www.python.org/downloads/windows/")).<br>2. Open a command prompt.<br>3. To install Boto, run: `pip install boto3`<br>4. Download the script source code from GitHub ([https://github.com/aws-samples/amazon-detective-multiaccount-scripts](https://github.com/aws-samples/amazon-detective-multiaccount-scripts "https://github.com/aws-samples/amazon-detective-multiaccount-scripts")). |
+| Mac      | 1. Install Python 3 ([https://www.python.org/downloads/mac-osx/](https://www.python.org/downloads/macos/ "https://www.python.org/downloads/macos/")).<br>2. Open a command prompt.<br>3. To install Boto, run: `pip install boto3`<br>4. Download the script source code from GitHub ([https://github.com/aws-samples/amazon-detective-multiaccount-scripts](https://github.com/aws-samples/amazon-detective-multiaccount-scripts "https://github.com/aws-samples/amazon-detective-multiaccount-scripts")).     |
+| Linux    | 1. To install Python 3, run one of the following:<br>• `sudo apt-get -y install install python3-pip python3 git`<br>• `sudo yum install git python`<br>2. To install Boto, run: `sudo pip install boto3`<br>3. Clone the script source code from [https://github.com/aws-samples/amazon-detective-multiaccount-scripts](https://github.com/aws-samples/amazon-detective-multiaccount-scripts "https://github.com/aws-samples/amazon-detective-multiaccount-scripts").                                           |
+
+## Creating a `.csv` list of member
+
+accounts to add or remove
+
+To identify the member accounts to add to or remove from the behavior graphs, you provide a
+`.csv` file that contains the list of accounts.
+
+List each account on a separate line. Each member account entry contains the AWS account
+ID and the account's root user email address.
+
+See the following example:
+
+```
+111122223333,srodriguez@example.com
+444455556666,rroe@example.com
+```
+
+## Running
+
+`enableDetective.py`
+
+You can run the `enableDetective.py` script from an EC2 instance or your
+local machine.
+
+###### To run `enableDetective.py`
+
+1. Copy the `.csv` file to the
+   `amazon-detective-multiaccount-scripts` directory on your EC2 instance or
+   local machine.
+2. Change to the `amazon-detective-multiaccount-scripts` directory.
+3. Run the `enableDetective.py` script.
+
+```
+enableDetective.py --master_account `administratorAccountID` --assume_role `roleName` --input_file `inputFileName` --tags `tagValueList` --enabled_regions `regionList`  --disable_email
+```
+
+When you run the script, replace the following values:
+
+`administratorAccountID`
+
+The AWS account ID for the administrator account.
+
+`roleName`
+
+The name of the AWS role to assume in the administrator account and each member
+account.
+
+`inputFileName`
+
+The name of the `.csv` file containing the list of member accounts to
+add to the administrator account's behavior graphs.
+
+`tagValueList`
+
+(Optional) A comma-separated list of tag values to assign to a new behavior graph.
+
+For each tag value, the format is
+``key`=`value``. For
+example:
+
+```
+--tags Department=Finance,Geo=Americas
+```
+
+`regionList`
+
+(Optional) A comma-separated list of Regions in which to add the member accounts to the
+administrator account's behavior graph. For example:
+
+```
+--enabled_regions us-east-1,us-east-2,us-west-2
+```
+
+The administrator account might not already have Detective enabled in a Region. In that case,
+the script enables Detective and creates a new behavior graph for the administrator
+account.
+
+If you do not provide a list of Regions, then the script acts across all Regions that
+Detective supports.
+
+`--disable_email`
+
+(Optional) If included, Detective does not send invitation emails to the member
+accounts.
+
+## Running
+
+`disableDetective.py`
+
+You can run the `disableDetective.py` script from an EC2 instance or your
+local machine.
+
+###### To run `disableDetective.py`
+
+1. Copy the `.csv` file to the
+   `amazon-detective-multiaccount-scripts` directory.
+2. To use the `.csv` file to delete the listed member accounts from the
+   administrator account's behavior graphs across a specified list of Regions, run the
+   `disableDetective.py` script as follows:
+
+```
+disabledetective.py --master_account `administratorAccountID` --assume_role `roleName` --input_file `inputFileName` --disabled_regions `regionList`
+```
+
+3. To disable Detective for the administrator account across all Regions, run the
+   `disableDetective.py` script with the `--delete-master`
+   flag.
+
+```
+disabledetective.py --master_account `administratorAccountID` --assume_role `roleName` --input_file `inputFileName` --disabled_regions `regionList` --delete_master
+```
+
+When you run the script, replace the following values:
+
+`administratorAccountID`
+
+The AWS account ID for the administrator account.
+
+`roleName`
+
+The name of the AWS role to assume in the administrator account and each member
+account.
+
+`inputFileName`
+
+The name of the `.csv` file containing the list of member accounts to
+remove from the administrator account's behavior graphs.
+
+You must provide a `.csv` file even if you are disabling Detective.
+
+`regionList`
+
+(Optional) A comma-separated list of Regions in which to do one of the following:
+
+- Remove the member accounts from the administrator account's behavior graphs.
+- If the `--delete-master` flag is included, disable Detective.
+
+For example:
+
+```
+--disabled_regions us-east-1,us-east-2,us-west-2
+```
+
+If you do not provide a list of Regions, then the script acts across all Regions that
+Detective supports.
