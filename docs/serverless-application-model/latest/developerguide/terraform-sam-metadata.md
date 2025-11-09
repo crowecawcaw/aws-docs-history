@@ -16,15 +16,81 @@ resource type used with Terraform projects.
 
 ## Arguments
 
-| Argument               | Description                                                                                                                                                                                                                                                                                                        |
-| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `built_output_path`    | The path to your AWS Lambda function's built artifacts.                                                                                                                                                                                                                                                            |
-| `docker_build_args`    | Decoded string of the Docker build arguments JSON object. This argument is optional.                                                                                                                                                                                                                               |
-| `docker_context`       | The path to the directory containing the Docker image build context.                                                                                                                                                                                                                                               |
-| `docker_file`          | The path to the Docker file. This path is relative to the `docker_context` path. This argument is optional. Default value is `Dockerfile`.                                                                                                                                                                         |
-| `docker_tag`           | The value of the created Docker image tag. This value is optional.                                                                                                                                                                                                                                                 |
-| `depends_on`           | The path to the building resource for your Lambda function or layer. To learn more, see [The **depends_on** argument](https://developer.hashicorp.com/terraform/language/meta-arguments/depends_on "https://developer.hashicorp.com/terraform/language/meta-arguments/depends_on") in the _Terraform registry_.    |
-| `original_source_code` | The path to where your Lambda function is defined. This value can be a string, array of strings, or a decoded JSON object as a string. <br>• For string arrays, only the first value is used since multiple code paths are not supported. <br>• For JSON objects, the `source_code_property` must also be defined. |
-| `resource_name`        | The Lambda function name.                                                                                                                                                                                                                                                                                          |
-| `resource_type`        | The format of your Lambda function package type. Accepted values are: <br>• `IMAGE_LAMBDA_FUNCTION` <br>• `LAMBDA_LAYER` <br>• `ZIP_LAMBDA_FUNCTION`                                                                                                                                                               |
-| `source_code_property` | The path to the Lambda resource code in the JSON object. Define this property when `original_source_code` is a JSON object.                                                                                                                                                                                        | ## Examples ### sam metadata resource referencing a Lambda function using the ZIP package type `# Lambda function resource resource "aws_lambda_function" "tf_lambda_func" { filename = "${path.module}/python/hello-world.zip" handler = "index.lambda_handler" runtime = "python3.8" function_name = "function_example" role = aws_iam_role.iam_for_lambda.arn depends_on = [ null_resource.build_lambda_function # function build logic ] } # sam metadata resource resource "null_resource" "sam_metadata_function_example" { triggers = { resource_name = "aws_lambda_function.function_example" resource_type = "ZIP_LAMBDA_FUNCTION" original_source_code = "${path.module}/python" built_output_path = "${path.module}/building/function_example" } depends_on = [ null_resource.build_lambda_function # function build logic ] }` ### sam metadata resource referencing a Lambda function using the image package type `resource "null_resource" "sam_metadata_function { triggers = { resource_name = "aws_lambda_function.image_function" resource_type = "IMAGE_LAMBDA_FUNCTION" docker_context = local.lambda_src_path docker_file = "Dockerfile" docker_build_args = jsonencode(var.build_args) docker_tag = "latest" } }` ### sam metadata resource referencing a Lambda layer `resource "null_resource" "sam_metadata_layer1" { triggers = { resource_name = "aws_lambda_layer_version.layer" resource_type = "LAMBDA_LAYER" original_source_code = local.layer_src built_output_path = "${path.module}/${layer_build_path}" } depends_on = [null_resource.layer_build] }` |
+| Argument               | Description                                                                                                                                                                                                                                                                                                               |
+| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `built_output_path`    | The path to your AWS Lambda function's built artifacts.                                                                                                                                                                                                                                                                   |
+| `docker_build_args`    | Decoded string of the Docker build arguments JSON object. This argument is<br>optional.                                                                                                                                                                                                                                   |
+| `docker_context`       | The path to the directory containing the Docker image build context.                                                                                                                                                                                                                                                      |
+| `docker_file`          | The path to the Docker file. This path is relative to the<br>`docker_context` path.<br>This argument is optional. Default value is `Dockerfile`.                                                                                                                                                                          |
+| `docker_tag`           | The value of the created Docker image tag. This value is optional.                                                                                                                                                                                                                                                        |
+| `depends_on`           | The path to the building resource for your Lambda function or layer. To learn<br>more, see [The \*_depends_on_<br>• argument](https://developer.hashicorp.com/terraform/language/meta-arguments/depends_on "https://developer.hashicorp.com/terraform/language/meta-arguments/depends_on") in the _Terraform registry_.   |
+| `original_source_code` | The path to where your Lambda function is defined. This value can be a string,<br>array of strings, or a decoded JSON object as a string.<br>• For string arrays, only the first value is used since multiple code paths<br>are not supported.<br>• For JSON objects, the `source_code_property` must also be<br>defined. |
+| `resource_name`        | The Lambda function name.                                                                                                                                                                                                                                                                                                 |
+| `resource_type`        | The format of your Lambda function package type. Accepted values are:<br>• `IMAGE_LAMBDA_FUNCTION`<br>• `LAMBDA_LAYER`<br>• `ZIP_LAMBDA_FUNCTION`                                                                                                                                                                         |
+| `source_code_property` | The path to the Lambda resource code in the JSON object. Define this property when<br>`original_source_code` is a JSON object.                                                                                                                                                                                            |
+
+## Examples
+
+### sam metadata resource referencing
+
+a Lambda function using the ZIP package type
+
+```
+# Lambda function resource
+resource "aws_lambda_function" "tf_lambda_func" {
+  filename = "${path.module}/python/hello-world.zip"
+  handler = "index.lambda_handler"
+  runtime = "python3.8"
+  function_name = "function_example"
+  role = aws_iam_role.iam_for_lambda.arn
+  depends_on = [
+    null_resource.build_lambda_function # function build logic
+  ]
+}
+
+# sam metadata resource
+resource "null_resource" "sam_metadata_function_example" {
+  triggers = {
+    resource_name = "aws_lambda_function.function_example"
+    resource_type = "ZIP_LAMBDA_FUNCTION"
+    original_source_code = "${path.module}/python"
+    built_output_path = "${path.module}/building/function_example"
+  }
+  depends_on = [
+    null_resource.build_lambda_function # function build logic
+  ]
+}
+```
+
+### sam metadata resource referencing
+
+a Lambda function using the image package type
+
+```
+resource "null_resource" "sam_metadata_function {
+  triggers = {
+    resource_name = "aws_lambda_function.image_function"
+    resource_type = "IMAGE_LAMBDA_FUNCTION"
+    docker_context = local.lambda_src_path
+    docker_file = "Dockerfile"
+    docker_build_args = jsonencode(var.build_args)
+    docker_tag = "latest"
+  }
+}
+```
+
+### sam metadata resource referencing
+
+a Lambda layer
+
+```
+resource "null_resource" "sam_metadata_layer1" {
+  triggers = {
+    resource_name = "aws_lambda_layer_version.layer"
+    resource_type = "LAMBDA_LAYER"
+    original_source_code = local.layer_src
+    built_output_path = "${path.module}/${layer_build_path}"
+  }
+  depends_on = [null_resource.layer_build]
+}
+```

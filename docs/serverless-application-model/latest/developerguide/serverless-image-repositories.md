@@ -38,7 +38,7 @@ Amazon ECR Public replaced DockerHub starting with the AWS SAM CLI version 1.22
 an earlier version of the AWS SAM CLI, we recommend that you upgrade.
 
 | Runtime                 | Amazon ECR Public                                                                                                                                 |
-| ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Custom runtime (AL2023) | [public.ecr.aws/sam/build-provided.al2023](https://gallery.ecr.aws/sam/build-provided.al2023 "https://gallery.ecr.aws/sam/build-provided.al2023") |
 | Custom runtime (AL2)    | [public.ecr.aws/sam/build-provided.al2](https://gallery.ecr.aws/sam/build-provided.al2 "https://gallery.ecr.aws/sam/build-provided.al2")          |
 | Custom runtime          | [public.ecr.aws/sam/build-provided](https://gallery.ecr.aws/sam/build-provided "https://gallery.ecr.aws/sam/build-provided")                      |
@@ -62,4 +62,21 @@ an earlier version of the AWS SAM CLI, we recommend that you upgrade.
 | Python 3.8              | [public.ecr.aws/sam/build-python3.8](https://gallery.ecr.aws/sam/build-python3.8 "https://gallery.ecr.aws/sam/build-python3.8")                   |
 | Ruby 3.4                | [public.ecr.aws/sam/build-ruby3.4](https://gallery.ecr.aws/sam/build-ruby3.4 "https://gallery.ecr.aws/sam/build-ruby3.4")                         |
 | Ruby 3.3                | [public.ecr.aws/sam/build-ruby3.3](https://gallery.ecr.aws/sam/build-ruby3.3 "https://gallery.ecr.aws/sam/build-ruby3.3")                         |
-| Ruby 3.2                | [public.ecr.aws/sam/build-ruby3.2](https://gallery.ecr.aws/sam/build-ruby3.2 "https://gallery.ecr.aws/sam/build-ruby3.2")                         | ## Examples The following two example commands build applications using container images from the image repository: **Build a Node.js 22 application using a container image pulled from Amazon ECR**: ``` `$` `sam build --use-container --build-image `public.ecr.aws/sam/build-nodejs22.x`` ``` **Build a function resource using the Python 3.13 container image pulled from Amazon ECR**: ``` `$` `sam build --use-container --build-image `Function1=public.ecr.aws/sam/build-python3.13`` ``` |
+| Ruby 3.2                | [public.ecr.aws/sam/build-ruby3.2](https://gallery.ecr.aws/sam/build-ruby3.2 "https://gallery.ecr.aws/sam/build-ruby3.2")                         |
+
+## Examples
+
+The following two example commands build applications using container images from the
+image repository:
+
+**Build a Node.js 22 application using a container image pulled from Amazon ECR**:
+
+```
+`$` `sam build --use-container --build-image `public.ecr.aws/sam/build-nodejs22.x``
+```
+
+**Build a function resource using the Python 3.13 container image pulled from Amazon ECR**:
+
+```
+`$` `sam build --use-container --build-image `Function1=public.ecr.aws/sam/build-python3.13``
+```

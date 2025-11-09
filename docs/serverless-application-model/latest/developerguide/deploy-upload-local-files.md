@@ -238,24 +238,37 @@ Application files and Docker images are supported.
 
 The following is a list of the supported resource types and their properties:
 
-| Resource                                    | Properties                                                                              |
-| ------------------------------------------- | --------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `AWS::ApiGateway::RestApi`                  | `BodyS3Location`                                                                        |
-| `AWS::ApiGatewayV2::Api`                    | `BodyS3Location`                                                                        |
-| `AWS::AppSync:FunctionConfiguration`        | `CodeS3Location` `RequestMappingTemplateS3Location` `ResponseMappingTemplateS3Location` |
-| `AWS::AppSync::GraphQLSchema`               | `DefinitionS3Location`                                                                  |
-| `AWS::AppSync::Resolver`                    | `CodeS3Location` `RequestMappingTemplateS3Location` `ResponseMappingTemplateS3Location` |
-| `AWS::CloudFormation::ModuleVersion`        | `ModulePackage`                                                                         |
-| `AWS::CloudFormation::ResourceVersion`      | `SchemaHandlerPackage`                                                                  |
-| `AWS::ECR::Repository`                      | `RepositoryName`                                                                        |
-| `AWS::ElasticBeanstalk::ApplicationVersion` | `SourceBundle`                                                                          |
-| `AWS::Glue::Job`                            | `Command.ScriptLocation`                                                                |
-| `AWS::Lambda::Function`                     | `Code` `Code.ImageUri`                                                                  |
-| `AWS::Lambda::LayerVersion`                 | `Content`                                                                               |
-| `AWS::Serverless::Api`                      | `DefinitionUri`                                                                         |
-| `AWS::Serverless::Function`                 | `CodeUri` `ImageUri`                                                                    |
-| `AWS::Serverless::GraphQLApi`               | `SchemaUri` `Function.CodeUri` `Resolver.CodeUri`                                       |
-| `AWS::Serverless::HttpApi`                  | `DefinitionUri`                                                                         |
-| `AWS::Serverless::LayerVersion`             | `ContentUri`                                                                            |
-| `AWS::Serverless::StateMachine`             | `DefinitionUri`                                                                         |
-| `AWS::StepFunctions::StateMachine`          | `DefinitionS3Location`                                                                  | ### AWS CloudFormation macros Files referenced using the `AWS::Include` transform macro are supported. ## Learn more To learn more about the `AWS::Include` transform, see [AWS::Include transform](../../../AWSCloudFormation/latest/UserGuide/create-reusable-transform-function-snippets-and-add-to-your-template-with-aws-include-transform.md "../../../AWSCloudFormation/latest/UserGuide/create-reusable-transform-function-snippets-and-add-to-your-template-with-aws-include-transform.md") in the _AWS CloudFormation User Guide_. To see an example of using the `AWS::Include` transform in an AWS SAM template, see the [API Gateway HTTP API to SQS](https://serverlessland.com/patterns/apigw-sqs "https://serverlessland.com/patterns/apigw-sqs") pattern at _Serverless Land_. |
+| Resource                                    | Properties                                                                                    |
+| ------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| `AWS::ApiGateway::RestApi`                  | `BodyS3Location`                                                                              |
+| `AWS::ApiGatewayV2::Api`                    | `BodyS3Location`                                                                              |
+| `AWS::AppSync:FunctionConfiguration`        | `CodeS3Location`<br>`RequestMappingTemplateS3Location`<br>`ResponseMappingTemplateS3Location` |
+| `AWS::AppSync::GraphQLSchema`               | `DefinitionS3Location`                                                                        |
+| `AWS::AppSync::Resolver`                    | `CodeS3Location`<br>`RequestMappingTemplateS3Location`<br>`ResponseMappingTemplateS3Location` |
+| `AWS::CloudFormation::ModuleVersion`        | `ModulePackage`                                                                               |
+| `AWS::CloudFormation::ResourceVersion`      | `SchemaHandlerPackage`                                                                        |
+| `AWS::ECR::Repository`                      | `RepositoryName`                                                                              |
+| `AWS::ElasticBeanstalk::ApplicationVersion` | `SourceBundle`                                                                                |
+| `AWS::Glue::Job`                            | `Command.ScriptLocation`                                                                      |
+| `AWS::Lambda::Function`                     | `Code`<br>`Code.ImageUri`                                                                     |
+| `AWS::Lambda::LayerVersion`                 | `Content`                                                                                     |
+| `AWS::Serverless::Api`                      | `DefinitionUri`                                                                               |
+| `AWS::Serverless::Function`                 | `CodeUri`<br>`ImageUri`                                                                       |
+| `AWS::Serverless::GraphQLApi`               | `SchemaUri`<br>`Function.CodeUri`<br>`Resolver.CodeUri`                                       |
+| `AWS::Serverless::HttpApi`                  | `DefinitionUri`                                                                               |
+| `AWS::Serverless::LayerVersion`             | `ContentUri`                                                                                  |
+| `AWS::Serverless::StateMachine`             | `DefinitionUri`                                                                               |
+| `AWS::StepFunctions::StateMachine`          | `DefinitionS3Location`                                                                        |
+
+### AWS CloudFormation macros
+
+Files referenced using the `AWS::Include` transform macro are
+supported.
+
+## Learn more
+
+To learn more about the `AWS::Include` transform, see [AWS::Include transform](../../../AWSCloudFormation/latest/UserGuide/create-reusable-transform-function-snippets-and-add-to-your-template-with-aws-include-transform.md "../../../AWSCloudFormation/latest/UserGuide/create-reusable-transform-function-snippets-and-add-to-your-template-with-aws-include-transform.md") in the _AWS CloudFormation User Guide_.
+
+To see an example of using the `AWS::Include` transform in an AWS SAM template,
+see the [API Gateway HTTP API to
+SQS](https://serverlessland.com/patterns/apigw-sqs "https://serverlessland.com/patterns/apigw-sqs") pattern at _Serverless Land_.

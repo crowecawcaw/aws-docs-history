@@ -85,7 +85,7 @@ These revisions to the AWS SAM template do the following:
   the one used in the example.
 
 | Deployment Preference Type    |
-| ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| ----------------------------- |
 | Canary10Percent30Minutes      |
 | Canary10Percent5Minutes       |
 | Canary10Percent10Minutes      |
@@ -94,4 +94,90 @@ These revisions to the AWS SAM template do the following:
 | Linear10PercentEvery1Minute   |
 | Linear10PercentEvery2Minutes  |
 | Linear10PercentEvery3Minutes  |
-| AllAtOnce                     | <br>• `Alarms`: These are CloudWatch alarms that are triggered by any errors raised by the deployment. When encountered, they automatically roll back your deployment. For example, if the updated code you're deploying causes errors within the application. Another example is if any [AWS Lambda](../../../lambda/latest/dg/monitoring-functions-metrics.md "../../../lambda/latest/dg/monitoring-functions-metrics.md") or custom CloudWatch metrics that you specified have breached the alarm threshold. <br>• `Hooks`: These are pre-traffic and post-traffic test functions that run checks before traffic shifting starts to the new version, and after traffic shifting completes. + `PreTraffic`: Before traffic shifting starts, CodeDeploy invokes the pre-traffic hook Lambda function. This Lambda function must call back to CodeDeploy and indicate success or failure. If the function fails, it aborts and reports a failure back to AWS CloudFormation. If the function succeeds, CodeDeploy proceeds to traffic shifting. + `PostTraffic`: After traffic shifting completes, CodeDeploy invokes the post-traffic hook Lambda function. This is similar to the pre-traffic hook, where the function must call back to CodeDeploy to report a success or failure. Use post-traffic hooks to run integration tests or other validation actions. For more information, see [SAM Reference to Safe Deployments](https://github.com/aws/serverless-application-model/blob/master/docs/safe_lambda_deployments.rst "https://github.com/aws/serverless-application-model/blob/master/docs/safe_lambda_deployments.rst"). ## Gradually deploying a Lambda function for the first time When deploying a Lambda function gradually, CodeDeploy requires a previously deployed function version to shift traffic from. Therefore, your first deployment should be accomplished in two steps: <br>• **Step 1**: Deploy your Lambda function and automatically create aliases with `AutoPublishAlias`. <br>• **Step 2**: Perform your gradual deployment with `DeploymentPreference`. Performing your first gradual deployment in two steps gives CodeDeploy a previous Lambda function version to shift traffic from. ### Step 1: Deploy your Lambda function `Resources: MyLambdaFunction: Type: AWS::Serverless::Function Properties: Handler: index.handler Runtime: nodejs20.x CodeUri: s3://bucket/code.zip AutoPublishAlias: live` ### Step 2: Perform your gradual deployment `Resources: MyLambdaFunction: Type: AWS::Serverless::Function Properties: Handler: index.handler Runtime: nodejs20.x CodeUri: s3://bucket/code.zip AutoPublishAlias: live DeploymentPreference: Type: Canary10Percent10Minutes Alarms: # A list of alarms that you want to monitor <br>• !Ref AliasErrorMetricGreaterThanZeroAlarm <br>• !Ref LatestVersionErrorMetricGreaterThanZeroAlarm Hooks: # Validation Lambda functions that are run before and after traffic shifting PreTraffic: !Ref PreTrafficLambdaFunction PostTraffic: !Ref PostTrafficLambdaFunction` ## Learn more For a hands-on example of configuring a gradual deployment, see [Module 5 - Canary Deployments](https://s12d.com/sam-ws-en-canaries "https://s12d.com/sam-ws-en-canaries") in _The Complete AWS SAM Workshop_. |
+| AllAtOnce                     |
+
+- `Alarms`: These are CloudWatch alarms that are triggered by
+  any errors raised by the deployment. When encountered, they automatically roll back your
+  deployment. For example, if the updated code you're deploying causes errors within the
+  application. Another example is if any [AWS Lambda](../../../lambda/latest/dg/monitoring-functions-metrics.md "../../../lambda/latest/dg/monitoring-functions-metrics.md") or custom CloudWatch metrics that you specified have breached the alarm
+  threshold.
+- `Hooks`: These are pre-traffic and post-traffic test
+  functions that run checks before traffic shifting starts to the new version, and after
+  traffic shifting completes.
+
+      + `PreTraffic`: Before traffic shifting starts,
+       CodeDeploy invokes the pre-traffic hook Lambda function. This Lambda function must call
+       back to CodeDeploy and indicate success or failure. If the function fails, it aborts and
+       reports a failure back to AWS CloudFormation. If the function succeeds, CodeDeploy proceeds to traffic
+       shifting.
+      + `PostTraffic`: After traffic shifting completes,
+       CodeDeploy invokes the post-traffic hook Lambda function. This is similar to the pre-traffic
+       hook, where the function must call back to CodeDeploy to report a success or failure. Use
+       post-traffic hooks to run integration tests or other validation actions.
+
+  For more information, see [SAM Reference to Safe Deployments](https://github.com/aws/serverless-application-model/blob/master/docs/safe_lambda_deployments.rst "https://github.com/aws/serverless-application-model/blob/master/docs/safe_lambda_deployments.rst").
+
+## Gradually deploying a Lambda
+
+function for the first time
+
+When deploying a Lambda function gradually, CodeDeploy requires a previously deployed function
+version to shift traffic from. Therefore, your first deployment should be accomplished in two
+steps:
+
+- **Step 1**: Deploy your Lambda function and automatically
+  create aliases with `AutoPublishAlias`.
+- **Step 2**: Perform your gradual deployment with
+  `DeploymentPreference`.
+
+Performing your first gradual deployment in two steps gives CodeDeploy a previous Lambda
+function version to shift traffic from.
+
+### Step 1: Deploy your
+
+Lambda function
+
+```
+Resources:
+MyLambdaFunction:
+  Type: AWS::Serverless::Function
+  Properties:
+    Handler: index.handler
+    Runtime: nodejs20.x
+    CodeUri: s3://bucket/code.zip
+
+    AutoPublishAlias: live
+```
+
+### Step 2: Perform
+
+your gradual deployment
+
+```
+Resources:
+MyLambdaFunction:
+  Type: AWS::Serverless::Function
+  Properties:
+    Handler: index.handler
+    Runtime: nodejs20.x
+    CodeUri: s3://bucket/code.zip
+
+    AutoPublishAlias: live
+
+    DeploymentPreference:
+      Type: Canary10Percent10Minutes
+      Alarms:
+        # A list of alarms that you want to monitor
+        - !Ref AliasErrorMetricGreaterThanZeroAlarm
+        - !Ref LatestVersionErrorMetricGreaterThanZeroAlarm
+      Hooks:
+        # Validation Lambda functions that are run before and after traffic shifting
+        PreTraffic: !Ref PreTrafficLambdaFunction
+        PostTraffic: !Ref PostTrafficLambdaFunction
+```
+
+## Learn more
+
+For a hands-on example of configuring a gradual deployment, see
+[Module 5 - Canary Deployments](https://s12d.com/sam-ws-en-canaries "https://s12d.com/sam-ws-en-canaries") in _The Complete AWS SAM
+Workshop_.
