@@ -45,15 +45,28 @@ Before you can enable internet access, you need the following items:
 
 
         Private MSKC route table| Property | Value |
+        | --- | --- |
+        | Name tag | We recommend that you give this route table a descriptive<br>name tag to help you identify it. For example, **Private MSKC**. |
+        | Associated subnets | Your private subnets |
+        | A route to enable internet access for MSK Connect | • **Destination**:<br>0.0.0.0/0<br>• **Target**: Your NAT<br>gateway ID. For example, *nat-12a345bc6789efg1h*. |
+        | A local route for internal traffic | • **Destination**:<br>10.0.0.0/16. This value may differ depending on your<br>VPC's CIDR block.<br>• **Target**:<br>Local |
+        2. Follow the instructions in [Create
+         a custom route table](../../../vpc/latest/userguide/VPC_Internet_Gateway.md#Add_IGW_Routing "../../../vpc/latest/userguide/VPC_Internet_Gateway.md#Add_IGW_Routing") to create a route table for your public subnet.
+         When you create the table, enter a descriptive name in the **Name
+         tag** field to help you identify which subnet the table is
+         associated with. For example, **Public
+         MSKC**.
+        3. Configure your **Public MSKC** route table using
+         the following settings.
 
-    | --- | --- |
-    | Name tag | We recommend that you give this route table a descriptive name tag to help you identify it. For example, **Private MSKC**. |
-    | Associated subnets | Your private subnets |
-    | A route to enable internet access for MSK Connect | <br>• **Destination**: 0.0.0.0/0 <br>• **Target**: Your NAT gateway ID. For example, _nat-12a345bc6789efg1h_. |
-    | A local route for internal traffic | <br>• **Destination**: 10.0.0.0/16. This value may differ depending on your VPC's CIDR block. <br>• **Target**: Local | 2. Follow the instructions in [Create a custom route table](../../../vpc/latest/userguide/VPC_Internet_Gateway.md#Add_IGW_Routing "../../../vpc/latest/userguide/VPC_Internet_Gateway.md#Add_IGW_Routing") to create a route table for your public subnet. When you create the table, enter a descriptive name in the **Name tag** field to help you identify which subnet the table is associated with. For example, **Public MSKC**. 3. Configure your **Public MSKC** route table using the following settings.
-    | Property | Value |
-    | --- | --- |
-    | Name tag | **Public MSKC** or a different descriptive name that you choose |
-    | Associated subnets | Your public subnet with NAT gateway |
-    | A route to enable internet access for MSK Connect | <br>• **Destination**: 0.0.0.0/0 <br>• **Target**: Your internet gateway ID. For example, _igw-1a234bc5_. |
-    | A local route for internal traffic | <br>• **Destination**: 10.0.0.0/16. This value may differ depending on your VPC's CIDR block. <br>• **Target**: Local | Now that you have enabled internet access for Amazon MSK Connect you are ready to create a connector.
+
+
+
+        | Property | Value |
+        | --- | --- |
+        | Name tag | **Public MSKC*<br>• or a different<br>descriptive name that you choose |
+        | Associated subnets | Your public subnet with NAT gateway |
+        | A route to enable internet access for MSK Connect | • **Destination**:<br>0.0.0.0/0<br>• **Target**: Your<br>internet gateway ID. For example, *igw-1a234bc5*. |
+        | A local route for internal traffic | • **Destination**:<br>10.0.0.0/16. This value may differ depending on your<br>VPC's CIDR block.<br>• **Target**:<br>Local |
+
+    Now that you have enabled internet access for Amazon MSK Connect you are ready to create a connector.

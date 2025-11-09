@@ -13,8 +13,16 @@ encryption between clients and brokers. The following table shows the possible
 combinations.
 
 | Authentication  | Client-broker encryption options | Broker-broker encryption |
-| --------------- | -------------------------------- | ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| --------------- | -------------------------------- | ------------------------ |
 | Unauthenticated | TLS, PLAINTEXT, TLS_PLAINTEXT    | Can be on or off.        |
 | mTLS            | TLS, TLS_PLAINTEXT               | Must be on.              |
 | SASL/SCRAM      | TLS                              | Must be on.              |
-| SASL/IAM        | TLS                              | Must be on.              | When client-broker encryption is set to `TLS_PLAINTEXT` and client-authentication is set to `mTLS`, Amazon MSK creates two types of listeners for clients to connect to: one listener for clients to connect using mTLS authentication with TLS Encryption, and another for clients to connect without authentication or encryption (plaintext). For more information about security settings, see [Security in Amazon MSK](security.md "security.md"). |
+| SASL/IAM        | TLS                              | Must be on.              |
+
+When client-broker encryption is set to `TLS_PLAINTEXT` and
+client-authentication is set to `mTLS`, Amazon MSK creates two types of listeners
+for clients to connect to: one listener for clients to connect using mTLS authentication
+with TLS Encryption, and another for clients to connect without authentication or
+encryption (plaintext).
+
+For more information about security settings, see [Security in Amazon MSK](security.md "security.md").

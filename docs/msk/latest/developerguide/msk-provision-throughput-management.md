@@ -31,7 +31,7 @@ kafka.m7g.2xlarge or larger), and you can specify maximum throughput as shown in
 the following table.
 
 | broker size        | Maximum storage throughput (MiB/second) |
-| ------------------ | --------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------------ | --------------------------------------- |
 | kafka.m5.4xlarge   | 593                                     |
 | kafka.m5.8xlarge   | 850                                     |
 | kafka.m5.12xlarge  | 1000                                    |
@@ -41,11 +41,45 @@ the following table.
 | kafka.m7g.4xlarge  | 625                                     |
 | kafka.m7g.8xlarge  | 1000                                    |
 | kafka.m7g.12xlarge | 1000                                    |
-| kafka.m7g.16xlarge | 1000                                    | ## Measure storage throughput of a Amazon MSK cluster You can use the `VolumeReadBytes` and `VolumeWriteBytes` metrics to measure the average storage throughput of a cluster. The sum of these two metrics gives the average storage throughput in bytes. To get the average storage throughput for a cluster, set these two metrics to SUM and the period to 1 minute, then use the following formula. `Average storage throughput in MiB/s = (Sum(VolumeReadBytes) + Sum(VolumeWriteBytes)) / (60 * 1024 * 1024)` For information about the `VolumeReadBytes` and `VolumeWriteBytes` metrics, see [PER_BROKER Level monitoring](metrics-details.md#broker-metrics "metrics-details.md#broker-metrics"). ## Configuration update values for provisioned storage in a Amazon MSK cluster You can update your Amazon MSK configuration either before or after you turn on provisioned throughput. However, you won't see the desired throughput until you perform both actions: update the `num.replica.fetchers` configuration parameter and turn on provisioned throughput. In the default Amazon MSK configuration, `num.replica.fetchers` has a value of 2. To update your `num.replica.fetchers`, you can use the suggested values from the following table. These values are for guidance purposes. We recommend that you adjust these values based on your use case. |
-| broker size        | num.replica.fetchers                    |
-| ---                | ---                                     |
-| kafka.m5.4xlarge   | 4                                       |
-| kafka.m5.8xlarge   | 8                                       |
-| kafka.m5.12xlarge  | 14                                      |
-| kafka.m5.16xlarge  | 16                                      |
-| kafka.m5.24xlarge  | 16                                      | Your updated configuration may not take effect for up to 24 hours, and may take longer when a source volume is not fully utilized. However, transitional volume performance at least equals the performance of source storage volumes during the migration period. A fully-utilized 1 TiB volume typically takes about six hours to migrate to an updated configuration.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| kafka.m7g.16xlarge | 1000                                    |
+
+## Measure storage throughput of a Amazon MSK cluster
+
+You can use the `VolumeReadBytes` and `VolumeWriteBytes`
+metrics to measure the average storage throughput of a cluster. The sum of these two
+metrics gives the average storage throughput in bytes. To get the average storage
+throughput for a cluster, set these two metrics to SUM and the period to 1 minute,
+then use the following formula.
+
+```
+Average storage throughput in MiB/s = (Sum(VolumeReadBytes) + Sum(VolumeWriteBytes)) / (60 * 1024 * 1024)
+```
+
+For information about the `VolumeReadBytes` and
+`VolumeWriteBytes` metrics, see [PER_BROKER Level monitoring](metrics-details.md#broker-metrics "metrics-details.md#broker-metrics").
+
+## Configuration update values for provisioned storage in a Amazon MSK cluster
+
+You can update your Amazon MSK configuration either before or after you turn on provisioned throughput. However,
+you won't see the desired throughput until you perform both actions: update the
+`num.replica.fetchers` configuration parameter and turn on
+provisioned throughput.
+
+In the default Amazon MSK configuration, `num.replica.fetchers` has a value
+of 2. To update your `num.replica.fetchers`, you can use the suggested
+values from the following table. These values are for guidance purposes. We
+recommend that you adjust these values based on your use case.
+
+| broker size       | num.replica.fetchers |
+| ----------------- | -------------------- |
+| kafka.m5.4xlarge  | 4                    |
+| kafka.m5.8xlarge  | 8                    |
+| kafka.m5.12xlarge | 14                   |
+| kafka.m5.16xlarge | 16                   |
+| kafka.m5.24xlarge | 16                   |
+
+Your updated configuration may not take effect for up to 24 hours, and may take
+longer when a source volume is not fully utilized. However, transitional volume
+performance at least equals the performance of source storage volumes during the
+migration period. A fully-utilized 1 TiB volume typically takes about six hours to
+migrate to an updated configuration.

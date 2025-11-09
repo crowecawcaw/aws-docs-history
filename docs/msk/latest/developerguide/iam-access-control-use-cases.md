@@ -13,16 +13,16 @@ see [Semantics of IAM authorization policy actions and resources](kafka-actions.
 Actions are denied by default. You must explicitly allow every action that you
 want to authorize the client to perform.
 
-| Use case                                | Required actions                                                                                                                                             |
-| --------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Admin                                   | `kafka-cluster:*`                                                                                                                                            |
-| Create a topic                          | `kafka-cluster:Connect` `kafka-cluster:CreateTopic`                                                                                                          |
-| Produce data                            | `kafka-cluster:Connect` `kafka-cluster:DescribeTopic` `kafka-cluster:WriteData`                                                                              |
-| Consume data                            | `kafka-cluster:Connect` `kafka-cluster:DescribeTopic` `kafka-cluster:DescribeGroup` `kafka-cluster:AlterGroup` `kafka-cluster:ReadData`                      |
-| Produce data idempotently               | `kafka-cluster:Connect` `kafka-cluster:DescribeTopic` `kafka-cluster:WriteData` `kafka-cluster:WriteDataIdempotently`                                        |
-| Produce data transactionally            | `kafka-cluster:Connect` `kafka-cluster:DescribeTopic` `kafka-cluster:WriteData` `kafka-cluster:DescribeTransactionalId` `kafka-cluster:AlterTransactionalId` |
-| Describe the configuration of a cluster | `kafka-cluster:Connect` `kafka-cluster:DescribeClusterDynamicConfiguration`                                                                                  |
-| Update the configuration of a cluster   | `kafka-cluster:Connect` `kafka-cluster:DescribeClusterDynamicConfiguration` `kafka-cluster:AlterClusterDynamicConfiguration`                                 |
-| Describe the configuration of a topic   | `kafka-cluster:Connect` `kafka-cluster:DescribeTopicDynamicConfiguration`                                                                                    |
-| Update the configuration of a topic     | `kafka-cluster:Connect` `kafka-cluster:DescribeTopicDynamicConfiguration` `kafka-cluster:AlterTopicDynamicConfiguration`                                     |
-| Alter a topic                           | `kafka-cluster:Connect` `kafka-cluster:DescribeTopic` `kafka-cluster:AlterTopic`                                                                             |
+| Use case                                | Required actions                                                                                                                                                         |
+| --------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Admin                                   | `kafka-cluster:*`                                                                                                                                                        |
+| Create a topic                          | `kafka-cluster:Connect`<br>`kafka-cluster:CreateTopic`                                                                                                                   |
+| Produce data                            | `kafka-cluster:Connect`<br>`kafka-cluster:DescribeTopic`<br>`kafka-cluster:WriteData`                                                                                    |
+| Consume data                            | `kafka-cluster:Connect`<br>`kafka-cluster:DescribeTopic`<br>`kafka-cluster:DescribeGroup`<br>`kafka-cluster:AlterGroup`<br>`kafka-cluster:ReadData`                      |
+| Produce data idempotently               | `kafka-cluster:Connect`<br>`kafka-cluster:DescribeTopic`<br>`kafka-cluster:WriteData`<br>`kafka-cluster:WriteDataIdempotently`                                           |
+| Produce data transactionally            | `kafka-cluster:Connect`<br>`kafka-cluster:DescribeTopic`<br>`kafka-cluster:WriteData`<br>`kafka-cluster:DescribeTransactionalId`<br>`kafka-cluster:AlterTransactionalId` |
+| Describe the configuration of a cluster | `kafka-cluster:Connect`<br>`kafka-cluster:DescribeClusterDynamicConfiguration`                                                                                           |
+| Update the configuration of a cluster   | `kafka-cluster:Connect`<br>`kafka-cluster:DescribeClusterDynamicConfiguration`<br>`kafka-cluster:AlterClusterDynamicConfiguration`                                       |
+| Describe the configuration of a topic   | `kafka-cluster:Connect`<br>`kafka-cluster:DescribeTopicDynamicConfiguration`                                                                                             |
+| Update the configuration of a topic     | `kafka-cluster:Connect`<br>`kafka-cluster:DescribeTopicDynamicConfiguration`<br>`kafka-cluster:AlterTopicDynamicConfiguration`                                           |
+| Alter a topic                           | `kafka-cluster:Connect`<br>`kafka-cluster:DescribeTopic`<br>`kafka-cluster:AlterTopic`                                                                                   |
