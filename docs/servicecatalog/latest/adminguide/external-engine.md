@@ -83,58 +83,244 @@ The Lambda function must be named `ServiceCatalogExternalParameterParser`.
 }
 ```
 
-| **Field**              | **Type** | **Required** | **Description**                                                                                                                                                                                                         |
-| ---------------------- | -------- | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| artifact               | object   | Yes          | Details for the artifact to be parsed.                                                                                                                                                                                  |
-| artifact / path        | string   | Yes          | Location from where the parser downloads the artifact. For example, for `AWS_S3`, this is the Amazon S3 URI.                                                                                                            |
-| artifact / type        | string   | Yes          | Type of artifact. Allowed value: `AWS_S3`.                                                                                                                                                                              |
-| launchRole             | string   | No           | The Amazon Resource Name (ARN) of the launch role to assume when downloading the artifact. If no launch role is provided, the Lambda's execution role is used.                                                          | **Response syntax:** ``{ "parameters": [ { "key": "`string`" "`defaultValue`": "`string`", "type": "`string`", "description": "`string`", "isNoEcho": boolean }, ] }``                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| **Field**              | **Type** | **Required** | **Description**                                                                                                                                                                                                         |
-| ---                    | ---      | ---          | ---                                                                                                                                                                                                                     |
-| parameters             | list     | Yes          | The list of parameters that Service Catalog asks the end user to provide when provisioning a product or updating a provisioned product. If no parameters are defined in the artifact, an empty list is returned.        |
-| key                    | string   | Yes          | The parameter key.                                                                                                                                                                                                      |
-| defaultValue           | string   | No           | The default value of the parameter if the end user does not provide a value.                                                                                                                                            |
-| type                   | string   | Yes          | The expected type of the parameter value for the engine. For example, a string, boolean, or map. The allowed values are specific to each engine. Service Catalog passes each parameter value to the engine as a string. |
-| description            | string   | No           | Description for the parameter. It is recommended that this is user-friendly.                                                                                                                                            |
-| isNoEcho               | boolean  | no           | Determines if the parameter value is not echoed in logs. Default value is false (parameter values are echoed).                                                                                                          | ## Provisioning For the [ProvisionProduct](../dg/API_ProvisionProduct.md "../dg/API_ProvisionProduct.md") operation, Service Catalog delegates the actual provisioning of resources to the engine. The engine is responsible for interfacing with your IaC solution of choice (such as Terraform) to provision resources as defined in the artifact. The engine is also responsible for notifying Service Catalog of the result. Service Catalog sends all Provision requests to an Amazon SQS queue in your account named `ServiceCatalogExternalProvisionOperationQueue`. **Request syntax:** ``{ "token": "`string`", "operation": "`string`", "provisionedProductId": "`string`", "provisionedProductName": "`string`", "productId": "`string`", "provisioningArtifactId": "`string`", "recordId": "`string`", "launchRoleArn": "`string`", "artifact": { "path": "`string`", "type": "`string`" }, "identity": { "principal": "`string`", "awsAccountId": "`string`", "organizationId": "`string`" }, "parameters": [ { "key": "`string`", "value": "`string`" } ], "tags": [ { "key": "`string`", "value": "`string`" } ] }``                                                                                                                                                                                                                                                                                       |
-| **Field**              | **Type** | **Required** | **Description**                                                                                                                                                                                                         |
-| ---                    | ---      | ---          | ---                                                                                                                                                                                                                     |
-| token                  | string   | Yes          | The token that identifies this operation. The token must be returned to Service Catalog to notify of execution results.                                                                                                 |
-| operation              | string   | Yes          | This field must be `PROVISION_PRODUCT` for this operation.                                                                                                                                                              |
-| provisionedProductId   | string   | Yes          | ID of the provisioned product.                                                                                                                                                                                          |
-| provisionedProductName | string   | Yes          | Name of the provisioned product.                                                                                                                                                                                        |
-| productId              | string   | Yes          | ID of the product.                                                                                                                                                                                                      |
-| provisioningArtifactId | string   | Yes          | ID of the provisioning artifact.                                                                                                                                                                                        |
-| recordId               | string   | Yes          | ID of the Service Catalog record for this operation.                                                                                                                                                                    |
-| launchRoleArn          | string   | Yes          | Amazon Resource Name (ARN) for the IAM role to use for provisioning resources.                                                                                                                                          |
-| artifact               | object   | Yes          | Details for the artifact that defines how the resources are provisioned.                                                                                                                                                |
-| artifact / path        | string   | Yes          | Location from where the engine downloads the artifact. For example, for `AWS_S3`, this is the Amazon S3 URI.                                                                                                            |
-| artifact / type        | string   | Yes          | Type of artifact. Allowed value: `AWS_S3`.                                                                                                                                                                              |
-| identity               | string   | No           | The field is currently not used.                                                                                                                                                                                        |
-| parameters             | list     | Yes          | List of parameter key-value pairs the user entered to Service Catalog as inputs for this operation.                                                                                                                     |
-| tags                   | list     | Yes          | List of key-value-pairs the user entered to Service Catalog as tags to apply to the provisioned resources.                                                                                                              | **Workflow Result Notification:** Invoke the [NotifyProvisionProductEngineWorkflowResult](../dg/API_NotifyProvisionProductEngineWorkflowResult .md "../dg/API_NotifyProvisionProductEngineWorkflowResult .md") API with the response object specified on the API details page. ## Updating For the [UpdateProvisionedProduct](../dg/API_UpdateProvisionedProduct.md "../dg/API_UpdateProvisionedProduct.md") operation, Service Catalog delegates the actual updating of resources to the engine. The engine is responsible for interfacing with your IaC solution of choice (such as Terraform) to updating resources as defined in the artifact. The engine is also responsible for notifying Service Catalog of the result. Service Catalog sends all Update requests to an Amazon SQS queue in your account named `ServiceCatalogExternalUpdateOperationQueue`. **Request syntax:** ``{ "token": "`string`", "operation": "`string`", "provisionedProductId": "`string`", "provisionedProductName": "`string`", "productId": "string", "provisioningArtifactId": "`string`", "recordId": "`string`", "launchRoleArn": "`string`", "artifact": { "path": "`string`", "type": "`string`" }, "identity": { "principal": "`string`", "awsAccountId": "`string`", "organizationId": "`string`" }, "parameters": [ { "key": "`string`", "value": "`string`" } ], "tags": [ { "key": "`string`", "value": "`string`" } ] }`` |
-| **Field**              | **Type** | **Required** | **Description**                                                                                                                                                                                                         |
-| ---                    | ---      | ---          | ---                                                                                                                                                                                                                     |
-| token                  | string   | Yes          | The token that identifies this operation. The token must be returned to Service Catalog to notify of execution results.                                                                                                 |
-| operation              | string   | Yes          | This field must be `UPDATE_PROVISION_PRODUCT` for this operation.                                                                                                                                                       |
-| provisionedProductId   | string   | Yes          | ID of the provisioned product.                                                                                                                                                                                          |
-| provisionedProductName | string   | Yes          | Name of the provisioned product.                                                                                                                                                                                        |
-| productId              | string   | Yes          | ID of the product.                                                                                                                                                                                                      |
-| provisioningArtifactId | string   | Yes          | ID of the provisioning artifact.                                                                                                                                                                                        |
-| recordId               | string   | Yes          | ID of the Service Catalog record for this operation.                                                                                                                                                                    |
-| launchRoleArn          | string   | Yes          | Amazon Resource Name (ARN) for the IAM role to use for provisioning resources.                                                                                                                                          |
-| artifact               | object   | Yes          | Details for the artifact that defines how the resources are provisioned.                                                                                                                                                |
-| artifact / path        | string   | Yes          | Location from where the engine downloads the artifact. For example, for `AWS_S3`, this is the Amazon S3 URI.                                                                                                            |
-| artifact / type        | string   | Yes          | Type of artifact. Allowed value: `AWS_S3`.                                                                                                                                                                              |
-| identity               | string   | No           | The field is currently not used.                                                                                                                                                                                        |
-| parameters             | list     | Yes          | List of parameter key-value pairs the user entered to Service Catalog as inputs for this operation.                                                                                                                     |
-| tags                   | list     | Yes          | List of key-value-pairs the user entered to Service Catalog as tags to apply to the provisioned resources.                                                                                                              | **Workflow Result Notification:** Invoke the [NotifyUpdateProvisionedProductEngineWorkflowResult](../dg/API_NotifyUpdateProvisionedProductEngineWorkflowResult.md "../dg/API_NotifyUpdateProvisionedProductEngineWorkflowResult.md") API with the response object specified on the API details page. ## Terminating For the [TerminateProvisionedProduct](../dg/API_TerminateProvisionedProduct.md "../dg/API_TerminateProvisionedProduct.md") operation, Service Catalog delegates the actual terminating of resources to the engine. The engine is responsible for interfacing with your IaC solution of choice (such as Terraform) to terminate resources as defined in the artifact. The engine is also responsible for notifying Service Catalog of the result. Service Catalog sends all Terminate requests to an Amazon SQS queue in your account named `ServiceCatalogExternalTerminateOperationQueue`. **Request syntax:** ``{ "token": "`string`", "operation": "`string`", "provisionedProductId": "`string`", "provisionedProductName": "`string`", "recordId": "`string`", "launchRoleArn": "`string`", "identity": { "principal": "`string`", "awsAccountId": "`string`", "organizationId": "`string`" } }``                                                                                                                                                                                                |
-| **Field**              | **Type** | **Required** | **Description**                                                                                                                                                                                                         |
-| ---                    | ---      | ---          | ---                                                                                                                                                                                                                     |
-| token                  | string   | Yes          | The token that identifies this operation. The token must be returned to Service Catalog to notify of execution results.                                                                                                 |
-| operation              | string   | Yes          | This field must be `TERMINATE_PROVISION_PRODUCT` for this operation.                                                                                                                                                    |
-| provisionedProductId   | string   | Yes          | ID of the provisioned product.                                                                                                                                                                                          |
-| provisionedProductName | string   | Yes          | Name of the provisioned product.                                                                                                                                                                                        |
-| recordId               | string   | Yes          | ID of the Service Catalog record for this operation.                                                                                                                                                                    |
-| launchRoleArn          | string   | Yes          | Amazon Resource Name (ARN) for the IAM role to use for provisioning resources.                                                                                                                                          |
-| identity               | string   | No           | The field is currently not used.                                                                                                                                                                                        | **Workflow Result Notification:** Invoke the [NotifyTerminateProvisionedProductEngineWorkflowResult](../dg/API_NotifyTerminateProvisionedProductEngineWorkflowResult.md "../dg/API_NotifyTerminateProvisionedProductEngineWorkflowResult.md") API with the response object specified on the API details page. ## Tagging For managing tags through Resource Groups, your launch role need the following additional permission statements: `{ "Effect": "Allow", "Action": [ "resource-groups:CreateGroup", "resource-groups:ListGroupResources" ], "Resource": "*" }, { "Effect": "Allow", "Action": [ "tag:GetResources", "tag:GetTagKeys", "tag:GetTagValues", "tag:TagResources", "tag:UntagResources" ], "Resource": "*" }` ###### Note The launch role also needs tagging permissions on the specific resources in the artifact, such as `ec2:CreateTags`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| **Field**       | **Type** | **Required** | **Description**                                                                                                                                                   |
+| --------------- | -------- | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| artifact        | object   | Yes          | Details for the artifact to be parsed.                                                                                                                            |
+| artifact / path | string   | Yes          | Location from where the parser downloads the artifact. For example, for `AWS_S3`, this is the Amazon S3 URI.                                                      |
+| artifact / type | string   | Yes          | Type of artifact. Allowed value: `AWS_S3`.                                                                                                                        |
+| launchRole      | string   | No           | The Amazon Resource Name (ARN) of the launch role to assume when downloading the artifact.<br>If no launch role is provided, the Lambda's execution role is used. |
+
+**Response syntax:**
+
+```
+{
+    "parameters": [
+        {
+            "key": "`string`"
+            "`defaultValue`": "`string`",
+            "type": "`string`",
+            "description": "`string`",
+            "isNoEcho": boolean
+        },
+    ]
+}
+```
+
+| **Field**    | **Type** | **Required** | **Description**                                                                                                                                                                                                            |
+| ------------ | -------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| parameters   | list     | Yes          | The list of parameters that Service Catalog asks the end user to provide when provisioning a product or updating a provisioned product.<br>If no parameters are defined in the artifact, an empty list is returned.        |
+| key          | string   | Yes          | The parameter key.                                                                                                                                                                                                         |
+| defaultValue | string   | No           | The default value of the parameter if the end user does not provide a value.                                                                                                                                               |
+| type         | string   | Yes          | The expected type of the parameter value for the engine. For example, a string, boolean, or map.<br>The allowed values are specific to each engine. Service Catalog passes each parameter value to the engine as a string. |
+| description  | string   | No           | Description for the parameter. It is recommended that this is user-friendly.                                                                                                                                               |
+| isNoEcho     | boolean  | no           | Determines if the parameter value is not echoed in logs. Default value is false (parameter values are echoed).                                                                                                             |
+
+## Provisioning
+
+For the [ProvisionProduct](../dg/API_ProvisionProduct.md "../dg/API_ProvisionProduct.md") operation,
+Service Catalog delegates the actual provisioning of resources to the engine.
+The engine is responsible for interfacing with your IaC solution of choice (such as Terraform) to provision resources as defined in the artifact.
+The engine is also responsible for notifying Service Catalog of the result.
+
+Service Catalog sends all Provision requests to an Amazon SQS queue in your account named `ServiceCatalogExternalProvisionOperationQueue`.
+
+**Request syntax:**
+
+```
+{
+    "token": "`string`",
+    "operation": "`string`",
+    "provisionedProductId": "`string`",
+    "provisionedProductName": "`string`",
+    "productId": "`string`",
+    "provisioningArtifactId": "`string`",
+    "recordId": "`string`",
+    "launchRoleArn": "`string`",
+    "artifact": {
+        "path": "`string`",
+        "type": "`string`"
+    },
+    "identity": {
+        "principal": "`string`",
+        "awsAccountId": "`string`",
+        "organizationId": "`string`"
+    },
+    "parameters": [
+        {
+            "key": "`string`",
+            "value": "`string`"
+        }
+    ],
+    "tags": [
+        {
+            "key": "`string`",
+            "value": "`string`"
+        }
+    ]
+}
+```
+
+| **Field**              | **Type** | **Required** | **Description**                                                                                                         |
+| ---------------------- | -------- | ------------ | ----------------------------------------------------------------------------------------------------------------------- |
+| token                  | string   | Yes          | The token that identifies this operation. The token must be returned to Service Catalog to notify of execution results. |
+| operation              | string   | Yes          | This field must be `PROVISION_PRODUCT` for this operation.                                                              |
+| provisionedProductId   | string   | Yes          | ID of the provisioned product.                                                                                          |
+| provisionedProductName | string   | Yes          | Name of the provisioned product.                                                                                        |
+| productId              | string   | Yes          | ID of the product.                                                                                                      |
+| provisioningArtifactId | string   | Yes          | ID of the provisioning artifact.                                                                                        |
+| recordId               | string   | Yes          | ID of the Service Catalog record for this operation.                                                                    |
+| launchRoleArn          | string   | Yes          | Amazon Resource Name (ARN) for the IAM role to use for provisioning resources.                                          |
+| artifact               | object   | Yes          | Details for the artifact that defines how the resources are provisioned.                                                |
+| artifact / path        | string   | Yes          | Location from where the engine downloads the artifact. For example, for `AWS_S3`, this is the Amazon S3 URI.            |
+| artifact / type        | string   | Yes          | Type of artifact. Allowed value: `AWS_S3`.                                                                              |
+| identity               | string   | No           | The field is currently not used.                                                                                        |
+| parameters             | list     | Yes          | List of parameter key-value pairs the user entered to Service Catalog as inputs for this operation.                     |
+| tags                   | list     | Yes          | List of key-value-pairs the user entered to Service Catalog as tags to apply to the provisioned resources.              |
+
+**Workflow Result Notification:**
+
+Invoke the
+[NotifyProvisionProductEngineWorkflowResult](../dg/API_NotifyProvisionProductEngineWorkflowResult .md "../dg/API_NotifyProvisionProductEngineWorkflowResult .md")
+API with the response object specified on the API details page.
+
+## Updating
+
+For the [UpdateProvisionedProduct](../dg/API_UpdateProvisionedProduct.md "../dg/API_UpdateProvisionedProduct.md") operation,
+Service Catalog delegates the actual updating of resources to the engine.
+The engine is responsible for interfacing with your IaC solution of choice (such as Terraform) to updating resources as defined in the artifact.
+The engine is also responsible for notifying Service Catalog of the result.
+
+Service Catalog sends all Update requests to an Amazon SQS queue in your account named `ServiceCatalogExternalUpdateOperationQueue`.
+
+**Request syntax:**
+
+```
+{
+    "token": "`string`",
+    "operation": "`string`",
+    "provisionedProductId": "`string`",
+    "provisionedProductName": "`string`",
+    "productId": "string",
+    "provisioningArtifactId": "`string`",
+    "recordId": "`string`",
+    "launchRoleArn": "`string`",
+    "artifact": {
+        "path": "`string`",
+        "type": "`string`"
+    },
+    "identity": {
+        "principal": "`string`",
+        "awsAccountId": "`string`",
+        "organizationId": "`string`"
+    },
+    "parameters": [
+        {
+            "key": "`string`",
+            "value": "`string`"
+        }
+    ],
+    "tags": [
+        {
+            "key": "`string`",
+            "value": "`string`"
+        }
+    ]
+}
+```
+
+| **Field**              | **Type** | **Required** | **Description**                                                                                                         |
+| ---------------------- | -------- | ------------ | ----------------------------------------------------------------------------------------------------------------------- |
+| token                  | string   | Yes          | The token that identifies this operation. The token must be returned to Service Catalog to notify of execution results. |
+| operation              | string   | Yes          | This field must be `UPDATE_PROVISION_PRODUCT` for this operation.                                                       |
+| provisionedProductId   | string   | Yes          | ID of the provisioned product.                                                                                          |
+| provisionedProductName | string   | Yes          | Name of the provisioned product.                                                                                        |
+| productId              | string   | Yes          | ID of the product.                                                                                                      |
+| provisioningArtifactId | string   | Yes          | ID of the provisioning artifact.                                                                                        |
+| recordId               | string   | Yes          | ID of the Service Catalog record for this operation.                                                                    |
+| launchRoleArn          | string   | Yes          | Amazon Resource Name (ARN) for the IAM role to use for provisioning resources.                                          |
+| artifact               | object   | Yes          | Details for the artifact that defines how the resources are provisioned.                                                |
+| artifact / path        | string   | Yes          | Location from where the engine downloads the artifact. For example, for `AWS_S3`, this is the Amazon S3 URI.            |
+| artifact / type        | string   | Yes          | Type of artifact. Allowed value: `AWS_S3`.                                                                              |
+| identity               | string   | No           | The field is currently not used.                                                                                        |
+| parameters             | list     | Yes          | List of parameter key-value pairs the user entered to Service Catalog as inputs for this operation.                     |
+| tags                   | list     | Yes          | List of key-value-pairs the user entered to Service Catalog as tags to apply to the provisioned resources.              |
+
+**Workflow Result Notification:**
+
+Invoke the
+[NotifyUpdateProvisionedProductEngineWorkflowResult](../dg/API_NotifyUpdateProvisionedProductEngineWorkflowResult.md "../dg/API_NotifyUpdateProvisionedProductEngineWorkflowResult.md")
+API with the response object specified on the API details page.
+
+## Terminating
+
+For the [TerminateProvisionedProduct](../dg/API_TerminateProvisionedProduct.md "../dg/API_TerminateProvisionedProduct.md") operation,
+Service Catalog delegates the actual terminating of resources to the engine.
+The engine is responsible for interfacing with your IaC solution of choice (such as Terraform) to terminate resources as defined in the artifact.
+The engine is also responsible for notifying Service Catalog of the result.
+
+Service Catalog sends all Terminate requests to an Amazon SQS queue in your account named `ServiceCatalogExternalTerminateOperationQueue`.
+
+**Request syntax:**
+
+```
+{
+    "token": "`string`",
+    "operation": "`string`",
+    "provisionedProductId": "`string`",
+    "provisionedProductName": "`string`",
+    "recordId": "`string`",
+    "launchRoleArn": "`string`",
+    "identity": {
+        "principal": "`string`",
+        "awsAccountId": "`string`",
+        "organizationId": "`string`"
+    }
+}
+```
+
+| **Field**              | **Type** | **Required** | **Description**                                                                                                         |
+| ---------------------- | -------- | ------------ | ----------------------------------------------------------------------------------------------------------------------- |
+| token                  | string   | Yes          | The token that identifies this operation. The token must be returned to Service Catalog to notify of execution results. |
+| operation              | string   | Yes          | This field must be `TERMINATE_PROVISION_PRODUCT` for this operation.                                                    |
+| provisionedProductId   | string   | Yes          | ID of the provisioned product.                                                                                          |
+| provisionedProductName | string   | Yes          | Name of the provisioned product.                                                                                        |
+| recordId               | string   | Yes          | ID of the Service Catalog record for this operation.                                                                    |
+| launchRoleArn          | string   | Yes          | Amazon Resource Name (ARN) for the IAM role to use for provisioning resources.                                          |
+| identity               | string   | No           | The field is currently not used.                                                                                        |
+
+**Workflow Result Notification:**
+
+Invoke the
+[NotifyTerminateProvisionedProductEngineWorkflowResult](../dg/API_NotifyTerminateProvisionedProductEngineWorkflowResult.md "../dg/API_NotifyTerminateProvisionedProductEngineWorkflowResult.md")
+API with the response object specified on the API details page.
+
+## Tagging
+
+For managing tags through Resource Groups, your launch role need the following additional permission statements:
+
+```
+{
+    "Effect": "Allow",
+    "Action": [
+        "resource-groups:CreateGroup",
+        "resource-groups:ListGroupResources"
+    ],
+    "Resource": "*"
+},
+{
+    "Effect": "Allow",
+    "Action": [
+        "tag:GetResources",
+        "tag:GetTagKeys",
+        "tag:GetTagValues",
+        "tag:TagResources",
+        "tag:UntagResources"
+    ],
+    "Resource": "*"
+}
+```
+
+###### Note
+
+The launch role also needs tagging permissions on the specific resources in the artifact, such
+as `ec2:CreateTags`.
