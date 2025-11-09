@@ -24,7 +24,7 @@ table below to check the available entities.
 - [Track Event](https://developers.pendo.io/docs/?bash#events-grouped "https://developers.pendo.io/docs/?bash#events-grouped")
 
 | Entity                          | Can be Filtered | Supports Limit | Supports Order By | Supports Select \* | Supports Partitioning |
-| ------------------------------- | --------------- | -------------- | ----------------- | ------------------ | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------------------------- | --------------- | -------------- | ----------------- | ------------------ | --------------------- |
 | Feature                         | No              | No             | No                | Yes                | No                    |
 | Guide                           | No              | No             | No                | Yes                | No                    |
 | Page                            | No              | No             | No                | Yes                | No                    |
@@ -38,6 +38,63 @@ table below to check the available entities.
 | Account (Aggregation API)       | Yes             | No             | Yes               | Yes                | Yes                   |
 | Page Event (Aggregation API)    | Yes             | No             | Yes               | Yes                | Yes                   |
 | Poll Event (Aggregation API)    | Yes             | No             | Yes               | Yes                | Yes                   |
-| Track Event (Aggregation API)   | Yes             | No             | Yes               | Yes                | Yes                   | **Example** `Pendo_read = glueContext.create_dynamic_frame.from_options( connection_type="glue.spark.Pendo", connection_options={ "connectionName": "connectionName", "ENTITY_NAME": "feature", "API_VERSION": "v1", "INSTANCE_URL": "instanceUrl" }` ## Partitioning queries You can provide the additional Spark options `PARTITION_FIELD`, `LOWER_BOUND`, `UPPER_BOUND`, and `NUM_PARTITIONS` if you want to utilize concurrency in Spark. With these parameters, the original query would be split into `NUM_PARTITIONS` number of sub-queries that can be executed by Spark tasks concurrently. <br>• `PARTITION_FIELD`: the name of the field to be used to partition the query. <br>• `LOWER_BOUND`: an **inclusive** lower bound value of the chosen partition field. For the DateTime field, we accept the value in ISO format. Example of valid value: `"2024-07-01T00:00:00.000Z"` <br>• `UPPER_BOUND`: an **exclusive** upper bound value of the chosen partition field. <br>• `NUM_PARTITIONS`: the number of partitions. The following table describes the entity partitioning field support details: |
-| Entity name                     |                 | ---            |                   | Event              |                       | Feature Event                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| Guide Event                     |                 | Page Event     |                   | Poll Event         |                       | Track Event                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | Example: `pendo_read = glueContext.create_dynamic_frame.from_options( connection_type="glue.spark.pendo", connection_options={ "connectionName": "connectionName", "ENTITY_NAME": "event", "API_VERSION": "v1", "INSTANCE_URL": "instanceUrl" "NUM_PARTITIONS": "10", "PARTITION_FIELD": "appId" "LOWER_BOUND": "4656" "UPPER_BOUND": "7788" }` |
+| Track Event (Aggregation API)   | Yes             | No             | Yes               | Yes                | Yes                   |
+
+**Example**
+
+```
+Pendo_read = glueContext.create_dynamic_frame.from_options(
+    connection_type="glue.spark.Pendo",
+    connection_options={
+        "connectionName": "connectionName",
+        "ENTITY_NAME": "feature",
+        "API_VERSION": "v1",
+        "INSTANCE_URL": "instanceUrl"
+    }
+```
+
+## Partitioning queries
+
+You can provide the additional Spark options `PARTITION_FIELD`, `LOWER_BOUND`, `UPPER_BOUND`, and `NUM_PARTITIONS` if you want to utilize concurrency in Spark. With these parameters, the original query would be split into `NUM_PARTITIONS` number of sub-queries that can be executed by Spark tasks concurrently.
+
+- `PARTITION_FIELD`: the name of the field to be used to partition the query.
+- `LOWER_BOUND`: an **inclusive** lower bound value of the chosen partition field.
+
+For the DateTime field, we accept the value in ISO format.
+
+Example of valid value:
+
+```
+"2024-07-01T00:00:00.000Z"
+```
+
+- `UPPER_BOUND`: an **exclusive** upper bound value of the chosen partition field.
+- `NUM_PARTITIONS`: the number of partitions.
+
+The following table describes the entity partitioning field support details:
+
+| Entity name   |
+| ------------- |
+| Event         |
+| Feature Event |
+| Guide Event   |
+| Page Event    |
+| Poll Event    |
+| Track Event   |
+
+Example:
+
+```
+pendo_read = glueContext.create_dynamic_frame.from_options(
+    connection_type="glue.spark.pendo",
+    connection_options={
+        "connectionName": "connectionName",
+        "ENTITY_NAME": "event",
+        "API_VERSION": "v1",
+        "INSTANCE_URL": "instanceUrl"
+        "NUM_PARTITIONS": "10",
+        "PARTITION_FIELD": "appId"
+        "LOWER_BOUND": "4656"
+        "UPPER_BOUND": "7788"
+    }
+```

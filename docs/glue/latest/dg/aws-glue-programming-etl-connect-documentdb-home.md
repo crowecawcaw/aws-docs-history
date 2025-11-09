@@ -93,7 +93,7 @@ job.commit()
 The following Scala script demonstrates using connection types and connection options
 for reading and writing to Amazon DocumentDB.
 
-````
+```
 import com.amazonaws.services.glue.GlueContext
 import com.amazonaws.services.glue.MappingSpec
 import com.amazonaws.services.glue.errors.CallSite
@@ -127,13 +127,89 @@ object GlueApp {
   private def jsonOptions(uri: String): JsonOptions = {
     new JsonOptions(
       s"""{"uri": "${uri}",
-|"database":"test",
-|"collection":"coll",
-|"username": "username",
-|"password": "pwd",
-|"ssl":"true",
-|"ssl.domain_match":"false",
-|"partitioner": "MongoSamplePartitioner",
-|"partitionerOptions.partitionSizeMB": "10",
-|"partitionerOptions.partitionKey": "_id"}""".stripMargin) } } ``` ## Amazon DocumentDB connection option reference Designates a connection to Amazon DocumentDB (with MongoDB compatibility). Connection options differ for a source connection and a sink connection. ### "connectionType": "Documentdb" as source Use the following connection options with `"connectionType": "documentdb"` as a source: <br>• `"uri"`: (Required) The Amazon DocumentDB host to read from, formatted as `mongodb://<host>:<port>`. <br>• `"database"`: (Required) The Amazon DocumentDB database to read from. <br>• `"collection"`: (Required) The Amazon DocumentDB collection to read from. <br>• `"username"`: (Required) The Amazon DocumentDB user name. <br>• `"password"`: (Required) The Amazon DocumentDB password. <br>• `"ssl"`: (Required if using SSL) If your connection uses SSL, then you must include this option with the value `"true"`. <br>• `"ssl.domain_match"`: (Required if using SSL) If your connection uses SSL, then you must include this option with the value `"false"`. <br>• `"batchSize"`: (Optional): The number of documents to return per batch, used within the cursor of internal batches. <br>• `"partitioner"`: (Optional): The class name of the partitioner for reading input data from Amazon DocumentDB. The connector provides the following partitioners: + `MongoDefaultPartitioner` (default) (Not supported in AWS Glue 4.0) + `MongoSamplePartitioner` (Not supported in AWS Glue 4.0) + `MongoShardedPartitioner` + `MongoSplitVectorPartitioner` + `MongoPaginateByCountPartitioner` + `MongoPaginateBySizePartitioner` (Not supported in AWS Glue 4.0) <br>• `"partitionerOptions"` (Optional): Options for the designated partitioner. The following options are supported for each partitioner: + `MongoSamplePartitioner`: `partitionKey`, `partitionSizeMB`, `samplesPerPartition` + `MongoShardedPartitioner`: `shardkey` + `MongoSplitVectorPartitioner`: `partitionKey`, partitionSizeMB + `MongoPaginateByCountPartitioner`: `partitionKey`, `numberOfPartitions` + `MongoPaginateBySizePartitioner`: `partitionKey`, partitionSizeMB For more information about these options, see [Partitioner Configuration](https://docs.mongodb.com/spark-connector/master/configuration/#partitioner-conf "https://docs.mongodb.com/spark-connector/master/configuration/#partitioner-conf") in the MongoDB documentation. ### "connectionType": "Documentdb" as sink Use the following connection options with `"connectionType": "documentdb"` as a sink: <br>• `"uri"`: (Required) The Amazon DocumentDB host to write to, formatted as `mongodb://<host>:<port>`. <br>• `"database"`: (Required) The Amazon DocumentDB database to write to. <br>• `"collection"`: (Required) The Amazon DocumentDB collection to write to. <br>• `"username"`: (Required) The Amazon DocumentDB user name. <br>• `"password"`: (Required) The Amazon DocumentDB password. <br>• `"extendedBsonTypes"`: (Optional) If `true`, allows extended BSON types when writing data to Amazon DocumentDB. The default is `true`. <br>• `"replaceDocument"`: (Optional) If `true`, replaces the whole document when saving datasets that contain an `_id` field. If `false`, only fields in the document that match the fields in the dataset are updated. The default is `true`. <br>• `"maxBatchSize"`: (Optional): The maximum batch size for bulk operations when saving data. The default is 512. <br>• `"retryWrites"`: (Optional): Automatically retry certain write operations a single time if AWS Glue encounters a network error.
-````
+         |"database":"test",
+         |"collection":"coll",
+         |"username": "username",
+         |"password": "pwd",
+         |"ssl":"true",
+         |"ssl.domain_match":"false",
+         |"partitioner": "MongoSamplePartitioner",
+         |"partitionerOptions.partitionSizeMB": "10",
+         |"partitionerOptions.partitionKey": "_id"}""".stripMargin)
+  }
+}
+```
+
+## Amazon DocumentDB connection option reference
+
+Designates a connection to Amazon DocumentDB (with MongoDB compatibility).
+
+Connection options differ for a source connection and a sink connection.
+
+### "connectionType": "Documentdb" as
+
+source
+
+Use the following connection options with `"connectionType": "documentdb"` as
+a source:
+
+- `"uri"`: (Required) The Amazon DocumentDB host to read from, formatted as
+  `mongodb://<host>:<port>`.
+- `"database"`: (Required) The Amazon DocumentDB database to read from.
+- `"collection"`: (Required) The Amazon DocumentDB collection to read from.
+- `"username"`: (Required) The Amazon DocumentDB user name.
+- `"password"`: (Required) The Amazon DocumentDB password.
+- `"ssl"`: (Required if using SSL) If your connection uses SSL, then you
+  must include this option with the value `"true"`.
+- `"ssl.domain_match"`: (Required if using SSL) If your connection uses
+  SSL, then you must include this option with the value `"false"`.
+- `"batchSize"`: (Optional): The number of documents to return per batch,
+  used within the cursor of internal batches.
+- `"partitioner"`: (Optional): The class name of the partitioner for
+  reading input data from Amazon DocumentDB. The connector provides the following
+  partitioners:
+  - `MongoDefaultPartitioner` (default) (Not supported in AWS Glue 4.0)
+  - `MongoSamplePartitioner` (Not supported in AWS Glue 4.0)
+  - `MongoShardedPartitioner`
+  - `MongoSplitVectorPartitioner`
+  - `MongoPaginateByCountPartitioner`
+  - `MongoPaginateBySizePartitioner` (Not supported in AWS Glue 4.0)
+
+- `"partitionerOptions"` (Optional): Options for the designated
+  partitioner. The following options are supported for each partitioner:
+
+      + `MongoSamplePartitioner`: `partitionKey`,
+       `partitionSizeMB`, `samplesPerPartition`
+      + `MongoShardedPartitioner`: `shardkey`
+      + `MongoSplitVectorPartitioner`: `partitionKey`,
+       partitionSizeMB
+      + `MongoPaginateByCountPartitioner`: `partitionKey`,
+       `numberOfPartitions`
+      + `MongoPaginateBySizePartitioner`: `partitionKey`,
+       partitionSizeMB
+
+  For more information about these options, see [Partitioner Configuration](https://docs.mongodb.com/spark-connector/master/configuration/#partitioner-conf "https://docs.mongodb.com/spark-connector/master/configuration/#partitioner-conf") in the MongoDB documentation.
+
+### "connectionType": "Documentdb" as
+
+sink
+
+Use the following connection options with `"connectionType": "documentdb"` as
+a sink:
+
+- `"uri"`: (Required) The Amazon DocumentDB host to write to, formatted as
+  `mongodb://<host>:<port>`.
+- `"database"`: (Required) The Amazon DocumentDB database to write to.
+- `"collection"`: (Required) The Amazon DocumentDB collection to write to.
+- `"username"`: (Required) The Amazon DocumentDB user name.
+- `"password"`: (Required) The Amazon DocumentDB password.
+- `"extendedBsonTypes"`: (Optional) If `true`, allows extended
+  BSON types when writing data to Amazon DocumentDB. The default is `true`.
+- `"replaceDocument"`: (Optional) If `true`, replaces the whole
+  document when saving datasets that contain an `_id` field. If
+  `false`, only fields in the document that match the fields in the dataset
+  are updated. The default is `true`.
+- `"maxBatchSize"`: (Optional): The maximum batch size for bulk operations
+  when saving data. The default is 512.
+- `"retryWrites"`: (Optional): Automatically retry certain write operations a single
+  time if AWS Glue encounters a network error.

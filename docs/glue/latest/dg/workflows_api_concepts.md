@@ -192,10 +192,17 @@ with a conditional trigger
 The following example shows a workflow with multiple jobs and a conditional
 trigger (t3).
 
-````
+```
 Consider Flow:
 T(t1) ---> J(j1) ---> T(t2) ---> J(j2)
-|                    |
-|                    | >+------> T(t3) <-----+
-| | J(j3) Graph generated: Nodes: t1, t2, t3, j1, j2, j3 Edges: (t1, j1), (j1, t2), (t2, j2), (j1, t3), (j2, t3), (t3, j3) ```
-````
+             |                    |
+             |                    |
+             >+------> T(t3) <-----+
+                        |
+                        |
+                      J(j3)
+
+Graph generated:
+Nodes: t1, t2, t3, j1, j2, j3
+Edges: (t1, j1), (j1, t2), (t2, j2), (j1, t3), (j2, t3), (t3, j3)
+```

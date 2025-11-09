@@ -8,8 +8,8 @@ The following are limitations for the Monday connector:
     10 seconds to load hence, this would require some additional time while running a job.
   - Refer the below table for Monday rate limit. The significant size of the dynamic entity's response data causes a noticeable delay, with fields requiring an average of 10 seconds to load.
 
-| Complexity Limit  | 5,000,000 (5M) complexity points             |
-| ----------------- | -------------------------------------------- |
-| Daily Call Limit  | 10,000 for Pro Plan                          |
-| Minute Limit      | 500 Queries per minutes                      |
-| Concurrency limit | 100 Maximum concurrent requests for Pro Plan |
+  | Complexity Limit  | 5,000,000 (5M) complexity points             |
+  | ----------------- | -------------------------------------------- |
+  | Daily Call Limit  | 10,000 for Pro Plan                          |
+  | Minute Limit      | 500 Queries per minutes                      |
+  | Concurrency limit | 100 Maximum concurrent requests for Pro Plan |

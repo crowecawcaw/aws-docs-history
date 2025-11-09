@@ -182,16 +182,72 @@ ruleOutcomes.toDF().show(truncate=False)
 
 Output:
 
-````
+```
 --------------------------------------+-------+-----------------------------------------------------+-------------------------------------------+
-|Rule                                  |Outcome|FailureReason                                        |EvaluatedMetrics                           | +--------------------------------------+-------+-----------------------------------------------------+-------------------------------------------+
+|Rule                                  |Outcome|FailureReason                                        |EvaluatedMetrics                           |
++--------------------------------------+-------+-----------------------------------------------------+-------------------------------------------+
 |ColumnExists "Provider Id"            |Passed |null                                                 |{}                                         |
 |IsComplete "Provider Id"              |Passed |null                                                 |{Column.Provider Id.Completeness -> 1.0}   |
-|ColumnValues " Total Discharges " > 15|Failed |Value: 11.0 does not meet the constraint requirement!|{Column. Total Discharges .Minimum -> 11.0}| +--------------------------------------+-------+-----------------------------------------------------+-------------------------------------------+ ``` 9. Filter passed rows and review the failed rows from the Data Quality row-level results. ``` owLevelOutcomes = SelectFromCollection.apply( dfc=EvaluateDataQualityMultiframe, key="rowLevelOutcomes", transformation_ctx="rowLevelOutcomes", ) rowLevelOutcomes_df = rowLevelOutcomes.toDF() # Convert Glue DynamicFrame to SparkSQL DataFrame rowLevelOutcomes_df_passed = rowLevelOutcomes_df.filter(rowLevelOutcomes_df.DataQualityEvaluationResult == "Passed") # Filter only the Passed records. rowLevelOutcomes_df.filter(rowLevelOutcomes_df.DataQualityEvaluationResult == "Failed").show(5, truncate=False) # Review the Failed records ``` Output: ``` +----------------------------------------+-----------+-------------------------------------+--------------------------+-------------+--------------+-----------------+------------------------------------+------------------+-------------------------+------------------------+-------------------------+--------------------------+----------------------------------------+----------------------------+---------------------------+
-|DRG Definition                          |Provider Id|Provider Name                        |Provider Street Address   |Provider City|Provider State|Provider Zip Code|Hospital Referral Region Description| Total Discharges | Average Covered Charges | Average Total Payments |Average Medicare Payments|DataQualityRulesPass      |DataQualityRulesFail                    |DataQualityRulesSkip        |DataQualityEvaluationResult| +----------------------------------------+-----------+-------------------------------------+--------------------------+-------------+--------------+-----------------+------------------------------------+------------------+-------------------------+------------------------+-------------------------+--------------------------+----------------------------------------+----------------------------+---------------------------+
+|ColumnValues " Total Discharges " > 15|Failed |Value: 11.0 does not meet the constraint requirement!|{Column. Total Discharges .Minimum -> 11.0}|
++--------------------------------------+-------+-----------------------------------------------------+-------------------------------------------+
+
+```
+
+9. Filter passed rows and review the failed rows from the Data Quality
+   row-level
+   results.
+
+```
+owLevelOutcomes = SelectFromCollection.apply(
+dfc=EvaluateDataQualityMultiframe,
+key="rowLevelOutcomes",
+transformation_ctx="rowLevelOutcomes",
+)
+
+rowLevelOutcomes_df = rowLevelOutcomes.toDF() # Convert Glue DynamicFrame to SparkSQL DataFrame
+rowLevelOutcomes_df_passed = rowLevelOutcomes_df.filter(rowLevelOutcomes_df.DataQualityEvaluationResult == "Passed") # Filter only the Passed records.
+rowLevelOutcomes_df.filter(rowLevelOutcomes_df.DataQualityEvaluationResult == "Failed").show(5, truncate=False) # Review the Failed records
+
+```
+
+Output:
+
+```
++----------------------------------------+-----------+-------------------------------------+--------------------------+-------------+--------------+-----------------+------------------------------------+------------------+-------------------------+------------------------+-------------------------+--------------------------+----------------------------------------+----------------------------+---------------------------+
+|DRG Definition                          |Provider Id|Provider Name                        |Provider Street Address   |Provider City|Provider State|Provider Zip Code|Hospital Referral Region Description| Total Discharges | Average Covered Charges | Average Total Payments |Average Medicare Payments|DataQualityRulesPass      |DataQualityRulesFail                    |DataQualityRulesSkip        |DataQualityEvaluationResult|
++----------------------------------------+-----------+-------------------------------------+--------------------------+-------------+--------------+-----------------+------------------------------------+------------------+-------------------------+------------------------+-------------------------+--------------------------+----------------------------------------+----------------------------+---------------------------+
 |039 - EXTRACRANIAL PROCEDURES W/O CC/MCC|10005      |MARSHALL MEDICAL CENTER SOUTH        |2505 U S HIGHWAY 431 NORTH|BOAZ         |AL            |35957            |AL - Birmingham                     |14                |$15131.85                |$5787.57                |$4976.71                 |[IsComplete "Provider Id"]|[ColumnValues " Total Discharges " > 15]|[ColumnExists "Provider Id"]|Failed                     |
 |039 - EXTRACRANIAL PROCEDURES W/O CC/MCC|10046      |RIVERVIEW REGIONAL MEDICAL CENTER    |600 SOUTH THIRD STREET    |GADSDEN      |AL            |35901            |AL - Birmingham                     |14                |$67327.92                |$5461.57                |$4493.57                 |[IsComplete "Provider Id"]|[ColumnValues " Total Discharges " > 15]|[ColumnExists "Provider Id"]|Failed                     |
 |039 - EXTRACRANIAL PROCEDURES W/O CC/MCC|10083      |SOUTH BALDWIN REGIONAL MEDICAL CENTER|1613 NORTH MCKENZIE STREET|FOLEY        |AL            |36535            |AL - Mobile                         |15                |$25411.33                |$5282.93                |$4383.73                 |[IsComplete "Provider Id"]|[ColumnValues " Total Discharges " > 15]|[ColumnExists "Provider Id"]|Failed                     |
 |039 - EXTRACRANIAL PROCEDURES W/O CC/MCC|30002      |BANNER GOOD SAMARITAN MEDICAL CENTER |1111 EAST MCDOWELL ROAD   |PHOENIX      |AZ            |85006            |AZ - Phoenix                        |11                |$34803.81                |$7768.90                |$6951.45                 |[IsComplete "Provider Id"]|[ColumnValues " Total Discharges " > 15]|[ColumnExists "Provider Id"]|Failed                     |
-|039 - EXTRACRANIAL PROCEDURES W/O CC/MCC|30010      |CARONDELET ST  MARYS HOSPITAL        |1601 WEST ST MARY'S ROAD  |TUCSON       |AZ            |85745            |AZ - Tucson                         |12                |$35968.50                |$6506.50                |$5379.83                 |[IsComplete "Provider Id"]|[ColumnValues " Total Discharges " > 15]|[ColumnExists "Provider Id"]|Failed                     | +----------------------------------------+-----------+-------------------------------------+--------------------------+-------------+--------------+-----------------+------------------------------------+------------------+-------------------------+------------------------+-------------------------+--------------------------+----------------------------------------+----------------------------+---------------------------+ only showing top 5 rows ``` Note that AWS Glue Data Quality added four new columns (DataQualityRulesPass, DataQualityRulesFail, DataQualityRulesSkip, and DataQualityEvaluationResult). This indicates the records that passed, the records that failed, rules skipped for row-level evaluation, and the overall row-level results. 10. Write the output to an Amazon S3 bucket to analyze the data and visualize the results. ``` #Write the Passed records to the destination. glueContext.write_dynamic_frame.from_options( frame = rowLevelOutcomes_df_passed, connection_type = "s3", connection_options = {"path": "s3://glue-sample-target/output-dir/medicare_parquet"}, format = "parquet") ```
-````
+|039 - EXTRACRANIAL PROCEDURES W/O CC/MCC|30010      |CARONDELET ST  MARYS HOSPITAL        |1601 WEST ST MARY'S ROAD  |TUCSON       |AZ            |85745            |AZ - Tucson                         |12                |$35968.50                |$6506.50                |$5379.83                 |[IsComplete "Provider Id"]|[ColumnValues " Total Discharges " > 15]|[ColumnExists "Provider Id"]|Failed                     |
++----------------------------------------+-----------+-------------------------------------+--------------------------+-------------+--------------+-----------------+------------------------------------+------------------+-------------------------+------------------------+-------------------------+--------------------------+----------------------------------------+----------------------------+---------------------------+
+only showing top 5 rows
+
+```
+
+Note that AWS Glue Data Quality added
+four
+new columns (DataQualityRulesPass, DataQualityRulesFail,
+DataQualityRulesSkip,
+and DataQualityEvaluationResult). This indicates the records
+that passed,
+the
+records that failed, rules skipped for
+row-level
+evaluation,
+and the overall
+row-level
+results. 10. Write the output to an Amazon S3 bucket to analyze the data and visualize the
+results.
+
+```
+#Write the Passed records to the destination.
+
+glueContext.write_dynamic_frame.from_options(
+       frame = rowLevelOutcomes_df_passed,
+       connection_type = "s3",
+       connection_options = {"path": "s3://glue-sample-target/output-dir/medicare_parquet"},
+       format = "parquet")
+
+```

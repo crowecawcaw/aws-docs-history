@@ -21,8 +21,21 @@ For the following entity, Smartsheet provides an endpoint to fetch metadata dyna
 allowing operator support to be captured at the datatype level.
 
 | Entity     | Data Type | Supported Operators |
-| ---------- | --------- | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| ---------- | --------- | ------------------- |
 | Sheet Data | String    | NA                  |
 | Sheet Data | Long      | "="                 |
 | Sheet Data | Integer   | NA                  |
-| Sheet Data | DateTime  | >                   | **Example** `Smartsheet_read = glueContext.create_dynamic_frame.from_options( connection_type="smartsheet", connection_options={ "connectionName": "connectionName", "ENTITY_NAME": "list-sheets", "API_VERSION": "2.0", "INSTANCE_URL": "https://api.smartsheet.com" }` |
+| Sheet Data | DateTime  | >                   |
+
+**Example**
+
+```
+Smartsheet_read = glueContext.create_dynamic_frame.from_options(
+    connection_type="smartsheet",
+    connection_options={
+        "connectionName": "connectionName",
+        "ENTITY_NAME": "list-sheets",
+        "API_VERSION": "2.0",
+        "INSTANCE_URL": "https://api.smartsheet.com"
+    }
+```

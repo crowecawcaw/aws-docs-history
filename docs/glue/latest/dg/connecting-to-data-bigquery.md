@@ -4,10 +4,10 @@ Connecting to Google BigQuery in AWS Glue Studio
 
 ###### Note
 
+ 
 You can use AWS Glue for Spark to read from and write to tables in Google BigQuery in AWS Glue
-4.0 and later versions. To configure Google BigQuery with AWS Glue jobs programmatically, see
-
-[BigQuery connections](aws-glue-programming-etl-connect-bigquery-home.md "aws-glue-programming-etl-connect-bigquery-home.md").
+4.0 and later versions. To configure Google BigQuery with AWS Glue jobs programmatically, see 
+[BigQuery connections](aws-glue-programming-etl-connect-bigquery-home.md "aws-glue-programming-etl-connect-bigquery-home.md"). 
 
 AWS Glue Studio provides a visual interface to
 connect to BigQuery, author data integration jobs, and run them on the AWS Glue Studio serverless Spark runtime.

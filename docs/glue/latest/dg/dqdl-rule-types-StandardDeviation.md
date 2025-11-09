@@ -33,12 +33,17 @@ StandardDeviation "Salary" < 3500 where "Customer_ID < 10"
 The `StandardDeviation` rule will ignore rows with `NULL` values in the calculation of
 standard deviation. For example:
 
-````
+```
 +---+-----------+-----------+
-|id |units1     |units2     | +---+-----------+-----------+
+|id |units1     |units2     |
++---+-----------+-----------+
 |100|0          |0          |
 |101|null       |0          |
 |102|20         |20         |
 |103|null       |0          |
-|104|40         |40         | +---+-----------+-----------+ ``` The standard deviation of column `units1` will not consider rows 101 and 103 and result to 16.33. The standard deviation for column `units2` will result in 16.
-````
+|104|40         |40         |
++---+-----------+-----------+
+```
+
+The standard deviation of column `units1` will not consider rows 101 and 103 and result to 16.33.
+The standard deviation for column `units2` will result in 16.

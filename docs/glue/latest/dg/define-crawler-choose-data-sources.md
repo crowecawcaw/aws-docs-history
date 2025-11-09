@@ -169,25 +169,212 @@ table properties and exclude objects defined by the exclude pattern.
 
 AWS Glue supports the following `glob` patterns in the exclude pattern.
 
-| Exclude pattern       | Description                                                                                                        |
-| --------------------- | ------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `*.csv`               | Matches an Amazon S3 path that represents an object name in the current folder ending in `.csv`                    |
-| `*.*`                 | Matches all object names that contain a dot                                                                        |
-| `*.{csv,avro}`        | Matches object names ending with `.csv` or `.avro`                                                                 |
-| `foo.?`               | Matches object names starting with `foo.` that are followed by a single character extension                        |
-| `myfolder/*`          | Matches objects in one level of subfolder from `myfolder`, such as `/myfolder/mysource`                            |
-| `myfolder/*/*`        | Matches objects in two levels of subfolders from `myfolder`, such as `/myfolder/mysource/data`                     |
-| `myfolder/**`         | Matches objects in all subfolders of `myfolder`, such as `/myfolder/mysource/mydata` and `/myfolder/mysource/data` |
-| `myfolder**`          | Matches subfolder `myfolder` as well as files below `myfolder`, such as `/myfolder` and `/myfolder/mydata.txt`     |
-| `Market*`             | Matches tables in a JDBC database with names that begin with `Market`, such as `Market_us` and `Market_fr`         | AWS Glue interprets `glob` exclude patterns as follows: <br>• The slash (`/`) character is the delimiter to separate Amazon S3 keys into a folder hierarchy. <br>• The asterisk (`*`) character matches zero or more characters of a name component without crossing folder boundaries. <br>• A double asterisk (`**`) matches zero or more characters crossing folder or schema boundaries. <br>• The question mark (`?`) character matches exactly one character of a name component. <br>• The backslash (`\`) character is used to escape characters that otherwise can be interpreted as special characters. The expression `\\` matches a single backslash, and `\{` matches a left brace. <br>• Brackets `[ ]` create a bracket expression that matches a single character of a name component out of a set of characters. For example, `[abc]` matches `a`, `b`, or `c`. The hyphen (`-`) can be used to specify a range, so `[a-z]` specifies a range that matches from `a` through `z` (inclusive). These forms can be mixed, so [`abce-g`] matches `a`, `b`, `c`, `e`, `f`, or `g`. If the character after the bracket (`[`) is an exclamation point (`!`), the bracket expression is negated. For example, `[!a-c]` matches any character except `a`, `b`, or `c`. Within a bracket expression, the `*`, `?`, and `\` characters match themselves. The hyphen (`-`) character matches itself if it is the first character within the brackets, or if it's the first character after the `!` when you are negating. <br>• Braces (`{ }`) enclose a group of subpatterns, where the group matches if any subpattern in the group matches. A comma (`,`) character is used to separate the subpatterns. Groups cannot be nested. <br>• Leading period or dot characters in file names are treated as normal characters in match operations. For example, the `*` exclude pattern matches the file name `.hidden`. ###### Example Amazon S3 exclude patterns Each exclude pattern is evaluated against the include path. For example, suppose that you have the following Amazon S3 directory structure: `/mybucket/myfolder/ departments/ finance.json market-us.json market-emea.json market-ap.json employees/ hr.json john.csv jane.csv juan.txt` Given the include path `s3://mybucket/myfolder/`, the following are some sample results for exclude patterns:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| Exclude pattern       | Results                                                                                                            |
-| ---                   | ---                                                                                                                |
-| `departments/**`      | Excludes all files and folders below `departments` and includes the `employees` folder and its files               |
-| `departments/market*` | Excludes `market-us.json`, `market-emea.json`, and `market-ap.json`                                                |
-| `**.csv`              | Excludes all objects below `myfolder` that have a name ending with `.csv`                                          |
-| `employees/*.csv`     | Excludes all `.csv` files in the `employees` folder                                                                | ###### Example Excluding a subset of Amazon S3 partitions Suppose that your data is partitioned by day, so that each day in a year is in a separate Amazon S3 partition. For January 2015, there are 31 partitions. Now, to crawl data for only the first week of January, you must exclude all partitions except days 1 through 7: `2015/01/{[!0],0[8-9]}**, 2015/0[2-9]/**, 2015/1[0-2]/**` Take a look at the parts of this glob pattern. The first part, `2015/01/{[!0],0[8-9]}**`, excludes all days that don't begin with a "0" in addition to day 08 and day 09 from month 01 in year 2015. Notice that "\*\*" is used as the suffix to the day number pattern and crosses folder boundaries to lower-level folders. If "\*" is used, lower folder levels are not excluded. The second part, `2015/0[2-9]/**`, excludes days in months 02 to 09, in year 2015. The third part, `2015/1[0-2]/**`, excludes days in months 10, 11, and 12, in year 2015. ###### Example JDBC exclude patterns Suppose that you are crawling a JDBC database with the following schema structure: `MyDatabase/MySchema/ HR_us HR_fr Employees_Table Finance Market_US_Table Market_EMEA_Table Market_AP_Table` Given the include path `MyDatabase/MySchema/%`, the following are some sample results for exclude patterns:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| Exclude pattern       | Results                                                                                                            |
-| ---                   | ---                                                                                                                |
-| `HR*`                 | Excludes the tables with names that begin with `HR`                                                                |
-| `Market_*`            | Excludes the tables with names that begin with `Market_`                                                           |
-| `**_Table`            | Excludes all tables with names that end with `_Table`                                                              | **Additional crawler source parameters** Each source type requires a different set of additional parameters. **Connection** Select or add an AWS Glue connection. For information about connections, see [Connecting to data](glue-connections.md "glue-connections.md"). **Additional metadata - optional (for JDBC data stores)** Select additional metadata properties for the crawler to crawl. <br>• Comments: Crawl associated table level and column level comments. <br>• Raw types: Persist the raw datatypes of the table columns in additional metadata. As a default behavior, the crawler translates the raw datatypes to Hive-compatible types. **JDBC Driver Class name - optional (for JDBC data stores)** Type a custom JDBC driver class name for the crawler to connect to the data source: <br>• Postgres: org.postgresql.Driver <br>• MySQL: com.mysql.jdbc.Driver, com.mysql.cj.jdbc.Driver <br>• Redshift: com.amazon.redshift.jdbc.Driver, com.amazon.redshift.jdbc42.Driver <br>• Oracle: oracle.jdbc.driver.OracleDriver <br>• SQL Server: com.microsoft.sqlserver.jdbc.SQLServerDriver **JDBC Driver S3 Path - optional (for JDBC data stores)** Choose an existing Amazon S3 path to a `.jar` file. This is where the `.jar` file will be stored when using a custom JDBC driver for the crawler to connect to the data source. **Enable data sampling (for Amazon DynamoDB, MongoDB, MongoDB Atlas, and Amazon DocumentDB data stores only)** Select whether to crawl a data sample only. If not selected the entire table is crawled. Scanning all the records can take a long time when the table is not a high throughput table. **Create tables for querying (for Delta Lake data stores only)** Select how you want to create the Delta Lake tables: <br>• Create Native tables: Allow integration with query engines that support querying of the Delta transaction log directly. <br>• Create Symlink tables: Create a symlink manifest folder with manifest files partitioned by the partition keys, based on the specified configuration parameters. **Scanning rate - optional (for DynamoDB data stores only)** Specify the percentage of the DynamoDB table Read Capacity Units to use by the crawler. Read capacity units is a term defined by DynamoDB, and is a numeric value that acts as rate limiter for the number of reads that can be performed on that table per second. Enter a value between 0.1 and 1.5. If not specified, defaults to 0.5 for provisioned tables and 1/4 of maximum configured capacity for on-demand tables. Note that only provisioned capacity mode should be used with AWS Glue crawlers. ###### Note For DynamoDB data stores, set the provisioned capacity mode for processing reads and writes on your tables. The AWS Glue crawler should not be used with the on-demand capacity mode. **Network connection - optional (for Amazon S3, Delta, Iceberg, Hudi and Catalog target data stores)** Optionally include a Network connection to use with this Amazon S3 target. Note that each crawler is limited to one Network connection so any other Amazon S3 targets will also use the same connection (or none, if left blank). For information about connections, see [Connecting to data](glue-connections.md "glue-connections.md"). **Sample only a subset of files and Sample size (for Amazon S3 data stores only)** Specify the number of files in each leaf folder to be crawled when crawling sample files in a dataset. When this feature is turned on, instead of crawling all the files in this dataset, the crawler randomly selects some files in each leaf folder to crawl. The sampling crawler is best suited for customers who have previous knowledge about their data formats and know that schemas in their folders do not change. Turning on this feature will significantly reduce crawler runtime. A valid value is an integer between 1 and 249. If not specified, all the files are crawled. **Subsequent crawler runs** This field is a global field that affects all Amazon S3 data sources. <br>• Crawl all sub-folders: Crawl all folders again with every subsequent crawl. <br>• Crawl new sub-folders only: Only Amazon S3 folders that were added since the last crawl will be crawled. If the schemas are compatible, new partitions will be added to existing tables. For more information, see [Scheduling incremental crawls for adding new partitions](incremental-crawls.md "incremental-crawls.md"). <br>• Crawl based on events: Rely on Amazon S3 events to control what folders to crawl. For more information, see [Accelerating crawls using Amazon S3 event notifications](crawler-s3-event-notifications.md "crawler-s3-event-notifications.md"). **Custom classifiers - optional** Define custom classifiers before defining crawlers. A classifier checks whether a given file is in a format the crawler can handle. If it is, the classifier creates a schema in the form of a `StructType` object that matches that data format. For more information, see [Defining and managing classifiers](add-classifier.md "add-classifier.md"). |
+| Exclude pattern | Description                                                                                                              |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------ |
+| `*.csv`         | Matches an Amazon S3 path that represents an object name in the current folder<br>ending in `.csv`                       |
+| `*.*`           | Matches all object names that contain a dot                                                                              |
+| `*.{csv,avro}`  | Matches object names ending with `.csv` or<br>`.avro`                                                                    |
+| `foo.?`         | Matches object names starting with `foo.` that are followed by a<br>single character extension                           |
+| `myfolder/*`    | Matches objects in one level of subfolder from `myfolder`, such as<br>`/myfolder/mysource`                               |
+| `myfolder/*/*`  | Matches objects in two levels of subfolders from `myfolder`, such as<br>`/myfolder/mysource/data`                        |
+| `myfolder/**`   | Matches objects in all subfolders of `myfolder`, such as<br>`/myfolder/mysource/mydata` and<br>`/myfolder/mysource/data` |
+| `myfolder**`    | Matches subfolder `myfolder` as well as files below<br>`myfolder`, such as `/myfolder` and<br>`/myfolder/mydata.txt`     |
+| `Market*`       | Matches tables in a JDBC database with names that begin with<br>`Market`, such as `Market_us` and<br>`Market_fr`         |
+
+AWS Glue interprets `glob` exclude patterns as follows:
+
+- The slash (`/`) character is the delimiter to separate Amazon S3 keys into a
+  folder hierarchy.
+- The asterisk (`*`) character matches zero or more characters of a name
+  component without crossing folder boundaries.
+- A double asterisk (`**`) matches zero or more characters crossing folder
+  or schema boundaries.
+- The question mark (`?`) character matches exactly one character of a name
+  component.
+- The backslash (`\`) character is used to escape characters that otherwise
+  can be interpreted as special characters. The expression `\\` matches a
+  single backslash, and `\{` matches a left brace.
+- Brackets `[ ]` create a bracket expression that matches a single
+  character of a name component out of a set of characters. For example,
+  `[abc]` matches `a`, `b`, or `c`. The
+  hyphen (`-`) can be used to specify a range, so `[a-z]` specifies
+  a range that matches from `a` through `z` (inclusive). These forms
+  can be mixed, so [`abce-g`] matches `a`, `b`,
+  `c`, `e`, `f`, or `g`. If the character
+  after the bracket (`[`) is an exclamation point (`!`), the bracket
+  expression is negated. For example, `[!a-c]` matches any character except
+  `a`, `b`, or `c`.
+
+Within a bracket expression, the `*`, `?`, and `\`
+characters match themselves. The hyphen (`-`) character matches itself if it
+is the first character within the brackets, or if it's the first character after the
+`!` when you are negating.
+
+- Braces (`{ }`) enclose a group of subpatterns, where the group matches if
+  any subpattern in the group matches. A comma (`,`) character is used to
+  separate the subpatterns. Groups cannot be nested.
+- Leading period or dot characters in file names are treated as normal characters in
+  match operations. For example, the `*` exclude pattern matches the file name
+  `.hidden`.
+
+###### Example Amazon S3 exclude patterns
+
+Each exclude pattern is evaluated against the include path. For example, suppose that
+you have the following Amazon S3 directory structure:
+
+```
+/mybucket/myfolder/
+   departments/
+      finance.json
+      market-us.json
+      market-emea.json
+      market-ap.json
+   employees/
+      hr.json
+      john.csv
+      jane.csv
+      juan.txt
+```
+
+Given the include path `s3://mybucket/myfolder/`, the following are some
+sample results for exclude patterns:
+
+| Exclude pattern       | Results                                                                                                 |
+| --------------------- | ------------------------------------------------------------------------------------------------------- |
+| `departments/**`      | Excludes all files and folders below `departments` and includes the<br>`employees` folder and its files |
+| `departments/market*` | Excludes `market-us.json`, `market-emea.json`, and<br>`market-ap.json`                                  |
+| `**.csv`              | Excludes all objects below `myfolder` that have a name ending with<br>`.csv`                            |
+| `employees/*.csv`     | Excludes all `.csv` files in the `employees`<br>folder                                                  |
+
+###### Example Excluding a subset of Amazon S3 partitions
+
+Suppose that your data is partitioned by day, so that each day in a year is in a
+separate Amazon S3 partition. For January 2015, there are 31 partitions. Now, to crawl data for
+only the first week of January, you must exclude all partitions except days 1 through
+7:
+
+```
+
+ 2015/01/{[!0],0[8-9]}**, 2015/0[2-9]/**, 2015/1[0-2]/**
+
+```
+
+Take a look at the parts of this glob pattern. The first part, `2015/01/{[!0],0[8-9]}**`, excludes all days that don't begin with a "0" in
+addition to day 08 and day 09 from month 01 in year 2015. Notice that "\*\*" is used as the
+suffix to the day number pattern and crosses folder boundaries to lower-level folders. If
+"\*" is used, lower folder levels are not excluded.
+
+The second part, `2015/0[2-9]/**`, excludes days in months 02 to 09, in
+year 2015.
+
+The third part, `2015/1[0-2]/**`, excludes days in months 10, 11, and 12,
+in year 2015.
+
+###### Example JDBC exclude patterns
+
+Suppose that you are crawling a JDBC database with the following schema
+structure:
+
+```
+MyDatabase/MySchema/
+   HR_us
+   HR_fr
+   Employees_Table
+   Finance
+   Market_US_Table
+   Market_EMEA_Table
+   Market_AP_Table
+```
+
+Given the include path `MyDatabase/MySchema/%`, the following are some
+sample results for exclude patterns:
+
+| Exclude pattern | Results                                                  |
+| --------------- | -------------------------------------------------------- |
+| `HR*`           | Excludes the tables with names that begin with `HR`      |
+| `Market_*`      | Excludes the tables with names that begin with `Market_` |
+| `**_Table`      | Excludes all tables with names that end with `_Table`    |
+
+**Additional crawler source parameters**
+
+Each source type requires a different set of additional parameters.
+
+**Connection**
+
+Select or add an AWS Glue connection. For information about connections, see
+[Connecting to data](glue-connections.md "glue-connections.md").
+
+**Additional metadata - optional (for JDBC data stores)**
+
+Select additional metadata properties for the crawler to crawl.
+
+- Comments: Crawl associated table level and column level comments.
+- Raw types: Persist the raw datatypes of the table columns in additional metadata. As a default behavior, the crawler translates the raw datatypes to Hive-compatible types.
+
+**JDBC Driver Class name - optional (for JDBC data stores)**
+
+Type a custom JDBC driver class name for the crawler to connect to the data source:
+
+- Postgres: org.postgresql.Driver
+- MySQL: com.mysql.jdbc.Driver, com.mysql.cj.jdbc.Driver
+- Redshift: com.amazon.redshift.jdbc.Driver, com.amazon.redshift.jdbc42.Driver
+- Oracle: oracle.jdbc.driver.OracleDriver
+- SQL Server: com.microsoft.sqlserver.jdbc.SQLServerDriver
+
+**JDBC Driver S3 Path - optional (for JDBC data stores)**
+
+Choose an existing Amazon S3 path to a `.jar` file. This is where the `.jar` file will be stored
+when using a custom JDBC driver for the crawler to connect to the data source.
+
+**Enable data sampling (for Amazon DynamoDB, MongoDB, MongoDB Atlas, and Amazon DocumentDB data stores
+only)**
+
+Select whether to crawl a data sample only. If not selected the entire table is crawled. Scanning all the records can take a long time when the table is not a high throughput table.
+
+**Create tables for querying (for Delta Lake data stores only)**
+
+Select how you want to create the Delta Lake tables:
+
+- Create Native tables: Allow integration with query engines that support querying of the Delta transaction log directly.
+- Create Symlink tables: Create a symlink manifest folder with manifest files partitioned by the partition keys, based on the specified configuration parameters.
+
+**Scanning rate - optional (for DynamoDB data stores only)**
+
+Specify the percentage of the DynamoDB table Read Capacity Units to use by the crawler. Read capacity units is a term defined by DynamoDB, and is a numeric
+value that acts as rate limiter for the number of reads that can be performed on
+that table per second. Enter a value between 0.1 and 1.5. If not specified,
+defaults to 0.5 for provisioned tables and 1/4 of maximum configured capacity for
+on-demand tables. Note that only provisioned capacity mode should be used with AWS Glue crawlers.
+
+###### Note
+
+For DynamoDB data stores, set the provisioned capacity mode for processing reads and writes on your tables. The AWS Glue crawler should not be used with the on-demand capacity mode.
+
+**Network connection - optional (for Amazon S3, Delta, Iceberg, Hudi and Catalog target data stores)**
+
+Optionally include a Network connection to use with this Amazon S3 target. Note that each crawler is limited to one Network connection so any other Amazon S3 targets will also use the same connection (or none, if left blank).
+
+For information about connections, see
+[Connecting to data](glue-connections.md "glue-connections.md").
+
+**Sample only a subset of files and Sample size (for Amazon S3 data stores only)**
+
+Specify the number of files in each leaf folder to be crawled when crawling sample files in a dataset. When this feature is turned on, instead of crawling all the files in this dataset, the crawler randomly selects some files in each leaf folder to crawl.
+
+The sampling crawler is best suited for customers who have previous knowledge about their data formats and know that schemas in their folders do not change. Turning on this feature will significantly reduce crawler runtime.
+
+A valid value is an integer between 1 and 249. If not specified, all the files are crawled.
+
+**Subsequent crawler runs**
+
+This field is a global field that affects all Amazon S3 data sources.
+
+- Crawl all sub-folders: Crawl all folders again with every subsequent crawl.
+- Crawl new sub-folders only: Only Amazon S3 folders that were added since the last crawl will be crawled. If the schemas are compatible, new partitions will be added to existing tables. For more information, see [Scheduling incremental crawls for adding new partitions](incremental-crawls.md "incremental-crawls.md").
+- Crawl based on events: Rely on Amazon S3 events to control what folders to crawl. For more information, see [Accelerating crawls using Amazon S3 event notifications](crawler-s3-event-notifications.md "crawler-s3-event-notifications.md").
+
+**Custom classifiers - optional**
+
+Define custom classifiers before defining crawlers. A classifier checks whether a given file is in a format the crawler can handle. If it is, the classifier creates a schema in the form of a `StructType` object that matches that data format.
+
+For more information, see [Defining and managing classifiers](add-classifier.md "add-classifier.md").

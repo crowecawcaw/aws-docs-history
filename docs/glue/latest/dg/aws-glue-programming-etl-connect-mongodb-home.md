@@ -212,7 +212,7 @@ job.commit()
 
 Scala
 
-````
+```
 import com.amazonaws.services.glue.GlueContext
 import com.amazonaws.services.glue.MappingSpec
 import com.amazonaws.services.glue.errors.CallSite
@@ -246,13 +246,103 @@ object GlueApp {
   private def jsonOptions(uri: String): JsonOptions = {
     new JsonOptions(
       s"""{"uri": "${uri}",
-|"database":"`mongodbName`",
-|"collection":"`mongodbCollection`",
-|"username": "`mongodbUsername`",
-|"password": "`mongodbPassword`",
-|"ssl":"true",
-|"ssl.domain_match":"false",
-|"partitioner": "MongoSamplePartitioner",
-|"partitionerOptions.partitionSizeMB": "10",
-|"partitionerOptions.partitionKey": "_id"}""".stripMargin) } } ``` ## MongoDB connection option reference Designates a connection to MongoDB. Connection options differ for a source connection and a sink connection. These connection properties are shared between source and sink connections: <br>• `connectionName` — Used for Read/Write. The name of a AWS Glue MongoDB connection configured to provide auth and networking information to your connection method. When a AWS Glue connection is configured as described in the previous section, [Configuring MongoDB connections](#aws-glue-programming-etl-connect-mongodb-configure "#aws-glue-programming-etl-connect-mongodb-configure"), providing `connectionName` will replace the need to provide the `"uri"`, `"username"` and `"password"` connection options. <br>• `"uri"`: (Required) The MongoDB host to read from, formatted as `mongodb://<host>:<port>`. Used in AWS Glue versions prior to AWS Glue 4.0. <br>• `"connection.uri"`: (Required) The MongoDB host to read from, formatted as `mongodb://<host>:<port>`. Used in AWS Glue 4.0 and later versions. <br>• `"username"`: (Required) The MongoDB user name. <br>• `"password"`: (Required) The MongoDB password. <br>• `"database"`: (Required) The MongoDB database to read from. This option can also be passed in `additional_options` when calling `glue_context.create_dynamic_frame_from_catalog` in your job script. <br>• `"collection"`: (Required) The MongoDB collection to read from. This option can also be passed in `additional_options` when calling `glue_context.create_dynamic_frame_from_catalog` in your job script. ### "connectionType": "mongodb" as source Use the following connection options with `"connectionType": "mongodb"` as a source: <br>• `"ssl"`: (Optional) If `true`, initiates an SSL connection. The default is `false`. <br>• `"ssl.domain_match"`: (Optional) If `true` and `ssl` is `true`, domain match check is performed. The default is `true`. <br>• `"batchSize"`: (Optional): The number of documents to return per batch, used within the cursor of internal batches. <br>• `"partitioner"`: (Optional): The class name of the partitioner for reading input data from MongoDB. The connector provides the following partitioners: + `MongoDefaultPartitioner` (default) (Not supported in AWS Glue 4.0) + `MongoSamplePartitioner` (Requires MongoDB 3.2 or later) (Not supported in AWS Glue 4.0) + `MongoShardedPartitioner` (Not supported in AWS Glue 4.0) + `MongoSplitVectorPartitioner` (Not supported in AWS Glue 4.0) + `MongoPaginateByCountPartitioner` (Not supported in AWS Glue 4.0) + `MongoPaginateBySizePartitioner` (Not supported in AWS Glue 4.0) + `com.mongodb.spark.sql.connector.read.partitioner.SinglePartitionPartitioner` + `com.mongodb.spark.sql.connector.read.partitioner.ShardedPartitioner` + `com.mongodb.spark.sql.connector.read.partitioner.PaginateIntoPartitionsPartitioner` <br>• `"partitionerOptions"` (Optional): Options for the designated partitioner. The following options are supported for each partitioner: + `MongoSamplePartitioner`: `partitionKey`, `partitionSizeMB`, `samplesPerPartition` + `MongoShardedPartitioner`: `shardkey` + `MongoSplitVectorPartitioner`: `partitionKey`, `partitionSizeMB` + `MongoPaginateByCountPartitioner`: `partitionKey`, `numberOfPartitions` + `MongoPaginateBySizePartitioner`: `partitionKey`, `partitionSizeMB` For more information about these options, see [Partitioner Configuration](https://docs.mongodb.com/spark-connector/master/configuration/#partitioner-conf "https://docs.mongodb.com/spark-connector/master/configuration/#partitioner-conf") in the MongoDB documentation. ### "connectionType": "mongodb" as sink Use the following connection options with `"connectionType": "mongodb"` as a sink: <br>• `"ssl"`: (Optional) If `true`, initiates an SSL connection. The default is `false`. <br>• `"ssl.domain_match"`: (Optional) If `true` and `ssl` is `true`, domain match check is performed. The default is `true`. <br>• `"extendedBsonTypes"`: (Optional) If `true`, allows extended BSON types when writing data to MongoDB. The default is `true`. <br>• `"replaceDocument"`: (Optional) If `true`, replaces the whole document when saving datasets that contain an `_id` field. If `false`, only fields in the document that match the fields in the dataset are updated. The default is `true`. <br>• `"maxBatchSize"`: (Optional): The maximum batch size for bulk operations when saving data. The default is 512. <br>• `"retryWrites"`: (Optional): Automatically retry certain write operations a single time if AWS Glue encounters a network error.
-````
+         |"database":"`mongodbName`",
+         |"collection":"`mongodbCollection`",
+         |"username": "`mongodbUsername`",
+         |"password": "`mongodbPassword`",
+         |"ssl":"true",
+         |"ssl.domain_match":"false",
+         |"partitioner": "MongoSamplePartitioner",
+         |"partitionerOptions.partitionSizeMB": "10",
+         |"partitionerOptions.partitionKey": "_id"}""".stripMargin)
+  }
+}
+```
+
+## MongoDB connection option reference
+
+Designates a connection to MongoDB. Connection options differ for a source connection and
+a sink connection.
+
+These connection properties are shared between source and sink connections:
+
+- `connectionName` — Used for Read/Write. The name of a AWS Glue MongoDB connection
+  configured to provide auth and networking information to your connection method. When a AWS Glue
+  connection is configured as described in the previous section, [Configuring MongoDB connections](#aws-glue-programming-etl-connect-mongodb-configure "#aws-glue-programming-etl-connect-mongodb-configure"), providing
+  `connectionName` will replace the need to provide the `"uri"`,
+  `"username"` and `"password"` connection options.
+- `"uri"`: (Required) The MongoDB host to read from, formatted as
+  `mongodb://<host>:<port>`. Used in AWS Glue versions prior to AWS Glue 4.0.
+- `"connection.uri"`: (Required) The MongoDB host to read from, formatted as
+  `mongodb://<host>:<port>`. Used in AWS Glue 4.0 and later versions.
+- `"username"`: (Required) The MongoDB user name.
+- `"password"`: (Required) The MongoDB password.
+- `"database"`: (Required) The MongoDB database to read from. This option
+  can also be passed in `additional_options` when calling
+  `glue_context.create_dynamic_frame_from_catalog` in your job script.
+- `"collection"`: (Required) The MongoDB collection to read from. This
+  option can also be passed in `additional_options` when calling
+  `glue_context.create_dynamic_frame_from_catalog` in your job script.
+
+### "connectionType": "mongodb" as
+
+source
+
+Use the following connection options with `"connectionType": "mongodb"` as a
+source:
+
+- `"ssl"`: (Optional) If `true`, initiates an SSL connection.
+  The default is `false`.
+- `"ssl.domain_match"`: (Optional) If `true` and
+  `ssl` is `true`, domain match check is performed. The default is
+  `true`.
+- `"batchSize"`: (Optional): The number of documents to return per batch,
+  used within the cursor of internal batches.
+- `"partitioner"`: (Optional): The class name of the partitioner for
+  reading input data from MongoDB. The connector provides the following
+  partitioners:
+  - `MongoDefaultPartitioner` (default) (Not supported in AWS Glue 4.0)
+  - `MongoSamplePartitioner` (Requires MongoDB 3.2 or later) (Not supported in AWS Glue 4.0)
+  - `MongoShardedPartitioner` (Not supported in AWS Glue 4.0)
+  - `MongoSplitVectorPartitioner` (Not supported in AWS Glue 4.0)
+  - `MongoPaginateByCountPartitioner` (Not supported in AWS Glue 4.0)
+  - `MongoPaginateBySizePartitioner` (Not supported in AWS Glue 4.0)
+  - `com.mongodb.spark.sql.connector.read.partitioner.SinglePartitionPartitioner`
+  - `com.mongodb.spark.sql.connector.read.partitioner.ShardedPartitioner`
+  - `com.mongodb.spark.sql.connector.read.partitioner.PaginateIntoPartitionsPartitioner`
+
+- `"partitionerOptions"` (Optional): Options for the designated
+  partitioner. The following options are supported for each partitioner:
+
+      + `MongoSamplePartitioner`: `partitionKey`,
+       `partitionSizeMB`, `samplesPerPartition`
+      + `MongoShardedPartitioner`: `shardkey`
+      + `MongoSplitVectorPartitioner`: `partitionKey`,
+       `partitionSizeMB`
+      + `MongoPaginateByCountPartitioner`: `partitionKey`,
+       `numberOfPartitions`
+      + `MongoPaginateBySizePartitioner`: `partitionKey`,
+       `partitionSizeMB`
+
+  For more information about these options, see [Partitioner Configuration](https://docs.mongodb.com/spark-connector/master/configuration/#partitioner-conf "https://docs.mongodb.com/spark-connector/master/configuration/#partitioner-conf") in the MongoDB documentation.
+
+### "connectionType": "mongodb" as sink
+
+Use the following connection options with `"connectionType": "mongodb"` as a
+sink:
+
+- `"ssl"`: (Optional) If `true`, initiates an SSL connection.
+  The default is `false`.
+- `"ssl.domain_match"`: (Optional) If `true` and
+  `ssl` is `true`, domain match check is performed. The default is
+  `true`.
+- `"extendedBsonTypes"`: (Optional) If `true`, allows extended
+  BSON types when writing data to MongoDB. The default is `true`.
+- `"replaceDocument"`: (Optional) If `true`, replaces the whole
+  document when saving datasets that contain an `_id` field. If
+  `false`, only fields in the document that match the fields in the dataset
+  are updated. The default is `true`.
+- `"maxBatchSize"`: (Optional): The maximum batch size for bulk operations
+  when saving data. The default is 512.
+- `"retryWrites"`: (Optional): Automatically retry certain write operations a single
+  time if AWS Glue encounters a network error.

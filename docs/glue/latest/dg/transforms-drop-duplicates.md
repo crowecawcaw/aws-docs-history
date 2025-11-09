@@ -6,18 +6,41 @@ completely the same, or you can choose to choose the fields to match and remove 
 For example, in this data set, you have duplicate rows where all the values in some of the rows are exactly the same as another row,
 and some of the values in rows are the same or different.
 
-| Row | Name | Email      | Age | State | Note                                                                                                                                                                                                                              |
-| --- | ---- | ---------- | --- | ----- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- | ---- | ---------- | --- | ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| 1   | Joy  | joy@gmail  | 33  | NY    |                                                                                                                                                                                                                                   |
-| 2   | Tim  | tim@gmail  | 45  | OH    |                                                                                                                                                                                                                                   |
-| 3   | Rose | rose@gmail | 23  | NJ    |                                                                                                                                                                                                                                   |
-| 4   | Tim  | tim@gmail  | 42  | OH    |                                                                                                                                                                                                                                   |
-| 5   | Rose | rose@gmail | 23  | NJ    |                                                                                                                                                                                                                                   |
-| 6   | Tim  | tim@gmail  | 42  | OH    | this is a duplicate row and matches completely on all values as row #4                                                                                                                                                            |
-| 7   | Rose | rose@gmail | 23  | NJ    | This is a duplicate row and matches completely on all values as row #5                                                                                                                                                            | If you choose to match entire rows, rows 6 and 7 will be removed from the data set. The data set is now: |
-| Row | Name | Email      | Age | State |                                                                                                                                                                                                                                   | ---                                                                                                      | ---  | ---        | --- | ---   |
-| 1   | Joy  | joy@gmail  | 33  | NY    |                                                                                                                                                                                                                                   | 2                                                                                                        | Tim  | tim@gmail  | 45  | OH    |
-| 3   | Rose | rose@gmail | 23  | NJ    |                                                                                                                                                                                                                                   | 4                                                                                                        | Tim  | tim@gmail  | 42  | OH    |
-| 5   | Rose | rose@gmail | 23  | NJ    | If you chose to specify keys, you can choose to remove rows that match on ‘name’ and ‘email’. This gives you finer control of what is a ‘duplicate row’ for your data set. By specifying ‘name’ and ‘email’, the data set is now: | Row                                                                                                      | Name | Email      | Age | State |
-| --- | ---  | ---        | --- | ---   |                                                                                                                                                                                                                                   | 1                                                                                                        | Joy  | joy@gmail  | 33  | NY    |
-| 2   | Tim  | tim@gmail  | 45  | OH    |                                                                                                                                                                                                                                   | 3                                                                                                        | Rose | rose@gmail | 23  | NJ    | Some things to keep in mind: <br>• In order for rows to be recognized as a duplicate, values are case sensitive. all values in rows need to have the same casing - this applies to either option you choose (Match entire rows or Specify keys). <br>• All values are read in as strings. <br>• The **Drop Duplicates** transform utilizes the Spark dropDuplicates command. <br>• When using the **Drop Duplicates** transform, the first row is kept and other rows are dropped. <br>• The **Drop Duplicates** transform does not change the schema of the dataframe. If you choose to specify keys, all fields are kept in the resulting dataframe. |
+| Row | Name | Email      | Age | State | Note                                                                   |
+| --- | ---- | ---------- | --- | ----- | ---------------------------------------------------------------------- |
+| 1   | Joy  | joy@gmail  | 33  | NY    |                                                                        |
+| 2   | Tim  | tim@gmail  | 45  | OH    |                                                                        |
+| 3   | Rose | rose@gmail | 23  | NJ    |                                                                        |
+| 4   | Tim  | tim@gmail  | 42  | OH    |                                                                        |
+| 5   | Rose | rose@gmail | 23  | NJ    |                                                                        |
+| 6   | Tim  | tim@gmail  | 42  | OH    | this is a duplicate row and matches completely on all values as row #4 |
+| 7   | Rose | rose@gmail | 23  | NJ    | This is a duplicate row and matches completely on all values as row #5 |
+
+If you choose to match entire rows, rows 6 and 7 will be removed from the data set. The data set is now:
+
+| Row | Name | Email      | Age | State |
+| --- | ---- | ---------- | --- | ----- |
+| 1   | Joy  | joy@gmail  | 33  | NY    |
+| 2   | Tim  | tim@gmail  | 45  | OH    |
+| 3   | Rose | rose@gmail | 23  | NJ    |
+| 4   | Tim  | tim@gmail  | 42  | OH    |
+| 5   | Rose | rose@gmail | 23  | NJ    |
+
+If you chose to specify keys, you can choose to remove rows that match on ‘name’ and ‘email’.
+This gives you finer control of what is a ‘duplicate row’ for your data set. By specifying ‘name’ and ‘email’, the data set is now:
+
+| Row | Name | Email      | Age | State |
+| --- | ---- | ---------- | --- | ----- |
+| 1   | Joy  | joy@gmail  | 33  | NY    |
+| 2   | Tim  | tim@gmail  | 45  | OH    |
+| 3   | Rose | rose@gmail | 23  | NJ    |
+
+Some things to keep in mind:
+
+- In order for rows to be recognized as a duplicate, values are case sensitive. all values in rows need to have the same casing -
+  this applies to either option you choose (Match entire rows or Specify keys).
+- All values are read in as strings.
+- The **Drop Duplicates** transform utilizes the Spark dropDuplicates command.
+- When using the **Drop Duplicates** transform, the first row is kept and other rows are dropped.
+- The **Drop Duplicates** transform does not change the schema of the dataframe.
+  If you choose to specify keys, all fields are kept in the resulting dataframe.

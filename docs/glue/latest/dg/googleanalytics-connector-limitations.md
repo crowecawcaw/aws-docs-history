@@ -48,9 +48,23 @@ The following are limitations for the Google Analytics 4 connector:
   if needed.
 
 | FieldName   | Default values                    | Sample query to pass in filterPredicate options to override default values |
-| ----------- | --------------------------------- | -------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ----------- | --------------------------------- | -------------------------------------------------------------------------- |
 | startDate   | 30 days ago from the current date | "startDate between "2023-05-09" and "2023-05-10"                           |
 | endDate     | 1 day ago from current date       | "startDate between "2023-05-09" and "2023-05-10"                           |
 | startOffset | 0                                 | startOffset=2                                                              |
 | endOffset   | 1                                 | endOffset=10                                                               |
-| granularity | DAILY                             | granularity="WEEKLY"                                                       | <br>• You can also pass all these filters together at once or with other filters. + Example 1 - filterPredicate: startDate between "2023-05-09" and "2023-05-10" AND startOffset=1 AND endOffset=2 AND granularity="WEEKLY" + Example 2 - filterPredicate: city=“xyz” AND startOffset=1 AND endOffset=2 AND granularity="WEEKLY" <br>• In cohort request: + If ‘cohortNthMonth’ is passed in the request, then internally granularity value will be set as “MONTHLY” + Similarly, if ‘cohortNthWeek’ is passed, then granularity value will be set as “WEEKLY” + And, for ‘cohortNthDay’ granularity value will be set as “DAILY”. For more information, see: <br>• [https://developers.google.com/analytics/devguides/reporting/data/v1/advanced](https://developers.google.com/analytics/devguides/reporting/data/v1/advanced "https://developers.google.com/analytics/devguides/reporting/data/v1/advanced") <br>• [https://developers.google.com/analytics/devguides/reporting/data/v1/rest/v1beta/CohortSpec](https://developers.google.com/analytics/devguides/reporting/data/v1/rest/v1beta/CohortSpec "https://developers.google.com/analytics/devguides/reporting/data/v1/rest/v1beta/CohortSpec") + Provision is given for the user to override dateRange and granularity default value. Refer to the above table. |
+| granularity | DAILY                             | granularity="WEEKLY"                                                       |
+
+- You can also pass all these filters together at once or with other filters.
+  - Example 1 - filterPredicate: startDate between "2023-05-09" and "2023-05-10" AND startOffset=1 AND
+    endOffset=2 AND granularity="WEEKLY"
+  - Example 2 - filterPredicate: city=“xyz” AND startOffset=1 AND endOffset=2 AND granularity="WEEKLY"
+
+- In cohort request:
+  - If ‘cohortNthMonth’ is passed in the request, then internally granularity value will be set as “MONTHLY”
+  - Similarly, if ‘cohortNthWeek’ is passed, then granularity value will be set as “WEEKLY”
+  - And, for ‘cohortNthDay’ granularity value will be set as “DAILY”. For more information, see:
+    - [https://developers.google.com/analytics/devguides/reporting/data/v1/advanced](https://developers.google.com/analytics/devguides/reporting/data/v1/advanced "https://developers.google.com/analytics/devguides/reporting/data/v1/advanced")
+    - [https://developers.google.com/analytics/devguides/reporting/data/v1/rest/v1beta/CohortSpec](https://developers.google.com/analytics/devguides/reporting/data/v1/rest/v1beta/CohortSpec "https://developers.google.com/analytics/devguides/reporting/data/v1/rest/v1beta/CohortSpec")
+
+  - Provision is given for the user to override dateRange and granularity default value. Refer to the above table.

@@ -267,8 +267,100 @@ path.
 Controls the behavior of a job bookmark. The following option values can be
 set.
 
-| ‑‑job‑bookmark‑option value | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| --------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `job-bookmark-enable`       | Keep track of previously processed data. When a job runs, process new data since the last checkpoint.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| `job-bookmark-disable`      | Always process the entire dataset. You are responsible for managing the output from previous job runs.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| `job-bookmark-pause`        | Process incremental data since the last successful run or the data in the range identified by the following suboptions, without updating the state of the last bookmark. You are responsible for managing the output from previous job runs. The two suboptions are as follows: <br>• **`job-bookmark-from`** `<from-value>` is the run ID that represents all the input that was processed until the last successful run before and including the specified run ID. The corresponding input is ignored. <br>• **`job-bookmark-to`**`<to-value>` is the run ID that represents all the input that was processed until the last successful run before and including the specified run ID. The corresponding input excluding the input identified by the `<from-value>` is processed by the job. Any input later than this input is also excluded for processing. The job bookmark state is not updated when this option set is specified. The suboptions are optional. However, when used, both suboptions must be provided. | For example, to enable a job bookmark, pass the following argument. `'--job-bookmark-option': 'job-bookmark-enable'` **`--job-language`** The script programming language. This value must be either `scala` or `python`. If this parameter is not present, the default is `python`. **`--python-modules-installer-option`** A plaintext string that defines options to be passed to `pip3` when installing modules with [--additional-python-modules](#additional-python-modules "#additional-python-modules"). Provide options as you would in the command line, separated by spaces and prefixed by dashes. For more information about usage, see [Installing additional Python modules with pip in AWS Glue 2.0 or later](aws-glue-programming-python-libraries.md#addl-python-modules-support "aws-glue-programming-python-libraries.md#addl-python-modules-support"). ###### Note This option is not supported for AWS Glue jobs when you use Python 3.9. **`--scriptLocation`** The Amazon Simple Storage Service (Amazon S3) location where your ETL script is located (in the form `s3://path/to/my/script.py`). This parameter overrides a script location set in the `JobCommand` object. **`--spark-event-logs-path`** Specifies an Amazon S3 path. When using the Spark UI monitoring feature, AWS Glue flushes the Spark event logs to this Amazon S3 path every 30 seconds to a bucket that can be used as a temporary directory for storing Spark UI events. **`--TempDir`** Specifies an Amazon S3 path to a bucket that can be used as a temporary directory for the job. For example, to set a temporary directory, pass the following argument. ``'--TempDir': '`s3-path-to-directory`'`` ###### Note AWS Glue creates a temporary bucket for jobs if a bucket doesn't already exist in a Region. This bucket might permit public access. You can either modify the bucket in Amazon S3 to set the public access block, or delete the bucket later after all jobs in that Region have completed. **`--use-postgres-driver`** When setting this value to `true`, it prioritizes the Postgres JDBC driver in the class path to avoid a conflict with the Amazon Redshift JDBC driver. This option is only available in AWS Glue version 2.0. **`--user-jars-first`** When setting this value to `true`, it prioritizes the customer's extra JAR files in the classpath. This option is only available in AWS Glue version 2.0 or later. **`--conf`** Controls Spark config parameters. It is for advanced use cases. **`--encryption-type`** Legacy parameter. The corresponding behavior should be configured using security configurations. for more information about security configurations, see [Encrypting data written by AWS Glue](encryption-security-configuration.md "encryption-security-configuration.md"). AWS Glue uses the following arguments internally and you should never use them: <br>• `--debug` — Internal to AWS Glue. Do not set. <br>• `--mode` — Internal to AWS Glue. Do not set. <br>• `--JOB_NAME` — Internal to AWS Glue. Do not set. <br>• `--endpoint` — Internal to AWS Glue. Do not set. ## AWS Glue supports bootstrapping an environment with Python's `site` module using `sitecustomize` to perform site-specific customizations. Bootstrapping your own initilization functions is recommended for advanced use cases only and is supported on a best-effort basis on AWS Glue 4.0. The environment variable prefix, `GLUE_CUSTOMER`, is reserved for customer use. |
+| ‑‑job‑bookmark‑option value | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `job-bookmark-enable`       | Keep track of previously processed data. When a job runs, process new data<br>since the last checkpoint.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| `job-bookmark-disable`      | Always process the entire dataset. You are responsible for managing the<br>output from previous job runs.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| `job-bookmark-pause`        | Process incremental data since the last successful run or the data in the<br>range identified by the following suboptions, without updating the state of the<br>last bookmark. You are responsible for managing the output from previous job runs.<br>The two suboptions are as follows:<br>• **`job-bookmark-from`**<br>`<from-value>` is the run ID that represents all the input<br>that was processed until the last successful run before and including the<br>specified run ID. The corresponding input is ignored.<br>• **`job-bookmark-to`**`<to-value>` is the run ID that represents all the input that was<br>processed until the last successful run before and including the specified<br>run ID. The corresponding input excluding the input identified by the<br>`<from-value>` is processed by the job. Any input later than<br>this input is also excluded for processing.<br>The job bookmark state is not updated when this option set is<br>specified.<br>The suboptions are optional. However, when used, both suboptions must be<br>provided. |
+
+For example, to enable a job bookmark, pass the following argument.
+
+```
+'--job-bookmark-option': 'job-bookmark-enable'
+```
+
+**`--job-language`**
+
+The script programming language. This value must be either `scala` or
+`python`. If this parameter is not present, the default is
+`python`.
+
+**`--python-modules-installer-option`**
+
+A plaintext string that defines options to be passed to `pip3` when
+installing modules with [--additional-python-modules](#additional-python-modules "#additional-python-modules"). Provide options as you
+would in the command line, separated by spaces and prefixed by dashes. For more
+information about usage, see [Installing additional Python modules with pip in AWS Glue 2.0 or later](aws-glue-programming-python-libraries.md#addl-python-modules-support "aws-glue-programming-python-libraries.md#addl-python-modules-support").
+
+###### Note
+
+This option is not supported for AWS Glue jobs when you use Python 3.9.
+
+**`--scriptLocation`**
+
+The Amazon Simple Storage Service (Amazon S3) location where your ETL script is located (in the form
+`s3://path/to/my/script.py`). This parameter overrides a script location set
+in the `JobCommand` object.
+
+**`--spark-event-logs-path`**
+
+Specifies an Amazon S3 path. When using the Spark UI monitoring feature,
+AWS Glue flushes the Spark event logs to this Amazon S3 path every
+30 seconds to a bucket that can be used as a temporary directory for storing Spark UI
+events.
+
+**`--TempDir`**
+
+Specifies an Amazon S3 path to a bucket that can be used as a temporary directory for the
+job.
+
+For example, to set a temporary directory, pass the following argument.
+
+```
+'--TempDir': '`s3-path-to-directory`'
+```
+
+###### Note
+
+AWS Glue creates a temporary bucket for jobs if a bucket doesn't already
+exist in a Region. This bucket might permit public access. You can either modify the
+bucket in Amazon S3 to set the public access block, or delete the bucket later
+after all jobs in that Region have completed.
+
+**`--use-postgres-driver`**
+
+When setting this value to `true`, it prioritizes the Postgres JDBC driver
+in the class path to avoid a conflict with the Amazon Redshift JDBC driver. This option is only
+available in AWS Glue version 2.0.
+
+**`--user-jars-first`**
+
+When setting this value to `true`, it prioritizes the customer's extra JAR
+files in the classpath. This option is only available in AWS Glue version 2.0
+or later.
+
+**`--conf`**
+
+Controls Spark config parameters. It is for advanced use cases.
+
+**`--encryption-type`**
+
+Legacy parameter. The corresponding behavior should be configured using security configurations. for more
+information about security configurations, see [Encrypting data written by
+AWS Glue](encryption-security-configuration.md "encryption-security-configuration.md").
+
+AWS Glue uses the following arguments internally and you should never use
+them:
+
+- `--debug` — Internal to AWS Glue. Do not set.
+- `--mode` — Internal to AWS Glue. Do not set.
+- `--JOB_NAME` — Internal to AWS Glue. Do not set.
+- `--endpoint` — Internal to AWS Glue. Do not set.
+
+##
+
+AWS Glue supports bootstrapping an environment with Python's `site` module using
+`sitecustomize` to perform site-specific customizations. Bootstrapping your own initilization functions
+is recommended for advanced use cases only and is supported on a best-effort basis on AWS Glue 4.0.
+
+The environment variable prefix, `GLUE_CUSTOMER`, is reserved for customer use.

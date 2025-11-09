@@ -139,7 +139,7 @@ and `none`.
 The environment for running a Python shell job supports the following libraries:
 
 | Python version     | Python 3.6 | Python 3.9    |
-| ------------------ | ---------- | ------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------------ | ---------- | ------------- | -------- |
 | **Library set**    | **N/A**    | **analytics** | **none** |
 | avro               |            | 1.11.0        |          |
 | awscli             | 116.242    | 1.23.5        | 1.23.5   |
@@ -160,4 +160,224 @@ The environment for running a Python shell job supports the following libraries:
 | scikit-learn       | 0.20.3     | 1.0.2         |          |
 | scipy              | 1.2.1      | 1.8.0         |          |
 | SQLAlchemy         |            | 1.4.36        |          |
-| s3fs               |            | 2022.3.0      |          | You can use the `NumPy` library in a Python shell job for scientific computing. For more information, see [NumPy](http://www.numpy.org "http://www.numpy.org"). The following example shows a NumPy script that can be used in a Python shell job. The script prints "Hello world" and the results of several mathematical calculations. `import numpy as np print("Hello world") a = np.array([20,30,40,50]) print(a) b = np.arange( 4 ) print(b) c = a-b print(c) d = b**2 print(d)` ## Providing your own Python library ### Using PIP Python shell using Python 3.9 lets you provide additional Python modules or different versions at the job level. You can use the `--additional-python-modules` option with a list of comma-separated Python modules to add a new module or change the version of an existing module. You cannot provide custom Python modules hosted on Amazon S3 with this parameter when using Python shell jobs. For example to update or to add a new `scikit-learn` module use the following key and value: `"--additional-python-modules", "scikit-learn==0.21.3"`. AWS Glue uses the Python Package Installer (pip3) to install the additional modules. You can pass additional pip3 options inside the `--additional-python-modules` value. For example, `"scikit-learn==0.21.3 -i https://pypi.python.org/simple/"`. Any incompatibilities or limitations from pip3 apply. ###### Note To avoid incompatibilities in the future, we recommend that you use libraries built for Python 3.9. ### Using an Egg or Whl file You might already have one or more Python libraries packaged as an `.egg` or a `.whl` file. If so, you can specify them to your job using the AWS Command Line Interface (AWS CLI) under the "`--extra-py-files`" flag, as in the following example. ``aws glue create-job --name python-redshift-test-cli --role `role` --command '{"Name" :  "pythonshell", "ScriptLocation" : "s3://MyBucket/python/library/redshift_test.py"}' --connections Connections=`connection-name` --default-arguments '{"--extra-py-files" : ["s3://amzn-s3-demo-bucket/EGG-FILE", "s3://amzn-s3-demo-bucket/WHEEL-FILE"]}'`` If you aren't sure how to create an `.egg` or a `.whl` file from a Python library, use the following steps. This example is applicable on macOS, Linux, and Windows Subsystem for Linux (WSL). ###### To create a Python .egg or .whl file 1. Create an Amazon Redshift cluster in a virtual private cloud (VPC), and add some data to a table. 2. Create an AWS Glue connection for the VPC-SecurityGroup-Subnet combination that you used to create the cluster. Test that the connection is successful. 3. Create a directory named `redshift_example`, and create a file named `setup.py`. Paste the following code into `setup.py`. `from setuptools import setup setup( name="redshift_module", version="0.1", packages=['redshift_module'] )` 4. In the `redshift_example` directory, create a `redshift_module` directory. In the `redshift_module` directory, create the files `__init__.py` and `pygresql_redshift_common.py`. 5. Leave the `__init__.py` file empty. In `pygresql_redshift_common.py`, paste the following code. Replace `port`, `db_name`, `user`, and `password_for_user` with details specific to your Amazon Redshift cluster. Replace `table_name` with the name of the table in Amazon Redshift. ``import pg def get_connection(host): rs_conn_string = "host=%s port=%s dbname=%s user=%s password=%s" % ( host, `port`, `db_name`, `user`, `password_for_user`) rs_conn = pg.connect(dbname=rs_conn_string) rs_conn.query("set statement_timeout = 1200000") return rs_conn def query(con): statement = "Select * from `table_name`;" res = con.query(statement) return res`` 6. If you're not already there, change to the `redshift_example` directory. 7. Do one of the following: <br>• To create an `.egg` file, run the following command. `python setup.py bdist_egg` <br>• To create a `.whl` file, run the following command. `python setup.py bdist_wheel` 8. Install the dependencies that are required for the preceding command. 9. The command creates a file in the `dist` directory: <br>• If you created an egg file, it's named `redshift_module-0.1-py2.7.egg`. <br>• If you created a wheel file, it's named `redshift_module-0.1-py2.7-none-any.whl`. Upload this file to Amazon S3. In this example, the uploaded file path is either `s3://amzn-s3-demo-bucket/EGG-FILE` or `s3://amzn-s3-demo-bucket/WHEEL-FILE`. 10. Create a Python file to be used as a script for the AWS Glue job, and add the following code to the file. ``from redshift_module import pygresql_redshift_common as rs_common con1 = rs_common.get_connection(`redshift_endpoint`) res = rs_common.query(con1) print "Rows in the table cities are: " print res`` 11. Upload the preceding file to Amazon S3. In this example, the uploaded file path is `s3://amzn-s3-demo-bucket/scriptname.py`. 12. Create a Python shell job using this script. On the AWS Glue console, on the **Job properties** page, specify the path to the `.egg/.whl` file in the **Python library path** box. If you have multiple `.egg/.whl` files and Python files, provide a comma-separated list in this box. When modifying or renaming `.egg` files, the file names must use the default names generated by the "python setup.py bdist_egg" command or must adhere to the Python module naming conventions. For more information, see the [Style Guide for Python Code](https://www.python.org/dev/peps/pep-0008/ "https://www.python.org/dev/peps/pep-0008/"). Using the AWS CLI, create a job with a command, as in the following example. `aws glue create-job --name python-redshift-test-cli --role Role --command '{"Name" :  "pythonshell", "ScriptLocation" : "s3://amzn-s3-demo-bucket/scriptname.py"}' --connections Connections="connection-name" --default-arguments '{"--extra-py-files" : ["s3://amzn-s3-demo-bucket/EGG-FILE", "s3://amzn-s3-demo-bucket/WHEEL-FILE"]}'` When the job runs, the script prints the rows created in the `table_name` table in the Amazon Redshift cluster. ## Use AWS CloudFormation with Python shell jobs in AWS Glue You can use AWS CloudFormation with Python shell jobs in AWS Glue. The following is an example: `AWSTemplateFormatVersion: 2010-09-09 Resources: Python39Job: Type: 'AWS::Glue::Job' Properties: Command: Name: pythonshell PythonVersion: '3.9' ScriptLocation: 's3://bucket/location' MaxRetries: 0 Name: python-39-job Role: RoleName` The Amazon CloudWatch Logs group for Python shell jobs output is `/aws-glue/python-jobs/output`. For errors, see the log group `/aws-glue/python-jobs/error`. ## Migrating from Python shell 3.6 to Python shell 3.9 To migrate your Python shell jobs to the latest AWS Glue version: 1. In the AWS Glue console ([https://console.aws.amazon.com/glue/](https://console.aws.amazon.com/glue/ "https://console.aws.amazon.com/glue/")), choose your existing Python shell job. 2. In the **Job** details tab, set the Python version to `Python 3.9` and choose **Save**. 3. Ensure that your job script is compatible with Python 3.9 and that it runs successfully. |
+| s3fs               |            | 2022.3.0      |          |
+
+You can use the `NumPy` library in a Python shell job for scientific
+computing. For more information, see [NumPy](http://www.numpy.org "http://www.numpy.org").
+The following example shows a NumPy script that can be used in a Python shell job. The
+script prints "Hello world" and the results of several mathematical calculations.
+
+```
+
+import numpy as np
+print("Hello world")
+
+a = np.array([20,30,40,50])
+print(a)
+
+b = np.arange( 4 )
+
+print(b)
+
+c = a-b
+
+print(c)
+
+d = b**2
+
+print(d)
+
+```
+
+## Providing your own Python library
+
+### Using PIP
+
+Python shell using Python 3.9 lets you provide additional Python modules or different versions at the
+job level. You can use the `--additional-python-modules` option with a list of
+comma-separated Python modules to add a new module or change the version of an existing module. You
+cannot provide custom Python modules hosted on Amazon S3 with this parameter when using Python shell jobs.
+
+For example to update or to add a new `scikit-learn` module use the following key
+and value: `"--additional-python-modules",
+ "scikit-learn==0.21.3"`.
+
+AWS Glue uses the Python Package Installer (pip3) to install the additional modules. You can pass additional pip3 options inside the `--additional-python-modules` value. For example, `"scikit-learn==0.21.3 -i https://pypi.python.org/simple/"`. Any incompatibilities or limitations from pip3 apply.
+
+###### Note
+
+To avoid incompatibilities in the future, we recommend that you use libraries built for Python
+3.9.
+
+### Using an Egg or Whl file
+
+You might already have one or more Python libraries packaged as an `.egg` or a
+`.whl` file. If so, you can specify them to your job using the AWS Command Line Interface
+(AWS CLI) under the "`--extra-py-files`" flag, as in the following
+example.
+
+```
+aws glue create-job --name python-redshift-test-cli --role `role` --command '{"Name" :  "pythonshell", "ScriptLocation" : "s3://MyBucket/python/library/redshift_test.py"}'
+     --connections Connections=`connection-name` --default-arguments '{"--extra-py-files" : ["s3://amzn-s3-demo-bucket/EGG-FILE", "s3://amzn-s3-demo-bucket/WHEEL-FILE"]}'
+```
+
+If you aren't sure how to create an `.egg` or a `.whl` file from a
+Python library, use the following steps. This example is applicable on macOS, Linux, and
+Windows Subsystem for Linux (WSL).
+
+###### To create a Python .egg or .whl file
+
+1. Create an Amazon Redshift cluster in a virtual private cloud (VPC), and add some data to
+   a table.
+2. Create an AWS Glue connection for the VPC-SecurityGroup-Subnet combination that
+   you used to create the cluster. Test that the connection is successful.
+3. Create a directory named `redshift_example`, and create a
+   file named `setup.py`. Paste the following code into
+   `setup.py`.
+
+```
+from setuptools import setup
+
+setup(
+    name="redshift_module",
+    version="0.1",
+    packages=['redshift_module']
+)
+
+```
+
+4. In the `redshift_example` directory, create a
+   `redshift_module` directory. In the
+   `redshift_module` directory, create the files
+   `__init__.py` and
+   `pygresql_redshift_common.py`.
+5. Leave the `__init__.py` file empty. In
+   `pygresql_redshift_common.py`, paste the following code.
+   Replace `port`, `db_name`,
+   `user`, and
+   `password_for_user` with details specific to your
+   Amazon Redshift cluster. Replace `table_name` with the name of the
+   table in Amazon Redshift.
+
+```
+import pg
+
+
+def get_connection(host):
+    rs_conn_string = "host=%s port=%s dbname=%s user=%s password=%s" % (
+        host, `port`, `db_name`, `user`, `password_for_user`)
+
+    rs_conn = pg.connect(dbname=rs_conn_string)
+    rs_conn.query("set statement_timeout = 1200000")
+    return rs_conn
+
+
+def query(con):
+    statement = "Select * from `table_name`;"
+    res = con.query(statement)
+    return res
+
+
+```
+
+6.  If you're not already there, change to the
+    `redshift_example` directory.
+7.  Do one of the following:
+    - To create an `.egg` file, run the following command.
+
+    ```
+    python setup.py bdist_egg
+    ```
+
+    - To create a `.whl` file, run the following command.
+
+    ```
+    python setup.py bdist_wheel
+    ```
+
+8.  Install the dependencies that are required for the preceding command.
+9.  The command creates a file in the `dist` directory:
+
+        * If you created an egg file, it's named
+         `redshift_module-0.1-py2.7.egg`.
+        * If you created a wheel file, it's named
+         `redshift_module-0.1-py2.7-none-any.whl`.
+
+    Upload this file to Amazon S3.
+
+In this example, the uploaded file path is either
+`s3://amzn-s3-demo-bucket/EGG-FILE`
+
+or
+`s3://amzn-s3-demo-bucket/WHEEL-FILE`. 10. Create a Python file to be used as a script for the AWS Glue job, and add the
+following code to the file.
+
+```
+from redshift_module import pygresql_redshift_common as rs_common
+
+con1 = rs_common.get_connection(`redshift_endpoint`)
+res = rs_common.query(con1)
+
+print "Rows in the table cities are: "
+
+print res
+
+
+```
+
+11. Upload the preceding file to Amazon S3. In this example, the uploaded file path is
+    `s3://amzn-s3-demo-bucket/scriptname.py`.
+12. Create a Python shell job using this script. On the AWS Glue console, on the
+    **Job properties** page, specify the path to the
+    `.egg/.whl` file in the **Python library
+    path** box. If you have multiple `.egg/.whl`
+    files and Python files, provide a comma-separated list in this box.
+
+When modifying or renaming `.egg` files, the file names must use the default names generated by the "python setup.py bdist_egg" command or must adhere to the Python module naming conventions. For more information, see the [Style Guide for Python Code](https://www.python.org/dev/peps/pep-0008/ "https://www.python.org/dev/peps/pep-0008/").
+
+Using the AWS CLI, create a job with a command, as in the following
+example.
+
+```
+aws glue create-job --name python-redshift-test-cli --role Role --command '{"Name" :  "pythonshell", "ScriptLocation" : "s3://amzn-s3-demo-bucket/scriptname.py"}'
+     --connections Connections="connection-name" --default-arguments '{"--extra-py-files" : ["s3://amzn-s3-demo-bucket/EGG-FILE", "s3://amzn-s3-demo-bucket/WHEEL-FILE"]}'
+
+```
+
+When the job runs, the script prints the rows created in the
+`table_name` table in the Amazon Redshift cluster.
+
+## Use AWS CloudFormation with Python shell jobs in
+
+AWS Glue
+
+You can use AWS CloudFormation with Python shell jobs in AWS Glue. The following is
+an example:
+
+```
+AWSTemplateFormatVersion: 2010-09-09
+Resources:
+  Python39Job:
+    Type: 'AWS::Glue::Job'
+    Properties:
+      Command:
+        Name: pythonshell
+        PythonVersion: '3.9'
+        ScriptLocation: 's3://bucket/location'
+      MaxRetries: 0
+      Name: python-39-job
+      Role: RoleName
+
+```
+
+The Amazon CloudWatch Logs group for Python shell jobs output is
+`/aws-glue/python-jobs/output`. For errors, see the log group
+`/aws-glue/python-jobs/error`.
+
+## Migrating from Python shell 3.6 to Python shell 3.9
+
+To migrate your Python shell jobs to the latest AWS Glue version:
+
+1. In the AWS Glue console ([https://console.aws.amazon.com/glue/](https://console.aws.amazon.com/glue/ "https://console.aws.amazon.com/glue/")), choose your existing Python shell job.
+2. In the **Job** details tab, set the Python version to `Python 3.9` and choose **Save**.
+3. Ensure that your job script is compatible with Python 3.9 and that it runs successfully.

@@ -19,7 +19,285 @@ library, see Delta Lake's Python documentation.
 The following table lists the version of Delta Lake included in each AWS Glue version.
 
 | AWS Glue version | Supported Delta Lake version |
-| ---------------- | ---------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ---------------- | ---------------------------- |
 | 5.0              | 3.3.0                        |
 | 4.0              | 2.1.0                        |
-| 3.0              | 1.0.0                        | To learn more about the data lake frameworks that AWS Glue supports, see [Using data lake frameworks with AWS Glue ETL jobs](aws-glue-programming-etl-datalake-native-frameworks.md "aws-glue-programming-etl-datalake-native-frameworks.md"). ## Enabling Delta Lake for AWS Glue To enable Delta Lake for AWS Glue, complete the following tasks: <br>• Specify `delta` as a value for the `--datalake-formats` job parameter. For more information, see [Using job parameters in AWS Glue jobs](aws-glue-programming-etl-glue-arguments.md "aws-glue-programming-etl-glue-arguments.md"). <br>• Create a key named `--conf` for your AWS Glue job, and set it to the following value. Alternatively, you can set the following configuration using `SparkConf` in your script. These settings help Apache Spark correctly handle Delta Lake tables. `spark.sql.extensions=io.delta.sql.DeltaSparkSessionExtension --conf spark.sql.catalog.spark_catalog=org.apache.spark.sql.delta.catalog.DeltaCatalog --conf spark.delta.logStore.class=org.apache.spark.sql.delta.storage.S3SingleDriverLogStore` <br>• Lake Formation permission support for Delta tables is enabled by default for AWS Glue 4.0. No additional configuration is needed for reading/writing to Lake Formation-registered Delta tables. To read a registered Delta table, the AWS Glue job IAM role must have the SELECT permission. To write to a registered Delta table, the AWS Glue job IAM role must have the SUPER permission. To learn more about managing Lake Formation permissions, see [Granting and revoking permissions on Data Catalog resources](../../../lake-formation/latest/dg/granting-catalog-permissions.md "../../../lake-formation/latest/dg/granting-catalog-permissions.md"). **Using a different Delta Lake version** To use a version of Delta lake that AWS Glue doesn't support, specify your own Delta Lake JAR files using the `--extra-jars` job parameter. Do not include `delta` as a value for the `--datalake-formats` job parameter. If you use AWS Glue 5.0, you must set `--user-jars-first true` job parameter. To use the Delta Lake Python library in this case, you must specify the library JAR files using the `--extra-py-files` job parameter. The Python library comes packaged in the Delta Lake JAR files. ## Example: Write a Delta Lake table to Amazon S3 and register it to the AWS Glue Data Catalog The following AWS Glue ETL script demonstrates how to write a Delta Lake table to Amazon S3 and register the table to the AWS Glue Data Catalog. Python ``# Example: Create a Delta Lake table from a DataFrame # and register the table to Glue Data Catalog additional_options = { "path": "s3://`<s3Path>`" } dataFrame.write \ .format("delta") \ .options(**additional_options) \ .mode("append") \ .partitionBy("`<your_partitionkey_field>`") \ .saveAsTable("`<your_database_name>`.`<your_table_name>`")`` Scala ``// Example: Example: Create a Delta Lake table from a DataFrame // and register the table to Glue Data Catalog val additional_options = Map( "path" -> "s3://`<s3Path>`" ) dataFrame.write.format("delta") .options(additional_options) .mode("append") .partitionBy("`<your_partitionkey_field>`") .saveAsTable("`<your_database_name>`.`<your_table_name>`")`` ## Example: Read a Delta Lake table from Amazon S3 using the AWS Glue Data Catalog The following AWS Glue ETL script reads the Delta Lake table that you created in [Example: Write a Delta Lake table to Amazon S3 and register it to the AWS Glue Data Catalog](#aws-glue-programming-etl-format-delta-lake-write "#aws-glue-programming-etl-format-delta-lake-write"). Python For this example, use the [create_data_frame.from_catalog](aws-glue-api-crawler-pyspark-extensions-glue-context.md#aws-glue-api-crawler-pyspark-extensions-glue-context-create-dataframe-from-catalog "aws-glue-api-crawler-pyspark-extensions-glue-context.md#aws-glue-api-crawler-pyspark-extensions-glue-context-create-dataframe-from-catalog") method. ``# Example: Read a Delta Lake table from Glue Data Catalog from awsglue.context import GlueContext from pyspark.context import SparkContext sc = SparkContext() glueContext = GlueContext(sc) df = glueContext.create_data_frame.from_catalog( database="`<your_database_name>`", table_name="`<your_table_name>`", additional_options=additional_options )`` Scala For this example, use the [getCatalogSource](glue-etl-scala-apis-glue-gluecontext.md#glue-etl-scala-apis-glue-gluecontext-defs-getCatalogSource "glue-etl-scala-apis-glue-gluecontext.md#glue-etl-scala-apis-glue-gluecontext-defs-getCatalogSource") method. ``// Example: Read a Delta Lake table from Glue Data Catalog import com.amazonaws.services.glue.GlueContext import org.apacke.spark.SparkContext object GlueApp { def main(sysArgs: Array[String]): Unit = { val spark: SparkContext = new SparkContext() val glueContext: GlueContext = new GlueContext(spark) val df = glueContext.getCatalogSource("`<your_database_name>`", "`<your_table_name>`", additionalOptions = additionalOptions) .getDataFrame() } }`` ## Example: Insert a `DataFrame` into a Delta Lake table in Amazon S3 using the AWS Glue Data Catalog This example inserts data into the Delta Lake table that you created in [Example: Write a Delta Lake table to Amazon S3 and register it to the AWS Glue Data Catalog](#aws-glue-programming-etl-format-delta-lake-write "#aws-glue-programming-etl-format-delta-lake-write"). ###### Note This example requires you to set the `--enable-glue-datacatalog` job parameter in order to use the AWS Glue Data Catalog as an Apache Spark Hive metastore. To learn more, see [Using job parameters in AWS Glue jobs](aws-glue-programming-etl-glue-arguments.md "aws-glue-programming-etl-glue-arguments.md"). Python For this example, use the [write_data_frame.from_catalog](aws-glue-api-crawler-pyspark-extensions-glue-context.md#aws-glue-api-crawler-pyspark-extensions-glue-context-write_data_frame_from_catalog "aws-glue-api-crawler-pyspark-extensions-glue-context.md#aws-glue-api-crawler-pyspark-extensions-glue-context-write_data_frame_from_catalog") method. ``# Example: Insert into a Delta Lake table in S3 using Glue Data Catalog from awsglue.context import GlueContext from pyspark.context import SparkContext sc = SparkContext() glueContext = GlueContext(sc) glueContext.write_data_frame.from_catalog( frame=dataFrame, database="`<your_database_name>`", table_name="`<your_table_name>`", additional_options=additional_options )`` Scala For this example, use the [getCatalogSink](glue-etl-scala-apis-glue-gluecontext.md#glue-etl-scala-apis-glue-gluecontext-defs-getCatalogSink "glue-etl-scala-apis-glue-gluecontext.md#glue-etl-scala-apis-glue-gluecontext-defs-getCatalogSink") method. ``// Example: Insert into a Delta Lake table in S3 using Glue Data Catalog import com.amazonaws.services.glue.GlueContext import org.apacke.spark.SparkContext object GlueApp { def main(sysArgs: Array[String]): Unit = { val spark: SparkContext = new SparkContext() val glueContext: GlueContext = new GlueContext(spark) glueContext.getCatalogSink("`<your_database_name>`", "`<your_table_name>`", additionalOptions = additionalOptions) .writeDataFrame(dataFrame, glueContext) } }`` ## Example: Read a Delta Lake table from Amazon S3 using the Spark API This example reads a Delta Lake table from Amazon S3 using the Spark API. Python ``# Example: Read a Delta Lake table from S3 using a Spark DataFrame dataFrame = spark.read.format("delta").load("s3://`<s3path/>`")`` Scala ``// Example: Read a Delta Lake table from S3 using a Spark DataFrame val dataFrame = spark.read.format("delta").load("s3://`<s3path/>`")`` ## Example: Write a Delta Lake table to Amazon S3 using Spark This example writes a Delta Lake table to Amazon S3 using Spark. Python ``# Example: Write a Delta Lake table to S3 using a Spark DataFrame dataFrame.write.format("delta") \ .options(**additional_options) \ .mode("overwrite") \ .partitionBy("`<your_partitionkey_field>`") .save("s3://`<s3Path>`")`` Scala ``// Example: Write a Delta Lake table to S3 using a Spark DataFrame dataFrame.write.format("delta") .options(additionalOptions) .mode("overwrite") .partitionBy("`<your_partitionkey_field>`") .save("s3://`<s3path/>`")`` ## Example: Read and write Delta Lake table with Lake Formation permission control This example reads and writes a Delta Lake table with Lake Formation permission control. 1. Create a Delta table and register it in Lake Formation 1. To enable Lake Formation permission control, you’ll first need to register the table Amazon S3 path on Lake Formation. For more information, see [Registering an Amazon S3 location](../../../lake-formation/latest/dg/register-location.md "../../../lake-formation/latest/dg/register-location.md"). You can register it either from the Lake Formation console or by using the AWS CLI: `aws lakeformation register-resource --resource-arn arn:aws:s3:::<s3-bucket>/<s3-folder> --use-service-linked-role --region <REGION>` Once you register an Amazon S3 location, any AWS Glue table pointing to the location (or any of its child locations) will return the value for the `IsRegisteredWithLakeFormation` parameter as true in the `GetTable` call. 2. Create a Delta table that points to the registered Amazon S3 path through Spark: ###### Note The following are Python examples. `dataFrame.write \ .format("delta") \ .mode("overwrite") \ .partitionBy("<your_partitionkey_field>") \ .save("s3://<the_s3_path>")` After the data has been written to Amazon S3, use the AWS Glue crawler to create a new Delta catalog table. For more information, see [Introducing native Delta Lake table support with AWS Glue crawlers](https://aws.amazon.com/blogs/big-data/introducing-native-delta-lake-table-support-with-aws-glue-crawlers/ "https://aws.amazon.com/blogs/big-data/introducing-native-delta-lake-table-support-with-aws-glue-crawlers/"). You can also create the table manually through the AWS Glue `CreateTable` API. 2. Grant Lake Formation permission to the AWS Glue job IAM role. You can either grant permissions from the Lake Formation console, or using the AWS CLI. For more information, see [Granting table permissions using the Lake Formation console and the named resource method](../../../lake-formation/latest/dg/granting-table-permissions.md "../../../lake-formation/latest/dg/granting-table-permissions.md") 3. Read the Delta table registered in Lake Formation. The code is same as reading a non-registered Delta table. Note that the AWS Glue job IAM role needs to have the SELECT permission for the read to succeed. `# Example: Read a Delta Lake table from Glue Data Catalog df = glueContext.create_data_frame.from_catalog( database="<your_database_name>", table_name="<your_table_name>", additional_options=additional_options )` 4. Write to a Delta table registered in Lake Formation. The code is same as writing to a non-registered Delta table. Note that the AWS Glue job IAM role needs to have the SUPER permission for the write to succeed. By default AWS Glue uses `Append` as saveMode. You can change it by setting the saveMode option in `additional_options`. For information about saveMode support in Delta tables, see [Write to a table](https://docs.delta.io/latest/delta-batch.html#write-to-a-table "https://docs.delta.io/latest/delta-batch.html#write-to-a-table"). `glueContext.write_data_frame.from_catalog( frame=dataFrame, database="<your_database_name>", table_name="<your_table_name>", additional_options=additional_options )` |
+| 3.0              | 1.0.0                        |
+
+To learn more about the data lake frameworks that AWS Glue supports, see [Using data lake
+frameworks with AWS Glue ETL jobs](aws-glue-programming-etl-datalake-native-frameworks.md "aws-glue-programming-etl-datalake-native-frameworks.md").
+
+## Enabling Delta Lake
+
+for AWS Glue
+
+To enable Delta Lake for AWS Glue, complete the following tasks:
+
+- Specify `delta` as a value for the `--datalake-formats`
+  job parameter. For more information, see [Using job parameters in AWS Glue jobs](aws-glue-programming-etl-glue-arguments.md "aws-glue-programming-etl-glue-arguments.md").
+- Create a key named `--conf` for your AWS Glue job, and set it to the
+  following value. Alternatively, you can set the following configuration using
+  `SparkConf` in your script. These settings help Apache Spark
+  correctly handle Delta Lake tables.
+
+```
+spark.sql.extensions=io.delta.sql.DeltaSparkSessionExtension --conf spark.sql.catalog.spark_catalog=org.apache.spark.sql.delta.catalog.DeltaCatalog --conf spark.delta.logStore.class=org.apache.spark.sql.delta.storage.S3SingleDriverLogStore
+```
+
+- Lake Formation permission support for Delta tables is enabled by default for AWS Glue 4.0. No additional configuration is needed for reading/writing to Lake Formation-registered Delta tables. To read a registered Delta table, the AWS Glue job IAM role must have the SELECT permission. To write to a registered Delta table, the AWS Glue job IAM role must have the SUPER permission. To learn more about managing Lake Formation permissions, see [Granting and revoking permissions on Data Catalog resources](../../../lake-formation/latest/dg/granting-catalog-permissions.md "../../../lake-formation/latest/dg/granting-catalog-permissions.md").
+
+**Using a different Delta Lake version**
+
+To use a version of Delta lake that AWS Glue doesn't support, specify your own Delta Lake
+JAR files using the `--extra-jars` job parameter. Do not include
+`delta` as a value for the `--datalake-formats` job
+parameter. If you use AWS Glue 5.0, you must set `--user-jars-first true` job parameter. To use the Delta Lake Python library in this case, you must specify the library JAR files
+using the `--extra-py-files` job parameter. The Python library comes
+packaged in the Delta Lake JAR files.
+
+## Example: Write a
+
+Delta Lake table to Amazon S3 and register it to the AWS Glue Data Catalog
+
+The following AWS Glue ETL script demonstrates how to write a Delta Lake table to
+Amazon S3 and register the table to the AWS Glue Data Catalog.
+
+Python
+
+```
+# Example: Create a Delta Lake table from a DataFrame
+# and register the table to Glue Data Catalog
+
+additional_options = {
+    "path": "s3://`<s3Path>`"
+}
+dataFrame.write \
+    .format("delta") \
+    .options(**additional_options) \
+    .mode("append") \
+    .partitionBy("`<your_partitionkey_field>`") \
+    .saveAsTable("`<your_database_name>`.`<your_table_name>`")
+```
+
+Scala
+
+```
+// Example: Example: Create a Delta Lake table from a DataFrame
+// and register the table to Glue Data Catalog
+
+val additional_options = Map(
+  "path" -> "s3://`<s3Path>`"
+)
+dataFrame.write.format("delta")
+  .options(additional_options)
+  .mode("append")
+  .partitionBy("`<your_partitionkey_field>`")
+  .saveAsTable("`<your_database_name>`.`<your_table_name>`")
+```
+
+## Example: Read a Delta
+
+Lake table from Amazon S3 using the AWS Glue Data Catalog
+
+The following AWS Glue ETL script reads the Delta Lake table that you created in [Example: Write a
+Delta Lake table to Amazon S3 and register it to the AWS Glue Data Catalog](#aws-glue-programming-etl-format-delta-lake-write "#aws-glue-programming-etl-format-delta-lake-write").
+
+Python
+For this example, use the [create_data_frame.from_catalog](aws-glue-api-crawler-pyspark-extensions-glue-context.md#aws-glue-api-crawler-pyspark-extensions-glue-context-create-dataframe-from-catalog "aws-glue-api-crawler-pyspark-extensions-glue-context.md#aws-glue-api-crawler-pyspark-extensions-glue-context-create-dataframe-from-catalog") method.
+
+```
+# Example: Read a Delta Lake table from Glue Data Catalog
+
+from awsglue.context import GlueContext
+from pyspark.context import SparkContext
+
+sc = SparkContext()
+glueContext = GlueContext(sc)
+
+df = glueContext.create_data_frame.from_catalog(
+    database="`<your_database_name>`",
+    table_name="`<your_table_name>`",
+    additional_options=additional_options
+)
+```
+
+Scala
+For this example, use the [getCatalogSource](glue-etl-scala-apis-glue-gluecontext.md#glue-etl-scala-apis-glue-gluecontext-defs-getCatalogSource "glue-etl-scala-apis-glue-gluecontext.md#glue-etl-scala-apis-glue-gluecontext-defs-getCatalogSource") method.
+
+```
+// Example: Read a Delta Lake table from Glue Data Catalog
+
+import com.amazonaws.services.glue.GlueContext
+import org.apacke.spark.SparkContext
+
+object GlueApp {
+  def main(sysArgs: Array[String]): Unit = {
+    val spark: SparkContext = new SparkContext()
+    val glueContext: GlueContext = new GlueContext(spark)
+    val df = glueContext.getCatalogSource("`<your_database_name>`", "`<your_table_name>`",
+      additionalOptions = additionalOptions)
+      .getDataFrame()
+  }
+}
+```
+
+## Example: Insert a
+
+`DataFrame` into a Delta Lake table in Amazon S3 using the
+AWS Glue Data Catalog
+
+This example inserts data into the Delta Lake table that you created in [Example: Write a
+Delta Lake table to Amazon S3 and register it to the AWS Glue Data Catalog](#aws-glue-programming-etl-format-delta-lake-write "#aws-glue-programming-etl-format-delta-lake-write").
+
+###### Note
+
+This example requires you to set the `--enable-glue-datacatalog` job parameter in order to use the AWS Glue Data Catalog as an Apache Spark Hive metastore.
+To learn more, see [Using job parameters in AWS Glue jobs](aws-glue-programming-etl-glue-arguments.md "aws-glue-programming-etl-glue-arguments.md").
+
+Python
+For this example, use the [write_data_frame.from_catalog](aws-glue-api-crawler-pyspark-extensions-glue-context.md#aws-glue-api-crawler-pyspark-extensions-glue-context-write_data_frame_from_catalog "aws-glue-api-crawler-pyspark-extensions-glue-context.md#aws-glue-api-crawler-pyspark-extensions-glue-context-write_data_frame_from_catalog") method.
+
+```
+# Example: Insert into a Delta Lake table in S3 using Glue Data Catalog
+
+from awsglue.context import GlueContext
+from pyspark.context import SparkContext
+
+sc = SparkContext()
+glueContext = GlueContext(sc)
+
+glueContext.write_data_frame.from_catalog(
+    frame=dataFrame,
+    database="`<your_database_name>`",
+    table_name="`<your_table_name>`",
+    additional_options=additional_options
+)
+```
+
+Scala
+For this example, use the [getCatalogSink](glue-etl-scala-apis-glue-gluecontext.md#glue-etl-scala-apis-glue-gluecontext-defs-getCatalogSink "glue-etl-scala-apis-glue-gluecontext.md#glue-etl-scala-apis-glue-gluecontext-defs-getCatalogSink") method.
+
+```
+// Example: Insert into a Delta Lake table in S3 using Glue Data Catalog
+
+import com.amazonaws.services.glue.GlueContext
+import org.apacke.spark.SparkContext
+
+object GlueApp {
+  def main(sysArgs: Array[String]): Unit = {
+    val spark: SparkContext = new SparkContext()
+    val glueContext: GlueContext = new GlueContext(spark)
+    glueContext.getCatalogSink("`<your_database_name>`", "`<your_table_name>`",
+      additionalOptions = additionalOptions)
+      .writeDataFrame(dataFrame, glueContext)
+  }
+}
+```
+
+## Example: Read a
+
+Delta Lake table from Amazon S3 using the Spark API
+
+This example reads a Delta Lake table from Amazon S3 using the Spark
+API.
+
+Python
+
+```
+# Example: Read a Delta Lake table from S3 using a Spark DataFrame
+
+dataFrame = spark.read.format("delta").load("s3://`<s3path/>`")
+```
+
+Scala
+
+```
+// Example: Read a Delta Lake table from S3 using a Spark DataFrame
+
+val dataFrame = spark.read.format("delta").load("s3://`<s3path/>`")
+```
+
+## Example: Write
+
+a Delta Lake table to Amazon S3 using Spark
+
+This example writes a Delta Lake table to Amazon S3 using Spark.
+
+Python
+
+```
+# Example: Write a Delta Lake table to S3 using a Spark DataFrame
+
+dataFrame.write.format("delta") \
+    .options(**additional_options) \
+    .mode("overwrite") \
+    .partitionBy("`<your_partitionkey_field>`")
+    .save("s3://`<s3Path>`")
+```
+
+Scala
+
+```
+// Example: Write a Delta Lake table to S3 using a Spark DataFrame
+
+dataFrame.write.format("delta")
+  .options(additionalOptions)
+  .mode("overwrite")
+  .partitionBy("`<your_partitionkey_field>`")
+  .save("s3://`<s3path/>`")
+```
+
+## Example: Read and write Delta Lake table with Lake Formation permission control
+
+This example reads and writes a Delta Lake table with Lake Formation permission control.
+
+1. Create a Delta table and register it in Lake Formation
+   1. To enable Lake Formation permission control, you’ll first need to register the table Amazon S3 path on Lake Formation. For more information, see [Registering an Amazon S3 location](../../../lake-formation/latest/dg/register-location.md "../../../lake-formation/latest/dg/register-location.md"). You can register it either from the Lake Formation console or by using the AWS CLI:
+
+   ```
+   aws lakeformation register-resource --resource-arn arn:aws:s3:::<s3-bucket>/<s3-folder> --use-service-linked-role --region <REGION>
+   ```
+
+   Once you register an Amazon S3 location, any AWS Glue table pointing to the location (or any of its child locations) will return the value for the `IsRegisteredWithLakeFormation` parameter as true in the `GetTable` call. 2. Create a Delta table that points to the registered Amazon S3 path through Spark:
+
+   ###### Note
+
+   The following are Python examples.
+
+   ```
+   dataFrame.write \
+   	.format("delta") \
+   	.mode("overwrite") \
+   	.partitionBy("<your_partitionkey_field>") \
+   	.save("s3://<the_s3_path>")
+   ```
+
+   After the data has been written to Amazon S3, use the AWS Glue crawler to create a new Delta catalog table. For more information, see [Introducing native Delta Lake table support with AWS Glue crawlers](https://aws.amazon.com/blogs/big-data/introducing-native-delta-lake-table-support-with-aws-glue-crawlers/ "https://aws.amazon.com/blogs/big-data/introducing-native-delta-lake-table-support-with-aws-glue-crawlers/").
+
+   You can also create the table manually through the AWS Glue `CreateTable` API.
+
+2. Grant Lake Formation permission to the AWS Glue job IAM role. You can either grant permissions from the Lake Formation console, or using the AWS CLI. For more information, see [Granting table permissions using the Lake Formation console and the named resource method](../../../lake-formation/latest/dg/granting-table-permissions.md "../../../lake-formation/latest/dg/granting-table-permissions.md")
+3. Read the Delta table registered in Lake Formation. The code is same as reading a non-registered Delta table. Note that the AWS Glue job IAM role needs to have the SELECT permission for the read to succeed.
+
+```
+# Example: Read a Delta Lake table from Glue Data Catalog
+
+df = glueContext.create_data_frame.from_catalog(
+    database="<your_database_name>",
+    table_name="<your_table_name>",
+    additional_options=additional_options
+)
+```
+
+4. Write to a Delta table registered in Lake Formation. The code is same as writing to a non-registered Delta table. Note that the AWS Glue job IAM role needs to have the SUPER permission for the write to succeed.
+
+By default AWS Glue uses `Append` as saveMode. You can change it by setting the saveMode option in `additional_options`. For information about saveMode support in Delta tables, see [Write to a table](https://docs.delta.io/latest/delta-batch.html#write-to-a-table "https://docs.delta.io/latest/delta-batch.html#write-to-a-table").
+
+```
+glueContext.write_data_frame.from_catalog(
+    frame=dataFrame,
+    database="<your_database_name>",
+    table_name="<your_table_name>",
+    additional_options=additional_options
+)
+```

@@ -10,7 +10,7 @@ The following are general limitations of or considerations about zero-ETL integr
 - The zero-ETL summary page does not contain any metrics at this time.
   The following are source-specific limitations of zero-ETL integrations:
 
-- Zero-ETL integrations with an SAP OData source now supports entities starting with `EntityOf`. The ability to override the
+- Zero-ETL integrations with an SAP OData source supports entities starting with `EntityOf`. The ability to override the
   primary key is currently supported only for SAPOData `EntityOf` objects. Once this property has been
   set, it cannot be modified.
 - Zero-ETL integrations from Amazon DynamoDB to Amazon SageMaker Lakehouse (via S3) support a maximum DynamoDB table size of 50TB.

@@ -92,16 +92,12 @@ In-Memory Object Store](https://ray-project.github.io/2017/08/08/plasma-in-memor
 For more information about Plasma, see [The Plasma
 In-Memory Object Store](https://ray-project.github.io/2017/08/08/plasma-in-memory-object-store.html "https://ray-project.github.io/2017/08/08/plasma-in-memory-object-store.html") in the Ray documentation.
 
-- `--pip-install` – A set of Python packages to be installed. You
-  can install
-  packages from PyPI using this argument. Format: comma-delimited
-  list.
+- `--pip-install` – A set of Python packages to be installed. You  can install
+  packages from PyPI using this argument. Format: comma-delimited  list.
 
-A PyPI package entry is in the format `package==version`, with the PyPI name and
-
+A PyPI package entry is in the format `package==version`, with the PyPI name and 
 version of your target package. Entries use Python version matching to match the package and
-version, such as `==`, not the single equals `=`. There are other
-
+version, such as `==`, not the single equals `=`. There are other 
 version-matching operators. For more information, see [PEP 440](https://peps.python.org/pep-0440/#version-matching "https://peps.python.org/pep-0440/#version-matching") on the Python website. You
 can also provide custom modules with `--s3-py-modules`.
 

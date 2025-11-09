@@ -69,6 +69,10 @@ Along with these configurations, you may need to set configurations such as `spa
 This plugin is supported for the Spark versions associated with each AWS Glue version. The following table shows the AWS Glue version, Spark version and associated plugin version with Amazon S3 location for the plugin's software binary.
 
 | AWS Glue version | Spark version | Plugin version  | Amazon S3 location                                                                                             |
-| ---------------- | ------------- | --------------- | -------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| ---------------- | ------------- | --------------- | -------------------------------------------------------------------------------------------------------------- |
 | 3.0              | 3.1           | 3.1-amzn-LATEST | s3://aws-glue-etl-artifacts/release/com/amazonaws/chopper-plugin/3.1-amzn-0/chopper-plugin-3.1-amzn-LATEST.jar |
-| 4.0              | 3.3           | 3.3-amzn-LATEST | s3://aws-glue-etl-artifacts/release/com/amazonaws/chopper-plugin/3.3-amzn-0/chopper-plugin-3.3-amzn-LATEST.jar | ## License The software binary for this plugin is licensed under the Apache-2.0 License. |
+| 4.0              | 3.3           | 3.3-amzn-LATEST | s3://aws-glue-etl-artifacts/release/com/amazonaws/chopper-plugin/3.3-amzn-0/chopper-plugin-3.3-amzn-LATEST.jar |
+
+## License
+
+The software binary for this plugin is licensed under the Apache-2.0 License.

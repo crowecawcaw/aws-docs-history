@@ -8,7 +8,7 @@ The transform evaluates the current data against the trained model based on labe
 
 The version of AWS Glue used by the visual job must match the version that AWS Glue used to create the Record Matching transform.
 
-![The screenshot shows a data preview for the transform.](images/recording-matching-transform-1.png)
+![The screenshot shows a data preview for the transform.](/images/glue/latest/dg/images/recording-matching-transform-1.png)
 
 ###### To add a Record Matching transform node to your job diagram
 

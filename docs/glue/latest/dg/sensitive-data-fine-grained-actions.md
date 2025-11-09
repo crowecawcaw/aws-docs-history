@@ -298,10 +298,16 @@ will see this persistent audit log in the resulting dataframe.
 Customers using APIs with fine-grained actions will see all of the actions, regardless of if they are redacted or not.
 Example:
 
-````
+```
 +---------------------+----------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Credit Card Number  |  Phone Number  |                                                                                            DetectedEntities                                                                                             | +---------------------+----------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Credit Card Number  |  Phone Number  |                                                                                            DetectedEntities                                                                                             |
++---------------------+----------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | 622126741306XXXX    | +12#####7890   | {"Credit Card Number":[{"entityType":"CREDIT_CARD","actionUsed":"PARTIAL_REDACT","start":0,"end":16}],"Phone Number":[{"entityType":"PHONE_NUMBER","actionUsed":"PARTIAL_REDACT","start":0,"end":12}]}} |
 | 6221 2674 1306 XXXX | +12#######7890 | {"Credit Card Number":[{"entityType":"CREDIT_CARD","actionUsed":"PARTIAL_REDACT","start":0,"end":19}],"Phone Number":[{"entityType":"PHONE_NUMBER","actionUsed":"PARTIAL_REDACT","start":0,"end":14}]}} |
-| 6221-2674-1306-XXXX | 22#######7890  | {"Credit Card Number":[{"entityType":"CREDIT_CARD","actionUsed":"PARTIAL_REDACT","start":0,"end":19}],"Phone Number":[{"entityType":"PHONE_NUMBER","actionUsed":"PARTIAL_REDACT","start":0,"end":14}]}} | +---------------------+----------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+ ``` If you do not want to see the **DetectedEntities** column, you can simply drop the additional column in a custom script.
-````
+| 6221-2674-1306-XXXX | 22#######7890  | {"Credit Card Number":[{"entityType":"CREDIT_CARD","actionUsed":"PARTIAL_REDACT","start":0,"end":19}],"Phone Number":[{"entityType":"PHONE_NUMBER","actionUsed":"PARTIAL_REDACT","start":0,"end":14}]}} |
++---------------------+----------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+```
+
+If you do not want to see the **DetectedEntities** column, you can simply drop the additional column
+in a custom script.

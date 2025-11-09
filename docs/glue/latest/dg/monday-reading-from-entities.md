@@ -26,7 +26,7 @@ Entities list:
 - Workspaces: [https://developer.monday.com/api-reference/docs/workspaces#queries](https://developer.monday.com/api-reference/docs/workspaces#queries "https://developer.monday.com/api-reference/docs/workspaces#queries")
 
 | Entity          | Can be Filtered | Supports Limit | Supports Order By | Supports Select \* | Supports Partitioning |
-| --------------- | --------------- | -------------- | ----------------- | ------------------ | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| --------------- | --------------- | -------------- | ----------------- | ------------------ | --------------------- |
 | Account         | No              | No             | No                | Yes                | No                    |
 | Boards          | Yes             | Yes            | No                | Yes                | No                    |
 | Columns         | No              | No             | No                | Yes                | No                    |
@@ -41,4 +41,16 @@ Entities list:
 | Updates         | No              | Yes            | No                | Yes                | No                    |
 | Users           | Yes             | Yes            | No                | Yes                | No                    |
 | Workspaces      | Yes             | Yes            | No                | Yes                | No                    |
-| Folders         | Yes             | Yes            | No                | Yes                | No                    | **Example** `monday_read = glueContext.create_dynamic_frame.from_options( connection_type="monday", connection_options={ "connectionName": "connectionName", "ENTITY_NAME": "account", "API_VERSION": "v2" }` |
+| Folders         | Yes             | Yes            | No                | Yes                | No                    |
+
+**Example**
+
+```
+monday_read = glueContext.create_dynamic_frame.from_options(
+     connection_type="monday",
+     connection_options={
+         "connectionName": "connectionName",
+         "ENTITY_NAME": "account",
+         "API_VERSION": "v2"
+     }
+```

@@ -40,9 +40,10 @@ frame_high.toDF().show()
 
 ```
 
-````
+```
 +---+-----+------------------------+-------------------------+
-| id|index|contact_details.val.type|contact_details.val.value| +---+-----+------------------------+-------------------------+
+| id|index|contact_details.val.type|contact_details.val.value|
++---+-----+------------------------+-------------------------+
 |  1|    0|                     fax|             202-225-3307|
 |  1|    1|                   phone|             202-225-5731|
 |  2|    0|                     fax|             202-225-3307|
@@ -62,8 +63,13 @@ frame_high.toDF().show()
 |  9|    0|                     fax|             202-225-3307|
 |  9|    1|                   phone|             202-225-5731|
 | 10|    0|                     fax|             202-225-6328|
-| 10|    1|                   phone|             202-225-4576| +---+-----+------------------------+-------------------------+ only showing top 20 rows +---+-----+------------------------+-------------------------+
-| id|index|contact_details.val.type|contact_details.val.value| +---+-----+------------------------+-------------------------+
+| 10|    1|                   phone|             202-225-4576|
++---+-----+------------------------+-------------------------+
+only showing top 20 rows
+
++---+-----+------------------------+-------------------------+
+| id|index|contact_details.val.type|contact_details.val.value|
++---+-----+------------------------+-------------------------+
 | 11|    0|                     fax|             202-225-6328|
 | 11|    1|                   phone|             202-225-4576|
 | 11|    2|                 twitter|           RepTrentFranks|
@@ -83,5 +89,65 @@ frame_high.toDF().show()
 | 16|    1|                   phone|             202-225-4576|
 | 16|    2|                 twitter|           RepTrentFranks|
 | 17|    0|                     fax|             202-225-6328|
-| 17|    1|                   phone|             202-225-4576| +---+-----+------------------------+-------------------------+ only showing top 20 rows ``` ## Methods <br>• [\_\_call\_\_](#aws-glue-api-crawler-pyspark-transforms-SelectFromCollection-__call__ "#aws-glue-api-crawler-pyspark-transforms-SelectFromCollection-__call__") <br>• [apply](#aws-glue-api-crawler-pyspark-transforms-SelectFromCollection-apply "#aws-glue-api-crawler-pyspark-transforms-SelectFromCollection-apply") <br>• [name](#aws-glue-api-crawler-pyspark-transforms-SelectFromCollection-name "#aws-glue-api-crawler-pyspark-transforms-SelectFromCollection-name") <br>• [describeArgs](#aws-glue-api-crawler-pyspark-transforms-SelectFromCollection-describeArgs "#aws-glue-api-crawler-pyspark-transforms-SelectFromCollection-describeArgs") <br>• [describeReturn](#aws-glue-api-crawler-pyspark-transforms-SelectFromCollection-describeReturn "#aws-glue-api-crawler-pyspark-transforms-SelectFromCollection-describeReturn") <br>• [describeTransform](#aws-glue-api-crawler-pyspark-transforms-SelectFromCollection-describeTransform "#aws-glue-api-crawler-pyspark-transforms-SelectFromCollection-describeTransform") <br>• [describeErrors](#aws-glue-api-crawler-pyspark-transforms-SelectFromCollection-describeErrors "#aws-glue-api-crawler-pyspark-transforms-SelectFromCollection-describeErrors") <br>• [describe](#aws-glue-api-crawler-pyspark-transforms-SelectFromCollection-describe "#aws-glue-api-crawler-pyspark-transforms-SelectFromCollection-describe") ## \_\_call\_\_(dfc, key, transformation\_ctx = "") Gets one `DynamicFrame` from a `DynamicFrameCollection`. <br>• `dfc` – The `DynamicFrameCollection` that the `DynamicFrame` should be selected from (required). <br>• `key` – The key of the `DynamicFrame` to select (required). <br>• `transformation_ctx` – A unique string that is used to identify state information (optional). ## apply(cls, \*args, \*\*kwargs) Inherited from `GlueTransform` [apply](aws-glue-api-crawler-pyspark-transforms-GlueTransform.md#aws-glue-api-crawler-pyspark-transforms-GlueTransform-apply "aws-glue-api-crawler-pyspark-transforms-GlueTransform.md#aws-glue-api-crawler-pyspark-transforms-GlueTransform-apply"). ## name(cls) Inherited from `GlueTransform` [name](aws-glue-api-crawler-pyspark-transforms-GlueTransform.md#aws-glue-api-crawler-pyspark-transforms-GlueTransform-name "aws-glue-api-crawler-pyspark-transforms-GlueTransform.md#aws-glue-api-crawler-pyspark-transforms-GlueTransform-name"). ## describeArgs(cls) Inherited from `GlueTransform` [describeArgs](aws-glue-api-crawler-pyspark-transforms-GlueTransform.md#aws-glue-api-crawler-pyspark-transforms-GlueTransform-describeArgs "aws-glue-api-crawler-pyspark-transforms-GlueTransform.md#aws-glue-api-crawler-pyspark-transforms-GlueTransform-describeArgs"). ## describeReturn(cls) Inherited from `GlueTransform` [describeReturn](aws-glue-api-crawler-pyspark-transforms-GlueTransform.md#aws-glue-api-crawler-pyspark-transforms-GlueTransform-describeReturn "aws-glue-api-crawler-pyspark-transforms-GlueTransform.md#aws-glue-api-crawler-pyspark-transforms-GlueTransform-describeReturn"). ## describeTransform(cls) Inherited from `GlueTransform` [describeTransform](aws-glue-api-crawler-pyspark-transforms-GlueTransform.md#aws-glue-api-crawler-pyspark-transforms-GlueTransform-describeTransform "aws-glue-api-crawler-pyspark-transforms-GlueTransform.md#aws-glue-api-crawler-pyspark-transforms-GlueTransform-describeTransform"). ## describeErrors(cls) Inherited from `GlueTransform` [describeErrors](aws-glue-api-crawler-pyspark-transforms-GlueTransform.md#aws-glue-api-crawler-pyspark-transforms-GlueTransform-describeErrors "aws-glue-api-crawler-pyspark-transforms-GlueTransform.md#aws-glue-api-crawler-pyspark-transforms-GlueTransform-describeErrors"). ## describe(cls) Inherited from `GlueTransform` [describe](aws-glue-api-crawler-pyspark-transforms-GlueTransform.md#aws-glue-api-crawler-pyspark-transforms-GlueTransform-describe "aws-glue-api-crawler-pyspark-transforms-GlueTransform.md#aws-glue-api-crawler-pyspark-transforms-GlueTransform-describe").
-````
+| 17|    1|                   phone|             202-225-4576|
++---+-----+------------------------+-------------------------+
+only showing top 20 rows
+
+```
+
+## Methods
+
+- [\_\_call\_\_](#aws-glue-api-crawler-pyspark-transforms-SelectFromCollection-__call__ "#aws-glue-api-crawler-pyspark-transforms-SelectFromCollection-__call__")
+- [apply](#aws-glue-api-crawler-pyspark-transforms-SelectFromCollection-apply "#aws-glue-api-crawler-pyspark-transforms-SelectFromCollection-apply")
+- [name](#aws-glue-api-crawler-pyspark-transforms-SelectFromCollection-name "#aws-glue-api-crawler-pyspark-transforms-SelectFromCollection-name")
+- [describeArgs](#aws-glue-api-crawler-pyspark-transforms-SelectFromCollection-describeArgs "#aws-glue-api-crawler-pyspark-transforms-SelectFromCollection-describeArgs")
+- [describeReturn](#aws-glue-api-crawler-pyspark-transforms-SelectFromCollection-describeReturn "#aws-glue-api-crawler-pyspark-transforms-SelectFromCollection-describeReturn")
+- [describeTransform](#aws-glue-api-crawler-pyspark-transforms-SelectFromCollection-describeTransform "#aws-glue-api-crawler-pyspark-transforms-SelectFromCollection-describeTransform")
+- [describeErrors](#aws-glue-api-crawler-pyspark-transforms-SelectFromCollection-describeErrors "#aws-glue-api-crawler-pyspark-transforms-SelectFromCollection-describeErrors")
+- [describe](#aws-glue-api-crawler-pyspark-transforms-SelectFromCollection-describe "#aws-glue-api-crawler-pyspark-transforms-SelectFromCollection-describe")
+
+## \_\_call\_\_(dfc, key, transformation_ctx = "")
+
+Gets one `DynamicFrame` from a `DynamicFrameCollection`.
+
+- `dfc` – The `DynamicFrameCollection` that the
+  `DynamicFrame` should be selected from (required).
+- `key` – The key of the `DynamicFrame` to select
+  (required).
+- `transformation_ctx` – A unique string that is used to identify state
+  information (optional).
+
+## apply(cls, \*args, \*\*kwargs)
+
+Inherited from `GlueTransform`
+[apply](aws-glue-api-crawler-pyspark-transforms-GlueTransform.md#aws-glue-api-crawler-pyspark-transforms-GlueTransform-apply "aws-glue-api-crawler-pyspark-transforms-GlueTransform.md#aws-glue-api-crawler-pyspark-transforms-GlueTransform-apply").
+
+## name(cls)
+
+Inherited from `GlueTransform`
+[name](aws-glue-api-crawler-pyspark-transforms-GlueTransform.md#aws-glue-api-crawler-pyspark-transforms-GlueTransform-name "aws-glue-api-crawler-pyspark-transforms-GlueTransform.md#aws-glue-api-crawler-pyspark-transforms-GlueTransform-name").
+
+## describeArgs(cls)
+
+Inherited from `GlueTransform`
+[describeArgs](aws-glue-api-crawler-pyspark-transforms-GlueTransform.md#aws-glue-api-crawler-pyspark-transforms-GlueTransform-describeArgs "aws-glue-api-crawler-pyspark-transforms-GlueTransform.md#aws-glue-api-crawler-pyspark-transforms-GlueTransform-describeArgs").
+
+## describeReturn(cls)
+
+Inherited from `GlueTransform`
+[describeReturn](aws-glue-api-crawler-pyspark-transforms-GlueTransform.md#aws-glue-api-crawler-pyspark-transforms-GlueTransform-describeReturn "aws-glue-api-crawler-pyspark-transforms-GlueTransform.md#aws-glue-api-crawler-pyspark-transforms-GlueTransform-describeReturn").
+
+## describeTransform(cls)
+
+Inherited from `GlueTransform`
+[describeTransform](aws-glue-api-crawler-pyspark-transforms-GlueTransform.md#aws-glue-api-crawler-pyspark-transforms-GlueTransform-describeTransform "aws-glue-api-crawler-pyspark-transforms-GlueTransform.md#aws-glue-api-crawler-pyspark-transforms-GlueTransform-describeTransform").
+
+## describeErrors(cls)
+
+Inherited from `GlueTransform`
+[describeErrors](aws-glue-api-crawler-pyspark-transforms-GlueTransform.md#aws-glue-api-crawler-pyspark-transforms-GlueTransform-describeErrors "aws-glue-api-crawler-pyspark-transforms-GlueTransform.md#aws-glue-api-crawler-pyspark-transforms-GlueTransform-describeErrors").
+
+## describe(cls)
+
+Inherited from `GlueTransform`
+[describe](aws-glue-api-crawler-pyspark-transforms-GlueTransform.md#aws-glue-api-crawler-pyspark-transforms-GlueTransform-describe "aws-glue-api-crawler-pyspark-transforms-GlueTransform.md#aws-glue-api-crawler-pyspark-transforms-GlueTransform-describe").

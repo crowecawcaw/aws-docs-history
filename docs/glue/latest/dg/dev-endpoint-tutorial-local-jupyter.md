@@ -153,29 +153,58 @@ persons_DyF.printSchema()
 
 The output of the script is as follows.
 
-````
+```
 
  Count:  1961
  root
-|-- family_name: string
-|-- name: string
-|-- links: array
-|    |-- element: struct
-|    |    |-- note: string
-|    |    |-- url: string
-|-- gender: string |-- image: string |-- identifiers: array
-|    |-- element: struct
-|    |    |-- scheme: string
-|    |    |-- identifier: string
-|-- other_names: array |    |-- element: struct
-|    |    |-- note: string
-|    |    |-- name: string
-|    |    |-- lang: string
-|-- sort_name: string |-- images: array |    |-- element: struct
-|    |    |-- url: string
-|-- given_name: string |-- birth_date: string |-- id: string
-|-- contact_details: array |    |-- element: struct
-|    |    |-- type: string
-|    |    |-- value: string
-|-- death_date: string ``` ## Troubleshooting <br>• During the installation of JupyterLab, if your computer is behind a corporate proxy or firewall, you might encounter HTTP and SSL errors due to custom security profiles managed by corporate IT departments. The following is an example of a typical error that occurs when `conda` can't connect to its own repositories: ``` CondaHTTPError: HTTP 000 CONNECTION FAILED for url <https://repo.anaconda.com/pkgs/main/win-64/current_repodata.json> ``` This might happen because your company can block connections to widely used repositories in Python and JavaScript communities. For more information, see [Installation Problems](https://jupyterlab.readthedocs.io/en/stable/getting_started/installation.html#installation-problems "https://jupyterlab.readthedocs.io/en/stable/getting_started/installation.html#installation-problems") on the JupyterLab website. <br>• If you encounter a *connection refused* error when trying to connect to your development endpoint, you might be using a development endpoint that is out of date. Try creating a new development endpoint and reconnecting.
-````
+ |-- family_name: string
+ |-- name: string
+ |-- links: array
+ |    |-- element: struct
+ |    |    |-- note: string
+ |    |    |-- url: string
+ |-- gender: string
+ |-- image: string
+ |-- identifiers: array
+ |    |-- element: struct
+ |    |    |-- scheme: string
+ |    |    |-- identifier: string
+ |-- other_names: array
+ |    |-- element: struct
+ |    |    |-- note: string
+ |    |    |-- name: string
+ |    |    |-- lang: string
+ |-- sort_name: string
+ |-- images: array
+ |    |-- element: struct
+ |    |    |-- url: string
+ |-- given_name: string
+ |-- birth_date: string
+ |-- id: string
+ |-- contact_details: array
+ |    |-- element: struct
+ |    |    |-- type: string
+ |    |    |-- value: string
+ |-- death_date: string
+
+```
+
+## Troubleshooting
+
+- During the installation of JupyterLab, if your computer is behind a corporate proxy or
+  firewall, you might encounter HTTP and SSL errors due to custom security profiles managed
+  by corporate IT departments.
+
+The following is an example of a typical error that occurs when `conda`
+can't connect to its own repositories:
+
+```
+CondaHTTPError: HTTP 000 CONNECTION FAILED for url <https://repo.anaconda.com/pkgs/main/win-64/current_repodata.json>
+```
+
+This might happen because your company can block connections to widely used
+repositories in Python and JavaScript communities. For more information, see [Installation Problems](https://jupyterlab.readthedocs.io/en/stable/getting_started/installation.html#installation-problems "https://jupyterlab.readthedocs.io/en/stable/getting_started/installation.html#installation-problems") on the JupyterLab website.
+
+- If you encounter a _connection refused_ error when trying to
+  connect to your development endpoint, you might be using a development endpoint that is
+  out of date. Try creating a new development endpoint and reconnecting.

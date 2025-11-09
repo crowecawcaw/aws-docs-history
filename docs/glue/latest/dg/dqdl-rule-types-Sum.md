@@ -31,12 +31,16 @@ Sum "Salary" < 55600 where "Customer_ID < 10"
 
 The `Sum` rule will ignore rows with `NULL` values in the calculation of sum. For example:
 
-````
+```
 +---+-----------+
-|id |units      | +---+-----------+
+|id |units      |
++---+-----------+
 |100|0          |
 |101|null       |
 |102|20         |
 |103|null       |
-|104|40         | +---+-----------+ ``` The sum of column `units` will not consider rows 101 and 103 and result to (0 + 20 + 40) = 60.
-````
+|104|40         |
++---+-----------+
+```
+
+The sum of column `units` will not consider rows 101 and 103 and result to (0 + 20 + 40) = 60.

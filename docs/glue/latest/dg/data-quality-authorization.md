@@ -13,27 +13,283 @@ The following table lists the permissions that a user needs in order to perform 
 AWS Glue Data Quality operations. To set fine-grained authorization for AWS Glue Data Quality, you can specify these
 actions in the `Action` element of an IAM policy statement.
 
-| AWS Glue Data Quality actions                 | Action                                                                                                                                                                                                                                                | Description                                                         | Resource types                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| --------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ | ----------- | -------------- |
-| `glue:CreateDataQualityRuleset`               | Grants permission to create a data quality ruleset.                                                                                                                                                                                                   | `::dataQualityRuleset/<name>`                                       |
-| `glue:DeleteDataQualityRuleset`               | Grants permission to delete a data quality ruleset.                                                                                                                                                                                                   | `::dataQualityRuleset/<name>`                                       |
-| `glue:GetDataQualityRuleset`                  | Grants permission to retrieve a data quality ruleset.                                                                                                                                                                                                 | `::dataQualityRuleset/<name>`                                       |
-| `glue:ListDataQualityRulesets`                | Grants permission to retrieve all data quality rulesets.                                                                                                                                                                                              | `::dataQualityRuleset/*`                                            |
-| `glue:UpdateDataQualityRuleset`               | Grants permission to update a data quality ruleset.                                                                                                                                                                                                   | `::dataQualityRuleset/<name>`                                       |
-| `glue:GetDataQualityResult`                   | Grants permission to retrieve a data quality task run result. This IAM action also provides permissions to the following APIS: <br>• `BatchGetDataQualityQualityResult` <br>• `ListDataQualityStatistics` <br>• `ListDataQualityStatisticAnnotations` | `::dataQualityRuleset/<name>`                                       |
-| `glue:ListDataQualityResults`                 | Grants permission to retrieve all data quality task run results.                                                                                                                                                                                      | `::dataQualityRuleset/*`                                            |
-| `glue:CancelDataQualityRuleRecommendationRun` | Grants permission to stop an in-progress data quality recommendation task run.                                                                                                                                                                        | `::dataQualityRuleset/*`                                            |
-| `glue:GetDataQualityRuleRecommendationRun`    | Grants permission to retrieve a data quality recommendation task run.                                                                                                                                                                                 | `::dataQualityRuleset/*`                                            |
-| `glue:ListDataQualityRuleRecommendationRuns`  | Grants permission to retrieve all data quality recommendation task runs.                                                                                                                                                                              | `::dataQualityRuleset/*`                                            |
-| `glue:StartDataQualityRuleRecommendationRun`  | Grants permission to start a data quality recommendation task run.                                                                                                                                                                                    | `::dataQualityRuleset/*`                                            |
-| `glue:CancelDataQualityRulesetEvaluationRun`  | Grants permission to stop an in-progress data quality task run.                                                                                                                                                                                       | `::dataQualityRuleset/*`                                            |
-| `glue:GetDataQualityRulesetEvaluationRun`     | Grants permission to retrieve a data quality task run.                                                                                                                                                                                                | `::dataQualityRuleset/*`                                            |
-| `glue:ListDataQualityRulesetEvaluationRuns`   | Grants permission to retrieve all data quality task runs.                                                                                                                                                                                             | `::dataQualityRuleset/*`                                            |
-| `glue:StartDataQualityRulesetEvaluationRun`   | Grants permission to start a data quality task run.                                                                                                                                                                                                   | `::dataQualityRuleset/<name>`                                       |
-| `glue:PublishDataQuality`                     | Grants permission to publish data quality results.                                                                                                                                                                                                    | `::dataQualityRuleset/<name>`                                       |
-| `glue:GetDataQualityModel`                    | Grants permission to retrieve Data Quality Model.                                                                                                                                                                                                     | `::dataQualityRuleset/<name>, ::job/<name>`                         |
-| `glue:GetDataQualityModelResult`              | Grants permission to retrieve Data Quality Model Results.                                                                                                                                                                                             | `::dataQualityRuleset/<name>, ::job/<name>`                         |
-| `glue:PutDataQualityStatisticAnnotation`      | Grants permission to add annotations to Statistics. This IAM action also provides permissions to the following APIS: <br>• `BatchPutDataQualityStatisticAnnotation`                                                                                   | `::dataQualityRuleset/<name>, ::job/<name>`                         |
-| `glue:PutDataQualityProfileAnnotation`        | Grants permission to put annotations to all Statistics in a Profile.                                                                                                                                                                                  | `::dataQualityRuleset/<name>, ::job/<name>`                         | ## IAM setup required for scheduling evaluation runs ### IAM permissions To run scheduled Data Quality evaluation runs, you must add the `IAM:PassRole` action to the permissions policy. AWS EventBridge Scheduler required permissions                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | Action | Description | Resource types |
-| ---                                           | ---                                                                                                                                                                                                                                                   | ---                                                                 |
-| `iam:PassRole`                                | Grants permission for IAM to allow the user to pass the approved roles.                                                                                                                                                                               | ARN of the role used to call `StartDataQualityRulesetEvaluationRun` | Without these permissions the following error occurs: `"errorCode": "AccessDenied" "errorMessage": "User: arn:aws:sts::account_id:assumed-role/AWSGlueServiceRole is not authorized to perform: iam:PassRole on resource: arn:aws:iam::account_id:role/service-role/AWSGlueServiceRole because no identity-based policy allows the iam:PassRole action"` ### IAM trusted entities The AWS Glue and AWS EventBridge Scheduler services need to be listed in the trusted entities in order to create and run a scheduled `StartDataQualityEvaluationRun`. JSON `` `{ "Version":"2012-10-17", "Statement": [ { "Effect": "Allow", "Principal": { "Service": "glue.amazonaws.com" }, "Action": "sts:AssumeRole" }, { "Effect": "Allow", "Principal": { "Service": "scheduler.amazonaws.com" }, "Action": "sts:AssumeRole" } ] }` `` ## Example IAM policies An IAM role for AWS Glue Data Quality needs the following types of permissions: <br>• Permissions for AWS Glue Data Quality operations so that you can get recommended data quality rules and run a data quality task against a table in the AWS Glue Data Catalog. The example IAM policies in this section include the minimum permissions required for AWS Glue Data Quality operations. <br>• Permissions that grant access to your Data Catalog table and the underlying data. These permissions vary depending on your use case. For example, for data that you catalog in Amazon S3, the permissions should include access to Amazon S3. ###### Note You must configure Amazon S3 permissions in addition to the permissions described in this section. ### Minimum permissions to get recommended data quality rules This example policy includes the permissions you need in order to generate recommended data quality rules. JSON `` `{ "Version":"2012-10-17", "Statement": [ { "Sid": "AllowGlueRuleRecommendationRunActions", "Effect": "Allow", "Action": [ "glue:GetDataQualityRuleRecommendationRun", "glue:PublishDataQuality", "glue:CreateDataQualityRuleset" ], "Resource": "arn:aws:glue:`us-east-1`:`111122223333`:dataQualityRuleset/*" }, { "Sid": "AllowCatalogPermissions", "Effect": "Allow", "Action": [ "glue:GetPartitions", "glue:GetTable" ], "Resource": [ "*" ] }, { "Sid": "AllowS3GetObjectToRunRuleRecommendationTask", "Effect": "Allow", "Action": [ "s3:GetObject" ], "Resource": "arn:aws:s3:::aws-glue-*" }, { "Sid": "AllowPublishingCloudwatchLogs", "Effect": "Allow", "Action": [ "logs:CreateLogStream", "logs:CreateLogGroup", "logs:PutLogEvents" ], "Resource": "*" } ] }` `` ### Minimum permissions to run a data quality task This example policy includes the permissions you need in order to run a data quality evaluation task. The following policy statements are optional, depending on your use case: <br>• `AllowCloudWatchPutMetricDataToPublishTaskMetrics` - Required if you want to publish data quality run metrics to Amazon CloudWatch. <br>• `AllowS3PutObjectToWriteTaskResults` - Required if you want to write data quality run results to Amazon S3. JSON `` `{ "Version":"2012-10-17", "Statement": [ { "Sid": "AllowGlueGetDataQualityRuleset", "Effect": "Allow", "Action": [ "glue:GetDataQualityRuleset" ], "Resource": "arn:aws:glue:`us-east-1`:`111122223333`:dataQualityRuleset/`YOUR-RULESET-NAME`" }, { "Sid": "AllowGlueRulesetEvaluationRunActions", "Effect": "Allow", "Action": [ "glue:GetDataQualityRulesetEvaluationRun", "glue:PublishDataQuality" ], "Resource": "arn:aws:glue:`us-east-1`:`111122223333`:dataQualityRuleset/*" }, { "Sid": "AllowCatalogPermissions", "Effect": "Allow", "Action": [ "glue:GetPartitions", "glue:GetTable" ], "Resource": [ "*" ] }, { "Sid": "AllowS3GetObjectForRulesetEvaluationRun", "Effect": "Allow", "Action": [ "s3:GetObject" ], "Resource": "arn:aws:s3:::aws-glue-*" }, { "Sid": "AllowCloudWatchPutMetricDataToPublishTaskMetrics", "Effect": "Allow", "Action": [ "cloudwatch:PutMetricData" ], "Resource": "*", "Condition": { "StringEquals": { "cloudwatch:namespace": "Glue Data Quality" } } }, { "Sid": "AllowS3PutObjectToWriteTaskResults", "Effect": "Allow", "Action": [ "s3:PutObject*" ], "Resource": "arn:aws:s3:::`amzn-s3-demo-bucket`/*" } ] }` `` ### Minimum permissions to run an data quality ETL job This example policy includes the permissions you need in order to run an data quality ETL Job. JSON `` `{ "Version":"2012-10-17", "Statement": [ { "Sid": "AllowGluePublishDataQualityResult", "Effect": "Allow", "Action": [ "glue:PublishDataQuality" ], "Resource": "arn:aws:glue:`us-east-1`:`111122223333`:dataQualityRuleset/*" }, { "Sid": "AllowGlueGetDataQualityResult", "Effect": "Allow", "Action": [ "glue:GetDataQualityResult" ], "Resource": "arn:aws:glue:`us-east-1`:`111122223333`:dataQualityRuleset/*" }, { "Sid": "AllowGlueDataQualityStatisticAnnotation", "Effect": "Allow", "Action": [ "glue:PutDataQualityStatisticAnnotation" ], "Resource": [ "arn:aws:glue:`us-east-1`:`111122223333`:dataQualityRuleset/*", "arn:aws:glue:`us-east-1`:`111122223333`::job/{JobName}" ] }, { "Sid": "AllowGlueDataQualityProfileAnnotation", "Effect": "Allow", "Action": [ "glue:PutDataQualityProfileAnnotation" ], "Resource": [ "arn:aws:glue:`us-east-1`:`111122223333`:dataQualityRuleset/*", "arn:aws:glue:`us-east-1`:`111122223333`::job/{JobName}" ] } ] }` `` |
+| AWS Glue Data Quality actions                 | Action                                                                                                                                                                                                                                                | Description                                    | Resource types |
+| --------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------- | -------------- |
+| `glue:CreateDataQualityRuleset`               | Grants permission to create a data quality ruleset.                                                                                                                                                                                                   | `::dataQualityRuleset/<name>`                  |
+| `glue:DeleteDataQualityRuleset`               | Grants permission to delete a data quality ruleset.                                                                                                                                                                                                   | `::dataQualityRuleset/<name>`                  |
+| `glue:GetDataQualityRuleset`                  | Grants permission to retrieve a data quality ruleset.                                                                                                                                                                                                 | `::dataQualityRuleset/<name>`                  |
+| `glue:ListDataQualityRulesets`                | Grants permission to retrieve all data quality rulesets.                                                                                                                                                                                              | `::dataQualityRuleset/*`                       |
+| `glue:UpdateDataQualityRuleset`               | Grants permission to update a data quality ruleset.                                                                                                                                                                                                   | `::dataQualityRuleset/<name>`                  |
+| `glue:GetDataQualityResult`                   | Grants permission to retrieve a data quality task run result. This IAM action also provides permissions to the following<br>APIS:<br>• `BatchGetDataQualityQualityResult`<br>• `ListDataQualityStatistics`<br>• `ListDataQualityStatisticAnnotations` | `::dataQualityRuleset/<name>`                  |
+| `glue:ListDataQualityResults`                 | Grants permission to retrieve all data quality task run results.                                                                                                                                                                                      | `::dataQualityRuleset/*`                       |
+| `glue:CancelDataQualityRuleRecommendationRun` | Grants permission to stop an in-progress data quality recommendation task<br>run.                                                                                                                                                                     | `::dataQualityRuleset/*`                       |
+| `glue:GetDataQualityRuleRecommendationRun`    | Grants permission to retrieve a data quality recommendation task run.                                                                                                                                                                                 | `::dataQualityRuleset/*`                       |
+| `glue:ListDataQualityRuleRecommendationRuns`  | Grants permission to retrieve all data quality recommendation task runs.                                                                                                                                                                              | `::dataQualityRuleset/*`                       |
+| `glue:StartDataQualityRuleRecommendationRun`  | Grants permission to start a data quality recommendation task run.                                                                                                                                                                                    | `::dataQualityRuleset/*`                       |
+| `glue:CancelDataQualityRulesetEvaluationRun`  | Grants permission to stop an in-progress data quality task run.                                                                                                                                                                                       | `::dataQualityRuleset/*`                       |
+| `glue:GetDataQualityRulesetEvaluationRun`     | Grants permission to retrieve a data quality task run.                                                                                                                                                                                                | `::dataQualityRuleset/*`                       |
+| `glue:ListDataQualityRulesetEvaluationRuns`   | Grants permission to retrieve all data quality task runs.                                                                                                                                                                                             | `::dataQualityRuleset/*`                       |
+| `glue:StartDataQualityRulesetEvaluationRun`   | Grants permission to start a data quality task run.                                                                                                                                                                                                   | `::dataQualityRuleset/<name>`                  |
+| `glue:PublishDataQuality`                     | Grants permission to publish data quality results.                                                                                                                                                                                                    | `::dataQualityRuleset/<name>`                  |
+| `glue:GetDataQualityModel`                    | Grants permission to retrieve Data Quality Model.                                                                                                                                                                                                     | `::dataQualityRuleset/<name>,<br>::job/<name>` |
+| `glue:GetDataQualityModelResult`              | Grants permission to retrieve Data Quality Model Results.                                                                                                                                                                                             | `::dataQualityRuleset/<name>,<br>::job/<name>` |
+| `glue:PutDataQualityStatisticAnnotation`      | Grants permission to add annotations to Statistics. This IAM action also provides permissions to the following<br>APIS:<br>• `BatchPutDataQualityStatisticAnnotation`                                                                                 | `::dataQualityRuleset/<name>,<br>::job/<name>` |
+| `glue:PutDataQualityProfileAnnotation`        | Grants permission to put annotations to all Statistics in a Profile.                                                                                                                                                                                  | `::dataQualityRuleset/<name>,<br>::job/<name>` |
+
+## IAM setup required for scheduling evaluation runs
+
+### IAM permissions
+
+To run scheduled Data Quality evaluation runs, you must add the `IAM:PassRole` action to the permissions policy.
+
+| AWS EventBridge Scheduler required permissions | Action                                                                  | Description                                                         | Resource types |
+| ---------------------------------------------- | ----------------------------------------------------------------------- | ------------------------------------------------------------------- | -------------- |
+| `iam:PassRole`                                 | Grants permission for IAM to allow the user to pass the approved roles. | ARN of the role used to call `StartDataQualityRulesetEvaluationRun` |
+
+Without these permissions the following error occurs:
+
+```
+"errorCode": "AccessDenied"
+"errorMessage": "User: arn:aws:sts::account_id:assumed-role/AWSGlueServiceRole is not
+authorized to perform: iam:PassRole on resource: arn:aws:iam::account_id:role/service-role/AWSGlueServiceRole
+because no identity-based policy allows the iam:PassRole action"
+```
+
+### IAM trusted entities
+
+The AWS Glue and AWS EventBridge Scheduler services need to be listed in the trusted entities in order to create and run a scheduled `StartDataQualityEvaluationRun`.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Principal": {
+ "Service": "glue.amazonaws.com"
+ },
+ "Action": "sts:AssumeRole"
+ },
+ {
+ "Effect": "Allow",
+ "Principal": {
+ "Service": "scheduler.amazonaws.com"
+ },
+ "Action": "sts:AssumeRole"
+ }
+ ]
+}`
+
+```
+
+## Example IAM policies
+
+An IAM role for AWS Glue Data Quality needs the following types of permissions:
+
+- Permissions for AWS Glue Data Quality operations so that you can get recommended data quality rules
+  and run a data quality task against a table in the AWS Glue Data Catalog. The example IAM policies
+  in this section include the minimum permissions required for AWS Glue Data Quality operations.
+- Permissions that grant access to your Data Catalog table and the underlying data. These
+  permissions vary depending on your use case. For example, for data that you catalog in
+  Amazon S3, the permissions should include access to Amazon S3.
+
+###### Note
+
+You must configure Amazon S3 permissions in addition to the permissions
+described in this section.
+
+### Minimum permissions to get
+
+recommended data quality rules
+
+This example policy includes the permissions you need in order to generate recommended
+data quality rules.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "AllowGlueRuleRecommendationRunActions",
+ "Effect": "Allow",
+ "Action": [
+ "glue:GetDataQualityRuleRecommendationRun",
+ "glue:PublishDataQuality",
+ "glue:CreateDataQualityRuleset"
+ ],
+ "Resource": "arn:aws:glue:`us-east-1`:`111122223333`:dataQualityRuleset/*"
+ },
+ {
+ "Sid": "AllowCatalogPermissions",
+ "Effect": "Allow",
+ "Action": [
+ "glue:GetPartitions",
+ "glue:GetTable"
+ ],
+ "Resource": [
+ "*"
+ ]
+ },
+ {
+ "Sid": "AllowS3GetObjectToRunRuleRecommendationTask",
+ "Effect": "Allow",
+ "Action": [
+ "s3:GetObject"
+ ],
+ "Resource": "arn:aws:s3:::aws-glue-*"
+ },
+ {
+ "Sid": "AllowPublishingCloudwatchLogs",
+ "Effect": "Allow",
+ "Action": [
+ "logs:CreateLogStream",
+ "logs:CreateLogGroup",
+ "logs:PutLogEvents"
+ ],
+ "Resource": "*"
+ }
+ ]
+}`
+
+```
+
+### Minimum permissions to run a data quality
+
+task
+
+This example policy includes the permissions you need in order to run a data quality
+evaluation task.
+
+The following policy statements are optional, depending on your use case:
+
+- `AllowCloudWatchPutMetricDataToPublishTaskMetrics` - Required if you want
+  to publish data quality run metrics to Amazon CloudWatch.
+- `AllowS3PutObjectToWriteTaskResults` - Required if you want to write data
+  quality run results to Amazon S3.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "AllowGlueGetDataQualityRuleset",
+ "Effect": "Allow",
+ "Action": [
+ "glue:GetDataQualityRuleset"
+ ],
+ "Resource": "arn:aws:glue:`us-east-1`:`111122223333`:dataQualityRuleset/`YOUR-RULESET-NAME`"
+ },
+ {
+ "Sid": "AllowGlueRulesetEvaluationRunActions",
+ "Effect": "Allow",
+ "Action": [
+ "glue:GetDataQualityRulesetEvaluationRun",
+ "glue:PublishDataQuality"
+ ],
+ "Resource": "arn:aws:glue:`us-east-1`:`111122223333`:dataQualityRuleset/*"
+ },
+ {
+ "Sid": "AllowCatalogPermissions",
+ "Effect": "Allow",
+ "Action": [
+ "glue:GetPartitions",
+ "glue:GetTable"
+ ],
+ "Resource": [
+ "*"
+ ]
+ },
+ {
+ "Sid": "AllowS3GetObjectForRulesetEvaluationRun",
+ "Effect": "Allow",
+ "Action": [
+ "s3:GetObject"
+ ],
+ "Resource": "arn:aws:s3:::aws-glue-*"
+ },
+ {
+ "Sid": "AllowCloudWatchPutMetricDataToPublishTaskMetrics",
+ "Effect": "Allow",
+ "Action": [
+ "cloudwatch:PutMetricData"
+ ],
+ "Resource": "*",
+ "Condition": {
+ "StringEquals": {
+ "cloudwatch:namespace": "Glue Data Quality"
+ }
+ }
+ },
+ {
+ "Sid": "AllowS3PutObjectToWriteTaskResults",
+ "Effect": "Allow",
+ "Action": [
+ "s3:PutObject*"
+ ],
+ "Resource": "arn:aws:s3:::`amzn-s3-demo-bucket`/*"
+ }
+ ]
+}`
+
+```
+
+### Minimum permissions to run an data quality
+
+ETL job
+
+This example policy includes the permissions you need in order to run an data quality ETL Job.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "AllowGluePublishDataQualityResult",
+ "Effect": "Allow",
+ "Action": [
+ "glue:PublishDataQuality"
+ ],
+ "Resource": "arn:aws:glue:`us-east-1`:`111122223333`:dataQualityRuleset/*"
+ },
+ {
+ "Sid": "AllowGlueGetDataQualityResult",
+ "Effect": "Allow",
+ "Action": [
+ "glue:GetDataQualityResult"
+ ],
+ "Resource": "arn:aws:glue:`us-east-1`:`111122223333`:dataQualityRuleset/*"
+ },
+ {
+ "Sid": "AllowGlueDataQualityStatisticAnnotation",
+ "Effect": "Allow",
+ "Action": [
+ "glue:PutDataQualityStatisticAnnotation"
+ ],
+ "Resource": [
+ "arn:aws:glue:`us-east-1`:`111122223333`:dataQualityRuleset/*",
+ "arn:aws:glue:`us-east-1`:`111122223333`::job/{JobName}"
+ ]
+ },
+ {
+ "Sid": "AllowGlueDataQualityProfileAnnotation",
+ "Effect": "Allow",
+ "Action": [
+ "glue:PutDataQualityProfileAnnotation"
+ ],
+ "Resource": [
+ "arn:aws:glue:`us-east-1`:`111122223333`:dataQualityRuleset/*",
+ "arn:aws:glue:`us-east-1`:`111122223333`::job/{JobName}"
+ ]
+ }
+ ]
+}`
+
+```

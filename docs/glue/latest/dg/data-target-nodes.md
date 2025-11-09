@@ -82,37 +82,131 @@ table.
 2.  Choose a data source node in the job diagram.
 3.  Choose the **Data source properties** tab, and then enter the following
     information:
-    - **Format**: Choose a format from the list. The available
-      format types for the data results are:
 
-          + **JSON**: JavaScript Object Notation.
-          + **CSV**: Comma-separated values.
-          + **Avro**: Apache Avro JSON binary.
-          + **Parquet**: A custom Parquet writer type that is
-           optimized for `DynamicFrames` as the data format. Instead of
-           requiring a precomputed schema for the data, it computes and modifies the
-           schema dynamically.
-          + **ORC**: Apache Optimized Row Columnar (ORC) format.
-          + **Apache Hudi**: An open-source data lake storage framework that simplifies incremental data processing and data pipeline development.
-          + **Apache Iceberg**: A high-performance table format that works just like an SQL table.
-          + **Delta Lake**: An open-source data lake storage framework that helps you perform ACID transactions, scale metadata handling, and unify streaming and batch data processing.
-          + **XML**: Extensible Markup Language (XML).
-          + **Tableau Hyper**: Tableau’s in-memory data engine technology.
+        * **Format**: Choose a format from the list. The available
+         format types for the data results are:
 
-      To learn more about these format options, see [Format Options for ETL Inputs and Outputs in AWS Glue](aws-glue-programming-etl-format.md "aws-glue-programming-etl-format.md") in the
-      _AWS Glue Developer Guide_.
 
-    - **Compression Type**: You can choose to optionally compress
-      the data using the file types `CSV`, `JSON`, or `Parquet`. The
-      default is no compression, or **None**.
 
-| File Type      | Compressions                              |
-| -------------- | ----------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| JSON/CSV/XML   | GZIP, BZIP2, BROTLI, DEFLATE, LZ4, Snappy |
-| Parquet        | Snappy, LZ4, LZO, BROTLI, GZIP            |
-| ORC            | Snappy, ZLIB, Uncompressed, LZO           |
-| Avro           | GZIP, BZIP2, BROTLI, DEFLATE, LZ4, Snappy |
-| Delta Lake     | GZIP, BZIP2, BROTLI, DEFLATE, LZ4, Snappy |
-| Apache Hudi    | GZIP, LZO, Snappy                         |
-| Apache Iceberg | GZIP, LZO, Snappy                         |
-| Tableau Hyper  | None                                      | <br>• **S3 Target Location**: The Amazon S3 bucket and location for the data output. You can choose the **Browse S3** button to see the Amazon S3 buckets that you have access to and choose one as the target destination. <br>• **Data catalog update options** + **Do not update the Data Catalog**: (Default) Choose this option if you don't want the job to update the Data Catalog, even if the schema changes or new partitions are added. + **Create a table in the Data Catalog and on subsequent runs, update the schema and add new partitions**: If you choose this option, the job creates the table in the Data Catalog on the first run of the job. On subsequent job runs, the job updates the Data Catalog table if the schema changes or new partitions are added. You must also select a database from the Data Catalog and enter a table name. + **Create a table in the Data Catalog and on subsequent runs, keep existing schema and add new partitions**: If you choose this option, the job creates the table in the Data Catalog on the first run of the job. On subsequent job runs, the job updates the Data Catalog table only to add new partitions. You must also select a database from the Data Catalog and enter a table name. <br>• **File Partitioning**: Choose which type of partitioning you want to save the output in. + **Autogenerate files (Recommended)**: This is the default value for the number of generated files. + **Multiple file output**: Specify the number of file outputs you want. For optimal performance, use the default auto-generated number of files value. <br>• **Partition keys**: Choose which columns to use as partitioning keys in the output. To add more partition keys, choose **Add a partition key**. File partitioning is not supported for Tableau Hyper as a target format. ### Using Data Catalog tables for the data target For all data sources except Amazon S3 and connectors, a table must exist in the AWS Glue Data Catalog for the target type that you choose. AWS Glue Studio does not create the Data Catalog table. ###### To configure the data properties for a target that uses a Data Catalog table 1. Go to the visual editor for a new or saved job. 2. Choose a data target node in the job diagram. 3. Choose the **Data target properties** tab, and then enter the following information: <br>• **Database**: Choose the database that contains the table you want to use as the target from the list. This database must already exist in the Data Catalog. <br>• **Table**: Choose the table that defines the schema of your output data from the list. This table must already exist in the Data Catalog. A table in the Data Catalog consists of the names of columns, data type definitions, partition information, and other metadata about the target dataset. Your job writes to a location described by this table in the Data Catalog. For more information about creating tables in the Data Catalog, see [Defining Tables in the Data Catalog](tables-described.md "tables-described.md") in the _AWS Glue Developer Guide_. <br>• **Data catalog update options** + **Do not change table definition**: (Default) Choose this option if you don't want the job to update the Data Catalog, even if the schema changes, or new partitions are added. + **Update schema and add new partitions**: If you choose this option, the job updates the Data Catalog table if the schema changes or new partitions are added. + **Keep existing schema and add new partitions**: If you choose this option, the job updates the Data Catalog table only to add new partitions. + **Partition keys**: Choose which columns to use as partitioning keys in the output. To add more partition keys, choose **Add a partition key**. ### Using a connector for the data target If you select a connector for the **Node type**, follow the instructions at [Authoring jobs with custom connectors](job-authoring-custom-connectors.md "job-authoring-custom-connectors.md") to finish configuring the data target properties. |
+
+        	+ **JSON**: JavaScript Object Notation.
+        	+ **CSV**: Comma-separated values.
+        	+ **Avro**: Apache Avro JSON binary.
+        	+ **Parquet**: A custom Parquet writer type that is
+        	 optimized for `DynamicFrames` as the data format. Instead of
+        	 requiring a precomputed schema for the data, it computes and modifies the
+        	 schema dynamically.
+        	+ **ORC**: Apache Optimized Row Columnar (ORC) format.
+        	+ **Apache Hudi**: An open-source data lake storage framework that simplifies incremental data processing and data pipeline development.
+        	+ **Apache Iceberg**: A high-performance table format that works just like an SQL table.
+        	+ **Delta Lake**: An open-source data lake storage framework that helps you perform ACID transactions, scale metadata handling, and unify streaming and batch data processing.
+        	+ **XML**: Extensible Markup Language (XML).
+        	+ **Tableau Hyper**: Tableau’s in-memory data engine technology.
+        To learn more about these format options, see [Format Options for ETL Inputs and Outputs in AWS Glue](aws-glue-programming-etl-format.md "aws-glue-programming-etl-format.md") in the
+         *AWS Glue Developer Guide*.
+        * **Compression Type**: You can choose to optionally compress
+         the data using the file types `CSV`, `JSON`, or `Parquet`. The
+         default is no compression, or **None**.
+
+
+
+
+        | File Type | Compressions |
+        | --- | --- |
+        | JSON/CSV/XML | GZIP, BZIP2, BROTLI, DEFLATE, LZ4, Snappy |
+        | Parquet | Snappy, LZ4, LZO, BROTLI, GZIP |
+        | ORC | Snappy, ZLIB, Uncompressed, LZO |
+        | Avro | GZIP, BZIP2, BROTLI, DEFLATE, LZ4, Snappy |
+        | Delta Lake | GZIP, BZIP2, BROTLI, DEFLATE, LZ4, Snappy |
+        | Apache Hudi | GZIP, LZO, Snappy |
+        | Apache Iceberg | GZIP, LZO, Snappy |
+        | Tableau Hyper | None |
+        * **S3 Target Location**: The Amazon S3 bucket and
+         location for the data output. You can choose the **Browse S3**
+         button to see the Amazon S3 buckets that you have access to and choose one
+         as the target destination.
+        * **Data catalog update options**
+
+
+
+
+        	+ **Do not update the Data Catalog**: (Default) Choose this
+        	 option if you don't want the job to update the Data Catalog, even if the schema
+        	 changes or new partitions are added.
+        	+ **Create a table in the Data Catalog and on subsequent runs, update the
+        	 schema and add new partitions**: If you choose this option, the job
+        	 creates the table in the Data Catalog on the first run of the job. On subsequent
+        	 job runs, the job updates the Data Catalog table if the schema changes or new
+        	 partitions are added.
+
+
+        	You must also select a database from the Data Catalog and enter a table
+        	 name.
+        	+ **Create a table in the Data Catalog and on subsequent runs, keep
+        	 existing schema and add new partitions**: If you choose this
+        	 option, the job creates the table in the Data Catalog on the first run of the job.
+        	 On subsequent job runs, the job updates the Data Catalog table only to add new
+        	 partitions.
+
+
+        	You must also select a database from the Data Catalog and enter a table
+        	 name.
+        * **File Partitioning**: Choose which type of partitioning you want to save the output in.
+
+
+
+
+        	+ **Autogenerate files (Recommended)**: This is the default value for the number of
+        	 generated files.
+        	+ **Multiple file output**: Specify the number of file outputs you want. For optimal performance,
+        	 use the default auto-generated number of files value.
+        * **Partition keys**: Choose which columns to use as
+         partitioning keys in the output. To add more partition keys, choose
+         **Add a partition key**.
+
+    File partitioning is not supported for Tableau Hyper as a target format.
+
+### Using Data Catalog tables for the data target
+
+For all data sources except Amazon S3 and connectors, a table must exist in
+the AWS Glue Data Catalog for the target type that you choose. AWS Glue Studio does not create the Data Catalog
+table.
+
+###### To configure the data properties for a target that uses a Data Catalog table
+
+1. Go to the visual editor for a new or saved job.
+2. Choose a data target node in the job diagram.
+3. Choose the **Data target properties** tab, and then enter the following
+   information:
+   - **Database**: Choose the database that contains the table you
+     want to use as the target from the list. This database must already exist in the
+     Data Catalog.
+   - **Table**: Choose the table that defines the schema of your
+     output data from the list. This table must already exist in the Data Catalog.
+
+   A table in the Data Catalog consists of the names of columns, data type
+   definitions, partition information, and other metadata about the target dataset.
+   Your job writes to a location described by this table in the Data Catalog.
+
+   For more information about creating tables in the Data Catalog, see [Defining Tables
+   in the Data Catalog](tables-described.md "tables-described.md") in the _AWS Glue Developer Guide_.
+   - **Data catalog update options**
+     - **Do not change table definition**: (Default) Choose this
+       option if you don't want the job to update the Data Catalog, even if the schema
+       changes, or new partitions are added.
+     - **Update schema and add new partitions**: If you choose
+       this option, the job updates the Data Catalog table if the schema changes or new
+       partitions are added.
+     - **Keep existing schema and add new partitions**: If you
+       choose this option, the job updates the Data Catalog table only to add new
+       partitions.
+     - **Partition keys**: Choose which columns to use as
+       partitioning keys in the output. To add more partition keys, choose
+       **Add a partition key**.
+
+### Using a connector for the data target
+
+If you select a connector for the **Node type**, follow the
+instructions at [Authoring jobs with custom
+connectors](job-authoring-custom-connectors.md "job-authoring-custom-connectors.md") to finish configuring the data target
+properties.

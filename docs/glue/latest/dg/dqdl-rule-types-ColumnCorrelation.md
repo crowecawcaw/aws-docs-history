@@ -45,12 +45,16 @@ ColumnCorrelation "weightinkgs" "Salary" > 0.8 where "weightinkgs > 40"
 The `ColumnCorrelation` rule will ignore rows with `NULL` values in the calculation of the
 correlation. For example:
 
-````
+```
 +---+-----------+
-|id |units      | +---+-----------+
+|id |units      |
++---+-----------+
 |100|0          |
 |101|null       |
 |102|20         |
 |103|null       |
-|104|40         | +---+-----------+ ``` Rows 101 and 103 will be ignored, and the `ColumnCorrelation` will be 1.0.
-````
+|104|40         |
++---+-----------+
+```
+
+Rows 101 and 103 will be ignored, and the `ColumnCorrelation` will be 1.0.

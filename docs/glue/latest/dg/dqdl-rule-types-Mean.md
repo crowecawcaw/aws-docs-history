@@ -32,12 +32,16 @@ Mean "Salary" < 6200 where "Customer_ID < 10"
 
 The `Mean` rule will ignore rows with `NULL` values in the calculation of the mean. For example:
 
-````
+```
 +---+-----------+
-|id |units      | +---+-----------+
+|id |units      |
++---+-----------+
 |100|0          |
 |101|null       |
 |102|20         |
 |103|null       |
-|104|40         | +---+-----------+ ``` The mean of column `units` will be (0 + 20 + 40) / 3 = 20. Rows 101 and 103 are not considered in this calculation.
-````
+|104|40         |
++---+-----------+
+```
+
+The mean of column `units` will be (0 + 20 + 40) / 3 = 20. Rows 101 and 103 are not considered in this calculation.

@@ -10,80 +10,156 @@ you will need to know the object name.
 
 **Supported entities**
 
-| Entity                   | Can be Filtered | Supports Limit | Supports Order By       | Supports Select \*     | Supports Partitioning |
-| ------------------------ | --------------- | -------------- | ----------------------- | ---------------------- | --------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --- | --- |
-| Funnels                  | Yes             | No             | No                      | Yes                    | No                    |
-| Retention                | Yes             | No             | No                      | Yes                    | No                    |
-| Segmentation             | Yes             | No             | No                      | Yes                    | No                    |
-| Segmentation Sum         | Yes             | No             | No                      | Yes                    | No                    |
-| Segmentation Average     | Yes             | No             | No                      | Yes                    | No                    |
-| Cohorts                  | Yes             | No             | No                      | Yes                    | No                    |
-| Engage                   | No              | Yes            | No                      | Yes                    | No                    |
-| Events                   | Yes             | No             | No                      | Yes                    | No                    |
-| Events Top               | Yes             | No             | No                      | Yes                    | No                    |
-| Events Names             | Yes             | No             | No                      | Yes                    | No                    |
-| Events Properties        | Yes             | No             | No                      | Yes                    | No                    |
-| Events Properties Top    | Yes             | No             | No                      | Yes                    | No                    |
-| Events Properties Values | Yes             | No             | No                      | Yes                    | No                    |
-| Annotations              | Yes             | No             | No                      | Yes                    | No                    |
-| Profile Event Activity   | Yes             | No             | No                      | Yes                    | No                    | **Example** `mixpanel_read = glueContext.create_dynamic_frame.from_options( connection_type="mixpanel", connection_options={ "connectionName": "connectionName", "ENTITY_NAME": "/cohorts/list?project_id=2603353", "API_VERSION": "2.0", "INSTANCE_URL": "https://www.mixpanel.com/api/app/me" }` **Mixpanel entity and field details** |
-| Entity                   | Field           | Data Type      | **Supported Operators** |                        | ---                   | ---                                                                                                                                                                                                                                                                                                                                      | --- | --- |
-| Funnel                   | funnel_id       | Integer        | '='                     |                        | workspace_id          | Integer                                                                                                                                                                                                                                                                                                                                  | '=' |
-| from_date                | Date            | '='            |                         | to_date                | Date                  | '=’                                                                                                                                                                                                                                                                                                                                      |
-| length                   | Integer         | '='            |                         | length_unit            | String                | '='                                                                                                                                                                                                                                                                                                                                      |
-| interval                 | Integer         | '='            |                         | unit                   | String                | '='                                                                                                                                                                                                                                                                                                                                      |
-| limit                    | Integer         | '='            |                         | data                   | Struct                |                                                                                                                                                                                                                                                                                                                                          |
-| meta                     | Struct          |                |                         | Retention              | workspace_id          | Integer                                                                                                                                                                                                                                                                                                                                  | '=' |
-| unit                     | String          | '='            |                         | addiction_unit         | String                | '='                                                                                                                                                                                                                                                                                                                                      |
-| from_date                | Date            | '='            |                         | to_date                | Date                  | '='                                                                                                                                                                                                                                                                                                                                      |
-| event                    | String          | '='            |                         | limit                  | Integer               | '='                                                                                                                                                                                                                                                                                                                                      |
-| data                     | Struct          |                |                         | Segmentation           | workspace_id          | Integer                                                                                                                                                                                                                                                                                                                                  | '=' |
-| event                    | String          | '='            |                         | from_date              | Date                  | '='                                                                                                                                                                                                                                                                                                                                      |
-| to_date                  | Date            | '='            |                         | unit                   | String                | '='                                                                                                                                                                                                                                                                                                                                      |
-| interval                 | Integer         | '='            |                         | limit                  | Integer               | '='                                                                                                                                                                                                                                                                                                                                      |
-| type                     | String          | '='            |                         | series                 | List                  |                                                                                                                                                                                                                                                                                                                                          |
-| values                   | Struct          |                |                         | data                   | Struct                |                                                                                                                                                                                                                                                                                                                                          |
-| Segmentation Numeric     | workspace_id    | Integer        | '='                     |                        | event                 | String                                                                                                                                                                                                                                                                                                                                   | '=' |
-| on                       | String          | '='            |                         | from_date              | Date                  | '='                                                                                                                                                                                                                                                                                                                                      |
-| to_date                  | Date            | '='            |                         | unit                   | String                | '='                                                                                                                                                                                                                                                                                                                                      |
-| type                     | String          | '='            |                         | series                 | List                  |                                                                                                                                                                                                                                                                                                                                          |
-| values                   | Struct          |                |                         | Segmentation Sum       | workspace_id          | Integer                                                                                                                                                                                                                                                                                                                                  | '=' |
-| event                    | String          | '='            |                         | on                     | String                | '='                                                                                                                                                                                                                                                                                                                                      |
-| from_date                | Date            | '='            |                         | to_date                | Date                  | '='                                                                                                                                                                                                                                                                                                                                      |
-| unit                     | String          | '='            |                         | metadata               | Struct                |                                                                                                                                                                                                                                                                                                                                          |
-| results                  | Struct          |                |                         | Segmentation Average   | workspace_id          | Integer                                                                                                                                                                                                                                                                                                                                  | '=' |
-| event                    | String          | '='            |                         | on                     | String                | '='                                                                                                                                                                                                                                                                                                                                      |
-| from_date                | Date            | '='            |                         | to_date                | Date                  | '='                                                                                                                                                                                                                                                                                                                                      |
-| unit                     | String          | '='            |                         | metadata               | Struct                |                                                                                                                                                                                                                                                                                                                                          |
-| results                  | Struct          |                |                         | Cohorts                | count                 | Integer                                                                                                                                                                                                                                                                                                                                  |     |
-| is_visible               | Integer         |                |                         | description            | String                |                                                                                                                                                                                                                                                                                                                                          |
-| created                  | DateTime        |                |                         | project_id             | Integer               |                                                                                                                                                                                                                                                                                                                                          |
-| id                       | BigInteger      |                |                         | name                   | String                |                                                                                                                                                                                                                                                                                                                                          |
-| data_group_id            | String          |                |                         | Engage                 | distinct_id           | String                                                                                                                                                                                                                                                                                                                                   |     |
-|                          | properties      | Struct         |                         | Event                  | workspace             | Integer                                                                                                                                                                                                                                                                                                                                  | '=' |
-| event                    | String          | '='            |                         | type                   | String                | '='                                                                                                                                                                                                                                                                                                                                      |
-| unit                     | String          | '='            |                         | interval               | Integer               | '='                                                                                                                                                                                                                                                                                                                                      |
-| from_date                | Date            | '='            |                         | to_date                | Date                  | '='                                                                                                                                                                                                                                                                                                                                      |
-| series                   | List            |                |                         | values                 | Struct                |                                                                                                                                                                                                                                                                                                                                          |
-| Events Top               | type            | String         | '='                     |                        | workspace_id          | Integer                                                                                                                                                                                                                                                                                                                                  | '=' |
-| limit                    | Integer         | '='            |                         | amount                 | Integer               |                                                                                                                                                                                                                                                                                                                                          |
-| event                    | String          |                |                         | percent_change         | Float                 |                                                                                                                                                                                                                                                                                                                                          |
-| Event Name               | data            | List           |                         |                        | workspace_id          | Integer                                                                                                                                                                                                                                                                                                                                  | '=' |
-| type                     | String          | '='            |                         | limit                  | Integer               | '='                                                                                                                                                                                                                                                                                                                                      |
-| Event Properties         | workspace_id    | Integer        | '='                     |                        | event                 | String                                                                                                                                                                                                                                                                                                                                   | '=' |
-| name                     | String          | '='            |                         | type                   | String                | '='                                                                                                                                                                                                                                                                                                                                      |
-| unit                     | String          | '='            |                         | interval               | Integer               | '='                                                                                                                                                                                                                                                                                                                                      |
-| from_date                | Date            | '='            |                         | to_date                | Date                  | '='                                                                                                                                                                                                                                                                                                                                      |
-| limit                    | Integer         | '='            |                         | data                   | Struct                |                                                                                                                                                                                                                                                                                                                                          |
-| series                   | List            |                |                         | values                 | Struct                |                                                                                                                                                                                                                                                                                                                                          |
-| Event Properties Top     | workspace_id    | Integer        | '='                     |                        | event                 | String                                                                                                                                                                                                                                                                                                                                   | '=' |
-| limit                    | Integer         | '='            |                         | data                   | Struct                |                                                                                                                                                                                                                                                                                                                                          |
-| Event Properties Value   | workspace_id    | Integer        | '='                     |                        | event                 | String                                                                                                                                                                                                                                                                                                                                   | '=' |
-| limit                    | Integer         | '='            |                         | name                   | String                | '='                                                                                                                                                                                                                                                                                                                                      |
-| data                     | List            |                |                         | Annotation             | workspace_id          | Integer                                                                                                                                                                                                                                                                                                                                  |     |
-| date                     | DateTime        |                |                         | project_id             | Integer               |                                                                                                                                                                                                                                                                                                                                          |
-| id                       | BigInteger      |                |                         | description            | String                |                                                                                                                                                                                                                                                                                                                                          |
-| from_date                | Date            | BETWEEN        |                         | Profile Event Activity | workspace_id          | Integer                                                                                                                                                                                                                                                                                                                                  | '=' |
-| distinct_ids             | String          | '='            |                         | from_date              | Date                  | '='                                                                                                                                                                                                                                                                                                                                      |
-| to_date                  | Date            | '='            |                         | event                  | String                |                                                                                                                                                                                                                                                                                                                                          |
-| properties               | Struct          |                |
+| Entity                   | Can be Filtered | Supports Limit | Supports Order By | Supports Select \* | Supports Partitioning |
+| ------------------------ | --------------- | -------------- | ----------------- | ------------------ | --------------------- |
+| Funnels                  | Yes             | No             | No                | Yes                | No                    |
+| Retention                | Yes             | No             | No                | Yes                | No                    |
+| Segmentation             | Yes             | No             | No                | Yes                | No                    |
+| Segmentation Sum         | Yes             | No             | No                | Yes                | No                    |
+| Segmentation Average     | Yes             | No             | No                | Yes                | No                    |
+| Cohorts                  | Yes             | No             | No                | Yes                | No                    |
+| Engage                   | No              | Yes            | No                | Yes                | No                    |
+| Events                   | Yes             | No             | No                | Yes                | No                    |
+| Events Top               | Yes             | No             | No                | Yes                | No                    |
+| Events Names             | Yes             | No             | No                | Yes                | No                    |
+| Events Properties        | Yes             | No             | No                | Yes                | No                    |
+| Events Properties Top    | Yes             | No             | No                | Yes                | No                    |
+| Events Properties Values | Yes             | No             | No                | Yes                | No                    |
+| Annotations              | Yes             | No             | No                | Yes                | No                    |
+| Profile Event Activity   | Yes             | No             | No                | Yes                | No                    |
+
+**Example**
+
+```
+mixpanel_read = glueContext.create_dynamic_frame.from_options(
+    connection_type="mixpanel",
+    connection_options={
+        "connectionName": "connectionName",
+        "ENTITY_NAME": "/cohorts/list?project_id=2603353",
+        "API_VERSION": "2.0",
+        "INSTANCE_URL": "https://www.mixpanel.com/api/app/me"
+    }
+
+```
+
+**Mixpanel entity and field details**
+
+| Entity                 | Field        | Data Type | **Supported Operators** |
+| ---------------------- | ------------ | --------- | ----------------------- |
+| Funnel                 | funnel_id    | Integer   | '='                     |
+| workspace_id           | Integer      | '='       |
+| from_date              | Date         | '='       |
+| to_date                | Date         | '=’       |
+| length                 | Integer      | '='       |
+| length_unit            | String       | '='       |
+| interval               | Integer      | '='       |
+| unit                   | String       | '='       |
+| limit                  | Integer      | '='       |
+| data                   | Struct       |           |
+| meta                   | Struct       |           |
+| Retention              | workspace_id | Integer   | '='                     |
+| unit                   | String       | '='       |
+| addiction_unit         | String       | '='       |
+| from_date              | Date         | '='       |
+| to_date                | Date         | '='       |
+| event                  | String       | '='       |
+| limit                  | Integer      | '='       |
+| data                   | Struct       |           |
+| Segmentation           | workspace_id | Integer   | '='                     |
+| event                  | String       | '='       |
+| from_date              | Date         | '='       |
+| to_date                | Date         | '='       |
+| unit                   | String       | '='       |
+| interval               | Integer      | '='       |
+| limit                  | Integer      | '='       |
+| type                   | String       | '='       |
+| series                 | List         |           |
+| values                 | Struct       |           |
+| data                   | Struct       |           |
+| Segmentation Numeric   | workspace_id | Integer   | '='                     |
+| event                  | String       | '='       |
+| on                     | String       | '='       |
+| from_date              | Date         | '='       |
+| to_date                | Date         | '='       |
+| unit                   | String       | '='       |
+| type                   | String       | '='       |
+| series                 | List         |           |
+| values                 | Struct       |           |
+| Segmentation Sum       | workspace_id | Integer   | '='                     |
+| event                  | String       | '='       |
+| on                     | String       | '='       |
+| from_date              | Date         | '='       |
+| to_date                | Date         | '='       |
+| unit                   | String       | '='       |
+| metadata               | Struct       |           |
+| results                | Struct       |           |
+| Segmentation Average   | workspace_id | Integer   | '='                     |
+| event                  | String       | '='       |
+| on                     | String       | '='       |
+| from_date              | Date         | '='       |
+| to_date                | Date         | '='       |
+| unit                   | String       | '='       |
+| metadata               | Struct       |           |
+| results                | Struct       |           |
+| Cohorts                | count        | Integer   |                         |
+| is_visible             | Integer      |           |
+| description            | String       |           |
+| created                | DateTime     |           |
+| project_id             | Integer      |           |
+| id                     | BigInteger   |           |
+| name                   | String       |           |
+| data_group_id          | String       |           |
+| Engage                 | distinct_id  | String    |                         |
+|                        | properties   | Struct    |
+| Event                  | workspace    | Integer   | '='                     |
+| event                  | String       | '='       |
+| type                   | String       | '='       |
+| unit                   | String       | '='       |
+| interval               | Integer      | '='       |
+| from_date              | Date         | '='       |
+| to_date                | Date         | '='       |
+| series                 | List         |           |
+| values                 | Struct       |           |
+| Events Top             | type         | String    | '='                     |
+| workspace_id           | Integer      | '='       |
+| limit                  | Integer      | '='       |
+| amount                 | Integer      |           |
+| event                  | String       |           |
+| percent_change         | Float        |           |
+| Event Name             | data         | List      |                         |
+| workspace_id           | Integer      | '='       |
+| type                   | String       | '='       |
+| limit                  | Integer      | '='       |
+| Event Properties       | workspace_id | Integer   | '='                     |
+| event                  | String       | '='       |
+| name                   | String       | '='       |
+| type                   | String       | '='       |
+| unit                   | String       | '='       |
+| interval               | Integer      | '='       |
+| from_date              | Date         | '='       |
+| to_date                | Date         | '='       |
+| limit                  | Integer      | '='       |
+| data                   | Struct       |           |
+| series                 | List         |           |
+| values                 | Struct       |           |
+| Event Properties Top   | workspace_id | Integer   | '='                     |
+| event                  | String       | '='       |
+| limit                  | Integer      | '='       |
+| data                   | Struct       |           |
+| Event Properties Value | workspace_id | Integer   | '='                     |
+| event                  | String       | '='       |
+| limit                  | Integer      | '='       |
+| name                   | String       | '='       |
+| data                   | List         |           |
+| Annotation             | workspace_id | Integer   |                         |
+| date                   | DateTime     |           |
+| project_id             | Integer      |           |
+| id                     | BigInteger   |           |
+| description            | String       |           |
+| from_date              | Date         | BETWEEN   |
+| Profile Event Activity | workspace_id | Integer   | '='                     |
+| distinct_ids           | String       | '='       |
+| from_date              | Date         | '='       |
+| to_date                | Date         | '='       |
+| event                  | String       |           |
+| properties             | Struct       |           |

@@ -21,10 +21,32 @@ below to check the available entities.
 - [Unsubscribed](https://productboard.com/developer/marketing/api/unsub-reports/ "https://productboard.com/developer/marketing/api/unsub-reports/")
 
 | Entity                   | Can be Filtered | Supports Limit | Supports Order By | Supports Select \* | Supports Partitioning |
-| ------------------------ | --------------- | -------------- | ----------------- | ------------------ | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------------------ | --------------- | -------------- | ----------------- | ------------------ | --------------------- |
 | Features                 | Yes             | Yes            | No                | Yes                | Yes                   |
 | Components               | No              | Yes            | No                | Yes                | No                    |
 | Products                 | No              | Yes            | No                | Yes                | No                    |
 | Feature Statuses         | No              | Yes            | No                | Yes                | Yes                   |
 | Custom Field Definitions | No              | Yes            | No                | Yes                | No                    |
-| Custom Field Values      | Yes             | Yes            | No                | Yes                | No                    | **Example** `Productboard_read = glueContext.create_dynamic_frame.from_options( connection_type="Productboard", connection_options={ "connectionName": "connectionName", "ENTITY_NAME": "feature", "API_VERSION": "1" }` **Productboard entity and field details** <br>• [Features](https://developer.productboard.com/#tag/features "https://developer.productboard.com/#tag/features") <br>• [Components](https://developer.productboard.com/#tag/components "https://developer.productboard.com/#tag/components") <br>• [Feature statuses](https://developer.productboard.com/#tag/statuses "https://developer.productboard.com/#tag/statuses") <br>• [Products](https://developer.productboard.com/#tag/products "https://developer.productboard.com/#tag/products") <br>• [Custom fields definitions](https://developer.productboard.com/#tag/hierarchyEntitiesCustomFields "https://developer.productboard.com/#tag/hierarchyEntitiesCustomFields") <br>• [Custom fields values](https://developer.productboard.com/#tag/hierarchyEntitiesCustomFieldsValues "https://developer.productboard.com/#tag/hierarchyEntitiesCustomFieldsValues") |
+| Custom Field Values      | Yes             | Yes            | No                | Yes                | No                    |
+
+**Example**
+
+```
+Productboard_read = glueContext.create_dynamic_frame.from_options(
+    connection_type="Productboard",
+    connection_options={
+        "connectionName": "connectionName",
+        "ENTITY_NAME": "feature",
+        "API_VERSION": "1"
+    }
+```
+
+**Productboard entity and field details**
+
+- [Features](https://developer.productboard.com/#tag/features "https://developer.productboard.com/#tag/features")
+- [Components](https://developer.productboard.com/#tag/components "https://developer.productboard.com/#tag/components")
+- [Feature
+  statuses](https://developer.productboard.com/#tag/statuses "https://developer.productboard.com/#tag/statuses")
+- [Products](https://developer.productboard.com/#tag/products "https://developer.productboard.com/#tag/products")
+- [Custom fields definitions](https://developer.productboard.com/#tag/hierarchyEntitiesCustomFields "https://developer.productboard.com/#tag/hierarchyEntitiesCustomFields")
+- [Custom fields values](https://developer.productboard.com/#tag/hierarchyEntitiesCustomFieldsValues "https://developer.productboard.com/#tag/hierarchyEntitiesCustomFieldsValues")

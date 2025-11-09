@@ -36,13 +36,13 @@ The following are the rules for coding each parameter object:
   blueprint.
   The following are the permitted values for `type`:
 
-| Parameter data type | Notes                                                                                                                                                       |
-| ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `String`            | -                                                                                                                                                           |
-| `Integer`           | -                                                                                                                                                           |
-| `Double`            | -                                                                                                                                                           |
-| `Boolean`           | Possible values are `true` and `false`. Generates a check box on the **Create a workflow from <blueprint>** page on the AWS Glue console.                   |
-| `S3Uri`             | Complete Amazon S3 path, beginning with `s3://`. Generates a text field and **Browse** button on the **Create a workflow from <blueprint>** page.           |
-| `S3Bucket`          | Amazon S3 bucket name only. Generates a bucket picker on the **Create a workflow from <blueprint>** page.                                                   |
-| `IAMRoleArn`        | Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM) role. Generates a role picker on the **Create a workflow from <blueprint>** page. |
-| `IAMRoleName`       | Name of an IAM role. Generates a role picker on the **Create a workflow from <blueprint>** page.                                                            |
+| Parameter data type | Notes                                                                                                                                                             |
+| ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `String`            | -                                                                                                                                                                 |
+| `Integer`           | -                                                                                                                                                                 |
+| `Double`            | -                                                                                                                                                                 |
+| `Boolean`           | Possible values are `true` and `false`. Generates a check<br>box on the \*_Create a workflow from <blueprint>_<br>• page on the<br>AWS Glue console.              |
+| `S3Uri`             | Complete Amazon S3 path, beginning with `s3://`. Generates a text field<br>and **Browse\*<br>• button on the **Create a workflow from<br><blueprint>\*<br>• page. |
+| `S3Bucket`          | Amazon S3 bucket name only. Generates a bucket picker on the \*_Create a<br>workflow from <blueprint>_<br>• page.                                                 |
+| `IAMRoleArn`        | Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM) role. Generates a role<br>picker on the **Create a workflow from <blueprint>**<br>page. |
+| `IAMRoleName`       | Name of an IAM role. Generates a role picker on the \*_Create a<br>workflow from <blueprint>_<br>• page.                                                          |

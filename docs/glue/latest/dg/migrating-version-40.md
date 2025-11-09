@@ -545,24 +545,45 @@ dependency upgrades
 
 The following are dependency upgrades:
 
-| Dependency                   | Version in AWS Glue 4.0                       | Version in AWS Glue 3.0             | Version in AWS Glue 2.0             | Version in AWS Glue 1.0 |
-| ---------------------------- | --------------------------------------------- | ----------------------------------- | ----------------------------------- | ----------------------- | --------------------------------------------------------------------------- | --------------------------- | --------------------------- | ------------------------ | ----------------------------------------------------------------------- |
-| Spark                        | 3.3.0-amzn-1                                  | 3.1.1-amzn-0                        | 2.4.3                               | 2.4.3                   |
-| Hadoop                       | 3.3.3-amzn-0                                  | 3.2.1-amzn-3                        | 2.8.5-amzn-5                        | 2.8.5-amzn-1            |
-| Scala                        | 2.12                                          | 2.12                                | 2.11                                | 2.11                    |
-| Jackson                      | 2.13.3                                        | 2.10.x                              | 2.7.x                               | 2.7.x                   |
-| Hive                         | 2.3.9-amzn-2                                  | 2.3.7-amzn-4                        | 1.2                                 | 1.2                     |
-| EMRFS                        | 2.54.0                                        | 2.46.0                              | 2.38.0                              | 2.30.0                  |
-| Json4s                       | 3.7.0-M11                                     | 3.6.6                               | 3.5.x                               | 3.5.x                   |
-| Arrow                        | 7.0.0                                         | 2.0.0                               | 0.10.0                              | 0.10.0                  |
-| AWS Glue Data Catalog client | 3.7.0                                         | 3.0.0                               | 1.10.0                              | N/A                     |
-| Python                       | 3.10                                          | 3.7                                 | 2.7 & 3.6                           | 2.7 & 3.6               |
-| Boto                         | 1.26                                          | 1.18                                | 1.12                                | N/A                     | ## Appendix B: JDBC driver upgrades The following are JDBC driver upgrades: |
-| Driver                       | JDBC driver version in past AWS Glue versions | JDBC driver version in AWS Glue 3.0 | JDBC driver version in AWS Glue 4.0 |                         | ---                                                                         | ---                         | ---                         | ---                      |
-| MySQL                        | 5.1                                           | 8.0.23                              | 8.0.23                              |                         | Microsoft SQL Server                                                        | 6.1.0                       | 7.0.0                       | 9.4.0                    |
-| Oracle Databases             | 11.2                                          | 21.1                                | 21.7                                |                         | PostgreSQL                                                                  | 42.1.0                      | 42.2.18                     | 42.3.6                   |
-| MongoDB                      | 2.0.0                                         | 4.0.0                               | 4.7.2                               |                         | Amazon Redshift                                                             | redshift-jdbc41-1.2.12.1017 | redshift-jdbc41-1.2.12.1017 | redshift-jdbc42-2.1.0.16 | ## Appendix C: Connector upgrades The following are connector upgrades: |
-| Driver                       | Connector version in AWS Glue 3.0             | Connector version in AWS Glue 4.0   |                                     | ---                     | ---                                                                         | ---                         |
-| MongoDB                      | 3.0.0                                         | 10.0.4                              |                                     | Hudi                    | 0.10.1                                                                      | 0.12.1                      |
-| Delta Lake                   | 1.0.0                                         | 2.1.0                               |                                     | Iceberg                 | 0.13.1                                                                      | 1.0.0                       |
-| DynamoDB                     | 1.11                                          | 1.12                                |
+| Dependency                   | Version in AWS Glue 4.0 | Version in AWS Glue 3.0 | Version in AWS Glue 2.0 | Version in AWS Glue 1.0 |
+| ---------------------------- | ----------------------- | ----------------------- | ----------------------- | ----------------------- |
+| Spark                        | 3.3.0-amzn-1            | 3.1.1-amzn-0            | 2.4.3                   | 2.4.3                   |
+| Hadoop                       | 3.3.3-amzn-0            | 3.2.1-amzn-3            | 2.8.5-amzn-5            | 2.8.5-amzn-1            |
+| Scala                        | 2.12                    | 2.12                    | 2.11                    | 2.11                    |
+| Jackson                      | 2.13.3                  | 2.10.x                  | 2.7.x                   | 2.7.x                   |
+| Hive                         | 2.3.9-amzn-2            | 2.3.7-amzn-4            | 1.2                     | 1.2                     |
+| EMRFS                        | 2.54.0                  | 2.46.0                  | 2.38.0                  | 2.30.0                  |
+| Json4s                       | 3.7.0-M11               | 3.6.6                   | 3.5.x                   | 3.5.x                   |
+| Arrow                        | 7.0.0                   | 2.0.0                   | 0.10.0                  | 0.10.0                  |
+| AWS Glue Data Catalog client | 3.7.0                   | 3.0.0                   | 1.10.0                  | N/A                     |
+| Python                       | 3.10                    | 3.7                     | 2.7 & 3.6               | 2.7 & 3.6               |
+| Boto                         | 1.26                    | 1.18                    | 1.12                    | N/A                     |
+
+## Appendix B: JDBC driver
+
+upgrades
+
+The following are JDBC driver upgrades:
+
+| Driver               | JDBC driver version in past AWS Glue versions | JDBC driver version in AWS Glue 3.0 | JDBC driver version in AWS Glue 4.0 |
+| -------------------- | --------------------------------------------- | ----------------------------------- | ----------------------------------- |
+| MySQL                | 5.1                                           | 8.0.23                              | 8.0.23                              |
+| Microsoft SQL Server | 6.1.0                                         | 7.0.0                               | 9.4.0                               |
+| Oracle Databases     | 11.2                                          | 21.1                                | 21.7                                |
+| PostgreSQL           | 42.1.0                                        | 42.2.18                             | 42.3.6                              |
+| MongoDB              | 2.0.0                                         | 4.0.0                               | 4.7.2                               |
+| Amazon Redshift      | redshift-jdbc41-1.2.12.1017                   | redshift-jdbc41-1.2.12.1017         | redshift-jdbc42-2.1.0.16            |
+
+## Appendix C: Connector
+
+upgrades
+
+The following are connector upgrades:
+
+| Driver     | Connector version in AWS Glue 3.0 | Connector version in AWS Glue 4.0 |
+| ---------- | --------------------------------- | --------------------------------- |
+| MongoDB    | 3.0.0                             | 10.0.4                            |
+| Hudi       | 0.10.1                            | 0.12.1                            |
+| Delta Lake | 1.0.0                             | 2.1.0                             |
+| Iceberg    | 0.13.1                            | 1.0.0                             |
+| DynamoDB   | 1.11                              | 1.12                              |

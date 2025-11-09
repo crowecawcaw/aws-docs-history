@@ -33,7 +33,7 @@ The following AWS Glue versions have reached end of support and will no longer b
 Changes to a version’s support status start at midnight (Pacific time zone) on the specified date.
 
 | **Type**             | **Glue version**                                | **End of support** | **End of life** |
-| -------------------- | ----------------------------------------------- | ------------------ | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| -------------------- | ----------------------------------------------- | ------------------ | --------------- |
 | Spark                | Glue version 0.9 (Spark 2.2, Scala 2, Python 2) | 6/1/2022           | 4/1/2026        |
 | Spark                | Glue version 1.0 (Spark 2.4, Python 2)          | 6/1/2022           | 4/1/2026        |
 | Spark                | Glue version 1.0 (Spark 2.4, Scala 2, Python 3) | 9/30/2022          | 4/1/2026        |
@@ -44,4 +44,25 @@ Changes to a version’s support status start at midnight (Pacific time zone) on
 | Python shell         | PythonShell 3.6 (Glue version 1.0)              | 3/31/2026          | NA              |
 | **Type**             | **Notebook version**                            | **End of support** | **End of life** |
 | ---                  | ---                                             | ---                | ---             |
-| Development endpoint | Zeppelin notebook                               | 9/30/2022          | NA              | ###### Note Creating new AWS Glue Python Shell 3.6 jobs will not be allowed once end of support is reached on March 31, 2026, but you can continue to update and run existing jobs. However, jobs running on discontinued versions are not eligible for technical support. AWS Glue will not apply security patches or other updates to discontinued versions. AWS Glue will also not honor SLAs when jobs are run on discontinued versions. AWS strongly recommends that you migrate your jobs to supported versions. For information on migrating your Spark jobs to the latest AWS Glue version, see [Migrating AWS Glue jobs to AWS Glue version 5.0](migrating-version-50.md "migrating-version-50.md"). For migrating your Python shell jobs to the latest AWS Glue version: <br>• In the console, choose `Python 3 (Glue Version 4.0)`. <br>• In the [CreateJob](../webapi/API_CreateJob.md "../webapi/API_CreateJob.md")/[UpdateJob](../webapi/API_UpdateJob.md "../webapi/API_UpdateJob.md") API, set the `GlueVersion` parameter to `2.0`, and the `PythonVersion` to `3` under the `Command` parameter. The `GlueVersion` configuration does not affect the behavior of Python shell jobs, so there is no advantage to incrementing `GlueVersion`. <br>• You need to make your job script compatible with Python 3. |
+| Development endpoint | Zeppelin notebook                               | 9/30/2022          | NA              |
+
+###### Note
+
+Creating new AWS Glue Python Shell 3.6 jobs will not be allowed once end of support is reached on
+March 31, 2026, but you can continue to update and run existing jobs. However, jobs running on discontinued versions are not eligible for
+technical support. AWS Glue will not apply security patches or other updates to discontinued versions. AWS Glue will also not honor SLAs when
+jobs are run on discontinued versions.
+
+AWS strongly recommends that you migrate your jobs to supported versions.
+
+For information on migrating your Spark jobs to the latest AWS Glue version, see
+[Migrating AWS Glue jobs to
+AWS Glue version 5.0](migrating-version-50.md "migrating-version-50.md").
+
+For migrating your Python shell jobs to the latest AWS Glue version:
+
+- In the console, choose `Python 3 (Glue Version 4.0)`.
+- In the [CreateJob](../webapi/API_CreateJob.md "../webapi/API_CreateJob.md")/[UpdateJob](../webapi/API_UpdateJob.md "../webapi/API_UpdateJob.md") API, set the `GlueVersion` parameter to `2.0`, and the
+  `PythonVersion` to `3` under the `Command` parameter. The `GlueVersion` configuration does not
+  affect the behavior of Python shell jobs, so there is no advantage to incrementing `GlueVersion`.
+- You need to make your job script compatible with Python 3.

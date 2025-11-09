@@ -41,6 +41,19 @@ see
 
 ## Database resource links
 
-|                                                                                                                         |
-| ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| The AWS Glue console was recently updated. The current version of the console does not support Database Resource Links. | The Data Catalog can also contain _resource links_ to databases. A database resource link is a link to a local or shared database. Currently, you can create resource links only in AWS Lake Formation. After you create a resource link to a database, you can use the resource link name wherever you would use the database name. Along with databases that you own or that are shared with you, database resource links are returned by `glue:GetDatabases()` and appear as entries on the **Databases** page of the AWS Glue console. The Data Catalog can also contain table resource links. For more information about resource links, see [Creating Resource Links](../../../lake-formation/latest/dg/creating-resource-links.md "../../../lake-formation/latest/dg/creating-resource-links.md") in the _AWS Lake Formation Developer Guide_. |
+|                                                                                                                               |
+| ----------------------------------------------------------------------------------------------------------------------------- |
+| The AWS Glue console was recently updated.<br>The current version of the console<br>does not support Database Resource Links. |
+
+The Data Catalog can also contain _resource links_ to databases. A
+database resource link is a link to a local or shared database. Currently, you can
+create resource links only in AWS Lake Formation. After you create a resource link to a database,
+you can use the resource link name wherever you would use the database name. Along with
+databases that you own or that are shared with you, database resource links are returned
+by `glue:GetDatabases()` and appear as entries on the
+**Databases** page of the AWS Glue console.
+
+The Data Catalog can also contain table resource links.
+
+For more information about resource links, see [Creating Resource
+Links](../../../lake-formation/latest/dg/creating-resource-links.md "../../../lake-formation/latest/dg/creating-resource-links.md") in the _AWS Lake Formation Developer Guide_.

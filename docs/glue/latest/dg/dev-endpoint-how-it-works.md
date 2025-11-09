@@ -42,12 +42,32 @@ cluster configuration. In the AWS Glue development endpoints, the cluster
 configuration depends on the worker type. Here's a table which explains the common
 configurations per worker type.
 
-|                                   | Standard            | G.1X                    | G.2X                    |
-| --------------------------------- | ------------------- | ----------------------- | ----------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `spark.driver.memory`             | 5G                  | 10G                     | 20G                     |
-| `spark.executor.memory`           | 5G                  | 10G                     | 20G                     |
-| `spark.executor.cores`            | 4                   | 8                       | 16                      |
-| `spark.dynamicAllocation.enabled` | TRUE                | TRUE                    | TRUE                    | The maximum number of Spark executors is automatically calculated by combination of DPU (or `NumberOfWorkers`) and worker type.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-|                                   | Standard            | G.1X                    | G.2X                    |
-| ---                               | ---                 | ---                     | ---                     |
-| The number of max Spark executors | `(DPU - 1) * 2 - 1` | `(NumberOfWorkers - 1)` | `(NumberOfWorkers - 1)` | For example, if your development endpoint has 10 workers and the worker type is `G.1X`, then you will have 9 Spark executors and the entire cluster will have 90G of executor memory since each executor will have 10G of memory. Regardless of the specified worker type, Spark dynamic resource allocation will be turned on. If a dataset is large enough, Spark may allocate all the executors to a single Livy session since `spark.dynamicAllocation.maxExecutors` is not set by default. This means that other Livy sessions on the same dev endpoint will wait to launch new executors. If the dataset is small, Spark will be able to allocate executors to multiple Livy sessions at the same time. ###### Note For more information about how resources are allocated in different use cases and how you set a configuration to modify the behavior, see [Advanced configuration: sharing development endpoints among multiple users](dev-endpoint-sharing.md "dev-endpoint-sharing.md"). |
+|                                   | Standard | G.1X | G.2X |
+| --------------------------------- | -------- | ---- | ---- |
+| `spark.driver.memory`             | 5G       | 10G  | 20G  |
+| `spark.executor.memory`           | 5G       | 10G  | 20G  |
+| `spark.executor.cores`            | 4        | 8    | 16   |
+| `spark.dynamicAllocation.enabled` | TRUE     | TRUE | TRUE |
+
+The maximum number of Spark executors is automatically calculated by combination of DPU
+(or `NumberOfWorkers`) and worker type.
+
+|                                   | Standard                     | G.1X                       | G.2X                       |
+| --------------------------------- | ---------------------------- | -------------------------- | -------------------------- |
+| The number of max Spark executors | `(DPU<br>• 1)<br>• 2<br>• 1` | `(NumberOfWorkers<br>• 1)` | `(NumberOfWorkers<br>• 1)` |
+
+For example, if your development endpoint has 10 workers and the worker type is `G.1X`, then you will have 9 Spark executors and the entire cluster will have 90G of
+executor memory since each executor will have 10G of memory.
+
+Regardless of the specified worker type, Spark dynamic resource allocation will be
+turned on. If a dataset is large enough, Spark may allocate all the executors to a single
+Livy session since `spark.dynamicAllocation.maxExecutors` is not set by default.
+This means that other Livy sessions on the same dev endpoint will wait to launch new
+executors. If the dataset is small, Spark will be able to allocate executors to multiple
+Livy sessions at the same time.
+
+###### Note
+
+For more information about how resources are allocated in different use cases and how
+you set a configuration to modify the behavior, see [Advanced configuration: sharing development endpoints
+among multiple users](dev-endpoint-sharing.md "dev-endpoint-sharing.md").

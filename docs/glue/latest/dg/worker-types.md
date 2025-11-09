@@ -83,8 +83,8 @@ The resources available on AWS Glue workers are measured in DPUs. A DPU is a rel
 
 ## Worker type specifications table
 
-| Worker Type Specifications | Worker Type | DPU per Node | vCPU | Memory (GB) | Disk (GB) | Approximate Free Disk Space (GB) | Spark Executors per Node                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| -------------------------- | ----------- | ------------ | ---- | ----------- | --------- | -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Worker Type Specifications | Worker Type | DPU per Node | vCPU | Memory (GB) | Disk (GB) | Approximate Free Disk Space (GB) | Spark Executors per Node |
+| -------------------------- | ----------- | ------------ | ---- | ----------- | --------- | -------------------------------- | ------------------------ |
 | G.1X                       | 1           | 4            | 16   | 94          | 44        | 1                                |
 | G.2X                       | 2           | 8            | 32   | 138         | 78        | 1                                |
 | G.4X                       | 4           | 16           | 64   | 256         | 230       | 1                                |
@@ -94,4 +94,56 @@ The resources available on AWS Glue workers are measured in DPUs. A DPU is a rel
 | R.1X                       | 1           | 4            | 32   | 94          | 44        | 1                                |
 | R.2X                       | 2           | 8            | 64   | 138         | 78        | 1                                |
 | R.4X                       | 4           | 16           | 128  | 256         | 230       | 1                                |
-| R.8X                       | 8           | 32           | 256  | 512         | 485       | 1                                | _Note_: R worker types have memory-optimized configurations with specifications optimized for memory-intensive workloads. ## Important considerations ### Startup latency ###### Important G.12X and G.16X worker types, as well as all R worker types (R.1X through R.8X), may encounter higher startup latency. To resolve the issue, try the following: <br>• Wait a few minutes and then submit your job again. <br>• Submit a new job with a reduced number of workers. <br>• Submit a new job using a different worker type and size. ## Choosing the right worker type ### For standard ETL workloads <br>• **G.1X or G.2X**: Most cost-effective for typical data transforms, joins, and queries <br>• **G.4X or G.8X**: For more demanding workloads with larger datasets ### For large-scale workloads <br>• **G.12X**: Very large datasets requiring significant compute resources <br>• **G.16X**: Maximum compute capacity for the most demanding workloads ### For memory-intensive workloads <br>• **R.1X or R.2X**: Small to medium memory-intensive jobs <br>• **R.4X or R.8X**: Large memory-intensive workloads with frequent OOM errors ## Cost Optimization Considerations <br>• **Standard G workers**: Provide a balance of compute, memory and networking resources, and can be used for a variety of diverse workloads at lower cost <br>• **R workers**: Specialized for memory-intensive tasks with fast performance for workloads that process large data sets in memory ## Best practices ### Worker selection guidelines 1. **Start with standard workers** (G.1X, G.2X) for most workloads 2. **Use R workers** when experiencing frequent out-of-memory errors or workloads with memory-intensive operations like caching, shuffling, and aggregating 3. **Consider G.12X/G.16X** for compute-intensive workloads requiring maximum resources 4. **Account for capacity constraints** when using new worker types in time-sensitive workflows ### Performance optimization <br>• Monitor CloudWatch metrics to understand resource utilization <br>• Use appropriate worker counts based on data size and complexity <br>• Consider data partitioning strategies to optimize worker efficiency |
+| R.8X                       | 8           | 32           | 256  | 512         | 485       | 1                                |
+
+_Note_: R worker types have memory-optimized configurations with specifications optimized for memory-intensive workloads.
+
+## Important considerations
+
+### Startup latency
+
+###### Important
+
+G.12X and G.16X worker types, as well as all R worker types (R.1X through R.8X), may encounter higher startup latency. To resolve the issue,
+try the following:
+
+- Wait a few minutes and then submit your job again.
+- Submit a new job with a reduced number of workers.
+- Submit a new job using a different worker type and size.
+
+## Choosing the right worker type
+
+### For standard ETL workloads
+
+- **G.1X or G.2X**: Most cost-effective for typical data transforms, joins, and queries
+- **G.4X or G.8X**: For more demanding workloads with larger datasets
+
+### For large-scale workloads
+
+- **G.12X**: Very large datasets requiring significant compute resources
+- **G.16X**: Maximum compute capacity for the most demanding workloads
+
+### For memory-intensive workloads
+
+- **R.1X or R.2X**: Small to medium memory-intensive jobs
+- **R.4X or R.8X**: Large memory-intensive workloads with frequent OOM errors
+
+## Cost Optimization Considerations
+
+- **Standard G workers**: Provide a balance of compute, memory and networking resources, and can be used for a variety of diverse workloads at lower cost
+- **R workers**: Specialized for memory-intensive tasks with fast performance for workloads that process large data sets in memory
+
+## Best practices
+
+### Worker selection guidelines
+
+1. **Start with standard workers** (G.1X, G.2X) for most workloads
+2. **Use R workers** when experiencing frequent out-of-memory errors or workloads with memory-intensive operations like caching, shuffling, and aggregating
+3. **Consider G.12X/G.16X** for compute-intensive workloads requiring maximum resources
+4. **Account for capacity constraints** when using new worker types in time-sensitive workflows
+
+### Performance optimization
+
+- Monitor CloudWatch metrics to understand resource utilization
+- Use appropriate worker counts based on data size and complexity
+- Consider data partitioning strategies to optimize worker efficiency

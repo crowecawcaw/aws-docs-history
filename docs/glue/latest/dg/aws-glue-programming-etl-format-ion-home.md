@@ -16,5 +16,64 @@ The following table shows which common AWS Glue operations support the Ion forma
 option.
 
 | Read      | Write       | Streaming read | Group small files | Job bookmarks |
-| --------- | ----------- | -------------- | ----------------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Supported | Unsupported | Unsupported    | Supported         | Unsupported   | ## Example: Read Ion files and folders from S3 **Prerequisites:** You will need the S3 paths (`s3path`) to the Ion files or folders that you want to read. **Configuration:** In your function options, specify `format="json"`. In your `connection_options`, use the `paths` key to specify your `s3path`. You can configure how the reader interacts with S3 in the `connection_options`. For details, see Connection types and options for ETL in AWS Glue: [Amazon S3 connection option reference](aws-glue-programming-etl-connect-s3-home.md#aws-glue-programming-etl-connect-s3 "aws-glue-programming-etl-connect-s3-home.md#aws-glue-programming-etl-connect-s3"). The following AWS Glue ETL script shows the process of reading Ion files or folders from S3: Python For this example, use the [create_dynamic_frame.from_options](aws-glue-api-crawler-pyspark-extensions-glue-context.md#aws-glue-api-crawler-pyspark-extensions-glue-context-create_dynamic_frame_from_options "aws-glue-api-crawler-pyspark-extensions-glue-context.md#aws-glue-api-crawler-pyspark-extensions-glue-context-create_dynamic_frame_from_options") method. ``# Example: Read ION from S3 from pyspark.context import SparkContext from awsglue.context import GlueContext sc = SparkContext.getOrCreate() glueContext = GlueContext(sc) dynamicFrame = glueContext.create_dynamic_frame.from_options( connection_type="s3", connection_options={"paths": ["s3://`s3path`"]}, format="ion" )`` Scala For this example, use the [getSourceWithFormat](glue-etl-scala-apis-glue-gluecontext.md#glue-etl-scala-apis-glue-gluecontext-defs-getSourceWithFormat "glue-etl-scala-apis-glue-gluecontext.md#glue-etl-scala-apis-glue-gluecontext-defs-getSourceWithFormat") operation. ``// Example: Read ION from S3 import com.amazonaws.services.glue.util.JsonOptions import com.amazonaws.services.glue.GlueContext import org.apache.spark.SparkContext object GlueApp { def main(sysArgs: Array[String]): Unit = { val spark: SparkContext = new SparkContext() val glueContext: GlueContext = new GlueContext(spark) val dynamicFrame = glueContext.getSourceWithFormat( connectionType="s3", format="ion", options=JsonOptions("""{"paths": ["s3://`s3path`"], "recurse": true}""") ).getDynamicFrame() } }`` ## Ion configuration reference There are no `format_options` values for `format="ion"`. |
+| --------- | ----------- | -------------- | ----------------- | ------------- |
+| Supported | Unsupported | Unsupported    | Supported         | Unsupported   |
+
+## Example: Read Ion files and folders from S3
+
+**Prerequisites:** You will need the S3 paths (`s3path`) to the
+Ion files or folders that you want to read.
+
+**Configuration:**
+In your function options, specify `format="json"`. In your `connection_options`, use the
+`paths` key to specify your `s3path`. You can configure how the reader interacts with S3 in the
+`connection_options`. For details, see Connection types and options for ETL in AWS Glue: [Amazon S3 connection option reference](aws-glue-programming-etl-connect-s3-home.md#aws-glue-programming-etl-connect-s3 "aws-glue-programming-etl-connect-s3-home.md#aws-glue-programming-etl-connect-s3").
+
+The following AWS Glue ETL script shows the process of reading Ion files or folders from S3:
+
+Python
+For this example, use the [create_dynamic_frame.from_options](aws-glue-api-crawler-pyspark-extensions-glue-context.md#aws-glue-api-crawler-pyspark-extensions-glue-context-create_dynamic_frame_from_options "aws-glue-api-crawler-pyspark-extensions-glue-context.md#aws-glue-api-crawler-pyspark-extensions-glue-context-create_dynamic_frame_from_options") method.
+
+```
+# Example: Read ION from S3
+
+from pyspark.context import SparkContext
+from awsglue.context import GlueContext
+
+sc = SparkContext.getOrCreate()
+glueContext = GlueContext(sc)
+
+dynamicFrame = glueContext.create_dynamic_frame.from_options(
+    connection_type="s3",
+    connection_options={"paths": ["s3://`s3path`"]},
+    format="ion"
+)
+```
+
+Scala
+For this example, use the [getSourceWithFormat](glue-etl-scala-apis-glue-gluecontext.md#glue-etl-scala-apis-glue-gluecontext-defs-getSourceWithFormat "glue-etl-scala-apis-glue-gluecontext.md#glue-etl-scala-apis-glue-gluecontext-defs-getSourceWithFormat") operation.
+
+```
+// Example: Read ION from S3
+
+import com.amazonaws.services.glue.util.JsonOptions
+import com.amazonaws.services.glue.GlueContext
+import org.apache.spark.SparkContext
+
+object GlueApp {
+  def main(sysArgs: Array[String]): Unit = {
+    val spark: SparkContext = new SparkContext()
+    val glueContext: GlueContext = new GlueContext(spark)
+
+    val dynamicFrame = glueContext.getSourceWithFormat(
+      connectionType="s3",
+      format="ion",
+      options=JsonOptions("""{"paths": ["s3://`s3path`"], "recurse": true}""")
+    ).getDynamicFrame()
+  }
+}
+```
+
+## Ion configuration reference
+
+There are no `format_options` values for `format="ion"`.

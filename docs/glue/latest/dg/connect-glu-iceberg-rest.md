@@ -67,8 +67,23 @@ ensure that the REST path aligns the AWS Glue multi-catalog hierarchy. The
 `{catalog}` path parameter can be derived based on the following rules:
 
 | **Access pattern**                               | **Glue catalog ID Style**   | **Prefix Style**            | **Example default catalog ID** | **Example REST route**                                   |
-| ------------------------------------------------ | --------------------------- | --------------------------- | ------------------------------ | -------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| ------------------------------------------------ | --------------------------- | --------------------------- | ------------------------------ | -------------------------------------------------------- |
 | Access the default catalog in current account    | not required                | :                           | not applicable                 | GET /v1/catalogs/:/namespaces                            |
 | Access the default catalog in a specific account | accountID                   | accountID                   | 111122223333                   | GET /v1/catalogs/111122223333/namespaces                 |
 | Access a nested catalog in current account       | catalog1/catalog2           | catalog1/catalog2           | rmscatalog1:db1                | GET /v1/catalogs/rmscatalog1:db1/namespaces              |
-| Access a nested catalog in a specific account    | accountId:catalog1/catalog2 | accountId:catalog1/catalog2 | 123456789012/rmscatalog1:db1   | GET /v1/catalogs/123456789012:rmscatalog1:db1/namespaces | This catalog ID to prefix mapping is required only when you directly call the REST APIs. When you are working with the AWS Glue Iceberg REST catalog APIs through an engine, you need to specify the AWS Glue catalog ID in the `warehouse` parameter for your Iceberg REST catalog API setting or in the `glue.id` parameter for your AWS Glue extensions API setting. For example, see how you can use it with EMR Spark in [Use an Iceberg cluster with Spark](../../../emr/latest/ReleaseGuide/emr-iceberg-use-spark-cluster.md "../../../emr/latest/ReleaseGuide/emr-iceberg-use-spark-cluster.md"). ## Namespace path parameter Namespaces in Iceberg REST catalog APIs path can have multiple levels. However, AWS Glue only supports single-level namespaces. To access a namespace in a multi-level catalog hierarchy, you can connect to a multi-level catalog above the namespace to reference the namespace. This allows any query engine that supports the 3-part notation of `catalog.namespace.table` to access objects in AWS Glue’s multi-level catalog hierarchy without compatibility issues compared to using the multi-level namespace. |
+| Access a nested catalog in a specific account    | accountId:catalog1/catalog2 | accountId:catalog1/catalog2 | 123456789012/rmscatalog1:db1   | GET /v1/catalogs/123456789012:rmscatalog1:db1/namespaces |
+
+This catalog ID to prefix mapping is required only when you directly call the REST APIs.
+When you are working with the AWS Glue Iceberg REST catalog APIs through an engine, you need to
+specify the AWS Glue catalog ID in the `warehouse` parameter for your Iceberg REST
+catalog API setting or in the `glue.id` parameter for your AWS Glue extensions API
+setting. For example, see how you can use it with EMR Spark in [Use an Iceberg cluster with Spark](../../../emr/latest/ReleaseGuide/emr-iceberg-use-spark-cluster.md "../../../emr/latest/ReleaseGuide/emr-iceberg-use-spark-cluster.md").
+
+## Namespace path parameter
+
+Namespaces in Iceberg REST catalog APIs path can have multiple levels. However, AWS Glue
+only supports single-level namespaces. To access a namespace in a multi-level catalog
+hierarchy, you can connect to a multi-level catalog above the namespace to reference the
+namespace. This allows any query engine that supports the 3-part notation of
+`catalog.namespace.table` to access objects in AWS Glue’s multi-level catalog hierarchy without
+compatibility issues compared to using the multi-level namespace.

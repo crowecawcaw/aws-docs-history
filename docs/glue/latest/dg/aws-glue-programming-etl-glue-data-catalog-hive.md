@@ -59,20 +59,25 @@ Spark SQL.
 
 Now query the tables created from the US legislators dataset using Spark SQL.
 
-````
+```
 
 >>> spark.sql("use legislators")
 DataFrame[]
 >>> spark.sql("show tables").show()
 +-----------+------------------+-----------+
-|   database|         tableName|isTemporary| +-----------+------------------+-----------+
+|   database|         tableName|isTemporary|
++-----------+------------------+-----------+
 |legislators|        areas_json|      false|
 |legislators|    countries_json|      false|
 |legislators|       events_json|      false|
 |legislators|  memberships_json|      false|
 |legislators|organizations_json|      false|
-|legislators|      persons_json|      false| +-----------+------------------+-----------+ >>> spark.sql("describe memberships_json").show() +--------------------+---------+-----------------+
-|            col_name|data_type|          comment| +--------------------+---------+-----------------+
+|legislators|      persons_json|      false|
++-----------+------------------+-----------+
+>>> spark.sql("describe memberships_json").show()
++--------------------+---------+-----------------+
+|            col_name|data_type|          comment|
++--------------------+---------+-----------------+
 |             area_id|   string|from deserializer|
 |     on_behalf_of_id|   string|from deserializer|
 |     organization_id|   string|from deserializer|
@@ -80,8 +85,48 @@ DataFrame[]
 |           person_id|   string|from deserializer|
 |legislative_perio...|   string|from deserializer|
 |          start_date|   string|from deserializer|
-|            end_date|   string|from deserializer| +--------------------+---------+-----------------+ ``` If the SerDe class for the format is not available in the job's classpath, you will see an error similar to the following. ``` >>> spark.sql("describe memberships_json").show() Caused by: MetaException(message:java.lang.ClassNotFoundException Class org.openx.data.jsonserde.JsonSerDe not found) at org.apache.hadoop.hive.metastore.MetaStoreUtils.getDeserializer(MetaStoreUtils.java:399) at org.apache.hadoop.hive.ql.metadata.Table.getDeserializerFromMetaStore(Table.java:276) ... 64 more ``` To view only the distinct `organization_id`s from the `memberships` table, run the following SQL query. ``` >>> spark.sql("select distinct organization_id from memberships_json").show() +--------------------+
-|     organization_id| +--------------------+ |d56acebe-8fdc-47b...|
-|8fa6c3d2-71dc-478...| +--------------------+ ``` If you need to do the same with dynamic frames, run the following. ``` >>> memberships = glueContext.create_dynamic_frame.from_catalog(database="legislators", table_name="memberships_json") >>> memberships.toDF().createOrReplaceTempView("memberships") >>> spark.sql("select distinct organization_id from memberships").show() +--------------------+ |     organization_id| +--------------------+
-|d56acebe-8fdc-47b...| |8fa6c3d2-71dc-478...| +--------------------+ ``` While DynamicFrames are optimized for ETL operations, enabling Spark SQL to access the Data Catalog directly provides a concise way to run complex SQL statements or port existing applications.
-````
+|            end_date|   string|from deserializer|
++--------------------+---------+-----------------+
+
+```
+
+If the SerDe class for the format is not available in the job's classpath, you will see an
+error similar to the following.
+
+```
+>>> spark.sql("describe memberships_json").show()
+
+Caused by: MetaException(message:java.lang.ClassNotFoundException Class org.openx.data.jsonserde.JsonSerDe not found)
+    at org.apache.hadoop.hive.metastore.MetaStoreUtils.getDeserializer(MetaStoreUtils.java:399)
+    at org.apache.hadoop.hive.ql.metadata.Table.getDeserializerFromMetaStore(Table.java:276)
+    ... 64 more
+```
+
+To view only the distinct `organization_id`s from the `memberships`
+table, run the following SQL query.
+
+```
+>>> spark.sql("select distinct organization_id from memberships_json").show()
++--------------------+
+|     organization_id|
++--------------------+
+|d56acebe-8fdc-47b...|
+|8fa6c3d2-71dc-478...|
++--------------------+
+```
+
+If you need to do the same with dynamic frames, run the following.
+
+```
+>>> memberships = glueContext.create_dynamic_frame.from_catalog(database="legislators", table_name="memberships_json")
+>>> memberships.toDF().createOrReplaceTempView("memberships")
+>>> spark.sql("select distinct organization_id from memberships").show()
++--------------------+
+|     organization_id|
++--------------------+
+|d56acebe-8fdc-47b...|
+|8fa6c3d2-71dc-478...|
++--------------------+
+```
+
+While DynamicFrames are optimized for ETL operations, enabling Spark SQL to access the Data Catalog directly provides a concise way to run complex SQL statements or port existing applications.

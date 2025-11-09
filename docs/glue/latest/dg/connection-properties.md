@@ -283,11 +283,8 @@ Provide the custom JDBC driver class name:
 **JDBC Driver S3 Path - optional**
 
 Provide the Amazon S3 location to the custom JDBC driver. This is an absolute path to a .jar file. If you want to provide
-your own JDBC drivers to connect to your data souces for your crawler-supported databases,
-you can specify values for parameters
-
-`customJdbcDriverS3Path` and `customJdbcDriverClassName`.
-Using a JDBC driver supplied by a customer is
+your own JDBC drivers to connect to your data souces for your crawler-supported databases,  you can specify values for parameters 
+`customJdbcDriverS3Path` and `customJdbcDriverClassName`.  Using a JDBC driver supplied by a customer is
 limited to the required [Required connection
 properties](#connection-properties-required "#connection-properties-required").
 

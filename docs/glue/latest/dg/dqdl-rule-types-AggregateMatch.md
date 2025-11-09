@@ -87,12 +87,16 @@ AggregateMatch "avg(ratings)" "avg(database_name.tablename.ratings)" >= 0.9
 The `AggregateMatch` rule will ignore rows with NULL values in the calculation of the
 aggregation methods (sum/mean). For example:
 
-````
+```
 +---+-----------+
-|id |units      | +---+-----------+
+|id |units      |
++---+-----------+
 |100|0          |
 |101|null       |
 |102|20         |
 |103|null       |
-|104|40         | +---+-----------+ ``` The mean of column `units` will be (0 + 20 + 40) / 3 = 20. Rows 101 and 103 are not considered in this calculation.
-````
+|104|40         |
++---+-----------+
+```
+
+The mean of column `units` will be (0 + 20 + 40) / 3 = 20. Rows 101 and 103 are not considered in this calculation.

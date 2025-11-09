@@ -193,7 +193,7 @@ To run the script:
 After a series of messages, the final output should show the count and the
 schema.
 
-````
+```
 Count:   1961
 root
 |-- family_name: string
@@ -202,19 +202,33 @@ root
 |    |-- element: struct
 |    |    |-- note: string
 |    |    |-- url: string
-|-- gender: string |-- image: string |-- identifiers: array
+|-- gender: string
+|-- image: string
+|-- identifiers: array
 |    |-- element: struct
 |    |    |-- scheme: string
 |    |    |-- identifier: string
-|-- other_names: array |    |-- element: struct
+|-- other_names: array
+|    |-- element: struct
 |    |    |-- lang: string
 |    |    |-- note: string
 |    |    |-- name: string
-|-- sort_name: string |-- images: array |    |-- element: struct
+|-- sort_name: string
+|-- images: array
+|    |-- element: struct
 |    |    |-- url: string
-|-- given_name: string |-- birth_date: string |-- id: string
-|-- contact_details: array |    |-- element: struct
+|-- given_name: string
+|-- birth_date: string
+|-- id: string
+|-- contact_details: array
+|    |-- element: struct
 |    |    |-- type: string
 |    |    |-- value: string
-|-- death_date: string Process finished with exit code 0 ``` You are now set up to debug your script remotely on your development endpoint.
-````
+|-- death_date: string
+
+
+Process finished with exit code 0
+
+```
+
+You are now set up to debug your script remotely on your development endpoint.

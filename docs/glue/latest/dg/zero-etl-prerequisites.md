@@ -362,17 +362,48 @@ aws glue create-integration-resource-property \
 The following are possible client errors for an integration configured with a
 VPC.
 
-| Error message                                                                                                                                                  | Action required             |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Provided role is not authorized to perform glue:GetConnection on connection. Add this permission to role policy, and then wait for the integration to recover. | Update role policy          |
-| Provided role is not authorized to perform ec2:DescribeSubnets. Add this permission to role policy, and then wait for the integration to recover.              | Update role policy          |
-| Provided role is not authorized to perform ec2:DescribeSecurityGroups. Add this permission to role policy, and then wait for the integration to recover.       | Update role policy          |
-| Provided role is not authorized to perform ec2:DescribeVpcEndpoints. Add this permission to role policy, and then wait for the integration to recover.         | Update role policy          |
-| Provided role is not authorized to perform ec2:DescribeRouteTables. Add this permission to role policy, and then wait for the integration to recover.          | Update role policy          |
-| Provided role is not authorized to perform ec2:CreateTags. Add this permission to role policy, and then wait for the integration to recover.                   | Update role policy          |
-| Provided role is not authorized to perform ec2:CreateNetworkInterface. Add this permission to role policy, and then wait for the integration to recover.       | Update role policy          |
-| Provided connection subnet does not contain a valid S3 endpoint or NAT gateway. Update subnet, and then wait for the integration to recover.                   | Update VPC subnet endpoints |
-| Connection subnet not found. Update connection subnet, and then wait for the integration to recover.                                                           | Update AWS Glue connection  |
-| Connection security group not found. Update connection security group, and then wait for the integration to recover.                                           | Update AWS Glue connection  |
-| Can't connect to S3 through provided VPC connection. Update subnet configurations, and then wait for the integration to recover.                               | Update VPC subnet endpoints |
-| Can't connect to Lambda through provided VPC connection. Update subnet configurations, and then wait for the integration to recover.                           | Update VPC subnet endpoints | ## Setting up a zero-ETL cross-account integration To set up a zero-ETL cross-account integration: 1. Configure a target Resource Policy as described in [Providing a catalog Resource Based Access (RBAC) policy](#zero-etl-setup-target-resources-rbac-policy "#zero-etl-setup-target-resources-rbac-policy"). Ensure that the source account role is explicitly allowed on the target resource. 2. Check that the source account role (the role used to create the integration) has the following: JSON `` `{ "Version":"2012-10-17", "Statement": [ { "Sid": "Stmt123456789012", "Action": [ "glue:CreateInboundIntegration" ], "Effect": "Allow", "Resource": [ "arn:aws:glue:`us-east-1`:`111122223333`:catalog", "arn:aws:glue:`us-east-1`:`111122223333`:database/DatabaseName" ] } ] }` `` 3. Create the integration as described in [Creating an integration](zero-etl-common-integration-tasks.md#zero-etl-creating "zero-etl-common-integration-tasks.md#zero-etl-creating"). |
+| Error message                                                                                                                                                           | Action required             |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------- |
+| Provided role is not authorized to perform<br>glue:GetConnection on connection. Add this permission to<br>role policy, and then wait for the integration to<br>recover. | Update role policy          |
+| Provided role is not authorized to perform<br>ec2:DescribeSubnets. Add this permission to role policy, and<br>then wait for the integration to recover.                 | Update role policy          |
+| Provided role is not authorized to perform<br>ec2:DescribeSecurityGroups. Add this permission to role<br>policy, and then wait for the integration to<br>recover.       | Update role policy          |
+| Provided role is not authorized to perform<br>ec2:DescribeVpcEndpoints. Add this permission to role<br>policy, and then wait for the integration to<br>recover.         | Update role policy          |
+| Provided role is not authorized to perform<br>ec2:DescribeRouteTables. Add this permission to role policy,<br>and then wait for the integration to recover.             | Update role policy          |
+| Provided role is not authorized to perform<br>ec2:CreateTags. Add this permission to role policy, and then<br>wait for the integration to recover.                      | Update role policy          |
+| Provided role is not authorized to perform<br>ec2:CreateNetworkInterface. Add this permission to role<br>policy, and then wait for the integration to<br>recover.       | Update role policy          |
+| Provided connection subnet does not contain a valid S3 endpoint or NAT gateway. Update subnet, and then wait for the integration to recover.                            | Update VPC subnet endpoints |
+| Connection subnet not found. Update connection subnet, and then wait for the integration to recover.                                                                    | Update AWS Glue connection  |
+| Connection security group not found. Update connection security group, and then wait for the integration to recover.                                                    | Update AWS Glue connection  |
+| Can't connect to S3 through provided VPC connection. Update subnet configurations, and then wait for the integration to recover.                                        | Update VPC subnet endpoints |
+| Can't connect to Lambda through provided VPC connection. Update subnet configurations, and then wait for the integration to recover.                                    | Update VPC subnet endpoints |
+
+## Setting up a zero-ETL cross-account integration
+
+To set up a zero-ETL cross-account integration:
+
+1. Configure a target Resource Policy as described in [Providing a catalog Resource Based Access (RBAC) policy](#zero-etl-setup-target-resources-rbac-policy "#zero-etl-setup-target-resources-rbac-policy"). Ensure that the source account role is explicitly allowed on the target resource.
+2. Check that the source account role (the role used to create the integration) has the following:
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "Stmt123456789012",
+ "Action": [
+ "glue:CreateInboundIntegration"
+ ],
+ "Effect": "Allow",
+ "Resource": [
+ "arn:aws:glue:`us-east-1`:`111122223333`:catalog",
+ "arn:aws:glue:`us-east-1`:`111122223333`:database/DatabaseName"
+ ]
+ }
+ ]
+}`
+
+```
+
+3. Create the integration as described in [Creating an integration](zero-etl-common-integration-tasks.md#zero-etl-creating "zero-etl-common-integration-tasks.md#zero-etl-creating").

@@ -45,8 +45,68 @@ again.
 The following table shows how batch size and batch window operate together to
 trigger a workflow.
 
-| Batch size | Batch window | Resulting triggering condition                                                                                                                                                                                 |
-| ---------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 10         |              | The workflow is triggered upon the arrival of 10 EventBridge events, or 15 minutes after the arrival of the first event, whichever occurs first. (If windows size isn't specified, it defaults to 15 minutes.) |
-| 10         | 2 mins       | The workflow is triggered upon the arrival of 10 EventBridge events, or 2 minutes after the arrival of the first event, whichever occurs first.                                                                |
-| 1          |              | The workflow is triggered upon the arrival of the first event. Window size is irrelevant. The batch size defaults to 1 if you don't specify batch conditions when you create the EventBridge event trigger.    | The `GetWorkflowRun` API operation returns the batch condition that triggered the workflow. Regardless of how a workflow is started, you can specify the maximum number of concurrent workflow runs when you create the workflow. If an event or batch of events starts a workflow run that eventually fails, that event or batch of events is no longer considered for starting a workflow run. A new workflow run is started only when the next event or batch of events arrives. ###### Important Limit the total number of jobs, crawlers, and triggers within a workflow to 100 or less. If you include more than 100, you might get errors when trying to resume or stop workflow runs. A workflow run will not be started if it would exceed the concurrency limit set for the workflow, even though the event condition is met. It's advisable to adjust workflow concurrency limits based on the expected event volume. AWS Glue does not retry workflow runs that fail due to exceeded concurrency limits. Likewise, it's advisable to adjust concurrency limits for jobs and crawlers within workflows based on expected event volume. ###### Workflow run properties To share and manage state throughout a workflow run, you can define default workflow run properties. These properties, which are name/value pairs, are available to all the jobs in the workflow. Using the AWS Glue API, jobs can retrieve the workflow run properties and modify them for jobs that come later in the workflow. ###### Workflow graph The following image shows the graph of a very basic workflow on the AWS Glue console. Your workflow could have dozens of components. ![Console screenshot that shows the Graph tab of a workflow. The graph contains five icons that represent a schedule trigger, two jobs, an event success trigger, and a crawler that updates the schema.](images/graph-complete-with-tabs.png) This workflow is started by a schedule trigger, `Month-close1`, which starts two jobs, `De-duplicate` and `Fix phone numbers`. Upon successful completion of both jobs, an event trigger, `Fix/De-dupe succeeded`, starts a crawler, `Update schema`. ###### Static and dynamic workflow views For each workflow, there is the notion of _static view_ and _dynamic view_. The static view indicates the design of the workflow. The dynamic view is a runtime view that includes the latest run information for each of the jobs and crawlers. Run information includes success status and error details. When a workflow is running, the console displays the dynamic view, graphically indicating the jobs that have completed and that are yet to be run. You can also retrieve a dynamic view of a running workflow using the AWS Glue API. For more information, see [Querying workflows using the AWS Glue API](workflows_api_concepts.md "workflows_api_concepts.md"). ###### See also <br>• [Creating a workflow from a blueprint in AWS Glue](creating_workflow_blueprint.md "creating_workflow_blueprint.md") <br>• [Creating and building out a workflow manually in AWS Glue](creating_running_workflows.md "creating_running_workflows.md") <br>• [Workflows](aws-glue-api-workflow.md "aws-glue-api-workflow.md") (for the workflows API) |
+| Batch size | Batch window | Resulting triggering condition                                                                                                                                                                                          |
+| ---------- | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 10         |              | The workflow is triggered upon the arrival of 10 EventBridge events, or<br>15 minutes after the arrival of the first event, whichever occurs<br>first. (If windows size isn't specified, it defaults to 15<br>minutes.) |
+| 10         | 2 mins       | The workflow is triggered upon the arrival of 10 EventBridge events, or<br>2 minutes after the arrival of the first event, whichever occurs<br>first.                                                                   |
+| 1          |              | The workflow is triggered upon the arrival of the first event.<br>Window size is irrelevant. The batch size defaults to 1 if you don't<br>specify batch conditions when you create the EventBridge event<br>trigger.    |
+
+The `GetWorkflowRun` API operation returns the batch condition that
+triggered the workflow.
+Regardless of how a workflow is started, you can specify the maximum number of concurrent
+workflow runs when you create the workflow.
+
+If an event or batch of events starts a workflow run that eventually fails, that event or
+batch of events is no longer considered for starting a workflow run. A new workflow run is
+started only when the next event or batch of events arrives.
+
+###### Important
+
+Limit the total number of jobs, crawlers, and triggers within a workflow to 100 or
+less. If you include more than 100, you might get errors when trying to resume or stop
+workflow runs.
+
+A workflow run will not be started if it would exceed the concurrency limit set for the
+workflow, even though the event condition is met. It's advisable to adjust workflow
+concurrency limits based on the expected event volume. AWS Glue does not retry workflow runs
+that fail due to exceeded concurrency limits. Likewise, it's advisable to adjust concurrency
+limits for jobs and crawlers within workflows based on expected event volume.
+
+###### Workflow run properties
+
+To share and manage state throughout a workflow run, you can define default workflow
+run properties. These properties, which are name/value pairs, are available to all the
+jobs in the workflow. Using the AWS Glue API, jobs can retrieve the workflow run properties
+and modify them for jobs that come later in the workflow.
+
+###### Workflow graph
+
+The following image shows the graph of a very basic workflow on the AWS Glue console.
+Your workflow could have dozens of components.
+
+![Console screenshot that shows the Graph tab of a workflow. The graph contains five icons that represent a schedule trigger, two jobs, an event success trigger, and a crawler that updates the schema.](images/graph-complete-with-tabs.png)
+This workflow is started by a schedule trigger, `Month-close1`, which starts
+two jobs, `De-duplicate` and `Fix phone numbers`. Upon successful
+completion of both jobs, an event trigger, `Fix/De-dupe succeeded`, starts a
+crawler, `Update schema`.
+
+###### Static and dynamic workflow views
+
+For each workflow, there is the notion of _static view_ and
+_dynamic view_. The static view indicates the design of the
+workflow. The dynamic view is a runtime view that includes the latest run information
+for each of the jobs and crawlers. Run information includes success status and error
+details.
+
+When a workflow is running, the console displays the dynamic view, graphically indicating
+the jobs that have completed and that are yet to be run. You can also retrieve a dynamic
+view of a running workflow using the AWS Glue API. For more information, see [Querying workflows using the AWS Glue API](workflows_api_concepts.md "workflows_api_concepts.md").
+
+###### See also
+
+- [Creating a workflow from a blueprint in
+  AWS Glue](creating_workflow_blueprint.md "creating_workflow_blueprint.md")
+- [Creating and building out a workflow manually
+  in AWS Glue](creating_running_workflows.md "creating_running_workflows.md")
+- [Workflows](aws-glue-api-workflow.md "aws-glue-api-workflow.md")
+  (for the workflows API)

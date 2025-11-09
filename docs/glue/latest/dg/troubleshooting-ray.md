@@ -102,12 +102,13 @@ In CloudWatch, you can filter down your logs to inspect those specific to this I
 this suffix. For example, given `FAILED_IP` and
 `JOB_RUN_ID`, you can identify the suffix with:
 
-````
+```
 filter @logStream like /`JOB_RUN_ID`/
 | filter @message like /IP-/
 | parse @message "IP-[*]" as ip
 | filter ip like /`FAILED_IP`/
 | fields replace(ip, ":", "_") as uIP
 | stats count_distinct by uIP as logStreamSuffix
-| display logStreamSuffix ```
-````
+| display logStreamSuffix
+
+```

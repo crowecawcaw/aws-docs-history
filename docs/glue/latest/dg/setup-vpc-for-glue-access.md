@@ -36,13 +36,36 @@ In the security group detail page, select **Edit inbound rules**.
 
 The inbound rule looks similar to this:
 
-| Type        | Protocol | Port range | Source              |
-| ----------- | -------- | ---------- | ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| All TCP     | TCP      | 0–65535    | `database-sg-id`    | 8. Add rules for outbound traffic. In the security group detail page, select **Edit outbound rules**. If you security group allows all outbound traffic, you do not need separate rules. For example:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| Type        | Protocol | Port range | Destination         |
-| ---         | ---      | ---        | ---                 |
-| All Traffic | ALL      | ALL        | 0.0.0.0/0           | If your network architecture is designed for you to restrict outbound traffic, create the following outbound rules: Create a self-referencing rule where **Type** is `All TCP`, **Protocol** is `TCP`, **Port Range** includes all ports, and **Destination** is `database-sg-id`. Verify that the security group you have entered for **Destination** is the same as the security group you are editing. If using an Amazon S3 VPC endpoint, add an HTTPS rule to allow traffic from the VPC to Amazon S3. Create a rule where **Type** is `HTTPS`, **Protocol** is `TCP`, **Port Range** is `443` and **Destination** is the ID of the managed prefix list for the Amazon S3 gateway endpoint, `s3-prefix-list-id`. For more information about prefix lists and Amazon S3 gateway endpoints, see [Gateway endpoints for Amazon S3](../../../vpc/latest/privatelink/vpc-endpoints-s3.md "../../../vpc/latest/privatelink/vpc-endpoints-s3.md") in the Amazon VPC documentation. For example: |
-| Type        | Protocol | Port range | Destination         |
-| ---         | ---      | ---        | ---                 |
-| All TCP     | TCP      | 0–65535    | `database-sg-id`    |
-| HTTPS       | TCP      | 443        | `s3-prefix-list-id` |
+| Type    | Protocol | Port range | Source           |
+| ------- | -------- | ---------- | ---------------- |
+| All TCP | TCP      | 0–65535    | `database-sg-id` |
+
+8. Add rules for outbound traffic.
+
+In the security group detail page, select **Edit outbound rules**.
+
+If you security group allows all outbound traffic, you do not need separate rules. For example:
+
+| Type        | Protocol | Port range | Destination |
+| ----------- | -------- | ---------- | ----------- |
+| All Traffic | ALL      | ALL        | 0.0.0.0/0   |
+
+If your network architecture is designed for you to restrict outbound traffic, create the following outbound rules:
+
+Create a self-referencing rule where **Type** is
+`All TCP`, **Protocol** is `TCP`,
+**Port Range** includes all ports, and
+**Destination** is `database-sg-id`. Verify that
+the security group you have entered for **Destination** is the same as the security group you are editing.
+
+If using an Amazon S3 VPC endpoint, add an HTTPS rule to allow traffic from the VPC to Amazon S3. Create a rule where **Type** is `HTTPS`,
+**Protocol** is `TCP`, **Port Range** is `443` and **Destination** is the ID of the managed prefix list
+for the Amazon S3 gateway endpoint, `s3-prefix-list-id`. For more information about prefix lists and Amazon S3 gateway endpoints, see [Gateway endpoints for Amazon S3](../../../vpc/latest/privatelink/vpc-endpoints-s3.md "../../../vpc/latest/privatelink/vpc-endpoints-s3.md")
+in the Amazon VPC documentation.
+
+For example:
+
+| Type    | Protocol | Port range | Destination         |
+| ------- | -------- | ---------- | ------------------- |
+| All TCP | TCP      | 0–65535    | `database-sg-id`    |
+| HTTPS   | TCP      | 443        | `s3-prefix-list-id` |

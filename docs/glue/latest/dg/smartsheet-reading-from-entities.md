@@ -9,51 +9,108 @@ entities table below to check the available entities.
 
 **Supported entities**
 
-| Entity                   | Can be Filtered | Supports Limit | Supports Order By       | Supports Select \*         | Supports Partitioning |
-| ------------------------ | --------------- | -------------- | ----------------------- | -------------------------- | --------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --- | --- |
-| List Sheet               | Yes             | Yes            | No                      | Yes                        | No                    |
-| Row Metadata             | Yes             | Yes            | No                      | Yes                        | No                    |
-| Sheet Metadata           | No              | No             | No                      | Yes                        | No                    |
-| Sheet Data               | Yes             | Yes            | Yes                     | Yes                        | No                    |
-| Event                    | Yes             | Yes            | No                      | Yes                        | No                    | **Example** `Smartsheet_read = glueContext.create_dynamic_frame.from_options( connection_type="smartsheet", connection_options={ "connectionName": "connectionName", "ENTITY_NAME": "list-sheets", "API_VERSION": "2.0", "INSTANCE_URL": "https://api.smartsheet.com" })` **Smartsheet entity and field details** |
-| Entity                   | Field           | Data Type      | **Supported Operators** |                            | ---                   | ---                                                                                                                                                                                                                                                                                                               | --- | --- |
-| List Sheets              | id              | Long           | NA                      |                            | accessLevel           | String                                                                                                                                                                                                                                                                                                            | NA  |
-| createdAt                | DateTime        | NA             |                         | modifiedAt                 | DateTime              | NA                                                                                                                                                                                                                                                                                                                |
-| name                     | String          | NA             |                         | permalink                  | String                | NA                                                                                                                                                                                                                                                                                                                |
-| modifiedSince            | DateTime        | >=             |                         | version                    | Integer               | NA                                                                                                                                                                                                                                                                                                                |
-| source                   | Struct          | NA             |                         | Row Metadata               | id                    | Long                                                                                                                                                                                                                                                                                                              | NA  |
-| sheetId                  | Long            | NA             |                         | accessLevel                | String                | NA                                                                                                                                                                                                                                                                                                                |
-| attachments              | List            | NA             |                         | columns                    | List                  | NA                                                                                                                                                                                                                                                                                                                |
-| conditionalFormat        | String          | NA             |                         | createdAt                  | DateTime              | NA                                                                                                                                                                                                                                                                                                                |
-| createdBy                | Struct          | NA             |                         | discussions                | List                  | NA                                                                                                                                                                                                                                                                                                                |
-| proofs                   | Struct          | NA             |                         | expanded                   | Boolean               | NA                                                                                                                                                                                                                                                                                                                |
-| filteredOut              | Boolean         | NA             |                         | format                     | String                | NA                                                                                                                                                                                                                                                                                                                |
-| inCriticalPath           | Boolean         | NA             |                         | locked                     | Boolean               | NA                                                                                                                                                                                                                                                                                                                |
-| lockedForUser            | Boolean         | NA             |                         | modifiedAt                 | DateTime              | NA                                                                                                                                                                                                                                                                                                                |
-| modifiedBy               | Struct          | NA             |                         | permalink                  | String                | NA                                                                                                                                                                                                                                                                                                                |
-| rowNumber                | Integer         | NA             |                         | version                    | Integer               | NA                                                                                                                                                                                                                                                                                                                |
-| totalRowCount            | Integer         | NA             |                         | rowsModifiedSince          | DateTime              | >                                                                                                                                                                                                                                                                                                                 |
-| filterId                 | Long            | “="            |                         | siblingId                  | Long                  | NA                                                                                                                                                                                                                                                                                                                |
-| parentId                 | Long            | NA             |                         | Sheet metadata             | id                    | Long                                                                                                                                                                                                                                                                                                              | NA  |
-| fromId                   | Long            | NA             |                         | ownerId                    | Long                  | NA                                                                                                                                                                                                                                                                                                                |
-| accessLevel              | String          | NA             |                         | attachments                | List                  | NA                                                                                                                                                                                                                                                                                                                |
-| columns                  | List            | NA             |                         | createdAt                  | DateTime              | NA                                                                                                                                                                                                                                                                                                                |
-| crossSheetReferences     | List            | NA             |                         | dependenciesEnabled        | Boolean               | NA                                                                                                                                                                                                                                                                                                                |
-| discussions              | List            | NA             |                         | effectiveAttachmentOptions | List                  | NA                                                                                                                                                                                                                                                                                                                |
-| favorite                 | Boolean         | NA             |                         | ganttEnabled               | Boolean               | NA                                                                                                                                                                                                                                                                                                                |
-| hasSummaryFields         | Boolean         | NA             |                         | modifiedAt                 | DateTime              | NA                                                                                                                                                                                                                                                                                                                |
-| name                     | String          | NA             |                         | owner                      | String                | NA                                                                                                                                                                                                                                                                                                                |
-| permalink                | String          | NA             |                         | projectSettings            | Struct                | NA                                                                                                                                                                                                                                                                                                                |
-| readOnly                 | Boolean         | NA             |                         | resourceManagementEnabled  | Boolean               | NA                                                                                                                                                                                                                                                                                                                |
-| showParentRowsForFilters | Boolean         | NA             |                         | source                     | Struct                | NA                                                                                                                                                                                                                                                                                                                |
-| summary                  | Struct          | NA             |                         | totalRowCount              | Integer               | NA                                                                                                                                                                                                                                                                                                                |
-| userPermissions          | Struct          | NA             |                         | userSettings               | Struct                | NA                                                                                                                                                                                                                                                                                                                |
-| version                  | Integer         | NA             |                         | workspace                  | Struct                | NA                                                                                                                                                                                                                                                                                                                |
-| filters                  | List            | NA             |                         | ganttConfig                | Struct                | NA                                                                                                                                                                                                                                                                                                                |
-| resourceManagementType   | String          | NA             |                         | cellImageUploadEnabled     | Boolean               | NA                                                                                                                                                                                                                                                                                                                |
-| isMultiPicklistEnabled   | Boolean         | NA             |                         | Events                     | eventId               | String                                                                                                                                                                                                                                                                                                            | NA  |
-| objectType               | String          | NA             |                         | action                     | String                | NA                                                                                                                                                                                                                                                                                                                |
-| objectId                 | Long            | NA             |                         | eventTimestamp             | DateTime              | NA                                                                                                                                                                                                                                                                                                                |
-| userId                   | Long            | NA             |                         | requestUserId              | Long                  | NA                                                                                                                                                                                                                                                                                                                |
-| accessTokenName          | String          | NA             |                         | source                     | String                | NA                                                                                                                                                                                                                                                                                                                |
-| additionalDetails        | Struct          | NA             |                         | since                      | DateTime              | >=                                                                                                                                                                                                                                                                                                                |
+| Entity         | Can be Filtered | Supports Limit | Supports Order By | Supports Select \* | Supports Partitioning |
+| -------------- | --------------- | -------------- | ----------------- | ------------------ | --------------------- |
+| List Sheet     | Yes             | Yes            | No                | Yes                | No                    |
+| Row Metadata   | Yes             | Yes            | No                | Yes                | No                    |
+| Sheet Metadata | No              | No             | No                | Yes                | No                    |
+| Sheet Data     | Yes             | Yes            | Yes               | Yes                | No                    |
+| Event          | Yes             | Yes            | No                | Yes                | No                    |
+
+**Example**
+
+```
+Smartsheet_read = glueContext.create_dynamic_frame.from_options(
+    connection_type="smartsheet",
+    connection_options={
+        "connectionName": "connectionName",
+        "ENTITY_NAME": "list-sheets",
+        "API_VERSION": "2.0",
+        "INSTANCE_URL": "https://api.smartsheet.com"
+    })
+```
+
+**Smartsheet entity and field details**
+
+| Entity                     | Field    | Data Type | **Supported Operators** |
+| -------------------------- | -------- | --------- | ----------------------- |
+| List Sheets                | id       | Long      | NA                      |
+| accessLevel                | String   | NA        |
+| createdAt                  | DateTime | NA        |
+| modifiedAt                 | DateTime | NA        |
+| name                       | String   | NA        |
+| permalink                  | String   | NA        |
+| modifiedSince              | DateTime | >=        |
+| version                    | Integer  | NA        |
+| source                     | Struct   | NA        |
+| Row Metadata               | id       | Long      | NA                      |
+| sheetId                    | Long     | NA        |
+| accessLevel                | String   | NA        |
+| attachments                | List     | NA        |
+| columns                    | List     | NA        |
+| conditionalFormat          | String   | NA        |
+| createdAt                  | DateTime | NA        |
+| createdBy                  | Struct   | NA        |
+| discussions                | List     | NA        |
+| proofs                     | Struct   | NA        |
+| expanded                   | Boolean  | NA        |
+| filteredOut                | Boolean  | NA        |
+| format                     | String   | NA        |
+| inCriticalPath             | Boolean  | NA        |
+| locked                     | Boolean  | NA        |
+| lockedForUser              | Boolean  | NA        |
+| modifiedAt                 | DateTime | NA        |
+| modifiedBy                 | Struct   | NA        |
+| permalink                  | String   | NA        |
+| rowNumber                  | Integer  | NA        |
+| version                    | Integer  | NA        |
+| totalRowCount              | Integer  | NA        |
+| rowsModifiedSince          | DateTime | >         |
+| filterId                   | Long     | “="       |
+| siblingId                  | Long     | NA        |
+| parentId                   | Long     | NA        |
+| Sheet metadata             | id       | Long      | NA                      |
+| fromId                     | Long     | NA        |
+| ownerId                    | Long     | NA        |
+| accessLevel                | String   | NA        |
+| attachments                | List     | NA        |
+| columns                    | List     | NA        |
+| createdAt                  | DateTime | NA        |
+| crossSheetReferences       | List     | NA        |
+| dependenciesEnabled        | Boolean  | NA        |
+| discussions                | List     | NA        |
+| effectiveAttachmentOptions | List     | NA        |
+| favorite                   | Boolean  | NA        |
+| ganttEnabled               | Boolean  | NA        |
+| hasSummaryFields           | Boolean  | NA        |
+| modifiedAt                 | DateTime | NA        |
+| name                       | String   | NA        |
+| owner                      | String   | NA        |
+| permalink                  | String   | NA        |
+| projectSettings            | Struct   | NA        |
+| readOnly                   | Boolean  | NA        |
+| resourceManagementEnabled  | Boolean  | NA        |
+| showParentRowsForFilters   | Boolean  | NA        |
+| source                     | Struct   | NA        |
+| summary                    | Struct   | NA        |
+| totalRowCount              | Integer  | NA        |
+| userPermissions            | Struct   | NA        |
+| userSettings               | Struct   | NA        |
+| version                    | Integer  | NA        |
+| workspace                  | Struct   | NA        |
+| filters                    | List     | NA        |
+| ganttConfig                | Struct   | NA        |
+| resourceManagementType     | String   | NA        |
+| cellImageUploadEnabled     | Boolean  | NA        |
+| isMultiPicklistEnabled     | Boolean  | NA        |
+| Events                     | eventId  | String    | NA                      |
+| objectType                 | String   | NA        |
+| action                     | String   | NA        |
+| objectId                   | Long     | NA        |
+| eventTimestamp             | DateTime | NA        |
+| userId                     | Long     | NA        |
+| requestUserId              | Long     | NA        |
+| accessTokenName            | String   | NA        |
+| source                     | String   | NA        |
+| additionalDetails          | Struct   | NA        |
+| since                      | DateTime | >=        |

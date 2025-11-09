@@ -46,6 +46,40 @@ either job J1 or job J2 fails.
 The following table lists the job and crawler completion states (events) that
 triggers watch for.
 
-| Job completion states                                            | Crawler completion states                          |
-| ---------------------------------------------------------------- | -------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| <br>• `SUCCEEDED` <br>• `STOPPED` <br>• `FAILED` <br>• `TIMEOUT` | <br>• `SUCCEEDED` <br>• `FAILED` <br>• `CANCELLED` | **On-demand** A trigger that fires when you activate it. On-demand triggers never enter the `ACTIVATED` or `DEACTIVATED` state. They always remain in the `CREATED` state. So that they are ready to fire as soon as they exist, you can set a flag to activate scheduled and conditional triggers when you create them. ###### Important Jobs or crawlers that run as a result of other jobs or crawlers completing are referred to as _dependent_. Dependent jobs or crawlers are only started if the job or crawler that completes was started by a trigger. All jobs or crawlers in a dependency chain must be descendants of a single **scheduled** or **on-demand** trigger. ###### Passing job parameters with triggers A trigger can pass parameters to the jobs that it starts. Parameters include job arguments, timeout value, security configuration, and more. If the trigger starts multiple jobs, the parameters are passed to each job. The following are the rules for job arguments passed by a trigger: <br>• If the key in the key-value pair matches a default job argument, the passed argument overrides the default argument. If the key doesn’t match a default argument, then the argument is passed as an additional argument to the job. <br>• If the key in the key-value pair matches a non-overridable argument, the passed argument is ignored. For more information, see [Triggers](aws-glue-api-jobs-trigger.md "aws-glue-api-jobs-trigger.md") in the AWS Glue API. |
+| Job completion states                                     | Crawler completion states                    |
+| --------------------------------------------------------- | -------------------------------------------- |
+| • `SUCCEEDED`<br>• `STOPPED`<br>• `FAILED`<br>• `TIMEOUT` | • `SUCCEEDED`<br>• `FAILED`<br>• `CANCELLED` |
+
+**On-demand**
+
+A trigger that fires when you activate it. On-demand triggers never enter the
+`ACTIVATED` or `DEACTIVATED` state. They always remain
+in the `CREATED` state.
+
+So that they are ready to fire as soon as they exist, you can set a flag to activate
+scheduled and conditional triggers when you create them.
+
+###### Important
+
+Jobs or crawlers that run as a result of other jobs or crawlers completing are referred to
+as _dependent_. Dependent jobs or crawlers are only started if the
+job or crawler that completes was started by a
+trigger.
+All jobs or crawlers in a dependency chain must be descendants of a single
+**scheduled** or **on-demand** trigger.
+
+###### Passing job parameters with triggers
+
+A trigger can pass parameters to the jobs that it starts. Parameters include job arguments,
+timeout value, security configuration, and more. If the trigger starts multiple jobs,
+the parameters are passed to each job.
+
+The following are the rules for job arguments passed by a trigger:
+
+- If the key in the key-value pair matches a default job argument, the passed argument
+  overrides the default argument. If the key doesn’t match a default argument, then
+  the argument is passed as an additional argument to the job.
+- If the key in the key-value pair matches a non-overridable argument, the passed argument is
+  ignored.
+  For more information, see [Triggers](aws-glue-api-jobs-trigger.md "aws-glue-api-jobs-trigger.md") in the AWS Glue
+  API.

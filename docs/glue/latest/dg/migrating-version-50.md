@@ -380,32 +380,65 @@ dependency upgrades
 
 The following are dependency upgrades:
 
-| Dependency                   | Version in AWS Glue 5.0             | Version in AWS Glue 4.0             | Version in AWS Glue 3.0             | Version in AWS Glue 2.0                       | Version in AWS Glue 1.0                                                  |
-| ---------------------------- | ----------------------------------- | ----------------------------------- | ----------------------------------- | --------------------------------------------- | ------------------------------------------------------------------------ | ---------------------------------------------------------------------------- | --------------------------------- | --------------------------------- | ---------------------------------------------------------------------------------------- | ------ |
-| Java                         | 17                                  | 8                                   | 8                                   | 8                                             | 8                                                                        |
-| Spark                        | 3.5.4                               | 3.3.0-amzn-1                        | 3.1.1-amzn-0                        | 2.4.3                                         | 2.4.3                                                                    |
-| Hadoop                       | 3.4.1                               | 3.3.3-amzn-0                        | 3.2.1-amzn-3                        | 2.8.5-amzn-5                                  | 2.8.5-amzn-1                                                             |
-| Scala                        | 2.12.18                             | 2.12                                | 2.12                                | 2.11                                          | 2.11                                                                     |
-| Jackson                      | 2.15.2                              | 2.12                                | 2.12                                | 2.11                                          | 2.11                                                                     |
-| Hive                         | 2.3.9-amzn-4                        | 2.3.9-amzn-2                        | 2.3.7-amzn-4                        | 1.2                                           | 1.2                                                                      |
-| EMRFS                        | 2.69.0                              | 2.54.0                              | 2.46.0                              | 2.38.0                                        | 2.30.0                                                                   |
-| Json4s                       | 3.7.0-M11                           | 3.7.0-M11                           | 3.6.6                               | 3.5.x                                         | 3.5.x                                                                    |
-| Arrow                        | 12.0.1                              | 7.0.0                               | 2.0.0                               | 0.10.0                                        | 0.10.0                                                                   |
-| AWS Glue Data Catalog client | 4.5.0                               | 3.7.0                               | 3.0.0                               | 1.10.0                                        | N/A                                                                      |
-| AWS SDK for Java             | 2.29.52                             | 1.12                                | 1.12                                |                                               |                                                                          |
-| Python                       | 3.11                                | 3.10                                | 3.7                                 | 2.7 & 3.6                                     | 2.7 & 3.6                                                                |
-| Boto                         | 1.34.131                            | 1.26                                | 1.18                                | 1.12                                          | N/A                                                                      |
-| EMR DynamoDB connector       | 5.6.0                               | 4.16.0                              |                                     |                                               |                                                                          | ### Appendix B: JDBC driver upgrades The following are JDBC driver upgrades: |
-| Driver                       | JDBC driver version in AWS Glue 5.0 | JDBC driver version in AWS Glue 4.0 | JDBC driver version in AWS Glue 3.0 | JDBC driver version in past AWS Glue versions |                                                                          | ---                                                                          | ---                               | ---                               | ---                                                                                      | ---    |
-| MySQL                        | 8.0.33                              | 8.0.23                              | 8.0.23                              | 5.1                                           |                                                                          | Microsoft SQL Server                                                         | 10.2.0                            | 9.4.0                             | 7.0.0                                                                                    | 6.1.0  |
-| Oracle Databases             | 23.3.0.23.09                        | 21.7                                | 21.1                                | 11.2                                          |                                                                          | PostgreSQL                                                                   | 42.7.3                            | 42.3.6                            | 42.2.18                                                                                  | 42.1.0 |
-| Amazon Redshift              | redshift-jdbc42-2.1.0.29            | redshift-jdbc42-2.1.0.16            | redshift-jdbc41-1.2.12.1017         | redshift-jdbc41-1.2.12.1017                   |                                                                          | SAP Hana                                                                     | 2.20.17                           | 2.17.12                           |                                                                                          |        |
-| Teradata                     | 20.00.00.33                         | 20.00.00.06                         |                                     |                                               | ### Appendix C: Connector upgrades The following are connector upgrades: | Driver                                                                       | Connector version in AWS Glue 5.0 | Connector version in AWS Glue 4.0 | Connector version in AWS Glue 3.0                                                        |
-| ---                          | ---                                 | ---                                 | ---                                 |                                               | EMR DynamoDB connector                                                   | 5.6.0                                                                        | 4.16.0                            |                                   |
-| Amazon Redshift              | 6.4.0                               | 6.1.3                               |                                     |                                               | OpenSearch                                                               | 1.2.0                                                                        | 1.0.1                             |                                   |
-| MongoDB                      | 10.4.0                              | 10.0.4                              | 3.0.0                               |                                               | Snowflake                                                                | 3.0.0                                                                        | 2.12.0                            |                                   |
-| Google BigQuery              | 0.32.2                              | 0.32.2                              |                                     |                                               | AzureCosmos                                                              | 4.33.0                                                                       | 4.22.0                            |                                   |
-| AzureSQL                     | 1.3.0                               | 1.3.0                               |                                     |                                               | Vertica                                                                  | 3.3.5                                                                        | 3.3.5                             |                                   | ### Appendix D: Open table format upgrades The following are open table format upgrades: |
-| OTF                          | Connector version in AWS Glue 5.0   | Connector version in AWS Glue 4.0   | Connector version in AWS Glue 3.0   |                                               | ---                                                                      | ---                                                                          | ---                               | ---                               |
-| Hudi                         | 0.15.0                              | 0.12.1                              | 0.10.1                              |                                               | Delta Lake                                                               | 3.3.0                                                                        | 2.1.0                             | 1.0.0                             |
-| Iceberg                      | 1.7.1                               | 1.0.0                               | 0.13.1                              |
+| Dependency                   | Version in AWS Glue 5.0 | Version in AWS Glue 4.0 | Version in AWS Glue 3.0 | Version in AWS Glue 2.0 | Version in AWS Glue 1.0 |
+| ---------------------------- | ----------------------- | ----------------------- | ----------------------- | ----------------------- | ----------------------- |
+| Java                         | 17                      | 8                       | 8                       | 8                       | 8                       |
+| Spark                        | 3.5.4                   | 3.3.0-amzn-1            | 3.1.1-amzn-0            | 2.4.3                   | 2.4.3                   |
+| Hadoop                       | 3.4.1                   | 3.3.3-amzn-0            | 3.2.1-amzn-3            | 2.8.5-amzn-5            | 2.8.5-amzn-1            |
+| Scala                        | 2.12.18                 | 2.12                    | 2.12                    | 2.11                    | 2.11                    |
+| Jackson                      | 2.15.2                  | 2.12                    | 2.12                    | 2.11                    | 2.11                    |
+| Hive                         | 2.3.9-amzn-4            | 2.3.9-amzn-2            | 2.3.7-amzn-4            | 1.2                     | 1.2                     |
+| EMRFS                        | 2.69.0                  | 2.54.0                  | 2.46.0                  | 2.38.0                  | 2.30.0                  |
+| Json4s                       | 3.7.0-M11               | 3.7.0-M11               | 3.6.6                   | 3.5.x                   | 3.5.x                   |
+| Arrow                        | 12.0.1                  | 7.0.0                   | 2.0.0                   | 0.10.0                  | 0.10.0                  |
+| AWS Glue Data Catalog client | 4.5.0                   | 3.7.0                   | 3.0.0                   | 1.10.0                  | N/A                     |
+| AWS SDK for Java             | 2.29.52                 | 1.12                    | 1.12                    |                         |                         |
+| Python                       | 3.11                    | 3.10                    | 3.7                     | 2.7 & 3.6               | 2.7 & 3.6               |
+| Boto                         | 1.34.131                | 1.26                    | 1.18                    | 1.12                    | N/A                     |
+| EMR DynamoDB connector       | 5.6.0                   | 4.16.0                  |                         |                         |                         |
+
+### Appendix B: JDBC driver
+
+upgrades
+
+The following are JDBC driver upgrades:
+
+| Driver               | JDBC driver version in AWS Glue 5.0 | JDBC driver version in AWS Glue 4.0 | JDBC driver version in AWS Glue 3.0 | JDBC driver version in past AWS Glue versions |
+| -------------------- | ----------------------------------- | ----------------------------------- | ----------------------------------- | --------------------------------------------- |
+| MySQL                | 8.0.33                              | 8.0.23                              | 8.0.23                              | 5.1                                           |
+| Microsoft SQL Server | 10.2.0                              | 9.4.0                               | 7.0.0                               | 6.1.0                                         |
+| Oracle Databases     | 23.3.0.23.09                        | 21.7                                | 21.1                                | 11.2                                          |
+| PostgreSQL           | 42.7.3                              | 42.3.6                              | 42.2.18                             | 42.1.0                                        |
+| Amazon Redshift      | redshift-jdbc42-2.1.0.29            | redshift-jdbc42-2.1.0.16            | redshift-jdbc41-1.2.12.1017         | redshift-jdbc41-1.2.12.1017                   |
+| SAP Hana             | 2.20.17                             | 2.17.12                             |                                     |                                               |
+| Teradata             | 20.00.00.33                         | 20.00.00.06                         |                                     |                                               |
+
+### Appendix C: Connector
+
+upgrades
+
+The following are connector upgrades:
+
+| Driver                 | Connector version in AWS Glue 5.0 | Connector version in AWS Glue 4.0 | Connector version in AWS Glue 3.0 |
+| ---------------------- | --------------------------------- | --------------------------------- | --------------------------------- |
+| EMR DynamoDB connector | 5.6.0                             | 4.16.0                            |                                   |
+| Amazon Redshift        | 6.4.0                             | 6.1.3                             |                                   |
+| OpenSearch             | 1.2.0                             | 1.0.1                             |                                   |
+| MongoDB                | 10.4.0                            | 10.0.4                            | 3.0.0                             |
+| Snowflake              | 3.0.0                             | 2.12.0                            |                                   |
+| Google BigQuery        | 0.32.2                            | 0.32.2                            |                                   |
+| AzureCosmos            | 4.33.0                            | 4.22.0                            |                                   |
+| AzureSQL               | 1.3.0                             | 1.3.0                             |                                   |
+| Vertica                | 3.3.5                             | 3.3.5                             |                                   |
+
+### Appendix D: Open table format
+
+upgrades
+
+The following are open table format upgrades:
+
+| OTF        | Connector version in AWS Glue 5.0 | Connector version in AWS Glue 4.0 | Connector version in AWS Glue 3.0 |
+| ---------- | --------------------------------- | --------------------------------- | --------------------------------- |
+| Hudi       | 0.15.0                            | 0.12.1                            | 0.10.1                            |
+| Delta Lake | 3.3.0                             | 2.1.0                             | 1.0.0                             |
+| Iceberg    | 1.7.1                             | 1.0.0                             | 0.13.1                            |

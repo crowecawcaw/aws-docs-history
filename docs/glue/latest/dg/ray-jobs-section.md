@@ -56,5 +56,34 @@ releases.
 Valid values: `Ray2.4`
 
 | Runtime value                | Ray and Python versions |
-| ---------------------------- | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `Ray2.4` (for AWS Glue 4.0+) | Ray 2.4.0 Python 3.9    | **Additional information** <br>• For release notes that accompany AWS Glue on Ray releases, see [AWS Glue versions](release-notes.md#release-notes-versions "release-notes.md#release-notes-versions"). <br>• For Python libraries that are provided in a runtime environment, see [Modules provided with Ray jobs](edit-script-ray-env-dependencies.md#edit-script-ray-modules-provided "edit-script-ray-env-dependencies.md#edit-script-ray-modules-provided"). ## Accounting for workers in Ray jobs AWS Glue runs Ray jobs on new Graviton-based EC2 worker types, which are only available for Ray jobs. To appropriately provision these workers for the workloads Ray is designed for, we provide a different ratio of compute resources to memory resources from most workers. In order to account for these resources, we use the memory-optimized data processing unit (M-DPU) rather than the standard data processing unit (DPU). <br>• One M-DPU corresponds to 4 vCPUs and 32 GB of memory. <br>• One DPU corresponds to 4 vCPUs and 16 GB of memory. DPUs are used to account for resources in AWS Glue with Spark jobs and corresponding workers. Ray jobs currently have access to one worker type, `Z.2X`. The `Z.2X` worker maps to 2 M-DPUs (8 vCPUs, 64 GB of memory) and has 128 GB of disk space. A `Z.2X` machine provides 8 Ray workers (one per vCPU). The number of M-DPUs that you can use concurrently in an account is subject to a service quota. For more information about your AWS Glue account limits, see [AWS Glue endpoints and quotas](../../../general/latest/gr/glue.md "../../../general/latest/gr/glue.md"). You specify the number of worker nodes that are available to a Ray job with `--number-of-workers (NumberOfWorkers)` in the job definition. For more information about Ray values in the Jobs API, see [Jobs](aws-glue-api-jobs-job.md "aws-glue-api-jobs-job.md"). You can further specify a minimum number of workers that a Ray job must allocate with the `--min-workers` job parameter. For more information about job parameters, see [Reference](author-job-ray-job-parameters.md#author-job-ray-parameters-reference "author-job-ray-job-parameters.md#author-job-ray-parameters-reference"). |
+| ---------------------------- | ----------------------- |
+| `Ray2.4` (for AWS Glue 4.0+) | Ray 2.4.0 Python 3.9    |
+
+**Additional information**
+
+- For release notes that accompany AWS Glue on Ray releases, see [AWS Glue versions](release-notes.md#release-notes-versions "release-notes.md#release-notes-versions").
+- For Python libraries that are provided in a runtime environment, see [Modules provided with Ray jobs](edit-script-ray-env-dependencies.md#edit-script-ray-modules-provided "edit-script-ray-env-dependencies.md#edit-script-ray-modules-provided").
+
+## Accounting for workers in Ray jobs
+
+AWS Glue runs Ray jobs on new Graviton-based EC2 worker types, which are only available for Ray jobs. To
+appropriately provision these workers for the workloads Ray is designed for, we provide a different ratio of
+compute resources to memory resources from most workers. In order to account for these resources, we use the
+memory-optimized data processing unit (M-DPU) rather than the standard data processing unit (DPU).
+
+- One M-DPU corresponds to 4 vCPUs and 32 GB of memory.
+- One DPU corresponds to 4 vCPUs and 16 GB of memory. DPUs are used to account for resources in
+  AWS Glue with Spark jobs and corresponding workers.
+
+Ray jobs currently have access to one worker type, `Z.2X`. The `Z.2X` worker maps to 2
+M-DPUs (8 vCPUs, 64 GB of memory) and has 128 GB of disk space. A `Z.2X` machine provides
+8 Ray workers (one per vCPU).
+
+The number of M-DPUs that you can use concurrently in an account is subject to a service quota. For more
+information about your AWS Glue account limits, see [AWS Glue endpoints and quotas](../../../general/latest/gr/glue.md "../../../general/latest/gr/glue.md").
+
+You specify the number of worker nodes that are available to a Ray job with `--number-of-workers
+ (NumberOfWorkers)` in the job definition. For more information about Ray values in the Jobs API, see [Jobs](aws-glue-api-jobs-job.md "aws-glue-api-jobs-job.md").
+
+You can further specify a minimum number of workers that a Ray job must allocate with the
+`--min-workers` job parameter. For more information about job parameters, see [Reference](author-job-ray-job-parameters.md#author-job-ray-parameters-reference "author-job-ray-job-parameters.md#author-job-ray-parameters-reference").

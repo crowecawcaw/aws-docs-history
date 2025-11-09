@@ -357,18 +357,206 @@ Returns the `DataSource`.
 
 Example for Amazon Kinesis streaming source:
 
-````
+```
 val kinesisOptions = jsonOptions()
 data_frame_datasource0 = glueContext.getSource("kinesis", kinesisOptions).getDataFrame()
 
 private def jsonOptions(): JsonOptions = {
     new JsonOptions(
       s"""{"streamARN": "arn:aws:kinesis:eu-central-1:123456789012:stream/fromOptionsStream",
-|"startingPosition": "TRIM_HORIZON",
-|"inferSchema": "true",
-|"classification": "json"}""".stripMargin) } ``` Example for Kafka streaming source: ``` val kafkaOptions = jsonOptions() val data_frame_datasource0 = glueContext.getSource("kafka", kafkaOptions).getDataFrame() private def jsonOptions(): JsonOptions = { new JsonOptions( s"""{"connectionName": "ConfluentKafka",
-|"topicName": "kafka-auth-topic",
-|"startingOffsets": "earliest",
-|"inferSchema": "true",
-|"classification": "json"}""".stripMargin) } ``` ## def getSourceWithFormat ``` def getSourceWithFormat( connectionType : String, options : JsonOptions, transformationContext : String = "", format : String = null, formatOptions : JsonOptions = JsonOptions.empty ) : DataSource ``` Creates a [DataSource trait](glue-etl-scala-apis-glue-datasource-trait.md "glue-etl-scala-apis-glue-datasource-trait.md") that reads data from a source like Amazon S3, JDBC, or the AWS Glue Data Catalog, and also sets the format of data stored in the source. <br>• `connectionType` – The type of the data source. See [Connection types and options for ETL in AWS Glue for Spark](aws-glue-programming-etl-connect.md "aws-glue-programming-etl-connect.md"). <br>• `options` – A string of JSON name-value pairs that provide additional information for establishing a connection with the data source. See [Connection types and options for ETL in AWS Glue for Spark](aws-glue-programming-etl-connect.md "aws-glue-programming-etl-connect.md"). <br>• `transformationContext` – The transformation context that is associated with the sink to be used by job bookmarks. Set to empty by default. <br>• `format` – The format of the data that is stored at the source. When the `connectionType` is "s3", you can also specify `format`. Can be one of “avro”, “csv”, “grokLog”, “ion”, “json”, “xml”, “parquet”, or “orc”. <br>• `formatOptions` – A string of JSON name-value pairs that provide additional options for parsing data at the source. See [Data format options](aws-glue-programming-etl-format.md "aws-glue-programming-etl-format.md"). Returns the `DataSource`. **Examples** Create a DynamicFrame from a data source that is a comma-separated values (CSV) file on Amazon S3: ``` val datasource0 = glueContext.getSourceWithFormat( connectionType="s3", options =JsonOptions(s"""{"paths": [ "`s3://csv/nycflights.csv`"]}"""), transformationContext = "datasource0", format = "csv", formatOptions=JsonOptions(s"""{"withHeader":"true","separator": ","}""") ).getDynamicFrame() ``` Create a DynamicFrame from a data source that is a PostgreSQL using a JDBC connection: ``` val datasource0 = glueContext.getSourceWithFormat( connectionType="postgresql", options =JsonOptions(s"""{ "url":"jdbc:postgresql://`databasePostgres-1`.rds.amazonaws.com:`5432`/`testdb`", "dbtable": "`public.company`", "redshiftTmpDir":"", "user":"`username`", "password":"`password123`" }"""), transformationContext = "datasource0").getDynamicFrame() ``` Create a DynamicFrame from a data source that is a MySQL using a JDBC connection: ``` val datasource0 = glueContext.getSourceWithFormat( connectionType="mysql", options =JsonOptions(s"""{ "url":"jdbc:mysql://`databaseMysql-1`.rds.amazonaws.com:`3306`/`testdb`", "dbtable": "`athenatest_nycflights13_csv`", "redshiftTmpDir":"", "user":"`username`", "password":"`password123`" }"""), transformationContext = "datasource0").getDynamicFrame() ``` ## def getSparkSession ``` def getSparkSession : SparkSession ``` Gets the `SparkSession` object associated with this GlueContext. Use this SparkSession object to register tables and UDFs for use with `DataFrame` created from DynamicFrames. Returns the SparkSession. ## def startTransaction ``` def startTransaction(readOnly: Boolean):String ``` Start a new transaction. Internally calls the Lake Formation [startTransaction](../../../lake-formation/latest/dg/aws-lake-formation-api-aws-lake-formation-api-transactions.md#aws-lake-formation-api-aws-lake-formation-api-transactions-StartTransaction "../../../lake-formation/latest/dg/aws-lake-formation-api-aws-lake-formation-api-transactions.md#aws-lake-formation-api-aws-lake-formation-api-transactions-StartTransaction") API. <br>• `readOnly` – (Boolean) Indicates whether this transaction should be read only or read and write. Writes made using a read-only transaction ID will be rejected. Read-only transactions do not need to be committed. Returns the transaction ID. ## def commitTransaction ``` def commitTransaction(transactionId: String, waitForCommit: Boolean): Boolean ``` Attempts to commit the specified transaction. `commitTransaction` may return before the transaction has finished committing. Internally calls the Lake Formation [commitTransaction](../../../lake-formation/latest/dg/aws-lake-formation-api-aws-lake-formation-api-transactions.md#aws-lake-formation-api-aws-lake-formation-api-transactions-CommitTransaction "../../../lake-formation/latest/dg/aws-lake-formation-api-aws-lake-formation-api-transactions.md#aws-lake-formation-api-aws-lake-formation-api-transactions-CommitTransaction") API. <br>• `transactionId` – (String) The transaction to commit. <br>• `waitForCommit` – (Boolean) Determines whether the `commitTransaction` returns immediately. The default value is true. If false, `commitTransaction` polls and waits until the transaction is committed. The amount of wait time is restricted to 1 minute using exponential backoff with a maximum of 6 retry attempts. Returns a Boolean to indicate whether the commit is done or not. ## def cancelTransaction ``` def cancelTransaction(transactionId: String): Unit ``` Attempts to cancel the specified transaction. Internally calls the Lake Formation [CancelTransaction](../../../lake-formation/latest/dg/aws-lake-formation-api-aws-lake-formation-api-transactions.md#aws-lake-formation-api-aws-lake-formation-api-transactions-CancelTransaction "../../../lake-formation/latest/dg/aws-lake-formation-api-aws-lake-formation-api-transactions.md#aws-lake-formation-api-aws-lake-formation-api-transactions-CancelTransaction") API. <br>• `transactionId` – (String) The transaction to cancel. Returns a `TransactionCommittedException` exception if the transaction was previously committed. ## def this ``` def this( sc : SparkContext, minPartitions : Int, targetPartitions : Int ) ``` Creates a `GlueContext` object using the specified `SparkContext`, minimum partitions, and target partitions. <br>• `sc` — The `SparkContext`. <br>• `minPartitions` — The minimum number of partitions. <br>• `targetPartitions` — The target number of partitions. Returns the `GlueContext`. ## def this ``` def this( sc : SparkContext ) ``` Creates a `GlueContext` object with the provided `SparkContext`. Sets the minimum partitions to 10 and target partitions to 20. <br>• `sc` — The `SparkContext`. Returns the `GlueContext`. ## def this ``` def this( sparkContext : JavaSparkContext ) ``` Creates a `GlueContext` object with the provided `JavaSparkContext`. Sets the minimum partitions to 10 and target partitions to 20. <br>• `sparkContext` — The `JavaSparkContext`. Returns the `GlueContext`.
-````
+         |"startingPosition": "TRIM_HORIZON",
+         |"inferSchema": "true",
+         |"classification": "json"}""".stripMargin)
+}
+```
+
+Example for Kafka streaming source:
+
+```
+val kafkaOptions = jsonOptions()
+val data_frame_datasource0 = glueContext.getSource("kafka", kafkaOptions).getDataFrame()
+
+private def jsonOptions(): JsonOptions = {
+    new JsonOptions(
+      s"""{"connectionName": "ConfluentKafka",
+         |"topicName": "kafka-auth-topic",
+         |"startingOffsets": "earliest",
+         |"inferSchema": "true",
+         |"classification": "json"}""".stripMargin)
+ }
+```
+
+## def getSourceWithFormat
+
+```
+def getSourceWithFormat( connectionType : String,
+                         options : JsonOptions,
+                         transformationContext : String = "",
+                         format : String = null,
+                         formatOptions : JsonOptions = JsonOptions.empty
+                       ) : DataSource
+```
+
+Creates a [DataSource trait](glue-etl-scala-apis-glue-datasource-trait.md "glue-etl-scala-apis-glue-datasource-trait.md") that reads data from a
+source like Amazon S3, JDBC, or the AWS Glue Data Catalog, and also sets the format of data stored in the
+source.
+
+- `connectionType` – The type of the data source. See [Connection types and options for ETL in
+  AWS Glue for Spark](aws-glue-programming-etl-connect.md "aws-glue-programming-etl-connect.md").
+- `options` – A string of JSON name-value pairs that provide
+  additional information for establishing a connection with the data source. See [Connection types and options for ETL in
+  AWS Glue for Spark](aws-glue-programming-etl-connect.md "aws-glue-programming-etl-connect.md").
+- `transformationContext` – The transformation context that is
+  associated with the sink to be used by job bookmarks. Set to empty by default.
+- `format` – The format of the data that is stored at the source.
+  When the `connectionType` is "s3", you can also specify `format`.
+  Can be one of “avro”, “csv”, “grokLog”, “ion”, “json”, “xml”, “parquet”, or “orc”.
+- `formatOptions` – A string of JSON name-value pairs that provide
+  additional options for parsing data at the source. See [Data format options](aws-glue-programming-etl-format.md "aws-glue-programming-etl-format.md").
+
+Returns the `DataSource`.
+
+**Examples**
+
+Create a DynamicFrame from a data source that is a comma-separated values (CSV) file on
+Amazon S3:
+
+```
+val datasource0 = glueContext.getSourceWithFormat(
+    connectionType="s3",
+    options =JsonOptions(s"""{"paths": [ "`s3://csv/nycflights.csv`"]}"""),
+    transformationContext = "datasource0",
+    format = "csv",
+    formatOptions=JsonOptions(s"""{"withHeader":"true","separator": ","}""")
+    ).getDynamicFrame()
+```
+
+Create a DynamicFrame from a data source that is a PostgreSQL using a JDBC
+connection:
+
+```
+val datasource0 = glueContext.getSourceWithFormat(
+    connectionType="postgresql",
+    options =JsonOptions(s"""{
+      "url":"jdbc:postgresql://`databasePostgres-1`.rds.amazonaws.com:`5432`/`testdb`",
+      "dbtable": "`public.company`",
+      "redshiftTmpDir":"",
+      "user":"`username`",
+      "password":"`password123`"
+    }"""),
+    transformationContext = "datasource0").getDynamicFrame()
+```
+
+Create a DynamicFrame from a data source that is a MySQL using a JDBC connection:
+
+```
+ val datasource0 = glueContext.getSourceWithFormat(
+    connectionType="mysql",
+    options =JsonOptions(s"""{
+      "url":"jdbc:mysql://`databaseMysql-1`.rds.amazonaws.com:`3306`/`testdb`",
+      "dbtable": "`athenatest_nycflights13_csv`",
+      "redshiftTmpDir":"",
+      "user":"`username`",
+      "password":"`password123`"
+    }"""),
+    transformationContext = "datasource0").getDynamicFrame()
+```
+
+## def getSparkSession
+
+```
+def getSparkSession : SparkSession
+```
+
+Gets the `SparkSession` object associated with this GlueContext. Use this
+SparkSession object to register tables and UDFs for use with `DataFrame` created
+from DynamicFrames.
+
+Returns the SparkSession.
+
+## def startTransaction
+
+```
+def startTransaction(readOnly: Boolean):String
+```
+
+Start a new transaction. Internally calls the Lake Formation [startTransaction](../../../lake-formation/latest/dg/aws-lake-formation-api-aws-lake-formation-api-transactions.md#aws-lake-formation-api-aws-lake-formation-api-transactions-StartTransaction "../../../lake-formation/latest/dg/aws-lake-formation-api-aws-lake-formation-api-transactions.md#aws-lake-formation-api-aws-lake-formation-api-transactions-StartTransaction") API.
+
+- `readOnly` – (Boolean) Indicates whether this transaction should be read only
+  or read and write. Writes made using a read-only transaction ID will be rejected.
+  Read-only transactions do not need to be committed.
+
+Returns the transaction ID.
+
+## def commitTransaction
+
+```
+def commitTransaction(transactionId: String, waitForCommit: Boolean): Boolean
+```
+
+Attempts to commit the specified transaction. `commitTransaction` may return
+before the transaction has finished committing. Internally calls the Lake Formation [commitTransaction](../../../lake-formation/latest/dg/aws-lake-formation-api-aws-lake-formation-api-transactions.md#aws-lake-formation-api-aws-lake-formation-api-transactions-CommitTransaction "../../../lake-formation/latest/dg/aws-lake-formation-api-aws-lake-formation-api-transactions.md#aws-lake-formation-api-aws-lake-formation-api-transactions-CommitTransaction") API.
+
+- `transactionId` – (String) The transaction to commit.
+- `waitForCommit` – (Boolean) Determines whether the
+  `commitTransaction` returns immediately. The default value is true. If false,
+  `commitTransaction` polls and waits until the transaction is committed. The
+  amount of wait time is restricted to 1 minute using exponential backoff with a maximum of
+  6 retry attempts.
+
+Returns a Boolean to indicate whether the commit is done or not.
+
+## def cancelTransaction
+
+```
+def cancelTransaction(transactionId: String): Unit
+```
+
+Attempts to cancel the specified transaction. Internally calls the Lake Formation [CancelTransaction](../../../lake-formation/latest/dg/aws-lake-formation-api-aws-lake-formation-api-transactions.md#aws-lake-formation-api-aws-lake-formation-api-transactions-CancelTransaction "../../../lake-formation/latest/dg/aws-lake-formation-api-aws-lake-formation-api-transactions.md#aws-lake-formation-api-aws-lake-formation-api-transactions-CancelTransaction") API.
+
+- `transactionId` – (String) The transaction to cancel.
+
+Returns a `TransactionCommittedException` exception if the transaction was previously committed.
+
+## def this
+
+```
+def this( sc : SparkContext,
+          minPartitions : Int,
+          targetPartitions : Int )
+```
+
+Creates a `GlueContext` object using the specified `SparkContext`,
+minimum partitions, and target partitions.
+
+- `sc` — The `SparkContext`.
+- `minPartitions` — The minimum number of partitions.
+- `targetPartitions` — The target number of partitions.
+
+Returns the `GlueContext`.
+
+## def this
+
+```
+def this( sc : SparkContext )
+```
+
+Creates a `GlueContext` object with the provided `SparkContext`.
+Sets the minimum partitions to 10 and target partitions to 20.
+
+- `sc` — The `SparkContext`.
+
+Returns the `GlueContext`.
+
+## def this
+
+```
+def this( sparkContext : JavaSparkContext )
+```
+
+Creates a `GlueContext` object with the provided `JavaSparkContext`.
+Sets the minimum partitions to 10 and target partitions to 20.
+
+- `sparkContext` — The `JavaSparkContext`.
+
+Returns the `GlueContext`.

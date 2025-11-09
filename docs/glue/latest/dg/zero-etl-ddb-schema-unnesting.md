@@ -124,7 +124,7 @@ FROM product_table;
 With all levels unnesting, the target table would have columns and values:
 
 | Column Name (Type)                             | Value          |
-| ---------------------------------------------- | -------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| ---------------------------------------------- | -------------- |
 | ProductId (string)                             | P12345         |
 | ProductDetails_Name (string)                   | Smartphone     |
 | ProductDetails_Brand (string)                  | TechCo         |
@@ -133,4 +133,14 @@ With all levels unnesting, the target table would have columns and values:
 | Reviews_0_Rating (number)                      | 5              |
 | Reviews_0_Comment (string)                     | Great product! |
 | Reviews_1_Rating (number)                      | 4              |
-| Reviews_1_Comment (string)                     | Good value.    | Queries would be fully flattened: `SELECT ProductId, ProductDetails_Name, ProductDetails_Specifications_Color FROM product_table;` |
+| Reviews_1_Comment (string)                     | Good value.    |
+
+Queries would be fully flattened:
+
+```
+SELECT
+  ProductId,
+  ProductDetails_Name,
+  ProductDetails_Specifications_Color
+FROM product_table;
+```

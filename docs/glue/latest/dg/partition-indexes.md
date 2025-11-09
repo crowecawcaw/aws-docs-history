@@ -110,7 +110,7 @@ For the _sales_data_ table above, lets add the index [Country, Category, Year]. 
 Lets take some example expressions and see how indexes work on them:
 
 | Expressions                                                                       | How index will be used                                                                                                                                            |
-| --------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| --------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Country = 'US'                                                                    | Index will be used to filter partitions.                                                                                                                          |
 | Country = 'US' and Category = 'Shoes'                                             | Index will be used to filter partitions.                                                                                                                          |
 | Category = 'Shoes'                                                                | Indexes will not be used as "country" is not provided in the expression. All partitions will be loaded to return a response.                                      |
@@ -120,4 +120,32 @@ Lets take some example expressions and see how indexes work on them:
 | Country = 'US' AND Category = 'Shoes' AND (Year = 2017 OR Year = '2018')          | Index will be used to fetch all partitions with country = "US" and category = "shoes", and then filtering on the year expression will be performed.               |
 | Country in ('US', 'UK') AND Category = 'Shoes'                                    | Indexes will not be used for filtering as the `IN` operator is not supported currently.                                                                           |
 | Country = 'US' AND Category in ('Shoes', 'Books')                                 | Index will be used to fetch all partitions with country = "US", and then filtering on the Category expression will be performed.                                  |
-| Country = 'US' AND Category in ('Shoes', 'Books') AND (creationDate > '2023-9-01' | Index will be used to fetch all partitions with country = "US", with creationDate > '2023-9-01', and then filtering on the Category expression will be performed. | ## Integration with engines Redshift Spectrum, Amazon EMR and AWS Glue ETL Spark DataFrames are able to utilize indexes for fetching partitions after indexes are in an ACTIVE state in AWS Glue. [Athena](../../../athena/latest/ug/glue-best-practices.md#glue-best-practices-partition-index "../../../athena/latest/ug/glue-best-practices.md#glue-best-practices-partition-index") and [AWS Glue ETL Dynamic frames](aws-glue-programming-etl-partitions.md#aws-glue-programming-etl-partitions-cat-predicates "aws-glue-programming-etl-partitions.md#aws-glue-programming-etl-partitions-cat-predicates") require you to follow extra steps to utilize indexes for query improvement. ### Enable partition filtering To enable partition filtering in Athena, you need to update the table properties as follows: 1. In the AWS Glue console, under **Data Catalog**, choose **Tables**. 2. Choose a table. 3. Under **Actions**, choose **Edit table**. 4. Under **Table properties**, add the following: <br>• Key –`partition_filtering.enabled` <br>• Value – `true` 5. Choose **Apply**. Alternatively, you can set this parameter by running an [ALTER TABLE SET PROPERTIES](../../../athena/latest/ug/alter-table-set-tblproperties.md "../../../athena/latest/ug/alter-table-set-tblproperties.md") query in Athena. `ALTER TABLE partition_index.table_with_index SET TBLPROPERTIES ('partition_filtering.enabled' = 'true')` |
+| Country = 'US' AND Category in ('Shoes', 'Books') AND (creationDate > '2023-9-01' | Index will be used to fetch all partitions with country = "US", with creationDate > '2023-9-01', and then filtering on the Category expression will be performed. |
+
+## Integration with engines
+
+Redshift Spectrum, Amazon EMR and AWS Glue ETL Spark DataFrames are able to utilize indexes for fetching partitions after indexes are in an ACTIVE state in AWS Glue. [Athena](../../../athena/latest/ug/glue-best-practices.md#glue-best-practices-partition-index "../../../athena/latest/ug/glue-best-practices.md#glue-best-practices-partition-index") and [AWS Glue ETL Dynamic frames](aws-glue-programming-etl-partitions.md#aws-glue-programming-etl-partitions-cat-predicates "aws-glue-programming-etl-partitions.md#aws-glue-programming-etl-partitions-cat-predicates") require you to follow extra steps to utilize indexes for query improvement.
+
+### Enable partition filtering
+
+To enable partition filtering in Athena, you need to update the table properties as
+follows:
+
+1. In the AWS Glue console, under **Data Catalog**, choose
+   **Tables**.
+2. Choose a table.
+3. Under **Actions**, choose **Edit table**.
+4. Under **Table properties**, add the following:
+   - Key –`partition_filtering.enabled`
+   - Value – `true`
+
+5. Choose **Apply**.
+
+Alternatively, you can set this parameter by running an [ALTER TABLE SET
+PROPERTIES](../../../athena/latest/ug/alter-table-set-tblproperties.md "../../../athena/latest/ug/alter-table-set-tblproperties.md") query in Athena.
+
+```
+ALTER TABLE partition_index.table_with_index
+SET TBLPROPERTIES ('partition_filtering.enabled' = 'true')
+
+```

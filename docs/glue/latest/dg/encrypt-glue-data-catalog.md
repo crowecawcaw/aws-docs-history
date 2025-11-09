@@ -258,6 +258,142 @@ encrypted. If you clear this setting, the objects you create in the Data Catalog
 no longer encrypted. You can continue to access the existing encrypted objects
 in the Data Catalog with the required KMS permissions.
 
-|                                                                                                                                                                                                                                                                                          |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| ImportantThe AWS KMS key must remain available in the AWS KMS key store for any objects that are encrypted with it in the Data Catalog. If you remove the key, the objects can no longer be decrypted. You might want this in some scenarios to prevent access to Data Catalog metadata. | ## Monitoring your KMS keys for AWS Glue When you use KMS keys with your Data Catalog resources, you can use AWS CloudTrail or Amazon CloudWatch Logs to track requests that AWS Glue sends to AWS KMS. AWS CloudTrail monitors and records KMS operations that AWS Glue calls to access data that’s encrypted by your KMS keys. The following examples are AWS CloudTrail events for the `Decrypt` and `GenerateDataKey` operations. Decrypt ``{ "eventVersion": "1.08", "userIdentity": { "type": "AssumedRole", "principalId": "AROAXPHTESTANDEXAMPLE:Sampleuser01", "arn": "arn:aws:sts::111122223333:assumed-role/Admin/Sampleuser01", "accountId": "111122223333", "accessKeyId": "AKIAIOSFODNN7EXAMPLE", "sessionContext": { "sessionIssuer": { "type": "Role", "principalId": "AROAXPHTESTANDEXAMPLE", "arn": "arn:aws:iam::111122223333:role/Admin", "accountId": "111122223333", "userName": "Admin" }, "webIdFederationData": {}, "attributes": { "creationDate": "2024-01-10T14:33:56Z", "mfaAuthenticated": "false" } }, "invokedBy": "glue.amazonaws.com" }, "eventTime": "2024-01-10T15:18:11Z", "eventSource": "kms.amazonaws.com", "eventName": "Decrypt", "awsRegion": "eu-west-2", "sourceIPAddress": "glue.amazonaws.com", "userAgent": "glue.amazonaws.com", "requestParameters": { "encryptionContext": { "glue_catalog_id": "111122223333" }, "encryptionAlgorithm": "SYMMETRIC_DEFAULT" }, "responseElements": null, "requestID": "43b019aa-34b8-4798-9b98-ee968b2d63df", "eventID": "d7614763-d3fe-4f84-a1e1-3ca4d2a5bbd5", "readOnly": true, "resources": [ { "accountId": "111122223333", "type": "AWS::KMS::Key", "ARN": "arn:aws:kms:`<region>`:`111122223333`:key/`<key-id>`" } ], "eventType": "AwsApiCall", "managementEvent": true, "recipientAccountId": "111122223333", "eventCategory": "Management", "sessionCredentialFromConsole": "true" }`` GenerateDataKey `{ "eventVersion": "1.08", "userIdentity": { "type": "AssumedRole", "principalId": "AROAXPHTESTANDEXAMPLE:V_00_GLUE_KMS_GENERATE_DATA_KEY_111122223333", "arn": "arn:aws:sts::111122223333:assumed-role/Admin/V_00_GLUE_KMS_GENERATE_DATA_KEY_111122223333", "accountId": "111122223333", "accessKeyId": "AKIAIOSFODNN7EXAMPLE", "sessionContext": { "sessionIssuer": { "type": "Role", "principalId": "AROAXPHTESTANDEXAMPLE", "arn": "arn:aws:iam::111122223333:role/Admin", "accountId": "AKIAIOSFODNN7EXAMPLE", "userName": "Admin" }, "webIdFederationData": {}, "attributes": { "creationDate": "2024-01-05T21:15:47Z", "mfaAuthenticated": "false" } }, "invokedBy": "glue.amazonaws.com" }, "eventTime": "2024-01-05T21:15:47Z", "eventSource": "kms.amazonaws.com", "eventName": "GenerateDataKey", "awsRegion": "eu-west-2", "sourceIPAddress": "glue.amazonaws.com", "userAgent": "glue.amazonaws.com", "requestParameters": { "keyId": "arn:aws:kms:eu-west-2:AKIAIOSFODNN7EXAMPLE:key/AKIAIOSFODNN7EXAMPLE", "encryptionContext": { "glue_catalog_id": "111122223333" }, "keySpec": "AES_256" }, "responseElements": null, "requestID": "64d1783a-4b62-44ba-b0ab-388b50188070", "eventID": "1c73689b-2ef2-443b-aed7-8c126585ca5e", "readOnly": true, "resources": [ { "accountId": "111122223333", "type": "AWS::KMS::Key", "ARN": "arn:aws:kms:eu-west-2:111122223333:key/AKIAIOSFODNN7EXAMPLE" } ], "eventType": "AwsApiCall", "managementEvent": true, "recipientAccountId": "111122223333", "eventCategory": "Management" }` ` ` |
+|                                                                                                                                                                                                                                                                                                   |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ImportantThe AWS KMS key must remain available in the AWS KMS key store for any objects<br>that are encrypted with it in the Data Catalog. If you remove the key, the objects can<br>no longer be decrypted. You might want this in some scenarios to prevent access to<br>Data Catalog metadata. |
+
+## Monitoring your KMS keys for AWS Glue
+
+When you use KMS keys with your Data Catalog resources, you can use
+AWS CloudTrail or Amazon CloudWatch Logs to track requests
+that AWS Glue sends to AWS KMS. AWS CloudTrail monitors and records KMS
+operations that AWS Glue calls to access data that’s encrypted by your
+KMS keys.
+
+The following examples are AWS CloudTrail events for the
+`Decrypt` and `GenerateDataKey` operations.
+
+Decrypt
+
+```
+{
+    "eventVersion": "1.08",
+    "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "AROAXPHTESTANDEXAMPLE:Sampleuser01",
+        "arn": "arn:aws:sts::111122223333:assumed-role/Admin/Sampleuser01",
+        "accountId": "111122223333",
+        "accessKeyId": "AKIAIOSFODNN7EXAMPLE",
+        "sessionContext": {
+            "sessionIssuer": {
+                "type": "Role",
+                "principalId": "AROAXPHTESTANDEXAMPLE",
+                "arn": "arn:aws:iam::111122223333:role/Admin",
+                "accountId": "111122223333",
+                "userName": "Admin"
+            },
+            "webIdFederationData": {},
+            "attributes": {
+                "creationDate": "2024-01-10T14:33:56Z",
+                "mfaAuthenticated": "false"
+            }
+        },
+        "invokedBy": "glue.amazonaws.com"
+    },
+    "eventTime": "2024-01-10T15:18:11Z",
+    "eventSource": "kms.amazonaws.com",
+    "eventName": "Decrypt",
+    "awsRegion": "eu-west-2",
+    "sourceIPAddress": "glue.amazonaws.com",
+    "userAgent": "glue.amazonaws.com",
+    "requestParameters": {
+        "encryptionContext": {
+            "glue_catalog_id": "111122223333"
+        },
+        "encryptionAlgorithm": "SYMMETRIC_DEFAULT"
+    },
+    "responseElements": null,
+    "requestID": "43b019aa-34b8-4798-9b98-ee968b2d63df",
+    "eventID": "d7614763-d3fe-4f84-a1e1-3ca4d2a5bbd5",
+    "readOnly": true,
+    "resources": [
+        {
+            "accountId": "111122223333",
+            "type": "AWS::KMS::Key",
+            "ARN": "arn:aws:kms:`<region>`:`111122223333`:key/`<key-id>`"
+        }
+    ],
+    "eventType": "AwsApiCall",
+    "managementEvent": true,
+    "recipientAccountId": "111122223333",
+    "eventCategory": "Management",
+    "sessionCredentialFromConsole": "true"
+}
+
+```
+
+GenerateDataKey
+
+```
+{
+    "eventVersion": "1.08",
+    "userIdentity": {
+        "type": "AssumedRole",
+        "principalId": "AROAXPHTESTANDEXAMPLE:V_00_GLUE_KMS_GENERATE_DATA_KEY_111122223333",
+        "arn": "arn:aws:sts::111122223333:assumed-role/Admin/V_00_GLUE_KMS_GENERATE_DATA_KEY_111122223333",
+        "accountId": "111122223333",
+        "accessKeyId": "AKIAIOSFODNN7EXAMPLE",
+        "sessionContext": {
+            "sessionIssuer": {
+                "type": "Role",
+                "principalId": "AROAXPHTESTANDEXAMPLE",
+                "arn": "arn:aws:iam::111122223333:role/Admin",
+                "accountId": "AKIAIOSFODNN7EXAMPLE",
+                "userName": "Admin"
+            },
+            "webIdFederationData": {},
+            "attributes": {
+                "creationDate": "2024-01-05T21:15:47Z",
+                "mfaAuthenticated": "false"
+            }
+        },
+        "invokedBy": "glue.amazonaws.com"
+    },
+    "eventTime": "2024-01-05T21:15:47Z",
+    "eventSource": "kms.amazonaws.com",
+    "eventName": "GenerateDataKey",
+    "awsRegion": "eu-west-2",
+    "sourceIPAddress": "glue.amazonaws.com",
+    "userAgent": "glue.amazonaws.com",
+    "requestParameters": {
+        "keyId": "arn:aws:kms:eu-west-2:AKIAIOSFODNN7EXAMPLE:key/AKIAIOSFODNN7EXAMPLE",
+        "encryptionContext": {
+            "glue_catalog_id": "111122223333"
+        },
+        "keySpec": "AES_256"
+    },
+    "responseElements": null,
+    "requestID": "64d1783a-4b62-44ba-b0ab-388b50188070",
+    "eventID": "1c73689b-2ef2-443b-aed7-8c126585ca5e",
+    "readOnly": true,
+    "resources": [
+        {
+            "accountId": "111122223333",
+            "type": "AWS::KMS::Key",
+            "ARN": "arn:aws:kms:eu-west-2:111122223333:key/AKIAIOSFODNN7EXAMPLE"
+        }
+    ],
+    "eventType": "AwsApiCall",
+    "managementEvent": true,
+    "recipientAccountId": "111122223333",
+    "eventCategory": "Management"
+}
+
+
+```
+
+```
+
+
+
+```

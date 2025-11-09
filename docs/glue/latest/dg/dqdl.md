@@ -144,44 +144,412 @@ By default, Composite Rules are evaluated as individual rules across the entire 
 results are combined. In other words, it evaluates the entire column first and then applies the operator.
 This default behaviour is explained below with an example:
 
-````
+```
 # Dataset
 
 +------+------+
-|myCol1|myCol2| +------+------+
+|myCol1|myCol2|
++------+------+
 |     2|     1|
-|     0|     3| +------+------+ # Overall outcome +----------------------------------------------------------+-------+
-|Rule                                                      |Outcome| +----------------------------------------------------------+-------+
-|(ColumnValues "myCol1" > 1) OR (ColumnValues "myCol2" > 2)|Failed | +----------------------------------------------------------+-------+ ``` In the above example, AWS Glue Data Quality first evaluates `(ColumnValues "myCol1" > 1)` which will result in a failure. Then it will evaluate `(ColumnValues "myCol2" > 2)` which will also fail. The combination of both results will be noted as FAILED. However, if you prefer an SQL like behaviour, where you need the entire row to be evaluated, you have to explicitly set the `ruleEvaluation.scope` parameter as shown in `additionalOptions` in the code snippet below. ``` object GlueApp { val datasource = glueContext.getCatalogSource( database="<db>", tableName="<table>", transformationContext="datasource" ).getDynamicFrame() val ruleset = """ Rules = [ (ColumnValues "age" >= 26) OR (ColumnLength "name" >= 4) ] """ val dq_results = EvaluateDataQuality.processRows( frame=datasource, ruleset=ruleset, additionalOptions=JsonOptions(""" { "compositeRuleEvaluation.method":"ROW" } """ ) ) } ``` In AWS Glue Data Catalog, you can easily configure this option in the user interface as shown below. ![The screenshot shows a composite rule settings window where you can choose the rule evaluation configuration between row and column. If you choose Row, the composite rules will behave as a single rule evaluating entire row. If you choose Column, the composite rules will evaluate individual rules across the entire dataset and combine the results.](images/composite-rule-settings.png) Once set, the composite rules will behave as a single rule evaluating the entire row. The following example illustrates this behaviour. ``` # Row Level outcome +------+------+------------------------------------------------------------+---------------------------+
-|myCol1|myCol2|DataQualityRulesPass                                        |DataQualityEvaluationResult| +------+------+------------------------------------------------------------+---------------------------+
+|     0|     3|
++------+------+
+
+# Overall outcome
+
++----------------------------------------------------------+-------+
+|Rule                                                      |Outcome|
++----------------------------------------------------------+-------+
+|(ColumnValues "myCol1" > 1) OR (ColumnValues "myCol2" > 2)|Failed |
++----------------------------------------------------------+-------+
+
+```
+
+In the above example, AWS Glue Data Quality first evaluates `(ColumnValues "myCol1" > 1)` which will result in
+a failure. Then it will evaluate `(ColumnValues "myCol2" > 2)` which will also fail. The combination of both
+results will be noted as FAILED.
+
+However, if you prefer an SQL like behaviour, where you need the entire row to be evaluated, you have to explicitly
+set the `ruleEvaluation.scope` parameter as shown in `additionalOptions` in the code snippet below.
+
+```
+object GlueApp {
+  val datasource = glueContext.getCatalogSource(
+    database="<db>",
+    tableName="<table>",
+    transformationContext="datasource"
+  ).getDynamicFrame()
+
+  val ruleset = """
+    Rules = [
+        (ColumnValues "age" >= 26) OR (ColumnLength "name" >= 4)
+    ]
+  """
+
+  val dq_results = EvaluateDataQuality.processRows(
+    frame=datasource,
+    ruleset=ruleset,
+    additionalOptions=JsonOptions("""
+        {
+          "compositeRuleEvaluation.method":"ROW"
+        }
+      """
+    )
+  )
+}
+
+```
+
+In AWS Glue Data Catalog, you can easily configure this option in the user interface as shown below.
+
+![The screenshot shows a composite rule settings window where you can choose the rule evaluation configuration between row and column. If you choose Row, the composite rules will behave as a single rule evaluating entire row. If you choose Column, the composite rules will evaluate individual rules across the entire dataset and combine the results.](images/composite-rule-settings.png)
+
+Once set, the composite rules will behave as a single rule evaluating the entire row. The following example
+illustrates this behaviour.
+
+```
+
+
+# Row Level outcome
+
++------+------+------------------------------------------------------------+---------------------------+
+|myCol1|myCol2|DataQualityRulesPass                                        |DataQualityEvaluationResult|
++------+------+------------------------------------------------------------+---------------------------+
 |2     |1     |[(ColumnValues "myCol1" > 1) OR (ColumnValues "myCol2" > 2)]|Passed                     |
-|0     |3     |[(ColumnValues "myCol1" > 1) OR (ColumnValues "myCol2" > 2)]|Passed                     | +------+------+------------------------------------------------------------+---------------------------+ ``` Some rules cannot be supported in this feature because their overall outcome rely on thresholds or ratios. They are listed below. Rules relying on ratios: <br>• Completeness <br>• DatasetMatch <br>• ReferentialIntegrity <br>• Uniqueness Rules dependent on thresholds: When the following rules include with threshold, they are not supported. However, rules that do not involve `with threshold` remain supported. <br>• ColumnDataType <br>• ColumnValues <br>• CustomSQL ### Expressions If a rule type doesn't produce a Boolean response, you must provide an expression as a parameter in order to create a Boolean response. For example, the following rule checks the mean (average) of all the values in a column against an expression to return a true or false result. ``` Mean "colA" between 80 and 100 ``` Some rule types such as `IsUnique` and `IsComplete` already return a Boolean response. The following table lists expressions that you can use in DQDL rules. Supported DQDL expressions| Expression | Description | Example |
-| --- | --- | --- | | =`x` | Resolves to `true` if the rule type response is equal to `x`. | ``` Completeness "colA" = "1.0", ColumnValues "colA" = "2022-06-30" ```
-| | !=`x` | x Resolves to true if the rule type response is not equal to `x`. | ``` ColumnValues "colA" != "a", ColumnValues "colA" != "2022-06-30" ``` |
-| > `x` | Resolves to `true` if the rule type response is greater than `x`. | ``` ColumnValues "colA" > 10 ``` | | < `x` | Resolves to `true` if the rule type response is less than `x`. | ``` ColumnValues "colA" < 1000, ColumnValues "colA" < "2022-06-30" ```
-| | >= `x` | Resolves to `true` if the rule type response is greater than or equal to `x`. | ``` ColumnValues "colA" >= 10 ``` |
-| <= `x` | Resolves to `true` if the rule type response is less than or equal to `x`. | ``` ColumnValues "colA" <= 1000 ``` | | between `x` and `y` | Resolves to `true` if the rule type response falls in a specified range (exclusive). Only use this expression type for numeric and date types. | ``` `Mean "colA" between 8 and 100`, ColumnValues "colA" between "2022-05-31" and "2022-06-30" ```
-| | not between `x` and `y` | Resolves to true if the rule type response does not fall in a specified range (inclusive). You should only use this expression type for numeric and date types. | ``` ColumnValues "colA" not between "2022-05-31" and "2022-06-30" ``` |
-| in [`a, b, c, ...`] | Resolves to `true` if the rule type response is in the specified set. | ``` ColumnValues "colA" in [ 1, 2, 3 ], ColumnValues "colA" in [ "a", "b", "c" ] ``` | | not in [`a, b, c, ...`] | Resolves to `true` if the rule type response is not in the specified set. | ``` ColumnValues "colA" not in [ 1, 2, 3 ], ColumnValues "colA" not in [ "a", "b", "c" ] ```
-| | matches `/ab+c/i` | Resolves to `true` if the rule type response matches a regular expression. | ``` `ColumnValues "colA" matches "[a-zA-Z]*"` ``` |
-| not matches `/ab+c/i` | Resolves to `true` if the rule type response does not match a regular expression. | ``` `ColumnValues "colA" not matches "[a-zA-Z]*"` ``` | | `now()` | Works only with the `ColumnValues` rule type to create a date expression. | ``` ColumnValues "load_date" > (now() - 3 days) ```
-| | matches/in […]/not matches/not in [...] `with threshold` | Specifies the percentage of values that match the rule conditions. Works only with the `ColumnValues`, `ColumnDataType`, and `CustomSQL` rule types. | ``` ColumnValues "colA" in ["A", "B"] with threshold > 0.8, ColumnValues "colA" matches "[a-zA-Z]*" with threshold between 0.2 and 0.9 ColumnDataType "colA" = "Timestamp" with threshold > 0.9 ``` | #### Keywords for NULL, EMPTY and WHITESPACES\_ONLY If you want to validate if a string column has a null, empty or a string with only whitespaces you can use the following keywords: <br>• NULL / null – This keyword resolves to true for a `null` value in a string column. `ColumnValues "colA" != NULL with threshold > 0.5` would return true if more than 50% of your data does not have null values. `(ColumnValues "colA" = NULL) or (ColumnLength "colA" > 5)` would return true for all rows which either have a null value or have length >5. *Note that this will require the use of the “compositeRuleEvaluation.method” = “ROW” option.* <br>• EMPTY / empty – This keyword resolves to true for an empty string (“”) value in a string column. Some data formats transform nulls in a string column to empty strings. This keyword helps filter out empty strings in your data. `(ColumnValues "colA" = EMPTY) or (ColumnValues "colA" in ["a", "b"])` would return true if a row is either empty, “a” or “b”. *Note that this requires the use of the “compositeRuleEvaluation.method” = “ROW” option.* <br>• WHITESPACES\_ONLY / whitespaces\_only – This keyword resolves to true for a string with only whitespaces (“ ”) value in a string column. `ColumnValues "colA" not in ["a", "b", WHITESPACES_ONLY]` would return true if a row is neither “a” or “b” nor just whitespaces. Supported rules: + [ColumnValues](dqdl.md#dqdl-rule-types-ColumnValues "dqdl.md#dqdl-rule-types-ColumnValues") For a numeric or date based expression, if you want to validate if a column has a null you can use the following keywords. <br>• NULL / null – This keyword resolves to true for a null value in a string column. `ColumnValues "colA" in [NULL, "2023-01-01"]` would return true if a dates in your column are either `2023-01-01` or null. `(ColumnValues "colA" = NULL) or (ColumnValues "colA" between 1 and 9)` would return true for all rows which either have a null value or have values between 1 and 9. *Note that this will require the use of the “compositeRuleEvaluation.method” = “ROW” option.* Supported rules: + [ColumnValues](dqdl.md#dqdl-rule-types-ColumnValues "dqdl.md#dqdl-rule-types-ColumnValues") #### Filtering with Where Clause ###### Note Where Clause is only supported in AWS Glue 4.0. You can filter your data when authoring rules. This is helpful when you want to apply conditional rules. ``` <DQDL Rule> where "<valid SparkSQL where clause> " ``` The filter must be specified with the `where` keyword, followed by a valid SparkSQL statement that is enclosed in quotes `("")`. If the rule you wish to add the where clause to a rule with a threshold, the where clause should be specified before the threshold condition. ``` <DQDL Rule> where "valid SparkSQL statement>" with threshold <threshold condition> ``` With this syntax you can write rules like the following. ``` Completeness "colA" > 0.5 where "colB = 10" ColumnValues "colB" in ["A", "B"] where "colC is not null" with threshold > 0.9 ColumnLength "colC" > 10 where "colD != Concat(colE, colF)" ``` We will validate that the SparkSQL statement provided is valid. If invalid, the rule evaluation will fail and we will throw the an `IllegalArgumentException` with the following format: ``` Rule <DQDL Rule> where "<invalid SparkSQL>" has provided an invalid where clause : <SparkSQL Error> ``` **Where clause behaviour when Row level error record identification is turned on** With AWS Glue Data Quality, you can identify specific records that failed. When applying a where clause to rules that support row level results, we will label the rows that are filtered out by the where clause as `Passed`. If you prefer to separately label the filtered out rows as `SKIPPED`, you can set the following `additionalOptions` for the ETL job. ``` object GlueApp { val datasource = glueContext.getCatalogSource( database="<db>", tableName="<table>", transformationContext="datasource" ).getDynamicFrame() val ruleset = """ Rules = [ IsComplete "att2" where "att1 = 'a'" ] """ val dq_results = EvaluateDataQuality.processRows( frame=datasource, ruleset=ruleset, additionalOptions=JsonOptions(""" { "rowLevelConfiguration.filteredRowLabel":"SKIPPED" } """ ) ) } ``` As an example, refer to the following rule and dataframe: ``` IsComplete att2 where "att1 = 'a'" ```
-| id | att1 | att2 | Row-level Results (Default) | Row Level Results (Skipped Option) | Comments |
-| --- | --- | --- | --- | --- | --- |
-| 1 | a | f | PASSED | PASSED |  |
-| 2 | b | d | PASSED | SKIPPED | Row is filtered out, since `att1` is not `"a"` |
-| 3 | a | null | FAILED | FAILED |  |
-| 4 | a | f | PASSED | PASSED |  |
-| 5 | b | null | PASSED | SKIPPED | Row is filtered out, since `att1` is not `"a"` |
-| 6 | a | f | PASSED | PASSED |  | ### Dynamic rules ###### Note Dynamic Rules are only supported in AWS Glue ETL and is not supported in AWS Glue Data Catalog. You can now author dynamic rules to compare current metrics produced by your rules with their historical values. These historical comparisons are enabled by using the `last()` operator in expressions. For example, the rule `RowCount > last()` will succeed when the number of rows in the current run is greater than the most recent prior row count for the same dataset. `last()` takes an optional natural number argument describing how many prior metrics to consider; `last(k)` where `k >= 1` will reference the last `k` metrics. <br>• If no data points are available, `last(k)` will return the default value 0.0. <br>• If fewer than `k` metrics are available, `last(k)` will return all prior metrics. To form valid expressions use `last(k)`, where `k > 1` requires an aggregation function to reduce multiple historical results to a single number. For example, `RowCount > avg(last(5))` will check whether the current dataset’s row count is strictly greater than the average of the last five row counts for the same dataset. `RowCount > last(5)` will produce an error because the current dataset row count can't be meaningfully compared to a list. Supported aggregation functions: <br>• `avg` <br>• `median` <br>• `max` <br>• `min` <br>• `sum` <br>• `std` (standard deviation) <br>• `abs` (absolute value) <br>• `index(last(k), i)` will allow for selecting the `i`th most recent value out of the last `k`. `i` is zero-indexed, so `index(last(3), 0)` will return the most recent datapoint and `index(last(3), 3)` will result in an error as there are only three datapoints and we attempt to index the 4th most recent one. **Sample expressions** **ColumnCorrelation** <br>• `ColumnCorrelation "colA" "colB" < avg(last(10))` **DistinctValuesCount** <br>• `DistinctValuesCount "colA" between min(last(10))-1 and max(last(10))+1` Most rule types with numeric conditions or thresholds support dynamic rules; see the provided table, [Analyzers and Rules](#dqdl-analyzers-table "#dqdl-analyzers-table"), to determine whether dynamic rules are supported for your rule type. **Excluding statistics from dynamic rules** Sometimes, you will need to exclude data statistics from your dynamic rule calculations. Lets say you did a historical data load and you don’t want that to impact your averages. To do this, open the job in AWS Glue ETL and choose the **Data Quality** Tab, then choose **Statistics** and select the statistics that you want to exclude. You will be able to see a trend chart along with a table of statistics. Select the values you want to exclude and choose **Exclude Statistics**. Now the excluded statistics will not be included in the dynamic rule calculations. ![The screenshot shows the option to exclude or include statistics from the drop-down menu after selecting a statistic.](images/data-quality-excluding-statistics-from-dynamic-rules.png) ### Analyzers ###### Note Analyzers are not supported in AWS Glue Data Catalog. DQDL rules use functions called *analyzers* to gather information about your data. This information is employed by a rule’s Boolean expression to determine whether the rule should succeed or fail. For example, the RowCount rule `RowCount > 5`  will use a row count analyzer to discover the number of rows in your dataset, and compare that count with the expression `> 5` to check whether more than five rows exist in the current dataset. Sometimes, instead of authoring rules, we recommend creating analyzers and then have them generate statistics that can be used to detect anomalies. For such instances, you can create analyzers. Analyzers differ from rules in the following ways.
-| Characteristic | Analyzers | Rules | | --- | --- | --- |
-| Part of ruleset | Yes | Yes | | Generates statistics | Yes | Yes |
-| Generates observations | Yes | Yes | | Can evaluate and assert a condition | No | Yes |
-| You can configure actions such as stop the jobs on failure, continue processing job | No | Yes | Analyzers can independently exist without rules, so you can quickly configure them and progressively build data quality rules. Some rule types can be input in the `Analyzers` block of your ruleset to run the rules required for analyzers and gather information without applying checks for any condition. Some analyzers aren't associated with rules and can only be input in the `Analyzers` block. The following table indicates whether each item is supported as a rule or a standalone analyzer, along with additional details for each rule type. **Example Ruleset with Analyzer** The following ruleset uses: <br>• a dynamic rule to check whether a dataset is growing over its trailing average for the last three job runs <br>• a `DistinctValuesCount` analyzer to record the number of distinct values in the dataset's `Name` column <br>• a `ColumnLength` analyzer to track minimum and maximum `Name` size over time Analyzer metric results can be viewed in the Data Quality tab for your job run. ``` Rules = [ RowCount > avg(last(3)) ] Analyzers = [ DistinctValuesCount "Name", ColumnLength "Name" ] ``` AWS Glue Data Quality supports the following analyzers. | Analyzer name | Functionality |
-| --- | --- | | `RowCount` | Computes row counts for a dataset | | `Completeness` | Computes the completeness percentage of a column |
-| `Uniqueness` | Computes the uniqueness percentage of a column | | `Mean` | Computes mean of a numeric column | | `Sum` | Computes sum of a numeric column |
-| `StandardDeviation` | Computes standard deviation of a numeric column | | `Entropy` | Computes entropy of a numeric column | | `DistinctValuesCount` | Computes the number of distinct values in a column |
-| `UniqueValueRatio` | Computes the unique values ratio in a column | | `ColumnCount` | Computes the number of columns in a dataset | | `ColumnLength` | Computes the length of a column |
-| `ColumnValues` | Computes the minimum, maximum for numerical columns. Computes Minimum ColumnLength and Maximum ColumnLength for non-numeric columns | | `ColumnCorrelation` | Computes column correlations for given columns | | `CustomSql` | Computes statistics returned by the CustomSQL |
-| `AllStatistics` | Computes the following statistics: <br>• RowCount, ColumnCount <br>• Every column: Completeness, uniqueness <br>• Numerical: Min, Max, Entropy, Mean, Standard Dev, Sum <br>• String: MinLength, MaxLength | ### Comments You can use the '#' character to add a comment to your DQDL document. Anything after the '#' character and until the end of the line is ignored by DQDL. ``` Rules = [ # More items should generally mean a higher price, so correlation should be positive ColumnCorrelation "price" "num_items" > 0 ] ```
-````
+|0     |3     |[(ColumnValues "myCol1" > 1) OR (ColumnValues "myCol2" > 2)]|Passed                     |
++------+------+------------------------------------------------------------+---------------------------+
+
+```
+
+Some rules cannot be supported in this feature because their overall outcome rely on thresholds or ratios.
+They are listed below.
+
+Rules relying on ratios:
+
+- Completeness
+- DatasetMatch
+- ReferentialIntegrity
+- Uniqueness
+
+Rules dependent on thresholds:
+
+When the following rules include with threshold, they are not supported. However, rules that do not involve
+`with threshold` remain supported.
+
+- ColumnDataType
+- ColumnValues
+- CustomSQL
+
+### Expressions
+
+If a rule type doesn't produce a Boolean response, you must provide an expression as a
+parameter in order to create a Boolean response. For example, the following rule checks the
+mean (average) of all the values in a column against an
+expression
+to return a true or false result.
+
+```
+Mean "colA" between 80 and 100
+```
+
+Some rule types such as `IsUnique` and `IsComplete` already return
+a Boolean response.
+
+The following table lists expressions that you can use in DQDL rules.
+
+| Supported DQDL expressions                               | Expression                                                                                                                                                      | Description                                                                                                                                                                                                 | Example |
+| -------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
+| =`x`                                                     | Resolves to `true` if the rule type response is equal to<br>`x`.                                                                                                | `<br>Completeness "colA" = "1.0",<br>ColumnValues "colA" = "2022-06-30"<br>`                                                                                                                                |
+| !=`x`                                                    | x Resolves to true if the rule type response is not equal to `x`.                                                                                               | `<br>ColumnValues "colA" != "a",<br>ColumnValues "colA" != "2022-06-30"<br>`                                                                                                                                |
+| > `x`                                                    | Resolves to `true` if the rule type response is greater than<br>`x`.                                                                                            | `<br>ColumnValues "colA" > 10<br>`                                                                                                                                                                          |
+| < `x`                                                    | Resolves to `true` if the rule type response is less than<br>`x`.                                                                                               | `<br>ColumnValues "colA" < 1000,<br>ColumnValues "colA" < "2022-06-30"<br>`                                                                                                                                 |
+| >= `x`                                                   | Resolves to `true` if the rule type response is greater than or<br>equal to `x`.                                                                                | `<br>ColumnValues "colA" >= 10<br>`                                                                                                                                                                         |
+| <= `x`                                                   | Resolves to `true` if the rule type response is less than or equal<br>to `x`.                                                                                   | `<br>ColumnValues "colA" <= 1000<br>`                                                                                                                                                                       |
+| between `x` and `y`                                      | Resolves to `true` if the rule type response falls in a specified<br>range (exclusive). Only use this expression type for numeric and date types.               | ``<br>`Mean "colA" between 8 and 100`,<br>ColumnValues "colA" between "2022-05-31" and "2022-06-30"<br>``                                                                                                   |
+| not between `x` and `y`                                  | Resolves to true if the rule type response does not fall in a specified range (inclusive). You should only use this expression type for numeric and date types. | `<br>ColumnValues "colA" not between "2022-05-31" and "2022-06-30"<br>`                                                                                                                                     |
+| in [`a, b, c, ...`]                                      | Resolves to `true` if the rule type response is in the specified<br>set.                                                                                        | `<br>ColumnValues "colA" in [ 1, 2, 3 ],<br>ColumnValues "colA" in [ "a", "b", "c" ]<br>`                                                                                                                   |
+| not in [`a, b, c, ...`]                                  | Resolves to `true` if the rule type response is not in the specified<br>set.                                                                                    | `<br>ColumnValues "colA" not in [ 1, 2, 3 ],<br>ColumnValues "colA" not in [ "a", "b", "c" ]<br>`                                                                                                           |
+| matches `/ab+c/i`                                        | Resolves to `true` if the rule type response matches a regular<br>expression.                                                                                   | ``<br>`ColumnValues "colA" matches "[a-zA-Z]*"`<br>``                                                                                                                                                       |
+| not matches `/ab+c/i`                                    | Resolves to `true` if the rule type response does not match a regular<br>expression.                                                                            | ``<br>`ColumnValues "colA" not matches "[a-zA-Z]*"`<br>``                                                                                                                                                   |
+| `now()`                                                  | Works only with the `ColumnValues` rule type to create a date<br>expression.                                                                                    | `<br>ColumnValues "load_date" > (now()<br>• 3 days)<br>`                                                                                                                                                    |
+| matches/in […]/not matches/not in [...] `with threshold` | Specifies the percentage of values that match the rule conditions. Works only<br>with the `ColumnValues`, `ColumnDataType`, and `CustomSQL` rule types.         | `<br>ColumnValues "colA" in ["A", "B"] with threshold > 0.8,<br>ColumnValues "colA" matches "[a-zA-Z]*" with threshold between 0.2 and 0.9<br>ColumnDataType "colA" = "Timestamp" with threshold > 0.9<br>` |
+
+####
+
+Keywords for NULL, EMPTY and WHITESPACES_ONLY
+
+If you want to validate if a string column has a null, empty or a string with only whitespaces you can use the
+following keywords:
+
+- NULL / null – This keyword resolves to true for a `null` value in a string column.
+
+`ColumnValues "colA" != NULL with threshold > 0.5` would return true if more than 50% of your data
+does not have null values.
+
+`(ColumnValues "colA" = NULL) or (ColumnLength "colA" > 5)` would return true for all rows which
+either have a null value or have length >5. _Note that this will require the use of the
+“compositeRuleEvaluation.method” = “ROW” option._
+
+- EMPTY / empty – This keyword resolves to true for an empty string (“”) value in a string column.
+  Some data formats transform nulls in a string column to empty strings. This keyword helps filter out empty
+  strings in your data.
+
+`(ColumnValues "colA" = EMPTY) or (ColumnValues "colA" in ["a", "b"])` would return true if a row is
+either empty, “a” or “b”. _Note that this requires the use of the
+“compositeRuleEvaluation.method” = “ROW” option._
+
+- WHITESPACES_ONLY / whitespaces_only – This keyword resolves to true for a string with only whitespaces (“ ”)
+  value in a string column.
+
+`ColumnValues "colA" not in ["a", "b", WHITESPACES_ONLY]` would return true if a row is neither
+“a” or “b” nor just whitespaces.
+
+Supported rules:
+
+    + [ColumnValues](dqdl.md#dqdl-rule-types-ColumnValues "dqdl.md#dqdl-rule-types-ColumnValues")
+
+For a numeric or date based expression, if you want to validate if a column has a null you can use the following keywords.
+
+- NULL / null – This keyword resolves to true for a null value in a string column.
+
+`ColumnValues "colA" in [NULL, "2023-01-01"]` would return true if a dates in your column are either
+`2023-01-01` or null.
+
+`(ColumnValues "colA" = NULL) or (ColumnValues "colA" between 1 and 9)` would return true for all rows which
+either have a null value or have values between 1 and 9. _Note that this will require the use of the
+“compositeRuleEvaluation.method” = “ROW” option._
+
+Supported rules:
+
+    + [ColumnValues](dqdl.md#dqdl-rule-types-ColumnValues "dqdl.md#dqdl-rule-types-ColumnValues")
+
+#### Filtering with Where Clause
+
+###### Note
+
+Where Clause is only supported in AWS Glue 4.0.
+
+You can filter your data when authoring rules. This is helpful when you want to apply conditional rules.
+
+```
+<DQDL Rule> where "<valid SparkSQL where clause> "
+```
+
+The filter must be specified with the `where` keyword, followed by a valid SparkSQL statement that is enclosed in
+quotes `("")`.
+
+If the rule you wish to add the where clause to a rule with a threshold, the where clause should be specified before the
+threshold condition.
+
+```
+<DQDL Rule> where "valid SparkSQL statement>" with threshold <threshold condition>
+
+```
+
+With this syntax you can write rules like the following.
+
+```
+Completeness "colA" > 0.5 where "colB = 10"
+ColumnValues "colB" in ["A", "B"] where "colC is not null" with threshold > 0.9
+ColumnLength "colC" > 10 where "colD != Concat(colE, colF)"
+```
+
+We will validate that the SparkSQL statement provided is valid. If invalid, the rule evaluation will fail and we will
+throw the an `IllegalArgumentException` with the following format:
+
+```
+Rule <DQDL Rule> where "<invalid SparkSQL>" has provided an invalid where clause :
+<SparkSQL Error>
+```
+
+**Where clause behaviour when Row level error record identification is turned on**
+
+With AWS Glue Data Quality, you can identify specific records that failed. When applying a where clause to rules that
+support row level results, we will label the rows that are filtered out by the where clause as `Passed`.
+
+If you prefer to separately label the filtered out rows as `SKIPPED`, you can set the following
+`additionalOptions` for the ETL job.
+
+```
+object GlueApp {
+  val datasource = glueContext.getCatalogSource(
+    database="<db>",
+    tableName="<table>",
+    transformationContext="datasource"
+  ).getDynamicFrame()
+
+  val ruleset = """
+    Rules = [
+       IsComplete "att2" where "att1 = 'a'"
+    ]
+  """
+
+  val dq_results = EvaluateDataQuality.processRows(
+    frame=datasource,
+    ruleset=ruleset,
+    additionalOptions=JsonOptions("""
+        {
+          "rowLevelConfiguration.filteredRowLabel":"SKIPPED"
+        }
+      """
+    )
+  )
+}
+```
+
+As an example, refer to the following rule and dataframe:
+
+```
+IsComplete att2 where "att1 = 'a'"
+```
+
+| id  | att1 | att2 | Row-level Results (Default) | Row Level Results (Skipped Option) | Comments                                       |
+| --- | ---- | ---- | --------------------------- | ---------------------------------- | ---------------------------------------------- |
+| 1   | a    | f    | PASSED                      | PASSED                             |                                                |
+| 2   | b    | d    | PASSED                      | SKIPPED                            | Row is filtered out, since `att1` is not `"a"` |
+| 3   | a    | null | FAILED                      | FAILED                             |                                                |
+| 4   | a    | f    | PASSED                      | PASSED                             |                                                |
+| 5   | b    | null | PASSED                      | SKIPPED                            | Row is filtered out, since `att1` is not `"a"` |
+| 6   | a    | f    | PASSED                      | PASSED                             |                                                |
+
+### Dynamic rules
+
+###### Note
+
+Dynamic Rules are only supported in AWS Glue ETL and is not supported in AWS Glue Data Catalog.
+
+You can now author dynamic rules to compare current metrics produced by your rules with
+their historical values. These historical comparisons are enabled by using the
+`last()` operator in expressions. For example, the rule `RowCount >
+ last()` will succeed when the number of rows in the current run is greater than the
+most recent prior row count for the same dataset. `last()` takes an optional
+natural number argument describing how many prior metrics to consider; `last(k)` where `k
+
+> = 1`will reference the last`k` metrics.
+
+- If no data points are available, `last(k)` will return the default value 0.0.
+- If fewer than `k` metrics are available, `last(k)` will return all prior metrics.
+
+To form valid expressions use `last(k)`, where `k > 1` requires an aggregation function to reduce multiple historical results
+to a single number. For example, `RowCount > avg(last(5))` will check whether the
+current dataset’s row count is strictly greater than the average of the last five row counts for the same dataset.
+`RowCount > last(5)` will produce an error because the current dataset row count can't be meaningfully compared to a list.
+
+Supported aggregation functions:
+
+- `avg`
+- `median`
+- `max`
+- `min`
+- `sum`
+- `std` (standard deviation)
+- `abs` (absolute value)
+- `index(last(k), i)` will allow for selecting the `i`th most recent value out of the last
+  `k`. `i` is zero-indexed, so `index(last(3), 0)` will return the most recent datapoint and
+  `index(last(3), 3)` will result in an error as there are only three datapoints and we attempt to index the 4th most recent one.
+
+**Sample expressions**
+
+**ColumnCorrelation**
+
+- `ColumnCorrelation "colA" "colB" < avg(last(10))`
+
+**DistinctValuesCount**
+
+- `DistinctValuesCount "colA" between min(last(10))-1 and max(last(10))+1`
+
+Most rule types with numeric conditions or thresholds support dynamic rules; see the provided table,
+[Analyzers and Rules](#dqdl-analyzers-table "#dqdl-analyzers-table"), to determine whether
+dynamic rules are supported for your rule type.
+
+**Excluding statistics from dynamic rules**
+
+Sometimes, you will need to exclude data statistics from your dynamic rule calculations. Lets say you did a historical data load
+and you don’t want that to impact your averages. To do this, open the job in AWS Glue ETL and choose the **Data Quality**
+Tab, then choose **Statistics** and select the statistics that you want to exclude. You will be able to see a
+trend chart along with a table of statistics. Select the values you want to exclude and choose **Exclude Statistics**.
+Now the excluded statistics will not be included in the dynamic rule calculations.
+
+![The screenshot shows the option to exclude or include statistics from the drop-down menu after selecting a statistic.](images/data-quality-excluding-statistics-from-dynamic-rules.png)
+
+### Analyzers
+
+###### Note
+
+Analyzers are not supported in AWS Glue Data Catalog.
+
+DQDL rules use functions called _analyzers_ to gather information about your
+data. This information is employed by a rule’s Boolean expression to determine whether the rule should succeed or fail.
+For example, the RowCount rule `RowCount > 5` will use a row count analyzer to discover the number of rows in your dataset,
+and compare that count with the expression `> 5` to check whether more than five rows exist in the current dataset.
+
+Sometimes, instead of authoring rules, we recommend creating analyzers and then have them generate statistics
+that can be used to detect anomalies. For such instances, you can create analyzers. Analyzers differ from rules in the following
+ways.
+
+| Characteristic                                                                      | Analyzers | Rules |
+| ----------------------------------------------------------------------------------- | --------- | ----- |
+| Part of ruleset                                                                     | Yes       | Yes   |
+| Generates statistics                                                                | Yes       | Yes   |
+| Generates observations                                                              | Yes       | Yes   |
+| Can evaluate and assert a condition                                                 | No        | Yes   |
+| You can configure actions such as stop the jobs on failure, continue processing job | No        | Yes   |
+
+Analyzers can independently exist without rules, so you can quickly configure them and progressively build data quality rules.
+
+Some rule types can be input in the `Analyzers` block of your ruleset to run
+the rules required for analyzers and gather information without applying checks for any condition. Some analyzers
+aren't associated with rules and can only be input in the `Analyzers` block.
+The following table indicates whether each item is supported as a rule or
+a standalone analyzer, along with additional details for each rule type.
+
+**Example Ruleset with Analyzer**
+
+The following ruleset uses:
+
+- a dynamic rule to check whether a dataset is growing over its trailing average for the last three job runs
+- a `DistinctValuesCount` analyzer to record the number of distinct values in the dataset's `Name` column
+- a `ColumnLength` analyzer to track minimum and maximum `Name` size over time
+
+Analyzer metric results can be viewed in the Data Quality tab for your job run.
+
+```
+Rules = [
+   RowCount > avg(last(3))
+]
+Analyzers = [
+   DistinctValuesCount "Name",
+   ColumnLength "Name"
+]
+
+```
+
+AWS Glue Data Quality supports the following analyzers.
+
+| Analyzer name         | Functionality                                                                                                                                                                                          |
+| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `RowCount`            | Computes row counts for a dataset                                                                                                                                                                      |
+| `Completeness`        | Computes the completeness percentage of a column                                                                                                                                                       |
+| `Uniqueness`          | Computes the uniqueness percentage of a column                                                                                                                                                         |
+| `Mean`                | Computes mean of a numeric column                                                                                                                                                                      |
+| `Sum`                 | Computes sum of a numeric column                                                                                                                                                                       |
+| `StandardDeviation`   | Computes standard deviation of a numeric column                                                                                                                                                        |
+| `Entropy`             | Computes entropy of a numeric column                                                                                                                                                                   |
+| `DistinctValuesCount` | Computes the number of distinct values in a column                                                                                                                                                     |
+| `UniqueValueRatio`    | Computes the unique values ratio in a column                                                                                                                                                           |
+| `ColumnCount`         | Computes the number of columns in a dataset                                                                                                                                                            |
+| `ColumnLength`        | Computes the length of a column                                                                                                                                                                        |
+| `ColumnValues`        | Computes the minimum, maximum for numerical columns. Computes Minimum ColumnLength and Maximum ColumnLength for<br>non-numeric columns                                                                 |
+| `ColumnCorrelation`   | Computes column correlations for given columns                                                                                                                                                         |
+| `CustomSql`           | Computes statistics returned by the CustomSQL                                                                                                                                                          |
+| `AllStatistics`       | Computes the following statistics:<br>• RowCount, ColumnCount<br>• Every column: Completeness, uniqueness<br>• Numerical: Min, Max, Entropy, Mean, Standard Dev, Sum<br>• String: MinLength, MaxLength |
+
+### Comments
+
+You can use the '#' character to add a comment to your DQDL document. Anything after the '#' character and until the end of the line is ignored by DQDL.
+
+```
+Rules = [
+    # More items should generally mean a higher price, so correlation should be positive
+    ColumnCorrelation "price" "num_items" > 0
+]
+```
