@@ -59,7 +59,7 @@ sudo apt-get update && sudo apt-get install java-common
 3. Install the `.deb` file by using `sudo dpkg --install`. For example install x86_64 deb using the following command:
 
 ```
-sudo dpkg --install java-25-amazon-corretto-jdk_25.0.1.8-1_amd64.deb
+sudo dpkg --install java-25-amazon-corretto-jdk_25.0.1.9-1_amd64.deb
 ```
 
 ### Verify Your Installation
@@ -74,8 +74,8 @@ Expected output for 25.0.1:
 
 ```
 openjdk version "25.0.1" 2025-10-21 LTS
-OpenJDK Runtime Environment Corretto-25.0.1.8.1 (build 25.0.1+8-LTS)
-OpenJDK 64-Bit Server VM Corretto-25.0.1.8.1 (build 25.0.1+8-LTS, mixed mode)
+OpenJDK Runtime Environment Corretto-25.0.1.9.1 (build 25.0.1+9-LTS)
+OpenJDK 64-Bit Server VM Corretto-25.0.1.9.1 (build 25.0.1+9-LTS, mixed mode)
 ```
 
 If you see a version string that doesn't mention `Corretto`, run the
@@ -144,7 +144,7 @@ sudo zypper install java-25-amazon-corretto-devel
 2. Install the downloaded `.rpm` file using `yum localinstall`. For example install x86_64 rpm using the following command:
 
 ```
-sudo yum localinstall java-25-amazon-corretto-devel-25.0.1.8-1.x86_64.rpm
+sudo yum localinstall java-25-amazon-corretto-devel-25.0.1.9-1.x86_64.rpm
 ```
 
 ### Verify Your Installation
@@ -159,8 +159,8 @@ Expected output for 25.0.1:
 
 ```
 openjdk version "25.0.1" 2025-10-21 LTS
-OpenJDK Runtime Environment Corretto-25.0.1.8.1 (build 25.0.1+8-LTS)
-OpenJDK 64-Bit Server VM Corretto-25.0.1.8.1 (build 25.0.1+8-LTS, mixed mode)
+OpenJDK Runtime Environment Corretto-25.0.1.9.1 (build 25.0.1+9-LTS)
+OpenJDK 64-Bit Server VM Corretto-25.0.1.9.1 (build 25.0.1+9-LTS, mixed mode)
 ```
 
 If you see a version string that doesn't mention `Corretto`,

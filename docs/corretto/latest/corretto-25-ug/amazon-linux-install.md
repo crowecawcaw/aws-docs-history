@@ -66,8 +66,8 @@ Expected output for 25.0.1:
 
 ```
 openjdk version "25.0.1" 2025-10-21 LTS
-OpenJDK Runtime Environment Corretto-25.0.1.8.1 (build 25.0.1+8-LTS)
-OpenJDK 64-Bit Server VM Corretto-25.0.1.8.1 (build 25.0.1+8-LTS, mixed mode)
+OpenJDK Runtime Environment Corretto-25.0.1.9.1 (build 25.0.1+9-LTS)
+OpenJDK 64-Bit Server VM Corretto-25.0.1.9.1 (build 25.0.1+9-LTS, mixed mode)
 ```
 
 If you see a version string that doesn't mention `Corretto`,
