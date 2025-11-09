@@ -94,12 +94,160 @@ that the cloned machine is working well, and then you can begin using it.
 
 The following are the AWS Application Migration Service service quota limits:
 
-| Name                                     | Default                           | Description                                                                                                                                                                                                                                                                                                                                                           |
-| ---------------------------------------- | --------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Concurrent jobs in progress              | Each supported AWS Region: 20     | Launching a test or cutover instance, or a cleanup action is considered a "job". This parameter is the maximum number of Jobs that can be run concurrently. Jobs that are **Completed** are not counted against this quota.                                                                                                                                           |
-| Max active source servers                | Each supported AWS Region: 150    | The maximum number of servers that can be actively replicating at any time. For larger migrations contact Support.                                                                                                                                                                                                                                                    |
-| Max non-archived source servers          | Each supported AWS Region: 4,000  | This parameter is used for agentless migrations. This is the max number of servers that can be managed by MGN, in non-archived state. This includes the servers that are actively replicating, as well as any servers whose replication has not yet started. The number of actively replicating servers is controlled by the parameter **Max active source servers**. |
-| Max source servers in a single job       | Each supported AWS Region: 200    | Launching a test or cutover instance, or a cleanup action is considered a "Job". If you select multiple servers, and perform one of these actions, they are grouped into a single job. This is the maximum number of servers that can be grouped into a single Job.                                                                                                   |
-| Max source servers in all jobs           | Each supported AWS Region: 200    | Launching a test or cutover instance, or a cleanup action is considered a "Job". This is the maximum total number of servers that can be configured in all active Jobs. Jobs that are **Completed** are not counted against this quota.                                                                                                                               |
-| Max total source servers per AWS account | Each supported AWS Region: 50,000 | This parameter is the maximum total servers, both active and archived, that can be migrated in a single account in each AWS Region. Servers that are deleted, are not counted against this quota.                                                                                                                                                                     |
-| Max concurrent jobs per source server    | Each supported AWS Region: 1      | Launching a test or cutover instance, or a cleanup action is considered a "Job". This is the maximum number of active Jobs, that can be configured per server. Jobs that are **Completed** are not counted against this quota.                                                                                                                                        | You can learn about the AWS Application Migration Service limits in the [AWS General Reference](../../../general/latest/gr/mgn.md "../../../general/latest/gr/mgn.md"). ## What are the Private APIs used by AWS MGN to define actions in the IAM Policy? MGN utilizes the following Private API resources as actions in the IAM Policy. [Learn more about Actions, resources, and condition keys for MGN.](../../../service-authorization/latest/reference/list_awsapplicationmigrationservice.md "../../../service-authorization/latest/reference/list_awsapplicationmigrationservice.md") <br>• BatchCreateVolumeSnapshotGroupForMgn – Grants permission to create volume snapshot group. <br>• BatchDeleteSnapshotRequestForMgn – Grants permission to batch delete snapshot request. <br>• DescribeReplicationServerAssociationsForMgn – Grants permission to describe replication server associations. <br>• DescribeSnapshotRequestsForMgn – Grants permission to describe snapshots requests. <br>• GetAgentCommandForMgn – Grants permission to get agent command. <br>• GetAgentConfirmedResumeInfoForMgn – Grants permission to get agent confirmed resume info. <br>• GetAgentInstallationAssetsForMgn – Grants permission to get agent installation assets. <br>• GetAgentReplicationInfoForMgn – Grants permission to get agent replication info. <br>• GetAgentRuntimeConfigurationForMgn – Grants permission to get agent runtime configuration. <br>• GetAgentSnapshotCreditsForMgn – Grants permission to get agent snapshots credits. <br>• GetChannelCommandsForMgn – Grants permission to get channel commands. <br>• NotifyAgentAuthenticationForMgn – Grants permission to notify agent authentication. <br>• NotifyAgentConnectedForMgn – Grants permission to notify agent is connected. <br>• NotifyAgentDisconnectedForMgn – Grants permission to notify agent is disconnected <br>• NotifyAgentReplicationProgressForMgn – Grants permission to notify agent replication progress. <br>• RegisterAgentForMgn – Grants permission to register agent. <br>• SendAgentLogsForMgn – Grants permission to send agent logs. <br>• SendAgentMetricsForMgn – Grants permission to send agent metrics. <br>• SendChannelCommandResultForMgn – Grants permission to send channel command result. <br>• SendClientLogsForMgn – Grants permission to send client logs. <br>• SendClientMetricsForMgn – Grants permission to send client metrics. <br>• UpdateAgentBacklogForMgn – Grants permission to update agent backlog. <br>• UpdateAgentConversionInfoForMgn – Grants permission to update agent conversion info. <br>• UpdateAgentReplicationInfoForMgn – Grants permission to update agent replication info. <br>• UpdateAgentReplicationProcessStateForMgn – Grants permission to update agent replication process state. <br>• UpdateAgentSourcePropertiesForMgn – Grants permission to update agent source properties. <br>• CreateVcenterClientForMgn – Grants permission to create a vCenter client. <br>• GetVcenterClientCommandsForMgn – Grants permission get a vCenter client. <br>• SendVcenterClientCommandResultForMgn – Grants permission to send vCenter client command result. <br>• SendVcenterClientLogsForMgn – Grants permission to send vCenter client logs. <br>• SendVcenterClientMetricsForMgn – Grants permission to send vCenter client metrics. <br>• NotifyVcenterClientStartedForMgn – Grants permission to notify vCenter client started. <br>• IssueAgentCertificateForMgn – Grants permission to send certificate signing request. ## Which post-launch scripts does AWS MGN support? MGN can run scripts on a launched test or cutover instance. This is done by creating the following folder on the source server and placing the scripts within that folder. **Linux**: /boot/post_launch (any files that are marked as executable) **Windows**: C:\Program Files (x86)\AWS Replication Agent\post_launch\ (any .exe, .cmd, or .bat files) Once you put these scripts in the above folders on the source server, the folder will be replicated to the test or cutover instance and be executed once after the instance boots for the first time. ###### Note Post-launch scripts on Windows run under the Local System context. Post-launch scripts on Linux run under the 'root' user. ### Uninstalling VMTools from Windows The following script can be utilized to uninstall VMTools post migration from Windows. This is a powershell script. It needs to be wrapped by a .CMD file, as powershell scripts are not run automatically by the post_launch. ``` $regpath = "HKLM:\Software\Microsoft\Windows\CurrentVersion\uninstall" Get-childItem $regpath | % { $keypath = $_.pschildname $key = Get-Itemproperty $regpath\$keypath if ($key.DisplayName -match "VMware Tools") { $VMwareToolsGUID = $keypath } MsiExec.exe /x $VMwareToolsGUID /qn /norestart } ``` ## What happens if I use a custom DNS? Custom DNS settings can cause issues in the replication servers. Therefore, if you are using a custom DNS, you will need to add a TCP port 53 to the security group outbound rules, for replication and conversion servers. ## Can I use AWS Application Migration Service to migrate servers from VMware Cloud on AWS (VMC) to Amazon EC2? Yes, you can. For migrations of source servers from [VMC](https://aws.amazon.com/vmware/ "https://aws.amazon.com/vmware/") to EC2 you have two options. You can install the agentless appliance in your VMC environment, and migrate your servers using [agentless replication](agentless-mgn.md "agentless-mgn.md"), or install the [AWS replication agent](agent-installation.md "agent-installation.md") on each of your source servers, and use agent-based replication for your migration. ## When should I use AWS Elastic Disaster Recovery (AWS DRS) for migration? In cases that DRS supports a feature that does not exist in MGN, DRS can be used for migration. You can install the DRS replication agent on your source servers. Following replication, you can launch recovery instances in your target environment, to complete the migration. DRS can be used for migration, as the DRS and MGN services use shared technology for performing block level replication. Both MGN and DRS have a replication agent, for replicating servers into a staging area in AWS. MGN supports launching test and cutover instances from the staging area. DRS supports launching recovery instances from the staging area. The technology used by both of these services for launching instances in AWS is very similar. DRS also has the capability to failback to the source environment, after the source environment has recovered. This capability does not exist in MGN. Note that you cannot install the DRS and MGN agents on the same server at the same time. If you already installed the MGN agent on a server, and want to use DRS for migration, you must uninstall the MGN agent before installing the DRS agent. Note that there are costs associated with using the DRS service. For DRS pricing information see [AWS Elastic Disaster Recovery pricing](https://aws.amazon.com/disaster-recovery/pricing/ "https://aws.amazon.com/disaster-recovery/pricing/"). |
+| Name                                     | Default                           | Description                                                                                                                                                                                                                                                                                                                                                                       |
+| ---------------------------------------- | --------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Concurrent jobs in progress              | Each supported AWS Region: 20     | Launching a test or cutover instance, or a cleanup action is considered a<br>"job". This parameter is the maximum number of Jobs that can be run concurrently.<br>Jobs that are \*_Completed_<br>• are not counted against this quota.                                                                                                                                            |
+| Max active source servers                | Each supported AWS Region: 150    | The maximum number of servers that can be actively replicating at any time. For larger migrations contact Support.                                                                                                                                                                                                                                                                |
+| Max non-archived source servers          | Each supported AWS Region: 4,000  | This parameter is used for agentless migrations. This is the max number of<br>servers that can be managed by MGN, in non-archived state. This includes the servers<br>that are actively replicating, as well as any servers whose replication has not yet<br>started. The number of actively replicating servers is controlled by the parameter<br>**Max active source servers**. |
+| Max source servers in a single job       | Each supported AWS Region: 200    | Launching a test or cutover instance, or a cleanup action is considered a<br>"Job". If you select multiple servers, and perform one of these actions, they are<br>grouped into a single job. This is the maximum number of servers that can be grouped<br>into a single Job.                                                                                                      |
+| Max source servers in all jobs           | Each supported AWS Region: 200    | Launching a test or cutover instance, or a cleanup action is considered a<br>"Job". This is the maximum total number of servers that can be configured in all<br>active Jobs. Jobs that are \*_Completed_<br>• are not counted against this quota.                                                                                                                                |
+| Max total source servers per AWS account | Each supported AWS Region: 50,000 | This parameter is the maximum total servers, both active and archived, that can<br>be migrated in a single account in each AWS Region. Servers that are deleted, are<br>not counted against this quota.                                                                                                                                                                           |
+| Max concurrent jobs per source server    | Each supported AWS Region: 1      | Launching a test or cutover instance, or a cleanup action is considered a<br>"Job". This is the maximum number of active Jobs, that can be configured per server.<br>Jobs that are \*_Completed_<br>• are not counted against this quota.                                                                                                                                         |
+
+You can learn about the AWS Application Migration Service limits in the [AWS General
+Reference](../../../general/latest/gr/mgn.md "../../../general/latest/gr/mgn.md").
+
+## What are the Private APIs used by AWS MGN to define actions in the
+
+IAM Policy?
+
+MGN utilizes the following Private API resources as actions in the IAM Policy. [Learn more about Actions, resources, and condition keys for MGN.](../../../service-authorization/latest/reference/list_awsapplicationmigrationservice.md "../../../service-authorization/latest/reference/list_awsapplicationmigrationservice.md")
+
+- BatchCreateVolumeSnapshotGroupForMgn – Grants permission to create volume snapshot
+  group.
+- BatchDeleteSnapshotRequestForMgn – Grants permission to batch delete snapshot
+  request.
+- DescribeReplicationServerAssociationsForMgn – Grants permission to describe
+  replication server associations.
+- DescribeSnapshotRequestsForMgn – Grants permission to describe snapshots
+  requests.
+- GetAgentCommandForMgn – Grants permission to get agent command.
+- GetAgentConfirmedResumeInfoForMgn – Grants permission to get agent confirmed resume
+  info.
+- GetAgentInstallationAssetsForMgn – Grants permission to get agent installation
+  assets.
+- GetAgentReplicationInfoForMgn – Grants permission to get agent replication
+  info.
+- GetAgentRuntimeConfigurationForMgn – Grants permission to get agent runtime
+  configuration.
+- GetAgentSnapshotCreditsForMgn – Grants permission to get agent snapshots
+  credits.
+- GetChannelCommandsForMgn – Grants permission to get channel commands.
+- NotifyAgentAuthenticationForMgn – Grants permission to notify agent
+  authentication.
+- NotifyAgentConnectedForMgn – Grants permission to notify agent is connected.
+- NotifyAgentDisconnectedForMgn – Grants permission to notify agent is
+  disconnected
+- NotifyAgentReplicationProgressForMgn – Grants permission to notify agent replication
+  progress.
+- RegisterAgentForMgn – Grants permission to register agent.
+- SendAgentLogsForMgn – Grants permission to send agent logs.
+- SendAgentMetricsForMgn – Grants permission to send agent metrics.
+- SendChannelCommandResultForMgn – Grants permission to send channel command
+  result.
+- SendClientLogsForMgn – Grants permission to send client logs.
+- SendClientMetricsForMgn – Grants permission to send client metrics.
+- UpdateAgentBacklogForMgn – Grants permission to update agent backlog.
+- UpdateAgentConversionInfoForMgn – Grants permission to update agent conversion
+  info.
+- UpdateAgentReplicationInfoForMgn – Grants permission to update agent replication
+  info.
+- UpdateAgentReplicationProcessStateForMgn – Grants permission to update agent
+  replication process state.
+- UpdateAgentSourcePropertiesForMgn – Grants permission to update agent source
+  properties.
+- CreateVcenterClientForMgn – Grants permission to create a vCenter client.
+- GetVcenterClientCommandsForMgn – Grants permission get a vCenter client.
+- SendVcenterClientCommandResultForMgn – Grants permission to send vCenter client
+  command result.
+- SendVcenterClientLogsForMgn – Grants permission to send vCenter client logs.
+- SendVcenterClientMetricsForMgn – Grants permission to send vCenter client
+  metrics.
+- NotifyVcenterClientStartedForMgn – Grants permission to notify vCenter client
+  started.
+- IssueAgentCertificateForMgn – Grants permission to send certificate signing
+  request.
+
+## Which post-launch scripts does AWS MGN support?
+
+MGN can run scripts on a launched test or cutover instance. This is done by creating the
+following folder on the source server and placing the scripts within that folder.
+
+**Linux**: /boot/post_launch (any files that are marked as
+executable)
+
+**Windows**: C:\Program Files (x86)\AWS Replication
+Agent\post_launch\ (any .exe, .cmd, or .bat files)
+
+Once you put these scripts in the above folders on the source server, the folder will be
+replicated to the test or cutover instance and be executed once after the instance boots for
+the first time.
+
+###### Note
+
+Post-launch scripts on Windows run under the Local System context. Post-launch scripts on
+Linux run under the 'root' user.
+
+### Uninstalling VMTools from Windows
+
+The following script can be utilized to uninstall VMTools post migration from Windows.
+This is a powershell script. It needs to be wrapped by a .CMD file, as powershell scripts
+are not run automatically by the post_launch.
+
+```
+
+        $regpath = "HKLM:\Software\Microsoft\Windows\CurrentVersion\uninstall"
+
+        Get-childItem $regpath | % {
+
+        $keypath = $_.pschildname
+
+        $key = Get-Itemproperty $regpath\$keypath
+
+        if ($key.DisplayName -match "VMware Tools") {
+
+        $VMwareToolsGUID = $keypath
+
+        }
+
+        MsiExec.exe /x $VMwareToolsGUID /qn /norestart
+
+        }
+
+```
+
+## What happens if I use a custom DNS?
+
+Custom DNS settings can cause issues in the replication servers.
+
+Therefore, if you are using a custom DNS, you will need to add a TCP port 53 to the
+security group outbound rules, for replication and conversion servers.
+
+## Can I use AWS Application Migration Service to migrate servers from VMware Cloud on AWS (VMC) to Amazon EC2?
+
+Yes, you can. For migrations of source servers from
+[VMC](https://aws.amazon.com/vmware/ "https://aws.amazon.com/vmware/")
+to EC2 you have two options.
+You can install the agentless appliance in your VMC environment, and migrate your servers using
+[agentless replication](agentless-mgn.md "agentless-mgn.md"),
+or install the
+[AWS replication agent](agent-installation.md "agent-installation.md")
+on each of your source servers, and use agent-based replication for your migration.
+
+## When should I use AWS Elastic Disaster Recovery (AWS DRS) for migration?
+
+In cases that DRS supports a feature that does not exist in MGN, DRS can be used for migration. You can install the DRS replication agent on your source servers.
+Following replication, you can launch recovery instances in your target environment, to complete the migration.
+
+DRS can be used for migration, as the DRS and MGN services use shared technology for performing block level replication.
+Both MGN and DRS have a replication agent, for replicating servers into a staging area in AWS.
+MGN supports launching test and cutover instances from the staging area.
+DRS supports launching recovery instances from the staging area.
+The technology used by both of these services for launching instances in AWS is very similar.
+DRS also has the capability to failback to the source environment, after the source environment has recovered.
+This capability does not exist in MGN.
+
+Note that you cannot install the DRS and MGN agents on the same server at the same time.
+If you already installed the MGN agent on a server, and want to use DRS for migration, you must uninstall the MGN agent before installing the DRS agent.
+
+Note that there are costs associated with using the DRS service. For DRS pricing information see [AWS Elastic Disaster Recovery pricing](https://aws.amazon.com/disaster-recovery/pricing/ "https://aws.amazon.com/disaster-recovery/pricing/").

@@ -1,8 +1,9 @@
 NEW - You can now accelerate your migration and modernization with AWS Transform. Read [Getting Started](../../../transform/latest/userguide/getting-started.md "../../../transform/latest/userguide/getting-started.md") in the _AWS Transform User Guide_.
 
-# Create permissions manually
+# Create roles manually
 
-To create permissions manually, you create the MGNConnectorInstallerRole to install the MGN Connector and the AWSApplicationMigrationConnectorManagementRole for the MGN Connector to assume.
+To create permissions manually, you create the MGNConnectorInstallerRole to install the MGN Connector and the AWSApplicationMigrationConnectorManagementRole needed to enable the connector to run.
+The connector assumes the AWSApplicationMigrationConnectorSharingRole\_`management-account-id` role as needed, for example, to install the replication agent on a source server.
 
 ## Create the MGNConnectorInstallerRole
 
@@ -93,7 +94,8 @@ JSON
 
 ```
 
-2. If you have created an S3 bucket for SSM logging, replace **LOGS-BUCKET** with the bucket name and append the following statements to the above policy:
+2. If you created an S3 bucket for SSM logging, replace **LOGS-BUCKET** with the bucket name and append the
+   following to the policy:
 
 ```
 {
@@ -103,7 +105,8 @@ JSON
 }
 ```
 
-3. In order for the MGN connector to send logs to CloudWatch, append the following statement to the above policy:
+3. In order for the MGN connector to send logs to CloudWatch, append this
+   statement to the policy:
 
 ```
 {

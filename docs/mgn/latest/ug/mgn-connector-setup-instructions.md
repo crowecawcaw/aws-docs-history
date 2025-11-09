@@ -4,7 +4,7 @@ NEW - You can now accelerate your migration and modernization with AWS Transform
 
 In order to set up your MGN connector, take the following steps:
 
-1. Make sure your account has the required permissions as defined [here](mgn-connector-permissions.md "mgn-connector-permissions.md").
+1. Make sure your account have the required permissions as defined [here](mgn-connector-permissions.md "mgn-connector-permissions.md").
 2. If the MGN connector manages source servers from multiple accounts, set up the global view feature and set up your AWS Organization, following the instructions [here](global-view.md "global-view.md").
 
 After you set up your AWS Organization, configure the CloudFormation StackSet in order to create the required role per management account. Use the template "Enable Application Migration Service Connector access". Full instructions are available [here](setting-up-stacksets.md "setting-up-stacksets.md"). 3. If the MGN connector manages source servers from a single account,

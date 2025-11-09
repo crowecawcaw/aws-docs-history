@@ -1,13 +1,24 @@
 NEW - You can now accelerate your migration and modernization with AWS Transform. Read [Getting Started](../../../transform/latest/userguide/getting-started.md "../../../transform/latest/userguide/getting-started.md") in the _AWS Transform User Guide_.
 
-# Required permissions for the MGN Connector
+# IAM roles needed for the MGN
 
-In order to use MGN connector, you must have the required permissions in IAM.
+connector
 
-For security best practices, it is recommended that the MGN connector will be accessed only by allowed personnel and will have the required OS patches. It is also recommended that the servers to which the MGN connector connects, will have all the required OS patches.
+To use MGN connector you must have these required IAM roles for individual accounts and AWS Organizations networks:
 
-If you configure [outputting logs to S3](../../../systems-manager/latest/userguide/getting-started-create-iam-instance-profile.md#create-iam-instance-profile-ssn-logging "../../../systems-manager/latest/userguide/getting-started-create-iam-instance-profile.md#create-iam-instance-profile-ssn-logging"), first [create an Amazon S3 bucket](../../../AmazonS3/latest/userguide/create-bucket-overview.md "../../../AmazonS3/latest/userguide/create-bucket-overview.md"). it is recommended to apply S3 bucket security practices - following AWS official reference to [S3 security practices](../../../AmazonS3/latest/userguide/security-best-practices.md "../../../AmazonS3/latest/userguide/security-best-practices.md")
+- **MGNConnectorInstallerRole**
+- **AWSApplicationMigrationConnectorManagementRole**
+- **AWSApplicationMigrationConnectorSharingRole\_`management-account-id`**
+  Needed in an individual account. Also needed in an organization, on _every_ account, including the management
+  account.
+  **Individual account:** For an MGN connector in an individual account, create these roles as described in
+  [Create roles manually](create-permissions-manually.md "create-permissions-manually.md").
 
-Refer to the [next section](CloudFormation_Template.md "CloudFormation_Template.md") to deploy permissions using a CloudFormation template.
+**Multiple accounts:** If the MGN connector manages source servers from multiple accounts,
+set up the global view feature and set up your AWS Organization, as described in [Manage large-scale migrations with global view](global-view.md "global-view.md"). After you set up your AWS Organization:
 
-Alternatively, in order to create the permissions manually, create the following IAM roles:
+1. Create the MGNConnectorInstallerRole and the AWSApplicationMigrationConnectorManagementRole as described in [Create roles manually](create-permissions-manually.md "create-permissions-manually.md").
+2. Configure the CloudFormation StackSet to create the
+   AWSApplicationMigrationConnectorSharingRole\_`management-account-id`
+   role per management account. Use the template "Enable Application Migration
+   Service Connector access". Instructions are in [Deploy role using a CloudFormation template](CloudFormation_Template.md "CloudFormation_Template.md") .

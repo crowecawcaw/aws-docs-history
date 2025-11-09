@@ -16,13 +16,17 @@ Application Migration Service supports six CloudWatch metrics in the AWS/MGN nam
 Application Migration Service includes the following metrics across all Source servers.
 The following metrics are dimensionless.
 
-| Metric name                  | Description                                                                                                     |
-| ---------------------------- | --------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `ActiveSourceServerCount`    | Number of Source servers that are not archived.                                                                 |
-| `TotalSourceServerCount`     | Number of source servers, including those that are archived.                                                    | AWS Application Migration Service includes the following metrics by individual source server. The following metrics have a single dimension: **SourceServerID.** |
-| Metric name                  | Description                                                                                                     |
-| ---                          | ---                                                                                                             |
-| `LagDuration`                | The amount of time that has passed since the last consistent snapshot.                                          |
-| `Backlog`                    | The amount of data yet to be synced.                                                                            |
-| `DurationSinceLastTest`      | The amount of time that has passed since the last Test instance launch.                                         |
-| `ElapsedReplicationDuration` | The cumulative amount of time this server has been replicating for (from which billing information is derived). |
+| Metric name               | Description                                                  |
+| ------------------------- | ------------------------------------------------------------ |
+| `ActiveSourceServerCount` | Number of Source servers that are not archived.              |
+| `TotalSourceServerCount`  | Number of source servers, including those that are archived. |
+
+AWS Application Migration Service includes the following metrics by individual source server.
+The following metrics have a single dimension: **SourceServerID.**
+
+| Metric name                  | Description                                                                                                        |
+| ---------------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| `LagDuration`                | The amount of time that has passed since the last consistent snapshot.                                             |
+| `Backlog`                    | The amount of data yet to be synced.                                                                               |
+| `DurationSinceLastTest`      | The amount of time that has passed since the last Test instance launch.                                            |
+| `ElapsedReplicationDuration` | The cumulative amount of time this server has been replicating for (from which<br>billing information is derived). |

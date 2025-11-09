@@ -36,3 +36,12 @@ Installation of the MGN Connector also installs the SSM agent.
   - RHEL 6.x
   - Oracle 6.x
   - Amazon Linux 1
+
+## Security recommendations for MGN connector
+
+We recommend that the MGN connector server is only accessed by authorized
+personnel and has the required OS patches. We also recommend that the servers to
+which the MGN connector connects have all the required OS patches.
+
+If you configure [outputting logs to S3](../../../systems-manager/latest/userguide/getting-started-create-iam-instance-profile.md#create-iam-instance-profile-ssn-logging "../../../systems-manager/latest/userguide/getting-started-create-iam-instance-profile.md#create-iam-instance-profile-ssn-logging"), you will first [create an Amazon S3 bucket](../../../AmazonS3/latest/userguide/create-bucket-overview.md "../../../AmazonS3/latest/userguide/create-bucket-overview.md"). We recommend that you apply S3 bucket
+[S3 security practices](../../../AmazonS3/latest/userguide/security-best-practices.md "../../../AmazonS3/latest/userguide/security-best-practices.md")

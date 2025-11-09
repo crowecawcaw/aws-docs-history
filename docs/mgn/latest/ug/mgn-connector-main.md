@@ -1,11 +1,11 @@
 NEW - You can now accelerate your migration and modernization with AWS Transform. Read [Getting Started](../../../transform/latest/userguide/getting-started.md "../../../transform/latest/userguide/getting-started.md") in the _AWS Transform User Guide_.
 
-# Review your MGN Connectors
+# Manage your MGN Connectors
 
-The MGN connectors page lists all the installed MGN connectors, providing a quick overview of
+The MGN Connectors page lists all the installed MGN connectors, providing a quick overview of
 your MGN connectors and their status and allowing you to quickly perform actions.
 
-## Interacting with the MGN connector page
+## Introduction to the MGN connector page
 
 The **MGN Connectors** page displays the list of MGN connectors, and supports adding, deleting and editing MGN connectors as well as performing actions using the MGN connectors.
 

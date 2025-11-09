@@ -1,8 +1,9 @@
 NEW - You can now accelerate your migration and modernization with AWS Transform. Read [Getting Started](../../../transform/latest/userguide/getting-started.md "../../../transform/latest/userguide/getting-started.md") in the _AWS Transform User Guide_.
 
-# Deploy permissions using a AWS CloudFormation template
+# Deploy the AWSApplicationMigrationConnectorSharingRole\_`management-account-id` role using a CloudFormation template
 
-Alternatively, see the [previous section](create-permissions-manually.md "create-permissions-manually.md") to deploy these permissions manually.
+See the [Create roles manually](create-permissions-manually.md "create-permissions-manually.md") to
+deploy these permissions manually.
 
 1. To configure the required IAM roles and policies, after replacing the described parameters,
    save the following AWS CloudFormation JSON template to a text file called `aws-mgn-connector-iam-principals.json`

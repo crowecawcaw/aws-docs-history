@@ -7,8 +7,10 @@ To add an MGN connector, click **Add MGN connector**, to open the Add MGN connec
 - Connector name: The MGN connector name is used to identify the connector. This field is mandatory, and limited to 256 characters. The name must be unique (case-insensitive) per account per Region.
 - Obtain the SSM hybrid activation parameters (installation key and ID), which is required in order install the SSM agent on the MGN connector. For more information on SSM activation parameters see [here](../../../systems-manager/latest/userguide/sysman-managed-instance-activation.md "../../../systems-manager/latest/userguide/sysman-managed-instance-activation.md").
   - In the SSM hybrid activation set the **AWSApplicationMigrationConnectorManagementRole** in the management account.
-  - Activation setting → select an existing IAM role → **AWSApplicationMigrationConnectorManagementRole**
-  - See the [permissions](mgn-connector-permissions.md "mgn-connector-permissions.md") page for the required permissions of **AWSApplicationMigrationConnectorManagementRole**.
+    - Activation setting → select an existing IAM role
+      → **AWSApplicationMigrationConnectorManagementRole**
+    - See the [permissions](mgn-connector-permissions.md "mgn-connector-permissions.md") page for the required permissions of
+      **AWSApplicationMigrationConnectorManagementRole**.
 
 - Temporary IAM credentials of the **MGNConnectorInstallerRole** role that you created
   [here](mgn-connector-permissions.md "mgn-connector-permissions.md").

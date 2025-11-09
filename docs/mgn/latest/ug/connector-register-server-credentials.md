@@ -8,10 +8,18 @@ The servers list contain the source servers that were imported via the import fe
 
 Select the source servers you want to register to the MGN connector. Click the "Register servers with the MGN connector" button.
 
-In order to perform actions on your source server, you must provide source server credentials. Server credentials are stored in AWS Secrets Manager. You can use an existing secret from the AWS Secrets Manager or create a new one.
+To perform actions on your source server, you must provide source server
+credentials. Server credentials are stored in AWS Secrets Manager. You can use an
+existing secret from the AWS Secrets Manager or create a new one. You can create the
+credentials in the MGN console, by choosing **Register server
+credentials** from the **Actions**
+men.
 
 - Use existing secret
-  - Using AWS Secrets Manager AWS MGN can use the stored source server credentials and API keys in order to connect to the source machine and perform actions on it. You must specify the secret that stores the source server credentials, using an existing secret.
+  - Using AWS Secrets Manager MGN can use the stored source server
+    credentials and API keys in order to connect to the source machine
+    and perform actions on it. You must specify the secret that stores
+    the source server credentials, using an existing secret.
   - You may designate the same secret for multiple source servers, if they share the same credentials.
   - Be sure to add the AWSApplicationMigrationServiceManaged tag to the secret. The value is ignored, and may be left empty.
 
