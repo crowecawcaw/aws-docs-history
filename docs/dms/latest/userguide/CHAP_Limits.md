@@ -21,7 +21,7 @@ The following table lists the AWS DMS resources and their quotas for each AWS
 Region.
 
 | Resource                                                    | Default quota                  |
-| ----------------------------------------------------------- | ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ----------------------------------------------------------- | ------------------------------ |
 | API request throttling                                      | 200 request maximum per second |
 | API request refresh rate                                    | 8 requests per second          |
 | Replication instances per user account                      | 60                             |
@@ -43,4 +43,49 @@ Region.
 | Homogeneous data migrations per user account                | 600                            |
 | Homogeneous data migrations that run at one time            | 100                            |
 | Homogeneous data migrations per migration project           | 10                             |
-| Serverless replications                                     | 100                            | For more information on the API request throttling quota and refresh rate, see [Understanding API request throttling](#CHAP_Limits.Throttling "#CHAP_Limits.Throttling"). The 30,000-GB quota for storage applies to all your AWS DMS replication instances in a given AWS Region. This storage is used to cache changes if a target can't keep up with a source, and for storing log information. ## Understanding API request throttling AWS DMS supports a varying, but maximum API request quota of 200 API calls per second. In other words, your API requests are throttled when they exceed this rate. Also, you can be limited to fewer API calls per second, depending on how long it takes AWS DMS to refresh your quota before you make another API request. This quota applies both when you make API calls directly and when they are made on your behalf as part of using the AWS DMS Management Console. To understand how API request throttling works, it helps to imagine that AWS DMS maintains a token bucket that tracks your API requests. In this scenario, each token in the bucket allows you to make a single API call. You can have no more than 200 tokens in the bucket at any one time. When you make an API call, AWS DMS removes one token from the bucket. If you make 200 API calls in under a second, your bucket is empty and any attempt to make another API call fails. For each second that you don't make an API call, AWS DMS adds 8 tokens to the bucket, up to the 200 token maximum. This is the AWS DMS API request refresh rate. At any point after throttling, when you have tokens added to your bucket, you can make as many additional API calls as tokens available until your calls are throttled again. If you are using the AWS CLI to run API calls that are throttled, AWS DMS returns an error like the following: ``An error occurred (ThrottlingException) when calling the `AwsDmsApiCall` operation (reached max retries: 2): Rate exceeded`` Here, `AwsDmsApiCall` is the name of the AWS DMS API operation that was throttled, for example, `DescribeTableStatistics`. You can then retry or make a different call after sufficient delay to avoid throttling. ###### Note Unlike API request throttling managed by some other services, such as Amazon EC2, you can't order an increase in the API request throttling quotas managed by AWS DMS. |
+| Serverless replications                                     | 100                            |
+
+For more information on the API request throttling quota and refresh rate,
+see [Understanding API request throttling](#CHAP_Limits.Throttling "#CHAP_Limits.Throttling").
+
+The 30,000-GB quota for storage applies to all your AWS DMS replication
+instances in a given AWS Region. This storage is used to cache changes if a target
+can't keep up with a source, and for storing log information.
+
+## Understanding API request throttling
+
+AWS DMS supports a varying, but maximum API request quota of 200 API calls per second.
+In other words, your API requests are throttled when they exceed this rate. Also, you
+can be limited to fewer API calls per second, depending on how long it takes AWS DMS to
+refresh your quota before you make another API request. This quota applies both when you
+make API calls directly and when they are made on your behalf as part of using the AWS DMS
+Management Console.
+
+To understand how API request throttling works, it helps to imagine that AWS DMS
+maintains a token bucket that tracks your API requests. In this scenario, each token in
+the bucket allows you to make a single API call. You can have no more than 200 tokens in
+the bucket at any one time. When you make an API call, AWS DMS removes one token from the
+bucket. If you make 200 API calls in under a second, your bucket is empty and any
+attempt to make another API call fails. For each second that you don't make an API
+call, AWS DMS adds 8 tokens to the bucket, up to the 200 token maximum. This is the AWS DMS
+API request refresh rate. At any point after throttling, when you have tokens added to
+your bucket, you can make as many additional API calls as tokens available until your
+calls are throttled again.
+
+If you are using the AWS CLI to run API calls that are throttled, AWS DMS returns an error
+like the following:
+
+```
+An error occurred (ThrottlingException) when calling the `AwsDmsApiCall` operation (reached max retries: 2): Rate exceeded
+```
+
+Here, `AwsDmsApiCall` is the name of the AWS DMS
+API operation that was throttled, for example, `DescribeTableStatistics`. You
+can then retry or make a different call after sufficient delay to avoid
+throttling.
+
+###### Note
+
+Unlike API request throttling managed by some other services, such as Amazon EC2, you
+can't order an increase in the API request throttling quotas managed by
+AWS DMS.

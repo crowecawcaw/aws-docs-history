@@ -59,7 +59,7 @@ Regions, you can use the AWS Schema Conversion Tool. For more information about 
 [AWS Schema Conversion Tool User Guide](../../../SchemaConversionTool/latest/userguide.md "../../../SchemaConversionTool/latest/userguide.md").
 
 | Region Name               | Region         |
-| ------------------------- | -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------------------- | -------------- |
 | Africa (Cape Town)        | af-south-1     |
 | Asia Pacific (Hong Kong)  | ap-east-1      |
 | Asia Pacific (Mumbai)     | ap-south-1     |
@@ -85,4 +85,77 @@ Regions, you can use the AWS Schema Conversion Tool. For more information about 
 | US East (N. Virginia)     | us-east-1      |
 | US East (Ohio)            | us-east-2      |
 | US West (N. California)   | us-west-1      |
-| US West (Oregon)          | us-west-2      | ## Schema conversion features DMS Schema Conversion provides the following features: <br>• DMS Schema Conversion automatically manages the AWS Cloud resources that are required for your database migration project. These resources include instance profiles, data providers, and AWS Secrets Manager secrets. They also include AWS Identity and Access Management (IAM) roles, Amazon S3 buckets, and migration projects. <br>• You can use DMS Schema Conversion to connect to your source database, read the metadata, and create database migration assessment reports. You can then save the report to an Amazon S3 bucket. With these reports, you get a summary of your schema conversion tasks and the details for items that DMS Schema Conversion can't automatically convert to your target database. Database migration assessment reports help evaluate how much of your migration project DMS Schema Conversion can automate. These reports also help to estimate the amount of manual effort that is required to complete the conversion. For more information, see [Creating database migration assessment reports with DMS Schema Conversion](assessment-reports.md "assessment-reports.md"). <br>• After you connect to your source and target data providers, DMS Schema Conversion can convert your existing source database schemas to the target database engine. You can choose any schema item from your source database to convert. After you convert your database code in DMS Schema Conversion, you can review your source code and the converted code. You can save the converted SQL code to an Amazon S3 bucket. <br>• Before you convert your source database schemas, you can set up transformation rules. You can use transformation rules to change the data type of columns, move objects from one schema to another, and change the names of objects. You can apply transformation rules to databases, schemas, tables, and columns. For more information, see [Setting up transformation rules](schema-conversion-transformation-rules.md "schema-conversion-transformation-rules.md"). <br>• You can change conversion settings to improve the performance of the converted code. These settings are specific for each conversion pair and depend on the features of the source database that you use in your code. For more information, see [Specifying schema conversion settings](schema-conversion-settings.md "schema-conversion-settings.md"). <br>• In some cases, DMS Schema Conversion can't convert source database features to equivalent Amazon RDS features. For these cases, DMS Schema Conversion creates an extension pack in your target database to emulate the features that weren't converted. For more information, see [Using extension packs](extension-pack.md "extension-pack.md"). <br>• You can apply the converted code and the extension pack schema to your target database. For more information, see [Applying your converted code](schema-conversion-save-apply.md#schema-conversion-apply "schema-conversion-save-apply.md#schema-conversion-apply"). <br>• DMS Schema Conversion supports all of the features in the latest AWS SCT release. For more information, see [The latest release notes for AWS SCT](../../../SchemaConversionTool/latest/userguide/CHAP_ReleaseNotes.md "../../../SchemaConversionTool/latest/userguide/CHAP_ReleaseNotes.md") . <br>• You can edit converted SQL code before DMS migrates it to the target database. For more information, see [Editing and saving your converted SQL code](schema-conversion-convert.md#schema-conversion-convert-editsql "schema-conversion-convert.md#schema-conversion-convert-editsql") . ## Schema conversion limitations DMS Schema Conversion is a web-version of the AWS Schema Conversion Tool (AWS SCT). DMS Schema Conversion supports fewer database platforms and provides more limited functionality compared to the AWS SCT desktop application. To convert data warehouse schemas, big data frameworks, application SQL code, and ETL processes, use AWS SCT. For more information about AWS SCT, see the [AWS Schema Conversion Tool User Guide](../../../SchemaConversionTool/latest/userguide.md "../../../SchemaConversionTool/latest/userguide.md"). The following limitations apply when you use DMS Schema Conversion for database schema conversion: <br>• You can't save a migration project and use it in an offline mode. <br>• You can't edit SQL code for the source in a migration project for DMS Schema Conversion. To edit the SQL code of your source database, use your regular SQL editor. Choose **Refresh from database** to add the updated code in your migration project. <br>• Migration rules in DMS Schema Conversion don't support changing column collation. You can't use migration rules to move objects to a new schema. <br>• You can't apply filters to your source and target database trees to display only those database objects that meet the filter clause. <br>• DMS Schema Conversion extension pack doesn't include AWS Lambda functions that emulate email sending, job scheduling, and other features in your converted code. <br>• DMS Schema Conversion doesn't use customer-managed KMS keys for access to any customer AWS resources. For example, DMS Schema Conversion doesn't support using a customer-managed KMS key to access customer data in Amazon S3. |
+| US West (Oregon)          | us-west-2      |
+
+## Schema conversion features
+
+DMS Schema Conversion provides the following features:
+
+- DMS Schema Conversion automatically manages the AWS Cloud resources that are required for
+  your database migration project. These resources include instance profiles, data
+  providers, and AWS Secrets Manager secrets. They also include AWS Identity and Access Management (IAM) roles,
+  Amazon S3 buckets, and migration projects.
+- You can use DMS Schema Conversion to connect to your source database, read the metadata,
+  and create database migration assessment reports. You can then save the report
+  to an Amazon S3 bucket. With these reports, you get a summary of your schema
+  conversion tasks and the details for items that DMS Schema Conversion can't automatically
+  convert to your target database. Database migration assessment reports help
+  evaluate how much of your migration project DMS Schema Conversion can automate. These reports
+  also help to estimate the amount of manual effort that is required to complete
+  the conversion. For more information, see [Creating database migration assessment reports with
+  DMS Schema Conversion](assessment-reports.md "assessment-reports.md").
+- After you connect to your source and target data providers, DMS Schema Conversion can
+  convert your existing source database schemas to the target database engine. You
+  can choose any schema item from your source database to convert. After you
+  convert your database code in DMS Schema Conversion, you can review your source code and the
+  converted code. You can save the converted SQL code to an Amazon S3 bucket.
+- Before you convert your source database schemas, you can set up transformation
+  rules. You can use transformation rules to change the data type of columns, move
+  objects from one schema to another, and change the names of objects. You can
+  apply transformation rules to databases, schemas, tables, and columns. For more
+  information, see [Setting up
+  transformation rules](schema-conversion-transformation-rules.md "schema-conversion-transformation-rules.md").
+- You can change conversion settings to improve the performance of the converted
+  code. These settings are specific for each conversion pair and depend on the
+  features of the source database that you use in your code. For more information,
+  see [Specifying schema conversion
+  settings](schema-conversion-settings.md "schema-conversion-settings.md").
+- In some cases, DMS Schema Conversion can't convert source database features to equivalent
+  Amazon RDS features. For these cases, DMS Schema Conversion creates an extension pack in your
+  target database to emulate the features that weren't converted. For more
+  information, see [Using extension packs](extension-pack.md "extension-pack.md").
+- You can apply the converted code and the extension pack schema to your target
+  database. For more information, see [Applying your converted
+  code](schema-conversion-save-apply.md#schema-conversion-apply "schema-conversion-save-apply.md#schema-conversion-apply").
+- DMS Schema Conversion supports all of the features in the latest AWS SCT release. For more
+  information, see [The
+  latest release notes for AWS SCT](../../../SchemaConversionTool/latest/userguide/CHAP_ReleaseNotes.md "../../../SchemaConversionTool/latest/userguide/CHAP_ReleaseNotes.md") .
+- You can edit converted SQL code before DMS migrates it to the target database.
+  For more information, see [Editing and saving your
+  converted SQL code](schema-conversion-convert.md#schema-conversion-convert-editsql "schema-conversion-convert.md#schema-conversion-convert-editsql") .
+
+## Schema conversion limitations
+
+DMS Schema Conversion is a web-version of the AWS Schema Conversion Tool (AWS SCT). DMS Schema Conversion supports fewer
+database platforms and provides more limited functionality compared to the AWS SCT
+desktop application. To convert data warehouse schemas, big data frameworks, application
+SQL code, and ETL processes, use AWS SCT. For more information about AWS SCT, see the
+[AWS Schema Conversion Tool User Guide](../../../SchemaConversionTool/latest/userguide.md "../../../SchemaConversionTool/latest/userguide.md").
+
+The following limitations apply when you use DMS Schema Conversion for database schema
+conversion:
+
+- You can't save a migration project and use it in an offline mode.
+- You can't edit SQL code for the source in a migration project for DMS Schema Conversion. To
+  edit the SQL code of your source database, use your regular SQL editor. Choose
+  **Refresh from database** to add the updated code in your
+  migration project.
+- Migration rules in DMS Schema Conversion don't support changing column collation. You can't
+  use migration rules to move objects to a new schema.
+- You can't apply filters to your source and target database trees to display
+  only those database objects that meet the filter clause.
+- DMS Schema Conversion extension pack doesn't include AWS Lambda functions that emulate email
+  sending, job scheduling, and other features in your converted code.
+- DMS Schema Conversion doesn't use customer-managed KMS keys for access to any customer
+  AWS resources. For example, DMS Schema Conversion doesn't support using a customer-managed
+  KMS key to access customer data in Amazon S3.

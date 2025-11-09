@@ -10,20 +10,31 @@ differ significantly.
 The following table lists the correct mapping between API operations and IAM
 actions:
 
-| API to IAM Mapping                   | Service                               | API                                   | IAM                                  |
-| ------------------------------------ | ------------------------------------- | ------------------------------------- | ------------------------------------ | ------------------------------------ |
-| Common Studio Framework (CSF)        | CreateMigrationProject                | dms:CreateMigrationProject            |
-| DeleteMigrationProject               | dms:DeleteMigrationProject            |                                       | ModifyMigrationProject               | dms:UpdateMigrationProject           |
-| DescribeMigrationProjects            | dms:ListMigrationProjects             |                                       | CreateInstanceProfile                | dms:CreateInstanceProfile            |
-| DeleteInstanceProfile                | dms:DeleteInstanceProfile             |                                       | ModifyInstanceProfile                | dms:UpdateInstanceProfile            |
-| DescribeInstanceProfiles             | dms:ListInstanceProfiles              |                                       | CreateDataProvider                   | dms:CreateDataProvider               |
-| DeleteDataProvider                   | dms:DeleteDataProvider                |                                       | ModifyDataProvider                   | dms:UpdateDataProvider               |
+| API to IAM Mapping                   | Service                               | API                                   | IAM |
+| ------------------------------------ | ------------------------------------- | ------------------------------------- | --- |
+| Common Studio Framework<br>(CSF)     | CreateMigrationProject                | dms:CreateMigrationProject            |
+| DeleteMigrationProject               | dms:DeleteMigrationProject            |
+| ModifyMigrationProject               | dms:UpdateMigrationProject            |
+| DescribeMigrationProjects            | dms:ListMigrationProjects             |
+| CreateInstanceProfile                | dms:CreateInstanceProfile             |
+| DeleteInstanceProfile                | dms:DeleteInstanceProfile             |
+| ModifyInstanceProfile                | dms:UpdateInstanceProfile             |
+| DescribeInstanceProfiles             | dms:ListInstanceProfiles              |
+| CreateDataProvider                   | dms:CreateDataProvider                |
+| DeleteDataProvider                   | dms:DeleteDataProvider                |
+| ModifyDataProvider                   | dms:UpdateDataProvider                |
 | DescribeDataProviders                | dms:ListDataProviders                 |
 | DMS Schema Conversion                | ModifyConversionConfiguration         | dms:dms.UpdateConversionConfiguration |
-| DescribeConversionConfiguration      | dms:DescribeConversionConfiguration   |                                       | StartMetadataModelImport             | dms:StartMetadataModelImport         |
-| ExportMetadataModelAssessment        | dms:ExportMetadataModelAssessment     |                                       | StartMetadataModelConversion         | dms:StartMetadataModelConversion     |
-| StartMetadataModelExportAsScript     | dms:StartMetadataModelExportAsScripts |                                       | StartMetadataModelExportToTarget     | dms:StartMetadataModelExportToTarget |
-| StartExtensionPackAssociation        | dms:AssociateExtensionPack            |                                       | DescribeMetadataModelConversions     | dms:ListMetadataModelConversions     |
-| DescribeMetadataModelExportsToTarget | dms:ListMetadataModelExports          |                                       | DescribeMetadataModelExportsAsScript | dms:ListMetadataModelExports         |
-| DescribeMetadataModelImports         | dms:DescribeMetadataModelImports      |                                       | DescribeMetadataModelAssessments     | dms:ListMetadataModelAssessments     |
+| DescribeConversionConfiguration      | dms:DescribeConversionConfiguration   |
+| StartMetadataModelImport             | dms:StartMetadataModelImport          |
+| ExportMetadataModelAssessment        | dms:ExportMetadataModelAssessment     |
+| StartMetadataModelConversion         | dms:StartMetadataModelConversion      |
+| StartMetadataModelExportAsScript     | dms:StartMetadataModelExportAsScripts |
+| StartMetadataModelExportToTarget     | dms:StartMetadataModelExportToTarget  |
+| StartExtensionPackAssociation        | dms:AssociateExtensionPack            |
+| DescribeMetadataModelConversions     | dms:ListMetadataModelConversions      |
+| DescribeMetadataModelExportsToTarget | dms:ListMetadataModelExports          |
+| DescribeMetadataModelExportsAsScript | dms:ListMetadataModelExports          |
+| DescribeMetadataModelImports         | dms:DescribeMetadataModelImports      |
+| DescribeMetadataModelAssessments     | dms:ListMetadataModelAssessments      |
 | DescribeExtensionPackAssociations    | dms:ListExtensionPacks                |

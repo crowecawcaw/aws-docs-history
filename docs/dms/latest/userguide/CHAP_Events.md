@@ -134,54 +134,204 @@ task source types.
 The following table shows the possible categories and events for the replication
 instance source type.
 
-| Category             | DMS event ID   | Description                                                                                                                                                                     |
-| -------------------- | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Configuration Change | DMS-EVENT-0012 | The replication instance class for this replication instance is being changed.                                                                                                  |
-| Configuration Change | DMS-EVENT-0014 | The replication instance class for this replication instance has changed.                                                                                                       |
-| Configuration Change | DMS-EVENT-0018 | The storage for the replication instance is being increased.                                                                                                                    |
-| Configuration Change | DMS-EVENT-0017 | The storage for the replication instance has been increased.                                                                                                                    |
-| Configuration Change | DMS-EVENT-0024 | The replication instance is transitioning to a Multi-AZ configuration.                                                                                                          |
-| Configuration Change | DMS-EVENT-0025 | The replication instance finished transitioning to a Multi-AZ configuration.                                                                                                    |
-| Configuration Change | DMS-EVENT-0030 | The replication instance is transitioning to a Single-AZ configuration.                                                                                                         |
-| Configuration Change | DMS-EVENT-0029 | The replication instance has finished transitioning to a Single-AZ configuration.                                                                                               |
-| Creation             | DMS-EVENT-0067 | A replication instance is being created.                                                                                                                                        |
-| Creation             | DMS-EVENT-0005 | A replication instance is created.                                                                                                                                              |
-| Deletion             | DMS-EVENT-0066 | The replication instance is being deleted.                                                                                                                                      |
-| Deletion             | DMS-EVENT-0003 | The replication instance is deleted.                                                                                                                                            |
-| Maintenance          | DMS-EVENT-0047 | Management software on the replication instance has been updated.                                                                                                               |
-| Maintenance          | DMS-EVENT-0026 | Offline maintenance of the replication instance is taking place. The replication instance is currently unavailable.                                                             |
-| Maintenance          | DMS-EVENT-0027 | Offline maintenance of the replication instance is complete. The replication instance is now available.                                                                         |
-| Maintenance          | DMS-EVENT-0068 | A replication instance is in a state that can't be upgraded.                                                                                                                    |
-| LowStorage           | DMS-EVENT-0007 | The replication instance has consumed more than 90% of its allocated storage. You can monitor the storage space for a replication instance using the Free Storage Space metric. |
-| Failover             | DMS-EVENT-0013 | Failover started for a Multi-AZ replication instance.                                                                                                                           |
-| Failover             | DMS-EVENT-0049 | Failover is complete for a Multi-AZ replication instance.                                                                                                                       |
-| Failover             | DMS-EVENT-0015 | Multi-AZ failover to standby is complete.                                                                                                                                       |
-| Failover             | DMS-EVENT-0050 | Multi-AZ activation has started.                                                                                                                                                |
-| Failover             | DMS-EVENT-0051 | Multi-AZ activation had completed.                                                                                                                                              |
-| Failover             | DMS-EVENT-0034 | If you request failover too frequently, this event occurs instead of regular failover events.                                                                                   |
-| Failure              | DMS-EVENT-0031 | The replication instance has gone into storage failure.                                                                                                                         |
-| Failure              | DMS-EVENT-0036 | The replication instance has failed due to an incompatible network.                                                                                                             |
-| Failure              | DMS-EVENT-0037 | The service can't access the AWS KMS key used to encrypt the data volume.                                                                                                       | The following table shows the possible categories and events for the replication task source type.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| Category             | DMS event ID   | Description                                                                                                                                                                     |
-| ---                  | ---            | ---                                                                                                                                                                             |
-| State Change         | DMS-EVENT-0069 | The replication task has started.                                                                                                                                               |
-| State Change         | DMS-EVENT-0081 | A reload of table details has been requested.                                                                                                                                   |
-| State Change         | DMS-EVENT-0079 | The replication task has stopped.                                                                                                                                               |
-| State Change         | DMS-EVENT-0091 | Reading paused, swap files limit reached.                                                                                                                                       |
-| State Change         | DMS-EVENT-0092 | Reading paused, disk usage limit reached.                                                                                                                                       |
-| State Change         | DMS-EVENT-0093 | Reading resumed.                                                                                                                                                                |
-| Failure              | DMS-EVENT-0078 | The replication task has failed.                                                                                                                                                |
-| Failure              | DMS-EVENT-0082 | A call to delete the task has failed to clean up task data.                                                                                                                     |
-| Configuration Change | DMS-EVENT-0080 | The replication task is modified.                                                                                                                                               |
-| Deletion             | DMS-EVENT-0073 | The replication task is deleted.                                                                                                                                                |
-| Creation             | DMS-EVENT-0074 | The replication task is created.                                                                                                                                                | The following table shows the possible categories and events for the premigration assessment source type.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| Category             | DMS event ID   | Description                                                                                                                                                                     |
-| ---                  | ---            | ---                                                                                                                                                                             |
-| State Change         | DMS-EVENT-0083 | The premigration assessment has started.                                                                                                                                        |
-| State Change         | DMS-EVENT-0084 | The premigration assessment has passed.                                                                                                                                         |
-| State Change         | DMS-EVENT-0085 | The premigration assessment has completed with failures.                                                                                                                        |
-| State Change         | DMS-EVENT-0086 | The premigration assessment has completed with warnings.                                                                                                                        |
-| State Change         | DMS-EVENT-0087 | The premigration assessment encountered and error while running.                                                                                                                |
-| State Change         | DMS-EVENT-0088 | The premigration assessment has been cancelled.                                                                                                                                 |
-| State Change         | DMS-EVENT-0089 | The premigration assessment has been deleted.                                                                                                                                   |
-| State Change         | DMS-EVENT-0090 | The premigration assessment encountered an error while provisioning resources.                                                                                                  | The following example shows an AWS DMS event subscription with the State Change category. `Resources: DMSEvent: Type: AWS::DMS::EventSubscription Properties: Enabled: true EventCategories: State Change SnsTopicArn: arn:aws:sns:us-east-1:123456789:testSNS SourceIds: [] SourceType: replication-task` ## Subscribing to AWS DMS event notification using SNS ###### Important Beginning with the release of AWS DMS 3.4.5 and with later versions, we recommend that you use Amazon EventBridge to provide notifications when an AWS DMS event occurs. For more information about using EventBridge events with AWS DMS, see [Working with Amazon EventBridge events and notifications in AWS Database Migration Service](CHAP_EventBridge.md "CHAP_EventBridge.md"). You can create an AWS DMS event notification subscription so you can be notified when an AWS DMS event occurs. The simplest way to create a subscription is with the AWS DMS console. In a notification subscription, you choose how and where to send notifications. You specify the type of source you want to be notified of; currently AWS DMS supports the replication instance and replication task source types. And, depending on the source type you select, you choose the event categories and identify the source you want to receive event notifications for. ### Using the AWS Management Console ###### Important Beginning with the release of AWS DMS 3.4.5 and with later versions, we recommend that you use Amazon EventBridge to provide notifications when an AWS DMS event occurs. For more information about using EventBridge events with AWS DMS, see [Working with Amazon EventBridge events and notifications in AWS Database Migration Service](CHAP_EventBridge.md "CHAP_EventBridge.md"). ###### To subscribe to AWS DMS event notification with Amazon SNS by using the console 1. Sign in to the AWS Management Console and open the AWS DMS console at [https://console.aws.amazon.com/dms/v2/](https://console.aws.amazon.com/dms/v2/ "https://console.aws.amazon.com/dms/v2/"). If you're signed in as an IAM user, make sure that you have the appropriate permissions to access AWS DMS. 2. In the navigation pane, choose **Event subscriptions**. 3. On the **Event subscriptions** page, choose **Create event subscription**. 4. On the **Create event subscription** page, do the following: 1. Under **Details**, for **Name**, enter a name for the event notification subscription. 2. Choose **Enabled** to enable the subscription. If you want to create the subscription but not have notifications sent yet, don't choose **Enabled**. 3. Under **Target**, choose either **Existing topics**, **Create new email topic** or **Create new SMS topic** to send notifications. Make sure that you either have an existing Amazon SNS topic to send notices to or create the topic. If you create a topic, you can enter an email address where notifications will be sent. 4. Under **Event source**, for **Source type**, choose a source type. The only options are **replication-instance** and **replication-task**. 5. Depending on the source type you selected, choose the event categories and sources you want to receive event notifications for. ![Console create event subscription](images/datarep-create-event-sub-consolev2.png) 6. Select **Create event subscription**. The AWS DMS console indicates that the subscription is being created. ###### Note You can also create Amazon SNS event notification subscriptions using the AWS DMS API and CLI. For more information, see the [CreateEventSubscription](../APIReference/API_CreateEventSubscription.md "../APIReference/API_CreateEventSubscription.md") in the _AWS DMS API Reference_ and [create-event-subscription](../../../cli/latest/reference/dms/create-event-subscription.md "../../../cli/latest/reference/dms/create-event-subscription.md") in the _AWS DMS CLI Reference_ documentation. ### Validating the access policy of your SNS topic Your SNS access policy requires permissions that allow AWS DMS to publish events to your SNS topic. You can validate and update your access policy as described in the following procedures. ###### To validate your access policy 1. Open the **Amazon SNS** console. 2. From the navigation panel, choose **Topics** and select the topic that you want to receive DMS notifications about. 3. Select the **Access policy** tab. You can update your policy if your SNS access policy doesn't allow AWS DMS to publish events to your SNS topic. ###### To update your access policy 1. From the **Details** section of your topic page, choose **Edit**. 2. Expand the **Access policy** section, and attach the following policy into the JSON editor. ``{ "Sid": "dms-allow-publish", "Effect": "Allow", "Principal": { "Service": "dms.amazonaws.com" }, "Action": "sns:Publish", "Resource": "`your-SNS-topic-ARN`" }`` We recommend that you further restrict the access to your SNS topic by specifying the `aws:SourceArn` condition, which is the DMS EventSubscription Arn that publishes events to the topic. ``... "Resource": "`your-SNS-topic-ARN`" "Condition": { "StringEquals": { "aws:SourceArn": "arn:`partition`:dms:`your-AWS-region`:`your-AWS-account-ID`:es:`your-dms-es-arn or *`" }`` 3. Choose **Save changes**. |
+| Category             | DMS event ID   | Description                                                                                                                                                                        |
+| -------------------- | -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Configuration Change | DMS-EVENT-0012 | The replication instance class for this replication instance is<br>being changed.                                                                                                  |
+| Configuration Change | DMS-EVENT-0014 | The replication instance class for this replication instance has<br>changed.                                                                                                       |
+| Configuration Change | DMS-EVENT-0018 | The storage for the replication instance is being increased.                                                                                                                       |
+| Configuration Change | DMS-EVENT-0017 | The storage for the replication instance has been increased.                                                                                                                       |
+| Configuration Change | DMS-EVENT-0024 | The replication instance is transitioning to a Multi-AZ<br>configuration.                                                                                                          |
+| Configuration Change | DMS-EVENT-0025 | The replication instance finished transitioning to a Multi-AZ<br>configuration.                                                                                                    |
+| Configuration Change | DMS-EVENT-0030 | The replication instance is transitioning to a Single-AZ<br>configuration.                                                                                                         |
+| Configuration Change | DMS-EVENT-0029 | The replication instance has finished transitioning to a Single-AZ<br>configuration.                                                                                               |
+| Creation             | DMS-EVENT-0067 | A replication instance is being created.                                                                                                                                           |
+| Creation             | DMS-EVENT-0005 | A replication instance is created.                                                                                                                                                 |
+| Deletion             | DMS-EVENT-0066 | The replication instance is being deleted.                                                                                                                                         |
+| Deletion             | DMS-EVENT-0003 | The replication instance is deleted.                                                                                                                                               |
+| Maintenance          | DMS-EVENT-0047 | Management software on the replication instance has been<br>updated.                                                                                                               |
+| Maintenance          | DMS-EVENT-0026 | Offline maintenance of the replication instance is taking place. The<br>replication instance is currently unavailable.                                                             |
+| Maintenance          | DMS-EVENT-0027 | Offline maintenance of the replication instance is complete. The<br>replication instance is now available.                                                                         |
+| Maintenance          | DMS-EVENT-0068 | A replication instance is in a state that can't be upgraded.                                                                                                                       |
+| LowStorage           | DMS-EVENT-0007 | The replication instance has consumed more than 90% of its allocated storage. You can<br>monitor the storage space for a replication instance using the Free Storage Space metric. |
+| Failover             | DMS-EVENT-0013 | Failover started for a Multi-AZ replication instance.                                                                                                                              |
+| Failover             | DMS-EVENT-0049 | Failover is complete for a Multi-AZ replication instance.                                                                                                                          |
+| Failover             | DMS-EVENT-0015 | Multi-AZ failover to standby is complete.                                                                                                                                          |
+| Failover             | DMS-EVENT-0050 | Multi-AZ activation has started.                                                                                                                                                   |
+| Failover             | DMS-EVENT-0051 | Multi-AZ activation had completed.                                                                                                                                                 |
+| Failover             | DMS-EVENT-0034 | If you request failover too frequently, this event occurs instead of<br>regular failover events.                                                                                   |
+| Failure              | DMS-EVENT-0031 | The replication instance has gone into storage failure.                                                                                                                            |
+| Failure              | DMS-EVENT-0036 | The replication instance has failed due to an incompatible<br>network.                                                                                                             |
+| Failure              | DMS-EVENT-0037 | The service can't access the AWS KMS key used to encrypt the data<br>volume.                                                                                                       |
+
+The following table shows the possible categories and events for the replication task
+source type.
+
+| Category             | DMS event ID   | Description                                                 |
+| -------------------- | -------------- | ----------------------------------------------------------- |
+| State Change         | DMS-EVENT-0069 | The replication task has started.                           |
+| State Change         | DMS-EVENT-0081 | A reload of table details has been requested.               |
+| State Change         | DMS-EVENT-0079 | The replication task has stopped.                           |
+| State Change         | DMS-EVENT-0091 | Reading paused, swap files limit reached.                   |
+| State Change         | DMS-EVENT-0092 | Reading paused, disk usage limit reached.                   |
+| State Change         | DMS-EVENT-0093 | Reading resumed.                                            |
+| Failure              | DMS-EVENT-0078 | The replication task has failed.                            |
+| Failure              | DMS-EVENT-0082 | A call to delete the task has failed to clean up task data. |
+| Configuration Change | DMS-EVENT-0080 | The replication task is modified.                           |
+| Deletion             | DMS-EVENT-0073 | The replication task is deleted.                            |
+| Creation             | DMS-EVENT-0074 | The replication task is created.                            |
+
+The following table shows the possible categories and events for the premigration
+assessment source type.
+
+| Category     | DMS event ID   | Description                                                                       |
+| ------------ | -------------- | --------------------------------------------------------------------------------- |
+| State Change | DMS-EVENT-0083 | The premigration assessment has started.                                          |
+| State Change | DMS-EVENT-0084 | The premigration assessment has passed.                                           |
+| State Change | DMS-EVENT-0085 | The premigration assessment has completed with failures.                          |
+| State Change | DMS-EVENT-0086 | The premigration assessment has completed with warnings.                          |
+| State Change | DMS-EVENT-0087 | The premigration assessment encountered and error while<br>running.               |
+| State Change | DMS-EVENT-0088 | The premigration assessment has been cancelled.                                   |
+| State Change | DMS-EVENT-0089 | The premigration assessment has been deleted.                                     |
+| State Change | DMS-EVENT-0090 | The premigration assessment encountered an error while provisioning<br>resources. |
+
+The following example shows an AWS DMS event subscription with the State Change
+category.
+
+```
+
+            Resources:
+                DMSEvent:
+                    Type: AWS::DMS::EventSubscription
+                    Properties:
+                        Enabled: true
+                        EventCategories: State Change
+                        SnsTopicArn: arn:aws:sns:us-east-1:123456789:testSNS
+                        SourceIds: []
+                        SourceType: replication-task
+
+```
+
+## Subscribing to AWS DMS event notification
+
+using SNS
+
+###### Important
+
+Beginning with the release of AWS DMS 3.4.5 and with later versions, we recommend
+that you use Amazon EventBridge to provide notifications when an AWS DMS event occurs. For more
+information about using EventBridge events with AWS DMS, see [Working with Amazon EventBridge events and notifications in AWS Database Migration Service](CHAP_EventBridge.md "CHAP_EventBridge.md").
+
+You can create an AWS DMS event notification subscription so you can be notified when an
+AWS DMS event occurs. The simplest way to create a subscription is with the AWS DMS console.
+In a notification subscription, you choose how and where to send notifications. You
+specify the type of source you want to be notified of; currently AWS DMS supports the
+replication instance and replication task source types. And, depending on the source
+type you select, you choose the event categories and identify the source you want to
+receive event notifications for.
+
+### Using the AWS Management Console
+
+###### Important
+
+Beginning with the release of AWS DMS 3.4.5 and with later versions, we
+recommend that you use Amazon EventBridge to provide notifications when an AWS DMS event
+occurs. For more information about using EventBridge events with AWS DMS, see [Working with Amazon EventBridge events and notifications in AWS Database Migration Service](CHAP_EventBridge.md "CHAP_EventBridge.md").
+
+###### To subscribe to AWS DMS event notification with Amazon SNS by using the
+
+console
+
+1. Sign in to the AWS Management Console and open the AWS DMS console at [https://console.aws.amazon.com/dms/v2/](https://console.aws.amazon.com/dms/v2/ "https://console.aws.amazon.com/dms/v2/").
+
+If you're signed in as an IAM user, make sure that you have the
+appropriate permissions to access AWS DMS. 2. In the navigation pane, choose **Event subscriptions**. 3. On the **Event subscriptions** page, choose
+**Create event subscription**. 4. On the **Create event subscription** page, do the
+following:
+
+    1. Under **Details**, for **Name**,
+     enter a name for the event notification subscription.
+    2. Choose **Enabled** to enable the subscription. If
+     you want to create the subscription but not have notifications sent
+     yet, don't choose **Enabled**.
+    3. Under **Target**, choose either
+     **Existing topics**, **Create new email
+     topic** or **Create new SMS topic** to
+     send notifications. Make sure that you either have an existing Amazon SNS
+     topic to send notices to or create the topic. If you create a topic,
+     you can enter an email address where notifications will be
+     sent.
+    4. Under **Event source**, for **Source
+     type**, choose a source type. The only options are
+     **replication-instance** and
+     **replication-task**.
+    5. Depending on the source type you selected, choose the event
+     categories and sources you want to receive event notifications
+     for.
+
+
+
+    ![Console create event subscription](images/datarep-create-event-sub-consolev2.png)
+    6. Select **Create event subscription**.
+
+The AWS DMS console indicates that the subscription is being created.
+
+###### Note
+
+You can also create Amazon SNS event notification subscriptions using the AWS DMS API
+and CLI. For more information, see the [CreateEventSubscription](../APIReference/API_CreateEventSubscription.md "../APIReference/API_CreateEventSubscription.md") in the _AWS DMS API
+Reference_ and [create-event-subscription](../../../cli/latest/reference/dms/create-event-subscription.md "../../../cli/latest/reference/dms/create-event-subscription.md") in the _AWS DMS CLI
+Reference_ documentation.
+
+### Validating the access policy of
+
+your SNS topic
+
+Your SNS access policy requires permissions that allow AWS DMS to publish events to
+your SNS topic. You can validate and update your access policy as described in the
+following procedures.
+
+###### To validate your access policy
+
+1. Open the **Amazon SNS** console.
+2. From the navigation panel, choose **Topics** and select
+   the topic that you want to receive DMS notifications about.
+3. Select the **Access policy** tab.
+
+You can update your policy if your SNS access policy doesn't allow AWS DMS to
+publish events to your SNS topic.
+
+###### To update your access policy
+
+1. From the **Details** section of your topic page, choose
+   **Edit**.
+2. Expand the **Access policy** section, and attach the
+   following policy into the JSON editor.
+
+```
+{
+      "Sid": "dms-allow-publish",
+      "Effect": "Allow",
+      "Principal": {
+        "Service": "dms.amazonaws.com"
+      },
+      "Action": "sns:Publish",
+      "Resource": "`your-SNS-topic-ARN`"
+    }
+
+```
+
+We recommend that you further restrict the access to your SNS topic by
+specifying the `aws:SourceArn` condition, which is the DMS
+EventSubscription Arn that publishes events to the topic.
+
+```
+...
+"Resource": "`your-SNS-topic-ARN`"
+"Condition": {
+    "StringEquals": {
+       "aws:SourceArn": "arn:`partition`:dms:`your-AWS-region`:`your-AWS-account-ID`:es:`your-dms-es-arn or *`"
+ }
+
+```
+
+3. Choose **Save changes**.

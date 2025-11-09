@@ -1,287 +1,334 @@
-# Set up replication for AWS Database Migration Service
+# Complete prerequisites to set up AWS Database Migration Service
 
-In this topic, you set up replication between the source and target databases.
+In this section, you can learn the prerequisite tasks for AWS DMS, such as setting up
+your source and target databases. As part of these tasks, you also set up a virtual private
+cloud (VPC) based on the Amazon VPC service to contain your resources. In addition, you set up an
+Amazon EC2 instance that you use to populate your source database and verify replication on your
+target database.
 
-## Step 1: Create a replication instance
+###### Note
 
-using the AWS DMS console
+Populating the source database takes up to 45 minutes.
 
-To start work with AWS DMS, create a replication instance.
+For this tutorial, you create a MariaDB database as your source, and a PostgreSQL database
+as your target. This scenario uses commonly used, low-cost database engines to demonstrate
+replication. Using different database engines demonstrates AWS DMS features for migrating data
+between heterogeneous platforms.
 
-A _replication instance_ performs the actual data
-migration between source and target endpoints. Your instance needs enough storage and
-processing power to perform the tasks that migrate data from your source database to
-your target database. How large this replication instance should be depends on the
-amount of data to migrate and the tasks your instance needs to do. For more information
-about replication instances, see [Working with an AWS DMS replication
-instance](CHAP_ReplicationInstance.md "CHAP_ReplicationInstance.md").
+The resources in this tutorial use the US West (Oregon) Region. If you want to use a
+different AWS Region, specify your chosen Region instead wherever US West (Oregon)
+appears.
 
-![Create replication instance](images/datarep-create-replication-30.png)
+###### Note
 
-###### To create a replication instance using the console
+For the sake of simplicity, the databases that you create for this tutorial don't use
+encryption or other advanced security features. You must use security features to keep
+your production databases secure. For more information, see [Security in Amazon
+RDS](../../../AmazonRDS/latest/UserGuide/UsingWithRDS.md "../../../AmazonRDS/latest/UserGuide/UsingWithRDS.md").
 
-1. Sign in to the AWS Management Console and open the AWS DMS console at [https://console.aws.amazon.com/dms/v2/](https://console.aws.amazon.com/dms/v2/ "https://console.aws.amazon.com/dms/v2/").
-2. On the navigation pane, choose **Replication instances**, and
-   then choose **Create replication instance**.
-3. On the **Create replication instance** page, specify your
-   replication instance configuration:
-   1. For **Name**, enter `DMS-instance`.
-   2. For **Description**, enter a short description for your replication
-      instance (optional).
-   3. For **Instance class**, leave **dms.t3.medium** chosen.
+For prerequisite steps, see the following topics.
 
-   The instance needs enough storage, networking, and processing power
-   for your migration. For more information about how to choose an instance
-   class, see [Choosing the right AWS DMS
-   replication instance for your migration](CHAP_ReplicationInstance.md "CHAP_ReplicationInstance.md"). 4. For **Engine version**, accept the default. 5. For **Multi AZ**, choose **Dev or test workload (Single-AZ)**. 6. For **Allocated storage (GiB)**, accept the default of 50 GiB.
+###### Topics
 
-   In AWS DMS, storage is mostly used by log files and cached transactions.
-   For cache transactions, storage is used only when the cached
-   transactions need to be written to disk. As a result, AWS DMS doesn't use
-   a significant amount of storage. 7. For **Network type** choose **IPv4**. 8. For **VPC**, choose **DMSVPC**. 9. For **Replication subnet group**, leave the replication subnet group
-   currently chosen. 10. Clear **Publicly accessible**.
+- [Create a VPC](#CHAP_GettingStarted.Prerequisites.VPC "#CHAP_GettingStarted.Prerequisites.VPC")
+- [Create Amazon RDS parameter groups](#CHAP_GettingStarted.Prerequisites.params "#CHAP_GettingStarted.Prerequisites.params")
+- [Create your source Amazon RDS
+  database](#CHAP_GettingStarted.Prerequisites.sdatabase "#CHAP_GettingStarted.Prerequisites.sdatabase")
+- [Create your target Amazon RDS database](#CHAP_GettingStarted.Prerequisites.tdatabase "#CHAP_GettingStarted.Prerequisites.tdatabase")
+- [Create an Amazon EC2 client](#CHAP_GettingStarted.Prerequisites.client "#CHAP_GettingStarted.Prerequisites.client")
+- [Populate your source database](#CHAP_GettingStarted.Prerequisites.Populate "#CHAP_GettingStarted.Prerequisites.Populate")
 
-4. Choose the **Advanced security and network configuration**
-   tab to set values for network and encryption settings if you need them:
-   1. For **Availability zone**, choose **us-west-2a**.
-   2. For **VPC security group(s)**, choose the **Default**
-      security group if it isn't already chosen.
-   3. For **AWS KMS key**, leave **(Default) aws/dms** chosen.
+## Create a VPC
 
-5. Leave the settings on the **Maintenance** tab as they are.
-   The default is a 30-minute window selected at random from an 8-hour block of
-   time for each AWS Region, occurring on a random day of the week.
-6. Choose **Create**.
+In this section, you create a VPC to contain your AWS resources. Using a VPC is a
+best practice when using AWS resources, so that your databases, Amazon EC2 instances,
+security groups, and so on, are logically organized and secure.
 
-AWS DMS creates a replication instance to perform your migration.
+Using a VPC for your tutorial resources also ensures that you delete all of the
+resources you use when you are done with the tutorial. You must delete all of the
+resources that a VPC contains before you can delete the VPC.
 
-## Step 2: Specify source and target endpoints
+###### To create a VPC for use with AWS DMS
 
-While your replication instance is being created, you can specify the source and
-target data store endpoints for the Amazon RDS databases you created previously. You create each endpoint separately.
+1.  Sign in to the AWS Management Console and open the Amazon VPC console at
+    [https://console.aws.amazon.com/vpc/](https://console.aws.amazon.com/vpc/ "https://console.aws.amazon.com/vpc/").
+2.  On the navigation pane, choose **VPC Dashboard**, and then choose
+    **Create VPC**.
+3.  On the **Create VPC** page, enter the following
+    options:
 
-![Create endpoint](images/datarep-create-endpoint-30.png)
+        * **Resources to create**: **VPC and more**
+        * **Name tag auto generation**: Choose **Auto-generate**,
+         and enter `DMSVPC`.
+        * **IPv4 block**: `10.0.1.0/24`
+        * **IPv6 CIDR block**: **No IPv6 CIDR block**
+        * **Tenancy**: **Default**
+        * **Number of availability zones**: 2
+        * **Number of public subnets**: 2
+        * **Number of private subnets**: 2
+        * **NAT gateways ($)**: **None**
+        * **VPC endpoints**: **None**
 
-###### To specify a source endpoint and database endpoint using the AWS DMS
+    Choose **Create VPC**.
 
-console
+4.  On the navigation pane, choose **Your VPCs**. Note the VPC ID for
+    **DMSVPC**.
+5.  On the navigation pane, choose **Security Groups**.
+6.  Choose the group named **default** that has a **VPC ID**
+    that matches the ID that you noted for **DMSVPC**.
+7.  Choose the **Inbound rules** tab, and choose **Edit inbound
+    rules**.
+8.  Choose **Add rule**. Add a rule of type **MySQL/Aurora** and
+    choose **Anywhere-IPv4** for **Source**.
+9.  Choose **Add rule** again. Add a rule of type **PostgreSQL**
+    and choose **Anywhere-IPv4** for **Source**.
+10. Choose **Save rules**.
 
-1. On the console, choose **Endpoints** from the navigation pane
-   and then choose **Create Endpoint**.
-2. On the **Create endpoint** page, choose the
-   **Source** endpoint type. Select the **Select RDS
-   DB instance** box, and choose the **dms-mariadb**
-   instance.
-3. In the **Endpoint configuration** section, enter `dms-mysql-source`
-   for **Endpoint identifier**.
-4. For **Source engine**, leave **MySQL** chosen.
-5. For **Access to endpoint database**, choose **Provide access information manually**.
-   Verify that the **Port**, **Secure Socket Layer (SSL) mode**, **User name**,
-   and **Password** are correct.
-6. Choose the **Test endpoint connection (optional)** tab. For
-   **VPC**, choose **DMSVPC**.
-7. For **Replication instance**, leave **dms-instance** chosen.
-8. Choose **Run test**.
+## Create Amazon RDS parameter groups
 
-After you choose **Run test**, AWS DMS creates the endpoint
-with the details that you provided and connects to it. If the connection fails,
-edit the endpoint definition and test the connection again. You can also delete
-the endpoint manually. 9. After you have a successful test, choose **Create
-endpoint**. 10. Specify a target database endpoint using the AWS DMS console. To do this, repeat
-the steps preceding, with the following settings:
+To specify settings for your source and target databases for AWS DMS, use Amazon RDS
+parameter groups. To allow initial and ongoing replication between your databases, make
+sure to configure the following:
 
-    * **Endpoint type**: **Target endpoint**
-    * **RDS Instance**: **dms-postgresql**
-    * **Endpoint identifier**: `dms-postgresql-target`
-    * **Target engine**: Leave `PostgreSQL` chosen.
+- Your source database's binary log, so that AWS DMS can determine what incremental updates it
+  needs to replicate.
+- Your target database's replication role, so that AWS DMS ignores foreign key constraints during
+  the initial data transfer. With this setting, AWS DMS can migrate data out of
+  order.
 
-When you're finished providing all information for your endpoints, AWS DMS creates
-your source and target endpoints for use during database migration.
+###### To create parameter groups for use with AWS DMS
 
-## Step 3: Create a task and migrate data
+1. Open the Amazon RDS console at
+   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
+2. On the navigation pane, choose **Parameter groups**.
+3. On the **Parameter groups** page, choose **Create parameter group**.
+4. On the **Create parameter group** page, enter the following settings:
+   - **Parameter group family**: **mariadb10.6**
+   - **Group name**: `dms-mariadb-parameters`
+   - **Description**: `Group for specifying binary log settings for replication`Choose **Create**.
 
-In this step, you create a task to migrate data between the databases you created.
+5. On the **Parameter groups** page, choose
+   **dms-mariadb-parameters**, and on the
+   **dms-mariadb-parameters** page, choose **Edit**.
+6. Set the following parameters to the following values:
+   - **binlog_checksum**: **NONE**
+   - **binlog_format**: **ROW**Choose **Save changes**.
 
-![Create migration task](images/datarep-create-task-20.png)
+7. On the **Parameter groups** page, choose **Create parameter group** again.
+8. On the **Create parameter group** page, enter the following settings:
+   - **Parameter group family**: **postgres16**
+   - **Group name**: `dms-postgresql-parameters`
+   - **Description**: `Group for specifying role setting for replication`Choose **Create**.
 
-###### To create a migration task and start your database migration
+9. On the **Parameter groups** page, choose **dms-postgresql-parameters**.
+10. On the **dms-postgresql-parameters** page, choose **Edit**,
+    and set **session_replication_role
+    parameter** to **replica**. Note that the **session_replication_role** parameter is not on the first page of parameters. Use the pagination controls or the search
+    field to find the parameter.
+11. Choose **Save changes**.
 
-1. In the console navigation pane, choose **Database migration
-   tasks**, and then choose **Create task**. The
-   **Create database migration task** page opens.
-2. In the **Task configuration** section, specify the following
-   task options:
-   - **Task identifier**: Enter
-     `dms-task`.
-   - **Replication instance**:
-     Choose your replication instance (**dms-instance-vpc-`<vpc id>`**).
-   - **Source database endpoint**:
-     Choose **dms-mysql-source**.
-   - **Target database endpoint**:
-     Choose **dms-postgresql-target**.
-   - **Migration type**: Choose **Migrate existing data and
-     replicate on-going changes**.
+## Create your source Amazon RDS
 
-3. Choose the **Task settings** tab. Set the following settings:
-   - **Target table preparation mode**: **Do nothing**
-   - **Stop task after full load completes**: **Don't stop**
+database
 
-4. Choose the **Table mappings** tab, and expand **Selection rules**. Choose
-   **Add new selection rule**. Set the following settings:
-   - **Schema**: **Enter a schema**
-   - **Schema name**: `dms_sample`
+Use the following procedure to create your source Amazon RDS database.
 
-5. Choose the **Migration task startup configuration** tab, and
-   then choose **Automatically on create**.
-6. Choose **Create task**.
+###### To create your source Amazon RDS for MariaDB database
 
-AWS DMS then creates the migration task and starts it. The initial database replication
-takes about 10 minutes. Make sure to do the next step in the tutorial before AWS DMS
-finishes migrating the data.
+1. Open the Amazon RDS console at
+   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
+2. On the **Dashboard** page, choose **Create Database** in the
+   **Database** section. Don't choose **Create
+   Database** in the **Try the new Amazon RDS Multi-AZ deployment option for MySQL and PostgreSQL** section at the
+   top of the page.
+3. On the **Create database** page, set the following options:
+   - **Choose a database creation method**: Choose **Standard Create**.
+   - **Engine options**: For **Engine type**, choose
+     **MariaDB**. For **Version**, leave **MariaDB 10.6.14** selected.
+   - **Templates**: Choose **Dev/Test**.
+   - **Settings**:
+     - **DB instance identifier**: Enter `dms-mariadb`.
+     - In the **Credentials settings** section, enter the following:
+       - **Master username**: Leave as `admin`.
+       - Leave **Manage master credentials in AWS Secrets Manager** unchecked.
+       - **Auto generate a password**: Leave unselected.
+       - **Master password**: Enter `changeit`.
+       - **Confirm password**: Enter `changeit` again.
 
-## Step 4: Test replication
+   - **Instance configuration**:
+     - **DB instance class**: Leave **Standard classes** chosen.
+     - For **DB instance class**, choose **db.m5.large**.
 
-In this section, you insert data into the source database during and after initial replication, and query the target
-database for the inserted data.
+   - **Storage**:
+     - Clear the **Enable storage autoscaling** box.
+     - Leave the rest of the settings as they are.
 
-###### To test replication
+   - **Availability and Durability**: Leave
+     **Do not create a standby instance** selected.
+   - **Connectivity**:
+     - **Compute resource** Leave **Don't connect to an EC2 compute resource**
+     - **Network type**: Leave **IPv4** selected.
+     - **Virtual private cloud**: **DMSVPC-vpc**
+     - **Public access**: **Yes**. You must enable public access to use the
+       AWS Schema Conversion Tool.
+     - **Availability zone**: **us-west-2a**
+     - Leave the rest of the settings as they are.
 
-1. Make sure that your database migration task shows a status of **Running** but
-   your initial database replication, started in the previous step, isn't
-   complete.
-2. Connect to your Amazon EC2 client, and start the MySQL client
-   with the following command. Provide your MySQL database endpoint.
+   - **Database authentication**: Leave **Password authentication** selected.
+   - Under **Monitoring**, clear the **Turn on Performance Insights** box.
+     Expand the **Additional configuration** section, and clear the **Enable Enhanced monitoring**
+     box.
+   - Expand **Additional configuration**:
+     - Under **Database options**, enter `dms_sample` for **Initial database name**.
+     - Under **DB parameter group**, choose **dms-mariadb-parameters**.
+     - For **Option group**, leave **default:mariadb-10-6** selected.
+     - Under **Backup**, do the following:
+       - Leave **Enable automatic backups**
+         selected. Your source database must have automatic backups
+         enabled to support ongoing replication.
+       - For **Backup retention period**, choose **1 day**.
+       - For **Backup window**, leave **No preference** selected.
+       - Clear the **Copy tags to snapshots** box.
+       - Leave the **Enable replication in another AWS region** unchecked.
+
+     - Under **Encryption**, clear the **Enable encryption**
+       box.
+     - Leave the **Log exports** section as it is.
+     - Under **Maintenance**, clear the **Enable auto minor version
+       upgrade** box, and leave the **Maintenance window** setting
+       as **No preference**.
+     - Leave **Enable deletion protection** unchecked.
+
+4. Choose **Create database**.
+
+## Create your target Amazon RDS database
+
+Repeat the previous procedure to create your target Amazon RDS database, with the following
+changes.
+
+###### To create your target RDS for PostgreSQL database
+
+1. Repeat steps 1 and 2 from the previous procedure.
+2. On the **Create database** page, set the same options, except
+   for these:
+   1. For **Engine options**, choose **PostgreSQL**.
+   2. For **Version**, choose an available **PostgreSQL 16**
+      version
+   3. For **DB instance identifier**, enter `dms-postgresql`.
+   4. For **Master username**, leave `postgres` selected.
+   5. For **DB parameter group**, choose **dms-postgresql-parameters**.
+   6. Clear **Enable automatic backups**.
+
+3. Choose **Create database**.
+
+## Create an Amazon EC2 client
+
+In this section, you create an Amazon EC2 client. You use this client to populate your
+source database with data to replicate. You also use this client to verify replication
+by running queries on the target database.
+
+Using an Amazon EC2 client to access your databases provides the following advantages over
+accessing your databases over the internet:
+
+- You can restrict access to your databases to clients that are in the same VPC.
+- We have confirmed that the tools you use in this tutorial work, and are easy to install, on
+  Amazon Linux 2023, which we recommend for this tutorial.
+- Data operations between components in a VPC generally perform better than those over the
+  internet.
+
+###### To create and configure an Amazon EC2 client to populate your source database
+
+1.  Open the Amazon EC2 console at
+    [https://console.aws.amazon.com/ec2/](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
+2.  On the **Dashboard**, choose **Launch instance**.
+3.  On the **Launch an Instance** page, enter the following values:
+    1.  In the **Name and tags** section, enter `DMSClient` for **Name**.
+    2.  In the **Application and OS Images (Amazon Machine Image)** section, leave the settings as they are.
+    3.  In the **Instance Type** section, choose **t2.xlarge**.
+    4.  In the **Key pair (login)** section, choose **Create a new key pair**.
+    5.  On the **Create key pair** page, enter the following:
+
+            * **Key pair name**: `DMSKeyPair`
+            * **Key pair type**: Leave as **RSA**.
+            * **Private key file format**: Choose
+             **pem** for OpenSSH on MacOS or Linux, or **ppk** for PuTTY on Windows.
+
+        Save the key file when prompted.
+
+    ###### Note
+
+    You can also use an existing Amazon EC2 key pair rather than creating a new one. 6. In the **Network Settings** section, choose **Edit**. Choose the following settings:
+
+        * **VPC - *required***: Choose the VPC with the ID that you recorded for the
+         **DMSVPC-vpc** VPC.
+        * **Subnet**: Choose the first public subnet.
+        * **Auto-assign public IP**: Choose **Enable**.
+
+    Leave the rest of the settings as they are, and choose **Launch instance**.
+
+## Populate your source database
+
+In this section, you find endpoints for your source and target databases for later
+use and use the following tools to populate the source database:
+
+- Git, to download the script that populates your source database.
+- MariaDB client, to run this script.
+
+### Get endpoints
+
+Find and note the endpoints of your RDS for MariaDB and RDS for PostgreSQL DB instances for
+later use.
+
+###### To find your DB instance endpoints
+
+1. Sign in to the AWS Management Console and open the Amazon RDS console at
+   [https://console.aws.amazon.com/rds/](https://console.aws.amazon.com/rds/ "https://console.aws.amazon.com/rds/").
+2. On the navigation pane, choose **Databases**.
+3. Choose the **dms-mariadb** database, and note the **Endpoint**
+   value for the database.
+4. Repeat the previous steps for the **dms-postgresql** database.
+
+### Populate your source
+
+database
+
+Next, connect to your client instance, install the necessary software,
+download AWS sample database scripts from Git, and run the scripts to populate
+your source database.
+
+###### To populate your source database
+
+1. Connect to the client instance using the host name and public key that you saved in previous
+   steps.
+
+For more information on connecting to an Amazon EC2 instance, see [Accessing
+Instances](../../../AWSEC2/latest/UserGuide/AccessingInstances.md "../../../AWSEC2/latest/UserGuide/AccessingInstances.md") in the _Amazon EC2 User Guide_.
+
+###### Note
+
+If you are using PuTTY, enable TCP keepalives on the **Connection** settings
+page so that your connection doesn't time out from inactivity. 2. Install Git, MariaDB, and PostgreSQL. Confirm installation as needed.
 
 ```
-mysql -h dms-mysql.`abcdefg12345`.us-west-2.rds.amazonaws.com -P 3306 -u admin -pchangeit dms_sample
+$ sudo yum install git
+$ sudo dnf install mariadb105
+$ sudo dnf install postgresql15
 ```
 
-3. Run the following command to insert a record into the source database.
+3. Run the following command to download the database creation scripts from GitHub.
 
 ```
-MySQL [dms_sample]> insert person (full_name, last_name, first_name) VALUES ('Test User1', 'User1', 'Test');
-Query OK, 1 row affected (0.00 sec)
+git clone https://github.com/aws-samples/aws-database-migration-samples.git
 ```
 
-4. Exit the MySQL client.
+4. Change to the `aws-database-migration-samples/mysql/sampledb/v1/` directory.
+5. Run the following command. Provide the endpoint for your source RDS instance that you noted
+   previously, for example
+   `dms-mariadb.cdv5fbeyiy4e.us-east-1.rds.amazonaws.com`.
 
 ```
-MySQL [dms_sample]> exit
-Bye
+mysql -h dms-mariadb.`abcdefghij01`.us-east-1.rds.amazonaws.com -P 3306 -u admin -p dms_sample < ~/aws-database-migration-samples/mysql/sampledb/v1/install-rds.sql
 ```
 
-5. Before replication completes, query the target database for the new record.
-
-From the Amazon EC2 instance, connect to the target database using the following
-command, providing your target database endpoint.
-
-```
-psql \
-   --host=dms-postgresql.`abcdefg12345`.us-west-2.rds.amazonaws.com \
-   --port=5432 \
-   --username=postgres \
-   --password \
-   --dbname=dms_sample
-```
-
-Provide the password (`changeit`) when prompted. 6. Before replication completes, query the target database for the new record.
-
-```
-dms_sample=> select * from dms_sample.person where first_name = 'Test';
- id | full_name | last_name | first_name
-----+-----------+-----------+------------
-(0 rows)
-```
-
-7.  While your migration task is running, you can monitor the progress of your database migration
-    as it happens:
-
-        * In the DMS console navigation pane, choose **Database migration
-         tasks**.
-        * Choose **dms-task**.
-        * Choose **Table statistics**.
-
-    For more information about monitoring, see [Monitoring AWS DMS tasks](CHAP_Monitoring.md "CHAP_Monitoring.md").
-
-8.  After replication completes, query the target database again for the new record. AWS DMS migrates the new record after
-    initial replication completes.
-
-```
-dms_sample=> select * from dms_sample.person where first_name = 'Test';
-   id    | full_name  | last_name | first_name
----------+------------+-----------+------------
- 7077784 | Test User1 | User1     | Test
-(1 row)
-
-```
-
-9. Exit the psql client.
-
-```
-dms_sample=> quit
-```
-
-10. Repeat step 1 to connect to the source database again.
-11. Insert another record into the `person` table.
-
-```
-MySQL [dms_sample]> insert person (full_name, last_name, first_name) VALUES ('Test User2', 'User2', 'Test');
-Query OK, 1 row affected (0.00 sec)
-```
-
-12. Repeat steps 3 and 4 to disconnect from the source database and connect to the target database.
-13. Query the target database for the replicated data again.
-
-```
-dms_sample=> select * from dms_sample.person where first_name = 'Test';
-   id    | full_name  | last_name | first_name
----------+------------+-----------+------------
- 7077784 | Test User1 | User1     | Test
- 7077785 | Test User2 | User2     | Test
-(2 rows)
-```
-
-## Step 5: Clean up AWS DMS resources
-
-After you complete the getting started tutorial, you can delete the resources you
-created. You can use the AWS console to remove them. Make sure to delete the migration
-tasks before deleting the replication instance and endpoints.
-
-###### To delete a migration task using the console
-
-1. On the AWS DMS console navigation pane, choose **Database migration
-   tasks**.
-2. Choose **dms-task**.
-3. Choose **Actions**, **Delete**.
-
-###### To delete a replication instance using the console
-
-1. On the AWS DMS console navigation pane, choose **Replication
-   instances**.
-2. Choose **DMS-instance**.
-3. Choose **Actions**, **Delete**.
-
-AWS DMS deletes the replication instance and removes it from the **Replication instances** page.
-
-###### To remove endpoints using the console
-
-1. On the AWS DMS console navigation pane, choose
-   **Endpoints**.
-2. Choose **dms-mysql-source**.
-3. Choose **Actions**, **Delete**.
-
-After you delete your AWS DMS resources, make sure also to delete the following
-resources. For help with deleting resources in other services, see each service's
-documentation.
-
-- Your RDS databases.
-- Your RDS database parameter groups.
-- Your RDS subnet groups.
-- Any Amazon CloudWatch logs that were created along with your databases and replication instance.
-- Security groups that were created for your Amazon VPC and Amazon EC2 client. Make sure to remove the
-  inbound rule from **Default** for the
-  **launch-wizard-1** security groups, which is necessary for
-  you to be able delete them.
-- Your Amazon EC2 client.
-- Your Amazon VPC.
-- Your Amazon EC2 key pair for your Amazon EC2 client.
+6. Let the database creation script run. The script takes up to 45 minutes to create the schema and populate
+   the data. You can safely ignore errors and warnings that the script displays.

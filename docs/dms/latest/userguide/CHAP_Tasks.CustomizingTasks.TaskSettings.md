@@ -1,95 +1,171 @@
-# Data
+# Target
 
-resync settings
+metadata task settings
 
-The Data resync feature allows you to resync target database with your source
-database based on data validation report. For more information, see [AWS DMS data
-validation](CHAP_Validating.md "CHAP_Validating.md").
+Target metadata settings include the following. For information about how to use a task configuration file to set task settings, see [Task settings example](CHAP_Tasks.CustomizingTasks.md#CHAP_Tasks.CustomizingTasks.TaskSettings.Example "CHAP_Tasks.CustomizingTasks.md#CHAP_Tasks.CustomizingTasks.TaskSettings.Example").
 
-You can add additional parameters for `ResyncSettings` in the
-`ReplicationTaskSettings` endpoint that configures the resync
-process. For more information, see [Task settings example](CHAP_Tasks.CustomizingTasks.md#CHAP_Tasks.CustomizingTasks.TaskSettings.Example "CHAP_Tasks.CustomizingTasks.md#CHAP_Tasks.CustomizingTasks.TaskSettings.Example") in the [Specifying task settings for AWS Database Migration Service
-tasks](CHAP_Tasks.CustomizingTasks.md "CHAP_Tasks.CustomizingTasks.md").
+- `TargetSchema` – The target table schema name. If
+  this metadata option is empty, the schema from the source table is used.
+  AWS DMS automatically adds the owner prefix for the target database to all
+  tables if no source schema is defined. This option should be left empty
+  for MySQL-type target endpoints. Renaming a schema in data mapping takes
+  precedence over this setting.
+- LOB settings – Settings that determine how large objects (LOBs)
+  are managed. If you set `SupportLobs=true`, you must set one
+  of the following to `true`:
 
-###### Note
+      + `FullLobMode` – If you set this option to
+       `true`, then you must enter a value for the
+       `LobChunkSize` option. Enter the size, in kilobytes,
+       of the LOB chunks to use when replicating the data to the target.
+       The `FullLobMode` option works best for very large LOB
+       sizes but tends to cause slower loading. The recommended value for
+       `LobChunkSize` is 64 kilobytes. Increasing the value
+       for `LobChunkSize` above 64 kilobytes can cause task
+       failures.
+      + `InlineLobMaxSize` – This value determines
+       which LOBs AWS DMS transfers inline during a full load.
+       Transferring small LOBs is more efficient than looking them up
+       from a source table. During a full load, AWS DMS checks all
+       LOBs and performs an inline transfer for the LOBs that are
+       smaller than `InlineLobMaxSize`. AWS DMS transfers
+       all LOBs larger than the `InlineLobMaxSize` in
+       `FullLobMode`. The default value for
+       `InlineLobMaxSize` is 0 and the range is 1
+       –102400 kilobytes (100 MB). Set a value for
+       `InlineLobMaxSize` only if you know that most of
+       the LOBs are smaller than the value specified in
+       `InlineLobMaxSize`.
+      + `LimitedSizeLobMode` – If you set this
+       option to `true`, then you must enter a value for the
+       `LobMaxSize` option. Enter the maximum size, in
+       kilobytes, for an individual LOB. The maximum value for
+       `LobMaxSize` is 102400 kilobytes (100 MB).
 
-`ResyncSchedule` and `MaxResyncTime` parameters are
-required if the resync process is enabled and the task has a CDC component. They
-are not valid for full-load only tasks.
+  For more information about the criteria for using these task LOB
+  settings, see [Setting LOB support for source databases in
+  an AWS DMS task](CHAP_Tasks.md "CHAP_Tasks.md"). You can also control the
+  management of LOBs for individual tables. For more information, see
+  [Table and collection settings rules and operations](CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.md "CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.md").
 
-The Data resync parameter settings and values are as follows:
+- `BatchApplyEnabled` – Determines if each transaction
+  is applied individually or if changes are committed in batches. The
+  default value is `false`.
 
-`**EnableResync**`
+When `BatchApplyEnabled` is set to `true`, DMS
+requires a Primary Key (PK) or Unique Key (UK) on the **source** table(s). Without a PK or UK on source tables, only
+batch inserts are applied but not batch updates and deletes.
 
-Enables Data resync feature when set to `true`. By default,
-Data resync is disabled.
+When `BatchApplyEnabled` is set to `true`, AWS DMS
+generates an error message if a **target**
+table has a unique constraint and a primary key. Target tables with both a
+unique constraint and primary key aren't supported when
+`BatchApplyEnabled` is set to `true`.
 
-**Datatype**: Boolean
+When `BatchApplyEnabled` is set to true and AWS DMS encounters
+a data error from a table with the default error-handling policy, the
+AWS DMS task switches from batch mode to one-by-one mode for the rest of
+the tables. To alter this behavior, you can set the
+`"SUSPEND_TABLE"` action on the following policies in the
+`"ErrorBehavior"` group property of the task settings
+JSON file:
 
-**Required**: No
+    + `DataErrorPolicy`
+    + `ApplyErrorDeletePolicy`
+    + `ApplyErrorInsertPolicy`
+    + `ApplyErrorUpdatePolicy`
 
-**Default**: `false`
+For more information on this `"ErrorBehavior"` group
+property, see the example task settings JSON file in [Specifying task settings
+for AWS Database Migration Service tasks](CHAP_Tasks.CustomizingTasks.md "CHAP_Tasks.CustomizingTasks.md"). After
+setting these policies to `"SUSPEND_TABLE"`, the AWS DMS task
+then suspends data errors on any tables that raise them and continues in
+batch mode for all tables.
 
-**Validation**: Should not be null if
-`ResyncSettings` parameter is present in
-`TaskSettings`.
+You can use the `BatchApplyEnabled` parameter with the
+`BatchApplyPreserveTransaction` parameter. If
+`BatchApplyEnabled` is set to `true`, then the
+`BatchApplyPreserveTransaction` parameter determines the
+transactional integrity.
 
-`**ResyncSchedule**`
+If `BatchApplyPreserveTransaction` is set to
+`true`, then transactional integrity is preserved and a
+batch is guaranteed to contain all the changes within a transaction from
+the source.
 
-Time window for the Data resync feature to be in effect. Must be
-present in Cron format. For more information, see [Cron expression rules](CHAP_Validating.md#CHAP_DataResync.cron "CHAP_Validating.md#CHAP_DataResync.cron").
+If `BatchApplyPreserveTransaction` is set to
+`false`, then there can be temporary lapses in
+transactional integrity to improve performance.
 
-**Datatype**: String
+The `BatchApplyPreserveTransaction` parameter applies only
+to Oracle target endpoints, and is only relevant when the
+`BatchApplyEnabled` parameter is set to
+`true`.
 
-**Required**: No
+When LOB columns are included in the replication, you can use
+`BatchApplyEnabled` only in limited LOB mode.
 
-**Validation**:
+For more information about using these settings for a change data capture
+(CDC) load, see [Change processing tuning settings](CHAP_Tasks.CustomizingTasks.TaskSettings.md "CHAP_Tasks.CustomizingTasks.TaskSettings.md").
 
-- Must be present in Cron expression format.
-- Should not be null for tasks with CDC that has
-  `EnableResync` set to `true`.
-- Cannot be set for tasks without CDC component.
+- `MaxFullLoadSubTasks` – indicates the maximum
+  number of tables to load in parallel. The default is 8; the maximum
+  value is 49.
+- `ParallelLoadThreads` – Specifies the number of
+  threads that AWS DMS uses to load each table into the target database.
+  This parameter has maximum values for non-RDBMS targets. The maximum
+  value for a DynamoDB target is 200. The maximum value for an Amazon Kinesis Data Streams,
+  Apache Kafka, or Amazon OpenSearch Service target is 32. You can ask to have this maximum
+  limit increased. `ParallelLoadThreads` applies to Full Load
+  tasks. For information on the settings for parallel load of
+  individual tables, see [Table and collection settings rules and operations](CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.md "CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.md").
 
-`**MaxResyncTime**`
+This setting applies to the following endpoint engine types:
 
-Maximum time limit in minutes for the Data resync feature to be in
-effect.
+    + DynamoDB
+    + Amazon Kinesis Data Streams
+    + Amazon MSK
+    + Amazon OpenSearch Service
+    + Amazon Redshift
 
-**Datatype**: Integer
+AWS DMS supports `ParallelLoadThreads` for MySQL as an extra connection attribute.
+`ParallelLoadThreads` does not apply to MySQL as a task setting.
 
-**Required**: No
+- `ParallelLoadBufferSize` Specifies the maximum
+  number of records to store in the buffer that the parallel load threads
+  use to load data to the target. The default value is 50. The maximum
+  value is 1,000. This setting is currently only valid when DynamoDB, Kinesis,
+  Apache Kafka, or OpenSearch is the target. Use this parameter with
+  `ParallelLoadThreads`.
+  `ParallelLoadBufferSize` is valid only when there is more
+  than one thread. For information on the settings for parallel load of
+  individual tables, see [Table and collection settings rules and operations](CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.md "CHAP_Tasks.CustomizingTasks.TableMapping.SelectionTransformation.md").
+- `ParallelLoadQueuesPerThread` – Specifies the number
+  of queues that each concurrent thread accesses to take data records out
+  of queues and generate a batch load for the target. The default is 1.
+  This setting is currently only valid when Kinesis or Apache Kafka is the
+  target.
+- `ParallelApplyThreads` – Specifies the number of
+  concurrent threads that AWS DMS uses during a CDC load to push data
+  records to an Amazon DocumentDB, Kinesis, Amazon MSK, OpenSearch, or Amazon Redshift target endpoint. The
+  default is zero (0).
 
-**Validation**:
+This setting only applies for CDC-only. This setting does not apply for Full Load.
 
-- Should not be null for tasks with CDC.
-- Not required for tasks without CDC.
-- Minimum value: `5 minutes`, Maximum value:
-  `14400 minutes` (10 days).
+This setting applies to the following endpoint engine types:
 
-`**Validation onlyTaskID**`
+    + Amazon DocumentDB (with MongoDB compatibility)
+    + Amazon Kinesis Data Streams
+    + Amazon Managed Streaming for Apache Kafka
+    + Amazon OpenSearch Service
+    + Amazon Redshift
 
-Unique ID of the validation task. The validation only task ID is
-appended at the end of an ARN. For example:
-
-- Validation only task ARN:
-  `arn:aws:dms:us-west-2:123456789012:task:6DG4CLGJ5JSJR67CFD7UDXFY7KV6CYGRICL6KWI`
-- Validation only task ID:
-  `6DG4CLGJ5JSJR67CFD7UDXFY7KV6CYGRICL6KWI`
-
-**Datatype**: String
-
-**Required**: No
-
-**Validation**: Should not be null for
-tasks with Data resync feature enabled and validation disabled.
-
-Example:
-
-```
-"ResyncSettings": {
-    "EnableResync": true,
-    "ResyncSchedule": "30 9 ? * MON-FRI",
-    "MaxResyncTime": 400,
-    "ValidationTaskId": "JXPP94804DJOEWIJD9348R3049"
-},
-```
+- `ParallelApplyBufferSize` – Specifies the maximum
+  number of records to store in each buffer queue for concurrent threads
+  to push to an Amazon DocumentDB, Kinesis, Amazon MSK, OpenSearch, or Amazon Redshift target endpoint during a
+  CDC load. The default value is 100. The maximum value is 1000. Use this option when
+  `ParallelApplyThreads` specifies more than one thread.
+- `ParallelApplyQueuesPerThread` – Specifies the
+  number of queues that each thread accesses to take data records out of
+  queues and generate a batch load for an Amazon DocumentDB, Kinesis, Amazon MSK, or OpenSearch
+  endpoint during CDC. The default value is 1.

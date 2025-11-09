@@ -43,7 +43,7 @@ The following sections provide information about using homogeneous data migratio
 You can run homogeneous data migrations in the following AWS Regions.
 
 | Region Name               | Region         |
-| ------------------------- | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------------------- | -------------- |
 | US East (N. Virginia)     | us-east-1      |
 | US East (Ohio)            | us-east-2      |
 | US West (N. California)   | us-west-1      |
@@ -72,4 +72,48 @@ You can run homogeneous data migrations in the following AWS Regions.
 | Middle East (UAE)         | me-central-1   |
 | Middle East (Bahrain)     | me-south-1     |
 | Israel (Tel Aviv)         | il-central-1   |
-| Africa (Cape Town)        | af-south-1     | ## Features Homogeneous data migrations provide the following features: <br>• AWS DMS automatically manages the compute and storage resources in the AWS Cloud that are required for homogeneous data migrations. AWS DMS deploys these resources in a serverless environment when you start a data migration. <br>• AWS DMS uses native database tools to initiate a fully-automated migration between the databases of the same type. <br>• You can use homogeneous data migrations to migrate your data as well as the secondary objects such as partitions, functions, stored procedures, and so on. <br>• You can run homogeneous data migrations in the following three migration modes: full load, ongoing replication, and full load with ongoing replication. <br>• For homogeneous data migrations, you can use on-premises, Amazon EC2, Amazon RDS databases as a source. You can choose Amazon RDS or Amazon Aurora as a migration target for homogeneous data migrations. <br>• Homogeneous data migrations only support target table preparation mode for PostgreSQL, MongoDB, and Amazon DocumentDB migrations. For more information, see [Target table preparation mode](dm-migrating-data-table-prep.md "dm-migrating-data-table-prep.md"). <br>• You can use homogeneous data migrations to migrate your data from a MySQL-based read-replica to Amazon RDS or Aurora instance ## Limitations for homogeneous data migrations The following limitations apply when you use homogeneous data migrations: <br>• The Support for selection rules in AWS DMS homogeneous data migrations depends on the source database engine and migration type. PostgreSQL and MongoDB-compatible sources support selection rules for all migration types, while MySQL sources only support selection rules for the Full Load migration type. <br>• Homogeneous data migrations don't provide a built-in tool for data validation. <br>• When using homogeneous data migrations with PostgreSQL, AWS DMS migrates views as tables to your target database. <br>• Homogeneous data migrations capture schema-level changes during an ongoing data replication only for MySQL engine. For other engines, if you create a new table in your source database, then AWS DMS can't migrate this table. To migrate this new table, restart your data migration. <br>• You can't use homogeneous data migrations in AWS DMS to migrate data from a higher database version to a lower database version. <br>• Homogeneous data migrations don't support establishing a connection with database instances in VPC secondary CIDR ranges. <br>• You can't use the 8081 port for homogeneous migrations from your data providers. <br>• Homogeneous data migrations migrate encrypted MySQL databases and tables as unencrypted on the target database. This is because RDS for MySQL does not support encryption using Keyring plugin. For more information, see [MySQL Keyring Plugin not supported documentation](../../../AmazonRDS/latest/UserGuide/MySQL.md#MySQL.Concepts.Limits.KeyRing "../../../AmazonRDS/latest/UserGuide/MySQL.md#MySQL.Concepts.Limits.KeyRing") in the Amazon RDS User Guide. |
+| Africa (Cape Town)        | af-south-1     |
+
+## Features
+
+Homogeneous data migrations provide the following features:
+
+- AWS DMS automatically manages the compute and storage resources in the AWS Cloud
+  that are required for homogeneous data migrations. AWS DMS deploys these resources in a serverless
+  environment when you start a data migration.
+- AWS DMS uses native database tools to initiate a fully-automated migration between
+  the databases of the same type.
+- You can use homogeneous data migrations to migrate your data as well as the secondary objects such as partitions,
+  functions, stored procedures, and so on.
+- You can run homogeneous data migrations in the following three migration modes: full load, ongoing replication,
+  and full load with ongoing replication.
+- For homogeneous data migrations, you can use on-premises, Amazon EC2, Amazon RDS databases as a source. You can choose
+  Amazon RDS or Amazon Aurora as a migration target for homogeneous data migrations.
+- Homogeneous data migrations only support target table preparation mode for
+  PostgreSQL, MongoDB, and Amazon DocumentDB migrations. For more information, see
+  [Target table preparation mode](dm-migrating-data-table-prep.md "dm-migrating-data-table-prep.md").
+- You can use homogeneous data migrations to migrate your data from a
+  MySQL-based read-replica to Amazon RDS or Aurora instance
+
+## Limitations for homogeneous data migrations
+
+The following limitations apply when you use homogeneous data migrations:
+
+- The Support for selection rules in AWS DMS homogeneous data migrations depends
+  on the source database engine and migration type. PostgreSQL and
+  MongoDB-compatible sources support selection rules for all migration types,
+  while MySQL sources only support selection rules for the Full Load migration
+  type.
+- Homogeneous data migrations don't provide a built-in tool for data validation.
+- When using homogeneous data migrations with PostgreSQL, AWS DMS migrates views as tables to your target database.
+- Homogeneous data migrations capture schema-level changes during an ongoing
+  data replication only for MySQL engine. For other engines, if you create a new
+  table in your source database, then AWS DMS can't migrate this table. To migrate
+  this new table, restart your data migration.
+- You can't use homogeneous data migrations in AWS DMS to migrate data from a higher database version to a lower database
+  version.
+- Homogeneous data migrations don't support establishing a connection with database instances in VPC secondary CIDR ranges.
+- You can't use the 8081 port for homogeneous migrations from your data providers.
+- Homogeneous data migrations migrate encrypted MySQL databases and tables as
+  unencrypted on the target database. This is because RDS for MySQL does not support
+  encryption using Keyring plugin. For more information, see [MySQL Keyring Plugin not supported documentation](../../../AmazonRDS/latest/UserGuide/MySQL.md#MySQL.Concepts.Limits.KeyRing "../../../AmazonRDS/latest/UserGuide/MySQL.md#MySQL.Concepts.Limits.KeyRing") in the Amazon RDS User Guide.

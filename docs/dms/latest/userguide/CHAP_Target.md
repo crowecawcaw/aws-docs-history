@@ -159,14 +159,242 @@ endpoint using the AWS DMS console, or by using the `create-endpoint` command in
 The following table shows the endpoint settings that you can use with
 Timestream as a target.
 
-| Name                        | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- | ---------- | ------------------------- | ---------- | ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `MemoryDuration`            | Set this attribute to specify the retention bound to store the data migrated in Timestream's memory store. Time is measured in units of hours. Timestream's memory store is optimized for high ingestion throughput and fast access. Default value: 24 (hours) Valid values: 1 to 8,736 (1 hour to 12 months measured in hours) Example: `--timestream-settings '{"MemoryDuration": 20}'`                                                                                                                                                                                                                                                                                                               |
-| `DatabaseName`              | Set this attribute to specify the target Timestream database name. Type: string Example: `--timestream-settings '{"DatabaseName": "`db_name`"}'`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| `TableName`                 | Set this attribute to specify the target Timestream table name. Type: string Example: `--timestream-settings '{"TableName": "`table_name`"}'`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| `MagneticDuration`          | Set this attribute to specify the magnetic duration applied to the Timestream tables in days. This is the retention bound for the ingested data. Timestream deletes any timestamp exceeding the retention bound. For more information, see [Storage](../../../timestream/latest/developerguide/storage.md "../../../timestream/latest/developerguide/storage.md") in the [Amazon Timestream Developer Guide](../../../timestream/latest/developerguide.md "../../../timestream/latest/developerguide.md"). Example: `--timestream-settings '{"MagneticDuration": "3"}'`                                                                                                                                 |
-| `CdcInsertsAndUpdates`      | Set this attribute to `true` to specify that AWS DMS only applies inserts and updates, and not deletes. Timestream does not allow deleting records, so if this value is `false`, AWS DMS nulls out the corresponding record in the Timestream database rather than deleting it. For more information, see [Limitations](#CHAP_Target.Timestream.Limitations "#CHAP_Target.Timestream.Limitations") following. Default value: `false` Example: `--timestream-settings '{"CdcInsertsAndUpdates": "true"}'`                                                                                                                                                                                                |
-| `EnableMagneticStoreWrites` | Set this attribute to `true` to enable magnetic store writes. When this value is `false`, AWS DMS does not write records records with a timestamp older than the memory store retention period of the target table, because Timestream does not allow magnetic store writes by default. For more information, see [Writes Best Practices](../../../timestream/latest/developerguide/data-ingest.md "../../../timestream/latest/developerguide/data-ingest.md") in the [Amazon Timestream Developer Guide](../../../timestream/latest/developerguide.md "../../../timestream/latest/developerguide.md"). Default value: `false` Example: `--timestream-settings '{"EnableMagneticStoreWrites": "true"}'` | ## Creating and modifying an Amazon Timestream target endpoint Once you have created an IAM role and established the minimum set of access permissions, you can create a Amazon Timestream target endpoint using the AWS DMS console, or by using the `create-endpoint` command in the [AWS CLI](../../../cli/latest/reference/dms/index.md "../../../cli/latest/reference/dms/index.md"), with the `--timestream-settings '{"`EndpointSetting"`: `"value"`, `...`}'` JSON syntax. The following examples show how to create and modify a Timestream target endpoint using the AWS CLI. **Create Timestream target endpoint command** `aws dms create-endpoint —endpoint-identifier timestream-target-demo --endpoint-type target —engine-name timestream --service-access-role-arn arn:aws:iam::123456789012:role/my-role --timestream-settings { "MemoryDuration": 20, "DatabaseName":"db_name", "MagneticDuration": 3, "CdcInsertsAndUpdates": true, "EnableMagneticStoreWrites": true, }` **Modify Timestream target endpoint command** `aws dms modify-endpoint —endpoint-identifier timestream-target-demo --endpoint-type target —engine-name timestream --service-access-role-arn arn:aws:iam::123456789012:role/my-role --timestream-settings { "MemoryDuration": 20, "MagneticDuration": 3, }` ## Using object mapping to migrate data to a Timestream topic AWS DMS uses table-mapping rules to map data from the source to the target Timestream topic. To map data to a target topic, you use a type of table-mapping rule called object mapping. You use object mapping to define how data records in the source map to the data records published to a Timestream topic. Timestream topics don't have a preset structure other than having a partition key. ###### Note You don't have to use object mapping. You can use regular table mapping for various transformations. However, the partition key type will follow these default behaviors: <br>• Primary Key is used as a partition key for Full Load. <br>• If no parallel-apply task settings are used, `schema.table` is used as a partition key for CDC. <br>• If parallel-apply task settings are used, Primary key is used as a partition key for CDC. To create an object-mapping rule, specify `rule-type` as `object-mapping`. This rule specifies what type of object mapping you want to use. The structure for the rule is as follows. ``{ "rules": [ { "rule-type": "object-mapping", "rule-id": "`id`", "rule-name": "`name`", "rule-action": "`valid object-mapping rule action`", "object-locator": { "schema-name": "`case-sensitive schema name`", "table-name": "" } } ] }`` `{ "rules": [ { "rule-type": "object-mapping", "rule-id": "1", "rule-name": "timestream-map", "rule-action": "map-record-to-record", "target-table-name": "tablename", "object-locator": { "schema-name": "", "table-name": "" }, "mapping-parameters": { "timestream-dimensions": [ "column_name1", "column_name2" ], "timestream-timestamp-name": "time_column_name", "timestream-multi-measure-name": "column_name1or2", "timestream-hash-measure-name":  true or false, "timestream-memory-duration": x, "timestream-magnetic-duration": y } } ] }` AWS DMS currently supports `map-record-to-record` and `map-record-to-document` as the only valid values for the `rule-action` parameter. The `map-record-to-record` and `map-record-to-document` values specify what AWS DMS does by default to records that aren't excluded as part of the `exclude-columns` attribute list. These values don't affect the attribute mappings in any way. Use `map-record-to-record` when migrating from a relational database to a Timestream topic. This rule type uses the `taskResourceId.schemaName.tableName` value from the relational database as the partition key in the Timestream topic and creates an attribute for each column in the source database. When using `map-record-to-record`, for any column in the source table not listed in the `exclude-columns` attribute list, AWS DMS creates a corresponding attribute in the target topic. This corresponding attribute is created regardless of whether that source column is used in an attribute mapping. One way to understand `map-record-to-record` is to see it in action. For this example, assume that you are starting with a relational database table row with the following structure and data. |
-| FirstName                   | LastName                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | StoreId                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | HomeAddress       | HomePhone  | WorkAddress               | WorkPhone  | DateofBirth |
-| ---                         | ---                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | ---                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | ---               | ---        | ---                       | ---        | ---         |
-| Randy                       | Marsh                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | 5                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | 221B Baker Street | 1234567890 | 31 Spooner Street, Quahog | 9876543210 | 02/29/1988  | To migrate this information from a schema named `Test` to a Timestream topic, you create rules to map the data to the target topic. The following rule illustrates the mapping. `{ "rules": [ { "rule-type": "selection", "rule-id": "1", "rule-name": "1", "rule-action": "include", "object-locator": { "schema-name": "Test", "table-name": "%" } }, { "rule-type": "object-mapping", "rule-id": "2", "rule-name": "DefaultMapToTimestream", "rule-action": "map-record-to-record", "object-locator": { "schema-name": "Test", "table-name": "Customers" } } ] }` Given a Timestream topic and a partition key (in this case, `taskResourceId.schemaName.tableName`), the following illustrates the resulting record format using our sample data in the Timestream target topic: `{ "FirstName": "Randy", "LastName": "Marsh", "StoreId":  "5", "HomeAddress": "221B Baker Street", "HomePhone": "1234567890", "WorkAddress": "31 Spooner Street, Quahog", "WorkPhone": "9876543210", "DateOfBirth": "02/29/1988" }` ## Limitations when using Amazon Timestream as a target for AWS Database Migration Service The following limitations apply when using Amazon Timestream as a target: <br>• **Dimensions and Timestamps:** Timestream uses the dimensions and timestamps in the source data like a composite primary key, and also does not allow you to upsert these values. This means that if you change the timestamp or the dimensions for a record in the source database, the Timestream database will try to create a new record. It is thus possible that if you change the dimension or timestamp of a record such that they match those of another existing record, then AWS DMS updates the values of the other record instead of creating a new record or updating the previous corresponding record. <br>• **DDL Commands:** The current release of AWS DMS only supports `CREATE TABLE` and `DROP TABLE` DDL commands. <br>• **Record Limitations:** Timestream has limitations for records such as record size and measure size. For more information, see [Quotas](../../../timestream/latest/developerguide/what-is-timestream.md "../../../timestream/latest/developerguide/what-is-timestream.md") in the [Amazon Timestream Developer Guide](../../../index.md "../../../index.md"). <br>• **Deleting Records and Null Values:** Timestream doesn't support deleting records. To support migrating records deleted from the source, AWS DMS clears the corresponding fields in the records in the Timestream target database. AWS DMS changes the values in the fields of the corresponding target record with **0** for numeric fields, **null** for text fields, and **false** for boolean fields. <br>• Timestream as a target doesn't support sources that aren't relational databases (RDBMS). <br>• AWS DMS only supports Timestream as a target in the following regions: + US East (N. Virginia) + US East (Ohio) + US West (Oregon) + Europe (Ireland) + Europe (Frankfurt) + Asia Pacific (Sydney) + Asia Pacific (Tokyo) <br>• Timestream as a target doesn't support setting `TargetTablePrepMode` to `TRUNCATE_BEFORE_LOAD`. We recommend using `DROP_AND_CREATE` for this setting. |
+| Name                        | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `MemoryDuration`            | Set this attribute to specify the retention bound to store the data migrated in<br>Timestream's memory store. Time is measured in units<br>of hours. Timestream's memory store is optimized for high ingestion throughput and fast access.<br>Default value: 24 (hours)<br>Valid values: 1 to 8,736 (1 hour to 12 months measured in<br>hours)<br>Example: `--timestream-settings '{"MemoryDuration":<br>20}'`                                                                                                                                                                                                                                                                                                            |
+| `DatabaseName`              | Set this attribute to specify the target Timestream database name.<br>Type: string<br>Example: `--timestream-settings '{"DatabaseName":<br>"`db_name`"}'`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| `TableName`                 | Set this attribute to specify the target Timestream table name.<br>Type: string<br>Example: `--timestream-settings '{"TableName":<br>"`table_name`"}'`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| `MagneticDuration`          | Set this attribute to specify the magnetic duration applied to the Timestream<br>tables in days. This is the retention bound for the ingested data. Timestream deletes any timestamp<br>exceeding the retention bound. For more information, see [Storage](../../../timestream/latest/developerguide/storage.md "../../../timestream/latest/developerguide/storage.md") in the<br>[Amazon Timestream Developer Guide](../../../timestream/latest/developerguide.md "../../../timestream/latest/developerguide.md").<br>Example: `--timestream-settings '{"MagneticDuration":<br>"3"}'`                                                                                                                                    |
+| `CdcInsertsAndUpdates`      | Set this attribute to `true` to specify that AWS DMS only<br>applies inserts and updates, and not deletes. Timestream does not allow<br>deleting records, so if this value is `false`, AWS DMS nulls out<br>the corresponding record in the Timestream database rather than deleting it. For<br>more information, see [Limitations](#CHAP_Target.Timestream.Limitations "#CHAP_Target.Timestream.Limitations") following.<br>Default value: `false`<br>Example: `--timestream-settings '{"CdcInsertsAndUpdates": "true"}'`                                                                                                                                                                                                |
+| `EnableMagneticStoreWrites` | Set this attribute to `true` to enable magnetic store writes.<br>When this value is `false`, AWS DMS does not write records records with a<br>timestamp older than the memory store retention period of the target table, because Timestream does not<br>allow magnetic store writes by default. For more information, see [Writes Best Practices](../../../timestream/latest/developerguide/data-ingest.md "../../../timestream/latest/developerguide/data-ingest.md") in the<br>[Amazon Timestream Developer Guide](../../../timestream/latest/developerguide.md "../../../timestream/latest/developerguide.md").<br>Default value: `false`<br>Example: `--timestream-settings '{"EnableMagneticStoreWrites": "true"}'` |
+
+## Creating and modifying an Amazon Timestream target endpoint
+
+Once you have created an IAM role and established the minimum set of access
+permissions, you can create a Amazon Timestream target endpoint using the AWS DMS console, or by
+using the `create-endpoint` command in the [AWS CLI](../../../cli/latest/reference/dms/index.md "../../../cli/latest/reference/dms/index.md"),
+with the `--timestream-settings '{"`EndpointSetting"`:
+ `"value"`, `...`}'` JSON
+syntax.
+
+The following examples show how to create and modify a Timestream target endpoint using the AWS CLI.
+
+**Create Timestream target endpoint command**
+
+```
+aws dms create-endpoint —endpoint-identifier timestream-target-demo
+--endpoint-type target —engine-name timestream
+--service-access-role-arn arn:aws:iam::123456789012:role/my-role
+--timestream-settings
+{
+    "MemoryDuration": 20,
+    "DatabaseName":"db_name",
+    "MagneticDuration": 3,
+    "CdcInsertsAndUpdates": true,
+    "EnableMagneticStoreWrites": true,
+}
+
+```
+
+**Modify Timestream target endpoint command**
+
+```
+aws dms modify-endpoint —endpoint-identifier timestream-target-demo
+--endpoint-type target —engine-name timestream
+--service-access-role-arn arn:aws:iam::123456789012:role/my-role
+--timestream-settings
+{
+    "MemoryDuration": 20,
+    "MagneticDuration": 3,
+}
+
+```
+
+## Using object mapping to migrate
+
+data to a Timestream topic
+
+AWS DMS uses table-mapping rules to map data from the source to the target Timestream
+topic. To map data to a target topic, you use a type of table-mapping rule
+called object mapping. You use object mapping to define how data records in the
+source map to the data records published to a Timestream topic.
+
+Timestream topics don't have a preset structure other than having a partition
+key.
+
+###### Note
+
+You don't have to use object mapping. You can use regular table
+mapping for various transformations. However, the partition key type will follow
+these default behaviors:
+
+- Primary Key is used as a partition key for Full Load.
+- If no parallel-apply task settings are used,
+  `schema.table` is used as a partition key for CDC.
+- If parallel-apply task settings are used, Primary key is used as
+  a partition key for CDC.
+
+To create an object-mapping rule, specify `rule-type` as
+`object-mapping`. This rule specifies what type of object mapping you
+want to use. The structure for the rule is as follows.
+
+```
+{
+    "rules": [
+        {
+            "rule-type": "object-mapping",
+            "rule-id": "`id`",
+            "rule-name": "`name`",
+            "rule-action": "`valid object-mapping rule action`",
+            "object-locator": {
+                "schema-name": "`case-sensitive schema name`",
+                "table-name": ""
+            }
+        }
+    ]
+}
+```
+
+```
+{
+    "rules": [
+        {
+            "rule-type": "object-mapping",
+            "rule-id": "1",
+            "rule-name": "timestream-map",
+            "rule-action": "map-record-to-record",
+            "target-table-name": "tablename",
+            "object-locator": {
+                "schema-name": "",
+                "table-name": ""
+            },
+            "mapping-parameters": {
+                "timestream-dimensions": [
+                    "column_name1",
+                     "column_name2"
+                ],
+                "timestream-timestamp-name": "time_column_name",
+                "timestream-multi-measure-name": "column_name1or2",
+                "timestream-hash-measure-name":  true or false,
+                "timestream-memory-duration": x,
+                "timestream-magnetic-duration": y
+            }
+        }
+    ]
+}
+
+
+```
+
+AWS DMS currently supports `map-record-to-record` and
+`map-record-to-document` as the only valid values for the
+`rule-action` parameter. The `map-record-to-record` and
+`map-record-to-document` values specify what AWS DMS does by default to
+records that aren't excluded as part of the `exclude-columns`
+attribute list. These values don't affect the attribute mappings in any way.
+
+Use `map-record-to-record` when migrating from a relational database to
+a Timestream topic. This rule type uses the
+`taskResourceId.schemaName.tableName` value from the relational
+database as the partition key in the Timestream topic and creates an attribute for each
+column in the source database. When using `map-record-to-record`, for any
+column in the source table not listed in the `exclude-columns` attribute
+list, AWS DMS creates a corresponding attribute in the target topic. This
+corresponding attribute is created regardless of whether that source column is used
+in an attribute mapping.
+
+One way to understand `map-record-to-record` is to see it in action.
+For this example, assume that you are starting with a relational database table row
+with the following structure and data.
+
+| FirstName | LastName | StoreId | HomeAddress       | HomePhone  | WorkAddress               | WorkPhone  | DateofBirth |
+| --------- | -------- | ------- | ----------------- | ---------- | ------------------------- | ---------- | ----------- |
+| Randy     | Marsh    | 5       | 221B Baker Street | 1234567890 | 31 Spooner Street, Quahog | 9876543210 | 02/29/1988  |
+
+To migrate this information from a schema named `Test` to a Timestream
+topic, you create rules to map the data to the target topic. The following rule
+illustrates the mapping.
+
+```
+{
+    "rules": [
+        {
+            "rule-type": "selection",
+            "rule-id": "1",
+            "rule-name": "1",
+            "rule-action": "include",
+            "object-locator": {
+                "schema-name": "Test",
+                "table-name": "%"
+            }
+        },
+        {
+            "rule-type": "object-mapping",
+            "rule-id": "2",
+            "rule-name": "DefaultMapToTimestream",
+            "rule-action": "map-record-to-record",
+            "object-locator": {
+                "schema-name": "Test",
+                "table-name": "Customers"
+            }
+        }
+    ]
+}
+```
+
+Given a Timestream topic and a partition key (in this case,
+`taskResourceId.schemaName.tableName`), the following illustrates the
+resulting record format using our sample data in the Timestream target topic:
+
+```
+
+  {
+     "FirstName": "Randy",
+     "LastName": "Marsh",
+     "StoreId":  "5",
+     "HomeAddress": "221B Baker Street",
+     "HomePhone": "1234567890",
+     "WorkAddress": "31 Spooner Street, Quahog",
+     "WorkPhone": "9876543210",
+     "DateOfBirth": "02/29/1988"
+  }
+```
+
+## Limitations when using Amazon Timestream
+
+as a target for AWS Database Migration Service
+
+The following limitations apply when using Amazon Timestream as a target:
+
+- **Dimensions and Timestamps:** Timestream uses
+  the dimensions and timestamps in the source data like a composite primary key, and also
+  does not allow you to upsert these values. This means that if you change the timestamp
+  or the dimensions for a record in the source database, the Timestream database will try to
+  create a new record. It is thus possible that if you change the dimension or timestamp of a record
+  such that they match those of another existing record,
+  then AWS DMS updates the values of the other record instead of creating a new record or updating
+  the previous corresponding record.
+- **DDL Commands:** The current release of AWS DMS only supports
+  `CREATE TABLE` and `DROP TABLE` DDL commands.
+- **Record Limitations:** Timestream has limitations for records such as record size
+  and measure size. For more information, see
+  [Quotas](../../../timestream/latest/developerguide/what-is-timestream.md "../../../timestream/latest/developerguide/what-is-timestream.md") in the
+  [Amazon Timestream Developer Guide](../../../index.md "../../../index.md").
+- **Deleting Records and Null Values:** Timestream doesn't support deleting records.
+  To support migrating records deleted from the source, AWS DMS clears the corresponding fields in the records in the Timestream
+  target database. AWS DMS changes the values in the fields of the corresponding target record with **0** for
+  numeric fields, **null** for
+  text fields, and **false** for
+  boolean fields.
+- Timestream as a target doesn't support sources that aren't relational databases (RDBMS).
+- AWS DMS only supports Timestream as a target in the following regions:
+  - US East (N. Virginia)
+  - US East (Ohio)
+  - US West (Oregon)
+  - Europe (Ireland)
+  - Europe (Frankfurt)
+  - Asia Pacific (Sydney)
+  - Asia Pacific (Tokyo)
+
+- Timestream as a target doesn't support setting `TargetTablePrepMode` to `TRUNCATE_BEFORE_LOAD`.
+  We recommend using `DROP_AND_CREATE` for this setting.
