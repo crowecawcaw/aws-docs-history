@@ -13,8 +13,8 @@ aggregations you can run and how that might impact future queries.
 2. In the left navigation pane, choose **Collaborations**.
 3. Choose the collaboration that has **Your member details** status of
    **Run queries**.
-4. On the **Analysis** tab, under **Tables**, view the
-   remaining privacy budget. This is displayed as the estimated number of
+4. On the **Analysis** tab, under **Tables**, view
+   the remaining privacy budget. This is displayed as the estimated number of
    **aggregation functions remaining** and the **Utility
    used** (rendered as a percentage).
 

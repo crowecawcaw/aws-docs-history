@@ -46,7 +46,7 @@ For a full list of AWS Clean Rooms events sent to EventBridge, refer to the AWS 
 Events Reference_](../../../eventbridge/latest/ref/welcome.md "../../../eventbridge/latest/ref/welcome.md").
 
 | Event detail type                                                                                                                                                              | Description               |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------- |
 | [Collaboration Created](events-detail-reference-full.md#event-detail-collaboration-created "events-detail-reference-full.md#event-detail-collaboration-created")               | Collaboration Created     |
 | [Collaboration Updated](events-detail-reference-full.md#event-detail-collaboration-updated "events-detail-reference-full.md#event-detail-collaboration-updated")               | Collaboration Updated     |
 | [Membership Created](events-detail-reference-full.md#event-detail-membership-created "events-detail-reference-full.md#event-detail-membership-created")                        | Membership Created        |
@@ -59,4 +59,47 @@ Events Reference_](../../../eventbridge/latest/ref/welcome.md "../../../eventbri
 | [Protected Job Submitted](events-detail-reference-full.md#event-detail-protected-job-submitted "events-detail-reference-full.md#event-detail-protected-job-submitted")         | Protected Job Submitted   |
 | [Protected Job Succeeded](events-detail-reference-full.md#event-detail-protected-job-succeeded "events-detail-reference-full.md#event-detail-protected-job-succeeded")         | Protected Job Succeeded   |
 | [Protected Job Failed](events-detail-reference-full.md#event-detail-protected-job-failed "events-detail-reference-full.md#event-detail-protected-job-failed")                  | Protected Job Failed      |
-| [Protected Job Cancelled](events-detail-reference-full.md#event-detail-protected-job-cancelled "events-detail-reference-full.md#event-detail-protected-job-cancelled")         | Protected Job Cancelled   | ## Routing AWS Clean Rooms events using EventBridge To have EventBridge route AWS Clean Rooms events to a target, you must create a rule. Each rule contains an event pattern, which EventBridge matches against each event received on the event bus. If the event data matches the specified event pattern, EventBridge routes that event to the rule's target(s). For comprehensive instructions on creating event bus rules, see [Creating rules that react to events](../../../eventbridge/latest/userguide/eb-create-rule.md "../../../eventbridge/latest/userguide/eb-create-rule.md") in the _EventBridge User Guide_. ### Creating event patterns that match AWS Clean Rooms events Each event pattern is a JSON object that contains: <br>• (Optional): A `source` attribute that identifies the service sending the event. For AWS Clean Rooms events, the source is `aws.cleanrooms`. <br>• (Optional): A `detail-type` attribute that contains an array of the event names to match. <br>• (Optional): A `detail` attribute containing any other event data on which to match. For example, the following event pattern matches against all Membership Updated events where the collaboration was deleted from AWS Clean Rooms: `{ "source": ["aws.cleanrooms"], "detail-type": ["Membership Updated"], "detail": { "status": ["COLLABORATION_DELETED"] } }` For more information on writing event patterns, see [Event patterns](../../../eventbridge/latest/userguide/eb-event-patterns.md "../../../eventbridge/latest/userguide/eb-event-patterns.md") in the _EventBridge User Guide_. |
+| [Protected Job Cancelled](events-detail-reference-full.md#event-detail-protected-job-cancelled "events-detail-reference-full.md#event-detail-protected-job-cancelled")         | Protected Job Cancelled   |
+
+## Routing AWS Clean Rooms events using
+
+EventBridge
+
+To have EventBridge route AWS Clean Rooms events to a target, you must create a rule. Each rule
+contains an event pattern, which EventBridge matches against each event received on the event
+bus. If the event data matches the specified event pattern, EventBridge routes that event to
+the rule's target(s).
+
+For comprehensive instructions on creating event bus rules, see [Creating
+rules that react to events](../../../eventbridge/latest/userguide/eb-create-rule.md "../../../eventbridge/latest/userguide/eb-create-rule.md") in the _EventBridge User
+Guide_.
+
+### Creating event patterns that
+
+match AWS Clean Rooms events
+
+Each event pattern is a JSON object that contains:
+
+- (Optional): A `source` attribute that identifies the service
+  sending the event. For AWS Clean Rooms events, the source is
+  `aws.cleanrooms`.
+- (Optional): A `detail-type` attribute that contains an array of
+  the event names to match.
+- (Optional): A `detail` attribute containing any other event
+  data on which to match.
+
+For example, the following event pattern matches against all Membership Updated events
+where the collaboration was deleted from AWS Clean Rooms:
+
+```
+{
+  "source": ["aws.cleanrooms"],
+  "detail-type": ["Membership Updated"],
+  "detail": {
+    "status": ["COLLABORATION_DELETED"]
+  }
+}
+```
+
+For more information on writing event patterns, see [Event patterns](../../../eventbridge/latest/userguide/eb-event-patterns.md "../../../eventbridge/latest/userguide/eb-event-patterns.md")
+in the _EventBridge User Guide_.

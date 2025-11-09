@@ -20,18 +20,78 @@ data](encrypt-data.md "encrypt-data.md") using the C3R encryption client.
 
 The following table summarizes the usage and parameters of this flag.
 
-| Usage                                                                                                                               | Parameters                                                    |
-| ----------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Optional. Users can specify custom encodings for NULL entries in the input data.                                                    | User-specified encoding of NULL values in the input CSV file  | A NULL entry is an entry which is considered to be lacking content, specifically in the context of a richer tabular format like an SQL table. Although .csv doesn't explicitly support this characterization for historical reasons, it's a common convention to consider an empty entry containing only white space to be NULL. Therefore, that's the default behavior of the C3R encryption client and it can be customized as needed. ## `--csvOutputNULLValue` flag You can use the `--csvOutputNULLValue` flag to specify custom encodings for NULL entries in the output data when you [encrypt data](encrypt-data.md "encrypt-data.md") using the C3R encryption client. The following table summarizes the usage and parameters of this flag.                                                                                                                                                                                       |
-| Usage                                                                                                                               | Parameters                                                    |
-| ---                                                                                                                                 | ---                                                           |
-| Optional. Users can specify custom encodings in the generated output file for NULL entries.                                         | User-specified encoding of NULL values in the output CSV file | A NULL entry is an entry which is considered to be lacking content, specifically in the context of a richer tabular format like an SQL table. Although .csv doesn't explicitly support this characterization for historical reasons, it's a common convention to consider an empty entry containing only white space to be NULL. Therefore, that's the default behavior of the C3R encryption client and it can be customized as needed. ## `--enableStackTraces` flag When you [encrypt data](encrypt-data.md "encrypt-data.md") using the C3R encryption client, use the `--enableStackTraces` flag to provide additional contextual information for error reporting when C3R encounters an error. AWS doesn't collect errors. If you encounter an error, use the stack trace to troubleshoot the error yourself or send the stack trace to Support for assistance. The following table summarizes the usage and parameters of this flag. |
-| Usage                                                                                                                               | Parameters                                                    |
-| ---                                                                                                                                 | ---                                                           |
-| Optional. Used to provide additional contextual information for error reporting when the C3R encryption client encounters an error. | None                                                          | ## `--dryRun` flag The [encrypt](encrypt-data.md "encrypt-data.md") and [decrypt](decrypt-data.md "decrypt-data.md") C3R encryption client commands include an optional `--dryRun` flag. The flag takes all the user-provided arguments and checks them for validity and consistency. You can use the `--dryRun` flag to check if your schema file is valid and consistent with its corresponding input file. The following table summarizes the usage and parameters of this flag.                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| Usage                                                                                                                               | Parameters                                                    |
-| ---                                                                                                                                 | ---                                                           |
-| Optional. Causes the C3R encryption client to parse parameters and check files, but performs no encryption or decryption.           | None                                                          | ## `--tempDir` flag You might want to use a temporary directory because encrypted files can sometimes be larger than non-encrypted files, depending on their settings. Datasets must also be encrypted per collaboration to work correctly. When you [encrypt data](encrypt-data.md "encrypt-data.md") using C3R, use the `--tempDir` flag to specify the location where temporary files can be created while processing the input. The following table summarizes the usage and parameters of this flag.                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| Usage                                                                                                                               | Parameters                                                    |
-| ---                                                                                                                                 | ---                                                           |
-| Users can specify the location where temporary files can be created while processing the input.                                     | Defaults to the system temporary directory.                   |
+| Usage                                                                               | Parameters                                                   |
+| ----------------------------------------------------------------------------------- | ------------------------------------------------------------ |
+| Optional. Users can specify custom encodings for NULL entries in the<br>input data. | User-specified encoding of NULL values in the input CSV file |
+
+A NULL entry is an entry which is considered to be lacking content,
+specifically in the context of a richer tabular format like an SQL table. Although .csv doesn't
+explicitly support this characterization for historical reasons, it's a common convention to
+consider an empty entry containing only white space to be NULL. Therefore, that's
+the default behavior of the C3R encryption client and it can be customized as needed.
+
+## `--csvOutputNULLValue`
+
+flag
+
+You can use the `--csvOutputNULLValue` flag to specify custom encodings for
+NULL entries in the output data when you [encrypt
+data](encrypt-data.md "encrypt-data.md") using the C3R encryption client.
+
+The following table summarizes the usage and parameters of this flag.
+
+| Usage                                                                                          | Parameters                                                    |
+| ---------------------------------------------------------------------------------------------- | ------------------------------------------------------------- |
+| Optional. Users can specify custom encodings in the generated output file for<br>NULL entries. | User-specified encoding of NULL values in the output CSV file |
+
+A NULL entry is an entry which is considered to be lacking content,
+specifically in the context of a richer tabular format like an SQL table. Although .csv doesn't
+explicitly support this characterization for historical reasons, it's a common convention to
+consider an empty entry containing only white space to be NULL. Therefore, that's
+the default behavior of the C3R encryption client and it can be customized as needed.
+
+## `--enableStackTraces` flag
+
+When you [encrypt data](encrypt-data.md "encrypt-data.md") using the C3R encryption client, use the
+`--enableStackTraces` flag to provide additional contextual information for error
+reporting when C3R encounters an error.
+
+AWS doesn't collect errors. If you encounter an error, use the stack trace to
+troubleshoot the error yourself or send the stack trace to Support for assistance.
+
+The following table summarizes the usage and parameters of this flag.
+
+| Usage                                                                                                                                  | Parameters |
+| -------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
+| Optional. Used to provide additional contextual information for error reporting when<br>the C3R encryption client encounters an error. | None       |
+
+## `--dryRun` flag
+
+The [encrypt](encrypt-data.md "encrypt-data.md") and [decrypt](decrypt-data.md "decrypt-data.md") C3R encryption client commands include an optional `--dryRun` flag. The flag
+takes all the user-provided arguments and checks them for validity and consistency.
+
+You can use the `--dryRun` flag to check if your schema file is valid and
+consistent with its corresponding input file.
+
+The following table summarizes the usage and parameters of this flag.
+
+| Usage                                                                                                                        | Parameters |
+| ---------------------------------------------------------------------------------------------------------------------------- | ---------- |
+| Optional. Causes the C3R encryption client to parse parameters and check files, but performs<br>no encryption or decryption. | None       |
+
+## `--tempDir` flag
+
+You might want to use a temporary directory because encrypted files can sometimes be larger
+than non-encrypted files, depending on their settings. Datasets must also be encrypted per
+collaboration to work correctly.
+
+When you [encrypt data](encrypt-data.md "encrypt-data.md") using C3R, use the
+`--tempDir` flag to specify the location where temporary files can be created while
+processing the
+input.
+
+The following table summarizes the usage and parameters of this flag.
+
+| Usage                                                                                              | Parameters                                  |
+| -------------------------------------------------------------------------------------------------- | ------------------------------------------- |
+| Users can specify the location where temporary files can be created while processing<br>the input. | Defaults to the system temporary directory. |

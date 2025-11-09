@@ -40,7 +40,11 @@ allow additional analysis.
    goal.
 
 | Your goal                                                         | Recommended option          |
-| ----------------------------------------------------------------- | --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| ----------------------------------------------------------------- | --------------------------- |
 | Allow any additional analyses on the table.                       | **Any**                     |
 | Allow only additional analyses on the table by a specific member. | **Any by specific members** |
-| Allow only specific analyses on the table.                        | **Custom list**             | 7. For **Results delivery**, specify who can receive results from the **Members allowed to receive results for query output** dropdown. 8. Choose **Configure analysis rule**. |
+| Allow only specific analyses on the table.                        | **Custom list**             |
+
+7. For **Results delivery**, specify who can receive results from the
+   **Members allowed to receive results for query output** dropdown.
+8. Choose **Configure analysis rule**.

@@ -21,8 +21,12 @@ section of the **Analysis** tab in the AWS Clean Rooms console.
 5. On the **Query details** page, under **Results**, do
    one of the following:
 
-| If you want to…                | Then choose…                                                                                                                                        |
-| ------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Copy the results.              | **Copy**                                                                                                                                            |
-| Download the results.          | **Download**NoteBy default, the downloaded ﬁle’s name is the corresponding `Query id` that was displayed when the query was run in AWS Clean Rooms. |
-| View the results in Amazon S3. | **View in Amazon S3**The Amazon S3 console opens in a separate tab.                                                                                 | 6. If you're using encrypted data, you can now [decrypt](glossary.md#glossary-decryption "glossary.md#glossary-decryption") the data tables. For more information, see [Decrypting data tables with the C3R encryption client](decrypt-data.md "decrypt-data.md"). |
+| If you want to…                | Then choose…                                                                                                                                           |
+| ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Copy the results.              | **Copy**                                                                                                                                               |
+| Download the results.          | **Download**NoteBy default, the downloaded ﬁle’s name is the corresponding `Query<br>id` that was displayed when the query was run in AWS Clean Rooms. |
+| View the results in Amazon S3. | **View in Amazon S3**The Amazon S3 console opens in a separate<br>tab.                                                                                 |
+
+6. If you're using encrypted data, you can now [decrypt](glossary.md#glossary-decryption "glossary.md#glossary-decryption") the data tables.
+
+For more information, see [Decrypting data tables with the C3R encryption client](decrypt-data.md "decrypt-data.md").

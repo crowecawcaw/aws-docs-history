@@ -195,7 +195,25 @@ Only S3 tables cataloged in AWS Glue can be used to retrieve the
 table schema automatically. 7. For **Columns allowed in collaborations**, choose an option
 based on your goal.
 
-| Your goal                                                                    | Recommended option |
-| ---------------------------------------------------------------------------- | ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Allow all columns for use in AWS Clean Rooms (subject to analysis rules)     | **All columns**    |
-| Allow one or more columns from the **Specify allowed columns** dropdown list | **Custom list**    | 8. For **Configured table details**, 1. Enter a **Name** for the configured table. You can use the default name or rename this table. 2. Enter a **Description** of the table. The description helps differentiate between other configured tables with similar names. 3. If you want to enable **Tags** for the configured table resource, choose **Add new tag** and then enter the **Key** and **Value** pair. 9. Choose **Configure new table**. Now that you have created a configured table, you are ready to: <br>• [Add an analysis rule to the configured table](add-analysis-rule.md "add-analysis-rule.md") <br>• [Associate the configured table to a collaboration](associate-configured-table.md "associate-configured-table.md") |
+| Your goal                                                                            | Recommended option |
+| ------------------------------------------------------------------------------------ | ------------------ |
+| Allow all columns for use in AWS Clean Rooms (subject to analysis<br>rules)          | **All columns**    |
+| Allow one or more columns from the \*_Specify allowed<br>columns_<br>• dropdown list | **Custom list**    |
+
+8. For **Configured table details**,
+   1. Enter a **Name** for the configured table.
+
+   You can use the default name or rename this table. 2. Enter a **Description** of the table.
+
+   The description helps differentiate between other configured tables
+   with similar names. 3. If you want to enable **Tags** for the configured
+   table resource, choose **Add new tag** and then enter
+   the **Key** and **Value** pair.
+
+9. Choose **Configure new table**.
+   Now that you have created a configured table, you are ready to:
+
+- [Add an analysis rule to the configured
+  table](add-analysis-rule.md "add-analysis-rule.md")
+- [Associate the configured table to a
+  collaboration](associate-configured-table.md "associate-configured-table.md")

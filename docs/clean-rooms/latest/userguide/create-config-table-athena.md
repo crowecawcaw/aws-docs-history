@@ -64,12 +64,34 @@ following:
    2. For **S3 output location**, choose a recommended
       action, based on one of the following scenarios.
 
-| Scenario                                                                     | Recommended action                                                          |
-| ---------------------------------------------------------------------------- | --------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Your **Workgroup** doesn’t have a default output location.                   | Enter the **S3 output location** or choose **Browse S3**.                   |
-| Your **Workgroup** enforces your default output location.                    | The **S3 output location** is automatically chosen and you can't change it. |
-| Your **Workgroup** doesn’t enforce your default output location.             | Enter the **S3 output location** or choose **Browse S3**.                   | 7. For **Columns allowed in collaborations**, choose an option based on your goal.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| Your goal                                                                    | Recommended option                                                          |
-| ---                                                                          | ---                                                                         |
-| Allow all columns for use in AWS Clean Rooms (subject to analysis rules)     | **All columns**                                                             |
-| Allow one or more columns from the **Specify allowed columns** dropdown list | **Custom list**                                                             | 8. For **Configured table details**, 1. Enter a **Name** for the configured table. You can use the default name or rename this table. 2. Enter a **Description** of the table. The description helps differentiate between other configured tables with similar names. 3. If you want to enable **Tags** for the configured table resource, choose **Add new tag** and then enter the **Key** and **Value** pair. 9. Choose **Configure new table**. Now that you have created a configured table, you are ready to: <br>• [Add an analysis rule to the configured table](add-analysis-rule.md "add-analysis-rule.md") <br>• [Associate the configured table to a collaboration](associate-configured-table.md "associate-configured-table.md") |
+   | Scenario                                                                 | Recommended action                                                                  |
+   | ------------------------------------------------------------------------ | ----------------------------------------------------------------------------------- |
+   | Your \*_Workgroup_<br>• doesn’t have a<br>default output location.       | Enter the **S3 output location**<br>or choose **Browse S3**.                        |
+   | Your \*_Workgroup_<br>• enforces your<br>default output location.        | The \*_S3 output location_<br>• is<br>automatically chosen and you can't change it. |
+   | Your \*_Workgroup_<br>• doesn’t enforce<br>your default output location. | Enter the **S3 output location**<br>or choose **Browse S3**.                        |
+
+7. For **Columns allowed in collaborations**, choose an option
+   based on your goal.
+
+| Your goal                                                                            | Recommended option |
+| ------------------------------------------------------------------------------------ | ------------------ |
+| Allow all columns for use in AWS Clean Rooms (subject to analysis<br>rules)          | **All columns**    |
+| Allow one or more columns from the \*_Specify allowed<br>columns_<br>• dropdown list | **Custom list**    |
+
+8. For **Configured table details**,
+   1. Enter a **Name** for the configured table.
+
+   You can use the default name or rename this table. 2. Enter a **Description** of the table.
+
+   The description helps differentiate between other configured tables
+   with similar names. 3. If you want to enable **Tags** for the configured
+   table resource, choose **Add new tag** and then enter
+   the **Key** and **Value** pair.
+
+9. Choose **Configure new table**.
+   Now that you have created a configured table, you are ready to:
+
+- [Add an analysis rule to the configured
+  table](add-analysis-rule.md "add-analysis-rule.md")
+- [Associate the configured table to a
+  collaboration](associate-configured-table.md "associate-configured-table.md")

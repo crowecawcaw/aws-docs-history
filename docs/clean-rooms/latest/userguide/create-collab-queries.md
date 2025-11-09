@@ -185,21 +185,200 @@ Reference](../apireference/Welcome.md "../apireference/Welcome.md")_.
     types** leave the **Queries** checkbox selected and take the
     recommended action, based on your goal.
 
-| Your goal                                                                                                                          | Recommended action                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| ---------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Query the data in the collaboration and receive the results                                                                        | 1. Choose yourself as the member who can **Run queries**. 2. Choose yourself as member who can **Receive results from analyses** from the dropdown list.                                                                                                                                                                                                                                                                                                                                                                                                           |
-| Query the data in the collaboration and assign a different member to receive results                                               | 1. Choose yourself as the member who can **Run queries**. 2. Select the member who can **Receive results from analyses** from the dropdown list.                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| Receive the results of the query in the collaboration and assign a different member to query the data                              | 1. Select the member who can **Run queries** from the dropdown list. 2. Choose yourself as member who can **Receive results from analyses** from the dropdown list.                                                                                                                                                                                                                                                                                                                                                                                                |
-| Create and manage the collaboration, assign a different member to query the data, and assign a different member to receive results | 1. Select the member who can **Run queries** from the dropdown list. 2. Select the member who can **Receive results from analyses** from the dropdown list.                                                                                                                                                                                                                                                                                                                                                                                                        | 1. If you are using Clean Rooms ML, for **ML modeling using purpose-built workflows**, 1. (Optional) Select the member who can **Receive output from trained models** from the dropdown list. 2. (Optional) Select the member who can **Receive output from model inference** from the dropdown list. 2. View the member abilities under **ID resolution using AWS Entity Resolution**. 3. Choose **Next**. 6. For **Step 3: Configure payment**, for **Analysis using queries**, take one of the following actions based on your goal.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| Your goal                                                                                                                          | Recommended action                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| ---                                                                                                                                | ---                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| Assign the member who can **Run queries** to be the member who pays for the query compute costs                                    | 1. For **Analysis using queries**, choose the member who will **Pay for queries** to be the same as the member who can **Run queries**. 2. Choose **Next**.                                                                                                                                                                                                                                                                                                                                                                                                        |
-| Assign a diﬀerent member to pay for the query compute costs                                                                        | 1. For **Analysis using queries**, choose yourself as the member who will **Pay for queries**. 2. Choose **Next**.                                                                                                                                                                                                                                                                                                                                                                                                                                                 | For **ML modeling using purpose-built workflows**, the **Creator of the configured lookalike model** is the member who will **Pay for lookalike modeling**. For **ID resolution with AWS Entity Resolution**, the **Creator of the ID mapping table** is the member who will **Pay for ID mapping table**. 7. For **Step 4: Configure membership**, choose one of the following options: Yes, join by creating membership now 1. For **Results settings defaults**, for **Query results settings**, if you are the member who can **Receive results**, 1. For the **Results destination in Amazon S3**, enter the Amazon S3 destination or choose **Browse S3** to select an S3 bucket. 2. For the query **Result format**, choose either **CSV** or **PARQUET**. 3. (Spark only) For the **Result files**, choose either **Multiple** or **Single**. 4. (Optional) For **Service access**, if you want to deliver queries that take up to 24 hours to your S3 destination, select the **Add a service role to support queries that take up to 24 hours to complete** check box. Large queries that take up to 24 hours to complete will be delivered to your S3 destination. If you don't select the check box, only queries that complete within 12 hours will be delivered to your S3 location. 5. Specify the **Service access** permissions by selecting either **Create and use a new service role** or **Use an existing service role**.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| If you choose to ...                                                                                                               | Then ...                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| ---                                                                                                                                | ---                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| Create and use a new service role                                                                                                  | <br>• AWS Clean Rooms creates a service role with the required policy for this table. <br>• The default **Service role name** is `cleanrooms-result-receiver-<timestamp>` <br>• You must have permissions to create roles and attach policies.                                                                                                                                                                                                                                                                                                                     |
-| Use an existing service role                                                                                                       | 1. Choose an **Existing service role name** from the dropdown list. The list of roles are displayed if you have permissions to list roles. If you don't have permissions to list roles, you can enter the Amazon Resource Name (ARN) of the role that you want to use. 2. View the service role by choosing the **View in IAM** external link. If there are no existing service roles, the option to **Use an existing service role** is unavailable. By default, AWS Clean Rooms doesn't attempt to update the existing role policy to add necessary permissions. | ###### Note <br>• AWS Clean Rooms requires permissions to query according to the analysis rules. For more information about permissions for AWS Clean Rooms, see [AWS managed policies for AWS Clean Rooms](security-iam-awsmanpol.md "security-iam-awsmanpol.md"). <br>• If the role doesn’t have sufficient permissions for AWS Clean Rooms, you receive an error message stating that the role doesn't have sufficient permissions for AWS Clean Rooms. The role policy must be added before proceeding. <br>• If you can’t modify the role policy, you receive an error message stating that AWS Clean Rooms couldn't find the policy for the service role. 2. For **Logs settings**, choose one of the following options for **Log storage in Amazon CloudWatch Logs**: ###### Note The **Logs settings** section appears if you chose to enable **Query logging**. 1. Choose **Turn on** and the query logs relevant to you will be stored in your Amazon CloudWatch Logs account. Each member can receive only logs for queries that they initiated or that contain their data. The member who can receive results also receives logs for all queries run in a collaboration, even if their data isn't accessed in a query. Under **Supported log types**, the **Query logs** checkbox is turned on by default. ###### Note After you turn on **Query logging**, it can take a few minutes for log storage to be set up and start receiving logs in Amazon CloudWatch Logs. During this brief period, the member who can query might run queries that don’t actually send logs. 2. Choose **Turn off** and the query logs relevant to you won't be stored in your Amazon CloudWatch Logs account. 3. If you want to enable **Tags** for the membership resource, choose **Add new tag** and then enter the **Key** and **Value** pair. 4. If you are the member who is paying for **Query compute**, indicate your acceptance by selecting the **I agree to pay for the compute costs in this collaboration** checkbox. ###### Note You must select this checkbox to proceed. For more information about how pricing is calculated, see [Pricing for AWS Clean Rooms](what-is.md#pricing "what-is.md#pricing"). If you are the [member paying for query compute costs](glossary.md#glossary-member-paying-for-query-compute "glossary.md#glossary-member-paying-for-query-compute") but not the [member who can query](glossary.md#glossary-member-who-can-query "glossary.md#glossary-member-who-can-query"), it is recommended that you use AWS Budgets to configure a budget for AWS Clean Rooms and receive notifications once the maximum budget has been reached. For more information about setting up a budget, see [Managing your costs with AWS Budgets](../../../cost-management/latest/userguide/budgets-managing-costs.md "../../../cost-management/latest/userguide/budgets-managing-costs.md") in the _AWS Cost Management User Guide_. For more information about setting up notifications, see [Creating an Amazon SNS topic for budget notifications](../../../cost-management/latest/userguide/budgets-sns-policy.md "../../../cost-management/latest/userguide/budgets-sns-policy.md") in the _AWS Cost Management User Guide_. If the maximum budget has been reached, you can contact the member who can run queries or [leave the collaboration](leave-collab.md "leave-collab.md"). If you leave the collaboration, no more queries will be allowed to run, and therefore you will no longer be billed for query compute costs. 5. Choose **Next**. Both the collaboration and your membership are created. Your status in the collaboration is active. No, I will create a membership later 1. Choose **Next**. Only the collaboration is created. Your status in the collaboration is inactive. 8. For **Step 5: Review and create**, do the following: 1. Review the selections that you made for the previous steps and edit if necessary. 2. Choose one of the options. |
-| If you have chosen to ...                                                                                                          | Then choose ...                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| ---                                                                                                                                | ---                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| Create a membership with the collaboration (**Yes, join by creating membership now**)                                              | **Create collaboration and membership**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| Create the collaboration, and not to create a membership at this time (**No, I will create a membership later**)                   | **Create collaboration**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | After your collaboration has been created successfully, you can see the collaboration details page under **Collaborations**. You are now ready to: <br>• [Prepare your data table to be analyzed in AWS Clean Rooms](prepare-data.md "prepare-data.md"). (Optional if you want to analyze your own event data or if you want to query identity data.) <br>• [Associate the configured table to your collaboration](associate-configured-table.md "associate-configured-table.md"). (Optional if you want to analyze your own event data.) <br>• [Add an analysis rule for the configured table](add-analysis-rule.md "add-analysis-rule.md"). (Optional if you want to analyze your own event data.) <br>• [Create a membership and join a collaboration](create-membership.md "create-membership.md"). (Optional if you've already created a membership.) <br>• [Invite members to join the collaboration](invite-members.md "invite-members.md").                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| Your goal                                                                                                                             | Recommended action                                                                                                                                                                     |
+| ------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Query the data in the collaboration and receive the results                                                                           | 1. Choose yourself as the member who can **Run<br>queries**.<br>2. Choose yourself as member who can \*_Receive results from<br>analyses_<br>• from the dropdown list.                 |
+| Query the data in the collaboration and assign a different member to receive<br>results                                               | 1. Choose yourself as the member who can **Run<br>queries**.<br>2. Select the member who can \*_Receive results from<br>analyses_<br>• from the dropdown list.                         |
+| Receive the results of the query in the collaboration and assign a different<br>member to query the data                              | 1. Select the member who can **Run queries\*<br>• from the<br>dropdown list.<br>2. Choose yourself as member who can **Receive results from<br>analyses\*<br>• from the dropdown list. |
+| Create and manage the collaboration, assign a different member to query the<br>data, and assign a different member to receive results | 1. Select the member who can **Run queries\*<br>• from the<br>dropdown list.<br>2. Select the member who can **Receive results from<br>analyses\*<br>• from the dropdown list.         |
+
+    1. If you are using Clean Rooms ML, for **ML modeling using purpose-built
+     workflows**,
+
+
+    	1. (Optional) Select the member who can **Receive output from trained
+    	 models** from the dropdown list.
+    	2. (Optional) Select the member who can **Receive output from model
+    	 inference** from the dropdown list.
+    2. View the member abilities under **ID resolution using
+     AWS Entity Resolution**.
+    3. Choose **Next**.
+
+6. For **Step 3: Configure payment**, for **Analysis using
+   queries**, take one of the following actions based on your goal.
+
+| Your goal                                                                                               | Recommended action                                                                                                                                                          |
+| ------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Assign the member who can \*_Run queries_<br>• to be the member<br>who pays for the query compute costs | 1. For **Analysis using queries**, choose the member who<br>will **Pay for queries\*<br>• to be the same as the member who<br>can **Run queries**.<br>2. Choose **Next\*\*. |
+| Assign a diﬀerent member to pay for the query compute costs                                             | 1. For **Analysis using queries**, choose yourself as the<br>member who will **Pay for queries**.<br>2. Choose **Next**.                                                    |
+
+For **ML modeling using purpose-built workflows**, the
+**Creator of the configured lookalike model** is the member who will
+**Pay for lookalike modeling**.
+
+For **ID resolution with AWS Entity Resolution**, the **Creator of the ID
+mapping table** is the member who will **Pay for ID mapping
+table**. 7. For **Step 4: Configure membership**, choose one of the following
+options:
+
+Yes, join by creating membership now
+
+    1. For **Results settings defaults**, for **Query
+     results settings**, if you are the member who can **Receive
+     results**,
+
+
+
+
+    	1. For the **Results destination in Amazon S3**, enter the Amazon S3
+    	 destination or choose **Browse S3** to select an S3
+    	 bucket.
+    	2. For the query **Result format**, choose either
+    	 **CSV** or **PARQUET**.
+    	3. (Spark only) For the **Result files**, choose either
+    	 **Multiple** or **Single**.
+    	4. (Optional) For **Service access**, if you want to
+    	 deliver queries that take up to 24 hours to your S3 destination, select the
+    	 **Add a service role to support queries that take up to 24 hours
+    	 to complete** check box.
+
+
+    	Large queries that take up to 24 hours to complete will be delivered to
+    	 your S3 destination.
+
+
+    	If you don't select the check box, only queries that complete within 12
+    	 hours will be delivered to your S3 location.
+    	5. Specify the **Service access** permissions by selecting
+    	 either **Create and use a new service role** or
+    	 **Use an existing service role**.
+
+
+
+
+    	| If you choose to ... | Then ... |
+    	| --- | --- |
+    	| Create and use a new service role | • AWS Clean Rooms creates a service role with the required policy<br>for this table.<br>• The default **Service role name** is<br>`cleanrooms-result-receiver-<timestamp>`<br>• You must have permissions to create roles and attach<br>policies. |
+    	| Use an existing service role | 1. Choose an **Existing service role name**<br>from the dropdown list.<br>The list of roles are displayed if you have permissions to<br>list roles.<br>If you don't have permissions to list roles, you can enter<br>the Amazon Resource Name (ARN) of the role that you want to<br>use.<br>2. View the service role by choosing the **View in<br>IAM*<br>• external link.<br>If there are no existing service roles, the option to<br>**Use an existing service role*<br>• is<br>unavailable.<br>By default, AWS Clean Rooms doesn't attempt to update the existing<br>role policy to add necessary permissions. |
+
+
+    	###### Note
+
+
+
+    		* AWS Clean Rooms requires permissions to query according to the analysis
+    		 rules. For more information about permissions for AWS Clean Rooms, see [AWS managed policies for AWS Clean Rooms](security-iam-awsmanpol.md "security-iam-awsmanpol.md").
+    		* If the role doesn’t have sufficient permissions for AWS Clean Rooms, you
+    		 receive an error message stating that the role doesn't have sufficient
+    		 permissions for AWS Clean Rooms. The role policy must be added before
+    		 proceeding.
+    		* If you can’t modify the role policy, you receive an error message
+    		 stating that AWS Clean Rooms couldn't find the policy for the service
+    		 role.
+    2. For **Logs settings**, choose one of the following options
+     for **Log storage in Amazon CloudWatch Logs**:
+
+
+    ###### Note
+
+    The **Logs settings** section appears if you chose to
+     enable **Query logging**.
+
+
+
+
+    	1. Choose **Turn on** and the query logs relevant to you
+    	 will be stored in your Amazon CloudWatch Logs account.
+
+
+    	Each member can receive only logs for queries that they initiated or
+    	 that contain their data.
+
+
+    	The member who can receive results also receives logs for all queries
+    	 run in a collaboration, even if their data isn't accessed in a query.
+
+
+    	Under **Supported log types**, the **Query
+    	 logs** checkbox is turned on by default.
+
+
+    	###### Note
+
+    	After you turn on **Query logging**, it can take a
+    	 few minutes for log storage to be set up and start receiving logs in
+    	 Amazon CloudWatch Logs. During this brief period, the member who can query might run
+    	 queries that don’t actually send logs.
+    	2. Choose **Turn off** and the query logs relevant to you
+    	 won't be stored in your Amazon CloudWatch Logs account.
+    3. If you want to enable **Tags** for the membership resource,
+     choose **Add new tag** and then enter the
+     **Key** and **Value** pair.
+    4. If you are the member who is paying for **Query compute**,
+     indicate your acceptance by selecting the **I agree to pay for the
+     compute costs in this collaboration** checkbox.
+
+
+    ###### Note
+
+    You must select this checkbox to proceed.
+
+    For more information about how pricing is calculated, see [Pricing for AWS Clean Rooms](what-is.md#pricing "what-is.md#pricing").
+
+
+    If you are the [member paying for
+     query compute costs](glossary.md#glossary-member-paying-for-query-compute "glossary.md#glossary-member-paying-for-query-compute") but not the [member who can query](glossary.md#glossary-member-who-can-query "glossary.md#glossary-member-who-can-query"), it
+     is recommended that you use AWS Budgets to configure a budget for AWS Clean Rooms and
+     receive notifications once the maximum budget has been reached. For more
+     information about setting up a budget, see [Managing
+     your costs with AWS Budgets](../../../cost-management/latest/userguide/budgets-managing-costs.md "../../../cost-management/latest/userguide/budgets-managing-costs.md") in the *AWS Cost Management
+     User Guide*. For more information about setting up notifications,
+     see [Creating an
+     Amazon SNS topic for budget notifications](../../../cost-management/latest/userguide/budgets-sns-policy.md "../../../cost-management/latest/userguide/budgets-sns-policy.md") in the *AWS Cost Management User Guide*. If the maximum budget has been reached, you can
+     contact the member who can run queries or [leave the collaboration](leave-collab.md "leave-collab.md"). If you leave the
+     collaboration, no more queries will be allowed to run, and therefore you will no
+     longer be billed for query compute costs.
+    5. Choose **Next**.
+
+Both the collaboration and your membership are created.
+
+Your status in the collaboration is active.
+
+No, I will create a membership later
+
+    1. Choose **Next**.
+
+
+    Only the collaboration is created.
+
+
+    Your status in the collaboration is inactive.
+
+8.  For **Step 5: Review and create**, do the following:
+
+        1. Review the selections that you made for the previous steps and edit if necessary.
+        2. Choose one of the options.
+
+
+
+
+        | If you have chosen to ... | Then choose ... |
+        | --- | --- |
+        | Create a membership with the collaboration (**Yes, join by<br>creating membership now**) | **Create collaboration and membership** |
+        | Create the collaboration, and not to create a membership at this time<br>(**No, I will create a membership later**) | **Create collaboration** |
+
+    After your collaboration has been created successfully, you can see the collaboration
+    details page under **Collaborations**.
+
+You are now ready to:
+
+- [Prepare your data table to be analyzed in
+  AWS Clean Rooms](prepare-data.md "prepare-data.md"). (Optional if you want to analyze your own event data or if you
+  want to query identity data.)
+- [Associate the configured table to your
+  collaboration](associate-configured-table.md "associate-configured-table.md"). (Optional if you want to analyze your own event data.)
+- [Add an analysis rule for the configured
+  table](add-analysis-rule.md "add-analysis-rule.md"). (Optional if you want to analyze your own event data.)
+- [Create a membership and join a collaboration](create-membership.md "create-membership.md").
+  (Optional if you've already created a membership.)
+- [Invite members to join the collaboration](invite-members.md "invite-members.md").

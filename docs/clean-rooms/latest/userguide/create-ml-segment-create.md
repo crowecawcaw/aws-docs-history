@@ -29,8 +29,17 @@ seed data.
    method** by selecting an option and then taking the recommended
    action.
 
-| Option                | Recommended action                                                                                      |
-| --------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Amazon S3 path**    | 1. Select an Amazon S3 location. 2. (Optional) Choose **Include seed profiles in the output**.          |
-| **SQL query**         | Write a SQL query and use its results as the seed data.                                                 |
-| **Analysis template** | Choose an analysis template from the dropdown list and use the results created by an analysis template. | 8. Choose the **Worker type** and **Number of workers** to use when creating this data channel. 9. For **Service access**, choose the **Existing service role name** that will be used to access this table. 10. If you want to enable **Tags** for the training dataset, choose **Add new tag** and then enter the **Key** and **Value** pair. 11. Choose **Create lookalike segment**. For the corresponding API action, see [StartAudienceGenerationJob](../../../cleanrooms-ml/latest/APIReference/API_StartAudienceGenerationJob.md "../../../cleanrooms-ml/latest/APIReference/API_StartAudienceGenerationJob.md"). |
+| Option                | Recommended action                                                                                         |
+| --------------------- | ---------------------------------------------------------------------------------------------------------- |
+| **Amazon S3 path**    | 1. Select an Amazon S3 location.<br>2. (Optional) Choose **Include seed profiles<br>in the output**.       |
+| **SQL query**         | Write a SQL query and use its results as the seed<br>data.                                                 |
+| **Analysis template** | Choose an analysis template from the dropdown list and use<br>the results created by an analysis template. |
+
+8. Choose the **Worker type** and **Number of workers** to use when creating this data channel.
+9. For **Service access**, choose the **Existing service
+   role name** that will be used to access this table.
+10. If you want to enable **Tags** for the training dataset,
+    choose **Add new tag** and then enter the
+    **Key** and **Value** pair.
+11. Choose **Create lookalike segment**.
+    For the corresponding API action, see [StartAudienceGenerationJob](../../../cleanrooms-ml/latest/APIReference/API_StartAudienceGenerationJob.md "../../../cleanrooms-ml/latest/APIReference/API_StartAudienceGenerationJob.md").

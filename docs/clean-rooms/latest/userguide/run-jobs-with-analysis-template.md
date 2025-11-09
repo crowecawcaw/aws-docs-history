@@ -37,9 +37,21 @@ and the **Number of workers**.
 Use the following table to determine the type and number or workers you need for
 your use case.
 
-| Worker type         | vCPU | Memory (GB)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | Storage (GB) | Number of workers | Total Clean Rooms Processing Units (CRPU) |
-| ------------------- | ---- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------ | ----------------- | ----------------------------------------- |
-| **CR.1X** (default) | 4    | 30                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | 100          | 4                 | 8                                         |
-| 128                 | 256  |
-| **CR.4X**           | 16   | 120                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | 400          | 4                 | 32                                        |
-| 32                  | 256  | ###### Note Different worker types and number of workers have associated costs. To learn more about the pricing, see [AWS Clean Rooms pricing](https://aws.amazon.com/clean-rooms/pricing/ "https://aws.amazon.com/clean-rooms/pricing/"). 7. Choose **Run**. ###### Note You can't run the job if the member who can receive results hasn’t configured the job results settings. 8. Continue to adjust parameters and run your job again, or choose the **+** button to start a new job in a new tab. |
+| Worker type              | vCPU | Memory (GB) | Storage (GB) | Number of workers | Total Clean Rooms Processing Units (CRPU) |
+| ------------------------ | ---- | ----------- | ------------ | ----------------- | ----------------------------------------- |
+| \*_CR.1X_<br>• (default) | 4    | 30          | 100          | 4                 | 8                                         |
+| 128                      | 256  |
+| **CR.4X**                | 16   | 120         | 400          | 4                 | 32                                        |
+| 32                       | 256  |
+
+###### Note
+
+Different worker types and number of workers have associated costs. To learn more
+about the pricing, see [AWS Clean Rooms
+pricing](https://aws.amazon.com/clean-rooms/pricing/ "https://aws.amazon.com/clean-rooms/pricing/"). 7. Choose **Run**.
+
+###### Note
+
+You can't run the job if the member who can receive results hasn’t configured the
+job results settings. 8. Continue to adjust parameters and run your job again, or choose the
+**+** button to start a new job in a new tab.

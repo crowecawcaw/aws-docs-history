@@ -25,7 +25,9 @@ created.
    this configuration so that the column that comes from this ID namespace (either
    `sourceID` or `targetID`) can be allowed anywhere in the query.
 
-| Your goal                                                                                                                                                              | Recommended option                  |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------- | --------------------------- |
-| Categorize the column as a "join column" and only allow it in an `INNER JOIN` clause                                                                                   | **Yes**                             |
-| Categorize the column as a "dimension column" and allow it anywhere in the query, including a `JOIN` clause, `SELECT`, `WHERE` and `GROUP BY` statements of the query. | **No, allow anywhere in the query** | 9. Choose **Save changes**. |
+   | Your goal                                                                                                                                                                    | Recommended option                  |
+   | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------- |
+   | Categorize the column as a "join column" and only allow it in an `INNER<br>JOIN` clause                                                                                      | **Yes**                             |
+   | Categorize the column as a "dimension column" and allow it anywhere in the query,<br>including a `JOIN` clause, `SELECT`, `WHERE` and<br>`GROUP BY` statements of the query. | **No, allow anywhere in the query** |
+
+9. Choose **Save changes**.

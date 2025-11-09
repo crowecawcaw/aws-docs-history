@@ -39,7 +39,10 @@ When you bring your analysis code into a collaboration, be aware of the followin
 The **Status** next to each table will read **Template not
 allowed**. 9. Choose a table.
 
-| If you                              | Then choose                                                               |
-| ----------------------------------- | ------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Approve the analysis template       | **Allow template on table**. Confirm your approval by choosing **Allow**. |
-| Don't approve the analysis template | **Disallow**                                                              | You are now ready to query the configured table using a SQL analysis template. For more information, see [Running SQL queries](running-sql-queries.md "running-sql-queries.md"). |
+| If you                              | Then choose                                                                  |
+| ----------------------------------- | ---------------------------------------------------------------------------- |
+| Approve the analysis template       | **Allow template on table**. Confirm your approval by<br>choosing **Allow**. |
+| Don't approve the analysis template | **Disallow**                                                                 |
+
+You are now ready to query the configured table using a SQL analysis template. For more
+information, see [Running SQL queries](running-sql-queries.md "running-sql-queries.md").

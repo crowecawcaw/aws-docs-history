@@ -265,12 +265,150 @@ Yes, join by creating membership now
 
 
 
+    	| If you choose to ... | Then ... |
+    	| --- | --- |
+    	| Create and use a new service role | • AWS Clean Rooms creates a service role with the required policy<br>for this table.<br>• The default **Service role name** is<br>`cleanrooms-result-receiver-<timestamp>`<br>• You must have permissions to create roles and attach<br>policies. |
+    	| Use an existing service role | 1. Choose an **Existing service role name**<br>from the dropdown list.<br>The list of roles are displayed if you have permissions to<br>list roles.<br>If you don't have permissions to list roles, you can enter<br>the Amazon Resource Name (ARN) of the role that you want to<br>use.<br>2. View the service role by choosing the **View in<br>IAM*<br>• external link.<br>If there are no existing service roles, the option to<br>**Use an existing service role*<br>• is<br>unavailable.<br>By default, AWS Clean Rooms doesn't attempt to update the existing<br>role policy to add necessary permissions. |
 
-| If you choose to ...                                                                                             | Then ...                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| ---------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Create and use a new service role                                                                                | <br>• AWS Clean Rooms creates a service role with the required policy for this table. <br>• The default **Service role name** is `cleanrooms-result-receiver-<timestamp>` <br>• You must have permissions to create roles and attach policies.                                                                                                                                                                                                                                                                                                                     |
-| Use an existing service role                                                                                     | 1. Choose an **Existing service role name** from the dropdown list. The list of roles are displayed if you have permissions to list roles. If you don't have permissions to list roles, you can enter the Amazon Resource Name (ARN) of the role that you want to use. 2. View the service role by choosing the **View in IAM** external link. If there are no existing service roles, the option to **Use an existing service role** is unavailable. By default, AWS Clean Rooms doesn't attempt to update the existing role policy to add necessary permissions. | ###### Note <br>• AWS Clean Rooms requires permissions to query according to the analysis rules. For more information about permissions for AWS Clean Rooms, see [AWS managed policies for AWS Clean Rooms](security-iam-awsmanpol.md "security-iam-awsmanpol.md"). <br>• If the role doesn’t have sufficient permissions for AWS Clean Rooms, you receive an error message stating that the role doesn't have sufficient permissions for AWS Clean Rooms. The role policy must be added before proceeding. <br>• If you can’t modify the role policy, you receive an error message stating that AWS Clean Rooms couldn't find the policy for the service role. 2. For **Job results**, For example: `s3://bucket/prefix` 1. Choose the **Set default settings for jobs** checkbox, and then specify the **Results destination in Amazon S3** by entering the S3 destination or choose **Browse S3** to select from a list of available S3 buckets. 2. Specify the **Service access** permissions by choosing an **Existing service role name** from the dropdown list. 3. For **Logs settings**, choose one of the following options for **Log storage in Amazon CloudWatch Logs**: ###### Note The **Logs settings** section appears if you chose to enable **Query logging**. 1. Choose **Turn on** and the query logs relevant to you will be stored in your Amazon CloudWatch Logs account. Each member can receive only logs for queries that they initiated or that contain their data. The member who can receive results also receives logs for all queries run in a collaboration, even if their data isn't accessed in a query. Under **Supported log types**, choose from the log types the collaboration creator has chosen to support: Under **Supported log types**, the **Query logs** and **Job logs** checkboxes are turned on by default. ###### Note After you turn on **Analysis logging**, it can take a few minutes for log storage to be set up and start receiving logs in Amazon CloudWatch Logs. During this brief period, the member who can query might run queries that don’t actually send logs. 2. Choose **Turn off** and the query logs relevant to you won't be stored in your Amazon CloudWatch Logs account. 4. If you want to enable **Membership tags** for the membership resource, choose **Add new tag** and then enter the **Key** and **Value** pair. 5. If you are the member who is paying for **Query compute**, or **Job compute**, or both, indicate your acceptance by selecting the **I agree to pay for the compute costs in this collaboration** checkbox. ###### Note You must select this checkbox to proceed. For more information about how pricing is calculated, see [Pricing for AWS Clean Rooms](what-is.md#pricing "what-is.md#pricing"). If you are the [member paying for query compute costs](glossary.md#glossary-member-paying-for-query-compute "glossary.md#glossary-member-paying-for-query-compute") but not the [member who can query](glossary.md#glossary-member-who-can-run-queries-jobs "glossary.md#glossary-member-who-can-run-queries-jobs"), it is recommended that you use AWS Budgets to configure a budget for AWS Clean Rooms and receive notifications once the maximum budget has been reached. For more information about setting up a budget, see [Managing your costs with AWS Budgets](../../../cost-management/latest/userguide/budgets-managing-costs.md "../../../cost-management/latest/userguide/budgets-managing-costs.md") in the _AWS Cost Management User Guide_. For more information about setting up notifications, see [Creating an Amazon SNS topic for budget notifications](../../../cost-management/latest/userguide/budgets-sns-policy.md "../../../cost-management/latest/userguide/budgets-sns-policy.md") in the _AWS Cost Management User Guide_. If the maximum budget has been reached, you can contact the member who can run queries or [leave the collaboration](leave-collab.md "leave-collab.md"). If you leave the collaboration, no more queries will be allowed to run, and therefore you will no longer be billed for query compute costs. 6. Choose **Next**. Both the collaboration and your membership are created. Your status in the collaboration is active. No, I will create a membership later 1. Choose **Next**. Only the collaboration is created. Your status in the collaboration is inactive. 8. For **Step 5: Review and create**, do the following: 1. Review the selections that you made for the previous steps and edit if necessary. 2. Choose one of the options. |
-| If you have chosen to ...                                                                                        | Then choose ...                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| ---                                                                                                              | ---                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| Create a membership with the collaboration (**Yes, join by creating membership now**)                            | **Create collaboration and membership**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| Create the collaboration, and not to create a membership at this time (**No, I will create a membership later**) | **Create collaboration**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | After your collaboration has been created successfully, you can see the collaboration details page under **Collaborations**. You are now ready to: <br>• [Prepare your data table to be analyzed in AWS Clean Rooms](prepare-data.md "prepare-data.md"). (Optional if you want to analyze your own event data or if you want to query identity data.) <br>• [Associate the configured table to your collaboration](associate-configured-table.md "associate-configured-table.md"). (Optional if you want to analyze your own event data.) <br>• [Add an analysis rule for the configured table](add-analysis-rule.md "add-analysis-rule.md"). (Optional if you want to analyze your own event data.) <br>• [Create a membership and join a collaboration](create-membership.md "create-membership.md"). (Optional if you've already created a membership.) <br>• [Invite members to join the collaboration](invite-members.md "invite-members.md").                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+
+    	###### Note
+
+
+
+    		* AWS Clean Rooms requires permissions to query according to the analysis
+    		 rules. For more information about permissions for AWS Clean Rooms, see [AWS managed policies for AWS Clean Rooms](security-iam-awsmanpol.md "security-iam-awsmanpol.md").
+    		* If the role doesn’t have sufficient permissions for AWS Clean Rooms, you
+    		 receive an error message stating that the role doesn't have sufficient
+    		 permissions for AWS Clean Rooms. The role policy must be added before
+    		 proceeding.
+    		* If you can’t modify the role policy, you receive an error message
+    		 stating that AWS Clean Rooms couldn't find the policy for the service
+    		 role.
+    2. For **Job results**,
+
+
+    For example: `s3://bucket/prefix`
+
+
+
+
+    	1. Choose the **Set default settings for jobs** checkbox,
+    	 and then specify the **Results destination in Amazon S3** by
+    	 entering the S3 destination or choose **Browse S3** to
+    	 select from a list of available S3 buckets.
+    	2. Specify the **Service access** permissions by choosing
+    	 an **Existing service role name** from the dropdown
+    	 list.
+    3. For **Logs settings**, choose one of the following options
+     for **Log storage in Amazon CloudWatch Logs**:
+
+
+    ###### Note
+
+    The **Logs settings** section appears if you chose to
+     enable **Query logging**.
+
+
+
+
+    	1. Choose **Turn on** and the query logs relevant to you
+    	 will be stored in your Amazon CloudWatch Logs account.
+
+
+    	Each member can receive only logs for queries that they initiated or
+    	 that contain their data.
+
+
+    	The member who can receive results also receives logs for all queries
+    	 run in a collaboration, even if their data isn't accessed in a query.
+
+
+    	Under **Supported log types**, choose from the log
+    	 types the collaboration creator has chosen to support:
+
+
+    	Under **Supported log types**, the **Query
+    	 logs** and **Job logs** checkboxes are turned on
+    	 by default.
+
+
+    	###### Note
+
+    	After you turn on **Analysis logging**, it can take a
+    	 few minutes for log storage to be set up and start receiving logs in
+    	 Amazon CloudWatch Logs. During this brief period, the member who can query might run
+    	 queries that don’t actually send logs.
+    	2. Choose **Turn off** and the query logs relevant to you
+    	 won't be stored in your Amazon CloudWatch Logs account.
+    4. If you want to enable **Membership tags** for the
+     membership resource, choose **Add new tag** and then enter the
+     **Key** and **Value** pair.
+    5. If you are the member who is paying for **Query compute**,
+     or **Job compute**, or both, indicate your acceptance by
+     selecting the **I agree to pay for the compute costs in this
+     collaboration** checkbox.
+
+
+    ###### Note
+
+    You must select this checkbox to proceed.
+
+    For more information about how pricing is calculated, see [Pricing for AWS Clean Rooms](what-is.md#pricing "what-is.md#pricing").
+
+
+    If you are the [member paying for
+     query compute costs](glossary.md#glossary-member-paying-for-query-compute "glossary.md#glossary-member-paying-for-query-compute") but not the [member who can query](glossary.md#glossary-member-who-can-run-queries-jobs "glossary.md#glossary-member-who-can-run-queries-jobs"), it
+     is recommended that you use AWS Budgets to configure a budget for AWS Clean Rooms and
+     receive notifications once the maximum budget has been reached. For more
+     information about setting up a budget, see [Managing
+     your costs with AWS Budgets](../../../cost-management/latest/userguide/budgets-managing-costs.md "../../../cost-management/latest/userguide/budgets-managing-costs.md") in the *AWS Cost Management
+     User Guide*. For more information about setting up notifications,
+     see [Creating an
+     Amazon SNS topic for budget notifications](../../../cost-management/latest/userguide/budgets-sns-policy.md "../../../cost-management/latest/userguide/budgets-sns-policy.md") in the *AWS Cost Management User Guide*. If the maximum budget has been reached, you can
+     contact the member who can run queries or [leave the collaboration](leave-collab.md "leave-collab.md"). If you leave the
+     collaboration, no more queries will be allowed to run, and therefore you will no
+     longer be billed for query compute costs.
+    6. Choose **Next**.
+
+Both the collaboration and your membership are created.
+
+Your status in the collaboration is active.
+
+No, I will create a membership later
+
+    1. Choose **Next**.
+
+
+    Only the collaboration is created.
+
+
+    Your status in the collaboration is inactive.
+
+8.  For **Step 5: Review and create**, do the following:
+
+        1. Review the selections that you made for the previous steps and edit if necessary.
+        2. Choose one of the options.
+
+
+
+
+        | If you have chosen to ... | Then choose ... |
+        | --- | --- |
+        | Create a membership with the collaboration (**Yes, join by<br>creating membership now**) | **Create collaboration and membership** |
+        | Create the collaboration, and not to create a membership at this time<br>(**No, I will create a membership later**) | **Create collaboration** |
+
+    After your collaboration has been created successfully, you can see the collaboration
+    details page under **Collaborations**.
+
+You are now ready to:
+
+- [Prepare your data table to be analyzed in
+  AWS Clean Rooms](prepare-data.md "prepare-data.md"). (Optional if you want to analyze your own event data or if you
+  want to query identity data.)
+- [Associate the configured table to your
+  collaboration](associate-configured-table.md "associate-configured-table.md"). (Optional if you want to analyze your own event data.)
+- [Add an analysis rule for the configured
+  table](add-analysis-rule.md "add-analysis-rule.md"). (Optional if you want to analyze your own event data.)
+- [Create a membership and join a collaboration](create-membership.md "create-membership.md").
+  (Optional if you've already created a membership.)
+- [Invite members to join the collaboration](invite-members.md "invite-members.md").

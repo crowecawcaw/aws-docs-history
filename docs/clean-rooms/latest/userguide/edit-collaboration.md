@@ -174,7 +174,102 @@ tags on the collaboration resource.
 3. Choose the collaboration that you created.
 4. Choose one of the following:
 
-| If you are...                                                   | Then ...                                      |
-| --------------------------------------------------------------- | --------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| The collaboration creator and a member of the collaboration     | Choose the **Details** tab.                   |
-| The collaboration creator but not a member of the collaboration | Scroll down the page to the **Tags** section. | 5. For **Collaboration details**, choose **Manage tags**. 6. On the **Manage tags** page, you can do the following: <br>• To remove a tag, choose **Remove**. <br>• To add a tag, choose **Add new tag**. <br>• To save your changes, choose **Save changes** ## Edit membership tags As a collaboration creator, after you have created a collaboration, you can manage the tags on the membership resource. ###### To edit the membership tags 1. Sign in to the AWS Management Console and open the [AWS Clean Rooms console](https://console.aws.amazon.com/cleanrooms/home "https://console.aws.amazon.com/cleanrooms/home") with your AWS account (if you haven't yet done so). 2. In the left navigation pane, choose **Collaborations**. 3. Choose the collaboration that you created. 4. Choose the **Details** tab. 5. For **Membership details**, choose **Manage tags**. 6. On the **Manage membership tags** page, you can do the following: <br>• To remove a tag, choose **Remove**. <br>• To add a tag, choose **Add new tag**. <br>• To save your changes, choose **Save changes**. ## Edit associated table tags As a collaboration creator, after you associate tables to a collaboration, you can manage the tags on the associated table resource. ###### To edit the associated table tags 1. Sign in to the AWS Management Console and open the [AWS Clean Rooms console](https://console.aws.amazon.com/cleanrooms/home "https://console.aws.amazon.com/cleanrooms/home") with your AWS account (if you haven't yet done so). 2. In the left navigation pane, choose **Collaborations**. 3. Choose the collaboration that you created. 4. Choose the **Tables** tab. 5. For **Tables associated by you**, choose a table. 6. On the configured table detail page, for **Tags**, choose **Manage tags**. On the **Manage tags** page, you can do the following: <br>• To remove a tag, choose **Remove**. <br>• To add a tag, choose **Add new tag**. <br>• To save your changes, choose **Save changes**. ## Edit analysis template tags As a collaboration creator, after you have created a collaboration, you can manage the tags on the analysis template resource. ###### To edit the membership tags 1. Sign in to the AWS Management Console and open the [AWS Clean Rooms console](https://console.aws.amazon.com/cleanrooms/home "https://console.aws.amazon.com/cleanrooms/home") with your AWS account (if you haven't yet done so). 2. In the left navigation pane, choose **Collaborations**. 3. Choose the collaboration that you created. 4. Choose the **Templates** tab. 5. On the **Analysis templates created by you** section, choose the analysis template. 6. On the analysis template table detail page, scroll down to the **Tags** section. 7. Choose **Manage tags**. 8. On the **Manage tags** page, you can do the following: <br>• To remove a tag, choose **Remove**. <br>• To add a tag, choose **Add new tag**. <br>• To save your changes, choose **Save changes**. ## Edit differential privacy policy tags As a collaboration creator, after you have created a collaboration, you can manage the tags on the analysis template resource. ###### To edit the membership tags 1. Sign in to the AWS Management Console and open the [AWS Clean Rooms console](https://console.aws.amazon.com/cleanrooms/home "https://console.aws.amazon.com/cleanrooms/home") with your AWS account (if you haven't yet done so). 2. In the left navigation pane, choose **Collaborations**. 3. Choose the collaboration that contains the differential privacy policy you want to edit. 4. Choose the **Tables** tab. 5. On the **Tables** tab, choose the **Manage tags**. 6. On the **Manage tags** page, you can do the following: <br>• To remove a tag, choose **Remove**. <br>• To add a tag, choose **Add new tag**. <br>• To save your changes, choose **Save changes**. |
+| If you are...                                                      | Then ...                                         |
+| ------------------------------------------------------------------ | ------------------------------------------------ |
+| The collaboration creator and a member of the<br>collaboration     | Choose the \*_Details_<br>• tab.                 |
+| The collaboration creator but not a member of the<br>collaboration | Scroll down the page to the **Tags**<br>section. |
+
+5. For **Collaboration details**, choose **Manage
+   tags**.
+6. On the **Manage tags** page, you can do the following:
+   - To remove a tag, choose **Remove**.
+   - To add a tag, choose **Add new tag**.
+   - To save your changes, choose **Save changes**
+
+## Edit membership tags
+
+As a collaboration creator, after you have created a collaboration, you can manage the
+tags on the membership resource.
+
+###### To edit the membership tags
+
+1. Sign in to the AWS Management Console and open the [AWS Clean Rooms console](https://console.aws.amazon.com/cleanrooms/home "https://console.aws.amazon.com/cleanrooms/home") with your AWS account (if you
+   haven't yet done so).
+2. In the left navigation pane, choose
+   **Collaborations**.
+3. Choose the collaboration that you created.
+4. Choose the **Details** tab.
+5. For **Membership details**, choose **Manage
+   tags**.
+6. On the **Manage membership tags** page, you can do the
+   following:
+   - To remove a tag, choose **Remove**.
+   - To add a tag, choose **Add new tag**.
+   - To save your changes, choose **Save changes**.
+
+## Edit associated table tags
+
+As a collaboration creator, after you associate tables to a collaboration, you can
+manage the tags on the associated table resource.
+
+###### To edit the associated table tags
+
+1. Sign in to the AWS Management Console and open the [AWS Clean Rooms console](https://console.aws.amazon.com/cleanrooms/home "https://console.aws.amazon.com/cleanrooms/home") with your AWS account (if you
+   haven't yet done so).
+2. In the left navigation pane, choose
+   **Collaborations**.
+3. Choose the collaboration that you created.
+4. Choose the **Tables** tab.
+5. For **Tables associated by you**, choose a table.
+6. On the configured table detail page, for **Tags**, choose
+   **Manage tags**.
+
+On the **Manage tags** page, you can do the following:
+
+    * To remove a tag, choose **Remove**.
+    * To add a tag, choose **Add new tag**.
+    * To save your changes, choose **Save changes**.
+
+## Edit analysis template tags
+
+As a collaboration creator, after you have created a collaboration, you can manage the
+tags on the analysis template resource.
+
+###### To edit the membership tags
+
+1. Sign in to the AWS Management Console and open the [AWS Clean Rooms console](https://console.aws.amazon.com/cleanrooms/home "https://console.aws.amazon.com/cleanrooms/home") with your AWS account (if you
+   haven't yet done so).
+2. In the left navigation pane, choose
+   **Collaborations**.
+3. Choose the collaboration that you created.
+4. Choose the **Templates** tab.
+5. On the **Analysis templates created by you** section, choose
+   the analysis template.
+6. On the analysis template table detail page, scroll down to the
+   **Tags** section.
+7. Choose **Manage tags**.
+8. On the **Manage tags** page, you can do the following:
+   - To remove a tag, choose **Remove**.
+   - To add a tag, choose **Add new tag**.
+   - To save your changes, choose **Save changes**.
+
+## Edit differential privacy policy tags
+
+As a collaboration creator, after you have created a collaboration, you can manage the
+tags on the analysis template resource.
+
+###### To edit the membership tags
+
+1. Sign in to the AWS Management Console and open the [AWS Clean Rooms console](https://console.aws.amazon.com/cleanrooms/home "https://console.aws.amazon.com/cleanrooms/home") with your AWS account (if you
+   haven't yet done so).
+2. In the left navigation pane, choose
+   **Collaborations**.
+3. Choose the collaboration that contains the differential privacy policy you
+   want to edit.
+4. Choose the **Tables** tab.
+5. On the **Tables** tab, choose the **Manage
+   tags**.
+6. On the **Manage tags** page, you can do the following:
+   - To remove a tag, choose **Remove**.
+   - To add a tag, choose **Add new tag**.
+   - To save your changes, choose **Save changes**.
