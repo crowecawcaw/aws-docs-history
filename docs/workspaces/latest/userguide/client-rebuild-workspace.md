@@ -29,6 +29,10 @@ take up to an hour.
 2. Depending on which client you're using, do one of the following.
 
 | If you're using...  | Do this                                         |
-| ------------------- | ----------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| ------------------- | ----------------------------------------------- |
 | 3.0+ client         | Choose **Settings**, **Rebuild WorkSpace**.     |
-| 1.0+ or 2.0+ client | Choose **My WorkSpace**, **Rebuild WorkSpace**. | 3. In the **Rebuild WorkSpace** dialog box, review the information. If you choose to proceed with the rebuild, choose **Rebuild**. |
+| 1.0+ or 2.0+ client | Choose **My WorkSpace**, **Rebuild WorkSpace**. |
+
+3. In the **Rebuild WorkSpace** dialog box, review the
+   information. If you choose to proceed with the rebuild, choose
+   **Rebuild**.

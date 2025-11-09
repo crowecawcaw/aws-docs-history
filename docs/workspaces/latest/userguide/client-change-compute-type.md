@@ -23,6 +23,11 @@ might take up to an hour.
 2. Depending on which client you're using, do one of the following.
 
 | If you're using...  | Do this                                           |
-| ------------------- | ------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------------- | ------------------------------------------------- |
 | 3.0+ client         | Choose **Settings**, **Change Compute Type**.     |
-| 1.0+ or 2.0+ client | Choose **My WorkSpace**, **Change compute type**. | 3. The **Change compute type** dialog box displays the current compute type for your WorkSpace. Choose a different compute type from the list, and then choose **Update**. 4. A message displays information about the compute type change process. Review the information, and choose **Update**. |
+| 1.0+ or 2.0+ client | Choose **My WorkSpace**, **Change compute type**. |
+
+3. The **Change compute type** dialog box displays the current compute type for your WorkSpace.
+   Choose a different compute type from the list, and then choose **Update**.
+4. A message displays information about the compute type change process. Review the information, and choose
+   **Update**.

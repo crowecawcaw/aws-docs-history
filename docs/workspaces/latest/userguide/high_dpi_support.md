@@ -87,7 +87,59 @@ following:
 2. Choose **Displays**.
 3. Do one of the following to adjust the display scaling, depending on your display type:
 
-| If you're using...  | Do this                                                                                       |
-| ------------------- | --------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| A built-in display  | On the **Display** tab, under **Resolution**, choose **Scaled**, and then choose **Default**. |
-| An external display | On the **Display** tab, choose **Default for display**.                                       | If the images and text in your WorkSpace are smaller than you prefer, you will also need to adjust the display scale settings on your Windows or Linux WorkSpace. ###### Important <br>• **Be sure to adjust the display scale settings within the WorkSpace itself, not the display scale settings for the local Windows, Linux, or Mac machine that you are using to access the WorkSpace.** <br>• When you dock or undock a laptop, or switch to another client device, you might need to readjust the scaling settings in the WorkSpace to suit the new monitor. ## Adjusting the scaling settings on a Windows WorkSpace ###### To adjust the scaling settings on a Windows WorkSpace 1. In your Windows WorkSpace, go to the Windows **Start** menu and choose **Settings**. 2. In the **Windows Settings** dialog box, choose **System**. 3. Choose **Display**. ###### Note If you see the message "The display settings cannot be changed from a remote session," this means that you're using a DCV WorkSpace. At this time, you can't adjust the display scale settings for a DCV WorkSpace. 4. Under **Change the size of text, apps, and other items**, set the amount of scaling you prefer. 5. A message appears that says "Some apps won't respond to scaling changes until you sign out." To sign out, you can choose **Sign out now** below that message. Note that signing out disconnects your WorkSpace session, so save your work before signing out. 6. To restart your WorkSpace session, either choose **Reconnect** on the WorkSpaces client login page, or log in again. 7. If you are using multiple monitors, repeat these steps to set the scaling settings for each monitor. ## Adjusting the scaling settings on a Linux WorkSpace ###### To adjust the scaling settings on a Linux WorkSpace ###### Note <br>• These steps assume that you're using the default MATE environment for Amazon Linux WorkSpaces. <br>• For Linux WorkSpaces, high DPI mode isn't available for multiple monitors at this time. 1. In your Linux WorkSpace, go to **System** > **Preferences** > **Appearance**. 2. In the **Appearance Preferences** dialog box, choose the **Fonts** tab. 3. Choose **Details** in the lower-right corner. 4. In the **Font Rendering Details** dialog box, under **Resolution**, you will see a **Dots per inch (DPI)** setting. To manually adjust this setting, turn off **Automatic detection**. 5. Adjust the font size by using the **Dots per inch (DPI)** setting. 6. Close the dialog box. |
+| If you're using...  | Do this                                                                                                 |
+| ------------------- | ------------------------------------------------------------------------------------------------------- |
+| A built-in display  | On the **Display\*<br>• tab, under **Resolution**,<br>choose **Scaled**, and then choose **Default\*\*. |
+| An external display | On the **Display\*<br>• tab, choose **Default for display\*\*.                                          |
+
+If the images and text in your WorkSpace are smaller than you prefer, you will also need
+to adjust the display scale settings on your Windows or Linux WorkSpace.
+
+###### Important
+
+- **Be sure to adjust the display scale settings within the
+  WorkSpace itself, not the display scale settings for the local Windows,
+  Linux, or Mac machine that you are using to access the
+  WorkSpace.**
+- When you dock or undock a laptop, or switch to another client device, you
+  might need to readjust the scaling settings in the WorkSpace to suit the new
+  monitor.
+
+## Adjusting the scaling settings on a Windows WorkSpace
+
+###### To adjust the scaling settings on a Windows WorkSpace
+
+1. In your Windows WorkSpace, go to the Windows **Start** menu and choose
+   **Settings**.
+2. In the **Windows Settings** dialog box, choose **System**.
+3. Choose **Display**.
+
+###### Note
+
+If you see the message "The display settings cannot be changed from a remote session," this
+means that you're using a DCV WorkSpace. At this time, you can't adjust the display
+scale settings for a DCV WorkSpace. 4. Under **Change the size of text, apps, and other items**, set the amount of
+scaling you prefer. 5. A message appears that says "Some apps won't respond to scaling changes until you sign out."
+To sign out, you can choose **Sign out now** below that message. Note that
+signing out disconnects your WorkSpace session, so save your work before signing out. 6. To restart your WorkSpace session, either choose **Reconnect** on
+the WorkSpaces client login page, or log in again. 7. If you are using multiple monitors, repeat these steps to set the scaling settings for each monitor.
+
+## Adjusting the scaling settings on a Linux WorkSpace
+
+###### To adjust the scaling settings on a Linux WorkSpace
+
+###### Note
+
+- These steps assume that you're using the default MATE environment for Amazon Linux WorkSpaces.
+- For Linux WorkSpaces, high DPI mode isn't available for multiple monitors at this time.
+
+1. In your Linux WorkSpace, go to **System** > **Preferences** >
+   **Appearance**.
+2. In the **Appearance Preferences** dialog box, choose the **Fonts**
+   tab.
+3. Choose **Details** in the lower-right corner.
+4. In the **Font Rendering Details** dialog box, under **Resolution**,
+   you will see a **Dots per inch (DPI)** setting. To manually adjust this setting, turn
+   off **Automatic detection**.
+5. Adjust the font size by using the **Dots per inch (DPI)** setting.
+6. Close the dialog box.

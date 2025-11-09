@@ -32,7 +32,17 @@ increase process might take up to an hour.
 1. Open your WorkSpaces client and connect to your WorkSpace.
 2. Depending on which client you're using, do one of the following.
 
-| If you're using...  | Do this                                          |
-| ------------------- | ------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| 3.0+ client         | Choose **Settings**, **Increase Disk Size**.     |
-| 1.0+ or 2.0+ client | Choose **My WorkSpace**, **Increase disk size**. | 3. The **Increase disk size** dialog box displays the current disk size of your C: drive and D: drive (or / and /home in Linux). If you proceed with the disk size increase, it also displays the amount by which your storage increases. 4. To proceed with the disk size increase, choose **Increase**. 5. A message displays information about the disk size increase process. Review the information, and choose **Close**. 6. When the disk size increase is finished, you must [restart the WorkSpace](client-restart-workspace.md "client-restart-workspace.md") for the changes to take effect. Save any open files before restarting the WorkSpace. |
+| If you're using...  | Do this                                             |
+| ------------------- | --------------------------------------------------- |
+| 3.0+ client         | Choose **Settings**, **Increase<br>Disk Size**.     |
+| 1.0+ or 2.0+ client | Choose **My WorkSpace**,<br>**Increase disk size**. |
+
+3. The **Increase disk size** dialog box displays the current
+   disk size of your C: drive and D: drive (or / and /home in Linux). If you
+   proceed with the disk size increase, it also displays the amount by which your
+   storage increases.
+4. To proceed with the disk size increase, choose **Increase**.
+5. A message displays information about the disk size increase process. Review
+   the information, and choose **Close**.
+6. When the disk size increase is finished, you must [restart the WorkSpace](client-restart-workspace.md "client-restart-workspace.md") for the changes to take effect. Save any open files before
+   restarting the WorkSpace.

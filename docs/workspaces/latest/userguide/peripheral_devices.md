@@ -90,7 +90,47 @@ on a machine that's running Windows 10 version 1607 or later.
 1. Log in to your DCV WorkSpace.
 2. Do one of the following, depending on which client you're using.
 
-| If you're using... | Do this                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Windows client     | To use a webcam on your DCV WorkSpace, select the **Devices** icon Devices icon on upper-right corner of the WorkSpace in the upper-right corner, and then select **Use this device on the remote WorkSpace**. Choose **Save**. To use a webcam on your local computer instead of on your DCV WorkSpace, select the **Devices** icon Devices icon on upper-right corner of the WorkSpace in the upper-right corner, and then select **Use Locally**. Choose **Save**. |
-| macOS client       | To use a webcam on your DCV WorkSpace, choose **Connections**, **Devices**, and then select **Use this device on the remote WorkSpace**. Choose **Save**. To use a webcam on your local computer instead of on your DCV WorkSpace, choose **Connections**, **Devices**, and then select **Use on local machine**. Choose **Save**.                                                                                                                                    | ## Smart cards If your WorkSpace is using the PCoIP protocol, the WorkSpaces clients do not support smart cards. If your Windows or Linux WorkSpace is using the DCV protocol, version 3.1.1 or later of the WorkSpaces client application for Windows and version 3.1.5 or later of the WorkSpaces client application for macOS support smart cards. For more information about using smart cards with your WorkSpace, see [Smart card authentication for WorkSpaces client](smart_card_support.md "smart_card_support.md"). ## Hardware security keys PCoIP Windows WorkSpaces support USB redirection for YubiKey U2F authentication with Windows WorkSpaces client apps. For more information, see [USB redirection for WorkSpaces](usb-redirection.md "usb-redirection.md"). ### To redirect YubiKey to a WorkSpace for U2F authentication <br>• To use the YubiKey on your PCoIP WorkSpace, select the **Devices** icon ![Devices icon on upper-right corner of the WorkSpace](images/devices-icon.png) in the upper-right corner, and then select **Use this device on my remote WorkSpace**. Choose **Save**. ![Selection to use on remote WorkSpace](images/device_selection_2.png) <br>• To use the YubiKey on your local computer instead of on your WorkSpace, select the ![Devices icon on upper-right corner of the WorkSpace](images/devices-icon.png) in the upper-right corner, and then select **Use on my local machine**. Choose **Save**. ![Selection to use on local machine](images/device_selection_1.png) ## WebAuthn authenticators If your WorkSpace is using the PCoIP protocol, WebAuthn redirection isn't supported. However, you can use USB redirection for hardware authenticators, see [Hardware security keys](#hardware-security-keys "#hardware-security-keys") WebAuthn redirection is supported for WorkSpaces using DCV protocol. For more information about using smart cards with your WorkSpace, see [WebAuthn authentication for WorkSpaces client](webauthn_support.md "webauthn_support.md"). |
+| If you're using... | Do this                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Windows client     | To use a webcam on your DCV WorkSpace, select the<br>**Devices\*<br>• icon<br>Devices icon on upper-right corner of the WorkSpace<br>in the upper-right corner, and then<br>select **Use this device on the remote<br>WorkSpace**. Choose **Save**.<br>To use a webcam on your local computer instead of on your<br>DCV WorkSpace, select the **Devices\*<br>• icon<br>Devices icon on upper-right corner of the WorkSpace<br>in the upper-right corner, and then<br>select **Use Locally**. Choose **Save**. |
+| macOS client       | To use a webcam on your DCV WorkSpace, choose **Connections**, **Devices**, and then select<br>**Use this device on the remote<br>WorkSpace**. Choose **Save**.<br>To use a webcam on your local computer instead of on your<br>DCV WorkSpace, choose **Connections**, **Devices**, and then select **Use on<br>local machine**. Choose **Save**.                                                                                                                                                             |
+
+## Smart cards
+
+If your WorkSpace is using the PCoIP protocol, the WorkSpaces clients do not support smart cards.
+
+If your Windows or Linux WorkSpace is using the DCV protocol, version 3.1.1 or later of the WorkSpaces client
+application for Windows and version 3.1.5 or later of the WorkSpaces client application for macOS support smart cards.
+
+For more information about using smart cards with your WorkSpace, see
+[Smart card authentication for WorkSpaces client](smart_card_support.md "smart_card_support.md").
+
+## Hardware security keys
+
+PCoIP Windows WorkSpaces support USB redirection for YubiKey U2F authentication with Windows WorkSpaces client apps.
+For more information, see [USB redirection for WorkSpaces](usb-redirection.md "usb-redirection.md").
+
+### To redirect YubiKey to a WorkSpace for U2F authentication
+
+- To use the YubiKey on your PCoIP WorkSpace, select the **Devices** icon
+
+![Devices icon on upper-right corner of the WorkSpace](images/devices-icon.png)
+in the upper-right corner,
+and then select **Use this device on my remote WorkSpace**. Choose **Save**.
+
+![Selection to use on remote WorkSpace](images/device_selection_2.png)
+
+- To use the YubiKey on your local computer instead of on your WorkSpace, select
+  the
+  ![Devices icon on upper-right corner of the WorkSpace](images/devices-icon.png)
+  in the upper-right corner, and then select **Use on
+  my local machine**. Choose **Save**.
+
+![Selection to use on local machine](images/device_selection_1.png)
+
+## WebAuthn authenticators
+
+If your WorkSpace is using the PCoIP protocol, WebAuthn redirection isn't supported. However, you can use
+USB redirection for hardware authenticators, see [Hardware security keys](#hardware-security-keys "#hardware-security-keys")
+WebAuthn redirection is supported for WorkSpaces using DCV protocol.
+For more information about using smart cards with your WorkSpace, see [WebAuthn authentication for WorkSpaces client](webauthn_support.md "webauthn_support.md").

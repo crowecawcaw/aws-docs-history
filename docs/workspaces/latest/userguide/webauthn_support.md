@@ -11,7 +11,12 @@ For example, you can use Yubikey for in-session authentication while using Googl
 
 The following WorkSpaces client versions support WebAuthn:
 
-| WebAuthn Type     | Client versions supported                                                                                |
-| ----------------- | -------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Standard WebAuthn | <br>• Windows client 5.19.0 or above <br>• Mac client 5.19.0 or above <br>• Linux client 2024.0 or above |
-| Enhanced WebAuthn | <br>• Windows client 5.29.0 or above <br>• Mac client 5.29.0 or above                                    | ## Get Started <br>• [Configure WebAuthn on Windows WorkSpaces](webauthn_windows.md "webauthn_windows.md") <br>• [Configure WebAuthn on Linux WorkSpaces](webauthn_linux.md "webauthn_linux.md") |
+| WebAuthn Type     | Client versions supported                                                                          |
+| ----------------- | -------------------------------------------------------------------------------------------------- |
+| Standard WebAuthn | • Windows client 5.19.0 or above<br>• Mac client 5.19.0 or above<br>• Linux client 2024.0 or above |
+| Enhanced WebAuthn | • Windows client 5.29.0 or above<br>• Mac client 5.29.0 or above                                   |
+
+## Get Started
+
+- [Configure WebAuthn on Windows WorkSpaces](webauthn_windows.md "webauthn_windows.md")
+- [Configure WebAuthn on Linux WorkSpaces](webauthn_linux.md "webauthn_linux.md")

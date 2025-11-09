@@ -2,7 +2,7 @@
 
 ###### Note
 
-Starting November 7, 2025, Amazon WorkSpaces PCoIP Web Access will no longer be open to new customers. After this date, the feature will only receive critical functional and security updates. While existing users can continue using the feature, new users will not be able to connect to their PCoIP WorkSpaces using Web Access.
+As of November 7, 2025, Amazon WorkSpaces PCoIP Web Access is no longer open to new customers. The feature will only receive critical functional and security updates going forward. While existing users can continue using the feature, new users will not be able to connect to their PCoIP WorkSpaces using Web Access.
 
 For continued Web Access usage, we recommend evaluating [migration to DCV protocol](https://aws.amazon.com/blogs/desktop-and-application-streaming/seamlessly-modify-existing-amazon-workspaces-to-use-the-workspaces-streaming-protocol/ "https://aws.amazon.com/blogs/desktop-and-application-streaming/seamlessly-modify-existing-amazon-workspaces-to-use-the-workspaces-streaming-protocol/"), which has Web Access support that offers improved performance and enhanced features including SAML and certificate-based authentication. Alternatively, PCoIP users can switch to [WorkSpaces client applications](https://clients.amazonworkspaces.com/ "https://clients.amazonworkspaces.com/") for full feature support.
 
@@ -95,8 +95,52 @@ your local device.
 
 The following table shows different webcam states:
 
-| Icon                    | Description                                                                                                                                    |
-| ----------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| The webcam is disabled. | The webcam is disabled. Toggle the button to enable the webcam. If you didn't previously select the webcam to use, the default webcam is used. |
-| The webcam is enabled.  | The webcam is enabled, but it's not in use. Toggle the button to disable the webcam.                                                           |
-| The webcam is in use.   | The webcam is in use by a remote application in the WorkSpaces session. Toggle the button to disable the webcam.                               | ### Using multiple screens To use multiple screens, choose the multiscreen button in the client as shown in the following example. Multiple screens are supported with up to two monitors. ![The multiscreen button in the WorkSpaces Web Access client.](images/webaccess-multiscreen-button.png) ## Supported features and gestures on Android tablets and iPads Android tablets are supported on Google Chrome, and iPads are supported on Apple Safari. Touch input is supported for both device types. ###### Gestures <br>• Use a two-finger single tap gesture or use the client toolbar button to toggle the on-screen keyboard. <br>• Use a pinch gesture to zoom in our out on the screen. When zoomed in, use a two-finger slide gesture to pan the screen horizontally or vertically. <br>• Use a three-finger single tap gesture to show the client toolbar when it has been hidden by auto-hide. ###### Trackpad mode <br>• To enable track pad mode, choose the drop-down with your **WorkSpace Name** on the top right of your WorkSpaces session, and then choose **Enable trackpad mode**. <br>• Once trackpad mode is enabled: + Use a short one-finger tap to trigger a mouse left click. + Use a longer one-finger tap to trigger a mouse right click. ###### Screen resolution and other functionality <br>• Your screen resolution may be automatically adjusted to fit the tablet screen size. <br>• If you rotate the tablet device, the screen will automatically resize itself. <br>• Full screen is not supported on Apple Safari on iPads. ## Enabling diagnostic log uploads To troubleshoot issues with WorkSpaces web access, you can enable diagnostic logging. The log files that are sent to AWS include detailed information about your device and connection to the AWS network. You can enable automatic diagnostic log uploads before or during your WorkSpace streaming sessions. ###### To send log files 1. Open the Amazon WorkSpaces Web Access page. If you’re currently in your WorkSpaces session, disconnect from it so you return to the pre-session page. 2. At the top of the pre-session page, choose **Settings**, then **Diagnostic logging**. 3. Ensure **Diagnostic logging** is enabled. 4. (Optional) To generate debugging-level details and verbose performance data, choose **Advanced logging**. |
+| Icon                    | Description                                                                                                                                          |
+| ----------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| The webcam is disabled. | The webcam is disabled. Toggle the button to enable<br>the webcam. If you didn't previously select the<br>webcam to use, the default webcam is used. |
+| The webcam is enabled.  | The webcam is enabled, but it's not in use. Toggle<br>the button to disable the webcam.                                                              |
+| The webcam is in use.   | The webcam is in use by a remote application in the<br>WorkSpaces session. Toggle the button to disable the<br>webcam.                               |
+
+### Using multiple screens
+
+To use multiple screens, choose the multiscreen button in the client as shown in
+the following example. Multiple screens are supported with up to two monitors.
+
+![The multiscreen button in the WorkSpaces Web Access client.](images/webaccess-multiscreen-button.png)
+
+## Supported features and gestures on Android tablets and iPads
+
+Android tablets are supported on Google Chrome, and iPads are supported on Apple Safari. Touch input is supported for both device types.
+
+###### Gestures
+
+- Use a two-finger single tap gesture or use the client toolbar button to toggle the on-screen keyboard.
+- Use a pinch gesture to zoom in our out on the screen. When zoomed in, use a two-finger slide gesture to pan the screen horizontally or vertically.
+- Use a three-finger single tap gesture to show the client toolbar when it has been hidden by auto-hide.
+
+###### Trackpad mode
+
+- To enable track pad mode, choose the drop-down with your **WorkSpace Name** on the top right of
+  your WorkSpaces session, and then choose **Enable trackpad mode**.
+- Once trackpad mode is enabled:
+  - Use a short one-finger tap to trigger a mouse left click.
+  - Use a longer one-finger tap to trigger a mouse right click.
+
+###### Screen resolution and other functionality
+
+- Your screen resolution may be automatically adjusted to fit the tablet screen size.
+- If you rotate the tablet device, the screen will automatically resize itself.
+- Full screen is not supported on Apple Safari on iPads.
+
+## Enabling diagnostic log uploads
+
+To troubleshoot issues with WorkSpaces web access, you can enable diagnostic logging. The log files that are sent to AWS include detailed
+information about your device and connection to the AWS network. You can enable automatic diagnostic log uploads before or during your
+WorkSpace streaming sessions.
+
+###### To send log files
+
+1. Open the Amazon WorkSpaces Web Access page. If you’re currently in your WorkSpaces session, disconnect from it so you return to the pre-session page.
+2. At the top of the pre-session page, choose **Settings**, then **Diagnostic logging**.
+3. Ensure **Diagnostic logging** is enabled.
+4. (Optional) To generate debugging-level details and verbose performance data, choose **Advanced logging**.
