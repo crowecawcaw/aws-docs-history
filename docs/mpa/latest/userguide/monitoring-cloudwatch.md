@@ -21,12 +21,15 @@ The following tables list the metrics and dimensions for Multi-party approval.
 
 **Metrics**
 
-| Metric          | Description                                                                                                                                                                                                                                                                      |
-| --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- |
-| `ResourceCount` | The number of the specified resources running in your account. The resources are defined by the dimensions associated with the metric. The most useful statistic for this metric is `MAXIMUM`, which represents the maximum number of resources used during the 1-minute period. | **Dimensions** |
-| Dimension       | Description                                                                                                                                                                                                                                                                      |
-| ---             | ---                                                                                                                                                                                                                                                                              |
-| `Service`       | The name of the AWS service containing the resource. For Multi-party approval usage metrics, the value for this dimension is `Multi-party approval`.                                                                                                                             |
-| `Class`         | The class of resource that is being tracked. Multi-party approval usage metrics use this dimension with a value of `None`.                                                                                                                                                       |
-| `Type`          | The type of entity that is being tracked. Currently, the only valid value for Multi-party approval is `Resource`.                                                                                                                                                                |
-| `Resource`      | The type of resource that is being tracked. Currently, valid values include the following: `IdentitySource`, `ApprovalTeam`, and `ApproversPerApprovalTeam`                                                                                                                      |
+| Metric          | Description                                                                                                                                                                                                                                                                         |
+| --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `ResourceCount` | The number of the specified resources running in your account. The resources are defined by the dimensions associated with the metric.<br>The most useful statistic for this metric is `MAXIMUM`, which represents the maximum number of resources used during the 1-minute period. |
+
+**Dimensions**
+
+| Dimension  | Description                                                                                                                                                       |
+| ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Service`  | The name of the AWS service containing the resource. For Multi-party approval usage metrics, the value for this dimension is `Multi-party approval`.              |
+| `Class`    | The class of resource that is being tracked. Multi-party approval usage metrics use this dimension with a value of `None`.                                        |
+| `Type`     | The type of entity that is being tracked. Currently, the only valid value for Multi-party approval is `Resource`.                                                 |
+| `Resource` | The type of resource that is being tracked. Currently, valid values include the following:<br>`IdentitySource`, `ApprovalTeam`, and<br>`ApproversPerApprovalTeam` |
