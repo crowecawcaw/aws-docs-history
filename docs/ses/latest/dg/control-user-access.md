@@ -98,10 +98,337 @@ following email addresses:
 These email address condition keys apply only to the APIs noted in the
 following table.
 
-| Condition Key               | Description                                                                                                                                                                                                                                                                                                                                                     | API                                       |
-| --------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `ses:Recipients`            | Restricts the recipient addresses, which include the To:, "CC", and "BCC" addresses.                                                                                                                                                                                                                                                                            | `SendEmail`, `SendRawEmail`               |
-| `ses:FromAddress`           | Restricts the "From" address.                                                                                                                                                                                                                                                                                                                                   | `SendEmail`, `SendRawEmail`, `SendBounce` |
-| `ses:FromDisplayName`       | Restricts the "From" address that is used as the display name.                                                                                                                                                                                                                                                                                                  | `SendEmail`, `SendRawEmail`               |
-| `ses:FeedbackAddress`       | Restricts the "Return-Path" address, which is the address where bounces and complaints can be sent to you by email feedback forwarding. For information about email feedback forwarding, see [Receiving Amazon SES notifications through email](monitor-sending-activity-using-notifications-email.md "monitor-sending-activity-using-notifications-email.md"). | `SendEmail`, `SendRawEmail`               |
-| `ses:MultiRegionEndpointId` | Allows you to control what endpoint ID is used when sending email                                                                                                                                                                                                                                                                                               | `SendEmail`, `SendBulkEmail`              | ### Restricting by SES API version By using the `ses:ApiVersion` key in conditions, you can restrict access to SES based on the version of the SES API. ###### Note The SES SMTP interface uses SES API version 2 of `ses:SendRawEmail`. ### Restricting General API Usage By using AWS-wide keys in conditions, you can restrict access to SES based on aspects such as the date and time that user is permitted access to APIs. SES implements only the following AWS-wide policy keys: <br>• `aws:CurrentTime` <br>• `aws:EpochTime` <br>• `aws:SecureTransport` <br>• `aws:SourceIp` <br>• `aws:SourceVpc` <br>• `aws:SourceVpce` <br>• `aws:UserAgent` <br>• `aws:VpcSourceIp` For more information about these keys, see the [IAM User Guide](../../../IAM/latest/UserGuide/AccessPolicyLanguage_ElementDescriptions.md#Condition "../../../IAM/latest/UserGuide/AccessPolicyLanguage_ElementDescriptions.md#Condition"). ## Example IAM Policies for SES This topic provides examples of policies that permit a user access to SES, but only under certain conditions. ###### Policy examples in this section: <br>• [Allowing Full Access to All SES Actions](#iam-and-ses-examples-full-access "#iam-and-ses-examples-full-access") <br>• [Allowing Access to only SES API version 2](#iam-and-ses-examples-access-specific-ses-api-version "#iam-and-ses-examples-access-specific-ses-api-version") <br>• [Allowing Access to Email-Sending Actions Only](#iam-and-ses-examples-email-sending-actions "#iam-and-ses-examples-email-sending-actions") <br>• [Restricting the Time Period of Sending](#iam-and-ses-examples-time-period "#iam-and-ses-examples-time-period") <br>• [Restricting the Recipient Addresses](#iam-and-ses-examples-recipients "#iam-and-ses-examples-recipients") <br>• [Restricting the "From" Address](#iam-and-ses-examples-from-address "#iam-and-ses-examples-from-address") <br>• [Restricting the Display Name of the Email Sender](#iam-and-ses-examples-display-name "#iam-and-ses-examples-display-name") <br>• [Restricting the Destination of Bounce and Complaint Feedback](#iam-and-ses-examples-feedback "#iam-and-ses-examples-feedback") ### Allowing Full Access to All SES Actions The following policy allows a user to call any SES action. JSON `` `{ "Version":"2012-10-17", "Statement":[ { "Effect":"Allow", "Action":[ "ses:*" ], "Resource":"*" } ] }` `` ### Allowing Access to only SES API version 2 The following policy allows a user to call only the SES actions of API version 2. JSON `` `{ "Version":"2012-10-17", "Statement":[ { "Effect":"Allow", "Action":[ "ses:*" ], "Resource":"*", "Condition": { "StringEquals" : { "ses:ApiVersion" : "2" } } } ] }` `` ### Allowing Access to Email-Sending Actions Only The following policy permits a user to send email using SES, but does not permit the user to perform administrative actions such as accessing SES sending statistics. JSON `` `{ "Version":"2012-10-17", "Statement":[ { "Effect":"Allow", "Action":[ "ses:SendEmail", "ses:SendRawEmail" ], "Resource":"*" } ] }` `` ### Restricting the Time Period of Sending The following policy permits a user to call SES email-sending APIs only during the month of September 2018. JSON `` `{ "Version":"2012-10-17", "Statement":[ { "Effect":"Allow", "Action":[ "ses:SendEmail", "ses:SendRawEmail" ], "Resource":"*", "Condition":{ "DateGreaterThan":{ "aws:CurrentTime":"2018-08-31T12:00Z" }, "DateLessThan":{ "aws:CurrentTime":"2018-10-01T12:00Z" } } } ] }` `` ### Restricting the Recipient Addresses The following policy permits a user to call the SES email-sending APIs, but only to recipient addresses in domain _example.com_ (`StringLike` _is case sensitive_). JSON `` `{ "Version":"2012-10-17", "Statement":[ { "Effect":"Allow", "Action":[ "ses:SendEmail", "ses:SendRawEmail" ], "Resource":"*", "Condition":{ "ForAllValues:StringLike":{ "ses:Recipients":[ "*@example.com" ] } } } ] }` `` ### Restricting the "From" Address The following policy permits a user to call the SES email-sending APIs, but only if the "From" address is *marketing@example.com*. JSON `` `{ "Version":"2012-10-17", "Statement":[ { "Effect":"Allow", "Action":[ "ses:SendEmail", "ses:SendRawEmail" ], "Resource":"*", "Condition":{ "StringEquals":{ "ses:FromAddress":"marketing@example.com" } } } ] }` `` The following policy permits a user to call the [SendBounce](../APIReference/API_SendBounce.md "../APIReference/API_SendBounce.md") API, but only if the "From" address is *bounce@example.com*. JSON `` `{ "Version":"2012-10-17", "Statement":[ { "Effect":"Allow", "Action":[ "ses:SendBounce" ], "Resource":"*", "Condition":{ "StringEquals":{ "ses:FromAddress":"bounce@example.com" } } } ] }` `` ### Restricting the Display Name of the Email Sender The following policy permits a user to call the SES email-sending APIs, but only if the display name of the "From" address includes _Marketing_ (`StringLike` _is case sensitive_). JSON `` `{ "Version":"2012-10-17", "Statement":[ { "Effect":"Allow", "Action":[ "ses:SendEmail", "ses:SendRawEmail" ], "Resource":"*", "Condition":{ "StringLike":{ "ses:FromDisplayName":"Marketing" } } } ] }` `` ### Restricting the Destination of Bounce and Complaint Feedback The following policy permits a user to call the SES email-sending APIs, but only if the "Return-Path" of the email is set to *feedback@example.com*. JSON `` `{ "Version":"2012-10-17", "Statement":[ { "Effect":"Allow", "Action":[ "ses:SendEmail", "ses:SendRawEmail" ], "Resource":"*", "Condition":{ "StringEquals":{ "ses:FeedbackAddress":"feedback@example.com" } } } ] }` `` |
+| Condition Key               | Description                                                                                                                                                                                                                                                                                                                                                                 | API                                          |
+| --------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------- |
+| `ses:Recipients`            | Restricts the recipient addresses, which include the To:,<br>"CC", and "BCC" addresses.                                                                                                                                                                                                                                                                                     | `SendEmail`,<br>`SendRawEmail`               |
+| `ses:FromAddress`           | Restricts the "From" address.                                                                                                                                                                                                                                                                                                                                               | `SendEmail`, `SendRawEmail`,<br>`SendBounce` |
+| `ses:FromDisplayName`       | Restricts the "From" address that is used as the display<br>name.                                                                                                                                                                                                                                                                                                           | `SendEmail`,<br>`SendRawEmail`               |
+| `ses:FeedbackAddress`       | Restricts the "Return-Path" address, which is the address<br>where bounces and complaints can be sent to you by email<br>feedback forwarding. For information about email feedback<br>forwarding, see [Receiving Amazon SES<br>notifications through email](monitor-sending-activity-using-notifications-email.md "monitor-sending-activity-using-notifications-email.md"). | `SendEmail`,<br>`SendRawEmail`               |
+| `ses:MultiRegionEndpointId` | Allows you to control what endpoint ID is used when sending<br>email                                                                                                                                                                                                                                                                                                        | `SendEmail`,<br>`SendBulkEmail`              |
+
+### Restricting by SES API
+
+version
+
+By using the `ses:ApiVersion` key in conditions, you can restrict
+access to SES based on the version of the SES API.
+
+###### Note
+
+The SES SMTP interface uses SES API version 2 of
+`ses:SendRawEmail`.
+
+### Restricting General API
+
+Usage
+
+By using AWS-wide keys in conditions, you can restrict access to SES
+based on aspects such as the date and time that user is permitted access to APIs.
+SES implements only the following AWS-wide policy keys:
+
+- `aws:CurrentTime`
+- `aws:EpochTime`
+- `aws:SecureTransport`
+- `aws:SourceIp`
+- `aws:SourceVpc`
+- `aws:SourceVpce`
+- `aws:UserAgent`
+- `aws:VpcSourceIp`
+
+For more information about these keys, see the [IAM User Guide](../../../IAM/latest/UserGuide/AccessPolicyLanguage_ElementDescriptions.md#Condition "../../../IAM/latest/UserGuide/AccessPolicyLanguage_ElementDescriptions.md#Condition").
+
+## Example IAM Policies for SES
+
+This topic provides examples of policies that permit a user access to SES, but
+only under certain conditions.
+
+###### Policy examples in this section:
+
+- [Allowing Full Access to All
+  SES Actions](#iam-and-ses-examples-full-access "#iam-and-ses-examples-full-access")
+- [Allowing
+  Access to only SES API version 2](#iam-and-ses-examples-access-specific-ses-api-version "#iam-and-ses-examples-access-specific-ses-api-version")
+- [Allowing Access to
+  Email-Sending Actions Only](#iam-and-ses-examples-email-sending-actions "#iam-and-ses-examples-email-sending-actions")
+- [Restricting the Time Period of
+  Sending](#iam-and-ses-examples-time-period "#iam-and-ses-examples-time-period")
+- [Restricting the Recipient
+  Addresses](#iam-and-ses-examples-recipients "#iam-and-ses-examples-recipients")
+- [Restricting the "From"
+  Address](#iam-and-ses-examples-from-address "#iam-and-ses-examples-from-address")
+- [Restricting the Display Name of
+  the Email Sender](#iam-and-ses-examples-display-name "#iam-and-ses-examples-display-name")
+- [Restricting the Destination of
+  Bounce and Complaint Feedback](#iam-and-ses-examples-feedback "#iam-and-ses-examples-feedback")
+
+### Allowing Full Access to All
+
+SES Actions
+
+The following policy allows a user to call any SES action.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement":[
+ {
+ "Effect":"Allow",
+ "Action":[
+ "ses:*"
+ ],
+ "Resource":"*"
+ }
+ ]
+}`
+
+```
+
+### Allowing
+
+Access to only SES API version 2
+
+The following policy allows a user to call only the SES actions of API
+version 2.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement":[
+ {
+ "Effect":"Allow",
+ "Action":[
+ "ses:*"
+ ],
+ "Resource":"*",
+ "Condition": {
+ "StringEquals" : {
+ "ses:ApiVersion" : "2"
+ }
+ }
+ }
+ ]
+ }`
+
+```
+
+### Allowing Access to
+
+Email-Sending Actions Only
+
+The following policy permits a user to send email using SES, but does not
+permit the user to perform administrative actions such as accessing SES
+sending statistics.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement":[
+ {
+ "Effect":"Allow",
+ "Action":[
+ "ses:SendEmail",
+ "ses:SendRawEmail"
+ ],
+ "Resource":"*"
+ }
+ ]
+}`
+
+```
+
+### Restricting the Time Period of
+
+Sending
+
+The following policy permits a user to call SES email-sending APIs only
+during the month of September 2018.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement":[
+ {
+ "Effect":"Allow",
+ "Action":[
+ "ses:SendEmail",
+ "ses:SendRawEmail"
+ ],
+ "Resource":"*",
+ "Condition":{
+ "DateGreaterThan":{
+ "aws:CurrentTime":"2018-08-31T12:00Z"
+ },
+ "DateLessThan":{
+ "aws:CurrentTime":"2018-10-01T12:00Z"
+ }
+ }
+ }
+ ]
+}`
+
+```
+
+### Restricting the Recipient
+
+Addresses
+
+The following policy permits a user to call the SES email-sending APIs, but
+only to recipient addresses in domain _example.com_
+(`StringLike`
+_is case sensitive_).
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement":[
+ {
+ "Effect":"Allow",
+ "Action":[
+ "ses:SendEmail",
+ "ses:SendRawEmail"
+ ],
+ "Resource":"*",
+ "Condition":{
+ "ForAllValues:StringLike":{
+ "ses:Recipients":[
+ "*@example.com"
+ ]
+ }
+ }
+ }
+ ]
+}`
+
+```
+
+### Restricting the "From"
+
+Address
+
+The following policy permits a user to call the SES email-sending APIs, but
+only if the "From" address is *marketing@example.com*.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement":[
+ {
+ "Effect":"Allow",
+ "Action":[
+ "ses:SendEmail",
+ "ses:SendRawEmail"
+ ],
+ "Resource":"*",
+ "Condition":{
+ "StringEquals":{
+ "ses:FromAddress":"marketing@example.com"
+ }
+ }
+ }
+ ]
+}`
+
+```
+
+The following policy permits a user to call the [SendBounce](../APIReference/API_SendBounce.md "../APIReference/API_SendBounce.md") API, but only if the
+"From" address is *bounce@example.com*.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement":[
+ {
+ "Effect":"Allow",
+ "Action":[
+ "ses:SendBounce"
+ ],
+ "Resource":"*",
+ "Condition":{
+ "StringEquals":{
+ "ses:FromAddress":"bounce@example.com"
+ }
+ }
+ }
+ ]
+}`
+
+```
+
+### Restricting the Display Name of
+
+the Email Sender
+
+The following policy permits a user to call the SES email-sending APIs, but
+only if the display name of the "From" address includes
+_Marketing_ (`StringLike`
+_is case sensitive_).
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement":[
+ {
+ "Effect":"Allow",
+ "Action":[
+ "ses:SendEmail",
+ "ses:SendRawEmail"
+ ],
+ "Resource":"*",
+ "Condition":{
+ "StringLike":{
+ "ses:FromDisplayName":"Marketing"
+ }
+ }
+ }
+ ]
+}`
+
+```
+
+### Restricting the Destination of
+
+Bounce and Complaint Feedback
+
+The following policy permits a user to call the SES email-sending APIs, but
+only if the "Return-Path" of the email is set to
+*feedback@example.com*.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement":[
+ {
+ "Effect":"Allow",
+ "Action":[
+ "ses:SendEmail",
+ "ses:SendRawEmail"
+ ],
+ "Resource":"*",
+ "Condition":{
+ "StringEquals":{
+ "ses:FeedbackAddress":"feedback@example.com"
+ }
+ }
+ }
+ ]
+}`
+
+```

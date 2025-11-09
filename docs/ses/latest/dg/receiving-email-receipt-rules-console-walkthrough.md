@@ -90,12 +90,110 @@ maximum of 100 recipient conditions per receipt rule.
      to show how to specify recipient conditions.
 
 
-| If you want to...                                                                        | Specify the following recipient... | Notes                                                                                                                                                                                                                    |
-| ---------------------------------------------------------------------------------------- | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Match a specific email address.                                                          | *user@example.com*                 | Also matches variations of the address that contain labels (such as *user+123@example.com* and *user+xyz@example.com*). However, if you specify an address that contains a label, only that specific address is matched. |
-| Match all addresses within a domain, but not those within its subdomains.                | _example.com_                      |                                                                                                                                                                                                                          |
-| Match all addresses within a specific subdomain, but not those within the parent domain. | _subdomain.example.com_            |                                                                                                                                                                                                                          |
-| Match all addresses within all subdomains, but not those within the parent domain.       | _.example.com_                     | Note the period (.) before the domain name.                                                                                                                                                                              |
-| Match all addresses within a domain, and all addresses within all of its subdomains.     | _example.com\*\*.example.com_      | Create two separate recipients: one with the domain name, and one with a period followed by the domain name.                                                                                                             |
-| Match all recipients in all verified domains                                             | [None]                             | Leave the recipient field blank.                                                                                                                                                                                         |
-|                                                                                          |                                    |                                                                                                                                                                                                                          | ###### Important If multiple Amazon SES accounts receive email on a common domain (for example, if multiple teams in the same company each have separate Amazon SES accounts), Amazon SES processes all matching receipt rules simultaneously for each of those accounts. This behavior may result in a situation where one account generates a bounce, while another account accepts the email. We recommend that you coordinate with other teams in your organization that use Amazon SES to ensure that each account uses unique receipt rules, and that those rules do not overlap. In these situations, it is best to configure your receipt rules to use only email addresses or subdomains that are unique to your group or team. 2. Repeat this step for each recipient condition you want to add. When you finish adding recipient conditions, choose **Next**. 12. On the **Add actions** page, use the following procedure to add one or more actions to the receipt rule. 1. Open the **Add new action** menu, and then choose one of the following types of actions: <br>• **[Add header](receiving-email-action-add-header.md "receiving-email-action-add-header.md")** - This action adds a custom header to the received email. <br>• **[Return bounce response](receiving-email-action-bounce.md "receiving-email-action-bounce.md")** - This action rejects the received email by returning a bounce response to the sender. <br>• **[Invoke Lambda function](receiving-email-action-lambda.md "receiving-email-action-lambda.md")** - This action calls your code via an AWS Lambda function. <br>• **[Deliver to S3 bucket](receiving-email-action-s3.md "receiving-email-action-s3.md")** - This action stores the received email in an Amazon Simple Storage Service (S3) bucket. <br>• **[Publish to Amazon SNS topic](receiving-email-action-sns.md "receiving-email-action-sns.md")** - This action publishes the complete email to an Amazon Simple Notification Service (SNS) topic. <br>• **[Stop rule set](receiving-email-action-stop.md "receiving-email-action-stop.md")** - This action terminates the evaluation of the receipt rule set. <br>• **[Integrate with Amazon WorkMail](receiving-email-action-workmail.md "receiving-email-action-workmail.md")** - This action integrates with Amazon WorkMail. For more information about each of these actions, see [Action options](receiving-email-action.md "receiving-email-action.md"). 2. Repeat this step for each action that you want to define. If you have multiple actions defined, you can reorder them by using the up/down arrows within the action containers. Choose **Next** to proceed to the **Review** page. 13. On the **Review** page, review the settings and actions of the rule. If you need to make changes, choose the **Edit** option, or use the navigation section on the left side of the page to go directly to the step that contains the content you want to edit. You can optionally make changes to the order of the actions listed in the **Actions** table of the **Review** page by using the up/down arrows in the **Reorder** column. 14. When you’re ready to proceed, choose **Create rule**. 15. On the confirmation page for the rule set, choose **Set as active** if you want to enforce the rule set immediately. ### Rule modifications after creation After you've created a rule set, you can edit both the rule set and the receipt rules it contains. Not only can they be edited, but there's also the option to duplicate either the rule set or its rules so that new ones can be created quickly. The following list shows the available modifications for the rule set and the receipt rules: <br>• **Rule set** is listed with its name, status and creation date. Modification options for the rule set are: + **Set as active/inactive** toggle button will toggle between setting the status. + **Duplicate** button will copy the rule set. You will be prompted to supply a unique name. + **Delete** button will delete the rule set. You will be prompted to confirm this irreversible action. <br>• **Receipt rules** are listed with their name, status, security, and order. Modification options for the receipt rules are: + **Up/down arrows** to reorder rule execution within the rule set. + **Duplicate** button will create a copy of the selected rule. You will be prompted to supply a unique name. + **Edit** button will open the selected rule so that any of its parameters such as rule settings, recipient conditions, and actions can be edited. + **Delete** button will delete the selected rule. You will be prompted to confirm this irreversible action. + **Create rule** button will allow you to create and add a new rule to the current rule set. |
+
+
+
+    | If you want to... | Specify the following recipient... | Notes |
+    | --- | --- | --- |
+    | Match a specific email address. | *user@example.com* | Also matches variations of the address that contain<br>labels (such as<br>*user+123@example.com<br>• and<br>*user+xyz@example.com*). However,<br>if you specify an address that contains a label, only<br>that specific address is matched. |
+    | Match all addresses within a domain, but not those<br>within its subdomains. | *example.com* |  |
+    | Match all addresses within a specific subdomain, but<br>not those within the parent domain. | *subdomain.example.com* |  |
+    | Match all addresses within all subdomains, but not<br>those within the parent domain. | *.example.com* | Note the period (.) before the domain name. |
+    | Match all addresses within a domain, and all<br>addresses within all of its subdomains. | *example.com**.example.com* | Create two separate recipients: one with the domain<br>name, and one with a period followed by the domain<br>name. |
+    | Match all recipients in all verified domains | [None] | Leave the recipient field blank. |
+    |  |  |  |
+
+
+    ###### Important
+
+    If multiple Amazon SES accounts receive email on a common domain (for
+     example, if multiple teams in the same company each have separate
+     Amazon SES accounts), Amazon SES processes all matching receipt rules
+     simultaneously for each of those accounts. This behavior may result
+     in a situation where one account generates a bounce, while another
+     account accepts the email.
+
+    We recommend that you coordinate with other teams in your
+     organization that use Amazon SES to ensure that each account uses unique
+     receipt rules, and that those rules do not overlap. In these
+     situations, it is best to configure your receipt rules to use only
+     email addresses or subdomains that are unique to your group or
+     team.
+    2. Repeat this step for each recipient condition you want to add. When
+     you finish adding recipient conditions, choose
+     **Next**.
+
+12. On the **Add actions** page, use the following procedure to
+    add one or more actions to the receipt rule.
+    1.  Open the **Add new action** menu, and then choose one
+        of the following types of actions:
+
+            * **[Add header](receiving-email-action-add-header.md "receiving-email-action-add-header.md")** - This action adds a custom header to the
+             received email.
+            * **[Return bounce
+             response](receiving-email-action-bounce.md "receiving-email-action-bounce.md")** - This action rejects the received email by
+             returning a bounce response to the sender.
+            * **[Invoke Lambda
+             function](receiving-email-action-lambda.md "receiving-email-action-lambda.md")** - This action calls your code via an AWS Lambda function.
+            * **[Deliver to S3
+             bucket](receiving-email-action-s3.md "receiving-email-action-s3.md")** - This action stores the received email in an
+             Amazon Simple Storage Service (S3) bucket.
+            * **[Publish to Amazon SNS
+             topic](receiving-email-action-sns.md "receiving-email-action-sns.md")** - This action publishes the complete email to
+             an Amazon Simple Notification Service (SNS) topic.
+            * **[Stop rule set](receiving-email-action-stop.md "receiving-email-action-stop.md")** - This action terminates the evaluation of the
+             receipt rule set.
+            * **[Integrate with
+             Amazon WorkMail](receiving-email-action-workmail.md "receiving-email-action-workmail.md")** - This action integrates with Amazon
+             WorkMail.
+
+        For more information about each of these actions, see [Action options](receiving-email-action.md "receiving-email-action.md").
+
+    2.  Repeat this step for each action that you want to define. If you have
+        multiple actions defined, you can reorder them by using the up/down
+        arrows within the action containers. Choose **Next** to
+        proceed to the **Review** page.
+
+13. On the **Review** page, review the settings and actions of
+    the rule. If you need to make changes, choose the **Edit**
+    option, or use the navigation section on the left side of the page to go
+    directly to the step that contains the content you want to edit. You can
+    optionally make changes to the order of the actions listed in the
+    **Actions** table of the **Review** page
+    by using the up/down arrows in the **Reorder** column.
+14. When you’re ready to proceed, choose **Create rule**.
+15. On the confirmation page for the rule set, choose **Set as
+    active** if you want to enforce the rule set immediately.
+
+### Rule modifications after
+
+creation
+
+After you've created a rule set, you can edit both the rule set and the receipt
+rules it contains. Not only can they be edited, but there's also the option to
+duplicate either the rule set or its rules so that new ones can be created quickly.
+The following list shows the available modifications for the rule set and the
+receipt rules:
+
+- **Rule set** is listed with its name, status and creation
+  date. Modification options for the rule set are:
+  - **Set as active/inactive** toggle button will
+    toggle between setting the status.
+  - **Duplicate** button will copy the rule set. You
+    will be prompted to supply a unique name.
+  - **Delete** button will delete the rule set. You
+    will be prompted to confirm this irreversible action.
+
+- **Receipt rules** are listed with their name, status,
+  security, and order. Modification options for the receipt rules are:
+  - **Up/down arrows** to reorder rule execution
+    within the rule set.
+  - **Duplicate** button will create a copy of the
+    selected rule. You will be prompted to supply a unique name.
+  - **Edit** button will open the selected rule so
+    that any of its parameters such as rule settings, recipient
+    conditions, and actions can be edited.
+  - **Delete** button will delete the selected rule.
+    You will be prompted to confirm this irreversible action.
+  - **Create rule** button will allow you to create
+    and add a new rule to the current rule set.

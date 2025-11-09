@@ -50,17 +50,125 @@ ways:
   `SendRawEmail` API. The required parameters are
   described in the following table:
 
-| Parameter               | Description                                                                                                                                                                                                                                                                                                                                           |
-| ----------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `SourceArn`             | The ARN of the identity that is associated with the sending authorization policy that permits you to send for the email address specified in the `Source` parameter of `SendRawEmail`. NoteIf you only specify the `SourceArn`, Amazon SES sets the "From" address and the "Return Path" addresses to the identity that you specified in `SourceArn`. |
-| `FromArn`               | The ARN of the identity that is associated with the sending authorization policy that permits you to specify a particular "From" address in the header of the raw email.                                                                                                                                                                              |
-| `ReturnPathArn`         | The ARN of the identity that is associated with the sending authorization policy that permits you to use the email address specified in the `ReturnPath` parameter of `SendRawEmail`.                                                                                                                                                                 | <br>• Include X-headers in the email. X-headers are custom headers that you can use in addition to standard email headers (such as the From, Reply-To, or Subject headers). Amazon SES recognizes three X-headers that you can use to specify sending authorization parameters: ###### Important Do not include these X-headers in the DKIM signature, because they are removed by Amazon SES before sending the email.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| X-Header                | Description                                                                                                                                                                                                                                                                                                                                           |
-| ---                     | ---                                                                                                                                                                                                                                                                                                                                                   |
-| `X-SES-SOURCE-ARN`      | Corresponds to the `SourceArn`.                                                                                                                                                                                                                                                                                                                       |
-| `X-SES-FROM-ARN`        | Corresponds to the `FromArn`.                                                                                                                                                                                                                                                                                                                         |
-| `X-SES-RETURN-PATH-ARN` | Corresponds to the `ReturnPathArn`.                                                                                                                                                                                                                                                                                                                   | Amazon SES removes all X-headers from the email before sending it. If you include multiple instances of an X-header, Amazon SES uses only the first instance. The following example shows an email that includes sending authorization X-headers: `X-SES-SOURCE-ARN: arn:aws:ses:us-east-1:123456789012:identity/example.com X-SES-FROM-ARN: arn:aws:ses:us-east-1:123456789012:identity/example.com X-SES-RETURN-PATH-ARN: arn:aws:ses:us-east-1:123456789012:identity/example.com From: sender@example.com To: recipient@example.com Return-Path: feedback@example.com Subject: subject Content-Type: multipart/alternative; boundary="----=_boundary" ------=_boundary Content-Type: text/plain; charset=UTF-8 Content-Transfer-Encoding: 7bit body ------=_boundary Content-Type: text/html; charset=UTF-8 Content-Transfer-Encoding: 7bit body ------=_boundary--` ### SendEmail and SendTemplatedEmail If you use the `SendEmail` or `SendTemplatedEmail` operation, you can specify the delegated authorized identity by passing in the optional parameters below. You can't use the X-header method when you use the `SendEmail` or `SendTemplatedEmail` operation.                                                                                                                                                                                                                                                                                                                                                   |
-| Parameter               | Description                                                                                                                                                                                                                                                                                                                                           |
-| ---                     | ---                                                                                                                                                                                                                                                                                                                                                   |
-| `SourceArn`             | The ARN of the identity that is associated with the sending authorization policy that permits you to send for the email address specified in the `Source` parameter of either `SendEmail` or `SendTemplatedEmail`.                                                                                                                                    |
-| `ReturnPathArn`         | The ARN of the identity that is associated with the sending authorization policy that permits you to use the email address specified in the `ReturnPath` parameter of either `SendEmail` or `SendTemplatedEmail`.                                                                                                                                     | The following example shows how to send an email that includes the `SourceArn` and `ReturnPathArn` attributes using either the `SendEmail` or `SendTemplatedEmail` operation and the [SDK for Python](https://aws.amazon.com/sdk-for-python "https://aws.amazon.com/sdk-for-python"). `import boto3 from botocore.exceptions import ClientError # Create a new SES resource and specify a region. client = boto3.client('ses',region_name="us-east-1") # Try to send the email. try: #Provide the contents of the email. response = client.send_email( Destination={ 'ToAddresses': [ 'recipient@example.com', ], }, Message={ 'Body': { 'Html': { 'Charset': 'UTF-8', 'Data': 'This email was sent with Amazon SES.', }, }, 'Subject': { 'Charset': 'UTF-8', 'Data': 'Amazon SES Test', }, }, SourceArn='arn:aws:ses:us-east-1:123456789012:identity/example.com', ReturnPathArn='arn:aws:ses:us-east-1:123456789012:identity/example.com', Source='sender@example.com', ReturnPath='feedback@example.com' ) # Display an error if something goes wrong. except ClientError as e: print(e.response['Error']['Message']) else: print("Email sent! Message ID:"), print(response['ResponseMetadata']['RequestId'])` ## Using the Amazon SES SMTP interface When you use the Amazon SES SMTP interface for delegate sending, you have to include the `X-SES-SOURCE-ARN`, `X-SES-FROM-ARN`, and `X-SES-RETURN-PATH-ARN` headers in your message. Pass these headers after you issue the `DATA` command in the SMTP conversation. |
+| Parameter       | Description                                                                                                                                                                                                                                                                                                                                                                   |
+| --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `SourceArn`     | The ARN of the identity that is associated with the<br>sending authorization policy that permits you to send<br>for the email address specified in the<br>`Source` parameter of<br>`SendRawEmail`.<br>NoteIf you only specify the `SourceArn`,<br>Amazon SES sets the "From" address and the "Return Path"<br>addresses to the identity that you specified in<br>`SourceArn`. |
+| `FromArn`       | The ARN of the identity that is associated with the<br>sending authorization policy that permits you to specify<br>a particular "From" address in the header of the raw<br>email.                                                                                                                                                                                             |
+| `ReturnPathArn` | The ARN of the identity that is associated with the<br>sending authorization policy that permits you to use the<br>email address specified in the `ReturnPath`<br>parameter of `SendRawEmail`.                                                                                                                                                                                |
+
+- Include X-headers in the email. X-headers
+  are custom headers that you can use in addition to standard email headers
+  (such as the From, Reply-To, or Subject headers). Amazon SES recognizes three
+  X-headers that you can use to specify sending authorization
+  parameters:
+
+###### Important
+
+Do not include these X-headers in the DKIM signature, because they are
+removed by Amazon SES before sending the email.
+
+| X-Header                | Description                            |
+| ----------------------- | -------------------------------------- |
+| `X-SES-SOURCE-ARN`      | Corresponds to the<br>`SourceArn`.     |
+| `X-SES-FROM-ARN`        | Corresponds to the<br>`FromArn`.       |
+| `X-SES-RETURN-PATH-ARN` | Corresponds to the<br>`ReturnPathArn`. |
+
+Amazon SES removes all X-headers from the email before sending it. If you
+include multiple instances of an X-header, Amazon SES uses only the first
+instance.
+
+The following example shows an email that includes sending authorization
+X-headers:
+
+```
+X-SES-SOURCE-ARN: arn:aws:ses:us-east-1:123456789012:identity/example.com
+X-SES-FROM-ARN: arn:aws:ses:us-east-1:123456789012:identity/example.com
+X-SES-RETURN-PATH-ARN: arn:aws:ses:us-east-1:123456789012:identity/example.com
+
+From: sender@example.com
+To: recipient@example.com
+Return-Path: feedback@example.com
+Subject: subject
+Content-Type: multipart/alternative;
+	boundary="----=_boundary"
+
+------=_boundary
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+body
+------=_boundary
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+body
+------=_boundary--
+
+```
+
+### SendEmail and SendTemplatedEmail
+
+If you use the `SendEmail` or `SendTemplatedEmail`
+operation, you can specify the delegated authorized identity by passing in the
+optional parameters below. You can't use the X-header method when you use the
+`SendEmail` or `SendTemplatedEmail` operation.
+
+| Parameter       | Description                                                                                                                                                                                                                    |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `SourceArn`     | The ARN of the identity that is associated with the sending<br>authorization policy that permits you to send for the email<br>address specified in the `Source` parameter of either<br>`SendEmail` or<br>`SendTemplatedEmail`. |
+| `ReturnPathArn` | The ARN of the identity that is associated with the sending<br>authorization policy that permits you to use the email address<br>specified in the `ReturnPath` parameter of either<br>`SendEmail` or<br>`SendTemplatedEmail`.  |
+
+The following example shows how to send an email that includes the
+`SourceArn` and `ReturnPathArn` attributes using either
+the `SendEmail` or `SendTemplatedEmail` operation and the
+[SDK for Python](https://aws.amazon.com/sdk-for-python "https://aws.amazon.com/sdk-for-python").
+
+```
+import boto3
+from botocore.exceptions import ClientError
+
+# Create a new SES resource and specify a region.
+client = boto3.client('ses',region_name="us-east-1")
+
+# Try to send the email.
+try:
+    #Provide the contents of the email.
+    response = client.send_email(
+        Destination={
+            'ToAddresses': [
+                'recipient@example.com',
+            ],
+        },
+        Message={
+            'Body': {
+                'Html': {
+                    'Charset': 'UTF-8',
+                    'Data': 'This email was sent with Amazon SES.',
+                },
+            },
+            'Subject': {
+                'Charset': 'UTF-8',
+                'Data': 'Amazon SES Test',
+            },
+        },
+        SourceArn='arn:aws:ses:us-east-1:123456789012:identity/example.com',
+        ReturnPathArn='arn:aws:ses:us-east-1:123456789012:identity/example.com',
+        Source='sender@example.com',
+        ReturnPath='feedback@example.com'
+    )
+# Display an error if something goes wrong.
+except ClientError as e:
+    print(e.response['Error']['Message'])
+else:
+    print("Email sent! Message ID:"),
+    print(response['ResponseMetadata']['RequestId'])
+```
+
+## Using the Amazon SES SMTP
+
+interface
+
+When you use the Amazon SES SMTP interface for delegate sending, you have to include the
+`X-SES-SOURCE-ARN`, `X-SES-FROM-ARN`, and
+`X-SES-RETURN-PATH-ARN` headers in your message. Pass these headers after
+you issue the `DATA` command in the SMTP conversation.

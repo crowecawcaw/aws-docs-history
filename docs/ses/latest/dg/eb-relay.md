@@ -157,8 +157,245 @@ Outbound
 
 
 
+    	| Key | value |
+    	| --- | --- |
+    	| `username` | *my\_username* |
+    	| `password` | *my\_password* |
 
-| Key        | value         |
-| ---------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `username` | _my_username_ |
-| `password` | _my_password_ | ###### Note For both of the keys, you must only enter `username` and `password` as shown (anything else will cause authentication to fail). For the values, enter your own username and password respectively. 3. Select **Add new key** to create a KMS customer managed key (CMK) in **Encryption key**—the AWS KMS console will open. 4. Choose **Create key** on the **Customer manged keys** page. 5. Keep the default values on the **Configure key** page and select **Next**. 6. Enter a name for your key in **Alias** (optionally, you can add a description and tag), followed by **Next**. 7. Select any users (other than yourself) or roles you want to permit to administer the key in **Key administrators** followed by **Next**. 8. Select any users (other than yourself) or roles you want to permit to use the key in **Key users** followed by **Next**. 9. Copy and paste the [KMS CMK policy](eb-policies.md#eb-policies-relay-cmk "eb-policies.md#eb-policies-relay-cmk") into the **Key policy** JSON text editor at the `"statement"` level by adding it as an additional statement separated by a comma. Replace the region and account number with your own. 10. Choose **Finish**. 11. Select your browser's tab where you have the AWS Secrets Manager **Store a new secret** page open and select the _refresh icon_ (circular arrow) next to the **Encryption key** field, then click inside the field and select your newly created key. 12. Enter a name in the **Secret name** field on the **Configure secret** page. 13. Select **Edit permissions** in **Resource permissions**. 14. Copy and paste the [Secrets resource policy](eb-policies.md#eb-policies-relay-secrets "eb-policies.md#eb-policies-relay-secrets") into the **Resource permissions** JSON text editor and replace the region and account number with your own. (Be sure to delete any example code in the editor.) 15. Choose **Save** followed by **Next**. 16. Optionally configure rotation followed by **Next**. 17. Review and store your new secret by choosing **Store**. 18. Select your browser's tab where you have the SES **Create SMTP relay** page open and choose **Refresh list**, then select your newly created secret in **Secret ARN**. 6. Select **Create SMTP relay**. 7. You can view and manage the SMTP relays you've already created from the **SMTP relays** page. If there's an SMTP relay you want to remove, select it's radio button followed by **Delete**. 8. To edit an SMTP relay, select its name. On the details page, you can change the relay's name, the external SMTP server's name, port, and login credentials by selecting the corresponding **Edit** or **Update** button followed by **Save changes**. ## Setting up Google Workspaces for inbound (non-authenticated) SMTP relay The following walkthrough example shows you how to setup Google Workspaces to work with a Mail Manager inbound (non-authenticated) SMTP relay. **Prerequisites** <br>• Access to the Google administrator console ([Google administrator console](https://admin.google.com/ "https://admin.google.com/") > Apps > Google Workspace > Gmail). <br>• Access to the domain nameserver hosting the MX records for the domains which will be used for Mail Manager setup. ###### To setup Google Workspaces to work with an inbound SMTP relay <br>• **Add Mail Manager IP addresses to the Inbound gateway configuration** 1. In the [Google administrator console](https://admin.google.com/ "https://admin.google.com/"), go to **Apps > Google Workspace > Gmail**. 2. Select **Spam, Phishing, and Malware**, then go to **Inbound gateway** configuration. 3. Enable **Inbound gateway**, and configure it with the following details: ![Enable Inbound gateway, and configure it with details.](images/GoogleWSInboundGateway.png) + In **Gateway IPs**, select **Add** , and add the ingress endpoint IPs specific to your region from the [SMTP Relay IP Ranges](../../../general/latest/gr/ses.md#ses_mm_relay_ip_ranges "../../../general/latest/gr/ses.md#ses_mm_relay_ip_ranges") table. + Select **Automatically detect external IP**. + Select **Require TLS for connections from the email gateways listed above**. + Select **Save** at the bottom of the dialog box to save the configuration. Once saved, the administrator console will show the **Inbound gateway** as enabled. ## Setting up Microsoft Office 365 for inbound (non-authenticated) SMTP relay The following walkthrough example shows you how to setup Microsoft Office 365 to work with a Mail Manager inbound (non-authenticated) SMTP relay. **Prerequisites** <br>• Access to the Microsoft Security admin center ([Microsoft Security admin center](https://security.microsoft.com/homepage "https://security.microsoft.com/homepage") > Email & collaboration > Policies & Rules > Threat policies). <br>• Access to the domain nameserver hosting the MX records for the domains which will be used for Mail Manager setup. ###### To setup Microsoft Office 365 to work with an inbound SMTP relay 1. **Add Mail Manager IP addresses to the Allow list** 1. In the [Microsoft Security admin center](https://security.microsoft.com/homepage "https://security.microsoft.com/homepage"), go to **Email & collaboration > Policies & Rules > Threat policies**. 2. Select **Anti-spam** under **Polices**. 3. Select **Connection filter policy** followed by **Edit connection filter policy**. <br>• In the **Always allow messages from the following IP addresses or address range** dialog, add the ingress endpoint IPs specific to your region from the [SMTP Relay IP Ranges](../../../general/latest/gr/ses.md#ses_mm_relay_ip_ranges "../../../general/latest/gr/ses.md#ses_mm_relay_ip_ranges") table. <br>• Select **Save**. 4. Return to the **Anti-spam** option and choose **Anti-spam inbound policy**. <br>• At the bottom of the dialog, select **Edit spam threshold and properties**: ![Enable Inbound gateway, and configure it with details.](images/MSO365AntiSpamInboundPolicy.png) <br>• Scroll to **Mark as spam** and ensure that **SPF record: hard fail** is set to **Off**. <br>• Select **Save**. 2. **Enhanced Filtering configuration (recommended)** This option will allow Microsoft Office 365 to properly identify the original connecting IP before the message was received by SES Mail Manager. 1. **Create an inbound connector** <br>• Login to the new [Exchange admin center](https://admin.exchange.microsoft.com/#/homepage "https://admin.exchange.microsoft.com/#/homepage") and go to **Mail flow** > **Connectors**. <br>• Select **Add a connector**. <br>• In **Connection from**, select **Partner organization** followed by **Next**. <br>• Fill in the fields as follows: + **Name** – Simple Email Service Mail Manager connector + **Description** – Connector for filtering ![Adding a connector.](images/MSExAddConnector.png) <br>• Select **Next**. <br>• In **Authenticating sent email**, select **By verifying that the IP address of the sending server matches one of the following IP addresses, which belong to your partner organization** and add the ingress endpoint IPs specific to your region from the [SMTP Relay IP Ranges](../../../general/latest/gr/ses.md#ses_mm_relay_ip_ranges "../../../general/latest/gr/ses.md#ses_mm_relay_ip_ranges") table. ![In Authenticating sent email, select By verifying that the IP address of the sending server matches one of the following IP addresses, which belong to your partner organization and add the ingress endpoint IPs specific to your region from the following table.](images/MSExAuthSentMail.png) <br>• Select **Next**. <br>• In **Security restrictions**, accept the default **Reject email messages if they aren’t sent over TLS** setting, followed by **Next**. <br>• Review your settings and select **Create connector**. 2. **Enable enhanced filtering** Now that the inbound connector has been configured, you will need to enable the enhanced filtering configuration of the connector in the **Microsoft Security admin center**. <br>• In the [Microsoft Security admin center](https://security.microsoft.com/homepage "https://security.microsoft.com/homepage"), go to **Email & collaboration > Policies & Rules > Threat policies**. <br>• Select **Enhanced filtering** under **Rules**. ![Select Enhanced filtering under Rules within Threat polices.](images/MSO365ThreatPolicies.png) <br>• Select the **Simple Email Service Mail Manager connector** that you created previously to edit its configuration parameters. <br>• Select both **Automatically detect and skip the last IP address** and **Apply to entire organization**. ![Edit the previously created connector's configuration.](images/MSO365EditConnector.png) <br>• Select **Save**. |
+
+    	###### Note
+
+    	For both of the keys, you must only enter
+    	 `username` and `password` as
+    	 shown (anything else will cause authentication to
+    	 fail). For the values, enter your own username and
+    	 password respectively.
+    	3. Select **Add new key** to create
+    	 a KMS customer managed key (CMK) in **Encryption
+    	 key**—the AWS KMS console will
+    	 open.
+    	4. Choose **Create key** on the
+    	 **Customer manged keys**
+    	 page.
+    	5. Keep the default values on the **Configure
+    	 key** page and select
+    	 **Next**.
+    	6. Enter a name for your key in
+    	 **Alias** (optionally, you can
+    	 add a description and tag), followed by
+    	 **Next**.
+    	7. Select any users (other than yourself) or roles
+    	 you want to permit to administer the key in
+    	 **Key administrators** followed
+    	 by **Next**.
+    	8. Select any users (other than yourself) or roles
+    	 you want to permit to use the key in **Key
+    	 users** followed by
+    	 **Next**.
+    	9. Copy and paste the [KMS CMK policy](eb-policies.md#eb-policies-relay-cmk "eb-policies.md#eb-policies-relay-cmk") into
+    	 the **Key policy** JSON text editor
+    	 at the `"statement"` level by adding it
+    	 as an additional statement separated by a comma.
+    	 Replace the region and account number with your
+    	 own.
+    	10. Choose **Finish**.
+    	11. Select your browser's tab where you have the
+    	 AWS Secrets Manager **Store a new secret**
+    	 page open and select the *refresh
+    	 icon* (circular arrow) next to the
+    	 **Encryption key** field, then
+    	 click inside the field and select your newly created
+    	 key.
+    	12. Enter a name in the **Secret
+    	 name** field on the **Configure
+    	 secret** page.
+    	13. Select **Edit permissions** in
+    	 **Resource permissions**.
+    	14. Copy and paste the [Secrets resource
+    	 policy](eb-policies.md#eb-policies-relay-secrets "eb-policies.md#eb-policies-relay-secrets")
+    	 into the **Resource permissions**
+    	 JSON text editor and replace the region and account
+    	 number with your own. (Be sure to delete any example
+    	 code in the editor.)
+    	15. Choose **Save** followed by
+    	 **Next**.
+    	16. Optionally configure rotation followed by
+    	 **Next**.
+    	17. Review and store your new secret by choosing
+    	 **Store**.
+    	18. Select your browser's tab where you have the
+    	 SES **Create SMTP relay**
+    	 page open and choose **Refresh
+    	 list**, then select your newly created
+    	 secret in **Secret ARN**.
+
+6. Select **Create SMTP relay**.
+7. You can view and manage the SMTP relays you've already created from the
+   **SMTP relays** page. If there's an SMTP relay you want to
+   remove, select it's radio button followed by **Delete**.
+8. To edit an SMTP relay, select its name. On the details page, you can change the
+   relay's name, the external SMTP server's name, port, and login credentials by
+   selecting the corresponding **Edit** or
+   **Update** button followed by **Save
+   changes**.
+
+## Setting up Google Workspaces for inbound
+
+(non-authenticated) SMTP relay
+
+The following walkthrough example shows you how to setup Google Workspaces to work
+with a Mail Manager inbound (non-authenticated) SMTP relay.
+
+**Prerequisites**
+
+- Access to the Google administrator console ([Google administrator console](https://admin.google.com/ "https://admin.google.com/") > Apps
+  > Google Workspace > Gmail).
+- Access to the domain nameserver hosting the MX records for the domains which
+  will be used for Mail Manager setup.
+
+###### To setup Google Workspaces to work with an inbound SMTP relay
+
+- **Add Mail Manager IP addresses to the Inbound gateway
+  configuration**
+  1.  In the [Google administrator
+      console](https://admin.google.com/ "https://admin.google.com/"), go to **Apps > Google Workspace >
+      Gmail**.
+  2.  Select **Spam, Phishing, and Malware**, then go to
+      **Inbound gateway** configuration.
+  3.  Enable **Inbound gateway**, and configure it with the
+      following details:
+
+  ![Enable Inbound gateway, and configure it with details.](images/GoogleWSInboundGateway.png)
+
+      + In **Gateway IPs**, select **Add** , and add the ingress endpoint IPs specific to your region
+       from the [SMTP
+       Relay IP Ranges](../../../general/latest/gr/ses.md#ses_mm_relay_ip_ranges "../../../general/latest/gr/ses.md#ses_mm_relay_ip_ranges") table.
+      + Select **Automatically detect external
+       IP**.
+      + Select **Require TLS for connections from the email
+       gateways listed above**.
+      + Select **Save** at the bottom of the dialog
+       box to save the configuration. Once saved, the administrator
+       console will show the **Inbound gateway** as
+       enabled.
+
+## Setting up Microsoft Office 365 for inbound
+
+(non-authenticated) SMTP relay
+
+The following walkthrough example shows you how to setup Microsoft Office 365 to work
+with a Mail Manager inbound (non-authenticated) SMTP relay.
+
+**Prerequisites**
+
+- Access to the Microsoft Security admin center ([Microsoft Security admin
+  center](https://security.microsoft.com/homepage "https://security.microsoft.com/homepage") > Email & collaboration > Policies & Rules > Threat
+  policies).
+- Access to the domain nameserver hosting the MX records for the domains which
+  will be used for Mail Manager setup.
+
+###### To setup Microsoft Office 365 to work with an inbound SMTP relay
+
+1. **Add Mail Manager IP addresses to the Allow list**
+   1. In the [Microsoft
+      Security admin center](https://security.microsoft.com/homepage "https://security.microsoft.com/homepage"), go to **Email &
+      collaboration > Policies & Rules > Threat
+      policies**.
+   2. Select **Anti-spam** under
+      **Polices**.
+   3. Select **Connection filter policy** followed by
+      **Edit connection filter policy**.
+      - In the **Always allow messages from the following IP
+        addresses or address range** dialog, add the
+        ingress endpoint IPs specific to your region from the [SMTP
+        Relay IP Ranges](../../../general/latest/gr/ses.md#ses_mm_relay_ip_ranges "../../../general/latest/gr/ses.md#ses_mm_relay_ip_ranges") table.
+      - Select **Save**.
+
+   4. Return to the **Anti-spam** option and choose
+      **Anti-spam inbound policy**.
+      - At the bottom of the dialog, select **Edit spam
+        threshold and properties**:
+
+      ![Enable Inbound gateway, and configure it with details.](images/MSO365AntiSpamInboundPolicy.png)
+      - Scroll to **Mark as spam** and ensure that
+        **SPF record: hard fail** is set to
+        **Off**.
+      - Select **Save**.
+
+2. **Enhanced Filtering configuration (recommended)**
+
+This option will allow Microsoft Office 365 to properly identify the original
+connecting IP before the message was received by SES Mail Manager.
+
+    1. **Create an inbound connector**
+
+
+
+
+    	* Login to the new [Exchange admin center](https://admin.exchange.microsoft.com/#/homepage "https://admin.exchange.microsoft.com/#/homepage") and go to **Mail
+    	 flow** > **Connectors**.
+    	* Select **Add a connector**.
+    	* In **Connection from**, select
+    	 **Partner organization** followed by
+    	 **Next**.
+    	* Fill in the fields as follows:
+
+
+
+
+    		+ **Name** – Simple Email
+    		 Service Mail Manager connector
+    		+ **Description** – Connector
+    		 for filtering
+
+
+
+    		![Adding a connector.](images/MSExAddConnector.png)
+    	* Select **Next**.
+    	* In **Authenticating sent email**, select
+    	 **By verifying that the IP address of the sending
+    	 server matches one of the following IP addresses, which
+    	 belong to your partner organization** and add the
+    	 ingress endpoint IPs specific to your region from the [SMTP
+    	 Relay IP Ranges](../../../general/latest/gr/ses.md#ses_mm_relay_ip_ranges "../../../general/latest/gr/ses.md#ses_mm_relay_ip_ranges") table.
+
+
+
+    	![In Authenticating sent email, select By verifying that the IP address of the sending server matches one of the following IP addresses, which belong to your partner organization and add the ingress endpoint IPs specific to your region from the following table.](images/MSExAuthSentMail.png)
+    	* Select **Next**.
+    	* In **Security restrictions**, accept the
+    	 default **Reject email messages if they aren’t sent over
+    	 TLS** setting, followed by
+    	 **Next**.
+    	* Review your settings and select **Create
+    	 connector**.
+    2. **Enable enhanced filtering**
+
+
+    Now that the inbound connector has been configured, you will need to
+     enable the enhanced filtering configuration of the connector in the
+     **Microsoft Security admin center**.
+
+
+
+
+    	* In the [Microsoft Security admin center](https://security.microsoft.com/homepage "https://security.microsoft.com/homepage"), go to
+    	 **Email & collaboration > Policies & Rules >
+    	 Threat policies**.
+    	* Select **Enhanced filtering** under
+    	 **Rules**.
+
+
+
+    	![Select Enhanced filtering under Rules within Threat polices.](images/MSO365ThreatPolicies.png)
+    	* Select the **Simple Email Service Mail Manager
+    	 connector** that you created previously to edit its
+    	 configuration parameters.
+    	* Select both **Automatically detect and skip the last
+    	 IP address** and **Apply to entire
+    	 organization**.
+
+
+
+    	![Edit the previously created connector's configuration.](images/MSO365EditConnector.png)
+    	* Select **Save**.

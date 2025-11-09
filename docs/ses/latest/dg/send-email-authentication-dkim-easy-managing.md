@@ -225,7 +225,75 @@ Since the email address identity's DKIM signing properties are inherited from th
 parent domain, if you're planning on overriding these properties, you must keep in
 mind the hierarchical rules of overriding as explained in the table below.
 
-| Parent domain does not have DKIM signing enabled              | Parent domain has DKIM signing enabled                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| ------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| You cannot enable DKIM signing on the email address identity. | You can disable DKIM signing on the email address identity.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| You can re-enable DKIM signing on the email address identity. | It’s generally never recommended to disable your DKIM signing as it risks tarnishing your sender reputation, and it increases the risk of having your sent mail go to junk or spam folders or having your domain spoofed. However, the capability exists to override the domain inherited DKIM signing properties on an email address identity for any particular use case or outlying business decision that you might have to either permanently or temporarily disable DKIM signing, or to re-enable it at a later time. ### Overriding DKIM signing on an email address identity (console) The following SES console procedure explains how to override (disable or enable) the inherited DKIM signing properties from the parent domain on a specific email address identity that you've already verified with Amazon SES. ###### To disable/enable DKIM signing for an email address identity using the console 1. Sign in to the AWS Management Console and open the Amazon SES console at [https://console.aws.amazon.com/ses/](https://console.aws.amazon.com/ses/ "https://console.aws.amazon.com/ses/"). 2. In the navigation pane, under **Configuration**, choose **Verified identities**. 3. In the list of identities, choose an identity where the **Identity type** is _Email address_ and belongs to one of your verified domains. 4. Under the **Authentication** tab, in the **DomainKeys Identified Mail (DKIM)** container, choose **Edit**. ###### Note The **Authentication** tab is only present if the selected email address identity belongs to a domain that has already been verified by SES. If you haven't verified your domain yet, see [Creating a domain identity](creating-identities.md#verify-domain-procedure "creating-identities.md#verify-domain-procedure"). 5. Under **Advanced DKIM settings**, in the **DKIM signatures** field, clear the **Enabled** checkbox to disable DKIM signing, or select it to re-enable DKIM signing (if it had been overridden previously). 6. Choose **Save changes**. ### Overriding DKIM signing on an email address identity (AWS CLI) The following example uses the AWS CLI with a SES API command and parameters that will override (disable or enable) the inherited DKIM signing properties from the parent domain on a specific email address identity that you've already verified with SES. ###### To disable/enable DKIM signing for an email address identity using the AWS CLI <br>• Assuming you own the _example.com_ domain, and you want to disable DKIM signing for one of the domain's email addresses, at the command line, type the following command: ``aws sesv2 put-email-identity-dkim-attributes --email-identity `marketing@example.com` --no-signing-enabled`` 1. Replace `marketing@example.com` with the email address identity that you want to disable DKIM signing for. 2. `--no-signing-enabled` will disable DKIM signing. To re-enable DKIM signing, use `--signing-enabled`. |
+| Parent domain does not have DKIM signing enabled                 | Parent domain has DKIM signing enabled                         |
+| ---------------------------------------------------------------- | -------------------------------------------------------------- |
+| You cannot enable DKIM signing<br>on the email address identity. | You can disable DKIM signing on the email address<br>identity. |
+| You can re-enable DKIM signing on the email address<br>identity. |
+
+It’s generally never recommended to disable your DKIM signing as it risks
+tarnishing your sender reputation, and it increases the risk of having your sent
+mail go to junk or spam folders or having your domain spoofed.
+
+However, the capability exists to override the domain inherited DKIM signing
+properties on an email address identity for any particular use case or outlying
+business decision that you might have to either permanently or temporarily disable
+DKIM signing, or to re-enable it at a later time.
+
+### Overriding DKIM signing on an
+
+email address identity (console)
+
+The following SES console procedure explains how to override (disable or
+enable) the inherited DKIM signing properties from the parent domain on a specific
+email address identity that you've already verified with Amazon SES.
+
+###### To disable/enable DKIM signing for an email address identity using the
+
+console
+
+1. Sign in to the AWS Management Console and open the Amazon SES console at [https://console.aws.amazon.com/ses/](https://console.aws.amazon.com/ses/ "https://console.aws.amazon.com/ses/").
+2. In the navigation pane, under **Configuration**, choose
+   **Verified identities**.
+3. In the list of identities, choose an identity where the **Identity
+   type** is _Email address_ and belongs to one
+   of your verified domains.
+4. Under the **Authentication** tab, in the
+   **DomainKeys Identified Mail (DKIM)** container, choose
+   **Edit**.
+
+###### Note
+
+The **Authentication** tab is only present if the
+selected email address identity belongs to a domain that has already
+been verified by SES. If you haven't verified your domain yet,
+see [Creating a domain identity](creating-identities.md#verify-domain-procedure "creating-identities.md#verify-domain-procedure"). 5. Under **Advanced DKIM settings**, in the **DKIM
+signatures** field, clear the **Enabled**
+checkbox to disable DKIM signing, or select it to re-enable DKIM signing (if
+it had been overridden previously). 6. Choose **Save changes**.
+
+### Overriding DKIM signing on an email
+
+address identity (AWS CLI)
+
+The following example uses the AWS CLI with a SES API command and parameters
+that will override (disable or enable) the inherited DKIM signing properties from
+the parent domain on a specific email address identity that you've already verified
+with SES.
+
+###### To disable/enable DKIM signing for an email address identity using the
+
+AWS CLI
+
+- Assuming you own the _example.com_ domain, and you
+  want to disable DKIM signing for one of the domain's email addresses, at the
+  command line, type the following command:
+
+```
+aws sesv2 put-email-identity-dkim-attributes --email-identity `marketing@example.com` --no-signing-enabled
+```
+
+    1. Replace `marketing@example.com` with the
+     email address identity that you want to disable DKIM signing
+     for.
+    2. `--no-signing-enabled` will disable DKIM signing. To
+     re-enable DKIM signing, use `--signing-enabled`.

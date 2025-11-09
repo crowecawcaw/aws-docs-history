@@ -19,6 +19,10 @@ aws_secret_access_key = YOUR_AWS_SECRET_ACCESS_KEY
    your operating system.
 
 | If you're using...    | Save the file as...                        |
-| --------------------- | ------------------------------------------ | --------------------------------------------------------------------------------- |
+| --------------------- | ------------------------------------------ |
 | Windows               | `C:\Users\<yourUserName>\.aws\credentials` |
-| Linux, macOS, or Unix | `~/.aws/credentials`                       | ###### Important Don't include a file extension when saving the credentials file. |
+| Linux, macOS, or Unix | `~/.aws/credentials`                       |
+
+###### Important
+
+Don't include a file extension when saving the credentials file.
