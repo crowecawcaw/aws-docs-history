@@ -48,7 +48,7 @@ you create event rules for AWS Health, do the following:
 
     - To monitor all AWS Health events for a specific service, we recommend that you
       choose **Any event type category** and **Any
-      resource**. This ensures that your rule monitors for any AWS Health
+      resource**. This makes sures that your rule monitors for any AWS Health
       events, including any new event type codes, for your specified service. For an
       example rule, see [all Amazon EC2
       events](#all-ec2-events-rule "#all-ec2-events-rule").
@@ -88,7 +88,7 @@ you create event rules for AWS Health, do the following:
     choose **Next**.
     - Note: Tags are currently not sent by the aws.health source in EventBridge.
 
-19. On the **Review and create** page, review your rule setup and ensure
+19. On the **Review and create** page, review your rule setup and make sure
     that it meets your event monitoring requirements.
 20. Choose **Create rule**.
 

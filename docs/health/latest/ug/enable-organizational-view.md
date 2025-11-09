@@ -19,7 +19,7 @@ in to the management account of your AWS organization.
 
 ###### To view the AWS Health Dashboard for your organization
 
-1. Open your AWS Health Dashboard at [https://health.aws.amazon.com/health/home](https://health.aws.amazon.com/health/ "https://health.aws.amazon.com/health/").
+1. Open your AWS Health Dashboard at [https://health.aws.com/health/home](https://health.aws.com/health/ "https://health.aws.com/health/").
 2. In the navigation pane, under **Your organization
    health**, choose
    **Configurations**.
@@ -71,7 +71,7 @@ The following code examples call the [EnableHealthServiceAccessForOrganization](
 ```
 import boto3
 
-client = boto3.client('health')
+client = boto3.client('health', region_name='us-east-1')
 
 response = client.enable_health_service_access_for_organization()
 

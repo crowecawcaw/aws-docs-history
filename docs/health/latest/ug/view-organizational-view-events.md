@@ -41,7 +41,7 @@ For customers in the AWS GovCloud (US) Regions:
 ###### Note
 
 When you enable this feature, the AWS Health console can display public
-events from the [AWS Health Dashboard – Service health](https://health.aws.amazon.com/health/status "https://health.aws.amazon.com/health/status") for the last 7 days.
+events from the [AWS Health Dashboard – Service health](https://health.aws.com/health/status "https://health.aws.com/health/status") for the last 7 days.
 These public events aren't specific to accounts in your organization. Events
 from the AWS Health Dashboard – Service health provide public information about the regional availability of
 AWS services.
@@ -56,7 +56,7 @@ and resources that affect your organization.
 
 ###### To view organizational view events
 
-1. Open your AWS Health Dashboard at [https://health.aws.amazon.com/health/home](https://health.aws.amazon.com/health/ "https://health.aws.amazon.com/health/").
+1. Open your AWS Health Dashboard at [https://health.aws.com/health/home](https://health.aws.com/health/ "https://health.aws.com/health/").
 2. In the navigation pane, under **Your organization
    health**, choose **Open and recent
    issues** to view recently reported events.
@@ -95,7 +95,7 @@ options, such as the **Event category**,
 
 ###### To view organizational view events in the Event log tab
 
-1. Open your AWS Health Dashboard at [https://health.aws.amazon.com/health/home](https://health.aws.amazon.com/health/ "https://health.aws.amazon.com/health/").
+1. Open your AWS Health Dashboard at [https://health.aws.com/health/home](https://health.aws.com/health/ "https://health.aws.com/health/").
 2. In the navigation pane, under **Your organization
    health**, choose **Event log**.
 3. Under **Event log**, choose the event name. You can
@@ -119,7 +119,7 @@ and then contact the account owner.
 
 ###### To view affected accounts and resources
 
-1. Open your AWS Health Dashboard at [https://health.aws.amazon.com/health/home](https://health.aws.amazon.com/health/ "https://health.aws.amazon.com/health/").
+1. Open your AWS Health Dashboard at [https://health.aws.com/health/home](https://health.aws.com/health/ "https://health.aws.com/health/").
 2. In the navigation pane, under **Your organization
    health**, choose one of the tabs.
 3. Choose an event that has a value for **Affected

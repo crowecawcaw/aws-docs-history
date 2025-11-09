@@ -14,7 +14,7 @@ AWS Health Dashboard](getting-started-health-dashboard.md "getting-started-healt
 
 ###### To view the AWS Health Dashboard – Service health
 
-1. Navigate to the [https://health.aws.amazon.com/health/status](https://health.aws.amazon.com/health/status "https://health.aws.amazon.com/health/status") page.
+1. Navigate to the [https://health.aws.com/health/status](https://health.aws.com/health/status "https://health.aws.com/health/status") page.
 
 ###### Note
 

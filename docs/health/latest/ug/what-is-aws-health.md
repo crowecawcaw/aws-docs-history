@@ -9,7 +9,7 @@ planned activities. The service delivers alerts and notifications triggered by c
 the health of AWS resources, so that you get near-instant event visibility and
 guidance to help accelerate troubleshooting.
 
-All customers can use the [AWS Health Dashboard](https://health.aws.amazon.com/health/home "https://health.aws.amazon.com/health/home"), powered by the AWS Health API. The dashboard
+All customers can use the [AWS Health Dashboard](https://health.aws.com/health/home "https://health.aws.com/health/home"), powered by the AWS Health API. The dashboard
 requires no setup, and it's ready to use for [authenticated AWS users](controlling-access.md "controlling-access.md"). For more service highlights, see the [AWS Health Dashboard detail
 page](https://aws.amazon.com/premiumsupport/technology/personal-health-dashboard/ "https://aws.amazon.com/premiumsupport/technology/personal-health-dashboard/").
 

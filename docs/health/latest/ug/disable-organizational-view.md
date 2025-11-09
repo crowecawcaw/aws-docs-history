@@ -10,7 +10,7 @@ until they're deleted.
 
 ###### To disable organizational view
 
-1. Open your AWS Health Dashboard at [https://health.aws.amazon.com/health/home](https://health.aws.amazon.com/health/ "https://health.aws.amazon.com/health/").
+1. Open your AWS Health Dashboard at [https://health.aws.com/health/home](https://health.aws.com/health/ "https://health.aws.com/health/").
 2. In the navigation pane, under **Your organization
    health**, choose
    **Configurations**.

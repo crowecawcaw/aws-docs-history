@@ -70,8 +70,30 @@ For IPv6-only requests, we recommend performing a DNS lookup on the global endpo
 
 The following table represents the default configuration.
 
-| Description | Signing Region                                                           | Endpoint                                                                                      | Protocol |
-| ----------- | ------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Active      | us-east-1                                                                | health.us-east-1.amazonaws.com (IPv4-only) health.us-east-1.api.aws (IPv4 and IPv6 supported) | HTTPS    |
-| Passive     | us-east-2                                                                | health.us-east-2.amazonaws.com (IPv4-only) health.us-east-2.api.aws (IPv4 and IPv6 supported) | HTTPS    |
-| Global      | us-east-1 NoteThis is the signing Region of the current active endpoint. | global.health.amazonaws.com                                                                   | HTTPS    | To determine if an endpoint is the _active endpoint_, do a DNS lookup on the _global endpoint_ CNAME, and then extract the AWS Region from the resolved name. ###### Example : DNS lookup on global endpoint The following command completes a DNS lookup on the global.health.amazonaws.com endpoint. The command then returns the us-east-1 Region endpoint. This output tells you which endpoint you should use for AWS Health. ``` `dig global.health.amazonaws.com | grep CNAME` `global.health.amazonaws.com. 10 IN CNAME health.us-east-1.amazonaws.com` ``` ###### Tip Both the active and passive endpoints return AWS Health data. However, the latest AWS Health data is only available from the active endpoint. Data from the passive endpoint will be eventually consistent with the active endpoint. We recommend that you restart any workflows when the active endpoint changes. |
+| Description | Signing Region                                                                 | Endpoint                                                                                         | Protocol |
+| ----------- | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | -------- |
+| Active      | us-east-1                                                                      | health.us-east-1.amazonaws.com (IPv4-only)<br>health.us-east-1.api.aws (IPv4 and IPv6 supported) | HTTPS    |
+| Passive     | us-east-2                                                                      | health.us-east-2.amazonaws.com (IPv4-only)<br>health.us-east-2.api.aws (IPv4 and IPv6 supported) | HTTPS    |
+| Global      | us-east-1<br>NoteThis is the signing Region of the current active<br>endpoint. | global.health.amazonaws.com                                                                      | HTTPS    |
+
+To determine if an endpoint is the _active endpoint_,
+do a DNS lookup on the _global endpoint_ CNAME, and
+then extract the AWS Region from the resolved name.
+
+###### Example : DNS lookup on global endpoint
+
+The following command completes a DNS lookup on the global.health.amazonaws.com endpoint. The command then
+returns the us-east-1 Region endpoint. This output tells you which endpoint
+you should use for AWS Health.
+
+```
+`dig global.health.amazonaws.com | grep CNAME`
+`global.health.amazonaws.com. 10 IN CNAME health.us-east-1.amazonaws.com`
+```
+
+###### Tip
+
+Both the active and passive endpoints return AWS Health data. However, the latest
+AWS Health data is only available from the active endpoint. Data from the passive
+endpoint will be eventually consistent with the active endpoint. We recommend that
+you restart any workflows when the active endpoint changes.
