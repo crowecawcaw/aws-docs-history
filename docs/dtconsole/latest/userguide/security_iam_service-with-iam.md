@@ -139,15 +139,69 @@ use these keys to further refine the conditions under which the policy statement
 applies. For more information, see [AWS CodeConnections permissions
 reference](security-iam.md#permissions-reference-connections "security-iam.md#permissions-reference-connections").
 
-| Condition keys                                | Description                                                                                                                                                                                                       |
-| --------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `codeconnections:BranchName`                  | Filters access by the third-party repository branch name                                                                                                                                                          |
-| `codeconnections:FullRepositoryId`            | Filters access by the repository that is passed in the request. Applies only to `UseConnection` requests for access to a specific repository                                                                      |
-| `codeconnections:InstallationId`              | Filters access by the third-party ID (such as the Bitbucket app installation ID) that is used to update a connection. Allows you to restrict which third-party app installations can be used to make a connection |
-| `codeconnections:OwnerId`                     | Filters access by the owner or account ID of the third-party provider                                                                                                                                             |
-| `codeconnections:PassedToService`             | Filters access by the service to which the principal is allowed to pass a connection                                                                                                                              |
-| `codeconnections:ProviderAction`              | Filters access by the provider action in a `UseConnection` request such as `ListRepositories`.                                                                                                                    |
-| `codeconnections:ProviderPermissionsRequired` | Filters access by the type of third-party provider permissions                                                                                                                                                    |
-| `codeconnections:ProviderType`                | Filters access by the type of third-party provider passed in the request                                                                                                                                          |
-| `codeconnections:ProviderTypeFilter`          | Filters access by the type of third-party provider used to filter results                                                                                                                                         |
-| `codeconnections:RepositoryName`              | Filters access by the third-party repository name                                                                                                                                                                 | ### Examples To view examples of AWS CodeStar Notifications and AWS CodeConnections identity-based policies, see [Identity-based policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md"). ## AWS CodeStar Notifications and AWS CodeConnections resource-based policies AWS CodeStar Notifications and AWS CodeConnections do not support resource-based policies. ## Authorization based on tags You can attach tags to AWS CodeStar Notifications and AWS CodeConnections resources or pass tags in a request. To control access based on tags, you provide tag information in the [condition element](../../../IAM/latest/UserGuide/reference_policies_elements_condition.md "../../../IAM/latest/UserGuide/reference_policies_elements_condition.md") of a policy using the `codestar-notifications and codeconnections:ResourceTag/`key-name``, `aws:RequestTag/`key-name``, or `aws:TagKeys` condition keys. For more information about tagging strategies, see [Tagging AWS resources](../../../general/latest/gr/aws_tagging.md "../../../general/latest/gr/aws_tagging.md"). For more information about tagging AWS CodeStar Notifications and AWS CodeConnections resources, see [Tag connections resources](connections-tag.md "connections-tag.md"). To view example identity-based policies for limiting access to a resource based on the tags on that resource, see [Using tags to control access to AWS CodeConnections resources](connections-tag-based-access-control.md "connections-tag-based-access-control.md"). ## IAM roles An [IAM role](../../../IAM/latest/UserGuide/id_roles.md "../../../IAM/latest/UserGuide/id_roles.md") is an entity within your AWS account that has specific permissions. ### Using temporary credentials You can use temporary credentials to sign in with federation, and assume an IAM role or a cross-account role. You obtain temporary security credentials by calling AWS STS API operations such as [AssumeRole](../../../STS/latest/APIReference/API_AssumeRole.md "../../../STS/latest/APIReference/API_AssumeRole.md") or [GetFederationToken](../../../STS/latest/APIReference/API_GetFederationToken.md "../../../STS/latest/APIReference/API_GetFederationToken.md"). AWS CodeStar Notifications and AWS CodeConnections supports the use of temporary credentials. ### Service-linked roles [Service-linked roles](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role") allow AWS services to access resources in other services to complete an action on your behalf. Service-linked roles appear in your IAM account and are owned by the service. An IAM administrator can view but not edit the permissions for service-linked roles. AWS CodeStar Notifications supports service-linked roles. For details about creating or managing AWS CodeStar Notifications and AWS CodeConnections service-linked roles, see [Using service-linked roles for AWS CodeStar Notifications](using-service-linked-roles.md "using-service-linked-roles.md"). CodeConnections does not support service-linked roles. |
+| Condition keys                                | Description                                                                                                                                                                                                                |
+| --------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `codeconnections:BranchName`                  | Filters access by the third-party repository branch<br>name                                                                                                                                                                |
+| `codeconnections:FullRepositoryId`            | Filters access by the repository that is passed in the<br>request. Applies only to `UseConnection` requests for<br>access to a specific repository                                                                         |
+| `codeconnections:InstallationId`              | Filters access by the third-party ID (such as the Bitbucket<br>app installation ID) that is used to update a connection. Allows<br>you to restrict which third-party app installations can be used<br>to make a connection |
+| `codeconnections:OwnerId`                     | Filters access by the owner or account ID of the third-party<br>provider                                                                                                                                                   |
+| `codeconnections:PassedToService`             | Filters access by the service to which the principal is<br>allowed to pass a connection                                                                                                                                    |
+| `codeconnections:ProviderAction`              | Filters access by the provider action in a<br>`UseConnection` request such as<br>`ListRepositories`.                                                                                                                       |
+| `codeconnections:ProviderPermissionsRequired` | Filters access by the type of third-party provider<br>permissions                                                                                                                                                          |
+| `codeconnections:ProviderType`                | Filters access by the type of third-party provider passed in<br>the request                                                                                                                                                |
+| `codeconnections:ProviderTypeFilter`          | Filters access by the type of third-party provider used to<br>filter results                                                                                                                                               |
+| `codeconnections:RepositoryName`              | Filters access by the third-party repository name                                                                                                                                                                          |
+
+### Examples
+
+To view examples of AWS CodeStar Notifications and AWS CodeConnections identity-based policies, see [Identity-based policy
+examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+
+## AWS CodeStar Notifications and AWS CodeConnections resource-based policies
+
+AWS CodeStar Notifications and AWS CodeConnections do not support resource-based policies.
+
+## Authorization based on
+
+tags
+
+You can attach tags to AWS CodeStar Notifications and AWS CodeConnections resources or pass tags in a request. To
+control access based on tags, you provide tag information in the [condition
+element](../../../IAM/latest/UserGuide/reference_policies_elements_condition.md "../../../IAM/latest/UserGuide/reference_policies_elements_condition.md") of a policy using the
+`codestar-notifications and codeconnections:ResourceTag/`key-name``,
+ `aws:RequestTag/`key-name``, or
+`aws:TagKeys` condition keys. For more information about tagging
+strategies, see [Tagging AWS resources](../../../general/latest/gr/aws_tagging.md "../../../general/latest/gr/aws_tagging.md"). For more information about tagging
+AWS CodeStar Notifications and AWS CodeConnections resources, see [Tag connections resources](connections-tag.md "connections-tag.md").
+
+To view example identity-based policies for limiting access to a resource based on
+the tags on that resource, see [Using tags to control access to
+AWS CodeConnections resources](connections-tag-based-access-control.md "connections-tag-based-access-control.md").
+
+## IAM roles
+
+An [IAM role](../../../IAM/latest/UserGuide/id_roles.md "../../../IAM/latest/UserGuide/id_roles.md") is an entity within
+your AWS account that has specific permissions.
+
+### Using temporary
+
+credentials
+
+You can use temporary credentials to sign in with federation, and assume an
+IAM role or a cross-account role. You obtain temporary security credentials by
+calling AWS STS API operations such as [AssumeRole](../../../STS/latest/APIReference/API_AssumeRole.md "../../../STS/latest/APIReference/API_AssumeRole.md") or [GetFederationToken](../../../STS/latest/APIReference/API_GetFederationToken.md "../../../STS/latest/APIReference/API_GetFederationToken.md").
+
+AWS CodeStar Notifications and AWS CodeConnections supports the use of temporary credentials.
+
+### Service-linked roles
+
+[Service-linked roles](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-linked-role") allow AWS services to access resources in
+other services to complete an action on your behalf. Service-linked roles appear
+in your IAM account and are owned by the service. An IAM administrator can
+view but not edit the permissions for service-linked roles.
+
+AWS CodeStar Notifications supports service-linked roles. For details about
+creating or managing AWS CodeStar Notifications and AWS CodeConnections service-linked roles, see [Using service-linked roles for
+AWS CodeStar Notifications](using-service-linked-roles.md "using-service-linked-roles.md").
+
+CodeConnections does not support service-linked roles.
