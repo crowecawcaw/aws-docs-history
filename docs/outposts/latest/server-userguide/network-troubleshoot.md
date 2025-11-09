@@ -76,7 +76,17 @@ outbound connections from the Outpost that are allowed, meaning that they were
 initiated from the Outpost, should be allowed back inbound.
 
 | Protocol | Source Port     | Source Address  | Destination Port | Destination Address                 |
-| -------- | --------------- | --------------- | ---------------- | ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| -------- | --------------- | --------------- | ---------------- | ----------------------------------- |
 | UDP      | 1024-65535      | Service Link IP | 53               | DNS server                          |
 | UDP      | 443, 1024-65535 | Service Link IP | 443              | AWS Outposts Service Link endpoints |
-| TCP      | 1024-65535      | Service Link IP | 443              | AWS Outposts Registration endpoints | ## Step 3. Reestablish connectivity If the previous checks pass but the service link remains `DOWN` (**ConnectedStatus** is less than 1 in CloudWatch), then follow the steps in [Authorize the Outposts server using the Outpost Configuration Tool](../install-server/authorize-4.md "../install-server/authorize-4.md") to reestablish the connection. ###### Note If the service link remains down, create a case at the [AWS Support Center](https://console.aws.amazon.com/support/home#/ "https://console.aws.amazon.com/support/home#/"). |
+| TCP      | 1024-65535      | Service Link IP | 443              | AWS Outposts Registration endpoints |
+
+## Step 3. Reestablish connectivity
+
+If the previous checks pass but the service link remains `DOWN`
+(**ConnectedStatus** is less than 1 in CloudWatch), then follow the steps in [Authorize the Outposts
+server using the Outpost Configuration Tool](../install-server/authorize-4.md "../install-server/authorize-4.md") to reestablish the connection.
+
+###### Note
+
+If the service link remains down, create a case at the [AWS Support Center](https://console.aws.amazon.com/support/home#/ "https://console.aws.amazon.com/support/home#/").

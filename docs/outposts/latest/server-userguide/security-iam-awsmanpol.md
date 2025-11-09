@@ -57,7 +57,7 @@ policies
 View details about updates to AWS managed policies for AWS Outposts since this service
 began tracking these changes.
 
-| Change                                                                                                                 | Description                                                                                                            | Date              |
-| ---------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- | ----------------- |
-| [AWSOutpostsAuthorizeServerPolicy](#AWSOutpostsAuthorizeServerPolicy "#AWSOutpostsAuthorizeServerPolicy") – New policy | AWS Outposts added a policy that grants permissions to authorize Outposts server hardware in your on-premises network. | January 4, 2023   |
-| AWS Outposts started tracking changes                                                                                  | AWS Outposts started tracking changes for its AWS managed policies.                                                    | December 03, 2019 |
+| Change                                                                                                                 | Description                                                                                                               | Date              |
+| ---------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ----------------- |
+| [AWSOutpostsAuthorizeServerPolicy](#AWSOutpostsAuthorizeServerPolicy "#AWSOutpostsAuthorizeServerPolicy") – New policy | AWS Outposts added a policy that grants permissions to authorize Outposts server<br>hardware in your on-premises network. | January 4, 2023   |
+| AWS Outposts started tracking changes                                                                                  | AWS Outposts started tracking changes for its AWS managed policies.                                                       | December 03, 2019 |

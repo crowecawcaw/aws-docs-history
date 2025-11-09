@@ -74,7 +74,7 @@ GbE available bandwidth. The following table lists the network performance for e
 type:
 
 | Instance type | Baseline bandwidth (Gbps) | Burst bandwidth (Gbps) |
-| ------------- | ------------------------- | ---------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------- | ------------------------- | ---------------------- |
 | c6id.large    | 0.15625                   | 2.5                    |
 | c6id.xlarge   | 0.3125                    | 2.5                    |
 | c6id.2xlarge  | 0.625                     | 2.5                    |
@@ -91,4 +91,28 @@ type:
 | c6gd.4xlarge  | 2.5                       | 4                      |
 | c6gd.8xlarge  | 4.8                       | 4.8                    |
 | c6gd.12xlarge | 7.5                       | 7.5                    |
-| c6gd.16xlarge | 10                        | 10                     | ### Security groups By design, the local network interface does not use security groups in your VPC. A security group controls inbound and outbound _VPC traffic_. The local network interface is not attached to the VPC. The local network interface is attached to your local network. To control inbound and outbound traffic on the local network interface, use a firewall or similar strategy, just as you would with the rest of your on-premises equipment. ### Monitoring CloudWatch metrics are produced for each local network interface, just as they are for elastic network interfaces. For more information, see [Monitor network performance for ENA settings on your EC2 instance](../../../AWSEC2/latest/UserGuide/monitoring-network-performance-ena.md "../../../AWSEC2/latest/UserGuide/monitoring-network-performance-ena.md") in the _Amazon EC2 User Guide_. ### MAC addresses AWS provides MAC addresses for local network interfaces. Local network interfaces use locally administered addresses (LAA) for their MAC addresses. A local network interface uses the same MAC address until you delete the interface. After you delete a local network interface, remove the MAC address from your local configurations. AWS can reuse MAC addresses that are no longer in use. |
+| c6gd.16xlarge | 10                        | 10                     |
+
+### Security groups
+
+By design, the local network interface does not use security groups in your VPC. A
+security group controls inbound and outbound _VPC traffic_.
+The local network interface is not attached to the VPC. The local network interface is
+attached to your local network. To control inbound and outbound traffic on the local network
+interface, use a firewall or similar strategy, just as you would with the rest of your
+on-premises equipment.
+
+### Monitoring
+
+CloudWatch metrics are produced for each local network interface, just as they are for elastic
+network interfaces. For more information, see [Monitor network performance
+for ENA settings on your EC2 instance](../../../AWSEC2/latest/UserGuide/monitoring-network-performance-ena.md "../../../AWSEC2/latest/UserGuide/monitoring-network-performance-ena.md") in the
+_Amazon EC2 User Guide_.
+
+### MAC addresses
+
+AWS provides MAC addresses for local network interfaces. Local network interfaces use
+locally administered addresses (LAA) for their MAC addresses. A local network interface uses
+the same MAC address until you delete the interface. After you delete a local network
+interface, remove the MAC address from your local configurations. AWS can reuse MAC
+addresses that are no longer in use.
