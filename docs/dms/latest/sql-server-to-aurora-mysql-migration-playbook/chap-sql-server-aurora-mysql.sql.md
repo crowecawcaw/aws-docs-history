@@ -1,18 +1,383 @@
-# Constraints for ANSI SQL
+# Creating tables for ANSI SQL
 
-This topic provides reference information about constraint compatibility between Microsoft SQL Server 2019 and Amazon Aurora MySQL. You can use this guide to understand the similarities and differences in how these two database systems handle various types of constraints, including check constraints, unique constraints, primary key constraints, and foreign key constraints.
+This topic provides reference content comparing the creation of tables in Microsoft SQL Server 2019 and Amazon Aurora MySQL. You can understand the similarities and differences in table creation syntax, features, and capabilities between these two database systems.
 
-| Feature compatibility                 | AWS SCT / AWS DMS automation level                 | AWS SCT action code index                                                                                                                                                                                        | Key differences                                                           |
-| ------------------------------------- | -------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- | -------- | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Four star feature compatibility       | Four star automation level                         | [Constraints](chap-sql-server-aurora-mysql.tools.md#chap-sql-server-aurora-mysql.tools.actioncode.constraints "chap-sql-server-aurora-mysql.tools.md#chap-sql-server-aurora-mysql.tools.actioncode.constraints") | Unsupported `CHECK`. Indexing requirements for `UNIQUE`.                  | ## SQL Server Usage Column and table constraints are defined by the SQL standard and enforce relational data consistency. There are four types of SQL constraints: check constraints, unique constraints, primary key constraints, and foreign key constraints. ### Check Constraints `CHECK (<Logical Expression>)` Check constraints enforce domain integrity by limiting the data values stored in table columns. They are logical Boolean expressions that evaluate to one of three values: `TRUE`, `FALSE`, and `UNKNOWN`. ###### Note Check constraint expressions behave differently than predicates in other query clauses. For example, in a `WHERE` clause, a logical expression that evaluates to `UNKNOWN` is functionally equivalent to `FALSE` and the row is filtered out. For check constraints, an expression that evaluates to `UNKNOWN` is functionally equivalent to `TRUE` because the value is permitted by the constraint. You can assign multiple check constraints to a single column. A single check constraint may apply to multiple columns. In this case, it is known as a table-level check constraint. In ANSI SQL, check constraints can’t access other rows as part of the expression. In SQL Server, you can use user-defined functions in constraints to access other rows, tables, or even databases. ### Unique Constraints ``` UNIQUE [CLUSTERED | NONCLUSTERED] (<Column List>) ``Unique constraints should be used for all candidate keys. A candidate key is an attribute or a set of attributes such as columns that uniquely identify each row in the relation or table data. Unique constraints guarantee that no rows with duplicate column values exist in a table. A unique constraint can be simple or composite. Simple constraints are composed of a single column. Composite constraints are composed of multiple columns. A column may be a part of more than one constraint. Although the ANSI SQL standard allows multiple rows having NULL values for unique constraints, in SQL Server, you can use a NULL value for only one row. Use a `NOT NULL` constraint in addition to a unique constraint to disallow all NULL values. To improve efficiency, SQL Server creates a unique index to support unique constraints. Otherwise, every `INSERT` and `UPDATE` would require a full table scan to verify there are no duplicates. The default index type for unique constraints is non-clustered. ### Primary Key Constraints`` PRIMARY KEY [CLUSTERED | NONCLUSTERED] (<Column List>) `A primary key is a candidate key serving as the unique identifier of a table row. Primary keys may consist of one or more columns. All columns that comprise a primary key must also have a NOT NULL constraint. Tables can have one primary key. The default index type for primary keys is a clustered index. ### Foreign Key Constraints` FOREIGN KEY (<Referencing Column List>) REFERENCES <Referenced Table>(<Referenced Column List>) ``Foreign key constraints enforce domain referential integrity. Similar to check constraints, foreign keys limit the values stored in a column or set of columns. Foreign keys reference columns in other tables, which must be either primary keys or have unique constraints. The set of values allowed for the referencing table is the set of values existing the referenced table. Although the columns referenced in the parent table are indexed (since they must have either a primary key or unique constraint), no indexes are automatically created for the referencing columns in the child table. A best practice is to create appropriate indexes to support joins and constraint enforcement. Foreign key constraints impose DML limitations for the referencing child table and for the parent table. The constraint’s purpose is to guarantee that no orphan rows with no corresponding matching values in the parent table exist in the referencing table. The constraint limits `INSERT` and `UPDATE` to the child table and `UPDATE` and `DELETE` to the parent table. For example, you can’t delete an order having associated order items. Foreign keys support cascading referential integrity (CRI). CRI can be used to enforce constraints and define action paths for DML statements that violate the constraints. There are four CRI options: <br>• **NO ACTION** — When the constraint is violated due to a DML operation, an error is raised and the operation is rolled back. <br>• **CASCADE** — Values in a child table are updated with values from the parent table when they are updated or deleted along with the parent. <br>• **SET NULL** — All columns that are part of the foreign key are set to NULL when the parent is deleted or updated. <br>• **SET DEFAULT** — All columns that are part of the foreign key are set to their DEFAULT value when the parent is deleted or updated. These actions can be customized independently of others in the same constraint. For example, a cascading constraint may have `CASCADE` for `UPDATE`, but `NO ACTION` for `UPDATE`. ### Examples The following example creates a composite non-clustered primary key.`` CREATE TABLE MyTable ( Col1 INT NOT NULL, Col2 INT NOT NULL, Col3 VARCHAR(20) NULL, CONSTRAINT PK_MyTable PRIMARY KEY NONCLUSTERED (Col1, Col2) ); `The following example creates a table-level check constraint.` CREATE TABLE MyTable ( Col1 INT NOT NULL, Col2 INT NOT NULL, Col3 VARCHAR(20) NULL, CONSTRAINT PK_MyTable PRIMARY KEY NONCLUSTERED (Col1, Col2), CONSTRAINT CK_MyTableCol1Col2 CHECK (Col2 >= Col1) ); `The following example creates a simple non-null unique constraint.` CREATE TABLE MyTable ( Col1 INT NOT NULL, Col2 INT NOT NULL, Col3 VARCHAR(20) NULL, CONSTRAINT PK_MyTable PRIMARY KEY NONCLUSTERED (Col1, Col2), CONSTRAINT UQ_Col2Col3 UNIQUE (Col2, Col3) ); `The following example creates a foreign key with multiple cascade actions.` CREATE TABLE MyParentTable ( Col1 INT NOT NULL, Col2 INT NOT NULL, Col3 VARCHAR(20) NULL, CONSTRAINT PK_MyTable PRIMARY KEY NONCLUSTERED (Col1, Col2) ); ` ` CREATE TABLE MyChildTable ( Col1 INT NOT NULL PRIMARY KEY, Col2 INT NOT NULL, Col3 INT NOT NULL, CONSTRAINT FK_MyChildTable_MyParentTable FOREIGN KEY (Col2, Col3) REFERENCES MyParentTable (Col1, Col2) ON DELETE NO ACTION ON UPDATE CASCADE ); ``For more information, see [Unique Constraints and Check Constraints](https://docs.microsoft.com/en-us/sql/relational-databases/tables/unique-constraints-and-check-constraints?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/tables/unique-constraints-and-check-constraints?view=sql-server-ver15") and [Primary and Foreign Key Constraints](https://docs.microsoft.com/en-us/sql/relational-databases/tables/primary-and-foreign-key-constraints?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/tables/primary-and-foreign-key-constraints?view=sql-server-ver15") in the *SQL Server documentation*. ## MySQL Usage Similar to SQL Server, Aurora MySQL supports all ANSI constraint types, except check. ###### Note You can work around some of the functionality of `CHECK (<Column>) IN (<Value List>)` using the `SET` and `ENUM` data types. For more information, see [Data Types](chap-sql-server-aurora-mysql.sql.md "chap-sql-server-aurora-mysql.sql.md"). Unlike SQL Server, constraint names, or symbols in Aurora MySQL terminology, are optional. Identifiers are created automatically and are similar to SQL Server column constraints that are defined without an explicit name. ### Unique Constraints Unlike SQL Server, where unique constraints are objects supported by unique indexes, Aurora MySQL only provides unique indexes. A unique index is the equivalent to a SQL Server unique constraint. As with SQL Server, unique indexes enforce distinct values for index columns. If a new row is added or an existing row is updated with a value that matches an existing row, an error is raised and the operation is rolled back. Unlike SQL Server, Aurora MySQL permits multiple rows with NULL values for unique indexes. ###### Note If a unique index consists of only one `INT` type column, you can use the `_rowid` alias to reference the index in `SELECT` statements. ### Primary Key Constraints Similar to SQL Server, a primary key constraint in Aurora MySQL is a unique index where all columns are NOT NULL. Each table can have only one primary key. The name of the constraint is always `PRIMARY`. Primary keys in Aurora MySQL are always clustered. They can’t be configured as `NON CLUSTERED` like SQL Server. For more information, see [Indexes](chap-sql-server-aurora-mysql.md "chap-sql-server-aurora-mysql.md"). Applications can reference a primary key using the `PRIMARY` alias. If a table has no primary key, which isn’t recommended, Aurora MySQL uses the first NOT NULL and unique index. ###### Note Keep the primary key short to minimize storage overhead for secondary indexes. In Aurora MySQL, the primary key is clustered. Therefore, every secondary or nonclustered index maintains a copy of the clustering key as the row pointer. It is also recommended to create tables and declare the primary key first, followed by the unique indexes. Then create the non-unique indexes. If a primary key consists of a single `INTEGER` column, it can be referenced using the `_rowid` alias in `SELECT` commands. ### Foreign Key Constraints ###### Note MySQL doesn’t support foreign key constraints for partitioned tables. For more information, see [Storage](chap-sql-server-aurora-mysql.md "chap-sql-server-aurora-mysql.md"). Aurora MySQL supports foreign key constraints for limiting values in a column, or a set of columns, of a child table based on their existence in a parent table. Unlike SQL Server and contrary to the ANSI standard, Aurora MySQL allows foreign keys to reference nonunique columns in the parent table. The only requirement is that the columns are indexed as the leading columns of an index, but not necessarily a unique index. Aurora MySQL supports cascading referential integrity actions using the `ON UPDATE` and `ON DELETE` clauses. The available referential actions are `RESTRICT`, `CASCADE`, `SET NULL`, and `NO ACTION`. The default action is `RESTRICT`. `RESTRICT` and `NO ACTION` are synonymous. ###### Note SET DEFAULT is supported by some other MySQL Server engines. Aurora MySQL uses the InnoDB engine exclusively, which doesn’t support `SET DEFAULT`. ###### Note Some database engines support the ANSI standard for deferred checks. `NO ACTION` is a deferred check as opposed to `RESTRICT`, which is immediate. In MySQL, foreign key constraints are always validated immediately. Therefore, `NO ACTION` is the same as the `RESTRICT` action. Aurora MySQL handles foreign keys differently than most other engines in the following ways: <br>• If there are multiple rows in the parent table that have the same values for the referenced foreign key, Aurora MySQL foreign key checks behave as if the other parent rows with the same key value don’t exist. For example, if a `RESTRICT` action is defined and a child row has several parent rows, Aurora MySQL doesn’t permit deleting them. <br>• If `ON UPDATE CASCADE` or `ON UPDATE SET NULL` causes a recursion and updates the same table that has been updated as part of the same cascade operation, Aurora MySQL treats it as if it was a `RESTRICT` action. This effectively turns off self-referencing `ON UPDATE CASCADE` or `ON UPDATE SET NULL` operations to prevent potential infinite loops resulting from cascaded updates. A self-referencing `ON DELETE SET NULL` or `ON DELETE CASCADE` are allowed because there is no risk of an infinite loop. <br>• Cascading operations are limited to 15 levels deep. ### Check Constraints Standard ANSI check clauses are parsed correctly and don’t raise syntax errors. However, they are ignored and aren’t stored as part of the Aurora MySQL table definition. **Syntax**`` CREATE [TEMPORARY] TABLE [IF NOT EXISTS] <Table Name> ( <Column Definition> [CONSTRAINT [<Symbol>]] PRIMARY KEY (<Column List>) |
-| [CONSTRAINT [<Symbol>]] UNIQUE [INDEX | KEY] [<Index Name>] [<Index Type>] (<Column List>) | [CONSTRAINT [<Symbol>]] FOREIGN KEY [<Index Name>] (<Column List>) REFERENCES <Table Name> (<Column List>) [ON DELETE RESTRICT                                                                                   | CASCADE                                                                   | SET NULL                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | NO ACTION                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | SET DEFAULT] [ON UPDATE RESTRICT                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | CASCADE | SET NULL | NO ACTION | SET DEFAULT] ); ``### Migration Considerations <br>• Aurora MySQL doesn’t support check constraints. The engine parses the syntax for check constraints, but they are ignored. <br>• Consider using triggers or stored routines to validate data values for complex expressions. <br>• When using check constraints for limiting to a value list such as `CHECK (Col1 IN (1,2,3))`, consider using the `ENUM` or `SET` data types. <br>• In Aurora MySQL, the constraint name (symbol) is optional, even for table constraints defined with the `CONSTRAINT` keyword. In SQL Server, it is mandatory. <br>• Aurora MySQL requires that both the child table and the parent table in foreign key relationship are indexed. If the appropriate index doesn’t exist, Aurora MySQL automatically creates one. ### Examples The following example creates a composite primary key.`` CREATE TABLE MyTable ( Col1 INT NOT NULL, Col2 INT NOT NULL, Col3 VARCHAR(20) NULL, CONSTRAINT PRIMARY KEY (Col1, Col2) ); `The following example creates a simple non-null unique constraint.` CREATE TABLE MyTable ( Col1 INT NOT NULL, Col2 INT NOT NULL, Col3 VARCHAR(20) NULL, CONSTRAINT PRIMARY KEY (Col1, Col2), CONSTRAINT UNIQUE (Col2, Col3) ); `The following example creates a named foreign key with multiple cascade actions.` CREATE TABLE MyParentTable ( Col1 INT NOT NULL, Col2 INT NOT NULL, Col3 VARCHAR(20) NULL, CONSTRAINT PRIMARY KEY (Col1, Col2) ); ` ` CREATE TABLE MyChildTable ( Col1 INT NOT NULL PRIMARY KEY, Col2 INT NOT NULL, Col3 INT NOT NULL, FOREIGN KEY (Col2, Col3) REFERENCES MyParentTable (Col1, Col2) ON DELETE NO ACTION ON UPDATE CASCADE ); ``` ## Summary The following table identifies similarities, differences, and key migration considerations. |
-| Feature                               | SQL Server                                         | Aurora MySQL                                                                                                                                                                                                     | Comments                                                                  |
-| ---                                   | ---                                                | ---                                                                                                                                                                                                              | ---                                                                       |
-| Check constraints                     | `CHECK`                                            | Not supported                                                                                                                                                                                                    | Aurora MySQL parses `CHECK` syntax, but ignores it.                       |
-| Unique constraints                    | `UNIQUE`                                           | `UNIQUE`                                                                                                                                                                                                         |                                                                           |
-| Primary key constraints               | `PRIMARY KEY`                                      | `PRIMARY KEY`                                                                                                                                                                                                    |                                                                           |
-| Foreign key constraints               | `FOREIGN KEY`                                      | `FOREIGN KEY`                                                                                                                                                                                                    |                                                                           |
-| Cascaded referential actions          | `NO ACTION`, `CASCADE`, `SET NULL`, `SET DEFAULT`  | `RESTRICT`, `CASCADE`, `SET NULL`, `NO ACTION`                                                                                                                                                                   | `NO ACTION` and `RESTRICT` are synonymous.                                |
-| Indexing of referencing columns       | Not required                                       | Required                                                                                                                                                                                                         | If not specified, an index is created silently to support the constraint. |
-| Indexing of referenced columns        | `PRIMARY KEY` or `UNIQUE`                          | Required                                                                                                                                                                                                         | Aurora MySQL doesn’t enforce uniqueness of referenced columns.            |
-| Cascade recursion                     | Not allowed, discovered at `CREATE` time           | Not allowed, discovered at run time.                                                                                                                                                                             |                                                                           | For more information, see [CREATE TABLE Statement](https://dev.mysql.com/doc/refman/5.7/en/create-table.html "https://dev.mysql.com/doc/refman/5.7/en/create-table.html"), [How MySQL Deals with Constraints](https://dev.mysql.com/doc/refman/5.7/en/constraints.html "https://dev.mysql.com/doc/refman/5.7/en/constraints.html"), and [FOREIGN KEY Constraints](https://dev.mysql.com/doc/refman/5.7/en/create-table-foreign-keys.html "https://dev.mysql.com/doc/refman/5.7/en/create-table-foreign-keys.html") in the _MySQL documentation_.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| Feature compatibility           | AWS SCT / AWS DMS automation level | AWS SCT action code index                                                                                                                                                                                  | Key differences                                                                                                                    |
+| ------------------------------- | ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| Four star feature compatibility | Four star automation level         | [Creating Tables](chap-sql-server-aurora-mysql.tools.md#chap-sql-server-aurora-mysql.tools.actioncode.tables "chap-sql-server-aurora-mysql.tools.md#chap-sql-server-aurora-mysql.tools.actioncode.tables") | `IDENTITY` and `AUTO_INCREMENT`. Primary key is always clustered. `CREATE TEMPORARY TABLE` syntax. Unsupported `@table` variables. |
+
+## SQL Server Usage
+
+Tables in SQL Server are created using the `CREATE TABLE` statement and conform to the ANSI and ISO entry level standard. The basic features of `CREATE TABLE` are similar for most relational database management engines and are well defined in the ANSI and ISO standards.
+
+In its most basic form, the `CREATE TABLE` statement in SQL Server is used to define:
+
+- Table names, the containing security schema, and database.
+- Column names.
+- Column data types.
+- Column and table constraints.
+- Column default values.
+- Primary, unique, and foreign keys.
+
+### T-SQL Extensions
+
+SQL Server extends the basic syntax and provides many additional options for the `CREATE TABLE` or `ALTER TABLE` statements. The most often used options are:
+
+- Supporting index types for primary keys and unique constraints, clustered or non-clustered, and index properties such as `FILLFACTOR`.
+- Physical table data storage containers using the `ON <File Group>` clause.
+- Defining `IDENTITY` auto-enumerator columns.
+- Encryption.
+- Compression.
+- Indexes.
+
+For more information, see [Data Types](chap-sql-server-aurora-mysql.sql.md "chap-sql-server-aurora-mysql.sql.md"), [Column Encryption](chap-sql-server-aurora-mysql.security.md "chap-sql-server-aurora-mysql.security.md"), and [Databases and Schemas](chap-sql-server-aurora-mysql.tsql.md "chap-sql-server-aurora-mysql.tsql.md").
+
+### Table Scope
+
+SQL Server provides five scopes for tables:
+
+- Standard tables are created on disk, globally visible, and persist through connection resets and server restarts.
+- Temporary tables are designated with the `#` prefix. Temporary tables are persisted in TempDB and are visible to the run scope where they were created and any sub-scope. Temporary tables are cleaned up by the server when the run scope terminates and when the server restarts.
+- Global temporary tables are designated by the `##` prefix. They are similar in scope to temporary tables, but are also visible to concurrent scopes.
+- Table variables are defined with the `DECLARE` statement, not with `CREATE TABLE`. They are visible only to the run scope where they were created.
+- Memory-Optimized tables are special types of tables used by the In-Memory Online Transaction Processing (OLTP) engine. They use a nonstandard `CREATE TABLE` syntax.
+
+### Creating a Table Based on an Existing Table or Query
+
+In SQL Server, you can create new tables based on `SELECT` queries as an alternate to the `CREATE TABLE` statement. A `SELECT` statement that returns a valid set with unique column names can be used to create a new table and populate data.
+
+`SELECT INTO` is a combination of DML and DDL. The simplified syntax for `SELECT INTO` is:
+
+```
+SELECT <Expression List>
+INTO <Table Name>
+[FROM <Table Source>]
+[WHERE <Filter>]
+[GROUP BY <Grouping Expressions>...];
+```
+
+When creating a new table using `SELECT INTO`, the only attributes created for the new table are column names, column order, and the data types of the expressions. Even a straight forward statement such as `SELECT * INTO <New Table> FROM <Source Table>` doesn’t copy constraints, keys, indexes, identity property, default values, or any other related objects.
+
+### TIMESTAMP Syntax for ROWVERSION Deprecated Syntax
+
+The `TIMESTAMP` syntax synonym for `ROWVERSION` has been deprecated as of SQL Server 2008 R2. For more information, see [Deprecated Database Engine Features in SQL Server 2008 R2](<https://docs.microsoft.com/en-us/previous-versions/sql/sql-server-2008-r2/ms143729(v=sql.105)> "https://docs.microsoft.com/en-us/previous-versions/sql/sql-server-2008-r2/ms143729(v=sql.105)") in the _SQL Server documentation_.
+
+Previously, you could use either the `TIMESTAMP` or the `ROWVERSION` keywords to denote a special data type that exposes an auto-enumerator. The auto-enumerator generates unique eight-byte binary numbers typically used to version-stamp table rows. Clients read the row, process it, and check the `ROWVERSION` value against the current row in the table before modifying it. If they are different, the row has been modified since the client read it. The client can then apply different processing logic.
+
+Note that when you migrate to Amazon Aurora MySQL-Compatible Edition (Aurora MySQL) using AWS Schema Conversion Tool (AWS SCT), neither `ROWVERSION` nor `TIMESTAMP` are supported. AWS SCT raises the following error: `706 — Unsupported data type …​ of variable/column was replaced. Check the conversion result`.
+
+To maintain this functionality, add customer logic, potentially in the form of a trigger.
+
+### Syntax
+
+Simplified syntax for `CREATE TABLE`.
+
+```
+CREATE TABLE [<Database Name>.<Schema Name>].<Table Name> (<Column Definitions>)
+[ON{<Partition Scheme Name> (<Partition Column Name>)];
+```
+
+```
+<Column Definition>:
+<Column Name> <Data Type>
+[CONSTRAINT <Column Constraint>
+[DEFAULT <Default Value>]]
+[IDENTITY [(<Seed Value>, <Increment Value>)]
+[NULL | NOT NULL]
+[ENCRYPTED WITH (<Encryption Specifications>)
+[<Column Constraints>]
+[<Column Index Specifications>]
+```
+
+```
+<Column Constraint>:
+[CONSTRAINT <Constraint Name>]
+{{PRIMARY KEY | UNIQUE} [CLUSTERED | NONCLUSTERED]
+[WITH FILLFACTOR = <Fill Factor>]
+| [FOREIGN KEY]
+REFERENCES <Referenced Table> (<Referenced Columns>)]
+```
+
+```
+<Column Index Specifications>:
+INDEX <Index Name> [CLUSTERED | NONCLUSTERED]
+[WITH(<Index Options>]
+```
+
+### Examples
+
+The following example creates a basic table.
+
+```
+CREATE TABLE MyTable
+(
+    Col1 INT NOT NULL PRIMARY KEY,
+    Col2 VARCHAR(20) NOT NULL
+);
+```
+
+The following example creates a table with column constraints and an identity.
+
+```
+CREATE TABLE MyTable
+(
+    Col1 INT NOT NULL PRIMARY KEY IDENTITY (1,1),
+    Col2 VARCHAR(20) NOT NULL CHECK (Col2 <> ''),
+    Col3 VARCHAR(100) NULL
+    REFERENCES MyOtherTable (Col3)
+);
+```
+
+The following example creates a table with an additional index.
+
+```
+CREATE TABLE MyTable
+(
+    Col1 INT NOT NULL PRIMARY KEY,
+    Col2 VARCHAR(20) NOT NULL
+    INDEX IDX_Col2 NONCLUSTERED
+);
+```
+
+For more information, see [CREATE TABLE (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-table-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/t-sql/statements/create-table-transact-sql?view=sql-server-ver15") in the _SQL Server documentation_.
+
+## MySQL Usage
+
+Like SQL Server, Aurora MySQL provides ANSI/ISO syntax entry level conformity for `CREATE TABLE` and custom extensions to support Aurora MySQL specific functionality.
+
+###### Note
+
+Unlike SQL Server that uses a single set of physical files for each database, Aurora MySQL tables are created as separate files for each table. Therefore, the SQL Server concept of File Groups doesn’t apply to Aurora MySQL. For more information, see [Databases and Schemas](chap-sql-server-aurora-mysql.tsql.md "chap-sql-server-aurora-mysql.tsql.md").
+
+In its most basic form, and very similar to SQL Server, you can use the `CREATE TABLE` statement in Aurora MySQL to define:
+
+- Table name, containing security schema, and database.
+- Column names.
+- Column data types.
+- Column and table constraints.
+- Column default values.
+- Primary, unique, and foreign keys.
+
+### Aurora MySQL Extensions
+
+Aurora MySQL extends the basic syntax and allows many additional options to be defined as part of the `CREATE TABLE` or `ALTER TABLE` statements. The most often used options are:
+
+- Defining `AUTO_INCREMENT` properties for auto-enumerator columns.
+- Encryption.
+- Compression.
+- Indexes.
+
+### Table Scope
+
+Aurora MySQL provides two table scopes:
+
+- Standard tables are created on disk, visible globally, and persist through connection resets and server restarts.
+- Temporary tables are created using the `CREATE TEMPORARY TABLE` statement. A temporary table is visible only to the session that creates it and is dropped automatically when the session is closed.
+
+### Creating a Table Based on an Existing Table or Query
+
+Aurora MySQL provides two ways to create standard or temporary tables based on existing tables and queries.
+
+`CREATE TABLE <New Table> LIKE <Source Table>` creates an empty table based on the definition of another table including any column attributes and indexes defined in the original table.
+
+`CREATE TABLE …​ AS <Query Expression>` is similar to `SELECT INTO` in SQL Server. You can use this statement to create a new table and populate data in a single step. Unlike SQL Server, you can combine standard column definitions and additional columns derived from the query in Aurora MySQL. This statement doesn’t copy supporting objects or attributes from the source table, similar to SQL Server. For example:
+
+```
+CREATE TABLE SourceTable
+(
+    Col1 INT
+);
+```
+
+```
+INSERT INTO SourceTable
+VALUES (1)
+```
+
+```
+CREATE TABLE NewTable
+(
+    Col1 INT
+)
+AS
+SELECT Col1 AS Col2
+FROM SourceTable;
+```
+
+```
+INSERT INTO NewTable (Col1, Col2)
+VALUES (2,3);
+```
+
+```
+SELECT * FROM NewTable
+```
+
+For the preceding examples, the result looks as shown following.
+
+```
+Col1  Col2
+NULL  1
+2     3
+```
+
+### Converting TIMESTAMP and ROWVERSION columns
+
+###### Note
+
+Aurora MySQL has a `TIMESTAMP` data type, which is a temporal type not to be confused with `TIMESTAMP` in SQL Server. For more information, see [Data Types](chap-sql-server-aurora-mysql.sql.md "chap-sql-server-aurora-mysql.sql.md").
+
+SQL server provides an automatic mechanism for stamping row versions for application concurrency control.
+
+Consider the following example.
+
+```
+CREATE TABLE WorkItems
+(
+    WorkItemID INT IDENTITY(1,1) PRIMARY KEY,
+    WorkItemDescription XML NOT NULL,
+    Status VARCHAR(10) NOT NULL DEFAULT ('Pending'),
+    -- other columns...
+    VersionNumber ROWVERSION
+);
+```
+
+The `VersionNumber` column automatically updates when a row is modified. The actual value is meaningless, just the fact that it changed is what indicates a row modification. The client can now read a work item row, process it, and ensure no other clients updated the row before updating the status.
+
+```
+SELECT @WorkItemDescription = WorkItemDescription,
+    @Status = Status,
+    @VersionNumber = VersionNumber
+FROM WorkItems
+WHERE WorkItemID = @WorkItemID;
+
+EXECUTE ProcessWorkItem @WorkItemID, @WorkItemDescription, @Status OUTPUT;
+
+IF (
+        SELECT VersionNumber
+        FROM WorkItems
+        WHERE WorkItemID = @WorkItemID
+    ) = @VersionNumber;
+    EXECUTE UpdateWorkItems @WorkItemID, 'Completed'; -- Success
+ELSE
+    EXECUTE ConcurrencyExceptionWorkItem; -- Row updated while processing
+```
+
+In Aurora MySQL, you can add a trigger to maintain the updated stamp for each row.
+
+```
+CREATE TABLE WorkItems
+(
+    WorkItemID INT AUTO_INCREMENT PRIMARY KEY,
+    WorkItemDescription JSON NOT NULL,
+    Status VARCHAR(10) NOT NULL DEFAULT 'Pending',
+    -- other columns...
+    VersionNumber INTEGER NULL
+);
+
+CREATE TRIGGER MaintainWorkItemVersionNumber
+AFTER UPDATE
+ON WorkItems FOR EACH ROW
+SET NEW.VersionNumber = OLD.VersionNumber + 1;
+```
+
+For more information, see [Triggers](chap-sql-server-aurora-mysql.tsql.md "chap-sql-server-aurora-mysql.tsql.md").
+
+### Syntax
+
+```
+CREATE [TEMPORARY] TABLE [IF NOT EXISTS] <Table Name>
+(<Create Definition> ,...)[<Table Options>];
+```
+
+```
+<Create Definition>:
+<Column Name> <Column Definition> | [CONSTRAINT [symbol]]
+[PRIMARY KEY | UNIQUE | FOREIGN KEY <Foreign Key Definition> | CHECK (<Check Predicate>)]
+(INDEX <Index Column Name>,...)
+```
+
+```
+<Column Definition>:
+<Data Type> [NOT NULL | NULL]
+[DEFAULT <Default Value>]
+[AUTO_INCREMENT]
+[UNIQUE [KEY]] [[PRIMARY] KEY]
+[COMMENT <comment>]
+```
+
+### Migration Considerations
+
+Migrating `CREATE TABLE` statements should be mostly compatible with the SQL Server syntax when using only ANSI standard syntax.
+
+`IDENTITY` columns should be rewritten to use the Aurora MySQL syntax of `AUTO_INCREMENT`. Note that similar to SQL Server, there can be only one such column in a table, but in Aurora MySQL it also must be indexed.
+
+Temporary table syntax should be modified to use the `CREATE TEMPORARY TABLE` statement instead of the `CREATE #Table` syntax of SQL Server. Global temporary tables and table variables aren’t supported by Aurora MySQL. For sharing data across connections, use standard tables.
+
+`SELECT INTO` queries should be rewritten to use `CREATE TABLE …​ AS` syntax. When copying tables, remember that the `CREATE TABLE …​ LIKE` syntax also retains all supporting objects such as constraints and indexes.
+
+Aurora MySQL doesn’t require specifying constraint names when using the CONSTRAINT keyword. Unique constraint names are created automatically. If specifying a name, the name must be unique for the database.
+
+Unlike SQL Server `IDENTITY` columns, which require `EXPLICIT SET IDENTITY_INSERT ON` to bypass the automatic generation, Aurora MySQL allows inserting explicit values into the column. To generate an automatic value, insert a NULL or a 0 value. To reseed the automatic value, use `ALTER TABLE` as opposed to `DBCC CHECKIDENT` in SQL Server.
+
+In Aurora MySQL, you can add a comment to a column for documentation purposes, similar to SQL Server extended properties feature.
+
+###### Note
+
+Contrary to the SQL standard, foreign keys in Aurora MySQL can point to non-unique parent column values. In this case, the foreign key prohibits deletion of any of the parent rows. For more information, see [Constraints](chap-sql-server-aurora-mysql.sql.md "chap-sql-server-aurora-mysql.sql.md") and [FOREIGN KEY Constraint Differences](https://dev.mysql.com/doc/refman/5.7/en/ansi-diff-foreign-keys.html "https://dev.mysql.com/doc/refman/5.7/en/ansi-diff-foreign-keys.html") in the _MySQL documentation_.
+
+### Examples
+
+The following example creates a basic table.
+
+```
+CREATE TABLE MyTable
+(
+    Col1 INT NOT NULL PRIMARY KEY,
+    Col2 VARCHAR(20) NOT NULL
+);
+```
+
+The following example creates a table with column constraints and an auto increment column.
+
+```
+CREATE TABLE MyTable
+(
+    Col1 INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    Col2 VARCHAR(20) NOT NULL
+    CHECK (Col2 <> ''),
+    Col3 VARCHAR(100) NULL
+    REFERENCES MyOtherTable (Col3)
+);
+```
+
+The following example creates a table with an additional index.
+
+```
+CREATE TABLE MyTable
+(
+    Col1 INT NOT NULL PRIMARY KEY,
+    Col2 VARCHAR(20) NOT NULL,
+    INDEX IDX_Col2 (Col2)
+);
+```
+
+## Summary
+
+The following table identifies similarities, differences, and key migration considerations.
+
+| Feature                     | SQL Server                  | Aurora MySQL                                   | Comments                                                                                                                                                                                                                                           |
+| --------------------------- | --------------------------- | ---------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ANSI compliance             | Entry level                 | Entry level                                    | Basic syntax is compatible.                                                                                                                                                                                                                        |
+| Auto generated enumerator   | `IDENTITY`                  | `AUTO_INCREMENT`                               | Only one allowed for each table. In Aurora MySQL, insert NULL or 0 to generate a new value.                                                                                                                                                        |
+| Reseed auto generated value | `DBCC CHECKIDENT`           | `ALTER TABLE`                                  | For more information, see [ALTER TABLE Statement](https://dev.mysql.com/doc/refman/5.7/en/alter-table.html "https://dev.mysql.com/doc/refman/5.7/en/alter-table.html").                                                                            |
+| Index types                 | `CLUSTERED`, `NONCLUSTERED` | Implicit — primary keys use clustered indexes. | For more information, see [Indexes](chap-sql-server-aurora-mysql.md "chap-sql-server-aurora-mysql.md").                                                                                                                                            |
+| Physical storage location   | `ON <File Group>`           | Not supported                                  | Physical storage is managed by AWS.                                                                                                                                                                                                                |
+| Temporary tables            | #TempTable                  | `CREATE TEMPORARY TABLE`                       |                                                                                                                                                                                                                                                    |
+| Global temporary tables     | `##GlobalTempTable`         | Not supported                                  | Use standard tables to share data between connections.                                                                                                                                                                                             |
+| Table variables             | `DECLARE @Table`            | Not supported                                  |                                                                                                                                                                                                                                                    |
+| Create table as query       | `SELECT…​ INTO`             | `CREATE TABLE…​ AS`                            |                                                                                                                                                                                                                                                    |
+| Copy table structure        | Not supported               | `CREATE TABLE…​ LIKE`                          |                                                                                                                                                                                                                                                    |
+| Memory-optimized tables     | Supported                   | Not supported                                  | For workloads that require memory resident tables, consider using Amazon ElastiCache (Redis OSS). For more information, see [Amazon ElastiCache for Redis](https://aws.amazon.com/elasticache/redis/ "https://aws.amazon.com/elasticache/redis/"). |
+
+For more information, see [CREATE TABLE Statement](https://dev.mysql.com/doc/refman/5.7/en/create-table.html "https://dev.mysql.com/doc/refman/5.7/en/create-table.html") in the _MySQL documentation_.
