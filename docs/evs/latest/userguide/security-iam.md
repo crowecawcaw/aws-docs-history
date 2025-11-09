@@ -11,7 +11,7 @@ AWS Identity and Access Management (IAM) is an AWS service that helps an adminis
 - [Amazon EVS identity-based policy examples](security-iam-id-based-policy-examples.md "security-iam-id-based-policy-examples.md")
 - [Troubleshooting Amazon EVS identity and access](security-iam-troubleshoot.md "security-iam-troubleshoot.md")
 - [AWS managed policies for Amazon EVS](security-iam-awsmanpol.md "security-iam-awsmanpol.md")
-- [Using service-linked roles for {evws}](using-service-linked-roles.md "using-service-linked-roles.md")
+- [Using service-linked roles for Amazon EVS](using-service-linked-roles.md "using-service-linked-roles.md")
 
 ## Audience
 
