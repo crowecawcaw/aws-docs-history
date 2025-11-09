@@ -13,7 +13,7 @@ If the quota is not yet available in Service Quotas, use the [limit increase for
 Your AWS account has the following quotas related to IAM Roles Anywhere and each quota is per AWS Region.
 
 | Resource                               | Description                                                                                                                                                                                     | Default value | Adjustable |
-| -------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- | ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| -------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- | ---------- |
 | Combined rate of trust anchor requests | The maximum transactions per second for ListTrustAnchors, CreateTrustAnchor, GetTrustAnchor, UpdateTrustAnchor, DeleteTrustAnchor, EnableTrustAnchor, and DisableTrustAnchor requests combined. | 1 per second  | Yes        |
 | Combined rate of profile requests      | The maximum transactions per second for ListProfiles, CreateProfile, GetProfile, UpdateProfile, DeleteProfile, EnableProfile, and DisableProfile requests combined.                             | 1 per second  | Yes        |
 | Combined rate of subject requests      | The maximum transactions per second for ListSubjects and GetSubject requests combined.                                                                                                          | 1 per second  | Yes        |
@@ -24,4 +24,11 @@ Your AWS account has the following quotas related to IAM Roles Anywhere and each
 | Profiles                               | The maximum number of profiles that you can create within an account.                                                                                                                           | 250           | Yes        |
 | CRLs per trust anchor                  | The maximum number of Certificate Revocation Lists (CRLs) that you can create per trust anchor within an account.                                                                               | 2             | No         |
 | Certificates per trust anchor          | The maximum number of certificates that you can create per trust anchor within an account.                                                                                                      | 2             | No         |
-| Roles per profile                      | The maximum number of roles that you can create per profile within an account.                                                                                                                  | 250           | No         | ## Throttling Workloads obtain session credentials by using an endpoint that does not use AWS authenticated principals, which would typically be used to limit the rate of operations. IAM Roles Anywhere will limit the rate of calls to the credential endpoint by the authenticating certificate information and IP address (including VPC Endpoint, if applicable). |
+| Roles per profile                      | The maximum number of roles that you can create per profile within an account.                                                                                                                  | 250           | No         |
+
+## Throttling
+
+Workloads obtain session credentials by using an endpoint that does not use
+AWS authenticated principals, which would typically be used to limit the rate of operations.
+IAM Roles Anywhere will limit the rate of calls to the credential endpoint by the authenticating certificate information
+and IP address (including VPC Endpoint, if applicable).

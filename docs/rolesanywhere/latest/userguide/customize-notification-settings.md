@@ -32,12 +32,19 @@ Notification channel with a value of `ALL` will apply the custom settings to all
 
 Following are the default notification settings IAM Roles Anywhere has defined. These values are applied in the absence of custom notification settings.
 
-| Event                         | Channel                                | Threshold                                           | Enabled                           |
-| ----------------------------- | -------------------------------------- | --------------------------------------------------- | --------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| CA certificate expiry         | CloudWatch, EventBridge and AWS Health | 45 days before expiry                               | True                              |
-| End entity certificate expiry | EventBridge and AWS Health             | 45 days before expiry                               | True                              | ## Notification evaluation criteria Following are the evaluation criteria used to send notification events. These criteria do not apply if your notification setting is in a `disabled` state. |
-| Event                         | Channel                                | Starts when                                         | Ends at                           |
-| ---                           | ---                                    | ---                                                 | ---                               |
-| CA certificate expiry         | CloudWatch                             | Number of days until certificate expiry ≤ threshold | Day of certificate expiry         |
-| CA certificate expiry         | EventBridge and AWS Health             | Number of days until certificate expiry ≤ threshold | 14 days after certificate expires |
-| End-entity certificate expiry | EventBridge and AWS Health             | Number of days until certificate expiry ≤ threshold | Day of certificate expiry         |
+| Event                         | Channel                                | Threshold             | Enabled |
+| ----------------------------- | -------------------------------------- | --------------------- | ------- |
+| CA certificate expiry         | CloudWatch, EventBridge and AWS Health | 45 days before expiry | True    |
+| End entity certificate expiry | EventBridge and AWS Health             | 45 days before expiry | True    |
+
+## Notification evaluation criteria
+
+Following are the evaluation criteria used to send notification events.
+
+These criteria do not apply if your notification setting is in a `disabled` state.
+
+| Event                         | Channel                    | Starts when                                         | Ends at                           |
+| ----------------------------- | -------------------------- | --------------------------------------------------- | --------------------------------- |
+| CA certificate expiry         | CloudWatch                 | Number of days until certificate expiry ≤ threshold | Day of certificate expiry         |
+| CA certificate expiry         | EventBridge and AWS Health | Number of days until certificate expiry ≤ threshold | 14 days after certificate expires |
+| End-entity certificate expiry | EventBridge and AWS Health | Number of days until certificate expiry ≤ threshold | Day of certificate expiry         |
