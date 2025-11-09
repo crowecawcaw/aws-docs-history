@@ -19,11 +19,11 @@ following example:
 
 The incoming message payload contains the following information:
 
-| Property                     | Description                                                                                            |
-| ---------------------------- | ------------------------------------------------------------------------------------------------------ |
-| `originationNumber`          | The phone number that sent the incoming message to you (in other words, your customer's phone number). |
-| `destinationNumber`          | The phone number that the customer sent the message to (your dedicated phone number).                  |
-| `messageKeyword`             | The registered keyword that's associated with your dedicated phone number.                             |
-| `messageBody`                | The message that the customer sent to you.                                                             |
-| `inboundMessageId`           | The unique identifier for the incoming message.                                                        |
-| `previousPublishedMessageId` | The unique identifier of the message that the customer is responding to.                               |
+| Property                     | Description                                                                                               |
+| ---------------------------- | --------------------------------------------------------------------------------------------------------- |
+| `originationNumber`          | The phone number that sent the incoming message to you (in other<br>words, your customer's phone number). |
+| `destinationNumber`          | The phone number that the customer sent the message to (your<br>dedicated phone number).                  |
+| `messageKeyword`             | The registered keyword that's associated with your dedicated phone<br>number.                             |
+| `messageBody`                | The message that the customer sent to you.                                                                |
+| `inboundMessageId`           | The unique identifier for the incoming message.                                                           |
+| `previousPublishedMessageId` | The unique identifier of the message that the customer is<br>responding to.                               |

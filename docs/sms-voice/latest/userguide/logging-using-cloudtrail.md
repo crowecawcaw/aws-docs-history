@@ -62,6 +62,270 @@ value, which you would specify when configuring advanced event selectors using t
 CloudTrail APIs. The **Data APIs logged to CloudTrail** column shows the API
 calls logged to CloudTrail for the resource type.
 
-| Data event type (console)          | resources.type value                 | Data APIs logged to CloudTrail                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| ---------------------------------- | ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **SMS Voice origination identity** | `AWS::SMSVoice::OriginationIdentity` | <br>• [SendTextMessage](../../../pinpoint/latest/apireference_smsvoicev2/API_SendTextMessage.md "../../../pinpoint/latest/apireference_smsvoicev2/API_SendTextMessage.md") <br>• [SendVoiceMessage](../../../pinpoint/latest/apireference_smsvoicev2/API_SendTextMessage.md "../../../pinpoint/latest/apireference_smsvoicev2/API_SendTextMessage.md") <br>• [SendMediaMessage](../../../pinpoint/latest/apireference_smsvoicev2/API_SendMediaMessage.md "../../../pinpoint/latest/apireference_smsvoicev2/API_SendMediaMessage.md") | You can configure advanced event selectors to filter on the `eventName`, `readOnly`, and `resources.ARN` fields to log only those events that are important to you. For more information about these fields, see [AdvancedFieldSelector](../../../awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.md "../../../awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.md") in the _AWS CloudTrail API Reference_. ## AWS End User Messaging SMS management events in CloudTrail [Management events](../../../awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.md#logging-management-events "../../../awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.md#logging-management-events") provide information about management operations that are performed on resources in your AWS account. These are also known as control plane operations. By default, CloudTrail logs management events. AWS End User Messaging SMS logs all AWS End User Messaging SMS control plane operations as management events. For a list of the AWS End User Messaging SMS control plane operations that AWS End User Messaging SMS logs to CloudTrail, see the [AWS End User Messaging SMS and Voice V2 API Reference](../../../pinpoint/latest/apireference_smsvoicev2/Welcome.md "../../../pinpoint/latest/apireference_smsvoicev2/Welcome.md"). ## AWS End User Messaging SMS event examples An event represents a single request from any source and includes information about the requested API operation, the date and time of the operation, request parameters, and so on. CloudTrail log files aren't an ordered stack trace of the public API calls, so events don't appear in any specific order. The following example shows a CloudTrail log entry that demonstrates the `CreateConfigurationSet` and `CreateEventDestination` actions. `{ "Records": [ { "eventVersion":"1.05", "userIdentity":{ "type":"IAMUser", "principalId":"AIDAIHTHRCDA62EXAMPLE", "arn":"arn:aws:iam::111122223333:user/SampleUser", "accountId":"111122223333", "accessKeyId":"AKIAIOSFODNN7EXAMPLE", "userName":"SampleUser" }, "eventTime":"2018-11-06T21:45:55Z", "eventSource":"sms-voice.amazonaws.com", "eventName":"CreateConfigurationSet", "awsRegion":"us-east-1", "sourceIPAddress":"192.0.0.1", "userAgent":"PostmanRuntime/7.3.0", "requestParameters":{ "ConfigurationSetName":"MyConfigurationSet" }, "responseElements":null, "requestID":"56dcc091-e20d-11e8-87d2-9994aexample", "eventID":"725843fc-8846-41f4-871a-7c52dexample", "readOnly":false, "eventType":"AwsApiCall", "recipientAccountId":"123456789012" }, { "eventVersion":"1.05", "userIdentity":{ "type":"IAMUser", "principalId":"AIDAIHTHRCDA62EXAMPLE", "arn":"arn:aws:iam::111122223333:user/SampleUser", "accountId":"111122223333", "accessKeyId":"AKIAIOSFODNN7EXAMPLE", "userName":"SampleUser" }, "eventTime":"2018-11-06T21:47:08Z", "eventSource":"sms-voice.amazonaws.com", "eventName":"CreateEventDestination", "awsRegion":"us-east-1", "sourceIPAddress":"192.0.0.1", "userAgent":"PostmanRuntime/7.3.0", "requestParameters":{ "EventDestinationName":"CloudWatchEventDestination", "ConfigurationSetName":"MyConfigurationSet", "EventDestination":{ "Enabled":true, "MatchingEventTypes":[ "INITIATED_CALL", "INITIATED_CALL" ], "CloudWatchLogsDestination":{ "IamRoleArn":"arn:aws:iam::111122223333:role/iamrole-01", "LogGroupArn":"arn:aws:logs:us-east-1:111122223333:log-group:clientloggroup-01" } } }, "responseElements":null, "requestID":"81de1e73-e20d-11e8-b158-d5536example", "eventID":"fcafc21f-7c93-4a3f-9e72-fca2dexample", "readOnly":false, "eventType":"AwsApiCall", "recipientAccountId":"111122223333" } ] }` The following example shows a CloudTrail log entry that demonstrates the `SendTextMessage` action. `{ "eventVersion": "1.10", "userIdentity": { "type": "AssumedRole", "principalId": "QWERTYUIOPASDFGHJKLZXCVBNM:EXAMPLE", "arn": "arn:aws:sts::111122223333:assumed-role/ASDFGHJKL/QWERTYUIOP", "accountId": "111122223333", "accessKeyId": "AKIAIOSFODNN7EXAMPLE", "sessionContext": { "sessionIssuer": { "type": "Role", "principalId": "ASDFGHJKLQWERTYUIOP", "arn": "arn:aws:iam::123456789123:role/QWERTYUIOP", "accountId": "111122223333", "userName": "QWERTYUIOP" }, "attributes": { "creationDate": "2024-10-02T22:39:11Z", "mfaAuthenticated": "false" } } }, "eventTime": "2024-10-02T23:52:08Z", "eventSource": "sms-voice.amazonaws.com", "eventName": "SendTextMessage", "awsRegion": "us-east-1", "sourceIPAddress": "192.0.2.1", "userAgent": "aws-cli/1.18.147 Python/2.7.18 Linux/5.10.218-186.862.amzn2int.x86_64 botocore/1.18.6", "requestParameters": { "destinationPhoneNumber": "+11235550123", "originationIdentity": "phone-aa012345678901234567890123456789", "messageBody": "HIDDEN_DUE_TO_SECURITY_REASONS", }, "responseElements": { "messageId": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111" }, "requestID": "a1b2c3d4-5678-90ab-cdef-EXAMPLE22222", "eventID": "a1b2c3d4-5678-90ab-cdef-EXAMPLE33333", "readOnly": false, "resources": [{ "accountId": "111122223333", "type": "AWS::SMSVoice::OriginationIdentity", "ARN": "arn:aws:sms-voice:us-east-1:111122223333:phone-number/phone-aa012345678901234567890123456789" }], "eventType": "AwsApiCall", "managementEvent": false, "recipientAccountId": "111122223333", "eventCategory": "Data", "tlsDetails": { "clientProvidedHostHeader": "sms-voice.us-east-1.amazonaws.com" } }` The following example shows a CloudTrail log entry that demonstrates the `SendVoiceMessage` action. `{ "eventVersion": "1.10", "userIdentity": { "type": "AssumedRole", "principalId": "QWERTYUIOPASDFGHJKLZXCVBNM:EXAMPLE", "arn": "arn:aws:sts::111122223333:assumed-role/ASDFGHJKL/QWERTYUIOP", "accountId": "111122223333", "accessKeyId": "AKIAIOSFODNN7EXAMPLE", "sessionContext": { "sessionIssuer": { "type": "Role", "principalId": "ASDFGHJKLQWERTYUIOP", "arn": "arn:aws:iam::123456789123:role/QWERTYUIOP", "accountId": "111122223333", "userName": "QWERTYUIOP" }, "attributes": { "creationDate": "2024-10-02T22:39:11Z", "mfaAuthenticated": "false" } } }, "eventTime": "2024-10-02T23:52:08Z", "eventSource": "sms-voice.amazonaws.com", "eventName": "SendVoiceMessage", "awsRegion": "us-east-1", "sourceIPAddress": "192.0.2.1", "userAgent": "aws-cli/1.18.147 Python/2.7.18 Linux/5.10.218-186.862.amzn2int.x86_64 botocore/1.18.6", "requestParameters": { "destinationPhoneNumber": "+11235550123", "originationIdentity": "phone-aa012345678901234567890123456789", "messageBody": "HIDDEN_DUE_TO_SECURITY_REASONS", }, "responseElements": { "messageId": "a1b2c3d4-5678-90ab-cdef-EXAMPLEaaaaa" }, "requestID": "a1b2c3d4-5678-90ab-cdef-EXAMPLEbbbbb", "eventID": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111", "readOnly": false, "resources": [{ "accountId": "111122223333", "type": "AWS::SMSVoice::OriginationIdentity", "ARN": "arn:aws:sms-voice:us-east-1:111122223333:phone-number/phone-aa012345678901234567890123456789" }], "eventType": "AwsApiCall", "managementEvent": false, "recipientAccountId": "111122223333", "eventCategory": "Data", "tlsDetails": { "clientProvidedHostHeader": "sms-voice.us-east-1.amazonaws.com" } }` The following example shows a CloudTrail log entry that demonstrates the `SendMediaMessage` action. `{ "eventVersion": "1.10", "userIdentity": { "type": "AssumedRole", "principalId": "QWERTYUIOPASDFGHJKLZXCVBNM:EXAMPLE", "arn": "arn:aws:sts::111122223333:assumed-role/ASDFGHJKL/QWERTYUIOP", "accountId": "111122223333", "accessKeyId": "AKIAIOSFODNN7EXAMPLE", "sessionContext": { "sessionIssuer": { "type": "Role", "principalId": "ASDFGHJKLQWERTYUIOP", "arn": "arn:aws:iam::377392627227:role/QWERTYUIOP", "accountId": "111122223333", "userName": "QWERTYUIOP" }, "attributes": { "creationDate": "2024-10-02T22:39:11Z", "mfaAuthenticated": "false" } } }, "eventTime": "2024-10-02T23:52:08Z", "eventSource": "sms-voice.amazonaws.com", "eventName": "SendMediaMessage", "awsRegion": "us-east-1", "sourceIPAddress": "192.0.2.1", "userAgent": "aws-cli/1.18.147 Python/2.7.18 Linux/5.10.218-186.862.amzn2int.x86_64 botocore/1.18.6", "requestParameters": { "destinationPhoneNumber": "+11235550123", "originationIdentity": "phone-aa012345678901234567890123456789", "messageBody": "HIDDEN_DUE_TO_SECURITY_REASONS", }, "responseElements": { "messageId": "a1b2c3d4-5678-90ab-cdef-EXAMPLE22222" }, "requestID": "a1b2c3d4-5678-90ab-cdef-EXAMPLE33333", "eventID": "a1b2c3d4-5678-90ab-cdef-EXAMPLEaaaaa", "readOnly": false, "resources": [{ "accountId": "111122223333", "type": "AWS::SMSVoice::OriginationIdentity", "ARN": "arn:aws:sms-voice:us-east-1:111122223333:phone-number/phone-aa012345678901234567890123456789" }], "eventType": "AwsApiCall", "managementEvent": false, "recipientAccountId": "111122223333", "eventCategory": "Data", "tlsDetails": { "clientProvidedHostHeader": "sms-voice.us-east-1.amazonaws.com" } }` For information about CloudTrail record contents, see [CloudTrail record contents](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-record-contents.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-record-contents.md") in the _AWS CloudTrail User Guide_. |
+| Data event type (console)          | resources.type value                 | Data APIs logged to CloudTrail                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| ---------------------------------- | ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **SMS Voice origination identity** | `AWS::SMSVoice::OriginationIdentity` | • [SendTextMessage](../../../pinpoint/latest/apireference_smsvoicev2/API_SendTextMessage.md "../../../pinpoint/latest/apireference_smsvoicev2/API_SendTextMessage.md")<br>• [SendVoiceMessage](../../../pinpoint/latest/apireference_smsvoicev2/API_SendTextMessage.md "../../../pinpoint/latest/apireference_smsvoicev2/API_SendTextMessage.md")<br>• [SendMediaMessage](../../../pinpoint/latest/apireference_smsvoicev2/API_SendMediaMessage.md "../../../pinpoint/latest/apireference_smsvoicev2/API_SendMediaMessage.md") |
+
+You can configure advanced event selectors to filter on the `eventName`,
+`readOnly`, and `resources.ARN` fields to log only those events that
+are important to you. For more information about these fields, see [AdvancedFieldSelector](../../../awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.md "../../../awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.md") in the
+_AWS CloudTrail API Reference_.
+
+## AWS End User Messaging SMS management events in CloudTrail
+
+[Management events](../../../awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.md#logging-management-events "../../../awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.md#logging-management-events") provide information about management operations that are performed on resources in your AWS account. These are also known as control plane operations. By default, CloudTrail logs management events.
+
+AWS End User Messaging SMS logs all AWS End User Messaging SMS control plane operations as management events. For a list
+of the AWS End User Messaging SMS control plane operations that AWS End User Messaging SMS logs to CloudTrail, see the
+[AWS End User Messaging SMS and Voice V2 API Reference](../../../pinpoint/latest/apireference_smsvoicev2/Welcome.md "../../../pinpoint/latest/apireference_smsvoicev2/Welcome.md").
+
+## AWS End User Messaging SMS event examples
+
+An event represents a single request from any source and includes information about the requested API operation, the date and time of the operation, request parameters, and so on. CloudTrail log files aren't an ordered stack trace of the public API calls, so events don't appear in any specific order.
+
+The following example shows a CloudTrail log entry that demonstrates the `CreateConfigurationSet` and `CreateEventDestination` actions.
+
+```
+{
+  "Records": [
+    {
+      "eventVersion":"1.05",
+      "userIdentity":{
+        "type":"IAMUser",
+        "principalId":"AIDAIHTHRCDA62EXAMPLE",
+        "arn":"arn:aws:iam::111122223333:user/SampleUser",
+        "accountId":"111122223333",
+        "accessKeyId":"AKIAIOSFODNN7EXAMPLE",
+        "userName":"SampleUser"
+      },
+      "eventTime":"2018-11-06T21:45:55Z",
+      "eventSource":"sms-voice.amazonaws.com",
+      "eventName":"CreateConfigurationSet",
+      "awsRegion":"us-east-1",
+      "sourceIPAddress":"192.0.0.1",
+      "userAgent":"PostmanRuntime/7.3.0",
+      "requestParameters":{
+        "ConfigurationSetName":"MyConfigurationSet"
+      },
+      "responseElements":null,
+      "requestID":"56dcc091-e20d-11e8-87d2-9994aexample",
+      "eventID":"725843fc-8846-41f4-871a-7c52dexample",
+      "readOnly":false,
+      "eventType":"AwsApiCall",
+      "recipientAccountId":"123456789012"
+    },
+    {
+      "eventVersion":"1.05",
+      "userIdentity":{
+        "type":"IAMUser",
+        "principalId":"AIDAIHTHRCDA62EXAMPLE",
+        "arn":"arn:aws:iam::111122223333:user/SampleUser",
+        "accountId":"111122223333",
+        "accessKeyId":"AKIAIOSFODNN7EXAMPLE",
+        "userName":"SampleUser"
+      },
+      "eventTime":"2018-11-06T21:47:08Z",
+      "eventSource":"sms-voice.amazonaws.com",
+      "eventName":"CreateEventDestination",
+      "awsRegion":"us-east-1",
+      "sourceIPAddress":"192.0.0.1",
+      "userAgent":"PostmanRuntime/7.3.0",
+      "requestParameters":{
+        "EventDestinationName":"CloudWatchEventDestination",
+        "ConfigurationSetName":"MyConfigurationSet",
+        "EventDestination":{
+          "Enabled":true,
+          "MatchingEventTypes":[
+            "INITIATED_CALL",
+            "INITIATED_CALL"
+          ],
+          "CloudWatchLogsDestination":{
+            "IamRoleArn":"arn:aws:iam::111122223333:role/iamrole-01",
+            "LogGroupArn":"arn:aws:logs:us-east-1:111122223333:log-group:clientloggroup-01"
+          }
+        }
+      },
+      "responseElements":null,
+      "requestID":"81de1e73-e20d-11e8-b158-d5536example",
+      "eventID":"fcafc21f-7c93-4a3f-9e72-fca2dexample",
+      "readOnly":false,
+      "eventType":"AwsApiCall",
+      "recipientAccountId":"111122223333"
+    }
+  ]
+}
+```
+
+The following example shows a CloudTrail log entry that demonstrates the `SendTextMessage` action.
+
+```
+{
+        "eventVersion": "1.10",
+        "userIdentity": {
+            "type": "AssumedRole",
+            "principalId": "QWERTYUIOPASDFGHJKLZXCVBNM:EXAMPLE",
+            "arn": "arn:aws:sts::111122223333:assumed-role/ASDFGHJKL/QWERTYUIOP",
+            "accountId": "111122223333",
+            "accessKeyId": "AKIAIOSFODNN7EXAMPLE",
+            "sessionContext": {
+                "sessionIssuer": {
+                    "type": "Role",
+                    "principalId": "ASDFGHJKLQWERTYUIOP",
+                    "arn": "arn:aws:iam::123456789123:role/QWERTYUIOP",
+                    "accountId": "111122223333",
+                    "userName": "QWERTYUIOP"
+                },
+                "attributes": {
+                    "creationDate": "2024-10-02T22:39:11Z",
+                    "mfaAuthenticated": "false"
+                }
+            }
+        },
+        "eventTime": "2024-10-02T23:52:08Z",
+        "eventSource": "sms-voice.amazonaws.com",
+        "eventName": "SendTextMessage",
+        "awsRegion": "us-east-1",
+        "sourceIPAddress": "192.0.2.1",
+        "userAgent": "aws-cli/1.18.147 Python/2.7.18 Linux/5.10.218-186.862.amzn2int.x86_64 botocore/1.18.6",
+        "requestParameters": {
+            "destinationPhoneNumber": "+11235550123",
+            "originationIdentity": "phone-aa012345678901234567890123456789",
+            "messageBody": "HIDDEN_DUE_TO_SECURITY_REASONS",
+        },
+        "responseElements": {
+            "messageId": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111"
+        },
+        "requestID": "a1b2c3d4-5678-90ab-cdef-EXAMPLE22222",
+        "eventID": "a1b2c3d4-5678-90ab-cdef-EXAMPLE33333",
+        "readOnly": false,
+        "resources": [{
+            "accountId": "111122223333",
+            "type": "AWS::SMSVoice::OriginationIdentity",
+            "ARN": "arn:aws:sms-voice:us-east-1:111122223333:phone-number/phone-aa012345678901234567890123456789"
+        }],
+        "eventType": "AwsApiCall",
+        "managementEvent": false,
+        "recipientAccountId": "111122223333",
+        "eventCategory": "Data",
+        "tlsDetails": {
+            "clientProvidedHostHeader": "sms-voice.us-east-1.amazonaws.com"
+        }
+}
+```
+
+The following example shows a CloudTrail log entry that demonstrates the `SendVoiceMessage` action.
+
+```
+{
+        "eventVersion": "1.10",
+        "userIdentity": {
+            "type": "AssumedRole",
+            "principalId": "QWERTYUIOPASDFGHJKLZXCVBNM:EXAMPLE",
+            "arn": "arn:aws:sts::111122223333:assumed-role/ASDFGHJKL/QWERTYUIOP",
+            "accountId": "111122223333",
+            "accessKeyId": "AKIAIOSFODNN7EXAMPLE",
+            "sessionContext": {
+                "sessionIssuer": {
+                    "type": "Role",
+                    "principalId": "ASDFGHJKLQWERTYUIOP",
+                    "arn": "arn:aws:iam::123456789123:role/QWERTYUIOP",
+                    "accountId": "111122223333",
+                    "userName": "QWERTYUIOP"
+                },
+                "attributes": {
+                    "creationDate": "2024-10-02T22:39:11Z",
+                    "mfaAuthenticated": "false"
+                }
+            }
+        },
+        "eventTime": "2024-10-02T23:52:08Z",
+        "eventSource": "sms-voice.amazonaws.com",
+        "eventName": "SendVoiceMessage",
+        "awsRegion": "us-east-1",
+        "sourceIPAddress": "192.0.2.1",
+        "userAgent": "aws-cli/1.18.147 Python/2.7.18 Linux/5.10.218-186.862.amzn2int.x86_64 botocore/1.18.6",
+        "requestParameters": {
+            "destinationPhoneNumber": "+11235550123",
+            "originationIdentity": "phone-aa012345678901234567890123456789",
+            "messageBody": "HIDDEN_DUE_TO_SECURITY_REASONS",
+        },
+        "responseElements": {
+            "messageId": "a1b2c3d4-5678-90ab-cdef-EXAMPLEaaaaa"
+        },
+        "requestID": "a1b2c3d4-5678-90ab-cdef-EXAMPLEbbbbb",
+        "eventID": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+        "readOnly": false,
+        "resources": [{
+            "accountId": "111122223333",
+            "type": "AWS::SMSVoice::OriginationIdentity",
+            "ARN": "arn:aws:sms-voice:us-east-1:111122223333:phone-number/phone-aa012345678901234567890123456789"
+        }],
+        "eventType": "AwsApiCall",
+        "managementEvent": false,
+        "recipientAccountId": "111122223333",
+        "eventCategory": "Data",
+        "tlsDetails": {
+            "clientProvidedHostHeader": "sms-voice.us-east-1.amazonaws.com"
+        }
+}
+```
+
+The following example shows a CloudTrail log entry that demonstrates the `SendMediaMessage` action.
+
+```
+{
+        "eventVersion": "1.10",
+        "userIdentity": {
+            "type": "AssumedRole",
+            "principalId": "QWERTYUIOPASDFGHJKLZXCVBNM:EXAMPLE",
+            "arn": "arn:aws:sts::111122223333:assumed-role/ASDFGHJKL/QWERTYUIOP",
+            "accountId": "111122223333",
+            "accessKeyId": "AKIAIOSFODNN7EXAMPLE",
+            "sessionContext": {
+                "sessionIssuer": {
+                    "type": "Role",
+                    "principalId": "ASDFGHJKLQWERTYUIOP",
+                    "arn": "arn:aws:iam::377392627227:role/QWERTYUIOP",
+                    "accountId": "111122223333",
+                    "userName": "QWERTYUIOP"
+                },
+                "attributes": {
+                    "creationDate": "2024-10-02T22:39:11Z",
+                    "mfaAuthenticated": "false"
+                }
+            }
+        },
+        "eventTime": "2024-10-02T23:52:08Z",
+        "eventSource": "sms-voice.amazonaws.com",
+        "eventName": "SendMediaMessage",
+        "awsRegion": "us-east-1",
+        "sourceIPAddress": "192.0.2.1",
+        "userAgent": "aws-cli/1.18.147 Python/2.7.18 Linux/5.10.218-186.862.amzn2int.x86_64 botocore/1.18.6",
+        "requestParameters": {
+            "destinationPhoneNumber": "+11235550123",
+            "originationIdentity": "phone-aa012345678901234567890123456789",
+            "messageBody": "HIDDEN_DUE_TO_SECURITY_REASONS",
+        },
+        "responseElements": {
+            "messageId": "a1b2c3d4-5678-90ab-cdef-EXAMPLE22222"
+        },
+        "requestID": "a1b2c3d4-5678-90ab-cdef-EXAMPLE33333",
+        "eventID": "a1b2c3d4-5678-90ab-cdef-EXAMPLEaaaaa",
+        "readOnly": false,
+        "resources": [{
+            "accountId": "111122223333",
+            "type": "AWS::SMSVoice::OriginationIdentity",
+            "ARN": "arn:aws:sms-voice:us-east-1:111122223333:phone-number/phone-aa012345678901234567890123456789"
+        }],
+        "eventType": "AwsApiCall",
+        "managementEvent": false,
+        "recipientAccountId": "111122223333",
+        "eventCategory": "Data",
+        "tlsDetails": {
+            "clientProvidedHostHeader": "sms-voice.us-east-1.amazonaws.com"
+        }
+}
+```
+
+For information about CloudTrail record contents, see [CloudTrail
+record contents](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-record-contents.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-record-contents.md") in the _AWS CloudTrail User Guide_.
