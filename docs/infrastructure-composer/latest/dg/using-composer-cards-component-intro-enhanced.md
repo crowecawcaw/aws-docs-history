@@ -12,7 +12,7 @@ Infrastructure Composer to design and build your serverless applications. We rec
 This table displays our enhanced components with links to the AWS CloudFormation or AWS Serverless Application Model (AWS SAM) template specification of the card’s featured resource:
 
 | Card                                                  | Reference                                                                                                                                                                                                            |
-| ----------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ----------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Amazon API Gateway                                    | [AWS::Serverless::API](../../../serverless-application-model/latest/developerguide/sam-resource-api.md "../../../serverless-application-model/latest/developerguide/sam-resource-api.md")                            |
 | Amazon Cognito UserPool                               | [AWS::Cognito::UserPool](../../../AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpool.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpool.md")                                |
 | Amazon Cognito UserPoolClient                         | [AWS::Cognito::UserPoolClient](../../../AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolclient.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-cognito-userpoolclient.md")              |
@@ -25,4 +25,19 @@ This table displays our enhanced components with links to the AWS CloudFormation
 | Amazon Simple Storage Service (Amazon S3) Bucket      | [AWS::S3::Bucket](../../../AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.md "../../../AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.md")                                                 |
 | Amazon Simple Notification Service (Amazon SNS) Topic | [AWS::SNS::Topic](../../../AWSCloudFormation/latest/UserGuide/aws-resource-sns-topic.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-sns-topic.md")                                                     |
 | Amazon Simple Queue Service (Amazon SQS) Queue        | [AWS::SQS::Queue](../../../AWSCloudFormation/latest/UserGuide/aws-resource-sqs-queue.md "../../../AWSCloudFormation/latest/UserGuide/aws-resource-sqs-queue.md")                                                     |
-| AWS Step Functions State machine                      | [AWS::Serverless::StateMachine](../../../serverless-application-model/latest/developerguide/sam-resource-statemachine.md "../../../serverless-application-model/latest/developerguide/sam-resource-statemachine.md") | ## Example The following is an example of an **S3 Bucket** enhanced component: ![An S3 Bucket enhanced component card.](images/aac_cards_07.png) When you drag an **S3 Bucket** component card onto the canvas and view your template, you will see the following two AWS CloudFormation resources added to your template: <br>• `AWS::S3::Bucket` <br>• `AWS::S3::BucketPolicy` The **S3 Bucket** enhanced component card represents two AWS CloudFormation resources that are both required for an Amazon Simple Storage Service (Amazon S3) bucket to interact with other services in your application. |
+| AWS Step Functions State machine                      | [AWS::Serverless::StateMachine](../../../serverless-application-model/latest/developerguide/sam-resource-statemachine.md "../../../serverless-application-model/latest/developerguide/sam-resource-statemachine.md") |
+
+## Example
+
+The following is an example of an **S3 Bucket** enhanced component:
+
+![An S3 Bucket enhanced component card.](images/aac_cards_07.png)
+
+When you drag an **S3 Bucket** component card onto the canvas and view your template, you will see the following two AWS CloudFormation resources added to your
+template:
+
+- `AWS::S3::Bucket`
+- `AWS::S3::BucketPolicy`
+
+The **S3 Bucket** enhanced component card represents two AWS CloudFormation resources that are both required for an Amazon Simple Storage Service (Amazon S3) bucket to interact with
+other services in your application.
