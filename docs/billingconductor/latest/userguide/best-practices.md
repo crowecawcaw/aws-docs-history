@@ -43,16 +43,17 @@ In this example, we have two billing groups, `A` and `B`. Billing group `A` star
 
 From the member account's stance, the new billing group's settings are applied to the account's usage for the entire month when `Account 3` moves from one new billing group to another in the middle of the month. This is reflected in Cost Explorer and Bills as if the account has been apart of the new billing group from the start of the month.
 
-| Billing Group A | Days: 1 - 15 | Days: 16 - 30 | End of Month |
-| --------------- | ------------ | ------------- | ------------ |
-| Account 1       | $ 100        | $ 100         | $ 200        |
-| Account 2       | $ 100        | $ 100         | $ 200        |
-| Account 3       | $ 100        | N/A           | N/A          |
-| **Total**       | **$ 300**    | **$ 200**     | **$ 400**    |
-| Billing Group B | Days: 1 - 15 | Days: 16 - 30 | End of Month |
-| ---             | ---          | ---           | ---          |
-| Account 4       | $ 100        | $ 100         | $ 200        |
-| Account 5       | $ 100        | $ 100         | $ 200        |
-| Account 6       | $ 100        | $ 100         | $ 200        |
-| Account 3       | $ 100        | $ 100         | $ 200        |
-| **Total**       | **$ 400**    | **$ 400**     | **$ 800**    |
+| Billing Group A | Days: 1<br>• 15 | Days: 16<br>• 30 | End of Month |
+| --------------- | --------------- | ---------------- | ------------ |
+| Account 1       | $ 100           | $ 100            | $ 200        |
+| Account 2       | $ 100           | $ 100            | $ 200        |
+| Account 3       | $ 100           | N/A              | N/A          |
+| **Total**       | **$ 300**       | **$ 200**        | **$ 400**    |
+
+| Billing Group B | Days: 1<br>• 15 | Days: 16<br>• 30 | End of Month |
+| --------------- | --------------- | ---------------- | ------------ |
+| Account 4       | $ 100           | $ 100            | $ 200        |
+| Account 5       | $ 100           | $ 100            | $ 200        |
+| Account 6       | $ 100           | $ 100            | $ 200        |
+| Account 3       | $ 100           | $ 100            | $ 200        |
+| **Total**       | **$ 400**       | **$ 400**        | **$ 800**    |
