@@ -190,8 +190,290 @@ your network administrator to add the following domains or URL endpoints to your
 web-content filtering solution allow-lists depending on what type of user you are and how
 you sign in.
 
-|                                                               |                                                                |
-| ------------------------------------------------------------- | -------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Root user and IAM users                                       | \*.signin.aws.amazon.com                                       |
-| Amazon.com account sign-in                                    | www.amazon.com                                                 |
-| IAM Identity Center users and first-party application sign-in | <br>• \*.awsapps.com (http://awsapps.com/) <br>• \*.signin.aws | ## How can I find my AWS account ID or alias If you are an IAM user and you aren't signed in, ask your administrator for the AWS account ID or alias. Your administrator is typically an Information Technology (IT) personnel who has a higher level of permissions to the AWS account than other members of your organization. This individual created your account and provides users with their access credentials to sign in. If you are an IAM user with access to the AWS Management Console, your account ID can be found in your sign-in URL. Check your emails from your administrator for the sign-in URL. The account ID is the first twelve digits in the sign-in URL. For example, in the following URL, `https://`111122223333`.signin.aws.amazon.com/console`, your AWS account ID is 111122223333. After you sign in to the AWS Management Console, you can find your account information located in the navigation bar next to your Region. For example in the following screenshot, the IAM user Carlos has an AWS account of 1111-2222-3333. ![Account information drop-down box with account ID highlighted](images/find-account-id.png) For more information about your AWS account ID and alias and how to find it, see [Your AWS account ID and its alias](../../../IAM/latest/UserGuide/console_account-alias.md "../../../IAM/latest/UserGuide/console_account-alias.md"). ## I need my account verification code If you provided your account email address and password, AWS sometimes requires you to provide a one-time verification code. To retrieve the verification code, check the email that's associated with your AWS account for a message from Amazon Web Services. The email address ends in @signin.aws or @verify.signin.aws. Follow the directions in the message. If you don't see the message in your account, check your spam and junk folders. If you no longer have access to the email, see [I don't have access to the email for my AWS account](#troubleshoot-lost-email "#troubleshoot-lost-email"). ## I forgot my root user password for my AWS account If you are a root user and you have lost or forgotten the password for your AWS account, you can reset your password by selecting the "Forgot Password" link in the AWS Management Console. You must know your AWS account's email address and must have access to the email account. You will be emailed a link during the password recovery process to reset your password. The link will be sent to the email address you used to create your AWS account. To reset the password for an account that you created using AWS Organizations, see [Accessing a member account as the root user](../../../organizations/latest/userguide/orgs_manage_accounts_access.md#orgs_manage_accounts_access-as-root "../../../organizations/latest/userguide/orgs_manage_accounts_access.md#orgs_manage_accounts_access-as-root"). ###### To reset your root user password 1. Use your AWS email address to begin signing in to the [AWS Management Console](http://signin.aws.amazon.com/console/ "http://signin.aws.amazon.com/console/") as the **root user**. Then, choose **Next**. ![Root user entering their email address in to the AWS Management Console.](images/reset-root-user-pswd-step-1.png) ###### Note If you are signed in to the [AWS Management Console](http://signin.aws.amazon.com/console/ "http://signin.aws.amazon.com/console/") with IAM user credentials, then you must sign out before you can reset the root user password. If you see the account-specific IAM user sign-in page, choose **Sign-in using root account credentials** near the bottom of the page. If necessary, provide your account email address and choose **Next** to access the **Root user sign in** page. 2. Choose **Forgot password?** ![Forgot password link highlighted on AWS Management Console page.](images/reset-root-user-pswd-step-2.png) 3. Complete the password recovery steps. If you can't complete the security check, try listening to the audio or refreshing the security check for a new set of characters. An example of a password recovery page is shown in the following image. ![Password recovery steps to reset root user user password.](images/reset-root-user-pswd-step-3.png) 4. After you complete the password recovery steps, you receive a message that further instructions have been sent to the email address associated with your AWS account. An email with a link to reset your password is sent to the email used to create the AWS account. ###### Note The email will come from an address ending in @signin.aws or @verify.signin.aws. 5. Select the link provided in the AWS email to reset your AWS root user password. 6. The link directs you to a new webpage to create a new root user password. ![Creating a new root user user password.](images/reset-root-user-pswd-step-6.png) You receive a confirmation that your password reset was successful. A successful password reset is shown in the following image. ![Confirmation for successfully resetting root user user password.](images/reset-root-user-pswd-step-7.png) For more information on resetting your root user password, see [How do I recover a lost or forgotten AWS password?](https://aws.amazon.com/premiumsupport/knowledge-center/recover-aws-password/ "https://aws.amazon.com/premiumsupport/knowledge-center/recover-aws-password/") ## I forgot my IAM user password for my AWS account To change your IAM user password, you must have the proper permissions. For more information about resetting your IAM user password, see [How an IAM user changes their own password](../../../IAM/latest/UserGuide/id_credentials_passwords_user-change-own.md "../../../IAM/latest/UserGuide/id_credentials_passwords_user-change-own.md"). If you do not have the permission to reset your password, then only your IAM administrator can reset the IAM user password. IAM users should contact their IAM administrator to reset their password. Your administrator is typically an Information Technology (IT) personnel who has a higher level of permissions to the AWS account than other members of your organization. This individual created your account and provides users with their access credentials to sign in. ![AWS Management Console showing the IAM user forgot password link.](images/iam-user-reset-pswd-message.png) For security purposes, Support doesn't have access to view, provide, or change your credentials. For more information on resetting your IAM user password, see [How do I recover a lost or forgotten AWS password?](https://aws.amazon.com/premiumsupport/knowledge-center/recover-aws-password/ "https://aws.amazon.com/premiumsupport/knowledge-center/recover-aws-password/") To learn how an administrator can manage your password, see [Managing passwords for IAM users](../../../IAM/latest/UserGuide/id_credentials_passwords_admin-change-user.md "../../../IAM/latest/UserGuide/id_credentials_passwords_admin-change-user.md"). ## I forgot my federated identity password for my AWS account Federated identities sign in to access AWS accounts with external identities. The type of external identity in use determines how federated identities sign in. Your administrator creates federated identities. Check with your administrator for more details on how to reset your password. Your administrator is typically an Information Technology (IT) personnel who has a higher level of permissions to the AWS account than other members of your organization. This individual created your account and provides users with their access credentials to sign in. ## I can’t sign in to my existing AWS account and I can't create a new AWS account with the same email address You can associate an email address with only one AWS account root user. If you close your root user account and it remains closed for more than 90 days, then you are not able to reopen your account or create a new AWS account using the e-mail address associated with this account. To fix this issue, you can use subaddressing where you add a plus sign (+) after your usual email address when you sign up for a new account. The plus sign (+) can be followed by uppercase or lowercase letters, numbers, or other Simple Mail Transfer Protocol (SMTP) supported characters. For example, you can use `email+1@yourcompany.com` or `email+tag@yourcompany.com` where your usual email is `email@yourcompany.com`. This is considered a new address even though it’s connected to the same inbox as your usual email address. Before you sign up for a new account, we recommend that you send a test email to your appended email address to confirm that your email provider supports subaddressing. ## I need to reactivate my suspended AWS account If your AWS account is suspended and you want to reinstate it, see [How can I reactivate my suspended AWS account?](https://aws.amazon.com/premiumsupport/knowledge-center/reactivate-suspended-account/ "https://aws.amazon.com/premiumsupport/knowledge-center/reactivate-suspended-account/") ## I need to contact Support for sign-in issues If you tried everything, you can get help from Support by completing the [Billing and Account Support request](https://support.aws.amazon.com/#/contacts/aws-account-support/ "https://support.aws.amazon.com/#/contacts/aws-account-support/"). ## I need to contact AWS Billing for billing issues If you can't sign in to your AWS account and would like to contact AWS Billing for billing issues, you can do so through a [Billing and Account Support request](https://support.aws.amazon.com/#/contacts/aws-account-support/ "https://support.aws.amazon.com/#/contacts/aws-account-support/"). For more information about AWS Billing and Cost Management, including your charges and payment methods, see [Getting help with AWS Billing](../../../awsaccountbilling/latest/aboutv2/billing-get-answers.md "../../../awsaccountbilling/latest/aboutv2/billing-get-answers.md"). ## I have a question about a retail order If you have an issue with your www.amazon.com account or a question about a retail order, see [Support Options & Contact Us](https://www.amazon.com/gp/help/customer/display.html?nodeId=GSD587LKW72HKU2V "https://www.amazon.com/gp/help/customer/display.html?nodeId=GSD587LKW72HKU2V"). ## I need help managing my AWS account If you need help changing a credit card for your AWS account, reporting fraudulent activity, or closing your AWS account, see [Troubleshooting other issues with AWS accounts](../../../accounts/latest/reference/troubleshooting_other.md "../../../accounts/latest/reference/troubleshooting_other.md"). ## My AWS access portal credentials aren't working When you can't sign in to your AWS access portal, try to remember how you previously accessed AWS. **If you don't remember using a password at all** You might have previously accessed AWS without using AWS credentials. This is common for enterprise single sign-on through IAM Identity Center. Accessing AWS this way means that you use your corporate credentials to access AWS accounts or applications without entering your credentials. <br>• **AWS access portal** – If an administrator allows you to use credentials from outside AWS to access AWS, you need the URL for your portal. Check your email, browser favorites, or browser history for a URL that includes `awsapps.com/start` or `signin.aws/platform/login`. For example, your custom URL might include an ID or a domain such as `https://`d-1234567890`.awsapps.com/start`. If you can't find your portal link, contact your administrator. Support can't help you recover this information. If you remember your username and password, but your credentials don't work, you might be on the wrong page. Look at the URL in your web browser, if it's https://signin.aws.amazon.com/ then a federated user or IAM Identity Center user can't sign-in using their credentials. <br>• **AWS access portal** – If an administrator set up an AWS IAM Identity Center (successor to AWS Single Sign-On) identity source for AWS, you must sign in using your username and password at your AWS access portal for your organization. To locate the URL for your portal check your email, secure password storage, browser favorites, or browser history for a URL that includes `awsapps.com/start` or `signin.aws/platform/login`. For example, your custom URL might include an ID or a domain such as `https://`d-1234567890`.awsapps.com/start.` If you can’t find your portal link, contact your administrator. Support can’t help you recover this information. ## I forgot my IAM Identity Center password for my AWS account If you are a user in IAM Identity Center and you have lost or forgotten the password for your AWS account, you can reset your password. You must know the email address used for the IAM Identity Center account and have access to it. A link to reset your password is sent to your AWS account email. ###### To reset your user in IAM Identity Center password 1. Use your AWS access portal URL link and enter your username. Then, choose **Next**. ![user in IAM Identity Center signing in to AWS access portal.](images/iam-identity-center-user-reset-pswd-step-1.png) 2. Select **Forgot password** as shown in the following image. ![Forgot password link highlighted on your AWS access portal.](images/iam-identity-center-user-reset-pswd-step-2.png) 3. Complete the password recovery steps. ![Password recovery step for user in IAM Identity Center to reset their password.](images/iam-identity-center-user-reset-pswd-step-3.png) 4. After you complete the password recovery steps, you receive the following message confirming that you've been sent an email message that you can use to reset your password. ![Confirmation for successfully completing the password recovery step for user in IAM Identity Center.](images/iam-identity-center-user-reset-pswd-step-4.png) An email with a link to reset your password is sent to the email associated with the IAM Identity Center user account. Select the link provided in the AWS email to reset your password. The link directs you to a new web page to create a new password. After creating a new password, you receive confirmation that the password reset was successful. If you didn't receive an email to reset your password, ask your administrator to confirm which email is registered with your user in IAM Identity Center. ## I receive an error that states ‘It’s not you, it’s us’ when I try to sign in to the IAM Identity Center console This error indicates there is a setup problem with your instance of IAM Identity Center or the external identity provider (IdP) it’s using as its identity source. We recommend that you verify the following: <br>• Verify the date and time settings on the device you’re using to sign in. We recommend that you allow the date and time to be set automatically. If that’s not available, we recommend syncing your date and time to a known [Network Time Protocol (NTP)](https://en.wikipedia.org/wiki/Network_Time_Protocol "https://en.wikipedia.org/wiki/Network_Time_Protocol") server. <br>• Verify that the IdP certificate uploaded to IAM Identity Center is the same one provided by your identity provider. You can check the certificate from the [IAM Identity Center console](https://console.aws.amazon.com/singlesignon/ "https://console.aws.amazon.com/singlesignon/") by navigating to **Settings**. In the **Identity Source** tab, under **Action**, choose **Manage Authentication**. You may need to import a new certificate. <br>• In your IdP’s SAML metadata file, ensure that the NameID Format is `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress`. <br>• If you're using AD Connector, verify that the credentials for the service account are correct and have not expired. For more information, see [Update your AD Connector service account credentials in AWS Directory Service](../../../directoryservice/latest/admin-guide/ad_connector_update_creds.md "../../../directoryservice/latest/admin-guide/ad_connector_update_creds.md"). |
+|                                                               |                                                           |
+| ------------------------------------------------------------- | --------------------------------------------------------- |
+| Root user and IAM users                                       | \*.signin.aws.amazon.com                                  |
+| Amazon.com account sign-in                                    | www.amazon.com                                            |
+| IAM Identity Center users and first-party application sign-in | • \*.awsapps.com (http://awsapps.com/)<br>• \*.signin.aws |
+
+## How can I find my AWS account
+
+ID or alias
+
+If you are an IAM user and you aren't signed in, ask your administrator for the
+AWS account ID or alias. Your administrator is typically an Information Technology (IT) personnel who has a higher level of permissions to the AWS account
+than other members of your organization. This individual created
+your account and provides users with their access credentials to sign in.
+
+If you are an IAM user with access to the AWS Management Console, your account ID can be found in
+your sign-in URL. Check your emails from your administrator for the sign-in URL. The
+account ID is the first twelve digits in the sign-in URL. For example, in the following
+URL,
+`https://`111122223333`.signin.aws.amazon.com/console`,
+your AWS account ID is 111122223333.
+
+After you sign in to the AWS Management Console, you can find your account information located in the
+navigation bar next to your Region. For example in the following screenshot, the IAM user
+Carlos has an AWS account of 1111-2222-3333.
+
+![Account information drop-down box with account ID highlighted](images/find-account-id.png)
+
+For more information about your AWS account ID and alias and how to find it, see
+[Your
+AWS account ID and its alias](../../../IAM/latest/UserGuide/console_account-alias.md "../../../IAM/latest/UserGuide/console_account-alias.md").
+
+## I need my account verification
+
+code
+
+If you provided your account email address and password, AWS sometimes requires you to
+provide a one-time verification code. To retrieve the verification code, check the email
+that's associated with your AWS account for a message from Amazon Web Services. The email address
+ends in @signin.aws or @verify.signin.aws. Follow the directions in the message. If you
+don't see the message in your account, check your spam and junk folders. If you no longer
+have access to the email, see [I don't have access to the email for my
+AWS account](#troubleshoot-lost-email "#troubleshoot-lost-email").
+
+## I forgot my root user password for my
+
+AWS account
+
+If you are a root user and you have lost or forgotten the password for your AWS account,
+you can reset your password by selecting the "Forgot Password" link in the AWS Management Console. You
+must know your AWS account's email address and must have access to the email account. You
+will be emailed a link during the password recovery process to reset your password. The
+link will be sent to the email address you used to create your AWS account.
+
+To reset the password for an account that you created using AWS Organizations, see
+[Accessing a member account as the root user](../../../organizations/latest/userguide/orgs_manage_accounts_access.md#orgs_manage_accounts_access-as-root "../../../organizations/latest/userguide/orgs_manage_accounts_access.md#orgs_manage_accounts_access-as-root").
+
+###### To reset your root user password
+
+1. Use your AWS email address to begin signing in to the [AWS Management Console](http://signin.aws.amazon.com/console/ "http://signin.aws.amazon.com/console/") as
+   the **root user**. Then, choose **Next**.
+
+![Root user entering their email address in to the AWS Management Console.](images/reset-root-user-pswd-step-1.png)
+
+###### Note
+
+If you are signed in to the [AWS Management Console](http://signin.aws.amazon.com/console/ "http://signin.aws.amazon.com/console/") with IAM user credentials, then you must sign out before
+you can reset the root user password. If you see the account-specific IAM user
+sign-in page, choose **Sign-in using root account credentials**
+near the bottom of the page. If necessary, provide your account email address and
+choose **Next** to access the **Root user sign
+in** page. 2. Choose **Forgot password?**
+
+![Forgot password link highlighted on AWS Management Console page.](images/reset-root-user-pswd-step-2.png) 3. Complete the password recovery steps. If you can't complete the security check,
+try listening to the audio or refreshing the security check for a new set of
+characters. An example of a password recovery page is shown in the following
+image.
+
+![Password recovery steps to reset root user user password.](images/reset-root-user-pswd-step-3.png) 4. After you complete the password recovery steps, you receive a message that further
+instructions have been sent to the email address associated with your
+AWS account.
+
+An email with a link to reset your password is sent to the email used to create
+the AWS account.
+
+###### Note
+
+The email will come from an address ending in @signin.aws or
+@verify.signin.aws. 5. Select the link provided in the AWS email to reset your AWS root user
+password. 6. The link directs you to a new webpage to create a new root user password.
+
+![Creating a new root user user password.](images/reset-root-user-pswd-step-6.png)
+
+You receive a confirmation that your password reset was successful. A successful
+password reset is shown in the following image.
+
+![Confirmation for successfully resetting root user user password.](images/reset-root-user-pswd-step-7.png)
+
+For more information on resetting your root user password, see [How do I recover a lost or
+forgotten AWS password?](https://aws.amazon.com/premiumsupport/knowledge-center/recover-aws-password/ "https://aws.amazon.com/premiumsupport/knowledge-center/recover-aws-password/")
+
+## I forgot my IAM user password for my
+
+AWS account
+
+To change your IAM user password, you must have the proper permissions. For more
+information about resetting your IAM user password, see [How an
+IAM user changes their own password](../../../IAM/latest/UserGuide/id_credentials_passwords_user-change-own.md "../../../IAM/latest/UserGuide/id_credentials_passwords_user-change-own.md").
+
+If you do not have the permission to reset your password, then only your IAM
+administrator can reset the IAM user password. IAM users should contact their IAM
+administrator to reset their password. Your administrator is typically an Information Technology (IT) personnel who has a higher level of permissions to the AWS account
+than other members of your organization. This individual created
+your account and provides users with their access credentials to sign in.
+
+![AWS Management Console showing the IAM user forgot password link.](images/iam-user-reset-pswd-message.png)
+
+For security purposes, Support doesn't have access to view, provide, or change your
+credentials.
+
+For more information on resetting your IAM user password, see [How do I recover a lost or
+forgotten AWS password?](https://aws.amazon.com/premiumsupport/knowledge-center/recover-aws-password/ "https://aws.amazon.com/premiumsupport/knowledge-center/recover-aws-password/")
+
+To learn how an administrator can manage your password, see [Managing
+passwords for IAM users](../../../IAM/latest/UserGuide/id_credentials_passwords_admin-change-user.md "../../../IAM/latest/UserGuide/id_credentials_passwords_admin-change-user.md").
+
+## I forgot my federated
+
+identity password for my AWS account
+
+Federated identities sign in to access AWS accounts with external identities. The type
+of external identity in use determines how federated identities sign in. Your administrator
+creates federated identities. Check with your administrator for more details on how to
+reset your password. Your administrator is typically an Information Technology (IT) personnel who has a higher level of permissions to the AWS account
+than other members of your organization. This individual created
+your account and provides users with their access credentials to sign in.
+
+## I can’t sign in to my existing
+
+AWS account and I can't create a new AWS account with the same email address
+
+You can associate an email address with only one AWS account root user. If you close your root user
+account and it remains closed for more than 90 days, then you are not able to reopen your
+account or create a new AWS account using the e-mail address associated with this
+account.
+
+To fix this issue, you can use subaddressing where you add a plus sign (+) after your
+usual email address when you sign up for a new account. The plus sign (+) can be followed
+by uppercase or lowercase letters, numbers, or other Simple Mail Transfer Protocol (SMTP)
+supported characters. For example, you can use `email+1@yourcompany.com` or
+`email+tag@yourcompany.com` where your usual email is
+`email@yourcompany.com`. This is considered a new address even though it’s
+connected to the same inbox as your usual email address. Before you sign up for a new
+account, we recommend that you send a test email to your appended email address to confirm
+that your email provider supports subaddressing.
+
+## I need to reactivate my suspended
+
+AWS account
+
+If your AWS account is suspended and you want to reinstate it, see [How
+can I reactivate my suspended AWS account?](https://aws.amazon.com/premiumsupport/knowledge-center/reactivate-suspended-account/ "https://aws.amazon.com/premiumsupport/knowledge-center/reactivate-suspended-account/")
+
+## I need to contact Support for sign-in
+
+issues
+
+If you tried everything, you can get help from Support by completing the
+[Billing and Account Support request](https://support.aws.amazon.com/#/contacts/aws-account-support/ "https://support.aws.amazon.com/#/contacts/aws-account-support/").
+
+## I need to contact AWS Billing for billing
+
+issues
+
+If you can't sign in to your AWS account and would like to contact AWS Billing for
+billing issues, you can do so through a [Billing and Account Support request](https://support.aws.amazon.com/#/contacts/aws-account-support/ "https://support.aws.amazon.com/#/contacts/aws-account-support/"). For more information about
+AWS Billing and Cost Management, including your charges and payment methods, see [Getting
+help with AWS Billing](../../../awsaccountbilling/latest/aboutv2/billing-get-answers.md "../../../awsaccountbilling/latest/aboutv2/billing-get-answers.md").
+
+## I have a question about a retail order
+
+If you have an issue with your www.amazon.com account or a question about a retail
+order, see [Support Options & Contact Us](https://www.amazon.com/gp/help/customer/display.html?nodeId=GSD587LKW72HKU2V "https://www.amazon.com/gp/help/customer/display.html?nodeId=GSD587LKW72HKU2V").
+
+## I need help managing my AWS account
+
+If you need help changing a credit card for your AWS account, reporting fraudulent
+activity, or closing your AWS account, see [Troubleshooting other issues
+with AWS accounts](../../../accounts/latest/reference/troubleshooting_other.md "../../../accounts/latest/reference/troubleshooting_other.md").
+
+## My AWS access portal credentials aren't
+
+working
+
+When you can't sign in to your AWS access portal, try to remember how you previously
+accessed AWS.
+
+**If you don't remember using a password at all**
+
+You might have previously accessed AWS without using AWS credentials. This is common
+for enterprise single sign-on through IAM Identity Center. Accessing AWS this way means that you use
+your corporate credentials to access AWS accounts or applications without entering your
+credentials.
+
+- **AWS access portal** – If an administrator allows you
+  to use credentials from outside AWS to access AWS, you need the URL for your
+  portal. Check your email, browser favorites, or browser history for a URL that
+  includes `awsapps.com/start` or
+  `signin.aws/platform/login`.
+
+For example, your custom URL might include an ID or a domain such as
+`https://`d-1234567890`.awsapps.com/start`.
+If you can't find your portal link, contact your administrator. Support can't help you
+recover this information.
+
+If you remember your username and password, but your credentials don't work, you might
+be on the wrong page. Look at the URL in your web browser, if it's
+https://signin.aws.amazon.com/ then a federated user or IAM Identity Center user can't
+sign-in using their credentials.
+
+- **AWS access portal** – If an administrator set up an
+  AWS IAM Identity Center (successor to AWS Single Sign-On) identity source for AWS, you must sign in using your username and
+  password at your AWS access portal for your organization. To locate the URL for your
+  portal check your email, secure password storage, browser favorites, or browser
+  history for a URL that includes `awsapps.com/start` or
+  `signin.aws/platform/login`. For example, your custom URL might include
+  an ID or a domain such as
+  `https://`d-1234567890`.awsapps.com/start.` If
+  you can’t find your portal link, contact your administrator. Support can’t help you
+  recover this information.
+
+## I forgot my IAM Identity Center
+
+password for my AWS account
+
+If you are a user in IAM Identity Center and you have lost or forgotten the password for your
+AWS account, you can reset your password. You must know the email address used for the
+IAM Identity Center account and have access to it. A link to reset your password is sent to your
+AWS account email.
+
+###### To reset your user in IAM Identity Center password
+
+1. Use your AWS access portal URL link and enter your username. Then, choose
+   **Next**.
+
+![user in IAM Identity Center signing in to AWS access portal.](images/iam-identity-center-user-reset-pswd-step-1.png) 2. Select **Forgot password** as shown in the following
+image.
+
+![Forgot password link highlighted on your AWS access portal.](images/iam-identity-center-user-reset-pswd-step-2.png) 3. Complete the password recovery steps.
+
+![Password recovery step for user in IAM Identity Center to reset their password.](images/iam-identity-center-user-reset-pswd-step-3.png) 4. After you complete the password recovery steps, you receive the following message
+confirming that you've been sent an email message that you can use to reset your
+password.
+
+![Confirmation for successfully completing the password recovery step for user in IAM Identity Center.](images/iam-identity-center-user-reset-pswd-step-4.png)
+
+An email with a link to reset your password is sent to the email associated with
+the IAM Identity Center user account. Select the link provided in the AWS email to
+reset your password. The link directs you to a new web page to create a new password.
+After creating a new password, you receive confirmation that the password reset was
+successful.
+
+If you didn't receive an email to reset your password, ask your administrator to
+confirm which email is registered with your user in IAM Identity Center.
+
+## I receive an error that states ‘It’s not you, it’s us’
+
+when I try to sign in to the IAM Identity Center console
+
+This error indicates there is a setup problem with your instance of IAM Identity Center or the
+external identity provider (IdP) it’s using as its identity source. We recommend that you
+verify the following:
+
+- Verify the date and time settings on the device you’re using to sign in. We
+  recommend that you allow the date and time to be set automatically. If that’s not
+  available, we recommend syncing your date and time to a known [Network Time Protocol
+  (NTP)](https://en.wikipedia.org/wiki/Network_Time_Protocol "https://en.wikipedia.org/wiki/Network_Time_Protocol") server.
+- Verify that the IdP certificate uploaded to IAM Identity Center is the same one provided by your
+  identity provider. You can check the certificate from the [IAM Identity Center console](https://console.aws.amazon.com/singlesignon/ "https://console.aws.amazon.com/singlesignon/") by navigating to
+  **Settings**. In the **Identity Source** tab,
+  under **Action**, choose **Manage Authentication**.
+  You may need to import a new certificate.
+- In your IdP’s SAML metadata file, ensure that the NameID Format is
+  `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress`.
+- If you're using AD Connector, verify that the credentials for the service
+  account are correct and have not expired. For more information, see [Update
+  your AD Connector service account credentials in AWS Directory Service](../../../directoryservice/latest/admin-guide/ad_connector_update_creds.md "../../../directoryservice/latest/admin-guide/ad_connector_update_creds.md").

@@ -102,6 +102,113 @@ You can choose from the following well-known third-party authenticator apps.
 However, any TOTP-compliant application works with AWS Builder ID MFA.
 
 | Operating system | Tested authenticator app                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Android          | [1Password](https://play.google.com/store/apps/details?id=com.onepassword.android "https://play.google.com/store/apps/details?id=com.onepassword.android"), [Authy](https://play.google.com/store/apps/details?id=com.authy.authy "https://play.google.com/store/apps/details?id=com.authy.authy"), [Duo Mobile](https://play.google.com/store/apps/details?id=com.duosecurity.duomobile "https://play.google.com/store/apps/details?id=com.duosecurity.duomobile"), [Microsoft Authenticator](https://play.google.com/store/apps/details?id=com.azure.authenticator "https://play.google.com/store/apps/details?id=com.azure.authenticator"), [Google Authenticator](https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2 "https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2") |
-| iOS              | [1Password](https://apps.apple.com/us/app/1password-password-manager/id1511601750 "https://apps.apple.com/us/app/1password-password-manager/id1511601750"), [Authy](https://apps.apple.com/us/app/authy/id494168017 "https://apps.apple.com/us/app/authy/id494168017"), [Duo Mobile](https://apps.apple.com/us/app/duo-mobile/id422663827 "https://apps.apple.com/us/app/duo-mobile/id422663827"), [Microsoft Authenticator](https://apps.apple.com/us/app/microsoft-authenticator/id983156458 "https://apps.apple.com/us/app/microsoft-authenticator/id983156458"), [Google Authenticator](https://apps.apple.com/us/app/google-authenticator/id388497605 "https://apps.apple.com/us/app/google-authenticator/id388497605")                                                                                                                       | ## Register your AWS Builder ID MFA device ###### Note After you sign up for MFA, sign out, and then sign in on the same device, you might not be prompted for MFA on trusted devices. ###### To register your MFA device using an authenticator app 1. Sign in to your AWS Builder ID profile at [https://profile.aws.amazon.com](https://profile.aws.amazon.com "https://profile.aws.amazon.com"). 2. Choose **Security**. 3. On the **Security** page, choose **Register device**. 4. On the **Register MFA device** page, choose **Authenticator app**. 5. AWS Builder ID operates and displays configuration information, including a QR code graphic. The graphic is a representation of the "secret configuration key" that is available for manual entry in authenticator apps that do not support QR codes. 6. Open your authenticator app. For a list of apps, see [Authenticator applications](#auth-apps-aws_builder_id "#auth-apps-aws_builder_id"). If the authenticator app supports multiple MFA devices or accounts, choose the option to create a new MFA device or account. 7. Determine whether the MFA app supports QR codes, and then do one of the following on the **Set up your authenticator app** page: 1. Choose **Show QR code**, and then use the app to scan the QR code. For example, you might choose the camera icon or choose an option similar to **Scan code**. Then use the device's camera to scan the code. 2. Choose **Show secret key**, and then enter that secret key into your MFA app. When you finish, your authenticator app will generate and display a one-time password. 8. In the **Authenticator code** box, enter the one-time password that currently appears in your authenticator app. Choose **Assign MFA**. ###### Important Submit your request immediately after generating the code. If you generate the code and then wait too long to submit the request, the MFA device is successfully associated with your AWS Builder ID, but the MFA device is out of sync. This happens because time-based one-time passwords (TOTP) expire after a short period of time. If this happens, you can resync the device. For more information, see [I get the message 'An unexpected error has occurred' when I try to register or sign in with an authenticator app](troubleshooting-builder-id-issues.md#syncing-mfa-aws_builder_id "troubleshooting-builder-id-issues.md#syncing-mfa-aws_builder_id"). 9. To give your device a friendly name in AWS Builder ID, choose **Rename**. This name helps you distinguish this device from others that you register. The MFA device is now ready for use with AWS Builder ID. ## Register a security key as your AWS Builder ID MFA device ###### To register your MFA device using a security key 1. Sign in to your AWS Builder ID profile at [https://profile.aws.amazon.com](https://profile.aws.amazon.com "https://profile.aws.amazon.com"). 2. Choose **Security**. 3. On the **Security** page, choose **Register device**. 4. On the **Register MFA device** page, choose **Security key**. 5. Ensure that your security key is enabled. If you use a separate physical security key, connect it to your computer. 6. Follow the instructions on your screen. Your experience varies based on your operating system and browser. 7. To give your device a friendly name in AWS Builder ID, choose **Rename**. This name helps you distinguish this device from others that you register. The MFA device is now ready for use with AWS Builder ID. ## Rename your AWS Builder ID MFA device ###### To rename your MFA device 1. Sign in to your AWS Builder ID profile at [https://profile.aws.amazon.com](https://profile.aws.amazon.com "https://profile.aws.amazon.com"). 2. Choose **Security**. When you arrive at the page, you see that **Rename** is grayed out. 3. Select the MFA device that you want to change. This allows you to choose **Rename**. Then a dialog box appears. 4. In the prompt that opens, enter the new name in **MFA device name**, and choose **Rename**. The renamed device appears under **Multi-factor authentication (MFA) devices**. ## Delete your MFA device We recommend that you keep two or more active MFA devices. Before you remove a device, see [Register your AWS Builder ID MFA device](#register-mfa-aws_builder_id "#register-mfa-aws_builder_id") to register a replacement MFA device. To disable multi-factor authentication for your AWS Builder ID, remove all registered MFA devices from your profile. ###### To delete an MFA device 1. Sign in to your AWS Builder ID profile at [https://profile.aws.amazon.com](https://profile.aws.amazon.com "https://profile.aws.amazon.com"). 2. Choose **Security**. 3. Select the MFA device that you want to change and choose **Delete**. 4. In the **Delete MFA device?** modal, follow the instructions to delete your device. 5. Choose **Delete**. The deleted device no longer appears under **Multi-factor authentication (MFA) devices**. |
+| iOS              | [1Password](https://apps.apple.com/us/app/1password-password-manager/id1511601750 "https://apps.apple.com/us/app/1password-password-manager/id1511601750"), [Authy](https://apps.apple.com/us/app/authy/id494168017 "https://apps.apple.com/us/app/authy/id494168017"), [Duo<br>Mobile](https://apps.apple.com/us/app/duo-mobile/id422663827 "https://apps.apple.com/us/app/duo-mobile/id422663827"), [Microsoft Authenticator](https://apps.apple.com/us/app/microsoft-authenticator/id983156458 "https://apps.apple.com/us/app/microsoft-authenticator/id983156458"), [Google Authenticator](https://apps.apple.com/us/app/google-authenticator/id388497605 "https://apps.apple.com/us/app/google-authenticator/id388497605")                                                                                                                    |
+
+## Register your AWS Builder ID MFA device
+
+###### Note
+
+After you sign up for MFA, sign out, and then sign in on the same device, you
+might not be prompted for MFA on trusted devices.
+
+###### To register your MFA device using an authenticator app
+
+1. Sign in to your AWS Builder ID profile at [https://profile.aws.amazon.com](https://profile.aws.amazon.com "https://profile.aws.amazon.com").
+2. Choose **Security**.
+3. On the **Security** page, choose **Register
+   device**.
+4. On the **Register MFA device** page, choose
+   **Authenticator app**.
+5. AWS Builder ID operates and displays configuration information, including a QR code
+   graphic. The graphic is a representation of the "secret configuration key" that
+   is available for manual entry in authenticator apps that do not support QR
+   codes.
+6. Open your authenticator app. For a list of apps, see [Authenticator applications](#auth-apps-aws_builder_id "#auth-apps-aws_builder_id").
+
+If the authenticator app supports multiple MFA devices or accounts, choose the
+option to create a new MFA device or account. 7. Determine whether the MFA app supports QR codes, and then do one of the
+following on the **Set up your authenticator app** page:
+
+    1. Choose **Show QR code**, and then use the app to scan
+     the QR code. For example, you might choose the camera icon or choose an
+     option similar to **Scan code**. Then use the device's
+     camera to scan the code.
+    2. Choose **Show secret key**, and then enter that
+     secret key into your MFA app.
+
+When you finish, your authenticator app will generate and display a one-time
+password. 8. In the **Authenticator code** box, enter the one-time
+password that currently appears in your authenticator app. Choose
+**Assign MFA**.
+
+###### Important
+
+Submit your request immediately after generating the code. If you generate
+the code and then wait too long to submit the request, the MFA device is
+successfully associated with your AWS Builder ID, but the MFA device is out of
+sync. This happens because time-based one-time passwords (TOTP) expire after
+a short period of time. If this happens, you can resync the device. For more
+information, see [I get the message 'An unexpected error has
+occurred' when I try to register or sign in with an authenticator app](troubleshooting-builder-id-issues.md#syncing-mfa-aws_builder_id "troubleshooting-builder-id-issues.md#syncing-mfa-aws_builder_id"). 9. To give your device a friendly name in AWS Builder ID, choose
+**Rename**. This name helps you distinguish this device
+from others that you register.
+
+The MFA device is now ready for use with AWS Builder ID.
+
+## Register a security key as your AWS Builder ID
+
+MFA device
+
+###### To register your MFA device using a security key
+
+1. Sign in to your AWS Builder ID profile at [https://profile.aws.amazon.com](https://profile.aws.amazon.com "https://profile.aws.amazon.com").
+2. Choose **Security**.
+3. On the **Security** page, choose **Register
+   device**.
+4. On the **Register MFA device** page, choose
+   **Security key**.
+5. Ensure that your security key is enabled. If you use a separate physical
+   security key, connect it to your computer.
+6. Follow the instructions on your screen. Your experience varies based on your
+   operating system and browser.
+7. To give your device a friendly name in AWS Builder ID, choose
+   **Rename**. This name helps you distinguish this device
+   from others that you register.
+
+The MFA device is now ready for use with AWS Builder ID.
+
+## Rename your AWS Builder ID MFA device
+
+###### To rename your MFA device
+
+1. Sign in to your AWS Builder ID profile at [https://profile.aws.amazon.com](https://profile.aws.amazon.com "https://profile.aws.amazon.com").
+2. Choose **Security**. When you arrive at the page, you see
+   that **Rename** is grayed out.
+3. Select the MFA device that you want to change. This allows you to choose
+   **Rename**. Then a dialog box appears.
+4. In the prompt that opens, enter the new name in **MFA device
+   name**, and choose **Rename**. The renamed device
+   appears under **Multi-factor authentication (MFA)
+   devices**.
+
+## Delete your MFA device
+
+We recommend that you keep two or more active MFA devices. Before you remove a device,
+see [Register your AWS Builder ID MFA device](#register-mfa-aws_builder_id "#register-mfa-aws_builder_id") to register a replacement MFA device.
+To disable multi-factor authentication for your AWS Builder ID, remove all registered MFA
+devices from your profile.
+
+###### To delete an MFA device
+
+1. Sign in to your AWS Builder ID profile at [https://profile.aws.amazon.com](https://profile.aws.amazon.com "https://profile.aws.amazon.com").
+2. Choose **Security**.
+3. Select the MFA device that you want to change and choose
+   **Delete**.
+4. In the **Delete MFA device?** modal, follow the instructions
+   to delete your device.
+5. Choose **Delete**.
+
+The deleted device no longer appears under **Multi-factor authentication (MFA)
+devices**.
