@@ -14,13 +14,13 @@ details
 
 - **Type**: AWS managed policy
 - **Creation time**: November 15, 2024, 22:53 UTC
-- **Edited time:** May 05, 2025, 10:52 UTC
+- **Edited time:** October 27, 2025, 11:49 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/AWSQuickSetupSSMDeploymentRolePolicy`
 
 ## Policy version
 
-**Policy version:** v3 (default)
+**Policy version:** v4 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -375,6 +375,108 @@ request to access an AWS resource, AWS checks the default version of the policy 
         },
         "StringEquals" : {
           "aws:ResourceTag/QuickSetupDocument" : "AWSQuickSetupType-SSM"
+        }
+      }
+    },
+    {
+      "Effect" : "Allow",
+      "Action" : [
+        "ssm:CreateAssociation",
+        "ssm:AddTagsToResource"
+      ],
+      "Resource" : [
+        "arn:aws:ssm:*:*:association/*"
+      ],
+      "Condition" : {
+        "StringEquals" : {
+          "aws:RequestTag/QuickSetupDocument" : [
+            "AWSQuickSetupType-SSM"
+          ]
+        }
+      }
+    },
+    {
+      "Effect" : "Allow",
+      "Action" : [
+        "ssm:CreateAssociation",
+        "ssm:UpdateAssociation",
+        "ssm:DeleteAssociation",
+        "ssm:DescribeAssociation"
+      ],
+      "Resource" : "arn:aws:ssm:*::document/AWSQuickSetupType-SSM-ManageResources"
+    },
+    {
+      "Effect" : "Allow",
+      "Action" : [
+        "ssm:UpdateAssociation",
+        "ssm:DeleteAssociation",
+        "ssm:DescribeAssociation"
+      ],
+      "Resource" : [
+        "arn:aws:ssm:*:*:association/*"
+      ],
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceTag/QuickSetupDocument" : [
+            "AWSQuickSetupType-SSM"
+          ]
+        }
+      }
+    },
+    {
+      "Effect" : "Allow",
+      "Action" : [
+        "ssm:AddTagsToResource",
+        "ssm:RemoveTagsFromResource"
+      ],
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceTag/QuickSetupDocument" : [
+            "AWSQuickSetupType-SSM"
+          ]
+        }
+      },
+      "Resource" : [
+        "arn:aws:ssm:*:*:automation-execution/*",
+        "arn:aws:ssm:*:*:association/*"
+      ]
+    },
+    {
+      "Effect" : "Allow",
+      "Action" : [
+        "ssm:DescribeAssociationExecutions",
+        "ssm:DescribeAssociationExecutionTargets",
+        "ssm:GetAutomationExecution"
+      ],
+      "Condition" : {
+        "ForAnyValue:StringEquals" : {
+          "aws:CalledVia" : [
+            "cloudformation.amazonaws.com"
+          ]
+        },
+        "StringEquals" : {
+          "aws:ResourceTag/QuickSetupDocument" : [
+            "AWSQuickSetupType-SSM"
+          ]
+        }
+      },
+      "Resource" : [
+        "arn:aws:ssm:*:*:automation-execution/*",
+        "arn:aws:ssm:*:*:association/*"
+      ]
+    },
+    {
+      "Effect" : "Allow",
+      "Action" : "iam:PassRole",
+      "Resource" : "arn:aws:iam::*:role/AWS-QuickSetup-SSM-ManageResources*",
+      "Condition" : {
+        "StringEquals" : {
+          "iam:PassedToService" : [
+            "ssm.amazonaws.com"
+          ],
+          "iam:ResourceTag/QuickSetupDocument" : [
+            "AWSQuickSetupType-SSM"
+          ]
         }
       }
     }

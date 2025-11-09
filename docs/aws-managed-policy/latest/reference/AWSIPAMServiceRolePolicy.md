@@ -15,13 +15,13 @@ details
 
 - **Type**: Service-linked role policy
 - **Creation time**: November 30, 2021, 19:08 UTC
-- **Edited time:** October 23, 2025, 15:19 UTC
+- **Edited time:** October 28, 2025, 00:19 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/aws-service-role/AWSIPAMServiceRolePolicy`
 
 ## Policy version
 
-**Policy version:** v6 (default)
+**Policy version:** v7 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -89,7 +89,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "ec2:ModifyManagedPrefixList"
       ],
       "Resource" : [
-        "arn:aws:ec2:*:*:prefix-list/pl-*"
+        "*"
       ],
       "Condition" : {
         "Null" : {
@@ -105,7 +105,7 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "ec2:GetManagedPrefixListEntries"
       ],
       "Resource" : [
-        "arn:aws:ec2:*:*:prefix-list/pl-*"
+        "*"
       ]
     }
   ]

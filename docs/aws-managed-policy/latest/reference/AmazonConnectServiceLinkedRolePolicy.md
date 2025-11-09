@@ -15,13 +15,13 @@ details
 
 - **Type**: Service-linked role policy
 - **Creation time**: September 07, 2018, 00:21 UTC
-- **Edited time:** July 29, 2025, 21:22 UTC
+- **Edited time:** October 27, 2025, 21:19 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/aws-service-role/AmazonConnectServiceLinkedRolePolicy`
 
 ## Policy version
 
-**Policy version:** v28 (default)
+**Policy version:** v29 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -461,6 +461,34 @@ request to access an AWS resource, AWS checks the default version of the policy 
         "social-messaging:GetLinkedWhatsAppBusinessAccountPhoneNumber"
       ],
       "Resource" : "arn:aws:social-messaging:*:*:phone-number-id/*",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceTag/AmazonConnectEnabled" : "True",
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        }
+      }
+    },
+    {
+      "Sid" : "AllowRetrievalOfWabas",
+      "Effect" : "Allow",
+      "Action" : [
+        "social-messaging:ListLinkedWhatsAppBusinessAccounts"
+      ],
+      "Resource" : "*",
+      "Condition" : {
+        "StringEquals" : {
+          "aws:ResourceAccount" : "${aws:PrincipalAccount}"
+        }
+      }
+    },
+    {
+      "Sid" : "AllowRetrievalOfWhatsAppTemplates",
+      "Effect" : "Allow",
+      "Action" : [
+        "social-messaging:GetWhatsAppMessageTemplate",
+        "social-messaging:ListWhatsAppMessageTemplates"
+      ],
+      "Resource" : "arn:aws:social-messaging:*:*:waba/*",
       "Condition" : {
         "StringEquals" : {
           "aws:ResourceTag/AmazonConnectEnabled" : "True",

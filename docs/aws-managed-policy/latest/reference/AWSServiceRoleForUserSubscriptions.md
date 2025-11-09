@@ -15,13 +15,13 @@ details
 
 - **Type**: Service-linked role policy
 - **Creation time**: April 25, 2024, 16:14 UTC
-- **Edited time:** February 21, 2025, 17:37 UTC
+- **Edited time:** October 29, 2025, 14:34 UTC
 - **ARN**:
   `arn:aws:iam::aws:policy/aws-service-role/AWSServiceRoleForUserSubscriptions`
 
 ## Policy version
 
-**Policy version:** v2 (default)
+**Policy version:** v3 (default)
 
 The policy's default version is the version that defines the permissions for the policy. When a user or role with the policy makes a
 request to access an AWS resource, AWS checks the default version of the policy to determine whether to allow the request.
@@ -49,6 +49,38 @@ request to access an AWS resource, AWS checks the default version of the policy 
       "Resource" : [
         "*"
       ]
+    },
+    {
+      "Sid" : "AllowKmsAccessViaIdentityCenter",
+      "Effect" : "Allow",
+      "Action" : [
+        "kms:Decrypt"
+      ],
+      "Resource" : "*",
+      "Condition" : {
+        "ArnLike" : {
+          "kms:EncryptionContext:aws:sso:instance-arn" : "arn:*:sso:::instance/*"
+        },
+        "StringLike" : {
+          "kms:ViaService" : "sso.*.amazonaws.com"
+        }
+      }
+    },
+    {
+      "Sid" : "AllowKmsAccessViaIdentityStore",
+      "Effect" : "Allow",
+      "Action" : [
+        "kms:Decrypt"
+      ],
+      "Resource" : "*",
+      "Condition" : {
+        "ArnLike" : {
+          "kms:EncryptionContext:aws:identitystore:identitystore-arn" : "arn:*:identitystore::*:identitystore/*"
+        },
+        "StringLike" : {
+          "kms:ViaService" : "identitystore.*.amazonaws.com"
+        }
+      }
     }
   ]
 }
