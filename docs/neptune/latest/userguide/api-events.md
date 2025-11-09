@@ -84,12 +84,702 @@ to db-instance. if this value is not specified, all events are returned.
 
 Valid values: `db-instance` | `db-cluster`
 | `db-parameter-group` | `db-security-group` | `db-snapshot`
-| `db-cluster-snapshot` <br>• **SubscriptionName**  (in the CLI: `--subscription-name`) –  _Required:_ a String, of type: `string` (a UTF-8 encoded string). The name of the subscription. Constraints: The name must be less than 255 characters. <br>• **Tags**  (in the CLI: `--tags`) –  An array of [Tag](api-other-apis.md#Tag "api-other-apis.md#Tag") objects. The tags to be applied to the new event subscription. **Response** Contains the results of a successful invocation of the [DescribeEventSubscriptions (action)](#DescribeEventSubscriptions "#DescribeEventSubscriptions") action. <br>• **CustomerAwsId**   – a String, of type: `string` (a UTF-8 encoded string). The Amazon customer account associated with the event notification subscription. <br>• **CustSubscriptionId**   – a String, of type: `string` (a UTF-8 encoded string). The event notification subscription Id. <br>• **Enabled**   – a Boolean, of type: `boolean` (a Boolean (true or false) value). A Boolean value indicating if the subscription is enabled. True indicates the subscription is enabled. <br>• **EventCategoriesList**   – a String, of type: `string` (a UTF-8 encoded string). A list of event categories for the event notification subscription. <br>• **EventSubscriptionArn**   – a String, of type: `string` (a UTF-8 encoded string). The Amazon Resource Name (ARN) for the event subscription. <br>• **SnsTopicArn**   – a String, of type: `string` (a UTF-8 encoded string). The topic ARN of the event notification subscription. <br>• **SourceIdsList**   – a String, of type: `string` (a UTF-8 encoded string). A list of source IDs for the event notification subscription. <br>• **SourceType**   – a String, of type: `string` (a UTF-8 encoded string). The source type for the event notification subscription. <br>• **Status**   – a String, of type: `string` (a UTF-8 encoded string). The status of the event notification subscription. Constraints: Can be one of the following: creating | modifying | deleting | active | no-permission
-| topic-not-exist The status "no-permission" indicates that Neptune no longer has permission to post to the SNS topic. The status "topic-not-exist" indicates that the topic was deleted after the subscription was created. <br>• **SubscriptionCreationTime**   – a String, of type: `string` (a UTF-8 encoded string). The time the event notification subscription was created. ###### Errors <br>• [EventSubscriptionQuotaExceededFault](api-faults.md#EventSubscriptionQuotaExceededFault "api-faults.md#EventSubscriptionQuotaExceededFault") <br>• [SubscriptionAlreadyExistFault](api-faults.md#SubscriptionAlreadyExistFault "api-faults.md#SubscriptionAlreadyExistFault") <br>• [SNSInvalidTopicFault](api-faults.md#SNSInvalidTopicFault "api-faults.md#SNSInvalidTopicFault") <br>• [SNSNoAuthorizationFault](api-faults.md#SNSNoAuthorizationFault "api-faults.md#SNSNoAuthorizationFault") <br>• [SNSTopicArnNotFoundFault](api-faults.md#SNSTopicArnNotFoundFault "api-faults.md#SNSTopicArnNotFoundFault") <br>• [SubscriptionCategoryNotFoundFault](api-faults.md#SubscriptionCategoryNotFoundFault "api-faults.md#SubscriptionCategoryNotFoundFault") <br>• [SourceNotFoundFault](api-faults.md#SourceNotFoundFault "api-faults.md#SourceNotFoundFault") ## DeleteEventSubscription (action) The AWS CLI name for this API is: `delete-event-subscription`. Deletes an event notification subscription. **Request** <br>• **SubscriptionName**  (in the CLI: `--subscription-name`) –  _Required:_ a String, of type: `string` (a UTF-8 encoded string). The name of the event notification subscription you want to delete. **Response** Contains the results of a successful invocation of the [DescribeEventSubscriptions (action)](#DescribeEventSubscriptions "#DescribeEventSubscriptions") action. <br>• **CustomerAwsId**   – a String, of type: `string` (a UTF-8 encoded string). The Amazon customer account associated with the event notification subscription. <br>• **CustSubscriptionId**   – a String, of type: `string` (a UTF-8 encoded string). The event notification subscription Id. <br>• **Enabled**   – a Boolean, of type: `boolean` (a Boolean (true or false) value). A Boolean value indicating if the subscription is enabled. True indicates the subscription is enabled. <br>• **EventCategoriesList**   – a String, of type: `string` (a UTF-8 encoded string). A list of event categories for the event notification subscription. <br>• **EventSubscriptionArn**   – a String, of type: `string` (a UTF-8 encoded string). The Amazon Resource Name (ARN) for the event subscription. <br>• **SnsTopicArn**   – a String, of type: `string` (a UTF-8 encoded string). The topic ARN of the event notification subscription. <br>• **SourceIdsList**   – a String, of type: `string` (a UTF-8 encoded string). A list of source IDs for the event notification subscription. <br>• **SourceType**   – a String, of type: `string` (a UTF-8 encoded string). The source type for the event notification subscription. <br>• **Status**   – a String, of type: `string` (a UTF-8 encoded string). The status of the event notification subscription. Constraints: Can be one of the following: creating | modifying | deleting | active | no-permission
-| topic-not-exist The status "no-permission" indicates that Neptune no longer has permission to post to the SNS topic. The status "topic-not-exist" indicates that the topic was deleted after the subscription was created. <br>• **SubscriptionCreationTime**   – a String, of type: `string` (a UTF-8 encoded string). The time the event notification subscription was created. ###### Errors <br>• [SubscriptionNotFoundFault](api-faults.md#SubscriptionNotFoundFault "api-faults.md#SubscriptionNotFoundFault") <br>• [InvalidEventSubscriptionStateFault](api-faults.md#InvalidEventSubscriptionStateFault "api-faults.md#InvalidEventSubscriptionStateFault") ## ModifyEventSubscription (action) The AWS CLI name for this API is: `modify-event-subscription`. Modifies an existing event notification subscription. Note that you can't modify the source identifiers using this call; to change source identifiers for a subscription, use the [AddSourceIdentifierToSubscription (action)](#AddSourceIdentifierToSubscription "#AddSourceIdentifierToSubscription") and [RemoveSourceIdentifierFromSubscription (action)](#RemoveSourceIdentifierFromSubscription "#RemoveSourceIdentifierFromSubscription") calls. You can see a list of the event categories for a given SourceType by using the **DescribeEventCategories** action. **Request** <br>• **Enabled**  (in the CLI: `--enabled`) –  a BooleanOptional, of type: `boolean` (a Boolean (true or false) value). A Boolean value; set to **true** to activate the subscription. <br>• **EventCategories**  (in the CLI: `--event-categories`) –  a String, of type: `string` (a UTF-8 encoded string). A list of event categories for a SourceType that you want to subscribe to. You can see a list of the categories for a given SourceType by using the **DescribeEventCategories** action. <br>• **SnsTopicArn**  (in the CLI: `--sns-topic-arn`) –  a String, of type: `string` (a UTF-8 encoded string). The Amazon Resource Name (ARN) of the SNS topic created for event notification. The ARN is created by Amazon SNS when you create a topic and subscribe to it. <br>• **SourceType**  (in the CLI: `--source-type`) –  a String, of type: `string` (a UTF-8 encoded string). The type of source that is generating the events. For example, if you want to be notified of events generated by a DB instance, you would set this parameter to db-instance. if this value is not specified, all events are returned. Valid values: db-instance | db-parameter-group | db-security-group
-| db-snapshot <br>• **SubscriptionName**  (in the CLI: `--subscription-name`) –  _Required:_ a String, of type: `string` (a UTF-8 encoded string). The name of the event notification subscription. **Response** Contains the results of a successful invocation of the [DescribeEventSubscriptions (action)](#DescribeEventSubscriptions "#DescribeEventSubscriptions") action. <br>• **CustomerAwsId**   – a String, of type: `string` (a UTF-8 encoded string). The Amazon customer account associated with the event notification subscription. <br>• **CustSubscriptionId**   – a String, of type: `string` (a UTF-8 encoded string). The event notification subscription Id. <br>• **Enabled**   – a Boolean, of type: `boolean` (a Boolean (true or false) value). A Boolean value indicating if the subscription is enabled. True indicates the subscription is enabled. <br>• **EventCategoriesList**   – a String, of type: `string` (a UTF-8 encoded string). A list of event categories for the event notification subscription. <br>• **EventSubscriptionArn**   – a String, of type: `string` (a UTF-8 encoded string). The Amazon Resource Name (ARN) for the event subscription. <br>• **SnsTopicArn**   – a String, of type: `string` (a UTF-8 encoded string). The topic ARN of the event notification subscription. <br>• **SourceIdsList**   – a String, of type: `string` (a UTF-8 encoded string). A list of source IDs for the event notification subscription. <br>• **SourceType**   – a String, of type: `string` (a UTF-8 encoded string). The source type for the event notification subscription. <br>• **Status**   – a String, of type: `string` (a UTF-8 encoded string). The status of the event notification subscription. Constraints: Can be one of the following: creating | modifying | deleting | active | no-permission
-| topic-not-exist The status "no-permission" indicates that Neptune no longer has permission to post to the SNS topic. The status "topic-not-exist" indicates that the topic was deleted after the subscription was created. <br>• **SubscriptionCreationTime**   – a String, of type: `string` (a UTF-8 encoded string). The time the event notification subscription was created. ###### Errors <br>• [EventSubscriptionQuotaExceededFault](api-faults.md#EventSubscriptionQuotaExceededFault "api-faults.md#EventSubscriptionQuotaExceededFault") <br>• [SubscriptionNotFoundFault](api-faults.md#SubscriptionNotFoundFault "api-faults.md#SubscriptionNotFoundFault") <br>• [SNSInvalidTopicFault](api-faults.md#SNSInvalidTopicFault "api-faults.md#SNSInvalidTopicFault") <br>• [SNSNoAuthorizationFault](api-faults.md#SNSNoAuthorizationFault "api-faults.md#SNSNoAuthorizationFault") <br>• [SNSTopicArnNotFoundFault](api-faults.md#SNSTopicArnNotFoundFault "api-faults.md#SNSTopicArnNotFoundFault") <br>• [SubscriptionCategoryNotFoundFault](api-faults.md#SubscriptionCategoryNotFoundFault "api-faults.md#SubscriptionCategoryNotFoundFault") ## DescribeEventSubscriptions (action) The AWS CLI name for this API is: `describe-event-subscriptions`. Lists all the subscription descriptions for a customer account. The description for a subscription includes SubscriptionName, SNSTopicARN, CustomerID, SourceType, SourceID, CreationTime, and Status. If you specify a SubscriptionName, lists the description for that subscription. **Request** <br>• **Filters**  (in the CLI: `--filters`) –  An array of [Filter](api-datatypes.md#Filter "api-datatypes.md#Filter") objects. This parameter is not currently supported. <br>• **Marker**  (in the CLI: `--marker`) –  a String, of type: `string` (a UTF-8 encoded string). An optional pagination token provided by a previous DescribeOrderableDBInstanceOptions request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by `MaxRecords` . <br>• **MaxRecords**  (in the CLI: `--max-records`) –  an IntegerOptional, of type: `integer` (a signed 32-bit integer). The maximum number of records to include in the response. If more records exist than the specified `MaxRecords` value, a pagination token called a marker is included in the response so that the remaining results can be retrieved. Default: 100 Constraints: Minimum 20, maximum 100. <br>• **SubscriptionName**  (in the CLI: `--subscription-name`) –  a String, of type: `string` (a UTF-8 encoded string). The name of the event notification subscription you want to describe. **Response** <br>• **EventSubscriptionsList**   – An array of [EventSubscription](#EventSubscription "#EventSubscription") objects. A list of EventSubscriptions data types. <br>• **Marker**   – a String, of type: `string` (a UTF-8 encoded string). An optional pagination token provided by a previous DescribeOrderableDBInstanceOptions request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by `MaxRecords`. ###### Errors <br>• [SubscriptionNotFoundFault](api-faults.md#SubscriptionNotFoundFault "api-faults.md#SubscriptionNotFoundFault") ## AddSourceIdentifierToSubscription (action) The AWS CLI name for this API is: `add-source-identifier-to-subscription`. Adds a source identifier to an existing event notification subscription. **Request** <br>• **SourceIdentifier**  (in the CLI: `--source-identifier`) –  _Required:_ a String, of type: `string` (a UTF-8 encoded string). The identifier of the event source to be added. Constraints: + If the source type is a DB instance, then a `DBInstanceIdentifier` must be supplied. + If the source type is a DB security group, a `DBSecurityGroupName` must be supplied. + If the source type is a DB parameter group, a `DBParameterGroupName` must be supplied. + If the source type is a DB snapshot, a `DBSnapshotIdentifier` must be supplied. <br>• **SubscriptionName**  (in the CLI: `--subscription-name`) –  _Required:_ a String, of type: `string` (a UTF-8 encoded string). The name of the event notification subscription you want to add a source identifier to. **Response** Contains the results of a successful invocation of the [DescribeEventSubscriptions (action)](#DescribeEventSubscriptions "#DescribeEventSubscriptions") action. <br>• **CustomerAwsId**   – a String, of type: `string` (a UTF-8 encoded string). The Amazon customer account associated with the event notification subscription. <br>• **CustSubscriptionId**   – a String, of type: `string` (a UTF-8 encoded string). The event notification subscription Id. <br>• **Enabled**   – a Boolean, of type: `boolean` (a Boolean (true or false) value). A Boolean value indicating if the subscription is enabled. True indicates the subscription is enabled. <br>• **EventCategoriesList**   – a String, of type: `string` (a UTF-8 encoded string). A list of event categories for the event notification subscription. <br>• **EventSubscriptionArn**   – a String, of type: `string` (a UTF-8 encoded string). The Amazon Resource Name (ARN) for the event subscription. <br>• **SnsTopicArn**   – a String, of type: `string` (a UTF-8 encoded string). The topic ARN of the event notification subscription. <br>• **SourceIdsList**   – a String, of type: `string` (a UTF-8 encoded string). A list of source IDs for the event notification subscription. <br>• **SourceType**   – a String, of type: `string` (a UTF-8 encoded string). The source type for the event notification subscription. <br>• **Status**   – a String, of type: `string` (a UTF-8 encoded string). The status of the event notification subscription. Constraints: Can be one of the following: creating | modifying | deleting | active | no-permission
-| topic-not-exist The status "no-permission" indicates that Neptune no longer has permission to post to the SNS topic. The status "topic-not-exist" indicates that the topic was deleted after the subscription was created. <br>• **SubscriptionCreationTime**   – a String, of type: `string` (a UTF-8 encoded string). The time the event notification subscription was created. ###### Errors <br>• [SubscriptionNotFoundFault](api-faults.md#SubscriptionNotFoundFault "api-faults.md#SubscriptionNotFoundFault") <br>• [SourceNotFoundFault](api-faults.md#SourceNotFoundFault "api-faults.md#SourceNotFoundFault") ## RemoveSourceIdentifierFromSubscription (action) The AWS CLI name for this API is: `remove-source-identifier-from-subscription`. Removes a source identifier from an existing event notification subscription. **Request** <br>• **SourceIdentifier**  (in the CLI: `--source-identifier`) –  _Required:_ a String, of type: `string` (a UTF-8 encoded string). The source identifier to be removed from the subscription, such as the **DB instance identifier** for a DB instance or the name of a security group. <br>• **SubscriptionName**  (in the CLI: `--subscription-name`) –  _Required:_ a String, of type: `string` (a UTF-8 encoded string). The name of the event notification subscription you want to remove a source identifier from. **Response** Contains the results of a successful invocation of the [DescribeEventSubscriptions (action)](#DescribeEventSubscriptions "#DescribeEventSubscriptions") action. <br>• **CustomerAwsId**   – a String, of type: `string` (a UTF-8 encoded string). The Amazon customer account associated with the event notification subscription. <br>• **CustSubscriptionId**   – a String, of type: `string` (a UTF-8 encoded string). The event notification subscription Id. <br>• **Enabled**   – a Boolean, of type: `boolean` (a Boolean (true or false) value). A Boolean value indicating if the subscription is enabled. True indicates the subscription is enabled. <br>• **EventCategoriesList**   – a String, of type: `string` (a UTF-8 encoded string). A list of event categories for the event notification subscription. <br>• **EventSubscriptionArn**   – a String, of type: `string` (a UTF-8 encoded string). The Amazon Resource Name (ARN) for the event subscription. <br>• **SnsTopicArn**   – a String, of type: `string` (a UTF-8 encoded string). The topic ARN of the event notification subscription. <br>• **SourceIdsList**   – a String, of type: `string` (a UTF-8 encoded string). A list of source IDs for the event notification subscription. <br>• **SourceType**   – a String, of type: `string` (a UTF-8 encoded string). The source type for the event notification subscription. <br>• **Status**   – a String, of type: `string` (a UTF-8 encoded string). The status of the event notification subscription. Constraints: Can be one of the following: creating | modifying | deleting | active | no-permission
-| topic-not-exist The status "no-permission" indicates that Neptune no longer has permission to post to the SNS topic. The status "topic-not-exist" indicates that the topic was deleted after the subscription was created. <br>• **SubscriptionCreationTime**   – a String, of type: `string` (a UTF-8 encoded string). The time the event notification subscription was created. ###### Errors <br>• [SubscriptionNotFoundFault](api-faults.md#SubscriptionNotFoundFault "api-faults.md#SubscriptionNotFoundFault") <br>• [SourceNotFoundFault](api-faults.md#SourceNotFoundFault "api-faults.md#SourceNotFoundFault") ## DescribeEvents (action) The AWS CLI name for this API is: `describe-events`. Returns events related to DB instances, DB security groups, DB snapshots, and DB parameter groups for the past 14 days. Events specific to a particular DB instance, DB security group, database snapshot, or DB parameter group can be obtained by providing the name as a parameter. By default, the past hour of events are returned. **Request** <br>• **Duration**  (in the CLI: `--duration`) –  an IntegerOptional, of type: `integer` (a signed 32-bit integer). The number of minutes to retrieve events for. Default: 60 <br>• **EndTime**  (in the CLI: `--end-time`) –  a TStamp, of type: `timestamp` (a point in time, generally defined as an offset from midnight 1970-01-01). The end of the time interval for which to retrieve events, specified in ISO 8601 format. For more information about ISO 8601, go to the [ISO8601 Wikipedia page.](http://en.wikipedia.org/wiki/ISO_8601 "http://en.wikipedia.org/wiki/ISO_8601") Example: 2009-07-08T18:00Z <br>• **EventCategories**  (in the CLI: `--event-categories`) –  a String, of type: `string` (a UTF-8 encoded string). A list of event categories that trigger notifications for a event notification subscription. <br>• **Filters**  (in the CLI: `--filters`) –  An array of [Filter](api-datatypes.md#Filter "api-datatypes.md#Filter") objects. This parameter is not currently supported. <br>• **Marker**  (in the CLI: `--marker`) –  a String, of type: `string` (a UTF-8 encoded string). An optional pagination token provided by a previous DescribeEvents request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by `MaxRecords`. <br>• **MaxRecords**  (in the CLI: `--max-records`) –  an IntegerOptional, of type: `integer` (a signed 32-bit integer). The maximum number of records to include in the response. If more records exist than the specified `MaxRecords` value, a pagination token called a marker is included in the response so that the remaining results can be retrieved. Default: 100 Constraints: Minimum 20, maximum 100. <br>• **SourceIdentifier**  (in the CLI: `--source-identifier`) –  a String, of type: `string` (a UTF-8 encoded string). The identifier of the event source for which events are returned. If not specified, then all sources are included in the response. Constraints: + If SourceIdentifier is supplied, SourceType must also be provided. + If the source type is `DBInstance`, then a `DBInstanceIdentifier` must be supplied. + If the source type is `DBSecurityGroup`, a `DBSecurityGroupName` must be supplied. + If the source type is `DBParameterGroup`, a `DBParameterGroupName` must be supplied. + If the source type is `DBSnapshot`, a `DBSnapshotIdentifier` must be supplied. + Cannot end with a hyphen or contain two consecutive hyphens. <br>• **SourceType**  (in the CLI: `--source-type`) –  a SourceType, of type: `string` (a UTF-8 encoded string). The event source to retrieve events for. If no value is specified, all events are returned. <br>• **StartTime**  (in the CLI: `--start-time`) –  a TStamp, of type: `timestamp` (a point in time, generally defined as an offset from midnight 1970-01-01). The beginning of the time interval to retrieve events for, specified in ISO 8601 format. For more information about ISO 8601, go to the [ISO8601 Wikipedia page.](http://en.wikipedia.org/wiki/ISO_8601 "http://en.wikipedia.org/wiki/ISO_8601") Example: 2009-07-08T18:00Z **Response** <br>• **Events**   – An array of [Event](#Event "#Event") objects. A list of [Event (structure)](#Event "#Event") instances. <br>• **Marker**   – a String, of type: `string` (a UTF-8 encoded string). An optional pagination token provided by a previous Events request. If this parameter is specified, the response includes only records beyond the marker, up to the value specified by `MaxRecords` . ## DescribeEventCategories (action) The AWS CLI name for this API is: `describe-event-categories`. Displays a list of categories for all event source types, or, if specified, for a specified source type. **Request** <br>• **Filters**  (in the CLI: `--filters`) –  An array of [Filter](api-datatypes.md#Filter "api-datatypes.md#Filter") objects. This parameter is not currently supported. <br>• **SourceType**  (in the CLI: `--source-type`) –  a String, of type: `string` (a UTF-8 encoded string). The type of source that is generating the events. Valid values: db-instance | db-parameter-group | db-security-group
-| db-snapshot **Response** <br>• **EventCategoriesMapList**   – An array of [EventCategoriesMap](#EventCategoriesMap "#EventCategoriesMap") objects. A list of EventCategoriesMap data types. ## _Structures:_ ## Event (structure) This data type is used as a response element in the [DescribeEvents (action)](#DescribeEvents "#DescribeEvents") action. ###### Fields <br>• **Date** – This is a TStamp, of type: `timestamp` (a point in time, generally defined as an offset from midnight 1970-01-01). Specifies the date and time of the event. <br>• **EventCategories** – This is a String, of type: `string` (a UTF-8 encoded string). Specifies the category for the event. <br>• **Message** – This is a String, of type: `string` (a UTF-8 encoded string). Provides the text of this event. <br>• **SourceArn** – This is a String, of type: `string` (a UTF-8 encoded string). The Amazon Resource Name (ARN) for the event. <br>• **SourceIdentifier** – This is a String, of type: `string` (a UTF-8 encoded string). Provides the identifier for the source of the event. <br>• **SourceType** – This is a SourceType, of type: `string` (a UTF-8 encoded string). Specifies the source type for this event. ## EventCategoriesMap (structure) Contains the results of a successful invocation of the [DescribeEventCategories (action)](#DescribeEventCategories "#DescribeEventCategories") action. ###### Fields <br>• **EventCategories** – This is a String, of type: `string` (a UTF-8 encoded string). The event categories for the specified source type <br>• **SourceType** – This is a String, of type: `string` (a UTF-8 encoded string). The source type that the returned categories belong to ## EventSubscription (structure) Contains the results of a successful invocation of the [DescribeEventSubscriptions (action)](#DescribeEventSubscriptions "#DescribeEventSubscriptions") action. ###### Fields <br>• **CustomerAwsId** – This is a String, of type: `string` (a UTF-8 encoded string). The Amazon customer account associated with the event notification subscription. <br>• **CustSubscriptionId** – This is a String, of type: `string` (a UTF-8 encoded string). The event notification subscription Id. <br>• **Enabled** – This is a Boolean, of type: `boolean` (a Boolean (true or false) value). A Boolean value indicating if the subscription is enabled. True indicates the subscription is enabled. <br>• **EventCategoriesList** – This is a String, of type: `string` (a UTF-8 encoded string). A list of event categories for the event notification subscription. <br>• **EventSubscriptionArn** – This is a String, of type: `string` (a UTF-8 encoded string). The Amazon Resource Name (ARN) for the event subscription. <br>• **SnsTopicArn** – This is a String, of type: `string` (a UTF-8 encoded string). The topic ARN of the event notification subscription. <br>• **SourceIdsList** – This is a String, of type: `string` (a UTF-8 encoded string). A list of source IDs for the event notification subscription. <br>• **SourceType** – This is a String, of type: `string` (a UTF-8 encoded string). The source type for the event notification subscription. <br>• **Status** – This is a String, of type: `string` (a UTF-8 encoded string). The status of the event notification subscription. Constraints: Can be one of the following: creating | modifying | deleting | active | no-permission
-| topic-not-exist The status "no-permission" indicates that Neptune no longer has permission to post to the SNS topic. The status "topic-not-exist" indicates that the topic was deleted after the subscription was created. <br>• **SubscriptionCreationTime** – This is a String, of type: `string` (a UTF-8 encoded string). The time the event notification subscription was created. `EventSubscription` is used as the response element for: <br>• [CreateEventSubscription](#CreateEventSubscription "#CreateEventSubscription") <br>• [ModifyEventSubscription](#ModifyEventSubscription "#ModifyEventSubscription") <br>• [AddSourceIdentifierToSubscription](#AddSourceIdentifierToSubscription "#AddSourceIdentifierToSubscription") <br>• [RemoveSourceIdentifierFromSubscription](#RemoveSourceIdentifierFromSubscription "#RemoveSourceIdentifierFromSubscription") <br>• [DeleteEventSubscription](#DeleteEventSubscription "#DeleteEventSubscription")
+| `db-cluster-snapshot`
+
+- **SubscriptionName**  (in the CLI: `--subscription-name`) –  _Required:_ a String, of type: `string` (a UTF-8 encoded string).
+
+The name of the subscription.
+
+Constraints: The name must be less than 255 characters.
+
+- **Tags**  (in the CLI: `--tags`) –  An array of [Tag](api-other-apis.md#Tag "api-other-apis.md#Tag") objects.
+
+The tags to be applied to the new event subscription.
+
+**Response**
+
+Contains the results of a successful invocation of the [DescribeEventSubscriptions (action)](#DescribeEventSubscriptions "#DescribeEventSubscriptions") action.
+
+- **CustomerAwsId**   – a String, of type: `string` (a UTF-8 encoded string).
+
+The Amazon customer account associated with the event notification subscription.
+
+- **CustSubscriptionId**   – a String, of type: `string` (a UTF-8 encoded string).
+
+The event notification subscription Id.
+
+- **Enabled**   – a Boolean, of type: `boolean` (a Boolean (true or false) value).
+
+A Boolean value indicating if the subscription is enabled. True indicates
+the subscription is enabled.
+
+- **EventCategoriesList**   – a String, of type: `string` (a UTF-8 encoded string).
+
+A list of event categories for the event notification subscription.
+
+- **EventSubscriptionArn**   – a String, of type: `string` (a UTF-8 encoded string).
+
+The Amazon Resource Name (ARN) for the event subscription.
+
+- **SnsTopicArn**   – a String, of type: `string` (a UTF-8 encoded string).
+
+The topic ARN of the event notification subscription.
+
+- **SourceIdsList**   – a String, of type: `string` (a UTF-8 encoded string).
+
+A list of source IDs for the event notification subscription.
+
+- **SourceType**   – a String, of type: `string` (a UTF-8 encoded string).
+
+The source type for the event notification subscription.
+
+- **Status**   – a String, of type: `string` (a UTF-8 encoded string).
+
+The status of the event notification subscription.
+
+Constraints:
+
+Can be one of the following: creating | modifying | deleting | active | no-permission
+| topic-not-exist
+
+The status "no-permission" indicates that Neptune no longer has permission
+to post to the SNS topic. The status "topic-not-exist" indicates that the topic
+was deleted after the subscription was created.
+
+- **SubscriptionCreationTime**   – a String, of type: `string` (a UTF-8 encoded string).
+
+The time the event notification subscription was created.
+
+###### Errors
+
+- [EventSubscriptionQuotaExceededFault](api-faults.md#EventSubscriptionQuotaExceededFault "api-faults.md#EventSubscriptionQuotaExceededFault")
+- [SubscriptionAlreadyExistFault](api-faults.md#SubscriptionAlreadyExistFault "api-faults.md#SubscriptionAlreadyExistFault")
+- [SNSInvalidTopicFault](api-faults.md#SNSInvalidTopicFault "api-faults.md#SNSInvalidTopicFault")
+- [SNSNoAuthorizationFault](api-faults.md#SNSNoAuthorizationFault "api-faults.md#SNSNoAuthorizationFault")
+- [SNSTopicArnNotFoundFault](api-faults.md#SNSTopicArnNotFoundFault "api-faults.md#SNSTopicArnNotFoundFault")
+- [SubscriptionCategoryNotFoundFault](api-faults.md#SubscriptionCategoryNotFoundFault "api-faults.md#SubscriptionCategoryNotFoundFault")
+- [SourceNotFoundFault](api-faults.md#SourceNotFoundFault "api-faults.md#SourceNotFoundFault")
+
+## DeleteEventSubscription (action)
+
+        The AWS CLI name for this API is: `delete-event-subscription`.
+
+Deletes an event notification subscription.
+
+**Request**
+
+- **SubscriptionName**  (in the CLI: `--subscription-name`) –  _Required:_ a String, of type: `string` (a UTF-8 encoded string).
+
+The name of the event notification subscription you want to delete.
+
+**Response**
+
+Contains the results of a successful invocation of the [DescribeEventSubscriptions (action)](#DescribeEventSubscriptions "#DescribeEventSubscriptions") action.
+
+- **CustomerAwsId**   – a String, of type: `string` (a UTF-8 encoded string).
+
+The Amazon customer account associated with the event notification subscription.
+
+- **CustSubscriptionId**   – a String, of type: `string` (a UTF-8 encoded string).
+
+The event notification subscription Id.
+
+- **Enabled**   – a Boolean, of type: `boolean` (a Boolean (true or false) value).
+
+A Boolean value indicating if the subscription is enabled. True indicates
+the subscription is enabled.
+
+- **EventCategoriesList**   – a String, of type: `string` (a UTF-8 encoded string).
+
+A list of event categories for the event notification subscription.
+
+- **EventSubscriptionArn**   – a String, of type: `string` (a UTF-8 encoded string).
+
+The Amazon Resource Name (ARN) for the event subscription.
+
+- **SnsTopicArn**   – a String, of type: `string` (a UTF-8 encoded string).
+
+The topic ARN of the event notification subscription.
+
+- **SourceIdsList**   – a String, of type: `string` (a UTF-8 encoded string).
+
+A list of source IDs for the event notification subscription.
+
+- **SourceType**   – a String, of type: `string` (a UTF-8 encoded string).
+
+The source type for the event notification subscription.
+
+- **Status**   – a String, of type: `string` (a UTF-8 encoded string).
+
+The status of the event notification subscription.
+
+Constraints:
+
+Can be one of the following: creating | modifying | deleting | active | no-permission
+| topic-not-exist
+
+The status "no-permission" indicates that Neptune no longer has permission
+to post to the SNS topic. The status "topic-not-exist" indicates that the topic
+was deleted after the subscription was created.
+
+- **SubscriptionCreationTime**   – a String, of type: `string` (a UTF-8 encoded string).
+
+The time the event notification subscription was created.
+
+###### Errors
+
+- [SubscriptionNotFoundFault](api-faults.md#SubscriptionNotFoundFault "api-faults.md#SubscriptionNotFoundFault")
+- [InvalidEventSubscriptionStateFault](api-faults.md#InvalidEventSubscriptionStateFault "api-faults.md#InvalidEventSubscriptionStateFault")
+
+## ModifyEventSubscription (action)
+
+        The AWS CLI name for this API is: `modify-event-subscription`.
+
+Modifies an existing event notification subscription. Note that you
+can't modify the source identifiers using this call; to change source identifiers
+for a subscription, use the [AddSourceIdentifierToSubscription (action)](#AddSourceIdentifierToSubscription "#AddSourceIdentifierToSubscription") and [RemoveSourceIdentifierFromSubscription (action)](#RemoveSourceIdentifierFromSubscription "#RemoveSourceIdentifierFromSubscription") calls.
+
+You can see a list of the event categories for a given SourceType by using
+the **DescribeEventCategories** action.
+
+**Request**
+
+- **Enabled**  (in the CLI: `--enabled`) –  a BooleanOptional, of type: `boolean` (a Boolean (true or false) value).
+
+A Boolean value; set to **true** to activate
+the subscription.
+
+- **EventCategories**  (in the CLI: `--event-categories`) –  a String, of type: `string` (a UTF-8 encoded string).
+
+A list of event categories for a SourceType that you want to subscribe to.
+You can see a list of the categories for a given SourceType by using the **DescribeEventCategories** action.
+
+- **SnsTopicArn**  (in the CLI: `--sns-topic-arn`) –  a String, of type: `string` (a UTF-8 encoded string).
+
+The Amazon Resource Name (ARN) of the SNS topic created for event notification.
+The ARN is created by Amazon SNS when you create a topic and subscribe to it.
+
+- **SourceType**  (in the CLI: `--source-type`) –  a String, of type: `string` (a UTF-8 encoded string).
+
+The type of source that is generating the events. For example, if you want
+to be notified of events generated by a DB instance, you would set this parameter
+to db-instance. if this value is not specified, all events are returned.
+
+Valid values: db-instance | db-parameter-group | db-security-group
+| db-snapshot
+
+- **SubscriptionName**  (in the CLI: `--subscription-name`) –  _Required:_ a String, of type: `string` (a UTF-8 encoded string).
+
+The name of the event notification subscription.
+
+**Response**
+
+Contains the results of a successful invocation of the [DescribeEventSubscriptions (action)](#DescribeEventSubscriptions "#DescribeEventSubscriptions") action.
+
+- **CustomerAwsId**   – a String, of type: `string` (a UTF-8 encoded string).
+
+The Amazon customer account associated with the event notification subscription.
+
+- **CustSubscriptionId**   – a String, of type: `string` (a UTF-8 encoded string).
+
+The event notification subscription Id.
+
+- **Enabled**   – a Boolean, of type: `boolean` (a Boolean (true or false) value).
+
+A Boolean value indicating if the subscription is enabled. True indicates
+the subscription is enabled.
+
+- **EventCategoriesList**   – a String, of type: `string` (a UTF-8 encoded string).
+
+A list of event categories for the event notification subscription.
+
+- **EventSubscriptionArn**   – a String, of type: `string` (a UTF-8 encoded string).
+
+The Amazon Resource Name (ARN) for the event subscription.
+
+- **SnsTopicArn**   – a String, of type: `string` (a UTF-8 encoded string).
+
+The topic ARN of the event notification subscription.
+
+- **SourceIdsList**   – a String, of type: `string` (a UTF-8 encoded string).
+
+A list of source IDs for the event notification subscription.
+
+- **SourceType**   – a String, of type: `string` (a UTF-8 encoded string).
+
+The source type for the event notification subscription.
+
+- **Status**   – a String, of type: `string` (a UTF-8 encoded string).
+
+The status of the event notification subscription.
+
+Constraints:
+
+Can be one of the following: creating | modifying | deleting | active | no-permission
+| topic-not-exist
+
+The status "no-permission" indicates that Neptune no longer has permission
+to post to the SNS topic. The status "topic-not-exist" indicates that the topic
+was deleted after the subscription was created.
+
+- **SubscriptionCreationTime**   – a String, of type: `string` (a UTF-8 encoded string).
+
+The time the event notification subscription was created.
+
+###### Errors
+
+- [EventSubscriptionQuotaExceededFault](api-faults.md#EventSubscriptionQuotaExceededFault "api-faults.md#EventSubscriptionQuotaExceededFault")
+- [SubscriptionNotFoundFault](api-faults.md#SubscriptionNotFoundFault "api-faults.md#SubscriptionNotFoundFault")
+- [SNSInvalidTopicFault](api-faults.md#SNSInvalidTopicFault "api-faults.md#SNSInvalidTopicFault")
+- [SNSNoAuthorizationFault](api-faults.md#SNSNoAuthorizationFault "api-faults.md#SNSNoAuthorizationFault")
+- [SNSTopicArnNotFoundFault](api-faults.md#SNSTopicArnNotFoundFault "api-faults.md#SNSTopicArnNotFoundFault")
+- [SubscriptionCategoryNotFoundFault](api-faults.md#SubscriptionCategoryNotFoundFault "api-faults.md#SubscriptionCategoryNotFoundFault")
+
+## DescribeEventSubscriptions (action)
+
+        The AWS CLI name for this API is: `describe-event-subscriptions`.
+
+Lists all the subscription descriptions for a customer account. The description
+for a subscription includes SubscriptionName, SNSTopicARN, CustomerID, SourceType,
+SourceID, CreationTime, and Status.
+
+If you specify a SubscriptionName, lists the description for that subscription.
+
+**Request**
+
+- **Filters**  (in the CLI: `--filters`) –  An array of [Filter](api-datatypes.md#Filter "api-datatypes.md#Filter") objects.
+
+This parameter is not currently supported.
+
+- **Marker**  (in the CLI: `--marker`) –  a String, of type: `string` (a UTF-8 encoded string).
+
+An optional pagination token provided by a previous DescribeOrderableDBInstanceOptions
+request. If this parameter is specified, the response includes only records
+beyond the marker, up to the value specified by `MaxRecords` .
+
+- **MaxRecords**  (in the CLI: `--max-records`) –  an IntegerOptional, of type: `integer` (a signed 32-bit integer).
+
+The maximum number of records to include in the response. If more records
+exist than the specified `MaxRecords` value, a pagination token
+called a marker is included in the response so that the remaining results can be
+retrieved.
+
+Default: 100
+
+Constraints: Minimum 20, maximum 100.
+
+- **SubscriptionName**  (in the CLI: `--subscription-name`) –  a String, of type: `string` (a UTF-8 encoded string).
+
+The name of the event notification subscription you want to describe.
+
+**Response**
+
+- **EventSubscriptionsList**   – An array of [EventSubscription](#EventSubscription "#EventSubscription") objects.
+
+A list of EventSubscriptions data types.
+
+- **Marker**   – a String, of type: `string` (a UTF-8 encoded string).
+
+An optional pagination token provided by a previous DescribeOrderableDBInstanceOptions
+request. If this parameter is specified, the response includes only records
+beyond the marker, up to the value specified by `MaxRecords`.
+
+###### Errors
+
+- [SubscriptionNotFoundFault](api-faults.md#SubscriptionNotFoundFault "api-faults.md#SubscriptionNotFoundFault")
+
+## AddSourceIdentifierToSubscription (action)
+
+        The AWS CLI name for this API is: `add-source-identifier-to-subscription`.
+
+Adds a source identifier to an existing event notification subscription.
+
+**Request**
+
+- **SourceIdentifier**  (in the CLI: `--source-identifier`) –  _Required:_ a String, of type: `string` (a UTF-8 encoded string).
+
+The identifier of the event source to be added.
+
+Constraints:
+
+    + If the source type is a DB instance, then a `DBInstanceIdentifier`
+     must be supplied.
+    + If the source type is a DB security group, a `DBSecurityGroupName`
+     must be supplied.
+    + If the source type is a DB parameter group, a `DBParameterGroupName`
+     must be supplied.
+    + If the source type is a DB snapshot, a `DBSnapshotIdentifier`
+     must be supplied.
+
+- **SubscriptionName**  (in the CLI: `--subscription-name`) –  _Required:_ a String, of type: `string` (a UTF-8 encoded string).
+
+The name of the event notification subscription you want to add a source
+identifier to.
+
+**Response**
+
+Contains the results of a successful invocation of the [DescribeEventSubscriptions (action)](#DescribeEventSubscriptions "#DescribeEventSubscriptions") action.
+
+- **CustomerAwsId**   – a String, of type: `string` (a UTF-8 encoded string).
+
+The Amazon customer account associated with the event notification subscription.
+
+- **CustSubscriptionId**   – a String, of type: `string` (a UTF-8 encoded string).
+
+The event notification subscription Id.
+
+- **Enabled**   – a Boolean, of type: `boolean` (a Boolean (true or false) value).
+
+A Boolean value indicating if the subscription is enabled. True indicates
+the subscription is enabled.
+
+- **EventCategoriesList**   – a String, of type: `string` (a UTF-8 encoded string).
+
+A list of event categories for the event notification subscription.
+
+- **EventSubscriptionArn**   – a String, of type: `string` (a UTF-8 encoded string).
+
+The Amazon Resource Name (ARN) for the event subscription.
+
+- **SnsTopicArn**   – a String, of type: `string` (a UTF-8 encoded string).
+
+The topic ARN of the event notification subscription.
+
+- **SourceIdsList**   – a String, of type: `string` (a UTF-8 encoded string).
+
+A list of source IDs for the event notification subscription.
+
+- **SourceType**   – a String, of type: `string` (a UTF-8 encoded string).
+
+The source type for the event notification subscription.
+
+- **Status**   – a String, of type: `string` (a UTF-8 encoded string).
+
+The status of the event notification subscription.
+
+Constraints:
+
+Can be one of the following: creating | modifying | deleting | active | no-permission
+| topic-not-exist
+
+The status "no-permission" indicates that Neptune no longer has permission
+to post to the SNS topic. The status "topic-not-exist" indicates that the topic
+was deleted after the subscription was created.
+
+- **SubscriptionCreationTime**   – a String, of type: `string` (a UTF-8 encoded string).
+
+The time the event notification subscription was created.
+
+###### Errors
+
+- [SubscriptionNotFoundFault](api-faults.md#SubscriptionNotFoundFault "api-faults.md#SubscriptionNotFoundFault")
+- [SourceNotFoundFault](api-faults.md#SourceNotFoundFault "api-faults.md#SourceNotFoundFault")
+
+## RemoveSourceIdentifierFromSubscription (action)
+
+        The AWS CLI name for this API is: `remove-source-identifier-from-subscription`.
+
+Removes a source identifier from an existing event notification subscription.
+
+**Request**
+
+- **SourceIdentifier**  (in the CLI: `--source-identifier`) –  _Required:_ a String, of type: `string` (a UTF-8 encoded string).
+
+The source identifier to be removed from the subscription, such as the
+**DB instance identifier** for a DB instance
+or the name of a security group.
+
+- **SubscriptionName**  (in the CLI: `--subscription-name`) –  _Required:_ a String, of type: `string` (a UTF-8 encoded string).
+
+The name of the event notification subscription you want to remove a source
+identifier from.
+
+**Response**
+
+Contains the results of a successful invocation of the [DescribeEventSubscriptions (action)](#DescribeEventSubscriptions "#DescribeEventSubscriptions") action.
+
+- **CustomerAwsId**   – a String, of type: `string` (a UTF-8 encoded string).
+
+The Amazon customer account associated with the event notification subscription.
+
+- **CustSubscriptionId**   – a String, of type: `string` (a UTF-8 encoded string).
+
+The event notification subscription Id.
+
+- **Enabled**   – a Boolean, of type: `boolean` (a Boolean (true or false) value).
+
+A Boolean value indicating if the subscription is enabled. True indicates
+the subscription is enabled.
+
+- **EventCategoriesList**   – a String, of type: `string` (a UTF-8 encoded string).
+
+A list of event categories for the event notification subscription.
+
+- **EventSubscriptionArn**   – a String, of type: `string` (a UTF-8 encoded string).
+
+The Amazon Resource Name (ARN) for the event subscription.
+
+- **SnsTopicArn**   – a String, of type: `string` (a UTF-8 encoded string).
+
+The topic ARN of the event notification subscription.
+
+- **SourceIdsList**   – a String, of type: `string` (a UTF-8 encoded string).
+
+A list of source IDs for the event notification subscription.
+
+- **SourceType**   – a String, of type: `string` (a UTF-8 encoded string).
+
+The source type for the event notification subscription.
+
+- **Status**   – a String, of type: `string` (a UTF-8 encoded string).
+
+The status of the event notification subscription.
+
+Constraints:
+
+Can be one of the following: creating | modifying | deleting | active | no-permission
+| topic-not-exist
+
+The status "no-permission" indicates that Neptune no longer has permission
+to post to the SNS topic. The status "topic-not-exist" indicates that the topic
+was deleted after the subscription was created.
+
+- **SubscriptionCreationTime**   – a String, of type: `string` (a UTF-8 encoded string).
+
+The time the event notification subscription was created.
+
+###### Errors
+
+- [SubscriptionNotFoundFault](api-faults.md#SubscriptionNotFoundFault "api-faults.md#SubscriptionNotFoundFault")
+- [SourceNotFoundFault](api-faults.md#SourceNotFoundFault "api-faults.md#SourceNotFoundFault")
+
+## DescribeEvents (action)
+
+        The AWS CLI name for this API is: `describe-events`.
+
+Returns events related to DB instances, DB security groups, DB snapshots,
+and DB parameter groups for the past 14 days. Events specific to a particular DB
+instance, DB security group, database snapshot, or DB parameter group can be
+obtained by providing the name as a parameter. By default, the past hour of events
+are returned.
+
+**Request**
+
+- **Duration**  (in the CLI: `--duration`) –  an IntegerOptional, of type: `integer` (a signed 32-bit integer).
+
+The number of minutes to retrieve events for.
+
+Default: 60
+
+- **EndTime**  (in the CLI: `--end-time`) –  a TStamp, of type: `timestamp` (a point in time, generally defined as an offset from midnight 1970-01-01).
+
+The end of the time interval for which to retrieve events, specified in
+ISO 8601 format. For more information about ISO 8601, go to the [ISO8601
+Wikipedia page.](http://en.wikipedia.org/wiki/ISO_8601 "http://en.wikipedia.org/wiki/ISO_8601")
+
+Example: 2009-07-08T18:00Z
+
+- **EventCategories**  (in the CLI: `--event-categories`) –  a String, of type: `string` (a UTF-8 encoded string).
+
+A list of event categories that trigger notifications for a event notification
+subscription.
+
+- **Filters**  (in the CLI: `--filters`) –  An array of [Filter](api-datatypes.md#Filter "api-datatypes.md#Filter") objects.
+
+This parameter is not currently supported.
+
+- **Marker**  (in the CLI: `--marker`) –  a String, of type: `string` (a UTF-8 encoded string).
+
+An optional pagination token provided by a previous DescribeEvents request.
+If this parameter is specified, the response includes only records beyond the
+marker, up to the value specified by `MaxRecords`.
+
+- **MaxRecords**  (in the CLI: `--max-records`) –  an IntegerOptional, of type: `integer` (a signed 32-bit integer).
+
+The maximum number of records to include in the response. If more records
+exist than the specified `MaxRecords` value, a pagination token
+called a marker is included in the response so that the remaining results can be
+retrieved.
+
+Default: 100
+
+Constraints: Minimum 20, maximum 100.
+
+- **SourceIdentifier**  (in the CLI: `--source-identifier`) –  a String, of type: `string` (a UTF-8 encoded string).
+
+The identifier of the event source for which events are returned. If not
+specified, then all sources are included in the response.
+
+Constraints:
+
+    + If SourceIdentifier is supplied, SourceType must also be provided.
+    + If the source type is `DBInstance`, then a `DBInstanceIdentifier`
+     must be supplied.
+    + If the source type is `DBSecurityGroup`, a `DBSecurityGroupName`
+     must be supplied.
+    + If the source type is `DBParameterGroup`, a `DBParameterGroupName`
+     must be supplied.
+    + If the source type is `DBSnapshot`, a `DBSnapshotIdentifier`
+     must be supplied.
+    + Cannot end with a hyphen or contain two consecutive hyphens.
+
+- **SourceType**  (in the CLI: `--source-type`) –  a SourceType, of type: `string` (a UTF-8 encoded string).
+
+The event source to retrieve events for. If no value is specified, all events
+are returned.
+
+- **StartTime**  (in the CLI: `--start-time`) –  a TStamp, of type: `timestamp` (a point in time, generally defined as an offset from midnight 1970-01-01).
+
+The beginning of the time interval to retrieve events for, specified in
+ISO 8601 format. For more information about ISO 8601, go to the [ISO8601
+Wikipedia page.](http://en.wikipedia.org/wiki/ISO_8601 "http://en.wikipedia.org/wiki/ISO_8601")
+
+Example: 2009-07-08T18:00Z
+
+**Response**
+
+- **Events**   – An array of [Event](#Event "#Event") objects.
+
+A list of [Event (structure)](#Event "#Event") instances.
+
+- **Marker**   – a String, of type: `string` (a UTF-8 encoded string).
+
+An optional pagination token provided by a previous Events request. If
+this parameter is specified, the response includes only records beyond the marker,
+up to the value specified by `MaxRecords` .
+
+## DescribeEventCategories (action)
+
+        The AWS CLI name for this API is: `describe-event-categories`.
+
+Displays a list of categories for all event source types, or, if specified,
+for a specified source type.
+
+**Request**
+
+- **Filters**  (in the CLI: `--filters`) –  An array of [Filter](api-datatypes.md#Filter "api-datatypes.md#Filter") objects.
+
+This parameter is not currently supported.
+
+- **SourceType**  (in the CLI: `--source-type`) –  a String, of type: `string` (a UTF-8 encoded string).
+
+The type of source that is generating the events.
+
+Valid values: db-instance | db-parameter-group | db-security-group
+| db-snapshot
+
+**Response**
+
+- **EventCategoriesMapList**   – An array of [EventCategoriesMap](#EventCategoriesMap "#EventCategoriesMap") objects.
+
+A list of EventCategoriesMap data types.
+
+## _Structures:_
+
+## Event (structure)
+
+This data type is used as a response element in the [DescribeEvents (action)](#DescribeEvents "#DescribeEvents") action.
+
+###### Fields
+
+- **Date** – This is a TStamp, of type: `timestamp` (a point in time, generally defined as an offset from midnight 1970-01-01).
+
+Specifies the date and time of the event.
+
+- **EventCategories** – This is a String, of type: `string` (a UTF-8 encoded string).
+
+Specifies the category for the event.
+
+- **Message** – This is a String, of type: `string` (a UTF-8 encoded string).
+
+Provides the text of this event.
+
+- **SourceArn** – This is a String, of type: `string` (a UTF-8 encoded string).
+
+The Amazon Resource Name (ARN) for the event.
+
+- **SourceIdentifier** – This is a String, of type: `string` (a UTF-8 encoded string).
+
+Provides the identifier for the source of the event.
+
+- **SourceType** – This is a SourceType, of type: `string` (a UTF-8 encoded string).
+
+Specifies the source type for this event.
+
+## EventCategoriesMap (structure)
+
+Contains the results of a successful invocation of the [DescribeEventCategories (action)](#DescribeEventCategories "#DescribeEventCategories") action.
+
+###### Fields
+
+- **EventCategories** – This is a String, of type: `string` (a UTF-8 encoded string).
+
+The event categories for the specified source type
+
+- **SourceType** – This is a String, of type: `string` (a UTF-8 encoded string).
+
+The source type that the returned categories belong to
+
+## EventSubscription (structure)
+
+Contains the results of a successful invocation of the [DescribeEventSubscriptions (action)](#DescribeEventSubscriptions "#DescribeEventSubscriptions") action.
+
+###### Fields
+
+- **CustomerAwsId** – This is a String, of type: `string` (a UTF-8 encoded string).
+
+The Amazon customer account associated with the event notification subscription.
+
+- **CustSubscriptionId** – This is a String, of type: `string` (a UTF-8 encoded string).
+
+The event notification subscription Id.
+
+- **Enabled** – This is a Boolean, of type: `boolean` (a Boolean (true or false) value).
+
+A Boolean value indicating if the subscription is enabled. True indicates
+the subscription is enabled.
+
+- **EventCategoriesList** – This is a String, of type: `string` (a UTF-8 encoded string).
+
+A list of event categories for the event notification subscription.
+
+- **EventSubscriptionArn** – This is a String, of type: `string` (a UTF-8 encoded string).
+
+The Amazon Resource Name (ARN) for the event subscription.
+
+- **SnsTopicArn** – This is a String, of type: `string` (a UTF-8 encoded string).
+
+The topic ARN of the event notification subscription.
+
+- **SourceIdsList** – This is a String, of type: `string` (a UTF-8 encoded string).
+
+A list of source IDs for the event notification subscription.
+
+- **SourceType** – This is a String, of type: `string` (a UTF-8 encoded string).
+
+The source type for the event notification subscription.
+
+- **Status** – This is a String, of type: `string` (a UTF-8 encoded string).
+
+The status of the event notification subscription.
+
+Constraints:
+
+Can be one of the following: creating | modifying | deleting | active | no-permission
+| topic-not-exist
+
+The status "no-permission" indicates that Neptune no longer has permission
+to post to the SNS topic. The status "topic-not-exist" indicates that the topic
+was deleted after the subscription was created.
+
+- **SubscriptionCreationTime** – This is a String, of type: `string` (a UTF-8 encoded string).
+
+The time the event notification subscription was created.
+
+`EventSubscription` is used as the response element for:
+
+- [CreateEventSubscription](#CreateEventSubscription "#CreateEventSubscription")
+- [ModifyEventSubscription](#ModifyEventSubscription "#ModifyEventSubscription")
+- [AddSourceIdentifierToSubscription](#AddSourceIdentifierToSubscription "#AddSourceIdentifierToSubscription")
+- [RemoveSourceIdentifierFromSubscription](#RemoveSourceIdentifierFromSubscription "#RemoveSourceIdentifierFromSubscription")
+- [DeleteEventSubscription](#DeleteEventSubscription "#DeleteEventSubscription")

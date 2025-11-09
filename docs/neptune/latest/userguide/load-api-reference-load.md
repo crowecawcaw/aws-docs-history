@@ -291,8 +291,191 @@ between threads when loading openCypher data. When this happens, Neptune returns
   –   An optional object with additional parser configuration values.
   Each of the child parameters is also optional:
 
-| Name                | Example Value                                               | Description                                                                                                                                                                                                                                                                                                                                                        |
-| ------------------- | ----------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `namedGraphUri`     | `http://aws.amazon.com/neptune/vocab/v01/DefaultNamedGraph` | The default graph for all RDF formats when no graph is specified (for non-quads formats and NQUAD entries with no graph). The default is `http://aws.amazon.com/neptune/vocab/v01/DefaultNamedGraph`                                                                                                                                                               |
-| `baseUri`           | `http://aws.amazon.com/neptune/default`                     | The base URI for RDF/XML and Turtle formats. The default is `http://aws.amazon.com/neptune/default`.                                                                                                                                                                                                                                                               |
-| `allowEmptyStrings` | `true`                                                      | Gremlin users need to be able to pass empty string values("") as node and edge properties when loading CSV data. If `allowEmptyStrings` is set to `false` (the default), such empty strings are treated as nulls and are not loaded. If `allowEmptyStrings` is set to `true`, the loader treats empty strings as valid property values and loads them accordingly. | For more information, see [SPARQL Default Graph and Named Graphs](feature-sparql-compliance.md#sparql-default-graph "feature-sparql-compliance.md#sparql-default-graph"). <br>• **`updateSingleCardinalityProperties`**   –   This is an optional parameter that controls how the bulk loader treats a new value for single-cardinality vertex or edge properties. This is not supported for loading openCypher data (see [Loading openCypher data](#load-api-reference-load-parameters-opencypher "#load-api-reference-load-parameters-opencypher")). _Allowed values_: `"TRUE"`, `"FALSE"`. _Default value_: `"FALSE"`. By default, or when `updateSingleCardinalityProperties` is explicitly set to `"FALSE"`, the loader treats a new value as an error, because it violates single cardinality. When `updateSingleCardinalityProperties` is set to `"TRUE"`, on the other hand, the bulk loader replaces the existing value with the new one. If multiple edge or single-cardinality vertex property values are provided in the source file(s) being loaded, the final value at the end of the bulk load could be any one of those new values. The loader only guarantees that the existing value has been replaced by one of the new ones. <br>• **`queueRequest`**   –   This is an optional flag parameter that indicates whether the load request can be queued up or not. You don't have to wait for one load job to complete before issuing the next one, because Neptune can queue up as many as 64 jobs at a time, provided that their `queueRequest` parameters are all set to `"TRUE"`. The queue order of the jobs will be first-in-first-out (FIFO). If the `queueRequest` parameter is omitted or set to `"FALSE"`, the load request will fail if another load job is already running. _Allowed values_: `"TRUE"`, `"FALSE"`. _Default value_: `"FALSE"`. <br>• **`dependencies`**   –   This is an optional parameter that can make a queued load request contingent on the successful completion of one or more previous jobs in the queue. Neptune can queue up as many as 64 load requests at a time, if their `queueRequest` parameters are set to `"TRUE"`. The `dependencies` parameter lets you make execution of such a queued request dependent on the successful completion of one or more specified previous requests in the queue. For example, if load `Job-A` and `Job-B` are independent of each other, but load `Job-C` needs `Job-A` and `Job-B` to be finished before it begins, proceed as follows: 1. Submit `load-job-A` and `load-job-B` one after another in any order, and save their load-ids. 2. Submit `load-job-C` with the load-ids of the two jobs in its `dependencies` field: ``"dependencies" : ["`job_A_load_id`", "`job_B_load_id`"]`` Because of the `dependencies` parameter, the bulk loader will not start `Job-C` until `Job-A` and `Job-B` have completed successfully. If either one of them fails, Job-C will not be executed, and its status will be set to `LOAD_FAILED_BECAUSE_DEPENDENCY_NOT_SATISFIED`. You can set up multiple levels of dependency in this way, so that the failure of one job will cause all requests that are directly or indirectly dependent on it to be cancelled. <br>• **`userProvidedEdgeIds`**   – This parameter is required only when loading openCypher data that contains relationship IDs. It must be included and set to `True` when openCypher relationship IDs are explicitly provided in the load data (recommended). When `userProvidedEdgeIds` is absent or set to `True`, an `:ID` column must be present in every relationship file in the load. When `userProvidedEdgeIds` is present and set to `False`, relationship files in the load **must not** contain an `:ID` column. Instead, the Neptune loader automatically generates an ID for each relationship. It's useful to provide relationship IDs explicitly so that the loader can resume loading after error in the CSV data have been fixed, without having to reload any relationships that have already been loaded. If relationship IDs have not been explicitly assigned, the loader cannot resume a failed load if any relationship file has had to be corrected, and must instead reload all the relationships. <br>• `accessKey`   –   **[deprecated]** An access key ID of an IAM role with access to the S3 bucket and data files. The `iamRoleArn` parameter is recommended instead. For information about creating a role that has access to Amazon S3 and then associating it with a Neptune cluster, see [Prerequisites: IAM Role and Amazon S3 Access](bulk-load-tutorial-IAM.md "bulk-load-tutorial-IAM.md"). For more information, see [Access keys (access key ID and secret access key)](../../../general/latest/gr/aws-sec-cred-types.md#access-keys-and-secret-access-keys "../../../general/latest/gr/aws-sec-cred-types.md#access-keys-and-secret-access-keys"). <br>• `secretKey`   –   **[deprecated]** The `iamRoleArn` parameter is recommended instead. For information about creating a role that has access to Amazon S3 and then associating it with a Neptune cluster, see [Prerequisites: IAM Role and Amazon S3 Access](bulk-load-tutorial-IAM.md "bulk-load-tutorial-IAM.md"). For more information, see [Access keys (access key ID and secret access key)](../../../general/latest/gr/aws-sec-cred-types.md#access-keys-and-secret-access-keys "../../../general/latest/gr/aws-sec-cred-types.md#access-keys-and-secret-access-keys"). ### Special considerations for loading openCypher data <br>• When loading openCypher data in CSV format, the format parameter must be set to `opencypher`. <br>• The `updateSingleCardinalityProperties` parameter is not supported for openCypher loads because all openCypher properties have single cardinality. The openCypher load format does not support arrays, and if an ID value appears more than once, it is treated as a duplicate or an insertion error (see below). <br>• The Neptune loader handles duplicates that it encounters in openCypher data as follows: + If the loader encounters multiple rows with the same node ID, they are merged using the following rule: <br>• All the labels in the rows are added to the node. <br>• For each property, only one of the property values is loaded. The selection of the one to load is non-deterministic. + If the loader encounters multiple rows with the same relationship ID, only one of them is loaded. The selection of the one to load is non-deterministric. + The loader never updates property values of an existing node or relationship in the database if it encounters load data having the ID of the existing node or relationship. However, it does load node labels and properties that are not present in the existing node or relationship. <br>• Although you don't have to assign IDs to relationships, it is usually a good idea (see the `userProvidedEdgeIds` parameter above). Without explicit relationship IDs, the loader must reload all relationships in case of an error in a relationship file, rather than resuming the load from where it failed. Also, if the load data doesn't contain explicit relationship IDs, the loader has no way of detecting duplicate relationships. Here is an example of an openCypher load command: ``curl -X POST https://`your-neptune-endpoint`:`port`/loader \ -H 'Content-Type: application/json' \ -d ' { "source" : "s3://`bucket-name`/`object-key-name`", "format" : "**opencypher**", **"userProvidedEdgeIds": "TRUE"**, "iamRoleArn" : "arn:aws:iam::`account-id`:role/`role-name`", "region" : "`region`", "failOnError" : "FALSE", "parallelism" : "MEDIUM", }'`` The loader response is the same as normal. For example: ``{ "status" : "200 OK", "payload" : { "loadId" : "`guid_as_string`" } }`` ## Neptune Loader Response Syntax ``{ "status" : "200 OK", "payload" : { "loadId" : "`guid_as_string`" } }`` ###### 200 OK Successfully started load job returns a `200` code. |
+| Name                | Example Value                                               | Description                                                                                                                                                                                                                                                                                                                                                                          |
+| ------------------- | ----------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `namedGraphUri`     | `http://aws.amazon.com/neptune/vocab/v01/DefaultNamedGraph` | The default graph for all RDF formats when no graph is specified (for non-quads<br>formats and NQUAD entries with no graph). The default is<br>`http://aws.amazon.com/neptune/vocab/v01/DefaultNamedGraph`                                                                                                                                                                           |
+| `baseUri`           | `http://aws.amazon.com/neptune/default`                     | The base URI for RDF/XML and Turtle formats. The default is<br>`http://aws.amazon.com/neptune/default`.                                                                                                                                                                                                                                                                              |
+| `allowEmptyStrings` | `true`                                                      | Gremlin users need to be able to pass empty string values("") as node<br>and edge properties when loading CSV data. If `allowEmptyStrings`<br>is set to `false` (the default), such empty strings are treated<br>as nulls and are not loaded.<br>If `allowEmptyStrings` is set to `true`,<br>the loader treats empty strings as valid property values and loads<br>them accordingly. |
+
+For more information, see [SPARQL Default Graph and Named Graphs](feature-sparql-compliance.md#sparql-default-graph "feature-sparql-compliance.md#sparql-default-graph").
+
+- **`updateSingleCardinalityProperties`**   –   This
+  is an optional parameter that controls how the bulk loader treats a new
+  value for single-cardinality vertex or edge properties. This is not supported for
+  loading openCypher data (see [Loading openCypher data](#load-api-reference-load-parameters-opencypher "#load-api-reference-load-parameters-opencypher")).
+
+_Allowed values_: `"TRUE"`, `"FALSE"`.
+
+_Default value_: `"FALSE"`.
+
+By default, or when `updateSingleCardinalityProperties` is explicitly
+set to `"FALSE"`, the loader treats a new value as an error, because it
+violates single cardinality.
+
+When `updateSingleCardinalityProperties` is set to `"TRUE"`,
+on the other hand, the bulk loader replaces the existing value with the new one.
+If multiple edge or single-cardinality vertex property values are provided in the
+source file(s) being loaded, the final value at the end of the bulk load could be
+any one of those new values. The loader only guarantees that the existing value
+has been replaced by one of the new ones.
+
+- **`queueRequest`**   –   This is an optional flag parameter
+  that indicates whether the load request can be queued up or not.
+
+You don't have to wait for one load job to complete before issuing the next one,
+because Neptune can queue up as many as 64 jobs at a time, provided that their
+`queueRequest` parameters are all set to `"TRUE"`. The queue
+order of the jobs will be first-in-first-out (FIFO).
+
+If the `queueRequest` parameter is omitted or set to `"FALSE"`,
+the load request will fail if another load job is already running.
+
+_Allowed values_: `"TRUE"`, `"FALSE"`.
+
+_Default value_: `"FALSE"`.
+
+- **`dependencies`**   –   This is an optional parameter
+  that can make a queued load request contingent on the successful completion of one or more
+  previous jobs in the queue.
+
+Neptune can queue up as many as 64 load requests at a time, if their
+`queueRequest` parameters are set to `"TRUE"`. The
+`dependencies` parameter lets you make execution of such a queued request
+dependent on the successful completion of one or more specified previous requests
+in the queue.
+
+For example, if load `Job-A` and `Job-B` are independent
+of each other, but load `Job-C` needs `Job-A` and `Job-B`
+to be finished before it begins, proceed as follows:
+
+    1. Submit `load-job-A` and `load-job-B` one after
+     another in any order, and save their load-ids.
+    2. Submit `load-job-C` with the load-ids of the
+     two jobs in its `dependencies` field:
+
+```
+  "dependencies" : ["`job_A_load_id`", "`job_B_load_id`"]
+```
+
+Because of the `dependencies` parameter, the bulk loader will not start
+`Job-C` until `Job-A` and `Job-B` have completed
+successfully. If either one of them fails, Job-C will not be executed, and its
+status will be set to `LOAD_FAILED_BECAUSE_DEPENDENCY_NOT_SATISFIED`.
+
+You can set up multiple levels of dependency in this way, so that the failure of one job
+will cause all requests that are directly or indirectly dependent on it to be cancelled.
+
+- **`userProvidedEdgeIds`**   –  
+  This parameter is required only when loading openCypher data that contains relationship
+  IDs. It must be included and set to `True` when openCypher relationship IDs
+  are explicitly provided in the load data (recommended).
+
+When `userProvidedEdgeIds` is absent or set to `True`,
+an `:ID` column must be present in every relationship file in the load.
+
+When `userProvidedEdgeIds` is present and set to `False`,
+relationship files in the load **must not** contain an
+`:ID` column. Instead, the Neptune loader automatically generates an
+ID for each relationship.
+
+It's useful to provide relationship IDs explicitly so that the loader can resume
+loading after error in the CSV data have been fixed, without having to reload any
+relationships that have already been loaded. If relationship IDs have not been
+explicitly assigned, the loader cannot resume a failed load if any relationship file
+has had to be corrected, and must instead reload all the relationships.
+
+- `accessKey`   –   **[deprecated]**
+  An access key ID of an IAM role with access to the S3 bucket and data files.
+
+The `iamRoleArn` parameter is recommended instead.
+For information about creating a role that has access to Amazon S3 and then associating it
+with a Neptune cluster, see [Prerequisites: IAM Role and Amazon S3 Access](bulk-load-tutorial-IAM.md "bulk-load-tutorial-IAM.md").
+
+For more information, see [Access keys (access key ID and secret access key)](../../../general/latest/gr/aws-sec-cred-types.md#access-keys-and-secret-access-keys "../../../general/latest/gr/aws-sec-cred-types.md#access-keys-and-secret-access-keys").
+
+- `secretKey`   –   **[deprecated]**
+  The `iamRoleArn` parameter is recommended instead.
+  For information about creating a role that has access to Amazon S3 and then associating it
+  with a Neptune cluster, see [Prerequisites: IAM Role and Amazon S3 Access](bulk-load-tutorial-IAM.md "bulk-load-tutorial-IAM.md").
+
+For more information, see [Access
+keys (access key ID and secret access key)](../../../general/latest/gr/aws-sec-cred-types.md#access-keys-and-secret-access-keys "../../../general/latest/gr/aws-sec-cred-types.md#access-keys-and-secret-access-keys").
+
+### Special considerations for loading openCypher data
+
+- When loading openCypher data in CSV format, the format parameter must
+  be set to `opencypher`.
+- The `updateSingleCardinalityProperties` parameter is not
+  supported for openCypher loads because all openCypher properties have single
+  cardinality. The openCypher load format does not support arrays, and if an ID
+  value appears more than once, it is treated as a duplicate or an insertion error
+  (see below).
+- The Neptune loader handles duplicates that it encounters in openCypher
+  data as follows:
+  - If the loader encounters multiple rows with the same node
+    ID, they are merged using the following rule:
+    - All the labels in the rows are added to the node.
+    - For each property, only one of the property values is loaded.
+      The selection of the one to load is non-deterministic.
+
+  - If the loader encounters multiple rows with the same
+    relationship ID, only one of them is loaded. The selection of the one
+    to load is non-deterministric.
+  - The loader never updates property values of an existing node
+    or relationship in the database if it encounters load data having the ID
+    of the existing node or relationship. However, it does load node labels
+    and properties that are not present in the existing node or
+    relationship.
+
+- Although you don't have to assign IDs to relationships, it is
+  usually a good idea (see the `userProvidedEdgeIds` parameter
+  above). Without explicit relationship IDs, the loader must reload all
+  relationships in case of an error in a relationship file, rather than
+  resuming the load from where it failed.
+
+Also, if the load data doesn't contain explicit relationship IDs,
+the loader has no way of detecting duplicate relationships.
+
+Here is an example of an openCypher load command:
+
+```
+
+curl -X POST https://`your-neptune-endpoint`:`port`/loader \
+     -H 'Content-Type: application/json' \
+     -d '
+     {
+       "source" : "s3://`bucket-name`/`object-key-name`",
+       "format" : "**opencypher**",
+       **"userProvidedEdgeIds": "TRUE"**,
+       "iamRoleArn" : "arn:aws:iam::`account-id`:role/`role-name`",
+       "region" : "`region`",
+       "failOnError" : "FALSE",
+       "parallelism" : "MEDIUM",
+     }'
+```
+
+The loader response is the same as normal. For example:
+
+```
+{
+  "status" : "200 OK",
+  "payload" : {
+    "loadId" : "`guid_as_string`"
+  }
+}
+```
+
+## Neptune Loader Response Syntax
+
+```
+{
+    "status" : "200 OK",
+    "payload" : {
+        "loadId" : "`guid_as_string`"
+    }
+}
+```
+
+###### 200 OK
+
+Successfully started load job returns a `200` code.

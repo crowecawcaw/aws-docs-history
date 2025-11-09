@@ -1,6 +1,6 @@
-# Amazon Neptune Engine Version 1.2.1.0.R7 (2023-10-06)
+# Amazon Neptune Engine Version 1.2.1.0.R6 (2023-09-12)
 
-As of 2023-10-06, engine version 1.2.1.0.R7 is being generally deployed. Please note
+As of 2023-09-12, engine version 1.2.1.0.R6 is being generally deployed. Please note
 that it takes several days for a new release to become available in every region.
 
 ###### Note
@@ -39,14 +39,29 @@ a support case may help you explore additional strategies for bringing it down.
   In other languages, the `/openCypher` can be appended to the endpoint
   URI. See [Using the Bolt protocol](access-graph-opencypher-bolt.md "access-graph-opencypher-bolt.md") for examples.
 
+## New Features in This Engine Release
+
+- Released the [Neptune data API](data-api.md "data-api.md").
+
+The Amazon Neptune data API provides SDK support for loading data, running
+queries, getting information about your data, and running machine-learning
+operations. It supports the Gremlin and openCypher query languages in Neptune
+and is available in all SDK languages. It automatically signs API requests and
+greatly simplifies integrating Neptune into applications.
+
 ## Defects Fixed in This Engine Release
 
-- Fixed a bug where in some cases a failed transaction was not closed
-  properly.
+- Fixed a bug that could cause CPU spikes under high loads when Slow
+  Query logs were enabled.
+- Fixed a Gremlin bug where adding an edge and its properties
+  followed by `inV()` or `outV()` raised an
+  `InternalFailureException`.
+- Fixed several issues with IAM role chaining that caused degraded
+  bulk-loader performance in some cases.
 
 ## Query-Language Versions Supported in This Release
 
-Before upgrading a DB cluster to version 1.2.1.0.R7, make sure that your project is compatible
+Before upgrading a DB cluster to version 1.2.1.0.R6, make sure that your project is compatible
 with these query-language versions:
 
 - _Gremlin earliest version supported:_ `3.6.2`
@@ -56,7 +71,7 @@ with these query-language versions:
 
 ## Upgrading to This Release
 
-Amazon Neptune 1.2.1.0.R7 is now generally available.
+Amazon Neptune 1.2.1.0.R6 is now generally available.
 
 If a DB cluster is running an engine version from which there is an upgrade path
 to this release, it is eligible to be upgraded now. You can upgrade any eligible cluster

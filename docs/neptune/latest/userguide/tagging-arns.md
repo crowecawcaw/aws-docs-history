@@ -38,7 +38,7 @@ each AWS CLI command and the ARN property that is used with the command to get a
 ARN.
 
 | AWS CLI Command                                                                                                                                                                                       | ARN Property               |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
 | [describe-event-subscriptions](../../../cli/latest/reference/neptune/describe-event-subscriptions.md "../../../cli/latest/reference/neptune/describe-event-subscriptions.md")                         | EventSubscriptionArn       |
 | [describe-certificates](../../../cli/latest/reference/neptune/describe-certificates.md "../../../cli/latest/reference/neptune/describe-certificates.md")                                              | CertificateArn             |
 | [describe-db-parameter-groups](../../../cli/latest/reference/neptune/describe-db-parameter-groups.md "../../../cli/latest/reference/neptune/describe-db-parameter-groups.md")                         | DBParameterGroupArn        |
@@ -47,15 +47,41 @@ ARN.
 | [describe-events](../../../cli/latest/reference/neptune/describe-events.md "../../../cli/latest/reference/neptune/describe-events.md")                                                                | SourceArn                  |
 | [describe-db-subnet-groups](../../../cli/latest/reference/neptune/describe-db-subnet-groups.md "../../../cli/latest/reference/neptune/describe-db-subnet-groups.md")                                  | DBSubnetGroupArn           |
 | [describe-db-clusters](../../../cli/latest/reference/neptune/describe-db-clusters.md "../../../cli/latest/reference/neptune/describe-db-clusters.md")                                                 | DBClusterArn               |
-| [describe-db-cluster-snapshots](../../../cli/latest/reference/neptune/describe-db-cluster-snapshots.md "../../../cli/latest/reference/neptune/describe-db-cluster-snapshots.md")                      | DBClusterSnapshotArn       | For example, the following AWS CLI command gets the ARN for a DB instance. ###### Example For Linux, OS X, or Unix: `` aws neptune describe-db-instances \ --db-instance-identifier `DBInstanceIdentifier` \ --region `us-west-2` `` For Windows: `` aws neptune describe-db-instances ^ --db-instance-identifier `DBInstanceIdentifier` ^ --region `us-west-2` `` ### Getting an existing ARN using the API To get an ARN for a particular Neptune resource, call the following API actions and use the ARN properties shown. |
-| Neptune API Action                                                                                                                                                                                    | ARN Property               |
-| ---                                                                                                                                                                                                   | ---                        |
-| [DescribeEventSubscriptions](API_DescribeEventSubscriptions.md "API_DescribeEventSubscriptions.md")                                                                                                   | EventSubscriptionArn       |
-| [DescribeCertificates](API_DescribeCertificates.md "API_DescribeCertificates.md")                                                                                                                     | CertificateArn             |
-| [DescribeDBParameterGroups](API_DescribeDBParameterGroups.md "API_DescribeDBParameterGroups.md")                                                                                                      | DBParameterGroupArn        |
-| [DescribeDBClusterParameterGroups](API_DescribeDBClusterParameterGroups.md "API_DescribeDBClusterParameterGroups.md")                                                                                 | DBClusterParameterGroupArn |
-| [DescribeDBInstances](API_DescribeDBInstances.md "API_DescribeDBInstances.md")                                                                                                                        | DBInstanceArn              |
-| [DescribeEvents](API_DescribeEvents.md "API_DescribeEvents.md")                                                                                                                                       | SourceArn                  |
-| [DescribeDBSubnetGroups](API_DescribeDBSubnetGroups.md "API_DescribeDBSubnetGroups.md")                                                                                                               | DBSubnetGroupArn           |
-| [DescribeDBClusters](API_DescribeDBClusters.md "API_DescribeDBClusters.md")                                                                                                                           | DBClusterArn               |
-| [DescribeDBClusterSnapshots](API_DescribeDBClusterSnapshots.md "API_DescribeDBClusterSnapshots.md")                                                                                                   | DBClusterSnapshotArn       |
+| [describe-db-cluster-snapshots](../../../cli/latest/reference/neptune/describe-db-cluster-snapshots.md "../../../cli/latest/reference/neptune/describe-db-cluster-snapshots.md")                      | DBClusterSnapshotArn       |
+
+For example, the following AWS CLI command gets the ARN for a DB instance.
+
+###### Example
+
+For Linux, OS X, or Unix:
+
+```
+aws neptune describe-db-instances \
+--db-instance-identifier `DBInstanceIdentifier` \
+--region `us-west-2`
+```
+
+For Windows:
+
+```
+aws neptune describe-db-instances ^
+--db-instance-identifier `DBInstanceIdentifier` ^
+--region `us-west-2`
+```
+
+### Getting an existing ARN using the API
+
+To get an ARN for a particular Neptune resource, call the following API actions
+and use the ARN properties shown.
+
+| Neptune API Action                                                                                                    | ARN Property               |
+| --------------------------------------------------------------------------------------------------------------------- | -------------------------- |
+| [DescribeEventSubscriptions](API_DescribeEventSubscriptions.md "API_DescribeEventSubscriptions.md")                   | EventSubscriptionArn       |
+| [DescribeCertificates](API_DescribeCertificates.md "API_DescribeCertificates.md")                                     | CertificateArn             |
+| [DescribeDBParameterGroups](API_DescribeDBParameterGroups.md "API_DescribeDBParameterGroups.md")                      | DBParameterGroupArn        |
+| [DescribeDBClusterParameterGroups](API_DescribeDBClusterParameterGroups.md "API_DescribeDBClusterParameterGroups.md") | DBClusterParameterGroupArn |
+| [DescribeDBInstances](API_DescribeDBInstances.md "API_DescribeDBInstances.md")                                        | DBInstanceArn              |
+| [DescribeEvents](API_DescribeEvents.md "API_DescribeEvents.md")                                                       | SourceArn                  |
+| [DescribeDBSubnetGroups](API_DescribeDBSubnetGroups.md "API_DescribeDBSubnetGroups.md")                               | DBSubnetGroupArn           |
+| [DescribeDBClusters](API_DescribeDBClusters.md "API_DescribeDBClusters.md")                                           | DBClusterArn               |
+| [DescribeDBClusterSnapshots](API_DescribeDBClusterSnapshots.md "API_DescribeDBClusterSnapshots.md")                   | DBClusterSnapshotArn       |

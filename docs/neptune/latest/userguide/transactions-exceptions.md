@@ -30,8 +30,81 @@ To build a resilient and efficient application, develop a retry strategy that's 
 The right retry strategy depends on the nature of the failure, the workload, and the error patterns you observe. The following table summarizes some common failure scenarios and how the retry strategy considerations apply to each. Explanatory paragraphs follow for additional context.
 
 | Scenario                               | Retryable? | Backoff & Jitter             | Initial Pause              | Retry Limit     | Monitor & Adjust                    |
-| -------------------------------------- | ---------- | ---------------------------- | -------------------------- | --------------- | ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| -------------------------------------- | ---------- | ---------------------------- | -------------------------- | --------------- | ----------------------------------- |
 | Occasional CME on Short Queries        | Yes        | Short backoff, add jitter    | Short (for example, 100ms) | High            | Watch for rising CME Rates          |
 | Frequent CME on Longer-Running Queries | Yes        | Longer backoff, add jitter   | Longer (for example, 2s)   | Moderate        | Investigate and reduce contention   |
 | Memory Limits on Expensive Queries     | Yes        | Long backoff                 | Long (for example, 5-10s)  | Low             | Optimize query, alert if persistent |
-| Timeout on Moderate Queries            | Maybe      | Moderate backoff, add jitter | Moderate (for example, 1s) | Low to Moderate | Assess server load and query design | ### Scenario 1: Occasional CME on short queries For a workload where `ConcurrentModificationException` appears infrequently during short, simple updates, these errors are typically transient and safe to retry. Use a short initial pause (for example, 100 milliseconds) before the first retry. This time allows any brief lock to clear. Combine this with a short exponential backoff and jitter to avoid synchronized retries. Since the cost of retrying is low, a higher retry limit is reasonable. Still, monitor the CME rate to catch any trend toward increased contention in your data. ### Scenario 2: Frequent CME on long-running queries If your application sees frequent CMEs on long-running queries, this suggests more severe contention. In this case, start with a longer initial pause (for example, 2 seconds), to give the current query holding the lock enough time to complete. Use a longer exponential backoff and add jitter. Limit the number of retries to avoid excessive delays and resource usage. If contention persists, review your workload for patterns and consider serializing updates or reducing concurrency to address the root cause. ### Scenario 3: Memory limits on expensive queries When memory-based errors occur during a known resource-intensive query, retries can make sense, but only after a long initial pause (for example, 5 to 10 seconds or more) to allow the server to release resources. Use a long backoff strategy and set a low retry limit, since repeated failures are unlikely to resolve without changes to the query or workload. Persistent errors should trigger alerts and prompt a review of query complexity and resource usage. ### Scenario 4: Timeout on moderate queries A timeout on a moderately expensive query is a more ambiguous case. Sometimes, a retry might succeed if the timeout was due to a temporary spike in server load or network conditions. Start with a moderate initial pause (for example, 1 second) to give the system a chance to recover. Apply a moderate backoff and add jitter to avoid synchronized retries. Keep the retry limit low to moderate, since repeated timeouts might indicate a deeper issue with the query or the server's capacity. Monitor for patterns: if timeouts become frequent, assess whether the query needs optimization or if the Neptune cluster is under-provisioned. ## Monitoring and observability Monitoring is a critical part of any retry strategy. Effective observability helps you understand how well your retry logic is working and provides early signals when something in your workload or cluster configuration needs attention. ### MainRequestQueuePendingRequests This CloudWatch metric tracks the number of requests waiting in Neptune's input queue. A rising value indicates that queries are backing up, which can be a sign of excessive contention, under-provisioned resources, or retry storms. Monitoring this metric helps you spot when your retry strategy is causing or compounding queuing issues, and can prompt you to adjust your approach before failures escalate. ### Other CloudWatch metrics Other [Neptune metrics](../../../https:/docs.aws.amazon.com/neptune/latest/userguide/cw-metrics.md "../../../https:/docs.aws.amazon.com/neptune/latest/userguide/cw-metrics.md") like `CPUUtilization`, `TotalRequestsPerSecond`, and query latency provide additional context. For example, high CPU and I/O combined with growing queue lengths might indicate that your cluster is overloaded or that queries are too large or too frequent. [CloudWatch alarms](../../../AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.md "../../../AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.md") can be set on these metrics to alert you to abnormal behavior and help you correlate spikes in errors or retries with underlying resource constraints. ### Neptune Status and Query APIs The Neptune [Status API for Gremlin](gremlin-api-status.md "gremlin-api-status.md") and its analogous APIs for [OpenCypher](access-graph-opencypher-status.md "access-graph-opencypher-status.md") and [SPARQL](sparql-api-status.md "sparql-api-status.md") give a real-time view of the queries accepted and running on the cluster which is useful for diagnosing bottlenecks or understanding the impact of retry logic in real time. By combining these monitoring tools, you can: <br>• Detect when retries are contributing to queuing and performance degradation. <br>• Identify when to scale your Neptune cluster or optimize queries. <br>• Validate that your retry strategy is resolving transient failures without masking deeper issues. <br>• Receive early warnings about emerging contention or resource exhaustion. Proactive monitoring and alerting are essential for maintaining a healthy Neptune deployment, especially as your application's concurrency and complexity grow. |
+| Timeout on Moderate Queries            | Maybe      | Moderate backoff, add jitter | Moderate (for example, 1s) | Low to Moderate | Assess server load and query design |
+
+### Scenario 1: Occasional CME on short queries
+
+For a workload where `ConcurrentModificationException` appears infrequently during short,
+simple updates, these errors are typically transient and safe to retry. Use a short initial pause (for
+example, 100 milliseconds) before the first retry. This time allows any brief lock to clear. Combine this
+with a short exponential backoff and jitter to avoid synchronized retries. Since the cost of retrying is
+low, a higher retry limit is reasonable. Still, monitor the CME rate to catch any trend toward increased
+contention in your data.
+
+### Scenario 2: Frequent CME on long-running queries
+
+If your application sees frequent CMEs on long-running queries, this suggests more severe contention.
+In this case, start with a longer initial pause (for example, 2 seconds), to give the current query holding
+the lock enough time to complete. Use a longer exponential backoff and add jitter. Limit the number of retries
+to avoid excessive delays and resource usage. If contention persists, review your workload for patterns and
+consider serializing updates or reducing concurrency to address the root cause.
+
+### Scenario 3: Memory limits on expensive queries
+
+When memory-based errors occur during a known resource-intensive query, retries can make sense, but
+only after a long initial pause (for example, 5 to 10 seconds or more) to allow the server to release
+resources. Use a long backoff strategy and set a low retry limit, since repeated failures are unlikely to
+resolve without changes to the query or workload. Persistent errors should trigger alerts and prompt a review
+of query complexity and resource usage.
+
+### Scenario 4: Timeout on moderate queries
+
+A timeout on a moderately expensive query is a more ambiguous case. Sometimes, a retry might succeed if
+the timeout was due to a temporary spike in server load or network conditions. Start with a moderate initial
+pause (for example, 1 second) to give the system a chance to recover. Apply a moderate backoff and add jitter to
+avoid synchronized retries. Keep the retry limit low to moderate, since repeated timeouts might indicate a
+deeper issue with the query or the server's capacity. Monitor for patterns: if timeouts become frequent, assess
+whether the query needs optimization or if the Neptune cluster is under-provisioned.
+
+## Monitoring and observability
+
+Monitoring is a critical part of any retry strategy. Effective observability helps you understand how well
+your retry logic is working and provides early signals when something in your workload or cluster configuration
+needs attention.
+
+### MainRequestQueuePendingRequests
+
+This CloudWatch metric tracks the number of requests waiting in Neptune's input queue. A rising value indicates that
+queries are backing up, which can be a sign of excessive contention, under-provisioned resources, or retry storms.
+Monitoring this metric helps you spot when your retry strategy is causing or compounding queuing issues, and can
+prompt you to adjust your approach before failures escalate.
+
+### Other CloudWatch metrics
+
+Other [Neptune metrics](../../../https:/docs.aws.amazon.com/neptune/latest/userguide/cw-metrics.md "../../../https:/docs.aws.amazon.com/neptune/latest/userguide/cw-metrics.md") like
+`CPUUtilization`, `TotalRequestsPerSecond`, and query latency provide additional context.
+For example, high CPU and I/O combined with growing queue lengths might indicate that your cluster is overloaded
+or that queries are too large or too frequent. [CloudWatch alarms](../../../AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.md "../../../AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.md") can be set on these metrics
+to alert you to abnormal behavior and help you correlate spikes in errors or retries with underlying resource
+constraints.
+
+### Neptune Status and Query APIs
+
+The Neptune [Status API for Gremlin](gremlin-api-status.md "gremlin-api-status.md") and its analogous APIs
+for [OpenCypher](access-graph-opencypher-status.md "access-graph-opencypher-status.md") and
+[SPARQL](sparql-api-status.md "sparql-api-status.md")
+give a real-time view of the queries accepted and running on the cluster which is
+useful for diagnosing bottlenecks or understanding the impact of retry logic in real time.
+
+By combining these monitoring tools, you can:
+
+- Detect when retries are contributing to queuing and performance degradation.
+- Identify when to scale your Neptune cluster or optimize queries.
+- Validate that your retry strategy is resolving transient failures without masking deeper issues.
+- Receive early warnings about emerging contention or resource exhaustion.
+
+Proactive monitoring and alerting are essential for maintaining a healthy Neptune deployment, especially as your application's concurrency and complexity grow.

@@ -175,7 +175,7 @@ The maximum concurrent WebSocket connections for smaller instance types
 are listed in the table below:
 
 | Instance Type     | Maximum concurrent WebSocket connections |
-| ----------------- | ---------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ----------------- | ---------------------------------------- |
 | serverless        | 32768                                    |
 | db.r4.4xlarge     | 16384                                    |
 | db.r4.2xlarge     | 8192                                     |
@@ -225,4 +225,46 @@ are listed in the table below:
 | db.r8g.large      | 2048                                     |
 | db.r7i.large      | 2048                                     |
 | db.r7i.xlarge     | 4096                                     |
-| db.r7i.2xlarge    | 8192                                     | ###### Note Starting with [Neptune engine release 1.1.0.0](engine-releases-1.1.0.md "engine-releases-1.1.0.md") Neptune no longer supports `R4` instance types. When a client properly closes a connection, the closure is immediately reflected in the open connections count. If the client doesn't close a connection, the connection may be closed automatically after a 20- to 25-minute idle timeout (the idle timeout is the time elapsed since the last message was received from the client). However, as long as the idle timeout is not reached, Neptune keeps the connection open indefinitely. When IAM authentication is enabled, a WebSocket connection is always disconnected a few minutes more than 10 days after it was established, if it hasn't already been closed by then. ## Limits on properties and labels There is no limit on the number of vertices and edges, or RDF quads you can have in a graph. There is also no limit on the number of properties or labels that any one vertex or edge can have. There is a size limit of 55 MB on the size of an individual property or label. In RDF terms, this means that the value in any column (S, P, O or G) of an RDF quad cannot exceed 55 MB. If you need to associate a larger object such as an image with a vertex or node in your graph, you can store it as a file in Amazon S3 and use the Amazon S3 path as the property or label. ## Limits that affect the Neptune bulk loader You cannot queue up more than 64 Neptune bulk load jobs at a time. Neptune only keeps track of the most recent 1,024 bulk load jobs. Neptune only stores the last 10,000 error details per job. |
+| db.r7i.2xlarge    | 8192                                     |
+
+###### Note
+
+Starting with [Neptune engine release 1.1.0.0](engine-releases-1.1.0.md "engine-releases-1.1.0.md")
+Neptune no longer supports `R4` instance types.
+
+When a client properly closes a connection, the closure is immediately reflected in the
+open connections count.
+
+If the client doesn't close a connection, the connection may be closed
+automatically after a 20- to 25-minute idle timeout (the idle timeout is the
+time elapsed since the last message was received from the client). However,
+as long as the idle timeout is not reached, Neptune keeps the connection
+open indefinitely.
+
+When IAM authentication is enabled, a WebSocket connection is always disconnected
+a few minutes more than 10 days after it was established, if it hasn't already been
+closed by then.
+
+## Limits on properties and labels
+
+There is no limit on the number of vertices and edges, or RDF quads you can
+have in a graph.
+
+There is also no limit on the number of properties or labels that any one
+vertex or edge can have.
+
+There is a size limit of 55 MB on the size of an individual property or label.
+In RDF terms, this means that the value in any column (S, P, O or G) of
+an RDF quad cannot exceed 55 MB.
+
+If you need to associate a larger object such as an image with a vertex
+or node in your graph, you can store it as a file in Amazon S3 and use the Amazon S3 path
+as the property or label.
+
+## Limits that affect the Neptune bulk loader
+
+You cannot queue up more than 64 Neptune bulk load jobs at a time.
+
+Neptune only keeps track of the most recent 1,024 bulk load jobs.
+
+Neptune only stores the last 10,000 error details per job.

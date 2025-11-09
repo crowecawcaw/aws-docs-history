@@ -1,34 +1,33 @@
-# Amazon Neptune Engine Version 1.0.2.1.R3 (2019-12-12)
+# Amazon Neptune Engine Version 1.0.2.1.R4 (2019-12-20)
+
+## Improvements in This Engine Release
+
+- Neptune now tries always to place any full-text-search call first in the
+  execution pipeline. This reduces the volume of calls to OpenSearch, which
+  can significantly improve performance. See [Full-text-search query execution](full-text-search-query-execution.md "full-text-search-query-execution.md").
+- Neptune now raises an `IllegalArgumentException` if you try to
+  access a non-existent property, vertex, or edge. Previously, Neptune raised
+  an `UnsupportedOperationException` in that situation.
+
+For example, if you try to add an edge referencing a nonexistent vertex,
+you will now raise an `IllegalArgumentException`.
 
 ## Defects Fixed in This Engine Release
 
-- Fixed a bug where the `OSGP` index was disabled even
-  though the feature was correctly enabled using in[Lab Mode](features-lab-mode.md "features-lab-mode.md") using
-  the `ObjectIndex` value in the `neptune_lab_mode`
-  parameter.
-- Fixed a bug that affected Gremlin queries with a `.fold()`
-  inside a `.project().by()` step. For example, it caused the following query
-  to return incomplete results:
-
-```
-g.V().project("a").by(valueMap().fold())
-```
-
-- Fixed a performance bottleneck in bulk loads of RDF data.
-- Fixed a bug that caused a crash on replicas when streams were enabled
-  and the replica was restarted before the primary.
-- Fixed a bug where rotated SSL certificates on instances were not
-  picked up without an instance restart.
+- Fixed a Gremlin bug where a `union` traversal inside a
+  `project-by` does not return results or returns incorrect results.
+- Fixed a Gremlin bug that caused nested `.project().by()`
+  steps to return incorrect results.
 
 ## Query-Language Versions Supported in This Release
 
-Before upgrading a DB cluster to version 1.0.2.1.R3, make sure that your project is compatible
+Before upgrading a DB cluster to version 1.0.2.1.R4, make sure that your project is compatible
 with these query-language versions:
 
 - _Gremlin version:_ `3.4.1`
 - _SPARQL version:_ `1.1`
 
-## Upgrade Paths to Engine Release 1.0.2.1.R3
+## Upgrade Paths to Engine Release 1.0.2.1.R4
 
 You can manually upgrade any previous Neptune engine release to this release.
 
@@ -37,7 +36,7 @@ supported**.
 
 ## Upgrading to This Release
 
-Amazon Neptune 1.0.2.1.R3 is now generally available.
+Amazon Neptune 1.0.2.1.R4 is now generally available.
 
 If a DB cluster is running an engine version from which there is an upgrade path
 to this release, it is eligible to be upgraded now. You can upgrade any eligible cluster

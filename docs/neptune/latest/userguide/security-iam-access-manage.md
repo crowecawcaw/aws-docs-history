@@ -149,8 +149,8 @@ statements than for data-access policy statements:
 The following table shows what IAM features Neptune supports for
 administrative policy statements and data-access policy statements:
 
-| IAM features you can use with Neptune                                                                                                                                    | IAM feature | Administrative | Data-access                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------- | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| IAM features you can use with Neptune                                                                                                                                    | IAM feature | Administrative | Data-access |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------- | -------------- | ----------- |
 | [Identity-based policies](#security_iam_access-manage-id-based-policies "#security_iam_access-manage-id-based-policies")                                                 | Yes         | Yes            |
 | [Resource-based policies](../../../IAM/latest/UserGuide/access_policies_identity-vs-resource.md "../../../IAM/latest/UserGuide/access_policies_identity-vs-resource.md") | No          | No             |
 | [Policy actions](../../../IAM/latest/UserGuide/reference_policies_elements_action.md "../../../IAM/latest/UserGuide/reference_policies_elements_action.md")              | Yes         | Yes            |
@@ -159,4 +159,16 @@ administrative policy statements and data-access policy statements:
 | [Tag-based condition keys](iam-admin-condition-keys.md#iam-rds-tag-based-condition-keys "iam-admin-condition-keys.md#iam-rds-tag-based-condition-keys")                  | Yes         | No             |
 | [Access Control Lists (ACLs)](../../../AmazonS3/latest/userguide/acls.md "../../../AmazonS3/latest/userguide/acls.md")                                                   | No          | No             |
 | [Service control policies (SCPs)](#security_iam_access-manage-scp "#security_iam_access-manage-scp")                                                                     | Yes         | Yes            |
-| [Service linked roles](security-iam-service-linked-roles.md "security-iam-service-linked-roles.md")                                                                      | Yes         | No             | ## IAM Policy Limitations Changes to an IAM policy take up to 10 minutes to apply to the specified Neptune resources. IAM policies applied to a Neptune DB cluster apply to all instances in that cluster. Neptune does not currently support cross-account access control at the data plane level. Cross-account access control is only supported when bulk-loading and by using role chaining. For more information, see [Bulk load tutorial](bulk-load-tutorial-chain-roles.md#bulk-load-tutorial-chain-cross-account "bulk-load-tutorial-chain-roles.md#bulk-load-tutorial-chain-cross-account") . |
+| [Service linked roles](security-iam-service-linked-roles.md "security-iam-service-linked-roles.md")                                                                      | Yes         | No             |
+
+## IAM Policy Limitations
+
+Changes to an IAM policy take up to 10 minutes to apply to the specified Neptune
+resources.
+
+IAM policies applied to a Neptune DB cluster apply to all instances in that
+cluster.
+
+Neptune does not currently support cross-account access control at the data plane level. Cross-account
+access control is only supported when bulk-loading and by using role chaining. For more information, see
+[Bulk load tutorial](bulk-load-tutorial-chain-roles.md#bulk-load-tutorial-chain-cross-account "bulk-load-tutorial-chain-roles.md#bulk-load-tutorial-chain-cross-account") .

@@ -59,49 +59,147 @@ The following attributes are logged for slow queries when the
 `neptune_enable_slow_query_log` DB cluster parameter has been set to
 `info`:
 
-| Group                               | Attribute                                                           | Description                                                                                                                                                                                                                                            |
-| ----------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------- | ------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **requestResponseMetadata**         | `requestId`                                                         | Request id of query.                                                                                                                                                                                                                                   |
-| `requestType`                       | Request type, like HTTP or WebSocket.                               |                                                                                                                                                                                                                                                        | `responseStatusCode`                | Query response status code, like 200.                              |
-| `exceptionClass`                    | Exception class of the error returned after query execution.        |
-| **queryStats**                      | `query`                                                             | Query string.                                                                                                                                                                                                                                          |
-| `queryFingerprint`                  | Fingerprint of the query.                                           |                                                                                                                                                                                                                                                        | `queryLanguage`                     | Query language, like Gremlin, SPARQL or openCypher.                |
-| **memoryStats**                     | `allocatedPermits`                                                  | Permits allocated to the query.                                                                                                                                                                                                                        |
-| `approximateUsedMemoryBytes`        | Approximate memory used by the query during execution.              |
-| **queryTime**                       | `startTime`                                                         | Query start time (UTC).                                                                                                                                                                                                                                |
-| `overallRunTimeMs`                  | Query total run time, in milliseconds.                              |                                                                                                                                                                                                                                                        | `parsingTimeMs`                     | Query parsing time, in milliseconds.                               |
-| `waitingTimeMs`                     | Query Gremlin/SPARQL/openCypher queue waiting time, in milliseconds |                                                                                                                                                                                                                                                        | `executionTimeMs`                   | Query execution time, in milliseconds.                             |
-| `serializationTimeMs`               | Query serialization time, in milliseconds.                          |
-| **statementCounters**               | `read`                                                              | Number of statements read.                                                                                                                                                                                                                             |
-| `written`                           | Number of statements written.                                       |                                                                                                                                                                                                                                                        | `deleted`                           | Number of statements deleted.                                      |
-| **transactionCounters**             | `committed`                                                         | Number of transactions commited.                                                                                                                                                                                                                       |
-| `rolledBack`                        | Number of transactions rolled back.                                 |
-| **vertexCounters**                  | `added`                                                             | Number of vertices added.                                                                                                                                                                                                                              |
-| `removed`                           | Number of vertices removed.                                         |                                                                                                                                                                                                                                                        | `propertiesAdded`                   | Number of vertex properties added.                                 |
-| `propertiesRemoved`                 | Number of vertex properties removed.                                |
-| **edgeCounters**                    | `added`                                                             | Number of edges added.                                                                                                                                                                                                                                 |
-| `removed`                           | Number of edges removed.                                            |                                                                                                                                                                                                                                                        | `propertiesAdded`                   | Number of edge properties added.                                   |
-| `propertiesRemoved`                 | Number of edge properties removed.                                  |
-| **resultCache**                     | `hitCount`                                                          | Result cache hit count.                                                                                                                                                                                                                                |
-| `missCount`                         | Result cache miss count.                                            |                                                                                                                                                                                                                                                        | `putCount`                          | Result cache put count.                                            |
-| **concurrentExecution**             | `acceptedQueryCountAtStart`                                         | Parallel queries accepted with the current query execution at start.                                                                                                                                                                                   |
-| `runningQueryCountAtStart`          | Parallel queries running with the current query execution at start. |                                                                                                                                                                                                                                                        | `acceptedQueryCountAtEnd`           | Parallel queries accepted with the current query execution at end. |
-| `runningQueryCountAtEnd`            | Parallel queries running with the current query execution at end.   |
-| **queryBatch**                      | `queryProcessingBatchSize`                                          | Batch size during query processing.                                                                                                                                                                                                                    |
-| `querySerialisationBatchSize`       | Batch size during query serialization.                              | ## Query attributes logged in `debug` mode When the `neptune_enable_slow_query_log` DB cluster parameter has been set to `debug`, the following storage-counter attributes are logged in addition to the attributes that are logged as in `info` mode: | Attribute                           | Description                                                        |
-| ---                                 | ---                                                                 |                                                                                                                                                                                                                                                        | `statementsScannedInAllIndexes`     | Statements scanned in all indexes.                                 |
-| `statementsScannedSPOGIndex`        | Statements scanned in SPOG index.                                   |                                                                                                                                                                                                                                                        | `statementsScannedPOGSIndex`        | Statements scanned in POGS index.                                  |
-| `statementsScannedGPSOIndex`        | Statements scanned in GPSO index.                                   |                                                                                                                                                                                                                                                        | `statementsScannedOSGPIndex`        | Statements scanned in OSGP index.                                  |
-| `statementsScannedInChunk`          | Statements scanned together in chunk.                               |                                                                                                                                                                                                                                                        | `postFilteredStatementScans`        | Statements left after post filtering after scans.                  |
-| `distinctStatementScans`            | Distinct statements scanned.                                        |                                                                                                                                                                                                                                                        | `statementsReadInAllIndexes`        | Statements read after scan post filtering in all indexes.          |
-| `statementsReadSPOGIndex`           | Statements read after scan post filtering in SPOG index.            |                                                                                                                                                                                                                                                        | `statementsReadPOGSIndex`           | Statements read after scan post filtering in POGS index.           |
-| `statementsReadGPSOIndex`           | Statements read after scan post filtering in GPSO index.            |                                                                                                                                                                                                                                                        | `statementsReadOSGPIndex`           | Statements read after scan post filtering in OSGP index.           |
-| `accessPathSearches`                | Number of access path searches.                                     |                                                                                                                                                                                                                                                        | `fullyBoundedAccessPathSearches`    | Number of fully bounded key access path searches.                  |
-| `accessPathSearchedByPrefix`        | Number of access path searched by prefix.                           |                                                                                                                                                                                                                                                        | `searchesWhereRecordsWereFound`     | Number of searches which had 1 or more records as output.          |
-| `searchesWhereRecordsWereNotFound`  | Number of searches which had no records as output.                  |                                                                                                                                                                                                                                                        | `totalRecordsFoundInSearches`       | Total records found from all searches.                             |
-| `statementsInsertedInAllIndexes`    | Number of statements inserted in all indexes.                       |                                                                                                                                                                                                                                                        | `statementsUpdatedInAllIndexes`     | Number of statements updated in all indexes.                       |
-| `statementsDeletedInAllIndexes`     | Number of statements deleted in all indexes.                        |                                                                                                                                                                                                                                                        | `predicateCount`                    | Number of predicates.                                              |
-| `dictionaryReadsFromValueToIdTable` | Number of dictionary reads from value to ID table.                  |                                                                                                                                                                                                                                                        | `dictionaryReadsFromIdToValueTable` | Number of dictionary reads from ID of value table.                 |
-| `dictionaryWritesToValueToIdTable`  | Number of dictionary writes to value to ID table.                   |                                                                                                                                                                                                                                                        | `dictionaryWritesToIdToValueTable`  | Number of dictionary writes to ID to value table.                  |
-| `rangeCountsInAllIndexes`           | Number of range counts in all indexes.                              |                                                                                                                                                                                                                                                        | `deadlockCount`                     | Number of deadlocks in the query.                                  |
-| `singleCardinalityInserts`          | Number of single cardinanity inserts performed.                     |                                                                                                                                                                                                                                                        | `singleCardinalityInsertDeletions`  | Number of statements deleted during single cardinality insert.     | ## Example of debug logging for a slow query The following Gremlin query could take longer to run than the threshold set for slow queries: `gremlin=g.V().has('code','AUS').repeat(out().simplePath()).until(has('code','AGR')).path().by('code').limit(20).fold()` Then, if slow-query logging was enabled in debug mode, the following attributes would be logged for the query, in a form like this: `{ "requestResponseMetadata": { "requestId": "5311e493-0e98-457e-9131-d250a2ce1e12", "requestType": "HTTP_GET", "responseStatusCode": 200 }, "queryStats": { "query": "gremlin=g.V().has('code','AUS').repeat(out().simplePath()).until(has('code','AGR')).path().by('code').limit(20).fold()", "queryFingerprint": "g.V().has(string0,string1).repeat(__.out().simplePath()).until(__.has(string0,string2)).path().by(string0).limit(long0).fold()", "queryLanguage": "Gremlin" }, "memoryStats": { "allocatedPermits": 20, "approximateUsedMemoryBytes": 14838 }, "queryTimeStats": { "startTime": "23/02/2023 11:42:52.657", "overallRunTimeMs": 2249, "executionTimeMs": 2229, "serializationTimeMs": 13 }, "statementCounters": { "read": 69979 }, "transactionCounters": { "committed": 1 }, "concurrentExecutionStats": { "acceptedQueryCountAtStart": 1 }, "queryBatchStats": { "queryProcessingBatchSize": 1000, "querySerialisationBatchSize": 1000 }, "storageCounters": { "statementsScannedInAllIndexes": 69979, "statementsScannedSPOGIndex": 44936, "statementsScannedPOGSIndex": 4, "statementsScannedGPSOIndex": 25039, "statementsReadInAllIndexes": 68566, "statementsReadSPOGIndex": 43544, "statementsReadPOGSIndex": 2, "statementsReadGPSOIndex": 25020, "accessPathSearches": 27, "fullyBoundedAccessPathSearches": 27, "dictionaryReadsFromValueToIdTable": 10, "dictionaryReadsFromIdToValueTable": 17, "rangeCountsInAllIndexes": 4 } }` |
+| Group                         | Attribute                                                           | Description                                                          |
+| ----------------------------- | ------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| **requestResponseMetadata**   | `requestId`                                                         | Request id of query.                                                 |
+| `requestType`                 | Request type, like HTTP or WebSocket.                               |
+| `responseStatusCode`          | Query response status code, like 200.                               |
+| `exceptionClass`              | Exception class of the error returned after query execution.        |
+| **queryStats**                | `query`                                                             | Query string.                                                        |
+| `queryFingerprint`            | Fingerprint of the query.                                           |
+| `queryLanguage`               | Query language, like Gremlin, SPARQL or openCypher.                 |
+| **memoryStats**               | `allocatedPermits`                                                  | Permits allocated to the query.                                      |
+| `approximateUsedMemoryBytes`  | Approximate memory used by the query during execution.              |
+| **queryTime**                 | `startTime`                                                         | Query start time (UTC).                                              |
+| `overallRunTimeMs`            | Query total run time, in milliseconds.                              |
+| `parsingTimeMs`               | Query parsing time, in milliseconds.                                |
+| `waitingTimeMs`               | Query Gremlin/SPARQL/openCypher queue waiting time, in milliseconds |
+| `executionTimeMs`             | Query execution time, in milliseconds.                              |
+| `serializationTimeMs`         | Query serialization time, in milliseconds.                          |
+| **statementCounters**         | `read`                                                              | Number of statements read.                                           |
+| `written`                     | Number of statements written.                                       |
+| `deleted`                     | Number of statements deleted.                                       |
+| **transactionCounters**       | `committed`                                                         | Number of transactions commited.                                     |
+| `rolledBack`                  | Number of transactions rolled back.                                 |
+| **vertexCounters**            | `added`                                                             | Number of vertices added.                                            |
+| `removed`                     | Number of vertices removed.                                         |
+| `propertiesAdded`             | Number of vertex properties added.                                  |
+| `propertiesRemoved`           | Number of vertex properties removed.                                |
+| **edgeCounters**              | `added`                                                             | Number of edges added.                                               |
+| `removed`                     | Number of edges removed.                                            |
+| `propertiesAdded`             | Number of edge properties added.                                    |
+| `propertiesRemoved`           | Number of edge properties removed.                                  |
+| **resultCache**               | `hitCount`                                                          | Result cache hit count.                                              |
+| `missCount`                   | Result cache miss count.                                            |
+| `putCount`                    | Result cache put count.                                             |
+| **concurrentExecution**       | `acceptedQueryCountAtStart`                                         | Parallel queries accepted with the current query execution at start. |
+| `runningQueryCountAtStart`    | Parallel queries running with the current query execution at start. |
+| `acceptedQueryCountAtEnd`     | Parallel queries accepted with the current query execution at end.  |
+| `runningQueryCountAtEnd`      | Parallel queries running with the current query execution at end.   |
+| **queryBatch**                | `queryProcessingBatchSize`                                          | Batch size during query processing.                                  |
+| `querySerialisationBatchSize` | Batch size during query serialization.                              |
+
+## Query attributes logged in `debug` mode
+
+When the `neptune_enable_slow_query_log` DB cluster parameter has been
+set to `debug`, the following storage-counter attributes are logged in
+addition to the attributes that are logged as in `info` mode:
+
+| Attribute                           | Description                                                    |
+| ----------------------------------- | -------------------------------------------------------------- |
+| `statementsScannedInAllIndexes`     | Statements scanned in all indexes.                             |
+| `statementsScannedSPOGIndex`        | Statements scanned in SPOG index.                              |
+| `statementsScannedPOGSIndex`        | Statements scanned in POGS index.                              |
+| `statementsScannedGPSOIndex`        | Statements scanned in GPSO index.                              |
+| `statementsScannedOSGPIndex`        | Statements scanned in OSGP index.                              |
+| `statementsScannedInChunk`          | Statements scanned together in chunk.                          |
+| `postFilteredStatementScans`        | Statements left after post filtering after scans.              |
+| `distinctStatementScans`            | Distinct statements scanned.                                   |
+| `statementsReadInAllIndexes`        | Statements read after scan post filtering in all indexes.      |
+| `statementsReadSPOGIndex`           | Statements read after scan post filtering in SPOG index.       |
+| `statementsReadPOGSIndex`           | Statements read after scan post filtering in POGS index.       |
+| `statementsReadGPSOIndex`           | Statements read after scan post filtering in GPSO index.       |
+| `statementsReadOSGPIndex`           | Statements read after scan post filtering in OSGP index.       |
+| `accessPathSearches`                | Number of access path searches.                                |
+| `fullyBoundedAccessPathSearches`    | Number of fully bounded key access path searches.              |
+| `accessPathSearchedByPrefix`        | Number of access path searched by prefix.                      |
+| `searchesWhereRecordsWereFound`     | Number of searches which had 1 or more records as output.      |
+| `searchesWhereRecordsWereNotFound`  | Number of searches which had no records as output.             |
+| `totalRecordsFoundInSearches`       | Total records found from all searches.                         |
+| `statementsInsertedInAllIndexes`    | Number of statements inserted in all indexes.                  |
+| `statementsUpdatedInAllIndexes`     | Number of statements updated in all indexes.                   |
+| `statementsDeletedInAllIndexes`     | Number of statements deleted in all indexes.                   |
+| `predicateCount`                    | Number of predicates.                                          |
+| `dictionaryReadsFromValueToIdTable` | Number of dictionary reads from value to ID table.             |
+| `dictionaryReadsFromIdToValueTable` | Number of dictionary reads from ID of value table.             |
+| `dictionaryWritesToValueToIdTable`  | Number of dictionary writes to value to ID table.              |
+| `dictionaryWritesToIdToValueTable`  | Number of dictionary writes to ID to value table.              |
+| `rangeCountsInAllIndexes`           | Number of range counts in all indexes.                         |
+| `deadlockCount`                     | Number of deadlocks in the query.                              |
+| `singleCardinalityInserts`          | Number of single cardinanity inserts performed.                |
+| `singleCardinalityInsertDeletions`  | Number of statements deleted during single cardinality insert. |
+
+## Example of debug logging for a slow query
+
+The following Gremlin query could take longer to run than the threshold set
+for slow queries:
+
+```
+gremlin=g.V().has('code','AUS').repeat(out().simplePath()).until(has('code','AGR')).path().by('code').limit(20).fold()
+```
+
+Then, if slow-query logging was enabled in debug mode, the following
+attributes would be logged for the query, in a form like this:
+
+```
+{
+  "requestResponseMetadata": {
+    "requestId": "5311e493-0e98-457e-9131-d250a2ce1e12",
+    "requestType": "HTTP_GET",
+    "responseStatusCode": 200
+  },
+  "queryStats": {
+    "query": "gremlin=g.V().has('code','AUS').repeat(out().simplePath()).until(has('code','AGR')).path().by('code').limit(20).fold()",
+    "queryFingerprint": "g.V().has(string0,string1).repeat(__.out().simplePath()).until(__.has(string0,string2)).path().by(string0).limit(long0).fold()",
+    "queryLanguage": "Gremlin"
+  },
+  "memoryStats": {
+    "allocatedPermits": 20,
+    "approximateUsedMemoryBytes": 14838
+  },
+  "queryTimeStats": {
+    "startTime": "23/02/2023 11:42:52.657",
+    "overallRunTimeMs": 2249,
+    "executionTimeMs": 2229,
+    "serializationTimeMs": 13
+  },
+  "statementCounters": {
+    "read": 69979
+  },
+  "transactionCounters": {
+    "committed": 1
+  },
+  "concurrentExecutionStats": {
+    "acceptedQueryCountAtStart": 1
+  },
+  "queryBatchStats": {
+    "queryProcessingBatchSize": 1000,
+    "querySerialisationBatchSize": 1000
+  },
+  "storageCounters": {
+    "statementsScannedInAllIndexes": 69979,
+    "statementsScannedSPOGIndex": 44936,
+    "statementsScannedPOGSIndex": 4,
+    "statementsScannedGPSOIndex": 25039,
+    "statementsReadInAllIndexes": 68566,
+    "statementsReadSPOGIndex": 43544,
+    "statementsReadPOGSIndex": 2,
+    "statementsReadGPSOIndex": 25020,
+    "accessPathSearches": 27,
+    "fullyBoundedAccessPathSearches": 27,
+    "dictionaryReadsFromValueToIdTable": 10,
+    "dictionaryReadsFromIdToValueTable": 17,
+    "rangeCountsInAllIndexes": 4
+  }
+}
+```

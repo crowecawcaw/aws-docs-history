@@ -177,8 +177,91 @@ of a model-transform job using the Neptune ML `modeltransform` command
 
 A sample Neptune ML `modeltransform` command for the status of a job looks like this:
 
-````
+```
 curl -s \
   "https://`(your Neptune endpoint)`/ml/modeltransform/`(the job ID)`" \
-| python -m json.tool ``` ###### Parameters for `modeltransform` job status <br>• **`id`**   – (*Required*) The unique identifier of the model-transform job. *Type*: string. <br>• **`neptuneIamRoleArn`**   – (*Optional*) The ARN of an IAM role that provides Neptune access to SageMaker AI and Amazon S3 resources. *Type*: string. *Note*: This must be listed in your DB cluster parameter group or an error will occur. ## Stopping a model-transform job using the Neptune ML `modeltransform` command A sample Neptune ML `modeltransform` command for stopping a job looks like this: ``` curl -s \ -X DELETE "https://`(your Neptune endpoint)`/ml/modeltransform/`(the job ID)`" ``` Or this: ``` curl -s \ -X DELETE "https://`(your Neptune endpoint)`/ml/modeltransform/`(the job ID)`?clean=true" ``` ###### Parameters for `modeltransform` stop job <br>• **`id`**   – (*Required*) The unique identifier of the model-transform job. *Type*: string. <br>• **`neptuneIamRoleArn`**   – (*Optional*) The ARN of an IAM role that provides Neptune access to SageMaker AI and Amazon S3 resources. *Type*: string. *Note*: This must be listed in your DB cluster parameter group or an error will occur. <br>• **`clean`**   – (*Optional*) This flag specifies that all Amazon S3 artifacts should be deleted when the job is stopped. *Type*: Boolean. *Default*: `FALSE`. ## Listing active model-transform jobs using the Neptune ML `modeltransform` command A sample Neptune ML `modeltransform` command for listing active jobs looks like this: ``` curl -s "https://`(your Neptune endpoint)`/ml/modeltransform" | python -m json.tool ``` Or this: ``` curl -s "https://`(your Neptune endpoint)`/ml/modeltransform?maxItems=3" | python -m json.tool ``` ###### Parameters for `modeltransform` list jobs <br>• **`maxItems`**   – (*Optional*) The maximum number of items to return. *Type*: integer. *Default*: `10`. *Maximum allowed value*: `1024`. <br>• **`neptuneIamRoleArn`**   – (*Optional*) The ARN of an IAM role that provides Neptune access to SageMaker AI and Amazon S3 resources. *Type*: string. *Note*: This must be listed in your DB cluster parameter group or an error will occur.
-````
+  | python -m json.tool
+```
+
+###### Parameters for `modeltransform` job status
+
+- **`id`**   –  
+  (_Required_) The unique identifier of the model-transform job.
+
+_Type_: string.
+
+- **`neptuneIamRoleArn`**   –  
+  (_Optional_) The ARN of an IAM role that provides Neptune access to
+  SageMaker AI and Amazon S3 resources.
+
+_Type_: string. _Note_: This must be
+listed in your DB cluster parameter group or an error will occur.
+
+## Stopping a model-transform
+
+job using the Neptune ML `modeltransform` command
+
+A sample Neptune ML `modeltransform` command for stopping a job looks like this:
+
+```
+curl -s \
+  -X DELETE "https://`(your Neptune endpoint)`/ml/modeltransform/`(the job ID)`"
+```
+
+Or this:
+
+```
+curl -s \
+  -X DELETE "https://`(your Neptune endpoint)`/ml/modeltransform/`(the job ID)`?clean=true"
+```
+
+###### Parameters for `modeltransform` stop job
+
+- **`id`**   –  
+  (_Required_) The unique identifier of the model-transform job.
+
+_Type_: string.
+
+- **`neptuneIamRoleArn`**   –  
+  (_Optional_) The ARN of an IAM role that provides Neptune access to
+  SageMaker AI and Amazon S3 resources.
+
+_Type_: string. _Note_: This must be
+listed in your DB cluster parameter group or an error will occur.
+
+- **`clean`**   –  
+  (_Optional_) This flag specifies that all Amazon S3 artifacts
+  should be deleted when the job is stopped.
+
+_Type_: Boolean. _Default_: `FALSE`.
+
+## Listing active model-transform
+
+jobs using the Neptune ML `modeltransform` command
+
+A sample Neptune ML `modeltransform` command for listing active jobs looks like this:
+
+```
+curl -s "https://`(your Neptune endpoint)`/ml/modeltransform" | python -m json.tool
+```
+
+Or this:
+
+```
+curl -s "https://`(your Neptune endpoint)`/ml/modeltransform?maxItems=3" | python -m json.tool
+```
+
+###### Parameters for `modeltransform` list jobs
+
+- **`maxItems`**   –  
+  (_Optional_) The maximum number of items to return.
+
+_Type_: integer. _Default_: `10`.
+_Maximum allowed value_: `1024`.
+
+- **`neptuneIamRoleArn`**   –  
+  (_Optional_) The ARN of an IAM role that provides Neptune access to
+  SageMaker AI and Amazon S3 resources.
+
+_Type_: string. _Note_: This must be
+listed in your DB cluster parameter group or an error will occur.

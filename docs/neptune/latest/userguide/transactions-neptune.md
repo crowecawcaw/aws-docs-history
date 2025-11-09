@@ -146,27 +146,97 @@ Neptune uses a so-called dictionary table to associate numeric ID values with
 specific string literals. Here is a sample state of such a Neptune dictionary:
 table:
 
-| String        | ID     |
-| ------------- | ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ | --- | ---------- | ---------- | ---------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| type          | 1      |
-| default_graph | 2      |
-| person_3      | 3      |
-| person_1      | 5      |
-| knows         | 6      |
-| person_2      | 7      |
-| age           | 8      |
-| edge_1        | 9      |
-| lives_in      | 10     |
-| New York      | 11     |
-| Person        | 12     |
-| Place         | 13     |
-| edge_2        | 14     | The strings above belong to a property-graph model, but the concepts apply equally to all RDF graph models as well. The corresponding state of the SPOG (Subject-Predicate-Object_Graph) index is shown below on the left. On the right, the corresponding strings are shown, to help understand what the index data means. |
-| S (ID)        | P (ID) | O (ID)                                                                                                                                                                                                                                                                                                                      | G (ID) |     | S (string) | P (string) | O (string) | G (string)    |
-| ---           | ---    | ---                                                                                                                                                                                                                                                                                                                         | ---    | --- | ---        | ---        | ---        | ---           |
-| 3             | 1      | 12                                                                                                                                                                                                                                                                                                                          | 2      |     | person_3   | type       | Person     | default_graph |
-| 5             | 1      | 12                                                                                                                                                                                                                                                                                                                          | 2      |     | person_1   | type       | Person     | default_graph |
-| 5             | 6      | 3                                                                                                                                                                                                                                                                                                                           | 9      |     | person_1   | knows      | person_3   | edge_1        |
-| 5             | 8      | 40                                                                                                                                                                                                                                                                                                                          | 2      |     | person_1   | age        | 40         | default_graph |
-| 5             | 10     | 11                                                                                                                                                                                                                                                                                                                          | 14     |     | person_1   | lives_in   | New York   | edge_2        |
-| 7             | 1      | 12                                                                                                                                                                                                                                                                                                                          | 2      |     | person_2   | type       | Person     | default_graph |
-| 11            | 1      | 13                                                                                                                                                                                                                                                                                                                          | 2      |     | New York   | type       | Place      | default_graph | Now, if a mutation query reads all properties and outgoing edges of a vertex named `person_1`, the node would lock the entire range defined by the prefix `S=person_1` in the SPOG index before reading the data. The range lock would place gap locks on all matching records and the first record that is not a match. Matching records would be locked, and non-matching records would not be locked. Neptune would place the gap-locks as follows: <br>• `5 1 12 2` _(gap 1)_ <br>• `5 6 3 9` _(gap 2)_ <br>• `5 8 40 2` _(gap 3)_ <br>• `5 10 11 14` _(gap 4)_ <br>• `7 1 12 2` _(gap 5)_ This locks the following records: <br>• `5 1 12 2` <br>• `5 6 3 9` <br>• `5 8 40 2` <br>• `5 10 11 14` In this state, the following operations are legitimately blocked: <br>• Insertion of a new property or edge for `S=person_1`. A new property different from `type` or a new edge would have to go in either gap 2, gap 3, gap 4, or gap 5, all of which are locked. <br>• Deletion of any of the existing records. At the same time, a few concurrent operations would be blocked falsely (generating false conflicts): <br>• Any property or edge insertions for `S=person_3` are blocked because they would have to go in gap 1. <br>• Any new vertex insertion which gets assigned an ID between 3 and 5 would be blocked because it would have to go in gap 1. <br>• Any new vertex insertion which gets assigned an ID between 5 and 7 would be blocked because it would have to go in gap 5. Gap locks are not precise enough to lock the gap for one specific predicate (for example, to lock gap5 for predicate `S=5`). The range locks are only placed in the index where the read happens. In the case above, records are locked only in the SPOG index, not in POGS or GPSO. Reads for a query may be performed across all indexes depending on the access patterns, which can be listed using the `explain` APIs (for [Sparql](sparql-explain-examples.md "sparql-explain-examples.md") and for [Gremlin](gremlin-explain.md "gremlin-explain.md")). ###### Note Gap locks can also be taken for safe concurrent updates on underlying indexes, which can also lead to false conflicts. These gap locks are placed independent of isolation level or read operations performed by the transaction. False conflicts can happen not only when _concurrent_ transactions collide because of gap locks, but also in some cases when a transaction is being retried after any sort of failure. If the roll-back that was triggered by the failure is still in progress and the locks previously taken for the transaction have not yet been fully released, the retry will encounter a false conflict and fail. Under a high load, you might typically find that 3-4% of write queries fail because of false conflicts. For an external client, such false conflicts are hard to predict, and should be handled using [retries](transactions-exceptions.md "transactions-exceptions.md"). |
+| String        | ID  |
+| ------------- | --- |
+| type          | 1   |
+| default_graph | 2   |
+| person_3      | 3   |
+| person_1      | 5   |
+| knows         | 6   |
+| person_2      | 7   |
+| age           | 8   |
+| edge_1        | 9   |
+| lives_in      | 10  |
+| New York      | 11  |
+| Person        | 12  |
+| Place         | 13  |
+| edge_2        | 14  |
+
+The strings above belong to a property-graph model, but the
+concepts apply equally to all RDF graph models as well.
+
+The corresponding state of the SPOG (Subject-Predicate-Object_Graph)
+index is shown below on the left. On the right, the corresponding strings
+are shown, to help understand what the index data means.
+
+| S (ID) | P (ID) | O (ID) | G (ID) |     | S (string) | P (string) | O (string) | G (string)    |
+| ------ | ------ | ------ | ------ | --- | ---------- | ---------- | ---------- | ------------- |
+| 3      | 1      | 12     | 2      |     | person_3   | type       | Person     | default_graph |
+| 5      | 1      | 12     | 2      |     | person_1   | type       | Person     | default_graph |
+| 5      | 6      | 3      | 9      |     | person_1   | knows      | person_3   | edge_1        |
+| 5      | 8      | 40     | 2      |     | person_1   | age        | 40         | default_graph |
+| 5      | 10     | 11     | 14     |     | person_1   | lives_in   | New York   | edge_2        |
+| 7      | 1      | 12     | 2      |     | person_2   | type       | Person     | default_graph |
+| 11     | 1      | 13     | 2      |     | New York   | type       | Place      | default_graph |
+
+Now, if a mutation query reads all properties and outgoing edges of a vertex named
+`person_1`, the node would lock the entire range defined by the prefix
+`S=person_1` in the SPOG index before reading the data. The range lock
+would place gap locks on all matching records and the first record that is not a
+match. Matching records would be locked, and non-matching records would not be
+locked. Neptune would place the gap-locks as follows:
+
+- `5 1 12 2` _(gap 1)_
+- `5 6 3 9` _(gap 2)_
+- `5 8 40 2` _(gap 3)_
+- `5 10 11 14` _(gap 4)_
+- `7 1 12 2` _(gap 5)_
+
+This locks the following records:
+
+- `5 1 12 2`
+- `5 6 3 9`
+- `5 8 40 2`
+- `5 10 11 14`
+
+In this state, the following operations are legitimately blocked:
+
+- Insertion of a new property or edge for `S=person_1`.
+  A new property different from `type` or a new edge would have
+  to go in either gap 2, gap 3, gap 4, or gap 5, all of which are locked.
+- Deletion of any of the existing records.
+
+At the same time, a few concurrent operations would be blocked falsely
+(generating false conflicts):
+
+- Any property or edge insertions for `S=person_3` are
+  blocked because they would have to go in gap 1.
+- Any new vertex insertion which gets assigned an ID between 3 and
+  5 would be blocked because it would have to go in gap 1.
+- Any new vertex insertion which gets assigned an ID between 5 and
+  7 would be blocked because it would have to go in gap 5.
+
+Gap locks are not precise enough to lock the gap for one specific predicate
+(for example, to lock gap5 for predicate `S=5`).
+
+The range locks are only placed in the index where the read happens. In the
+case above, records are locked only in the SPOG index, not in POGS or GPSO.
+Reads for a query may be performed across all indexes depending on the access
+patterns, which can be listed using the `explain` APIs (for [Sparql](sparql-explain-examples.md "sparql-explain-examples.md") and for [Gremlin](gremlin-explain.md "gremlin-explain.md")).
+
+###### Note
+
+Gap locks can also be taken for safe concurrent updates on underlying
+indexes, which can also lead to false conflicts. These gap locks are placed
+independent of isolation level or read operations performed by the transaction.
+
+False conflicts can happen not only when _concurrent_
+transactions collide because of gap locks, but also in some cases when a
+transaction is being retried after any sort of failure. If the roll-back that
+was triggered by the failure is still in progress and the locks previously
+taken for the transaction have not yet been fully released, the retry will
+encounter a false conflict and fail.
+
+Under a high load, you might typically find that 3-4% of write queries
+fail because of false conflicts. For an external client, such false conflicts
+are hard to predict, and should be handled using [retries](transactions-exceptions.md "transactions-exceptions.md").

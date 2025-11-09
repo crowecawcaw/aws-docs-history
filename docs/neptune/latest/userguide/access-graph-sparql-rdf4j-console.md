@@ -53,8 +53,45 @@ Please specify values for the following variables:
 Specify the following values:
 
 | Variable Name                                            | Value                                           |
-| -------------------------------------------------------- | ----------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| -------------------------------------------------------- | ----------------------------------------------- |
 | SPARQL query endpoint                                    | `https://`your-neptune-endpoint`:`port`/sparql` |
 | SPARQL update endpoint                                   | `https://`your-neptune-endpoint`:`port`/sparql` |
 | Local repository ID [endpoint@localhost]                 | `neptune`                                       |
-| Repository title [SPARQL endpoint repository @localhost] | `Neptune DB instance`                           | For information about finding the address of your Neptune DB instance, see the [Connecting to Amazon Neptune Endpoints](feature-overview-endpoints.md "feature-overview-endpoints.md") section. If the operation is successful, you see the following message: `Repository created` 6. At the `>` prompt, enter the following to connect to the Neptune DB instance: `open neptune` If the operation is successful, you see the following message: `Opened repository 'neptune'` You are now at the `neptune>` prompt. At this prompt, you can run queries against the Neptune graph. ###### Note Now that you have added the repository, the next time you run `bin/console.sh`, you can immediately run the `open neptune` command to connect to the Neptune DB instance. 7. At the `neptune>` prompt, enter the following to run a SPARQL query that returns up to 10 of the triples (subject-predicate-object) in the graph by using the `?s ?p ?o` query with a limit of 10. To query for something else, replace the text after the `sparql` command with another SPARQL query. `sparql select ?s ?p ?o where {?s ?p ?o} limit 10` |
+| Repository title [SPARQL endpoint repository @localhost] | `Neptune DB instance`                           |
+
+For information about finding the address of your Neptune DB instance, see the [Connecting to Amazon Neptune Endpoints](feature-overview-endpoints.md "feature-overview-endpoints.md") section.
+
+If the operation is successful, you see the following message:
+
+```
+Repository created
+```
+
+6. At the `>` prompt, enter the following to connect to the
+   Neptune DB instance:
+
+```
+open neptune
+```
+
+If the operation is successful, you see the following message:
+
+```
+Opened repository 'neptune'
+```
+
+You are now at the `neptune>` prompt. At this prompt, you can run
+queries against the Neptune graph.
+
+###### Note
+
+Now that you have added the repository, the next time you run
+`bin/console.sh`, you can immediately run the `open neptune`
+command to connect to the Neptune DB instance. 7. At the `neptune>` prompt, enter the following to run a SPARQL query that
+returns up to 10 of the triples (subject-predicate-object) in the graph by using the
+`?s ?p ?o` query with a limit of 10. To query for something else, replace the
+text after the `sparql` command with another SPARQL query.
+
+```
+sparql select ?s ?p ?o where {?s ?p ?o} limit 10
+```

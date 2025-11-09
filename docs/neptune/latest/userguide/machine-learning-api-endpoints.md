@@ -140,10 +140,95 @@ of an inference endpoint using the Neptune ML `endpoints` command
 A sample Neptune ML `endpoints` command for the status of an instance
 endpoint looks like this:
 
-````
+```
 curl -s \
   "https://`(your Neptune endpoint)`/ml/endpoints/`(the inference endpoint ID)`" \
-| python -m json.tool ``` ###### Parameters for `endpoints` instance-endpoint status <br>• **`id`**   – (*Required*) The unique identifier of the inference endpoint. *Type*: string. <br>• **`neptuneIamRoleArn`**   – (*Optional*) The ARN of an IAM role providing Neptune access to SageMaker AI and Amazon S3 resources. *Type*: string. *Note*: This must be listed in your DB cluster parameter group or an error will be thrown. ## Deleting an instance endpoint using the Neptune ML `endpoints` command A sample Neptune ML `endpoints` command for deleting an instance endpoint looks like this: ``` curl -s \ -X DELETE "https://`(your Neptune endpoint)`/ml/endpoints/`(the inference endpoint ID)`" ``` Or this: ``` curl -s \ -X DELETE "https://`(your Neptune endpoint)`/ml/endpoints/`(the inference endpoint ID)`?clean=true" ``` ###### Parameters for `endpoints` deleting an inference endpoint <br>• **`id`**   – (*Required*) The unique identifier of the inference endpoint. *Type*: string. <br>• **`neptuneIamRoleArn`**   – (*Optional*) The ARN of an IAM role providing Neptune access to SageMaker AI and Amazon S3 resources. *Type*: string. *Note*: This must be listed in your DB cluster parameter group or an error will be thrown. <br>• **`clean`**   – (*Optional*) Indicates that all artifacts related to this endpoint should also be deleted. *Type*: Boolean. *Default*: `FALSE`. ## Listing inference endpoints using the Neptune ML `endpoints` command A Neptune ML `endpoints` command for listing inference endpoints looks like this: ``` curl -s "https://`(your Neptune endpoint)`/ml/endpoints" \
-| python -m json.tool ``` Or this: ``` curl -s "https://`(your Neptune endpoint)`/ml/endpoints?maxItems=3" \
-| python -m json.tool ``` ###### Parameters for `dataprocessing` list inference endpoints <br>• **`maxItems`**   – (*Optional*) The maximum number of items to return. *Type*: integer. *Default*: `10`. *Maximum allowed value*: `1024`. <br>• **`neptuneIamRoleArn`**   – (*Optional*) The ARN of an IAM role providing Neptune access to SageMaker AI and Amazon S3 resources. *Type*: string. *Note*: This must be listed in your DB cluster parameter group or an error will be thrown.
-````
+  | python -m json.tool
+```
+
+###### Parameters for `endpoints` instance-endpoint status
+
+- **`id`**   –  
+  (_Required_) The unique identifier of the inference endpoint.
+
+_Type_: string.
+
+- **`neptuneIamRoleArn`**   –  
+  (_Optional_) The ARN of an IAM role providing Neptune access to
+  SageMaker AI and Amazon S3 resources.
+
+_Type_: string. _Note_: This must be
+listed in your DB cluster parameter group or an error will be thrown.
+
+## Deleting an instance
+
+endpoint using the Neptune ML `endpoints` command
+
+A sample Neptune ML `endpoints` command for deleting an instance
+endpoint looks like this:
+
+```
+curl -s \
+  -X DELETE "https://`(your Neptune endpoint)`/ml/endpoints/`(the inference endpoint ID)`"
+```
+
+Or this:
+
+```
+curl -s \
+  -X DELETE "https://`(your Neptune endpoint)`/ml/endpoints/`(the inference endpoint ID)`?clean=true"
+```
+
+###### Parameters for `endpoints` deleting an inference endpoint
+
+- **`id`**   –  
+  (_Required_) The unique identifier of the inference endpoint.
+
+_Type_: string.
+
+- **`neptuneIamRoleArn`**   –  
+  (_Optional_) The ARN of an IAM role providing Neptune access to
+  SageMaker AI and Amazon S3 resources.
+
+_Type_: string. _Note_: This must be
+listed in your DB cluster parameter group or an error will be thrown.
+
+- **`clean`**   –  
+  (_Optional_) Indicates that all artifacts related to
+  this endpoint should also be deleted.
+
+_Type_: Boolean. _Default_: `FALSE`.
+
+## Listing inference endpoints
+
+using the Neptune ML `endpoints` command
+
+A Neptune ML `endpoints` command for listing inference
+endpoints looks like this:
+
+```
+curl -s "https://`(your Neptune endpoint)`/ml/endpoints" \
+  | python -m json.tool
+```
+
+Or this:
+
+```
+curl -s "https://`(your Neptune endpoint)`/ml/endpoints?maxItems=3" \
+  | python -m json.tool
+```
+
+###### Parameters for `dataprocessing` list inference endpoints
+
+- **`maxItems`**   –  
+  (_Optional_) The maximum number of items to return.
+
+_Type_: integer. _Default_: `10`.
+_Maximum allowed value_: `1024`.
+
+- **`neptuneIamRoleArn`**   –  
+  (_Optional_) The ARN of an IAM role providing Neptune access to
+  SageMaker AI and Amazon S3 resources.
+
+_Type_: string. _Note_: This must be
+listed in your DB cluster parameter group or an error will be thrown.
