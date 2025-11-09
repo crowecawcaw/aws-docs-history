@@ -2,4 +2,4 @@
 
 | Date          | Change              | In sections |
 | ------------- | ------------------- | ----------- |
-| December 2018 | Initial publication |  —          |
+| December 2018 | Initial publication | —           |

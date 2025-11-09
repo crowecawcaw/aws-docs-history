@@ -51,11 +51,13 @@ Finally, you must decide on the DR architecture and understand the infrastructur
 
 Depending on your specific RTO/RPO, you can implement cold, pilot light, or hot DR architecture. The following table below provides a comparison between cold and pilot light DR for achievable RTO/RPO.
 
-| Table 3 - Cold versus Pilot light DR | DR Architecture                                            | Strategy                | RTO/RPO                                                                                                                                                                                                                                                        |
-| ------------------------------------ | ---------------------------------------------------------- | ----------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Table 3 - Cold versus Pilot light DR | DR Architecture                                            | Strategy                | RTO/RPO |
+| ------------------------------------ | ---------------------------------------------------------- | ----------------------- | ------- |
 | Cold                                 | SQL Server backup/restore                                  | High/High\*             |
 | Cold                                 | Amazon AMI                                                 | Low/High                |
 | Cold                                 | Amazon AMI with frequent DB volumes (Data & Log) snapshots | Low/Low\*               |
 | Pilot Light                          | Sync Replication (with-in primary region)                  | Low/Near-Zero           |
 | Pilot Light                          | Async Replication (in different region)                    | Low/Few Minutes         |
-| Hot                                  | Async Replication (in different region)                    | Few Minutes/Few Minutes | \*The exact time it will take to recover database in DR scenario depends on how much you need to catch up to achieve point in time required for Cold architecture. **High** – couple of hours to a day or more. **Low** –less than an hour to couple of hours. |
+| Hot                                  | Async Replication (in different region)                    | Few Minutes/Few Minutes |
+
+\*The exact time it will take to recover database in DR scenario depends on how much you need to catch up to achieve point in time required for Cold architecture. **High** – couple of hours to a day or more. **Low** –less than an hour to couple of hours.
