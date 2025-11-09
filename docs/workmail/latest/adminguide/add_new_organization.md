@@ -237,12 +237,12 @@ steps.
 
 After you create an organization, it can have one of the following states.
 
-| **State**      | Description                                                                   |
-| -------------- | ----------------------------------------------------------------------------- |
-| **Active**     | Your organization is healthy and ready for use.                               |
-| **Creating**   | A workflow is running to create your organization.                            |
-| **Failed**     | Your organization could not be created.                                       |
-| **Impaired**   | Your organization is malfunctioning or an issue has been detected.            |
-| **Inactive**   | Your organization is inactive.                                                |
-| **Requested**  | Your organization creation request is in the queue and waiting to be created. |
-| **Validating** | All settings for the organization are being health-checked.                   |
+| **State**      | Description                                                                      |
+| -------------- | -------------------------------------------------------------------------------- |
+| **Active**     | Your organization is healthy and ready for use.                                  |
+| **Creating**   | A workflow is running to create your organization.                               |
+| **Failed**     | Your organization could not be created.                                          |
+| **Impaired**   | Your organization is malfunctioning or an issue has been<br>detected.            |
+| **Inactive**   | Your organization is inactive.                                                   |
+| **Requested**  | Your organization creation request is in the queue and waiting<br>to be created. |
+| **Validating** | All settings for the organization are being<br>health-checked.                   |

@@ -81,9 +81,9 @@ _Amazon Web Services General Reference_. 2. In the navigation pane, choose **Org
 
 The following table lists the device status codes.
 
-| **Status**               | Description                                                                                                                                                                                                              |
-| ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `PROVISIONING_REQUIRED`  | A user or administrator has requested that the device be provisioned for use with Amazon WorkMail. Devices are also set to this status if the current policy for that device is modified in the Amazon WorkMail console. |
-| `PROVISIONING_SUCCEEDED` | The device has been successfully provisioned. The device has enforced the given policy.                                                                                                                                  |
-| `WIPE_REQUIRED`          | An administrator requested a wipe in the Amazon WorkMail console.                                                                                                                                                        |
-| `WIPE_SUCCEEDED`         | The device has been successfully wiped.                                                                                                                                                                                  |
+| **Status**               | Description                                                                                                                                                                                                                       |
+| ------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `PROVISIONING_REQUIRED`  | A user or administrator has requested that the device be<br>provisioned for use with Amazon WorkMail. Devices are also set to<br>this status if the current policy for that device is<br>modified in the Amazon WorkMail console. |
+| `PROVISIONING_SUCCEEDED` | The device has been successfully provisioned. The device has enforced the given policy.                                                                                                                                           |
+| `WIPE_REQUIRED`          | An administrator requested a wipe in the Amazon WorkMail<br>console.                                                                                                                                                              |
+| `WIPE_SUCCEEDED`         | The device has been successfully wiped.                                                                                                                                                                                           |

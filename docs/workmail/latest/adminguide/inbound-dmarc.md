@@ -59,4 +59,9 @@ instructions, see [Turning on email event logging](tracking.md#enable-tracking "
    /aws/workmail/events/organization-alias.
 3. Select a time period to query.
 4. Run the following query: **stats count() by event.dmarcPolicy
-   | filter event.dmarcVerdict == "FAIL"** 5. Choose **Run query**. You can also set up custom metrics for these events. For more information, see [Creating metric filters](../../../AmazonCloudWatch/latest/logs/MonitoringPolicyExample.md "../../../AmazonCloudWatch/latest/logs/MonitoringPolicyExample.md").
+   | filter event.dmarcVerdict == "FAIL"**
+5. Choose **Run query**.
+
+You can also set up custom metrics for these events. For more information, see
+[Creating metric
+filters](../../../AmazonCloudWatch/latest/logs/MonitoringPolicyExample.md "../../../AmazonCloudWatch/latest/logs/MonitoringPolicyExample.md").
