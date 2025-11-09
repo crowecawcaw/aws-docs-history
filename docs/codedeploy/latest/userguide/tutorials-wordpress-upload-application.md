@@ -145,22 +145,72 @@ application's files for the bucket
 Make sure the WordPress application files, the AppSpec file, and the scripts are
 organized on your development machine similar to the following:
 
-````
+```
 /tmp/
-|--WordPress/
-|-- appspec.yml
-|-- scripts/
-|    |-- change_permissions.sh
-|    |-- create_test_db.sh
-|    |-- install_dependencies.sh
-|    |-- start_server.sh
-|    |-- stop_server.sh
-|-- `wp-admin/`
-|    |-- `(various files...)`
-|-- `wp-content/`
-|    |-- `(various files...)`
-|-- `wp-includes/`
-|    |-- `(various files...)`
-|-- `index.php` |-- `license.txt`
-|-- `readme.html` |-- `(various files ending with .php...)` ``` ## Bundle the application's files into a single archive file and push the archive file Bundle the WordPress application files and the AppSpec file into an archive file (known as an application *revision*). ###### Note You may be charged for storing objects in a bucket and for transferring application revisions into and out of a bucket. For more information, see [Amazon S3 pricing](https://aws.amazon.com/s3/pricing/ "https://aws.amazon.com/s3/pricing/"). 1. On the development machine, switch to the folder where the files are stored: ``` cd /tmp/WordPress ``` ###### Note If you don't switch to this folder, then the file bundling will start at your current folder. For example, if your current folder is `/tmp` instead of `/tmp/WordPress`, then the bundling will start with files and subfolders in the `tmp` folder, which may include more than the `WordPress` subfolder. 2. Call the **create-application** command to register a new application named `WordPress_App`: ``` aws deploy create-application --application-name WordPress_App ``` 3. Call the CodeDeploy [push](../../../cli/latest/reference/deploy/push.md "../../../cli/latest/reference/deploy/push.md") command to bundle the files together, upload the revisions to Amazon S3, and register information with CodeDeploy about the uploaded revision, all in one action. ``` aws deploy push \ --application-name WordPress_App \ --s3-location s3://amzn-s3-demo-bucket/WordPressApp.zip \ --ignore-hidden-files ``` This command bundles the files from the current directory (excluding any hidden files) into a single archive file named `WordPressApp.zip`, uploads the revision to the `amzn-s3-demo-bucket` bucket, and registers information with CodeDeploy about the uploaded revision.
-````
+  |--WordPress/
+      |-- appspec.yml
+      |-- scripts/
+      |    |-- change_permissions.sh
+      |    |-- create_test_db.sh
+      |    |-- install_dependencies.sh
+      |    |-- start_server.sh
+      |    |-- stop_server.sh
+      |-- `wp-admin/`
+      |    |-- `(various files...)`
+      |-- `wp-content/`
+      |    |-- `(various files...)`
+      |-- `wp-includes/`
+      |    |-- `(various files...)`
+      |-- `index.php`
+      |-- `license.txt`
+      |-- `readme.html`
+      |-- `(various files ending with .php...)`
+```
+
+## Bundle the
+
+application's files into a single archive file and push the archive file
+
+Bundle the WordPress application files and the AppSpec file into an archive file (known
+as an application _revision_).
+
+###### Note
+
+You may be charged for storing objects in a bucket and for transferring application
+revisions into and out of a bucket. For more information, see [Amazon S3 pricing](https://aws.amazon.com/s3/pricing/ "https://aws.amazon.com/s3/pricing/").
+
+1. On the development machine, switch to the folder where the files are stored:
+
+```
+cd /tmp/WordPress
+```
+
+###### Note
+
+If you don't switch to this folder, then the file bundling will start at your
+current folder. For example, if your current folder is `/tmp` instead
+of `/tmp/WordPress`, then the bundling will start with files and
+subfolders in the `tmp` folder, which may include more than the
+`WordPress` subfolder. 2. Call the **create-application** command to register a new application
+named `WordPress_App`:
+
+```
+aws deploy create-application --application-name WordPress_App
+```
+
+3. Call the CodeDeploy [push](../../../cli/latest/reference/deploy/push.md "../../../cli/latest/reference/deploy/push.md") command to bundle the files together, upload the
+   revisions to Amazon S3, and register information with CodeDeploy about the uploaded revision, all in
+   one action.
+
+```
+aws deploy push \
+  --application-name WordPress_App \
+  --s3-location s3://amzn-s3-demo-bucket/WordPressApp.zip \
+  --ignore-hidden-files
+```
+
+This command bundles the files from the current directory (excluding any hidden files)
+into a single archive file named
+`WordPressApp.zip`, uploads the revision to the
+`amzn-s3-demo-bucket` bucket, and registers information
+with CodeDeploy about the uploaded revision.

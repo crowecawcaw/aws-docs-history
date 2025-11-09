@@ -27,6 +27,85 @@ You can use the console or the AWS CLI to create notification rules for AWS Code
 For more information, see [Understanding notification contents and security](../../../codestar-notifications/latest/userguide/security.md#security-notifications "../../../codestar-notifications/latest/userguide/security.md#security-notifications"). 6. In **Events that trigger notifications**, select the events for which you
 want to send notifications.
 
-| Category   | Events                   |
-| ---------- | ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Deployment | Failed Succeeded Started | 7. In **Targets**, choose **Create SNS topic**. ###### Note When you create the topic, the policy that allows CodeDeploy to publish events to the topic is applied for you. Using a topic created specifically for CodeDeploy notifications also helps ensure that you only add users to the subscription list for that topic that you want to see notifications about this deployment application. After the **codestar-notifications-** prefix,enter a name for the topic, and then choose **Submit**. ###### Note If you want to use an existing Amazon SNS topic instead of creating a new one, in **Targets**, choose its ARN. Make sure the topic has the appropriate access policy and that the subscriber list contains only those users who are allowed to see information about the deployment application. For more information, see [Configure existing Amazon SNS topics for notifications](../../../codestar-notifications/latest/userguide/set-up-sns.md "../../../codestar-notifications/latest/userguide/set-up-sns.md") and [Understanding notification contents and security](../../../codestar-notifications/latest/userguide/security.md#security-notifications "../../../codestar-notifications/latest/userguide/security.md#security-notifications"). 8. To finish creating the rule, choose **Submit**. 9. You must subscribe users to the Amazon SNS topic for the rule before they can receive notifications. For more information, see [Subscribe users to Amazon SNS topics that are targets](../../../codestar-notifications/latest/userguide/subscribe-users-sns.md "../../../codestar-notifications/latest/userguide/subscribe-users-sns.md"). You can also set up integration between notifications and Amazon Q Developer in chat applications to send notifications to Amazon Chime chatrooms or Slack channels. For more information, see [Configure integration between notifications and Amazon Q Developer in chat applications](../../../codestar-notifications/latest/userguide/notifications-chatbot.md "../../../codestar-notifications/latest/userguide/notifications-chatbot.md"). # To create a notification rule (AWS CLI) 1. At a terminal or command prompt, run the **create-notification rule** command to generate the JSON skeleton: `` aws codestar-notifications create-notification-rule --generate-cli-skeleton > `rule.json` `` You can name the file anything you want. In this example, the file is named `rule.json`. 2. Open the JSON file in a plain-text editor and edit it to include the resource, event types, and Amazon SNS target you want for the rule. The following example shows a notification rule named `MyNotificationRule` for an application named `MyDeploymentApplication` in an AWS acccount with the ID `123456789012`. Notifications are sent with the full detail type to an Amazon SNS topic named `codestar-notifications-MyNotificationTopic` when deployments are successful: ``{ "Name": "`MyNotificationRule`", "EventTypeIds": [ "codedeploy-application-deployment-succeeded" ], "Resource": "arn:aws:codebuild:`us-east-2`:`123456789012`:`MyDeploymentApplication`", "Targets": [ { "TargetType": "SNS", "TargetAddress": "arn:aws:sns:`us-east-2`:`123456789012`:`codestar-notifications-MyNotificationTopic`" } ], "Status": "ENABLED", "DetailType": "FULL" }`` Save the file. 3. Using the file you just edited, at the terminal or command line, run the **create-notification-rule** command again to create the notification rule: `` aws codestar-notifications create-notification-rule --cli-input-json  file://`rule.json` `` 4. If successful, the command returns the ARN of the notification rule, similar to the following: ``{ "Arn": "arn:aws:codestar-notifications:`us-east-1`:`123456789012`:notificationrule/dc82df7a-EXAMPLE" }`` |
+| Category   | Events                         |
+| ---------- | ------------------------------ |
+| Deployment | Failed<br>Succeeded<br>Started |
+
+7. In **Targets**, choose **Create SNS topic**.
+
+###### Note
+
+When you create the topic, the policy that allows CodeDeploy to publish events to the topic is
+applied for you. Using a topic created specifically for CodeDeploy notifications also helps ensure
+that you only add users to the subscription list for that topic that you want to see
+notifications about this deployment application.
+
+After the **codestar-notifications-** prefix,enter a name for the topic,
+and then choose **Submit**.
+
+###### Note
+
+If you want to use an existing Amazon SNS topic instead of creating a new one, in
+**Targets**, choose its ARN. Make sure the topic has the appropriate access
+policy and that the subscriber list contains only those users who are allowed to see
+information about the deployment application. For more information, see [Configure existing Amazon SNS topics for notifications](../../../codestar-notifications/latest/userguide/set-up-sns.md "../../../codestar-notifications/latest/userguide/set-up-sns.md")
+and [Understanding notification
+contents and security](../../../codestar-notifications/latest/userguide/security.md#security-notifications "../../../codestar-notifications/latest/userguide/security.md#security-notifications"). 8. To finish creating the rule, choose **Submit**. 9. You must subscribe users to the Amazon SNS topic for the rule before they can receive
+notifications. For more information, see [Subscribe users to Amazon SNS topics that are targets](../../../codestar-notifications/latest/userguide/subscribe-users-sns.md "../../../codestar-notifications/latest/userguide/subscribe-users-sns.md"). You can also set up integration
+between notifications and Amazon Q Developer in chat applications to send notifications to Amazon Chime chatrooms or Slack channels. For
+more information, see [Configure integration
+between notifications and Amazon Q Developer in chat applications](../../../codestar-notifications/latest/userguide/notifications-chatbot.md "../../../codestar-notifications/latest/userguide/notifications-chatbot.md").
+
+# To create a notification rule (AWS CLI)
+
+1. At a terminal or command prompt, run the **create-notification rule**
+   command to generate the JSON skeleton:
+
+```
+aws codestar-notifications create-notification-rule --generate-cli-skeleton > `rule.json`
+```
+
+You can name the file anything you want. In this example, the file is named
+`rule.json`. 2. Open the JSON file in a plain-text editor and edit it to include the resource, event types,
+and Amazon SNS target you want for the rule. The following example shows a notification rule named
+`MyNotificationRule` for an application named
+`MyDeploymentApplication` in an AWS acccount with the ID
+`123456789012`. Notifications are sent with the full detail
+type to an Amazon SNS topic named
+`codestar-notifications-MyNotificationTopic` when deployments are
+successful:
+
+```
+{
+    "Name": "`MyNotificationRule`",
+    "EventTypeIds": [
+        "codedeploy-application-deployment-succeeded"
+    ],
+    "Resource": "arn:aws:codebuild:`us-east-2`:`123456789012`:`MyDeploymentApplication`",
+    "Targets": [
+        {
+            "TargetType": "SNS",
+            "TargetAddress": "arn:aws:sns:`us-east-2`:`123456789012`:`codestar-notifications-MyNotificationTopic`"
+        }
+    ],
+    "Status": "ENABLED",
+    "DetailType": "FULL"
+}
+```
+
+Save the file. 3. Using the file you just edited, at the terminal or command line, run the
+**create-notification-rule** command again to create the notification
+rule:
+
+```
+aws codestar-notifications create-notification-rule --cli-input-json  file://`rule.json`
+```
+
+4. If successful, the command returns the ARN of the notification rule, similar to the
+   following:
+
+```
+{
+    "Arn": "arn:aws:codestar-notifications:`us-east-1`:`123456789012`:notificationrule/dc82df7a-EXAMPLE"
+}
+```

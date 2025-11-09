@@ -52,8 +52,20 @@ Both deployment types do not apply to all destinations. The following table list
 deployment types work with deployments to the three types of deployment destinations.
 
 | Deployment destination          | In-place | Blue/green |
-| ------------------------------- | -------- | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| ------------------------------- | -------- | ---------- |
 | Amazon EC2                      | Yes      | Yes        |
 | On-premises                     | Yes      | No         |
 | Serverless AWS Lambda functions | No       | Yes        |
-| Amazon ECS applications         | No       | Yes        | ###### Topics <br>• [Create an application for an in-place deployment (console)](applications-create-in-place.md "applications-create-in-place.md") <br>• [Create an application for a blue/green deployment (console)](applications-create-blue-green.md "applications-create-blue-green.md") <br>• [Create an application for an Amazon ECS service deployment (console)](applications-create-ecs.md "applications-create-ecs.md") <br>• [Create an application for an AWS Lambda function deployment (console)](applications-create-lambda.md "applications-create-lambda.md") <br>• [Create an application (CLI)](applications-create-cli.md "applications-create-cli.md") |
+| Amazon ECS applications         | No       | Yes        |
+
+###### Topics
+
+- [Create an application for an in-place
+  deployment (console)](applications-create-in-place.md "applications-create-in-place.md")
+- [Create an application for a blue/green
+  deployment (console)](applications-create-blue-green.md "applications-create-blue-green.md")
+- [Create an application for an
+  Amazon ECS service deployment (console)](applications-create-ecs.md "applications-create-ecs.md")
+- [Create an application for an AWS Lambda
+  function deployment (console)](applications-create-lambda.md "applications-create-lambda.md")
+- [Create an application (CLI)](applications-create-cli.md "applications-create-cli.md")

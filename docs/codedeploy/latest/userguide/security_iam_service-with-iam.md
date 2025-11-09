@@ -130,11 +130,87 @@ subresources have unique ARNs associated with them. For more information,
 see [Amazon resource
 names (ARNs)](../../../general/latest/gr/aws-arns-and-namespaces.md "../../../general/latest/gr/aws-arns-and-namespaces.md") in the _Amazon Web Services General Reference_.
 
-| Resource type                                                                   | ARN format                                                                                            |
-| ------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Deployment group                                                                | `arn:aws:codedeploy:`region`:`account-id`:deploymentgroup:`application-name`/`deployment-group-name`` |
-| Application                                                                     | `arn:aws:codedeploy:`region`:`account-id`:application:`application-name``                             |
-| Deployment configuration                                                        | `arn:aws:codedeploy:`region`:`account-id`:deploymentconfig:`deployment-configuration-name``           |
-| Instance                                                                        | `arn:aws:codedeploy:`region`:`account-id`:instance/`instance-ID``                                     |
-| All CodeDeploy resources                                                        | `arn:aws:codedeploy:*`                                                                                |
-| All CodeDeploy resources owned by the specified account in the specified Region | `arn:aws:codedeploy:`region`:`account-id`:*`                                                          | ###### Note Most services in AWS treat a colon (:) or a forward slash (/) as the same character in ARNs. However, CodeDeploy uses an exact match in resource patterns and rules. Be sure to use the correct ARN characters when you create event patterns so that they match the ARN syntax in the resource. ### Condition keys CodeDeploy does not provide any service-specific condition keys, but it does support the use of some global condition keys. For more information, see [AWS global condition context keys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md") in the _IAM User Guide_. ### Examples To view examples of CodeDeploy identity-based policies, see [AWS CodeDeploy identity-based policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md"). ## CodeDeploy resource-based policies CodeDeploy does not support resource-based policies. To view an example of a detailed resource-based policy page, see [Using resource-based policies for AWS Lambda](../../../lambda/latest/dg/access-control-resource-based.md "../../../lambda/latest/dg/access-control-resource-based.md"). ## Authorization based on CodeDeploy tags CodeDeploy does not support tagging resources or controlling access based on tags. ## CodeDeploy IAM roles An [IAM role](../../../IAM/latest/UserGuide/id_roles.md "../../../IAM/latest/UserGuide/id_roles.md") is an entity in your AWS account that has specific permissions. ### Using temporary credentials with CodeDeploy You can use temporary credentials to sign in with federation, assume an IAM role, or to assume a cross-account role. You obtain temporary security credentials by calling AWS STS API operations such as [AssumeRole](../../../STS/latest/APIReference/API_AssumeRole.md "../../../STS/latest/APIReference/API_AssumeRole.md") or [GetFederationToken](../../../STS/latest/APIReference/API_GetFederationToken.md "../../../STS/latest/APIReference/API_GetFederationToken.md"). CodeDeploy supports the use of temporary credentials. ### Service-linked roles CodeDeploy does not support service-linked roles. ### Service roles This feature allows a service to assume a [service role](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-role "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-role") on your behalf. This role allows the service to access resources in other services to complete an action on your behalf. Service roles appear in your AWS account and are owned by the account. This means that a user can change the permissions for this role. However, doing so might break the functionality of the service. CodeDeploy supports service roles. ### Choosing an IAM role in CodeDeploy When you create a deployment group resource in CodeDeploy, you must choose a role to allow CodeDeploy to access Amazon EC2 on your behalf. If you have previously created a service role or service-linked role, CodeDeploy provides you with a list of roles to choose from. It's important to choose a role that allows access to start and stop EC2 instances. |
+| Resource type                                                                      | ARN format                                                                                            |
+| ---------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| Deployment group                                                                   | `arn:aws:codedeploy:`region`:`account-id`:deploymentgroup:`application-name`/`deployment-group-name`` |
+| Application                                                                        | `arn:aws:codedeploy:`region`:`account-id`:application:`application-name``                             |
+| Deployment configuration                                                           | `arn:aws:codedeploy:`region`:`account-id`:deploymentconfig:`deployment-configuration-name``           |
+| Instance                                                                           | `arn:aws:codedeploy:`region`:`account-id`:instance/`instance-ID``                                     |
+| All CodeDeploy resources                                                           | `arn:aws:codedeploy:*`                                                                                |
+| All CodeDeploy resources owned by the specified<br>account in the specified Region | `arn:aws:codedeploy:`region`:`account-id`:*`                                                          |
+
+###### Note
+
+Most services in AWS treat a colon (:) or a forward slash (/) as the
+same character in ARNs. However, CodeDeploy uses an exact match in
+resource patterns and rules. Be sure to use the correct ARN characters
+when you create event patterns so that they match the ARN syntax in the
+resource.
+
+### Condition keys
+
+CodeDeploy does not provide any service-specific condition keys, but it
+does support the use of some global condition keys. For more information, see
+[AWS
+global condition context keys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md") in the
+_IAM User Guide_.
+
+### Examples
+
+To view examples of CodeDeploy identity-based policies, see [AWS CodeDeploy
+identity-based policy examples](security_iam_id-based-policy-examples.md "security_iam_id-based-policy-examples.md").
+
+## CodeDeploy resource-based policies
+
+CodeDeploy does not support resource-based policies. To view an example of a
+detailed resource-based policy page, see [Using resource-based policies for AWS Lambda](../../../lambda/latest/dg/access-control-resource-based.md "../../../lambda/latest/dg/access-control-resource-based.md").
+
+## Authorization based on
+
+CodeDeploy tags
+
+CodeDeploy does not support tagging resources or controlling access based on
+tags.
+
+## CodeDeploy IAM
+
+roles
+
+An [IAM role](../../../IAM/latest/UserGuide/id_roles.md "../../../IAM/latest/UserGuide/id_roles.md") is an entity in
+your AWS account that has specific permissions.
+
+### Using temporary
+
+credentials with CodeDeploy
+
+You can use temporary credentials to sign in with federation, assume an IAM
+role, or to assume a cross-account role. You obtain temporary security
+credentials by calling AWS STS API operations such as [AssumeRole](../../../STS/latest/APIReference/API_AssumeRole.md "../../../STS/latest/APIReference/API_AssumeRole.md") or [GetFederationToken](../../../STS/latest/APIReference/API_GetFederationToken.md "../../../STS/latest/APIReference/API_GetFederationToken.md").
+
+CodeDeploy supports the use of temporary credentials.
+
+### Service-linked roles
+
+CodeDeploy does not support service-linked roles.
+
+### Service
+
+roles
+
+This feature allows a service to assume a [service role](../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-role "../../../IAM/latest/UserGuide/id_roles_terms-and-concepts.md#iam-term-service-role") on your behalf. This role allows the service to access
+resources in other services to complete an action on your behalf. Service roles
+appear in your AWS account and are owned by the account. This means that a
+user can change the permissions for this role. However, doing so might break the
+functionality of the service.
+
+CodeDeploy supports service roles.
+
+### Choosing an IAM
+
+role in CodeDeploy
+
+When you create a deployment group resource in CodeDeploy, you must
+choose a role to allow CodeDeploy to access Amazon EC2 on your behalf. If you
+have previously created a service role or service-linked role, CodeDeploy
+provides you with a list of roles to choose from. It's important to choose a
+role that allows access to start and stop EC2 instances.

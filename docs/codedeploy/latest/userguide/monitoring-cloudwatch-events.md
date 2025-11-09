@@ -56,6 +56,31 @@ TerminateInstances API call`)
      state(s)**, and then choose one or more status values from the list. The
      following table lists the status values you can choose:
 
-| Deployment status values                | Instance status values      |
-| --------------------------------------- | --------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| FAILURE START STOP QUEUED READY SUCCESS | FAILURE START READY SUCCESS | 6. Specify which CodeDeploy applications the rule applies to: <br>• To make a rule that applies to all applications, choose **Any application**, and then skip to step 8. <br>• To make a rule that applies to one application only, choose **Specific application**, and then choose the name of the application from the list. 7. Specify which deployment groups the rule applies to: <br>• To make a rule that applies to all deployment groups associated with the selected application, choose **Any deployment group**. <br>• To make a rule that applies to only one of the deployment groups associated with the selected application, choose **Specific deployment group(s)**, and then choose the name of the deployment group from the list. 8. Review your rule setup to make sure it meets your event-monitoring requirements. 9. In the **Targets** area, choose **Add target\***. 10. In the **Select target type** list, choose the type of target you have prepared to use with this rule, and then configure any additional options required by that type. 11. Choose **Configure details**. 12. On the **Configure rule details** page, type a name and description for the rule, and then choose the **State** box to enable to rule now. 13. If you're satisfied with the rule, choose **Create rule**. |
+   | Deployment status values                               | Instance status values               |
+   | ------------------------------------------------------ | ------------------------------------ |
+   | FAILURE<br>START<br>STOP<br>QUEUED<br>READY<br>SUCCESS | FAILURE<br>START<br>READY<br>SUCCESS |
+
+6. Specify which CodeDeploy applications the rule applies to:
+   - To make a rule that applies to all applications, choose **Any
+     application**, and then skip to step 8.
+   - To make a rule that applies to one application only, choose **Specific
+     application**, and then choose the name of the application from the
+     list.
+
+7. Specify which deployment groups the rule applies to:
+   - To make a rule that applies to all deployment groups associated with the selected
+     application, choose **Any deployment group**.
+   - To make a rule that applies to only one of the deployment groups associated with the
+     selected application, choose **Specific deployment group(s)**, and then
+     choose the name of the deployment group from the list.
+
+8. Review your rule setup to make sure it meets your event-monitoring requirements.
+9. In the **Targets** area, choose **Add
+   target\***.
+10. In the **Select target type** list, choose the type of target you have
+    prepared to use with this rule, and then configure any additional options required by that
+    type.
+11. Choose **Configure details**.
+12. On the **Configure rule details** page, type a name and description for
+    the rule, and then choose the **State** box to enable to rule now.
+13. If you're satisfied with the rule, choose **Create rule**.

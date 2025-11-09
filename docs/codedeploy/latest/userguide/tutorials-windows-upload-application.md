@@ -170,11 +170,55 @@ application's files for the bucket
 Make sure the web page, the AppSpec file, and the script are organized on your
 development machine like this:
 
-````
+```
 c:\
-|-- temp\
-|--HelloWorldApp\
-|-- appspec.yml
-|-- before-install.bat
-|-- index.html ``` ## Bundle the application's files into a single archive file and push the archive file Bundle the files into an archive file (known as an application *revision*). ###### Note You may be charged for storing objects in a bucket and for transferring application revisions into and out of a bucket. For more information, see [Amazon S3 pricing](https://aws.amazon.com/s3/pricing/ "https://aws.amazon.com/s3/pricing/"). 1. On the development machine, switch to the folder where the files are stored: ``` cd c:\temp\HelloWorldApp ``` ###### Note If you don't switch to this folder, then the file bundling will start at your current folder. For example, if your current folder is `c:\temp` instead of `c:\temp\HelloWorldApp`, the bundling will start with files and subfolders in the `c:\temp` folder, which may include more than the `HelloWorldApp` subfolder. 2. Call the **create-application** command to register a new application named `HelloWorld_App` with CodeDeploy: ``` aws deploy create-application --application-name HelloWorld_App ``` 3. Call the CodeDeploy [push](../../../cli/latest/reference/deploy/push.md "../../../cli/latest/reference/deploy/push.md") command to bundle the files together, upload the revisions to Amazon S3, and register information with CodeDeploy about the uploaded revision, all in one action. ``` aws deploy push --application-name HelloWorld_App --s3-location s3://amzn-s3-demo-bucket/HelloWorld_App.zip --ignore-hidden-files ``` This command bundles the files from the current directory (excluding any hidden files) into a single archive file named `HelloWorld_App.zip`, uploads the revision to the `amzn-s3-demo-bucket` bucket, and registers information with CodeDeploy about the uploaded revision.
-````
+  |-- temp\
+        |--HelloWorldApp\
+             |-- appspec.yml
+             |-- before-install.bat
+             |-- index.html
+```
+
+## Bundle the
+
+application's files into a single archive file and push the archive file
+
+Bundle the files into an archive file (known as an application
+_revision_).
+
+###### Note
+
+You may be charged for storing objects in a bucket and for transferring application
+revisions into and out of a bucket. For more information, see [Amazon S3 pricing](https://aws.amazon.com/s3/pricing/ "https://aws.amazon.com/s3/pricing/").
+
+1. On the development machine, switch to the folder where the files are stored:
+
+```
+cd c:\temp\HelloWorldApp
+```
+
+###### Note
+
+If you don't switch to this folder, then the file bundling will start at your
+current folder. For example, if your current folder is `c:\temp`
+instead of `c:\temp\HelloWorldApp`, the bundling will start with
+files and subfolders in the `c:\temp` folder, which may include more
+than the `HelloWorldApp` subfolder. 2. Call the **create-application** command to register a new application
+named `HelloWorld_App` with CodeDeploy:
+
+```
+aws deploy create-application --application-name HelloWorld_App
+```
+
+3. Call the CodeDeploy [push](../../../cli/latest/reference/deploy/push.md "../../../cli/latest/reference/deploy/push.md") command to bundle the files together, upload the
+   revisions to Amazon S3, and register information with CodeDeploy about the uploaded revision, all in
+   one action.
+
+```
+aws deploy push --application-name HelloWorld_App --s3-location s3://amzn-s3-demo-bucket/HelloWorld_App.zip --ignore-hidden-files
+```
+
+This command bundles the files from the current directory (excluding any hidden files)
+into a single archive file named `HelloWorld_App.zip`, uploads the
+revision to the `amzn-s3-demo-bucket` bucket, and
+registers information with CodeDeploy about the uploaded revision.

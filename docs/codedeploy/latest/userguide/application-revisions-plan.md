@@ -15,18 +15,22 @@ instances or scripts to be run on the instances.
 For example, at the `/tmp/` root folder in Linux, macOS, or Unix or the
 `c:\temp` root folder in Windows:
 
-````
+```
 /tmp/ or c:\temp (root folder)
-|--content (subfolder)
-|    |--myTextFile.txt
-|    |--mySourceFile.rb
-|    |--myExecutableFile.exe
-|    |--myInstallerFile.msi
-|    |--myPackage.rpm
-|    |--myImageFile.png
-|--scripts (subfolder)
-|    |--myShellScript.sh
-|    |--myBatchScript.bat
-|    |--myPowerShellScript.ps1
-|--appspec.yml ``` The root folder should also include an application specification file (AppSpec file), as shown here. For more information, see [Add an application specification file to a revision for CodeDeploy](application-revisions-appspec-file.md "application-revisions-appspec-file.md").
-````
+  |--content (subfolder)
+  |    |--myTextFile.txt
+  |    |--mySourceFile.rb
+  |    |--myExecutableFile.exe
+  |    |--myInstallerFile.msi
+  |    |--myPackage.rpm
+  |    |--myImageFile.png
+  |--scripts (subfolder)
+  |    |--myShellScript.sh
+  |    |--myBatchScript.bat
+  |    |--myPowerShellScript.ps1
+  |--appspec.yml
+```
+
+The root folder should also include an application specification file (AppSpec file), as shown
+here. For more information, see [Add an application specification file to a
+revision for CodeDeploy](application-revisions-appspec-file.md "application-revisions-appspec-file.md").

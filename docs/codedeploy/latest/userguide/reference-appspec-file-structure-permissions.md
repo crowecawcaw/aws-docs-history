@@ -158,15 +158,146 @@ the `object`, `pattern`, `except`, `owner`,
 Ubuntu Server, and RHEL instances only. In this example, assume the following files and
 folders are copied to the instance in this hierarchy:
 
-````
+```
 /tmp
   `-- my-app
-|-- my-file-1.txt
-|-- my-file-2.txt
-|-- my-file-3.txt
-|-- my-folder-1
-|     |-- my-file-4.txt
-|     |-- my-file-5.txt
-|     `-- my-file-6.txt `-- my-folder-2 |-- my-file-7.txt
-|-- my-file-8.txt |-- my-file-9.txt `-- my-folder-3 ``` The following AppSpec file shows how to set permissions on these files and folders after they are copied: ``` version: 0.0 os: linux # Copy over all of the folders and files with the permissions they #  were originally assigned. files: <br>• source: ./my-file-1.txt destination: /tmp/my-app <br>• source: ./my-file-2.txt destination: /tmp/my-app <br>• source: ./my-file-3.txt destination: /tmp/my-app <br>• source: ./my-folder-1 destination: /tmp/my-app/my-folder-1 <br>• source: ./my-folder-2 destination: /tmp/my-app/my-folder-2 # 1) For all of the files in the /tmp/my-app folder ending in -3.txt #  (for example, just my-file-3.txt), owner = adm, group = wheel, and #  mode = 464 (-r--rw-r--). permissions: <br>• object: /tmp/my-app pattern: "*-3.txt" owner: adm group: wheel mode: 464 type: <br>• file # 2) For all of the files ending in .txt in the /tmp/my-app #  folder, but not for the file my-file-3.txt (for example, #  just my-file-1.txt and my-file-2.txt), #  owner = ec2-user and mode = 444 (-r--r--r--). <br>• object: /tmp/my-app pattern: "*.txt" except: [my-file-3.txt] owner: ec2-user mode: 444 type: <br>• file # 3) For all the files in the /tmp/my-app/my-folder-1 folder except #  for my-file-4.txt and my-file-5.txt, (for example, #  just my-file-6.txt), owner = operator and mode = 646 (-rw-r--rw-). <br>• object: /tmp/my-app/my-folder-1 pattern: "**" except: [my-file-4.txt, my-file-5.txt] owner: operator mode: 646 type: <br>• file # 4) For all of the files that are immediately under #  the /tmp/my-app/my-folder-2 folder except for my-file-8.txt, #  (for example, just my-file-7.txt and #  my-file-9.txt), owner = ec2-user and mode = 777 (-rwxrwxrwx). <br>• object: /tmp/my-app/my-folder-2 pattern: "**" except: [my-file-8.txt] owner: ec2-user mode: 777 type: <br>• file # 5) For all folders at any level under /tmp/my-app that contain #  the name my-folder but not #  /tmp/my-app/my-folder-2/my-folder-3 (for example, just #  /tmp/my-app/my-folder-1 and /tmp/my-app/my-folder-2), #  owner = ec2-user and mode = 555 (dr-xr-xr-x). <br>• object: /tmp/my-app pattern: "*my-folder*" except: [tmp/my-app/my-folder-2/my-folder-3] owner: ec2-user mode: 555 type: <br>• directory # 6) For the folder /tmp/my-app/my-folder-2/my-folder-3, #  group = wheel and mode = 564 (dr-xrw-r--). <br>• object: /tmp/my-app/my-folder-2/my-folder-3 group: wheel mode: 564 type: <br>• directory ``` The resulting permissions are as follows: ``` -r--r--r-- ec2-user root  my-file-1.txt -r--r--r-- ec2-user root  my-file-2.txt -r--rw-r-- adm      wheel my-file-3.txt dr-xr-xr-x ec2-user root  my-folder-1 -rw-r--r-- root     root  my-file-4.txt -rw-r--r-- root     root  my-file-5.txt -rw-r--rw- operator root  my-file-6.txt dr-xr-xr-x ec2-user root  my-folder-2 -rwxrwxrwx ec2-user root  my-file-7.txt -rw-r--r-- root     root  my-file-8.txt -rwxrwxrwx ec2-user root  my-file-9.txt dr-xrw-r-- root     wheel my-folder-3 ``` The following example shows how to specify the `'permissions'` section with the addition of the `acls` and `context` instructions. This example applies to Amazon Linux, Ubuntu Server, and RHEL instances only. ``` permissions: <br>• object: /var/www/html/WordPress pattern: "**" except: [/var/www/html/WordPress/ReadMe.txt] owner: bob group: writers mode: 644 acls: <br>• u:mary:rw <br>• u:sam:rw <br>• m::rw context: user: unconfined_u type: httpd_sys_content_t range: s0 type: <br>• file ```
-````
+       |-- my-file-1.txt
+       |-- my-file-2.txt
+       |-- my-file-3.txt
+       |-- my-folder-1
+       |     |-- my-file-4.txt
+       |     |-- my-file-5.txt
+       |     `-- my-file-6.txt
+       `-- my-folder-2
+             |-- my-file-7.txt
+             |-- my-file-8.txt
+             |-- my-file-9.txt
+	           `-- my-folder-3
+```
+
+The following AppSpec file shows how to set permissions on these files and folders
+after they are copied:
+
+```
+version: 0.0
+os: linux
+# Copy over all of the folders and files with the permissions they
+#  were originally assigned.
+files:
+  - source: ./my-file-1.txt
+    destination: /tmp/my-app
+  - source: ./my-file-2.txt
+    destination: /tmp/my-app
+  - source: ./my-file-3.txt
+    destination: /tmp/my-app
+  - source: ./my-folder-1
+    destination: /tmp/my-app/my-folder-1
+  - source: ./my-folder-2
+    destination: /tmp/my-app/my-folder-2
+# 1) For all of the files in the /tmp/my-app folder ending in -3.txt
+#  (for example, just my-file-3.txt), owner = adm, group = wheel, and
+#  mode = 464 (-r--rw-r--).
+permissions:
+  - object: /tmp/my-app
+    pattern: "*-3.txt"
+    owner: adm
+    group: wheel
+    mode: 464
+    type:
+      - file
+# 2) For all of the files ending in .txt in the /tmp/my-app
+#  folder, but not for the file my-file-3.txt (for example,
+#  just my-file-1.txt and my-file-2.txt),
+#  owner = ec2-user and mode = 444 (-r--r--r--).
+  - object: /tmp/my-app
+    pattern: "*.txt"
+    except: [my-file-3.txt]
+    owner: ec2-user
+    mode: 444
+    type:
+      - file
+# 3) For all the files in the /tmp/my-app/my-folder-1 folder except
+#  for my-file-4.txt and my-file-5.txt, (for example,
+#  just my-file-6.txt), owner = operator and mode = 646 (-rw-r--rw-).
+  - object: /tmp/my-app/my-folder-1
+    pattern: "**"
+    except: [my-file-4.txt, my-file-5.txt]
+    owner: operator
+    mode: 646
+    type:
+      - file
+# 4) For all of the files that are immediately under
+#  the /tmp/my-app/my-folder-2 folder except for my-file-8.txt,
+#  (for example, just my-file-7.txt and
+#  my-file-9.txt), owner = ec2-user and mode = 777 (-rwxrwxrwx).
+  - object: /tmp/my-app/my-folder-2
+    pattern: "**"
+    except: [my-file-8.txt]
+    owner: ec2-user
+    mode: 777
+    type:
+      - file
+# 5) For all folders at any level under /tmp/my-app that contain
+#  the name my-folder but not
+#  /tmp/my-app/my-folder-2/my-folder-3 (for example, just
+#  /tmp/my-app/my-folder-1 and /tmp/my-app/my-folder-2),
+#  owner = ec2-user and mode = 555 (dr-xr-xr-x).
+  - object: /tmp/my-app
+    pattern: "*my-folder*"
+    except: [tmp/my-app/my-folder-2/my-folder-3]
+    owner: ec2-user
+    mode: 555
+    type:
+      - directory
+# 6) For the folder /tmp/my-app/my-folder-2/my-folder-3,
+#  group = wheel and mode = 564 (dr-xrw-r--).
+  - object: /tmp/my-app/my-folder-2/my-folder-3
+    group: wheel
+    mode: 564
+    type:
+      - directory
+```
+
+The resulting permissions are as follows:
+
+```
+-r--r--r-- ec2-user root  my-file-1.txt
+-r--r--r-- ec2-user root  my-file-2.txt
+-r--rw-r-- adm      wheel my-file-3.txt
+
+dr-xr-xr-x ec2-user root  my-folder-1
+-rw-r--r-- root     root  my-file-4.txt
+-rw-r--r-- root     root  my-file-5.txt
+-rw-r--rw- operator root  my-file-6.txt
+
+dr-xr-xr-x ec2-user root  my-folder-2
+-rwxrwxrwx ec2-user root  my-file-7.txt
+-rw-r--r-- root     root  my-file-8.txt
+-rwxrwxrwx ec2-user root  my-file-9.txt
+
+dr-xrw-r-- root     wheel my-folder-3
+```
+
+The following example shows how to specify the `'permissions'` section with
+the addition of the `acls` and `context` instructions. This example
+applies to Amazon Linux, Ubuntu Server, and RHEL instances only.
+
+```
+permissions:
+  - object: /var/www/html/WordPress
+    pattern: "**"
+    except: [/var/www/html/WordPress/ReadMe.txt]
+    owner: bob
+    group: writers
+    mode: 644
+    acls:
+      - u:mary:rw
+      - u:sam:rw
+      - m::rw
+    context:
+      user: unconfined_u
+      type: httpd_sys_content_t
+      range: s0
+    type:
+      - file
+```

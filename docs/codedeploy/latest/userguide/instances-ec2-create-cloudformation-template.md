@@ -72,7 +72,7 @@ URL**. In the box, type the location of the AWS CloudFormation template for your
 then choose **Next**.
 
 | Region                           | Location of AWS CloudFormation template                                                                                    |
-| -------------------------------- | -------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| -------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
 | US East (Ohio) Region            | `http://s3-us-east-2.amazonaws.com/aws-codedeploy-us-east-2/templates/latest/CodeDeploy_SampleCF_Template.json`            |
 | US East (N. Virginia) Region     | `http://s3.amazonaws.com/aws-codedeploy-us-east-1/templates/latest/CodeDeploy_SampleCF_Template.json`                      |
 | US West (N. California) Region   | `http://s3-us-west-1.amazonaws.com/aws-codedeploy-us-west-1/templates/latest/CodeDeploy_SampleCF_Template.json`            |
@@ -90,9 +90,91 @@ then choose **Next**.
 | Asia Pacific (Sydney) Region     | `http://s3-ap-southeast-2.amazonaws.com/aws-codedeploy-ap-southeast-2/templates/latest/CodeDeploy_SampleCF_Template.json`  |
 | Asia Pacific (Melbourne) Region  | `https://aws-codedeploy-ap-southeast-4.s3.ap-southeast-4.amazonaws.com/templates/latest/CodeDeploy_SampleCF_Template.json` |
 | Asia Pacific (Mumbai) Region     | `http://s3-ap-south-1.amazonaws.com/aws-codedeploy-ap-south-1/templates/latest/CodeDeploy_SampleCF_Template.json`          |
-| South America (São Paulo) Region | `aws-codedeploy-ap-northeast-1.s3.sa-east-1.amazonaws.com/templates/latest/CodeDeploy_SampleCF_Template.json`              | 4. In the **Stack name** box, type a name for the stack (for example, `CodeDeployDemoStack`). 5. In **Parameters**, type the following, and then choose **Next**. <br>• For **InstanceCount**, type the number of instances you want to launch. (We recommend you leave the default of **1**.) <br>• For **InstanceType**, type the instance type you want to launch (or leave the default of **t1.micro**). <br>• For **KeyPairName**, type the instance key pair name. Type the key pair name only, not the key pair file extension. <br>• For **OperatingSystem** box, type `Windows` to launch instances running Windows Server (or leave the default of **Linux**). <br>• For **SSHLocation**, type the IP address range to use for connecting to the instance with SSH or RDP (or leave the default of **0.0.0.0/0**). ###### Important The default of `0.0.0.0/0` is provided for demonstration purposes only. CodeDeploy does not require Amazon EC2 instances to have unrestricted access to ports. As a best practice, we recommend restricting access to SSH (and HTTP) ports. For more information, see [Tips for securing your Amazon EC2 instance](https://aws.amazon.com/articles/1233 "https://aws.amazon.com/articles/1233"). <br>• For **TagKey**, type the instance tag key CodeDeploy will use to identify the instances during deployment (or leave the default of **Name**). <br>• For **TagValue**, type the instance tag value CodeDeploy will use to identify the instances during deployment (or leave the default of **CodeDeployDemo**). 6. On the **Options** page, leave the option boxes blank, and choose **Next**. ###### Important AWS CloudFormation tags are different from CodeDeploy tags. AWS CloudFormation uses tags to simplify administration of your infrastructure. CodeDeploy uses tags to identify Amazon EC2 instances. You specified CodeDeploy tags on the **Specify Parameters** page. 7. On the **Review** page, in **Capabilities**, select the **I acknowledge that AWS CloudFormation might create IAM resources** box, and then choose **Create**. After AWS CloudFormation has created the stack and launched the Amazon EC2 instances, in the AWS CloudFormation console, **CREATE_COMPLETE** will be displayed in the **Status** column. This process can take several minutes. To verify the CodeDeploy agent is running on the Amazon EC2 instances, see [Managing CodeDeploy agent operations](codedeploy-agent-operations.md "codedeploy-agent-operations.md"), and then proceed to [Create an application with CodeDeploy](applications-create.md "applications-create.md"). ## Launch an Amazon EC2 instance with the AWS CloudFormation template (AWS CLI) 1. Use our AWS CloudFormation template in a call to the **create-stack** command. This stack will launch a new Amazon EC2 instance with the CodeDeploy agent installed. To launch an Amazon EC2 instance running Amazon Linux: ``aws cloudformation create-stack \ --stack-name CodeDeployDemoStack \ --template-url `templateURL` \ --parameters ParameterKey=InstanceCount,ParameterValue=1 ParameterKey=InstanceType,ParameterValue=t1.micro \ ParameterKey=KeyPairName,ParameterValue=`keyName` ParameterKey=OperatingSystem,ParameterValue=Linux \ ParameterKey=SSHLocation,ParameterValue=0.0.0.0/0 ParameterKey=TagKey,ParameterValue=Name \ ParameterKey=TagValue,ParameterValue=CodeDeployDemo \ --capabilities CAPABILITY_IAM`` To launch an Amazon EC2 instance running Windows Server: ``aws cloudformation create-stack --stack-name CodeDeployDemoStack --template-url `template-url` --parameters ParameterKey=InstanceCount,ParameterValue=1 ParameterKey=InstanceType,ParameterValue=t1.micro ParameterKey=KeyPairName,ParameterValue=`keyName` ParameterKey=OperatingSystem,ParameterValue=Windows ParameterKey=SSHLocation,ParameterValue=0.0.0.0/0 ParameterKey=TagKey,ParameterValue=Name ParameterKey=TagValue,ParameterValue=CodeDeployDemo --capabilities CAPABILITY_IAM`` `keyName` is the instance key pair name. Type the key pair name only, not the key pair file extension. `template-url` is the location of the AWS CloudFormation template for your region: |
+| South America (São Paulo) Region | `aws-codedeploy-ap-northeast-1.s3.sa-east-1.amazonaws.com/templates/latest/CodeDeploy_SampleCF_Template.json`              |
+
+4. In the **Stack name** box, type a name for the stack (for example,
+   `CodeDeployDemoStack`).
+5. In **Parameters**, type the following, and then choose
+   **Next**.
+   - For **InstanceCount**, type the number of instances you want to
+     launch. (We recommend you leave the default of **1**.)
+   - For **InstanceType**, type the instance type you want to launch
+     (or leave the default of **t1.micro**).
+   - For **KeyPairName**, type the instance key pair name. Type the
+     key pair name only, not the key pair file extension.
+   - For **OperatingSystem** box, type `Windows`
+     to launch instances running Windows Server (or leave the default of
+     **Linux**).
+   - For **SSHLocation**, type the IP address range to use for
+     connecting to the instance with SSH or RDP (or leave the default of
+     **0.0.0.0/0**).
+
+   ###### Important
+
+   The default of `0.0.0.0/0` is
+   provided for demonstration purposes only. CodeDeploy does not require Amazon EC2 instances to
+   have unrestricted access to ports. As a best practice, we recommend restricting
+   access to SSH (and HTTP) ports. For more information, see [Tips for securing your Amazon EC2
+   instance](https://aws.amazon.com/articles/1233 "https://aws.amazon.com/articles/1233").
+   - For **TagKey**, type the instance tag key CodeDeploy will use to
+     identify the instances during deployment (or leave the default of
+     **Name**).
+   - For **TagValue**, type the instance tag value CodeDeploy will use to
+     identify the instances during deployment (or leave the default of
+     **CodeDeployDemo**).
+
+6. On the **Options** page, leave the option boxes blank, and choose
+   **Next**.
+
+###### Important
+
+AWS CloudFormation tags are different from CodeDeploy tags. AWS CloudFormation uses tags to simplify administration
+of your infrastructure. CodeDeploy uses tags to identify Amazon EC2 instances. You specified CodeDeploy
+tags on the **Specify Parameters** page. 7. On the **Review** page, in **Capabilities**, select
+the **I acknowledge that AWS CloudFormation might create IAM resources** box, and
+then choose **Create**.
+
+After AWS CloudFormation has created the stack and launched the Amazon EC2 instances, in the AWS CloudFormation
+console, **CREATE_COMPLETE** will be displayed in the
+**Status** column. This process can take several minutes.
+
+To verify the CodeDeploy agent is running on the Amazon EC2 instances, see [Managing CodeDeploy agent operations](codedeploy-agent-operations.md "codedeploy-agent-operations.md"), and
+then proceed to [Create an application with CodeDeploy](applications-create.md "applications-create.md").
+
+## Launch an Amazon EC2 instance
+
+with the AWS CloudFormation template (AWS CLI)
+
+1. Use our AWS CloudFormation template in a call to the **create-stack** command. This
+   stack will launch a new Amazon EC2 instance with the CodeDeploy agent installed.
+
+To launch an Amazon EC2 instance running Amazon Linux:
+
+```
+aws cloudformation create-stack \
+  --stack-name CodeDeployDemoStack \
+  --template-url `templateURL` \
+  --parameters ParameterKey=InstanceCount,ParameterValue=1 ParameterKey=InstanceType,ParameterValue=t1.micro \
+    ParameterKey=KeyPairName,ParameterValue=`keyName` ParameterKey=OperatingSystem,ParameterValue=Linux \
+    ParameterKey=SSHLocation,ParameterValue=0.0.0.0/0 ParameterKey=TagKey,ParameterValue=Name \
+    ParameterKey=TagValue,ParameterValue=CodeDeployDemo \
+  --capabilities CAPABILITY_IAM
+```
+
+To launch an Amazon EC2 instance running Windows Server:
+
+```
+aws cloudformation create-stack --stack-name CodeDeployDemoStack --template-url `template-url` --parameters ParameterKey=InstanceCount,ParameterValue=1 ParameterKey=InstanceType,ParameterValue=t1.micro ParameterKey=KeyPairName,ParameterValue=`keyName` ParameterKey=OperatingSystem,ParameterValue=Windows ParameterKey=SSHLocation,ParameterValue=0.0.0.0/0 ParameterKey=TagKey,ParameterValue=Name ParameterKey=TagValue,ParameterValue=CodeDeployDemo --capabilities CAPABILITY_IAM
+```
+
+`keyName` is the instance key pair name. Type the key pair
+name only, not the key pair file extension.
+
+`template-url` is the location of the AWS CloudFormation template for your
+region:
+
 | Region                           | Location of AWS CloudFormation template                                                                                    |
-| ---                              | ---                                                                                                                        |
+| -------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
 | US East (Ohio) Region            | `http://s3-us-east-2.amazonaws.com/aws-codedeploy-us-east-2/templates/latest/CodeDeploy_SampleCF_Template.json`            |
 | US East (N. Virginia) Region     | `http://s3.amazonaws.com/aws-codedeploy-us-east-1/templates/latest/CodeDeploy_SampleCF_Template.json`                      |
 | US West (N. California) Region   | `http://s3-us-west-1.amazonaws.com/aws-codedeploy-us-west-1/templates/latest/CodeDeploy_SampleCF_Template.json`            |
@@ -110,4 +192,21 @@ then choose **Next**.
 | Asia Pacific (Sydney) Region     | `http://s3-ap-southeast-2.amazonaws.com/aws-codedeploy-ap-southeast-2/templates/latest/CodeDeploy_SampleCF_Template.json`  |
 | Asia Pacific (Melbourne) Region  | `https://aws-codedeploy-ap-southeast-4.s3.ap-southeast-4.amazonaws.com/templates/latest/CodeDeploy_SampleCF_Template.json` |
 | Asia Pacific (Mumbai) Region     | `http://s3-ap-south-1.amazonaws.com/aws-codedeploy-ap-south-1/templates/latest/CodeDeploy_SampleCF_Template.json`          |
-| South America (São Paulo) Region | `aws-codedeploy-ap-northeast-1.s3.sa-east-1.amazonaws.com/templates/latest/CodeDeploy_SampleCF_Template.json`              | This command creates an AWS CloudFormation stack named `CodeDeployDemoStack`, using the AWS CloudFormation template in the specified Amazon S3 bucket. The Amazon EC2 instance is based on the t1.micro instance type, but you can use any type. It is tagged with the value `CodeDeployDemo`, but you can tag it with any value. It has the specified instance key pair applied. 2. Call the **describe-stacks** command to verify the AWS CloudFormation stack named `CodeDeployDemoStack` was successfully created: `aws cloudformation describe-stacks --stack-name CodeDeployDemoStack --query "Stacks[0].StackStatus" --output text` Do not proceed until the value `CREATE_COMPLETE` is returned. To verify the CodeDeploy agent is running on the Amazon EC2 instance, see [Managing CodeDeploy agent operations](codedeploy-agent-operations.md "codedeploy-agent-operations.md"), and then proceed to [Create an application with CodeDeploy](applications-create.md "applications-create.md").                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| South America (São Paulo) Region | `aws-codedeploy-ap-northeast-1.s3.sa-east-1.amazonaws.com/templates/latest/CodeDeploy_SampleCF_Template.json`              |
+
+This command creates an AWS CloudFormation stack named
+`CodeDeployDemoStack`, using the AWS CloudFormation template in the
+specified Amazon S3 bucket. The Amazon EC2 instance is based on the t1.micro instance type, but you
+can use any type. It is tagged with the value
+`CodeDeployDemo`, but you can tag it with any value. It
+has the specified instance key pair applied. 2. Call the **describe-stacks** command to verify the AWS CloudFormation stack named
+`CodeDeployDemoStack` was successfully created:
+
+```
+aws cloudformation describe-stacks --stack-name CodeDeployDemoStack --query "Stacks[0].StackStatus" --output text
+```
+
+Do not proceed until the value `CREATE_COMPLETE` is returned.
+
+To verify the CodeDeploy agent is running on the Amazon EC2 instance, see [Managing CodeDeploy agent operations](codedeploy-agent-operations.md "codedeploy-agent-operations.md"), and
+then proceed to [Create an application with CodeDeploy](applications-create.md "applications-create.md").

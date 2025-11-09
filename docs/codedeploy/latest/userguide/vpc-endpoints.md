@@ -34,7 +34,7 @@ operations. The table below shows the supported AWS Regions for each endpoint.
 For more information and for FIPS endpoints, see [AWS CodeDeploy endpoints and quotas](../../../general/latest/gr/codedeploy.md "../../../general/latest/gr/codedeploy.md").
 
 | Region name               | Region code    | Agent endpoint | API endpoint | FIPS compliant Region? |
-| ------------------------- | -------------- | -------------- | ------------ | ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------------------- | -------------- | -------------- | ------------ | ---------------------- |
 | US East (N. Virginia)     | us-east-1      | Yes            | Yes          | Yes                    |
 | US East (Ohio)            | us-east-2      | Yes            | Yes          | Yes                    |
 | US West (N. California)   | us-west-1      | Yes            | Yes          | Yes                    |
@@ -66,4 +66,68 @@ For more information and for FIPS endpoints, see [AWS CodeDeploy endpoints and q
 | Middle East (UAE)         | me-central-1   | Yes            | No           |                        |
 | South America (São Paulo) | sa-east-1      | Yes            | Yes          |                        |
 | AWS GovCloud (US-East)    | us-gov-east-1  | No             | No           | Yes                    |
-| AWS GovCloud (US-West)    | us-gov-west-1  | No             | No           | Yes                    | ## Create VPC endpoints for CodeDeploy To start using CodeDeploy with your VPC, create an interface VPC endpoint for CodeDeploy. CodeDeploy requires separate endpoints for agent Git operations and for CodeDeploy API operations. Depending on your business needs, you might need to create more than one VPC endpoint. When you create a VPC endpoint for CodeDeploy, choose **AWS Services**, and in **Service Name**, choose from the following options: <br>• **com.amazonaws.`region`.codedeploy**: Choose this option if you want to create a VPC endpoint for CodeDeploy API operations. For example, choose this option if your users use the AWS CLI, the CodeDeploy API, or the AWS SDKs to interact with CodeDeploy for operations such as `CreateApplication`, `GetDeployment`, and `ListDeploymentGroups`. <br>• **com.amazonaws.`region`.codedeploy-fips**: Choose this option if you want to create a VPC endpoint for CodeDeploy API operations for the FIPS endpoint. <br>• **com.amazonaws.`region`.codedeploy-commands-secure**: Choose this option if you want to create a VPC endpoint for CodeDeploy agent operations. You will also need to set `:enable_auth_policy:` to `true` in your agent configuration file and attach the required permissions. For more information, see [Configure the CodeDeploy agent and IAM permissions](#vpc-codedeploy-agent-configuration "#vpc-codedeploy-agent-configuration"). If you are using Lambda or ECS deployments, you only need to create a VPC endpoint for **com.amazonaws.`region`.codedeploy**. Customers using Amazon EC2 deployments will need VPC endpoints for both **com.amazonaws.`region`.codedeploy** and **com.amazonaws.`region`.codedeploy-commands-secure**. ## Configure the CodeDeploy agent and IAM permissions To use Amazon VPC endpoints with CodeDeploy, you must set the value of `:enable_auth_policy:` to `true` in the agent configuration file located on your EC2 or on-premises instances. For more information on the agent configuration file, see [CodeDeploy agent configuration reference](reference-agent-configuration.md "reference-agent-configuration.md"). You must also add the following IAM permissions to your Amazon EC2 instance profile (if you're using Amazon EC2 instances) or IAM user or role (if you are using on-premises instances). `{ "Statement": [ { "Action": [ "codedeploy-commands-secure:GetDeploymentSpecification", "codedeploy-commands-secure:PollHostCommand", "codedeploy-commands-secure:PutHostCommandAcknowledgement", "codedeploy-commands-secure:PutHostCommandComplete" ], "Effect": "Allow", "Resource": "*" } ] }` For more information, see [Creating an Interface Endpoint](../../../vpc/latest/userguide/vpce-interface.md#create-interface-endpoint.html "../../../vpc/latest/userguide/vpce-interface.md#create-interface-endpoint.html") in the _Amazon VPC User Guide_. |
+| AWS GovCloud (US-West)    | us-gov-west-1  | No             | No           | Yes                    |
+
+## Create VPC endpoints for
+
+CodeDeploy
+
+To start using CodeDeploy with your VPC, create an interface VPC endpoint for CodeDeploy. CodeDeploy
+requires separate endpoints for agent Git operations and for CodeDeploy API operations.
+Depending on your business needs, you might need to create more than one VPC endpoint.
+When you create a VPC endpoint for CodeDeploy, choose **AWS Services**,
+and in **Service Name**, choose from the following options:
+
+- **com.amazonaws.`region`.codedeploy**:
+  Choose this option if you want to create a VPC endpoint for CodeDeploy API
+  operations. For example, choose this option if your users use the AWS CLI, the
+  CodeDeploy API, or the AWS SDKs to interact with CodeDeploy for operations such as
+  `CreateApplication`, `GetDeployment`, and
+  `ListDeploymentGroups`.
+- **com.amazonaws.`region`.codedeploy-fips**:
+  Choose this option if you want to create a VPC endpoint for CodeDeploy API operations
+  for the FIPS endpoint.
+- **com.amazonaws.`region`.codedeploy-commands-secure**:
+  Choose this option if you want to create a VPC endpoint for CodeDeploy agent
+  operations. You will also need to set `:enable_auth_policy:` to
+  `true` in your agent configuration file and attach the required
+  permissions. For more information, see [Configure the CodeDeploy agent and IAM
+  permissions](#vpc-codedeploy-agent-configuration "#vpc-codedeploy-agent-configuration").
+
+If you are using Lambda or ECS deployments, you only need to create a VPC
+endpoint for **com.amazonaws.`region`.codedeploy**. Customers
+using Amazon EC2 deployments will need VPC endpoints for both **com.amazonaws.`region`.codedeploy** and
+**com.amazonaws.`region`.codedeploy-commands-secure**.
+
+## Configure the CodeDeploy agent and IAM
+
+permissions
+
+To use Amazon VPC endpoints with CodeDeploy, you must set the value of
+`:enable_auth_policy:` to `true` in the agent configuration
+file located on your EC2 or on-premises instances. For more information on the agent
+configuration file, see [CodeDeploy agent configuration reference](reference-agent-configuration.md "reference-agent-configuration.md").
+
+You must also add the following IAM permissions to your Amazon EC2 instance profile (if
+you're using Amazon EC2 instances) or IAM user or role (if you are using on-premises
+instances).
+
+```
+{
+  "Statement": [
+    {
+      "Action": [
+        "codedeploy-commands-secure:GetDeploymentSpecification",
+        "codedeploy-commands-secure:PollHostCommand",
+        "codedeploy-commands-secure:PutHostCommandAcknowledgement",
+        "codedeploy-commands-secure:PutHostCommandComplete"
+      ],
+      "Effect": "Allow",
+      "Resource": "*"
+    }
+  ]
+}
+```
+
+For more information, see [Creating an
+Interface Endpoint](../../../vpc/latest/userguide/vpce-interface.md#create-interface-endpoint.html "../../../vpc/latest/userguide/vpce-interface.md#create-interface-endpoint.html") in the _Amazon VPC User Guide_.

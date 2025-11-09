@@ -189,28 +189,31 @@ sample application for your operating system and region.
 **For Amazon Linux and RHEL Amazon EC2
 instances**
 
+| Region                           | Location of sample application                                                                             |
+| -------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| US East (Ohio) Region            | `http://s3-us-east-2.amazonaws.com/aws-codedeploy-us-east-2/samples/latest/SampleApp_Linux.zip`            |
+| US East (N. Virginia) Region     | `http://s3.amazonaws.com/aws-codedeploy-us-east-1/samples/latest/SampleApp_Linux.zip`                      |
+| US West (N. California) Region   | `http://s3-us-west-1.amazonaws.com/aws-codedeploy-us-west-1/samples/latest/SampleApp_Linux.zip`            |
+| US West (Oregon) Region          | `http://s3-us-west-2.amazonaws.com/aws-codedeploy-us-west-2/samples/latest/SampleApp_Linux.zip`            |
+| Canada (Central) Region          | `http://s3-ca-central-1.amazonaws.com/aws-codedeploy-ca-central-1/samples/latest/SampleApp_Linux.zip`      |
+| Europe (Ireland) Region          | `http://s3-eu-west-1.amazonaws.com/aws-codedeploy-eu-west-1/samples/latest/SampleApp_Linux.zip`            |
+| Europe (London) Region           | `http://s3-eu-west-2.amazonaws.com/aws-codedeploy-eu-west-2/samples/latest/SampleApp_Linux.zip`            |
+| Europe (Paris) Region            | `http://s3-eu-west-3.amazonaws.com/aws-codedeploy-eu-west-3/samples/latest/SampleApp_Linux.zip`            |
+| Europe (Frankfurt) Region        | `http://s3-eu-central-1.amazonaws.com/aws-codedeploy-eu-central-1/samples/latest/SampleApp_Linux.zip`      |
+| Israel (Tel Aviv) Region         | `https://aws-codedeploy-il-central-1.s3.il-central-1.amazonaws.com/samples/latest/SampleApp_Linux.zip`     |
+| Asia Pacific (Hong Kong) Region  | `https://aws-codedeploy-ap-east-1.s3.ap-east-1.amazonaws.com/samples/latest/SampleApp_Linux.zip`           |
+| Asia Pacific (Tokyo) Region      | `http://s3-ap-northeast-1.amazonaws.com/aws-codedeploy-ap-northeast-1/samples/latest/SampleApp_Linux.zip`  |
+| Asia Pacific (Seoul) Region      | `http://s3-ap-northeast-2.amazonaws.com/aws-codedeploy-ap-northeast-2/samples/latest/SampleApp_Linux.zip`  |
+| Asia Pacific (Singapore) Region  | `http://s3-ap-southeast-1.amazonaws.com/aws-codedeploy-ap-southeast-1/samples/latest/SampleApp_Linux.zip`  |
+| Asia Pacific (Sydney) Region     | `http://s3-ap-southeast-2.amazonaws.com/aws-codedeploy-ap-southeast-2/samples/latest/SampleApp_Linux.zip`  |
+| Asia Pacific (Melbourne) Region  | `https://aws-codedeploy-ap-southeast-4.s3.ap-southeast-4.amazonaws.com/samples/latest/SampleApp_Linux.zip` |
+| Asia Pacific (Mumbai) Region     | `http://s3-ap-south-1.amazonaws.com/aws-codedeploy-ap-south-1/samples/latest/SampleApp_Linux.zip`          |
+| South America (São Paulo) Region | `http://s3-sa-east-1.amazonaws.com/aws-codedeploy-sa-east-1/samples/latest/SampleApp_Linux.zip`            |
+
+**For Windows Server Amazon EC2 instances**
+
 | Region                           | Location of sample application                                                                               |
-| -------------------------------- | ------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| US East (Ohio) Region            | `http://s3-us-east-2.amazonaws.com/aws-codedeploy-us-east-2/samples/latest/SampleApp_Linux.zip`              |
-| US East (N. Virginia) Region     | `http://s3.amazonaws.com/aws-codedeploy-us-east-1/samples/latest/SampleApp_Linux.zip`                        |
-| US West (N. California) Region   | `http://s3-us-west-1.amazonaws.com/aws-codedeploy-us-west-1/samples/latest/SampleApp_Linux.zip`              |
-| US West (Oregon) Region          | `http://s3-us-west-2.amazonaws.com/aws-codedeploy-us-west-2/samples/latest/SampleApp_Linux.zip`              |
-| Canada (Central) Region          | `http://s3-ca-central-1.amazonaws.com/aws-codedeploy-ca-central-1/samples/latest/SampleApp_Linux.zip`        |
-| Europe (Ireland) Region          | `http://s3-eu-west-1.amazonaws.com/aws-codedeploy-eu-west-1/samples/latest/SampleApp_Linux.zip`              |
-| Europe (London) Region           | `http://s3-eu-west-2.amazonaws.com/aws-codedeploy-eu-west-2/samples/latest/SampleApp_Linux.zip`              |
-| Europe (Paris) Region            | `http://s3-eu-west-3.amazonaws.com/aws-codedeploy-eu-west-3/samples/latest/SampleApp_Linux.zip`              |
-| Europe (Frankfurt) Region        | `http://s3-eu-central-1.amazonaws.com/aws-codedeploy-eu-central-1/samples/latest/SampleApp_Linux.zip`        |
-| Israel (Tel Aviv) Region         | `https://aws-codedeploy-il-central-1.s3.il-central-1.amazonaws.com/samples/latest/SampleApp_Linux.zip`       |
-| Asia Pacific (Hong Kong) Region  | `https://aws-codedeploy-ap-east-1.s3.ap-east-1.amazonaws.com/samples/latest/SampleApp_Linux.zip`             |
-| Asia Pacific (Tokyo) Region      | `http://s3-ap-northeast-1.amazonaws.com/aws-codedeploy-ap-northeast-1/samples/latest/SampleApp_Linux.zip`    |
-| Asia Pacific (Seoul) Region      | `http://s3-ap-northeast-2.amazonaws.com/aws-codedeploy-ap-northeast-2/samples/latest/SampleApp_Linux.zip`    |
-| Asia Pacific (Singapore) Region  | `http://s3-ap-southeast-1.amazonaws.com/aws-codedeploy-ap-southeast-1/samples/latest/SampleApp_Linux.zip`    |
-| Asia Pacific (Sydney) Region     | `http://s3-ap-southeast-2.amazonaws.com/aws-codedeploy-ap-southeast-2/samples/latest/SampleApp_Linux.zip`    |
-| Asia Pacific (Melbourne) Region  | `https://aws-codedeploy-ap-southeast-4.s3.ap-southeast-4.amazonaws.com/samples/latest/SampleApp_Linux.zip`   |
-| Asia Pacific (Mumbai) Region     | `http://s3-ap-south-1.amazonaws.com/aws-codedeploy-ap-south-1/samples/latest/SampleApp_Linux.zip`            |
-| South America (São Paulo) Region | `http://s3-sa-east-1.amazonaws.com/aws-codedeploy-sa-east-1/samples/latest/SampleApp_Linux.zip`              | **For Windows Server Amazon EC2 instances**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| Region                           | Location of sample application                                                                               |
-| ---                              | ---                                                                                                          |
+| -------------------------------- | ------------------------------------------------------------------------------------------------------------ |
 | US East (Ohio) Region            | `http://s3-us-east-2.amazonaws.com/aws-codedeploy-us-east-2/samples/latest/SampleApp_Windows.zip`            |
 | US East (N. Virginia) Region     | `http://s3.amazonaws.com/aws-codedeploy-us-east-1/samples/latest/SampleApp_Windows.zip`                      |
 | US West (N. California) Region   | `http://s3-us-west-1.amazonaws.com/aws-codedeploy-us-west-1/samples/latest/SampleApp_Windows.zip`            |
@@ -227,4 +230,19 @@ instances**
 | Asia Pacific (Sydney) Region     | `http://s3-ap-southeast-2.amazonaws.com/aws-codedeploy-ap-southeast-2/samples/latest/SampleApp_Windows.zip`  |
 | Asia Pacific (Melbourne) Region  | `https://aws-codedeploy-ap-southeast-4.s3.ap-southeast-4.amazonaws.com/samples/latest/SampleApp_Windows.zip` |
 | Asia Pacific (Mumbai) Region     | `http://s3-ap-south-1.amazonaws.com/aws-codedeploy-ap-south-1/samples/latest/SampleApp_Windows.zip`          |
-| South America (São Paulo) Region | `http://s3-sa-east-1.amazonaws.com/aws-codedeploy-sa-east-1/samples/latest/SampleApp_Windows.zip`            | **For Ubuntu Server Amazon EC2 instances** Type the location of your custom application revision stored in Amazon S3. 20. Leave **Deployment description** blank. 21. Expand **Advanced**. 22. Choose **Create deployment**. ###### Note If **Failed** appears instead of **Succeeded**, you may want to try some of the techniques in [Monitor and troubleshoot your deployment](tutorials-wordpress-deploy-application.md#tutorials-wordpress-deploy-application-monitor "tutorials-wordpress-deploy-application.md#tutorials-wordpress-deploy-application-monitor") (using the application name of `SimpleDemoApp` and the deployment group name of `SimpleDemoDG`). |
+| South America (São Paulo) Region | `http://s3-sa-east-1.amazonaws.com/aws-codedeploy-sa-east-1/samples/latest/SampleApp_Windows.zip`            |
+
+**For Ubuntu Server Amazon EC2 instances**
+
+Type the location of your custom application revision stored in
+Amazon S3. 20. Leave **Deployment description** blank. 21. Expand **Advanced**. 22. Choose **Create deployment**.
+
+###### Note
+
+If **Failed** appears instead of
+**Succeeded**, you may want to try some of the
+techniques in [Monitor and troubleshoot your
+deployment](tutorials-wordpress-deploy-application.md#tutorials-wordpress-deploy-application-monitor "tutorials-wordpress-deploy-application.md#tutorials-wordpress-deploy-application-monitor")
+(using the application name of
+`SimpleDemoApp` and the deployment
+group name of `SimpleDemoDG`).

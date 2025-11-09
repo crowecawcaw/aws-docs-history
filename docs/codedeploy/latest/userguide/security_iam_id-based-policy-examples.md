@@ -23,11 +23,280 @@ following resource types:
   The capabilities controlled by resource policies vary depending on the resource type,
   as outlined in the following table:
 
-| Resource types                                           | Capabilities                                                                             |
-| -------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| All                                                      | View and list details about resources                                                    |
-| Applications Deployment configurations Deployment groups | Create resources Delete resources                                                        |
-| Deployments                                              | Create deployments Stop deployments                                                      |
-| Application revisions                                    | Register application revisions                                                           |
-| Applications Deployment groups                           | Update resources                                                                         |
-| On-premises instances                                    | Add tags to instances Remove tags from instances Register instances Deregister instances | The following example shows a permissions policy that allows a user to delete the deployment group named `WordPress_DepGroup` associated with the application named `WordPress_App` in the `us-west-2` Region. JSON `` `{ "Version":"2012-10-17", "Statement" : [ { "Effect" : "Allow", "Action" : [ "codedeploy:DeleteDeploymentGroup" ], "Resource" : [ "arn:aws:codedeploy:us-west-2:`111122223333`:deploymentgroup:WordPress_App/WordPress_DepGroup" ] } ] }` `` ###### Topics <br>• [Customer-managed policy examples](#customer-managed-policies "#customer-managed-policies") <br>• [Policy best practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices") <br>• [Using the CodeDeploy console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console") <br>• [Allow users to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions") ## Customer-managed policy examples In this section, you can find example policies that grant permissions for various CodeDeploy actions. These policies work when you are using the CodeDeploy API, AWS SDKs, or the AWS CLI. You must grant additional permissions for actions you perform in the console. To learn more about granting console permissions, see [Using the CodeDeploy console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console") . ###### Note All examples use the US West (Oregon) Region (`us-west-2`) and contain fictitious account IDs. **Examples** <br>• [Example 1: Allow permission to perform CodeDeploy operations in a single Region](#identity-based-policies-example-1 "#identity-based-policies-example-1") <br>• [Example 2: Allow permission to register revisions for a single application](#identity-based-policies-example-2 "#identity-based-policies-example-2") <br>• [Example 3: Allow permission to create deployments for a single deployment group](#identity-based-policies-example-3 "#identity-based-policies-example-3") ### Example 1: Allow permission to perform CodeDeploy operations in a single Region The following example grants permissions to perform CodeDeploy operations in the `us-west-2` Region only: JSON `` `{ "Version":"2012-10-17", "Statement" : [ { "Effect" : "Allow", "Action" : [ "codedeploy:*" ], "Resource" : [ "arn:aws:codedeploy:us-west-2:`111122223333`:*" ] } ] }` `` ### Example 2: Allow permission to register revisions for a single application The following example grants permissions to register application revisions for all applications that begin with `Test` in the `us-west-2` Region: JSON `` `{ "Version":"2012-10-17", "Statement" : [ { "Effect" : "Allow", "Action" : [ "codedeploy:RegisterApplicationRevision" ], "Resource" : [ "arn:aws:codedeploy:us-west-2:`111122223333`:application:Test*" ] } ] }` `` ### Example 3: Allow permission to create deployments for a single deployment group The following example allows permission to create deployments for the deployment group named `WordPress_DepGroup` associated with the application named `WordPress_App`, the custom deployment configuration named `ThreeQuartersHealthy`, and any application revisions associated with the application named `WordPress_App`. All of these resources are in the `us-west-2` Region. JSON `` `{ "Version":"2012-10-17", "Statement" : [ { "Effect" : "Allow", "Action" : [ "codedeploy:CreateDeployment" ], "Resource" : [ "arn:aws:codedeploy:us-west-2:`111122223333`:deploymentgroup:WordPress_App/WordPress_DepGroup" ] }, { "Effect" : "Allow", "Action" : [ "codedeploy:GetDeploymentConfig" ], "Resource" : [ "arn:aws:codedeploy:us-west-2:`111122223333`:deploymentconfig:ThreeQuartersHealthy" ] }, { "Effect" : "Allow", "Action" : [ "codedeploy:GetApplicationRevision" ], "Resource" : [ "arn:aws:codedeploy:us-west-2:`111122223333`:application:WordPress_App" ] } ] }` `` ## Policy best practices Identity-based policies determine whether someone can create, access, or delete CodeDeploy resources in your account. These actions can incur costs for your AWS account. When you create or edit identity-based policies, follow these guidelines and recommendations: <br>• **Get started with AWS managed policies and move toward least-privilege permissions** – To get started granting permissions to your users and workloads, use the _AWS managed policies_ that grant permissions for many common use cases. They are available in your AWS account. We recommend that you reduce permissions further by defining AWS customer managed policies that are specific to your use cases. For more information, see [AWS managed policies](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies") or [AWS managed policies for job functions](../../../IAM/latest/UserGuide/access_policies_job-functions.md "../../../IAM/latest/UserGuide/access_policies_job-functions.md") in the _IAM User Guide_. <br>• **Apply least-privilege permissions** – When you set permissions with IAM policies, grant only the permissions required to perform a task. You do this by defining the actions that can be taken on specific resources under specific conditions, also known as _least-privilege permissions_. For more information about using IAM to apply permissions, see [Policies and permissions in IAM](../../../IAM/latest/UserGuide/access_policies.md "../../../IAM/latest/UserGuide/access_policies.md") in the _IAM User Guide_. <br>• **Use conditions in IAM policies to further restrict access** – You can add a condition to your policies to limit access to actions and resources. For example, you can write a policy condition to specify that all requests must be sent using SSL. You can also use conditions to grant access to service actions if they are used through a specific AWS service, such as AWS CloudFormation. For more information, see [IAM JSON policy elements: Condition](../../../IAM/latest/UserGuide/reference_policies_elements_condition.md "../../../IAM/latest/UserGuide/reference_policies_elements_condition.md") in the _IAM User Guide_. <br>• **Use IAM Access Analyzer to validate your IAM policies to ensure secure and functional permissions** – IAM Access Analyzer validates new and existing policies so that the policies adhere to the IAM policy language (JSON) and IAM best practices. IAM Access Analyzer provides more than 100 policy checks and actionable recommendations to help you author secure and functional policies. For more information, see [Validate policies with IAM Access Analyzer](../../../IAM/latest/UserGuide/access-analyzer-policy-validation.md "../../../IAM/latest/UserGuide/access-analyzer-policy-validation.md") in the _IAM User Guide_. <br>• **Require multi-factor authentication (MFA)** – If you have a scenario that requires IAM users or a root user in your AWS account, turn on MFA for additional security. To require MFA when API operations are called, add MFA conditions to your policies. For more information, see [Secure API access with MFA](../../../IAM/latest/UserGuide/id_credentials_mfa_configure-api-require.md "../../../IAM/latest/UserGuide/id_credentials_mfa_configure-api-require.md") in the _IAM User Guide_. For more information about best practices in IAM, see [Security best practices in IAM](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/latest/UserGuide/best-practices.md") in the _IAM User Guide_. ## Using the CodeDeploy console If you use the CodeDeploy console, you must have a minimum set of permissions that allows you to describe other AWS resources for your AWS account. To use CodeDeploy in the CodeDeploy console, you must have permissions from the following services: <br>• Amazon EC2 Auto Scaling <br>• AWS CodeDeploy <br>• Amazon Elastic Compute Cloud <br>• Elastic Load Balancing <br>• AWS Identity and Access Management <br>• Amazon Simple Storage Service <br>• Amazon Simple Notification Service <br>• Amazon CloudWatch If you create an IAM policy that is more restrictive than the minimum required permissions, the console won't function as intended for users who have a role with that IAM policy. To ensure that those users can still use the CodeDeploy console, also attach the `AWSCodeDeployReadOnlyAccess` managed policy to the role assigned to the user, as described in [AWS managed (predefined) policies for CodeDeploy](managed-policies.md "managed-policies.md"). You don't need to allow minimum console permissions for users who are making calls only to the AWS CLI or the CodeDeploy API. ## Allow users to view their own permissions This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API. `{ "Version": "2012-10-17", "Statement": [ { "Sid": "ViewOwnUserInfo", "Effect": "Allow", "Action": [ "iam:GetUserPolicy", "iam:ListGroupsForUser", "iam:ListAttachedUserPolicies", "iam:ListUserPolicies", "iam:GetUser" ], "Resource": ["arn:aws:iam::*:user/${aws:username}"] }, { "Sid": "NavigateInConsole", "Effect": "Allow", "Action": [ "iam:GetGroupPolicy", "iam:GetPolicyVersion", "iam:GetPolicy", "iam:ListAttachedGroupPolicies", "iam:ListGroupPolicies", "iam:ListPolicyVersions", "iam:ListPolicies", "iam:ListUsers" ], "Resource": "*" } ] }` |
+| Resource types                                                 | Capabilities                                                                                      |
+| -------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| All                                                            | View and list details about resources                                                             |
+| Applications<br>Deployment configurations<br>Deployment groups | Create resources<br>Delete resources                                                              |
+| Deployments                                                    | Create deployments<br>Stop deployments                                                            |
+| Application revisions                                          | Register application revisions                                                                    |
+| Applications<br>Deployment groups                              | Update resources                                                                                  |
+| On-premises instances                                          | Add tags to instances<br>Remove tags from instances<br>Register instances<br>Deregister instances |
+
+The following example shows a permissions policy that allows a user to delete the
+deployment group named `WordPress_DepGroup`
+associated with the application named `WordPress_App` in
+the `us-west-2` Region.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement" : [
+ {
+ "Effect" : "Allow",
+ "Action" : [
+ "codedeploy:DeleteDeploymentGroup"
+ ],
+ "Resource" : [
+ "arn:aws:codedeploy:us-west-2:`111122223333`:deploymentgroup:WordPress_App/WordPress_DepGroup"
+ ]
+ }
+ ]
+}`
+
+```
+
+###### Topics
+
+- [Customer-managed policy examples](#customer-managed-policies "#customer-managed-policies")
+- [Policy best
+  practices](#security_iam_service-with-iam-policy-best-practices "#security_iam_service-with-iam-policy-best-practices")
+- [Using the CodeDeploy
+  console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console")
+- [Allow
+  users to view their own permissions](#security_iam_id-based-policy-examples-view-own-permissions "#security_iam_id-based-policy-examples-view-own-permissions")
+
+## Customer-managed policy examples
+
+In this section, you can find example policies that grant permissions for various
+CodeDeploy actions. These policies work when you are using the CodeDeploy API,
+AWS SDKs, or the AWS CLI. You must grant additional permissions for actions you
+perform in the console. To learn more about granting console permissions, see [Using the CodeDeploy
+console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console") .
+
+###### Note
+
+All examples use the US West (Oregon) Region (`us-west-2`) and contain
+fictitious account IDs.
+
+**Examples**
+
+- [Example 1: Allow permission
+  to perform CodeDeploy operations in a single Region](#identity-based-policies-example-1 "#identity-based-policies-example-1")
+- [Example 2: Allow permission
+  to register revisions for a single application](#identity-based-policies-example-2 "#identity-based-policies-example-2")
+- [Example 3: Allow permission
+  to create deployments for a single deployment group](#identity-based-policies-example-3 "#identity-based-policies-example-3")
+
+### Example 1: Allow permission
+
+to perform CodeDeploy operations in a single Region
+
+The following example grants permissions to perform CodeDeploy operations
+in the `us-west-2` Region only:
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement" : [
+ {
+ "Effect" : "Allow",
+ "Action" : [
+ "codedeploy:*"
+ ],
+ "Resource" : [
+ "arn:aws:codedeploy:us-west-2:`111122223333`:*"
+ ]
+ }
+ ]
+}`
+
+```
+
+### Example 2: Allow permission
+
+to register revisions for a single application
+
+The following example grants permissions to register application revisions for
+all applications that begin with `Test` in the
+`us-west-2` Region:
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement" : [
+ {
+ "Effect" : "Allow",
+ "Action" : [
+ "codedeploy:RegisterApplicationRevision"
+ ],
+ "Resource" : [
+ "arn:aws:codedeploy:us-west-2:`111122223333`:application:Test*"
+ ]
+ }
+ ]
+}`
+
+```
+
+### Example 3: Allow permission
+
+to create deployments for a single deployment group
+
+The following example allows permission to create deployments for the
+deployment group named
+`WordPress_DepGroup` associated with
+the application named `WordPress_App`, the
+custom deployment configuration named
+`ThreeQuartersHealthy`, and any application revisions
+associated with the application named
+`WordPress_App`. All of these resources are
+in the `us-west-2` Region.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement" : [
+ {
+ "Effect" : "Allow",
+ "Action" : [
+ "codedeploy:CreateDeployment"
+ ],
+ "Resource" : [
+ "arn:aws:codedeploy:us-west-2:`111122223333`:deploymentgroup:WordPress_App/WordPress_DepGroup"
+ ]
+ },
+ {
+ "Effect" : "Allow",
+ "Action" : [
+ "codedeploy:GetDeploymentConfig"
+ ],
+ "Resource" : [
+ "arn:aws:codedeploy:us-west-2:`111122223333`:deploymentconfig:ThreeQuartersHealthy"
+ ]
+ },
+ {
+ "Effect" : "Allow",
+ "Action" : [
+ "codedeploy:GetApplicationRevision"
+ ],
+ "Resource" : [
+ "arn:aws:codedeploy:us-west-2:`111122223333`:application:WordPress_App"
+ ]
+ }
+ ]
+}`
+
+```
+
+## Policy best
+
+practices
+
+Identity-based policies determine whether someone can create, access, or delete CodeDeploy resources in your
+account. These actions can incur costs for your AWS account. When you create or edit identity-based policies, follow these guidelines and
+recommendations:
+
+- **Get started with AWS managed policies and move toward least-privilege permissions**
+  – To get started granting permissions to your users and workloads, use the _AWS
+  managed policies_ that grant permissions for many common use cases. They are
+  available in your AWS account. We recommend that you reduce permissions further by
+  defining AWS customer managed policies that are specific to your use cases. For more information, see
+  [AWS managed policies](../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies "../../../IAM/latest/UserGuide/access_policies_managed-vs-inline.md#aws-managed-policies") or [AWS managed policies for job functions](../../../IAM/latest/UserGuide/access_policies_job-functions.md "../../../IAM/latest/UserGuide/access_policies_job-functions.md") in the _IAM User Guide_.
+- **Apply least-privilege permissions** –
+  When you set permissions with IAM policies, grant only the permissions required to
+  perform a task. You do this by defining the actions that can be taken on specific resources
+  under specific conditions, also known as _least-privilege permissions_.
+  For more information about using IAM to apply permissions, see [Policies and permissions in IAM](../../../IAM/latest/UserGuide/access_policies.md "../../../IAM/latest/UserGuide/access_policies.md") in the _IAM User Guide_.
+- **Use conditions in IAM policies to further restrict access**
+  – You can add a condition to your policies to limit access to actions and resources. For example, you can write a policy condition to specify that all requests must
+  be sent using SSL. You can also use conditions to grant access to service actions
+  if they are used through a specific AWS service, such as AWS CloudFormation. For more information, see
+  [IAM JSON policy elements: Condition](../../../IAM/latest/UserGuide/reference_policies_elements_condition.md "../../../IAM/latest/UserGuide/reference_policies_elements_condition.md") in the _IAM User Guide_.
+- **Use IAM Access Analyzer to validate your IAM policies to ensure secure and functional permissions**
+  – IAM Access Analyzer validates new and existing policies so that the policies adhere to the IAM policy language (JSON) and IAM best practices.
+  IAM Access Analyzer provides more than 100 policy checks and actionable recommendations to help
+  you author secure and functional policies. For more information, see [Validate policies with IAM Access Analyzer](../../../IAM/latest/UserGuide/access-analyzer-policy-validation.md "../../../IAM/latest/UserGuide/access-analyzer-policy-validation.md") in the _IAM User Guide_.
+- **Require multi-factor authentication (MFA)** –
+  If you have a scenario that requires IAM users or a root user in your AWS account, turn on MFA for additional security. To require
+  MFA when API operations are called, add MFA conditions to your policies. For
+  more information, see [Secure API access with MFA](../../../IAM/latest/UserGuide/id_credentials_mfa_configure-api-require.md "../../../IAM/latest/UserGuide/id_credentials_mfa_configure-api-require.md") in the _IAM User Guide_.
+
+For more information about best practices in IAM, see [Security best practices in IAM](../../../IAM/latest/UserGuide/best-practices.md "../../../IAM/latest/UserGuide/best-practices.md") in the _IAM User Guide_.
+
+## Using the CodeDeploy
+
+console
+
+If you use the CodeDeploy console, you must have a minimum set of permissions
+that allows you to describe other AWS resources for your AWS account. To use
+CodeDeploy in the CodeDeploy console, you must have permissions from the
+following services:
+
+- Amazon EC2 Auto Scaling
+- AWS CodeDeploy
+- Amazon Elastic Compute Cloud
+- Elastic Load Balancing
+- AWS Identity and Access Management
+- Amazon Simple Storage Service
+- Amazon Simple Notification Service
+- Amazon CloudWatch
+
+If you create an IAM policy that is more restrictive than the minimum required
+permissions, the console won't function as intended for users who have a role with
+that IAM policy. To ensure that those users can still use the CodeDeploy
+console, also attach the `AWSCodeDeployReadOnlyAccess` managed policy
+to the role assigned to the user, as described in [AWS managed (predefined) policies for
+CodeDeploy](managed-policies.md "managed-policies.md").
+
+You don't need to allow minimum console permissions for users who are making calls
+only to the AWS CLI or the CodeDeploy API.
+
+## Allow
+
+users to view their own permissions
+
+This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user
+identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "ViewOwnUserInfo",
+            "Effect": "Allow",
+            "Action": [
+                "iam:GetUserPolicy",
+                "iam:ListGroupsForUser",
+                "iam:ListAttachedUserPolicies",
+                "iam:ListUserPolicies",
+                "iam:GetUser"
+            ],
+            "Resource": ["arn:aws:iam::*:user/${aws:username}"]
+        },
+        {
+            "Sid": "NavigateInConsole",
+            "Effect": "Allow",
+            "Action": [
+                "iam:GetGroupPolicy",
+                "iam:GetPolicyVersion",
+                "iam:GetPolicy",
+                "iam:ListAttachedGroupPolicies",
+                "iam:ListGroupPolicies",
+                "iam:ListPolicyVersions",
+                "iam:ListPolicies",
+                "iam:ListUsers"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
+```
