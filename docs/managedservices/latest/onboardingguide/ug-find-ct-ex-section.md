@@ -53,10 +53,76 @@ You can use a filter or query to search. The ListChangeTypeClassificationSummari
 options for `Category`, `Subcategory`, `Item`, and `Operation`, but the values must match the existing values exactly. For more
 flexible results when using the CLI, you can use the `--query` option.
 
-| Change type filtering with the AMS CM API/CLI | Attribute                                                         | Valid values | Valid/Default condition                                                                                                                              | Notes            |
-| --------------------------------------------- | ----------------------------------------------------------------- | ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| ChangeTypeId                                  | Any string representing a ChangeTypeId (For ex: ct-abc123xyz7890) | Equals       | For change type IDs, see the [Change Type Reference](../ctref/index.md "../ctref/index.md"). For change type IDs, see Finding a Change Type or CSIO. |
-| Category                                      | Any free-form text                                                | Contains     | Regular expressions in each individual field are not supported. Case insensitive search                                                              |
-| Subcategory                                   |                                                                   | Item         |                                                                                                                                                      | Operation        | 1. Here are some examples of listing change type classifications: The following command lists all change type categories. `aws amscm list-change-type-categories` The following command lists the subcategories belonging to a specified category. `` aws amscm list-change-type-subcategories --category `CATEGORY` `` The following command lists the items belonging to a specified category and subcategory. `` aws amscm list-change-type-items --category `CATEGORY` --subcategory `SUBCATEGORY` `` 2. Here are some examples of searching for change types with CLI queries: The following command searches CT classification summaries for those that contain "S3" in the Item name and creates output of the category, subcategory, item, operation, and change type ID in table form. `aws amscm list-change-type-classification-summaries --query "ChangeTypeClassificationSummaries [?contains(Item, 'S3')].[Category,Subcategory,Item,Operation,ChangeTypeId]" --output table` ``` +---------------------------------------------------------------+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| ListChangeTypeClassificationSummaries         | +----------+-------------------------+--+------+----------------+ |
-| Deployment                                    | Advanced Stack Components                                         | S3           | Create                                                                                                                                               | ct-1a68ck03fn98r | +----------+-------------------------+--+------+----------------+ `3. You can then use the change type ID to get the CT schema and examine the parameters. The following command outputs the schema to a JSON file named CreateS3Params.schema.json.` aws amscm get-change-type-version --change-type-id "ct-1a68ck03fn98r" --query "ChangeTypeVersion.ExecutionInputSchema" --output text > CreateS3Params.schema.json `For information about using CLI queries, see [How to Filter the Output with the --query Option](../../../cli/latest/userguide/controlling-output.md#controlling-output-filter "../../../cli/latest/userguide/controlling-output.md#controlling-output-filter") and the query language reference, [JMESPath Specification](http://jmespath.org/specification.html "http://jmespath.org/specification.html"). 4. After you have the change type ID, we recommend verifying the version for the change type to make sure it's the latest version. Use this command to find the version for a specified change type:` aws amscm list-change-type-version-summaries --filter Attribute=ChangeTypeId,Value=`CHANGE_TYPE_ID` ``To find the `AutomationStatus` for a specific change type, run this command:`` aws amscm --profile saml get-change-type-version --change-type-id `CHANGE_TYPE_ID` --query "ChangeTypeVersion.{AutomationStatus:AutomationStatus.Name}" ``To find the `ExpectedExecutionDurationInMinutes` for a specific change type, run this command:`` aws amscm --profile saml get-change-type-version --change-type-id ct-14027q0sjyt1h --query "ChangeTypeVersion.{ExpectedDuration:ExpectedExecutionDurationInMinutes}" ``` |
+| Change type filtering with the AMS CM API/CLI | Attribute                                                         | Valid values | Valid/Default condition                                                                                                                                    | Notes |
+| --------------------------------------------- | ----------------------------------------------------------------- | ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
+| ChangeTypeId                                  | Any string representing a ChangeTypeId (For ex: ct-abc123xyz7890) | Equals       | For change type IDs, see the<br>[Change Type Reference](../ctref/index.md "../ctref/index.md").<br>For change type IDs, see Finding a Change Type or CSIO. |
+| Category                                      | Any free-form text                                                | Contains     | Regular expressions in each individual field are not supported.<br>Case insensitive search                                                                 |
+| Subcategory                                   |
+| Item                                          |
+| Operation                                     |
+
+1. Here are some examples of listing change type classifications:
+
+The following command lists all change type categories.
+
+```
+aws amscm list-change-type-categories
+```
+
+The following command lists the subcategories belonging to a specified category.
+
+```
+aws amscm list-change-type-subcategories --category `CATEGORY`
+```
+
+The following command lists the items belonging to a specified category and subcategory.
+
+```
+aws amscm list-change-type-items --category `CATEGORY` --subcategory `SUBCATEGORY`
+```
+
+2. Here are some examples of searching for change types with CLI queries:
+
+The following command searches CT classification summaries for those that contain "S3" in the Item name and creates output
+of the category, subcategory, item, operation, and change type ID in table form.
+
+```
+aws amscm list-change-type-classification-summaries --query "ChangeTypeClassificationSummaries [?contains(Item, 'S3')].[Category,Subcategory,Item,Operation,ChangeTypeId]" --output table
+```
+
+```
++---------------------------------------------------------------+
+|               ListChangeTypeClassificationSummaries           |
++----------+-------------------------+--+------+----------------+
+|Deployment|Advanced Stack Components|S3|Create|ct-1a68ck03fn98r|
++----------+-------------------------+--+------+----------------+
+```
+
+3. You can then use the change type ID to get the CT schema and examine the parameters. The following command outputs the schema to a JSON
+   file named CreateS3Params.schema.json.
+
+```
+aws amscm get-change-type-version --change-type-id "ct-1a68ck03fn98r" --query "ChangeTypeVersion.ExecutionInputSchema" --output text > CreateS3Params.schema.json
+```
+
+For information about using CLI queries, see
+[How to Filter the Output with the --query Option](../../../cli/latest/userguide/controlling-output.md#controlling-output-filter "../../../cli/latest/userguide/controlling-output.md#controlling-output-filter")
+and the query language reference, [JMESPath Specification](http://jmespath.org/specification.html "http://jmespath.org/specification.html"). 4. After you have the change type ID, we recommend verifying the version for the change type to
+make sure it's the latest version. Use this command to find the version for a specified
+change type:
+
+```
+aws amscm list-change-type-version-summaries --filter Attribute=ChangeTypeId,Value=`CHANGE_TYPE_ID`
+```
+
+To find the `AutomationStatus` for a specific change type, run this command:
+
+```
+aws amscm --profile saml get-change-type-version --change-type-id `CHANGE_TYPE_ID` --query "ChangeTypeVersion.{AutomationStatus:AutomationStatus.Name}"
+```
+
+To find the `ExpectedExecutionDurationInMinutes` for a specific change type, run this command:
+
+```
+aws amscm --profile saml get-change-type-version --change-type-id ct-14027q0sjyt1h --query "ChangeTypeVersion.{ExpectedDuration:ExpectedExecutionDurationInMinutes}"
+```

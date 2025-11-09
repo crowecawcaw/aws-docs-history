@@ -32,6 +32,51 @@ open the incident **Create** page in the Support Center Console, auto-populated 
 
 ![Incidents page showing a list of resolved incidents with their creation dates, subjects, and IDs.](images/guiIncidentList2.png) 2. If you want to find an existing incident, select an incident status filter in the drop-down list.
 
-|                                                                                     |                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| ----------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Dropdown menu showing ticket status options including Open, Reopened, and Resolved. | <br>• All incidents that are not yet resolved. <br>• A new incident that is not yet assigned. <br>• An incident that has been assigned. <br>• An incident that you reopened. <br>• An assigned, complicated incident. <br>• Incidents that require your feedback before the next step. <br>• Incidents to which you have recently submitted information. <br>• An incident that has concluded. <br>• All incidents in the account. | 3. Choose **Create**. The **Create an incident** page opens: ![Incident details form with priority options, access issues dropdown, and input fields for subject and details.](images/guiIncidentCreate5.png) 4. Select a **Priority**: <br>• **Low**: Non-critical functions of your business service or application related to AWS/AMS resources are impacted. <br>• **Medium**: A business service or application related to AWS/AMS resources is moderately impacted and functioning in a degraded state. <br>• **High**: Your business is significantly impacted. Critical functions of your application related to AWS/AMS resources are unavailable. Reserved for the most critical outages affecting production systems. 5. Select a **Category**. ###### Note If you are going to test incident functionality, then add the no-action flag (AMSTestNoOpsActionRequired) to your incident title. 6. Enter information for: <br>• **Subject**: A descriptive title for the incident report. <br>• **CC emails**: A list of email addresses for people you want informed about the incident report and resolution. <br>• **Details**: A comprehensive description of the incident, the systems impacted, and the expected outcome of the resolution. Answer the pre-set questions, or delete them and enter any relevant information. To add an attachment, choose **Add Attachment**, browse to the attachment you want, and click **Open**. To delete the attachment, click the Delete icon: ![Blue circular icon with a white X symbol in the center.](images/icon-delete-attachment.png) . 7. Choose **Submit**. A details page opens with information on the incident—such as **Type**, **Subject**, **Created**, **ID**, and **Status**—and a **Correspondence** area that includes the description of the request you created. Click **Reply** to open a correspondence area and provide additional details or updates in status. Click **Close Case** when the incident has been resolved. Click **Load More** if there is more correspondence than will fit on one page. Don't forget to rate the communication! ![Correspondence section showing a test message from Amazon Web Services with rating stars.](images/guiSRcorrespond.png) Your incident displays on the **Incidents** list page. |
+|                                                                                     |                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| ----------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Dropdown menu showing ticket status options including Open, Reopened, and Resolved. | • All incidents that<br>are not yet resolved.<br>• A new incident<br>that is not yet assigned.<br>• An incident that has<br>been assigned.<br>• An incident that<br>you reopened.<br>• An<br>assigned, complicated incident.<br>• Incidents<br>that require your feedback before the next step.<br>• Incidents<br>to which you have recently submitted information.<br>• An incident that<br>has concluded.<br>• All incidents in<br>the account. |
+
+3. Choose **Create**.
+
+The **Create an incident** page opens:
+
+![Incident details form with priority options, access issues dropdown, and input fields for subject and details.](images/guiIncidentCreate5.png) 4. Select a **Priority**:
+
+    * **Low**: Non-critical functions of your business service or
+     application related to AWS/AMS resources are impacted.
+    * **Medium**: A business service or application related to
+     AWS/AMS resources is moderately impacted and functioning in a degraded
+     state.
+    * **High**: Your business is significantly impacted. Critical
+     functions of your application related to AWS/AMS resources are unavailable.
+     Reserved for the most critical outages affecting production systems.
+
+5. Select a **Category**.
+
+###### Note
+
+If you are going to test incident functionality, then add the no-action flag (AMSTestNoOpsActionRequired) to your incident title. 6. Enter information for:
+
+    * **Subject**: A descriptive title for the incident
+     report.
+    * **CC emails**: A list of email addresses for people you want informed about the incident report and resolution.
+    * **Details**: A comprehensive description of the incident, the systems impacted, and the expected outcome of the resolution. Answer the pre-set questions, or delete them and enter any relevant information.
+
+To add an attachment, choose **Add Attachment**, browse to the attachment you want, and
+click **Open**. To delete the attachment, click the Delete icon:
+![Blue circular icon with a white X symbol in the center.](images/icon-delete-attachment.png)
+. 7. Choose **Submit**.
+
+A details page opens with information on the incident—such as **Type**, **Subject**, **Created**, **ID**, and **Status**—and a **Correspondence** area that includes the description of the request you created.
+
+Click **Reply** to open a correspondence area and provide additional details or updates in status.
+
+Click **Close Case** when the incident has been resolved.
+
+Click **Load More** if there is more correspondence than will fit on one page.
+
+Don't forget to rate the communication!
+
+![Correspondence section showing a test message from Amazon Web Services with rating stars.](images/guiSRcorrespond.png)
+
+Your incident displays on the **Incidents** list page.

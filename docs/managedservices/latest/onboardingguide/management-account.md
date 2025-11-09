@@ -16,7 +16,7 @@ The following diagram provides a high-level overview of the resources contained 
 ## Resources in the management account
 
 Other than the above standard services, no additional AWS resources are created in the
-management account during onboarding. The following inputs are required during onboarding to AMS:
+management account during onboarding. The following inputs are required during onboarding to AMS: 
 
 - _Management account ID_: AWS Account ID that is created initially by you.
 - _Core Accounts emails_: Provide the emails to be associated with each of the core accounts: Networking, Shared Services, Logging, and Security account.
