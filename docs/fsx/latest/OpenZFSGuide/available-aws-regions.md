@@ -3,7 +3,7 @@
 Amazon FSx for OpenZFS is available in the following AWS Regions, with deployment type and storage class support indicated for each region:
 
 | **AWS Region**             | **Single-AZ 1 (non-HA) SSD** | **Single-AZ 2 (non-HA) SSD** | **Single-AZ 1 (HA) SSD** | **Single-AZ 2 (HA) SSD** | **Multi-AZ (HA) SSD** | **Multi-AZ (HA) Intelligent-Tiering** |
-| -------------------------- | ---------------------------- | ---------------------------- | ------------------------ | ------------------------ | --------------------- | ------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| -------------------------- | ---------------------------- | ---------------------------- | ------------------------ | ------------------------ | --------------------- | ------------------------------------- |
 | US East (N. Virginia)\*    | ✓                            | ✓                            |                          | ✓                        | ✓                     | ✓                                     |
 | US East (Ohio)             | ✓                            | ✓                            |                          | ✓                        | ✓                     | ✓                                     |
 | US West (N. California)    | ✓                            |                              | ✓                        |                          | ✓                     |                                       |
@@ -37,4 +37,8 @@ Amazon FSx for OpenZFS is available in the following AWS Regions, with deploymen
 | Middle East (Bahrain)      | ✓                            |                              | ✓                        |                          | ✓                     |                                       |
 | South America (São Paulo)  | ✓                            |                              |                          |                          | ✓                     |                                       |
 | Israel (Tel Aviv)          | ✓                            |                              |                          |                          | ✓                     |                                       |
-| Africa (Cape Town)         | ✓                            |                              |                          |                          | ✓                     |                                       | ###### Note \*Due to differences in infrastructure capabilities and configurations, your file system type may be unavailable in specific Availability Zones within these regions. |
+| Africa (Cape Town)         | ✓                            |                              |                          |                          | ✓                     |                                       |
+
+###### Note
+
+\*Due to differences in infrastructure capabilities and configurations, your file system type may be unavailable in specific Availability Zones within these regions.

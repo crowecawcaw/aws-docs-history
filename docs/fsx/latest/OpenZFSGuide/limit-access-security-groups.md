@@ -49,11 +49,16 @@ Group Rules](../../../AWSEC2/latest/UserGuide/ec2-security-groups.md#security-gr
    do not initiate outbound connections in your VPC.
 7. Add the following rules to the inbound ports of your security group.
 
-| Protocol | Ports         | Role                                       |
-| -------- | ------------- | ------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| TCP      | 111           | Remote procedure call for NFS              |
-| UDP      | 111           | Remote procedure call for NFS              |
-| TCP      | 2049          | NFS server daemon                          |
-| UDP      | 2049          | NFS server daemon                          |
-| TCP      | 20001 - 20003 | NFS mount, status monitor, and lock daemon |
-| UDP      | 20001 - 20003 | NFS mount, status monitor, and lock daemon | #### Disallow access to a file system To temporarily disallow network access to your file system from all clients, you can remove all the security groups associated with your file system's elastic network interface(s) and replace them with a group that has no inbound/outbound rules. |
+| Protocol | Ports            | Role                                       |
+| -------- | ---------------- | ------------------------------------------ |
+| TCP      | 111              | Remote procedure call for NFS              |
+| UDP      | 111              | Remote procedure call for NFS              |
+| TCP      | 2049             | NFS server daemon                          |
+| UDP      | 2049             | NFS server daemon                          |
+| TCP      | 20001<br>• 20003 | NFS mount, status monitor, and lock daemon |
+| UDP      | 20001<br>• 20003 | NFS mount, status monitor, and lock daemon |
+
+#### Disallow access to a file system
+
+To temporarily disallow network access to your file system from all clients, you can remove all the security groups associated with your
+file system's elastic network interface(s) and replace them with a group that has no inbound/outbound rules.

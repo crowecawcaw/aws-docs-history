@@ -57,14 +57,63 @@ Implementing this solution incurs billing for the associated AWS services. For m
 1. Follow the instructions on the [Replicate FSx-OpenZFS volumes across file systems](https://serverlessland.com/patterns/eventbridge-lambda-fsx-openzfs-periodic-replication "https://serverlessland.com/patterns/eventbridge-lambda-fsx-openzfs-periodic-replication") page to download the serverless pattern.
 2. For **Parameters**, review the following parameters for the template and modify them for the needs of your periodic replication. This solution uses the following default values.
 
-| **Parameter**             | **Default**                       | **Description**                                                                                                                                                                                                                                                             |
-| ------------------------- | --------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Source volume ID          | No default value                  | The ID of the source volume from which data will be periodically replicated.                                                                                                                                                                                                |
-| Destination volume ID     | No default value                  | The ID of the destination volume that will become a replica of the source volume.                                                                                                                                                                                           |
-| CronSchedule              | [0 0/6 \*\*?\*] (every six hours) | The schedule to replicate data from the source volume to the destination volume.                                                                                                                                                                                            |
-| SnapshotName              | fsx-scheduled-snapshot            | The name for the scheduled snapshots that will be taken of the source volume. Appears in the **Snapshot Name** column of the Amazon FSx Console.                                                                                                                            |
-| Snapshot retention (days) | 7                                 | The number of days to keep user-initiated snapshots. The Lambda function deletes user-initiatted snapshots that are kept after this number of days.                                                                                                                         |
-| SuccessNotification       | Yes                               | Choose whether to be notified when the replication is successfully initiated. A notification is always sent when a snapshot fails to create or the replication fails to start.                                                                                              |
-| Email                     | No default value                  | The email address that you would like notifications to be sent to.                                                                                                                                                                                                          |
-| CopyStrategy              | INCREMENTAL_COPY                  | The **CopyStrategy** parameter for the `CopySnapshotAndUpdateVolume` API operation. For more information, see [CopySnapshotAndUpdateVolume](../APIReference/API_CopySnapshotAndUpdateVolume.md "../APIReference/API_CopySnapshotAndUpdateVolume.md") in the Amazon FSx API. |
-| Options                   | None                              | The **Options** parameter for the `CopySnapshotAndUpdateVolume` API operation. For more information, see [CopySnapshotAndUpdateVolume](../APIReference/API_CopySnapshotAndUpdateVolume.md "../APIReference/API_CopySnapshotAndUpdateVolume.md") in the Amazon FSx API.      | 3. In the AWS SAM CLI, run the following command to deploy the resources specified in the SAM template. `sam deploy --guided \ --stack-name fsxz-periodic-replication \ --template-file fsx-openzfs-periodic-replication.yaml \ --capabilities CAPABILITY_AUTO_EXPAND CAPABILITY_IAM CAPABILITY_NAMED_IAM` You will be asked if you would like to update any parameters. 4. Choose **Enter** to deploy the template. ## Step 2: Monitoring periodic replication You can monitor the status of the periodic replication workflow using the Amazon FSx Console, AWS CLI, and API. For more information on how to monitor periodic replication using the Amazon FSx Console, see [Monitoring progress of on-demand data replication](on-demand-replication.md#how-to-monitor-data-replication "on-demand-replication.md#how-to-monitor-data-replication"). To use the AWS CLI or API to track the progress of your replication, call the [describe-volumes](../../../cli/latest/reference/fsx/describe-volumes.md "../../../cli/latest/reference/fsx/describe-volumes.md") CLI command or the [DescribeVolumes](../APIReference/API_DescribeVolumes.md "../APIReference/API_DescribeVolumes.md") API operation to view the `AdministrativeActions` array for the destination volume. The following example shows the response for an incremental copy on-demand data replication task. `"AdministrativeActions": [ { "AdministrativeActionType": "VOLUME_UPDATE_WITH_SNAPSHOT", "ProgressPercent": 100, "RequestTime": 1699997847.438, "Status": "COMPLETED", "TargetVolumeValues": { "OpenZFSConfiguration": { "RecordSizeKiB": 128, "DataCompressionType": "ZSTD", "DeleteIntermediateSnaphots": true, "DeleteClonedVolumes": false, "DeleteIntermediateData": true, "SourceSnapshotARN": "arn:aws:fsx:us-east-1:609492434915:snapshot/fsvol-0e1ab09de954a352f/fsvolsnap-01dda47dcbb24ddd0", "DestinationSnapshot": "fsvolsnap-0afef62088c7c9060" } }, "TotalTransferBytes": 44144, "RemainingTransferBytes": 0 },` |
+| **Parameter**             | **Default**                       | **Description**                                                                                                                                                                                                                                                                  |
+| ------------------------- | --------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Source volume ID          | No default value                  | The ID of the source volume from which data will be periodically replicated.                                                                                                                                                                                                     |
+| Destination volume ID     | No default value                  | The ID of the destination volume that will become a replica of the source volume.                                                                                                                                                                                                |
+| CronSchedule              | [0 0/6 \*\*?\*] (every six hours) | The schedule to replicate data from the source volume to the destination volume.                                                                                                                                                                                                 |
+| SnapshotName              | fsx-scheduled-snapshot            | The name for the scheduled snapshots that will be taken of the source volume. Appears in the \*_Snapshot Name_<br>• column of the Amazon FSx Console.                                                                                                                            |
+| Snapshot retention (days) | 7                                 | The number of days to keep user-initiated snapshots. The Lambda function deletes user-initiatted snapshots that are kept after this number of days.                                                                                                                              |
+| SuccessNotification       | Yes                               | Choose whether to be notified when the replication is successfully initiated. A notification is always sent when a snapshot fails to create or the replication fails to start.                                                                                                   |
+| Email                     | No default value                  | The email address that you would like notifications to be sent to.                                                                                                                                                                                                               |
+| CopyStrategy              | INCREMENTAL_COPY                  | The \*_CopyStrategy_<br>• parameter for the `CopySnapshotAndUpdateVolume` API operation. For more information, see [CopySnapshotAndUpdateVolume](../APIReference/API_CopySnapshotAndUpdateVolume.md "../APIReference/API_CopySnapshotAndUpdateVolume.md") in the Amazon FSx API. |
+| Options                   | None                              | The \*_Options_<br>• parameter for the `CopySnapshotAndUpdateVolume` API operation. For more information, see [CopySnapshotAndUpdateVolume](../APIReference/API_CopySnapshotAndUpdateVolume.md "../APIReference/API_CopySnapshotAndUpdateVolume.md") in the Amazon FSx API.      |
+
+3. In the AWS SAM CLI, run the following command to deploy the resources specified in the SAM template.
+
+```
+sam deploy --guided \
+--stack-name fsxz-periodic-replication \
+--template-file fsx-openzfs-periodic-replication.yaml \
+--capabilities CAPABILITY_AUTO_EXPAND CAPABILITY_IAM CAPABILITY_NAMED_IAM
+
+```
+
+You will be asked if you would like to update any parameters. 4. Choose **Enter** to deploy the template.
+
+##
+
+Step 2: Monitoring periodic replication
+
+You can monitor the status of the periodic replication workflow using the Amazon FSx Console, AWS CLI, and API.
+For more information on how to monitor periodic replication using the Amazon FSx Console, see [Monitoring progress of on-demand data replication](on-demand-replication.md#how-to-monitor-data-replication "on-demand-replication.md#how-to-monitor-data-replication").
+
+To use the AWS CLI or API to track the progress of your replication, call the
+[describe-volumes](../../../cli/latest/reference/fsx/describe-volumes.md "../../../cli/latest/reference/fsx/describe-volumes.md") CLI command or
+the [DescribeVolumes](../APIReference/API_DescribeVolumes.md "../APIReference/API_DescribeVolumes.md") API operation
+to view the `AdministrativeActions` array for the destination volume.
+The following example shows the response for an incremental copy on-demand data replication task.
+
+```
+"AdministrativeActions": [
+   {
+    "AdministrativeActionType": "VOLUME_UPDATE_WITH_SNAPSHOT",
+    "ProgressPercent": 100,
+    "RequestTime": 1699997847.438,
+    "Status": "COMPLETED",
+    "TargetVolumeValues": {
+    "OpenZFSConfiguration": {
+        "RecordSizeKiB": 128,
+        "DataCompressionType": "ZSTD",
+        "DeleteIntermediateSnaphots": true,
+        "DeleteClonedVolumes": false,
+        "DeleteIntermediateData": true,
+        "SourceSnapshotARN": "arn:aws:fsx:us-east-1:609492434915:snapshot/fsvol-0e1ab09de954a352f/fsvolsnap-01dda47dcbb24ddd0",
+        "DestinationSnapshot": "fsvolsnap-0afef62088c7c9060"
+        }
+    },
+    "TotalTransferBytes": 44144,
+    "RemainingTransferBytes": 0
+   },
+
+```

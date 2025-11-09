@@ -24,10 +24,14 @@ metric has triggered a warning, you can resolve it by increasing the file system
 throughput capacity or storage capacity, as described in the following table.
 
 | If there's a warning for this metric           | Do this                                                                                                                                                     |
-| ---------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| ---------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Network throughput – utilization               | [Increase throughput capacity](managing-throughput-capacity.md#increase-throughput-capacity "managing-throughput-capacity.md#increase-throughput-capacity") |
-| File server > Disk IOPS – utilization          |                                                                                                                                                             | File server > Disk throughput – utilization                                                                                        |
-| File server > Disk IOPS – burst balance        |                                                                                                                                                             | File server > Disk throughput – burst balance                                                                                      |
+| File server > Disk IOPS – utilization          |
+| File server > Disk throughput – utilization    |
+| File server > Disk IOPS – burst balance        |
+| File server > Disk throughput – burst balance  |
 | File server > CPU utilization                  |
 | Storage capacity utilization                   | [Increase storage capacity](managing-storage-capacity.md#increase-storage-capacity "managing-storage-capacity.md#increase-storage-capacity")                |
-| Storage volume > Disk IOPS – utilization (SSD) | [Increase SSD IOPS](managing-storage-capacity.md#increase-storage-capacity "managing-storage-capacity.md#increase-storage-capacity")                        | For more information about file system performance, see [Performance for Amazon FSx for OpenZFS](performance.md "performance.md"). |
+| Storage volume > Disk IOPS – utilization (SSD) | [Increase SSD IOPS](managing-storage-capacity.md#increase-storage-capacity "managing-storage-capacity.md#increase-storage-capacity")                        |
+
+For more information about file system performance, see [Performance for Amazon FSx for OpenZFS](performance.md "performance.md").

@@ -73,11 +73,50 @@ where FSx for OpenZFS is available. For more information, see [Amazon FSx endpoi
 _AWS General Reference_. 2. For **Parameters**, review the parameters for the template and modify
 them for the needs of your file system volumes. This solution uses the following default values.
 
-| Parameter                           | Default                          | Description                                                                                                                                                                          |
-| ----------------------------------- | -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| FSx for OpenZFS resource ID         | No default value                 | The file system ID or volume ID on which the snapshot schedule will apply. If you provide a file system ID, the schedule will take snapshots of all volumes within that file system. |
-| CRON schedule pattern for snapshots | 0 0/6 \* \* ? \* [Every 6 hours] | The schedule to run the CloudWatch event, triggering a new snapshot and deleting old snapshots outside of the retention period.                                                      |
-| Snapshot retention (days)           | 7                                | The number of days to keep user-initiated snapshots. The Lambda function deletes user-initiated snapshots older than this number of days.                                            |
-| Name for snapshots                  | User-scheduled_snapshot          | The name for these snapshots, which appears in the **Snapshot Name** column of the Amazon FSx Management Console.                                                                    |
-| Snapshot Notification               | Yes                              | Choose whether to be notified when snapshots are successfully initiated. A notification is always sent if there's an error.                                                          |
-| Email address                       | No default value                 | The email address to use in subscribing to the SNS notifications.                                                                                                                    | 3. Choose **Next**. 4. For **Options**, choose **Next**. 5. For **Review**, review and confirm the settings. Select the check box acknowledging that the template creates IAM resources. 6. Choose **Create** to deploy the stack. You can view the status of the stack in the AWS CloudFormation console in the **Status** column. You should see a status of **CREATE_COMPLETE** in about five minutes. ## Additional options You can use the Lambda function created by this solution to perform custom scheduled snapshots of more than one FSx for OpenZFS volume. The volume ID is passed to the Amazon FSx function in the input JSON for the CloudWatch event. The default JSON passed to the Lambda function is as follows, where the values for `VolumeId` and `SuccessNotification` are passed from the parameters specified when launching the AWS CloudFormation stack. `{ "start-snapshot": "true", "purge-snapshots": "true", "volume-id": "${VolumeId}", "notify_on_success": "${SuccessNotification}" }` To schedule snapshots for an additional FSx for OpenZFS volume, create another CloudWatch event rule. You do so using the Schedule event source, with the Lambda function created by this solution as the target. Choose **Constant (JSON text)** under **Configure Input**. For the JSON input, simply substitute the volume ID of the FSx for OpenZFS volume to back up in place of `${VolumeId}`. Also, substitute either `Yes` or `No` in place of `${SuccessNotification}` in the JSON above. Any additional CloudWatch Event rules you create manually aren't part of the AWS CloudFormation stack for the Amazon FSx custom scheduled snapshot solution. Thus, they aren't removed if you delete the stack. |
+| Parameter                           | Default                                     | Description                                                                                                                                                                                |
+| ----------------------------------- | ------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| FSx for OpenZFS resource ID         | No default value                            | The file system ID or volume ID on which the snapshot schedule will apply.<br>If you provide a file system ID, the schedule will take snapshots of all volumes<br>within that file system. |
+| CRON schedule pattern for snapshots | 0 0/6 \<br>• \<br>• ? \*<br>[Every 6 hours] | The schedule to run the CloudWatch event, triggering a new snapshot and deleting old snapshots<br>outside of the retention period.                                                         |
+| Snapshot retention (days)           | 7                                           | The number of days to keep user-initiated snapshots. The Lambda function deletes<br>user-initiated snapshots older than this number of days.                                               |
+| Name for snapshots                  | User-scheduled_snapshot                     | The name for these snapshots, which appears in the **Snapshot Name**<br>column of the Amazon FSx Management Console.                                                                       |
+| Snapshot Notification               | Yes                                         | Choose whether to be notified when snapshots are successfully initiated. A<br>notification is always sent if there's an error.                                                             |
+| Email address                       | No default value                            | The email address to use in subscribing to the SNS notifications.                                                                                                                          |
+
+3. Choose **Next**.
+4. For **Options**, choose **Next**.
+5. For **Review**, review and confirm the settings. Select the
+   check box acknowledging that the template creates IAM resources.
+6. Choose **Create** to deploy the stack.
+
+You can view the status of the stack in the AWS CloudFormation console in the **Status**
+column. You should see a status of **CREATE_COMPLETE** in about five
+minutes.
+
+## Additional options
+
+You can use the Lambda function created by this solution to perform custom scheduled snapshots
+of more than one FSx for OpenZFS volume. The volume ID is passed to the Amazon FSx function in the
+input JSON for the CloudWatch event. The default JSON passed to the Lambda function is as follows, where
+the values for `VolumeId` and `SuccessNotification` are passed from the
+parameters specified when launching the AWS CloudFormation stack.
+
+```
+{
+	"start-snapshot": "true",
+	"purge-snapshots": "true",
+	"volume-id": "${VolumeId}",
+	"notify_on_success": "${SuccessNotification}"
+}
+
+```
+
+To schedule snapshots for an additional FSx for OpenZFS volume, create another CloudWatch event rule. You
+do so using the Schedule event source, with the Lambda function created by this solution as the
+target. Choose **Constant (JSON text)** under **Configure
+Input**. For the JSON input, simply substitute the volume ID of the FSx for OpenZFS
+volume to back up in place of `${VolumeId}`. Also, substitute either
+`Yes` or `No` in place of `${SuccessNotification}` in the JSON
+above.
+
+Any additional CloudWatch Event rules you create manually aren't part of the AWS CloudFormation stack for
+the Amazon FSx custom scheduled snapshot solution. Thus, they aren't removed if you delete the stack.

@@ -119,7 +119,26 @@ your VPC and your file system.
 The following table summarizes the subnet, elastic network interface, and IP address resources for FSx for OpenZFS file system deployment types:
 
 | File system deployment type | Number of subnets | Number of elastic network interfaces | Number of IP addresses |
-| --------------------------- | ----------------- | ------------------------------------ | ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| --------------------------- | ----------------- | ------------------------------------ | ---------------------- |
 | Multi-AZ (HA)               | 2                 | 2                                    | 3                      |
 | Single-AZ (HA)              | 1                 | 2                                    | 3                      |
-| Single-AZ (non-HA)          | 1                 | 1                                    | 1                      | Once a file system is created, its IP addresses don't change until the file system is deleted. For Multi-AZ (HA) and Single-AZ (HA) file systems, the number of IP addresses includes a floating IP address, which allows connected clients to transition between the preferred and standby file servers during a failover event. For more information, see [Accessing your data](accessing-your-data.md "accessing-your-data.md"). ###### Important Amazon FSx doesn't support accessing file systems from, or exposing file systems to the public Internet. If an Elastic IP address, which is a public IP address reachable from the Internet, is attached to a file system's elastic network interface, Amazon FSx automatically detaches it. #### Backups FSx for OpenZFS offers a native backups feature that's designed to support archival, data retention, and compliance needs. A backup is a secondary, offline copy of your file system. Amazon FSx backups are crash-consistent and incremental, which means that only the changes from your most recent backup are saved. This saves on backup storage costs by not duplicating data. By default, Amazon FSx takes an automatic daily backup of your file system during a backup window that you specify. You can create additional backups at any time using the AWS Management Console, AWS Command Line Interface, or Amazon FSx API. For more information, see [Protecting your data with backups](using-backups.md "using-backups.md"). |
+| Single-AZ (non-HA)          | 1                 | 1                                    | 1                      |
+
+Once a file system is created, its IP addresses don't change until the file system is deleted. For Multi-AZ (HA) and Single-AZ (HA) file systems, the number of IP addresses includes a floating IP address, which allows connected clients to transition between the preferred and standby file servers
+during a failover event. For more information, see [Accessing your data](accessing-your-data.md "accessing-your-data.md").
+
+###### Important
+
+Amazon FSx doesn't support accessing file systems from, or exposing file systems to the public Internet.
+If an Elastic IP address, which is a public IP address reachable from the Internet, is attached to a
+file system's elastic network interface, Amazon FSx automatically detaches it.
+
+#### Backups
+
+FSx for OpenZFS offers a native backups feature that's designed to support archival, data
+retention, and compliance needs. A backup is a secondary, offline copy of your file system.
+Amazon FSx backups are crash-consistent and incremental, which means that only the changes from your
+most recent backup are saved. This saves on backup storage costs by not duplicating data. By
+default, Amazon FSx takes an automatic daily backup of your file system during a backup window that
+you specify. You can create additional backups at any time using the AWS Management Console, AWS Command Line Interface, or
+Amazon FSx API. For more information, see [Protecting your data with backups](using-backups.md "using-backups.md").
