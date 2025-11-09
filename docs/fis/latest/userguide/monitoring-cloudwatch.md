@@ -31,12 +31,15 @@ the [Amazon CloudWatch User Guide](../../../AmazonCloudWatch/latest/monitoring.m
 
 AWS FIS publishes the following metric in the **AWS/Usage** namespace.
 
-| Metric          | Description                                                                                                                                                   |
-| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `ResourceCount` | The total number of the specified resource running on your account. The resource is defined by the dimensions associated with the metric.                     | The following dimensions are used to refine the usage metrics that are published by AWS FIS. |
-| Dimension       | Description                                                                                                                                                   |
-| ---             | ---                                                                                                                                                           |
-| `Service`       | The name of the AWS service containing the resource. For AWS FIS usage metrics, the value for this dimension is `FIS`.                                        |
-| `Type`          | The type of entity that is being reported. Currently, the only valid value for AWS FIS usage metrics is `Resource`.                                           |
-| `Resource`      | The type of resource that is running. The possible values are `ExperimentTemplates` for experiment templates, and `ActiveExperiments` for active experiments. |
-| `Class`         | This dimension is reserved for future use.                                                                                                                    |
+| Metric          | Description                                                                                                                                  |
+| --------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| `ResourceCount` | The total number of the specified resource running on your account.<br>The resource is defined by the dimensions associated with the metric. |
+
+The following dimensions are used to refine the usage metrics that are published by AWS FIS.
+
+| Dimension  | Description                                                                                                                                                      |
+| ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Service`  | The name of the AWS service containing the resource. For AWS FIS usage metrics, the value for this dimension is `FIS`.                                           |
+| `Type`     | The type of entity that is being reported. Currently, the only valid value for AWS FIS usage metrics is `Resource`.                                              |
+| `Resource` | The type of resource that is running. The possible values are `ExperimentTemplates`<br>for experiment templates, and `ActiveExperiments` for active experiments. |
+| `Class`    | This dimension is reserved for future use.                                                                                                                       |

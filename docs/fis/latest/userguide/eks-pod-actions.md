@@ -202,7 +202,7 @@ When you reference an image from Amazon ECR, you must use the full image URI.
 The Pod container image is also available in the [AWS ECR Public Gallery](https://gallery.ecr.aws/aws-fis/aws-fis-pod "https://gallery.ecr.aws/aws-fis/aws-fis-pod").
 
 | AWS Region                | Image URI                                                           |
-| ------------------------- | ------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------------------- | ------------------------------------------------------------------- |
 | US East (Ohio)            | `051821878176.dkr.ecr.us-east-2.amazonaws.com/aws-fis-pod:0.1`      |
 | US East (N. Virginia)     | `731367659002.dkr.ecr.us-east-1.amazonaws.com/aws-fis-pod:0.1`      |
 | US West (N. California)   | `080694859247.dkr.ecr.us-west-1.amazonaws.com/aws-fis-pod:0.1`      |
@@ -226,4 +226,52 @@ The Pod container image is also available in the [AWS ECR Public Gallery](https:
 | Middle East (Bahrain)     | `065825543785.dkr.ecr.me-south-1.amazonaws.com/aws-fis-pod:0.1`     |
 | South America (São Paulo) | `767113787785.dkr.ecr.sa-east-1.amazonaws.com/aws-fis-pod:0.1`      |
 | AWS GovCloud (US-East)    | `246533647532.dkr.ecr.us-gov-east-1.amazonaws.com/aws-fis-pod:0.1`  |
-| AWS GovCloud (US-West)    | `246529956514.dkr.ecr.us-gov-west-1.amazonaws.com/aws-fis-pod:0.1`  | ## Example experiment template The following is an example experiment template for the [aws:eks:pod-network-latency](fis-actions-reference.md#pod-network-latency "fis-actions-reference.md#pod-network-latency") action. ``{ "description": "Add latency and jitter to the network interface for the target EKS Pods", "targets": { "myPods": { "resourceType": "aws:eks:pod", "parameters": { "clusterIdentifier": "`mycluster`", "namespace": "`default`", "selectorType": "`labelSelector`", "selectorValue": "`mylabel=mytarget`" }, "selectionMode": "`COUNT(3)`" } }, "actions": { "EksPod-latency": { "actionId": "aws:eks:pod-network-latency", "description": "Add latency", "parameters": { "kubernetesServiceAccount": "`myserviceaccount`", "duration": "`PT5M`", "delayMilliseconds": "`200`", "jitterMilliseconds": "`10`", "sources": "`0.0.0.0/0`" }, "targets": { "Pods": "myPods" } } }, "stopConditions": [ { "source": "none", } ], "roleArn": "arn:aws:iam::`111122223333`:role/`fis-experiment-role`", "tags": { "Name": "EksPodNetworkLatency" } }`` |
+| AWS GovCloud (US-West)    | `246529956514.dkr.ecr.us-gov-west-1.amazonaws.com/aws-fis-pod:0.1`  |
+
+## Example experiment template
+
+The following is an example experiment template for the [aws:eks:pod-network-latency](fis-actions-reference.md#pod-network-latency "fis-actions-reference.md#pod-network-latency")
+action.
+
+```
+{
+    "description": "Add latency and jitter to the network interface for the target EKS Pods",
+    "targets": {
+        "myPods": {
+            "resourceType": "aws:eks:pod",
+            "parameters": {
+                "clusterIdentifier": "`mycluster`",
+                "namespace": "`default`",
+                "selectorType": "`labelSelector`",
+                "selectorValue": "`mylabel=mytarget`"
+            },
+            "selectionMode": "`COUNT(3)`"
+        }
+    },
+    "actions": {
+        "EksPod-latency": {
+            "actionId": "aws:eks:pod-network-latency",
+            "description": "Add latency",
+            "parameters": {
+                "kubernetesServiceAccount": "`myserviceaccount`",
+                "duration": "`PT5M`",
+                "delayMilliseconds": "`200`",
+                "jitterMilliseconds": "`10`",
+                "sources": "`0.0.0.0/0`"
+            },
+            "targets": {
+                "Pods": "myPods"
+            }
+        }
+    },
+    "stopConditions": [
+        {
+            "source": "none",
+        }
+    ],
+    "roleArn": "arn:aws:iam::`111122223333`:role/`fis-experiment-role`",
+    "tags": {
+        "Name": "EksPodNetworkLatency"
+    }
+}
+```
