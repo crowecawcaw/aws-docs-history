@@ -364,8 +364,82 @@ began tracking these changes. For automatic alerts about changes to this page, s
 to the RSS feed on the X-Ray [Document history](document-history.md "document-history.md")
 page.
 
-| Change                                                                                                                                                                                                                               | Description                                                                                                                                                                                                                                                                                                                                                                                                      | Date              |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [IAM managed policies for X-Ray](#xray-permissions-managedpolicies "#xray-permissions-managedpolicies") – Added new `AWSXrayCrossAccountSharingConfiguration`, and updated `AWSXrayReadOnlyAccess` and `AWSXrayFullAccess` policies. | X-Ray added Observability Access Manager (OAM) permissions `oam:ListSinks` and `oam:ListAttachedSinks` to these policies to allow the console to view traces shared from source accounts as part of [CloudWatch cross-account observability](../../../AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.md"). | November 27, 2022 |
-| [IAM managed policies for X-Ray](#xray-permissions-managedpolicies "#xray-permissions-managedpolicies") – Update to `AWSXrayReadOnlyAccess` policy.                                                                                  | X-Ray added an API action, `ListResourcePolicies`.                                                                                                                                                                                                                                                                                                                                                               | November 15, 2022 |
-| [Using the X-Ray console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console") – Update to `AWSXrayReadOnlyAccess` policy                                                                | X-Ray added two new API actions, `BatchGetTraceSummaryById` and `GetDistinctTraceGraphs`. These actions are not intended to be called by your code. Therefore, these API actions are not included in the AWS CLI and AWS SDKs.                                                                                                                                                                                   | November 11, 2022 | ## Specifying a resource within an IAM policy You can control access to resources by using an IAM policy. For actions that support resource-level permissions, you use an Amazon Resource Name (ARN) to identify the resource that the policy applies to. All X-Ray actions can be used in an IAM policy to grant or deny users permission to use that action. However, not all [X-Ray actions](../api/API_Operations.md "../api/API_Operations.md") support resource-level permissions, which enable you to specify the resources on which an action can be performed. For actions that don't support resource-level permissions, you must use "`*`" as the resource. The following X-Ray actions support resource-level permissions: <br>• `CreateGroup` <br>• `GetGroup` <br>• `UpdateGroup` <br>• `DeleteGroup` <br>• `CreateSamplingRule` <br>• `UpdateSamplingRule` <br>• `DeleteSamplingRule` The following is an example of an identity-based permissions policy for a `CreateGroup` action. The example shows the use of an ARN relating to Group name `local-users` with the unique ID as a wildcard. The unique ID is generated when the group is created, and so it can't be predicted in the policy in advance. When using `GetGroup`, `UpdateGroup`, or `DeleteGroup`, you can define this as either a wildcard or the exact ARN, including ID. JSON `` `{ "Version":"2012-10-17", "Statement": [ { "Effect": "Allow", "Action": [ "xray:CreateGroup" ], "Resource": [ "arn:aws:xray:eu-west-1:123456789012:group/local-users/*" ] } ] }` `` The following is an example of an identity-based permissions policy for a `CreateSamplingRule` action. JSON `` `{ "Version":"2012-10-17", "Statement": [ { "Effect": "Allow", "Action": [ "xray:CreateSamplingRule" ], "Resource": [ "arn:aws:xray:eu-west-1:123456789012:sampling-rule/base-scorekeep" ] } ] }` `` ###### Note The ARN of a sampling rule is defined by its name. Unlike group ARNs, sampling rules have no uniquely generated ID. |
+| Change                                                                                                                                                                                                                                     | Description                                                                                                                                                                                                                                                                                                                                                                                                            | Date              |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- |
+| [IAM managed policies for X-Ray](#xray-permissions-managedpolicies "#xray-permissions-managedpolicies") –<br>Added new `AWSXrayCrossAccountSharingConfiguration`, and updated<br>`AWSXrayReadOnlyAccess` and `AWSXrayFullAccess` policies. | X-Ray added Observability Access Manager (OAM) permissions `oam:ListSinks`<br>and `oam:ListAttachedSinks` to these policies to allow the console<br>to view traces shared from source accounts as part of [CloudWatch cross-account observability](../../../AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.md"). | November 27, 2022 |
+| [IAM managed policies for X-Ray](#xray-permissions-managedpolicies "#xray-permissions-managedpolicies") –<br>Update to `AWSXrayReadOnlyAccess` policy.                                                                                     | X-Ray added an API action,<br>`ListResourcePolicies`.                                                                                                                                                                                                                                                                                                                                                                  | November 15, 2022 |
+| [Using the X-Ray console](#security_iam_id-based-policy-examples-console "#security_iam_id-based-policy-examples-console") –<br>Update to `AWSXrayReadOnlyAccess` policy                                                                   | X-Ray added two new API actions,<br>`BatchGetTraceSummaryById` and `GetDistinctTraceGraphs`.<br>These actions are not intended to be called by your code. Therefore, these API actions are not included<br>in the AWS CLI and AWS SDKs.                                                                                                                                                                                | November 11, 2022 |
+
+## Specifying a resource within an IAM policy
+
+You can control access to resources by using an IAM policy. For actions that support resource-level
+permissions, you use an Amazon Resource Name (ARN) to identify the resource that the policy applies to.
+
+All X-Ray actions can be used in an IAM policy to grant or deny users permission to use that action.
+However, not all [X-Ray actions](../api/API_Operations.md "../api/API_Operations.md") support resource-level permissions, which enable you to specify the resources on
+which an action can be performed.
+
+For actions that don't support resource-level permissions, you must use "`*`" as the
+resource.
+
+The following X-Ray actions support resource-level permissions:
+
+- `CreateGroup`
+- `GetGroup`
+- `UpdateGroup`
+- `DeleteGroup`
+- `CreateSamplingRule`
+- `UpdateSamplingRule`
+- `DeleteSamplingRule`
+
+The following is an example of an identity-based permissions policy for a `CreateGroup` action. The
+example shows the use of an ARN relating to Group name `local-users` with the unique ID as a wildcard. The
+unique ID is generated when the group is created, and so it can't be predicted in the policy in advance. When using
+`GetGroup`, `UpdateGroup`, or `DeleteGroup`, you can define this as either a
+wildcard or the exact ARN, including ID.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": [
+ "xray:CreateGroup"
+ ],
+ "Resource": [
+ "arn:aws:xray:eu-west-1:123456789012:group/local-users/*"
+ ]
+ }
+ ]
+}`
+
+```
+
+The following is an example of an identity-based permissions policy for a `CreateSamplingRule` action.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": [
+ "xray:CreateSamplingRule"
+ ],
+ "Resource": [
+ "arn:aws:xray:eu-west-1:123456789012:sampling-rule/base-scorekeep"
+ ]
+ }
+ ]
+}`
+
+```
+
+###### Note
+
+The ARN of a sampling rule is defined by its name. Unlike group ARNs, sampling rules have no uniquely generated ID.

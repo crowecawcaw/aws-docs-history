@@ -190,7 +190,7 @@ You can choose any node in the service graph to view traces for requests that
 generated traffic to that node. Currently, the Amazon SNS node is yellow. Drill down to find
 out why.
 
-![X-Ray console trace map page](/images/xray/latest/devguide/images/scorekeep-gettingstarted-servicemap-before-ECS.png)
+![X-Ray console trace map page](images/scorekeep-gettingstarted-servicemap-before-ECS.png)
 
 ###### To find the cause of the error
 

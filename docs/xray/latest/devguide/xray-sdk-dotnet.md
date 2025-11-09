@@ -112,40 +112,64 @@ The `AWSXRayRecorder v2.10.1` nuget package has the following dependencies:
 
 ### NET Framework 4.5
 
-````
+```
 
 AWSXRayRecorder (2.10.1)
 |
 |-- AWSXRayRecorder.Core (>= 2.10.1)
 |   |-- AWSSDK.Core (>= 3.3.25.1)
-| |-- AWSXRayRecorder.Handlers.AspNet (>= 2.7.3)
+|
+|-- AWSXRayRecorder.Handlers.AspNet (>= 2.7.3)
 |   |-- AWSXRayRecorder.Core (>= 2.10.1)
-| |-- AWSXRayRecorder.Handlers.AwsSdk (>= 2.8.3)
+|
+|-- AWSXRayRecorder.Handlers.AwsSdk (>= 2.8.3)
 |   |-- AWSXRayRecorder.Core (>= 2.10.1)
-| |-- AWSXRayRecorder.Handlers.EntityFramework (>= 1.1.1)
+|
+|-- AWSXRayRecorder.Handlers.EntityFramework (>= 1.1.1)
 |   |-- AWSXRayRecorder.Core (>= 2.10.1)
 |   |-- EntityFramework (>= 6.2.0)
-| |-- AWSXRayRecorder.Handlers.SqlServer (>= 2.7.3)
+|
+|-- AWSXRayRecorder.Handlers.SqlServer (>= 2.7.3)
 |   |-- AWSXRayRecorder.Core (>= 2.10.1)
-| |-- AWSXRayRecorder.Handlers.System.Net (>= 2.7.3)
-|-- AWSXRayRecorder.Core (>= 2.10.1) ``` ### NET Framework 2.0 ``` AWSXRayRecorder (2.10.1) |
+|
+|-- AWSXRayRecorder.Handlers.System.Net (>= 2.7.3)
+    |-- AWSXRayRecorder.Core (>= 2.10.1)
+
+```
+
+### NET Framework 2.0
+
+```
+
+AWSXRayRecorder (2.10.1)
+|
 |-- AWSXRayRecorder.Core (>= 2.10.1)
 |   |-- AWSSDK.Core (>= 3.3.25.1)
 |   |-- Microsoft.AspNetCore.Http (>= 2.0.0)
 |   |-- Microsoft.Extensions.Configuration (>= 2.0.0)
 |   |-- System.Net.Http (>= 4.3.4)
-| |-- AWSXRayRecorder.Handlers.AspNetCore (>= 2.7.3)
+|
+|-- AWSXRayRecorder.Handlers.AspNetCore (>= 2.7.3)
 |   |-- AWSXRayRecorder.Core (>= 2.10.1)
 |   |-- Microsoft.AspNetCore.Http.Extensions (>= 2.0.0)
 |   |-- Microsoft.AspNetCore.Mvc.Abstractions (>= 2.0.0)
-| |-- AWSXRayRecorder.Handlers.AwsSdk (>= 2.8.3)
+|
+|-- AWSXRayRecorder.Handlers.AwsSdk (>= 2.8.3)
 |   |-- AWSXRayRecorder.Core (>= 2.10.1)
-| |-- AWSXRayRecorder.Handlers.EntityFramework (>= 1.1.1)
+|
+|-- AWSXRayRecorder.Handlers.EntityFramework (>= 1.1.1)
 |   |-- AWSXRayRecorder.Core (>= 2.10.1)
 |   |-- Microsoft.EntityFrameworkCore.Relational (>= 3.1.0)
-| |-- AWSXRayRecorder.Handlers.SqlServer (>= 2.7.3)
+|
+|-- AWSXRayRecorder.Handlers.SqlServer (>= 2.7.3)
 |   |-- AWSXRayRecorder.Core (>= 2.10.1)
 |   |-- System.Data.SqlClient (>= 4.4.0)
-| |-- AWSXRayRecorder.Handlers.System.Net (>= 2.7.3)
-|-- AWSXRayRecorder.Core (>= 2.10.1) ``` For more details about dependency management, refer to Microsoft's documentation about [Nuget dependency](https://docs.microsoft.com/en-us/dotnet/standard/library-guidance/dependencies "https://docs.microsoft.com/en-us/dotnet/standard/library-guidance/dependencies") and [Nuget dependency resolution](https://docs.microsoft.com/en-us/nuget/concepts/dependency-resolution "https://docs.microsoft.com/en-us/nuget/concepts/dependency-resolution").
-````
+|
+|-- AWSXRayRecorder.Handlers.System.Net (>= 2.7.3)
+    |-- AWSXRayRecorder.Core (>= 2.10.1)
+
+```
+
+For more details about dependency management, refer to Microsoft's documentation about [Nuget dependency](https://docs.microsoft.com/en-us/dotnet/standard/library-guidance/dependencies "https://docs.microsoft.com/en-us/dotnet/standard/library-guidance/dependencies")
+and [Nuget dependency
+resolution](https://docs.microsoft.com/en-us/nuget/concepts/dependency-resolution "https://docs.microsoft.com/en-us/nuget/concepts/dependency-resolution").

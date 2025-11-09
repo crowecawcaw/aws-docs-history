@@ -90,6 +90,143 @@ value, which you would specify when configuring advanced event selectors using t
 CloudTrail APIs. The **Data APIs logged to CloudTrail** column shows the API
 calls logged to CloudTrail for the resource type.
 
-| Data event type (console) | resources.type value | Data APIs logged to CloudTrail                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| ------------------------- | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **X-Ray trace**           | `AWS::XRay::Trace`   | <br>• [PutTraceSegments](../api/API_PutTraceSegments.md "../api/API_PutTraceSegments.md") <br>• [GetTraceSummaries](../api/API_GetTraceSummaries.md "../api/API_GetTraceSummaries.md") <br>• [GetTraceGraph](../api/API_GetTraceGraph.md "../api/API_GetTraceGraph.md") <br>• [GetServiceGraph](../api/API_GetServiceGraphs.md "../api/API_GetServiceGraphs.md") <br>• [BatchGetTraces](../api/API_BatchGetTraces.md "../api/API_BatchGetTraces.md") <br>• [GetTimeSeriesServiceStatistics](../api/API_GetTimeSeriesServiceStatistics.md "../api/API_GetTimeSeriesServiceStatistics.md") <br>• [PutTelemetryRecords](../api/API_PutTelemetryRecords.md "../api/API_PutTelemetryRecords.md") <br>• [GetSamplingTargets](../api/API_GetSamplingTargets.md "../api/API_GetSamplingTargets.md") | You can configure advanced event selectors to filter on the `eventName` and `readOnly` fields to log only those events that are important to you. However, you cannot select events by adding the `resources.ARN` field selector, because X-Ray traces do not have ARNs. For more information about these fields, see [AdvancedFieldSelector](../../../awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.md "../../../awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.md") in the _AWS CloudTrail API Reference_. The following is an example of how to run the [`put-event-selectors`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudtrail/put-event-selectors.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudtrail/put-event-selectors.html") AWS CLI command to log data events on a CloudTrail trail. You must run the command in or specify the Region in which the trail was created; otherwise, the operation returns an `InvalidHomeRegionException` exception. `aws cloudtrail put-event-selectors --trail-name myTrail --advanced-event-selectors \ '{ "AdvancedEventSelectors": [ { "FieldSelectors": [ { "Field": "eventCategory", "Equals": ["Data"] }, { "Field": "resources.type", "Equals": ["AWS::XRay::Trace"] }, { "Field": "eventName", "Equals": ["PutTraceSegments","GetSamplingTargets"] } ], "Name": "Log X-Ray PutTraceSegments and GetSamplingTargets data events" } ] }'` ## X-Ray event examples ### Management event example, `GetEncryptionConfig` The following is an example of the X-Ray GetEncryptionConfig log entry in CloudTrail. `{ "eventVersion"=>"1.05", "userIdentity"=>{ "type"=>"AssumedRole", "principalId"=>"AROAJVHBZWD3DN6CI2MHM:MyName", "arn"=>"arn:aws:sts::123456789012:assumed-role/MyRole/MyName", "accountId"=>"123456789012", "accessKeyId"=>"AKIAIOSFODNN7EXAMPLE", "sessionContext"=>{ "attributes"=>{ "mfaAuthenticated"=>"false", "creationDate"=>"2023-7-01T00:24:36Z" }, "sessionIssuer"=>{ "type"=>"Role", "principalId"=>"AROAJVHBZWD3DN6CI2MHM", "arn"=>"arn:aws:iam::123456789012:role/MyRole", "accountId"=>"123456789012", "userName"=>"MyRole" } } }, "eventTime"=>"2023-7-01T00:24:36Z", "eventSource"=>"xray.amazonaws.com", "eventName"=>"GetEncryptionConfig", "awsRegion"=>"us-east-2", "sourceIPAddress"=>"33.255.33.255", "userAgent"=>"aws-sdk-ruby2/2.11.19 ruby/2.3.1 x86_64-linux", "requestParameters"=>nil, "responseElements"=>nil, "requestID"=>"3fda699a-32e7-4c20-37af-edc2be5acbdb", "eventID"=>"039c3d45-6baa-11e3-2f3e-e5a036343c9f", "eventType"=>"AwsApiCall", "recipientAccountId"=>"123456789012" }` ### Data event example, `PutTraceSegments` The following is an example of the X-Ray PutTraceSegments data event log entry in CloudTrail. `{ "eventVersion": "1.09", "userIdentity": { "type": "AssumedRole", "principalId": "AROAWYXPW54Y4NEXAMPLE:i-0dzz2ac111c83zz0z", "arn": "arn:aws:sts::012345678910:assumed-role/my-service-role/i-0dzz2ac111c83zz0z", "accountId": "012345678910", "accessKeyId": "AKIAIOSFODNN7EXAMPLE", "sessionContext": { "sessionIssuer": { "type": "Role", "principalId": "AROAWYXPW54Y4NEXAMPLE", "arn": "arn:aws:iam::012345678910:role/service-role/my-service-role", "accountId": "012345678910", "userName": "my-service-role" }, "attributes": { "creationDate": "2024-01-22T17:34:11Z", "mfaAuthenticated": "false" }, "ec2RoleDelivery": "2.0" } }, "eventTime": "2024-01-22T18:22:05Z", "eventSource": "xray.amazonaws.com", "eventName": "PutTraceSegments", "awsRegion": "us-west-2", "sourceIPAddress": "198.51.100.0", "userAgent": "aws-sdk-ruby3/3.190.0 md/internal ua/2.0 api/xray#1.0.0 os/linux md/x86_64 lang/ruby#2.7.8 md/2.7.8 cfg/retry-mode#legacy", "requestParameters": { "traceSegmentDocuments": [ "trace_id:1-00zzz24z-EXAMPLE4f4e41754c77d0000", "trace_id:1-00zzz24z-EXAMPLE4f4e41754c77d0000", "trace_id:1-00zzz24z-EXAMPLE4f4e41754c77d0001", "trace_id:1-00zzz24z-EXAMPLE4f4e41754c77d0002" ] }, "responseElements": { "unprocessedTraceSegments": [] }, "requestID": "5zzzzz64-acbd-46ff-z544-451a3ebcb2f8", "eventID": "4zz51z7z-77f9-44zz-9bd7-6c8327740f2e", "readOnly": false, "resources": [ { "type": "AWS::XRay::Trace" } ], "eventType": "AwsApiCall", "managementEvent": false, "recipientAccountId": "012345678910", "eventCategory": "Data", "tlsDetails": { "tlsVersion": "TLSv1.2", "cipherSuite": "ZZZZZ-RSA-AAA128-GCM-SHA256", "clientProvidedHostHeader": "example.us-west-2.xray.cloudwatch.aws.dev" } }` |
+| Data event type (console) | resources.type value | Data APIs logged to CloudTrail                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| ------------------------- | -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **X-Ray trace**           | `AWS::XRay::Trace`   | • [PutTraceSegments](../api/API_PutTraceSegments.md "../api/API_PutTraceSegments.md")<br>• [GetTraceSummaries](../api/API_GetTraceSummaries.md "../api/API_GetTraceSummaries.md")<br>• [GetTraceGraph](../api/API_GetTraceGraph.md "../api/API_GetTraceGraph.md")<br>• [GetServiceGraph](../api/API_GetServiceGraphs.md "../api/API_GetServiceGraphs.md")<br>• [BatchGetTraces](../api/API_BatchGetTraces.md "../api/API_BatchGetTraces.md")<br>• [GetTimeSeriesServiceStatistics](../api/API_GetTimeSeriesServiceStatistics.md "../api/API_GetTimeSeriesServiceStatistics.md")<br>• [PutTelemetryRecords](../api/API_PutTelemetryRecords.md "../api/API_PutTelemetryRecords.md")<br>• [GetSamplingTargets](../api/API_GetSamplingTargets.md "../api/API_GetSamplingTargets.md") |
+
+You can configure advanced event selectors to filter on the `eventName` and
+`readOnly` fields to log only those events that are important to you. However,
+you cannot select events by adding the `resources.ARN` field selector, because
+X-Ray traces do not have ARNs. For more information about these fields, see [AdvancedFieldSelector](../../../awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.md "../../../awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.md") in the _AWS CloudTrail API Reference_.
+The following is an example of how to run the [`put-event-selectors`](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudtrail/put-event-selectors.html "https://awscli.amazonaws.com/v2/documentation/api/latest/reference/cloudtrail/put-event-selectors.html") AWS CLI command to log data
+events on a CloudTrail trail. You must run the command in or specify the Region in which the trail
+was created; otherwise, the operation returns an `InvalidHomeRegionException`
+exception.
+
+```
+aws cloudtrail put-event-selectors --trail-name myTrail --advanced-event-selectors \
+'{
+   "AdvancedEventSelectors": [
+      {
+         "FieldSelectors": [
+            { "Field": "eventCategory", "Equals": ["Data"] },
+            { "Field": "resources.type", "Equals": ["AWS::XRay::Trace"] },
+            { "Field": "eventName", "Equals": ["PutTraceSegments","GetSamplingTargets"] }
+         ],
+         "Name": "Log X-Ray PutTraceSegments and GetSamplingTargets data events"
+      }
+   ]
+}'
+```
+
+## X-Ray event examples
+
+### Management event example,
+
+`GetEncryptionConfig`
+
+The following is an example of the X-Ray GetEncryptionConfig log entry in CloudTrail.
+
+```
+{
+    "eventVersion"=>"1.05",
+    "userIdentity"=>{
+        "type"=>"AssumedRole",
+        "principalId"=>"AROAJVHBZWD3DN6CI2MHM:MyName",
+        "arn"=>"arn:aws:sts::123456789012:assumed-role/MyRole/MyName",
+        "accountId"=>"123456789012",
+        "accessKeyId"=>"AKIAIOSFODNN7EXAMPLE",
+        "sessionContext"=>{
+            "attributes"=>{
+                "mfaAuthenticated"=>"false",
+                "creationDate"=>"2023-7-01T00:24:36Z"
+            },
+            "sessionIssuer"=>{
+                "type"=>"Role",
+                "principalId"=>"AROAJVHBZWD3DN6CI2MHM",
+                "arn"=>"arn:aws:iam::123456789012:role/MyRole",
+                "accountId"=>"123456789012",
+                "userName"=>"MyRole"
+            }
+        }
+    },
+    "eventTime"=>"2023-7-01T00:24:36Z",
+    "eventSource"=>"xray.amazonaws.com",
+    "eventName"=>"GetEncryptionConfig",
+    "awsRegion"=>"us-east-2",
+    "sourceIPAddress"=>"33.255.33.255",
+    "userAgent"=>"aws-sdk-ruby2/2.11.19 ruby/2.3.1 x86_64-linux",
+    "requestParameters"=>nil,
+    "responseElements"=>nil,
+    "requestID"=>"3fda699a-32e7-4c20-37af-edc2be5acbdb",
+    "eventID"=>"039c3d45-6baa-11e3-2f3e-e5a036343c9f",
+    "eventType"=>"AwsApiCall",
+    "recipientAccountId"=>"123456789012"
+}
+```
+
+### Data event example, `PutTraceSegments`
+
+The following is an example of the X-Ray PutTraceSegments data event log
+entry in CloudTrail.
+
+```
+{
+  "eventVersion": "1.09",
+  "userIdentity": {
+    "type": "AssumedRole",
+    "principalId": "AROAWYXPW54Y4NEXAMPLE:i-0dzz2ac111c83zz0z",
+    "arn": "arn:aws:sts::012345678910:assumed-role/my-service-role/i-0dzz2ac111c83zz0z",
+    "accountId": "012345678910",
+    "accessKeyId": "AKIAIOSFODNN7EXAMPLE",
+    "sessionContext": {
+      "sessionIssuer": {
+        "type": "Role",
+        "principalId": "AROAWYXPW54Y4NEXAMPLE",
+        "arn": "arn:aws:iam::012345678910:role/service-role/my-service-role",
+        "accountId": "012345678910",
+        "userName": "my-service-role"
+      },
+      "attributes": {
+        "creationDate": "2024-01-22T17:34:11Z",
+        "mfaAuthenticated": "false"
+      },
+      "ec2RoleDelivery": "2.0"
+    }
+  },
+  "eventTime": "2024-01-22T18:22:05Z",
+  "eventSource": "xray.amazonaws.com",
+  "eventName": "PutTraceSegments",
+  "awsRegion": "us-west-2",
+  "sourceIPAddress": "198.51.100.0",
+  "userAgent": "aws-sdk-ruby3/3.190.0 md/internal ua/2.0 api/xray#1.0.0 os/linux md/x86_64 lang/ruby#2.7.8 md/2.7.8 cfg/retry-mode#legacy",
+  "requestParameters": {
+    "traceSegmentDocuments": [
+      "trace_id:1-00zzz24z-EXAMPLE4f4e41754c77d0000",
+      "trace_id:1-00zzz24z-EXAMPLE4f4e41754c77d0000",
+      "trace_id:1-00zzz24z-EXAMPLE4f4e41754c77d0001",
+      "trace_id:1-00zzz24z-EXAMPLE4f4e41754c77d0002"
+    ]
+  },
+  "responseElements": {
+    "unprocessedTraceSegments": []
+  },
+  "requestID": "5zzzzz64-acbd-46ff-z544-451a3ebcb2f8",
+  "eventID": "4zz51z7z-77f9-44zz-9bd7-6c8327740f2e",
+  "readOnly": false,
+  "resources": [
+    {
+      "type": "AWS::XRay::Trace"
+    }
+  ],
+  "eventType": "AwsApiCall",
+  "managementEvent": false,
+  "recipientAccountId": "012345678910",
+  "eventCategory": "Data",
+  "tlsDetails": {
+    "tlsVersion": "TLSv1.2",
+    "cipherSuite": "ZZZZZ-RSA-AAA128-GCM-SHA256",
+    "clientProvidedHostHeader": "example.us-west-2.xray.cloudwatch.aws.dev"
+  }
+}
+```

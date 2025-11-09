@@ -31,7 +31,7 @@ your application.
   label, and deployment ID.
 - Amazon ECS – `ecs` adds the container ID.
 
-![Segment - Scorekeep overview showing Elastic Beanstalk and EC2 deployment details.](/images/xray/latest/devguide/images/scorekeep-PUTrules-segment-resources-python09.png)
+![Segment - Scorekeep overview showing Elastic Beanstalk and EC2 deployment details.](images/scorekeep-PUTrules-segment-resources-python09.png)
 
 To use plugins, specify it in the configuration object that you pass to the
 recorder.

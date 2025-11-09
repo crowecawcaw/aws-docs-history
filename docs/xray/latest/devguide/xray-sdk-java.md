@@ -218,12 +218,94 @@ Guide_](../../../AmazonCloudWatch/latest/DeveloperGuide.md "../../../AmazonCloud
 
 The `ServiceMetrics/SDK` namespace includes the following metrics.
 
-| Metric         | Statistics available                                                                | Description                                                                                                                                | Units         |
-| -------------- | ----------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `Latency`      | Average, Minimum, Maximum, Count                                                    | The difference between the start and end time. Average, minimum, and maximum all describe operational latency. Count describes call count. | Milliseconds  |
-| `ErrorRate`    | Average, Sum                                                                        | The rate of requests that failed with a `4xx Client Error` status code, resulting in an error.                                             | Percent       |
-| `FaultRate`    | Average, Sum                                                                        | The rate of traces that failed with a `5xx Server Error` status code, resulting in a fault.                                                | Percent       |
-| `ThrottleRate` | Average, Sum                                                                        | The rate of throttled traces that return a `429` status code. This is a subset of the `ErrorRate` metric.                                  | Percent       |
-| `OkRate`       | Average, Sum                                                                        | The rate of traced requests resulting in an `OK` status code.                                                                              | Percent       | ### X-Ray CloudWatch dimensions Use the dimensions in the following table to refine the metrics returned for your X-Ray instrumented Java applications. |
-| Dimension      | Description                                                                         |                                                                                                                                            | ---           | ---                                                                                                                                                     |
-| `ServiceType`  | The type of the service, for example, `AWS::EC2::Instance` or `NONE`, if not known. |                                                                                                                                            | `ServiceName` | The canonical name for the service.                                                                                                                     | ### Enable X-Ray CloudWatch metrics Use the following procedure to enable trace metrics in your instrumented Java application. ###### To configure trace metrics 1. Add the `aws-xray-recorder-sdk-metrics` package as an Apache Maven dependency. For more information, see [X-Ray SDK for Java Submodules](#xray-sdk-java-submodules "#xray-sdk-java-submodules"). 2. Enable a new `MetricsSegmentListener()` as part of the global recorder build. ###### Example src/com/myapp/web/Startup.java ``import com.amazonaws.xray.AWSXRay; import com.amazonaws.xray.AWSXRayRecorderBuilder; import com.amazonaws.xray.plugins.EC2Plugin; import com.amazonaws.xray.plugins.ElasticBeanstalkPlugin; import com.amazonaws.xray.strategy.sampling.LocalizedSamplingStrategy; @Configuration public class WebConfig { ... static { AWSXRayRecorderBuilder builder = AWSXRayRecorderBuilder .standard() .withPlugin(new EC2Plugin()) .withPlugin(new ElasticBeanstalkPlugin()) `.withSegmentListener(new MetricsSegmentListener());` URL ruleFile = WebConfig.class.getResource("/sampling-rules.json"); builder.withSamplingStrategy(new LocalizedSamplingStrategy(ruleFile)); AWSXRay.setGlobalRecorder(builder.build()); } }`` 3. Deploy the CloudWatch agent to collect metrics using Amazon Elastic Compute Cloud (Amazon EC2), Amazon Elastic Container Service (Amazon ECS), or Amazon Elastic Kubernetes Service (Amazon EKS): <br>• To configure Amazon EC2, see [Installing the CloudWatch agent](../../../AmazonCloudWatch/latest/monitoring/install-CloudWatch-Agent-on-EC2-Instance.md "../../../AmazonCloudWatch/latest/monitoring/install-CloudWatch-Agent-on-EC2-Instance.md"). <br>• To configure Amazon ECS, see [Monitor Amazon ECS containers using Container Insights](../../../AmazonECS/latest/developerguide/cloudwatch-container-insights.md "../../../AmazonECS/latest/developerguide/cloudwatch-container-insights.md"). <br>• To configure Amazon EKS, see [Install the CloudWatch agent by using the Amazon CloudWatch Observability EKS add-on](../../../AmazonCloudWatch/latest/monitoring/install-CloudWatch-Observability-EKS-addon.md "../../../AmazonCloudWatch/latest/monitoring/install-CloudWatch-Observability-EKS-addon.md"). 4. Configure the SDK to communicate with the CloudWatch agent. By default, the SDK communicates with the CloudWatch agent on the address `127.0.0.1`. You can configure alternate addresses by setting the environment variable or Java property to `address:port`. ###### Example Environment variable `` AWS_XRAY_METRICS_DAEMON_ADDRESS=`address:port` `` ###### Example Java property `` com.amazonaws.xray.metrics.daemonAddress=`address:port` `` ###### To validate configuration 1. Sign in to the AWS Management Console and open the CloudWatch console at [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/"). 2. Open the **Metrics** tab to observe the influx of your metrics. 3. (Optional) In the CloudWatch console, on the **Logs** tab, open the `ServiceMetricsSDK` log group. Look for a log stream that matches the host metrics, and confirm the log messages. |
+| Metric         | Statistics available             | Description                                                                                                                                   | Units        |
+| -------------- | -------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- | ------------ |
+| `Latency`      | Average, Minimum, Maximum, Count | The difference between the start and end time. Average, minimum, and maximum all<br>describe operational latency. Count describes call count. | Milliseconds |
+| `ErrorRate`    | Average, Sum                     | The rate of requests that failed with a `4xx Client Error` status code,<br>resulting in an error.                                             | Percent      |
+| `FaultRate`    | Average, Sum                     | The rate of traces that failed with a `5xx Server Error` status code,<br>resulting in a fault.                                                | Percent      |
+| `ThrottleRate` | Average, Sum                     | The rate of throttled traces that return a `429` status code. This is a<br>subset of the `ErrorRate` metric.                                  | Percent      |
+| `OkRate`       | Average, Sum                     | The rate of traced requests resulting in an `OK` status code.                                                                                 | Percent      |
+
+### X-Ray CloudWatch dimensions
+
+Use the dimensions in the following table to refine the metrics returned for your X-Ray
+instrumented Java applications.
+
+| Dimension     | Description                                                                            |
+| ------------- | -------------------------------------------------------------------------------------- |
+| `ServiceType` | The type of the service, for example, `AWS::EC2::Instance` or<br>`NONE`, if not known. |
+| `ServiceName` | The canonical name for the service.                                                    |
+
+### Enable X-Ray CloudWatch metrics
+
+Use the following procedure to enable trace metrics in your instrumented Java
+application.
+
+###### To configure trace metrics
+
+1. Add the `aws-xray-recorder-sdk-metrics` package as an Apache Maven dependency. For more
+   information, see [X-Ray SDK for Java
+   Submodules](#xray-sdk-java-submodules "#xray-sdk-java-submodules").
+2. Enable a new `MetricsSegmentListener()` as part of the global recorder
+   build.
+
+###### Example src/com/myapp/web/Startup.java
+
+```
+import com.amazonaws.xray.AWSXRay;
+import com.amazonaws.xray.AWSXRayRecorderBuilder;
+import com.amazonaws.xray.plugins.EC2Plugin;
+import com.amazonaws.xray.plugins.ElasticBeanstalkPlugin;
+import com.amazonaws.xray.strategy.sampling.LocalizedSamplingStrategy;
+
+@Configuration
+public class WebConfig {
+...
+  static {
+    AWSXRayRecorderBuilder builder = AWSXRayRecorderBuilder
+                                        .standard()
+                                        .withPlugin(new EC2Plugin())
+                                        .withPlugin(new ElasticBeanstalkPlugin())
+                                        `.withSegmentListener(new MetricsSegmentListener());`
+
+    URL ruleFile = WebConfig.class.getResource("/sampling-rules.json");
+    builder.withSamplingStrategy(new LocalizedSamplingStrategy(ruleFile));
+
+    AWSXRay.setGlobalRecorder(builder.build());
+  }
+}
+
+```
+
+3. Deploy the CloudWatch agent to collect metrics using Amazon Elastic Compute Cloud (Amazon EC2), Amazon Elastic Container Service (Amazon ECS), or
+   Amazon Elastic Kubernetes Service (Amazon EKS):
+   - To configure Amazon EC2, see [Installing the CloudWatch agent](../../../AmazonCloudWatch/latest/monitoring/install-CloudWatch-Agent-on-EC2-Instance.md "../../../AmazonCloudWatch/latest/monitoring/install-CloudWatch-Agent-on-EC2-Instance.md").
+   - To configure Amazon ECS, see [Monitor Amazon ECS
+     containers using Container Insights](../../../AmazonECS/latest/developerguide/cloudwatch-container-insights.md "../../../AmazonECS/latest/developerguide/cloudwatch-container-insights.md").
+   - To configure Amazon EKS, see [Install the CloudWatch agent by using the Amazon CloudWatch Observability EKS add-on](../../../AmazonCloudWatch/latest/monitoring/install-CloudWatch-Observability-EKS-addon.md "../../../AmazonCloudWatch/latest/monitoring/install-CloudWatch-Observability-EKS-addon.md").
+
+4. Configure the SDK to communicate with the CloudWatch agent. By default, the SDK communicates
+   with the CloudWatch agent on the address `127.0.0.1`. You can configure alternate
+   addresses by setting the environment variable or Java property to
+   `address:port`.
+
+###### Example Environment variable
+
+```
+AWS_XRAY_METRICS_DAEMON_ADDRESS=`address:port`
+```
+
+###### Example Java property
+
+```
+com.amazonaws.xray.metrics.daemonAddress=`address:port`
+```
+
+###### To validate configuration
+
+1. Sign in to the AWS Management Console and open the CloudWatch console at
+   [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
+2. Open the **Metrics** tab to observe the influx of your metrics.
+3. (Optional) In the CloudWatch console, on the **Logs** tab, open the
+   `ServiceMetricsSDK` log group. Look for a log stream that matches the host metrics,
+   and confirm the log messages.

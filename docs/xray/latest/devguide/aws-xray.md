@@ -6,7 +6,7 @@ For any traced request to your application, you can see detailed information not
 response, but also about calls that your application makes to downstream AWS resources, microservices, databases,
 and web APIs.
 
-![X-Ray displays detailed information about application requests.](images/scorekeep-cw-timeline-segment.png)
+![X-Ray displays detailed information about application requests.](/images/xray/latest/devguide/images/scorekeep-cw-timeline-segment.png)
 AWS X-Ray receives traces from your application, in addition to AWS services your application uses that are
 already integrated with X-Ray. Instrumenting your application involves sending trace data for incoming and outbound
 requests and other events within your application, along with metadata about each request. Many instrumentation
