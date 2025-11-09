@@ -11,7 +11,39 @@ CloudWatch Events](automating-proposals-with-cloudwatch-events.md "automating-pr
 2. Choose **Invitations**, and then do one of the following:
 
 | To...                                                                                                                           | Do this...                                                                                                                                                                                                                        |
-| ------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| ------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | View details about the network, such as the network ID, the description, endpoints, voting policy details, and current members. | Select the invitation from the list and choose **View details**.                                                                                                                                                                  |
 | Use the invitation to create a member and join the network.                                                                     | Select the invitation from the list and choose **Accept Invitation**. For next steps, see [Create a Member and Join a Network](managed-blockchain-hyperledger-create-member.md "managed-blockchain-hyperledger-create-member.md") |
-| Reject the invitation.                                                                                                          | Select the invitation from the list and choose **Reject Invitation**.                                                                                                                                                             | <br>• Use the following command: `aws managedblockchain list-invitations` The command returns a list of invitations, along with detail for each invitation, as shown in the following example for an invitation in the `PENDING` status: ``{ "Invitations": [ { "CreationDate": `2019-04-08T23:40:20.628Z`, "ExpirationDate": `2019-04-09T23:40:20.628Z`, "InvitationId": "`i-XL9MDD6LVWWDNA9FF94Y4TFTE`", "NetworkSummary": { "CreationDate": `2019-04-03T13:15:22.345Z`, "Description": "`Test network for supply chain blockchain.`", "Framework": "`HYPERLEDGER_FABRIC`", "FrameworkVersion": "`2.2`", "Id": "`n-MWY63ZJZU5HGNCMBQER7IN6OIU`", "Name": "`Example Corp.`", "Status": "`AVAILABLE`" }, "Status": "`PENDING`" } ] }`` You can use the `InvitationID` with the `create-member` command to create a member and join the network. For next steps, see [Create a Member and Join a Network](managed-blockchain-hyperledger-create-member.md "managed-blockchain-hyperledger-create-member.md"). |
+| Reject the invitation.                                                                                                          | Select the invitation from the list and choose **Reject Invitation**.                                                                                                                                                             |
+
+- Use the following command:
+
+```
+aws managedblockchain list-invitations
+```
+
+The command returns a list of invitations, along with detail for each invitation, as shown in the following example for an invitation in the `PENDING` status:
+
+```
+{
+   "Invitations": [
+      {
+         "CreationDate": `2019-04-08T23:40:20.628Z`,
+         "ExpirationDate": `2019-04-09T23:40:20.628Z`,
+         "InvitationId": "`i-XL9MDD6LVWWDNA9FF94Y4TFTE`",
+         "NetworkSummary": {
+            "CreationDate": `2019-04-03T13:15:22.345Z`,
+            "Description": "`Test network for supply chain blockchain.`",
+            "Framework": "`HYPERLEDGER_FABRIC`",
+            "FrameworkVersion": "`2.2`",
+            "Id": "`n-MWY63ZJZU5HGNCMBQER7IN6OIU`",
+            "Name": "`Example Corp.`",
+            "Status": "`AVAILABLE`"
+         },
+         "Status": "`PENDING`"
+      }
+   ]
+}
+```
+
+You can use the `InvitationID` with the `create-member` command to create a member and join the network. For next steps, see [Create a Member and Join a Network](managed-blockchain-hyperledger-create-member.md "managed-blockchain-hyperledger-create-member.md").
