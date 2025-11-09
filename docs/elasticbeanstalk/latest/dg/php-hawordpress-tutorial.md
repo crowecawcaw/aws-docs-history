@@ -257,10 +257,258 @@ environment.
    compatibility with environments that have an integrated RDS DB instance, use the following names and values. You can find all values, except for your
    password, in the [RDS console](https://console.aws.amazon.com/rds/home "https://console.aws.amazon.com/rds/home").
 
-| Property name  | Description                                                                                    | Property value                                                                  |
-| -------------- | ---------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `RDS_HOSTNAME` | The hostname of the DB instance.                                                               | On the **Connectivity & security** tab on the Amazon RDS console: **Endpoint**. |
-| `RDS_PORT`     | The port where the DB instance accepts connections. The default value varies among DB engines. | On the **Connectivity & security** tab on the Amazon RDS console: **Port**.     |
-| `RDS_DB_NAME`  | The database name, `ebdb`.                                                                     | On the **Configuration** tab on the Amazon RDS console: **DB Name**.            |
-| `RDS_USERNAME` | The username that you configured for your database.                                            | On the **Configuration** tab on the Amazon RDS console: **Master username**.    |
-| `RDS_PASSWORD` | The password that you configured for your database.                                            | Not available for reference in the Amazon RDS console.                          | ![Environment properties configuration section with RDS properties added](images/environment-cfg-envprops-rds.png) 6. To save the changes choose **Apply** at the bottom of the page. ## Configure and deploy your application Verify that the structure of your `wordpress-beanstalk` folder is correct, as shown. ``wordpress-beanstalk$ `tree -aL 1` . ├── `.ebextensions` ├── index.php ├── LICENSE ├── license.txt ├── readme.html ├── README.md ├── wp-activate.php ├── wp-admin ├── wp-blog-header.php ├── wp-comments-post.php ├── `wp-config.php` ├── wp-config-sample.php ├── wp-content ├── wp-cron.php ├── wp-includes ├── wp-links-opml.php ├── wp-load.php ├── wp-login.php ├── wp-mail.php ├── wp-settings.php ├── wp-signup.php ├── wp-trackback.php └── xmlrpc.php`` The customized `wp-config.php` file from the project repo uses the environment variables that you defined in the previous step to configure the database connection. The `.ebextensions` folder contains configuration files that create additional resources within your Elastic Beanstalk environment. The configuration files require modification to work with your account. Replace the placeholder values in the files with the appropriate IDs and create a source bundle. ###### To update configuration files and create a source bundle 1. Modify the configuration files as follows. <br>• `.ebextensions/dev.config` – Restricts access to your environment to protect it during the WordPress installation process. Replace the placeholder IP address near the top of the file with the public IP address of the computer you'll use to access your environment's website to complete your WordPress installation. ###### Note Depending on your network, you might need to use an IP address block. <br>• `.ebextensions/efs-create.config` – Creates an EFS file system and mount points in each Availability Zone/subnet in your VPC. Identify your default VPC and subnet IDs in the [Amazon VPC console](https://console.aws.amazon.com/vpc/home#subnets:filter=default "https://console.aws.amazon.com/vpc/home#subnets:filter=default"). 2. Create a [source bundle](applications-sourcebundle.md "applications-sourcebundle.md") containing the files in your project folder. The following command creates a source bundle named `wordpress-beanstalk.zip`. `` ~/eb-wordpress$ `zip ../wordpress-beanstalk.zip -r * .[^.]*` `` Upload the source bundle to Elastic Beanstalk to deploy WordPress to your environment. ###### To deploy a source bundle 1. Open the [Elastic Beanstalk console](https://console.aws.amazon.com/elasticbeanstalk "https://console.aws.amazon.com/elasticbeanstalk"), and in the **Regions** list, select your AWS Region. 2. In the navigation pane, choose **Environments**, and then choose the name of your environment from the list. 3. On the environment overview page, choose **Upload and deploy**. 4. Use the on-screen dialog box to upload the source bundle. 5. Choose **Deploy**. 6. When the deployment completes, you can choose the site URL to open your website in a new tab. ## Install WordPress ###### To complete your WordPress installation 1. Open the [Elastic Beanstalk console](https://console.aws.amazon.com/elasticbeanstalk "https://console.aws.amazon.com/elasticbeanstalk"), and in the **Regions** list, select your AWS Region. 2. In the navigation pane, choose **Environments**, and then choose the name of your environment from the list. 3. Choose the environment URL to open your site in a browser. You are redirected to a WordPress installation wizard because you haven't configured the site yet. 4. Perform a standard installation. The `wp-config.php` file is already present in the source code and configured to read the database connection information from the environment. You shouldn't be prompted to configure the connection. Installation takes about a minute to complete. ## Update keys and salts The WordPress configuration file `wp-config.php` also reads values for keys and salts from environment properties. Currently, these properties are all set to `test` by the `wordpress.config` file in the `.ebextensions` folder. The hash salt can be any value that meets the [environment property requirements](environments-cfg-softwaresettings.md#environments-cfg-softwaresettings-console "environments-cfg-softwaresettings.md#environments-cfg-softwaresettings-console"), but you should not store it in source control. Use the Elastic Beanstalk console to set these properties directly on the environment. ###### To update environment properties 1. Open the [Elastic Beanstalk console](https://console.aws.amazon.com/elasticbeanstalk "https://console.aws.amazon.com/elasticbeanstalk"), and in the **Regions** list, select your AWS Region. 2. In the navigation pane, choose **Environments**, and then choose the name of your environment from the list. 3. On the navigation pane, choose **Configuration**. 4. Under **Software**, choose **Edit**. 5. For `Environment properties`, modify the following properties: <br>• `AUTH_KEY` – The value chosen for `AUTH_KEY`. <br>• `SECURE_AUTH_KEY` – The value chosen for `SECURE_AUTH_KEY`. <br>• `LOGGED_IN_KEY` – The value chosen for `LOGGED_IN_KEY`. <br>• `NONCE_KEY` – The value chosen for `NONCE_KEY`. <br>• `AUTH_SALT` – The value chosen for `AUTH_SALT`. <br>• `SECURE_AUTH_SALT` – The value chosen for `SECURE_AUTH_SALT`. <br>• `LOGGED_IN_SALT` – The value chosen for `LOGGED_IN_SALT`. <br>• `NONCE_SALT` — The value chosen for `NONCE_SALT`. 6. To save the changes choose **Apply** at the bottom of the page. ###### Note Setting the properties on the environment directly overrides the values in `wordpress.config`. ## Remove access restrictions The sample project includes the configuration file `loadbalancer-sg.config`. It creates a security group and assigns it to the environment's load balancer, using the IP address that you configured in `dev.config`. It restricts HTTP access on port 80 to connections from your network. Otherwise, an outside party could potentially connect to your site before you have installed WordPress and configured your admin account. Now that you've installed WordPress, remove the configuration file to open the site to the world. ###### To remove the restriction and update your environment 1. Delete the `.ebextensions/loadbalancer-sg.config` file from your project directory. `` ~/wordpress-beanstalk$ `rm .ebextensions/loadbalancer-sg.config` `` 2. Create a source bundle. `` ~/eb-wordpress$ `zip ../wordpress-beanstalk-v2.zip -r * .[^.]*` `` Upload the source bundle to Elastic Beanstalk to deploy WordPress to your environment. ###### To deploy a source bundle 1. Open the [Elastic Beanstalk console](https://console.aws.amazon.com/elasticbeanstalk "https://console.aws.amazon.com/elasticbeanstalk"), and in the **Regions** list, select your AWS Region. 2. In the navigation pane, choose **Environments**, and then choose the name of your environment from the list. 3. On the environment overview page, choose **Upload and deploy**. 4. Use the on-screen dialog box to upload the source bundle. 5. Choose **Deploy**. 6. When the deployment completes, you can choose the site URL to open your website in a new tab. ## Configure your Auto Scaling group Finally, configure your environment's Auto Scaling group with a higher minimum instance count. Run at least two instances at all times to prevent the web servers in your environment from being a single point of failure. This also allows you to deploy changes without taking your site out of service. ###### To configure your environment's Auto Scaling group for high availability 1. Open the [Elastic Beanstalk console](https://console.aws.amazon.com/elasticbeanstalk "https://console.aws.amazon.com/elasticbeanstalk"), and in the **Regions** list, select your AWS Region. 2. In the navigation pane, choose **Environments**, and then choose the name of your environment from the list. 3. In the navigation pane, choose **Configuration**. 4. In the **Capacity** configuration category, choose **Edit**. 5. In the **Auto Scaling group** section, set **Min instances** to `2`. 6. To save the changes choose **Apply** at the bottom of the page. To support content uploads across multiple instances, the sample project uses Amazon EFS to create a shared file system. Create a post on the site and upload content to store it on the shared file system. View the post and refresh the page multiple times to hit both instances and verify that the shared file system is working. ## Upgrade WordPress To upgrade to a new version of WordPress, back up your site and deploy it to a new environment. ###### Important Do not use the update functionality within WordPress or update your source files to use a new version. Both of these actions can result in your post URLs returning 404 errors even though they are still in the database and file system. ###### To upgrade WordPress 1. In the WordPress admin console, use the export tool to export your posts to an XML file. 2. Deploy and install the new version of WordPress to Elastic Beanstalk with the same steps that you used to install the previous version. To avoid downtime, you can create an environment with the new version. 3. On the new version, install the WordPress Importer tool in the admin console and use it to import the XML file containing your posts. If the posts were created by the admin user on the old version, assign them to the admin user on the new site instead of trying to import the admin user. 4. If you deployed the new version to a separate environment, do a [CNAME swap](using-features.md "using-features.md") to redirect users from the old site to the new site. ## Clean up After you finish working with the demo code, you can terminate your environment. Elastic Beanstalk deletes all related AWS resources, such as [Amazon EC2 instances](using-features.managing.md "using-features.managing.md"), [database instances](using-features.managing.md "using-features.managing.md"), [load balancers](using-features.managing.md "using-features.managing.md"), security groups, and [alarms](using-features.md#using-features.alarms.title "using-features.md#using-features.alarms.title"). Removing resources does not delete the Elastic Beanstalk application, so you can create new environments for your application at any time. ###### To terminate your Elastic Beanstalk environment from the console 1. Open the [Elastic Beanstalk console](https://console.aws.amazon.com/elasticbeanstalk "https://console.aws.amazon.com/elasticbeanstalk"), and in the **Regions** list, select your AWS Region. 2. In the navigation pane, choose **Environments**, and then choose the name of your environment from the list. 3. Choose **Actions**, and then choose **Terminate environment**. 4. Use the on-screen dialog box to confirm environment termination. In addition, you can terminate database resources that you created outside of your Elastic Beanstalk environment. When you terminate an Amazon RDS DB instance, you can take a snapshot and restore the data to another instance later. ###### To terminate your RDS DB instance 1. Open the [Amazon RDS console](https://console.aws.amazon.com/rds "https://console.aws.amazon.com/rds"). 2. Choose **Databases**. 3. Choose your DB instance. 4. Choose **Actions**, and then choose **Delete**. 5. Choose whether to create a snapshot, and then choose **Delete**. ## Next steps As you continue to develop your application, you'll probably want a way to manage environments and deploy your application without manually creating a .zip file and uploading it to the Elastic Beanstalk console. The [Elastic Beanstalk Command Line Interface](eb-cli3.md "eb-cli3.md") (EB CLI) provides easy-to-use commands for creating, configuring, and deploying applications to Elastic Beanstalk environments from the command line. The sample application uses configuration files to configure PHP settings and create a table in the database, if it doesn't already exist. You can also use a configuration file to configure the security group settings of your instances during environment creation to avoid time-consuming configuration updates. See [Advanced environment customization with configuration files (.ebextensions)](ebextensions.md "ebextensions.md") for more information. For development and testing, you might want to use the Elastic Beanstalk functionality for adding a managed DB instance directly to your environment. For instructions on setting up a database inside your environment, see [Adding a database to your Elastic Beanstalk environment](using-features.managing.md "using-features.managing.md"). If you need a high-performance database, consider using [Amazon Aurora](https://aws.amazon.com/rds/aurora/ "https://aws.amazon.com/rds/aurora/"). Amazon Aurora is a MySQL-compatible database engine that offers commercial database features at low cost. To connect your application to a different database, repeat the [security group configuration](php-ha-tutorial.md#php-hawrds-tutorial-database "php-ha-tutorial.md#php-hawrds-tutorial-database") steps and [update the RDS-related environment properties](php-ha-tutorial.md#php-hawrds-tutorial-configure "php-ha-tutorial.md#php-hawrds-tutorial-configure"). Finally, if you plan on using your application in a production environment, you will want to [configure a custom domain name](customdomains.md "customdomains.md") for your environment and [enable HTTPS](configuring-https.md "configuring-https.md") for secure connections. |
+| Property name  | Description                                                                                    | Property value                                                                         |
+| -------------- | ---------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| `RDS_HOSTNAME` | The hostname of the DB instance.                                                               | On the **Connectivity & security\*<br>• tab on the Amazon RDS console: **Endpoint\*\*. |
+| `RDS_PORT`     | The port where the DB instance accepts connections. The default value varies among DB engines. | On the **Connectivity & security\*<br>• tab on the Amazon RDS console: **Port\*\*.     |
+| `RDS_DB_NAME`  | The database name, `ebdb`.                                                                     | On the **Configuration\*<br>• tab on the Amazon RDS console: **DB Name\*\*.            |
+| `RDS_USERNAME` | The username that you configured for your database.                                            | On the **Configuration\*<br>• tab on the Amazon RDS console: **Master username\*\*.    |
+| `RDS_PASSWORD` | The password that you configured for your database.                                            | Not available for reference in the Amazon RDS console.                                 |
+
+![Environment properties configuration section with RDS properties added](images/environment-cfg-envprops-rds.png) 6. To save the changes choose **Apply** at the bottom of the page.
+
+## Configure and deploy your application
+
+Verify that the structure of your `wordpress-beanstalk` folder is correct, as shown.
+
+```
+wordpress-beanstalk$ `tree -aL 1`
+.
+├── `.ebextensions`
+├── index.php
+├── LICENSE
+├── license.txt
+├── readme.html
+├── README.md
+├── wp-activate.php
+├── wp-admin
+├── wp-blog-header.php
+├── wp-comments-post.php
+├── `wp-config.php`
+├── wp-config-sample.php
+├── wp-content
+├── wp-cron.php
+├── wp-includes
+├── wp-links-opml.php
+├── wp-load.php
+├── wp-login.php
+├── wp-mail.php
+├── wp-settings.php
+├── wp-signup.php
+├── wp-trackback.php
+└── xmlrpc.php
+```
+
+The customized `wp-config.php` file from the project repo uses the environment variables that you defined in the previous step to
+configure the database connection. The `.ebextensions` folder contains configuration files that create additional resources within your
+Elastic Beanstalk environment.
+
+The configuration files require modification to work with your account. Replace the placeholder values in the files with the appropriate IDs and
+create a source bundle.
+
+###### To update configuration files and create a source bundle
+
+1. Modify the configuration files as follows.
+   - `.ebextensions/dev.config` – Restricts access to your environment to protect it during the WordPress installation
+     process. Replace the placeholder IP address near the top of the file with the public IP address of the computer you'll use to access your
+     environment's website to complete your WordPress installation.
+
+   ###### Note
+
+   Depending on your network, you might need to use an IP address block.
+   - `.ebextensions/efs-create.config` – Creates an EFS file system and mount points in each Availability Zone/subnet in
+     your VPC. Identify your default VPC and subnet IDs in the [Amazon VPC
+     console](https://console.aws.amazon.com/vpc/home#subnets:filter=default "https://console.aws.amazon.com/vpc/home#subnets:filter=default").
+
+2. Create a [source bundle](applications-sourcebundle.md "applications-sourcebundle.md") containing the files in your project folder. The following command creates
+   a source bundle named `wordpress-beanstalk.zip`.
+
+```
+~/eb-wordpress$ `zip ../wordpress-beanstalk.zip -r * .[^.]*`
+```
+
+Upload the source bundle to Elastic Beanstalk to deploy WordPress to your environment.
+
+###### To deploy a source bundle
+
+1. Open the [Elastic Beanstalk console](https://console.aws.amazon.com/elasticbeanstalk "https://console.aws.amazon.com/elasticbeanstalk"),
+   and in the **Regions** list, select your AWS Region.
+2. In the navigation pane, choose **Environments**, and then choose the name of your environment from the list.
+3. On the environment overview page, choose **Upload and deploy**.
+4. Use the on-screen dialog box to upload the source bundle.
+5. Choose **Deploy**.
+6. When the deployment completes, you can choose the site URL to open your website in a new tab.
+
+## Install WordPress
+
+###### To complete your WordPress installation
+
+1. Open the [Elastic Beanstalk console](https://console.aws.amazon.com/elasticbeanstalk "https://console.aws.amazon.com/elasticbeanstalk"),
+   and in the **Regions** list, select your AWS Region.
+2. In the navigation pane, choose **Environments**, and then choose the name of your environment from the list.
+3. Choose the environment URL to open your site in a browser. You are redirected to a WordPress installation wizard because you haven't configured
+   the site yet.
+4. Perform a standard installation. The `wp-config.php` file is already present in the source code and configured to read the
+   database connection information from the environment. You shouldn't be prompted to configure the connection.
+
+Installation takes about a minute to complete.
+
+## Update keys and salts
+
+The WordPress configuration file `wp-config.php` also reads values for keys and salts from environment properties. Currently, these
+properties are all set to `test` by the `wordpress.config` file in the `.ebextensions` folder.
+
+The hash salt can be any value that meets the [environment property requirements](environments-cfg-softwaresettings.md#environments-cfg-softwaresettings-console "environments-cfg-softwaresettings.md#environments-cfg-softwaresettings-console"), but
+you should not store it in source control. Use the Elastic Beanstalk console to set these properties directly on the environment.
+
+###### To update environment properties
+
+1. Open the [Elastic Beanstalk console](https://console.aws.amazon.com/elasticbeanstalk "https://console.aws.amazon.com/elasticbeanstalk"),
+   and in the **Regions** list, select your AWS Region.
+2. In the navigation pane, choose **Environments**, and then choose the name of your environment from the list.
+3. On the navigation pane, choose **Configuration**.
+4. Under **Software**, choose **Edit**.
+5. For `Environment properties`, modify the following properties:
+   - `AUTH_KEY` – The value chosen for `AUTH_KEY`.
+   - `SECURE_AUTH_KEY` – The value chosen for `SECURE_AUTH_KEY`.
+   - `LOGGED_IN_KEY` – The value chosen for `LOGGED_IN_KEY`.
+   - `NONCE_KEY` – The value chosen for `NONCE_KEY`.
+   - `AUTH_SALT` – The value chosen for `AUTH_SALT`.
+   - `SECURE_AUTH_SALT` – The value chosen for `SECURE_AUTH_SALT`.
+   - `LOGGED_IN_SALT` – The value chosen for `LOGGED_IN_SALT`.
+   - `NONCE_SALT` — The value chosen for `NONCE_SALT`.
+
+6. To save the changes choose **Apply** at the bottom of the page.
+
+###### Note
+
+Setting the properties on the environment directly overrides the values in `wordpress.config`.
+
+## Remove access restrictions
+
+The sample project includes the configuration file `loadbalancer-sg.config`. It creates a security group and assigns it to the
+environment's load balancer, using the IP address that you configured in `dev.config`. It restricts HTTP access on port 80 to
+connections from your network. Otherwise, an outside party could potentially connect to your site before you have installed WordPress and configured your
+admin account.
+
+Now that you've installed WordPress, remove the configuration file to open the site to the world.
+
+###### To remove the restriction and update your environment
+
+1. Delete the `.ebextensions/loadbalancer-sg.config` file from your project directory.
+
+```
+~/wordpress-beanstalk$ `rm .ebextensions/loadbalancer-sg.config`
+```
+
+2. Create a source bundle.
+
+```
+~/eb-wordpress$ `zip ../wordpress-beanstalk-v2.zip -r * .[^.]*`
+```
+
+Upload the source bundle to Elastic Beanstalk to deploy WordPress to your environment.
+
+###### To deploy a source bundle
+
+1. Open the [Elastic Beanstalk console](https://console.aws.amazon.com/elasticbeanstalk "https://console.aws.amazon.com/elasticbeanstalk"),
+   and in the **Regions** list, select your AWS Region.
+2. In the navigation pane, choose **Environments**, and then choose the name of your environment from the list.
+3. On the environment overview page, choose **Upload and deploy**.
+4. Use the on-screen dialog box to upload the source bundle.
+5. Choose **Deploy**.
+6. When the deployment completes, you can choose the site URL to open your website in a new tab.
+
+## Configure your Auto Scaling group
+
+Finally, configure your environment's Auto Scaling group with a higher minimum instance count. Run at least two instances at all times to prevent the web
+servers in your environment from being a single point of failure. This also allows you to deploy changes without taking your site out of service.
+
+###### To configure your environment's Auto Scaling group for high availability
+
+1. Open the [Elastic Beanstalk console](https://console.aws.amazon.com/elasticbeanstalk "https://console.aws.amazon.com/elasticbeanstalk"),
+   and in the **Regions** list, select your AWS Region.
+2. In the navigation pane, choose **Environments**, and then choose the name of your environment from the list.
+3. In the navigation pane, choose **Configuration**.
+4. In the **Capacity** configuration category, choose **Edit**.
+5. In the **Auto Scaling group** section, set **Min instances** to `2`.
+6. To save the changes choose **Apply** at the bottom of the page.
+
+To support content uploads across multiple instances, the sample project uses Amazon EFS to create a shared file system. Create a post on the site and
+upload content to store it on the shared file system. View the post and refresh the page multiple times to hit both instances and verify that the shared
+file system is working.
+
+## Upgrade WordPress
+
+To upgrade to a new version of WordPress, back up your site and deploy it to a new environment.
+
+###### Important
+
+Do not use the update functionality within WordPress or update your source files to use a new version. Both of these actions can result in your post
+URLs returning 404 errors even though they are still in the database and file system.
+
+###### To upgrade WordPress
+
+1. In the WordPress admin console, use the export tool to export your posts to an XML file.
+2. Deploy and install the new version of WordPress to Elastic Beanstalk with the same steps that you used to install the previous version. To avoid downtime, you
+   can create an environment with the new version.
+3. On the new version, install the WordPress Importer tool in the admin console and use it to import the XML file containing your posts. If the posts
+   were created by the admin user on the old version, assign them to the admin user on the new site instead of trying to import the admin user.
+4. If you deployed the new version to a separate environment, do a [CNAME swap](using-features.md "using-features.md") to redirect users from
+   the old site to the new site.
+
+## Clean up
+
+After you finish working with the demo code, you can terminate your environment.
+Elastic Beanstalk deletes all related AWS resources, such as
+[Amazon EC2 instances](using-features.managing.md "using-features.managing.md"),
+[database instances](using-features.managing.md "using-features.managing.md"),
+[load balancers](using-features.managing.md "using-features.managing.md"),
+security groups,
+and [alarms](using-features.md#using-features.alarms.title "using-features.md#using-features.alarms.title").
+
+Removing resources does not delete the Elastic Beanstalk application, so you can create new environments for your application at any time.
+
+###### To terminate your Elastic Beanstalk environment from the console
+
+1. Open the [Elastic Beanstalk console](https://console.aws.amazon.com/elasticbeanstalk "https://console.aws.amazon.com/elasticbeanstalk"),
+   and in the **Regions** list, select your AWS Region.
+2. In the navigation pane, choose **Environments**, and then choose the name of your environment from the list.
+3. Choose **Actions**, and then choose **Terminate
+   environment**.
+4. Use the on-screen dialog box to confirm environment termination.
+
+In addition, you can terminate database resources that you created outside of your Elastic Beanstalk
+environment. When you terminate an Amazon RDS DB instance, you can take a snapshot and restore
+the data to another instance later.
+
+###### To terminate your RDS DB instance
+
+1. Open the [Amazon RDS console](https://console.aws.amazon.com/rds "https://console.aws.amazon.com/rds").
+2. Choose **Databases**.
+3. Choose your DB instance.
+4. Choose **Actions**, and then choose **Delete**.
+5. Choose whether to create a snapshot, and then choose
+   **Delete**.
+
+## Next steps
+
+As you continue to develop your application, you'll probably want a way to manage environments and deploy your application without manually creating a
+.zip file and uploading it to the Elastic Beanstalk console. The [Elastic Beanstalk Command Line Interface](eb-cli3.md "eb-cli3.md") (EB CLI) provides easy-to-use commands
+for creating, configuring, and deploying applications to Elastic Beanstalk environments from the command line.
+
+The sample application uses configuration files to configure PHP settings and create a table in the database, if it doesn't already exist. You can
+also use a configuration file to configure the security group settings of your instances during environment creation to avoid time-consuming configuration
+updates. See [Advanced environment customization with configuration files (.ebextensions)](ebextensions.md "ebextensions.md") for more information.
+
+For development and testing, you might want to use the Elastic Beanstalk functionality for adding a managed DB instance directly to your environment. For
+instructions on setting up a database inside your environment, see [Adding a database to your Elastic Beanstalk environment](using-features.managing.md "using-features.managing.md").
+
+If you need a high-performance database, consider using [Amazon Aurora](https://aws.amazon.com/rds/aurora/ "https://aws.amazon.com/rds/aurora/").
+Amazon Aurora is a
+MySQL-compatible database engine that offers commercial database features at low cost. To connect your application to a different database, repeat the
+[security group configuration](php-ha-tutorial.md#php-hawrds-tutorial-database "php-ha-tutorial.md#php-hawrds-tutorial-database") steps and [update the
+RDS-related environment properties](php-ha-tutorial.md#php-hawrds-tutorial-configure "php-ha-tutorial.md#php-hawrds-tutorial-configure").
+
+Finally, if you plan on using your application in a production environment, you will want to [configure a custom domain
+name](customdomains.md "customdomains.md") for your environment and [enable HTTPS](configuring-https.md "configuring-https.md") for secure connections.

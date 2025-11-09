@@ -24,5 +24,47 @@ For information about the AWS services offered in each Region, see
 ## Options
 
 | Name                                                      | Description |
-| --------------------------------------------------------- | ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Common options](eb3-cmd-options.md "eb3-cmd-options.md") |             | ## Output **eb codesource** prompts you to choose between CodeCommit integration and standard deployments. **eb codesource codecommit** initiates interactive repository configuration for CodeCommit integration. **eb codesource local** shows the original configuration and disables CodeCommit integration. ## Examples Use **eb codesource codecommit** to configure CodeCommit integration for the current branch. `` ~/my-app$ `eb codesource codecommit` Select a repository 1) my-repo 2) my-app 3) [ Create new Repository ] (default is 1): `1` Select a branch 1) mainline 2) test 3) [ Create new Branch with local HEAD ] (default is 1): `1` `` Use **eb codesource local** to disable CodeCommit integration for the current branch. ``~/my-app$ `eb codesource local` Current CodeCommit setup: Repository: my-app Branch: mainline Default set to use local sources`` |
+| --------------------------------------------------------- | ----------- |
+| [Common options](eb3-cmd-options.md "eb3-cmd-options.md") |             |
+
+## Output
+
+**eb codesource** prompts you to choose between CodeCommit integration and standard
+deployments.
+
+**eb codesource codecommit** initiates interactive repository configuration for
+CodeCommit integration.
+
+**eb codesource local** shows the original configuration and disables CodeCommit
+integration.
+
+## Examples
+
+Use **eb codesource codecommit** to configure CodeCommit integration for the current
+branch.
+
+```
+~/my-app$ `eb codesource codecommit`
+Select a repository
+1) my-repo
+2) my-app
+3) [ Create new Repository ]
+(default is 1): `1`
+
+Select a branch
+1) mainline
+2) test
+3) [ Create new Branch with local HEAD ]
+(default is 1): `1`
+```
+
+Use **eb codesource local** to disable CodeCommit integration for the current
+branch.
+
+```
+~/my-app$ `eb codesource local`
+Current CodeCommit setup:
+  Repository: my-app
+  Branch: mainline
+Default set to use local sources
+```

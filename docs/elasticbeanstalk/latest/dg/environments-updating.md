@@ -28,9 +28,18 @@ Some policies replace all instances during the deployment or update. This causes
 - Immutable updates
 - Deployments with immutable updates or traffic splitting enabled
 
-| Supported update types  | Rolling update setting | Load-balanced environments | Single-instance environments | Legacy Windows server environments†                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| ----------------------- | ---------------------- | -------------------------- | ---------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Supported update types  | Rolling update setting | Load-balanced environments | Single-instance environments | Legacy Windows server environments† |
+| ----------------------- | ---------------------- | -------------------------- | ---------------------------- | ----------------------------------- |
 | Disabled                | Yes                    | Yes                        | Yes                          |
 | Rolling Based on Health | Yes                    | No                         | Yes                          |
 | Rolling Based on Time   | Yes                    | No                         | Yes                          |
-| Immutable               | Yes                    | Yes                        | No                           | † For the purpose of this table, a _Legacy Windows Server Environment_ is an environment based on a [Windows Server platform configuration](../platforms/platforms-supported.md#platforms-supported.net "../platforms/platforms-supported.md#platforms-supported.net") that use an IIS version earlier than IIS 8.5. ###### Topics <br>• [Elastic Beanstalk rolling environment configuration updates](using-features.md "using-features.md") <br>• [Immutable environment updates](environmentmgmt-updates-immutable.md "environmentmgmt-updates-immutable.md") |
+| Immutable               | Yes                    | Yes                        | No                           |
+
+† For the purpose of this table, a _Legacy Windows Server Environment_ is
+an environment based on a [Windows Server platform configuration](../platforms/platforms-supported.md#platforms-supported.net "../platforms/platforms-supported.md#platforms-supported.net")
+that use an IIS version earlier than IIS 8.5.
+
+###### Topics
+
+- [Elastic Beanstalk rolling environment configuration updates](using-features.md "using-features.md")
+- [Immutable environment updates](environmentmgmt-updates-immutable.md "environmentmgmt-updates-immutable.md")

@@ -123,8 +123,164 @@ The application consists of two files:
 
 Place both files at the root of a directory.
 
-````
+```
 ~/eb-docker-flask/
 |-- Dockerfile
-|-- app.py ``` Add the following contents to your `Dockerfile`. ###### Example `~/eb-docker-flask/Dockerfile` ``` FROM public.ecr.aws/docker/library/python:3.12 COPY . /app WORKDIR /app RUN pip install Flask==3.1.1 EXPOSE 5000 CMD [ "python3", "-m" , "flask", "run", "--host=0.0.0.0"] ``` Add the following contents to your `app.py` file. ###### Example `~/eb-docker-flask/app.py` ``` from flask import Flask app = Flask(__name__) @app.route('/') def hello_world(): return 'Hello Elastic Beanstalk! This is a Docker application' ``` Use the [docker build](https://docs.docker.com/reference/cli/docker/image/build/ "https://docs.docker.com/reference/cli/docker/image/build/") command to build your container image locally, tagging the image with `eb-docker-flask`. The period (`.`) at the end of the command specificies that path is a local directory. ``` ~/eb-docker-flask$ `docker build -t eb-docker-flask .` ``` ## Step 2: Run your application locally Run your container with the [docker run](https://docs.docker.com/reference/cli/docker/container/run/ "https://docs.docker.com/reference/cli/docker/container/run/") command. The command will print the ID of the running container. The **-d** option runs docker in background mode. The **-p** option exposes your application at port 5000. Elastic Beanstalk serves traffic to port 5000 on the Docker platform by default. ``` ~/eb-docker-flask$ `docker run -dp 127.0.0.1:5000:5000 eb-docker-flask` ``` Navigate to `http://127.0.0.1:5000/` in your browser. You should see the text "Hello Elastic Beanstalk! This is a Docker application". Run the [docker kill](https://docs.docker.com/reference/cli/docker/container/kill/ "https://docs.docker.com/reference/cli/docker/container/kill/") command to terminate the container. ``` ~/eb-docker-flask$ `docker kill `container-id`` ``` ## Step 3: Deploy your Docker application with the EB CLI Run the following commands to create an Elastic Beanstalk environment for this application. ###### To create an environment and deploy your Docker application 1. Initialize your EB CLI repository with the **eb init** command. ``` ~/eb-docker-flask$ `eb init -p docker docker-tutorial --region `us-east-2`` Application docker-tutorial has been created. ``` This command creates an application named `docker-tutorial` and configures your local repository to create environments with the latest Docker platform version. 2. (Optional) Run **eb init** again to configure a default key pair so that you can use SSH to connect to the EC2 instance running your application. ``` ~/eb-docker-flask$ `eb init` Do you want to set up SSH for your instances? (y/n): `y` Select a keypair. 1) my-keypair 2) [ Create new KeyPair ] ``` Select a key pair if you have one already, or follow the prompts to create one. If you don't see the prompt or need to change your settings later, run **eb init -i**. 3. Create an environment and deploy your application to it with **eb create**. Elastic Beanstalk automatically builds a zip file for your application and starts it on port 5000. ``` ~/eb-docker-flask$ `eb create docker-tutorial` ``` It takes about five minutes for Elastic Beanstalk to create your environment. ## Step 4: Run your application on Elastic Beanstalk When the process to create your environment completes, open your website with **eb open**. ``` ~/eb-docker-flask$ `eb open` ``` Congratulations! You've deployed a Docker application with Elastic Beanstalk! This opens a browser window using the domain name created for your application. ## Step 5: Clean up You can terminate your environment when you finish working with your application. Elastic Beanstalk terminates all AWS resources associated with your environment. To terminate your Elastic Beanstalk environment with the EB CLI run the following command. ``` ~/eb-docker-flask$ `eb terminate` ``` ## AWS resources for your application You just created a single instance application. It serves as a straightforward sample application with a single EC2 instance, so it doesn't require load balancing or auto scaling. For single instance applications Elastic Beanstalk creates the following AWS resources: <br>• **EC2 instance** – An Amazon EC2 virtual machine configured to run web apps on the platform you choose. Each platform runs a different set of software, configuration files, and scripts to support a specific language version, framework, web container, or combination thereof. Most platforms use either Apache or nginx as a reverse proxy that processes web traffic in front of your web app, forwards requests to it, serves static assets, and generates access and error logs. <br>• **Instance security group** – An Amazon EC2 security group configured to allow incoming traffic on port 80. This resource lets HTTP traffic from the load balancer reach the EC2 instance running your web app. By default, traffic is not allowed on other ports. <br>• **Amazon S3 bucket** – A storage location for your source code, logs, and other artifacts that are created when you use Elastic Beanstalk. <br>• **Amazon CloudWatch alarms** – Two CloudWatch alarms that monitor the load on the instances in your environment and are triggered if the load is too high or too low. When an alarm is triggered, your Auto Scaling group scales up or down in response. <br>• **AWS CloudFormation stack** – Elastic Beanstalk uses AWS CloudFormation to launch the resources in your environment and propagate configuration changes. The resources are defined in a template that you can view in the [AWS CloudFormation console](https://console.aws.amazon.com/cloudformation "https://console.aws.amazon.com/cloudformation"). <br>• **Domain name** – A domain name that routes to your web app in the form *`subdomain`.`region`.elasticbeanstalk.com*. Elastic Beanstalk manages all of these resources. When you terminate your environment, Elastic Beanstalk terminates all the resources that it contains. ## Next steps After you have an environment running an application, you can deploy a new version of the application or a different application at any time. Deploying a new application version is very quick because it doesn't require provisioning or restarting EC2 instances. You can also explore your new environment using the Elastic Beanstalk console. For detailed steps, see [Explore your environment](GettingStarted.md#GettingStarted.Explore "GettingStarted.md#GettingStarted.Explore") in the *Getting started* chapter of this guide. After you deploy a sample application or two and are ready to start developing and running Docker applications locally, see [Preparing your Docker image for deployment to Elastic Beanstalk](single-container-docker-configuration.md "single-container-docker-configuration.md"). ## Deploy with the Elastic Beanstalk console You can also use the Elastic Beanstalk console to launch the sample application. For detailed steps, see [Create an example application](GettingStarted.md#GettingStarted.CreateApp "GettingStarted.md#GettingStarted.CreateApp") in the *Getting started* chapter of this guide.
-````
+|-- app.py
+```
+
+Add the following contents to your `Dockerfile`.
+
+###### Example `~/eb-docker-flask/Dockerfile`
+
+```
+FROM public.ecr.aws/docker/library/python:3.12
+COPY . /app
+WORKDIR /app
+RUN pip install Flask==3.1.1
+EXPOSE 5000
+CMD [ "python3", "-m" , "flask", "run", "--host=0.0.0.0"]
+```
+
+Add the following contents to your `app.py` file.
+
+###### Example `~/eb-docker-flask/app.py`
+
+```
+from flask import Flask
+app = Flask(__name__)
+@app.route('/')
+def hello_world():
+    return 'Hello Elastic Beanstalk! This is a Docker application'
+```
+
+Use the [docker build](https://docs.docker.com/reference/cli/docker/image/build/ "https://docs.docker.com/reference/cli/docker/image/build/") command to build your container image locally,
+tagging the image with `eb-docker-flask`. The period (`.`) at the end of the command specificies that path is a
+local directory.
+
+```
+~/eb-docker-flask$ `docker build -t eb-docker-flask .`
+```
+
+## Step 2: Run your application locally
+
+Run your container with the
+[docker run](https://docs.docker.com/reference/cli/docker/container/run/ "https://docs.docker.com/reference/cli/docker/container/run/")
+command. The command will print the ID of the running container.
+The **-d** option runs docker in background mode. The **-p** option exposes your application at port 5000.
+Elastic Beanstalk serves traffic to port 5000 on the Docker platform by default.
+
+```
+~/eb-docker-flask$ `docker run -dp 127.0.0.1:5000:5000 eb-docker-flask`
+```
+
+Navigate to `http://127.0.0.1:5000/` in your browser.
+You should see the text "Hello Elastic Beanstalk! This is a Docker application".
+
+Run the [docker kill](https://docs.docker.com/reference/cli/docker/container/kill/ "https://docs.docker.com/reference/cli/docker/container/kill/") command to
+terminate the container.
+
+```
+~/eb-docker-flask$ `docker kill `container-id``
+```
+
+## Step 3: Deploy your Docker application with the EB CLI
+
+Run the following commands to create an Elastic Beanstalk environment for this application.
+
+###### To create an environment and deploy your Docker application
+
+1. Initialize your EB CLI repository with the **eb init** command.
+
+```
+~/eb-docker-flask$ `eb init -p docker docker-tutorial --region `us-east-2``
+Application docker-tutorial has been created.
+```
+
+This command creates an application named `docker-tutorial` and configures your local repository to create environments with
+the latest Docker platform version. 2. (Optional) Run **eb init** again to configure a default key pair so that you can use SSH to connect to the EC2 instance running
+your application.
+
+```
+~/eb-docker-flask$ `eb init`
+Do you want to set up SSH for your instances?
+(y/n): `y`
+Select a keypair.
+1) my-keypair
+2) [ Create new KeyPair ]
+```
+
+Select a key pair if you have one already, or follow the prompts to create one. If you don't see the prompt or need to change your settings later,
+run **eb init -i**. 3. Create an environment and deploy your application to it with **eb create**. Elastic Beanstalk automatically builds a zip file for your
+application and starts it on port 5000.
+
+```
+~/eb-docker-flask$ `eb create docker-tutorial`
+```
+
+It takes about five minutes for Elastic Beanstalk to create your environment.
+
+## Step 4: Run your application on Elastic Beanstalk
+
+When the process to create your environment completes, open your website with **eb open**.
+
+```
+~/eb-docker-flask$ `eb open`
+```
+
+Congratulations! You've deployed a Docker application with Elastic Beanstalk! This opens a browser window using the domain name created for your
+application.
+
+## Step 5: Clean up
+
+You can terminate your environment when you finish working with your application. Elastic Beanstalk terminates all AWS resources associated with your
+environment.
+
+To terminate your Elastic Beanstalk environment with the EB CLI run the following command.
+
+```
+~/eb-docker-flask$ `eb terminate`
+```
+
+## AWS resources for your application
+
+You just created a single instance application. It serves as a straightforward sample application with a single EC2 instance, so it doesn't require
+load balancing or auto scaling. For single instance applications Elastic Beanstalk creates the following AWS resources:
+
+- **EC2 instance** – An Amazon EC2 virtual machine configured to run web apps on the platform you choose.
+
+Each platform runs a different set of software, configuration files, and scripts to support a specific language version, framework, web container, or
+combination thereof. Most platforms use either Apache or nginx as a reverse proxy that processes web traffic in front of your web app, forwards requests
+to it, serves static assets, and generates access and error logs.
+
+- **Instance security group** – An Amazon EC2 security group configured to allow incoming traffic on port 80. This
+  resource lets HTTP traffic from the load balancer reach the EC2 instance running your web app. By default, traffic is not allowed on other ports.
+- **Amazon S3 bucket** – A storage location for your source
+  code, logs, and other artifacts that are created when you use Elastic Beanstalk.
+- **Amazon CloudWatch alarms** – Two CloudWatch alarms that monitor
+  the load on the instances in your environment and are triggered if the load is too high or too
+  low. When an alarm is triggered, your Auto Scaling group scales up or down in response.
+- **AWS CloudFormation stack** – Elastic Beanstalk uses AWS CloudFormation to launch the
+  resources in your environment and propagate configuration changes. The resources are defined
+  in a template that you can view in the [AWS CloudFormation
+  console](https://console.aws.amazon.com/cloudformation "https://console.aws.amazon.com/cloudformation").
+- **Domain name** – A domain name that routes to your
+  web app in the form
+  _`subdomain`.`region`.elasticbeanstalk.com_.
+
+Elastic Beanstalk manages all of these resources. When you terminate your environment, Elastic Beanstalk terminates all the resources that it contains.
+
+## Next steps
+
+After you have an environment running an application, you can deploy a new version of the application or a different application at any time.
+Deploying a new application version is very quick because it doesn't require provisioning or restarting EC2 instances. You can also explore your new
+environment using the Elastic Beanstalk console. For detailed steps, see [Explore your environment](GettingStarted.md#GettingStarted.Explore "GettingStarted.md#GettingStarted.Explore") in the
+_Getting started_ chapter of this guide.
+
+After you deploy a sample application or two and are ready to start developing and running Docker applications locally,
+see [Preparing your Docker image for deployment to Elastic Beanstalk](single-container-docker-configuration.md "single-container-docker-configuration.md").
+
+## Deploy with the Elastic Beanstalk console
+
+You can also use the Elastic Beanstalk console to launch the sample application. For detailed steps, see [Create an
+example application](GettingStarted.md#GettingStarted.CreateApp "GettingStarted.md#GettingStarted.CreateApp") in the _Getting started_ chapter of this guide.

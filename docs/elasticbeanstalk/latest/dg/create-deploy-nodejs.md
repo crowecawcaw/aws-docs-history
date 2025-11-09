@@ -29,10 +29,76 @@ Adding a DB instance takes about 10 minutes. When the environment update is comp
 DB instance's hostname and other connection information are available to your application
 through the following environment properties:
 
-| Property name  | Description                                                                                    | Property value                                                                  |
-| -------------- | ---------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `RDS_HOSTNAME` | The hostname of the DB instance.                                                               | On the **Connectivity & security** tab on the Amazon RDS console: **Endpoint**. |
-| `RDS_PORT`     | The port where the DB instance accepts connections. The default value varies among DB engines. | On the **Connectivity & security** tab on the Amazon RDS console: **Port**.     |
-| `RDS_DB_NAME`  | The database name, `ebdb`.                                                                     | On the **Configuration** tab on the Amazon RDS console: **DB Name**.            |
-| `RDS_USERNAME` | The username that you configured for your database.                                            | On the **Configuration** tab on the Amazon RDS console: **Master username**.    |
-| `RDS_PASSWORD` | The password that you configured for your database.                                            | Not available for reference in the Amazon RDS console.                          | For more information about configuring a database instance coupled with an Elastic Beanstalk environment, see [Adding a database to your Elastic Beanstalk environment](using-features.managing.md "using-features.managing.md"). ## Downloading a driver Add the database driver to your project's [package.json file](nodejs-platform-dependencies.md#nodejs-platform-packagejson "nodejs-platform-dependencies.md#nodejs-platform-packagejson") under `dependencies`. ###### Example `package.json` – Express with MySQL ``{ "name": "my-app", "version": "0.0.1", "private": true, "dependencies": { "ejs": "latest", "aws-sdk": "latest", "express": "latest", "body-parser": "latest", `"mysql": "latest"` }, "scripts": { "start": "node app.js" } }`` ###### Common driver packages for Node.js <br>• **MySQL** – [mysql](https://www.npmjs.com/package/mysql "https://www.npmjs.com/package/mysql") <br>• **PostgreSQL** – [node-postgres](https://www.npmjs.com/package/pg "https://www.npmjs.com/package/pg") <br>• **SQL Server** – [node-mssql](https://www.npmjs.com/package/mssql "https://www.npmjs.com/package/mssql") <br>• **Oracle** – [node-oracledb](https://www.npmjs.com/package/oracledb "https://www.npmjs.com/package/oracledb") ## Connecting to a database Elastic Beanstalk provides connection information for attached DB instances in environment properties. Use `process.env.`VARIABLE`` to read the properties and configure a database connection. ###### Example app.js – MySQL database connection `var mysql = require('mysql'); var connection = mysql.createConnection({ host     : process.env.RDS_HOSTNAME, user     : process.env.RDS_USERNAME, password : process.env.RDS_PASSWORD, port     : process.env.RDS_PORT }); connection.connect(function(err) { if (err) { console.error('Database connection failed: ' + err.stack); return; } console.log('Connected to database.'); }); connection.end();` For more information about constructing a connection string using node-mysql, see [npmjs.org/package/mysql](https://npmjs.org/package/mysql "https://npmjs.org/package/mysql"). |
+| Property name  | Description                                                                                    | Property value                                                                         |
+| -------------- | ---------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| `RDS_HOSTNAME` | The hostname of the DB instance.                                                               | On the **Connectivity & security\*<br>• tab on the Amazon RDS console: **Endpoint\*\*. |
+| `RDS_PORT`     | The port where the DB instance accepts connections. The default value varies among DB engines. | On the **Connectivity & security\*<br>• tab on the Amazon RDS console: **Port\*\*.     |
+| `RDS_DB_NAME`  | The database name, `ebdb`.                                                                     | On the **Configuration\*<br>• tab on the Amazon RDS console: **DB Name\*\*.            |
+| `RDS_USERNAME` | The username that you configured for your database.                                            | On the **Configuration\*<br>• tab on the Amazon RDS console: **Master username\*\*.    |
+| `RDS_PASSWORD` | The password that you configured for your database.                                            | Not available for reference in the Amazon RDS console.                                 |
+
+For more information about configuring a database instance coupled with an Elastic Beanstalk environment,
+see [Adding a database to your Elastic Beanstalk environment](using-features.managing.md "using-features.managing.md").
+
+## Downloading a driver
+
+Add the database driver to your project's [package.json file](nodejs-platform-dependencies.md#nodejs-platform-packagejson "nodejs-platform-dependencies.md#nodejs-platform-packagejson") under `dependencies`.
+
+###### Example `package.json` – Express with MySQL
+
+```
+{
+  "name": "my-app",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "ejs": "latest",
+    "aws-sdk": "latest",
+    "express": "latest",
+    "body-parser": "latest",
+    `"mysql": "latest"`
+  },
+  "scripts": {
+    "start": "node app.js"
+  }
+}
+```
+
+###### Common driver packages for Node.js
+
+- **MySQL** – [mysql](https://www.npmjs.com/package/mysql "https://www.npmjs.com/package/mysql")
+- **PostgreSQL** – [node-postgres](https://www.npmjs.com/package/pg "https://www.npmjs.com/package/pg")
+- **SQL Server** – [node-mssql](https://www.npmjs.com/package/mssql "https://www.npmjs.com/package/mssql")
+- **Oracle** – [node-oracledb](https://www.npmjs.com/package/oracledb "https://www.npmjs.com/package/oracledb")
+
+## Connecting to a database
+
+Elastic Beanstalk provides connection information for attached DB instances in environment properties.
+Use `process.env.`VARIABLE`` to read the properties and
+configure a database connection.
+
+###### Example app.js – MySQL database connection
+
+```
+var mysql = require('mysql');
+
+var connection = mysql.createConnection({
+  host     : process.env.RDS_HOSTNAME,
+  user     : process.env.RDS_USERNAME,
+  password : process.env.RDS_PASSWORD,
+  port     : process.env.RDS_PORT
+});
+
+connection.connect(function(err) {
+  if (err) {
+    console.error('Database connection failed: ' + err.stack);
+    return;
+  }
+
+  console.log('Connected to database.');
+});
+
+connection.end();
+```
+
+For more information about constructing a connection string using node-mysql, see [npmjs.org/package/mysql](https://npmjs.org/package/mysql "https://npmjs.org/package/mysql").

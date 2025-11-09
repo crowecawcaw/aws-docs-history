@@ -109,9 +109,531 @@ image creation, and scripts and configuration files that Packer copies onto the 
 
 ###### Example NodePlatform_Ubuntu.zip
 
-````
+```
 |-- builder                 Contains files used by Packer to create the custom platform
 |-- custom_platform.json    Packer template
 |-- platform.yaml           Platform definition file
-|-- ReadMe.txt              Briefly describes the sample ``` The platform definition file, `platform.yaml`, tells Elastic Beanstalk the name of the Packer template, `custom_platform.json`. ``` version: "1.0" provisioner: type: packer template: custom_platform.json flavor: ubuntu1604 ``` The Packer template tells Packer how to build the AMIs for the platform, using an [Ubuntu AMI](../../../AWSEC2/latest/UserGuide/AMIs.md "../../../AWSEC2/latest/UserGuide/AMIs.md") as a base for the platform image for HVM instance types. The `provisioners` section tells Packer to copy all files in the `builder` folder within the archive to the instance, and to run the `builder.sh` script on the instance. When the scripts complete, Packer creates an image from the modified instance. Elastic Beanstalk creates three environment variables that can be used to tag AMIs in Packer: AWS\_EB\_PLATFORM\_ARN The ARN of the custom platform. AWS\_EB\_PLATFORM\_NAME The name of the custom platform. AWS\_EB\_PLATFORM\_VERSION The version of the custom platform. The sample `custom_platform.json` file uses these variables to define the following values that it uses in the scripts: <br>• `platform_name`, which is set by `platform.yaml` <br>• `platform_version`, which is set by `platform.yaml` <br>• `platform_arn`, which is set by the main build script, `builder.sh`, which is shown at the end of the sample `custom_platform.json` file. The `custom_platform.json` file contains two properties that you have to provide values for: `source_ami` and `region`. For details about choosing the right AMI and Region values, see [Updating Packer template](https://github.com/aws-samples/eb-custom-platforms-samples#updating-packer-template "https://github.com/aws-samples/eb-custom-platforms-samples#updating-packer-template") in the *eb-custom-platforms-samples* GitHub repository. ###### Example custom\_platform.json ``` { "variables": { "platform_name": "{{env `AWS_EB_PLATFORM_NAME`}}", "platform_version": "{{env `AWS_EB_PLATFORM_VERSION`}}", "platform_arn": "{{env `AWS_EB_PLATFORM_ARN`}}" }, "builders": [ { ... "region": "", "source_ami": "", ... } ], "provisioners": [ {...}, { "type": "shell", "execute_command": "chmod +x {{ .Path }}; {{ .Vars }} sudo {{ .Path }}", "scripts": [ "builder/builder.sh" ] } ] } ``` The scripts and other files that you include in your platform definition archive will vary greatly depending on the modifications that you want to make to the instance. The sample platform includes the following scripts: <br>• `00-sync-apt.sh` – Commented out: `apt -y update`. We commented out the command because it prompts the user for input, which breaks the automated package update. This might be an Ubuntu issue. However, running `apt -y update` is still recommended as a best practice. For this reason, we left the command in the sample script for reference. <br>• `01-install-nginx.sh` – Installs nginx. <br>• `02-setup-platform.sh` – Installs `wget`, `tree`, and `git`. Copies hooks and [logging configurations](using-features.md "using-features.md") to the instance, and creates the following directories: + `/etc/SampleNodePlatform` – Where the container configuration file is uploaded during deployment. + `/opt/elasticbeanstalk/deploy/appsource/` – Where the `00-unzip.sh` script uploads application source code during deployment (see the [Platform script tools for your Elastic Beanstalk environments](custom-platforms-scripts.md "custom-platforms-scripts.md") section for information about this script). + `/var/app/staging/` – Where application source code is processed during deployment. + `/var/app/current/` – Where application source code runs after processing. + `/var/log/nginx/healthd/` – Where the [enhanced health agent](health-enhanced.md#health-enhanced-agent "health-enhanced.md#health-enhanced-agent") writes logs. + `/var/nodejs` – Where the Node.js files are uploaded during deployment. Use the EB CLI to create your first custom platform with the sample platform definition archive. ###### To create a custom platform 1. [Install the EB CLI](eb-cli3.md#eb-cli3-install "eb-cli3.md#eb-cli3-install"). 2. Create a directory in which you will extract the sample custom platform. ``` ~$ `mkdir ~/custom-platform` ``` 3. Extract `NodePlatform_Ubuntu.zip` to the directory, and then change to the extracted directory. ``` ~$ `cd ~/custom-platform` ~/custom-platform$ `unzip ~/NodePlatform_Ubuntu.zip` ~/custom-platform$ `cd NodePlatform_Ubuntu` ``` 4. Edit the `custom_platform.json` file, and provide values for the `source_ami` and `region` properties. For details, see [Updating Packer template](https://github.com/aws-samples/eb-custom-platforms-samples#updating-packer-template "https://github.com/aws-samples/eb-custom-platforms-samples#updating-packer-template"). 5. Run [eb platform init](eb3-platform.md#eb3-platform-init "eb3-platform.md#eb3-platform-init") and follow the prompts to initialize a platform repository. You can shorten **eb platform** to **ebp**. ###### Note Windows PowerShell uses **ebp** as a command alias. If you're running the EB CLI in Windows PowerShell, use the long form of this command: **eb platform**. ``` ~/custom-platform$ `eb platform init` ``` This command also creates the directory `.elasticbeanstalk` in the current directory and adds the configuration file `config.yml` to the directory. Don't change or delete this file, because Elastic Beanstalk relies on it when creating the custom platform. By default, **eb platform init** uses the name of the current folder as the name of the custom platform, which would be `custom-platform` in this example. 6. Run [eb platform create](eb3-platform.md#eb3-platform-create "eb3-platform.md#eb3-platform-create") to launch a Packer environment and get the ARN of the custom platform. You'll need this value later when you create an environment from the custom platform. ``` ~/custom-platform$ `eb platform create` ... ``` By default, Elastic Beanstalk creates the instance profile `aws-elasticbeanstalk-custom-platform-ec2-role` for custom platforms. If, instead, you want to use an existing instance profile, add the option `-ip `INSTANCE_PROFILE`` to the [eb platform create](eb3-platform.md#eb3-platform-create "eb3-platform.md#eb3-platform-create") command. ###### Note Packer will fail to create a custom platform if you use the Elastic Beanstalk default instance profile `aws-elasticbeanstalk-ec2-role`. The EB CLI shows event output of the Packer environment until the build is complete. You can exit the event view by pressing **Ctrl+C**. 7. You can check the logs for errors using the [eb platform logs](eb3-platform.md#eb3-platform-logs "eb3-platform.md#eb3-platform-logs") command. ``` ~/custom-platform$ `eb platform logs` ... ``` 8. You can check on the process later with [eb platform events](eb3-platform.md#eb3-platform-events "eb3-platform.md#eb3-platform-events"). ``` ~/custom-platform$ `eb platform events` ... ``` 9. Check the status of your platform with [eb platform status](eb3-platform.md#eb3-platform-status "eb3-platform.md#eb3-platform-status"). ``` ~/custom-platform$ `eb platform status` ... ``` When the operation completes, you have a platform that you can use to launch an Elastic Beanstalk environment. You can use the custom platform when creating an environment from the console. See [The create new environment wizard](environments-create-wizard.md "environments-create-wizard.md"). ###### To launch an environment on your custom platform 1. Create a directory for your application. ``` ~$ `mkdir custom-platform-app` ~$ `cd ~/custom-platform-app` ``` 2. Initialize an application repository. ``` ~/custom-platform-app$ `eb init` ... ``` 3. Download the sample application [NodeSampleApp.zip](samples/NodeSampleApp.md "samples/NodeSampleApp.md"). 4. Extract the sample application. ``` ~/custom-platform-app$ `unzip `~/`NodeSampleApp.zip` ``` 5. Run **eb create -p `CUSTOM-PLATFORM-ARN`**, where `CUSTOM-PLATFORM-ARN` is the ARN returned by an **eb platform create** command, to launch an environment running your custom platform. ``` ~/custom-platform-app$ `eb create -p `CUSTOM-PLATFORM-ARN`` ... ``` ### Platform definition archive contents A platform definition archive is the platform equivalent of an [application source bundle](applications-sourcebundle.md "applications-sourcebundle.md"). The platform definition archive is a ZIP file that contains a platform definition file, a Packer template, and the scripts and files used by the Packer template to create your platform. ###### Note When you use the EB CLI to create a custom platform, the EB CLI creates a platform definition archive from the files and folders in your platform repository, so you don't need to create the archive manually. The platform definition file is a YAML-formatted file that must be named `platform.yaml` and be in the root of your platform definition archive. See [Creating a custom platform](#custom-platform-creating "#custom-platform-creating") for a list of required and optional keys supported in a platform definition file. You don't need to name the Packer template in a specific way, but the name of the file must match the provisioner template specified in the platform definition file. See the official [Packer documentation](https://www.packer.io/docs/templates/introduction.html "https://www.packer.io/docs/templates/introduction.html") for instructions on creating Packer templates. The other files in your platform definition archive are scripts and files used by the template to customize an instance before creating an AMI. ### Custom platform hooks Elastic Beanstalk uses a standardized directory structure for hooks on custom platforms. These are scripts that are run during lifecycle events and in response to management operations: when instances in your environment are launched, or when a user initiates a deployment or uses the restart application server feature. Place scripts that you want hooks to trigger in one of the subfolders of the `/opt/elasticbeanstalk/hooks/` folder. ###### Warning *Using custom platform hooks on managed platforms isn't supported.* Custom platform hooks are designed for custom platforms. On Elastic Beanstalk managed platforms they might work differently or have some issues, and behavior might differ across platforms. On Amazon Linux AMI platforms (preceding Amazon Linux 2), they might still work in useful ways in some cases; use them with caution. Custom platform hooks are a legacy feature that exists on Amazon Linux AMI platforms. On Amazon Linux 2 platforms, custom platform hooks in the `/opt/elasticbeanstalk/hooks/` folder are entirely discontinued. Elastic Beanstalk doesn't read or execute them. Amazon Linux 2 platforms support a new kind of platform hooks, specifically designed to extend Elastic Beanstalk managed platforms. You can add custom scripts and programs directly to a hooks directory in your application source bundle. Elastic Beanstalk runs them during various instance provisioning stages. For more information, expand the *Platform Hooks* section in [Extending Elastic Beanstalk Linux platforms](platforms-linux-extend.md "platforms-linux-extend.md"). Hooks are organized into the following folders: <br>• `appdeploy` — Scripts run during an application deployment. Elastic Beanstalk performs an application deployment when new instances are launched and when a client initiates a new version deployment. <br>• `configdeploy` — Scripts run when a client performs a configuration update that affects the software configuration on instance, for example, by setting environment properties or enabling log rotation to Amazon S3. <br>• `restartappserver` — Scripts run when a client performs a restart app server operation. <br>• `preinit` — Scripts run during instance bootstrapping. <br>• `postinit` — Scripts run after instance bootstrapping. The `appdeploy`, `configdeploy`, and `restartappserver` folders contain `pre`, `enact`, and `post` subfolders. In each phase of an operation, all scripts in the `pre` folder are run in alphabetical order, then those in the `enact` folder, and then those in the `post` folder. When an instance is launched, Elastic Beanstalk runs `preinit`, `appdeploy`, and `postinit`, in this order. On subsequent deployments to running instances, Elastic Beanstalk runs `appdeploy` hooks. `configdeploy` hooks are run when a user updates instance software configuration settings. `restartappserver` hooks are run only when the user initiates an application server restart. When your scripts encounter errors, they can exit with a non-zero status and write to `stderr` to fail the operation. The message that you write to `stderr` will appear in the event that is output when the operation fails. Elastic Beanstalk also captures this information in the log file `/var/log/eb-activity.log` If you don't want to fail the operation, return 0 (zero). Messages that you write to `stderr` or `stdout` appear in the [deployment logs](using-features.md "using-features.md"), but won't appear in the event stream unless the operation fails. ### Packer instance cleanup In certain circumstances, such as stopping the Packer builder process before it is finished, instances launched by Packer are not cleaned up. These instances are not part of the Elastic Beanstalk environment and can be viewed and terminated only by using the Amazon EC2 service. ###### To manually clean up these instances 1. Open the [Amazon EC2 console](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/"). 2. Make sure you are in the same AWS Region in which you created the instance with Packer. 3. Under **Resources**, choose `N` **Running Instances**, where `N` indicates the number of running instances. 4. Click in the query text box. 5. Select the **Name** tag. 6. Enter **packer**. The query should look like: **tag:Name: packer** 7. Select any instances that match the query. 8. If the **Instance State** is **running**, choose **Actions**, **Instance State**, **Stop**, and then **Actions**, **Instance State**, **Terminate**. ### Platform.yaml file format The `platform.yaml` file has the following format. ``` version: "`version-number`" provisioner: type: `provisioner-type` template: `provisioner-template` flavor: `provisioner-flavor` metadata: maintainer: `metadata-maintainer` description: `metadata-description` operating_system_name: `metadata-operating_system_name` operating_system_version: `metadata-operating_system_version` programming_language_name: `metadata-programming_language_name` programming_language_version: `metadata-programming_language_version` framework_name: `metadata-framework_name` framework_version: `metadata-framework_version` option_definitions: <br>• namespace: `option-def-namespace` option_name: `option-def-option_name` description: `option-def-description` default_value: `option-def-default_value` option_settings: <br>• namespace: "`option-setting-namespace`" option_name: "`option-setting-option_name`" value: "`option-setting-value`" ``` Replace the placeholders with these values: `version-number` Required. The version of the YAML definition. Must be `1.0`. `provisioner-type` Required. The type of builder used to create the custom platform. Must be `packer`. `provisioner-template` Required. The JSON file containing the settings for `provisioner-type`. `provisioner-flavor` Optional. The base operating system used for the AMI. One of the following: amazon (default) Amazon Linux. If not specified, the latest version of Amazon Linux when the platform is created. Amazon Linux 2 isn't a supported operating system flavor. ubuntu1604 Ubuntu 16.04 LTS rhel7 RHEL 7 rhel6 RHEL 6 `metadata-maintainer` Optional. Contact information for the person who owns the platform (100 characters). `metadata-description` Optional. Description of the platform (2,000 characters). `metadata-operating_system_name` Optional. Name of the platform's operating system (50 characters). This value is available when filtering the output for the [ListPlatformVersions](../api/API_ListPlatformVersions.md "../api/API_ListPlatformVersions.md") API. `metadata-operating_system_version` Optional. Version of the platform's operating system (20 characters). `metadata-programming_language_name` Optional. Programming language supported by the platform (50 characters) `metadata-programming_language_version` Optional. Version of the platform's language (20 characters). `metadata-framework_name` Optional. Name of the web framework used by the platform (50 characters). `metadata-framework_version` Optional. Version of the platform's web framework (20 characters). `option-def-namespace` Optional. A namespace under `aws:elasticbeanstalk:container:custom` (100 characters). `option-def-option_name` Optional. The option's name (100 characters). You can define up to 50 custom configuration options that the platform provides to users. `option-def-description` Optional. Description of the option (1,024 characters). `option-def-default_value` Optional. Default value used when the user doesn't specify one. The following example creates the option `NPM_START`. ``` options_definitions: <br>• namespace: "aws:elasticbeanstalk:container:custom:application" option_name: "NPM_START" description: "Default application startup command" default_value: "node application.js" ``` `option-setting-namespace` Optional. Namespace of the option. `option-setting-option_name` Optional. Name of the option. You can specify up to 50 [options provided by Elastic Beanstalk](command-options-general.md "command-options-general.md"). `option-setting-value` Optional. Value used when the user doesn't specify one. The following example creates the option `TEST`. ``` option_settings: <br>• namespace: "aws:elasticbeanstalk:application:environment" option_name: "TEST" value: "This is a test" ``` ### Tagging custom platform versions You can apply tags to your AWS Elastic Beanstalk custom platform versions. Tags are key-value pairs associated with AWS resources. For information about Elastic Beanstalk resource tagging, use cases, tag key and value constraints, and supported resource types, see [Tagging Elastic Beanstalk application resources](applications-tagging-resources.md "applications-tagging-resources.md"). You can specify tags when you create a custom platform version. In an existing custom platform version, you can add or remove tags, and update the values of existing tags. You can add up to 50 tags to each custom platform version. #### Adding tags during custom platform version creation If you use the EB CLI to create your custom platform version, use the `--tags` option with **[eb platform create](eb3-platform.md#eb3-platform-create "eb3-platform.md#eb3-platform-create")** to add tags. ``` ~/workspace/my-app$ `eb platform create --tags `mytag1`=`value1`,`mytag2`=`value2`` ``` With the AWS CLI or other API-based clients, add tags by using the `--tags` parameter on the **[create-platform-version](../../../cli/latest/reference/elasticbeanstalk/create-platform-version.md "../../../cli/latest/reference/elasticbeanstalk/create-platform-version.md")** command. ``` $ `aws elasticbeanstalk create-platform-version \ --tags Key=`mytag1`,Value=`value1` Key=`mytag2`,Value=`value2` \ --platform-name `my-platform` --platform-version `1.0.0` --platform-definition-bundle S3Bucket=`amzn-s3-demo-bucket`,S3Key=`sample.zip`` ``` #### Managing tags of an existing custom platform version You can add, update, and delete tags in an existing Elastic Beanstalk custom platform version. If you use the EB CLI to update your custom platform version, use **[eb tags](eb3-tags.md "eb3-tags.md")** to add, update, delete, or list tags. For example, the following command lists the tags in a custom platform version. ``` ~/workspace/my-app$ `eb tags --list --resource "arn:aws:elasticbeanstalk:us-east-2:`my-account-id`:platform/`my-platform`/`1.0.0`"` ``` The following command updates the tag `mytag1` and deletes the tag `mytag2`. ``` ~/workspace/my-app$ `eb tags --update `mytag1`=`newvalue` --delete `mytag2` \ --resource "arn:aws:elasticbeanstalk:us-east-2:`my-account-id`:platform/`my-platform`/`1.0.0`"` ``` For a complete list of options and more examples, see `eb tags`. With the AWS CLI or other API-based clients, use the **[list-tags-for-resource](../../../cli/latest/reference/elasticbeanstalk/list-tags-for-resource.md "../../../cli/latest/reference/elasticbeanstalk/list-tags-for-resource.md")** command to list the tags of a custom platform version. ``` $ `aws elasticbeanstalk list-tags-for-resource --resource-arn "arn:aws:elasticbeanstalk:us-east-2:`my-account-id`:platform/`my-platform`/`1.0.0`"` ``` Use the **[update-tags-for-resource](../../../cli/latest/reference/elasticbeanstalk/update-tags-for-resource.md "../../../cli/latest/reference/elasticbeanstalk/update-tags-for-resource.md")** command to add, update, or delete tags in a custom platform version. ``` $ `aws elasticbeanstalk update-tags-for-resource \ --tags-to-add Key=`mytag1`,Value=`newvalue` --tags-to-remove `mytag2` \ --resource-arn "arn:aws:elasticbeanstalk:us-east-2:`my-account-id`:platform/`my-platform`/`1.0.0`"` ``` Specify both tags to add and tags to update in the `--tags-to-add` parameter of **update-tags-for-resource**. A nonexisting tag is added, and an existing tag's value is updated. ###### Note To use some of the EB CLI and AWS CLI commands with an Elastic Beanstalk custom platform version, you need the custom platform version's ARN. You can retrieve the ARN by using the following command. ``` $ `aws elasticbeanstalk list-platform-versions` ``` Use the `--filters` option to filter the output down to your custom platform's name.
-````
+|-- ReadMe.txt              Briefly describes the sample
+```
+
+The platform definition file, `platform.yaml`, tells Elastic Beanstalk the name of the Packer template, `custom_platform.json`.
+
+```
+version: "1.0"
+
+provisioner:
+  type: packer
+  template: custom_platform.json
+  flavor: ubuntu1604
+```
+
+The Packer template tells Packer how to build the AMIs for the platform, using an [Ubuntu AMI](../../../AWSEC2/latest/UserGuide/AMIs.md "../../../AWSEC2/latest/UserGuide/AMIs.md") as a base
+for the platform image for HVM instance types. The `provisioners` section tells Packer to copy all files in the `builder`
+folder within the archive to the instance, and to run the `builder.sh` script on the instance. When the scripts complete, Packer
+creates an image from the modified instance.
+
+Elastic Beanstalk creates three environment variables that can be used to tag AMIs in Packer:
+
+AWS_EB_PLATFORM_ARN
+
+The ARN of the custom platform.
+
+AWS_EB_PLATFORM_NAME
+
+The name of the custom platform.
+
+AWS_EB_PLATFORM_VERSION
+
+The version of the custom platform.
+
+The sample `custom_platform.json` file uses these variables to define the following values that it uses in the scripts:
+
+- `platform_name`, which is set by `platform.yaml`
+- `platform_version`, which is set by `platform.yaml`
+- `platform_arn`, which is set by the main build script, `builder.sh`, which is shown at the end of the sample
+  `custom_platform.json` file.
+
+The `custom_platform.json` file contains two properties that you have to provide values for: `source_ami` and
+`region`. For details about choosing the right AMI and Region values, see [Updating Packer template](https://github.com/aws-samples/eb-custom-platforms-samples#updating-packer-template "https://github.com/aws-samples/eb-custom-platforms-samples#updating-packer-template") in the
+_eb-custom-platforms-samples_ GitHub repository.
+
+###### Example custom_platform.json
+
+```
+{
+  "variables": {
+    "platform_name": "{{env `AWS_EB_PLATFORM_NAME`}}",
+    "platform_version": "{{env `AWS_EB_PLATFORM_VERSION`}}",
+    "platform_arn": "{{env `AWS_EB_PLATFORM_ARN`}}"
+  },
+  "builders": [
+    {
+      ...
+      "region": "",
+      "source_ami": "",
+      ...
+    }
+  ],
+  "provisioners": [
+    {...},
+    {
+      "type": "shell",
+      "execute_command": "chmod +x {{ .Path }}; {{ .Vars }} sudo {{ .Path }}",
+      "scripts": [
+        "builder/builder.sh"
+      ]
+    }
+  ]
+}
+```
+
+The scripts and other files that you include in your platform definition archive will vary greatly depending on the modifications that you want to make to the instance. The
+sample platform includes the following scripts:
+
+- `00-sync-apt.sh` – Commented out: `apt -y update`. We commented out the command because it prompts the user for
+  input, which breaks the automated package update. This might be an Ubuntu issue. However, running `apt -y update` is still recommended as a
+  best practice. For this reason, we left the command in the sample script for reference.
+- `01-install-nginx.sh` – Installs nginx.
+- `02-setup-platform.sh` – Installs `wget`, `tree`, and `git`. Copies hooks and [logging configurations](using-features.md "using-features.md") to the instance, and creates the following directories:
+  - `/etc/SampleNodePlatform` – Where the container configuration file is uploaded during deployment.
+  - `/opt/elasticbeanstalk/deploy/appsource/` – Where the `00-unzip.sh` script uploads application source code during
+    deployment (see the [Platform script tools for your Elastic Beanstalk environments](custom-platforms-scripts.md "custom-platforms-scripts.md") section for information about this
+    script).
+  - `/var/app/staging/` – Where application source code is processed during deployment.
+  - `/var/app/current/` – Where application source code runs after processing.
+  - `/var/log/nginx/healthd/` – Where the [enhanced health agent](health-enhanced.md#health-enhanced-agent "health-enhanced.md#health-enhanced-agent") writes logs.
+  - `/var/nodejs` – Where the Node.js files are uploaded during deployment.
+
+Use the EB CLI to create your first custom platform with the sample platform definition archive.
+
+###### To create a custom platform
+
+1. [Install the EB CLI](eb-cli3.md#eb-cli3-install "eb-cli3.md#eb-cli3-install").
+2. Create a directory in which you will extract the sample custom platform.
+
+```
+~$ `mkdir ~/custom-platform`
+```
+
+3. Extract `NodePlatform_Ubuntu.zip` to the directory, and then change to the extracted directory.
+
+```
+~$ `cd ~/custom-platform`
+~/custom-platform$ `unzip ~/NodePlatform_Ubuntu.zip`
+~/custom-platform$ `cd NodePlatform_Ubuntu`
+```
+
+4. Edit the `custom_platform.json` file, and provide values for the `source_ami` and `region` properties.
+   For details, see [Updating Packer template](https://github.com/aws-samples/eb-custom-platforms-samples#updating-packer-template "https://github.com/aws-samples/eb-custom-platforms-samples#updating-packer-template").
+5. Run [eb platform init](eb3-platform.md#eb3-platform-init "eb3-platform.md#eb3-platform-init") and follow the prompts to initialize a platform
+   repository.
+
+You can shorten **eb platform** to **ebp**.
+
+###### Note
+
+Windows PowerShell uses **ebp** as a command alias. If you're running the EB CLI in Windows PowerShell, use the long form of this
+command: **eb platform**.
+
+```
+~/custom-platform$ `eb platform init`
+```
+
+This command also creates the directory `.elasticbeanstalk` in the current directory and adds the configuration file
+`config.yml` to the directory. Don't change or delete this file, because Elastic Beanstalk relies on it when creating the custom
+platform.
+
+By default, **eb platform init** uses the name of the current folder as the name of the custom platform, which would be
+`custom-platform` in this example. 6. Run [eb platform create](eb3-platform.md#eb3-platform-create "eb3-platform.md#eb3-platform-create") to launch a Packer environment and get the ARN of the custom
+platform. You'll need this value later when you create an environment from the custom platform.
+
+```
+~/custom-platform$ `eb platform create`
+...
+```
+
+By default, Elastic Beanstalk creates the instance profile `aws-elasticbeanstalk-custom-platform-ec2-role` for custom platforms. If, instead, you
+want to use an existing instance profile, add the option `-ip `INSTANCE_PROFILE`` to the [eb platform create](eb3-platform.md#eb3-platform-create "eb3-platform.md#eb3-platform-create") command.
+
+###### Note
+
+Packer will fail to create a custom platform if you use the Elastic Beanstalk default instance profile `aws-elasticbeanstalk-ec2-role`.
+
+The EB CLI shows event output of the Packer environment until the build is complete. You can exit the event view by pressing
+**Ctrl+C**. 7. You can check the logs for errors using the [eb platform logs](eb3-platform.md#eb3-platform-logs "eb3-platform.md#eb3-platform-logs") command.
+
+```
+~/custom-platform$ `eb platform logs`
+...
+```
+
+8. You can check on the process later with [eb platform events](eb3-platform.md#eb3-platform-events "eb3-platform.md#eb3-platform-events").
+
+```
+~/custom-platform$ `eb platform events`
+...
+```
+
+9. Check the status of your platform with [eb platform status](eb3-platform.md#eb3-platform-status "eb3-platform.md#eb3-platform-status").
+
+```
+~/custom-platform$ `eb platform status`
+...
+```
+
+When the operation completes, you have a platform that you can use to launch an Elastic Beanstalk environment.
+
+You can use the custom platform when creating an environment from the console. See [The create new environment wizard](environments-create-wizard.md "environments-create-wizard.md").
+
+###### To launch an environment on your custom platform
+
+1. Create a directory for your application.
+
+```
+~$ `mkdir custom-platform-app`
+~$ `cd ~/custom-platform-app`
+```
+
+2. Initialize an application repository.
+
+```
+~/custom-platform-app$ `eb init`
+...
+```
+
+3. Download the sample application [NodeSampleApp.zip](samples/NodeSampleApp.md "samples/NodeSampleApp.md").
+4. Extract the sample application.
+
+```
+~/custom-platform-app$ `unzip `~/`NodeSampleApp.zip`
+```
+
+5. Run **eb create -p `CUSTOM-PLATFORM-ARN`**, where `CUSTOM-PLATFORM-ARN` is the
+   ARN returned by an **eb platform create** command, to launch an environment running your custom platform.
+
+```
+~/custom-platform-app$ `eb create -p `CUSTOM-PLATFORM-ARN``
+...
+```
+
+### Platform definition archive contents
+
+A platform definition archive is the platform equivalent of an [application source bundle](applications-sourcebundle.md "applications-sourcebundle.md"). The platform definition archive is a ZIP file that
+contains a platform definition file, a Packer template, and the scripts and files used by the Packer template to create your platform.
+
+###### Note
+
+When you use the EB CLI to create a custom platform, the EB CLI creates a platform definition archive from the files and folders in your platform repository, so you don't
+need to create the archive manually.
+
+The platform definition file is a YAML-formatted file that must be named `platform.yaml` and be in the root of your platform definition archive. See [Creating a custom platform](#custom-platform-creating "#custom-platform-creating") for a list of required and optional keys supported in a platform definition file.
+
+You don't need to name the Packer template in a specific way, but the name of the file must match the provisioner template specified in the platform definition file. See
+the official [Packer documentation](https://www.packer.io/docs/templates/introduction.html "https://www.packer.io/docs/templates/introduction.html") for instructions on creating Packer
+templates.
+
+The other files in your platform definition archive are scripts and files used by the template to customize an instance before creating an AMI.
+
+### Custom platform hooks
+
+Elastic Beanstalk uses a standardized directory structure for hooks on custom platforms. These are scripts that are run during lifecycle events and in
+response to management operations: when instances in your environment are launched, or when a user initiates a deployment or uses the restart application
+server feature.
+
+Place scripts that you want hooks to trigger in one of the subfolders of the `/opt/elasticbeanstalk/hooks/` folder.
+
+###### Warning
+
+_Using custom platform hooks on managed platforms isn't supported._ Custom platform hooks are designed for custom platforms. On
+Elastic Beanstalk managed platforms they might work differently or have some issues, and behavior might differ across platforms. On Amazon Linux AMI platforms (preceding
+Amazon Linux 2), they might still work in useful ways in some cases; use them with caution.
+
+Custom platform hooks are a legacy feature that exists on Amazon Linux AMI platforms. On Amazon Linux 2 platforms, custom platform hooks in the
+`/opt/elasticbeanstalk/hooks/` folder are entirely discontinued. Elastic Beanstalk doesn't read or execute them. Amazon Linux 2 platforms support a new
+kind of platform hooks, specifically designed to extend Elastic Beanstalk managed platforms. You can add custom scripts and programs directly to a hooks directory
+in your application source bundle. Elastic Beanstalk runs them during various instance provisioning stages. For more information, expand the _Platform
+Hooks_ section in [Extending Elastic Beanstalk Linux platforms](platforms-linux-extend.md "platforms-linux-extend.md").
+
+Hooks are organized into the following folders:
+
+- `appdeploy` — Scripts run during an application deployment. Elastic Beanstalk performs an application deployment when new instances
+  are launched and when a client initiates a new version deployment.
+- `configdeploy` — Scripts run when a client performs a configuration update that affects the software configuration on
+  instance, for example, by setting environment properties or enabling log rotation to Amazon S3.
+- `restartappserver` — Scripts run when a client performs a restart app server operation.
+- `preinit` — Scripts run during instance bootstrapping.
+- `postinit` — Scripts run after instance bootstrapping.
+
+The `appdeploy`, `configdeploy`, and `restartappserver` folders contain
+`pre`, `enact`, and `post` subfolders. In each phase of an operation, all scripts in the
+`pre` folder are run in alphabetical order, then those in the `enact` folder, and then those in the
+`post` folder.
+
+When an instance is launched, Elastic Beanstalk runs `preinit`, `appdeploy`, and `postinit`,
+in this order. On subsequent deployments to running instances, Elastic Beanstalk runs `appdeploy` hooks.
+`configdeploy` hooks are run when a user updates instance software configuration settings. `restartappserver`
+hooks are run only when the user initiates an application server restart.
+
+When your scripts encounter errors, they can exit with a non-zero status and write to `stderr` to fail the operation. The message
+that you write to `stderr` will appear in the event that is output when the operation fails. Elastic Beanstalk also captures this information in
+the log file `/var/log/eb-activity.log` If you don't want to fail the operation, return 0 (zero). Messages that you write to
+`stderr` or `stdout` appear in the [deployment logs](using-features.md "using-features.md"), but won't appear in the event
+stream unless the operation fails.
+
+### Packer instance cleanup
+
+In certain circumstances, such as stopping the Packer builder process before it is finished, instances launched by Packer are not cleaned up. These
+instances are not part of the Elastic Beanstalk environment and can be viewed and terminated only by using the Amazon EC2 service.
+
+###### To manually clean up these instances
+
+1. Open the [Amazon EC2 console](https://console.aws.amazon.com/ec2/ "https://console.aws.amazon.com/ec2/").
+2. Make sure you are in the same AWS Region in which you created the instance with Packer.
+3. Under **Resources**, choose `N` **Running Instances**, where
+   `N` indicates the number of running instances.
+4. Click in the query text box.
+5. Select the **Name** tag.
+6. Enter **packer**.
+
+The query should look like: **tag:Name: packer** 7. Select any instances that match the query. 8. If the **Instance State** is **running**, choose **Actions**, **Instance
+State**, **Stop**, and then **Actions**, **Instance State**,
+**Terminate**.
+
+### Platform.yaml file format
+
+The `platform.yaml` file has the following format.
+
+```
+version: "`version-number`"
+
+provisioner:
+   type: `provisioner-type`
+   template: `provisioner-template`
+   flavor: `provisioner-flavor`
+
+metadata:
+   maintainer: `metadata-maintainer`
+   description: `metadata-description`
+   operating_system_name: `metadata-operating_system_name`
+   operating_system_version: `metadata-operating_system_version`
+   programming_language_name: `metadata-programming_language_name`
+   programming_language_version: `metadata-programming_language_version`
+   framework_name: `metadata-framework_name`
+   framework_version: `metadata-framework_version`
+
+option_definitions:
+   - namespace: `option-def-namespace`
+     option_name: `option-def-option_name`
+     description: `option-def-description`
+     default_value: `option-def-default_value`
+
+option_settings:
+   - namespace: "`option-setting-namespace`"
+     option_name: "`option-setting-option_name`"
+     value: "`option-setting-value`"
+```
+
+Replace the placeholders with these values:
+
+`version-number`
+
+Required. The version of the YAML definition. Must be
+`1.0`.
+
+`provisioner-type`
+
+Required. The type of builder used to create the custom platform. Must be
+`packer`.
+
+`provisioner-template`
+
+Required. The JSON file containing the settings for
+`provisioner-type`.
+
+`provisioner-flavor`
+
+Optional. The base operating system used for the AMI. One of the following:
+
+amazon (default)
+
+Amazon Linux. If not specified, the latest version of Amazon Linux when the platform is created.
+
+Amazon Linux 2 isn't a supported operating system flavor.
+
+ubuntu1604
+Ubuntu 16.04 LTS
+
+rhel7
+RHEL 7
+
+rhel6
+RHEL 6
+
+`metadata-maintainer`
+
+Optional. Contact information for the person who owns the platform (100
+characters).
+
+`metadata-description`
+
+Optional. Description of the platform (2,000 characters).
+
+`metadata-operating_system_name`
+
+Optional. Name of the platform's operating system (50 characters). This value is
+available when filtering the output for the [ListPlatformVersions](../api/API_ListPlatformVersions.md "../api/API_ListPlatformVersions.md") API.
+
+`metadata-operating_system_version`
+
+Optional. Version of the
+platform's operating system (20 characters).
+
+`metadata-programming_language_name`
+
+Optional. Programming
+language supported by the platform (50 characters)
+
+`metadata-programming_language_version`
+
+Optional. Version of
+the platform's language (20 characters).
+
+`metadata-framework_name`
+
+Optional. Name of the web framework
+used by the platform (50 characters).
+
+`metadata-framework_version`
+
+Optional. Version of the
+platform's web framework (20 characters).
+
+`option-def-namespace`
+
+Optional. A namespace under `aws:elasticbeanstalk:container:custom` (100 characters).
+
+`option-def-option_name`
+
+Optional. The option's name (100
+characters). You can define up to 50 custom
+configuration options that the platform provides to users.
+
+`option-def-description`
+
+Optional. Description of the option (1,024 characters).
+
+`option-def-default_value`
+
+Optional. Default value
+used when the user doesn't specify one.
+
+The following example creates the option `NPM_START`.
+
+```
+options_definitions:
+ -  namespace: "aws:elasticbeanstalk:container:custom:application"
+    option_name: "NPM_START"
+    description: "Default application startup command"
+    default_value: "node application.js"
+```
+
+`option-setting-namespace`
+
+Optional. Namespace of the
+option.
+
+`option-setting-option_name`
+
+Optional. Name of the option. You can specify up to 50
+[options provided by
+Elastic Beanstalk](command-options-general.md "command-options-general.md").
+
+`option-setting-value`
+
+Optional. Value used when the user
+doesn't specify one.
+
+The following example creates the option `TEST`.
+
+```
+option_settings:
+ - namespace: "aws:elasticbeanstalk:application:environment"
+   option_name: "TEST"
+   value: "This is a test"
+```
+
+### Tagging custom platform versions
+
+You can apply tags to your AWS Elastic Beanstalk custom platform versions. Tags are key-value pairs associated with AWS resources. For information about Elastic Beanstalk
+resource tagging, use cases, tag key and value constraints, and supported resource types, see [Tagging Elastic Beanstalk application resources](applications-tagging-resources.md "applications-tagging-resources.md").
+
+You can specify tags when you create a custom platform version. In an existing custom platform version, you can add or remove tags, and update the
+values of existing tags. You can add up to 50 tags to each custom platform version.
+
+#### Adding tags during custom platform version creation
+
+If you use the EB CLI to create your custom platform version, use the `--tags` option with **[eb
+platform create](eb3-platform.md#eb3-platform-create "eb3-platform.md#eb3-platform-create")** to add tags.
+
+```
+~/workspace/my-app$ `eb platform create --tags `mytag1`=`value1`,`mytag2`=`value2``
+```
+
+With the AWS CLI or other API-based clients, add tags by using the `--tags` parameter on the **[create-platform-version](../../../cli/latest/reference/elasticbeanstalk/create-platform-version.md "../../../cli/latest/reference/elasticbeanstalk/create-platform-version.md")** command.
+
+```
+$ `aws elasticbeanstalk create-platform-version \
+ --tags Key=`mytag1`,Value=`value1` Key=`mytag2`,Value=`value2` \
+ --platform-name `my-platform` --platform-version `1.0.0` --platform-definition-bundle S3Bucket=`amzn-s3-demo-bucket`,S3Key=`sample.zip``
+```
+
+#### Managing tags of an existing custom platform version
+
+You can add, update, and delete tags in an existing Elastic Beanstalk custom platform version.
+
+If you use the EB CLI to update your custom platform version, use **[eb tags](eb3-tags.md "eb3-tags.md")** to add, update, delete,
+or list tags.
+
+For example, the following command lists the tags in a custom platform version.
+
+```
+~/workspace/my-app$ `eb tags --list --resource "arn:aws:elasticbeanstalk:us-east-2:`my-account-id`:platform/`my-platform`/`1.0.0`"`
+```
+
+The following command updates the tag `mytag1` and deletes the tag `mytag2`.
+
+```
+~/workspace/my-app$ `eb tags --update `mytag1`=`newvalue` --delete `mytag2` \
+ --resource "arn:aws:elasticbeanstalk:us-east-2:`my-account-id`:platform/`my-platform`/`1.0.0`"`
+```
+
+For a complete list of options and more examples, see `eb tags`.
+
+With the AWS CLI or other API-based clients, use the **[list-tags-for-resource](../../../cli/latest/reference/elasticbeanstalk/list-tags-for-resource.md "../../../cli/latest/reference/elasticbeanstalk/list-tags-for-resource.md")** command to list the tags of a custom platform version.
+
+```
+$ `aws elasticbeanstalk list-tags-for-resource --resource-arn "arn:aws:elasticbeanstalk:us-east-2:`my-account-id`:platform/`my-platform`/`1.0.0`"`
+```
+
+Use the **[update-tags-for-resource](../../../cli/latest/reference/elasticbeanstalk/update-tags-for-resource.md "../../../cli/latest/reference/elasticbeanstalk/update-tags-for-resource.md")** command to add, update,
+or delete tags in a custom platform version.
+
+```
+$ `aws elasticbeanstalk update-tags-for-resource \
+ --tags-to-add Key=`mytag1`,Value=`newvalue` --tags-to-remove `mytag2` \
+ --resource-arn "arn:aws:elasticbeanstalk:us-east-2:`my-account-id`:platform/`my-platform`/`1.0.0`"`
+```
+
+Specify both tags to add and tags to update in the `--tags-to-add` parameter of **update-tags-for-resource**. A nonexisting tag is
+added, and an existing tag's value is updated.
+
+###### Note
+
+To use some of the EB CLI and AWS CLI commands with an Elastic Beanstalk custom platform version, you need the custom platform version's ARN. You can retrieve the
+ARN by using the following command.
+
+```
+$ `aws elasticbeanstalk list-platform-versions`
+```
+
+Use the `--filters` option to filter the output down to your custom platform's name.

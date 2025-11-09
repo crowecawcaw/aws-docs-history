@@ -133,10 +133,20 @@ The `apphostconfig` parameter must begin with `Default Web Site`.
 If you are deploying multiple applications or an ASP.NET Core application, put your `.ebextensions` folder in the root of the
 source bundle, side by side with the application bundles and manifest file:
 
-````
+```
 ~/workspace/source-bundle/
 |-- .ebextensions
 |   |-- environmentvariables.config
-|   `-- healthcheckurl.config |-- AspNetCore101HelloWorld.zip
-|-- AspNetCoreHelloWorld.zip |-- aws-windows-deployment-manifest.json `-- VS2015AspNetWebApiApp.zip ``` ## Testing your source bundle You may want to test your source bundle locally before you upload it to Elastic Beanstalk. Because Elastic Beanstalk essentially uses the command line to extract the files, it's best to do your tests from the command line rather than with a GUI tool. Ensure that the decompressed files appear in the same folder as the archive itself, rather than in a new top-level folder or directory.
-````
+|   `-- healthcheckurl.config
+|-- AspNetCore101HelloWorld.zip
+|-- AspNetCoreHelloWorld.zip
+|-- aws-windows-deployment-manifest.json
+`-- VS2015AspNetWebApiApp.zip
+```
+
+## Testing your source bundle
+
+You may want to test your source bundle locally before you upload it to Elastic Beanstalk. Because Elastic Beanstalk essentially uses the command line to extract the files,
+it's best to do your tests from the command line rather than with a GUI tool.
+
+Ensure that the decompressed files appear in the same folder as the archive itself, rather than in a new top-level folder or directory.

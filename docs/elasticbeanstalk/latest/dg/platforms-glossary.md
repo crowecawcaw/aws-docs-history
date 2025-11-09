@@ -48,6 +48,11 @@ The recommended version in each supported platform branch is available to you un
 Previous platform versions remain accessible to accounts with active or terminated environments using them at the time they were superseded by a new version.
 Previous platform versions lack the most up-to-date components and aren't recommended for use.
 
+###### Note
+
+If you need access to previous platform versions beyond the standard availability described above,
+you can reach out to the [AWS Support Center](https://console.aws.amazon.com/support/home#/ "https://console.aws.amazon.com/support/home#/") for assistance.
+
 A platform branch can be in one of the following states:
 
 - _Supported_ – A current platform branch. It consists entirely of _supported components_.

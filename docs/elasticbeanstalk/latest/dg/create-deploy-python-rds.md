@@ -28,10 +28,58 @@ Elastic Beanstalk, see [Adding a database to your Elastic Beanstalk environment]
 Adding a DB instance takes about 10 minutes. When the environment update is complete, the DB instance's hostname and other connection information are
 available to your application through the following environment properties:
 
-| Property name  | Description                                                                                    | Property value                                                                  |
-| -------------- | ---------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `RDS_HOSTNAME` | The hostname of the DB instance.                                                               | On the **Connectivity & security** tab on the Amazon RDS console: **Endpoint**. |
-| `RDS_PORT`     | The port where the DB instance accepts connections. The default value varies among DB engines. | On the **Connectivity & security** tab on the Amazon RDS console: **Port**.     |
-| `RDS_DB_NAME`  | The database name, `ebdb`.                                                                     | On the **Configuration** tab on the Amazon RDS console: **DB Name**.            |
-| `RDS_USERNAME` | The username that you configured for your database.                                            | On the **Configuration** tab on the Amazon RDS console: **Master username**.    |
-| `RDS_PASSWORD` | The password that you configured for your database.                                            | Not available for reference in the Amazon RDS console.                          | For more information about configuring a database instance coupled with an Elastic Beanstalk environment, see [Adding a database to your Elastic Beanstalk environment](using-features.managing.md "using-features.managing.md"). ## Downloading a driver Add the database driver to your project's [requirements file](python-configuration-requirements.md "python-configuration-requirements.md"). ###### Example requirements.txt – Django with MySQL `` Django==2.2 `mysqlclient==2.0.3` `` ###### Common driver packages for Python <br>• **MySQL** – `mysqlclient` <br>• **PostgreSQL** – `psycopg2` <br>• **Oracle** – `cx_Oracle` <br>• **SQL Server** – `adodbapi` For more information see [Python DatabaseInterfaces](https://wiki.python.org/moin/DatabaseInterfaces "https://wiki.python.org/moin/DatabaseInterfaces") and [Django 2.2 - supported databases](https://docs.djangoproject.com/en/2.2/ref/databases "https://docs.djangoproject.com/en/2.2/ref/databases"). ## Connecting to a database Elastic Beanstalk provides connection information for attached DB instances in environment properties. Use `os.environ['`VARIABLE`']` to read the properties and configure a database connection. ###### Example Django settings file – DATABASES dictionary `import os if 'RDS_HOSTNAME' in os.environ: DATABASES = { 'default': { 'ENGINE': 'django.db.backends.mysql', 'NAME': os.environ['RDS_DB_NAME'], 'USER': os.environ['RDS_USERNAME'], 'PASSWORD': os.environ['RDS_PASSWORD'], 'HOST': os.environ['RDS_HOSTNAME'], 'PORT': os.environ['RDS_PORT'], } }` |
+| Property name  | Description                                                                                    | Property value                                                                         |
+| -------------- | ---------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| `RDS_HOSTNAME` | The hostname of the DB instance.                                                               | On the **Connectivity & security\*<br>• tab on the Amazon RDS console: **Endpoint\*\*. |
+| `RDS_PORT`     | The port where the DB instance accepts connections. The default value varies among DB engines. | On the **Connectivity & security\*<br>• tab on the Amazon RDS console: **Port\*\*.     |
+| `RDS_DB_NAME`  | The database name, `ebdb`.                                                                     | On the **Configuration\*<br>• tab on the Amazon RDS console: **DB Name\*\*.            |
+| `RDS_USERNAME` | The username that you configured for your database.                                            | On the **Configuration\*<br>• tab on the Amazon RDS console: **Master username\*\*.    |
+| `RDS_PASSWORD` | The password that you configured for your database.                                            | Not available for reference in the Amazon RDS console.                                 |
+
+For more information about configuring a database instance coupled with an Elastic Beanstalk environment,
+see [Adding a database to your Elastic Beanstalk environment](using-features.managing.md "using-features.managing.md").
+
+## Downloading a driver
+
+Add the database driver to your project's [requirements file](python-configuration-requirements.md "python-configuration-requirements.md").
+
+###### Example requirements.txt – Django with MySQL
+
+```
+Django==2.2
+`mysqlclient==2.0.3`
+```
+
+###### Common driver packages for Python
+
+- **MySQL** – `mysqlclient`
+- **PostgreSQL** – `psycopg2`
+- **Oracle** – `cx_Oracle`
+- **SQL Server** – `adodbapi`
+
+For more information see
+[Python DatabaseInterfaces](https://wiki.python.org/moin/DatabaseInterfaces "https://wiki.python.org/moin/DatabaseInterfaces") and
+[Django 2.2 - supported databases](https://docs.djangoproject.com/en/2.2/ref/databases "https://docs.djangoproject.com/en/2.2/ref/databases").
+
+## Connecting to a database
+
+Elastic Beanstalk provides connection information for attached DB instances in environment properties. Use
+`os.environ['`VARIABLE`']` to read the properties and configure a database connection.
+
+###### Example Django settings file – DATABASES dictionary
+
+```
+import os
+
+if 'RDS_HOSTNAME' in os.environ:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': os.environ['RDS_DB_NAME'],
+            'USER': os.environ['RDS_USERNAME'],
+            'PASSWORD': os.environ['RDS_PASSWORD'],
+            'HOST': os.environ['RDS_HOSTNAME'],
+            'PORT': os.environ['RDS_PORT'],
+        }
+    }
+```

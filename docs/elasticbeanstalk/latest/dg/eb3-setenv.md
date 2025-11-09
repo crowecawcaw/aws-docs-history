@@ -20,6 +20,30 @@ character by preceding it with a `\` character.
 ## Options
 
 | Name                                                      | Description                                         |
-| --------------------------------------------------------- | --------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| --------------------------------------------------------- | --------------------------------------------------- |
 | --timeout                                                 | The number of minutes before the command times out. |
-| [Common options](eb3-cmd-options.md "eb3-cmd-options.md") |                                                     | ## Output If successful, the command displays that the environment update succeeded. ## Example The following example sets the environment variable ExampleVar. ``$ `eb setenv ExampleVar=ExampleValue` 2018-07-11 21:05:25    INFO: Environment update is starting. 2018-07-11 21:05:29    INFO: Updating environment tmp-dev's configuration settings. 2018-07-11 21:06:50    INFO: Successfully deployed new configuration to environment. 2018-07-11 21:06:51    INFO: Environment update completed successfully.`` The following command sets multiple environment properties. It adds the environment property named `foo` and sets its value to `bar`, changes the value of the `JDBC_CONNECTION_STRING` property, and deletes the `PARAM4` and `PARAM5` properties. `` $ `eb setenv foo=bar JDBC_CONNECTION_STRING=hello PARAM4= PARAM5=` `` |
+| [Common options](eb3-cmd-options.md "eb3-cmd-options.md") |                                                     |
+
+## Output
+
+If successful, the command displays that the environment update succeeded.
+
+## Example
+
+The following example sets the environment variable ExampleVar.
+
+```
+$ `eb setenv ExampleVar=ExampleValue`
+2018-07-11 21:05:25    INFO: Environment update is starting.
+2018-07-11 21:05:29    INFO: Updating environment tmp-dev's configuration settings.
+2018-07-11 21:06:50    INFO: Successfully deployed new configuration to environment.
+2018-07-11 21:06:51    INFO: Environment update completed successfully.
+```
+
+The following command sets multiple environment properties. It adds the environment property named `foo` and sets its value to
+`bar`, changes the value of the `JDBC_CONNECTION_STRING` property, and deletes the `PARAM4` and `PARAM5`
+properties.
+
+```
+$ `eb setenv foo=bar JDBC_CONNECTION_STRING=hello PARAM4= PARAM5=`
+```

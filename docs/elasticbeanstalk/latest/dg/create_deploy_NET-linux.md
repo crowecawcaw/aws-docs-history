@@ -1,26 +1,5 @@
-# Managing your Elastic Beanstalk application environments
+# Configuring .NET Core containers using the AWS toolkit for Visual Studio
 
-This section describes the specific service settings you can edit in the AWS
-Toolkit for Visual Studio as part of your application environment configuration. With the AWS Toolkit for Visual Studio and the AWS Management Console, you can change the provisioning and configuration of the AWS resources used by
-your application environments. For information on how to manage your application environments using the AWS Management Console, see [Creating environments in Elastic Beanstalk](using-features.md "using-features.md").
+The **Container** panel lets you specify environment variables that you can read from your application code.
 
-## Changing environment configurations settings
-
-When you deploy your application, Elastic Beanstalk configures several connected AWS cloud computing services. You can control how these individual services are
-configured by using the AWS Toolkit for Visual Studio.
-
-###### To edit an application's environment settings
-
-1. In Visual Studio, on the **File** menu, choose **AWS Explorer**.
-2. Expand the Elastic Beanstalk node and your application node. Open the context (right-click) menu for your application environment and select **View
-   Status**.
-
-You can now configure settings for the following:
-
-    * AWS X-Ray
-    * Server
-    * Load Balancer (only applies to multiple-instance environments)
-    * Auto Scaling (only applies to multiple-instance environments)
-    * Notifications
-    * Container
-    * Advanced Configuration Options
+![Screenshot of container panel in Visual Studio Toolkit for Elastic Beanstalk](images/aeb-vs-container-envproperties.png)

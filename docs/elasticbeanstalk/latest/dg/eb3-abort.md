@@ -19,5 +19,24 @@ to select the name of the environment for which you want to roll back changes.
 ## Options
 
 | Name                                                      | Description |
-| --------------------------------------------------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| [Common options](eb3-cmd-options.md "eb3-cmd-options.md") |             | ## Output The command shows a list of environments currently being updated and prompts you to choose the update that you want to abort. If only one environment is currently being updated, you do not need to specify the environment name. If successful, the command reverts environment configuration changes. The rollback process continues until all instances in the environment have the previous environment configuration or until the rollback process fails. ## Example The following example cancels the platform upgrade. `` $ `eb abort` Aborting update to environment "tmp-dev". `<list of events>` `` |
+| --------------------------------------------------------- | ----------- |
+| [Common options](eb3-cmd-options.md "eb3-cmd-options.md") |             |
+
+## Output
+
+The command shows a list of environments currently being updated and prompts you to
+choose the update that you want to abort. If only one environment is currently being
+updated, you do not need to specify the environment name. If successful, the command reverts
+environment configuration changes. The rollback process continues until all instances in the
+environment have the previous environment configuration or until the rollback process
+fails.
+
+## Example
+
+The following example cancels the platform upgrade.
+
+```
+$ `eb abort`
+Aborting update to environment "tmp-dev".
+`<list of events>`
+```

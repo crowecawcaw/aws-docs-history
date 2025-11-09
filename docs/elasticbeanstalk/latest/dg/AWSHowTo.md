@@ -1,92 +1,22 @@
-# Logging Elastic Beanstalk API calls with AWS CloudTrail
+# Using Elastic Beanstalk with Amazon DynamoDB
 
-Elastic Beanstalk is integrated with AWS CloudTrail, a service that provides a record of actions taken by a user, role, or an AWS service in Elastic Beanstalk. CloudTrail
-captures all API calls for Elastic Beanstalk as events, including calls from the Elastic Beanstalk console, from the EB CLI, and from your code to the Elastic Beanstalk
-APIs. If you create a trail, you can enable continuous delivery of CloudTrail events to an Amazon S3 bucket, including events for Elastic Beanstalk. If you don't configure
-a trail, you can still view the most recent events in the CloudTrail console in **Event history**. Using the information collected by CloudTrail, you
-can determine the request that was made to Elastic Beanstalk, the IP address from which the request was made, who made the request, when it was made, and
-additional details.
+Amazon DynamoDB is a fully managed NoSQL database service that provides fast and predictable performance with seamless scalability. If you are a developer,
+you can use DynamoDB to create a database table that can store and retrieve any amount of data, and serve any level of request traffic. DynamoDB automatically
+spreads the data and traffic for the table over a sufficient number of servers to handle the request capacity specified by the customer and the amount of
+data stored, while maintaining consistent and fast performance. All data items are stored on solid state drives (SSDs) and are automatically replicated
+across multiple Availability Zones in an AWS Region to provide built-in high availability and data durability.
 
-To learn more about CloudTrail, see the [AWS CloudTrail User Guide](../../../awscloudtrail/latest/userguide.md "../../../awscloudtrail/latest/userguide.md").
+If you use [periodic tasks](using-features-managing-env-tiers.md#worker-periodictasks "using-features-managing-env-tiers.md#worker-periodictasks") in a worker
+environment, Elastic Beanstalk creates a DynamoDB table and uses it to perform leader election and store
+information about the task. Each instance in the environment attempts to write to the table
+every few seconds to become leader and perform the task when scheduled.
 
-## Elastic Beanstalk information in CloudTrail
+You can use [configuration files](ebextensions.md "ebextensions.md") to create a DynamoDB table for your application. See [eb-node-express-sample](https://github.com/awslabs/eb-node-express-sample "https://github.com/awslabs/eb-node-express-sample") on GitHub for a sample Node.js application that creates a table
+with a configuration file and connects to it with the AWS SDK for JavaScript in Node.js. For an example walkthrough using DynamoDB with PHP, see [Example: DynamoDB, CloudWatch, and
+SNS](customize-environment-resources-dynamodb.md "customize-environment-resources-dynamodb.md"). For an example that uses the AWS SDK for Java,
+see [Manage Tomcat Session State with DynamoDB](../../../sdk-for-java/latest/developer-guide/java-dg-tomcat-session-manager.md "../../../sdk-for-java/latest/developer-guide/java-dg-tomcat-session-manager.md") in the AWS SDK for Java documentation.
 
-CloudTrail is enabled on your AWS account when you create the account. When activity occurs in Elastic Beanstalk, that activity is recorded in a CloudTrail event
-along with other AWS service events in **Event history**. You can view, search, and download recent events in your AWS account. For
-more information, see [Viewing Events with CloudTrail Event History](../../../awscloudtrail/latest/userguide/view-cloudtrail-events.md "../../../awscloudtrail/latest/userguide/view-cloudtrail-events.md").
+When you create a DynamoDB table using configuration files, the table isn't tied to your environment's lifecycle, and isn't deleted when you terminate your
+environment. To ensure that personal information isn't unnecessarily retained, delete any records that you don't need anymore, or delete the table.
 
-For an ongoing record of events in your AWS account, including events for Elastic Beanstalk, create a trail. A trail enables CloudTrail to deliver log files
-to an Amazon S3 bucket. By default, when you create a trail in the console, the trail applies to all regions. The trail logs events from all regions in the
-AWS partition and delivers the log files to the Amazon S3 bucket that you specify. Additionally, you can configure other AWS services to further analyze
-and act upon the event data collected in CloudTrail logs. For more information, see:
-
-- [Overview for Creating a Trail](../../../awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.md "../../../awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.md")
-- [CloudTrail Supported Services
-  and Integrations](../../../awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.md#cloudtrail-aws-service-specific-topics-integrations "../../../awscloudtrail/latest/userguide/cloudtrail-aws-service-specific-topics.md#cloudtrail-aws-service-specific-topics-integrations")
-- [Configuring Amazon SNS Notifications for CloudTrail](../../../awscloudtrail/latest/userguide/getting_notifications_top_level.md "../../../awscloudtrail/latest/userguide/getting_notifications_top_level.md")
-- [Receiving CloudTrail Log Files from Multiple Regions](../../../awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.md "../../../awscloudtrail/latest/userguide/receive-cloudtrail-log-files-from-multiple-regions.md") and
-  [Receiving CloudTrail Log Files from Multiple Accounts](../../../awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.md "../../../awscloudtrail/latest/userguide/cloudtrail-receive-logs-from-multiple-accounts.md")
-
-All Elastic Beanstalk actions are logged by CloudTrail and are documented in the
-
-[AWS Elastic Beanstalk API Reference](../api.md "../api.md"). For example, calls to the
-
-`DescribeApplications`, `UpdateEnvironment`, and `ListTagsForResource` actions generate entries in the CloudTrail log files.
-
-Every event or log entry contains information about who generated the request. The identity information helps you determine the following:
-
-- Whether the request was made with root or IAM user credentials.
-- Whether the request was made with temporary security credentials for a role or federated user.
-- Whether the request was made by another AWS service.
-
-For more information, see the [CloudTrail userIdentity Element](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-user-identity.md").
-
-## Understanding Elastic Beanstalk log file entries
-
-A trail is a configuration that enables delivery of events as log files to an Amazon S3 bucket that you specify. CloudTrail log files contain one or more log
-entries. An event represents a single request from any source and includes information about the requested action, the date and time of the action,
-request parameters, and so on. CloudTrail log files are not an ordered stack trace of the public API calls, so they do not appear in any specific order.
-
-The following example shows a CloudTrail log entry that demonstrates the
-
-`UpdateEnvironment` action called by an IAM user named `intern`, for the `sample-env` environment in the
-`sample-app` application.
-
-```
-{
-  "Records": [{
-    "eventVersion": "1.05",
-    "userIdentity": {
-      "type": "IAMUser",
-      "principalId": "AIXDAYQEXAMPLEUMLYNGL",
-      "arn": "**arn:aws:iam::123456789012:user/intern**",
-      "accountId": "123456789012",
-      "accessKeyId": "ASXIAGXEXAMPLEQULKNXV",
-      "userName": "intern",
-      "sessionContext": {
-        "attributes": {
-          "mfaAuthenticated": "false",
-          "creationDate": "2016-04-22T00:23:24Z"
-        }
-      },
-      "invokedBy": "signin.amazonaws.com"
-    },
-    "eventTime": "2016-04-22T00:24:14Z",
-    "eventSource": "**elasticbeanstalk.amazonaws.com**",
-    "eventName": "**UpdateEnvironment**",
-    "awsRegion": "us-west-2",
-    "sourceIPAddress": "255.255.255.54",
-    "userAgent": "signin.amazonaws.com",
-    "requestParameters": {
-      "applicationName": "**sample-app**",
-      "environmentName": "**sample-env**",
-      "optionSettings": []
-    },
-    "responseElements": null,
-    "requestID": "84ae9ecf-0280-17ce-8612-705c7b132321",
-    "eventID": "e48b6a08-c6be-4a22-99e1-c53139cbfb18",
-    "eventType": "AwsApiCall",
-    "recipientAccountId": "123456789012"
-  }]
-}
-```
+For more information about DynamoDB, see the [DynamoDB Developer Guide](../../../amazondynamodb/latest/developerguide.md "../../../amazondynamodb/latest/developerguide.md").

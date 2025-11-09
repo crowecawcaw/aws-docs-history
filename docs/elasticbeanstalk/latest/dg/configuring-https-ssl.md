@@ -52,12 +52,40 @@ If you enter '.', the field will be left blank.
 
 Enter the information requested and press **Enter**. The following table describes and shows examples for each field.
 
-| Name                | Description                                                                                                                                                              | Example             |
-| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Country Name        | The two-letter ISO abbreviation for your country.                                                                                                                        | US = United States  |
-| State or Province   | The name of the state or province where your organization is located. You cannot abbreviate this name.                                                                   | Washington          |
-| Locality Name       | The name of the city where your organization is located.                                                                                                                 | Seattle             |
-| Organization Name   | The full legal name of your organization. Do not abbreviate your organization name.                                                                                      | Example Corporation |
-| Organizational Unit | Optional, for additional organization information.                                                                                                                       | Marketing           |
-| Common Name         | The fully qualified domain name for your web site. This must match the domain name that users see when they visit your site, otherwise certificate errors will be shown. | www.example.com     |
-| Email address       | The site administrator's email address.                                                                                                                                  | someone@example.com | You can submit the signing request to a third party for signing, or sign it yourself for development and testing. Self-signed certificates can also be used for backend HTTPS between a load balancer and EC2 instances. To sign the certificate, use the **openssl x509** command. The following example uses the private key from the previous step (`privatekey.pem`) and the signing request (`csr.pem`) to create a public certificate named `public.crt` that is valid for `365` days. ```$ `openssl x509 -req -days `365` -in `csr.pem` -signkey `privatekey.pem` -out `public.crt`` Signature ok subject=/C=us/ST=washington/L=seattle/O=example corporation/OU=marketing/CN=www.example.com/emailAddress=someone@example.com Getting Private key``` Keep the private key and public certificate for later use. You can discard the signing request. Always [store the private key in a secure location](https-storingprivatekeys.md "https-storingprivatekeys.md") and avoid adding it to your source code. To use the certificate with the Windows Server platform, you must convert it to a PFX format. Use the following command to create a PFX certificate from the private key and public certificate files: ``` $ `openssl pkcs12 -export -out `example.com`.pfx -inkey `privatekey.pem` -in `public.crt`` Enter Export Password: `password` Verifying - Enter Export Password: `password` ``` Now that you have a certificate, you can [upload it to IAM](configuring-https-ssl-upload.md "configuring-https-ssl-upload.md") for use with a load balancer, or [configure the instances in your environment to terminate HTTPS](https-singleinstance.md "https-singleinstance.md"). |
+| Name                | Description                                                                                                                                                                 | Example             |
+| ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- |
+| Country Name        | The two-letter ISO abbreviation for your country.                                                                                                                           | US = United States  |
+| State or Province   | The name of the state or province where your organization is located. You cannot abbreviate this name.                                                                      | Washington          |
+| Locality Name       | The name of the city where your organization is located.                                                                                                                    | Seattle             |
+| Organization Name   | The full legal name of your organization. Do not abbreviate your organization name.                                                                                         | Example Corporation |
+| Organizational Unit | Optional, for additional organization information.                                                                                                                          | Marketing           |
+| Common Name         | The fully qualified domain name for your web site. This must match the domain name that users see when they visit your site, otherwise<br>certificate errors will be shown. | www.example.com     |
+| Email address       | The site administrator's email address.                                                                                                                                     | someone@example.com |
+
+You can submit the signing request to a third party for signing, or sign it yourself for development and testing. Self-signed certificates can also be
+used for backend HTTPS between a load balancer and EC2 instances.
+
+To sign the certificate, use the **openssl x509** command. The following example uses the private key from the previous step
+(`privatekey.pem`) and the signing request (`csr.pem`) to create a public certificate named
+`public.crt` that is valid for `365` days.
+
+```
+$ `openssl x509 -req -days `365` -in `csr.pem` -signkey `privatekey.pem` -out `public.crt``
+Signature ok
+subject=/C=us/ST=washington/L=seattle/O=example corporation/OU=marketing/CN=www.example.com/emailAddress=someone@example.com
+Getting Private key
+```
+
+Keep the private key and public certificate for later use. You can discard the signing request. Always [store
+the private key in a secure location](https-storingprivatekeys.md "https-storingprivatekeys.md") and avoid adding it to your source code.
+
+To use the certificate with the Windows Server platform, you must convert it to a PFX format. Use the following command to create a PFX certificate from
+the private key and public certificate files:
+
+```
+$ `openssl pkcs12 -export -out `example.com`.pfx -inkey `privatekey.pem` -in `public.crt``
+Enter Export Password: `password`
+Verifying - Enter Export Password: `password`
+```
+
+Now that you have a certificate, you can [upload it to IAM](configuring-https-ssl-upload.md "configuring-https-ssl-upload.md") for use with a load balancer, or [configure the instances in your environment to terminate HTTPS](https-singleinstance.md "https-singleinstance.md").

@@ -412,7 +412,7 @@ exports.index = function(req, res){
 
 7. Add the following jade template to `views/hike.jade` to provide the user interface for adding hiking logs.
 
-````
+```
 extends layout
 
 block content
@@ -437,7 +437,49 @@ block content
         td Weather
         td
           input(name="hike[WEATHER]", type="radio", value="Good")
-| Good input(name="hike[WEATHER]", type="radio", value="Bad")
-| Bad input(name="hike[WEATHER]", type="radio", value="Seattle", checked)
-| Seattle tr td(colspan="2") input(type="submit", value="Record Hike") div h3 Hikes table(border="1") tr td Date td Name td Location td Distance td Weather each hike in hikes tr td #{hike.HIKE_DATE.toDateString()} td #{hike.NAME} td #{hike.LOCATION} td #{hike.DISTANCE} td #{hike.WEATHER} ``` 8. Deploy the changes with the [eb deploy](eb3-deploy.md "eb3-deploy.md") command. ``` ~/nodejs-example-express-rds$ `eb deploy` ``` ## Clean up If you're done working with Elastic Beanstalk, you can terminate your environment. Use the **eb terminate** command to terminate your environment and all of the resources that it contains. ``` ~/nodejs-example-express-rds$ `eb terminate` The environment "nodejs-example-express-rds-env" and all associated instances will be terminated. To confirm, type the environment name: `nodejs-example-express-rds-env` INFO: terminateEnvironment is starting. ... ```
-````
+          | Good
+          input(name="hike[WEATHER]", type="radio", value="Bad")
+          | Bad
+          input(name="hike[WEATHER]", type="radio", value="Seattle", checked)
+          | Seattle
+      tr
+        td(colspan="2")
+          input(type="submit", value="Record Hike")
+
+  div
+    h3 Hikes
+    table(border="1")
+      tr
+        td Date
+        td Name
+        td Location
+        td Distance
+        td Weather
+      each hike in hikes
+        tr
+          td #{hike.HIKE_DATE.toDateString()}
+          td #{hike.NAME}
+          td #{hike.LOCATION}
+          td #{hike.DISTANCE}
+          td #{hike.WEATHER}
+```
+
+8. Deploy the changes with the [eb deploy](eb3-deploy.md "eb3-deploy.md") command.
+
+```
+~/nodejs-example-express-rds$ `eb deploy`
+```
+
+## Clean up
+
+If you're done working with Elastic Beanstalk, you can terminate your environment.
+
+Use the **eb terminate** command to terminate your environment and all of the resources that it contains.
+
+```
+~/nodejs-example-express-rds$ `eb terminate`
+The environment "nodejs-example-express-rds-env" and all associated instances will be terminated.
+To confirm, type the environment name: `nodejs-example-express-rds-env`
+INFO: terminateEnvironment is starting.
+...
+```

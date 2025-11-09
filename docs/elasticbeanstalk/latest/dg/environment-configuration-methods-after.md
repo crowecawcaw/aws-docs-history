@@ -141,13 +141,295 @@ Include `.config` files in your project folder under
 
 For details about configuration files, see [.Ebextensions](ebextensions.md "ebextensions.md").
 
-````
+```
 ~/workspace/my-app/
 |-- `.ebextensions`
 |   |-- `environmentvariables.config`
-|   `-- `healthcheckurl.config` |-- .elasticbeanstalk
-|   `-- config.yml |-- index.php `-- styles.css ``` Deploy your source code with **eb deploy**. ``` ~/workspace/my-app$ `eb deploy` ``` ### Using a saved configuration You can use the **eb config** command to apply a saved configuration to a running environment. Use the `--cfg` option with the name of the saved configuration to apply its settings to your environment. ``` $ `eb config --cfg `v1`` ``` In this example, `v1` is the name of a [previously created and saved configuration file](environment-configuration-methods-before.md#configuration-options-before-savedconfig "environment-configuration-methods-before.md#configuration-options-before-savedconfig"). Settings applied to an environment with this command override settings that were applied during environment creation, and settings defined in configuration files in your application source bundle. ### Using **eb config** The EB CLI's **eb config** command lets you set and remove option settings directly on an environment by using a text editor. When you run **eb config**, the EB CLI shows settings applied to your environment from all sources, including configuration files, saved configurations, recommended values, options set directly on the environment, and API defaults. ###### Note **eb config** does not show environment properties. To set environment properties that you can read from within your application, use [eb setenv](#configuration-options-after-ebcli-ebsetenv "#configuration-options-after-ebcli-ebsetenv"). The following example shows settings applied in the `aws:autoscaling:launchconfiguration` namespace. These settings include: <br>• Two recommended values, for `IamInstanceProfile` and `InstanceType`, applied by the EB CLI during environment creation. <br>• The option `EC2KeyName`, set directly on the environment during creation based on repository configuration. <br>• API default values for the other options. ``` ApplicationName: tomcat DateUpdated: 2015-09-30 22:51:07+00:00 EnvironmentName: tomcat SolutionStackName: 64bit Amazon Linux 2015.03 v2.0.1 running Tomcat 8 Java 8 settings: ... aws:autoscaling:launchconfiguration: BlockDeviceMappings: null EC2KeyName: my-key IamInstanceProfile: aws-elasticbeanstalk-ec2-role ImageId: ami-1f316660 InstanceType: t2.micro ... ``` ###### To set or change configuration options with **eb config** 1. Run **eb config** to view your environment's configuration. ``` ~/workspace/my-app/$ `eb config` ``` 2. Change any of the setting values using the default text editor. ``` aws:autoscaling:launchconfiguration: BlockDeviceMappings: null EC2KeyName: my-key IamInstanceProfile: aws-elasticbeanstalk-ec2-role ImageId: ami-1f316660 InstanceType: ``t2.medium`` ``` 3. Save the temporary configuration file and exit. 4. The EB CLI updates your environment configuration. Setting configuration options with **eb config** overrides settings from all other sources. You can also remove options from your environment with **eb config**. ###### To remove configuration options (EB CLI) 1. Run **eb config** to view your environment's configuration. ``` ~/workspace/my-app/$ `eb config` ``` 2. Replace any value shown with the string `null`. You can also delete the entire line containing the option that you want to remove. ``` aws:autoscaling:launchconfiguration: BlockDeviceMappings: null EC2KeyName: my-key IamInstanceProfile: aws-elasticbeanstalk-ec2-role ImageId: ami-1f316660 InstanceType: `null` ``` 3. Save the temporary configuration file and exit. 4. The EB CLI updates your environment configuration. Removing options from your environment with **eb config** allows settings for the same options to surface from configuration files in your application source bundle. See [Precedence](command-options.md#configuration-options-precedence "command-options.md#configuration-options-precedence") for details. ### Using **eb setenv** To set environment properties with the EB CLI, use **eb setenv**. ``` ~/workspace/my-app/$ `eb setenv `ENVVAR`=`TEST`` INFO: Environment update is starting. INFO: Updating environment my-env's configuration settings. INFO: Environment health has transitioned from Ok to Info. Command is executing on all instances. INFO: Successfully deployed new configuration to environment. ``` This command sets environment properties in the [aws:elasticbeanstalk:application:environment namespace](command-options-general.md#command-options-general-elasticbeanstalkapplicationenvironment "command-options-general.md#command-options-general-elasticbeanstalkapplicationenvironment"). Environment properties set with **eb setenv** are available to your application after a short update process. View environment properties set on your environment with **eb printenv**. ``` ~/workspace/my-app/$ eb printenv Environment Variables: ENVVAR = TEST ``` ## The AWS CLI You can update configuration option settings with the AWS CLI by deploying a source bundle that contains configuration files, applying a remotely stored saved configuration, or modifying the environment directly with the `aws elasticbeanstalk update-environment` command. ###### Methods <br>• [Using configuration files (.ebextensions)](#configuration-options-after-awscli-ebextensions "#configuration-options-after-awscli-ebextensions") <br>• [Using a saved configuration](#configuration-options-after-awscli-savedconfig "#configuration-options-after-awscli-savedconfig") <br>• [Using command line options](#configuration-options-after-awscli-commandline "#configuration-options-after-awscli-commandline") ### Using configuration files (`.ebextensions`) To apply configuration files to a running environment with the AWS CLI, include them in the application source bundle that you upload to Amazon S3. For details about configuration files, see [.Ebextensions](ebextensions.md "ebextensions.md"). ``` ~/workspace/my-app-v1.zip
+|   `-- `healthcheckurl.config`
+|-- .elasticbeanstalk
+|   `-- config.yml
+|-- index.php
+`-- styles.css
+```
+
+Deploy your source code with **eb deploy**.
+
+```
+~/workspace/my-app$ `eb deploy`
+```
+
+### Using a saved
+
+configuration
+
+You can use the **eb config** command to apply a saved configuration to a running environment. Use the `--cfg` option with the
+name of the saved configuration to apply its settings to your environment.
+
+```
+$ `eb config --cfg `v1``
+```
+
+In this example, `v1` is the name of a [previously created and saved
+configuration file](environment-configuration-methods-before.md#configuration-options-before-savedconfig "environment-configuration-methods-before.md#configuration-options-before-savedconfig").
+
+Settings applied to an environment with this command override settings that were applied
+during environment creation, and settings defined in configuration files in your application
+source bundle.
+
+### Using **eb config**
+
+The EB CLI's **eb config** command lets you set and remove option settings directly on an environment by using a text editor.
+
+When you run **eb config**, the EB CLI shows settings applied to your environment from all sources, including configuration files, saved
+configurations, recommended values, options set directly on the environment, and API defaults.
+
+###### Note
+
+**eb config** does not show environment properties. To set environment properties that you can read from within your application, use
+[eb setenv](#configuration-options-after-ebcli-ebsetenv "#configuration-options-after-ebcli-ebsetenv").
+
+The following example shows settings applied in the `aws:autoscaling:launchconfiguration` namespace. These settings include:
+
+- Two recommended values, for `IamInstanceProfile` and `InstanceType`, applied by the EB CLI during environment
+  creation.
+- The option `EC2KeyName`, set directly on the environment during creation based on repository configuration.
+- API default values for the other options.
+
+```
+ApplicationName: tomcat
+DateUpdated: 2015-09-30 22:51:07+00:00
+EnvironmentName: tomcat
+SolutionStackName: 64bit Amazon Linux 2015.03 v2.0.1 running Tomcat 8 Java 8
+settings:
+...
+aws:autoscaling:launchconfiguration:
+    BlockDeviceMappings: null
+    EC2KeyName: my-key
+    IamInstanceProfile: aws-elasticbeanstalk-ec2-role
+    ImageId: ami-1f316660
+    InstanceType: t2.micro
+...
+```
+
+###### To set or change configuration options with **eb config**
+
+1. Run **eb config** to view your environment's configuration.
+
+```
+~/workspace/my-app/$ `eb config`
+```
+
+2. Change any of the setting values using the default text editor.
+
+```
+aws:autoscaling:launchconfiguration:
+    BlockDeviceMappings: null
+    EC2KeyName: my-key
+    IamInstanceProfile: aws-elasticbeanstalk-ec2-role
+    ImageId: ami-1f316660
+    InstanceType: ``t2.medium``
+```
+
+3. Save the temporary configuration file and exit.
+4. The EB CLI updates your environment configuration.
+
+Setting configuration options with **eb config** overrides settings from all other sources.
+
+You can also remove options from your environment with **eb config**.
+
+###### To remove configuration options (EB CLI)
+
+1. Run **eb config** to view your environment's configuration.
+
+```
+~/workspace/my-app/$ `eb config`
+```
+
+2. Replace any value shown with the string `null`. You can also delete the entire line containing the option that you want to
+   remove.
+
+```
+aws:autoscaling:launchconfiguration:
+    BlockDeviceMappings: null
+    EC2KeyName: my-key
+    IamInstanceProfile: aws-elasticbeanstalk-ec2-role
+    ImageId: ami-1f316660
+    InstanceType: `null`
+```
+
+3. Save the temporary configuration file and exit.
+4. The EB CLI updates your environment configuration.
+
+Removing options from your environment with **eb config** allows settings for the same options to surface from configuration files in your
+application source bundle. See [Precedence](command-options.md#configuration-options-precedence "command-options.md#configuration-options-precedence") for details.
+
+### Using \*\*eb
+
+setenv\*\*
+
+To set environment properties with the EB CLI, use **eb setenv**.
+
+```
+~/workspace/my-app/$ `eb setenv `ENVVAR`=`TEST``
+INFO: Environment update is starting.
+INFO: Updating environment my-env's configuration settings.
+INFO: Environment health has transitioned from Ok to Info. Command is executing on all instances.
+INFO: Successfully deployed new configuration to environment.
+```
+
+This command sets environment properties in the [aws:elasticbeanstalk:application:environment namespace](command-options-general.md#command-options-general-elasticbeanstalkapplicationenvironment "command-options-general.md#command-options-general-elasticbeanstalkapplicationenvironment"). Environment
+properties set with **eb setenv** are available to your application after a short
+update process.
+
+View environment properties set on your environment with **eb printenv**.
+
+```
+~/workspace/my-app/$ eb printenv
+ Environment Variables:
+     ENVVAR = TEST
+```
+
+## The AWS CLI
+
+You can update configuration option settings with the AWS CLI by deploying a source bundle
+that contains configuration files, applying a remotely stored saved configuration, or
+modifying the environment directly with the `aws elasticbeanstalk
+ update-environment` command.
+
+###### Methods
+
+- [Using configuration files
+  (.ebextensions)](#configuration-options-after-awscli-ebextensions "#configuration-options-after-awscli-ebextensions")
+- [Using a saved
+  configuration](#configuration-options-after-awscli-savedconfig "#configuration-options-after-awscli-savedconfig")
+- [Using command line
+  options](#configuration-options-after-awscli-commandline "#configuration-options-after-awscli-commandline")
+
+### Using configuration files
+
+(`.ebextensions`)
+
+To apply configuration files to a running environment with the AWS CLI, include them in
+the application source bundle that you upload to Amazon S3.
+
+For details about configuration files, see [.Ebextensions](ebextensions.md "ebextensions.md").
+
+```
+~/workspace/my-app-v1.zip
 |-- `.ebextensions`
 |   |-- `environmentvariables.config`
-|   `-- `healthcheckurl.config` |-- index.php `-- styles.css ``` ###### To upload an application source bundle and apply it to a running environment (AWS CLI) 1. If you don't already have an Elastic Beanstalk bucket in Amazon S3, create one with `create-storage-location`: ``` $ `aws elasticbeanstalk create-storage-location` { "S3Bucket": "elasticbeanstalk-us-west-2-123456789012" } ``` 2. Upload your application source bundle to Amazon S3. ``` $ `aws s3 cp `sourcebundlev2.zip` s3://elasticbeanstalk-`us-west-2-123456789012`/my-app/sourcebundlev2.zip` ``` 3. Create the application version. ``` $ `aws elasticbeanstalk create-application-version --application-name `my-app` --version-label v2 --description MyAppv2 --source-bundle S3Bucket="elasticbeanstalk-`us-west-2-123456789012`",S3Key="`my-app/sourcebundlev2.zip`"` ``` 4. Update the environment. ``` $ `aws elasticbeanstalk update-environment --environment-name `my-env` --version-label v2` ``` ### Using a saved configuration You can apply a saved configuration to a running environment with the `--template-name` option on the `aws elasticbeanstalk update-environment` command. The saved configuration must be in your Elastic Beanstalk bucket in a path named after your application under `resources/templates`. For example, the `v1` template for the `my-app` application in the US West (Oregon) Region (us-west-2) for account 123456789012 is located at `s3://elasticbeanstalk-us-west-2-123456789012/resources/templates/my-app/v1` ###### To apply a saved configuration to a running environment (AWS CLI) <br>• Specify the saved configuration in an `update-environment` call with the `--template-name` option. ``` $ `aws elasticbeanstalk update-environment --environment-name `my-env` --template-name `v1`` ``` Elastic Beanstalk places saved configurations in this location when you create them with `aws elasticbeanstalk create-configuration-template`. You can also modify saved configurations locally and place them in this location yourself. ### Using command line options ###### To change configuration options with a JSON document (AWS CLI) 1. Define your option settings in JSON format in a local file. 2. Run `update-environment` with the `--option-settings` option. ``` $ `aws elasticbeanstalk update-environment --environment-name `my-env` --option-settings file://`~/ebconfigs/as-zero.json`` ``` In this example, `as-zero.json` defines options that configure the environment with a minimum and maximum of zero instances. This stops the instances in the environment without terminating the environment. **`~/ebconfigs/as-zero.json`** ``` [ { "Namespace": "aws:autoscaling:asg", "OptionName": "MinSize", "Value": "0" }, { "Namespace": "aws:autoscaling:asg", "OptionName": "MaxSize", "Value": "0" }, { "Namespace": "aws:autoscaling:updatepolicy:rollingupdate", "OptionName": "RollingUpdateEnabled", "Value": "false" } ] ``` ###### Note Setting configuration options with `update-environment` overrides settings from all other sources. You can also remove options from your environment with `update-environment`. ###### To remove configuration options (AWS CLI) <br>• Run the `update-environment` command with the `--options-to-remove` option. ``` $ `aws elasticbeanstalk update-environment --environment-name `my-env` --options-to-remove Namespace=`aws:autoscaling:launchconfiguration`,OptionName=`InstanceType`` ``` Removing options from your environment with `update-environment` allows settings for the same options to surface from configuration files in your application source bundle. If an option isn't configured using any of these methods, the API default value applies, if one exists. See [Precedence](command-options.md#configuration-options-precedence "command-options.md#configuration-options-precedence") for details.
-````
+|   `-- `healthcheckurl.config`
+|-- index.php
+`-- styles.css
+```
+
+###### To upload an application source bundle and apply it to a running environment (AWS CLI)
+
+1. If you don't already have an Elastic Beanstalk bucket in Amazon S3, create one with
+   `create-storage-location`:
+
+```
+$ `aws elasticbeanstalk create-storage-location`
+{
+    "S3Bucket": "elasticbeanstalk-us-west-2-123456789012"
+}
+```
+
+2. Upload your application source bundle to Amazon S3.
+
+```
+$ `aws s3 cp `sourcebundlev2.zip` s3://elasticbeanstalk-`us-west-2-123456789012`/my-app/sourcebundlev2.zip`
+```
+
+3. Create the application version.
+
+```
+$ `aws elasticbeanstalk create-application-version --application-name `my-app` --version-label v2 --description MyAppv2 --source-bundle S3Bucket="elasticbeanstalk-`us-west-2-123456789012`",S3Key="`my-app/sourcebundlev2.zip`"`
+```
+
+4. Update the environment.
+
+```
+$ `aws elasticbeanstalk update-environment --environment-name `my-env` --version-label v2`
+```
+
+### Using a saved
+
+configuration
+
+You can apply a saved configuration to a running environment with the
+`--template-name` option on the `aws elasticbeanstalk
+ update-environment` command.
+
+The saved configuration must be in your Elastic Beanstalk bucket in a path named after your application under `resources/templates`. For
+example, the `v1` template for the `my-app` application in the US West (Oregon) Region (us-west-2) for account
+123456789012 is located at `s3://elasticbeanstalk-us-west-2-123456789012/resources/templates/my-app/v1`
+
+###### To apply a saved configuration to a running environment (AWS CLI)
+
+- Specify the saved configuration in an `update-environment` call with the `--template-name` option.
+
+```
+$ `aws elasticbeanstalk update-environment --environment-name `my-env` --template-name `v1``
+```
+
+Elastic Beanstalk places saved configurations in this location when you create them with `aws
+ elasticbeanstalk create-configuration-template`. You can also modify saved
+configurations locally and place them in this location yourself.
+
+### Using command line
+
+options
+
+###### To change configuration options with a JSON document (AWS CLI)
+
+1. Define your option settings in JSON format in a local file.
+2. Run `update-environment` with the `--option-settings` option.
+
+```
+$ `aws elasticbeanstalk update-environment --environment-name `my-env` --option-settings file://`~/ebconfigs/as-zero.json``
+```
+
+In this example, `as-zero.json` defines options that configure the environment with a minimum and maximum of zero instances. This
+stops the instances in the environment without terminating the environment.
+
+**`~/ebconfigs/as-zero.json`**
+
+```
+[
+    {
+        "Namespace": "aws:autoscaling:asg",
+        "OptionName": "MinSize",
+        "Value": "0"
+    },
+    {
+        "Namespace": "aws:autoscaling:asg",
+        "OptionName": "MaxSize",
+        "Value": "0"
+    },
+    {
+        "Namespace": "aws:autoscaling:updatepolicy:rollingupdate",
+        "OptionName": "RollingUpdateEnabled",
+        "Value": "false"
+    }
+]
+```
+
+###### Note
+
+Setting configuration options with `update-environment` overrides settings
+from all other sources.
+
+You can also remove options from your environment with
+`update-environment`.
+
+###### To remove configuration options (AWS CLI)
+
+- Run the `update-environment` command with the `--options-to-remove` option.
+
+```
+$ `aws elasticbeanstalk update-environment --environment-name `my-env` --options-to-remove Namespace=`aws:autoscaling:launchconfiguration`,OptionName=`InstanceType``
+```
+
+Removing options from your environment with `update-environment` allows settings for the same options to surface from configuration files
+in your application source bundle. If an option isn't configured using any of these methods, the API default value applies, if one exists. See [Precedence](command-options.md#configuration-options-precedence "command-options.md#configuration-options-precedence") for details.

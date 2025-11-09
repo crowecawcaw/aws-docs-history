@@ -23,15 +23,34 @@ You can configure the EB CLI to deploy an artifact from your build process inste
 
 ## Options
 
-| Name                                                                | Description                                                                                                                                                                                                     |
-| ------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `-l` `version_label` or `--label` `version_label`                   | Specify a label to use for the version that the EB CLI creates. If the label has already been used, the EB CLI redeploys the previous version with that label. Type: String                                     |
-| `--env-group-suffix `groupname``                                    | Group name to append to the environment name. Only for use with [Compose Environments](ebcli-compose.md "ebcli-compose.md").                                                                                    |
-| `-m` "`version_description`" or `--message` "`version_description`" | The description for the application version, enclosed in double quotation marks. Type: String                                                                                                                   |
-| `--modules` `component-a component-b`                               | List of components to update. Only for use with [Compose Environments](ebcli-compose.md "ebcli-compose.md").                                                                                                    |
-| `-p` or `--process`                                                 | Preprocess and validate the environment manifest and configuration files in the source bundle. Validating configuration files can identify issues prior to deploying the application version to an environment. |
-| `--source codecommit/`repository-name`/`branch-name``               | CodeCommit repository and branch.                                                                                                                                                                               |
-| `--staged`                                                          | Deploy files staged in the git index instead of the HEAD commit.                                                                                                                                                |
-| `--timeout` `minutes`                                               | The number of minutes before the command times out.                                                                                                                                                             |
-| `--version` `version_label`                                         | An existing application version to deploy. Type: String                                                                                                                                                         |
-| [Common options](eb3-cmd-options.md "eb3-cmd-options.md")           |                                                                                                                                                                                                                 | ## Output If successful, the command returns the status of the `deploy` operation. If you enabled CodeBuild support in your application, **eb deploy** displays information from CodeBuild as your code is built. For information about CodeBuild support in Elastic Beanstalk, see [Using the EB CLI with AWS CodeBuild](eb-cli-codebuild.md "eb-cli-codebuild.md"). ## Example The following example deploys the current application. ``$ `eb deploy` 2018-07-11 21:05:22    INFO: Environment update is starting. 2018-07-11 21:05:27    INFO: Deploying new version to instance(s). 2018-07-11 21:05:53    INFO: New application version was deployed to running EC2 instances. 2018-07-11 21:05:53    INFO: Environment update completed successfully.`` |
+| Name                                                                      | Description                                                                                                                                                                                                        |
+| ------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `-l`<br>`version_label`<br>or<br>`--label`<br>`version_label`             | Specify a label to use for the version that the EB CLI creates. If the label has already been used, the EB CLI redeploys the previous<br>version with that label.<br>Type: String                                  |
+| `--env-group-suffix `groupname``                                          | Group name to append to the environment name. Only for use with [Compose Environments](ebcli-compose.md "ebcli-compose.md").                                                                                       |
+| `-m` "`version_description`"<br>or<br>`--message` "`version_description`" | The description for the application version, enclosed in double quotation marks.<br>Type: String                                                                                                                   |
+| `--modules`<br>`component-a component-b`                                  | List of components to update. Only for use with [Compose Environments](ebcli-compose.md "ebcli-compose.md").                                                                                                       |
+| `-p`<br>or<br>`--process`                                                 | Preprocess and validate the environment manifest and configuration files in the source bundle. Validating configuration files can identify<br>issues prior to deploying the application version to an environment. |
+| `--source codecommit/`repository-name`/`branch-name``                     | CodeCommit repository and branch.                                                                                                                                                                                  |
+| `--staged`                                                                | Deploy files staged in the git index instead of the HEAD commit.                                                                                                                                                   |
+| `--timeout`<br>`minutes`                                                  | The number of minutes before the command times out.                                                                                                                                                                |
+| `--version`<br>`version_label`                                            | An existing application version to deploy.<br>Type: String                                                                                                                                                         |
+| [Common options](eb3-cmd-options.md "eb3-cmd-options.md")                 |                                                                                                                                                                                                                    |
+
+## Output
+
+If successful, the command returns the status of the `deploy` operation.
+
+If you enabled CodeBuild support in your application, **eb deploy** displays information from CodeBuild as your code is built. For information
+about CodeBuild support in Elastic Beanstalk, see [Using the EB CLI with AWS CodeBuild](eb-cli-codebuild.md "eb-cli-codebuild.md").
+
+## Example
+
+The following example deploys the current application.
+
+```
+$ `eb deploy`
+2018-07-11 21:05:22    INFO: Environment update is starting.
+2018-07-11 21:05:27    INFO: Deploying new version to instance(s).
+2018-07-11 21:05:53    INFO: New application version was deployed to running EC2 instances.
+2018-07-11 21:05:53    INFO: Environment update completed successfully.
+```

@@ -77,9 +77,20 @@ Bundle the manifest and site archive in a ZIP archive to create a source bundle.
 
 ###### Example dotnet-core-bundle.zip
 
-````
+```
 .
-|-- aws-windows-deployment-manifest.json `-- dotnet-core-app.zip ``` The site archive contains the compiled application code, dependencies, and `web.config` file. ###### Example dotnet-core-app.zip ``` .
+|-- aws-windows-deployment-manifest.json
+`-- dotnet-core-app.zip
+
+```
+
+The site archive contains the compiled application code, dependencies, and
+`web.config` file.
+
+###### Example dotnet-core-app.zip
+
+```
+.
 |-- Microsoft.AspNetCore.Hosting.Abstractions.dll
 |-- Microsoft.AspNetCore.Hosting.Server.Abstractions.dll
 |-- Microsoft.AspNetCore.Hosting.dll
@@ -112,9 +123,329 @@ Bundle the manifest and site archive in a ZIP archive to create a source bundle.
 |-- dotnet-core-app.deps.json
 |-- dotnet-core-app.dll
 |-- dotnet-core-app.pdb
-|-- dotnet-core-app.runtimeconfig.json `-- web.config ``` ## Run multiple applications You can run multiple applications with a deployment manifest by defining multiple deployment targets. The following deployment manifest configures two .NET Core applications. The `WebApiSampleApp` application implements a simple web API and serves asynchronous requests at the `/api` path. The `DotNetSampleApp` application is a web application that serves requests at the root path. ###### Example aws-windows-deployment-manifest.json - multiple apps ``` { "manifestVersion": 1, "deployments": { "aspNetCoreWeb": [ { "name": "WebAPISample", "parameters": { "appBundle": "WebApiSampleApp.zip", "iisPath": "/api" } }, { "name": "DotNetSample", "parameters": { "appBundle": "DotNetSampleApp.zip", "iisPath": "/" } } ] } } ``` A sample application with multiple applications is available here: <br>• **Deployable source bundle** - [dotnet-multiapp-sample-bundle-v2.zip](samples/dotnet-multiapp-sample-bundle-v2.md "samples/dotnet-multiapp-sample-bundle-v2.md") <br>• **Source code** - [dotnet-multiapp-sample-source-v2.zip](samples/dotnet-multiapp-sample-source-v2.md "samples/dotnet-multiapp-sample-source-v2.md") ## Configure IIS websites You can configure IIS websites with custom bindings and physical paths using the deployment manifest. This is useful when you need to set up websites that listen on specific ports, use custom host names, or serve content from specific directories. The following deployment manifest configures a custom IIS website that listens on HTTP with a specific port number and a custom physical path: ###### Example aws-windows-deployment-manifest.json - IIS website configuration ``` { "manifestVersion": 1, "iisConfig": { "websites": [ { "name": "MyCustomSite", "physicalPath": "C:\inetpub\wwwroot\mysite", "bindings": [ { "protocol": "http", "port": 8080, "hostName": "mysite.local" } ] } ] }, "deployments": { "aspNetCoreWeb": [ { "name": "my-dotnet-core-app", "parameters": { "appBundle": "dotnet-core-app.zip", "iisWebSite": "MyCustomSite", "iisPath": "/" } } ] } } ``` In this example: <br>• A website named "MyCustomSite" is created with a custom physical path <br>• The website has an HTTP binding on port 8080 with a specific host name <br>• The ASP.NET Core application is deployed to this custom website using the `iisWebSite` parameter ## Using Application Request Routing (ARR) Application Request Routing (ARR) and URL Rewrite modules are pre-installed and available in Elastic Beanstalk Windows AMIs. These modules enable advanced routing scenarios and URL manipulation through IIS configuration using ebextensions or application configuration. The following example shows a simple deployment manifest that configures a website with a custom port, combined with an ebextensions configuration that sets up basic ARR routing: ###### Example aws-windows-deployment-manifest.json - Simple ARR setup ``` { "manifestVersion": 1, "iisConfig": { "websites": [ { "name": "ARRSite", "physicalPath": "C:\\inetpub\\wwwroot\\arrsite", "bindings": [ { "protocol": "http", "port": 8080, "hostName": "localhost" } ] } ] }, "deployments": { "aspNetCoreWeb": [ { "name": "BackendApp", "parameters": { "appBundle": "backend-app.zip", "iisWebSite": "ARRSite", "iisPath": "/backend" } } ] } } ``` ARR configuration is done through ebextensions. The following configuration sets up basic ARR routing rules: ###### Example .ebextensions/arr-config.config - Basic ARR configuration ``` files: "C:\\temp\\configure-arr.ps1": content: | # Enable ARR proxy at server level Set-WebConfigurationProperty -PSPath 'MACHINE/WEBROOT/APPHOST' -Filter 'system.webServer/proxy' -Name 'enabled' -Value 'True' # Clear any existing global rules to avoid conflicts Clear-WebConfiguration -PSPath 'MACHINE/WEBROOT/APPHOST' -Filter 'system.webServer/rewrite/globalRules' # Add global rule to route all requests to backend Add-WebConfigurationProperty -PSPath 'MACHINE/WEBROOT/APPHOST' ` -Filter 'system.webServer/rewrite/globalRules' ` -Name '.' ` -Value @{ name = 'Route_to_Backend' stopProcessing = 'True' match = @{ url = '^(?!backend/)(.*)' } action = @{ type = 'Rewrite' url = 'http://localhost:8080/backend/{R:1}' } } container_commands: 01_configure_arr: command: powershell -ExecutionPolicy Bypass -File "C:\\temp\\configure-arr.ps1" waitAfterCompletion: 0 ``` This configuration creates a website on port 8080 and sets up ARR to route all incoming requests to the backend application running on that site. ## Configure application pools You can support multiple applications in your Windows environment. Two approaches are available: <br>• You can use the out-of-process hosting model with the Kestrel web server. With this model, you configure multiple applications to run in one application pool. <br>• You can use the in-process hosting model.With this model, you use multiple application pools to run multiple applications with only one application in each pool. If you're using IIS server and need to run multiple applications, you must use this approach. To configure Kestrel to run multiple applications in one application pool, add `hostingModel="OutofProcess"` in the `web.config` file. Consider the following examples. ###### Example web.config - for Kestrel out-of-process hosting model ``` <configuration> <location path="." inheritInChildApplications="false"> <system.webServer> <handlers> <add name="aspNetCore" path="*" verb="*" modules="AspNetCoreModuleV2" resourceType="Unspecified" /> </handlers> <aspNetCore processPath="dotnet" arguments=".\CoreWebApp-5-0.dll" stdoutLogEnabled="false" stdoutLogFile=".\logs\stdout" hostingModel="OutofProcess" /> </system.webServer> </location> </configuration> ``` ###### Example aws-windows-deployment-manifest.json - multiple applications ``` { "manifestVersion": 1, "deployments": {"msDeploy": [ {"name": "Web-app1", "parameters": {"archive": "site1.zip", "iisPath": "/" } }, {"name": "Web-app2", "parameters": {"archive": "site2.zip", "iisPath": "/app2" } } ] } } ``` IIS doesn't support multiple applications in one application pool because it uses the in-process hosting model. Therefore, you need to configure multiple applications by assigning each application to one application pool. In other words, assign only one application to one application pool. You can configure IIS to use different application pools in the `aws-windows-deployment-manifest.json` file. Make the following updates as you refer to the next example file: <br>• Add an `iisConfig` section that includes a subsection called `appPools`. <br>• In the `appPools` block, list the application pools. <br>• In the `deployments` section, define a `parameters` section for each application. <br>• For each application the `parameters` section specifies an archive, a path to run it, and an `appPool` in which to run. The following deployment manifest configures two application pools that restart their application every 10 minutes. They also attach their applications to a .NET Framework web application that runs at the path specified. ###### Example aws-windows-deployment-manifest.json - one application per application pool ``` { "manifestVersion": 1, "iisConfig": {"appPools": [ {"name": "MyFirstPool", "recycling": {"regularTimeInterval": 10} }, {"name": "MySecondPool", "recycling": {"regularTimeInterval": 10} } ] }, "deployments": {"msDeploy": [ {"name": "Web-app1", "parameters": { "archive": "site1.zip", "iisPath": "/", "appPool": "MyFirstPool" } }, {"name": "Web-app2", "parameters": { "archive": "site2.zip", "iisPath": "/app2", "appPool": "MySecondPool" } } ] } } ``` ## Define custom deployments For even more control, you can completely customize an application deployment by defining a *custom deployment*. This deployment manifest instructs Elastic Beanstalk to execute PowerShell scripts in 32-bit mode. It specifies three scripts: an `install` script (`siteInstall.ps1`) that runs during instance launch and deployments, an `uninstall` script (`siteUninstall.ps1`) that executes before installing new versions during deployments, and a `restart` script (`siteRestart.ps1`) that runs when you select [Restart App Server](environments-dashboard-actions.md "environments-dashboard-actions.md") in the AWS management console. ###### Example aws-windows-deployment-manifest.json - custom deployment ``` { "manifestVersion": 1, "deployments": { "custom": [ { "name": "Custom site", "architecture" : 32, "scripts": { "install": { "file": "siteInstall.ps1" }, "restart": { "file": "siteRestart.ps1" }, "uninstall": { "file": "siteUninstall.ps1" } } } ] } } ``` Include any artifacts required to run the application in your source bundle with the manifest and scripts. ###### Example Custom-site-bundle.zip ``` .
+|-- dotnet-core-app.runtimeconfig.json
+`-- web.config
+```
+
+## Run multiple applications
+
+You can run multiple applications with a deployment manifest by defining multiple
+deployment targets.
+
+The following deployment manifest configures two .NET Core applications. The
+`WebApiSampleApp` application implements a simple
+web API and serves asynchronous requests at the `/api` path. The `DotNetSampleApp` application is a web application that serves
+requests at the root path.
+
+###### Example aws-windows-deployment-manifest.json - multiple apps
+
+```
+{
+  "manifestVersion": 1,
+  "deployments": {
+    "aspNetCoreWeb": [
+      {
+        "name": "WebAPISample",
+        "parameters": {
+          "appBundle": "WebApiSampleApp.zip",
+          "iisPath": "/api"
+        }
+      },
+      {
+        "name": "DotNetSample",
+        "parameters": {
+          "appBundle": "DotNetSampleApp.zip",
+          "iisPath": "/"
+        }
+      }
+    ]
+  }
+}
+```
+
+A sample application with multiple applications is available here:
+
+- **Deployable source bundle** - [dotnet-multiapp-sample-bundle-v2.zip](samples/dotnet-multiapp-sample-bundle-v2.md "samples/dotnet-multiapp-sample-bundle-v2.md")
+- **Source code** - [dotnet-multiapp-sample-source-v2.zip](samples/dotnet-multiapp-sample-source-v2.md "samples/dotnet-multiapp-sample-source-v2.md")
+
+## Configure IIS websites
+
+You can configure IIS websites with custom bindings and physical paths using the deployment manifest. This is useful when you need to set up websites that listen on specific ports, use custom host names, or serve content from specific directories.
+
+The following deployment manifest configures a custom IIS website that listens on HTTP with a specific port number and a custom physical path:
+
+###### Example aws-windows-deployment-manifest.json - IIS website configuration
+
+```
+{
+  "manifestVersion": 1,
+  "iisConfig": {
+    "websites": [
+      {
+        "name": "MyCustomSite",
+        "physicalPath": "C:\inetpub\wwwroot\mysite",
+        "bindings": [
+          {
+            "protocol": "http",
+            "port": 8080,
+            "hostName": "mysite.local"
+          }
+        ]
+      }
+    ]
+  },
+  "deployments": {
+    "aspNetCoreWeb": [
+      {
+        "name": "my-dotnet-core-app",
+        "parameters": {
+          "appBundle": "dotnet-core-app.zip",
+          "iisWebSite": "MyCustomSite",
+          "iisPath": "/"
+        }
+      }
+    ]
+  }
+}
+```
+
+In this example:
+
+- A website named "MyCustomSite" is created with a custom physical path
+- The website has an HTTP binding on port 8080 with a specific host name
+- The ASP.NET Core application is deployed to this custom website using the `iisWebSite` parameter
+
+## Using Application Request Routing (ARR)
+
+Application Request Routing (ARR) and URL Rewrite modules are pre-installed and available in Elastic Beanstalk Windows AMIs. These modules enable advanced routing scenarios and URL manipulation through IIS configuration using ebextensions or application configuration.
+
+The following example shows a simple deployment manifest that configures a website with a custom port, combined with an ebextensions configuration that sets up basic ARR routing:
+
+###### Example aws-windows-deployment-manifest.json - Simple ARR setup
+
+```
+{
+  "manifestVersion": 1,
+  "iisConfig": {
+    "websites": [
+      {
+        "name": "ARRSite",
+        "physicalPath": "C:\\inetpub\\wwwroot\\arrsite",
+        "bindings": [
+          {
+            "protocol": "http",
+            "port": 8080,
+            "hostName": "localhost"
+          }
+        ]
+      }
+    ]
+  },
+  "deployments": {
+    "aspNetCoreWeb": [
+      {
+        "name": "BackendApp",
+        "parameters": {
+          "appBundle": "backend-app.zip",
+          "iisWebSite": "ARRSite",
+          "iisPath": "/backend"
+        }
+      }
+    ]
+  }
+}
+```
+
+ARR configuration is done through ebextensions. The following configuration sets up basic ARR routing rules:
+
+###### Example .ebextensions/arr-config.config - Basic ARR configuration
+
+```
+files:
+  "C:\\temp\\configure-arr.ps1":
+    content: |
+      # Enable ARR proxy at server level
+      Set-WebConfigurationProperty -PSPath 'MACHINE/WEBROOT/APPHOST' -Filter 'system.webServer/proxy' -Name 'enabled' -Value 'True'
+
+      # Clear any existing global rules to avoid conflicts
+      Clear-WebConfiguration -PSPath 'MACHINE/WEBROOT/APPHOST' -Filter 'system.webServer/rewrite/globalRules'
+
+      # Add global rule to route all requests to backend
+      Add-WebConfigurationProperty -PSPath 'MACHINE/WEBROOT/APPHOST' `
+        -Filter 'system.webServer/rewrite/globalRules' `
+        -Name '.' `
+        -Value @{
+          name = 'Route_to_Backend'
+          stopProcessing = 'True'
+          match = @{ url = '^(?!backend/)(.*)' }
+          action = @{
+            type = 'Rewrite'
+            url = 'http://localhost:8080/backend/{R:1}'
+          }
+        }
+
+container_commands:
+  01_configure_arr:
+    command: powershell -ExecutionPolicy Bypass -File "C:\\temp\\configure-arr.ps1"
+    waitAfterCompletion: 0
+```
+
+This configuration creates a website on port 8080 and sets up ARR to route all incoming requests to the backend application running on that site.
+
+## Configure application pools
+
+You can support multiple applications in your Windows environment. Two approaches are available:
+
+- You can use the out-of-process hosting model with the Kestrel web server. With this model, you configure multiple applications to run in one
+  application pool.
+- You can use the in-process hosting model.With this model, you use multiple application pools to run multiple applications with only one
+  application in each pool. If you're using IIS server and need to run multiple applications, you must use this approach.
+
+To configure Kestrel to run multiple applications in one application pool, add `hostingModel="OutofProcess"` in the
+`web.config` file. Consider the following examples.
+
+###### Example web.config - for Kestrel out-of-process hosting model
+
+```
+<configuration>
+<location path="." inheritInChildApplications="false">
+<system.webServer>
+<handlers>
+<add
+    name="aspNetCore"
+    path="*" verb="*"
+    modules="AspNetCoreModuleV2"
+    resourceType="Unspecified" />
+</handlers>
+<aspNetCore
+    processPath="dotnet"
+    arguments=".\CoreWebApp-5-0.dll"
+    stdoutLogEnabled="false"
+    stdoutLogFile=".\logs\stdout"
+    hostingModel="OutofProcess" />
+</system.webServer>
+</location>
+</configuration>
+```
+
+###### Example aws-windows-deployment-manifest.json - multiple applications
+
+```
+{
+"manifestVersion": 1,
+  "deployments": {"msDeploy": [
+      {"name": "Web-app1",
+        "parameters": {"archive": "site1.zip",
+          "iisPath": "/"
+        }
+      },
+      {"name": "Web-app2",
+        "parameters": {"archive": "site2.zip",
+          "iisPath": "/app2"
+        }
+      }
+    ]
+  }
+}
+```
+
+IIS doesn't support multiple applications in one application pool because it uses the in-process hosting model. Therefore, you need to configure
+multiple applications by assigning each application to one application pool. In other words, assign only one application to one application pool.
+
+You can configure IIS to use different application pools in the `aws-windows-deployment-manifest.json` file. Make the following
+updates as you refer to the next example file:
+
+- Add an `iisConfig` section that includes a subsection called `appPools`.
+- In the `appPools` block, list the application pools.
+- In the `deployments` section, define a `parameters` section for each application.
+- For each application the `parameters` section specifies an archive, a path to run it, and an `appPool` in which to
+  run.
+
+The following deployment manifest configures two application pools that restart their application every 10 minutes. They also attach their
+applications to a .NET Framework web application that runs at the path specified.
+
+###### Example aws-windows-deployment-manifest.json - one application per application pool
+
+```
+{
+"manifestVersion": 1,
+  "iisConfig": {"appPools": [
+      {"name": "MyFirstPool",
+       "recycling": {"regularTimeInterval": 10}
+      },
+      {"name": "MySecondPool",
+       "recycling": {"regularTimeInterval": 10}
+      }
+     ]
+    },
+  "deployments": {"msDeploy": [
+      {"name": "Web-app1",
+        "parameters": {
+           "archive": "site1.zip",
+           "iisPath": "/",
+           "appPool": "MyFirstPool"
+           }
+      },
+      {"name": "Web-app2",
+        "parameters": {
+           "archive": "site2.zip",
+           "iisPath": "/app2",
+           "appPool": "MySecondPool"
+          }
+      }
+     ]
+    }
+}
+```
+
+## Define custom deployments
+
+For even more control, you can completely customize an application deployment by defining
+a _custom deployment_.
+
+This deployment manifest instructs Elastic Beanstalk to execute PowerShell scripts in 32-bit mode. It specifies three scripts: an `install` script (`siteInstall.ps1`)
+that runs during instance launch and deployments, an `uninstall` script (`siteUninstall.ps1`) that executes before
+installing new versions during deployments, and a `restart` script (`siteRestart.ps1`) that runs when you select [Restart App Server](environments-dashboard-actions.md "environments-dashboard-actions.md")
+in the AWS management console.
+
+###### Example aws-windows-deployment-manifest.json - custom deployment
+
+```
+{
+  "manifestVersion": 1,
+  "deployments": {
+    "custom": [
+      {
+        "name": "Custom site",
+        "architecture" : 32,
+        "scripts": {
+          "install": {
+            "file": "siteInstall.ps1"
+          },
+          "restart": {
+            "file": "siteRestart.ps1"
+          },
+          "uninstall": {
+            "file": "siteUninstall.ps1"
+          }
+        }
+      }
+    ]
+  }
+}
+```
+
+Include any artifacts required to run the application in your source bundle with the
+manifest and scripts.
+
+###### Example Custom-site-bundle.zip
+
+```
+.
 |-- aws-windows-deployment-manifest.json
 |-- siteInstall.ps1
 |-- siteRestart.ps1
-|-- siteUninstall.ps1 `-- site-contents.zip ```
-````
+|-- siteUninstall.ps1
+`-- site-contents.zip
+
+```

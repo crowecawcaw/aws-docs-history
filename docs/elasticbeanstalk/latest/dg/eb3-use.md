@@ -15,6 +15,6 @@ Run this command once in each branch that you want to deploy to Elastic Beanstal
 
 | Name                                                      | Description                                         |
 | --------------------------------------------------------- | --------------------------------------------------- |
-| `--source codecommit/`repository-name`/`branch-name``     | CodeCommit repository and branch.                   |
-| `-r `region`` `--region `region``                         | Change the region in which you create environments. |
+| `--source<br>codecommit/`repository-name`/`branch-name``  | CodeCommit repository and branch.                   |
+| `-r `region``<br>`--region `region``                      | Change the region in which you create environments. |
 | [Common options](eb3-cmd-options.md "eb3-cmd-options.md") |                                                     |

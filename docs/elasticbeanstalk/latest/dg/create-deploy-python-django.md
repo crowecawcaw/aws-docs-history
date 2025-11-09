@@ -140,17 +140,375 @@ your Windows login name. 2. Use the `django-admin startproject` command to creat
 
 This command creates a standard Django site named **ebdjango** with the following directory structure.
 
-````
+```
 ~/ebdjango
+  |-- ebdjango
+  |   |-- __init__.py
+  |   |-- settings.py
+  |   |-- urls.py
+  |   `-- wsgi.py
+  `-- manage.py
+```
+
+3. Run your Django site locally with `manage.py runserver`.
+
+```
+(eb-virt) ~$ `cd ebdjango`
+```
+
+```
+(eb-virt) ~/ebdjango$ `python manage.py runserver`
+```
+
+4. In a web browser, open `http://127.0.0.1:8000/` to view the site.
+5. Check the server log to see the output from your request. To stop the web server and return to your virtual environment, press
+   **Ctrl+C**.
+
+```
+Django version 2.2, using settings 'ebdjango.settings'
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+[07/Sep/2018 20:14:09] "GET / HTTP/1.1" 200 16348
+`Ctrl+C`
+```
+
+## Configure your Django application for Elastic Beanstalk
+
+Now that you have a Django-powered site on your local machine, you can configure it for deployment with Elastic Beanstalk.
+
+By default, Elastic Beanstalk looks for a file named `application.py` to start your application. Because this doesn't exist in the Django project that
+you've created, you need to make some adjustments to your application's environment. You also must set environment variables so that your application's
+modules can be loaded.
+
+###### To configure your site for Elastic Beanstalk
+
+1. Activate your virtual environment.
+
+Unix-based systems
+
+```
+~/ebdjango$ `source ~/eb-virt/bin/activate`
+```
+
+Windows
+
+```
+C:\Users\`USERNAME`\ebdjango>`%HOMEPATH%\eb-virt\Scripts\activate`
+```
+
+2. Run `pip freeze`, and then save the output to a file named `requirements.txt`.
+
+```
+(eb-virt) ~/ebdjango$ `pip freeze > requirements.txt`
+```
+
+Elastic Beanstalk uses `requirements.txt` to determine which package to install on the EC2 instances that run your application. 3. Create a directory named `.ebextensions`.
+
+```
+(eb-virt) ~/ebdjango$ `mkdir .ebextensions`
+```
+
+4. In the `.ebextensions` directory, add a [configuration file](ebextensions.md "ebextensions.md") named `django.config` with
+   the following text.
+
+###### Example ~/ebdjango/.ebextensions/django.config
+
+```
+option_settings:
+  aws:elasticbeanstalk:container:python:
+    WSGIPath: ebdjango.wsgi:application
+```
+
+This setting, `WSGIPath`, specifies the location of the WSGI script that Elastic Beanstalk uses to start your application.
+
+###### Note
+
+If you're using an Amazon Linux AMI Python platform version (preceding Amazon Linux 2), replace the value for `WSGIPath` with
+`ebdjango/wsgi.py`. The value in the example works with the Gunicorn WSGI server, which isn't supported on Amazon Linux AMI platform
+versions. 5. Deactivate your virtual environment with the `deactivate` command.
+
+```
+(eb-virt) ~/ebdjango$ `deactivate`
+```
+
+Reactivate your virtual environment whenever you need to add packages to your application or run your application locally.
+
+## Deploy your site with the EB CLI
+
+You've added everything you need to deploy your application on Elastic Beanstalk. Your project directory should now look like this.
+
+```
+~/ebdjango/
+|-- .ebextensions
+|   `-- django.config
 |-- ebdjango
 |   |-- __init__.py
 |   |-- settings.py
 |   |-- urls.py
-|   `-- wsgi.py `-- manage.py ``` 3. Run your Django site locally with `manage.py runserver`. ``` (eb-virt) ~$ `cd ebdjango` ``` ``` (eb-virt) ~/ebdjango$ `python manage.py runserver` ``` 4. In a web browser, open `http://127.0.0.1:8000/` to view the site. 5. Check the server log to see the output from your request. To stop the web server and return to your virtual environment, press **Ctrl+C**. ``` Django version 2.2, using settings 'ebdjango.settings' Starting development server at http://127.0.0.1:8000/ Quit the server with CONTROL-C. [07/Sep/2018 20:14:09] "GET / HTTP/1.1" 200 16348 `Ctrl+C` ``` ## Configure your Django application for Elastic Beanstalk Now that you have a Django-powered site on your local machine, you can configure it for deployment with Elastic Beanstalk. By default, Elastic Beanstalk looks for a file named `application.py` to start your application. Because this doesn't exist in the Django project that you've created, you need to make some adjustments to your application's environment. You also must set environment variables so that your application's modules can be loaded. ###### To configure your site for Elastic Beanstalk 1. Activate your virtual environment. Unix-based systems ``` ~/ebdjango$ `source ~/eb-virt/bin/activate` ``` Windows ``` C:\Users\`USERNAME`\ebdjango>`%HOMEPATH%\eb-virt\Scripts\activate` ``` 2. Run `pip freeze`, and then save the output to a file named `requirements.txt`. ``` (eb-virt) ~/ebdjango$ `pip freeze > requirements.txt` ``` Elastic Beanstalk uses `requirements.txt` to determine which package to install on the EC2 instances that run your application. 3. Create a directory named `.ebextensions`. ``` (eb-virt) ~/ebdjango$ `mkdir .ebextensions` ``` 4. In the `.ebextensions` directory, add a [configuration file](ebextensions.md "ebextensions.md") named `django.config` with the following text. ###### Example ~/ebdjango/.ebextensions/django.config ``` option_settings: aws:elasticbeanstalk:container:python: WSGIPath: ebdjango.wsgi:application ``` This setting, `WSGIPath`, specifies the location of the WSGI script that Elastic Beanstalk uses to start your application. ###### Note If you're using an Amazon Linux AMI Python platform version (preceding Amazon Linux 2), replace the value for `WSGIPath` with `ebdjango/wsgi.py`. The value in the example works with the Gunicorn WSGI server, which isn't supported on Amazon Linux AMI platform versions. 5. Deactivate your virtual environment with the `deactivate` command. ``` (eb-virt) ~/ebdjango$ `deactivate` ``` Reactivate your virtual environment whenever you need to add packages to your application or run your application locally. ## Deploy your site with the EB CLI You've added everything you need to deploy your application on Elastic Beanstalk. Your project directory should now look like this. ``` ~/ebdjango/ |-- .ebextensions
-|   `-- django.config |-- ebdjango
-|   |-- __init__.py
-|   |-- settings.py
-|   |-- urls.py
-|   `-- wsgi.py |-- db.sqlite3
-|-- manage.py `-- requirements.txt ``` Next, you'll create your application environment and deploy your configured application with Elastic Beanstalk. Immediately after deployment, you'll edit Django's configuration to add the domain name that Elastic Beanstalk assigned to your application to Django's `ALLOWED_HOSTS`. Then you'll redeploy your application. This is a Django security requirement, designed to prevent HTTP `Host` header attacks. For more information, see [Host header validation](https://docs.djangoproject.com/en/2.2/topics/security/#host-headers-virtual-hosting "https://docs.djangoproject.com/en/2.2/topics/security/#host-headers-virtual-hosting"). ###### To create an environment and deploy your Django application ###### Note This tutorial uses the EB CLI as a deployment mechanism, but you can also use the Elastic Beanstalk console to deploy a .zip file containing your project's contents. 1. Initialize your EB CLI repository with the **eb init** command. ``` ~/ebdjango$ `eb init -p python-3.7 django-tutorial` Application django-tutorial has been created. ``` This command creates an application named `django-tutorial`. It also configures your local repository to create environments with the latest Python 3.7 platform version. 2. (Optional) Run **eb init** again to configure a default key pair so that you can use SSH to connect to the EC2 instance running your application. ``` ~/ebdjango$ `eb init` Do you want to set up SSH for your instances? (y/n): `y` Select a keypair. 1) my-keypair 2) [ Create new KeyPair ] ``` Select a key pair if you have one already, or follow the prompts to create one. If you don't see the prompt or need to change your settings later, run **eb init -i**. 3. Create an environment and deploy your application to it with **eb create**. ``` ~/ebdjango$ `eb create django-env` ``` ###### Note If you see a "service role required" error message, run `eb create` interactively (without specifying an environment name) and the EB CLI creates the role for you. This command creates a load-balanced Elastic Beanstalk environment named `django-env`. Creating an environment takes about 5 minutes. As Elastic Beanstalk creates the resources needed to run your application, it outputs informational messages that the EB CLI relays to your terminal. 4. When the environment creation process completes, find the domain name of your new environment by running **eb status**. ``` ~/ebdjango$ `eb status` Environment details for: django-env Application name: django-tutorial ... CNAME: `eb-django-app-dev.elasticbeanstalk.com` ... ``` Your environment's domain name is the value of the `CNAME` property. 5. Open the `settings.py` file in the `ebdjango` directory. Locate the `ALLOWED_HOSTS` setting, and then add your application's domain name that you found in the previous step to the setting's value. If you can't find this setting in the file, add it to a new line. ``` ... ALLOWED_HOSTS = ['`eb-django-app-dev.elasticbeanstalk.com`'] ``` 6. Save the file, and then deploy your application by running **eb deploy**. When you run **eb deploy**, the EB CLI bundles up the contents of your project directory and deploys it to your environment. ``` ~/ebdjango$ `eb deploy` ``` ###### Note If you are using Git with your project, see [Using the EB CLI with Git](eb3-cli-git.md "eb3-cli-git.md"). 7. When the environment update process completes, open your website with **eb open**. ``` ~/ebdjango$ `eb open` ``` This opens a browser window using the domain name created for your application. You should see the same Django website that you created and tested locally. If you don't see your application running, or get an error message, see [Troubleshooting deployments](troubleshooting.md#troubleshooting-deployments "troubleshooting.md#troubleshooting-deployments") for help with how to determine the cause of the error. If you *do* see your application running, then congratulations, you've deployed your first Django application with Elastic Beanstalk! ## Update your application Now that you have a running application on Elastic Beanstalk, you can update and redeploy your application or its configuration, and Elastic Beanstalk does the work of updating your instances and starting your new application version. For this example, we'll enable Django's admin console and configure a few other settings. ### Modify your site settings By default, your Django website uses the UTC time zone to display time. You can change this by specifying a time zone in `settings.py`. ###### To change your site's time zone 1. Modify the `TIME_ZONE` setting in `settings.py`. ###### Example ~/ebdjango/ebdjango/settings.py ``` ... # Internationalization LANGUAGE_CODE = 'en-us' TIME_ZONE = `'US/Pacific'` USE_I18N = True USE_L10N = True USE_TZ = True ``` For a list of time zones, visit [this page](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones "https://en.wikipedia.org/wiki/List_of_tz_database_time_zones"). 2. Deploy the application to your Elastic Beanstalk environment. ``` ~/ebdjango/$ `eb deploy` ``` ### Create a site administrator You can create a site administrator for your Django application to access the admin console directly from the website. Administrator login details are stored securely in the local database image included in the default project that Django generates. ###### To create a site administrator 1. Initialize your Django application's local database. ``` (eb-virt) ~/ebdjango$ `python manage.py migrate` Operations to perform: Apply all migrations: admin, auth, contenttypes, sessions Running migrations: Applying contenttypes.0001_initial... OK Applying auth.0001_initial... OK Applying admin.0001_initial... OK Applying admin.0002_logentry_remove_auto_add... OK Applying admin.0003_logentry_add_action_flag_choices... OK Applying contenttypes.0002_remove_content_type_name... OK Applying auth.0002_alter_permission_name_max_length... OK Applying auth.0003_alter_user_email_max_length... OK Applying auth.0004_alter_user_username_opts... OK Applying auth.0005_alter_user_last_login_null... OK Applying auth.0006_require_contenttypes_0002... OK Applying auth.0007_alter_validators_add_error_messages... OK Applying auth.0008_alter_user_username_max_length... OK Applying auth.0009_alter_user_last_name_max_length... OK Applying sessions.0001_initial... OK ``` 2. Run `manage.py createsuperuser` to create an administrator. ``` (eb-virt) ~/ebdjango$ `python manage.py createsuperuser` Username: `admin` Email address: `me@mydomain.com` Password: `********` Password (again): `********` Superuser created successfully. ``` 3. To tell Django where to store static files, define `STATIC_ROOT` in `settings.py`. ###### Example ~/ebdjango/ebdjango/settings.py ``` # Static files (CSS, JavaScript, Images) # https://docs.djangoproject.com/en/2.2/howto/static-files/ STATIC_URL = '/static/' `STATIC_ROOT = 'static'` ``` 4. Run `manage.py collectstatic` to populate the `static` directory with static assets (JavaScript, CSS, and images) for the admin site. ``` (eb-virt) ~/ebdjango$ `python manage.py collectstatic` 119 static files copied to ~/ebdjango/static ``` 5. Deploy your application. ``` ~/ebdjango$ `eb deploy` ``` 6. View the admin console by opening the site in your browser, appending `/admin/` to the site URL, such as the following. ``` http://`djang-env.p33kq46sfh.us-west-2`.elasticbeanstalk.com/admin/ ``` ![Enter the username and password you created in step 2 to log in to the admin console.](images/eb_django_admin_login.png) 7. Log in with the username and password that you configured in step 2. ![The Django administration console for your Django website deployed with Elastic Beanstalk](images/eb_django_admin_console.png) You can use a similar procedure of local updating/testing followed by **eb deploy**. Elastic Beanstalk does the work of updating your live servers, so you can focus on application development instead of server administration! ### Add a database migration configuration file You can add commands to your `.ebextensions` script that are run when your site is updated. This enables you to automatically generate database migrations. ###### To add a migrate step when your application is deployed 1. Create a [configuration file](ebextensions.md "ebextensions.md") named `db-migrate.config` with the following content. ###### Example ~/ebdjango/.ebextensions/db-migrate.config ``` container_commands: 01_migrate: command: "source /var/app/venv/*/bin/activate && python3 manage.py migrate" leader_only: true option_settings: aws:elasticbeanstalk:application:environment: DJANGO_SETTINGS_MODULE: ebdjango.settings ``` This configuration file activates the server's virtual environment and runs the `manage.py migrate` command during the deployment process, before starting your application. Because it runs before the application starts, you must also configure the `DJANGO_SETTINGS_MODULE` environment variable explicitly (usually `wsgi.py` takes care of this for you during startup). Specifying `leader_only: true` in the command ensures that it is run only once when you're deploying to multiple instances. 2. Deploy your application. ``` ~/ebdjango$ `eb deploy` ``` ## Clean up To save instance hours and other AWS resources between development sessions, terminate your Elastic Beanstalk environment with **eb terminate**. ``` ~/ebdjango$ `eb terminate django-env` ``` This command terminates the environment and all of the AWS resources that run within it. It doesn't delete the application, however, so you can always create more environments with the same configuration by running **eb create** again. If you're done with the sample application, you can also remove the project folder and virtual environment. ``` ~$ `rm -rf ~/eb-virt` ~$ `rm -rf ~/ebdjango` ``` ## Next steps For more information about Django, including an in-depth tutorial, see [the official documentation](https://docs.djangoproject.com/en/2.2/ "https://docs.djangoproject.com/en/2.2/"). If you want to try out another Python web framework, check out [Deploying a Flask application to Elastic Beanstalk](create-deploy-python-flask.md "create-deploy-python-flask.md").
-````
+|   `-- wsgi.py
+|-- db.sqlite3
+|-- manage.py
+`-- requirements.txt
+```
+
+Next, you'll create your application environment and deploy your configured application with Elastic Beanstalk.
+
+Immediately after deployment, you'll edit Django's configuration to add the domain name that Elastic Beanstalk assigned to your application to Django's
+`ALLOWED_HOSTS`. Then you'll redeploy your application. This is a Django security requirement, designed to prevent HTTP `Host`
+header attacks. For more information, see [Host header
+validation](https://docs.djangoproject.com/en/2.2/topics/security/#host-headers-virtual-hosting "https://docs.djangoproject.com/en/2.2/topics/security/#host-headers-virtual-hosting").
+
+###### To create an environment and deploy your Django application
+
+###### Note
+
+This tutorial uses the EB CLI as a deployment mechanism, but you can also use the Elastic Beanstalk console to deploy a .zip file containing your project's
+contents.
+
+1. Initialize your EB CLI repository with the **eb init** command.
+
+```
+~/ebdjango$ `eb init -p python-3.7 django-tutorial`
+Application django-tutorial has been created.
+```
+
+This command creates an application named `django-tutorial`. It also configures your local repository to create environments
+with the latest Python 3.7 platform version. 2. (Optional) Run **eb init** again to configure a default key pair so that you can use SSH to connect to the EC2 instance running
+your application.
+
+```
+~/ebdjango$ `eb init`
+Do you want to set up SSH for your instances?
+(y/n): `y`
+Select a keypair.
+1) my-keypair
+2) [ Create new KeyPair ]
+```
+
+Select a key pair if you have one already, or follow the prompts to create one. If you don't see the prompt or need to change your settings later,
+run **eb init -i**. 3. Create an environment and deploy your application to it with **eb create**.
+
+```
+~/ebdjango$ `eb create django-env`
+```
+
+###### Note
+
+If you see a "service role required" error message, run `eb create` interactively
+(without specifying an environment name) and the EB CLI creates the role for you.
+
+This command creates a load-balanced Elastic Beanstalk environment named `django-env`. Creating an environment takes about 5 minutes. As
+Elastic Beanstalk creates the resources needed to run your application, it outputs informational messages that the EB CLI relays to your terminal. 4. When the environment creation process completes, find the domain name of your new environment by running **eb status**.
+
+```
+~/ebdjango$ `eb status`
+Environment details for: django-env
+  Application name: django-tutorial
+  ...
+  CNAME: `eb-django-app-dev.elasticbeanstalk.com`
+  ...
+```
+
+Your environment's domain name is the value of the `CNAME` property. 5. Open the `settings.py` file in the `ebdjango` directory. Locate the `ALLOWED_HOSTS` setting, and
+then add your application's domain name that you found in the previous step to the setting's value. If you can't find this setting in the file, add it
+to a new line.
+
+```
+...
+ALLOWED_HOSTS = ['`eb-django-app-dev.elasticbeanstalk.com`']
+```
+
+6. Save the file, and then deploy your application by running **eb deploy**. When you run **eb deploy**, the EB CLI
+   bundles up the contents of your project directory and deploys it to your environment.
+
+```
+~/ebdjango$ `eb deploy`
+```
+
+###### Note
+
+If you are using Git with your project, see [Using the EB CLI with Git](eb3-cli-git.md "eb3-cli-git.md"). 7. When the environment update process completes, open your website with **eb open**.
+
+```
+~/ebdjango$ `eb open`
+```
+
+This opens a browser window using the domain name created for your application. You should see the same Django website that you created and tested
+locally.
+
+If you don't see your application running, or get an error message, see [Troubleshooting deployments](troubleshooting.md#troubleshooting-deployments "troubleshooting.md#troubleshooting-deployments")
+for help with how to determine the cause of the error.
+
+If you _do_ see your application running, then congratulations, you've deployed your first Django application with Elastic Beanstalk!
+
+## Update your application
+
+Now that you have a running application on Elastic Beanstalk, you can update and redeploy your application or its configuration, and Elastic Beanstalk does the work of
+updating your instances and starting your new application version.
+
+For this example, we'll enable Django's admin console and configure a few other settings.
+
+### Modify your site settings
+
+By default, your Django website uses the UTC time zone to display time. You can change this by specifying a time zone in
+`settings.py`.
+
+###### To change your site's time zone
+
+1. Modify the `TIME_ZONE` setting in `settings.py`.
+
+###### Example ~/ebdjango/ebdjango/settings.py
+
+```
+...
+# Internationalization
+LANGUAGE_CODE = 'en-us'
+TIME_ZONE = `'US/Pacific'`
+USE_I18N = True
+USE_L10N = True
+USE_TZ = True
+```
+
+For a list of time zones, visit [this page](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones "https://en.wikipedia.org/wiki/List_of_tz_database_time_zones"). 2. Deploy the application to your Elastic Beanstalk environment.
+
+```
+~/ebdjango/$ `eb deploy`
+```
+
+### Create a site administrator
+
+You can create a site administrator for your Django application to access the admin console directly from the website. Administrator login details
+are stored securely in the local database image included in the default project that Django generates.
+
+###### To create a site administrator
+
+1. Initialize your Django application's local database.
+
+```
+(eb-virt) ~/ebdjango$ `python manage.py migrate`
+Operations to perform:
+  Apply all migrations: admin, auth, contenttypes, sessions
+Running migrations:
+  Applying contenttypes.0001_initial... OK
+  Applying auth.0001_initial... OK
+  Applying admin.0001_initial... OK
+  Applying admin.0002_logentry_remove_auto_add... OK
+  Applying admin.0003_logentry_add_action_flag_choices... OK
+  Applying contenttypes.0002_remove_content_type_name... OK
+  Applying auth.0002_alter_permission_name_max_length... OK
+  Applying auth.0003_alter_user_email_max_length... OK
+  Applying auth.0004_alter_user_username_opts... OK
+  Applying auth.0005_alter_user_last_login_null... OK
+  Applying auth.0006_require_contenttypes_0002... OK
+  Applying auth.0007_alter_validators_add_error_messages... OK
+  Applying auth.0008_alter_user_username_max_length... OK
+  Applying auth.0009_alter_user_last_name_max_length... OK
+  Applying sessions.0001_initial... OK
+
+```
+
+2. Run `manage.py createsuperuser` to create an administrator.
+
+```
+(eb-virt) ~/ebdjango$ `python manage.py createsuperuser`
+Username: `admin`
+Email address: `me@mydomain.com`
+Password: `********`
+Password (again): `********`
+Superuser created successfully.
+```
+
+3. To tell Django where to store static files, define `STATIC_ROOT` in `settings.py`.
+
+###### Example ~/ebdjango/ebdjango/settings.py
+
+```
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/2.2/howto/static-files/
+STATIC_URL = '/static/'
+`STATIC_ROOT = 'static'`
+```
+
+4. Run `manage.py collectstatic` to populate the `static` directory with static assets (JavaScript, CSS, and images)
+   for the admin site.
+
+```
+(eb-virt) ~/ebdjango$ `python manage.py collectstatic`
+119 static files copied to ~/ebdjango/static
+
+```
+
+5. Deploy your application.
+
+```
+~/ebdjango$ `eb deploy`
+```
+
+6. View the admin console by opening the site in your browser, appending `/admin/` to the site URL, such as the following.
+
+```
+http://`djang-env.p33kq46sfh.us-west-2`.elasticbeanstalk.com/admin/
+```
+
+![Enter the username and password you created in step 2 to log in to the admin console.](images/eb_django_admin_login.png) 7. Log in with the username and password that you configured in step 2.
+
+![The Django administration console for your Django website deployed with Elastic Beanstalk](images/eb_django_admin_console.png)
+
+You can use a similar procedure of local updating/testing followed by **eb deploy**. Elastic Beanstalk does the work of updating your live
+servers, so you can focus on application development instead of server administration!
+
+### Add a database migration configuration file
+
+You can add commands to your `.ebextensions` script that are run when your site is updated. This enables you to automatically generate
+database migrations.
+
+###### To add a migrate step when your application is deployed
+
+1. Create a [configuration file](ebextensions.md "ebextensions.md") named `db-migrate.config` with the following content.
+
+###### Example ~/ebdjango/.ebextensions/db-migrate.config
+
+```
+container_commands:
+  01_migrate:
+    command: "source /var/app/venv/*/bin/activate && python3 manage.py migrate"
+    leader_only: true
+option_settings:
+  aws:elasticbeanstalk:application:environment:
+    DJANGO_SETTINGS_MODULE: ebdjango.settings
+```
+
+This configuration file activates the server's virtual environment and runs the `manage.py migrate` command during the deployment process, before starting your application.
+Because it runs before the application starts, you must also configure the `DJANGO_SETTINGS_MODULE` environment variable explicitly
+(usually `wsgi.py` takes care of this for you during startup). Specifying `leader_only: true` in the command ensures
+that it is run only once when you're deploying to multiple instances. 2. Deploy your application.
+
+```
+~/ebdjango$ `eb deploy`
+```
+
+## Clean up
+
+To save instance hours and other AWS resources between development sessions, terminate your Elastic Beanstalk environment with **eb
+terminate**.
+
+```
+~/ebdjango$ `eb terminate django-env`
+```
+
+This command terminates the environment and all of the AWS resources that run within it. It doesn't delete the application, however, so you can
+always create more environments with the same configuration by running **eb create** again.
+
+If you're done with the sample application, you can also remove the project folder and virtual environment.
+
+```
+~$ `rm -rf ~/eb-virt`
+~$ `rm -rf ~/ebdjango`
+```
+
+## Next steps
+
+For more information about Django, including an in-depth tutorial, see [the official
+documentation](https://docs.djangoproject.com/en/2.2/ "https://docs.djangoproject.com/en/2.2/").
+
+If you want to try out another Python web framework, check out [Deploying a Flask application to Elastic Beanstalk](create-deploy-python-flask.md "create-deploy-python-flask.md").

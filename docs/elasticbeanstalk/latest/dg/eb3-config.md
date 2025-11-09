@@ -59,14 +59,196 @@ configurations](concepts.md#concepts-configuration "concepts.md#concepts-configu
 
 ## Options
 
-| Name                                             | Description                                                                                                                                                                                                                                                                                                                                                   |
-| ------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `--cfg `config-name``                            | The name to use for a saved configuration. This option works with **eb config save** only.                                                                                                                                                                                                                                                                    |
-| `-d` or `--display`                              | Displays the configuration settings for the current environment (writes to _stdout_). Use with the `--format` option to specify the output to be in JSON or YAML. If you don't specify, the output is in YAML format. This option only works if you use the **eb config** command without any of the other subcommands.                                       |
-| `-f `format_type`` or `--format `format_type``   | Specifies display format. Valid values are JSON or YAML. Defaults to YAML. This option works with the `--display` option only.                                                                                                                                                                                                                                |
-| `-﻿-﻿tags `key1`=`value1`[,`key2`=`value2` ...]` | Tags to add to your saved configuration. When specifying tags in the list, specify them as key=value pairs and separate each one with a comma. For more information, see [Tagging saved configurations](environment-configuration-savedconfig-tagging.md "environment-configuration-savedconfig-tagging.md"). This option works with **eb config save** only. |
-| `--timeout `timeout``                            | The number of minutes before the command times out.                                                                                                                                                                                                                                                                                                           |
-| `-u `configuration_string`                       | `file_path`` or `--update `configuration_string`                                                                                                                                                                                                                                                                                                              | `file_path`` | Updates the active configuration settings for the current environment. This option only works if you use the **eb config** command without any of the other subcommands. The ``configuration_string` | `file_path`` parameter is of the type string. The string provides the list of namespaces and corresponding options to add to, update, or remove from the configuration settings for your environment. Alternatively, the input string can represent a file that contains the same information. To specify a file name, the input string must follow the format `"file://<`path`><`filename`>"`. To specify the file name without a ``path``, save the file to the folder where you run the command. Alternatively, specify the filename by providing the full path. The configuration information must meet the following conditions. At least one of the sections, **OptionSettings** or **OptionsToRemove**, is required. Use **OptionSettings** to add or change options. Use **OptionsToRemove** to remove options from a namespace. For specific examples, see the [Examples](#eb3-configexample "#eb3-configexample") section later in this topic. *YAML Format* ``` OptionSettings: namespace1: option-name-1: `option-value-1`option-name-2:`option-value-2` ... OptionsToRemove: namespace1: option-name-1 option-name-2 ... ``` *JSON Format* ``` { "OptionSettings": { "namespace1": { "option-name-1": "`option-value-1`", "option-name-2": "`option-value-2`", ... } }, "OptionsToRemove": { "namespace1": { "option-name-1", "option-name-2", ... } } } ``` |
+| Name                                                      | Description                                                                                                                                                                                                                                                                                                                                                                 |
+| --------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `--cfg `config-name``                                     | The name to use for a saved configuration.<br>This option works with \*_eb config save_<br>• only.                                                                                                                                                                                                                                                                          |
+| `-d`<br>or<br>`--display`                                 | Displays the configuration settings for the current environment (writes to _stdout_).<br>Use with the `--format` option to specify the output to be in JSON or YAML. If you don't specify, the output is in YAML<br>format.<br>This option only works if you use the \*_eb config_<br>• command without any of the other subcommands.                                       |
+| `-f `format_type``<br>or<br>`--format `format_type``      | Specifies display format. Valid values are JSON or YAML.<br>Defaults to YAML.<br>This option works with the `--display` option only.                                                                                                                                                                                                                                        |
+| `-﻿-﻿tags `key1`=`value1`[,`key2`=`value2` ...]`          | Tags to add to your saved configuration. When specifying tags in the list, specify them as key=value pairs and separate each one with a<br>comma.<br>For more information, see [Tagging saved configurations](environment-configuration-savedconfig-tagging.md "environment-configuration-savedconfig-tagging.md").<br>This option works with \*_eb config save_<br>• only. |
+| `--timeout `timeout``                                     | The number of minutes before the command times out.                                                                                                                                                                                                                                                                                                                         |
+| `-u `configuration_string`                                | `file_path``<br>or<br>`--update `configuration_string`                                                                                                                                                                                                                                                                                                                      | `file_path`` | Updates the active configuration settings for the current environment.<br>This option only works if you use the \*_eb config_<br>• command without any of the other subcommands.<br>The ``configuration_string` | `file_path`` parameter is of the type string. The<br>string provides the list of namespaces and corresponding options to add to, update, or remove from the configuration settings for your<br>environment. Alternatively, the input string can represent a file that contains the same information.<br>To specify a file name, the input string must follow the format<br>`"file://<`path`><`filename`>"`. To specify the file name without a<br>``path``, save the file to the folder where you run the command. Alternatively, specify the filename by<br>providing the full path.<br>The configuration information must meet the following conditions. At least one of the sections, **OptionSettings*<br>• or<br>**OptionsToRemove**, is required. Use **OptionSettings*<br>• to add or change options. Use<br>**OptionsToRemove*<br>• to remove options from a namespace. For specific examples, see the [Examples](#eb3-configexample "#eb3-configexample") section later in this topic.<br>*YAML Format*<br>```<br>OptionSettings:<br>namespace1:<br>option-name-1: `option-value-1`<br>option-name-2: `option-value-2`<br>...<br>OptionsToRemove:<br>namespace1:<br>option-name-1<br>option-name-2<br>...<br>```<br>*JSON Format*<br>```<br>{<br>"OptionSettings": {<br>"namespace1": {<br>"option-name-1": "`option-value-1`",<br>"option-name-2": "`option-value-2`",<br>...<br>}<br>},<br>"OptionsToRemove": {<br>"namespace1": {<br>"option-name-1",<br>"option-name-2",<br>...<br>}<br>}<br>}<br>``` |
+| [Common options](eb3-cmd-options.md "eb3-cmd-options.md") |                                                                                                                                                                                                                                                                                                                                                                             |
 
-|
-| [Common options](eb3-cmd-options.md "eb3-cmd-options.md") | | ## Output If the **eb config** or **eb config `environment-name`** command is run successfully with no subcommands or options added, the command displays your current option settings in the text editor that you configured as the EDITOR environment variable. If you didn't configure an EDITOR environment variable, EB CLI displays your option settings in your default editor for YAML files. When you save changes to the file and close the editor, the environment is updated with the option settings that you saved in the file. The following output is displayed to confirm the configuration update. ``$ `eb config myApp-dev` Printing Status: 2021-05-19 18:09:45    INFO    Environment update is starting. 2021-05-19 18:09:55    INFO    Updating environment myApp-dev's configuration settings. 2021-05-19 18:11:20    INFO    Successfully deployed new configuration to environment.`` If the command runs successfully with the `--display` option, it displays the configuration settings for the current environment (writes to _stdout_). If the command runs successfully with the `get` parameter, the command displays the location of the local copy that you downloaded. If the command runs successfully with the `save` parameter, the command displays the location of the saved file. ## Examples This section describes how to change the text editor that you use to view and edit your option settings file. For Linux and UNIX, the following example changes the editor to vim: `` $ `export EDITOR=vim` `` For Linux and UNIX, the following example changes the editor to whatever is installed at `/usr/bin/kate`. `` $ `export EDITOR=/usr/bin/kate` `` For Windows, the following example changes the editor to Notepad++. `` > `set EDITOR="C:\Program Files\Notepad++\Notepad++.exe` `` This section provides examples for the **eb config** command when it's run with subcommands. The following example deletes the saved configuration named `app-tmp`. `` $ `eb config delete app-tmp` `` The following example downloads the saved configuration with the name app-tmp from your Amazon S3 bucket. `` $ `eb config get app-tmp` `` The following example lists the names of saved configurations that are stored in your Amazon S3 bucket. `` $ `eb config list` `` The following example uploads the local copy of the saved configuration named app-tmp to your Amazon S3 bucket. `` $ `eb config put app-tmp` `` The following example saves configuration settings from the current running environment. If you don't provide a name to use for the saved configuration, then Elastic Beanstalk names the configuration file according to the environment name. For example, an environment named _tmp-dev_ would be called `tmp-dev.cfg.yml`. Elastic Beanstalk saves the file to the `/.elasticbeanstalk/saved_configs/` folder. `` $ `eb config save` `` In the following example, the `--cfg` option is used to save the configuration settings from the environment tmp-dev to a file called `v1-app-tmp.cfg.yml`. Elastic Beanstalk saves the file to the folder `/.elasticbeanstalk/saved_configs/`. If you don't specify an environment name, Elastic Beanstalk saves configuration settings from the current running environment. `` $ `eb config save tmp-dev --cfg v1-app-tmp` `` This section provides examples for the **eb config** command when it's run without subcommands. The following command displays the option settings of your current environment in a text editor. `` $ `eb config` `` The following command displays the option settings for the _my-env_ environment in a text editor. `` $ `eb config my-env` `` The following example displays the options settings for your current environment. It outputs in the YAML format because no specific format was specified with the `--format` option. `` $ `eb config --display` `` The following example updates the options settings for your current environment with the specifications in the file named `example.txt`. The file is in either the YAML or JSON format. The EB CLI automatically detects the file format. <br>• The Minsize option is set to 1 for the namespace `aws:autoscaling:asg`. <br>• The batch size for the namespace `aws:elasticbeanstalk:command` is set to 30%. <br>• It removes the option setting of _IdleTimeout: None_ from the namespace `AWSEBV2LoadBalancer.aws:elbv2:loadbalancer`. `` $ `eb config --update "file://example.txt"` `` ###### Example - filename: `example.txt` - YAML format `OptionSettings: 'aws:elasticbeanstalk:command': BatchSize: '30' BatchSizeType: Percentage 'aws:autoscaling:asg': MinSize: '1' OptionsToRemove: 'AWSEBV2LoadBalancer.aws:elbv2:loadbalancer': IdleTimeout` ###### Example - filename: `example.txt` - JSON format `{ "OptionSettings": { "aws:elasticbeanstalk:command": { "BatchSize": "30", "BatchSizeType": "Percentage" }, "aws:autoscaling:asg": { "MinSize": "1" } }, "OptionsToRemove": { "AWSEBV2LoadBalancer.aws:elbv2:loadbalancer": { "IdleTimeout" } } }` The following examples update the options settings for your current environment. The command sets the Minsize option to 1 for the`aws:autoscaling:asg` namespace. ###### Note These examples are specific to Windows PowerShell. They escape literal occurrences of the double-quote (`"`) character by preceding it with a slash (`\`) character. Different operating systems and command-line environments might have different escape sequences. For this reason, we recommend using the file option that's shown in the previous examples. Specifying the configuration options in a file doesn't require escaping characters and is consistent across different operating systems. The following example is in JSON format. The EB CLI detects if the format is in JSON or YAML. `` PS C:\Users\myUser\EB_apps\myApp-env>`eb config --update '{\"OptionSettings\":{\"aws:autoscaling:asg\":{\"MaxSize\":\"1\"}}}'` `` The following example is in YAML format. To enter the YAML string in the correct format, the command includes spacing and end-of-line returns that are required in a YAML file. <br>• End each line with the "enter" or "return" key. <br>• Start the second line with two spaces, and start the third line with four spaces. `` PS C:\Users\myUser\EB_apps\myApp-env>`eb config --update 'OptionSettings:` >>  `aws:autoscaling:asg:` >>    `MinSize: \"1\"'` ``
+## Output
+
+If the **eb config** or **eb config `environment-name`** command is run successfully with no
+subcommands or options added, the command displays your current option settings in the text editor that you configured as the EDITOR environment variable.
+If you didn't configure an EDITOR environment variable, EB CLI displays your option settings in your default editor for YAML files.
+
+When you save changes to the file and close the editor, the environment is updated with the option settings that you saved in the file. The following
+output is displayed to confirm the configuration update.
+
+```
+$ `eb config myApp-dev`
+    Printing Status:
+    2021-05-19 18:09:45    INFO    Environment update is starting.
+    2021-05-19 18:09:55    INFO    Updating environment myApp-dev's configuration settings.
+    2021-05-19 18:11:20    INFO    Successfully deployed new configuration to environment.
+```
+
+If the command runs successfully with the `--display` option, it displays the configuration settings for the current environment (writes to
+_stdout_).
+
+If the command runs successfully with the `get` parameter, the command displays the location of the local copy that you downloaded.
+
+If the command runs successfully with the `save` parameter, the command displays the location of the saved file.
+
+## Examples
+
+This section describes how to change the text editor that you use to view and edit your option settings file.
+
+For Linux and UNIX, the following example changes the editor to vim:
+
+```
+$ `export EDITOR=vim`
+```
+
+For Linux and UNIX, the following example changes the editor to whatever is installed at `/usr/bin/kate`.
+
+```
+$ `export EDITOR=/usr/bin/kate`
+```
+
+For Windows, the following example changes the editor to Notepad++.
+
+```
+> `set EDITOR="C:\Program Files\Notepad++\Notepad++.exe`
+```
+
+This section provides examples for the **eb config** command when it's run with subcommands.
+
+The following example deletes the saved configuration named `app-tmp`.
+
+```
+$ `eb config delete app-tmp`
+```
+
+The following example downloads the saved configuration with the name app-tmp from your Amazon S3 bucket.
+
+```
+$ `eb config get app-tmp`
+```
+
+The following example lists the names of saved configurations that are stored in your Amazon S3 bucket.
+
+```
+$ `eb config list`
+```
+
+The following example uploads the local copy of the saved configuration named app-tmp to your Amazon S3 bucket.
+
+```
+$ `eb config put app-tmp`
+```
+
+The following example saves configuration settings from the current running environment. If you don't provide a name to use for the saved
+configuration, then Elastic Beanstalk names the configuration file according to the environment name. For example, an environment named _tmp-dev_ would be called
+`tmp-dev.cfg.yml`. Elastic Beanstalk saves the file to the `/.elasticbeanstalk/saved_configs/` folder.
+
+```
+$ `eb config save`
+```
+
+In the following example, the `--cfg` option is used to save the configuration settings from the environment tmp-dev to a file called
+`v1-app-tmp.cfg.yml`. Elastic Beanstalk saves the file to the folder `/.elasticbeanstalk/saved_configs/`. If you don't specify
+an environment name, Elastic Beanstalk saves configuration settings from the current running environment.
+
+```
+$ `eb config save tmp-dev --cfg v1-app-tmp`
+```
+
+This section provides examples for the **eb config** command when it's run without subcommands.
+
+The following command displays the option settings of your current environment in a text editor.
+
+```
+$ `eb config`
+```
+
+The following command displays the option settings for the _my-env_ environment in a text editor.
+
+```
+$ `eb config my-env`
+```
+
+The following example displays the options settings for your current environment. It outputs in the YAML format because no specific format was
+specified with the `--format` option.
+
+```
+$ `eb config --display`
+```
+
+The following example updates the options settings for your current environment with the specifications in the file named
+`example.txt`. The file is in either the YAML or JSON format. The EB CLI automatically detects the file format.
+
+- The Minsize option is set to 1 for the namespace `aws:autoscaling:asg`.
+- The batch size for the namespace `aws:elasticbeanstalk:command` is set to 30%.
+- It removes the option setting of _IdleTimeout: None_ from the namespace
+  `AWSEBV2LoadBalancer.aws:elbv2:loadbalancer`.
+
+```
+$ `eb config --update "file://example.txt"`
+```
+
+###### Example - filename: `example.txt` - YAML format
+
+```
+OptionSettings:
+  'aws:elasticbeanstalk:command':
+    BatchSize: '30'
+    BatchSizeType: Percentage
+  'aws:autoscaling:asg':
+    MinSize: '1'
+OptionsToRemove:
+  'AWSEBV2LoadBalancer.aws:elbv2:loadbalancer':
+    IdleTimeout
+```
+
+###### Example - filename: `example.txt` - JSON format
+
+```
+{
+    "OptionSettings": {
+        "aws:elasticbeanstalk:command": {
+            "BatchSize": "30",
+            "BatchSizeType": "Percentage"
+        },
+        "aws:autoscaling:asg": {
+            "MinSize": "1"
+        }
+    },
+    "OptionsToRemove": {
+        "AWSEBV2LoadBalancer.aws:elbv2:loadbalancer": {
+            "IdleTimeout"
+        }
+    }
+}
+```
+
+The following examples update the options settings for your current environment. The command sets the Minsize option to 1 for
+the`aws:autoscaling:asg` namespace.
+
+###### Note
+
+These examples are specific to Windows PowerShell. They escape literal occurrences of the double-quote (`"`) character by preceding it
+with a slash (`\`) character. Different operating systems and command-line environments might have different escape sequences. For this
+reason, we recommend using the file option that's shown in the previous examples. Specifying the configuration options in a file doesn't require
+escaping characters and is consistent across different operating systems.
+
+The following example is in JSON format. The EB CLI detects if the format is in JSON or YAML.
+
+```
+PS C:\Users\myUser\EB_apps\myApp-env>`eb config --update '{\"OptionSettings\":{\"aws:autoscaling:asg\":{\"MaxSize\":\"1\"}}}'`
+```
+
+The following example is in YAML format. To enter the YAML string in the correct format, the command includes spacing and end-of-line returns that are
+required in a YAML file.
+
+- End each line with the "enter" or "return" key.
+- Start the second line with two spaces, and start the third line with four spaces.
+
+```
+PS C:\Users\myUser\EB_apps\myApp-env>`eb config --update 'OptionSettings:`
+>>  `aws:autoscaling:asg:`
+>>    `MinSize: \"1\"'`
+```

@@ -191,10 +191,341 @@ match the ones that Elastic Beanstalk configures when you provision a database w
    compatibility with environments that have an integrated RDS DB instance, use the following names and values. You can find all values, except for your
    password, in the [RDS console](https://console.aws.amazon.com/rds/home "https://console.aws.amazon.com/rds/home").
 
-| Property name  | Description                                                                                    | Property value                                                                  |
-| -------------- | ---------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `RDS_HOSTNAME` | The hostname of the DB instance.                                                               | On the **Connectivity & security** tab on the Amazon RDS console: **Endpoint**. |
-| `RDS_PORT`     | The port where the DB instance accepts connections. The default value varies among DB engines. | On the **Connectivity & security** tab on the Amazon RDS console: **Port**.     |
-| `RDS_DB_NAME`  | The database name, `ebdb`.                                                                     | On the **Configuration** tab on the Amazon RDS console: **DB Name**.            |
-| `RDS_USERNAME` | The username that you configured for your database.                                            | On the **Configuration** tab on the Amazon RDS console: **Master username**.    |
-| `RDS_PASSWORD` | The password that you configured for your database.                                            | Not available for reference in the Amazon RDS console.                          | ![Environment properties configuration section with RDS properties added](images/environment-cfg-envprops-rds.png) 6. To save the changes choose **Apply** at the bottom of the page. After installing Drupal, you need to connect to the instance with SSH to retrieve some configuration details. Assign an SSH key to your environment's instances. ###### To configure SSH 1. If you haven't previously created a key pair, open the [key pairs page](https://console.aws.amazon.com/ec2/v2/home#KeyPairs "https://console.aws.amazon.com/ec2/v2/home#KeyPairs") of the Amazon EC2 console and follow the instructions to create one. 2. Open the [Elastic Beanstalk console](https://console.aws.amazon.com/elasticbeanstalk "https://console.aws.amazon.com/elasticbeanstalk"), and in the **Regions** list, select your AWS Region. 3. In the navigation pane, choose **Environments**, and then choose the name of your environment from the list. 4. In the navigation pane, choose **Configuration**. 5. Under **Security**, choose **Edit**. 6. For **EC2 key pair**, choose your key pair. 7. To save the changes choose **Apply** at the bottom of the page. ## Configure and deploy your application To create a Drupal project for Elastic Beanstalk, download the Drupal source code and combine it with the files in the [aws-samples/eb-php-drupal](https://github.com/aws-samples/eb-php-drupal "https://github.com/aws-samples/eb-php-drupal") repository on GitHub. ###### To create a Drupal project 1. Run the follwing command to download Drupal from *www.drupal.org/download*. To learn more about downloads, see the [the Drupal website](https://www.drupal.org/download "https://www.drupal.org/download"). If the platform of your Elastic Beanstalk environment uses PHP 7.4 or earlier, we recommend that you download Drupal version 8.9.13 for this tutorial. You can run the following command to download it. `` ~$ `curl https://ftp.drupal.org/files/projects/drupal-8.9.13.tar.gz -o drupal.tar.gz` `` If your platform uses PHP 8.0 or later, we recommend that you download Drupal 9.1.5. You can use this command to download it. `` ~$ `curl https://ftp.drupal.org/files/projects/drupal-9.1.5.tar.gz -o drupal.tar.gz` `` For more information about Drupal releases and the PHP versions that they support, see [PHP requirements](https://www.drupal.org/docs/system-requirements/php-requirements#php_required "https://www.drupal.org/docs/system-requirements/php-requirements#php_required") in the official Drupal documentation. The core versions that Drupal recommends are listed on [the Drupal website](https://www.drupal.org/project/drupal "https://www.drupal.org/project/drupal"). 2. Use the following command to download the configuration files from the sample repository: `` ~$ `wget https://github.com/aws-samples/eb-php-drupal/releases/download/v1.1/eb-php-drupal-v1.zip` `` 3. Extract Drupal and change the name of the folder. If you downloaded Drupal 8.9.13: `` ~$ `tar -xvf drupal.tar.gz` ~$ `mv drupal-8.9.13 drupal-beanstalk` ~$ `cd drupal-beanstalk` `` If you downloaded Drupal 9.1.5: `` ~$ `tar -xvf drupal.tar.gz` ~$ `mv drupal-9.1.5 drupal-beanstalk` ~$ `cd drupal-beanstalk` `` 4. Extract the configuration files over the Drupal installation. ``~/drupal-beanstalk$ `unzip ../eb-php-drupal-v1.zip` creating: .ebextensions/ inflating: .ebextensions/dev.config inflating: .ebextensions/drupal.config inflating: .ebextensions/efs-create.config inflating: .ebextensions/efs-filesystem.template inflating: .ebextensions/efs-mount.config inflating: .ebextensions/loadbalancer-sg.config inflating: LICENSE inflating: README.md inflating: beanstalk-settings.php`` Verify that the structure of your `drupal-beanstalk` folder is correct, as shown. ``drupal-beanstalk$ `tree -aL 1` . ├── autoload.php ├── `beanstalk-settings.php` ├── composer.json ├── composer.lock ├── core ├── .csslintrc ├── `.ebextensions` ├── .ebextensions ├── .editorconfig ├── .eslintignore ├── .eslintrc.json ├── example.gitignore ├── .gitattributes ├── .htaccess ├── .ht.router.php ├── index.php ├── LICENSE ├── LICENSE.txt ├── modules ├── profiles ├── README.md ├── README.txt ├── robots.txt ├── sites ├── themes ├── update.php ├── vendor └── web.config`` The `beanstalk-settings.php` file from the project repo uses the environment variables that you defined in the previous step to configure the database connection. The `.ebextensions` folder contains configuration files that create additional resources within your Elastic Beanstalk environment. The configuration files require modification to work with your account. Replace the placeholder values in the files with the appropriate IDs and create a source bundle. ###### To update configuration files and create a source bundle. 1. Modify the configuration files as follows. <br>• `.ebextensions/dev.config` – restricts access to your environment to your IP address to protect it during the Drupal installation process. Replace the placeholder IP address near the top of the file with your public IP address. <br>• `.ebextensions/efs-create.config` – creates an EFS file system and mount points in each Availability Zone / subnet in your VPC. Identify your default VPC and subnet IDs in the [Amazon VPC console](https://console.aws.amazon.com/vpc/home#subnets:filter=default "https://console.aws.amazon.com/vpc/home#subnets:filter=default"). 2. Create a [source bundle](applications-sourcebundle.md "applications-sourcebundle.md") containing the files in your project folder. The following command creates a source bundle named `drupal-beanstalk.zip`. It excludes files in the `vendor` folder, which take up a lot of space and are not necessary for deploying your application to Elastic Beanstalk. `` ~/eb-drupal$ `zip ../drupal-beanstalk.zip -r * .[^.]* -x "vendor/*"` `` Upload the source bundle to Elastic Beanstalk to deploy Drupal to your environment. ###### To deploy a source bundle 1. Open the [Elastic Beanstalk console](https://console.aws.amazon.com/elasticbeanstalk "https://console.aws.amazon.com/elasticbeanstalk"), and in the **Regions** list, select your AWS Region. 2. In the navigation pane, choose **Environments**, and then choose the name of your environment from the list. 3. On the environment overview page, choose **Upload and deploy**. 4. Use the on-screen dialog box to upload the source bundle. 5. Choose **Deploy**. 6. When the deployment completes, you can choose the site URL to open your website in a new tab. ## Install Drupal ###### To complete your Drupal installation 1. Open the [Elastic Beanstalk console](https://console.aws.amazon.com/elasticbeanstalk "https://console.aws.amazon.com/elasticbeanstalk"), and in the **Regions** list, select your AWS Region. 2. In the navigation pane, choose **Environments**, and then choose the name of your environment from the list. 3. Choose the environment URL to open your site in a browser. You are redirected to a Drupal installation wizard because the site has not been configured yet. 4. Perform a standard installation with the following settings for the database: <br>• **Database name** – The **DB Name** shown in the Amazon RDS console. <br>• **Database username and password** – The **Master Username** and **Master Password** values you entered when creating your database. <br>• **Advanced Options > Host** – The **Endpoint** of the DB instance shown in the Amazon RDS console. Installation takes about a minute to complete. ## Update Drupal configuration and remove access restrictions The Drupal installation process created a file named `settings.php` in the `sites/default` folder on the instance. You need this file in your source code to avoid resetting your site on subsequent deployments, but the file currently contains secrets that you don't want to commit to source. Connect to the application instance to retrieve information from the settings file. ###### To connect to your application instance with SSH 1. Open the [instances page](https://console.aws.amazon.com/ec2/v2/home#Instances:sort=tag:Name "https://console.aws.amazon.com/ec2/v2/home#Instances:sort=tag:Name") of the Amazon EC2 console. 2. Choose the application instance. It is the one named after your Elastic Beanstalk environment. 3. Choose **Connect**. 4. Follow the instructions to connect the instance with SSH. The command looks similar to the following. `` $ `ssh -i ~/.ssh/mykey ec2-user@ec2-00-55-33-222.us-west-2.compute.amazonaws.com` `` Get the sync directory id from the last line of the settings file. ``[ec2-user ~]$ `tail -n 1 /var/app/current/sites/default/settings.php` $config_directories['sync'] = '`sites/default/files/config_4ccfX2sPQm79p1mk5IbUq9S_FokcENO4mxyC-L18-4g_xKj_7j9ydn31kDOYOgnzMu071Tvc4Q/sync`';`` The file also contains the sites current hash key, but you can ignore the current value and use your own. Assign the sync directory path and hash key to environment properties. The customized settings file from the project repo reads these properties to configure the site during deployment, in addition to the database connection properties that you set earlier. ###### Drupal configuration properties <br>• `SYNC_DIR` – The path to the sync directory. <br>• `HASH_SALT` – Any string value that meets [environment property requirements](environments-cfg-softwaresettings.md#environments-cfg-softwaresettings-console "environments-cfg-softwaresettings.md#environments-cfg-softwaresettings-console"). ###### To configure environment variables in the Elastic Beanstalk console 1. Open the [Elastic Beanstalk console](https://console.aws.amazon.com/elasticbeanstalk "https://console.aws.amazon.com/elasticbeanstalk"), and in the **Regions** list, select your AWS Region. 2. In the navigation pane, choose **Environments**, and then choose the name of your environment from the list. 3. In the navigation pane, choose **Configuration**. 4. In the **Updates, monitoring, and logging** configuration category, choose **Edit**. 5. Scroll down to **Runtime environment variables**. 6. Select **Add environment variable**. 7. For **Source** select **Plain text**. ###### Note The **Secrets Manager** and **SSM Parameter Store** values in the drop-down are for configuring environment variables as secrets to store sensitive data, such as credentials and API keys. For more information, see [Using Elastic Beanstalk with AWS Secrets Manager and AWS Systems Manager Parameter Store](AWSHowTo.md "AWSHowTo.md"). 8. Enter the **Environment variable name** and **Environment variable value** pairs. 9. If you need to add more variables repeat **Step 6** through **Step 8**. 10. To save the changes choose **Apply** at the bottom of the page. Finally, the sample project includes a configuration file (`loadbalancer-sg.config`) that creates a security group and assigns it to the environment's load balancer, using the IP address that you configured in `dev.config` to restrict HTTP access on port 80 to connections from your network. Otherwise, an outside party could potentially connect to your site before you have installed Drupal and configured your admin account. ###### To update Drupal's configuration and remove access restrictions 1. Delete the `.ebextensions/loadbalancer-sg.config` file from your project directory. `` ~/drupal-beanstalk$ `rm .ebextensions/loadbalancer-sg.config` `` 2. Copy the customized `settings.php` file into the sites folder. `` ~/drupal-beanstalk$ `cp beanstalk-settings.php sites/default/settings.php` `` 3. Create a source bundle. `` ~/eb-drupal$ `zip ../drupal-beanstalk-v2.zip -r * .[^.]* -x "vendor/*"` `` Upload the source bundle to Elastic Beanstalk to deploy Drupal to your environment. ###### To deploy a source bundle 1. Open the [Elastic Beanstalk console](https://console.aws.amazon.com/elasticbeanstalk "https://console.aws.amazon.com/elasticbeanstalk"), and in the **Regions** list, select your AWS Region. 2. In the navigation pane, choose **Environments**, and then choose the name of your environment from the list. 3. On the environment overview page, choose **Upload and deploy**. 4. Use the on-screen dialog box to upload the source bundle. 5. Choose **Deploy**. 6. When the deployment completes, you can choose the site URL to open your website in a new tab. ## Configure your Auto Scaling group Finally, configure your environment's Auto Scaling group with a higher minimum instance count. Run at least two instances at all times to prevent the web servers in your environment from being a single point of failure, and to allow you to deploy changes without taking your site out of service. ###### To configure your environment's Auto Scaling group for high availability 1. Open the [Elastic Beanstalk console](https://console.aws.amazon.com/elasticbeanstalk "https://console.aws.amazon.com/elasticbeanstalk"), and in the **Regions** list, select your AWS Region. 2. In the navigation pane, choose **Environments**, and then choose the name of your environment from the list. 3. In the navigation pane, choose **Configuration**. 4. In the **Capacity** configuration category, choose **Edit**. 5. In the **Auto Scaling group** section, set **Min instances** to `2`. 6. To save the changes choose **Apply** at the bottom of the page. To support content uploads across multiple instances, the sample project uses Amazon Elastic File System to create a shared file system. Create a post on the site and upload content to store it on the shared file system. View the post and refresh the page multiple times to hit both instances and verify that the shared file system is working. ## Cleanup After you finish working with the demo code, you can terminate your environment. Elastic Beanstalk deletes all related AWS resources, such as [Amazon EC2 instances](using-features.managing.md "using-features.managing.md"), [database instances](using-features.managing.md "using-features.managing.md"), [load balancers](using-features.managing.md "using-features.managing.md"), security groups, and [alarms](using-features.md#using-features.alarms.title "using-features.md#using-features.alarms.title"). Removing resources does not delete the Elastic Beanstalk application, so you can create new environments for your application at any time. ###### To terminate your Elastic Beanstalk environment from the console 1. Open the [Elastic Beanstalk console](https://console.aws.amazon.com/elasticbeanstalk "https://console.aws.amazon.com/elasticbeanstalk"), and in the **Regions** list, select your AWS Region. 2. In the navigation pane, choose **Environments**, and then choose the name of your environment from the list. 3. Choose **Actions**, and then choose **Terminate environment**. 4. Use the on-screen dialog box to confirm environment termination. In addition, you can terminate database resources that you created outside of your Elastic Beanstalk environment. When you terminate an Amazon RDS DB instance, you can take a snapshot and restore the data to another instance later. ###### To terminate your RDS DB instance 1. Open the [Amazon RDS console](https://console.aws.amazon.com/rds "https://console.aws.amazon.com/rds"). 2. Choose **Databases**. 3. Choose your DB instance. 4. Choose **Actions**, and then choose **Delete**. 5. Choose whether to create a snapshot, and then choose **Delete**. ## Next steps As you continue to develop your application, you'll probably want a way to manage environments and deploy your application without manually creating a .zip file and uploading it to the Elastic Beanstalk console. The [Elastic Beanstalk Command Line Interface](eb-cli3.md "eb-cli3.md") (EB CLI) provides easy-to-use commands for creating, configuring, and deploying applications to Elastic Beanstalk environments from the command line. The sample application uses configuration files to configure PHP settings and create a table in the database if it doesn't already exist. You can also use a configuration file to configure your instances' security group settings during environment creation to avoid time-consuming configuration updates. See [Advanced environment customization with configuration files (.ebextensions)](ebextensions.md "ebextensions.md") for more information. For development and testing, you might want to use the Elastic Beanstalk functionality for adding a managed DB instance directly to your environment. For instructions on setting up a database inside your environment, see [Adding a database to your Elastic Beanstalk environment](using-features.managing.md "using-features.managing.md"). If you need a high-performance database, consider using [Amazon Aurora](https://aws.amazon.com/rds/aurora/ "https://aws.amazon.com/rds/aurora/"). Amazon Aurora is a MySQL-compatible database engine that offers commercial database features at low cost. To connect your application to a different database, repeat the [security group configuration](php-ha-tutorial.md#php-hawrds-tutorial-database "php-ha-tutorial.md#php-hawrds-tutorial-database") steps and [update the RDS-related environment properties](php-ha-tutorial.md#php-hawrds-tutorial-configure "php-ha-tutorial.md#php-hawrds-tutorial-configure"). Finally, if you plan on using your application in a production environment, you will want to [configure a custom domain name](customdomains.md "customdomains.md") for your environment and [enable HTTPS](configuring-https.md "configuring-https.md") for secure connections. |
+| Property name  | Description                                                                                    | Property value                                                                         |
+| -------------- | ---------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| `RDS_HOSTNAME` | The hostname of the DB instance.                                                               | On the **Connectivity & security\*<br>• tab on the Amazon RDS console: **Endpoint\*\*. |
+| `RDS_PORT`     | The port where the DB instance accepts connections. The default value varies among DB engines. | On the **Connectivity & security\*<br>• tab on the Amazon RDS console: **Port\*\*.     |
+| `RDS_DB_NAME`  | The database name, `ebdb`.                                                                     | On the **Configuration\*<br>• tab on the Amazon RDS console: **DB Name\*\*.            |
+| `RDS_USERNAME` | The username that you configured for your database.                                            | On the **Configuration\*<br>• tab on the Amazon RDS console: **Master username\*\*.    |
+| `RDS_PASSWORD` | The password that you configured for your database.                                            | Not available for reference in the Amazon RDS console.                                 |
+
+![Environment properties configuration section with RDS properties added](images/environment-cfg-envprops-rds.png) 6. To save the changes choose **Apply** at the bottom of the page.
+
+After installing Drupal, you need to connect to the instance with SSH to retrieve some configuration details. Assign an SSH key to your environment's
+instances.
+
+###### To configure SSH
+
+1. If you haven't previously created a key pair, open the [key pairs page](https://console.aws.amazon.com/ec2/v2/home#KeyPairs "https://console.aws.amazon.com/ec2/v2/home#KeyPairs") of the Amazon EC2
+   console and follow the instructions to create one.
+2. Open the [Elastic Beanstalk console](https://console.aws.amazon.com/elasticbeanstalk "https://console.aws.amazon.com/elasticbeanstalk"),
+   and in the **Regions** list, select your AWS Region.
+3. In the navigation pane, choose **Environments**, and then choose the name of your environment from the list.
+4. In the navigation pane, choose **Configuration**.
+5. Under **Security**, choose **Edit**.
+6. For **EC2 key pair**, choose your key pair.
+7. To save the changes choose **Apply** at the bottom of the page.
+
+## Configure and deploy your application
+
+To create a Drupal project for Elastic Beanstalk, download the Drupal source code and combine it with the files in the [aws-samples/eb-php-drupal](https://github.com/aws-samples/eb-php-drupal "https://github.com/aws-samples/eb-php-drupal") repository on GitHub.
+
+###### To create a Drupal project
+
+1. Run the follwing command to download Drupal from *www.drupal.org/download*. To learn more about downloads, see the [the Drupal website](https://www.drupal.org/download "https://www.drupal.org/download").
+
+If the platform of your Elastic Beanstalk environment uses PHP 7.4 or earlier, we recommend that you download Drupal version 8.9.13 for this tutorial. You can
+run the following command to download it.
+
+```
+~$ `curl https://ftp.drupal.org/files/projects/drupal-8.9.13.tar.gz -o drupal.tar.gz`
+```
+
+If your platform uses PHP 8.0 or later, we recommend that you download Drupal 9.1.5. You can use this command to download it.
+
+```
+~$ `curl https://ftp.drupal.org/files/projects/drupal-9.1.5.tar.gz -o drupal.tar.gz`
+```
+
+For more information about Drupal releases and the PHP versions that they support, see [PHP requirements](https://www.drupal.org/docs/system-requirements/php-requirements#php_required "https://www.drupal.org/docs/system-requirements/php-requirements#php_required") in the official Drupal documentation.
+The core versions that Drupal recommends are listed on [the Drupal website](https://www.drupal.org/project/drupal "https://www.drupal.org/project/drupal"). 2. Use the following command to download the configuration files from the sample repository:
+
+```
+~$ `wget https://github.com/aws-samples/eb-php-drupal/releases/download/v1.1/eb-php-drupal-v1.zip`
+```
+
+3. Extract Drupal and change the name of the folder.
+
+If you downloaded Drupal 8.9.13:
+
+```
+ ~$ `tar -xvf drupal.tar.gz`
+ ~$ `mv drupal-8.9.13 drupal-beanstalk`
+ ~$ `cd drupal-beanstalk`
+```
+
+If you downloaded Drupal 9.1.5:
+
+```
+ ~$ `tar -xvf drupal.tar.gz`
+ ~$ `mv drupal-9.1.5 drupal-beanstalk`
+ ~$ `cd drupal-beanstalk`
+```
+
+4. Extract the configuration files over the Drupal installation.
+
+```
+ ~/drupal-beanstalk$ `unzip ../eb-php-drupal-v1.zip`
+  creating: .ebextensions/
+  inflating: .ebextensions/dev.config
+  inflating: .ebextensions/drupal.config
+  inflating: .ebextensions/efs-create.config
+  inflating: .ebextensions/efs-filesystem.template
+  inflating: .ebextensions/efs-mount.config
+  inflating: .ebextensions/loadbalancer-sg.config
+  inflating: LICENSE
+  inflating: README.md
+  inflating: beanstalk-settings.php
+```
+
+Verify that the structure of your `drupal-beanstalk` folder is correct, as shown.
+
+```
+drupal-beanstalk$ `tree -aL 1`
+.
+├── autoload.php
+├── `beanstalk-settings.php`
+├── composer.json
+├── composer.lock
+├── core
+├── .csslintrc
+├── `.ebextensions`
+├── .ebextensions
+├── .editorconfig
+├── .eslintignore
+├── .eslintrc.json
+├── example.gitignore
+├── .gitattributes
+├── .htaccess
+├── .ht.router.php
+├── index.php
+├── LICENSE
+├── LICENSE.txt
+├── modules
+├── profiles
+├── README.md
+├── README.txt
+├── robots.txt
+├── sites
+├── themes
+├── update.php
+├── vendor
+└── web.config
+```
+
+The `beanstalk-settings.php` file from the project repo uses the environment variables that you defined in the previous step to
+configure the database connection. The `.ebextensions` folder contains configuration files that create additional resources within your
+Elastic Beanstalk environment.
+
+The configuration files require modification to work with your account. Replace the placeholder values in the files with the appropriate IDs and
+create a source bundle.
+
+###### To update configuration files and create a source bundle.
+
+1. Modify the configuration files as follows.
+   - `.ebextensions/dev.config` – restricts access to your environment to your IP address to protect it during the Drupal
+     installation process. Replace the placeholder IP address near the top of the file with your public IP address.
+   - `.ebextensions/efs-create.config` – creates an EFS file system and mount points in each Availability Zone / subnet
+     in your VPC. Identify your default VPC and subnet IDs in the [Amazon VPC
+     console](https://console.aws.amazon.com/vpc/home#subnets:filter=default "https://console.aws.amazon.com/vpc/home#subnets:filter=default").
+
+2. Create a [source bundle](applications-sourcebundle.md "applications-sourcebundle.md") containing the files in your project folder. The following command creates
+   a source bundle named `drupal-beanstalk.zip`. It excludes files in the `vendor` folder, which take up a lot of
+   space and are not necessary for deploying your application to Elastic Beanstalk.
+
+```
+~/eb-drupal$ `zip ../drupal-beanstalk.zip -r * .[^.]* -x "vendor/*"`
+```
+
+Upload the source bundle to Elastic Beanstalk to deploy Drupal to your environment.
+
+###### To deploy a source bundle
+
+1. Open the [Elastic Beanstalk console](https://console.aws.amazon.com/elasticbeanstalk "https://console.aws.amazon.com/elasticbeanstalk"),
+   and in the **Regions** list, select your AWS Region.
+2. In the navigation pane, choose **Environments**, and then choose the name of your environment from the list.
+3. On the environment overview page, choose **Upload and deploy**.
+4. Use the on-screen dialog box to upload the source bundle.
+5. Choose **Deploy**.
+6. When the deployment completes, you can choose the site URL to open your website in a new tab.
+
+## Install Drupal
+
+###### To complete your Drupal installation
+
+1. Open the [Elastic Beanstalk console](https://console.aws.amazon.com/elasticbeanstalk "https://console.aws.amazon.com/elasticbeanstalk"),
+   and in the **Regions** list, select your AWS Region.
+2. In the navigation pane, choose **Environments**, and then choose the name of your environment from the list.
+3. Choose the environment URL to open your site in a browser. You are redirected to a Drupal installation wizard because the site has not been
+   configured yet.
+4. Perform a standard installation with the following settings for the database:
+   - **Database name** – The **DB Name** shown in the Amazon RDS console.
+   - **Database username and password** – The **Master Username** and **Master
+     Password** values you entered when creating your database.
+   - **Advanced Options > Host** – The **Endpoint** of the DB instance shown in the Amazon RDS
+     console.
+
+Installation takes about a minute to complete.
+
+## Update Drupal configuration and remove access restrictions
+
+The Drupal installation process created a file named `settings.php` in the `sites/default` folder on the
+instance. You need this file in your source code to avoid resetting your site on subsequent deployments, but the file currently contains secrets that you
+don't want to commit to source. Connect to the application instance to retrieve information from the settings file.
+
+###### To connect to your application instance with SSH
+
+1. Open the [instances page](https://console.aws.amazon.com/ec2/v2/home#Instances:sort=tag:Name "https://console.aws.amazon.com/ec2/v2/home#Instances:sort=tag:Name") of the Amazon EC2 console.
+2. Choose the application instance. It is the one named after your Elastic Beanstalk environment.
+3. Choose **Connect**.
+4. Follow the instructions to connect the instance with SSH. The command looks similar to the following.
+
+```
+$ `ssh -i ~/.ssh/mykey ec2-user@ec2-00-55-33-222.us-west-2.compute.amazonaws.com`
+```
+
+Get the sync directory id from the last line of the settings file.
+
+```
+[ec2-user ~]$ `tail -n 1 /var/app/current/sites/default/settings.php`
+$config_directories['sync'] = '`sites/default/files/config_4ccfX2sPQm79p1mk5IbUq9S_FokcENO4mxyC-L18-4g_xKj_7j9ydn31kDOYOgnzMu071Tvc4Q/sync`';
+```
+
+The file also contains the sites current hash key, but you can ignore the current value and use your own.
+
+Assign the sync directory path and hash key to environment properties. The customized settings file from the project repo reads these properties to
+configure the site during deployment, in addition to the database connection properties that you set earlier.
+
+###### Drupal configuration properties
+
+- `SYNC_DIR` – The path to the sync directory.
+- `HASH_SALT` – Any string value that meets [environment property
+  requirements](environments-cfg-softwaresettings.md#environments-cfg-softwaresettings-console "environments-cfg-softwaresettings.md#environments-cfg-softwaresettings-console").
+
+###### To configure environment variables in the Elastic Beanstalk console
+
+1. Open the [Elastic Beanstalk console](https://console.aws.amazon.com/elasticbeanstalk "https://console.aws.amazon.com/elasticbeanstalk"),
+   and in the **Regions** list, select your AWS Region.
+2. In the navigation pane, choose **Environments**, and then choose the name of your environment from the list.
+3. In the navigation pane, choose **Configuration**.
+4. In the **Updates, monitoring, and logging** configuration category, choose **Edit**.
+5. Scroll down to **Runtime environment variables**.
+6. Select **Add environment variable**.
+7. For **Source** select **Plain text**.
+
+###### Note
+
+The **Secrets Manager** and **SSM Parameter Store** values in the drop-down are for configuring environment
+variables as secrets to store sensitive data, such as credentials and API keys. For more information, see [Using Elastic Beanstalk with AWS Secrets Manager and AWS Systems Manager Parameter Store](AWSHowTo.md "AWSHowTo.md"). 8. Enter the **Environment variable name** and **Environment variable value** pairs. 9. If you need to add more variables repeat **Step 6** through **Step 8**. 10. To save the changes choose **Apply** at the bottom of the page.
+
+Finally, the sample project includes a configuration file (`loadbalancer-sg.config`) that creates a security group and assigns it
+to the environment's load balancer, using the IP address that you configured in `dev.config` to restrict HTTP access on port 80 to
+connections from your network. Otherwise, an outside party could potentially connect to your site before you have installed Drupal and configured your
+admin account.
+
+###### To update Drupal's configuration and remove access restrictions
+
+1. Delete the `.ebextensions/loadbalancer-sg.config` file from your project directory.
+
+```
+~/drupal-beanstalk$ `rm .ebextensions/loadbalancer-sg.config`
+```
+
+2. Copy the customized `settings.php` file into the sites folder.
+
+```
+~/drupal-beanstalk$ `cp beanstalk-settings.php sites/default/settings.php`
+```
+
+3. Create a source bundle.
+
+```
+~/eb-drupal$ `zip ../drupal-beanstalk-v2.zip -r * .[^.]* -x "vendor/*"`
+```
+
+Upload the source bundle to Elastic Beanstalk to deploy Drupal to your environment.
+
+###### To deploy a source bundle
+
+1. Open the [Elastic Beanstalk console](https://console.aws.amazon.com/elasticbeanstalk "https://console.aws.amazon.com/elasticbeanstalk"),
+   and in the **Regions** list, select your AWS Region.
+2. In the navigation pane, choose **Environments**, and then choose the name of your environment from the list.
+3. On the environment overview page, choose **Upload and deploy**.
+4. Use the on-screen dialog box to upload the source bundle.
+5. Choose **Deploy**.
+6. When the deployment completes, you can choose the site URL to open your website in a new tab.
+
+## Configure your Auto Scaling group
+
+Finally, configure your environment's Auto Scaling group with a higher minimum instance count. Run at least two instances at all times to prevent the web
+servers in your environment from being a single point of failure, and to allow you to deploy changes without taking your site out of service.
+
+###### To configure your environment's Auto Scaling group for high availability
+
+1. Open the [Elastic Beanstalk console](https://console.aws.amazon.com/elasticbeanstalk "https://console.aws.amazon.com/elasticbeanstalk"),
+   and in the **Regions** list, select your AWS Region.
+2. In the navigation pane, choose **Environments**, and then choose the name of your environment from the list.
+3. In the navigation pane, choose **Configuration**.
+4. In the **Capacity** configuration category, choose **Edit**.
+5. In the **Auto Scaling group** section, set **Min instances** to `2`.
+6. To save the changes choose **Apply** at the bottom of the page.
+
+To support content uploads across multiple instances, the sample project uses Amazon Elastic File System to create a shared file system. Create a post on the site and
+upload content to store it on the shared file system. View the post and refresh the page multiple times to hit both instances and verify that the shared
+file system is working.
+
+## Cleanup
+
+After you finish working with the demo code, you can terminate your environment.
+Elastic Beanstalk deletes all related AWS resources, such as
+[Amazon EC2 instances](using-features.managing.md "using-features.managing.md"),
+[database instances](using-features.managing.md "using-features.managing.md"),
+[load balancers](using-features.managing.md "using-features.managing.md"),
+security groups,
+and [alarms](using-features.md#using-features.alarms.title "using-features.md#using-features.alarms.title").
+
+Removing resources does not delete the Elastic Beanstalk application, so you can create new environments for your application at any time.
+
+###### To terminate your Elastic Beanstalk environment from the console
+
+1. Open the [Elastic Beanstalk console](https://console.aws.amazon.com/elasticbeanstalk "https://console.aws.amazon.com/elasticbeanstalk"),
+   and in the **Regions** list, select your AWS Region.
+2. In the navigation pane, choose **Environments**, and then choose the name of your environment from the list.
+3. Choose **Actions**, and then choose **Terminate
+   environment**.
+4. Use the on-screen dialog box to confirm environment termination.
+
+In addition, you can terminate database resources that you created outside of your Elastic Beanstalk
+environment. When you terminate an Amazon RDS DB instance, you can take a snapshot and restore
+the data to another instance later.
+
+###### To terminate your RDS DB instance
+
+1. Open the [Amazon RDS console](https://console.aws.amazon.com/rds "https://console.aws.amazon.com/rds").
+2. Choose **Databases**.
+3. Choose your DB instance.
+4. Choose **Actions**, and then choose **Delete**.
+5. Choose whether to create a snapshot, and then choose
+   **Delete**.
+
+## Next steps
+
+As you continue to develop your application, you'll probably want a way to manage environments and deploy your application without manually creating a
+.zip file and uploading it to the Elastic Beanstalk console. The [Elastic Beanstalk Command Line Interface](eb-cli3.md "eb-cli3.md") (EB CLI) provides easy-to-use commands
+for creating, configuring, and deploying applications to Elastic Beanstalk environments from the command line.
+
+The sample application uses configuration files to configure PHP settings and create a table in the database if it doesn't already exist. You can also
+use a configuration file to configure your instances' security group settings during environment creation to avoid time-consuming configuration updates.
+See [Advanced environment customization with configuration files (.ebextensions)](ebextensions.md "ebextensions.md") for more information.
+
+For development and testing, you might want to use the Elastic Beanstalk functionality for adding a managed DB instance directly to your environment. For
+instructions on setting up a database inside your environment, see [Adding a database to your Elastic Beanstalk environment](using-features.managing.md "using-features.managing.md").
+
+If you need a high-performance database, consider using [Amazon Aurora](https://aws.amazon.com/rds/aurora/ "https://aws.amazon.com/rds/aurora/").
+Amazon Aurora is a
+MySQL-compatible database engine that offers commercial database features at low cost. To connect your application to a different database, repeat the
+[security group configuration](php-ha-tutorial.md#php-hawrds-tutorial-database "php-ha-tutorial.md#php-hawrds-tutorial-database") steps and [update the
+RDS-related environment properties](php-ha-tutorial.md#php-hawrds-tutorial-configure "php-ha-tutorial.md#php-hawrds-tutorial-configure").
+
+Finally, if you plan on using your application in a production environment, you will want to [configure a custom domain
+name](customdomains.md "customdomains.md") for your environment and [enable HTTPS](configuring-https.md "configuring-https.md") for secure connections.

@@ -78,22 +78,115 @@ Apache configuration completely.
   `.ebextensions/httpd/conf.d` in your application source bundle. The Elastic Beanstalk Apache configuration includes `.conf`
   files in this folder automatically.
 
-````
+```
 ~/workspace/my-app/
 |-- .ebextensions
 |   -- httpd
 |      -- conf.d
 |         -- myconf.conf
-|         -- ssl.conf -- index.jsp ``` For example, the following Apache 2.4 configuration adds a listener on port 5000. ###### Example .ebextensions/httpd/conf.d/port5000.conf ``` listen 5000 <VirtualHost *:5000> <Proxy *> Require all granted </Proxy> ProxyPass / http://localhost:8080/ retry=0 ProxyPassReverse / http://localhost:8080/ ProxyPreserveHost on ErrorLog /var/log/httpd/elasticbeanstalk-error_log </VirtualHost> ``` To override the Elastic Beanstalk default Apache configuration completely, include a configuration in your source bundle at `.ebextensions/httpd/conf/httpd.conf`. ``` ~/workspace/my-app/
+|         -- ssl.conf
+-- index.jsp
+```
+
+For example, the following Apache 2.4 configuration adds a listener on port 5000.
+
+###### Example .ebextensions/httpd/conf.d/port5000.conf
+
+```
+listen 5000
+<VirtualHost *:5000>
+  <Proxy *>
+    Require all granted
+  </Proxy>
+  ProxyPass / http://localhost:8080/ retry=0
+  ProxyPassReverse / http://localhost:8080/
+  ProxyPreserveHost on
+
+  ErrorLog /var/log/httpd/elasticbeanstalk-error_log
+</VirtualHost>
+```
+
+To override the Elastic Beanstalk default Apache configuration completely, include a configuration in your source bundle at
+`.ebextensions/httpd/conf/httpd.conf`.
+
+```
+~/workspace/my-app/
 |-- .ebextensions
 |   `-- httpd
 |       `-- conf
-|           `-- httpd.conf `-- index.jsp ``` If you override the Elastic Beanstalk Apache configuration, add the following lines to your `httpd.conf` to pull in the Elastic Beanstalk configurations for [Enhanced health reporting and monitoring in Elastic Beanstalk](health-enhanced.md "health-enhanced.md"), response compression, and static files. ``` IncludeOptional conf.d/*.conf IncludeOptional conf.d/elasticbeanstalk/*.conf ``` If your environment uses Apache 2.2 as its proxy, replace the `IncludeOptional` directives with `Include`. For details about the behavior of these two directives in the two Apache versions, see [Include in Apache 2.4](https://httpd.apache.org/docs/2.4/mod/core.html#include "https://httpd.apache.org/docs/2.4/mod/core.html#include"), [IncludeOptional in Apache 2.4](https://httpd.apache.org/docs/2.4/mod/core.html#includeoptional "https://httpd.apache.org/docs/2.4/mod/core.html#includeoptional"), and [Include in Apache 2.2](https://httpd.apache.org/docs/2.2/mod/core.html#include "https://httpd.apache.org/docs/2.2/mod/core.html#include"). ###### Note To override the default listener on port 80, include a file named `00_application.conf` at `.ebextensions/httpd/conf.d/elasticbeanstalk/` to overwrite the Elastic Beanstalk configuration. For a working example, take a look at the Elastic Beanstalk default configuration file at `/etc/httpd/conf/httpd.conf` on an instance in your environment. All files in the `.ebextensions/httpd` folder in your source bundle are copied to `/etc/httpd` during deployments. To extend Elastic Beanstalk's default nginx configuration, add `.conf` configuration files to a folder named `.ebextensions/nginx/conf.d/` in your application source bundle. The Elastic Beanstalk nginx configuration includes `.conf` files in this folder automatically. ``` ~/workspace/my-app/
+|           `-- httpd.conf
+`-- index.jsp
+```
+
+If you override the Elastic Beanstalk Apache configuration, add the following lines to your `httpd.conf` to pull in the Elastic Beanstalk configurations
+for [Enhanced health reporting and monitoring in Elastic Beanstalk](health-enhanced.md "health-enhanced.md"), response compression, and static files.
+
+```
+IncludeOptional conf.d/*.conf
+IncludeOptional conf.d/elasticbeanstalk/*.conf
+```
+
+If your environment uses Apache 2.2 as its proxy, replace the `IncludeOptional` directives with `Include`. For details about the
+behavior of these two directives in the two Apache versions, see
+[Include in Apache 2.4](https://httpd.apache.org/docs/2.4/mod/core.html#include "https://httpd.apache.org/docs/2.4/mod/core.html#include"),
+[IncludeOptional in Apache 2.4](https://httpd.apache.org/docs/2.4/mod/core.html#includeoptional "https://httpd.apache.org/docs/2.4/mod/core.html#includeoptional"), and
+[Include in Apache 2.2](https://httpd.apache.org/docs/2.2/mod/core.html#include "https://httpd.apache.org/docs/2.2/mod/core.html#include").
+
+###### Note
+
+To override the default listener on port 80, include a file named `00_application.conf` at
+`.ebextensions/httpd/conf.d/elasticbeanstalk/` to overwrite the Elastic Beanstalk configuration.
+
+For a working example, take a look at the Elastic Beanstalk default configuration file at `/etc/httpd/conf/httpd.conf` on an instance in your
+environment. All files in the `.ebextensions/httpd` folder in your source bundle are copied to `/etc/httpd` during
+deployments.
+
+To extend Elastic Beanstalk's default nginx configuration, add `.conf` configuration files to a folder named
+`.ebextensions/nginx/conf.d/` in your application source bundle. The Elastic Beanstalk nginx configuration includes `.conf`
+files in this folder automatically.
+
+```
+~/workspace/my-app/
 |-- .ebextensions
 |   `-- nginx
 |       `-- conf.d
 |           |-- elasticbeanstalk
 |           |   `-- my-server-conf.conf
-|           `-- my-http-conf.conf `-- index.jsp ``` Files with the .conf extension in the `conf.d` folder are included in the `http` block of the default configuration. Files in the `conf.d/elasticbeanstalk` folder are included in the `server` block within the `http` block. To override the Elastic Beanstalk default nginx configuration completely, include a configuration in your source bundle at `.ebextensions/nginx/nginx.conf`. ``` ~/workspace/my-app/ |-- .ebextensions
-|   `-- nginx |       `-- nginx.conf `-- index.jsp ``` ###### Notes <br>• If you override the Elastic Beanstalk nginx configuration, add the following line to your configuration's `server` block to pull in the Elastic Beanstalk configurations for the port 80 listener, response compression, and static files. ``` include conf.d/elasticbeanstalk/*.conf; ``` <br>• To override the default listener on port 80, include a file named `00_application.conf` at `.ebextensions/nginx/conf.d/elasticbeanstalk/` to overwrite the Elastic Beanstalk configuration. <br>• Also include the following line in your configuration's `http` block to pull in the Elastic Beanstalk configurations for [Enhanced health reporting and monitoring in Elastic Beanstalk](health-enhanced.md "health-enhanced.md") and logging. ``` include       conf.d/*.conf; ``` For a working example, take a look at the Elastic Beanstalk default configuration file at `/etc/nginx/nginx.conf` on an instance in your environment. All files in the `.ebextensions/nginx` folder in your source bundle are copied to `/etc/nginx` during deployments.
-````
+|           `-- my-http-conf.conf
+`-- index.jsp
+```
+
+Files with the .conf extension in the `conf.d` folder are included in the `http` block of the default configuration.
+Files in the `conf.d/elasticbeanstalk` folder are included in the `server` block within the `http` block.
+
+To override the Elastic Beanstalk default nginx configuration completely, include a configuration in your source bundle at
+`.ebextensions/nginx/nginx.conf`.
+
+```
+~/workspace/my-app/
+|-- .ebextensions
+|   `-- nginx
+|       `-- nginx.conf
+`-- index.jsp
+```
+
+###### Notes
+
+- If you override the Elastic Beanstalk nginx configuration, add the following line to your configuration's `server` block to pull in the Elastic Beanstalk
+  configurations for the port 80 listener, response compression, and static files.
+
+```
+ include conf.d/elasticbeanstalk/*.conf;
+```
+
+- To override the default listener on port 80, include a file named `00_application.conf` at
+  `.ebextensions/nginx/conf.d/elasticbeanstalk/` to overwrite the Elastic Beanstalk configuration.
+- Also include the following line in your configuration's `http` block to pull in the Elastic Beanstalk configurations for [Enhanced health reporting and monitoring in Elastic Beanstalk](health-enhanced.md "health-enhanced.md") and logging.
+
+```
+    include       conf.d/*.conf;
+```
+
+For a working example, take a look at the Elastic Beanstalk default configuration file at `/etc/nginx/nginx.conf` on an instance in your
+environment. All files in the `.ebextensions/nginx` folder in your source bundle are copied to `/etc/nginx` during
+deployments.

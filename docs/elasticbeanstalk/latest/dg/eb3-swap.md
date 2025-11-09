@@ -27,7 +27,38 @@ default environment.
 
 ## Options
 
-| Name                                                      | Description                                                                                                                                                                               |
-| --------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `-n` or `--destination_name`                              | Specifies the name of the environment with which you want to swap CNAMEs. If you run **eb swap** without this option, then EB CLI prompts you to choose from a list of your environments. |
-| [Common options](eb3-cmd-options.md "eb3-cmd-options.md") |                                                                                                                                                                                           | ## Output If successful, the command returns the status of the `swap` operation. ## Examples The following example swaps the environment tmp-dev with live-env. ``$ `eb swap` Select an environment to swap with. 1) staging-dev 2) live-env (default is 1): 2 2018-07-11 21:05:25    INFO: swapEnvironmentCNAMEs is starting. 2018-07-11 21:05:26    INFO: Swapping CNAMEs for environments 'tmp-dev' and 'live-env'. 2018-07-11 21:05:30    INFO: 'tmp-dev.elasticbeanstalk.com' now points to 'awseb-e-j-AWSEBLoa-M7U21VXNLWHN-487871449.us-west-2.elb.amazonaws.com'. 2018-07-11 21:05:30    INFO: Completed swapping CNAMEs for environments 'tmp-dev' and 'live-env'.`` The following example swaps the environment tmp-dev with the environment live-env but does not prompt you to enter or select a value for any settings. ``$ `eb swap tmp-dev --destination_name live-env` 2018-07-11 21:18:12    INFO: swapEnvironmentCNAMEs is starting. 2018-07-11 21:18:13    INFO: Swapping CNAMEs for environments 'tmp-dev' and 'live-env'. 2018-07-11 21:18:17    INFO: 'tmp-dev.elasticbeanstalk.com' now points to 'awseb-e-j-AWSEBLoa-M7U21VXNLWHN-487871449.us-west-2.elb.amazonaws.com'. 2018-07-11 21:18:17    INFO: Completed swapping CNAMEs for environments 'tmp-dev' and 'live-env'.`` |
+| Name                                                      | Description                                                                                                                                                                                          |
+| --------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `-n`<br>or<br>`--destination_name`                        | Specifies the name of the environment with which you want to swap CNAMEs. If<br>you run \*_eb swap_<br>• without this option, then EB CLI prompts you to<br>choose from a list of your environments. |
+| [Common options](eb3-cmd-options.md "eb3-cmd-options.md") |                                                                                                                                                                                                      |
+
+## Output
+
+If successful, the command returns the status of the `swap` operation.
+
+## Examples
+
+The following example swaps the environment tmp-dev with live-env.
+
+```
+$ `eb swap`
+Select an environment to swap with.
+1) staging-dev
+2) live-env
+(default is 1): 2
+2018-07-11 21:05:25    INFO: swapEnvironmentCNAMEs is starting.
+2018-07-11 21:05:26    INFO: Swapping CNAMEs for environments 'tmp-dev' and 'live-env'.
+2018-07-11 21:05:30    INFO: 'tmp-dev.elasticbeanstalk.com' now points to 'awseb-e-j-AWSEBLoa-M7U21VXNLWHN-487871449.us-west-2.elb.amazonaws.com'.
+2018-07-11 21:05:30    INFO: Completed swapping CNAMEs for environments 'tmp-dev' and 'live-env'.
+```
+
+The following example swaps the environment tmp-dev with the environment live-env but
+does not prompt you to enter or select a value for any settings.
+
+```
+$ `eb swap tmp-dev --destination_name live-env`
+2018-07-11 21:18:12    INFO: swapEnvironmentCNAMEs is starting.
+2018-07-11 21:18:13    INFO: Swapping CNAMEs for environments 'tmp-dev' and 'live-env'.
+2018-07-11 21:18:17    INFO: 'tmp-dev.elasticbeanstalk.com' now points to 'awseb-e-j-AWSEBLoa-M7U21VXNLWHN-487871449.us-west-2.elb.amazonaws.com'.
+2018-07-11 21:18:17    INFO: Completed swapping CNAMEs for environments 'tmp-dev' and 'live-env'.
+```

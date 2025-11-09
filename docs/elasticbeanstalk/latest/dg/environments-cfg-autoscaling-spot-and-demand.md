@@ -83,19 +83,51 @@ enabled.
 
 of initial capacity
 
-| Option settings                        | **Option**            | **Namespace** | **Value**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| -------------------------------------- | --------------------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- | ------------- | --------- |
+| Option settings                        | **Option**            | **Namespace** | **Value** |
+| -------------------------------------- | --------------------- | ------------- | --------- |
 | `MinSize`                              | `aws:autoscaling:asg` | `10`          |
 | `MaxSize`                              | `aws:autoscaling:asg` | `24`          |
 | `SpotFleetOnDemandBase`                | `aws:ec2:instances`   | `4`           |
-| `SpotFleetOnDemandAboveBasePercentage` | `aws:ec2:instances`   | `50`          | In this example, the environment starts with ten instances, of which seven are On-Demand (four base, and 50% of the six above base) and three are Spot. The environment can scale out up to 24 instances. As it scales out, the portion of On-Demand in the part of the fleet above the four base On-Demand instances is kept at 50%, up to a maximum of 24 instances overall, of which 14 are On-Demand (four base, and 50% of the 20 above base) and ten are Spot. ###### Example 2: All On-Demand initial capacity Option settings | **Option** | **Namespace** | **Value** |
-| ---                                    | ---                   | ---           |
+| `SpotFleetOnDemandAboveBasePercentage` | `aws:ec2:instances`   | `50`          |
+
+In this example, the environment starts with ten instances, of which seven are
+On-Demand (four base, and 50% of the six above base) and three are Spot. The environment
+can scale out up to 24 instances. As it scales out, the portion of On-Demand in the part
+of the fleet above the four base On-Demand instances is kept at 50%, up to a maximum of 24
+instances overall, of which 14 are On-Demand (four base, and 50% of the 20 above base) and
+ten are Spot.
+
+###### Example 2: All On-Demand initial
+
+capacity
+
+| Option settings                        | **Option**            | **Namespace** | **Value** |
+| -------------------------------------- | --------------------- | ------------- | --------- |
 | `MinSize`                              | `aws:autoscaling:asg` | `4`           |
 | `MaxSize`                              | `aws:autoscaling:asg` | `24`          |
 | `SpotFleetOnDemandBase`                | `aws:ec2:instances`   | `4`           |
-| `SpotFleetOnDemandAboveBasePercentage` | `aws:ec2:instances`   | `50`          | In this example, the environment starts with four instances, all of which are On-Demand. The environment can scale out up to 24 instances. As it scales out, the portion of On-Demand in the part of the fleet above the four base On-Demand instances is kept at 50%, up to a maximum of 24 instances overall, of which 14 are On-Demand (four base, and 50% of the 20 above base) and ten are Spot. ###### Example 3: Additional On-Demand base beyond initial capacity Option settings                                             | **Option** | **Namespace** | **Value** |
-| ---                                    | ---                   | ---           |
+| `SpotFleetOnDemandAboveBasePercentage` | `aws:ec2:instances`   | `50`          |
+
+In this example, the environment starts with four instances, all of which are
+On-Demand. The environment can scale out up to 24 instances. As it scales out, the portion
+of On-Demand in the part of the fleet above the four base On-Demand instances is kept at
+50%, up to a maximum of 24 instances overall, of which 14 are On-Demand (four base, and
+50% of the 20 above base) and ten are Spot.
+
+###### Example 3: Additional On-Demand base
+
+beyond initial capacity
+
+| Option settings                        | **Option**            | **Namespace** | **Value** |
+| -------------------------------------- | --------------------- | ------------- | --------- |
 | `MinSize`                              | `aws:autoscaling:asg` | `3`           |
 | `MaxSize`                              | `aws:autoscaling:asg` | `24`          |
 | `SpotFleetOnDemandBase`                | `aws:ec2:instances`   | `4`           |
-| `SpotFleetOnDemandAboveBasePercentage` | `aws:ec2:instances`   | `50`          | In this example, the environment starts with three instances, all of which are On-Demand. The environment can scale out up to 24 instances. The first additional instance above the initial three is On-Demand, to complete the four base On-Demand instances. As it scales out further, the portion of On-Demand in the part of the fleet above the four base On-Demand instances is kept at 50%, up to a maximum of 24 instances overall, of which 14 are On-Demand (four base, and 50% of the 20 above base) and ten are Spot.     |
+| `SpotFleetOnDemandAboveBasePercentage` | `aws:ec2:instances`   | `50`          |
+
+In this example, the environment starts with three instances, all of which are
+On-Demand. The environment can scale out up to 24 instances. The first additional instance
+above the initial three is On-Demand, to complete the four base On-Demand instances. As it
+scales out further, the portion of On-Demand in the part of the fleet above the four base
+On-Demand instances is kept at 50%, up to a maximum of 24 instances overall, of which 14
+are On-Demand (four base, and 50% of the 20 above base) and ten are Spot.

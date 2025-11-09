@@ -11,7 +11,7 @@ replacing the certificate and private key material as instructed, and save it in
 bundle's `.ebextensions` directory. The configuration file performs the
 following tasks:
 
-- The `packages` key uses yum to install `mod24_ssl`.
+- The `packages` key uses yum to install `mod_ssl`.
 - The `files` key creates the following files on the instance:
 
 `/etc/httpd/conf.d/ssl.conf`
@@ -68,7 +68,7 @@ The example works only in environments using the [Python](create-deploy-python-c
 ```
 packages:
   yum:
-    mod24_ssl : []
+    mod_ssl: []
 
 files:
   /etc/httpd/conf.d/ssl.conf:
@@ -77,7 +77,7 @@ files:
     group: root
     content: |
       LoadModule wsgi_module modules/mod_wsgi.so
-      WSGIPythonHome /opt/python/run/baselinenv
+      WSGIPythonHome /var/app/venv/staging-LQM1lest
       WSGISocketPrefix run/wsgi
       WSGIRestrictEmbedded On
       Listen 443
@@ -86,24 +86,24 @@ files:
         SSLCertificateFile "/etc/pki/tls/certs/server.crt"
         SSLCertificateKeyFile "/etc/pki/tls/certs/server.key"
 
-        Alias /static/ /opt/python/current/app/static/
-        <Directory /opt/python/current/app/static>
+        Alias /static/ /var/app/current/static/
+        <Directory /var/app/current/static>
         Order allow,deny
         Allow from all
         </Directory>
 
-        WSGIScriptAlias / /opt/python/current/app/`application.py`
+        WSGIScriptAlias / /var/app/current/application.py
 
-        <Directory /opt/python/current/app>
+        <Directory /var/app/current>
         Require all granted
         </Directory>
 
         WSGIDaemonProcess wsgi-ssl processes=1 threads=15 display-name=%{GROUP} \
-          python-path=/opt/python/current/app \
-          python-home=/opt/python/run/venv \
-          home=/opt/python/current/app \
-          user=wsgi \
-          group=wsgi
+          python-path=/var/app/current \
+          python-home=/var/app/venv/staging-LQM1lest \
+          home=/var/app/current \
+          user=webapp \
+          group=webapp
         WSGIProcessGroup wsgi-ssl
 
       </VirtualHost>
@@ -139,6 +139,10 @@ Avoid committing a configuration file that contains your
 private key to source control. After you have tested the configuration and confirmed that it
 works, store your private key in Amazon S3 and modify the configuration to download it during
 deployment. For instructions, see [Storing private keys securely in Amazon S3](https-storingprivatekeys.md "https-storingprivatekeys.md").
+
+###### Note for Amazon Linux 2023 environments
+
+On Amazon Linux 2023, `mod_wsgi` must be installed separately as it's not available in the package repositories. For installation instructions, see [mod_wsgi](https://pypi.org/project/mod-wsgi/ "https://pypi.org/project/mod-wsgi/") on PyPI.
 
 In a single instance environment, you must also modify the
 instance's security group to allow traffic on port 443. The following configuration file

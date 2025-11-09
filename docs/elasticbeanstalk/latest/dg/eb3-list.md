@@ -14,8 +14,35 @@ custom platform, this command also lists the builder environments.
 
 ## Options
 
-| Name                                                      | Description                                                                     |
-| --------------------------------------------------------- | ------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `-a` or `--all`                                           | Lists all environments from all applications.                                   |
-| `-v` or `--verbose`                                       | Provides more detailed information about all environments, including instances. |
-| [Common options](eb3-cmd-options.md "eb3-cmd-options.md") |                                                                                 | ## Output If successful, the command returns a list of environment names in which your current environment is marked with an asterisk (\*). ## Example 1 The following example lists your environments and indicates that tmp-dev is your default environment. ``$ `eb list` <br>• tmp-dev`` ## Example 2 The following example lists your environments with additional details. ``$ `eb list --verbose` Region: us-west-2 Application: tmp Environments: 1 <br>• tmp-dev : ['i-c7ee492d']`` |
+| Name                                                      | Description                                                                        |
+| --------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| `-a`<br>or<br>`--all`                                     | Lists all environments from all applications.                                      |
+| `-v`<br>or<br>`--verbose`                                 | Provides more detailed information about all environments, including<br>instances. |
+| [Common options](eb3-cmd-options.md "eb3-cmd-options.md") |                                                                                    |
+
+## Output
+
+If successful, the command returns a list of environment names in which your current
+environment is marked with an asterisk (\*).
+
+## Example 1
+
+The following example lists your environments and indicates that tmp-dev is your default
+environment.
+
+```
+$ `eb list`
+* tmp-dev
+```
+
+## Example 2
+
+The following example lists your environments with additional details.
+
+```
+$ `eb list --verbose`
+Region: us-west-2
+Application: tmp
+    Environments: 1
+        * tmp-dev : ['i-c7ee492d']
+```

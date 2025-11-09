@@ -42,14 +42,49 @@ configuring your environment's security group.
 
 ## Options
 
-| Name                                                      | Description                                                                                                                                                                                                                                                                                                                            |
-| --------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---- | ----- | --------------------------- | ------ | ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `-i` or `--instance`                                      | Specifies the instance ID of the instance to which you connect. We recommend that you use this option.                                                                                                                                                                                                                                 |
-| `-n` or `--number`                                        | Specify the instance to connect to by number.                                                                                                                                                                                                                                                                                          |
-| `-o` or `--keep_open`                                     | Leave port 22 open on the security group after the SSH session ends.                                                                                                                                                                                                                                                                   |
-| `--command`                                               | Execute a shell command on the specified instance instead of starting an SSH session.                                                                                                                                                                                                                                                  |
-| `--custom`                                                | Specify an SSH command to use instead of 'ssh -i keyfile'. Do not include the remote user and hostname.                                                                                                                                                                                                                                |
-| `--setup`                                                 | Change the key pair assigned to the environment's instances (requires instances to be replaced).                                                                                                                                                                                                                                       |
-| `--force`                                                 | Open port 22 to incoming traffic from 0.0.0.0/0 in the environment's security group, even if the security group is already configured for SSH. Use this option if your environment's security group is configured to open port 22 to a restricted CIDR range that does not include the IP address that you are trying to connect from. |
-| `--timeout` `minutes`                                     | Set number of minutes before the command times out. Can only be used with the `--setup` argument.                                                                                                                                                                                                                                      |
-| [Common options](eb3-cmd-options.md "eb3-cmd-options.md") |                                                                                                                                                                                                                                                                                                                                        | ## Output If successful, the command opens an SSH connection to the instance. ## Example The following example connects you to the specified environment. ```$`eb ssh` Select an instance to ssh into 1) i-96133799 2) i-5931e053 (default is 1): 1 INFO: Attempting to open port 22. INFO: SSH port 22 open. The authenticity of host '54.191.45.125 (54.191.45.125)' can't be established. RSA key fingerprint is ee:69:62:df:90:f7:63:af:52:7c:80:60:1b:3b:51:a9. Are you sure you want to continue connecting (yes/no)? yes Warning: Permanently added '54.191.45.125' (RSA) to the list of known hosts. \_\_ | \_\_ | _ ) _ | ( / Amazon Linux AMI \_\_\_ | \_\_\_ | \_\_\_ | https://aws.amazon.com/amazon-linux-ami/2014.09-release-notes/ No packages needed for security; 1 packages available Run "sudo yum update" to apply all updates. [ec2-user@ip-172-31-8-185 ~]$ ls [ec2-user@ip-172-31-8-185 ~]$ exit logout Connection to 54.191.45.125 closed. INFO: Closed port 22 on ec2 instance security group ``` |
+| Name                                                      | Description                                                                                                                                                                                                                                                                                                                                        |
+| --------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `-i`<br>or<br>`--instance`                                | Specifies the instance ID of the instance to which you connect. We recommend<br>that you use this option.                                                                                                                                                                                                                                          |
+| `-n`<br>or<br>`--number`                                  | Specify the instance to connect to by number.                                                                                                                                                                                                                                                                                                      |
+| `-o`<br>or<br>`--keep_open`                               | Leave port 22 open on the security group after the SSH session ends.                                                                                                                                                                                                                                                                               |
+| `--command`                                               | Execute a shell command on the specified instance instead of starting an SSH<br>session.                                                                                                                                                                                                                                                           |
+| `--custom`                                                | Specify an SSH command to use instead of 'ssh -i keyfile'. Do not include the<br>remote user and hostname.                                                                                                                                                                                                                                         |
+| `--setup`                                                 | Change the key pair assigned to the environment's instances (requires<br>instances to be replaced).                                                                                                                                                                                                                                                |
+| `--force`                                                 | Open port 22 to incoming traffic from 0.0.0.0/0 in the environment's security<br>group, even if the security group is already configured for SSH.<br>Use this option if your environment's security group is configured to open<br>port 22 to a restricted CIDR range that does not include the IP address that you<br>are trying to connect from. |
+| `--timeout`<br>`minutes`                                  | Set number of minutes before the command times out.<br>Can only be used with the `--setup` argument.                                                                                                                                                                                                                                               |
+| [Common options](eb3-cmd-options.md "eb3-cmd-options.md") |                                                                                                                                                                                                                                                                                                                                                    |
+
+## Output
+
+If successful, the command opens an SSH connection to the instance.
+
+## Example
+
+The following example connects you to the specified environment.
+
+```
+$ `eb ssh`
+Select an instance to ssh into
+1) i-96133799
+2) i-5931e053
+(default is 1): 1
+INFO: Attempting to open port 22.
+INFO: SSH port 22 open.
+The authenticity of host '54.191.45.125 (54.191.45.125)' can't be established.
+RSA key fingerprint is ee:69:62:df:90:f7:63:af:52:7c:80:60:1b:3b:51:a9.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added '54.191.45.125' (RSA) to the list of known hosts.
+
+       __|  __|_  )
+       _|  (     /   Amazon Linux AMI
+      ___|\___|___|
+
+https://aws.amazon.com/amazon-linux-ami/2014.09-release-notes/
+No packages needed for security; 1 packages available
+Run "sudo yum update" to apply all updates.
+[ec2-user@ip-172-31-8-185 ~]$ ls
+[ec2-user@ip-172-31-8-185 ~]$ exit
+logout
+Connection to 54.191.45.125 closed.
+INFO: Closed port 22 on ec2 instance security group
+```
