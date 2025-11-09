@@ -145,9 +145,226 @@ The `Resource` JSON policy element specifies the object or objects to which the 
 
 Direct Connect uses the following ARNs:
 
-| Direct connect resource ARNs | Resource Type                                                                     | ARN                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| ---------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Direct connect resource ARNs | Resource Type                                                                     | ARN |
+| ---------------------------- | --------------------------------------------------------------------------------- | --- |
 | dxcon                        | `arn:${Partition}:directconnect:${Region}:${Account}:dxcon/${ConnectionId}`       |
 | dxlag                        | `arn:${Partition}:directconnect:${Region}:${Account}:dxlag/${LagId}`              |
 | dx-vif                       | `arn:${Partition}:directconnect:${Region}:${Account}:dxvif/${VirtualInterfaceId}` |
-| dx-gateway                   | `arn:${Partition}:directconnect::${Account}:dx-gateway/${DirectConnectGatewayId}` | For more information about the format of ARNs, see [Amazon Resource Names (ARNs) and AWS Service Namespaces](../../../general/latest/gr/aws-arns-and-namespaces.md "../../../general/latest/gr/aws-arns-and-namespaces.md"). For example, to specify the `dxcon-11aa22bb` interface in your statement, use the following ARN: `"Resource": "arn:aws:directconnect:us-east-1:123456789012:dxcon/dxcon-11aa22bb` To specify all virtual interfaces that belong to a specific account, use the wildcard (\*): `"Resource": "arn:aws:directconnect:*:*:dxvif/*"` Some Direct Connect actions, such as those for creating resources, cannot be performed on a specific resource. In those cases, you must use the wildcard (\*). `"Resource": "*"` To see a list of Direct Connect resource types and their ARNs, see [Resource Types Defined by AWS Direct Connect](../../../IAM/latest/UserGuide/list_awsdirectconnect.md#awsdirectconnect-resources-for-iam-policies "../../../IAM/latest/UserGuide/list_awsdirectconnect.md#awsdirectconnect-resources-for-iam-policies") in the _IAM User Guide_. To learn with which actions you can specify the ARN of each resource, see [Actions Defined by Direct Connect](../../../IAM/latest/UserGuide/list_awsdirectconnect.md#awsdirectconnect-actions-as-permissions "../../../IAM/latest/UserGuide/list_awsdirectconnect.md#awsdirectconnect-actions-as-permissions"). If a resource ARN or a resource ARN pattern other than `*` is specified in the `Resource` field of the IAM policy statement for DescribeConnections, DescribeVirtualInterfaces, DescribeDirectConnectGateways, DescribeInterconnects, or DescribeLags, then the specified `Effect` will not occur unless the matching resource ID is also passed in the API call. However, if you provide `*` as the resource instead of a specific resource ID in the IAM policy statement, the specified `Effect` will work. In the following example, neither specified `Effect` will succeed if the `DescribeConnections` action is called without a `connectionId` passed in the request. `"Statement": [ { "Effect": "Allow", "Action": [ "directconnect:DescribeConnections" ], "Resource": [ "arn:aws:directconnect:*:123456789012:dxcon/*" ] }, { "Effect": "Deny", "Action": [ "directconnect:DescribeConnections" ], "Resource": [ "arn:aws:directconnect:*:123456789012:dxcon/example1" ] } ]` However, in the following example, `"Effect": "Allow"` will succeed for the `DescribeConnections` action since `*` was provided for the `Resource` field of the IAM policy statement, regardless of whether the `connectionId` was specified in the request. `"Statement": [ { "Effect": "Allow", "Action": [ "directconnect:DescribeConnections ], "Resource": [ "*" ] } ]` ### Condition keys Administrators can use AWS JSON policies to specify who has access to what. That is, which **principal** can perform **actions** on what **resources**, and under what **conditions**. The `Condition` element specifies when statements execute based on defined criteria. You can create conditional expressions that use [condition operators](../../../IAM/latest/UserGuide/reference_policies_elements_condition_operators.md "../../../IAM/latest/UserGuide/reference_policies_elements_condition_operators.md"), such as equals or less than, to match the condition in the policy with values in the request. To see all AWS global condition keys, see [AWS global condition context keys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md") in the _IAM User Guide_. Direct Connect defines its own set of condition keys and also supports using some global condition keys. To see all AWS global condition keys, see [AWS Global Condition Context Keys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md") in the _IAM User Guide_. You can use condition keys with the tag resource. For more information, see [Example: Restricting Access to a Specific Region](../../../AWSEC2/latest/UserGuide/ExamplePolicies_EC2.md#iam-example-region "../../../AWSEC2/latest/UserGuide/ExamplePolicies_EC2.md#iam-example-region"). To see a list of Direct Connect condition keys, see [Condition Keys for Direct Connect](../../../IAM/latest/UserGuide/list_awsdirectconnect.md#awsdirectconnect-policy-keys "../../../IAM/latest/UserGuide/list_awsdirectconnect.md#awsdirectconnect-policy-keys") in the _IAM User Guide_. To learn with which actions and resources you can use a condition key, see [Actions Defined by Direct Connect](../../../IAM/latest/UserGuide/list_awsdirectconnect.md#awsdirectconnect-actions-as-permissions "../../../IAM/latest/UserGuide/list_awsdirectconnect.md#awsdirectconnect-actions-as-permissions"). ## Using the Direct Connect console To access the Direct Connect console, you must have a minimum set of permissions. These permissions must allow you to list and view details about the Direct Connect resources in your AWS account. If you create an identity-based policy that is more restrictive than the minimum required permissions, the console won't function as intended for entities (s or roles) with that policy. To ensure that those entities can still use the Direct Connect console, also attach the following AWS managed policy to the entities. For more information, see [Adding Permissions to a User](../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console "../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console") in the _IAM User Guide_: `directconnect` You don't need to allow minimum console permissions for users that are making calls only to the AWS CLI or the AWS API. Instead, allow access to only the actions that match the API operation that you're trying to perform. ## Allow users to view their own permissions This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API. `{ "Version": "2012-10-17", "Statement": [ { "Sid": "ViewOwnUserInfo", "Effect": "Allow", "Action": [ "iam:GetUserPolicy", "iam:ListGroupsForUser", "iam:ListAttachedUserPolicies", "iam:ListUserPolicies", "iam:GetUser" ], "Resource": ["arn:aws:iam::*:user/${aws:username}"] }, { "Sid": "NavigateInConsole", "Effect": "Allow", "Action": [ "iam:GetGroupPolicy", "iam:GetPolicyVersion", "iam:GetPolicy", "iam:ListAttachedGroupPolicies", "iam:ListGroupPolicies", "iam:ListPolicyVersions", "iam:ListPolicies", "iam:ListUsers" ], "Resource": "*" } ] }` ## Read-only access to AWS Direct Connect The following example policy grants read access to AWS Direct Connect. JSON `` `{ "Version":"2012-10-17", "Statement": [ { "Effect": "Allow", "Action": [ "directconnect:Describe*", "ec2:DescribeVpnGateways" ], "Resource": "*" } ] }` `` ## Full access to AWS Direct Connect The following example policy grants full access to AWS Direct Connect. JSON `` `{ "Version":"2012-10-17", "Statement": [ { "Effect": "Allow", "Action": [ "directconnect:*", "ec2:DescribeVpnGateways" ], "Resource": "*" } ] }` `` |
+| dx-gateway                   | `arn:${Partition}:directconnect::${Account}:dx-gateway/${DirectConnectGatewayId}` |
+
+For more information about the format of ARNs, see [Amazon Resource Names (ARNs) and AWS Service Namespaces](../../../general/latest/gr/aws-arns-and-namespaces.md "../../../general/latest/gr/aws-arns-and-namespaces.md").
+
+For example, to specify the `dxcon-11aa22bb` interface in your
+statement, use the following ARN:
+
+```
+"Resource": "arn:aws:directconnect:us-east-1:123456789012:dxcon/dxcon-11aa22bb
+```
+
+To specify all virtual interfaces that belong to a specific account, use the
+wildcard (\*):
+
+```
+"Resource": "arn:aws:directconnect:*:*:dxvif/*"
+```
+
+Some Direct Connect actions, such as those for creating resources, cannot be performed
+on a specific resource. In those cases, you must use the wildcard (\*).
+
+```
+"Resource": "*"
+```
+
+To see a list of Direct Connect resource types and their ARNs, see [Resource Types Defined by AWS Direct Connect](../../../IAM/latest/UserGuide/list_awsdirectconnect.md#awsdirectconnect-resources-for-iam-policies "../../../IAM/latest/UserGuide/list_awsdirectconnect.md#awsdirectconnect-resources-for-iam-policies") in the
+_IAM User Guide_. To learn with which actions you can specify
+the ARN of each resource, see [Actions Defined by Direct Connect](../../../IAM/latest/UserGuide/list_awsdirectconnect.md#awsdirectconnect-actions-as-permissions "../../../IAM/latest/UserGuide/list_awsdirectconnect.md#awsdirectconnect-actions-as-permissions").
+
+If a resource ARN or a resource ARN pattern other than `*` is specified
+in the `Resource` field of the IAM policy statement for
+DescribeConnections, DescribeVirtualInterfaces, DescribeDirectConnectGateways,
+DescribeInterconnects, or DescribeLags, then the specified `Effect` will
+not occur unless the matching resource ID is also passed in the API call. However, if
+you provide `*` as the resource instead of a specific resource ID in the
+IAM policy statement, the specified `Effect` will work.
+
+In the following example, neither specified `Effect` will succeed if
+the `DescribeConnections` action is called without a
+`connectionId` passed in the request.
+
+```
+"Statement": [
+    {
+        "Effect": "Allow",
+        "Action": [
+            "directconnect:DescribeConnections"
+        ],
+        "Resource": [
+            "arn:aws:directconnect:*:123456789012:dxcon/*"
+        ]
+    },
+{
+        "Effect": "Deny",
+        "Action": [
+            "directconnect:DescribeConnections"
+        ],
+        "Resource": [
+            "arn:aws:directconnect:*:123456789012:dxcon/example1"
+        ]
+    }
+]
+```
+
+However, in the following example, `"Effect": "Allow"` will succeed
+for the `DescribeConnections` action since `*` was provided for
+the `Resource` field of the IAM policy statement, regardless of whether
+the `connectionId` was specified in the request.
+
+```
+"Statement": [
+    {
+        "Effect": "Allow",
+        "Action": [
+            "directconnect:DescribeConnections
+        ],
+        "Resource": [
+            "*"
+        ]
+    }
+]
+```
+
+### Condition keys
+
+Administrators can use AWS JSON policies to specify who has access to what. That is, which **principal** can perform
+**actions** on what **resources**, and under what **conditions**.
+
+The `Condition` element specifies when statements execute based on defined criteria. You can create conditional expressions that use [condition
+operators](../../../IAM/latest/UserGuide/reference_policies_elements_condition_operators.md "../../../IAM/latest/UserGuide/reference_policies_elements_condition_operators.md"), such as equals or less than, to match the condition in the
+policy with values in the request. To see all AWS global
+condition keys, see [AWS global condition context keys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md") in the
+_IAM User Guide_.
+
+Direct Connect defines its own set of condition keys and also supports using some
+global condition keys. To see all AWS global condition keys, see [AWS Global Condition
+Context Keys](../../../IAM/latest/UserGuide/reference_policies_condition-keys.md "../../../IAM/latest/UserGuide/reference_policies_condition-keys.md") in the _IAM User Guide_.
+
+You can use condition keys with the tag resource. For more information, see [Example:
+Restricting Access to a Specific Region](../../../AWSEC2/latest/UserGuide/ExamplePolicies_EC2.md#iam-example-region "../../../AWSEC2/latest/UserGuide/ExamplePolicies_EC2.md#iam-example-region").
+
+To see a list of Direct Connect condition keys, see [Condition Keys for Direct Connect](../../../IAM/latest/UserGuide/list_awsdirectconnect.md#awsdirectconnect-policy-keys "../../../IAM/latest/UserGuide/list_awsdirectconnect.md#awsdirectconnect-policy-keys") in the
+_IAM User Guide_. To learn with which actions and resources
+you can use a condition key, see [Actions Defined by Direct Connect](../../../IAM/latest/UserGuide/list_awsdirectconnect.md#awsdirectconnect-actions-as-permissions "../../../IAM/latest/UserGuide/list_awsdirectconnect.md#awsdirectconnect-actions-as-permissions").
+
+## Using the Direct Connect
+
+console
+
+To access the Direct Connect console, you must have a minimum set of permissions. These
+permissions must allow you to list and view details about the Direct Connect resources in
+your AWS account. If you create an identity-based policy that is more restrictive than
+the minimum required permissions, the console won't function as intended for entities (s
+or roles) with that policy.
+
+To ensure that those entities can still use the Direct Connect console, also attach the
+following AWS managed policy to the entities. For more information, see [Adding Permissions to a User](../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console "../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console") in the
+_IAM User Guide_:
+
+```
+directconnect
+```
+
+You don't need to allow minimum console permissions for users that are making calls
+only to the AWS CLI or the AWS API. Instead, allow access to only the actions that match
+the API operation that you're trying to perform.
+
+## Allow users
+
+to view their own permissions
+
+This example shows how you might create a policy that allows IAM users to view the inline and managed policies that are attached to their user
+identity. This policy includes permissions to complete this action on the console or programmatically using the AWS CLI or AWS API.
+
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "ViewOwnUserInfo",
+            "Effect": "Allow",
+            "Action": [
+                "iam:GetUserPolicy",
+                "iam:ListGroupsForUser",
+                "iam:ListAttachedUserPolicies",
+                "iam:ListUserPolicies",
+                "iam:GetUser"
+            ],
+            "Resource": ["arn:aws:iam::*:user/${aws:username}"]
+        },
+        {
+            "Sid": "NavigateInConsole",
+            "Effect": "Allow",
+            "Action": [
+                "iam:GetGroupPolicy",
+                "iam:GetPolicyVersion",
+                "iam:GetPolicy",
+                "iam:ListAttachedGroupPolicies",
+                "iam:ListGroupPolicies",
+                "iam:ListPolicyVersions",
+                "iam:ListPolicies",
+                "iam:ListUsers"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
+```
+
+## Read-only access to
+
+AWS Direct Connect
+
+The following example policy grants read access to AWS Direct Connect.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": [
+ "directconnect:Describe*",
+ "ec2:DescribeVpnGateways"
+ ],
+ "Resource": "*"
+ }
+ ]
+}`
+
+```
+
+## Full access to
+
+AWS Direct Connect
+
+The following example policy grants full access to AWS Direct Connect.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": [
+ "directconnect:*",
+ "ec2:DescribeVpnGateways"
+ ],
+ "Resource": "*"
+ }
+ ]
+}`
+
+```

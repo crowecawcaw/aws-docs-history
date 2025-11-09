@@ -33,13 +33,13 @@ turned on, we automatically create the configuration file for your router:
 7. If you need to manually configure your router for MACsec, use the following table as a
    guideline.
 
-| Parameter               | Description                                                                                                         |
-| ----------------------- | ------------------------------------------------------------------------------------------------------------------- |
-| CKN length              | This is a 64 hexadecimal character (0–9, A–E) string. Use the full length to maximize cross-platform compatibility. |
-| CAK length              | This is a 64 hexadecimal character (0–9, A–E) string. Use the full length to maximize cross-platform compatibility. |
-| Cryptographic algorithm | AES_256_CMAC                                                                                                        |
-| SAK Cipher Suite        | <br>• For 100 Gbps connections: GCM_AES_XPN_256 <br>• For 10 Gbps connections: GCM_AES_XPN_256 or GCM_AES \_256     |
-| Key Cipher Suite        | 16                                                                                                                  |
-| Confidentiality Offset  | 0                                                                                                                   |
-| ICV Indicator           | No                                                                                                                  |
-| SAK Rekey Time          | PN Rollover>                                                                                                        |
+| Parameter               | Description                                                                                                            |
+| ----------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| CKN length              | This is a 64 hexadecimal character (0–9, A–E) string. Use the full<br>length to maximize cross-platform compatibility. |
+| CAK length              | This is a 64 hexadecimal character (0–9, A–E) string. Use the full<br>length to maximize cross-platform compatibility. |
+| Cryptographic algorithm | AES_256_CMAC                                                                                                           |
+| SAK Cipher Suite        | • For 100 Gbps connections: GCM_AES_XPN_256<br>• For 10 Gbps connections: GCM_AES_XPN_256 or<br>GCM_AES \_256          |
+| Key Cipher Suite        | 16                                                                                                                     |
+| Confidentiality Offset  | 0                                                                                                                      |
+| ICV Indicator           | No                                                                                                                     |
+| SAK Rekey Time          | PN Rollover>                                                                                                           |
