@@ -38,8 +38,21 @@ Schema 2, Amazon ECR Public returns the manifest in the Docker Image Manifest V2
 format. The table below describes the available conversions supported by Amazon ECR
 Public when an image is pulled _by tag_:
 
-| Schema requested by client | Pushed to ECR as V2, schema 1                               | Pushed to ECR as V2, schema 2 | Pushed to ECR as OCI       |
-| -------------------------- | ----------------------------------------------------------- | ----------------------------- | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| V2, schema 1               | No translation required                                     | Translated to V2, schema 1    | Translated to V2, schema 1 |
-| V2, schema 2               | No translation available, client falls back to V2, schema 1 | No translation required       | Translated to V2, schema 2 |
-| OCI                        | No translation available                                    | Translated to OCI             | No translation required    | ###### Important If you pull an image _by digest_, there is no translation available; your client must understand the image manifest format that is stored in Amazon ECR. If you request a Docker Image Manifest V2 Schema 2 image by digest on a Docker 1.9 or older client, the image pull fails. For more information, see [Registry compatibility](https://docs.docker.com/registry/compatibility/ "https://docs.docker.com/registry/compatibility/") in the Docker documentation. In this example, if you request the same image _by tag_, Amazon ECR Public translates the image manifest into a format that the client can understand. The image pull succeeds. |
+| Schema requested by client | Pushed to ECR as V2, schema 1                                  | Pushed to ECR as V2, schema 2 | Pushed to ECR as OCI       |
+| -------------------------- | -------------------------------------------------------------- | ----------------------------- | -------------------------- |
+| V2, schema 1               | No translation required                                        | Translated to V2, schema 1    | Translated to V2, schema 1 |
+| V2, schema 2               | No translation available, client falls back to V2, schema<br>1 | No translation required       | Translated to V2, schema 2 |
+| OCI                        | No translation available                                       | Translated to OCI             | No translation required    |
+
+###### Important
+
+If you pull an image _by digest_, there is no translation
+available; your client must understand the image manifest format that is stored
+in Amazon ECR. If you request a Docker Image Manifest V2 Schema 2 image by digest on
+a Docker 1.9 or older client, the image pull fails. For more information, see
+[Registry
+compatibility](https://docs.docker.com/registry/compatibility/ "https://docs.docker.com/registry/compatibility/") in the Docker documentation.
+
+In this example, if you request the same image _by tag_,
+Amazon ECR Public translates the image manifest into a format that the client can
+understand. The image pull succeeds.
