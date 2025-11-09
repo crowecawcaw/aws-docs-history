@@ -7,8 +7,35 @@ not using the AgentCore runtime to host your agents. For memory, gateway, and bu
 The following table summarizes the default data provided for each resource type, and where the data is available.
 
 | Resource type | Service-provided data    | Available in CloudWatch gen AI observability | Available in CloudWatch (Logs or metrics) |
-| ------------- | ------------------------ | -------------------------------------------- | ----------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------- | ------------------------ | -------------------------------------------- | ----------------------------------------- |
 | Agent         | Metrics                  | Yes                                          | Yes                                       |
 | Memory        | Metrics, Spans\*, Logs\* | No                                           | Yes                                       |
 | Gateway       | Metrics                  | No                                           | Yes                                       |
-| Tools         | Metrics                  | No                                           | Yes                                       | \* memory spans and logs require enablement. See [Add observability to your Amazon Bedrock AgentCore resources](observability-configure.md "observability-configure.md") to learn more. ###### Note To view metrics, spans, and traces for AgentCore, you need to perform a one-time setup process to enable CloudWatch Transaction Search. To learn more see [Enabling AgentCore observability](observability-configure.md#observability-configure-builtin "observability-configure.md#observability-configure-builtin"). Refer to the following topics to learn about the default service-provided observability metrics for AgentCore runtime, memory, and gateway resources. ###### Topics <br>• [AgentCore generated runtime observability data](observability-runtime-metrics.md "observability-runtime-metrics.md") <br>• [AgentCore generate memory observability data](observability-memory-metrics.md "observability-memory-metrics.md") <br>• [AgentCore generated gateway observability data](observability-gateway-metrics.md "observability-gateway-metrics.md") <br>• [AgentCore generated built-in tools observability data](observability-tool-metrics.md "observability-tool-metrics.md") <br>• [AgentCore generated identity observability data](observability-identity-metrics.md "observability-identity-metrics.md") By instrumenting your agent code, you can also gather more detailed trace and span data as well as custom metrics. See [Enabling observability in agent code for AgentCore-hosted agents](observability-configure.md#observability-configure-custom "observability-configure.md#observability-configure-custom") to learn more. |
+| Tools         | Metrics                  | No                                           | Yes                                       |
+
+\* memory spans and logs require enablement. See [Add observability to your Amazon Bedrock AgentCore
+resources](observability-configure.md "observability-configure.md") to learn more.
+
+###### Note
+
+To view metrics, spans, and traces for AgentCore, you need to perform a one-time setup process to enable CloudWatch Transaction Search. To learn more see
+[Enabling AgentCore
+observability](observability-configure.md#observability-configure-builtin "observability-configure.md#observability-configure-builtin").
+
+Refer to the following topics to learn about the default service-provided observability metrics for AgentCore runtime, memory, and gateway resources.
+
+###### Topics
+
+- [AgentCore generated runtime
+  observability data](observability-runtime-metrics.md "observability-runtime-metrics.md")
+- [AgentCore generate memory observability
+  data](observability-memory-metrics.md "observability-memory-metrics.md")
+- [AgentCore generated gateway observability
+  data](observability-gateway-metrics.md "observability-gateway-metrics.md")
+- [AgentCore generated built-in tools
+  observability data](observability-tool-metrics.md "observability-tool-metrics.md")
+- [AgentCore generated identity
+  observability data](observability-identity-metrics.md "observability-identity-metrics.md")
+  By instrumenting your agent code, you can also gather more detailed trace and span data as well as custom metrics. See [Enabling observability in agent code
+  for AgentCore-hosted agents](observability-configure.md#observability-configure-custom "observability-configure.md#observability-configure-custom")
+  to learn more.

@@ -85,11 +85,24 @@ pattern
 When designing your agent authentication strategy, consider these factors to
 determine which pattern is most appropriate:
 
-Authentication pattern selection guide| Factor | User-delegated access (OAuth 2.0 authorization code
-grant) | Machine-to-machine authentication (OAuth 2.0 client credentials
-grant) |
-| --- | --- | --- |
-| Data ownership | User-specific data (emails, documents, personal calendars) | System or organization-owned data (analytics, logs, shared resources) |
-| User interaction | User is present and can provide consent | No user interaction required or available |
-| Operation timing | Interactive, real-time operations | Background, scheduled, or batch operations |
-| Permission scope | Permissions vary by user and their consent choices | Consistent permissions defined at the agent level | Many agent implementations will require both patterns for different aspects of their functionality. For example, a customer service agent might use user-delegated access to retrieve a specific customer's data while using machine-to-machine authentication to access company knowledge bases and internal systems. AgentCore Identity supports both patterns simultaneously, allowing agents to use the most appropriate authentication mechanism for each resource they need to access. Both authentication patterns benefit from AgentCore Identity's core capabilities: <br>• Secure credential storage without exposing secrets to agent code <br>• Consistent authentication interfaces across multiple resource types <br>• Comprehensive audit logging for security and compliance <br>• Fine-grained access controls based on identity and context <br>• Simplified integration through the AgentCore SDK
+| Authentication pattern selection guide | Factor                                                        | User-delegated access (OAuth 2.0 authorization code<br>grant)            | Machine-to-machine authentication (OAuth 2.0 client credentials<br>grant) |
+| -------------------------------------- | ------------------------------------------------------------- | ------------------------------------------------------------------------ | ------------------------------------------------------------------------- |
+| Data ownership                         | User-specific data (emails, documents, personal<br>calendars) | System or organization-owned data (analytics, logs, shared<br>resources) |
+| User interaction                       | User is present and can provide consent                       | No user interaction required or available                                |
+| Operation timing                       | Interactive, real-time operations                             | Background, scheduled, or batch operations                               |
+| Permission scope                       | Permissions vary by user and their consent choices            | Consistent permissions defined at the agent level                        |
+
+Many agent implementations will require both patterns for different aspects of
+their functionality. For example, a customer service agent might use user-delegated
+access to retrieve a specific customer's data while using machine-to-machine
+authentication to access company knowledge bases and internal systems. AgentCore Identity
+supports both patterns simultaneously, allowing agents to use the most appropriate
+authentication mechanism for each resource they need to access.
+
+Both authentication patterns benefit from AgentCore Identity's core capabilities:
+
+- Secure credential storage without exposing secrets to agent code
+- Consistent authentication interfaces across multiple resource types
+- Comprehensive audit logging for security and compliance
+- Fine-grained access controls based on identity and context
+- Simplified integration through the AgentCore SDK

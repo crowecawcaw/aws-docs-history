@@ -208,7 +208,7 @@ aws bedrock-agentcore-control create-gateway \
 ```
 
 Python (Boto3)
-To encrypt your gateway using the Boto3 Python SDK, include the
+To encrypt your gateway using the AWS Python SDK (Boto3), include the
 `kms-key-arn` when sending either of the following requests
 through an [AgentCore control plane](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock-agentcore-control.html "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock-agentcore-control.html") client.:
 

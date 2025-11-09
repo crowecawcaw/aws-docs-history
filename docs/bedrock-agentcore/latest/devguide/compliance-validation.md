@@ -1,7 +1,7 @@
 # Compliance validation for Amazon Bedrock AgentCore
 
-AWS has completed its internal assessment to validate that Amazon Bedrock AgentCore aligns with several
-of the AWS compliance programs. In addition, Amazon Bedrock AgentCore is pursuing FedRAMP compliance. Our
+AWS has completed its internal assessment to validate that Amazon Bedrock AgentCore aligns with the following
+AWS compliance programs: BIO, C5, CISPE, CPSTIC, ENS High, FINMA, GNS, GSMA, HITRUST, IRAP, ISMAP, ISO (ISO/IEC 27001, 27017, 27018, 27701, 22301, 20000, 9001), CSA STAR, MTCS, OSPAR, PCI, Pinakes, PiTuKri, and SOC. In addition, Amazon Bedrock AgentCore is HIPAA eligible and is pursuing FedRAMP compliance. Our
 third-party auditors will review and test Amazon Bedrock AgentCore during the next audit cycles for these compliance
 programs.
 

@@ -24,11 +24,17 @@ protocols:
 Compare the A2A, HTTP, and MCP protocols to understand the differences and use
 cases.
 
-| Protocol Comparison | Feature          | HTTP Protocol    | MCP Protocol                 | A2A Protocol                                                                                                                                                                                                                                                                                                              |
-| ------------------- | ---------------- | ---------------- | ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Protocol Comparison | Feature          | HTTP Protocol    | MCP Protocol                 | A2A Protocol |
+| ------------------- | ---------------- | ---------------- | ---------------------------- | ------------ |
 | **Port**            | 8080             | 8000             | 9000                         |
 | **Mount Path**      | /invocations     | /mcp             | / (root)                     |
 | **Message Format**  | REST JSON/SSE    | JSON-RPC         | JSON-RPC 2.0                 |
 | **Discovery**       | N/A              | Tool listing     | Agent Cards                  |
 | **Authentication**  | SigV4, OAuth 2.0 | SigV4, OAuth 2.0 | SigV4, OAuth 2.0             |
-| **Use Case**        | Direct API calls | Tool servers     | Agent-to-agent communication | ###### Topics <br>• [HTTP protocol contract](runtime-http-protocol-contract.md "runtime-http-protocol-contract.md") <br>• [MCP protocol contract](runtime-mcp-protocol-contract.md "runtime-mcp-protocol-contract.md") <br>• [A2A protocol contract](runtime-a2a-protocol-contract.md "runtime-a2a-protocol-contract.md") |
+| **Use Case**        | Direct API calls | Tool servers     | Agent-to-agent communication |
+
+###### Topics
+
+- [HTTP protocol contract](runtime-http-protocol-contract.md "runtime-http-protocol-contract.md")
+- [MCP protocol contract](runtime-mcp-protocol-contract.md "runtime-mcp-protocol-contract.md")
+- [A2A protocol contract](runtime-a2a-protocol-contract.md "runtime-a2a-protocol-contract.md")

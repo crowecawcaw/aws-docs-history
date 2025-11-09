@@ -90,7 +90,7 @@ authorizer_configuration = cognito_result["authorizer_config"]
 The `cognito_result` contains authentication and authorization information:
 
 - You'll use the authorizer configuration when you create the gateway.
-- For inbound authorization when invoking your gateway, you'll need to obtain an access token by using your client ID, client secret, and the token endpoint. For more information on how to obtain your access token, see [The token issuer endpoint](../../../cognito/latest/developerguide/token-endpoint.md "../../../cognito/latest/developerguide/token-endpoint.md") in the Amazon Cognito Developer Guide.
+- For inbound authorization when invoking your gateway, you'll need to obtain an access token by using your client ID, client secret, and the token endpoint. For more information on how to obtain your access token, see the **Example** at [Use an AgentCore gateway](gateway-using.md "gateway-using.md") or [The token issuer endpoint](../../../cognito/latest/developerguide/token-endpoint.md "../../../cognito/latest/developerguide/token-endpoint.md") in the Amazon Cognito Developer Guide.
 
 ### Set up a JWT manually
 

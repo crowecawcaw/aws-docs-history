@@ -29,8 +29,8 @@ For a list of Region codes and endpoints supported in AgentCore, see [AWS Region
 For endpoints, see
 [Amazon Bedrock AgentCore endpoints and quotas](../../../general/latest/gr/bedrock_agentcore.md "../../../general/latest/gr/bedrock_agentcore.md").
 
-| Supported AgentCore Memory geography | Inference regions                                                                                                                                         |
-| ------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| United States                        | US East (N. Virginia) (us-east-1) US East (Ohio) (us-east-2) US West (Oregon) (us-west-2)                                                                 |
-| Europe                               | Europe (Frankfurt) (eu-central-1) Europe (Ireland) (eu-west-1)                                                                                            |
-| Asia Pacific                         | Asia Pacific (Tokyo) (ap-northeast-1) Asia Pacific (Mumbai) (ap-south-1) Asia Pacific (Singapore) (ap-southeast-1) Asia Pacific (Sydney) (ap-southeast-2) |
+| Supported AgentCore Memory geography | Inference regions                                                                                                                                                  |
+| ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| United States                        | US East (N. Virginia) (us-east-1)<br>US East (Ohio) (us-east-2)<br>US West (Oregon) (us-west-2)                                                                    |
+| Europe                               | Europe (Frankfurt) (eu-central-1)<br>Europe (Ireland) (eu-west-1)                                                                                                  |
+| Asia Pacific                         | Asia Pacific (Tokyo) (ap-northeast-1)<br>Asia Pacific (Mumbai) (ap-south-1)<br>Asia Pacific (Singapore) (ap-southeast-1)<br>Asia Pacific (Sydney) (ap-southeast-2) |

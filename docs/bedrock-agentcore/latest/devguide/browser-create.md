@@ -13,8 +13,7 @@ Console
 4. Provide a unique **Tool name** and optional
    **Description**.
 5. Under **Network settings**, choose **Public
-   network** which allows access to public internet resources. VPC is
-   not supported.
+   network** which allows access to public internet resources.
 6. Under **Session recording**, you can enable recording of
    browser sessions to an S3 bucket for later review.
 7. Under **Permissions**, specify an IAM execution role that

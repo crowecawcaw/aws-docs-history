@@ -45,11 +45,42 @@ print(response)
 The following table illustrates how versioning and endpoints interact during the
 lifecycle of an AgentCore Runtime:
 
-| Agent Runtime Versioning Scenarios | Change Type                                            | Version Creation Behavior | Latest Version                            | Endpoint Behavior                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| ---------------------------------- | ------------------------------------------------------ | ------------------------- | ----------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Agent Runtime Versioning Scenarios | Change Type                                            | Version Creation Behavior | Latest Version                            | Endpoint Behavior |
+| ---------------------------------- | ------------------------------------------------------ | ------------------------- | ----------------------------------------- | ----------------- |
 | Initial Creation                   | Creates Version 1 (V1) automatically                   | V1                        | DEFAULT points to V1                      |
 | Protocol Change                    | Creates a new version with updated protocol settings   | V2                        | DEFAULT automatically updates to V2       |
 | Create "PROD" endpoint with V2     | No new version created                                 | V2                        | PROD endpoint points to V2                |
 | Container Image Update             | Creates a new version with new container reference     | V3                        | DEFAULT updates to V3, PROD remains on V2 |
 | Update "PROD" to V3                | No new version created                                 | V3                        | PROD updates to V3                        |
-| Network Settings Modification      | Creates a new version with updated security parameters | V4                        | DEFAULT updates to V4, PROD remains on V3 | ## Endpoint lifecycle states AgentCore Runtime endpoints go through various states during their lifecycle: CREATING Initial state when an endpoint is being created CREATE_FAILED Indicates creation failure due to permissions, container, or other issues READY Endpoint is ready to accept requests UPDATING Endpoint is being updated to a new version UPDATE_FAILED Indicates update operation failure ## Listing AgentCore Runtime versions and endpoints You can list all versions of an AgentCore Runtime by calling the `ListAgentRuntimeVersions` operation. To list the endpoints for an AgentCore Runtime, call `ListAgentRuntimeEndpoints`. |
+| Network Settings Modification      | Creates a new version with updated security parameters | V4                        | DEFAULT updates to V4, PROD remains on V3 |
+
+## Endpoint lifecycle states
+
+AgentCore Runtime endpoints go through various states during their lifecycle:
+
+CREATING
+
+Initial state when an endpoint is being created
+
+CREATE_FAILED
+
+Indicates creation failure due to permissions, container, or other
+issues
+
+READY
+
+Endpoint is ready to accept requests
+
+UPDATING
+
+Endpoint is being updated to a new version
+
+UPDATE_FAILED
+
+Indicates update operation failure
+
+## Listing AgentCore Runtime versions and endpoints
+
+You can list all versions of an AgentCore Runtime by calling the
+`ListAgentRuntimeVersions` operation. To list the endpoints for an
+AgentCore Runtime, call `ListAgentRuntimeEndpoints`.

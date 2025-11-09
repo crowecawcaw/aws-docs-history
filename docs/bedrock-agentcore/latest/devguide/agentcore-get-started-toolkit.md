@@ -3,6 +3,11 @@
 Build and deploy a production-ready AI agent in minutes with runtime hosting, memory, secure code
 execution, and observability. This guide shows you how to use [AgentCore Runtime](agents-tools-runtime.md "agents-tools-runtime.md"), [Memory](memory.md "memory.md"), [Code Interpreter](code-interpreter-tool.md "code-interpreter-tool.md"), and [Observability](observability.md "observability.md") features.
 
+###### Note
+
+The agent is built using Strands SDK. Strands is a powerful SDK that takes a model-driven approach
+to building and running AI agents. Learn more about [Strands](https://strandsagents.com/latest/ "https://strandsagents.com/latest/").
+
 For AgentCore Gateway and Identity features, see the [Gateway quickstart](https://github.com/aws/bedrock-agentcore-starter-toolkit/blob/main/documentation/docs/user-guide/gateway/quickstart.md "https://github.com/aws/bedrock-agentcore-starter-toolkit/blob/main/documentation/docs/user-guide/gateway/quickstart.md") and [Identity quickstart](https://github.com/aws/bedrock-agentcore-starter-toolkit/blob/main/documentation/docs/user-guide/identity/quickstart.md "https://github.com/aws/bedrock-agentcore-starter-toolkit/blob/main/documentation/docs/user-guide/identity/quickstart.md").
 
 ###### Topics
@@ -25,14 +30,19 @@ Before you start, make sure you have:
 
 - **AWS permissions**. AWS root users or users with
   privileged roles (such as the **AdministratorAccess** role) can skip this
-  step. Others need to attach the [starter toolkit policy](runtime-permissions.md#runtime-permissions-starter-toolkit "runtime-permissions.md#runtime-permissions-starter-toolkit") and [AmazonBedrockAgentCoreFullAccess](../../../aws-managed-policy/latest/reference/BedrockAgentCoreFullAccess.md "../../../aws-managed-policy/latest/reference/BedrockAgentCoreFullAccess.md") managed policy.
+  step. Others will need to attach the [AmazonBedrockAgentCoreFullAccess](../../../aws-managed-policy/latest/reference/BedrockAgentCoreFullAccess.md "../../../aws-managed-policy/latest/reference/BedrockAgentCoreFullAccess.md") managed policy and the
+  AgentCore starter toolkit policy described in [Use the starter toolkit](runtime-permissions.md#runtime-permissions-starter-toolkit "runtime-permissions.md#runtime-permissions-starter-toolkit").
+
+###### Note
+
+For this tutorial, you only need to add the AmazonBedrockAgentCoreFullAccess and
+starter toolkit policies; there's no need to create an execution role as described in
+[Execution role for running an agent in
+AgentCore Runtime](runtime-permissions.md#runtime-permissions-execution "runtime-permissions.md#runtime-permissions-execution") because it will be created
+automatically.
+
 - **AWS CLI version 2.0 or later**. Configure the AWS CLI using
   `aws configure`. For more information, see the [AWS Command Line Interface User Guide for Version 2](../../../cli/latest/userguide/getting-started-install.md "../../../cli/latest/userguide/getting-started-install.md").
-- **Amazon Bedrock model access to Claude 3.7 Sonnet**. To enable model
-  access, go to the AWS Management Console, choose Amazon Bedrock, choose **Model access**, and
-  enable **Claude 3.7 Sonnet** in your AWS Region. For information about
-  using a different model with Strands Agents, see the Model Providers section in the [Strands Agents SDK](https://strandsagents.com/latest/documentation/docs/ "https://strandsagents.com/latest/documentation/docs/")
-  documentation.
 - **Python 3.10 or newer**
 - **AgentCore starter toolkit**. For installation
   instructions, see the following section.
@@ -58,7 +68,7 @@ python -m venv .venv
 source .venv/bin/activate  # On Windows: .venv\Scripts\activate
 
 # Install required packages (version 0.1.21 or later)
-pip install "bedrock-agentcore-starter-toolkit>=0.1.21" strands-agents boto3
+pip install "bedrock-agentcore-starter-toolkit>=0.1.21" strands-agents strands-agents-tools boto3
 ```
 
 ## Step 1: Create the agent
@@ -70,10 +80,10 @@ Create `agentcore_starter_strands.py`:
 Strands Agent sample with AgentCore
 """
 import os
-from strands import Agent, tool
+from strands import Agent
+from strands_tools.code_interpreter import AgentCoreCodeInterpreter
 from bedrock_agentcore.memory.integrations.strands.config import AgentCoreMemoryConfig, RetrievalConfig
 from bedrock_agentcore.memory.integrations.strands.session_manager import AgentCoreMemorySessionManager
-from bedrock_agentcore.tools.code_interpreter_client import CodeInterpreter
 from bedrock_agentcore.runtime import BedrockAgentCoreApp
 
 app = BedrockAgentCoreApp()
@@ -82,64 +92,44 @@ MEMORY_ID = os.getenv("BEDROCK_AGENTCORE_MEMORY_ID")
 REGION = os.getenv("AWS_REGION")
 MODEL_ID = "us.anthropic.claude-3-7-sonnet-20250219-v1:0"
 
-ci_sessions = {}
-current_session = None
-
-@tool
-def calculate(code: str) -> str:
-    """Execute Python code for calculations or analysis."""
-    session_id = current_session or 'default'
-
-    if session_id not in ci_sessions:
-        ci_sessions[session_id] = {
-            'client': CodeInterpreter(REGION),
-            'session_id': None
-        }
-
-    ci = ci_sessions[session_id]
-    if not ci['session_id']:
-        ci['session_id'] = ci['client'].start(
-            name=f"session_{session_id[:30]}",
-            session_timeout_seconds=1800
-        )
-
-    result = ci['client'].invoke("executeCode", {
-        "code": code,
-        "language": "python"
-    })
-
-    for event in result.get("stream", []):
-        if stdout := event.get("result", {}).get("structuredContent", {}).get("stdout"):
-            return stdout
-    return "Executed"
-
 @app.entrypoint
 def invoke(payload, context):
-    global current_session
+    actor_id = "quickstart-user"
 
-    if not MEMORY_ID:
-        return {"error": "Memory not configured"}
+    # Get runtime session ID for isolation
+    session_id = getattr(context, 'session_id', None)
 
-    actor_id = context.headers.get('X-Amzn-Bedrock-AgentCore-Runtime-Custom-Actor-Id', 'user') if hasattr(context, 'headers') else 'user'
+    # Configure memory if available
+    session_manager = None
+    if MEMORY_ID:
+        memory_config = AgentCoreMemoryConfig(
+            memory_id=MEMORY_ID,
+            session_id=session_id or 'default',
+            actor_id=actor_id,
+            retrieval_config={
+                f"/users/{actor_id}/facts": RetrievalConfig(top_k=3, relevance_score=0.5),
+                f"/users/{actor_id}/preferences": RetrievalConfig(top_k=3, relevance_score=0.5)
+            }
+        )
+        session_manager = AgentCoreMemorySessionManager(memory_config, REGION)
 
-    session_id = getattr(context, 'session_id', 'default')
-    current_session = session_id
-
-    memory_config = AgentCoreMemoryConfig(
-        memory_id=MEMORY_ID,
-        session_id=session_id,
-        actor_id=actor_id,
-        retrieval_config={
-            f"/users/{actor_id}/facts": RetrievalConfig(top_k=3, relevance_score=0.5),
-            f"/users/{actor_id}/preferences": RetrievalConfig(top_k=3, relevance_score=0.5)
-        }
+    # Create Code Interpreter with runtime session binding
+    code_interpreter = AgentCoreCodeInterpreter(
+        region=REGION,
+        session_name=session_id,
+        auto_create=True
     )
 
     agent = Agent(
         model=MODEL_ID,
-        session_manager=AgentCoreMemorySessionManager(memory_config, REGION),
-        system_prompt="You are a helpful assistant. Use tools when appropriate.",
-        tools=[calculate]
+        session_manager=session_manager,
+        system_prompt="""You are a helpful assistant with code execution capabilities. Use tools when appropriate.
+Response format when using code:
+1. Brief explanation of your approach
+2. Code block showing the executed code
+3. Results and analysis
+""",
+        tools=[code_interpreter.code_interpreter]
     )
 
     result = agent(payload.get("prompt", ""))
@@ -154,6 +144,7 @@ Create `requirements.txt`:
 ```
 strands-agents
 bedrock-agentcore
+strands-agents-tools
 ```
 
 ## Step 2: Configure and deploy the
@@ -185,6 +176,7 @@ agentcore configure -e agentcore_starter_strands.py
 #    - If existing memories found: Choose from list or press Enter to create new
 #    - If creating new: Enable long-term memory extraction? (yes/no) - Type `yes` for this tutorial
 #    - Note: Short-term memory is always enabled by default
+#    - Type `s` to skip memory setup
 ```
 
 ###### Note
@@ -212,8 +204,19 @@ agentcore launch
 
 Expected output:
 
+During launch, you'll see the memory creation progress with elapsed time indicators. Memory
+provisioning may take 2-5 minutes to activate:
+
 ```
-✅ Memory created: bedrock_agentcore_memory_ci_agent_memory-abc123
+Creating memory resource for agent: agentcore_starter_strands
+⏳ Creating memory resource (this may take 30-180 seconds)...
+Created memory: agentcore_starter_strands_mem-abc123
+Waiting for memory agentcore_starter_strands_mem-abc123 to return to ACTIVE state...
+⏳ Memory: CREATING (61s elapsed)
+⏳ Memory: CREATING (92s elapsed)
+⏳ Memory: CREATING (123s elapsed)
+✅ Memory is ACTIVE (took 159s)
+✅ Memory created and active: agentcore_starter_strands_mem-abc123
 Observability is enabled, configuring Transaction Search...
 ✅ Transaction Search configured: resource_policy, trace_destination, indexing_rule
 🔍 GenAI Observability Dashboard:
@@ -239,16 +242,10 @@ agentcore status
 
 # Shows:
 #   Memory ID: bedrock_agentcore_memory_ci_agent_memory-abc123
-#   Memory Status: CREATING (if still provisioning)
-#   Memory Type: STM+LTM (provisioning...) (if creating with LTM)
 #   Memory Type: STM+LTM (3 strategies) (when active with strategies)
 #   Memory Type: STM only (if configured without LTM)
 #   Observability: Enabled
 ```
-
-###### Note
-
-Memory may take around 2-5 minutes to activate.
 
 ## Step 4: Test Memory and Code
 
@@ -264,13 +261,6 @@ Test short-term memory within a single session:
 ```
 # Store information (session IDs must be 33+ characters)
 agentcore invoke '{"prompt": "Remember that my favorite agent platform is AgentCore"}'
-
-# If invoked too early (memory still provisioning), you'll see:
-# "Memory is still provisioning (current status: CREATING).
-#  Long-term memory extraction takes 60-180 seconds to activate.
-#
-#  Please wait and check status with:
-#    agentcore status"
 
 # Retrieve within same session
 agentcore invoke '{"prompt": "What is my favorite agent platform?"}'
@@ -471,13 +461,7 @@ aws configure set region `your-desired-region`
    folder, then return to [Step 2: Configure and deploy the
    agent](#agentcore-get-started-configure-deploy "#agentcore-get-started-configure-deploy") and complete the
    steps.
-   **"Memory status is not active" error**
-
-- Run `agentcore status` to check the memory status.
-- If the status is showing `provisioning`, wait 2-3 minutes.
-- Retry after the status shows `Memory Type: STM+LTM (3
- strategies)`.
-  **Cross-session memory not working**
+   **Cross-session memory not working**
 
 - Verify that long-term memory is active (not "provisioning")
 - Wait 15-30 seconds after storing facts for extraction

@@ -130,10 +130,15 @@ hierarchy:
 The following table shows the tagging capabilities for each AgentCore Identity resource
 type:
 
-| Tagging support for AgentCore Identity resources | Resource Type | Tag on Create | Basic Tagging | TBAC Support                                                                                                                                       |
-| ------------------------------------------------ | ------------- | ------------- | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Tagging support for AgentCore Identity resources | Resource Type | Tag on Create | Basic Tagging | TBAC Support |
+| ------------------------------------------------ | ------------- | ------------- | ------------- | ------------ |
 | Workload Identity                                | ✅            | ✅            | ✅            |
 | OAuth2 Credential Provider                       | ✅            | ✅            | ✅            |
 | API Key Credential Provider                      | ✅            | ✅            | ✅            |
 | Workload Identity Directory                      | ❌            | ✅            | ✅            |
-| Token Vault                                      | ❌            | ✅            | ✅            | ###### Note TBAC (Tag-Based Access Control) support means you can use resource tags in IAM policy conditions to control access to these resources. |
+| Token Vault                                      | ❌            | ✅            | ✅            |
+
+###### Note
+
+TBAC (Tag-Based Access Control) support means you can use resource tags in IAM
+policy conditions to control access to these resources.

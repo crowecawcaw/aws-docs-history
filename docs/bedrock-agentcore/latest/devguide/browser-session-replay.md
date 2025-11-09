@@ -28,9 +28,12 @@ To enable session recording, you need:
 
 ## Configure IAM role for recording
 
-To enable session recording, you need an IAM execution role with permissions to write recording data to Amazon S3 and log activity to CloudWatch. For detailed instructions on setting up permissions, see [Permissions](browser-resource-session-management.md#browser-permissions "browser-resource-session-management.md#browser-permissions").
+To enable session recording, you need an IAM execution role with permissions to write
+recording data to Amazon S3 and log activity to CloudWatch. For detailed instructions on setting up
+permissions, see [Permissions](browser-resource-session-management.md#browser-permissions "browser-resource-session-management.md#browser-permissions").
 
-The execution role requires additional permissions beyond the standard browser permissions:
+The execution role requires additional permissions beyond the standard browser
+permissions:
 
 ```
 {
@@ -69,4 +72,5 @@ examples.
 ###### Topics
 
 - [How to use session replay](session-replay-how-to-use.md "session-replay-how-to-use.md")
-- [Session replay programmatic examples](session-replay-programmatic-usage.md "session-replay-programmatic-usage.md")
+- [Session replay programmatic
+  examples](session-replay-programmatic-usage.md "session-replay-programmatic-usage.md")

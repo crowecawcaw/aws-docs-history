@@ -1,4 +1,6 @@
-# Using AgentCore Browser with other Browser libraries and tools
+# Using AgentCore Browser with other Browser libraries and
+
+tools
 
 You can build browser agents using various frameworks and libraries to automate web
 interactions. This section demonstrates how to build browser agents using different
@@ -30,16 +32,23 @@ pip install bedrock-agentcore nova-act rich boto3
 
 These packages provide:
 
-- `bedrock-agentcore`: The SDK for Amazon Bedrock AgentCore tools including AgentCore Browser
-- `nova-act`: The SDK for Nova Act which includes the model and orchestrator for browser automation
-- `rich`: Library for rich text and beautiful formatting in the terminal
-- `boto3`: AWS SDK for Python (Boto3) to create, configure, and manage AWS services
+- `bedrock-agentcore`: The SDK for Amazon Bedrock AgentCore tools including
+  AgentCore Browser
+- `nova-act`: The SDK for Nova Act which includes the model and
+  orchestrator for browser automation
+- `rich`: Library for rich text and beautiful formatting in the
+  terminal
+- `boto3`: AWS SDK for Python (Boto3) to create, configure, and
+  manage AWS services
 
 ###### Step 2: Get Nova Act API Key
 
-Navigate to [Nova Act](https://nova.amazon.com/act "https://nova.amazon.com/act") page and generate an API key using your amazon.com credentials. (Note this currently works only for US based amazon.com accounts)
+Navigate to [Nova Act](https://nova.amazon.com/act "https://nova.amazon.com/act") page and
+generate an API key using your amazon.com credentials. (Note this currently works only
+for US based amazon.com accounts)
 
-Create a file named `nova_act_browser_agent.py` and add the following code:
+Create a file named `nova_act_browser_agent.py` and add the following
+code:
 
 ###### Write a browser agent using Nova Act
 
@@ -107,7 +116,9 @@ python nova_act_browser_agent.py --prompt "What are the common usecases of Bedro
 
 ###### Expected output
 
-You should see the agent's response containing details of the common usecases of Amazon Bedrock AgentCore. The agent navigates the website, performs the search, and extracts the requested information.
+You should see the agent's response containing details of the common usecases of
+Amazon Bedrock AgentCore. The agent navigates the website, performs the search, and extracts
+the requested information.
 
 If you encounter errors, verify:
 
@@ -117,14 +128,20 @@ If you encounter errors, verify:
 
 ###### Step 4: View the browser session live
 
-While your browser script is running, you can view the session in real-time through the AWS Console:
+While your browser script is running, you can view the session in real-time
+through the AWS Console:
 
 1. Open the [Amazon Bedrock AgentCore Browser Console](https://us-west-2.console.aws.amazon.com/bedrock-agentcore/builtInTools "https://us-west-2.console.aws.amazon.com/bedrock-agentcore/builtInTools")
-2. Navigate to **Built-in tools** in the left navigation
-3. Select the Browser tool (for example, `AgentCore Browser Tool`, or your custom browser)
-4. In the **Browser sessions** section, find your active session with status **Ready**
-5. In the **Live view / recording** column, click the provided "View live session" URL
-6. The live view opens in a new browser window, displaying the real-time browser session
+2. Navigate to **Built-in tools** in the left
+   navigation
+3. Select the Browser tool (for example, `AgentCore Browser Tool`, or
+   your custom browser)
+4. In the **Browser sessions** section, find your
+   active session with status **Ready**
+5. In the **Live view / recording** column, click the
+   provided "View live session" URL
+6. The live view opens in a new browser window, displaying the real-time browser
+   session
 
 The live view interface provides:
 
@@ -159,15 +176,20 @@ pip install bedrock-agentcore strands-agents strands-agents-tools playwright nes
 
 These packages provide:
 
-- `bedrock-agentcore`: The SDK for Amazon Bedrock AgentCore tools including AgentCore Browser
+- `bedrock-agentcore`: The SDK for Amazon Bedrock AgentCore tools including
+  AgentCore Browser
 - `strands-agents`: The Strands agent framework
-- `strands-agents-tools`: The tools that the Strands agent framework offers including Browser tool
-- `playwright`: Python library for browser automation. Strands uses playwright for browser automation
-- `nest-asyncio`: Allows running asyncio event loops within existing event loops
+- `strands-agents-tools`: The tools that the Strands agent framework
+  offers including Browser tool
+- `playwright`: Python library for browser automation. Strands uses
+  playwright for browser automation
+- `nest-asyncio`: Allows running asyncio event loops within existing
+  event loops
 
 ###### Step 2: Create your agent with AgentCore Browser
 
-Create a file named `browser_agent.py` and add the following code:
+Create a file named `browser_agent.py` and add the following
+code:
 
 ```
 
@@ -194,7 +216,8 @@ This code:
 
 - Initializes the Browser tool for your region
 - Creates an agent that can use the browser to interact with websites
-- Sends a prompt asking the agent to search AgentCore documentation and answer question
+- Sends a prompt asking the agent to search AgentCore documentation and answer
+  question
 - Prints the agent's response with the information found
 
 ###### Step 3: Run the agent
@@ -207,7 +230,9 @@ python browser_agent.py
 
 ###### Expected output
 
-You should see the agent's response containing details about AgentCore services from the documentation. The agent navigates the website and extracts the requested information.
+You should see the agent's response containing details about AgentCore services
+from the documentation. The agent navigates the website and extracts the requested
+information.
 
 If you encounter errors, verify:
 
@@ -217,14 +242,20 @@ If you encounter errors, verify:
 
 ###### Step 4: View the browser session live
 
-While your browser script is running, you can view the session in real-time through the AWS Console:
+While your browser script is running, you can view the session in real-time
+through the AWS Console:
 
 1. Open the [Amazon Bedrock AgentCore Browser Console](https://us-west-2.console.aws.amazon.com/bedrock-agentcore/builtInTools "https://us-west-2.console.aws.amazon.com/bedrock-agentcore/builtInTools")
-2. Navigate to **Built-in tools** in the left navigation
-3. Select the Browser tool (for example, `AgentCore Browser Tool`, or your custom browser)
-4. In the **Browser sessions** section, find your active session with status **Ready**
-5. In the **Live view / recording** column, click the provided "View live session" URL
-6. The live view opens in a new browser window, displaying the real-time browser session
+2. Navigate to **Built-in tools** in the left
+   navigation
+3. Select the Browser tool (for example, `AgentCore Browser Tool`, or
+   your custom browser)
+4. In the **Browser sessions** section, find your
+   active session with status **Ready**
+5. In the **Live view / recording** column, click the
+   provided "View live session" URL
+6. The live view opens in a new browser window, displaying the real-time browser
+   session
 
 The live view interface provides:
 
@@ -237,7 +268,8 @@ You can use the Playwright automation framework with the Browser Tool:
 
 ###### Step 1: Install dependencies
 
-Create a project folder (if you didn't create one before) and install the required packages:
+Create a project folder (if you didn't create one before) and install the required
+packages:
 
 ```
 mkdir agentcore-browser-quickstart
@@ -258,18 +290,24 @@ pip install bedrock-agentcore playwright boto3 nest-asyncio
 
 These packages provide:
 
-- `bedrock-agentcore`: The SDK for Amazon Bedrock AgentCore tools including AgentCore Browser
+- `bedrock-agentcore`: The SDK for Amazon Bedrock AgentCore tools including
+  AgentCore Browser
 - `playwright`: Python library for browser automation
-- `boto3`: AWS SDK for Python (Boto3) to create, configure, and manage AWS services
-- `nest-asyncio`: Allows running asyncio event loops within existing event loops
+- `boto3`: AWS SDK for Python (Boto3) to create, configure, and
+  manage AWS services
+- `nest-asyncio`: Allows running asyncio event loops within existing
+  event loops
 
 ###### Step 2: Control browser with Playwright
 
-You can use Browser directly without an agent framework or an LLM. This is useful when you want programmatic control over browser automation. Amazon Bedrock AgentCore provides integration with Playwright for browser automation.
+You can use Browser directly without an agent framework or an LLM. This is useful
+when you want programmatic control over browser automation. Amazon Bedrock AgentCore provides
+integration with Playwright for browser automation.
 
 ###### Async Playwright example
 
-Create a file named `direct_browser_playwright.py` and add the following code:
+Create a file named `direct_browser_playwright.py` and add the
+following code:
 
 ```
 
@@ -374,12 +412,16 @@ python direct_browser_playwright.py
 
 ###### Expected output
 
-You should see the page title printed (for example, `Page title: What is Amazon Bedrock AgentCore? - Amazon Bedrock AgentCore`). The script keeps the browser session active for 2 minutes before closing.
+You should see the page title printed (for example, `Page title: What is
+ Amazon Bedrock AgentCore? - Amazon Bedrock AgentCore`). The script keeps the
+browser session active for 2 minutes before closing.
 
 Both examples:
 
 - Create a managed browser session using Amazon Bedrock AgentCore Browser
-- Connect to the remote Chrome browser using Playwright's Chrome DevTools Protocol (CDP)
+- Connect to the remote Chrome browser using Playwright's Chrome DevTools Protocol
+  (CDP)
 - Navigate to AgentCore documentation and print the page title
-- Keep the session alive for 2 minutes, allowing you to view it in the AWS Console
+- Keep the session alive for 2 minutes, allowing you to view it in the AWS
+  Console
 - Properly close the browser and clean up resources

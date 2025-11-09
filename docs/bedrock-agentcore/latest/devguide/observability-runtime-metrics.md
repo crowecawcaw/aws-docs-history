@@ -102,16 +102,133 @@ standard Amazon CloudWatch data retention polices. For more information, see [ht
 Here are the dimension sets and metrics available for monitoring your
 resources:
 
-| Name               | Dimensions                                                                                                                                                                                                                  | Description                                                                                                                                                               |
-| ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| CPUUsed-vCPUHours  | Service; Service, Resource; Service, Resource, Name                                                                                                                                                                         | The total amount of virtual CPU consumed in vCPU-Hours unit, available at the resource and account levels. Useful for resource tracking and estimated billing visibility. |
-| MemoryUsed-GBHours | Service; Service, Resource; Service, Resource, Name                                                                                                                                                                         | The total amount of memory consumed in GB-Hours unit, available at the resource and account levels. Useful for resource tracking and estimated billing visibility.        | Dimension explanation <br>• **Service** - AgentCore.Runtime <br>• **Resource** - Agent Arn <br>• **Name** - Agent Endpoint name, in the format of AgentName::EndpointName Account level metrics are available in Amazon CloudWatch Bedrock AgentCore Observability Console under the **Runtime** tab. The dashboard displays Memory and CPU usage graphs generated from these metrics, representing total resource usage across all agents in your account within the region. Agent Endpoint level metrics are available in AgentEndpoint page of Amazon CloudWatch Bedrock AgentCore Observability Console. The dashboard displays Memory and CPU usage graphs generated from these metrics, representing total resource usage across all sessions invoked by the specified Agent Endpoint. ###### Note Telemetry data is provided for monitoring purposes. Actual billing is calculated based on metered usage data and may differ from telemetry values due to aggregation timing, reconciliation processes, and measurement precision. Refer to your AWS billing statement for authoritative charges. **Vended logs** Bedrock AgentCore Runtime provides vended logs for session-level usage metrics at 1-second granularity. Each log record contains resource consumption data including CPU usage (agent.runtime.vcpu.hours.used) and memory consumption (agent.runtime.memory.gb_hours.used). Each log record will have following schema:                                                                         |
-| Log type           | Log fields                                                                                                                                                                                                                  | Description                                                                                                                                                               |
-| ---                | ---                                                                                                                                                                                                                         | ---                                                                                                                                                                       |
-| USAGE_LOGS         | event_timestamp, resource_arn, service.name, cloud.provider, cloud.region, account.id, region, resource.id, session.id, agent.name, elapsed_time_seconds, agent.runtime.vcpu.hours.used, agent.runtime.memory.gb_hours.used | Resource Usage Logs for session-level resource tracking.                                                                                                                  | To enable USAGE_LOG log type for your agents, see [Add observability to your Amazon Bedrock AgentCore resources](observability-configure.md "observability-configure.md"). The logs are then displayed in the configured destination (AWS LogGroup, Amazon S3 or Amazon Kinesis Firehose) as configured. In the Agent Session page of the Amazon CloudWatch Bedrock AgentCore Observability Console, you can see resource usage metrics generated from these logs. To optimize your metric viewing experience, select your desired time range using the selector in the top right to focus on specific CPU and Memory Usage data. ###### Note Telemetry data is provided for monitoring purposes. Actual billing is calculated based on metered usage data and may differ from telemetry values due to aggregation timing, reconciliation processes, and measurement precision. Refer to your AWS billing statement for authoritative charges. ## Provided span data To enhance observability, AgentCore provides structured spans that provide visibility into agent runtime invocations. To enable this span data, you need to enable observability on your agent resource. See [Add observability to your Amazon Bedrock AgentCore resources](observability-configure.md "observability-configure.md") for steps and details. This span data is available in AWS CloudWatch Logs aws/spans log group. The following table defines the operation for which spans are created and the attributes for each captured span. |
-| Operation name     | Span attributes                                                                                                                                                                                                             | Description                                                                                                                                                               |
-| ---                | ---                                                                                                                                                                                                                         | ---                                                                                                                                                                       |
-| InvokeAgentRuntime | aws.operation.name, aws.resource.arn, aws.request_id, aws.agent.id, aws.endpoint.name, aws.account.id, session.id, latency_ms, error_type, aws.resource.type, aws.xray.origin, aws.region                                   | Invokes the agent runtime.                                                                                                                                                | <br>• aws.operation.name - the operation name (InvokeAgentRuntime) <br>• aws.resource.arn - the Amazon resource name for the agent runtime <br>• aws.request_id - request ID for the invocation <br>• aws.agent.id - the unique identifier for the agent runtime <br>• aws.endpoint.name - the name of the endpoint used to invoke the agent runtime <br>• aws.account.id - customer’s account id <br>• session.id - the session ID for the invocation <br>• latency_ms - the latency of the request in milliseconds <br>• error_type - either throttle, system, or user (only present if error) <br>• aws.resource.type - the CFN resource type <br>• aws.xray.origin - the CFN resource type used by x-ray to identify the service <br>• aws.region - the region the customer resource exists in ## Application log data AgentCore provides structured Application logs that help you gain visibility into your agent runtime invocations and session-level resource consumption. This log data is provided when enabling observability on your agent resource. See [Add observability to your Amazon Bedrock AgentCore resources](observability-configure.md "observability-configure.md") for steps and details. AgentCore can output logs to CloudWatch Logs, Amazon S3, or Firehose stream. If you use a CloudWatch Logs destination, these logs are stored under your agent’s application logs or under your own custom log group.                                                                                 |
-| Log type           | Log fields                                                                                                                                                                                                                  | Description                                                                                                                                                               |
-| ---                | ---                                                                                                                                                                                                                         | ---                                                                                                                                                                       |
-| APPLICATION_LOGS   | timestamp, resource_arn, event_timestamp, account_id, request_id, session_id, trace_id, span_id, service_name, operation, request_payload, response_payload                                                                 | Application logs for InvokeRuntimeOperation with tracing fields, request, and response payloads                                                                           | <br>• request_payload - the request payload of the agent invocation <br>• response_payload - the response from the agent invocation ## Error types The following list defines the possible error types for user, system, and throttling errors. ###### User error codes <br>• `InvocationError.Validation` - Client provided invalid input (400) <br>• `InvocationError.ResourceNotFound` - Requested resource doesn't exist (404) <br>• `InvocationError.AccessDenied` - Client lacks permissions (403) <br>• `InvocationError.Conflict` - Resource conflict (409) ###### System error codes <br>• `InvocationError.Internal` - Internal server error (500) ###### Throttling error codes <br>• `InvocationError.Throttling` - Rate limiting (429) <br>• `InvocationError.ServiceQuota` - Service-side quota/limit reached (402)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| Name               | Dimensions                                          | Description                                                                                                                                                                     |
+| ------------------ | --------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| CPUUsed-vCPUHours  | Service; Service, Resource; Service, Resource, Name | The total amount of virtual CPU consumed in vCPU-Hours unit,<br>available at the resource and account levels. Useful for resource<br>tracking and estimated billing visibility. |
+| MemoryUsed-GBHours | Service; Service, Resource; Service, Resource, Name | The total amount of memory consumed in GB-Hours unit, available at<br>the resource and account levels. Useful for resource tracking and<br>estimated billing visibility.        |
+
+Dimension explanation
+
+- **Service** - AgentCore.Runtime
+- **Resource** - Agent Arn
+- **Name** - Agent Endpoint name, in the format of
+  AgentName::EndpointName
+
+Account level metrics are available in Amazon CloudWatch Bedrock AgentCore
+Observability Console under the **Runtime** tab. The dashboard displays
+Memory and CPU usage graphs generated from these metrics, representing total resource
+usage across all agents in your account within the region.
+
+Agent Endpoint level metrics are available in AgentEndpoint page of Amazon CloudWatch
+Bedrock AgentCore Observability Console. The dashboard displays Memory and CPU usage
+graphs generated from these metrics, representing total resource usage across all
+sessions invoked by the specified Agent Endpoint.
+
+###### Note
+
+Telemetry data is provided for monitoring purposes. Actual billing is calculated
+based on metered usage data and may differ from telemetry values due to aggregation
+timing, reconciliation processes, and measurement precision. Refer to your AWS
+billing statement for authoritative charges.
+
+**Vended logs**
+
+Bedrock AgentCore Runtime provides vended logs for session-level usage metrics at
+1-second granularity. Each log record contains resource consumption data including CPU
+usage (agent.runtime.vcpu.hours.used) and memory consumption
+(agent.runtime.memory.gb_hours.used).
+
+Each log record will have following schema:
+
+| Log type   | Log fields                                                                                                                                                                                                                           | Description                                              |
+| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------- |
+| USAGE_LOGS | event_timestamp, resource_arn, service.name, cloud.provider,<br>cloud.region, account.id, region, resource.id, session.id, agent.name,<br>elapsed_time_seconds, agent.runtime.vcpu.hours.used,<br>agent.runtime.memory.gb_hours.used | Resource Usage Logs for session-level resource tracking. |
+
+To enable USAGE_LOG log type for your agents, see [Add observability to your Amazon Bedrock AgentCore
+resources](observability-configure.md "observability-configure.md"). The
+logs are then displayed in the configured destination (AWS LogGroup, Amazon S3 or
+Amazon Kinesis Firehose) as configured.
+
+In the Agent Session page of the Amazon CloudWatch Bedrock AgentCore Observability
+Console, you can see resource usage metrics generated from these logs. To optimize your
+metric viewing experience, select your desired time range using the selector in the top
+right to focus on specific CPU and Memory Usage data.
+
+###### Note
+
+Telemetry data is provided for monitoring purposes. Actual billing is calculated
+based on metered usage data and may differ from telemetry values due to aggregation
+timing, reconciliation processes, and measurement precision. Refer to your AWS
+billing statement for authoritative charges.
+
+## Provided span data
+
+To enhance observability, AgentCore provides structured spans that provide visibility
+into agent runtime invocations. To enable this span data, you need to enable
+observability on your agent resource. See [Add observability to your Amazon Bedrock AgentCore
+resources](observability-configure.md "observability-configure.md") for steps and details. This span data is
+available in AWS CloudWatch Logs aws/spans log group. The following table defines the
+operation for which spans are created and the attributes for each captured span.
+
+| Operation name     | Span attributes                                                                                                                                                                                 | Description                |
+| ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
+| InvokeAgentRuntime | aws.operation.name, aws.resource.arn, aws.request_id, aws.agent.id,<br>aws.endpoint.name, aws.account.id, session.id, latency_ms, error_type,<br>aws.resource.type, aws.xray.origin, aws.region | Invokes the agent runtime. |
+
+- aws.operation.name - the operation name (InvokeAgentRuntime)
+- aws.resource.arn - the Amazon resource name for the agent runtime
+- aws.request_id - request ID for the invocation
+- aws.agent.id - the unique identifier for the agent runtime
+- aws.endpoint.name - the name of the endpoint used to invoke the agent
+  runtime
+- aws.account.id - customer’s account id
+- session.id - the session ID for the invocation
+- latency_ms - the latency of the request in milliseconds
+- error_type - either throttle, system, or user (only present if error)
+- aws.resource.type - the CFN resource type
+- aws.xray.origin - the CFN resource type used by x-ray to identify the
+  service
+- aws.region - the region the customer resource exists in
+
+## Application log
+
+data
+
+AgentCore provides structured Application logs that help you gain visibility into your
+agent runtime invocations and session-level resource consumption. This log data is
+provided when enabling observability on your agent resource. See [Add observability to your Amazon Bedrock AgentCore
+resources](observability-configure.md "observability-configure.md") for
+steps and details. AgentCore can output logs to CloudWatch Logs, Amazon S3, or Firehose
+stream. If you use a CloudWatch Logs destination, these logs are stored under your
+agent’s application logs or under your own custom log group.
+
+| Log type         | Log fields                                                                                                                                                        | Description                                                                                        |
+| ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| APPLICATION_LOGS | timestamp, resource_arn, event_timestamp, account_id, request_id,<br>session_id, trace_id, span_id, service_name, operation, request_payload,<br>response_payload | Application logs for InvokeRuntimeOperation with tracing fields,<br>request, and response payloads |
+
+- request_payload - the request payload of the agent invocation
+- response_payload - the response from the agent invocation
+
+## Error types
+
+The following list defines the possible error types for user, system, and throttling
+errors.
+
+###### User error codes
+
+- `InvocationError.Validation` - Client provided invalid input
+  (400)
+- `InvocationError.ResourceNotFound` - Requested resource doesn't
+  exist (404)
+- `InvocationError.AccessDenied` - Client lacks permissions
+  (403)
+- `InvocationError.Conflict` - Resource conflict (409)
+
+###### System error codes
+
+- `InvocationError.Internal` - Internal server error (500)
+
+###### Throttling error codes
+
+- `InvocationError.Throttling` - Rate limiting (429)
+- `InvocationError.ServiceQuota` - Service-side quota/limit reached
+  (402)

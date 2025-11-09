@@ -1,7 +1,9 @@
-# Session replay programmatic examples
+# Session replay programmatic
 
-For advanced use cases, you can build custom session replay viewers and integrate recording
-data into your own analysis workflows.
+examples
+
+For advanced use cases, you can build custom session replay viewers and integrate
+recording data into your own analysis workflows.
 
 The following GitHub examples show a standalone session replay viewer and what the
 complete browser experience looks like when using the browser session replay

@@ -4,9 +4,10 @@ AgentCore Browser enables your agents to interact with web pages through a manag
 The agent can navigate websites, search for information, extract content, and interact with
 web elements in a secure, managed environment.
 
-This page covers the prerequisites and helps you get started using _AWS Strands_.
-Strands provides a high-level agent framework that simplifies building AI agents with built-in
-tool integration, conversation management, and automatic session handling.
+This page covers the prerequisites and helps you get started using _AWS
+Strands_. Strands provides a high-level agent framework that simplifies building
+AI agents with built-in tool integration, conversation management, and automatic session
+handling.
 
 ###### Topics
 
@@ -259,11 +260,25 @@ This example:
 
 After using AgentCore Browser, view your resources in the AWS Console:
 
-| #   | Resource           | Location                                                            |
-| --- | ------------------ | ------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 1   | Live View          | Browser Console > Tool Name > **View live session**                 |
-| 2   | Session Recordings | Browser Console > Tool Name > **View recording**                    |
-| 3   | Browser Logs       | **CloudWatch** > **Log groups** > `/aws/bedrock-agentcore/browser/` |
-| 4   | Recording Files    | **S3** > Your bucket > `browser-recordings/` prefix                 |
-| 5   | Custom Browsers    | **AgentCore Console** > **Built-in tools** > Your custom browser    |
-| 6   | IAM Roles          | **IAM** > **Roles** > Search for your execution role                | ## Next steps Now that you have AgentCore Browser working, explore these advanced features: <br>• [Browser session recording and replay](browser-session-replay.md "browser-session-replay.md") - Record and replay sessions for debugging <br>• [Using AgentCore Browser with other Browser libraries and tools](browser-building-agents.md "browser-building-agents.md") - Use other frameworks like Nova Act or Playwright <br>• [Use cases](browser-tool.md#browser-use-cases "browser-tool.md#browser-use-cases") - See real-world implementation examples <br>• [Resource and session management](browser-resource-session-management.md "browser-resource-session-management.md") - Learn about API operations and custom browsers |
+| #   | Resource           | Location                                                                         |
+| --- | ------------------ | -------------------------------------------------------------------------------- |
+| 1   | Live View          | Browser Console > Tool Name > **View live<br>session**                           |
+| 2   | Session Recordings | Browser Console > Tool Name > **View recording**                                 |
+| 3   | Browser Logs       | **CloudWatch\*<br>• > **Log groups\*<br>• ><br>`/aws/bedrock-agentcore/browser/` |
+| 4   | Recording Files    | \*_S3_<br>• > Your bucket > `browser-recordings/`<br>prefix                      |
+| 5   | Custom Browsers    | **AgentCore Console\*<br>• > **Built-in<br>tools\*<br>• > Your custom browser    |
+| 6   | IAM Roles          | **IAM\*<br>• > **Roles\*<br>• > Search for<br>your execution role                |
+
+## Next steps
+
+Now that you have AgentCore Browser working, explore these advanced features:
+
+- [Browser session recording and replay](browser-session-replay.md "browser-session-replay.md") -
+  Record and replay sessions for debugging
+- [Using AgentCore Browser with other Browser libraries and
+  tools](browser-building-agents.md "browser-building-agents.md") -
+  Use other frameworks like Nova Act or Playwright
+- [Use cases](browser-tool.md#browser-use-cases "browser-tool.md#browser-use-cases") - See
+  real-world implementation examples
+- [Resource and session management](browser-resource-session-management.md "browser-resource-session-management.md") - Learn about API operations and
+  custom browsers

@@ -11,3 +11,5 @@ AgentCore Runtime.
 - [Get started with the Amazon Bedrock AgentCore starter
   toolkit](runtime-get-started-toolkit.md "runtime-get-started-toolkit.md")
 - [Get started without the starter toolkit](getting-started-custom.md "getting-started-custom.md")
+- [Get started with Amazon Bedrock AgentCore Runtime direct
+  code deployment](runtime-get-started-code-deploy.md "runtime-get-started-code-deploy.md")

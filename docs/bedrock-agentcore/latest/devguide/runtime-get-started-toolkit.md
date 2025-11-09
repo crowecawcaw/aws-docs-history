@@ -288,9 +288,120 @@ agentcore destroy
 
 After deployment, view your resources in the AWS Console:
 
-| Resource locations   | Resource                                                                       | Location                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| -------------------- | ------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Agent Logs**       | CloudWatch → Log groups → `/aws/bedrock-agentcore/runtimes/{agent-id}-DEFAULT` |
-| **Container Images** | ECR → Repositories → `bedrock-agentcore-{agent-name}`                          |
-| **Build Logs**       | CodeBuild → Build history                                                      |
-| **IAM Role**         | IAM → Roles → Search for "BedrockAgentCore"                                    | ## Common issues and solutions Common issues and solutions when getting started with the Amazon Bedrock AgentCore starter toolkit. For more troubleshooting information, see [Troubleshoot Amazon Bedrock AgentCore Runtime](runtime-troubleshooting.md "runtime-troubleshooting.md"). **Permission denied errors** Verify your AWS credentials and permissions: <br>• Verify AWS credentials: `aws sts get-caller-identity` <br>• Check you have the required policies attached <br>• Review caller permissions policy for detailed requirements **Docker not found warnings** You can ignore this warning: <br>• **Ignore this!** Default deployment uses CodeBuild (no Docker needed) <br>• Only install Docker/Finch/Podman if you want to use `--local` or `--local-build` flags **Model access denied** Enable model access in the Bedrock console: <br>• Enable Anthropic Claude 4.0 in the Bedrock console <br>• Make sure you're in the correct AWS Region (us-west-2 by default) **CodeBuild build error** Check build logs and permissions: <br>• Check CodeBuild project logs in AWS console <br>• Verify your caller permissions include CodeBuild access **Port 8080 in use (local only)** Find and stop processes that are using port 8080: Use `lsof -ti:8080` to get a list of process using port 8080. Use `kill -9 `PID``to stop the process. Replace`PID`with the process ID. **Region mismatch** Verify the AWS Region with`aws configure get region`and make sure resources are in same Region ## Advanced options (Optional) The starter toolkit has advanced configuration options for different deployment modes and custom IAM roles. For more information, see [Runtime commands for the starter toolkit](https://aws.github.io/bedrock-agentcore-starter-toolkit/api-reference/cli.html "https://aws.github.io/bedrock-agentcore-starter-toolkit/api-reference/cli.html"). ### Deployment modes Choose the right deployment approach for your needs: **Default: CodeBuild + Cloud Runtime (RECOMMENDED)** Suitable for production, managed environments, teams without Docker: ``` agentcore launch  # Uses CodeBuild (no Docker needed) ``` **Local Development** Suitable for development, rapid iteration, debugging: ``` agentcore launch --local  # Build and run locally (requires Docker/Finch/Podman) ``` **Hybrid: Local Build + Cloud Runtime** Suitable for teams with Docker expertise needing build customization: ``` agentcore launch --local-build  # Build locally, deploy to cloud (requires Docker/Finch/Podman) ``` ###### Note Docker is only required for`—local`and`—local-build` modes. The default mode uses AWS CodeBuild. ### Custom execution role Use an existing IAM role: `agentcore configure -e my_agent.py --execution-role arn:aws:iam::111122223333:role/MyRole` ### Why ARM64? Amazon Bedrock AgentCore Runtime requires ARM64 containers (AWS Graviton). The toolkit handles this automatically: <br>• **Default (CodeBuild)**: Builds ARM64 containers in the cloud - no Docker needed <br>• **Local with Docker**: Only containers built on ARM64 machines will work when deployed to agentcore runtime |
+| Resource locations   | Resource                                                                          | Location |
+| -------------------- | --------------------------------------------------------------------------------- | -------- |
+| **Agent Logs**       | CloudWatch → Log groups →<br>`/aws/bedrock-agentcore/runtimes/{agent-id}-DEFAULT` |
+| **Container Images** | ECR → Repositories →<br>`bedrock-agentcore-{agent-name}`                          |
+| **Build Logs**       | CodeBuild → Build history                                                         |
+| **IAM Role**         | IAM → Roles → Search for "BedrockAgentCore"                                       |
+
+## Common issues and solutions
+
+Common issues and solutions when getting started with the Amazon Bedrock AgentCore starter
+toolkit. For more troubleshooting information, see [Troubleshoot Amazon Bedrock AgentCore Runtime](runtime-troubleshooting.md "runtime-troubleshooting.md").
+
+**Permission denied errors**
+
+Verify your AWS credentials and permissions:
+
+- Verify AWS credentials: `aws sts
+get-caller-identity`
+- Check you have the required policies attached
+- Review caller permissions policy for detailed requirements
+
+**Docker not found warnings**
+
+You can ignore this warning:
+
+- **Ignore this!** Default deployment
+  uses CodeBuild (no Docker needed)
+- Only install Docker/Finch/Podman if you want to use
+  `--local` or `--local-build` flags
+
+**Model access denied**
+
+Enable model access in the Bedrock console:
+
+- Enable Anthropic Claude 4.0 in the Bedrock console
+- Make sure you're in the correct AWS Region (us-west-2 by
+  default)
+
+**CodeBuild build error**
+
+Check build logs and permissions:
+
+- Check CodeBuild project logs in AWS console
+- Verify your caller permissions include CodeBuild access
+
+**Port 8080 in use (local only)**
+
+Find and stop processes that are using port 8080:
+
+Use `lsof -ti:8080` to get a list of process using port 8080.
+
+Use `kill -9
+ `PID``to stop the process. Replace`PID` with
+the process ID.
+
+**Region mismatch**
+
+Verify the AWS Region with `aws configure get region` and
+make sure resources are in same Region
+
+## Advanced options (Optional)
+
+The starter toolkit has advanced configuration options for different deployment modes
+and custom IAM roles. For more information, see [Runtime commands for the starter toolkit](https://aws.github.io/bedrock-agentcore-starter-toolkit/api-reference/cli.html "https://aws.github.io/bedrock-agentcore-starter-toolkit/api-reference/cli.html").
+
+### Deployment modes
+
+Choose the right deployment approach for your needs:
+
+**Default: CodeBuild + Cloud Runtime (RECOMMENDED)**
+
+Suitable for production, managed environments, teams without
+Docker:
+
+```
+agentcore launch  # Uses CodeBuild (no Docker needed)
+```
+
+**Local Development**
+
+Suitable for development, rapid iteration, debugging:
+
+```
+agentcore launch --local  # Build and run locally (requires Docker/Finch/Podman)
+```
+
+**Hybrid: Local Build + Cloud Runtime**
+
+Suitable for teams with Docker expertise needing build
+customization:
+
+```
+agentcore launch --local-build  # Build locally, deploy to cloud (requires Docker/Finch/Podman)
+```
+
+###### Note
+
+Docker is only required for `—local` and `—local-build`
+modes. The default mode uses AWS CodeBuild.
+
+### Custom execution role
+
+Use an existing IAM role:
+
+```
+agentcore configure -e my_agent.py --execution-role arn:aws:iam::111122223333:role/MyRole
+```
+
+### Why ARM64?
+
+Amazon Bedrock AgentCore Runtime requires ARM64 containers (AWS Graviton). The toolkit
+handles this automatically:
+
+- **Default (CodeBuild)**: Builds ARM64
+  containers in the cloud - no Docker needed
+- **Local with Docker**: Only containers built
+  on ARM64 machines will work when deployed to agentcore runtime

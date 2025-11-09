@@ -4,7 +4,7 @@ In this quick start guide you'll learn how to set up a gateway and integrate it 
 
 ###### Note
 
-The AgentCore starter toolkit abstracts the Boto3 Python SDK into simplified methods and is intended to help developers get started quickly. For a more comprehensive set of operations, you should use an AWS SDK such as Boto3. For more information on Boto3 operations for AgentCore, see [AgentCore Control Plane operations](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock-agentcore-control.html "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock-agentcore-control.html").
+The AgentCore starter toolkit abstracts the AWS Python SDK (Boto3) into simplified methods and is intended to help developers get started quickly. For a more comprehensive set of operations, you should use an AWS SDK such as Boto3. For more information on Boto3 operations for AgentCore, see [AgentCore Control Plane operations](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock-agentcore-control.html "https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/bedrock-agentcore-control.html").
 
 ###### Topics
 
@@ -420,9 +420,52 @@ Through this getting started tutorial, you've created the following resources:
 The following table shows some possible issues and their solutions:
 
 | Issue                       | Solution                                                                      |
-| --------------------------- | ----------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| --------------------------- | ----------------------------------------------------------------------------- |
 | "No module named 'strands'" | Run: `pip install strands-agents`                                             |
 | "Model not enabled"         | Enable Claude Sonnet 3.7 in Bedrock console → Model access                    |
 | "AccessDeniedException"     | Check IAM permissions for `bedrock-agentcore:*`                               |
 | Gateway not responding      | Wait 30-60 seconds after creation for DNS propagation                         |
-| OAuth token expired         | Tokens expire after 1 hour, get new one with `get_access_token_for_cognito()` | ## Quick validation Run the following commands in a terminal to check that your gateway is working. `# Check your Gateway is working curl -X POST YOUR_GATEWAY_URL \ -H "Authorization: Bearer YOUR_TOKEN" \ -H "Content-Type: application/json" \ -d '{"jsonrpc":"2.0","id":1,"method":"tools/list","params":{}}' # Watch live logs aws logs tail /aws/bedrock-agentcore/gateways/YOUR_GATEWAY_ID --follow` ## Cleanup Create a `cleanup_gateway.py` file and insert the following contents: `from bedrock_agentcore_starter_toolkit.operations.gateway.client import GatewayClient import json with open("gateway_config.json", "r") as f: config = json.load(f) client = GatewayClient(region_name=config["region"]) client.cleanup_gateway(config["gateway_id"], config["client_info"]) print("✅ Cleanup complete!")` Run the following in a terminal: `python cleanup_gateway.py` ## Next steps <br>• **Custom Lambda Tools**: Create Lambda functions with your business logic <br>• **Add Your Own APIs**: Extend your Gateway with OpenAPI specifications for real services <br>• **Production Setup**: Configure VPC endpoints, custom domains, and monitoring |
+| OAuth token expired         | Tokens expire after 1 hour, get new one with `get_access_token_for_cognito()` |
+
+## Quick validation
+
+Run the following commands in a terminal to check that your gateway is working.
+
+```
+# Check your Gateway is working
+curl -X POST YOUR_GATEWAY_URL \
+  -H "Authorization: Bearer YOUR_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{"jsonrpc":"2.0","id":1,"method":"tools/list","params":{}}'
+
+# Watch live logs
+aws logs tail /aws/bedrock-agentcore/gateways/YOUR_GATEWAY_ID --follow
+```
+
+## Cleanup
+
+Create a `cleanup_gateway.py` file and insert the following contents:
+
+```
+from bedrock_agentcore_starter_toolkit.operations.gateway.client import GatewayClient
+import json
+
+with open("gateway_config.json", "r") as f:
+    config = json.load(f)
+
+client = GatewayClient(region_name=config["region"])
+client.cleanup_gateway(config["gateway_id"], config["client_info"])
+print("✅ Cleanup complete!")
+```
+
+Run the following in a terminal:
+
+```
+python cleanup_gateway.py
+```
+
+## Next steps
+
+- **Custom Lambda Tools**: Create Lambda functions with your business logic
+- **Add Your Own APIs**: Extend your Gateway with OpenAPI specifications for real services
+- **Production Setup**: Configure VPC endpoints, custom domains, and monitoring

@@ -1,29 +1,39 @@
 # How to use session replay
 
-Session recording captures all browser interactions and allows you to replay
-sessions for debugging, analysis, and monitoring. This feature requires a custom browser
-tool with recording enabled.
+Session recording captures all browser interactions and allows you to replay sessions
+for debugging, analysis, and monitoring. This feature requires a custom browser tool with
+recording enabled.
 
 ###### Note
 
-- Session replay captures DOM mutations and reconstructs them during playback. The browser may make cross-origin HTTP requests to fetch external assets during replay.
-- Session replay is not available in the AWS managed Browser (aws.browser.v1).
+- Session replay captures DOM mutations and reconstructs them during playback. The
+  browser may make cross-origin HTTP requests to fetch external assets during
+  replay.
+- Session replay is not available in the AWS managed Browser
+  (aws.browser.v1).
   Session replay in AgentCore Browser involves the following steps:
 
-1. **Create a Browser Tool with Recording** - Create a custom browser with recording enabled and specify your Amazon S3 bucket for storage
-2. **Use the Recording-Enabled Browser** - Start browser sessions and perform browsing activities through automation or live view
-3. **Replay and Inspect Recorded Sessions** - Access recordings through the AWS Console with comprehensive analysis tools
-4. **Access Recordings Programmatically** - Retrieve and analyze recording data directly from Amazon S3 for custom workflows
+1. **Create a Browser Tool with Recording** - Create a
+   custom browser with recording enabled and specify your Amazon S3 bucket for storage
+2. **Use the Recording-Enabled Browser** - Start browser
+   sessions and perform browsing activities through automation or live view
+3. **Replay and Inspect Recorded Sessions** - Access
+   recordings through the AWS Console with comprehensive analysis tools
+4. **Access Recordings Programmatically** - Retrieve and
+   analyze recording data directly from Amazon S3 for custom workflows
 
 ###### Important
 
-Before you perform these steps, make sure that you've configured the IAM Role for recording. You must
-set up permissions for Amazon Bedrock AgentCore to write recording data to Amazon S3 and log activity to CloudWatch. For more
-information, see [Configure IAM role for recording](browser-session-replay.md#session-replay-permissions "browser-session-replay.md#session-replay-permissions").
+Before you perform these steps, make sure that you've configured the IAM Role for
+recording. You must set up permissions for Amazon Bedrock AgentCore to write recording data to
+Amazon S3 and log activity to CloudWatch. For more information, see [Configure IAM role for recording](browser-session-replay.md#session-replay-permissions "browser-session-replay.md#session-replay-permissions").
 
-## Step 1: Create a browser tool with recording
+## Step 1: Create a browser tool with
 
-Create a custom browser tool with recording enabled. For detailed instructions on creating browser tools, see [Creating an AgentCore Browser](browser-create.md "browser-create.md").
+recording
+
+Create a custom browser tool with recording enabled. For detailed instructions on
+creating browser tools, see [Creating an AgentCore Browser](browser-create.md "browser-create.md").
 
 When creating your browser tool, ensure you:
 
@@ -64,7 +74,8 @@ print(f"Recordings will be stored at: s3://{bucket}/browser-recordings/")
 
 ## Step 2: Use the recording-enabled browser
 
-Use your recording-enabled browser with any automation framework. All browser interactions will be automatically recorded. Example using Strands:
+Use your recording-enabled browser with any automation framework. All browser
+interactions will be automatically recorded. Example using Strands:
 
 ```
 from strands import Agent
@@ -86,11 +97,15 @@ print("Agent Response:")
 print(response.message["content"][0]["text"])
 ```
 
-All interactions during this session will be automatically recorded and uploaded to your Amazon S3 bucket when the session ends.
+All interactions during this session will be automatically recorded and uploaded to
+your Amazon S3 bucket when the session ends.
 
-## Step 3: Monitor live sessions and replay recordings
+## Step 3: Monitor live sessions and replay
 
-The AWS Console provides comprehensive tools for both real-time monitoring and recorded session analysis.
+recordings
+
+The AWS Console provides comprehensive tools for both real-time monitoring and
+recorded session analysis.
 
 ### Live view monitoring
 
@@ -98,11 +113,16 @@ Monitor browser sessions in real-time and interact with active sessions:
 
 ###### To access live view in the console
 
-1. Open the Amazon Bedrock AgentCore console and navigate to **Built-in tools**
-2. Select your browser tool from the list (for example, `MyRecordingBrowser`)
-3. In the **Browser sessions** section, locate an active session with status **Ready** or **In progress**
-4. In the **Live view / recording** column, click the provided "View live session" URL
-5. The live view opens in a new browser window, displaying the real-time browser session
+1. Open the Amazon Bedrock AgentCore console and navigate to **Built-in
+   tools**
+2. Select your browser tool from the list (for example,
+   `MyRecordingBrowser`)
+3. In the **Browser sessions** section, locate an active session
+   with status **Ready** or **In progress**
+4. In the **Live view / recording** column, click the provided
+   "View live session" URL
+5. The live view opens in a new browser window, displaying the real-time browser
+   session
 
 The live view interface provides:
 
@@ -113,25 +133,35 @@ The live view interface provides:
 
 ### Session replay and analysis
 
-Access detailed session recordings and analysis through the console replay interface:
+Access detailed session recordings and analysis through the console replay
+interface:
 
 ###### To access session replay in the console
 
-1. Navigate to your browser tool and select a completed session with **Terminated** status
-2. Click **View Recording** for the session you want to analyze
+1. Navigate to your browser tool and select a completed session with
+   **Terminated** status
+2. Click **View Recording** for the session you want to
+   analyze
 3. The session replay page displays with comprehensive analysis tools
 
 ###### Session analysis features
 
 The console provides multiple analysis tools:
 
-- **Video Player**: Interactive playback with timeline scrubber for navigation
-- **Pages Navigation**: Panel showing all visited pages with time ranges
-- **User Actions**: All user interactions with timestamps, methods, and details
-- **Page DOM**: DOM structure and HTML content for each page
-- **Console Logs**: Browser console output, errors, and log messages
-- **CDP Events**: Chrome DevTools Protocol events with parameters and results
-- **Network Events**: HTTP requests, responses, status codes, and timing
+- **Video Player**: Interactive playback with timeline scrubber
+  for navigation
+- **Pages Navigation**: Panel showing all visited pages with
+  time ranges
+- **User Actions**: All user interactions with timestamps,
+  methods, and details
+- **Page DOM**: DOM structure and HTML content for each
+  page
+- **Console Logs**: Browser console output, errors, and log
+  messages
+- **CDP Events**: Chrome DevTools Protocol events with
+  parameters and results
+- **Network Events**: HTTP requests, responses, status codes,
+  and timing
 
 ###### Navigate recordings
 
@@ -140,15 +170,20 @@ Use these methods to navigate through recordings:
 - Click on pages in the Pages panel to jump to specific moments
 - Click on user actions to see where they occurred in the timeline
 - Use the video timeline scrubber for precise navigation
-- Choose **View recording** links in action tables to jump to specific interactions
+- Choose **View recording** links in action tables to jump to
+  specific interactions
 
-## Step 4: Access recordings programmatically
+## Step 4: Access recordings
 
-Access live view and recording insights programmatically using the Amazon Bedrock AgentCore SDK and APIs for custom integration and automated analysis.
+programmatically
+
+Access live view and recording insights programmatically using the Amazon Bedrock AgentCore
+SDK and APIs for custom integration and automated analysis.
 
 ### Programmatic live view access
 
-Connect to live browser sessions using the browser client and viewer server:
+Connect to live browser sessions using the browser client and viewer
+server:
 
 ```
 import time
@@ -216,4 +251,5 @@ s3://your-recording-bucket/browser-recordings/
       └── batch_3.ndjson.gz
 ```
 
-Each session creates a folder with the session ID, and recording data is uploaded in chunks as the session progresses.
+Each session creates a folder with the session ID, and recording data is uploaded
+in chunks as the session progresses.

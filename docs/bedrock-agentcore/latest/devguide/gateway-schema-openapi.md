@@ -52,11 +52,203 @@ In considering using OpenAPI schema targets with AgentCore Gateway, review the f
 The following table outlines the OpenAPI features that are supported and unsupported
 by Gateway:
 
-| OpenAPI feature support                                                                                                                                                                                         | Supported Features                                                                                                                                                                                                                        | Unsupported Features                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Schema Definitions** <br>• Basic data types (string, number, integer, boolean, array, object) <br>• Required field validation <br>• Nested object structures <br>• Array definitions with item specifications | **Schema Composition** <br>• oneOf specifications <br>• anyOf specifications <br>• allOf specifications                                                                                                                                   |
-| **HTTP Methods** <br>• Standard HTTP methods (GET, POST, PUT, DELETE, PATCH, HEAD, OPTIONS)                                                                                                                     | **Security Schemes** <br>• Security schemes at the OpenAPI specification level (authentication must be configured using the Gateway's outbound authorization configuration)                                                               |
-| **Media Types** <br>• application/json <br>• application/xml <br>• multipart/form-data <br>• application/x-www-form-urlencoded                                                                                  | **Media Types** <br>• Custom media types beyond the supported list <br>• Binary media types                                                                                                                                               |
-| **Path Parameters** <br>• Simple path parameter definitions (Example: /users/{userId})                                                                                                                          | **Parameter Serialization** <br>• Complex path parameter serializers (Example: `/users{;id\\*}{?metadata}`) <br>• Query parameter arrays with complex serialization <br>• Header parameter serializers <br>• Cookie parameter serializers |
-| **Query Parameters** <br>• Basic query parameter definitions <br>• Simple string, number, and boolean types                                                                                                     | **Callbacks and Webhooks** <br>• Callback operations <br>• Webhook definitions                                                                                                                                                            |
-| **Request/Response Bodies** <br>• JSON request and response bodies <br>• XML request and response bodies <br>• Standard HTTP status codes (200, 201, 400, 404, 500, etc.)                                       | **Links** <br>• Links between operations                                                                                                                                                                                                  | ## OpenAPI schema specification The OpenAPI specification defines the REST API that your Gateway will expose. Refer to the following resources when setting up your OpenAPI specification: <br>• For information about the format of the OpenAPI specification, see [OpenAPI Specification](https://swagger.io/specification/ "https://swagger.io/specification/"). <br>• For information about supported and unsupported features when using an OpenAPI specification with AgentCore Gateway, see the table in [OpenAPI feature support](#gateway-schema-openapi-features "#gateway-schema-openapi-features"). Adhere to these requirements to prevent errors during target creation and invocation. After you define your OpenAPI schema, you can do one of the following: <br>• Upload it to an Amazon S3 bucket and refer to the S3 location when you add the target to your gateway. <br>• Paste the definition inline when you add the target to your gateway. Expand a section to see examples of supported and unsupported OpenAPI specifications: Following shows an example of a supported OpenAPI specification Example of a supported OpenAPI specification: `{ "openapi": "3.0.0", "info": { "title": "Weather API", "version": "1.0.0", "description": "API for retrieving weather information" }, "servers": [ { "url": "https://api.example.com/v1" } ], "paths": { "/weather": { "get": { "summary": "Get current weather", "description": "Returns current weather information for a location", "operationId": "getCurrentWeather", "parameters": [ { "name": "location", "in": "query", "description": "City name or coordinates", "required": true, "schema": { "type": "string" } }, { "name": "units", "in": "query", "description": "Units of measurement (metric or imperial)", "required": false, "schema": { "type": "string", "enum": ["metric", "imperial"], "default": "metric" } } ], "responses": { "200": { "description": "Successful response", "content": { "application/json": { "schema": { "type": "object", "properties": { "location": { "type": "string" }, "temperature": { "type": "number" }, "conditions": { "type": "string" }, "humidity": { "type": "number" } } } } } }, "400": { "description": "Invalid request" }, "404": { "description": "Location not found" } } } } } }` Following shows another example of a supported OpenAPI specification. `{ "openapi": "3.0.0", "info": { "title": "Search API", "version": "1.0.0", "description": "API for searching content" }, "servers": [ { "url": "https://api.example.com/v1" } ], "paths": { "/search": { "get": { "summary": "Search for content", "operationId": "searchContent", "parameters": [ { "name": "query", "in": "query", "description": "Search query", "required": true, "schema": { "type": "string" } }, { "name": "limit", "in": "query", "description": "Maximum number of results", "required": false, "schema": { "type": "integer", "default": 10 } } ], "responses": { "200": { "description": "Successful response", "content": { "application/json": { "schema": { "type": "object", "properties": { "results": { "type": "array", "items": { "type": "object", "properties": { "title": { "type": "string" }, "url": { "type": "string" }, "snippet": { "type": "string" } } } }, "total": { "type": "integer" } } } } } }, "400": { "description": "Bad request" } } } } } }` The following shows an example of an unsupported schema with oneOf: `{ "oneOf": [ {"$ref": "#/components/schemas/Pencil"}, {"$ref": "#/components/schemas/Pen"} ] }` |
+| OpenAPI feature support                                                                                                                                                                                        | Supported Features                                                                                                                                                                                                                       | Unsupported Features |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------- |
+| **Schema Definitions**<br>• Basic data types (string, number, integer, boolean, array,<br>object)<br>• Required field validation<br>• Nested object structures<br>• Array definitions with item specifications | **Schema Composition**<br>• oneOf specifications<br>• anyOf specifications<br>• allOf specifications                                                                                                                                     |
+| **HTTP Methods**<br>• Standard HTTP methods (GET, POST, PUT, DELETE, PATCH, HEAD,<br>OPTIONS)                                                                                                                  | **Security Schemes**<br>• Security schemes at the OpenAPI specification level (authentication<br>must be configured using the Gateway's outbound authorization configuration)                                                            |
+| **Media Types**<br>• application/json<br>• application/xml<br>• multipart/form-data<br>• application/x-www-form-urlencoded                                                                                     | **Media Types**<br>• Custom media types beyond the supported list<br>• Binary media types                                                                                                                                                |
+| **Path Parameters**<br>• Simple path parameter definitions (Example: /users/{userId})                                                                                                                          | **Parameter Serialization**<br>• Complex path parameter serializers (Example:<br>`/users{;id\\*}{?metadata}`)<br>• Query parameter arrays with complex serialization<br>• Header parameter serializers<br>• Cookie parameter serializers |
+| **Query Parameters**<br>• Basic query parameter definitions<br>• Simple string, number, and boolean types                                                                                                      | **Callbacks and Webhooks**<br>• Callback operations<br>• Webhook definitions                                                                                                                                                             |
+| **Request/Response Bodies**<br>• JSON request and response bodies<br>• XML request and response bodies<br>• Standard HTTP status codes (200, 201, 400, 404, 500, etc.)                                         | **Links**<br>• Links between operations                                                                                                                                                                                                  |
+
+## OpenAPI schema specification
+
+The OpenAPI specification defines the REST API that your Gateway will expose. Refer to the following resources when setting up your OpenAPI specification:
+
+- For information about the format of the OpenAPI specification, see [OpenAPI Specification](https://swagger.io/specification/ "https://swagger.io/specification/").
+- For information about supported and unsupported features when using an OpenAPI specification with AgentCore Gateway, see the table in [OpenAPI feature support](#gateway-schema-openapi-features "#gateway-schema-openapi-features"). Adhere to these requirements to prevent errors during target creation and invocation.
+
+After you define your OpenAPI schema, you can do one of the following:
+
+- Upload it to an Amazon S3 bucket and refer to the S3 location when you add the target to your gateway.
+- Paste the definition inline when you add the target to your gateway.
+
+Expand a section to see examples of supported and unsupported OpenAPI specifications:
+
+Following shows an example of a supported OpenAPI specification
+
+Example of a supported OpenAPI specification:
+
+```
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Weather API",
+    "version": "1.0.0",
+    "description": "API for retrieving weather information"
+  },
+  "servers": [
+    {
+      "url": "https://api.example.com/v1"
+    }
+  ],
+  "paths": {
+    "/weather": {
+      "get": {
+        "summary": "Get current weather",
+        "description": "Returns current weather information for a location",
+        "operationId": "getCurrentWeather",
+        "parameters": [
+          {
+            "name": "location",
+            "in": "query",
+            "description": "City name or coordinates",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "units",
+            "in": "query",
+            "description": "Units of measurement (metric or imperial)",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": ["metric", "imperial"],
+              "default": "metric"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "location": {
+                      "type": "string"
+                    },
+                    "temperature": {
+                      "type": "number"
+                    },
+                    "conditions": {
+                      "type": "string"
+                    },
+                    "humidity": {
+                      "type": "number"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request"
+          },
+          "404": {
+            "description": "Location not found"
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+Following shows another example of a supported OpenAPI specification.
+
+```
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Search API",
+    "version": "1.0.0",
+    "description": "API for searching content"
+  },
+  "servers": [
+    {
+      "url": "https://api.example.com/v1"
+    }
+  ],
+  "paths": {
+    "/search": {
+      "get": {
+        "summary": "Search for content",
+        "operationId": "searchContent",
+        "parameters": [
+          {
+            "name": "query",
+            "in": "query",
+            "description": "Search query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Maximum number of results",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 10
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "results": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "title": {
+                            "type": "string"
+                          },
+                          "url": {
+                            "type": "string"
+                          },
+                          "snippet": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    },
+                    "total": {
+                      "type": "integer"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request"
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+The following shows an example of an unsupported schema with oneOf:
+
+```
+{
+  "oneOf": [
+    {"$ref": "#/components/schemas/Pencil"},
+    {"$ref": "#/components/schemas/Pen"}
+  ]
+}
+```

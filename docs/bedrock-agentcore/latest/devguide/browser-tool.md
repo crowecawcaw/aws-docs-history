@@ -52,19 +52,44 @@ The Browser Tool includes several security features to help protect your environ
 
 ## How it works
 
-The Amazon Bedrock AgentCore Browser provides a session-based model for secure web browsing with comprehensive observability features. Here's how the complete workflow operates:
+The Amazon Bedrock AgentCore Browser provides a session-based model for secure web browsing with
+comprehensive observability features. Here's how the complete workflow operates:
 
 1. ###### Create a Browser Tool
 
-Create a Browser Tool to enable web browsing capabilities. You can choose between the AWS managed Browser (aws.browser.v1) for quick setup, or create a custom browser with advanced features like session recording, custom network settings, and specific IAM execution roles. The Browser Tool allows you to augment your agent runtime to securely interact with web applications, fill forms, navigate websites, and extract information in a fully managed environment. 2. ###### Start a browser session
+Create a Browser Tool to enable web browsing capabilities. You can choose between
+the AWS managed Browser (aws.browser.v1) for quick setup, or create a custom browser
+with advanced features like session recording, custom network settings, and specific IAM
+execution roles. The Browser Tool allows you to augment your agent runtime to securely
+interact with web applications, fill forms, navigate websites, and extract information
+in a fully managed environment. 2. ###### Start a browser session
 
-The Browser Tool uses a session-based model where each session runs in an isolated environment. After creating a Browser Tool, you start a session with a configurable timeout period (default is 15 minutes, extendable up to 8 hours). Sessions automatically terminate after the timeout period, and multiple sessions can be active simultaneously for a single Browser Tool. 3. ###### Interact with the browser
+The Browser Tool uses a session-based model where each session runs in an isolated
+environment. After creating a Browser Tool, you start a session with a configurable
+timeout period (default is 15 minutes, extendable up to 8 hours). Sessions automatically
+terminate after the timeout period, and multiple sessions can be active simultaneously
+for a single Browser Tool. 3. ###### Interact with the browser
 
-Once a session is started, you can interact with the browser using WebSocket-based streaming APIs. The Automation endpoint enables your agent to perform browser actions such as navigating to websites, clicking elements, filling out forms, taking screenshots, and more. Libraries like Strands, Nova Act, or Playwright can be used to simplify these interactions. Meanwhile, the Live View endpoint allows an end user to watch the browser session in real time and interact with it directly through the live stream. 4. ###### Monitor and record sessions
+Once a session is started, you can interact with the browser using WebSocket-based
+streaming APIs. The Automation endpoint enables your agent to perform browser actions
+such as navigating to websites, clicking elements, filling out forms, taking
+screenshots, and more. Libraries like Strands, Nova Act, or Playwright can be used to
+simplify these interactions. Meanwhile, the Live View endpoint allows an end user to
+watch the browser session in real time and interact with it directly through the live
+stream. 4. ###### Monitor and record sessions
 
-All browser sessions provide built-in observability through live viewing capabilities and optional session recording. Live view allows real-time monitoring of browser activity, while session recording (available for custom browsers) captures comprehensive interaction data including DOM changes, user actions, console logs, and network events. Recorded sessions are stored in your Amazon S3 bucket and can be replayed through the AWS Console or accessed programmatically for debugging and analysis. 5. ###### Assess performance using observability
+All browser sessions provide built-in observability through live viewing
+capabilities and optional session recording. Live view allows real-time monitoring of
+browser activity, while session recording (available for custom browsers) captures
+comprehensive interaction data including DOM changes, user actions, console logs, and
+network events. Recorded sessions are stored in your Amazon S3 bucket and can be replayed
+through the AWS Console or accessed programmatically for debugging and
+analysis. 5. ###### Assess performance using observability
 
-Monitor key metrics for each tool in CloudWatch to get real-time performance insights. Session recordings provide detailed analysis capabilities including video playback, timeline navigation, user action tracking, and comprehensive logs for troubleshooting and optimization.
+Monitor key metrics for each tool in CloudWatch to get real-time performance insights.
+Session recordings provide detailed analysis capabilities including video playback,
+timeline navigation, user action tracking, and comprehensive logs for troubleshooting
+and optimization.
 
 ## Use cases
 

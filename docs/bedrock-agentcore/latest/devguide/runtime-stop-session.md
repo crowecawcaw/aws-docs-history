@@ -128,9 +128,68 @@ operations.
 
 Common error responses:
 
-| Error responses | Status Code               | Error                                   | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| --------------- | ------------------------- | --------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Error responses | Status Code               | Error                                   | Description |
+| --------------- | ------------------------- | --------------------------------------- | ----------- |
 | 404             | ResourceNotFoundException | Session not found or already terminated |
 | 403             | AccessDeniedException     | Insufficient permissions                |
 | 400             | ValidationException       | Invalid parameters                      |
-| 500             | InternalServerException   | Service error                           | ## Best practices ### Session lifecycle management ``class SessionManager: def __init__(self, client, agent_arn): self.client = client self.agent_arn = agent_arn self.active_sessions = set() def invoke_agent(self, session_id, payload): """Invoke agent and track session""" try: response = self.client.invoke_agent_runtime( agentRuntimeArn=self.agent_arn, runtimeSessionId=session_id, payload=payload ) self.active_sessions.add(session_id) return response except Exception as e: print(f"Failed to invoke agent: {e}") raise def stop_session(self, session_id): """Stop session and remove from tracking""" try: self.client.stop_runtime_session( agentRuntimeArn=self.agent_arn, runtimeSessionId=session_id, qualifier=`endpoint_name` ) self.active_sessions.discard(session_id) print(f"Session {session_id} stopped") except Exception as e: print(f"Failed to stop session {session_id}: {e}") def cleanup_all_sessions(self): """Stop all tracked sessions""" for session_id in list(self.active_sessions): self.stop_session(session_id)`` ### Recommendations <br>• **Always handle exceptions** when stopping sessions <br>• **Track active sessions** in your application for cleanup <br>• **Set timeouts** for stop requests to avoid hanging <br>• **Log session terminations** for debugging and monitoring <br>• **Use session managers** for complex applications with multiple sessions |
+| 500             | InternalServerException   | Service error                           |
+
+## Best practices
+
+### Session lifecycle management
+
+```
+
+class SessionManager:
+    def __init__(self, client, agent_arn):
+        self.client = client
+        self.agent_arn = agent_arn
+        self.active_sessions = set()
+
+    def invoke_agent(self, session_id, payload):
+        """Invoke agent and track session"""
+        try:
+            response = self.client.invoke_agent_runtime(
+                agentRuntimeArn=self.agent_arn,
+                runtimeSessionId=session_id,
+                payload=payload
+            )
+            self.active_sessions.add(session_id)
+            return response
+        except Exception as e:
+            print(f"Failed to invoke agent: {e}")
+            raise
+
+    def stop_session(self, session_id):
+        """Stop session and remove from tracking"""
+        try:
+            self.client.stop_runtime_session(
+                agentRuntimeArn=self.agent_arn,
+                runtimeSessionId=session_id,
+                qualifier=`endpoint_name`
+            )
+            self.active_sessions.discard(session_id)
+            print(f"Session {session_id} stopped")
+        except Exception as e:
+            print(f"Failed to stop session {session_id}: {e}")
+
+    def cleanup_all_sessions(self):
+        """Stop all tracked sessions"""
+        for session_id in list(self.active_sessions):
+            self.stop_session(session_id)
+
+```
+
+### Recommendations
+
+- **Always handle exceptions** when stopping
+  sessions
+- **Track active sessions** in your application
+  for cleanup
+- **Set timeouts** for stop requests to avoid
+  hanging
+- **Log session terminations** for debugging
+  and monitoring
+- **Use session managers** for complex
+  applications with multiple sessions

@@ -63,15 +63,59 @@ more about viewing observability data, see [View observability data for your Ama
 The following table defines the operations for which spans are created and the
 attributes for each captured span.
 
-| Operation name        | Span attributes                                                                                                  | Description                                              |
-| --------------------- | ---------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `CreateEvent`         | `memory.id`, `session.id`, `event.id`, `actor.id`, `throttled`, `error`, `fault`                                 | Creates a new event within a memory session              |
-| `GetEvent`            | `memory.id`, `session.id`, `event.id`, `actor.id`, `throttled`, `error`, `fault`                                 | Retrieves an existing memory event                       |
-| `ListEvents`          | `memory.id`, `session.id`, `event.id`, `actor.id`, `throttled`, `error`, `fault`                                 | Lists events within a session                            |
-| DeleteEvent           | `memory.id`, `session.id`, `event.id`, `actor.id`, `throttled`, `error`, `fault`                                 | Deletes an event from memory                             |
-| RetrieveMemoryRecords | `memory.id`, `namespace`, `throttled`, `error`, `fault`                                                          | Retrieves memory records for a given namespace           |
-| ListMemoryRecords     | `memory.id`, `namespace`, `throttled`, `error`, `fault`                                                          | Lists available memory records                           | ## Provided log data AgentCore provides structured logs that help you monitor and troubleshoot key AgentCore Memory resource processes. To enable this log data, you need to instrument your agent code. See [Add observability to your Amazon Bedrock AgentCore resources](observability-configure.md "observability-configure.md") to learn more. AgentCore can output logs to CloudWatch Logs, Amazon S3, or Firehose stream. If you use a CloudWatch Logs destination, these logs are stored under the default log group `/aws/vendedlogs/bedrock-agentcore/memory/APPLICATION_LOGS/{memory_id}` or under a custom log group starting with `/aws/vendedlogs/`. See [Enabling observability for AgentCore runtime, memory, gateway, built-in tools, and identity resources](observability-configure.md#observability-configure-cloudwatch "observability-configure.md#observability-configure-cloudwatch") to learn more. When the `DeleteMemory` operation is called, logs are generated for the start and completion of the deletion process. Any corresponding deletion error logs will be provided with insights into why the call failed. We also provide logs for various stages in the long-term memory creation process, namely extraction and consolidation. When new short term memory events are provided, AgentCore extracts key concepts from responses to begin the formation of new long-term memory records. Once these have been created, they are integrated with existing memory records to create a unified store of distinct memories. See the following breakdown to learn how each workflow helps you monitor the formation of new memories: ###### Extraction logs <br>• Start and completion of extraction processing <br>• Number of memories successfully extracted <br>• Any errors in deserializing or processing input events ###### Consolidation logs: <br>• Start and completion of consolidation processing <br>• Number of memories requiring consolidation <br>• Success/failure of memory additions and updates <br>• Related memory retrieval status The following table provides a more detailed breakdown of how different memory resource workflows use log fields alongside the log body itself to provide request-specific information. |
-| Workflow name         | Log fields                                                                                                       | Description                                              |
-| ---                   | ---                                                                                                              | ---                                                      |
-| Extraction            | resource_arn, event_timestamp, memory_strategy_id, namespace, actor_id, session_id, event_id, requestId, isError | Analyzes incoming conversations to generate new memories |
-| Consolidation         | resource_arn, event_timestamp, memory_strategy_id, namespace, session_id, requestId, isError                     | Combines extracted memories with existing memories       |
+| Operation name        | Span attributes                                                                        | Description                                    |
+| --------------------- | -------------------------------------------------------------------------------------- | ---------------------------------------------- |
+| `CreateEvent`         | `memory.id`, `session.id`, `event.id`,<br>`actor.id`, `throttled`, `error`,<br>`fault` | Creates a new event within a memory session    |
+| `GetEvent`            | `memory.id`, `session.id`, `event.id`,<br>`actor.id`, `throttled`, `error`,<br>`fault` | Retrieves an existing memory event             |
+| `ListEvents`          | `memory.id`, `session.id`, `event.id`,<br>`actor.id`, `throttled`, `error`,<br>`fault` | Lists events within a session                  |
+| DeleteEvent           | `memory.id`, `session.id`, `event.id`,<br>`actor.id`, `throttled`, `error`,<br>`fault` | Deletes an event from memory                   |
+| RetrieveMemoryRecords | `memory.id`, `namespace`, `throttled`,<br>`error`, `fault`                             | Retrieves memory records for a given namespace |
+| ListMemoryRecords     | `memory.id`, `namespace`, `throttled`,<br>`error`, `fault`                             | Lists available memory records                 |
+
+## Provided log data
+
+AgentCore provides structured logs that help you monitor and troubleshoot key
+AgentCore Memory resource processes. To enable this log data, you need to instrument your
+agent code. See [Add observability to your Amazon Bedrock AgentCore
+resources](observability-configure.md "observability-configure.md") to learn more.
+
+AgentCore can output logs to CloudWatch Logs, Amazon S3, or Firehose stream. If you use a CloudWatch Logs destination,
+these logs are stored under the default log group
+`/aws/vendedlogs/bedrock-agentcore/memory/APPLICATION_LOGS/{memory_id}` or
+under a custom log group starting with `/aws/vendedlogs/`. See [Enabling observability for
+AgentCore runtime, memory, gateway, built-in tools, and identity
+resources](observability-configure.md#observability-configure-cloudwatch "observability-configure.md#observability-configure-cloudwatch") to learn more.
+
+When the `DeleteMemory` operation is called, logs are generated for the start
+and completion of the deletion process. Any corresponding deletion error logs will be
+provided with insights into why the call failed.
+
+We also provide logs for various stages in the long-term memory creation process, namely
+extraction and consolidation. When new short term memory events are provided, AgentCore
+extracts key concepts from responses to begin the formation of new long-term memory records.
+Once these have been created, they are integrated with existing memory records to create a
+unified store of distinct memories.
+
+See the following breakdown to learn how each workflow helps you monitor the formation of
+new memories:
+
+###### Extraction logs
+
+- Start and completion of extraction processing
+- Number of memories successfully extracted
+- Any errors in deserializing or processing input events
+
+###### Consolidation logs:
+
+- Start and completion of consolidation processing
+- Number of memories requiring consolidation
+- Success/failure of memory additions and updates
+- Related memory retrieval status
+  The following table provides a more detailed breakdown of how different memory resource
+  workflows use log fields alongside the log body itself to provide request-specific
+  information.
+
+| Workflow name | Log fields                                                                                                          | Description                                              |
+| ------------- | ------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------- |
+| Extraction    | resource_arn, event_timestamp, memory_strategy_id, namespace, actor_id,<br>session_id, event_id, requestId, isError | Analyzes incoming conversations to generate new memories |
+| Consolidation | resource_arn, event_timestamp, memory_strategy_id, namespace, session_id,<br>requestId, isError                     | Combines extracted memories with existing memories       |

@@ -1,33 +1,31 @@
 # Set up permissions for AgentCore Gateway
 
-Amazon Bedrock AgentCore Gateway can connect to both AWS resources and external
-services. This means that along with the standard AWS Identity and Access Management (IAM)
-for managing permissions in Amazon Bedrock AgentCore Gateway, the permissions model supports
-additional external authentication mechanisms.
+To use Amazon Bedrock AgentCore Gateway and its capabilities, you'll need to consider the following permissions:
 
-When working with Gateways, there are three main categories of permissions to
-consider:
+1. **Gateway builder/user permissions** – Permissions provided to a gateway builder or user to allow it to create, manage, and or use AgentCore gateways.
+2. **Gateway service role permissions** – Permissions provided to a service role that you'll create for your gateway. These permissions allow the Amazon Bedrock AgentCore service to perform actions on behalf of the identity that invokes the gateway.
+3. **Resource-based permissions** – Permissions attached to resources to allow the gateway service role to access it. You'll include the Amazon Resource Name (ARN) of the gateway service role as the `Principal` in the resource-based policy.
 
-1. [Gateway management permissions](#gateway-management-permissions "#gateway-management-permissions") -
-   Permissions needed to create and manage Gateways
-2. [Gateway Access Permissions or Inbound Auth
-   Configuration](#gateway-access-permissions "#gateway-access-permissions") - Who can invoke what via the MCP protocol
-3. [Gateway execution permissions](#gateway-execution-permissions "#gateway-execution-permissions") - Permissions provided to a service role to allow the Amazon Bedrock AgentCore service to perform actions on behalf of the identity that invokes the gateway.
+###### Note
+
+If you prefer not to set up custom permissions, you can use the following options for easy setup:
+
+- Attach the [BedrockAgentCoreFullAccess](../../../aws-managed-policy/latest/reference/BedrockAgentCoreFullAccess.md "../../../aws-managed-policy/latest/reference/BedrockAgentCoreFullAccess.md") to an IAM identity to allow it to create, manage, and invoke gateways.
+- Use the AWS Management Console or AgentCore starter toolkit to create an AgentCore gateway service role with the proper permissions and gateway targets with the proper resource-based policies to allow the service role to access them.
+  Select a topic to learn more:
 
 ###### Topics
 
-- [Gateway Management Permissions](#gateway-management-permissions "#gateway-management-permissions")
-- [Gateway Access Permissions or Inbound Auth
-  Configuration](#gateway-access-permissions "#gateway-access-permissions")
-- [AgentCore Gateway service role permissions](#gateway-execution-permissions "#gateway-execution-permissions")
+- [Gateway builder and user permissions](#gateway-user-permissions "#gateway-user-permissions")
+- [AgentCore Gateway service role permissions](#gateway-service-role-permissions "#gateway-service-role-permissions")
 - [Best practices for Gateway
   permissions](#gateway-prerequisites-best-practices "#gateway-prerequisites-best-practices")
 
-## Gateway Management Permissions
+## Gateway builder and user permissions
 
-These permissions allow you to create and manage Gateways. You can create a gateway
-specific policy (example name `BedrockAgentCoreGatewayFullAccess`) which could
-look like:
+For an identity to be able to create, manage, or use gateways, you need to attach an identity-based policy to the IAM identity to allow it to perform [Amazon Bedrock AgentCore-related actions](../../../service-authorization/latest/reference/list_amazonbedrockagentcore.md "../../../service-authorization/latest/reference/list_amazonbedrockagentcore.md"). For comprehensive permissions, you can use the [BedrockAgentCoreFullAccess](../../../aws-managed-policy/latest/reference/BedrockAgentCoreFullAccess.md "../../../aws-managed-policy/latest/reference/BedrockAgentCoreFullAccess.md") managed policy.
+
+For greater security and control, you can create your own custom policy by reducing the permissions in the full access policy. For example, the following policy allows an identity to perform actions related to AgentCore Gateway but not to other AgentCore services, such as AgentCore Runtime or AgentCore Browser:
 
 JSON
 
@@ -51,22 +49,7 @@ JSON
 
 ```
 
-You may also need additional permissions for related services:
-
-- `s3:GetObject` and `s3:PutObject` for storing and retrieving
-  schemas when you configure targets based on S3
-- `kms:Encrypt`, `kms:Decrypt`,
-  `kms:GenerateDataKey*` for encryption operations
-- Other service-specific permissions based on your Gateway's functionality or
-  configuration
-
-For more comprehensive permissions across all AgentCore services, consider using the
-`BedrockAgentCoreFullAccess` managed policy, especially when working with
-multiple AgentCore products.
-
-If you prefer to follow the principle of least privilege, you can create a custom policy
-that grants only specific permissions. Here's an example of a ReadOnly Gateway permission
-policy:
+The following custom policy is a more restrictive one that only allows read access to gateways and gateway targets::
 
 JSON
 
@@ -89,17 +72,9 @@ JSON
 
 ```
 
-## Gateway Access Permissions or Inbound Auth
+### Gateway access permissions (inbound authorization)
 
-Configuration
-
-Unlike other AWS services, which use standard AWS IAM mechanisms for access control,
-Amazon Bedrock AgentCore Gateway uses JWT token-based authentication as specified in the
-Model Context Protocol (MCP). These configurations have to be specified as a property of the
-gateway.
-
-You'll configure these permissions when [Creating
-gateways](gateway-create.md "gateway-create.md") in the next section.
+In addition to gateway-related permissions, you'll also need to configure permissions for identities to be able to access the gateway during invocation. You'll configure these permissions when you [set up inbound authorization](gateway-inbound-auth.md "gateway-inbound-auth.md").
 
 ## AgentCore Gateway service role permissions
 
@@ -112,9 +87,9 @@ The required permissions for a service role are in the following topics:
 
 ###### Topics
 
-- [Trust permissions](#gateway-execution-permissions-trust "#gateway-execution-permissions-trust")
-- [Outbound authorization permissions](#gateway-execution-permissions-outbound-auth "#gateway-execution-permissions-outbound-auth")
-- [Permissions to access AWS resources](#gateway-execution-permissions-resources "#gateway-execution-permissions-resources")
+- [Trust permissions](#gateway-service-role-permissions-trust "#gateway-service-role-permissions-trust")
+- [Outbound authorization permissions](#gateway-service-role-permissions-outbound-auth "#gateway-service-role-permissions-outbound-auth")
+- [Permissions to access AWS resources](#gateway-service-role-permissions-resources "#gateway-service-role-permissions-resources")
 
 ### Trust permissions
 
@@ -249,6 +224,8 @@ aws lambda add-permission \
   --principal "arn:aws:iam::`123456789012`:role/`MyGatewayServiceRole`"
   --region `us-east-1`
 ```
+
+If you plan to include a gateway target tool definition from an Amazon S3 URI, you'll need to include permissions for the gateway service role to access the bucket. The [AmazonS3ReadOnlyAccess](../../../aws-managed-policy/latest/reference/AmazonS3ReadOnlyAccess.md "../../../aws-managed-policy/latest/reference/AmazonS3ReadOnlyAccess.md") policy is an example of a policy that you can attach to the service role. You can scope the `Resource` to the S3 location for greater security.
 
 If you plan to add a Smithy target, you need to add permissions for the gateway service role to access AWS services that your Smithy models refer to. To determine which permissions need to be attached to the service role, refer to that service's documentation.
 

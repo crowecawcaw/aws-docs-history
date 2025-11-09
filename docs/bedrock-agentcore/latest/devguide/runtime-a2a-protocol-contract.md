@@ -205,10 +205,23 @@ access.
 A2A servers return errors as standard JSON-RPC 2.0 error responses with HTTP 200
 status codes to maintain protocol compliance:
 
-| A2A Error Codes | JSON-RPC Error Code       | Runtime Exception | HTTP Error Code                                                               | JSON-RPC Error Message                                                                                                                             |
-| --------------- | ------------------------- | ----------------- | ----------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
-| -32501          | ResourceNotFoundException | 404               | Resource not found - Requested resource does not exist                        |
-| -32052          | ValidationException       | 400               | Validation error - Invalid request data                                       |
-| -32053          | ThrottlingException       | 429               | Rate limit exceeded - Too many requests                                       |
-| -32054          | ResourceConflictException | 409               | Resource conflict - Resource already exists                                   |
-| -32055          | RuntimeClientError        | 424               | Runtime client error - Please check your CloudWatch logs for more information | Example error response: `{ "jsonrpc": "2.0", "id": "req-001", "error": { "code": -32052, "message": "Validation error - Invalid request data" } }` |
+| A2A Error Codes | JSON-RPC Error Code       | Runtime Exception | HTTP Error Code                                                                     | JSON-RPC Error Message |
+| --------------- | ------------------------- | ----------------- | ----------------------------------------------------------------------------------- | ---------------------- |
+| -32501          | ResourceNotFoundException | 404               | Resource not found<br>• Requested resource does not exist                           |
+| -32052          | ValidationException       | 400               | Validation error<br>• Invalid request data                                          |
+| -32053          | ThrottlingException       | 429               | Rate limit exceeded<br>• Too many requests                                          |
+| -32054          | ResourceConflictException | 409               | Resource conflict<br>• Resource already exists                                      |
+| -32055          | RuntimeClientError        | 424               | Runtime client error<br>• Please check your CloudWatch logs for more<br>information |
+
+Example error response:
+
+```
+{
+  "jsonrpc": "2.0",
+  "id": "req-001",
+  "error": {
+    "code": -32052,
+    "message": "Validation error - Invalid request data"
+  }
+}
+```

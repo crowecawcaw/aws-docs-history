@@ -111,6 +111,25 @@ def my_agent(payload):
 
 In production environments, replace `allow_origins=["*"]` with specific domain origins for better security.
 
+### Session Replay and Web Bot Auth don't work in new browser windows or contexts
+
+**Issue:** Session Replay and Web Bot Auth features are not available when your automation code creates new browser windows or contexts.
+
+**Cause:** These features rely on browser extensions that only work in the default browser context provided by Amazon Bedrock AgentCore. When you create a new context using methods like `browser.new_context()` in Playwright, the extensions are not available.
+
+**Solution:** Use the default browser context provided when you connect to the browser session. Avoid creating new contexts or windows if you need Session Replay or Web Bot Auth functionality.
+
+```
+
+# ✓ Use the existing default context
+context = browser.contexts[0]
+page = context.pages[0]
+
+# ✗ Don't create new contexts - Session Replay and Web Bot Auth won't work
+# context = browser.new_context()
+
+```
+
 ## Code Interpreter issues
 
 For general Code Interpreter troubleshooting, see the specific documentation for [Execute code and analyze data using
