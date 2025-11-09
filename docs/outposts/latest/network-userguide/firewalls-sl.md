@@ -23,13 +23,31 @@ should automatically allow reply traffic back in without explicit rule configura
 outbound connections initiated from the Outpost service link need to be configured as
 allowed.
 
+| Protocol | Source Port | Source Address                | Destination Port | Destination Address                   |
+| -------- | ----------- | ----------------------------- | ---------------- | ------------------------------------- |
+| UDP      | 443         | AWS Outposts service link /24 | 443              | AWS Outposts Region's public networks |
+| TCP      | 1025-65535  | AWS Outposts service link /24 | 443              | AWS Outposts Region's public networks |
+
+If you use a non-stateful firewall to limit connectivity regarding the service link VLAN,
+you must allow outbound connections initiated from the Outposts service link to the AWS Outposts
+Region's public networks. You must also explicitly allow reply traffic in from the Outposts
+Region’s public networks inbound to the service link VLAN. Connectivity is always initiated
+outbound from the Outposts service link, but reply traffic must be allowed back into the
+service link VLAN.
+
 | Protocol | Source Port | Source Address                        | Destination Port | Destination Address                   |
-| -------- | ----------- | ------------------------------------- | ---------------- | ------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| UDP      | 443         | AWS Outposts service link /24         | 443              | AWS Outposts Region's public networks |
-| TCP      | 1025-65535  | AWS Outposts service link /24         | 443              | AWS Outposts Region's public networks | If you use a non-stateful firewall to limit connectivity regarding the service link VLAN, you must allow outbound connections initiated from the Outposts service link to the AWS Outposts Region's public networks. You must also explicitly allow reply traffic in from the Outposts Region’s public networks inbound to the service link VLAN. Connectivity is always initiated outbound from the Outposts service link, but reply traffic must be allowed back into the service link VLAN. |
-| Protocol | Source Port | Source Address                        | Destination Port | Destination Address                   |
-| ---      | ---         | ---                                   | ---              | ---                                   |
+| -------- | ----------- | ------------------------------------- | ---------------- | ------------------------------------- |
 | UDP      | 443         | AWS Outposts service link /24         | 443              | AWS Outposts Region's public networks |
 | TCP      | 1025-65535  | AWS Outposts service link /24         | 443              | AWS Outposts Region's public networks |
 | UDP      | 443         | AWS Outposts Region's public networks | 443              | AWS Outposts service link /24         |
-| TCP      | 443         | AWS Outposts Region's public networks | 1025-65535       | AWS Outposts service link /24         | ###### Note Instances in an Outpost can't use the service link to communicate with instances in another Outposts. Leverage routing through the local gateway or local network interface to communicate between Outposts. AWS Outposts racks are also designed with redundant power and networking equipment, including local gateway components. For more information, see [Resilience in AWS Outposts](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md").                    |
+| TCP      | 443         | AWS Outposts Region's public networks | 1025-65535       | AWS Outposts service link /24         |
+
+###### Note
+
+Instances in an Outpost can't use the service link to communicate with instances in
+another Outposts. Leverage routing through the local gateway or local network interface to
+communicate between Outposts.
+
+AWS Outposts racks are also designed with redundant power and networking equipment, including
+local gateway components. For more information, see [Resilience in
+AWS Outposts](disaster-recovery-resiliency.md "disaster-recovery-resiliency.md").
