@@ -86,7 +86,7 @@ You can add, update, list, and remove tags on your streams using the Kinesis Dat
 4. On the **Create data stream** page, enter a name for your data stream.
 5. For **Data stream capacity**, choose either the **On-demand** or the **Provisioned** capacity mode.
 
-For more information about capacity modes, see [Choose the data stream capacity mode](how-do-i-size-a-stream.md "how-do-i-size-a-stream.md"). 6. In the **Tags** section, do the following:
+For more information about capacity modes, see [Choose the right mode to stream in](how-do-i-size-a-stream.md "how-do-i-size-a-stream.md"). 6. In the **Tags** section, do the following:
 
     1. Choose **Add new tag**.
     2. For **Key**, enter the tag and optionally specify a value in the **Value** field.

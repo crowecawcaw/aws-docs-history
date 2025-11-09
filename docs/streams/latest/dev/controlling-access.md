@@ -279,7 +279,7 @@ The `Action` element of a JSON policy describes the actions that you can use to 
 Kinesis Data Streams actions that can be shared:
 
 | Action                                                                                                                                                            | Level of access |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
 | [DescribeStreamConsumer](../../../kinesis/latest/APIReference/API_DescribeStreamConsumer.md "../../../kinesis/latest/APIReference/API_DescribeStreamConsumer.md") | Consumer        |
 | [DescribeStreamSummary](../../../kinesis/latest/APIReference/API_DescribeStreamSummary.md "../../../kinesis/latest/APIReference/API_DescribeStreamSummary.md")    | Data stream     |
 | [GetRecords](../../../kinesis/latest/APIReference/API_GetRecords.md "../../../kinesis/latest/APIReference/API_GetRecords.md")                                     | Data stream     |
@@ -287,4 +287,174 @@ Kinesis Data Streams actions that can be shared:
 | [ListShards](../../../kinesis/latest/APIReference/API_ListShards.md "../../../kinesis/latest/APIReference/API_ListShards.md")                                     | Data stream     |
 | [PutRecord](../../../kinesis/latest/APIReference/API_PutRecord.md "../../../kinesis/latest/APIReference/API_PutRecord.md")                                        | Data stream     |
 | [PutRecords](../../../kinesis/latest/APIReference/API_PutRecords.md "../../../kinesis/latest/APIReference/API_PutRecords.md")                                     | Data stream     |
-| [SubscribeToShard](../../../kinesis/latest/APIReference/API_SubscribeToShard.md "../../../kinesis/latest/APIReference/API_SubscribeToShard.md")                   | Consumer        | Following are examples of using a resource-based policy to grant cross-account access to your data stream or registered consumer. To perform a cross-account action, you must specify the stream ARN for data stream access and the consumer ARN for registered consumer access. ### Example resource-based policies for Kinesis data streams Sharing a registered consumer involves both a data stream policy and a consumer policy due to the actions needed. ###### Note Following are examples of valid values for `Principal`: <br>• `{"AWS": "123456789012"}` <br>• IAM User – `{"AWS": "arn:aws:iam::123456789012:user/user-name"}` <br>• IAM Role – `{"AWS":["arn:aws:iam::123456789012:role/role-name"]}` <br>• Multiple Principals (can be combination of account, user, role) – `{"AWS":["123456789012", "123456789013", "arn:aws:iam::123456789012:user/user-name"]}` Example 1: Write access to the data streamJSONJSON `` `{ "Version":"2012-10-17", "Id": "__default_write_policy_ID", "Statement": [ { "Sid": "writestatement", "Effect": "Allow", "Principal": { "AWS": "Account12345" }, "Action": [ "kinesis:DescribeStreamSummary", "kinesis:ListShards", "kinesis:PutRecord", "kinesis:PutRecords" ], "Resource": "arn:aws:kinesis:us-east-2:123456789012:stream/datastreamABC" } ] }` `` Example 2: Read access to the data stream JSONJSON `` `{ "Version":"2012-10-17", "Id": "__default_sharedthroughput_read_policy_ID", "Statement": [ { "Sid": "sharedthroughputreadstatement", "Effect": "Allow", "Principal": { "AWS": "Account12345" }, "Action": [ "kinesis:DescribeStreamSummary", "kinesis:ListShards", "kinesis:GetRecords", "kinesis:GetShardIterator" ], "Resource": "arn:aws:kinesis:us-east-2:123456789012:stream/datastreamABC" } ] }` `` Example 3: Share enhanced fan-out read access to a registered consumer Data stream policy statement: JSONJSON `` `{ "Version":"2012-10-17", "Id": "__default_sharedthroughput_read_policy_ID", "Statement": [ { "Sid": "consumerreadstatement", "Effect": "Allow", "Principal": { "AWS": "arn:aws:iam::`111122223333`:role/role-name" }, "Action": [ "kinesis:DescribeStreamSummary", "kinesis:ListShards" ], "Resource": "arn:aws:kinesis:us-east-2:123456789012:stream/datastreamABC" } ] }` `` Consumer policy statement: JSONJSON `` `{ "Version":"2012-10-17", "Id": "__default_efo_read_policy_ID", "Statement": [ { "Sid": "eforeadstatement", "Effect": "Allow", "Principal": { "AWS": "arn:aws:iam::`111122223333`:role/role-name" }, "Action": [ "kinesis:DescribeStreamConsumer", "kinesis:SubscribeToShard" ], "Resource": "arn:aws:kinesis:us-east-2:123456789012:stream/datastreamABC/consumer/consumerDEF:1674696300" } ] }` `` Wildcard (\*) is not supported for actions or principal field in order maintain the principle of least privilege.. ### Manage the policy for your data stream programatically Outside of the AWS Management Console, Kinesis Data Streams has three APIS for managing your data stream policy: <br>• [PutResourcePolicy](../../../kinesis/latest/APIReference/API_PutResourcePolicy.md "../../../kinesis/latest/APIReference/API_PutResourcePolicy.md") <br>• [GetResourcePolicy](../../../kinesis/latest/APIReference/API_GetResourcePolicy.md "../../../kinesis/latest/APIReference/API_GetResourcePolicy.md") <br>• [DeleteResourcePolicy](../../../kinesis/latest/APIReference/API_DeleteResourcePolicy.md "../../../kinesis/latest/APIReference/API_DeleteResourcePolicy.md") Use `PutResourePolicy` to attach or overwrite a policy for a data stream or consumer. Use `GetResourcePolicy` to check and view a policy for the specified data stream or consumer. Use `DeleteResourcePolicy` to delete a policy for the specified data stream or consumer. ### Policy limits Kinesis Data Streams resource policies have the following restrictions: <br>• Wildcards (\*) are not supported to help prevent broad access from being granted through the resource policies that are directly attached to a data stream or registered consumer. In addition, carefully inspect the following policies to confirm that they do not grant broad access: + Identity-based policies attached to associated AWS principals (for example, IAM roles) + Resource-based policies attached to associated AWS resources (for example, AWS Key Management Service KMS keys) <br>• AWS Service Principals are not supported for principals to prevent potential [confused deputies](../../../IAM/latest/UserGuide/confused-deputy.md "../../../IAM/latest/UserGuide/confused-deputy.md"). <br>• Federated principals are not supported. <br>• Canonical user IDs are not supported. <br>• The size of the policy cannot exceed 20KB. ### Share access to encrypted data If you have enabled server-side encryption for a data stream with AWS managed KMS key and want to share access via a resource policy, you must switch to using customer-managed key (CMK). For more information, see [What is server-side encryption for Kinesis Data Streams?](what-is-sse.md "what-is-sse.md"). In addition, you must allow your sharing principal entities to have access to your CMK, using KMS cross account sharing capabilities. Make sure to also make the change in the IAM policies for the sharing principal entities. For more information, see [Allowing users in other accounts to use a KMS key](../../../kms/latest/developerguide/key-policy-modifying-external-accounts.md "../../../kms/latest/developerguide/key-policy-modifying-external-accounts.md"). ## Configure an AWS Lambda function to read from Kinesis Data Streams in another account For an example of how to configure a Lambda function to read from Kinesis Data Streams in another account, see [Share access with cross-account AWS Lambda functions](resource-based-policy-examples.md#Resource-based-policy-examples-lambda "resource-based-policy-examples.md#Resource-based-policy-examples-lambda"). |
+| [SubscribeToShard](../../../kinesis/latest/APIReference/API_SubscribeToShard.md "../../../kinesis/latest/APIReference/API_SubscribeToShard.md")                   | Consumer        |
+
+Following are examples of using a resource-based policy to grant cross-account access to your data stream or registered consumer.
+
+To perform a cross-account action, you must specify the stream ARN for data stream access and the consumer ARN for registered consumer access.
+
+### Example resource-based
+
+policies for Kinesis data streams
+
+Sharing a registered consumer involves both a data stream policy and a consumer policy due to the actions needed.
+
+###### Note
+
+Following are examples of valid values for `Principal`:
+
+- `{"AWS": "123456789012"}`
+- IAM User – `{"AWS": "arn:aws:iam::123456789012:user/user-name"}`
+- IAM Role – `{"AWS":["arn:aws:iam::123456789012:role/role-name"]}`
+- Multiple Principals (can be combination of account, user, role) – `{"AWS":["123456789012", "123456789013", "arn:aws:iam::123456789012:user/user-name"]}`
+
+Example 1: Write access to the data streamJSONJSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Id": "__default_write_policy_ID",
+ "Statement": [
+ {
+ "Sid": "writestatement",
+ "Effect": "Allow",
+ "Principal": {
+ "AWS": "Account12345"
+ },
+ "Action": [
+ "kinesis:DescribeStreamSummary",
+ "kinesis:ListShards",
+ "kinesis:PutRecord",
+ "kinesis:PutRecords"
+ ],
+ "Resource": "arn:aws:kinesis:us-east-2:123456789012:stream/datastreamABC"
+ }
+ ]
+}`
+
+```
+
+Example 2: Read access to the data stream
+JSONJSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Id": "__default_sharedthroughput_read_policy_ID",
+ "Statement": [
+ {
+ "Sid": "sharedthroughputreadstatement",
+ "Effect": "Allow",
+ "Principal": {
+ "AWS": "Account12345"
+ },
+ "Action": [
+ "kinesis:DescribeStreamSummary",
+ "kinesis:ListShards",
+ "kinesis:GetRecords",
+ "kinesis:GetShardIterator"
+ ],
+ "Resource": "arn:aws:kinesis:us-east-2:123456789012:stream/datastreamABC"
+ }
+ ]
+}`
+
+```
+
+Example 3: Share enhanced fan-out read access to a registered consumer
+Data stream policy statement:
+
+JSONJSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Id": "__default_sharedthroughput_read_policy_ID",
+ "Statement": [
+ {
+ "Sid": "consumerreadstatement",
+ "Effect": "Allow",
+ "Principal": {
+ "AWS": "arn:aws:iam::`111122223333`:role/role-name"
+ },
+ "Action": [
+ "kinesis:DescribeStreamSummary",
+ "kinesis:ListShards"
+ ],
+ "Resource": "arn:aws:kinesis:us-east-2:123456789012:stream/datastreamABC"
+ }
+ ]
+}`
+
+```
+
+Consumer policy statement:
+
+JSONJSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Id": "__default_efo_read_policy_ID",
+ "Statement": [
+ {
+ "Sid": "eforeadstatement",
+ "Effect": "Allow",
+ "Principal": {
+ "AWS": "arn:aws:iam::`111122223333`:role/role-name"
+ },
+ "Action": [
+ "kinesis:DescribeStreamConsumer",
+ "kinesis:SubscribeToShard"
+ ],
+ "Resource": "arn:aws:kinesis:us-east-2:123456789012:stream/datastreamABC/consumer/consumerDEF:1674696300"
+ }
+ ]
+}`
+
+```
+
+Wildcard (\*) is not supported for actions or principal field in order maintain the principle of least privilege..
+
+### Manage the policy for your
+
+data stream programatically
+
+Outside of the AWS Management Console, Kinesis Data Streams has three APIS for managing your data stream policy:
+
+- [PutResourcePolicy](../../../kinesis/latest/APIReference/API_PutResourcePolicy.md "../../../kinesis/latest/APIReference/API_PutResourcePolicy.md")
+- [GetResourcePolicy](../../../kinesis/latest/APIReference/API_GetResourcePolicy.md "../../../kinesis/latest/APIReference/API_GetResourcePolicy.md")
+- [DeleteResourcePolicy](../../../kinesis/latest/APIReference/API_DeleteResourcePolicy.md "../../../kinesis/latest/APIReference/API_DeleteResourcePolicy.md")
+
+Use `PutResourePolicy` to attach or overwrite a policy for a data stream or consumer. Use `GetResourcePolicy` to check and view a policy for the specified data stream or consumer.
+Use `DeleteResourcePolicy` to delete a policy for the specified data stream or consumer.
+
+### Policy limits
+
+Kinesis Data Streams resource policies have the following restrictions:
+
+- Wildcards (\*) are not supported to help prevent broad access from being
+  granted through the resource policies that are directly attached to a data
+  stream or registered consumer. In addition, carefully inspect the following
+  policies to confirm that they do not grant broad access:
+  - Identity-based policies attached to associated AWS principals
+    (for example, IAM roles)
+  - Resource-based policies attached to associated AWS resources
+    (for example, AWS Key Management Service KMS keys)
+
+- AWS Service Principals are not supported for principals to prevent potential [confused deputies](../../../IAM/latest/UserGuide/confused-deputy.md "../../../IAM/latest/UserGuide/confused-deputy.md").
+- Federated principals are not supported.
+- Canonical user IDs are not supported.
+- The size of the policy cannot exceed 20KB.
+
+### Share access to encrypted
+
+data
+
+If you have enabled server-side encryption for a data stream with AWS managed KMS key and want to share access via a resource policy, you must switch to using customer-managed key (CMK). For more information, see [What is server-side encryption for Kinesis Data Streams?](what-is-sse.md "what-is-sse.md"). In addition, you must allow your sharing principal entities to have access to your CMK, using KMS cross account sharing capabilities. Make sure to also make the change in the IAM policies for the sharing principal entities.
+For more information, see [Allowing users in other accounts to use a KMS key](../../../kms/latest/developerguide/key-policy-modifying-external-accounts.md "../../../kms/latest/developerguide/key-policy-modifying-external-accounts.md").
+
+## Configure an AWS Lambda function to read from Kinesis Data Streams in another account
+
+For an example of how to configure a Lambda function to read from Kinesis Data Streams in another account, see [Share access with
+cross-account AWS Lambda functions](resource-based-policy-examples.md#Resource-based-policy-examples-lambda "resource-based-policy-examples.md#Resource-based-policy-examples-lambda").

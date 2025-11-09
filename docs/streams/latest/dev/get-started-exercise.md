@@ -496,7 +496,311 @@ application
 5. Enter the following application properties and values:
 
 | Key                         | Value       |
-| --------------------------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| --------------------------- | ----------- |
 | `flink.inputstream.initpos` | `LATEST`    |
 | `aws:region`                | `us-west-2` |
-| `AggregationEnabled`        | `false`     | 6. Under **Monitoring**, ensure that the **Monitoring metrics level** is set to **Application**. 7. For **CloudWatch logging**, select the **Enable** check box. 8. Choose **Update**. ###### Note When you choose to enable CloudWatch logging, Managed Service for Apache Flink creates a log group and log stream for you. The names of these resources are as follows: <br>• Log group: `/aws/kinesis-analytics/MyApplication` <br>• Log stream: `kinesis-analytics-log-stream` #### Run the application 1. On the **MyApplication** page, choose **Run**. Confirm the action. 2. When the application is running, refresh the page. The console shows the **Application graph**. #### Stop the application On the **MyApplication** page, choose **Stop**. Confirm the action. #### Update the application Using the console, you can update application settings such as application properties, monitoring settings, and the location or file name of the application JAR. You can also reload the application JAR from the Amazon S3 bucket if you need to update the application code. On the **MyApplication** page, choose **Configure**. Update the application settings and choose **Update**. ### Create and run the application (AWS CLI) In this section, you use the AWS CLI to create and run the Managed Service for Apache Flink application. Managed Service for Apache Flink uses the `kinesisanalyticsv2` AWS CLI command to create and interact with Managed Service for Apache Flink applications. #### Create a Permissions Policy First, you create a permissions policy with two statements: one that grants permissions for the `read` action on the source stream, and another that grants permissions for `write` actions on the sink stream. You then attach the policy to an IAM role (which you create in the next section). Thus, when Managed Service for Apache Flink assumes the role, the service has the necessary permissions to read from the source stream and write to the sink stream. Use the following code to create the `KAReadSourceStreamWriteSinkStream` permissions policy. Replace `username` with the user name that you used to create the Amazon S3 bucket to store the application code. Replace the account ID in the Amazon Resource Names (ARNs) (`012345678901`) with your account ID. JSON `` `{ "Version":"2012-10-17", "Statement": [ { "Sid": "S3", "Effect": "Allow", "Action": [ "s3:GetObject", "s3:GetObjectVersion" ], "Resource": ["arn:aws:s3:::ka-app-code-`username`", "arn:aws:s3:::ka-app-code-`username`/*" ] }, { "Sid": "ReadInputStream", "Effect": "Allow", "Action": "kinesis:*", "Resource": "arn:aws:kinesis:us-west-2:`012345678901`:stream/ExampleInputStream" }, { "Sid": "WriteOutputStream", "Effect": "Allow", "Action": "kinesis:*", "Resource": "arn:aws:kinesis:us-west-2:`012345678901`:stream/ExampleOutputStream" } ] }` `` For step-by-step instructions to create a permissions policy, see [Tutorial: Create and Attach Your First Customer Managed Policy](../../../IAM/latest/UserGuide/tutorial_managed-policies.md#part-two-create-policy "../../../IAM/latest/UserGuide/tutorial_managed-policies.md#part-two-create-policy") in the _IAM User Guide_. ###### Note To access other AWS services, you can use the AWS SDK for Java. Managed Service for Apache Flink automatically sets the credentials required by the SDK to those of the service execution IAM role that is associated with your application. No additional steps are needed. #### Create an IAM Role In this section, you create an IAM role that Managed Service for Apache Flink can assume to read a source stream and write to the sink stream. Managed Service for Apache Flink cannot access your stream without permissions. You grant these permissions via an IAM role. Each IAM role has two policies attached. The trust policy grants Managed Service for Apache Flink permission to assume the role, and the permissions policy determines what Managed Service for Apache Flink can do after assuming the role. You attach the permissions policy that you created in the preceding section to this role. ###### To create an IAM role 1. Open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/"). 2. In the navigation pane, choose **Roles**, **Create Role**. 3. Under **Select type of trusted identity**, choose **AWS Service**. Under **Choose the service that will use this role**, choose **Kinesis**. Under **Select your use case**, choose **Kinesis Analytics**. Choose **Next: Permissions**. 4. On the **Attach permissions policies** page, choose **Next: Review**. You attach permissions policies after you create the role. 5. On the **Create role** page, enter `KA-stream-rw-role` for the **Role name**. Choose **Create role**. Now you have created a new IAM role called `KA-stream-rw-role`. Next, you update the trust and permissions policies for the role. 6. Attach the permissions policy to the role. ###### Note For this exercise, Managed Service for Apache Flink assumes this role for both reading data from a Kinesis data stream (source) and writing output to another Kinesis data stream. So you attach the policy that you created in the previous step, [Create a Permissions Policy](#get-started-exercise-7-cli-policy "#get-started-exercise-7-cli-policy"). 1. On the **Summary** page, choose the **Permissions** tab. 2. Choose **Attach Policies**. 3. In the search box, enter `KAReadSourceStreamWriteSinkStream` (the policy that you created in the previous section). 4. Choose the **KAReadInputStreamWriteOutputStream** policy, and choose **Attach policy**. You now have created the service execution role that your application uses to access resources. Make a note of the ARN of the new role. For step-by-step instructions for creating a role, see [Creating an IAM Role (Console)](../../../IAM/latest/UserGuide/id_roles_create_for-user.md#roles-creatingrole-user-console "../../../IAM/latest/UserGuide/id_roles_create_for-user.md#roles-creatingrole-user-console") in the _IAM User Guide_. #### Create the Managed Service for Apache Flink Application 1. Save the following JSON code to a file named `create_request.json`. Replace the sample role ARN with the ARN for the role that you created previously. Replace the bucket ARN suffix (`username`) with the suffix that you chose in the previous section. Replace the sample account ID (`012345678901`) in the service execution role with your account ID. ``{ "ApplicationName": "test", "ApplicationDescription": "my java test app", "RuntimeEnvironment": "FLINK-1_6", "ServiceExecutionRole": "arn:aws:iam::`012345678901`:role/KA-stream-rw-role", "ApplicationConfiguration": { "ApplicationCodeConfiguration": { "CodeContent": { "S3ContentLocation": { "BucketARN": "arn:aws:s3:::ka-app-code-`username`", "FileKey": "java-getting-started-1.0.jar" } }, "CodeContentType": "ZIPFILE" }, "EnvironmentProperties":  { "PropertyGroups": [ { "PropertyGroupId": "ProducerConfigProperties", "PropertyMap" : { "flink.stream.initpos" : "LATEST", "aws.region" : "us-west-2", "AggregationEnabled" : "false" } }, { "PropertyGroupId": "ConsumerConfigProperties", "PropertyMap" : { "aws.region" : "us-west-2" } } ] } } }`` 2. Execute the [`CreateApplication`](../../../kinesisanalytics/latest/apiv2/API_CreateApplication.md "../../../kinesisanalytics/latest/apiv2/API_CreateApplication.md") action with the preceding request to create the application: `aws kinesisanalyticsv2 create-application --cli-input-json file://create_request.json` The application is now created. You start the application in the next step. #### Start the Application In this section, you use the [`StartApplication`](../../../kinesisanalytics/latest/apiv2/API_StartApplication.md "../../../kinesisanalytics/latest/apiv2/API_StartApplication.md") action to start the application. ###### To start the application 1. Save the following JSON code to a file named `start_request.json`. `{ "ApplicationName": "test", "RunConfiguration": { "ApplicationRestoreConfiguration": { "ApplicationRestoreType": "RESTORE_FROM_LATEST_SNAPSHOT" } } }` 2. Execute the [`StartApplication`](../../../kinesisanalytics/latest/apiv2/API_StartApplication.md "../../../kinesisanalytics/latest/apiv2/API_StartApplication.md") action with the preceding request to start the application: `aws kinesisanalyticsv2 start-application --cli-input-json file://start_request.json` The application is now running. You can check the Managed Service for Apache Flink metrics on the Amazon CloudWatch console to verify that the application is working. #### Stop the Application In this section, you use the [`StopApplication`](../../../kinesisanalytics/latest/apiv2/API_StopApplication.md "../../../kinesisanalytics/latest/apiv2/API_StopApplication.md") action to stop the application. ###### To stop the application 1. Save the following JSON code to a file named `stop_request.json`. `{"ApplicationName": "test" }` 2. Execute the [`StopApplication`](../../../kinesisanalytics/latest/apiv2/API_StopApplication.md "../../../kinesisanalytics/latest/apiv2/API_StopApplication.md") action with the following request to stop the application: `aws kinesisanalyticsv2 stop-application --cli-input-json file://stop_request.json` The application is now stopped. |
+| `AggregationEnabled`        | `false`     |
+
+6. Under **Monitoring**, ensure that the
+   **Monitoring metrics level** is set to
+   **Application**.
+7. For **CloudWatch logging**, select the
+   **Enable** check box.
+8. Choose **Update**.
+
+###### Note
+
+When you choose to enable CloudWatch logging, Managed Service for Apache Flink creates a log group and
+log stream for you. The names of these resources are as follows:
+
+- Log group:
+  `/aws/kinesis-analytics/MyApplication`
+- Log stream: `kinesis-analytics-log-stream`
+
+#### Run the
+
+application
+
+1. On the **MyApplication** page, choose
+   **Run**. Confirm the action.
+2. When the application is running, refresh the page. The console
+   shows the **Application graph**.
+
+#### Stop the
+
+application
+
+On the **MyApplication** page, choose
+**Stop**. Confirm the action.
+
+#### Update the
+
+application
+
+Using the console, you can update application settings such as application
+properties, monitoring settings, and the location or file name of the
+application JAR. You can also reload the application JAR from the Amazon S3
+bucket if you need to update the application code.
+
+On the **MyApplication** page, choose
+**Configure**. Update the application settings and
+choose **Update**.
+
+### Create and run the application
+
+(AWS CLI)
+
+In this section, you use the AWS CLI to create and run the Managed Service for Apache Flink application.
+Managed Service for Apache Flink uses the `kinesisanalyticsv2` AWS CLI command to create and
+interact with Managed Service for Apache Flink applications.
+
+#### Create a Permissions
+
+Policy
+
+First, you create a permissions policy with two statements: one that
+grants permissions for the `read` action on the source stream,
+and another that grants permissions for `write` actions on the
+sink stream. You then attach the policy to an IAM role (which you create
+in the next section). Thus, when Managed Service for Apache Flink assumes the role, the service has the
+necessary permissions to read from the source stream and write to the sink
+stream.
+
+Use the following code to create the
+`KAReadSourceStreamWriteSinkStream` permissions policy.
+Replace `username` with the user name
+that you used to create the Amazon S3 bucket to store the application code.
+Replace the account ID in the Amazon Resource Names (ARNs)
+(`012345678901`) with your
+account ID.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "S3",
+ "Effect": "Allow",
+ "Action": [
+ "s3:GetObject",
+ "s3:GetObjectVersion"
+ ],
+ "Resource": ["arn:aws:s3:::ka-app-code-`username`",
+ "arn:aws:s3:::ka-app-code-`username`/*"
+ ]
+ },
+ {
+ "Sid": "ReadInputStream",
+ "Effect": "Allow",
+ "Action": "kinesis:*",
+ "Resource": "arn:aws:kinesis:us-west-2:`012345678901`:stream/ExampleInputStream"
+ },
+ {
+ "Sid": "WriteOutputStream",
+ "Effect": "Allow",
+ "Action": "kinesis:*",
+ "Resource": "arn:aws:kinesis:us-west-2:`012345678901`:stream/ExampleOutputStream"
+ }
+ ]
+}`
+
+```
+
+For step-by-step instructions to create a permissions policy, see [Tutorial: Create and Attach Your First Customer Managed Policy](../../../IAM/latest/UserGuide/tutorial_managed-policies.md#part-two-create-policy "../../../IAM/latest/UserGuide/tutorial_managed-policies.md#part-two-create-policy")
+in the _IAM User Guide_.
+
+###### Note
+
+To access other AWS services, you can use the AWS SDK for Java. Managed Service for Apache Flink
+automatically sets the credentials required by the SDK to those of the
+service execution IAM role that is associated with your application.
+No additional steps are needed.
+
+#### Create an IAM Role
+
+In this section, you create an IAM role that Managed Service for Apache Flink can assume to read a
+source stream and write to the sink stream.
+
+Managed Service for Apache Flink cannot access your stream without permissions. You grant these
+permissions via an IAM role. Each IAM role has two policies attached.
+The trust policy grants Managed Service for Apache Flink permission to assume the role, and the
+permissions policy determines what Managed Service for Apache Flink can do after assuming the
+role.
+
+You attach the permissions policy that you created in the preceding
+section to this role.
+
+###### To create an IAM role
+
+1. Open the IAM console at
+   [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
+2. In the navigation pane, choose **Roles**,
+   **Create Role**.
+3. Under **Select type of trusted identity**, choose
+   **AWS Service**. Under **Choose the
+   service that will use this role**, choose
+   **Kinesis**. Under **Select your use
+   case**, choose **Kinesis
+   Analytics**.
+
+Choose **Next: Permissions**. 4. On the **Attach permissions policies** page,
+choose **Next: Review**. You attach permissions
+policies after you create the role. 5. On the **Create role** page, enter
+`KA-stream-rw-role` for the **Role
+name**. Choose **Create role**.
+
+Now you have created a new IAM role called
+`KA-stream-rw-role`. Next, you update the trust and
+permissions policies for the role. 6. Attach the permissions policy to the role.
+
+###### Note
+
+For this exercise, Managed Service for Apache Flink assumes this role for both reading
+data from a Kinesis data stream (source) and writing output to
+another Kinesis data stream. So you attach the policy that you
+created in the previous step, [Create a Permissions
+Policy](#get-started-exercise-7-cli-policy "#get-started-exercise-7-cli-policy").
+
+    1. On the **Summary** page, choose the
+     **Permissions** tab.
+    2. Choose **Attach Policies**.
+    3. In the search box, enter
+     `KAReadSourceStreamWriteSinkStream`
+     (the policy that you created in the previous
+     section).
+    4. Choose the
+     **KAReadInputStreamWriteOutputStream**
+     policy, and choose **Attach
+     policy**.
+
+You now have created the service execution role that your application uses
+to access resources. Make a note of the ARN of the new role.
+
+For step-by-step instructions for creating a role, see [Creating an IAM Role (Console)](../../../IAM/latest/UserGuide/id_roles_create_for-user.md#roles-creatingrole-user-console "../../../IAM/latest/UserGuide/id_roles_create_for-user.md#roles-creatingrole-user-console") in the
+_IAM User Guide_.
+
+#### Create the Managed Service for Apache Flink
+
+Application
+
+1. Save the following JSON code to a file named
+   `create_request.json`. Replace the sample
+   role ARN with the ARN for the role that you created previously.
+   Replace the bucket ARN suffix
+   (`username`) with the
+   suffix that you chose in the previous section. Replace the sample
+   account ID (`012345678901`) in
+   the service execution role with your account ID.
+
+```
+{
+    "ApplicationName": "test",
+    "ApplicationDescription": "my java test app",
+    "RuntimeEnvironment": "FLINK-1_6",
+    "ServiceExecutionRole": "arn:aws:iam::`012345678901`:role/KA-stream-rw-role",
+    "ApplicationConfiguration": {
+        "ApplicationCodeConfiguration": {
+            "CodeContent": {
+                "S3ContentLocation": {
+                    "BucketARN": "arn:aws:s3:::ka-app-code-`username`",
+                    "FileKey": "java-getting-started-1.0.jar"
+                }
+            },
+            "CodeContentType": "ZIPFILE"
+        },
+        "EnvironmentProperties":  {
+         "PropertyGroups": [
+            {
+               "PropertyGroupId": "ProducerConfigProperties",
+               "PropertyMap" : {
+                    "flink.stream.initpos" : "LATEST",
+                    "aws.region" : "us-west-2",
+                    "AggregationEnabled" : "false"
+               }
+            },
+            {
+               "PropertyGroupId": "ConsumerConfigProperties",
+               "PropertyMap" : {
+                    "aws.region" : "us-west-2"
+               }
+            }
+         ]
+      }
+    }
+}
+
+
+```
+
+2. Execute the [`CreateApplication`](../../../kinesisanalytics/latest/apiv2/API_CreateApplication.md "../../../kinesisanalytics/latest/apiv2/API_CreateApplication.md") action with the
+   preceding request to create the application:
+
+```
+aws kinesisanalyticsv2 create-application --cli-input-json file://create_request.json
+```
+
+The application is now created. You start the application in the next
+step.
+
+#### Start the
+
+Application
+
+In this section, you use the [`StartApplication`](../../../kinesisanalytics/latest/apiv2/API_StartApplication.md "../../../kinesisanalytics/latest/apiv2/API_StartApplication.md") action to start the
+application.
+
+###### To start the application
+
+1. Save the following JSON code to a file named
+   `start_request.json`.
+
+```
+{
+    "ApplicationName": "test",
+    "RunConfiguration": {
+        "ApplicationRestoreConfiguration": {
+         "ApplicationRestoreType": "RESTORE_FROM_LATEST_SNAPSHOT"
+         }
+    }
+}
+
+```
+
+2. Execute the [`StartApplication`](../../../kinesisanalytics/latest/apiv2/API_StartApplication.md "../../../kinesisanalytics/latest/apiv2/API_StartApplication.md") action with the
+   preceding request to start the application:
+
+```
+aws kinesisanalyticsv2 start-application --cli-input-json file://start_request.json
+```
+
+The application is now running. You can check the Managed Service for Apache Flink metrics on the
+Amazon CloudWatch console to verify that the application is working.
+
+#### Stop the
+
+Application
+
+In this section, you use the [`StopApplication`](../../../kinesisanalytics/latest/apiv2/API_StopApplication.md "../../../kinesisanalytics/latest/apiv2/API_StopApplication.md") action to stop the
+application.
+
+###### To stop the application
+
+1. Save the following JSON code to a file named
+   `stop_request.json`.
+
+```
+{"ApplicationName": "test"
+}
+
+```
+
+2. Execute the [`StopApplication`](../../../kinesisanalytics/latest/apiv2/API_StopApplication.md "../../../kinesisanalytics/latest/apiv2/API_StopApplication.md") action with the
+   following request to stop the application:
+
+```
+aws kinesisanalyticsv2 stop-application --cli-input-json file://stop_request.json
+```
+
+The application is now stopped.

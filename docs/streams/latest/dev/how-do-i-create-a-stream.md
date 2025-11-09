@@ -13,7 +13,7 @@ You can create a stream using the Kinesis Data Streams console, the Kinesis Data
    data stream and then choose either the **On-demand** or
    **Provisioned** capacity mode. The
    **On-demand** mode is selected by default. For more
-   information, see [Choose the data stream capacity mode](how-do-i-size-a-stream.md "how-do-i-size-a-stream.md").
+   information, see [Choose the right mode to stream in](how-do-i-size-a-stream.md "how-do-i-size-a-stream.md").
 
 With the **On-demand** mode, you can then choose
 **Create Kinesis stream** to create your data stream. With

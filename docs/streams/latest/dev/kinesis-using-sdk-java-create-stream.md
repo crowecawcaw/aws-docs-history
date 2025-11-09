@@ -57,7 +57,7 @@ the same account and in the same Region.
 The throughput of the stream is a function of the number of shards. For greater
 provisioned throughput, you require more shards. More shards also increase the cost
 that AWS charges for the stream. For more information about calculating an
-appropriate number of shards for your application, see [Choose the data stream capacity mode](how-do-i-size-a-stream.md "how-do-i-size-a-stream.md").
+appropriate number of shards for your application, see [Choose the right mode to stream in](how-do-i-size-a-stream.md "how-do-i-size-a-stream.md").
 
 After you have configured the `createStreamRequest` object, create a
 stream by calling the `createStream` method on the client. After calling

@@ -19,9 +19,9 @@ information about agent configuration, see [Specify the agent configuration sett
 
 The Kinesis Data Streams agent sends the following metrics to CloudWatch.
 
-| Metric               | Description                                                                                                                                       |
-| -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `BytesSent`          | The number of bytes sent to Kinesis Data Streams over the specified time period. Units: Bytes                                                     |
-| `RecordSendAttempts` | The number of records attempted (either first time, or as a retry) in a call to `PutRecords` over the specified time period. Units: Count         |
-| `RecordSendErrors`   | The number of records that returned failure status in a call to `PutRecords`, including retries, over the specified time period. Units: Count     |
-| `ServiceErrors`      | The number of calls to `PutRecords` that resulted in a service error (other than a throttling error) over the specified time period. Units: Count |
+| Metric               | Description                                                                                                                                                |
+| -------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `BytesSent`          | The number of bytes sent to Kinesis Data Streams over the specified time<br>period.<br>Units: Bytes                                                        |
+| `RecordSendAttempts` | The number of records attempted (either first time, or as a<br>retry) in a call to `PutRecords` over the specified<br>time period.<br>Units: Count         |
+| `RecordSendErrors`   | The number of records that returned failure status in a call<br>to `PutRecords`, including retries, over the<br>specified time period.<br>Units: Count     |
+| `ServiceErrors`      | The number of calls to `PutRecords` that resulted<br>in a service error (other than a throttling error) over the<br>specified time period.<br>Units: Count |

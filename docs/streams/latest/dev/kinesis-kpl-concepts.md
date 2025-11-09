@@ -76,14 +76,26 @@ Collection differs from aggregation in that it is working with groups of Kinesis
 The Kinesis Data Streams records being collected can still contain multiple records from the user. The
 relationship can be visualized as such:
 
-````
+```
 record 0 --|
 record 1   |        [ Aggregation ]
     ...    |--> Amazon Kinesis record 0 --|
     ...    |                              |
 record A --|                              |
-| ...                   ...             |
-| record K --|                              | record L   |                              |      [ Collection ] ...    |--> Amazon Kinesis record C --|--> PutRecords Request ...    |                              | record S --|                              |
-| ...                   ...             |
-| record AA--|                              | record BB  |                              | ...    |--> Amazon Kinesis record M --| ...    | record ZZ--| ```
-````
+                                          |
+    ...                   ...             |
+                                          |
+record K --|                              |
+record L   |                              |      [ Collection ]
+    ...    |--> Amazon Kinesis record C --|--> PutRecords Request
+    ...    |                              |
+record S --|                              |
+                                          |
+    ...                   ...             |
+                                          |
+record AA--|                              |
+record BB  |                              |
+    ...    |--> Amazon Kinesis record M --|
+    ...    |
+record ZZ--|
+```

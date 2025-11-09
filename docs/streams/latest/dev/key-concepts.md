@@ -39,13 +39,13 @@ in the blob in any way. A data blob can be up to 1 MB.
 A data stream _capacity mode_ determines how capacity is
 managed and how you are charged for the usage of your data stream. Currently, in
 Kinesis Data Streams, you can choose between an **on-demand** mode and a **provisioned** mode
-for your data streams. For more information, see [Choose the data stream capacity mode](how-do-i-size-a-stream.md "how-do-i-size-a-stream.md").
+for your data streams. For more information, see [Choose the right mode to stream in](how-do-i-size-a-stream.md "how-do-i-size-a-stream.md").
 
 With the **on-demand** mode, Kinesis Data Streams
 automatically manages the shards in order to provide the necessary throughput. You
 are charged only for the actual throughput that you use and Kinesis Data Streams
 automatically accommodates your workloads’ throughput needs as they ramp up or down.
-For more information, see [On-demand mode features and use cases](how-do-i-size-a-stream.md#ondemandmode "how-do-i-size-a-stream.md#ondemandmode").
+For more information, see [On-demand Standard mode features and use cases](how-do-i-size-a-stream.md#ondemandmode "how-do-i-size-a-stream.md#ondemandmode").
 
 With the **provisioned** mode, you must specify the
 number of shards for the data stream. The total capacity of a data stream is the sum

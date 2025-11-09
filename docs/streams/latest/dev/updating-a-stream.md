@@ -20,7 +20,7 @@ you have recently created.
    and monitoring information.
 4. To switch between on-demand and provisioned capacity modes for a data
    stream, choose **Edit capacity mode** in the
-   **Configuration** tab. For more information, see [Choose the data stream capacity mode](how-do-i-size-a-stream.md "how-do-i-size-a-stream.md").
+   **Configuration** tab. For more information, see [Choose the right mode to stream in](how-do-i-size-a-stream.md "how-do-i-size-a-stream.md").
 
 ###### Important
 

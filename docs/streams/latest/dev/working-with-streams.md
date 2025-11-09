@@ -17,7 +17,7 @@ stream.
 
 ###### Topics
 
-- [Choose the data stream capacity mode](how-do-i-size-a-stream.md "how-do-i-size-a-stream.md")
+- [Choose the right mode to stream in](how-do-i-size-a-stream.md "how-do-i-size-a-stream.md")
 - [Create a stream using the AWS Management Console](how-do-i-create-a-stream.md "how-do-i-create-a-stream.md")
 - [Create a stream using the
   APIs](kinesis-using-sdk-java-create-stream.md "kinesis-using-sdk-java-create-stream.md")
