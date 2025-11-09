@@ -48,9 +48,9 @@ Due to performance issues, we recommend that you only use custom log messages du
 The following CloudWatch Insights query searches for logs created by the
 Python entrypoint while executing the main function of your application:
 
-````
+```
 fields @timestamp, message
 | sort @timestamp asc
 | filter logger like /PythonDriver/
-| limit 1000 ```
-````
+| limit 1000
+```

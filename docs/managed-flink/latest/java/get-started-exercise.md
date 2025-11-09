@@ -929,5 +929,152 @@ Edit the application configuration to set the application code
 | `InputStream0` | `stream.name` | `ExampleInputStream` |
 | `InputStream0` | `aws.region` | `us-east-1` |
 | `OutputStream0` | `stream.name` | `ExampleOutputStream` |
-| `OutputStream0` | `aws.region` | `us-east-1` | 6. Do not modify any of the other sections. 7. Choose **Save changes**. ###### Note When you choose to enable Amazon CloudWatch logging, Managed Service for Apache Flink creates a log group and log stream for you. The names of these resources are as follows: <br>• Log group: `/aws/kinesis-analytics/MyApplication` <br>• Log stream: `kinesis-analytics-log-stream` ### Run the application The application is now configured and ready to run. ###### To run the application 1. On the console for Amazon Managed Service for Apache Flink, choose **My Application** and choose **Run**. 2. On the next page, the Application restore configuration page, choose **Run with latest snapshot** and then choose **Run**. The **Status** in **Application details** transitions from `Ready` to `Starting` and then to `Running` when the application has started. When the application is in the `Running` status, you can now open the Flink dashboard. ###### To open the dashboard 1. Choose **Open Apache Flink dashboard**. The dashboard opens on a new page. 2. In the **Runing jobs** list, choose the single job that you can see. ###### Note If you set the Runtime properties or edited the IAM policies incorrectly, the application status might turn into `Running`, but the Flink dashboard shows that the job is continuously restarting. This is a common failure scenario if the application is misconfigured or lacks permissions to access the external resources. When this happens, check the **Exceptions** tab in the Flink dashboard to see the cause of the problem. ### Observe the metrics of the running application On the **MyApplication** page, in the **Amazon CloudWatch metrics** section, you can see some of the fundamental metrics from the running application. ###### To view the metrics 1. Next to the **Refresh** button, select **10 seconds** from the dropdown list. 2. When the application is running and healthy, you can see the **uptime** metric continuously increasing. 3. The **fullrestarts** metric should be zero. If it is increasing, the configuration might have issues. To investigate the issue, review the **Exceptions** tab on the Flink dashboard. 4. The **Number of failed checkpoints** metric should be zero in a healthy application. ###### Note This dashboard displays a fixed set of metrics with a granularity of 5 minutes. You can create a custom application dashboard with any metrics in the CloudWatch dashboard. ### Observe output data in Kinesis streams Make sure you are still publishing data to the input, either using the Python script or the Kinesis Data Generator. You can now observe the output of the application running on Managed Service for Apache Flink by using the Data Viewer in the [https://console.aws.amazon.com/kinesis/](https://console.aws.amazon.com/kinesis/ "https://console.aws.amazon.com/kinesis/"), similarly to what you already did earlier. ###### To view the output 1. Open the Kinesis console at [https://console.aws.amazon.com/kinesis](https://console.aws.amazon.com/kinesis "https://console.aws.amazon.com/kinesis"). 2. Verify that the Region is the same as the one you are using to run this tutorial. By default, it is us-east-1US East (N. Virginia). Change the Region if necessary. 3. Choose **Data Streams**. 4. Select the stream that you want to observe. For this tutorial, use `ExampleOutputStream`. 5. Choose the **Data viewer** tab. 6. Select any **Shard**, keep **Latest** as **Starting position**, and then choose **Get records**. You might see a "no record found for this request" error. If so, choose **Retry getting records**. The newest records published to the stream display. 7. Select the value in the Data column to inspect the content of the record in JSON format. ### Stop the application To stop the applicatio, go to the console page of the Managed Service for Apache Flink application named `MyApplication`. ###### To stop the application 1. From the **Action** dropdown list, choose **Stop**. 2. The **Status** in **Application details** transitions from `Running` to `Stopping`, and then to `Ready` when the application is completely stopped. ###### Note Don't forget to also stop sending data to the input stream from the Python script or the Kinesis Data Generator. ## Next step [Clean up AWS resources](getting-started-cleanup.md "getting-started-cleanup.md")
+| `OutputStream0` | `aws.region` | `us-east-1` |
+6. Do not modify any of the other sections.
+7. Choose **Save changes**.
+
+###### Note
+
+When you choose to enable Amazon CloudWatch logging, Managed Service for Apache Flink creates a log group
+ and log stream for you. The names of these resources are as follows:
+
+
+* Log group:
+ `/aws/kinesis-analytics/MyApplication`
+* Log stream: `kinesis-analytics-log-stream`
+
+### Run the
+ application
+
+
+The application is now configured and ready to run.
+
+
+###### To run the application
+
+1. On the console for Amazon Managed Service for Apache Flink, choose **My
+ Application** and choose **Run**.
+2. On the next page, the Application restore configuration page, choose
+ **Run with latest snapshot** and then choose
+ **Run**.
+
+
+The **Status** in **Application
+ details** transitions from `Ready` to
+ `Starting` and then to `Running` when the
+ application has started.
+
+When the application is in the `Running` status, you can now open
+ the Flink dashboard.
+
+
+###### To open the dashboard
+
+1. Choose **Open Apache Flink dashboard**. The dashboard
+ opens on a new page.
+2. In the **Runing jobs** list, choose the single job
+ that you can see.
+
+
+###### Note
+
+If you set the Runtime properties or edited the IAM policies
+ incorrectly, the application status might turn into
+ `Running`, but the Flink dashboard shows that the job
+ is continuously restarting. This is a common failure scenario if the
+ application is misconfigured or lacks permissions to access the
+ external resources.
+
+When this happens, check the **Exceptions** tab
+ in the Flink dashboard to see the cause of the problem.
+
+### Observe the metrics of
+ the running application
+
+
+On the **MyApplication** page, in the **Amazon
+ CloudWatch metrics** section, you can see some of the fundamental metrics
+ from the running application.
+
+
+###### To view the metrics
+
+1. Next to the **Refresh** button, select **10
+ seconds** from the dropdown list.
+2. When the application is running and healthy, you can see the
+ **uptime** metric continuously increasing.
+3. The **fullrestarts** metric should be zero. If it is
+ increasing, the configuration might have issues. To investigate the
+ issue, review the **Exceptions** tab on the Flink
+ dashboard.
+4. The **Number of failed checkpoints** metric should be
+ zero in a healthy application.
+
+
+###### Note
+
+This dashboard displays a fixed set of metrics with a granularity
+ of 5 minutes. You can create a custom application dashboard with any
+ metrics in the CloudWatch dashboard.
+
+### Observe output data in
+ Kinesis streams
+
+
+Make sure you are still publishing data to the input, either using the Python
+ script or the Kinesis Data Generator.
+
+
+You can now observe the output of the application running on Managed Service for Apache Flink by
+ using the Data Viewer in the [https://console.aws.amazon.com/kinesis/](https://console.aws.amazon.com/kinesis/ "https://console.aws.amazon.com/kinesis/"), similarly to what you
+ already did earlier.
+
+
+###### To view the output
+
+1. Open the Kinesis console at
+ [https://console.aws.amazon.com/kinesis](https://console.aws.amazon.com/kinesis "https://console.aws.amazon.com/kinesis").
+2. Verify that the Region is the same as the one you are using to run
+ this tutorial. By default, it is us-east-1US East (N. Virginia).
+ Change the Region if necessary.
+3. Choose **Data Streams**.
+4. Select the stream that you want to observe. For this tutorial, use
+ `ExampleOutputStream`.
+5. Choose the **Data viewer** tab.
+6. Select any **Shard**, keep
+ **Latest** as **Starting
+ position**, and then choose **Get
+ records**. You might see a "no record found for this
+ request" error. If so, choose **Retry getting
+ records**. The newest records published to the stream
+ display.
+7. Select the value in the Data column to inspect the content of the
+ record in JSON format.
+
+### Stop the application
+
+
+To stop the applicatio, go to the console page of the Managed Service for Apache Flink application
+ named `MyApplication`.
+
+
+###### To stop the application
+
+1. From the **Action** dropdown list, choose
+ **Stop**.
+2. The **Status** in **Application
+ details** transitions from `Running` to
+ `Stopping`, and then to `Ready` when the
+ application is completely stopped.
+
+
+###### Note
+
+Don't forget to also stop sending data to the input stream from
+ the Python script or the Kinesis Data Generator.
+
+## Next step
+
+
+[Clean up AWS resources](getting-started-cleanup.md "getting-started-cleanup.md")
 ```

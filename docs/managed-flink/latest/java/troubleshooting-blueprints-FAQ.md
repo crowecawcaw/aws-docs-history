@@ -166,10 +166,271 @@ Set the dimension of the vector field based on the embedding model that you want
 use. Refer to the following table, and confirm these values from the respective
 documentation.
 
-| Vector field dimensions               | Amazon Bedrock vector embedding model name | Output dimension support offered by the model                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| ------------------------------------- | ------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Vector field dimensions               | Amazon Bedrock vector embedding model name | Output dimension support offered by the model |
+| ------------------------------------- | ------------------------------------------ | --------------------------------------------- |
 | Amazon Titan Text Embeddings V1       | 1,536                                      |
 | Amazon Titan Text Embeddings V2       | 1,024 (default), 384, 256                  |
 | Amazon Titan Multimodal Embeddings G1 | 1,024 (default), 384, 256                  |
 | Cohere Embed English                  | 1,024                                      |
-| Cohere Embed Multilingual             | 1,024                                      | ## What does the output look like in the configured OpenSearch index? Every document in the OpenSearch index contains following fields: <br>• **original_data**: The data that was used to generate embeddings. For STRING type, it is the entire message. For JSON object, it is the JSON object that was used for embeddings. It could be the entire JSON in the message or specified fields in the JSON. For example, if name was selected to be embedded from incoming messages, the output would look as follows: `"original_data": "{\"name\":\"John Doe\"}"` <br>• **embedded_data**: A vector float array of embeddings generated by Amazon Bedrock <br>• **date**: UTC timestamp at which the document was stored in OpenSearch ## Can I specify metadata fields to add to the document stored in the OpenSearch index? No, currently, we do not support adding additional fields to the final document stored in the OpenSearch index. ## Should I expect duplicate entries in the OpenSearch index? Depending on how you configured your application, you might see duplicate messages in the index. One common reason is application restart. The application is configured by default to start reading from the earliest message in the source topic. When you change the configuraiton, the application restarts, and processes all messages in the topic again. To avoid re-processing, see [How do I use source.msk.starting.offset?](https://quip-amazon.com/0b6ZAIBsnSVq#temp:C:bPV2d49853149e54000ac324cc04 "https://quip-amazon.com/0b6ZAIBsnSVq#temp:C:bPV2d49853149e54000ac324cc04") and correctly set the starting offset for your application. ## Can I send data to multiple OpenSearch indices? No, the application supports storing data to a single OpenSearch index. To setup vectorization output to multiple indices, you must deploy separate Managed Service for Apache Flink applications. ## Can I deploy multiple real-time vector embedding applications in a single AWS account? Yes, you can deploy multiple real-time vector embedding Managed Service for Apache Flink applications in a single AWS account if every application has a unique name. ## Can multiple real-time vector embedding applications use the same data source or sink? Yes, you can create multiple real-time vector embedding Managed Service for Apache Flink applications that read data from the same topic(s) or store data in the same index. ## Does the application support cross-account connectivity? No, for the application to run successfully, the Amazon MSK cluster and the OpenSearch collection must be in the same AWS account where you are trying to setup your Managed Service for Apache Flink application. ## Does the application support cross-Region connectivity? No, the application only allows you to deploy an Managed Service for Apache Flink application with an Amazon MSK cluster and an OpenSearch collection in the same Region of the Managed Service for Apache Flink application. ## Can my Amazon MSK cluster and OpenSearch collection be in different VPCs or subnets? Yes, we support Amazon MSK cluster and OpenSearch collection in different VPCs and subnets as long as they are in the same AWS account. See (General MSF troubleshooting) to make sure your setup is correct. ## What embedding models are supported by the application? Currently, the application supports all models that are supported by Bedrock. These include: <br>• Amazon Titan Embeddings G1 - Text <br>• Amazon Titan Text Embeddings V2 <br>• Amazon Titan Multimodal Embeddings G1 <br>• Cohere Embed English <br>• Cohere Embed Multilingual ## Can I fine-tune the performance of my application based on my workload? Yes. The throughput of the application depends on a number of factors, all of which can be controlled by the customers: 1. **AWS MSF KPUs**: The application is deployed with default parallelism factor 2 and parallelism per KPU 1, with automatic scaling turned on. However, we recommend that you configure scaling for the Managed Service for Apache Flink application according to your workloads. For more information, see [Review Managed Service for Apache Flink application resources](how-resources.md "how-resources.md"). 2. **Amazon Bedrock**: Based on the selected Amazon Bedrock on-demand model, different quotas might apply. Review service quotas in Bedrock to see the workload that the service will be able to handle. For more information, see [Quotas for Amazon Bedrock](../../../bedrock/latest/userguide/quotas.md "../../../bedrock/latest/userguide/quotas.md"). 3. **Amazon OpenSearch Service**: Additionally, in some situations, you might notice that OpenSearch is the bottleneck in your pipeline. For scaling information, see OpenSearch scaling [Sizing Amazon OpenSearch Service domains](../../../opensearch-service/latest/developerguide/sizing-domains.md "../../../opensearch-service/latest/developerguide/sizing-domains.md"). ## What Amazon MSK authentication types are supported? We only support the IAM MSK authentication type. ## What is `sink.os.bulkFlushIntervalMillis` and how do I set it? When sending data to Amazon OpenSearch Service, the bulk flush interval is the interval at which the bulk request is run, regardless of the number of actions or the size of the request. The default value is set to 1 millisecond. While setting a flush interval can help to make sure that data is indexed timely, it can also lead to increased overhead if set too low. Consider your use case and the importance of timely indexing when choosing a flush interval. ## When I deploy my Managed Service for Apache Flink application, from what point in the Amazon MSK topic will it begin reading messages? The application will start reading messages from the Amazon MSK topic at the offset specified by the `source.msk.starting.offset` configuration set in the application’s runtime configuration. If `source.msk.starting.offset` is not explicitly set, the default behavior of the application is to start reading from the earliest available message in the topic. ## How do I use `source.msk.starting.offset`? Explicitly set s`ource.msk.starting.offset` to one of the following values, based on desired behavior: <br>• EARLIEST: The default setting, which reads from oldest offset in the partition. This is a good choice especially if: + You have newly created Amazon MSK topics and consumer applications. + You need to replay data, so you can build or reconstruct state. This is relevant when implementing the event sourcing pattern or when initializing a new service that requires a complete view of the data history. <br>• LATEST: The Managed Service for Apache Flink application will read messages from the end of the partition. We recommend this option if you only care about new messages being produced and don't need to process historical data. In this setting, the consumer will ignore the existing messages and only read new messages published by the upstream producer. <br>• COMMITTED: The Managed Service for Apache Flink application will start consuming messages from the committed offset of the consuming group. If the committed offset doesn't exist, the EARLIEST reset strategy will be used. ## What chunking strategies are supported? We are using the [langchain](https://js.langchain.com/v0.1/docs/get_started/introduction/ "https://js.langchain.com/v0.1/docs/get_started/introduction/") library to chunk inputs. Chunking is only applied if the length of the input is greater than the chosen `maxSegmentSizeInChars`. We support the following five chunking types: <br>• `SPLIT_BY_CHARACTER`: Will fit as many characters as it can into each chunk where each chunk length is no greater than maxSegmentSizeInChars. Doesn’t care about whitespace, so it can cut off words. <br>• `SPLIT_BY_WORD`: Will find whitespace characters to chunk by. No words are cut off. <br>• `SPLIT_BY_SENTENCE`: Sentence boundaries are detected using the Apache OpenNLP library with the English sentence model. <br>• `SPLIT_BY_LINE`: Will find new line characters to chunk by. <br>• `SPLIT_BY_PARAGRAPH`: Will find consecutive new line characters to chunk by. The splitting strategies fall back according to the preceding order, where the larger chunking strategies like `SPLIT_BY_PARAGRAPH` fall back to `SPLIT_BY_CHARACTER`. For example, when using `SPLIT_BY_LINE`, if a line is too long then the line will be sub-chunked by sentence, where each chunk will fit in as many sentences as it can. If there are any sentences that are too long, then it will be chunked at the word-level. If a word is too long, then it will be split by character. ## How do I read records in my vector datastore? 1. When `source.msk.data.type` is `STRING` <br>• **original_data**: The entire original string from the Amazon MSK message. <br>• **embedded_data**: Embedding vector created from `chunk_data` if it is not empty (chunking applied) or created from `original_data` if no chunking was applied. <br>• **chunk_data**: Only present when the original data was chunked. Contains the chunk of the original message that was used to create the embedding in `embedded_data`. 2. When `source.msk.data.type` is `JSON` <br>• **original_data**: The entire original JSON from the Amazon MSK message _after_ JSON key filtering is applied. <br>• **embedded_data**: Embedding vector created from `chunk_data` if it is not empty (chunking applied) or created from `original_data` if no chunking was applied. <br>• **chunk_key**: Only present when the original data was chunked. Contains the JSON key that the chunk is from in `original_data`. For example, it can look like `jsonKey1.nestedJsonKeyA` for nested keys or _metadata_ in the example of `original_data`. <br>• **chunk_data**: Only present when the original data was chunked. Contains the chunk of the original message that was used to create the embedding in `embedded_data`. Yes, you can read data from multiple Amazon MSK topics with this application. Data from all topics must be of the same type (either STRING or JSON) or it might cause the application to fail. Data from all topics is always stored in a single OpenSearch index. ## Where can I find new updates to the source code? Go to [https://github.com/awslabs/real-time-vectorization-of-streaming-data/releases](https://github.com/awslabs/real-time-vectorization-of-streaming-data/releases "https://github.com/awslabs/real-time-vectorization-of-streaming-data/releases") to check for new releases. ## Can I make a change to the AWS CloudFormation template and update the Managed Service for Apache Flink application? No, making a change to the AWS CloudFormation template does not update the Managed Service for Apache Flink application. Any new change in AWS CloudFormation implies a new stack needs to be deployed. ## Will AWS monitor and maintain the application on my behalf? No, AWS will not monitor, scale, update or patch this application on your behalf. ## Does this application move my data outside my AWS account? All data read and stored by the Managed Service for Apache Flink application stays within your AWS account and never leaves your account. |
+| Cohere Embed Multilingual             | 1,024                                      |
+
+## What does the output look like in the configured
+
+OpenSearch index?
+
+Every document in the OpenSearch index contains following fields:
+
+- **original_data**: The data that was used to
+  generate embeddings. For STRING type, it is the entire message. For JSON object,
+  it is the JSON object that was used for embeddings. It could be the entire JSON
+  in the message or specified fields in the JSON. For example, if name was
+  selected to be embedded from incoming messages, the output would look as
+  follows:
+
+```
+"original_data": "{\"name\":\"John Doe\"}"
+```
+
+- **embedded_data**: A vector float array of
+  embeddings generated by Amazon Bedrock
+- **date**: UTC timestamp at which the document was
+  stored in OpenSearch
+
+## Can I specify metadata fields to add to the document
+
+stored in the OpenSearch index?
+
+No, currently, we do not support adding additional fields to the final document stored
+in the OpenSearch index.
+
+## Should I expect duplicate entries in the OpenSearch
+
+index?
+
+Depending on how you configured your application, you might see duplicate messages in
+the index. One common reason is application restart. The application is configured by
+default to start reading from the earliest message in the source topic. When you change
+the configuraiton, the application restarts, and processes all messages in the topic
+again. To avoid re-processing, see [How
+do I use source.msk.starting.offset?](https://quip-amazon.com/0b6ZAIBsnSVq#temp:C:bPV2d49853149e54000ac324cc04 "https://quip-amazon.com/0b6ZAIBsnSVq#temp:C:bPV2d49853149e54000ac324cc04") and correctly set the starting offset
+for your application.
+
+## Can I send data to multiple OpenSearch indices?
+
+No, the application supports storing data to a single OpenSearch index. To setup
+vectorization output to multiple indices, you must deploy separate Managed Service for Apache Flink
+applications.
+
+## Can I deploy multiple real-time vector embedding
+
+applications in a single AWS account?
+
+Yes, you can deploy multiple real-time vector embedding Managed Service for Apache Flink applications in a single
+AWS account if every application has a unique name.
+
+## Can multiple real-time vector embedding applications
+
+use the same data source or sink?
+
+Yes, you can create multiple real-time vector embedding Managed Service for Apache Flink applications that read
+data from the same topic(s) or store data in the same index.
+
+## Does the application support cross-account
+
+connectivity?
+
+No, for the application to run successfully, the Amazon MSK cluster and the OpenSearch
+collection must be in the same AWS account where you are trying to setup your Managed Service for Apache Flink
+application.
+
+## Does the application support cross-Region
+
+connectivity?
+
+No, the application only allows you to deploy an Managed Service for Apache Flink application with an Amazon MSK
+cluster and an OpenSearch collection in the same Region of the Managed Service for Apache Flink application.
+
+## Can my Amazon MSK cluster and OpenSearch collection be in
+
+different VPCs or subnets?
+
+Yes, we support Amazon MSK cluster and OpenSearch collection in different VPCs and subnets
+as long as they are in the same AWS account. See (General MSF troubleshooting) to
+make sure your setup is correct.
+
+## What embedding models are supported by the
+
+application?
+
+Currently, the application supports all models that are supported by Bedrock. These
+include:
+
+- Amazon Titan Embeddings G1 - Text
+
+- Amazon Titan Text Embeddings V2
+- Amazon Titan Multimodal Embeddings G1
+- Cohere Embed English
+- Cohere Embed Multilingual
+
+## Can I fine-tune the performance of my application
+
+based on my workload?
+
+Yes. The throughput of the application depends on a number of factors, all of which
+can be controlled by the customers:
+
+1. **AWS MSF KPUs**: The application is deployed
+   with default parallelism factor 2 and parallelism per KPU 1, with automatic
+   scaling turned on. However, we recommend that you configure scaling for the
+   Managed Service for Apache Flink application according to your workloads. For more information, see [Review Managed Service for Apache Flink application resources](how-resources.md "how-resources.md").
+2. **Amazon Bedrock**: Based on the selected Amazon Bedrock on-demand
+   model, different quotas might apply. Review service quotas in Bedrock to see the
+   workload that the service will be able to handle. For more information, see
+   [Quotas for Amazon Bedrock](../../../bedrock/latest/userguide/quotas.md "../../../bedrock/latest/userguide/quotas.md").
+3. **Amazon OpenSearch Service**: Additionally, in some situations,
+   you might notice that OpenSearch is the bottleneck in your pipeline. For scaling
+   information, see OpenSearch scaling [Sizing Amazon OpenSearch Service domains](../../../opensearch-service/latest/developerguide/sizing-domains.md "../../../opensearch-service/latest/developerguide/sizing-domains.md").
+
+## What Amazon MSK authentication types are
+
+supported?
+
+We only support the IAM MSK authentication type.
+
+## What is `sink.os.bulkFlushIntervalMillis`
+
+and how do I set it?
+
+When sending data to Amazon OpenSearch Service, the bulk flush interval is the interval at which the
+bulk request is run, regardless of the number of actions or the size of the request. The
+default value is set to 1 millisecond.
+
+While setting a flush interval can help to make sure that data is indexed timely, it
+can also lead to increased overhead if set too low. Consider your use case and the
+importance of timely indexing when choosing a flush interval.
+
+## When I deploy my Managed Service for Apache Flink application, from what point
+
+in the Amazon MSK topic will it begin reading messages?
+
+The application will start reading messages from the Amazon MSK topic at the offset
+specified by the `source.msk.starting.offset` configuration set in the
+application’s runtime configuration. If `source.msk.starting.offset` is not
+explicitly set, the default behavior of the application is to start reading from the
+earliest available message in the topic.
+
+## How do I use
+
+`source.msk.starting.offset`?
+
+Explicitly set s`ource.msk.starting.offset` to one of the following values,
+based on desired behavior:
+
+- EARLIEST: The default setting, which reads from oldest offset in the
+  partition. This is a good choice especially if:
+  - You have newly created Amazon MSK topics and consumer
+    applications.
+  - You need to replay data, so you can build or reconstruct
+    state. This is relevant when implementing the event sourcing
+    pattern or when initializing a new service that requires a
+    complete view of the data history.
+
+- LATEST: The Managed Service for Apache Flink application will read messages from the end of the
+  partition. We recommend this option if you only care about new messages being
+  produced and don't need to process historical data. In this setting, the
+  consumer will ignore the existing messages and only read new messages published
+  by the upstream producer.
+- COMMITTED: The Managed Service for Apache Flink application will start consuming messages from the
+  committed offset of the consuming group. If the committed offset doesn't exist,
+  the EARLIEST reset strategy will be used.
+
+## What chunking strategies are supported?
+
+We are using the [langchain](https://js.langchain.com/v0.1/docs/get_started/introduction/ "https://js.langchain.com/v0.1/docs/get_started/introduction/")
+library to chunk inputs. Chunking is only applied if the length of the input is greater
+than the chosen `maxSegmentSizeInChars`. We support the following five
+chunking types:
+
+- `SPLIT_BY_CHARACTER`: Will fit as many characters as it can into
+  each chunk where each chunk length is no greater than maxSegmentSizeInChars.
+  Doesn’t care about whitespace, so it can cut off words.
+- `SPLIT_BY_WORD`: Will find whitespace characters to chunk by. No
+  words are cut off.
+- `SPLIT_BY_SENTENCE`: Sentence boundaries are detected using the
+  Apache OpenNLP library with the English sentence model.
+- `SPLIT_BY_LINE`: Will find new line characters to chunk by.
+- `SPLIT_BY_PARAGRAPH`: Will find consecutive new line characters to
+  chunk by.
+
+The splitting strategies fall back according to the preceding order, where the larger
+chunking strategies like `SPLIT_BY_PARAGRAPH` fall back to
+`SPLIT_BY_CHARACTER`. For example, when using `SPLIT_BY_LINE`,
+if a line is too long then the line will be sub-chunked by sentence, where each chunk
+will fit in as many sentences as it can. If there are any sentences that are too long,
+then it will be chunked at the word-level. If a word is too long, then it will be split
+by character.
+
+## How do I read records in my vector
+
+datastore?
+
+1. When `source.msk.data.type` is `STRING`
+   - **original_data**: The entire original
+     string from the Amazon MSK message.
+   - **embedded_data**: Embedding vector
+     created from `chunk_data` if it is not empty (chunking
+     applied) or created from `original_data` if no chunking was
+     applied.
+   - **chunk_data**: Only present when the
+     original data was chunked. Contains the chunk of the original message
+     that was used to create the embedding in
+     `embedded_data`.
+
+2. When `source.msk.data.type` is `JSON`
+   - **original_data**: The entire original
+     JSON from the Amazon MSK message _after_ JSON key
+     filtering is applied.
+   - **embedded_data**: Embedding vector
+     created from `chunk_data` if it is not empty (chunking
+     applied) or created from `original_data` if no chunking was
+     applied.
+   - **chunk_key**: Only present when the
+     original data was chunked. Contains the JSON key that the chunk is from
+     in `original_data`. For example, it can look like
+     `jsonKey1.nestedJsonKeyA` for nested keys or
+     _metadata_ in the example of
+     `original_data`.
+   - **chunk_data**: Only present when the
+     original data was chunked. Contains the chunk of the original message
+     that was used to create the embedding in
+     `embedded_data`.
+
+Yes, you can read data from multiple Amazon MSK topics with this application. Data from
+all topics must be of the same type (either STRING or JSON) or it might cause the
+application to fail. Data from all topics is always stored in a single OpenSearch
+index.
+
+## Where can I find new updates to the source code?
+
+Go to [https://github.com/awslabs/real-time-vectorization-of-streaming-data/releases](https://github.com/awslabs/real-time-vectorization-of-streaming-data/releases "https://github.com/awslabs/real-time-vectorization-of-streaming-data/releases")
+to check for new releases.
+
+## Can I make a change to the AWS CloudFormation template and
+
+update the Managed Service for Apache Flink application?
+
+No, making a change to the AWS CloudFormation template does not update the Managed Service for Apache Flink application.
+Any new change in AWS CloudFormation implies a new stack needs to be deployed.
+
+## Will AWS monitor and maintain the application on
+
+my behalf?
+
+No, AWS will not monitor, scale, update or patch this application on your behalf.
+
+## Does this application move my data outside my
+
+AWS account?
+
+All data read and stored by the Managed Service for Apache Flink application stays within your AWS account and
+never leaves your account.

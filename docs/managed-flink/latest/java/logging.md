@@ -19,8 +19,10 @@ logs to identify and mitigate errors during operational events.
 
 The following query looks for exceptions in all task manager logs and orders them according to the time they occurred.
 
-````
+```
 fields @timestamp, @message
 | filter isPresent(throwableInformation.0) or isPresent(throwableInformation) or @message like /(Error|Exception)/
-| sort @timestamp desc ``` For other useful queries, see [Example Queries](cloudwatch-logs-reading.md#cloudwatch-logs-reading-examples "cloudwatch-logs-reading.md#cloudwatch-logs-reading-examples").
-````
+| sort @timestamp desc
+```
+
+For other useful queries, see [Example Queries](cloudwatch-logs-reading.md#cloudwatch-logs-reading-examples "cloudwatch-logs-reading.md#cloudwatch-logs-reading-examples").

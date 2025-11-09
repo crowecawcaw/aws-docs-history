@@ -65,12 +65,123 @@ Use the following procedure to configure the application.
 4. Under **Properties**, choose **Add group**.
 5. Enter the following:
 
-| Group ID                   | Key                    | Value                 |
-| -------------------------- | ---------------------- | --------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `ConsumerConfigProperties` | `input.stream.name`    | `ExampleInputStream`  |
-| `ConsumerConfigProperties` | `aws.region`           | `us-west-2`           |
-| `ConsumerConfigProperties` | `flink.stream.initpos` | `LATEST`              | Choose **Save**. 6. Under **Properties**, choose **Add group** again. 7. Enter the following:                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| Group ID                   | Key                    | Value                 |
-| ---                        | ---                    | ---                   |
-| `ProducerConfigProperties` | `output.stream.name`   | `ExampleOutputStream` |
-| `ProducerConfigProperties` | `aws.region`           | `us-west-2`           | 8. Under **Monitoring**, ensure that the **Monitoring metrics level** is set to **Application**. 9. For **CloudWatch logging**, choose the **Enable** check box. 10. Choose **Update**. ###### Note When you choose to enable Amazon CloudWatch logging, Managed Service for Apache Flink creates a log group and log stream for you. The names of these resources are as follows: <br>• Log group: `/aws/kinesis-analytics/MyApplication` <br>• Log stream: `kinesis-analytics-log-stream` ## Edit the IAM policy Edit the IAM policy to add permissions to access the Amazon S3 bucket. ###### To edit the IAM policy to add S3 bucket permissions 1. Open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/"). 2. Choose **Policies**. Choose the **`kinesis-analytics-service-MyApplication-us-west-2`** policy that the console created for you in the previous section. 3. On the **Summary** page, choose **Edit policy**. Choose the **JSON** tab. 4. Add the highlighted section of the following policy example to the policy. Replace the sample account IDs (`012345678901`) with your account ID. JSON `` `{ "Version":"2012-10-17", "Statement": [ { "Sid": "ReadCode", "Effect": "Allow", "Action": [ "s3:GetObject", "s3:GetObjectVersion" ], "Resource": [ "arn:aws:s3:::ka-app-code-`username`/getting-started-scala-1.0.jar" ] }, { "Sid": "DescribeLogGroups", "Effect": "Allow", "Action": [ "logs:DescribeLogGroups" ], "Resource": [ "arn:aws:logs:us-west-2:`012345678901`:log-group:*" ] }, { "Sid": "DescribeLogStreams", "Effect": "Allow", "Action": [ "logs:DescribeLogStreams" ], "Resource": [ "arn:aws:logs:us-west-2:`012345678901`:log-group:/aws/kinesis-analytics/MyApplication:log-stream:*" ] }, { "Sid": "PutLogEvents", "Effect": "Allow", "Action": [ "logs:PutLogEvents" ], "Resource": [ "arn:aws:logs:us-west-2:`012345678901`:log-group:/aws/kinesis-analytics/MyApplication:log-stream:kinesis-analytics-log-stream" ] }, { "Sid": "ReadInputStream", "Effect": "Allow", "Action": "kinesis:*", "Resource": "arn:aws:kinesis:us-west-2:`012345678901`:stream/ExampleInputStream" }, { "Sid": "WriteOutputStream", "Effect": "Allow", "Action": "kinesis:*", "Resource": "arn:aws:kinesis:us-west-2:`012345678901`:stream/ExampleOutputStream" } ] }` `` ## Run the application The Flink job graph can be viewed by running the application, opening the Apache Flink dashboard, and choosing the desired Flink job. ## Stop the application To stop the application, on the **MyApplication** page, choose **Stop**. Confirm the action. |
+| Group ID                   | Key                    | Value                |
+| -------------------------- | ---------------------- | -------------------- |
+| `ConsumerConfigProperties` | `input.stream.name`    | `ExampleInputStream` |
+| `ConsumerConfigProperties` | `aws.region`           | `us-west-2`          |
+| `ConsumerConfigProperties` | `flink.stream.initpos` | `LATEST`             |
+
+Choose **Save**. 6. Under **Properties**, choose **Add group** again. 7. Enter the following:
+
+| Group ID                   | Key                  | Value                 |
+| -------------------------- | -------------------- | --------------------- |
+| `ProducerConfigProperties` | `output.stream.name` | `ExampleOutputStream` |
+| `ProducerConfigProperties` | `aws.region`         | `us-west-2`           |
+
+8. Under **Monitoring**, ensure that the
+   **Monitoring metrics level** is set to
+   **Application**.
+9. For **CloudWatch logging**, choose the
+   **Enable** check box.
+10. Choose **Update**.
+
+###### Note
+
+When you choose to enable Amazon CloudWatch logging, Managed Service for Apache Flink creates a log group
+and log stream for you. The names of these resources are as follows:
+
+- Log group:
+  `/aws/kinesis-analytics/MyApplication`
+- Log stream: `kinesis-analytics-log-stream`
+
+## Edit the IAM policy
+
+Edit the IAM policy to add permissions to access the Amazon S3 bucket.
+
+###### To edit the IAM policy to add S3 bucket permissions
+
+1. Open the IAM console at
+   [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
+2. Choose **Policies**. Choose the
+   **`kinesis-analytics-service-MyApplication-us-west-2`**
+   policy that the console created for you in the previous section.
+3. On the **Summary** page, choose **Edit
+   policy**. Choose the **JSON**
+   tab.
+4. Add the highlighted section of the following policy example to the
+   policy. Replace the sample account IDs
+   (`012345678901`) with your account
+   ID.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "ReadCode",
+ "Effect": "Allow",
+ "Action": [
+ "s3:GetObject",
+ "s3:GetObjectVersion"
+ ],
+ "Resource": [
+ "arn:aws:s3:::ka-app-code-`username`/getting-started-scala-1.0.jar"
+ ]
+ },
+ {
+ "Sid": "DescribeLogGroups",
+ "Effect": "Allow",
+ "Action": [
+ "logs:DescribeLogGroups"
+ ],
+ "Resource": [
+ "arn:aws:logs:us-west-2:`012345678901`:log-group:*"
+ ]
+ },
+ {
+ "Sid": "DescribeLogStreams",
+ "Effect": "Allow",
+ "Action": [
+ "logs:DescribeLogStreams"
+ ],
+ "Resource": [
+ "arn:aws:logs:us-west-2:`012345678901`:log-group:/aws/kinesis-analytics/MyApplication:log-stream:*"
+ ]
+ },
+ {
+ "Sid": "PutLogEvents",
+ "Effect": "Allow",
+ "Action": [
+ "logs:PutLogEvents"
+ ],
+ "Resource": [
+ "arn:aws:logs:us-west-2:`012345678901`:log-group:/aws/kinesis-analytics/MyApplication:log-stream:kinesis-analytics-log-stream"
+ ]
+ },
+ {
+ "Sid": "ReadInputStream",
+ "Effect": "Allow",
+ "Action": "kinesis:*",
+ "Resource": "arn:aws:kinesis:us-west-2:`012345678901`:stream/ExampleInputStream"
+ },
+ {
+ "Sid": "WriteOutputStream",
+ "Effect": "Allow",
+ "Action": "kinesis:*",
+ "Resource": "arn:aws:kinesis:us-west-2:`012345678901`:stream/ExampleOutputStream"
+ }
+ ]
+}`
+
+```
+
+## Run the application
+
+The Flink job graph can be viewed by running the application, opening the Apache Flink dashboard, and choosing the desired Flink job.
+
+## Stop the application
+
+To stop the application, on the **MyApplication** page,
+choose **Stop**. Confirm the action.

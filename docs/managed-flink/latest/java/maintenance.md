@@ -16,8 +16,8 @@ recency. For information on how to minimize the impact of this downtime, see [Fa
 action on your application using the `ListApplicationOperations` API. For more
 information, see [Identify when maintenance has ocurred on your application](maintenance.md#maintenance-identify-ids "maintenance.md#maintenance-identify-ids").
 
-| Maintenance time windows in AWS Regions | AWS Region      | Maintenance time window                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| --------------------------------------- | --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Maintenance time windows in AWS Regions | AWS Region      | Maintenance time window |
+| --------------------------------------- | --------------- | ----------------------- |
 | AWS GovCloud (US-West)                  | 06:00–14:00 UTC |
 | AWS GovCloud (US-East)                  | 03:00–11:00 UTC |
 | US East (N. Virginia)                   | 03:00–11:00 UTC |
@@ -50,4 +50,38 @@ information, see [Identify when maintenance has ocurred on your application](mai
 | Middle East (Bahrain)                   | 13:00–21:00 UTC |
 | Middle East (UAE)                       | 18:00–02:00 UTC |
 | South America (São Paulo)               | 19:00–03:00 UTC |
-| Israel (Tel Aviv)                       | 20:00–04:00 UTC | ## Choose a maintenance window Managed Service for Apache Flink notifies you about upcoming planned maintenance events through email and AWS Health notifications. In Managed Service for Apache Flink, you can change the time of the day during which maintenance begins by using the `UpdateApplicationMaintenanceConfiguration` API and updating your maintenance window configuration. For more information, see [UpdateApplicationMaintenanceConfiguration](../apiv2/API_UpdateApplicationMaintenanceConfiguration.md "../apiv2/API_UpdateApplicationMaintenanceConfiguration.md"). Managed Service for Apache Flink uses the updated maintenance configuration the next time it schedules maintenance for the application. If you invoke this operation after the service has already scheduled maintenance, the service applies the configuration update the next time it schedules maintenance for the application. ###### Note To provide the highest possible security posture, Managed Service for Apache Flink does not support any exception to opt out of maintenance, pause maintenance, or perform maintenance on specific days. ## Identify when maintenance has occurred on your application You can find if Managed Service for Apache Flink has performed a maintenance action on your application by using the `ListApplicationOperations` API. The following is an example request for `ListApplicationOperations` that can help you filter the list for maintenance on the application: `{ "ApplicationName": "MyApplication", "operation": "ApplicationMaintenance" }` |
+| Israel (Tel Aviv)                       | 20:00–04:00 UTC |
+
+## Choose a maintenance window
+
+Managed Service for Apache Flink notifies you about upcoming planned maintenance events through email and
+AWS Health notifications. In Managed Service for Apache Flink, you can change the time of the day during which
+maintenance begins by using the `UpdateApplicationMaintenanceConfiguration`
+API and updating your maintenance window configuration. For more information, see [UpdateApplicationMaintenanceConfiguration](../apiv2/API_UpdateApplicationMaintenanceConfiguration.md "../apiv2/API_UpdateApplicationMaintenanceConfiguration.md"). Managed Service for Apache Flink uses the updated
+maintenance configuration the next time it schedules maintenance for the application. If
+you invoke this operation after the service has already scheduled maintenance, the
+service applies the configuration update the next time it schedules maintenance for the
+application.
+
+###### Note
+
+To provide the highest possible security posture, Managed Service for Apache Flink does not support any
+exception to opt out of maintenance, pause maintenance, or perform maintenance on
+specific days.
+
+## Identify when maintenance has occurred on your
+
+application
+
+You can find if Managed Service for Apache Flink has performed a maintenance action on your application by
+using the `ListApplicationOperations` API.
+
+The following is an example request for `ListApplicationOperations` that
+can help you filter the list for maintenance on the application:
+
+```
+{
+   "ApplicationName": "MyApplication",
+   "operation": "ApplicationMaintenance"
+}
+```

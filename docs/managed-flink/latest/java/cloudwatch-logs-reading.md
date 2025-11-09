@@ -80,30 +80,100 @@ Job Manager distributes between Task Managers. You need to set the query's time
 frame to match one job run so that the query doesn't return tasks from previous
 jobs. For more information about Parallelism, see [Implement application scaling](how-scaling.md "how-scaling.md").
 
-````
+```
 fields @timestamp, message
 | filter message like /Deploying/
 | parse message " to flink-taskmanager-*" as @tmid
 | stats count(*) by @tmid
 | sort @timestamp desc
-| limit 2000 ``` The following CloudWatch Logs Insights query returns the subtasks assigned to each Task Manager. The total number of subtasks is the sum of every task's parallelism. Task parallelism is derived from operator parallelism, and is the same as the application's parallelism by default, unless you change it in code by specifying `setParallelism`. For more information about setting operator parallelism, see  [Setting the Parallelism: Operator Level](https://nightlies.apache.org/flink/flink-docs-release-1.15/dev/parallel.html#operator-level "https://nightlies.apache.org/flink/flink-docs-release-1.15/dev/parallel.html#operator-level") in the [Apache Flink documentation](https://nightlies.apache.org/flink/flink-docs-release-1.15/ "https://nightlies.apache.org/flink/flink-docs-release-1.15/"). ``` fields @timestamp, @tmid, @subtask
+| limit 2000
+
+```
+
+The following CloudWatch Logs Insights query returns the subtasks assigned to each Task
+Manager. The total number of subtasks is the sum of every task's parallelism. Task
+parallelism is derived from operator parallelism, and is the same as the
+application's parallelism by default, unless you change it in code by specifying
+`setParallelism`. For more information about setting operator
+parallelism, see [Setting the Parallelism: Operator Level](https://nightlies.apache.org/flink/flink-docs-release-1.15/dev/parallel.html#operator-level "https://nightlies.apache.org/flink/flink-docs-release-1.15/dev/parallel.html#operator-level") in the [Apache Flink
+documentation](https://nightlies.apache.org/flink/flink-docs-release-1.15/ "https://nightlies.apache.org/flink/flink-docs-release-1.15/").
+
+```
+fields @timestamp, @tmid, @subtask
 | filter message like /Deploying/
 | parse message "Deploying * to flink-taskmanager-*" as @subtask, @tmid
 | sort @timestamp desc
-| limit 2000 ``` For more information about task scheduling, see [Jobs and Scheduling](https://nightlies.apache.org/flink/flink-docs-release-1.15/internals/job_scheduling.html "https://nightlies.apache.org/flink/flink-docs-release-1.15/internals/job_scheduling.html") in the [Apache Flink documentation](https://nightlies.apache.org/flink/flink-docs-release-1.15/ "https://nightlies.apache.org/flink/flink-docs-release-1.15/"). ### Analyze operations: Change in parallelism The following CloudWatch Logs Insights query returns changes to an application's parallelism (for example, due to automatic scaling). This query also returns manual changes to the application's parallelism. For more information about automatic scaling, see [Use automatic scaling in Managed Service for Apache Flink](how-scaling-auto.md "how-scaling-auto.md"). ``` fields @timestamp, @parallelism
+| limit 2000
+
+```
+
+For more information about task scheduling, see
+[Jobs and Scheduling](https://nightlies.apache.org/flink/flink-docs-release-1.15/internals/job_scheduling.html "https://nightlies.apache.org/flink/flink-docs-release-1.15/internals/job_scheduling.html") in the [Apache Flink documentation](https://nightlies.apache.org/flink/flink-docs-release-1.15/ "https://nightlies.apache.org/flink/flink-docs-release-1.15/").
+
+### Analyze operations: Change in parallelism
+
+The following CloudWatch Logs Insights query returns changes to an application's parallelism
+(for example, due to automatic scaling). This query also returns manual changes to
+the application's parallelism. For more information about automatic scaling, see
+[Use automatic scaling in Managed Service for Apache Flink](how-scaling-auto.md "how-scaling-auto.md").
+
+```
+fields @timestamp, @parallelism
 | filter message like /property: parallelism.default, /
 | parse message "default, *" as @parallelism
-| sort @timestamp asc ``` ### Analyze errors: Access denied The following CloudWatch Logs Insights query returns `Access Denied` logs. ``` fields @timestamp, @message, @messageType
+| sort @timestamp asc
+
+```
+
+### Analyze errors: Access denied
+
+The following CloudWatch Logs Insights query returns `Access Denied` logs.
+
+```
+fields @timestamp, @message, @messageType
 | filter applicationARN like /arn:aws:kinesisanalytics`us-west-2`:`012345678901`:application\/`YourApplication`/
 | filter @message like /AccessDenied/
-| sort @timestamp desc ``` ### Analyze errors: Source or sink not found The following CloudWatch Logs Insights query returns `ResourceNotFound` logs. `ResourceNotFound` logs result if a Kinesis source or sink is not found. ``` fields @timestamp,@message
+| sort @timestamp desc
+
+```
+
+### Analyze errors: Source or sink not found
+
+The following CloudWatch Logs Insights query returns `ResourceNotFound` logs.
+`ResourceNotFound` logs result if a Kinesis source or sink is not found.
+
+```
+fields @timestamp,@message
 | filter applicationARN like /arn:aws:kinesisanalytics`us-west-2`:`012345678901`:application\/`YourApplication`/
 | filter @message like /ResourceNotFoundException/
-| sort @timestamp desc ``` ### Analyze errors: Application task-related failures The following CloudWatch Logs Insights query returns an application's task-related failure logs. These logs result if an application's status switches from `RUNNING` to `RESTARTING`. ``` fields @timestamp,@message
+| sort @timestamp desc
+
+```
+
+### Analyze errors: Application task-related
+
+failures
+
+The following CloudWatch Logs Insights query returns an application's task-related failure
+logs. These logs result if an application's status switches from `RUNNING`
+to `RESTARTING`.
+
+```
+fields @timestamp,@message
 | filter applicationARN like /arn:aws:kinesisanalytics`us-west-2`:`012345678901`:application\/`YourApplication`/
 | filter @message like /switched from RUNNING to RESTARTING/
-| sort @timestamp desc ``` For applications using Apache Flink version 1.8.2 and prior, task-related failures will result in the application status switching from `RUNNING` to `FAILED` instead. When using Apache Flink 1.8.2 and prior, use the following query to search for application task-related failures: ``` fields @timestamp,@message
+| sort @timestamp desc
+
+```
+
+For applications using Apache Flink version 1.8.2 and prior, task-related failures will
+result in the application status switching from `RUNNING` to `FAILED` instead.
+When using Apache Flink 1.8.2 and prior, use the following query to search for application task-related failures:
+
+```
+fields @timestamp,@message
 | filter applicationARN like /arn:aws:kinesisanalytics`us-west-2`:`012345678901`:application\/`YourApplication`/
 | filter @message like /switched from RUNNING to FAILED/
-| sort @timestamp desc ```
-````
+| sort @timestamp desc
+
+```

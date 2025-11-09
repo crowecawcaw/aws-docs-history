@@ -846,5 +846,127 @@ Edit the application to set the application code artifact.
 | Group ID | Key | Value |
 | --- | --- | --- |
 | `bucket` | `name` | `your-bucket-name` |
-| `bucket` | `path` | `output` | 6. Don't modify any other setting. 7. Choose **Save changes**. ###### Note When you choose to enable Amazon CloudWatch logging, Managed Service for Apache Flink creates a log group and log stream for you. The names of these resources are as follows: <br>• Log group: `/aws/kinesis-analytics/MyApplication` <br>• Log stream: `kinesis-analytics-log-stream` ### Run the application The application is now configured and ready to run. ###### To run the application 1. Return to the console page in Amazon Managed Service for Apache Flink and choose **MyApplication**. 2. Choose **Run** to start the application. 3. On the **Application restore configuration**, choose **Run with latest snapshot**. 4. Choose **Run**. 5. The **Status** in **Application details** transitions from `Ready` to `Starting` and then to `Running` after the application has started. When the application is in `Running` status, you can open the Flink dashboard. ###### To open the dashboard and view the job 1. Choose **Open Apache Flink dashbard**. The dashboard opens in a new page. 2. In the **Running Jobs** list, choose the single job you can see. ###### Note If you set the runtime properties or edited the IAM policies incorrectly, the application status might change to `Running`, but the Flink dashboard shows the job continuously restarting. This is a common failure scenario when the application is misconfigured or lacks the permissions to access the external resources. When this happens, check the **Exceptions** tab in the Flink dashboard to investigate the cause of the problem. ### Observe the metrics of the running application On the **MyApplication** page, in the **Amazon CloudWatch metrics** section, you can see some of the fundamental metrics from the running application. ###### To view the metrics 1. Next to the **Refresh** button, select **10 seconds** from the dropdown list. 2. When the application is running and healthy, you can see the **uptime** metric continuously increasing. 3. The **fullrestarts** metric should be zero. If it is increasing, the configuration might have issues. Review the **Exceptions** tab on the Flink dashboard to investigate the issue. 4. The **Number of failed checkpoints** metric should be zero in a healthy application. ###### Note This dashboard displays a fixed set of metrics with a granularity of 5 minutes. You can create a custom application dashboard with any metrics in the CloudWatch dashboard. ### Observe the application writing data to the destination bucket You can now observe the application running in Amazon Managed Service for Apache Flink writing files to Amazon S3. To observe the files, follow the same process you used to check the files being written when the application was running locally. See [Observe the application writing data to an S3 bucket](#gs-table-input-output "#gs-table-input-output"). Remember that the application writes new files on the Flink checkpoint. When running on Amazon Managed Service for Apache Flink, checkpoints are enabled by default and run every 60 seconds. The application creates new files approximately every 1 minute. ### Stop the application To stop the applicatio, go to the console page of the Managed Service for Apache Flink application named `MyApplication`. ###### To stop the application 1. From the **Action** dropdown list, choose **Stop**. 2. The **Status** in **Application details** transitions from `Running` to `Stopping`, and then to `Ready` when the application is completely stopped. ###### Note Don't forget to also stop sending data to the input stream from the Python script or the Kinesis Data Generator.
+| `bucket` | `path` | `output` |
+6. Don't modify any other setting.
+7. Choose **Save changes**.
+
+###### Note
+
+When you choose to enable Amazon CloudWatch logging, Managed Service for Apache Flink creates a log group
+ and log stream for you. The names of these resources are as follows:
+
+
+* Log group:
+ `/aws/kinesis-analytics/MyApplication`
+* Log stream: `kinesis-analytics-log-stream`
+
+### Run the application
+
+
+The application is now configured and ready to run.
+
+
+###### To run the application
+
+1. Return to the console page in Amazon Managed Service for Apache Flink and choose
+ **MyApplication**.
+2. Choose **Run** to start the application.
+3. On the **Application restore configuration**, choose
+ **Run with latest snapshot**.
+4. Choose **Run**.
+5. The **Status** in **Application details** transitions from
+ `Ready` to `Starting` and then to
+ `Running` after the application has started.
+
+When the application is in `Running` status, you can open the Flink
+ dashboard.
+
+
+###### To open the dashboard and view the job
+
+1. Choose **Open Apache Flink dashbard**. The
+ dashboard opens in a new page.
+2. In the **Running Jobs** list, choose the single
+ job you can see.
+
+
+###### Note
+
+If you set the runtime properties or edited the IAM policies
+ incorrectly, the application status might change to
+ `Running`, but the Flink dashboard shows the job continuously
+ restarting. This is a common failure scenario when the application is
+ misconfigured or lacks the permissions to access the external resources.
+
+When this happens, check the **Exceptions** tab in
+ the Flink dashboard to investigate the cause of the problem.
+
+### Observe the metrics of
+ the running application
+
+
+On the **MyApplication** page, in the **Amazon
+ CloudWatch metrics** section, you can see some of the fundamental metrics
+ from the running application.
+
+
+###### To view the metrics
+
+1. Next to the **Refresh** button, select **10
+ seconds** from the dropdown list.
+2. When the application is running and healthy, you can see the
+ **uptime** metric continuously increasing.
+3. The **fullrestarts** metric should be zero. If it is
+ increasing, the configuration might have issues. Review the
+ **Exceptions** tab on the Flink dashboard to
+ investigate the issue.
+4. The **Number of failed checkpoints** metric should be
+ zero in a healthy application.
+
+
+###### Note
+
+This dashboard displays a fixed set of metrics with a granularity
+ of 5 minutes. You can create a custom application dashboard with any
+ metrics in the CloudWatch dashboard.
+
+### Observe the application writing data to the
+ destination bucket
+
+
+You can now observe the application running in Amazon Managed Service for Apache Flink writing files to
+ Amazon S3.
+
+
+To observe the files, follow the same process you used to check the files
+ being written when the application was running locally. See [Observe the application writing data to an S3
+ bucket](#gs-table-input-output "#gs-table-input-output").
+
+
+Remember that the application writes new files on the Flink checkpoint. When
+ running on Amazon Managed Service for Apache Flink, checkpoints are enabled by default and run every 60 seconds.
+ The application creates new files approximately every 1 minute.
+
+
+### Stop the application
+
+
+To stop the applicatio, go to the console page of the Managed Service for Apache Flink application
+ named `MyApplication`.
+
+
+###### To stop the application
+
+1. From the **Action** dropdown list, choose
+ **Stop**.
+2. The **Status** in **Application
+ details** transitions from `Running` to
+ `Stopping`, and then to `Ready` when the
+ application is completely stopped.
+
+
+###### Note
+
+Don't forget to also stop sending data to the input stream from
+ the Python script or the Kinesis Data Generator.
 ```

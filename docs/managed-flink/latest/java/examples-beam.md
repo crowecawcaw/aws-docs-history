@@ -316,7 +316,94 @@ JSON
 4. Enter the following:
 
 | Group ID                    | Key                | Value                 |
-| --------------------------- | ------------------ | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| --------------------------- | ------------------ | --------------------- |
 | `BeamApplicationProperties` | `InputStreamName`  | `ExampleInputStream`  |
 | `BeamApplicationProperties` | `OutputStreamName` | `ExampleOutputStream` |
-| `BeamApplicationProperties` | `AwsRegion`        | `us-west-2`           | 5. Under **Monitoring**, ensure that the **Monitoring metrics level** is set to **Application**. 6. For **CloudWatch logging**, select the **Enable** check box. 7. Choose **Update**. ###### Note When you choose to enable CloudWatch logging, Managed Service for Apache Flink creates a log group and log stream for you. The names of these resources are as follows: <br>• Log group: `/aws/kinesis-analytics/MyApplication` <br>• Log stream: `kinesis-analytics-log-stream` This log stream is used to monitor the application. This is not the same log stream that the application uses to send results. ### Run the application The Flink job graph can be viewed by running the application, opening the Apache Flink dashboard, and choosing the desired Flink job. You can check the Managed Service for Apache Flink metrics on the CloudWatch console to verify that the application is working. ## Clean up AWS resources This section includes procedures for cleaning up AWS resources created in the Tumbling Window tutorial. ###### This topic contains the following sections: <br>• [Delete your Managed Service for Apache Flink application](#examples-beam-cleanup-app "#examples-beam-cleanup-app") <br>• [Delete your Kinesis data streams](#examples-beam-cleanup-stream "#examples-beam-cleanup-stream") <br>• [Delete your Amazon S3 object and bucket](#examples-beam-cleanup-s3 "#examples-beam-cleanup-s3") <br>• [Delete your IAM resources](#examples-beam-cleanup-iam "#examples-beam-cleanup-iam") <br>• [Delete your CloudWatch resources](#examples-beam-cleanup-cw "#examples-beam-cleanup-cw") ### Delete your Managed Service for Apache Flink application 1. Sign in to the AWS Management Console, and open the Amazon MSF console at https://console.aws.amazon.com/flink. 2. in the Managed Service for Apache Flink panel, choose **MyApplication**. 3. In the application's page, choose **Delete** and then confirm the deletion. ### Delete your Kinesis data streams 1. Open the Kinesis console at [https://console.aws.amazon.com/kinesis](https://console.aws.amazon.com/kinesis "https://console.aws.amazon.com/kinesis"). 2. In the Kinesis Data Streams panel, choose **ExampleInputStream**. 3. In the **ExampleInputStream** page, choose **Delete Kinesis Stream** and then confirm the deletion. 4. In the **Kinesis streams** page, choose the **ExampleOutputStream**, choose **Actions**, choose **Delete**, and then confirm the deletion. ### Delete your Amazon S3 object and bucket 1. Open the Amazon S3 console at [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/"). 2. Choose the **ka-app-code-`<username>` bucket.** 3. Choose **Delete** and then enter the bucket name to confirm deletion. ### Delete your IAM resources 1. Open the IAM console at [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/"). 2. In the navigation bar, choose **Policies**. 3. In the filter control, enter **kinesis**. 4. Choose the **kinesis-analytics-service-MyApplication-us-west-2** policy. 5. Choose **Policy Actions** and then choose **Delete**. 6. In the navigation bar, choose **Roles**. 7. Choose the **kinesis-analytics-MyApplication-us-west-2** role. 8. Choose **Delete role** and then confirm the deletion. ### Delete your CloudWatch resources 1. Open the CloudWatch console at [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/"). 2. In the navigation bar, choose **Logs**. 3. Choose the **/aws/kinesis-analytics/MyApplication** log group. 4. Choose **Delete Log Group** and then confirm the deletion. ## Next steps Now that you've created and run a basic Managed Service for Apache Flink application that transforms data using Apache Beam, see the following application for an example of a more advanced Managed Service for Apache Flink solution. <br>• **[Beam on Managed Service for Apache Flink Streaming Workshop](https://streaming-analytics.workshop.aws/beam-on-kda/ "https://streaming-analytics.workshop.aws/beam-on-kda/")**: In this workshop, we explore an end to end example that combines batch and streaming aspects in one uniform Apache Beam pipeline. |
+| `BeamApplicationProperties` | `AwsRegion`        | `us-west-2`           |
+
+5. Under **Monitoring**, ensure that the
+   **Monitoring metrics level** is set to
+   **Application**.
+6. For **CloudWatch logging**, select the
+   **Enable** check box.
+7. Choose **Update**.
+
+###### Note
+
+When you choose to enable CloudWatch logging, Managed Service for Apache Flink creates a log group and
+log stream for you. The names of these resources are as follows:
+
+- Log group:
+  `/aws/kinesis-analytics/MyApplication`
+- Log stream: `kinesis-analytics-log-stream`
+  This log stream is used to monitor the application. This is not the same log stream that the application uses to send results.
+
+### Run the application
+
+The Flink job graph can be viewed by running the application, opening the Apache Flink dashboard, and choosing the desired Flink job.
+
+You can check the Managed Service for Apache Flink metrics on the CloudWatch console to verify that the application is working.
+
+## Clean up AWS resources
+
+This section includes procedures for cleaning up AWS resources created in the Tumbling Window tutorial.
+
+###### This topic contains the following sections:
+
+- [Delete your Managed Service for Apache Flink application](#examples-beam-cleanup-app "#examples-beam-cleanup-app")
+- [Delete your Kinesis data streams](#examples-beam-cleanup-stream "#examples-beam-cleanup-stream")
+- [Delete your Amazon S3 object and bucket](#examples-beam-cleanup-s3 "#examples-beam-cleanup-s3")
+- [Delete your IAM resources](#examples-beam-cleanup-iam "#examples-beam-cleanup-iam")
+- [Delete your CloudWatch resources](#examples-beam-cleanup-cw "#examples-beam-cleanup-cw")
+
+### Delete your Managed Service for Apache Flink application
+
+1. Sign in to the AWS Management Console, and open the Amazon MSF console at https://console.aws.amazon.com/flink.
+2. in the Managed Service for Apache Flink panel, choose **MyApplication**.
+3. In the application's page, choose **Delete** and then confirm the deletion.
+
+### Delete your Kinesis data streams
+
+1. Open the Kinesis console at
+   [https://console.aws.amazon.com/kinesis](https://console.aws.amazon.com/kinesis "https://console.aws.amazon.com/kinesis").
+2. In the Kinesis Data Streams panel, choose **ExampleInputStream**.
+3. In the **ExampleInputStream** page, choose **Delete Kinesis Stream** and then confirm the deletion.
+4. In the **Kinesis streams** page, choose the **ExampleOutputStream**, choose **Actions**, choose **Delete**, and then
+   confirm the deletion.
+
+### Delete your Amazon S3 object and bucket
+
+1. Open the Amazon S3 console at
+   [https://console.aws.amazon.com/s3/](https://console.aws.amazon.com/s3/ "https://console.aws.amazon.com/s3/").
+2. Choose the **ka-app-code-`<username>` bucket.**
+3. Choose **Delete** and then enter the bucket name to confirm deletion.
+
+### Delete your IAM resources
+
+1. Open the IAM console at
+   [https://console.aws.amazon.com/iam/](https://console.aws.amazon.com/iam/ "https://console.aws.amazon.com/iam/").
+2. In the navigation bar, choose **Policies**.
+3. In the filter control, enter **kinesis**.
+4. Choose the **kinesis-analytics-service-MyApplication-us-west-2** policy.
+5. Choose **Policy Actions** and then choose **Delete**.
+6. In the navigation bar, choose **Roles**.
+7. Choose the **kinesis-analytics-MyApplication-us-west-2** role.
+8. Choose **Delete role** and then confirm the deletion.
+
+### Delete your CloudWatch resources
+
+1. Open the CloudWatch console at
+   [https://console.aws.amazon.com/cloudwatch/](https://console.aws.amazon.com/cloudwatch/ "https://console.aws.amazon.com/cloudwatch/").
+2. In the navigation bar, choose **Logs**.
+3. Choose the **/aws/kinesis-analytics/MyApplication** log group.
+4. Choose **Delete Log Group** and then confirm the deletion.
+
+## Next steps
+
+Now that you've created and run a basic Managed Service for Apache Flink application that transforms data using Apache Beam,
+see the following application for an example of a more
+advanced Managed Service for Apache Flink solution.
+
+- **[Beam on Managed Service for Apache Flink Streaming Workshop](https://streaming-analytics.workshop.aws/beam-on-kda/ "https://streaming-analytics.workshop.aws/beam-on-kda/")**: In this workshop,
+  we explore an end to end example that combines batch and streaming aspects in
+  one uniform Apache Beam pipeline.
