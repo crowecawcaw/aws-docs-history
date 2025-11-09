@@ -19,8 +19,21 @@ AWS infrastructure. We ask that alarms adhere to the following criteria when def
 - Aggregate alarming (monitoring of dependencies)
   The following table provides example alarms, all using the CloudWatch monitoring system.
 
-| Metric name / Alarm threshold                                                                                         | Alarm ARN or resource ID                                             | If this alarm fires                             | If engaged, cut a Premium Support Case for these services |
-| --------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------- | ----------------------------------------------- | --------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| API errors / # of errors >= 10 for 10 datapoints                                                                      | arn:aws:cloudwatch:us-west-2:000000000000:alarm:E2MPmimLambda-Errors | Ticket cut to database administrator (DBA) team | Lambda, API Gateway                                       |
-| ServiceUnavailable (Http status code 503) # of errors >=3 for 10 datapoints (different clients) in a 5 minute window  | arn:aws:cloudwatch:us-west-2:xxxxx:alarm:httperrorcode503            | Ticket cut to Service team                      | Lambda, API Gateway                                       |
-| ThrottlingException (Http status code 400) # of errors >=3 for 10 datapoints (different clients) in a 5 minute window | arn:aws:cloudwatch:us-west-2:xxxxx:alarm:httperrorcode400            | Ticket cut to Service team                      | EC2, Amazon Aurora                                        | For more details, see [AWS Incident Detection and Response monitoring and observability](observe-idr.md "observe-idr.md"). **Key outputs:** <br>• Definition and configuration of alarms on your workloads. <br>• Completion of the alarm details on the onboarding questionnaire. ###### Topics <br>• [Create CloudWatch alarms](idr-alarms-fit-purpose.md "idr-alarms-fit-purpose.md") <br>• [Build CloudWatch alarms with CloudFormation templates](idr-create-alarms-with-cfn.md "idr-create-alarms-with-cfn.md") <br>• [Example use cases for CloudWatch alarms](idr-ex-alarm-use-cases.md "idr-ex-alarm-use-cases.md") |
+| Metric name / Alarm threshold                                                                                            | Alarm ARN or resource ID                                             | If this alarm fires                             | If engaged, cut a Premium Support Case for these services |
+| ------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------- | ----------------------------------------------- | --------------------------------------------------------- |
+| API errors /<br># of errors >= 10 for 10 datapoints                                                                      | arn:aws:cloudwatch:us-west-2:000000000000:alarm:E2MPmimLambda-Errors | Ticket cut to database administrator (DBA) team | Lambda, API Gateway                                       |
+| ServiceUnavailable (Http status code 503)<br># of errors >=3 for 10 datapoints (different clients) in a 5 minute window  | arn:aws:cloudwatch:us-west-2:xxxxx:alarm:httperrorcode503            | Ticket cut to Service team                      | Lambda, API Gateway                                       |
+| ThrottlingException (Http status code 400)<br># of errors >=3 for 10 datapoints (different clients) in a 5 minute window | arn:aws:cloudwatch:us-west-2:xxxxx:alarm:httperrorcode400            | Ticket cut to Service team                      | EC2, Amazon Aurora                                        |
+
+For more details, see [AWS Incident Detection and Response monitoring and observability](observe-idr.md "observe-idr.md").
+
+**Key outputs:**
+
+- Definition and configuration of alarms on your workloads.
+- Completion of the alarm details on the onboarding questionnaire.
+
+###### Topics
+
+- [Create CloudWatch alarms](idr-alarms-fit-purpose.md "idr-alarms-fit-purpose.md")
+- [Build CloudWatch alarms with CloudFormation templates](idr-create-alarms-with-cfn.md "idr-create-alarms-with-cfn.md")
+- [Example use cases for CloudWatch alarms](idr-ex-alarm-use-cases.md "idr-ex-alarm-use-cases.md")
