@@ -21,10 +21,12 @@ The mount folder becomes a mount share. It's mounted to
    choose **Mount Points**.
 2. On the **Mount Points** page, complete the mount point fields as described in the following table and choose **Save**:
 
-| Field            | Description                                                                                                                                                                                                                        |
-| ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------- |
-| **Type**         | Choose the type of remote server: <br>• **CIFS**: Choose this for a Windows CIF server or for a Windows, Linux, or Mac SMB server. <br>• **NFS**: Choose this for a Linux server. <br>• **DAVFS**: Choose this for a DavFS server. |
-| **Server Share** | The address of the folder on the remote computer that you want to make available on this node.                                                                                                                                     |
-| **Mount Folder** | The folder on the node where the remote folder is mounted. As shown, this folder must be under `/data/mnt`. You can specify a sub-subfolder; if that folder does not already exist, Statmux automatically creates it.              |
-| **Username**     | If the remote server folder is protected with a username/password, enter the username here.                                                                                                                                        |
-| **Password**     | If the remote server folder is protected with a username/password, enter the password here.                                                                                                                                        | The newly mounted folder appears on the node after a few minutes. |
+| Field            | Description                                                                                                                                                                                                                     |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Type**         | Choose the type of remote server:<br>• **CIFS**: Choose this for a Windows CIF server or for a Windows, Linux, or Mac SMB server.<br>• **NFS**: Choose this for a Linux server.<br>• **DAVFS**: Choose this for a DavFS server. |
+| **Server Share** | The address of the folder on the remote computer that you want to make<br>available on this node.                                                                                                                               |
+| **Mount Folder** | The folder on the node where the remote folder is mounted. As shown,<br>this folder must be under `/data/mnt`. You can specify a sub-subfolder;<br>if that folder does not already exist, Statmux automatically creates it.     |
+| **Username**     | If the remote server folder is protected with a username/password, enter the<br>username here.                                                                                                                                  |
+| **Password**     | If the remote server folder is protected with a username/password, enter the<br>password here.                                                                                                                                  |
+
+The newly mounted folder appears on the node after a few minutes.

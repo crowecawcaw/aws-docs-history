@@ -11,12 +11,17 @@ AWS Elemental Statmux:
 ELEMENTAL-MIB
 This is the base MIB for all AWS Elemental products.
 
-| Variable           | Values                                                                           |
-| ------------------ | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `serviceStatus`    | <br>• 0 if the AWS Elemental Statmux isn't running. <br>• 1 if it is running.    |
-| `firewallSettings` | <br>• 0 if the node firewall is off. <br>• 1 if it is on.                        |
-| `networkSettings`  | Always 1. Required for some network management systems.                          |
-| `mountPoints`      | Number of user-mounted filesystems in `/mnt`.                                    |
-| `version`          | The version of the AWS Elemental Statmux node.                                   |
-| `httpdStatus`      | <br>• 0 if the `httpd` service isn't running. <br>• 1 if it is running.          |
-| `databaseBackup`   | <br>• 0 if writes (starting backups) is allowed. <br>• 1 if they aren't allowed. | ELEMENTAL-MIB comes installed on AWS Elemental Statmux. It's located in `/opt/elemental_se/web/public/mib/`. For more information, access the AWS Elemental Statmux web interface, go to the **Support** page and choose **SNMP Interface**. |
+| Variable           | Values                                                                      |
+| ------------------ | --------------------------------------------------------------------------- |
+| `serviceStatus`    | • 0 if the AWS Elemental Statmux isn't running.<br>• 1 if it is running.    |
+| `firewallSettings` | • 0 if the node firewall is off.<br>• 1 if it is on.                        |
+| `networkSettings`  | Always 1. Required for some network management<br>systems.                  |
+| `mountPoints`      | Number of user-mounted filesystems in `/mnt`.                               |
+| `version`          | The version of the AWS Elemental Statmux node.                              |
+| `httpdStatus`      | • 0 if the `httpd` service isn't running.<br>• 1 if it is running.          |
+| `databaseBackup`   | • 0 if writes (starting backups) is allowed.<br>• 1 if they aren't allowed. |
+
+ELEMENTAL-MIB comes installed on AWS Elemental Statmux. It's located in
+`/opt/elemental_se/web/public/mib/`.
+
+For more information, access the AWS Elemental Statmux web interface, go to the **Support** page and choose **SNMP Interface**.

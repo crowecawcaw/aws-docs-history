@@ -69,12 +69,85 @@ sudo vim /etc/sysconfig/network-scripts/`ifcfg-bond0`
 
 The following table describes the bonding modes that are available.
 
-| Bonding Mode Option | Mode Name                             | Description                                                                                                                                                                                                                                                                       |
-| ------------------- | ------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| mode=0              | Round robin                           | Transmissions are received and sent sequentially on each bonded interface, beginning with the first one available.                                                                                                                                                                |
-| mode=1              | Active backup                         | Transmissions are received and sent out via the first available bonded interface. The other interface is only used if the active interface fails.                                                                                                                                 |
-| mode=2              | Balanced XOR                          | Using the exclusive-or (XOR) method, the interface matches up the incoming request's MAC address with the MAC address for one of the bonded interface NICs. Once this link is established, transmissions are sent out sequentially, beginning with the first available interface. |
-| mode=3              | Broadcast                             | All transmissions are sent on all interfaces in the bond.                                                                                                                                                                                                                         |
-| mode=4              | IEEE 802.3ad dynamic link aggregation | This option creates aggregation groups that share the same speed and duplex settings. This transmits and receives on all interfaces in the active aggregator. Requires a switch that is 802.3ad compliant.                                                                        |
-| mode=5              | Adaptive transmit load balancing      | Outgoing traffic is distributed according to current load on each interface in the bond. Incoming traffic is received by the currently active interface. If the receiving interface fails, another interface takes over the MAC address of the failed interface.                  |
-| mode=6              | Adaptive load balancing               | This option includes transmit and receive load balancing for IPV4 traffic. Receive load balancing is achieved through ARP negotiation.                                                                                                                                            | `DEVICE=bond0 TYPE=Bond NAME=bond0 BONDING_MASTER=yes BOOTPROTO=none ONBOOT=yes NM_CONTROLLED=no IPADDR=192.168.1.70 NETMASK=255.255.255.0 GATEWAY=192.168.1.1 BONDING_OPTS="mode=5 miimon=100"` ## Step B: Edit Ethernet Interface Configuration Files Access the configuration files for each of the interfaces that are participating in the bond. Add the following lines. `MASTER=bond0 SLAVE=yes` For help creating and updating bonding files through the CLI, see [Using the CLI](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/networking_guide/sec-network_bonding_using_the_command_line_interface "https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/networking_guide/sec-network_bonding_using_the_command_line_interface") in the Red Hat _Networking Guide_. ## Step C: Restart the AWS Elemental Service Configuration Files Restart the AWS Elemental service using the following command. `sudo systemctl restart network` ## Step D: Verify the Bond Verify that your bond is running using the following command. `cat /proc/net/bonding/bond0` ###### Example Functioning bond interface `[elemental@host~]$ cat /proc/net/bonding/bond0 Ethernet Channel Bonding Driver: v3.7.1 (April 27, 2011) Bonding Mode: transmit load balancing Primary Slave: None Currently Active Slave: eth0 MII Status: up MII Polling Interval (ms): 100 Up Delay (ms): 0 Down Delay (ms): 0 Slave Interface: eth0 MII Status: up Speed: 10000 Mbps Duplex: full Link Failure Count: 0 Permanent HW addr: 00:50:56:b8:64:44 Slave queue ID: 0 Slave Interface: eth2 MII Status: up Speed: 10000 Mbps Duplex: full Link Failure Count: 0 Permanent HW addr: 00:50:56:8d:8e:db Slave queue ID: 0 [elemental@host~]$` |
+| Bonding Mode Option | Mode Name                             | Description                                                                                                                                                                                                                                                                                |
+| ------------------- | ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| mode=0              | Round robin                           | Transmissions are received and sent sequentially on each bonded interface,<br>beginning with the first one available.                                                                                                                                                                      |
+| mode=1              | Active backup                         | Transmissions are received and sent out via the first available bonded<br>interface. The other interface is only used if the active interface<br>fails.                                                                                                                                    |
+| mode=2              | Balanced XOR                          | Using the exclusive-or (XOR) method, the interface matches up the incoming<br>request's MAC address with the MAC address for one of the bonded interface NICs.<br>Once this link is established, transmissions are sent out sequentially, beginning<br>with the first available interface. |
+| mode=3              | Broadcast                             | All transmissions are sent on all interfaces in the bond.                                                                                                                                                                                                                                  |
+| mode=4              | IEEE 802.3ad dynamic link aggregation | This option creates aggregation groups that share the same speed and duplex settings. This<br>transmits and receives on all interfaces in the active aggregator. Requires a<br>switch that is 802.3ad compliant.                                                                           |
+| mode=5              | Adaptive transmit load balancing      | Outgoing traffic is distributed according to current load on each interface<br>in the bond. Incoming traffic is received by the currently active interface. If<br>the receiving interface fails, another interface takes over the MAC address of<br>the failed interface.                  |
+| mode=6              | Adaptive load balancing               | This option includes transmit and receive load balancing for IPV4 traffic. Receive load<br>balancing is achieved through ARP negotiation.                                                                                                                                                  |
+
+```
+DEVICE=bond0
+TYPE=Bond
+NAME=bond0
+BONDING_MASTER=yes
+BOOTPROTO=none
+ONBOOT=yes
+NM_CONTROLLED=no
+IPADDR=192.168.1.70
+NETMASK=255.255.255.0
+GATEWAY=192.168.1.1
+BONDING_OPTS="mode=5 miimon=100"
+```
+
+## Step B: Edit Ethernet Interface Configuration Files
+
+Access the configuration files for each of the interfaces that are participating in the bond. Add the following lines.
+
+```
+MASTER=bond0
+SLAVE=yes
+```
+
+For help creating and updating bonding files through the CLI, see [Using the CLI](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/networking_guide/sec-network_bonding_using_the_command_line_interface "https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/networking_guide/sec-network_bonding_using_the_command_line_interface") in the Red Hat _Networking Guide_.
+
+## Step C: Restart the AWS Elemental Service Configuration Files
+
+Restart the AWS Elemental service using the following command.
+
+```
+sudo systemctl restart network
+```
+
+## Step D: Verify the Bond
+
+Verify that your bond is running using the following command.
+
+```
+cat /proc/net/bonding/bond0
+```
+
+###### Example Functioning bond interface
+
+```
+[elemental@host~]$ cat /proc/net/bonding/bond0
+Ethernet Channel Bonding Driver: v3.7.1 (April 27, 2011)
+
+Bonding Mode: transmit load balancing
+Primary Slave: None
+Currently Active Slave: eth0
+MII Status: up
+MII Polling Interval (ms): 100
+Up Delay (ms): 0
+Down Delay (ms): 0
+
+Slave Interface: eth0
+MII Status: up
+Speed: 10000 Mbps
+Duplex: full
+Link Failure Count: 0
+Permanent HW addr: 00:50:56:b8:64:44
+Slave queue ID: 0
+
+Slave Interface: eth2
+MII Status: up
+Speed: 10000 Mbps
+Duplex: full
+Link Failure Count: 0
+Permanent HW addr: 00:50:56:8d:8e:db
+Slave queue ID: 0
+[elemental@host~]$
+```
