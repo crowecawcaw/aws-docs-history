@@ -16,30 +16,415 @@ platform.
 
 ## Monitor workload resources
 
-| CMREL_6: Are you monitoring all components of the workloads, including vehicle-based units?              |
-| -------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|                                                                                                          | **[CMREL\_BP6.1] Monitor what matters.** Observability is understanding the working of the system based on the telemetry that the system emits. A recommended approach is to implement a Vehicle Network Operations Center (V-NOC) which is an intelligent observability system that is aware of the health of the systems running in the vehicle, the backend systems supporting the platform and the applications that are user facing. It is essential to monitor all components of the workloads including vehicle-based units. Generally, a Connected Mobility platform has several integrations with internal and external systems. Any system change that can impact the interfacing message contracts needs deep dive impact analysis. Enable the observability on these integrations for quicker troubleshooting, failure analysis and performance profiling. Vehicle based telematic units should have health monitoring and data transmission mechanism that can relay the state of systems in near real time when connection is available or ship buffered logs when connectivity is restored. **Prescriptive guidance:** AWS provides native monitoring, logging, alarming, and dashboards with [Amazon CloudWatch](https://aws.amazon.com/cloudwatch/ "https://aws.amazon.com/cloudwatch/") and tracing through [AWS X-Ray](https://aws.amazon.com/xray/ "https://aws.amazon.com/xray/"). When deployed together, they provide the three pillars (metrics, logs, and traces) of an observability solution. AWS services such as Amazon CloudWatch apply statistical and machine learning algorithms to continually analyze metrics of systems and applications, determine normal baselines, and surface anomalies with minimal user intervention. Anomaly detection algorithms account for the seasonality and trend changes of metrics. If the preference is for open-source based managed services [Amazon Managed Service for Prometheus](https://aws.amazon.com/prometheus/ "https://aws.amazon.com/prometheus/") and [Amazon Managed Grafana](https://aws.amazon.com/grafana/ "https://aws.amazon.com/grafana/") are two such services providing additional options for customers to choose from. AWS also launched [AWS Distro for OpenTelemetry (ADOT)](https://aws-otel.github.io/ "https://aws-otel.github.io/") - a secure, production-ready, AWS-supported distribution of the OpenTelemetry project. Part of the Cloud Native Computing Foundation, OpenTelemetry provides open-source APIs, libraries, and agents to collect distributed traces and metrics for application monitoring. With AWS Distro for OpenTelemetry, you can instrument your applications just once to send correlated metrics and traces to multiple AWS and Partner monitoring solutions. It is important to be aware of end-to-end functioning of all endpoints that implement the connected mobility use cases. This active monitoring can be done with synthetic transactions which periodically run a number of common tasks matching actions performed by clients of the workload. You can also combine the synthetic canary client nodes with AWS X-Ray console to pinpoint which synthetic canaries are experiencing issues with errors, faults, or throttling rates for the selected time frame. In all cases, tool interoperability and extensibility are an important consideration in observability.                      |
-| CMREL_7: Are your connected mobility logs from various systems lacking the correct level of information? |
-| ---                                                                                                      |
-|                                                                                                          | **[CMREL\_BP7.1] Log interpretation and context propagation** Considering the number of systems and services supporting a connected mobility setup, it is important to collect logs into a centralized store. But all log entries are not equal, in addition the logs may be too verbose or lacking right level of info that can be used in correlation. A system that enables the filtering of logs based on prefixes would reduce the amount of data that is retained and processed for insights. A processing / transformation engine is needed to make the logs more usable or to enrich the log entries with additional information that can be used later for better correlation. As connected mobility platforms result in high volume log generation, a system that simplify the searching, querying and visualizing of the logs in different ways based on need is recommended. An ideal NOC should have capability to create dashboards, reports, and allow dynamic querying capability. Considering the mix of systems that are on-board and off-board the log entries may have sensitive information like location of the vehicle. Securing the logs with [encryption at rest](../../../AmazonCloudWatch/latest/logs/encrypt-log-data-kms.md "../../../AmazonCloudWatch/latest/logs/encrypt-log-data-kms.md"), auditing and [masking sensitive data](../../../AmazonCloudWatch/latest/logs/mask-sensitive-log-data.md "../../../AmazonCloudWatch/latest/logs/mask-sensitive-log-data.md") in logs is required for [compliance validation](../../../AmazonCloudWatch/latest/logs/compliance-validation.md "../../../AmazonCloudWatch/latest/logs/compliance-validation.md"). **Prescriptive guidance:** CloudWatch Logs enables you to centralize the logs from all of connected mobility systems, applications, and AWS services that you use, in a single, highly scalable service. You can then easily view them, [live-tail](../../../AmazonCloudWatch/latest/logs/CloudWatchLogs_LiveTail.md "../../../AmazonCloudWatch/latest/logs/CloudWatchLogs_LiveTail.md"), search them for specific error codes or patterns, filter them based on specific fields, or archive them securely for future analysis. CloudWatch Logs enables you to see all of your logs, regardless of their source, as a single and consistent flow of events ordered by time. [CloudWatch Logs Insights](../../../AmazonCloudWatch/latest/logs/AnalyzingLogData.md "../../../AmazonCloudWatch/latest/logs/AnalyzingLogData.md") enables querying your logs with a powerful query language, visualizing log data and adding them to dashboard. The filtering of the logs can be done using CloudWatch logs subscription filters that can have four different target services: [Kinesis Data Streams, AWS Lambda, Amazon Data Firehose](../../../AmazonCloudWatch/latest/logs/SubscriptionFilters.md "../../../AmazonCloudWatch/latest/logs/SubscriptionFilters.md") and [Amazon OpenSearch Service](../../../AmazonCloudWatch/latest/logs/CWL_OpenSearch_Stream.md "../../../AmazonCloudWatch/latest/logs/CWL_OpenSearch_Stream.md") For a list of AWS services that publish logs to CloudWatch Logs, see the [CloudWatch documentation.](../../../AmazonCloudWatch/latest/logs/aws-services-sending-logs.md "../../../AmazonCloudWatch/latest/logs/aws-services-sending-logs.md") Some AWS services can directly write logs to other destinations |
+| CMREL_6: Are you monitoring all components of the workloads, including<br>vehicle-based units? |
+| ---------------------------------------------------------------------------------------------- |
+|                                                                                                |
 
-| Log type
-| [CloudWatch Logs](../../../AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.md#AWS-logs-infrastructure-CWL "../../../AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.md#AWS-logs-infrastructure-CWL") | [Amazon S3](../../../AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.md#AWS-logs-infrastructure-S3 "../../../AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.md#AWS-logs-infrastructure-S3") | [Firehose](../../../AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.md#AWS-logs-infrastructure-Firehose "../../../AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.md#AWS-logs-infrastructure-Firehose") |
-| --- | --- | --- | --- |
-| [CloudFront: access logs](../../../AmazonCloudFront/latest/DeveloperGuide/AccessLogs.md "../../../AmazonCloudFront/latest/DeveloperGuide/AccessLogs.md") | | ✓ | |
-| [CloudWatch Evidently evaluation event logs](../../../AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-datastorage.md#CloudWatch-Evidently-datastorage-logformat "../../../AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-datastorage.md#CloudWatch-Evidently-datastorage-logformat") | ✓ | ✓ | |
-| [Amazon ElastiCache (Redis OSS) logs](../../../AmazonElastiCache/latest/red-ug/Log_Delivery.md "../../../AmazonElastiCache/latest/red-ug/Log_Delivery.md") | ✓ | | ✓ |
-| [AWS Global Accelerator flow logs](../../../global-accelerator/latest/dg/monitoring-global-accelerator.md "../../../global-accelerator/latest/dg/monitoring-global-accelerator.md") | | ✓ | |
-| [Amazon MSK broker logs](../../../msk/latest/developerguide/msk-logging.md "../../../msk/latest/developerguide/msk-logging.md") | ✓ | ✓ | ✓ |
-| [Amazon MSK Connect logs](../../../msk/latest/developerguide/msk-connect-logging.md "../../../msk/latest/developerguide/msk-connect-logging.md") | ✓ | ✓ | ✓ |
-| [AWS Network Firewall logs](../../../network-firewall/latest/developerguide/firewall-logging.md "../../../network-firewall/latest/developerguide/firewall-logging.md") | ✓ | ✓ | ✓ |
-| [Network Load Balancer access logs](../../../elasticloadbalancing/latest/network/load-balancer-access-logs.md "../../../elasticloadbalancing/latest/network/load-balancer-access-logs.md") | | ✓ | |
-| [Amazon Route 53 resolver query logs](../../../Route53/latest/DeveloperGuide/resolver-query-logs-choosing-target-resource.md "../../../Route53/latest/DeveloperGuide/resolver-query-logs-choosing-target-resource.md") | ✓ | ✓ | ✓ |
-| [EC2 Spot Instance data feed files](../../../AWSEC2/latest/UserGuide/spot-data-feeds.md "../../../AWSEC2/latest/UserGuide/spot-data-feeds.md") | | ✓ | |
-| [Amazon Virtual Private Cloud flow logs](../../../vpc/latest/userguide/flow-logs-s3.md "../../../vpc/latest/userguide/flow-logs-s3.md") | | ✓ | ✓ |
-| [Amazon VPC Lattice access logs](../../../vpc-lattice/latest/ug/monitoring-access-logs.md "../../../vpc-lattice/latest/ug/monitoring-access-logs.md") | ✓ | ✓ | ✓ |
-| [AWS WAF logs](../../../waf/latest/developerguide/logging-destinations.md "../../../waf/latest/developerguide/logging-destinations.md") | ✓ | ✓ | ✓ |
-| CMREL_8: Is your metric collection aligned with a business outcome? | | --- | | | **[CMREL\_BP8.1] Define and calculate metrics (Aggregation)** Metric collection should always begin with an objective or business outcome. Defining metrics that are business outcome linked will result in quicker response from the system and teams supporting it than the generic metrics. As an OEM you are aware of regular pattern or trend for certain metrics in your system. For example, a critical KPI could be the number of remote start commands executed on the vehicles across various hours of the day. Generally, the count is higher in the morning and evenings which changes across time zones and seasons. With the release of a new version of the services that process such requests if the traffic has anomaly, it should get reflected on dashboard as an issue. Aggregations should be available on that metric to determine the severity of the impact. **Prescriptive guidance:** You can create metric filters to match terms in your log events and convert log data into metrics. When a metric filter matches a term, it increments the metric's count. For example, on release of a new firmware you can create a metric filter that counts the number of times the word `ECU_Connected` occurs in your log events. You can assign units and dimensions to metrics. For example, if you create a metric filter that counts the number of times the word `ECU_Connected` occurs in your log events, you can specify a dimension that's called `ECUConnectionCount` to show the total number of log events that contain the word `ECU_Connected` and filter data by reported firmware version.
-| CMREL_9: Does your connected mobility network operations center (NOC) have the correct level of searchability and interactivity? | | --- | | | **[CMREL\_BP9.1] Real-time processing and alarming with notifications and automated response** Some OEMs may have existing processes and tools for alarming, trouble tracking and automated response. For better visibility across the organization, the Vehicle-NOC should be integrated with these systems. With thousands to millions of vehicles connecting to the platform the number of data points can be too many so having an intelligent system that can reduce noise by finding pattern across various issues can boost productivity and reduce mean time to resolve (MTTR). Typically, such intelligent systems also reduce the number of repeat notifications for same issue. **Prescriptive guidance:** Alerts can be sent to Amazon Simple Notification Service (Amazon SNS) topics, and then pushed to any number of subscribers. For example, Amazon SNS can forward alerts to an email alias or messaging channel so that technical staff can respond. When you enable [anomaly detection](../../../AmazonCloudWatch/latest/monitoring/Create_Anomaly_Detection_Alarm.md "../../../AmazonCloudWatch/latest/monitoring/Create_Anomaly_Detection_Alarm.md") for a metric, CloudWatch applies statistical and machine learning algorithms. These algorithms continuously analyze metrics of systems and applications, determine normal baselines, and surface anomalies with minimal user intervention. In addition, anomaly detection on metric math is a feature that you can use to create [anomaly detection alarms on the output metric math expressions](../../../AmazonCloudWatch/latest/monitoring/Create-alarm-on-metric-math-expression.md "../../../AmazonCloudWatch/latest/monitoring/Create-alarm-on-metric-math-expression.md"). ## Design your workload to adapt to changes in demand
-| CMREL_10: How does your connected mobility workload adapt to vehicle traffic demand on resources? | | --- | | | **[CMREL\_BP10.1] Use automation when obtaining or scaling resources** **[CMREL\_BP10.2] Scale resources reactively on impairment to restore workload availability** **[CMREL\_BP10.3] Scale resources proactively to meet demand and avoid availability impact** Telemetry traffic from vehicle has patterns that vary based upon various factors like time of the day, weather condition during a day, season, geographic location. If the connected mobility systems are scaling to meet the demand, automating the process by using managed services will aid in better control. When you are automating for scaling it is important to know the target utilization which generally based upon observations of historic trends and extrapolating. In a typical set up for connected mobility this may turn out to be a complex task due to the typical mix of several different services. Another challenge is to monitor your connected mobility applications / services as the capacity is added or removed in real time as the demand changes. This will build confidence to have right level of end user experience as the workloads change periodically or unpredictably. **Prescriptive guidance:** The exact nature of the automation depends upon the type of services that are supporting the landscape. Managed services like AWS Lambda, Amazon S3, Amazon CloudFront and others scale automatically based upon the load condition. There may be limitations imposed by the Service Quotas which need to be taken into account. Self-managed services like Amazon EC2 require careful planning to ensure that the load distribution meets the requirements for the business function. The automation should ensure that the instance returns to the state that it is expected to be in to handle the traffic. Automation is vital to efficient DevOps, and getting your fleets of Amazon EC2 instances to launch, provision software, and self-heal automatically is a key challenge. [Amazon EC2 Auto Scaling](https://aws.amazon.com/ec2/autoscaling/features/ "https://aws.amazon.com/ec2/autoscaling/features/") provides essential features for each of these instance lifecycle automation steps. Use [load balancers](../../../autoscaling/ec2/userguide/attach-load-balancer-asg.md "../../../autoscaling/ec2/userguide/attach-load-balancer-asg.md") to distribute the traffic across the instances and [Route 53](../../../Route53/latest/DeveloperGuide/dns-failover-types.md "../../../Route53/latest/DeveloperGuide/dns-failover-types.md") to provide flexibility in cloud service configuration without impacting the ECU based client applications. To make the scaling experience better and simple AWS launched [predictive scaling policies](https://aws.amazon.com/blogs/compute/introducing-native-support-for-predictive-scaling-with-amazon-ec2-auto-scaling/ "https://aws.amazon.com/blogs/compute/introducing-native-support-for-predictive-scaling-with-amazon-ec2-auto-scaling/"), which uses machine learning to analyze each resource's historical workload and regularly forecasts the future load for the next two days. To bring about wider level of control, in 2023, the forecast and scaling were decoupled so that you could get forecasting which is prescriptive in nature as compared to forecast and scaling. Predictive scaling can be used for applications where demand changes rapidly but with a recurring pattern. Automotive companies generally use the AWS managed services to reduce the overheads of administrating the infrastructure and let AWS handle the undifferentiated heavy lifting. Configuring these managed services is [Customer's responsibility](../../../whitepapers/latest/security-overview-aws-lambda/the-shared-responsibility-model.md "../../../whitepapers/latest/security-overview-aws-lambda/the-shared-responsibility-model.md"). But considering the varied nature of these services, configuring them for auto-scaling and with cohesiveness becomes challenging very quickly. Thus, even in this case, you need a service that orchestrates the auto-scaling across the workload. With [Application Auto Scaling](../../../autoscaling/application/userguide/integrated-services-list.md "../../../autoscaling/application/userguide/integrated-services-list.md"), you can configure automatic scaling for the various resources beyond Amazon EC2. **[CMREL\_BP10.4] Load and stress test your workload** Having followed the best practices above it is important to test if the scaling activities meet the requirements of connected mobility functions. Stress testing the platform would reveal the robustness of various connected mobility functions under extreme load conditions. Some use cases may deserve higher level of robustness than others due to various business and compliance reasons. The load testing frameworks should have the ability to execute various testing strategies with varied traffic patterns that cover both the regular business as usual cases and the corner cases of failure and subsequent recovery. Considering the agility and cost optimization that AWS cloud computing provides, setting up of stage environments for load testing should be less time, money and effort intensive. While load testing in the stage environment should be done, training the teams to handle such events in production environment is also a must-do activity. **Prescriptive guidance:** [Distributed load testing](https://aws.amazon.com/solutions/implementations/distributed-load-testing-on-aws/ "https://aws.amazon.com/solutions/implementations/distributed-load-testing-on-aws/") can help load test the applications and determine the bottlenecks before releasing to production. The framework can simulate thousands of connected vehicle applications and generate traffic patterns to uncover issues. The systems can be tested using simple get requests or for higher level of customization you can create [JMeter scripts](https://jmeter.apache.org/ "https://jmeter.apache.org/"). [Game Days](https://wa.aws.amazon.com/wellarchitected/2020-07-02T19-33-23/wat.concept.gameday.en.html "https://wa.aws.amazon.com/wellarchitected/2020-07-02T19-33-23/wat.concept.gameday.en.html") can simulate a failure or event to test systems, processes, and team's responses. ## Implement change
-| CMREL_11: How are you controlling the changes that are deployed? | | --- | | | The number of features and scenarios that are supported by connected mobility platform have been growing rapidly. It is recommended to control the impact of these changes while deploying new functions. **[CMREL\_BP11.1] Use runbooks for standard activities such as deployment** Vehicles which are connected to the backend are generally operating in various geographies and time zones. It is important to plan the change activities at a time that can cause least disruption to the services. The documentation should be less verbose and specific to conducting the tasks. The execution of the steps should be controlled by right level of authorizations that requires approvals and has appropriate reason captured. Unauthorized changes can result in downtime in the connectivity of vehicles to backend.  It is important to track the changes that were implemented so that the deployment rollbacks can be analyzed for integrity. **Prescriptive guidance:** Runbooks provide an excellent mechanism to communicate the actions that can be performed with minimum information. The change activities are generally audited and can be rolled back to the previous version. AWS Config performs compliance checks based on these rules, and Audit Manager reports the results as compliance check evidence. **Resources:** [Using AWS Config managed rules with Audit Manager](../../../audit-manager/latest/userguide/control-data-sources-config.md#aws-config-managed-rules "../../../audit-manager/latest/userguide/control-data-sources-config.md#aws-config-managed-rules") [Using AWS Config custom rules with Audit Manager](../../../audit-manager/latest/userguide/control-data-sources-config.md#aws-config-custom-rules "../../../audit-manager/latest/userguide/control-data-sources-config.md#aws-config-custom-rules") [Troubleshooting AWS Config integration with Audit Manager](../../../audit-manager/latest/userguide/control-data-sources-config.md#aws-config-rules-troubleshoot "../../../audit-manager/latest/userguide/control-data-sources-config.md#aws-config-rules-troubleshoot") **[CMREL\_BP11.2] Integrate functional and resilience testing as part of your deployment** Functional and resilience tests should be part of automated deployment. If success criteria are not met, the pipeline is halted or rolled back. These tests are run in a stage environment and done as part of a deployment pipeline. **Prescriptive guidance:** Vehicle owners or the related systems can take different functional paths while using the connected services. It is important to track such paths and simulate them in steps using services like [Amazon CloudWatch Synthetic monitoring](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries.md"). As a bonus this also reveals the uptime of the services. [Chaos engineering](https://principlesofchaos.org/ "https://principlesofchaos.org/") with [AWS Fault Injection Service](https://aws.amazon.com/fis/ "https://aws.amazon.com/fis/") can be used to build confidence in the system's ability to survive certain corner cases. To execute such tests many of the principles discussed above are applicable- determining the target state, run experiments in production and automation. **Resources:** **Videos:** [AWS re:Invent 2022 - Building confidence through chaos engineering on AWS](https://www.youtube.com/watch?v=tm5GEePP1PY "https://www.youtube.com/watch?v=tm5GEePP1PY") **[CMREL\_BP11.3] Use a canary or blue/green deployment when deploying applications in immutable infrastructures** The operational complexity of the connected mobility platform builds up with the numerous distributed services that support various scenarios. Release cycles, patching, monitoring the changes all result in overhead that is difficult to manage and error prone. Offboard teams begin to delay the release of changes to avoid disruptions in availability of services. A solution to this problem is to have immutable infrastructure, where infrastructure is not updated or fixed rather it is replaced. **Prescriptive guidance:** [Canary release](https://martinfowler.com/bliki/CanaryRelease.html "https://martinfowler.com/bliki/CanaryRelease.html") and [Blue/green deployment](https://martinfowler.com/bliki/BlueGreenDeployment.html "https://martinfowler.com/bliki/BlueGreenDeployment.html") approaches are recommended for deployments into the immutable infrastructure.
+**[CMREL\_BP6.1] Monitor what matters.**
+
+Observability is understanding the working of the system
+based on the telemetry that the system emits. A recommended
+approach is to implement a Vehicle Network Operations Center
+(V-NOC) which is an intelligent observability system that is
+aware of the health of the systems running in the vehicle,
+the backend systems supporting the platform and the
+applications that are user facing. It is essential to
+monitor all components of the workloads including
+vehicle-based units.
+
+Generally, a Connected Mobility platform has several
+integrations with internal and external systems. Any system
+change that can impact the interfacing message contracts
+needs deep dive impact analysis. Enable the observability on
+these integrations for quicker troubleshooting, failure
+analysis and performance profiling.
+
+Vehicle based telematic units should have health monitoring
+and data transmission mechanism that can relay the state of
+systems in near real time when connection is available or
+ship buffered logs when connectivity is restored. 
+
+**Prescriptive guidance:**
+
+AWS provides native monitoring, logging, alarming, and dashboards with [Amazon CloudWatch](https://aws.amazon.com/cloudwatch/ "https://aws.amazon.com/cloudwatch/") and tracing through [AWS X-Ray](https://aws.amazon.com/xray/ "https://aws.amazon.com/xray/"). When deployed together, they provide
+the three pillars (metrics, logs, and traces) of an observability solution. AWS services
+such as Amazon CloudWatch apply statistical and machine learning algorithms to continually analyze
+metrics of systems and applications, determine normal baselines, and surface anomalies
+with minimal user intervention. Anomaly detection algorithms account for the seasonality
+and trend changes of metrics.
+
+If the preference is for open-source based managed
+services [Amazon Managed Service for Prometheus](https://aws.amazon.com/prometheus/ "https://aws.amazon.com/prometheus/")
+and [Amazon Managed Grafana](https://aws.amazon.com/grafana/ "https://aws.amazon.com/grafana/") are two such services providing
+additional options for customers to choose from. AWS also
+launched [AWS Distro for OpenTelemetry (ADOT)](https://aws-otel.github.io/ "https://aws-otel.github.io/") - a secure,
+production-ready, AWS-supported distribution of the
+OpenTelemetry project. Part of the Cloud Native Computing
+Foundation, OpenTelemetry provides open-source APIs,
+libraries, and agents to collect distributed traces and
+metrics for application monitoring. With AWS Distro for
+OpenTelemetry, you can instrument your applications just
+once to send correlated metrics and traces to multiple AWS
+and Partner monitoring solutions.
+
+It is important to be aware of end-to-end functioning of all
+endpoints that implement the connected mobility use
+cases. This active monitoring can be done with synthetic
+transactions which periodically run a number of common tasks
+matching actions performed by clients of the workload. You
+can also combine the synthetic canary client nodes with AWS X-Ray console to pinpoint which synthetic canaries are
+experiencing issues with errors, faults, or throttling rates
+for the selected time frame. 
+
+In all cases, tool interoperability and extensibility are an
+important consideration in observability.
+
+| CMREL_7: Are your connected mobility logs from various systems lacking the<br>correct level of information? |
+| ----------------------------------------------------------------------------------------------------------- |
+|                                                                                                             |
+
+**[CMREL\_BP7.1] Log interpretation and context
+propagation**
+
+Considering the number of systems and services supporting a
+connected mobility setup, it is important to collect logs
+into a centralized store. But all log entries are not equal,
+in addition the logs may be too verbose or lacking right
+level of info that can be used in correlation. A system that
+enables the filtering of logs based on prefixes would reduce
+the amount of data that is retained and processed for
+insights. A processing / transformation engine is needed to
+make the logs more usable or to enrich the log entries with
+additional information that can be used later for better
+correlation.
+
+As connected mobility platforms result in high volume log
+generation, a system that simplify the searching, querying
+and visualizing of the logs in different ways based on need
+is recommended. 
+
+An ideal NOC should have capability to create dashboards,
+reports, and allow dynamic querying capability. Considering
+the mix of systems that are on-board and off-board the log
+entries may have sensitive information like location of the
+vehicle. Securing the logs
+with [encryption
+at rest](../../../AmazonCloudWatch/latest/logs/encrypt-log-data-kms.md "../../../AmazonCloudWatch/latest/logs/encrypt-log-data-kms.md"), auditing and
+[masking
+sensitive data](../../../AmazonCloudWatch/latest/logs/mask-sensitive-log-data.md "../../../AmazonCloudWatch/latest/logs/mask-sensitive-log-data.md") in logs is required for
+[compliance
+validation](../../../AmazonCloudWatch/latest/logs/compliance-validation.md "../../../AmazonCloudWatch/latest/logs/compliance-validation.md").
+
+**Prescriptive guidance:**
+
+CloudWatch Logs enables you to centralize the logs from all
+of connected mobility systems, applications, and AWS
+services that you use, in a single, highly scalable service.
+You can then easily view them,
+[live-tail](../../../AmazonCloudWatch/latest/logs/CloudWatchLogs_LiveTail.md "../../../AmazonCloudWatch/latest/logs/CloudWatchLogs_LiveTail.md"),
+search them for specific error codes or patterns, filter
+them based on specific fields, or archive them securely for
+future analysis. CloudWatch Logs enables you to see all of
+your logs, regardless of their source, as a single and
+consistent flow of events ordered by time.
+
+[CloudWatch Logs Insights](../../../AmazonCloudWatch/latest/logs/AnalyzingLogData.md "../../../AmazonCloudWatch/latest/logs/AnalyzingLogData.md") enables querying your logs with a
+powerful query language, visualizing log data and adding
+them to dashboard. 
+
+The filtering of the logs can be done using CloudWatch logs
+subscription filters that can have four different target
+services: [Kinesis
+Data Streams, AWS Lambda, Amazon Data Firehose](../../../AmazonCloudWatch/latest/logs/SubscriptionFilters.md "../../../AmazonCloudWatch/latest/logs/SubscriptionFilters.md") and
+[Amazon OpenSearch Service](../../../AmazonCloudWatch/latest/logs/CWL_OpenSearch_Stream.md "../../../AmazonCloudWatch/latest/logs/CWL_OpenSearch_Stream.md")
+
+For a list of AWS services that publish logs to CloudWatch Logs, see the [CloudWatch
+documentation.](../../../AmazonCloudWatch/latest/logs/aws-services-sending-logs.md "../../../AmazonCloudWatch/latest/logs/aws-services-sending-logs.md")
+
+Some AWS services can directly write logs to other
+destinations
+
+| Log type                                                                                                                                                                                                                                                                                                 | [CloudWatch Logs](../../../AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.md#AWS-logs-infrastructure-CWL "../../../AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.md#AWS-logs-infrastructure-CWL") | [Amazon S3](../../../AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.md#AWS-logs-infrastructure-S3 "../../../AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.md#AWS-logs-infrastructure-S3") | [Firehose](../../../AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.md#AWS-logs-infrastructure-Firehose "../../../AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.md#AWS-logs-infrastructure-Firehose") |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [CloudFront:<br>access logs](../../../AmazonCloudFront/latest/DeveloperGuide/AccessLogs.md "../../../AmazonCloudFront/latest/DeveloperGuide/AccessLogs.md")                                                                                                                                              |                                                                                                                                                                                                                          | ✓                                                                                                                                                                                                                |                                                                                                                                                                                                                             |
+| [CloudWatch<br>Evidently evaluation event logs](../../../AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-datastorage.md#CloudWatch-Evidently-datastorage-logformat "../../../AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently-datastorage.md#CloudWatch-Evidently-datastorage-logformat") | ✓                                                                                                                                                                                                                        | ✓                                                                                                                                                                                                                |                                                                                                                                                                                                                             |
+| [Amazon ElastiCache (Redis OSS) logs](../../../AmazonElastiCache/latest/red-ug/Log_Delivery.md "../../../AmazonElastiCache/latest/red-ug/Log_Delivery.md")                                                                                                                                               | ✓                                                                                                                                                                                                                        |                                                                                                                                                                                                                  | ✓                                                                                                                                                                                                                           |
+| [AWS Global Accelerator flow logs](../../../global-accelerator/latest/dg/monitoring-global-accelerator.md "../../../global-accelerator/latest/dg/monitoring-global-accelerator.md")                                                                                                                      |                                                                                                                                                                                                                          | ✓                                                                                                                                                                                                                |                                                                                                                                                                                                                             |
+| [Amazon MSK broker logs](../../../msk/latest/developerguide/msk-logging.md "../../../msk/latest/developerguide/msk-logging.md")                                                                                                                                                                          | ✓                                                                                                                                                                                                                        | ✓                                                                                                                                                                                                                | ✓                                                                                                                                                                                                                           |
+| [Amazon MSK Connect logs](../../../msk/latest/developerguide/msk-connect-logging.md "../../../msk/latest/developerguide/msk-connect-logging.md")                                                                                                                                                         | ✓                                                                                                                                                                                                                        | ✓                                                                                                                                                                                                                | ✓                                                                                                                                                                                                                           |
+| [AWS Network Firewall logs](../../../network-firewall/latest/developerguide/firewall-logging.md "../../../network-firewall/latest/developerguide/firewall-logging.md")                                                                                                                                   | ✓                                                                                                                                                                                                                        | ✓                                                                                                                                                                                                                | ✓                                                                                                                                                                                                                           |
+| [Network<br>Load Balancer access logs](../../../elasticloadbalancing/latest/network/load-balancer-access-logs.md "../../../elasticloadbalancing/latest/network/load-balancer-access-logs.md")                                                                                                            |                                                                                                                                                                                                                          | ✓                                                                                                                                                                                                                |                                                                                                                                                                                                                             |
+| [Amazon<br>Route 53 resolver query logs](../../../Route53/latest/DeveloperGuide/resolver-query-logs-choosing-target-resource.md "../../../Route53/latest/DeveloperGuide/resolver-query-logs-choosing-target-resource.md")                                                                                | ✓                                                                                                                                                                                                                        | ✓                                                                                                                                                                                                                | ✓                                                                                                                                                                                                                           |
+| [EC2<br>Spot Instance data feed files](../../../AWSEC2/latest/UserGuide/spot-data-feeds.md "../../../AWSEC2/latest/UserGuide/spot-data-feeds.md")                                                                                                                                                        |                                                                                                                                                                                                                          | ✓                                                                                                                                                                                                                |                                                                                                                                                                                                                             |
+| [Amazon Virtual Private Cloud flow logs](../../../vpc/latest/userguide/flow-logs-s3.md "../../../vpc/latest/userguide/flow-logs-s3.md")                                                                                                                                                                  |                                                                                                                                                                                                                          | ✓                                                                                                                                                                                                                | ✓                                                                                                                                                                                                                           |
+| [Amazon VPC Lattice access logs](../../../vpc-lattice/latest/ug/monitoring-access-logs.md "../../../vpc-lattice/latest/ug/monitoring-access-logs.md")                                                                                                                                                    | ✓                                                                                                                                                                                                                        | ✓                                                                                                                                                                                                                | ✓                                                                                                                                                                                                                           |
+| [AWS WAF logs](../../../waf/latest/developerguide/logging-destinations.md "../../../waf/latest/developerguide/logging-destinations.md")                                                                                                                                                                  | ✓                                                                                                                                                                                                                        | ✓                                                                                                                                                                                                                | ✓                                                                                                                                                                                                                           |
+
+| CMREL_8: Is your metric collection aligned with a business outcome? |
+| ------------------------------------------------------------------- |
+|                                                                     |
+
+**[CMREL\_BP8.1] Define and calculate metrics (Aggregation)**
+
+Metric collection should always begin with an objective or business outcome.
+Defining metrics that are business outcome linked will result in quicker response from the
+system and teams supporting it than the generic metrics. As an OEM you are aware of
+regular pattern or trend for certain metrics in your system. For example, a critical KPI
+could be the number of remote start commands executed on the vehicles across various hours
+of the day. Generally, the count is higher in the morning and evenings which changes
+across time zones and seasons. With the release of a new version of the services that
+process such requests if the traffic has anomaly, it should get reflected on dashboard as
+an issue. Aggregations should be available on that metric to determine the severity of the
+impact.
+
+**Prescriptive guidance:**
+
+You can create metric filters to match terms in your log events and convert log
+data into metrics. When a metric filter matches a term, it increments the metric's count.
+For example, on release of a new firmware you can create a metric filter that counts the
+number of times the word `ECU_Connected` occurs in your log events. You can
+assign units and dimensions to metrics. For example, if you create a metric filter that
+counts the number of times the word `ECU_Connected` occurs in your log events,
+you can specify a dimension that's called `ECUConnectionCount` to show the
+total number of log events that contain the word `ECU_Connected` and filter
+data by reported firmware version.
+
+| CMREL_9: Does your connected mobility network operations center (NOC) have<br>the correct level of searchability and interactivity? |
+| ----------------------------------------------------------------------------------------------------------------------------------- |
+|                                                                                                                                     |
+
+**[CMREL\_BP9.1] Real-time processing and alarming with notifications
+and automated response**
+
+Some OEMs may have existing processes and tools for alarming, trouble tracking and
+automated response. For better visibility across the organization, the Vehicle-NOC should
+be integrated with these systems. With thousands to millions of vehicles connecting to the
+platform the number of data points can be too many so having an intelligent system that
+can reduce noise by finding pattern across various issues can boost productivity and
+reduce mean time to resolve (MTTR). Typically, such intelligent systems also reduce the
+number of repeat notifications for same issue.
+
+**Prescriptive guidance:**
+
+Alerts can be sent to Amazon Simple Notification Service
+(Amazon SNS) topics, and then pushed to any number of
+subscribers. For example, Amazon SNS can forward alerts to
+an email alias or messaging channel so that technical staff
+can respond. 
+
+When you enable
+[anomaly
+detection](../../../AmazonCloudWatch/latest/monitoring/Create_Anomaly_Detection_Alarm.md "../../../AmazonCloudWatch/latest/monitoring/Create_Anomaly_Detection_Alarm.md") for a metric, CloudWatch applies
+statistical and machine learning algorithms. These
+algorithms continuously analyze metrics of systems and
+applications, determine normal baselines, and surface
+anomalies with minimal user intervention. In addition,
+anomaly detection on metric math is a feature that you can
+use to create
+[anomaly
+detection alarms on the output metric math
+expressions](../../../AmazonCloudWatch/latest/monitoring/Create-alarm-on-metric-math-expression.md "../../../AmazonCloudWatch/latest/monitoring/Create-alarm-on-metric-math-expression.md"). 
+
+## Design your workload to adapt to changes in demand
+
+| CMREL_10: How does your connected mobility workload adapt to vehicle traffic<br>demand on resources? |
+| ---------------------------------------------------------------------------------------------------- |
+|                                                                                                      |
+
+**[CMREL\_BP10.1] Use automation when obtaining or scaling
+resources**
+
+**[CMREL\_BP10.2] Scale resources reactively on impairment to
+restore workload availability**
+
+**[CMREL\_BP10.3] Scale resources proactively to meet demand and avoid
+availability impact**
+
+Telemetry traffic from vehicle has patterns that vary based
+upon various factors like time of the day, weather condition
+during a day, season, geographic location. If the connected
+mobility systems are scaling to meet the demand, automating
+the process by using managed services will aid in better
+control. 
+
+When you are automating for scaling it is important to know
+the target utilization which generally based upon
+observations of historic trends and extrapolating. In a
+typical set up for connected mobility this may turn out to
+be a complex task due to the typical mix of several
+different services. 
+
+Another challenge is to monitor your connected mobility
+applications / services as the capacity is added or removed
+in real time as the demand changes. This will build
+confidence to have right level of end user experience as the
+workloads change periodically or unpredictably.
+
+**Prescriptive guidance:**
+
+The exact nature of the automation depends upon the type of
+services that are supporting the landscape. Managed services
+like AWS Lambda, Amazon S3, Amazon CloudFront and others
+scale automatically based upon the load condition. There may
+be limitations imposed by the Service Quotas which need to
+be taken into account.
+
+Self-managed services like Amazon EC2 require careful planning to ensure that the load
+distribution meets the requirements for the business function. The automation should
+ensure that the instance returns to the state that it is expected to be in to handle the
+traffic. Automation is vital to efficient DevOps, and getting your fleets of Amazon EC2
+instances to launch, provision software, and self-heal automatically is a key challenge.
+[Amazon EC2 Auto Scaling](https://aws.amazon.com/ec2/autoscaling/features/ "https://aws.amazon.com/ec2/autoscaling/features/") provides
+essential features for each of these instance lifecycle automation steps. Use [load
+balancers](../../../autoscaling/ec2/userguide/attach-load-balancer-asg.md "../../../autoscaling/ec2/userguide/attach-load-balancer-asg.md") to distribute the traffic across the instances and [Route 53](../../../Route53/latest/DeveloperGuide/dns-failover-types.md "../../../Route53/latest/DeveloperGuide/dns-failover-types.md") to provide flexibility in cloud service configuration without impacting
+the ECU based client applications.
+
+To make the scaling experience better and simple AWS launched [predictive scaling policies](https://aws.amazon.com/blogs/compute/introducing-native-support-for-predictive-scaling-with-amazon-ec2-auto-scaling/ "https://aws.amazon.com/blogs/compute/introducing-native-support-for-predictive-scaling-with-amazon-ec2-auto-scaling/"), which uses machine learning to analyze each
+resource's historical workload and regularly forecasts the future load for the next two
+days. To bring about wider level of control, in 2023, the forecast and scaling were
+decoupled so that you could get forecasting which is prescriptive in nature as compared to
+forecast and scaling. Predictive scaling can be used for applications where demand changes
+rapidly but with a recurring pattern.
+
+Automotive companies generally use the AWS managed services
+to reduce the overheads of administrating the infrastructure
+and let AWS handle the undifferentiated heavy lifting.
+Configuring these managed services
+is [Customer's
+responsibility](../../../whitepapers/latest/security-overview-aws-lambda/the-shared-responsibility-model.md "../../../whitepapers/latest/security-overview-aws-lambda/the-shared-responsibility-model.md"). But considering the varied nature of
+these services, configuring them for auto-scaling and with
+cohesiveness becomes challenging very quickly. Thus, even in
+this case, you need a service that orchestrates the
+auto-scaling across the workload. With
+[Application
+Auto Scaling](../../../autoscaling/application/userguide/integrated-services-list.md "../../../autoscaling/application/userguide/integrated-services-list.md"), you can configure automatic scaling for
+the various resources beyond Amazon EC2.
+
+**[CMREL\_BP10.4] Load and stress test your workload**
+
+Having followed the best practices above it is important to
+test if the scaling activities meet the requirements of
+connected mobility functions. Stress testing the platform
+would reveal the robustness of various connected mobility
+functions under extreme load conditions. Some use cases may
+deserve higher level of robustness than others due to
+various business and compliance reasons. The load testing
+frameworks should have the ability to execute various
+testing strategies with varied traffic patterns that cover
+both the regular business as usual cases and the corner
+cases of failure and subsequent recovery. Considering the
+agility and cost optimization that AWS cloud computing
+provides, setting up of stage environments for load testing
+should be less time, money and effort intensive. While load
+testing in the stage environment should be done, training
+the teams to handle such events in production environment is
+also a must-do activity. 
+
+**Prescriptive guidance:**
+
+[Distributed
+load testing](https://aws.amazon.com/solutions/implementations/distributed-load-testing-on-aws/ "https://aws.amazon.com/solutions/implementations/distributed-load-testing-on-aws/") can help load test the applications and
+determine the bottlenecks before releasing to production.
+The framework can simulate thousands of connected vehicle
+applications and generate traffic patterns to uncover
+issues. The systems can be tested using simple get requests
+or for higher level of customization you can
+create [JMeter
+scripts](https://jmeter.apache.org/ "https://jmeter.apache.org/"). 
+
+[Game
+Days](https://wa.aws.amazon.com/wellarchitected/2020-07-02T19-33-23/wat.concept.gameday.en.html "https://wa.aws.amazon.com/wellarchitected/2020-07-02T19-33-23/wat.concept.gameday.en.html") can simulate a failure or event to test systems,
+processes, and team's responses.
+
+## Implement change
+
+| CMREL_11: How are you controlling the changes that are deployed? |
+| ---------------------------------------------------------------- |
+|                                                                  |
+
+The number of features and scenarios that are supported by connected mobility
+platform have been growing rapidly. It is recommended to control the impact of these
+changes while deploying new functions. 
+
+**[CMREL\_BP11.1] Use runbooks for standard activities such as
+deployment**
+
+Vehicles which are connected to the backend are generally
+operating in various geographies and time zones. It is
+important to plan the change activities at a time that can
+cause least disruption to the services. The documentation
+should be less verbose and specific to conducting the tasks.
+The execution of the steps should be controlled by right
+level of authorizations that requires approvals and has
+appropriate reason captured. Unauthorized changes can result
+in downtime in the connectivity of vehicles to backend.  It
+is important to track the changes that were implemented so
+that the deployment rollbacks can be analyzed for integrity.
+
+**Prescriptive guidance:**
+
+Runbooks provide an excellent mechanism to communicate the actions that can be
+performed with minimum information. The change activities are generally audited and can be
+rolled back to the previous version. AWS Config performs compliance checks based on these
+rules, and Audit Manager reports the results as compliance check evidence.
+
+**Resources:**
+
+[Using
+AWS Config managed rules with Audit Manager](../../../audit-manager/latest/userguide/control-data-sources-config.md#aws-config-managed-rules "../../../audit-manager/latest/userguide/control-data-sources-config.md#aws-config-managed-rules")
+
+[Using
+AWS Config custom rules with Audit Manager](../../../audit-manager/latest/userguide/control-data-sources-config.md#aws-config-custom-rules "../../../audit-manager/latest/userguide/control-data-sources-config.md#aws-config-custom-rules")
+
+[Troubleshooting
+AWS Config integration with Audit Manager](../../../audit-manager/latest/userguide/control-data-sources-config.md#aws-config-rules-troubleshoot "../../../audit-manager/latest/userguide/control-data-sources-config.md#aws-config-rules-troubleshoot")
+
+**[CMREL\_BP11.2] Integrate functional and resilience testing as
+part of your deployment**
+
+Functional and resilience tests should be part of automated
+deployment. If success criteria are not met, the pipeline is
+halted or rolled back. These tests are run in a stage
+environment and done as part of a deployment pipeline. 
+
+**Prescriptive guidance:**
+
+Vehicle owners or the related systems can take different functional paths while
+using the connected services. It is important to track such paths and simulate them in
+steps using services like [Amazon CloudWatch Synthetic
+monitoring](../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries.md "../../../AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries.md"). As a bonus this also reveals the uptime of the services.
+
+[Chaos
+engineering](https://principlesofchaos.org/ "https://principlesofchaos.org/") with
+[AWS Fault Injection Service](https://aws.amazon.com/fis/ "https://aws.amazon.com/fis/") can be used to build confidence
+in the system's ability to survive certain corner cases. To
+execute such tests many of the principles discussed above
+are applicable- determining the target state, run
+experiments in production and automation.
+
+**Resources:**
+
+**Videos:**
+
+[AWS re:Invent 2022 - Building confidence through chaos
+engineering on AWS](https://www.youtube.com/watch?v=tm5GEePP1PY "https://www.youtube.com/watch?v=tm5GEePP1PY")
+
+**[CMREL\_BP11.3] Use a canary or blue/green deployment when
+deploying applications in immutable infrastructures**
+
+The operational complexity of the connected mobility
+platform builds up with the numerous distributed services
+that support various scenarios. Release cycles, patching,
+monitoring the changes all result in overhead that is
+difficult to manage and error prone. Offboard teams begin to
+delay the release of changes to avoid disruptions in
+availability of services. A solution to this problem is to
+have immutable infrastructure, where infrastructure is not
+updated or fixed rather it is replaced. 
+
+**Prescriptive guidance:**
+
+[Canary release](https://martinfowler.com/bliki/CanaryRelease.html "https://martinfowler.com/bliki/CanaryRelease.html")
+and [Blue/green
+deployment](https://martinfowler.com/bliki/BlueGreenDeployment.html "https://martinfowler.com/bliki/BlueGreenDeployment.html") approaches are recommended for deployments into the immutable
+infrastructure.

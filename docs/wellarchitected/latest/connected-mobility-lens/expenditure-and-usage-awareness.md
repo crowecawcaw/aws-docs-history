@@ -1,5 +1,166 @@
 # Expenditure and usage awareness
 
-| CMCOST_3: How do you select the compute and storage solution for your vehicle data? |
-| ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|                                                                                     | The right storage and compute solution for vehicular data depends on a variety of factors including the volume of data being generated, the speed at which it needs to be processed, its computation requirements, the security requirements, and the budget available for infrastructure. These factors are essential to ensure that the solution chosen can handle the amount of data generated by vehicular systems, process the data in real-time, store the data securely, and deliver insights that can be used to optimize vehicular operations. **[CMCOST\_BP3.1] Analyze the data volume and evaluate the processing needs to save on computation costs** Improve the ROI by using serverless architecture. <br>• Implement serverless computing to minimize infrastructure costs and focus on developing innovative services. With AWS Lambda, you can run code without the need to manage servers, which makes it ideal for processing data from connected vehicles. Serverless architecture can improve return on investment (ROI) when it comes to vehicular data by reducing infrastructure costs, optimizing resource utilization, and enabling faster application development. <br>• Serverless function for real-time aggregation: Use AWS Lambda or a similar serverless function to aggregate trip data in real-time. This function should collect and process data from multiple sensors and sources during a trip. <br>• Stream processing for efficiency: Use Amazon Kinesis or similar stream processing services to handle data streams efficiently. This ensures that data is processed as it arrives, reducing latency and improving responsiveness. <br>• Data validation and error handling: Implement data validation checks within the serverless function to ensure the integrity of aggregated trip data. Handle any errors or exceptions gracefully. <br>• Real-time score calculation: Implement a serverless function that calculates driver scores based on aggregated trip data. This function should factor in various parameters like speed, acceleration, braking, and adherence to traffic rules. <br>• By implementing these strategies, you can harness the power of serverless architecture to efficiently aggregate trip data and calculate driver scores. This not only improves the overall efficiency of the system but also contributes to increased ROI by promoting safer and more cost-effective driving behaviors. Velocity <br>• Cost efficiency: Evaluate the cost of the compute and storage services in relation to your budget and expected data workload. Consider services with pay-as-you-go pricing and cost optimization features like AWS Cost Explorer. <br>• Implement storage lifecycle policies to optimize cost and utilize Amazon S3 Intelligent-Tiering. <br>• Define data archiving and lifecycle policies to automatically move less frequently accessed data to cost-effective storage tiers like Amazon Glacier or Amazon S3 Intelligent-Tiering. **[CMCOST\_BP3.2] Use data analytics to analyze vehicular data and develop new services with minimum investment.** Assess the volume of data generated by your vehicles and the velocity at which the data is produced. High-velocity data might require solutions with low latency and high throughput, while large volumes of data might demand scalable storage options. Data volume and velocity: <br>• Analyze the data from connected vehicles to gain insights and develop new services. Analyzing vehicular data can help in identifying patterns and trends that can be used to improve existing services and prevent the need for reinventing the wheel. <br>• Data filtering and prioritization: + Guidance: Implement filters at the edge to capture only essential data, prioritizing critical information for immediate transmission. + Example: In a connected vehicle, prioritize safety-critical events like collision alerts over less critical data like routine diagnostics. <br>• Optimize data transmission protocols (for example, MQTT): + Guidance: Choose lightweight, efficient protocols like MQTT for communication. It minimizes overhead and is ideal for low-bandwidth environments. + Example: Use MQTT to transmit aggregated sensor data from a vehicle to the cloud with minimal packet overhead. <br>• Use of data compression techniques: + Guidance: Implement data compression algorithms to reduce the size of transmitted data. + Example: Compress image or video data from vehicle cameras before transmission, reducing the bandwidth required. <br>• Optimize frequency of telemetry updates: + Guidance: Adjust the frequency of telemetry updates based on need. Reduce update rates for less time-sensitive data. + Example: Decrease the update frequency for components with stable readings, like tire pressure, to conserve bandwidth. <br>• Implement data retention policies: + Guidance: Define policies for data retention. Store only relevant data and set expiration rules to manage storage costs. + Example: Store high-resolution telemetry data for a limited period and transition to lower-resolution data for historical analysis. <br>• By implementing these strategies, you can efficiently manage the volume and velocity of connected vehicle data, ensuring that only relevant, timely information is transmitted to the cloud. This not only optimizes costs but also enhances the overall performance of the IoT application. **[CMCOST\_BP3.3] Integrating with existing infrastructure cost efficiently.** <br>• Cost efficiency: Evaluate the cost of the compute and storage solutions in relation to your budget and expected data workload. Consider services that provide pay-as-you-go pricing and allow you to optimize costs based on actual usage. <br>• Use existing APIs and protocols: + Guidance: Use standard APIs and protocols for integration with existing systems. This minimizes the need for custom development. + Example: Integrate connected vehicle data using RESTful APIs, MQTT, or OPC UA, depending on compatibility with existing infrastructure. <br>• Implement edge computing for local processing: + Guidance: Use edge computing to process data locally before integration with existing systems. This reduces the load on centralized servers. + Example: Employ edge devices like IoT gateways to pre-process data from connected vehicles before sending it to the central system. <br>• Implement data transformation layers: + Guidance: Introduce data transformation layers to convert data formats between connected vehicle systems and existing infrastructure. + Example: Use AWS Lambda functions to transform and map incoming data from vehicles to match the format expected by the existing systems. <br>• Leverage message brokers for integration: + Guidance: Implement message brokers such as Apache Kafka or Amazon Managed Streaming for Apache Kafka for seamless integration with existing systems. + Example: Use Apache Kafka to buffer and process data streams from connected vehicles before ingestion into on-premises databases. <br>• Use standard data formats (for example, JSON or XML): + Guidance: Ensure that data exchanged between connected vehicles and existing infrastructure uses standard formats to ease integration. For example, convert vehicle telemetry data to JSON format before passing it to legacy systems that understand this format. By following these strategies, you can efficiently integrate connected vehicles with existing infrastructure, ensuring seamless data flow while optimizing costs associated with integration efforts. This involves fine-tuning resource allocation, enhancing scalability, and capitalizing on managed services to steer clear of over-provisioning. <br>• Managed services: Use AWS managed services like AWS IoT Core for device management, AWS DynamoDB for NoSQL database needs, and Amazon S3 for scalable and cost-effective object storage. These services reduce the overhead of managing infrastructure and are often more cost-efficient than self-managed solutions. <br>• Implement automatic scaling for compute resources like EC2 instances to dynamically adjust capacity based on demand: Automatic scaling helps ensure that you have the right number of resources at any given time, optimizing costs by only paying for what you use. <br>• Reserved Instances or Savings Plans: If you have predictable workloads, consider purchasing AWS Reserved Instances or Savings Plans. These offer upfront cost savings and discounted pricing compared to On-Demand Instances. <br>• AWS cost management tools: Set up AWS Budgets and cost alarms to receive notifications when your spending exceeds predefined thresholds, helping you maintain better control over costs. |
+| CMCOST_3: How do you select the compute and storage solution for your vehicle<br>data? |
+| -------------------------------------------------------------------------------------- |
+|                                                                                        |
+
+The right storage and compute solution for vehicular data depends on a variety of factors including the volume of data being generated, the speed at which it needs to be processed, its computation requirements, the security requirements, and the budget available for infrastructure. These factors are essential to ensure that the solution chosen can handle the amount of data generated by vehicular systems, process the data in real-time, store the data securely, and deliver insights that can be used to optimize vehicular operations.
+
+**[CMCOST\_BP3.1] Analyze the data volume and evaluate the processing
+needs to save on computation costs**
+
+Improve the ROI by using serverless architecture.
+
+- Implement serverless computing to minimize infrastructure costs and focus on
+  developing innovative services. With AWS Lambda, you can run code without the need to
+  manage servers, which makes it ideal for processing data from connected vehicles.
+  Serverless architecture can improve return on investment (ROI) when it comes to
+  vehicular data by reducing infrastructure costs, optimizing resource utilization, and
+  enabling faster application development.
+- Serverless function for real-time aggregation: Use AWS Lambda or a similar
+  serverless function to aggregate trip data in real-time. This function should collect
+  and process data from multiple sensors and sources during a trip.
+- Stream processing for efficiency: Use Amazon Kinesis or similar stream processing
+  services to handle data streams efficiently. This ensures that data is processed as it
+  arrives, reducing latency and improving responsiveness.
+- Data validation and error handling: Implement data validation checks within the
+  serverless function to ensure the integrity of aggregated trip data. Handle any errors
+  or exceptions gracefully.
+- Real-time score calculation: Implement a serverless function that calculates
+  driver scores based on aggregated trip data. This function should factor in various
+  parameters like speed, acceleration, braking, and adherence to traffic rules.
+- By implementing these strategies, you can harness the
+  power of serverless architecture to efficiently aggregate
+  trip data and calculate driver scores. This not only
+  improves the overall efficiency of the system but also
+  contributes to increased ROI by promoting safer and more
+  cost-effective driving behaviors. Velocity
+- Cost efficiency: Evaluate the cost of the compute and storage services in
+  relation to your budget and expected data workload. Consider services with pay-as-you-go
+  pricing and cost optimization features like AWS Cost Explorer.
+- Implement storage lifecycle policies to optimize cost and utilize Amazon S3
+  Intelligent-Tiering.
+- Define data archiving and lifecycle policies to automatically move less frequently
+  accessed data to cost-effective storage tiers like Amazon Glacier or Amazon S3 Intelligent-Tiering.
+  **[CMCOST\_BP3.2] Use data analytics to analyze vehicular data and
+  develop new services with minimum investment.**
+
+Assess the volume of data generated by your vehicles and the
+velocity at which the data is produced. High-velocity data
+might require solutions with low latency and high throughput,
+while large volumes of data might demand scalable storage
+options.
+
+Data volume and velocity:
+
+- Analyze the data from connected vehicles to gain insights
+  and develop new services. Analyzing vehicular data can
+  help in identifying patterns and trends that can be used
+  to improve existing services and prevent the need for
+  reinventing the wheel.
+- Data filtering and prioritization:
+  - Guidance: Implement filters at the edge to capture
+    only essential data, prioritizing critical information
+    for immediate transmission.
+  - Example: In a connected vehicle, prioritize
+    safety-critical events like collision alerts over less
+    critical data like routine diagnostics.
+
+- Optimize data transmission protocols (for example, MQTT):
+  - Guidance: Choose lightweight, efficient protocols like
+    MQTT for communication. It minimizes overhead and is
+    ideal for low-bandwidth environments.
+  - Example: Use MQTT to transmit aggregated sensor data
+    from a vehicle to the cloud with minimal packet
+    overhead.
+
+- Use of data compression techniques:
+  - Guidance: Implement data compression algorithms to
+    reduce the size of transmitted data.
+  - Example: Compress image or video data from vehicle
+    cameras before transmission, reducing the bandwidth
+    required.
+
+- Optimize frequency of telemetry updates:
+  - Guidance: Adjust the frequency of telemetry updates
+    based on need. Reduce update rates for less
+    time-sensitive data.
+  - Example: Decrease the update frequency for components
+    with stable readings, like tire pressure, to conserve
+    bandwidth.
+
+- Implement data retention policies:
+  - Guidance: Define policies for data retention. Store
+    only relevant data and set expiration rules to manage
+    storage costs.
+  - Example: Store high-resolution telemetry data for a
+    limited period and transition to lower-resolution data
+    for historical analysis.
+
+- By implementing these strategies, you can efficiently
+  manage the volume and velocity of connected vehicle data,
+  ensuring that only relevant, timely information is
+  transmitted to the cloud. This not only optimizes costs
+  but also enhances the overall performance of the IoT
+  application.
+
+**[CMCOST\_BP3.3] Integrating with existing infrastructure cost
+efficiently.**
+
+- Cost efficiency: Evaluate the cost of the compute and storage solutions in
+  relation to your budget and expected data workload. Consider services that provide
+  pay-as-you-go pricing and allow you to optimize costs based on actual usage.
+- Use existing APIs and protocols:
+  - Guidance: Use standard APIs and protocols for integration with existing
+    systems. This minimizes the need for custom development.
+  - Example: Integrate connected vehicle data using RESTful APIs, MQTT, or OPC
+    UA, depending on compatibility with existing infrastructure.
+
+- Implement edge computing for local processing:
+  - Guidance: Use edge computing to process data locally
+    before integration with existing systems. This reduces
+    the load on centralized servers.
+  - Example: Employ edge devices like IoT gateways to
+    pre-process data from connected vehicles before
+    sending it to the central system.
+
+- Implement data transformation layers:
+  - Guidance: Introduce data transformation layers to
+    convert data formats between connected vehicle systems
+    and existing infrastructure.
+  - Example: Use AWS Lambda functions to transform and map
+    incoming data from vehicles to match the format
+    expected by the existing systems.
+
+- Leverage message brokers for integration:
+  - Guidance: Implement message brokers such as Apache Kafka or Amazon Managed Streaming for Apache Kafka for
+    seamless integration with existing systems.
+  - Example: Use Apache Kafka to buffer and process data streams from connected
+    vehicles before ingestion into on-premises databases.
+
+- Use standard data formats (for example, JSON or XML):
+  - Guidance: Ensure that data exchanged between connected vehicles and existing
+    infrastructure uses standard formats to ease integration. For example, convert
+    vehicle telemetry data to JSON format before passing it to legacy systems that
+    understand this format.
+    By following these strategies, you can efficiently integrate connected vehicles with
+    existing infrastructure, ensuring seamless data flow while optimizing costs associated with
+    integration efforts.
+
+This involves fine-tuning resource allocation, enhancing scalability, and
+capitalizing on managed services to steer clear of over-provisioning.
+
+- Managed services: Use AWS managed services like AWS IoT Core for device
+  management, AWS DynamoDB for NoSQL database needs, and Amazon S3 for scalable and
+  cost-effective object storage. These services reduce the overhead of managing
+  infrastructure and are often more cost-efficient than self-managed solutions.
+- Implement automatic scaling for compute resources like EC2 instances to
+  dynamically adjust capacity based on demand: Automatic scaling helps ensure that you
+  have the right number of resources at any given time, optimizing costs by only paying
+  for what you use.
+- Reserved Instances or Savings Plans: If you have predictable workloads, consider
+  purchasing AWS Reserved Instances or Savings Plans. These offer upfront cost savings and
+  discounted pricing compared to On-Demand Instances.
+- AWS cost management tools: Set up AWS Budgets and cost alarms to receive notifications
+  when your spending exceeds predefined thresholds, helping you maintain better control
+  over costs.

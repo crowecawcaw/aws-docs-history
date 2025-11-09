@@ -1,5 +1,43 @@
 # Operate
 
-| CMOPS_5: How do you respond to an incident within your connected mobility platform? |
-| ----------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|                                                                                     | Responding to disruptions is an important aspect of operating your connected mobility platform as it impacts end user's ability to access critical features of their vehicle, may impact company revenue, and could erode customer trust. Understanding the scope of an outage, including which functions are affected, allows for timely and accurate communication with your customers and key business stakeholders, and minimizing your Mean Time to Repair (MTTR), and Mean Time to Restore Service (MTRS). **[CMOPS\_BP5.1] Determine the scope and impact of the incident to your connected mobility platform.** The connected mobility platform includes many functions, and understanding which functions are affected, and the scale of impact is an important step to guide your response. An example of a critical function is the ability for customers to use remote commands. Start by analyzing your end-to-end monitoring dashboards for your connected mobility platform, review reported incidents to your Service Desk, and determine the cause of the disruption. If it is related to an AWS service event, find out if it is impacting a Region, or localized impact to a specific Availability Zone. You can use the [AWS Health Dashboard](https://health.aws.amazon.com/health/status "https://health.aws.amazon.com/health/status") to get more detailed information on AWS service specific events. Reference your incident management playbook to investigate the appropriate process to initiate. The runbook should guide your teams on communicating the disruption to your customers, include step by step instructions on how to investigate the incident, remediation options, and how to validate recovery. **[CMOPS\_BP5.2] Communicate with customers about the incident in a timely fashion.** Connected mobility disruptions require effective communication for the safety of the users and brand protection. The notification should be event driven and multi-channel, example notify affected customers immediately through the customer's mobile app via push notifications, SMS messages, and email about the issue. Provide clear and accurate information about the problem, its cause, and the expected resolution time. Establish a dedicated line for inbound customer queries. Communicate on the regular basis on progress. **[CMOPS\_BP5.3] Recover the application using runbooks and automation.** After identifying the issue, refer to the designated runbook for application recovery. Following the runbook instructions, you might need to shift to an alternate Availability Zone (AZ) if an AZ failed, or move to another Region in the case of a Region-wide failure. For example, if a crucial business component, with low RTO and RPO requirements, experiences a disruption, it is essential to refer to the disaster recovery runbook to facilitate the transition of your application. |
+| CMOPS_5: How do you respond to an incident within your connected mobility<br>platform? |
+| -------------------------------------------------------------------------------------- |
+|                                                                                        |
+
+Responding to disruptions is an important aspect of operating your connected mobility platform as it impacts end user's ability to access critical features of their vehicle, may impact company revenue, and could erode customer trust. Understanding the scope of an outage, including which functions are affected, allows for timely and accurate communication with your customers and key business stakeholders, and minimizing your Mean Time to Repair (MTTR), and Mean Time to Restore Service (MTRS).
+
+**[CMOPS\_BP5.1] Determine the scope and impact of the incident to your
+connected mobility platform.**
+
+The connected mobility platform includes many functions, and understanding which functions
+are affected, and the scale of impact is an important step to guide your response. An
+example of a critical function is the ability for customers to use remote commands. Start by
+analyzing your end-to-end monitoring dashboards for your connected mobility platform, review
+reported incidents to your Service Desk, and determine the cause of the disruption. If it is
+related to an AWS service event, find out if it is impacting a Region, or localized impact
+to a specific Availability Zone. You can use the [AWS Health Dashboard](https://health.aws.amazon.com/health/status "https://health.aws.amazon.com/health/status") to get more detailed
+information on AWS service specific events.
+
+Reference your incident management playbook to investigate the appropriate process to initiate.
+The runbook should guide your teams on communicating the disruption to your customers, include step by step instructions on
+how to investigate the incident, remediation options, and how to validate recovery.
+
+**[CMOPS\_BP5.2] Communicate with customers about the incident in a
+timely fashion.**
+
+Connected mobility disruptions require effective communication for the safety of the users
+and brand protection. The notification should be event driven and multi-channel, example
+notify affected customers immediately through the customer's mobile app via push
+notifications, SMS messages, and email about the issue. Provide clear and accurate
+information about the problem, its cause, and the expected resolution time. Establish a
+dedicated line for inbound customer queries. Communicate on the regular basis on progress.
+
+**[CMOPS\_BP5.3] Recover the application using runbooks and
+automation.**
+
+After identifying the issue, refer to the designated runbook for application recovery.
+Following the runbook instructions, you might need to shift to an alternate Availability
+Zone (AZ) if an AZ failed, or move to another Region in the case of a Region-wide failure.
+For example, if a crucial business component, with low RTO and RPO requirements, experiences
+a disruption, it is essential to refer to the disaster recovery runbook to facilitate the
+transition of your application.

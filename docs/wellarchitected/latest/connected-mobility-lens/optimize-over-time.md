@@ -1,8 +1,50 @@
 # Optimize over time
 
-| CMCOST_6: How do you optimize the payload size to reduce cost in evolving generations of connected vehicles? |
-| ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-|                                                                                                              | **[CMCOST\_BP6.1] Dynamically adjust the payload capacity to accommodate changing conditions or demands** Implement dynamic payload adjustment based on network conditions and available bandwidth. For example, adaptively vary payload size based on real-time network conditions to optimize for cost and performance. Prioritize critical data: Ensure that critical or safety-related data is prioritized in the payload, while less time-sensitive data can be sent during off-peak times or in batches. Example: In a connected vehicle, prioritize alerts for collision warnings over routine diagnostics.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| CMCOST_7: How do you optimize the cost of storing the state of connected mobility application over time?     |
-| ---                                                                                                          |
-|                                                                                                              | **[CMCOST\_BP7.1] Implement a monitoring strategy.** Continually monitor and analyze usage patterns, network traffic, and associated costs. <br>• Define key cost metrics: Identify critical cost metrics relevant to connected mobility, such as data transmission costs, edge processing expenses, and cloud storage charges. For example, monitor data usage per vehicle, edge processing costs, and cloud storage fees to understand cost drivers. <br>• Set budgets and alarms: Establish budget thresholds for each cost metric and configure alarms to notify when thresholds are approaching or exceeded. Example: Set a budget for monthly data transmission costs and configure an alert to notify when 80% of the budget is reached. <br>• Regularly review cost reports: Conduct regular reviews of cost reports to identify anomalies, trends, or cost spikes that may require investigation or optimization. Example: Review weekly cost reports to spot any unexpected increases in data transmission costs. <br>• Optimize resource usage with AWS Trusted Advisor: AWS Trusted Advisor to receive recommendations for optimizing resource usage and reducing costs. Example: Act on recommendations to modify resource configurations for improved efficiency and cost savings. <br>• Implement cost-effective data management practices: Apply data retention policies, archival, and deletion strategies to minimize storage costs without sacrificing critical data availability. Example: Archive historical telemetry data to lower-cost storage solutions after a specified time period. <br>• Track and optimize data transmission costs: Monitor data transmission costs from vehicles to the cloud and consider techniques like data aggregation, compression, and prioritization to reduce expenses. Example: Implement payload optimization techniques to minimize the amount of data transmitted, thereby reducing costs. |
+| CMCOST_6: How do you optimize the payload size to reduce cost in evolving<br>generations of connected vehicles? |
+| --------------------------------------------------------------------------------------------------------------- |
+|                                                                                                                 |
+
+**[CMCOST\_BP6.1] Dynamically adjust the payload capacity to accommodate
+changing conditions or demands**
+
+Implement dynamic payload adjustment based on network conditions and available
+bandwidth. For example, adaptively vary payload size based on real-time network conditions
+to optimize for cost and performance.
+
+Prioritize critical data: Ensure that critical or safety-related data is prioritized
+in the payload, while less time-sensitive data can be sent during off-peak times or in
+batches. Example: In a connected vehicle, prioritize alerts for collision warnings over
+routine diagnostics.
+
+| CMCOST_7: How do you optimize the cost of storing the state of connected<br>mobility application over time? |
+| ----------------------------------------------------------------------------------------------------------- |
+|                                                                                                             |
+
+**[CMCOST\_BP7.1] Implement a monitoring strategy.**
+
+Continually monitor and analyze usage patterns, network traffic, and associated costs.
+
+- Define key cost metrics: Identify critical cost metrics relevant to connected
+  mobility, such as data transmission costs, edge processing expenses, and cloud storage
+  charges. For example, monitor data usage per vehicle, edge processing costs, and cloud
+  storage fees to understand cost drivers.
+- Set budgets and alarms: Establish budget thresholds for each cost metric and
+  configure alarms to notify when thresholds are approaching or exceeded. Example: Set a
+  budget for monthly data transmission costs and configure an alert to notify when 80% of
+  the budget is reached.
+- Regularly review cost reports: Conduct regular reviews of cost reports to
+  identify anomalies, trends, or cost spikes that may require investigation or
+  optimization. Example: Review weekly cost reports to spot any unexpected increases in
+  data transmission costs.
+- Optimize resource usage with AWS Trusted Advisor: AWS Trusted Advisor to receive
+  recommendations for optimizing resource usage and reducing costs. Example: Act on
+  recommendations to modify resource configurations for improved efficiency and cost
+  savings.
+- Implement cost-effective data management practices: Apply data retention
+  policies, archival, and deletion strategies to minimize storage costs without
+  sacrificing critical data availability. Example: Archive historical telemetry data to
+  lower-cost storage solutions after a specified time period.
+- Track and optimize data transmission costs: Monitor data transmission costs from
+  vehicles to the cloud and consider techniques like data aggregation, compression, and
+  prioritization to reduce expenses. Example: Implement payload optimization techniques to
+  minimize the amount of data transmitted, thereby reducing costs.

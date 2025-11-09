@@ -1,8 +1,347 @@
 # Cost-effective resources
 
-| CMCOST_1: How do you optimize your raw vehicle data storage?                                        |
-| --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|                                                                                                     | Managing raw vehicle data is important because it allows organizations to leverage the data to drive innovation, improve their business processes and is the original source of analytics. Vehicle data can provide valuable insights into driving patterns, vehicle performance, and other areas that can be used to optimize operations, improve safety, and enhance the customer experience, however the amount of data generated can also be a big driver for cost. Vehicular data is a key source of information that can be used to drive automotive transformation, but it can be a challenge to manage due to the volume, velocity, and variety of the data. By effectively managing the raw vehicular data, organizations can unlock the value of the data and use it to drive innovation and improve business processes. **[CMCOST\_BP1.1] Store raw data in a scalable and cost-effective way** Efficient data storage can help you avoid high costs associated with storing large amounts of data. Object storage is recommended for large amounts of unstructured data, especially when durability, unlimited storage, scalability, and complex metadata management are relevant factors for overall performance. Use object storage and evaluate the appropriate storage classes. Raw vehicle data typically includes large volumes of data that require different levels of access speed and frequency. To optimize storage costs, you can use appropriate storage classes based on the access speed and frequency of the data. For example, you can use Amazon S3 Standard for frequently accessed data and Amazon Glacier for archived data. [Amazon S3 Intelligent-Tiering](https://aws.amazon.com/s3/storage-classes/intelligent-tiering/ "https://aws.amazon.com/s3/storage-classes/intelligent-tiering/") can also automatically move data between storage classes based on changing access patterns. Avoid costs by using a schema-on-read service, such as [Amazon Athena](https://aws.amazon.com/athena/ "https://aws.amazon.com/athena/"), to query the data in its native form. Using Athena can help reduce the need for large-scale storage arrays or always-on databases to read raw archival data. To optimize storage costs, you can also use data lifecycle policies to automatically move data between different storage classes based on the stage of the data. For example, you can use [Amazon S3 lifecycle policies](../../../AmazonS3/latest/userguide/object-lifecycle-mgmt.md "../../../AmazonS3/latest/userguide/object-lifecycle-mgmt.md") to move data from S3 Standard to Amazon Glacier for archiving after a certain period of time. Amazon DynamoDB Accelerator (DAX) or Amazon Timestream for time-series: If you are using Amazon DynamoDB for real-time data storage, DAX can help improve read performance by caching frequently accessed data. It reduces the need to retrieve data from the database directly, thus optimizing data access. Alternatively, you can use Amazon Timestream as a fast, scalable, and serverless time-series purpose-built database for short-lived real-time time series data. **[CMCOST\_BP1.2] Use data partitioning for optimize performance and scalability** Raw vehicle data can be partitioned based on time, geography, or other factors to optimize storage and retrieval costs. For example, you can partition data by time to store data generated in different time intervals in separate Amazon S3 prefixes. This allows you to scan only the relevant data during query operations, reducing the amount of data scanned and the cost of querying. Implementing data partitioning offers several significant advantages, making it an essential approach for handling substantial volumes of data efficiently and effectively: Splitting the raw data into smaller partitions based on relevant attributes (e.g., time, vehicle ID) can improve data retrieval and reduce costs. Additionally, compressing the data before storage can significantly reduce storage costs and improve data transfer speed. [AWS Glue](https://aws.amazon.com/glue/ "https://aws.amazon.com/glue/") or [Amazon Redshift](https://aws.amazon.com/redshift/ "https://aws.amazon.com/redshift/") can be used for data partitioning, while Amazon S3 provides built-in data compression options. **[CMCOST\_BP1.3] Choose the right services by evaluating storage characteristics and requirements for your use case.** Vehicles generate a massive amount of data, which needs to be stored for various reasons, including compliance, regulatory requirements, and future analysis. As the volume of data grows, so does the cost of storing and managing it. Cold storage, such as Amazon Glacier, is a popular option for storing data that is infrequently accessed but needs to be retained for the long term. However, due to factors like cost of retrieving the data from cold storage, the overall data retention cost can be high. Effectively managing this data is crucial for enhancing vehicle performance, improving user experiences, and enabling data-driven decision-making. Evaluate velocity, the volume of data coming and data retention/transfer cost from vehicles when selecting storage services. In this scenario, using a general-purpose database might be inefficient and costly. It would require constant maintenance to handle the high volume of incoming data and manage the expiration of outdated information. <br>• For vehicle's short living time series data consider purpose-built database service, [Amazon Timestream](https://aws.amazon.com/timestream/ "https://aws.amazon.com/timestream/"). Imagine a fleet management system for a ride-sharing company. This system tracks the GPS coordinates, speed, and passenger information of each vehicle in real-time. However, this data is highly time-sensitive and loses its relevance after a short period, typically a few days. <br>• Here's where Amazon Timestream comes into play. It is optimized for precisely this type of data. It's designed to handle large volumes of time series data efficiently, automatically managing the retention of old data and ensuring high availability for querying recent information. By employing Amazon Timestream, the ride-sharing company can effectively manage their vehicle data without the overhead of handling it in a traditional database. This not only leads to cost savings but also allows for smoother and more efficient operations. <br>• Your vehicle data use case may experience varying data loads over time. Consider services like Amazon Aurora or Amazon Redshift for scalable and flexible database solutions that can adapt to changing demands without compromising performance. <br>• For data at lower scale of time, devices, or other characteristics—Consider Amazon DynamoDB or Amazon Aurora for short-term historical data. Use your data lifecycle policies to optimize what is kept in the short-term storage. <br>• Amazon DynamoDB is a fully managed NoSQL database service that is designed to handle low-scale to high-scale workloads. It provides fast and predictable performance with seamless scalability. **[CMCOST\_BP1.4] Sanitize your data and ensure that only essential and accurate data is transferred to the cloud.** Collecting only the necessary data is important for several reasons because it helps to reduce the amount of irrelevant data that can accumulate over time, which can clutter the system and make it more difficult to extract useful insights. Data sanitizing is a critical step in ensuring that only essential and accurate information is transferred to the cloud. This process involves identifying, cleansing, and validating data before it's sent for storage or processing in the cloud. For example, outliers in GPS coordinates that are far from regular routes might be flagged for further validation or omitted. Additionally, sensitive information like vehicle identification numbers or proprietary algorithms may be anonymized or encrypted to protect intellectual property and user privacy. By sanitizing the data before integration with the cloud, the connected vehicle system optimizes bandwidth usage, reduces storage costs, and ensures that the information stored in the cloud is of the highest quality and security. This practice is fundamental in building a robust and efficient connected vehicle ecosystem. Process data at edge as much as possible: <br>• Edge analytics and decision making: Use edge computing platforms to perform analytics and real-time decision-making directly in the vehicle. Implement AWS Lambda functions on the edge to process data locally, enabling immediate actions without incurring cloud round-trip latency. <br>• Prioritize critical or high-priority data for immediate transmission to the cloud, while less time-sensitive data can be sent during periods of lower network activity. This strategy optimizes data transfer efficiency and reduces cloud processing costs. <br>• Priority data (high sensitivity): + Scenario: A vehicle detects an imminent collision with an obstacle or another vehicle. + Response: This data is considered critical and requires immediate transmission to the cloud. The system prioritizes it for real-time analysis and action, ensuring the safety of the vehicle and its surroundings. <br>• Routine telemetry (lower sensitivity): + Scenario: The vehicle's telemetry data, including GPS location, fuel levels, and tire pressure, is collected for regular maintenance and analysis. + Response: This data, while important, isn't as time-sensitive. It can be queued for transmission during periods of lower network activity, such as during off-peak hours or when the vehicle is in a low-traffic area. Data filtering and pre-processing: <br>• Implement data filtering and pre-processing directly in the vehicle's onboard systems. Use edge computing solutions to analyze and filter out irrelevant or redundant data at the source. This reduces the data volume that needs to be sent to the cloud, leading to cost savings on data transfer fees. <br>• Aggregate data locally in the vehicle to reduce the number of individual data packets sent to the cloud. Apply data compression techniques to further optimize data transfer, minimizing data transmission costs. Use [cost calculators](https://calculator.aws/#/ "https://calculator.aws/#/") to model different approaches for message size and count. <br>• The [AWS Pricing Calculator](https://calculator.aws/#/ "https://calculator.aws/#/")can estimate costs for specific message sizes, traffic, and operations. |
-| CMCOST_2: How do you optimize your network consumption and interactions between vehicles and cloud? |
-| ---                                                                                                 |
-|                                                                                                     | With an expansive amount of data collected from vehicles, optimizing network consumption and payload size is essential in to ensure efficient and effective data communication between vehicles and the cloud. With limited bandwidth and the need for real-time data processing, optimizing network consumption reduces data usage and reduces costs. Lightweight and efficient protocols such MQTT, data filtering, compression, caching, quality of service, and optimized routing is some of the best practices that can be employed. <br>• MQTT (Message Queuing Telemetry Transport): MQTT is a lightweight and efficient messaging protocol designed for devices with limited processing power or bandwidth. It's based on a publish-subscribe model, allowing efficient communication between devices and the server. For example, in a connected vehicle system, if various sensors need to send data to the cloud, MQTT can be employed. It minimizes overhead and ensures reliable communication. <br>• Data filtering: Data filtering involves the process of selectively extracting relevant information from a larger dataset based on predefined criteria. This reduces the volume of data that needs to be transmitted. For example, in a fleet of vehicles, not all sensor data may be equally important. Filtering out non-critical data ensures that only essential information is transmitted, saving bandwidth. <br>• Compression: Compression reduces the size of data before transmission, decreasing the amount of bandwidth required. This is particularly useful for transmitting large datasets efficiently. For example, in connected vehicles, images or video feeds from cameras can be compressed before sending them to the cloud, reducing the amount of data that needs to be transmitted. <br>• Caching: Caching involves storing frequently accessed data locally on the device or in a nearby server. This minimizes the need for repeated requests to the cloud, reducing latency and bandwidth usage. For example, in a connected vehicle, frequently requested map data or software updates can be cached locally, reducing the need for continual downloads. <br>• Quality of Service (QoS): QoS defines the level of service reliability and delivery assurance during data transmission. It ensures that data is delivered accurately and reliably. For example, in a connected vehicle scenario, a high QoS level might be assigned to safety-critical data like collision warnings, while less critical telemetry data might have a lower QoS requirement. <br>• Optimized routing: Optimized routing involves selecting the most efficient path for data transmission to minimize delays and reduce congestion on the network. For example, in a fleet of vehicles, data can be routed through the most stable and low-latency network connections available, ensuring timely delivery. By implementing these practices, connected vehicle solutions can operate seamlessly and effectively, improving overall efficiency. **[CMCOST\_BP2.1] Compress and aggregate data whenever possible to reduce the amount of data that needs to be transmitted over the network.** Data filtering and aggregation: <br>• Implement data filtering and aggregation logic at the edge to send only relevant and summarized data to the cloud. Use AWS IoT Core rules engine to perform data transformations and filtering before transmitting data to the target systems for storage or consumption by microservice. <br>• A common way to achieve better data transmission efficiency is by combining a series of measurements into a single message enabling also more efficient compression as the volume of the message increases. You can leverage [AWS IoT GreenGrass v2 components](https://aws.amazon.com/blogs/iot/5-tips-to-build-aws-iot-greengrass-v2-components/ "https://aws.amazon.com/blogs/iot/5-tips-to-build-aws-iot-greengrass-v2-components/") to implement your aggregation function at edge. Compress data whenever possible to reduce size of data transmitted. <br>• Techniques such as `gzip` compression can reduce significantly the size of data being sent. You can use [AWS IoT GreenGrass v2 components](https://aws.amazon.com/blogs/iot/5-tips-to-build-aws-iot-greengrass-v2-components/ "https://aws.amazon.com/blogs/iot/5-tips-to-build-aws-iot-greengrass-v2-components/") to implement your compression function at edge. <br>• You can also use Protocol Buffers (protobuf – binary format) that provides an efficient structured compressing mechanism. You can use [AWS IoT Core and AWS Lambda](https://aws.amazon.com/blogs/iot/protobuf_with_aws_iot/ "https://aws.amazon.com/blogs/iot/protobuf_with_aws_iot/") to ingest and process Protobuf for consumption. <br>• If using AWS IoT FleetWise for data collection you can [configure your campaign](../../../iot-fleetwise/latest/APIReference/API_CreateCampaign.md "../../../iot-fleetwise/latest/APIReference/API_CreateCampaign.md") to compress signals before transmitting data using `SNAPPY`. **[CMCOST\_BP2.2] Adjust collection frequency depending on the context.** Evaluate and adjust the frequency of data collection depending on functional and business need. By adjusting the collection frequency of data from a connected vehicle based on the context, you can minimize unnecessary data transmission and optimize cloud resources. This approach helps to ensure that the most relevant and critical data is delivered to the AWS Cloud while reducing data transfer costs and improving overall data efficiency. <br>• Adjust frequency as needed based on events or context in the vehicle such as increased frequency telemetry when operating in autonomous mode. You can configure [Rules-based collection campaign](../../../iot-fleetwise/latest/developerguide/campaigns.md "../../../iot-fleetwise/latest/developerguide/campaigns.md") in AWS IoT FleetWise or develop an [AWS IoT GreenGrass v2 component](https://aws.amazon.com/blogs/iot/5-tips-to-build-aws-iot-greengrass-v2-components/ "https://aws.amazon.com/blogs/iot/5-tips-to-build-aws-iot-greengrass-v2-components/") that dynamically adapt collection frequency depending on an event in the vehicle. Similarly, you can leverage same event-based collection schemes to send to the cloud telemetry only if an event happens or a rule is matched such collecting weather telemetry only if engine overheat. <br>• Define threshold values for each event or context parameter that determine when the data collection frequency should be adjusted. Set triggers to respond to changes in the context, such as exceeding a certain speed limit or encountering specific driving conditions. **[CMCOST\_BP2.3] Choose the right communication service and configuration depending on the use case.** Use MQTT 5 protocol properties to optimize bandwidth. <br>• MQTT Protocol for Lightweight Communication: Use the lightweight MQTT (Message Queuing Telemetry Transport) protocol for communication between vehicles and AWS IoT Core. MQTT is efficient in terms of bandwidth and is well-suited for IoT applications. <br>• You can use MQTT 5 properties to further optimize the bandwidth between vehicle and backend. You can set "Message Expiry Interval" to not hold messages indefinitely on the client when client disconnects, this should be done in particular for messages that have a performance expectations like Remote Operations that should be very short lived. <br>• AWS IoT Core device shadow: Use the AWS IoT Core device shadow to store and synchronize the current state of vehicles with the cloud (fleet management systems or user mobile devices). This enables vehicles to retrieve the latest desired state from the cloud without continual communication, reducing network consumption. Optimize routing and use caching mechanisms: <br>• **Caching:** Caching involves storing frequently accessed data locally on the device or in a nearby server. This minimizes the need for repeated requests to the cloud, reducing latency and bandwidth usage. Example: In a connected vehicle, frequently requested map data or software updates can be cached locally, reducing the need for continual downloads. <br>• **Quality of Service (QoS):** QoS defines the level of service reliability and delivery assurance during data transmission. It ensures that data is delivered accurately and reliably. Example: In a connected vehicle scenario, a high QoS level might be assigned to safety- critical data like collision warnings, while less critical telemetry data might have a lower QoS requirement. <br>• **Optimized routing:** Optimized routing involves selecting the most efficient path for data transmission to minimize delays and reduce congestion on the network. Example: In a fleet of vehicles, data can be routed through the most stable and low-latency network connections available, ensuring timely delivery.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| CMCOST_1: How do you optimize your raw vehicle data storage? |
+| ------------------------------------------------------------ |
+|                                                              |
+
+Managing raw vehicle data is important because it allows
+organizations to leverage the data to drive innovation,
+improve their business processes and is the original source of
+analytics. Vehicle data can provide valuable insights into
+driving patterns, vehicle performance, and other areas that
+can be used to optimize operations, improve safety, and
+enhance the customer experience, however the amount of data
+generated can also be a big driver for cost. Vehicular data is
+a key source of information that can be used to drive
+automotive transformation, but it can be a challenge to manage
+due to the volume, velocity, and variety of the data. By
+effectively managing the raw vehicular data, organizations can
+unlock the value of the data and use it to drive innovation
+and improve business processes.
+
+**[CMCOST\_BP1.1] Store raw data in a scalable and cost-effective
+way**
+
+Efficient data storage can help you avoid high costs
+associated with storing large amounts of data. Object storage
+is recommended for large amounts of unstructured data,
+especially when durability, unlimited storage, scalability,
+and complex metadata management are relevant factors for
+overall performance.
+
+Use object storage and evaluate the appropriate storage classes.
+
+Raw vehicle data typically includes large volumes of data that
+require different levels of access speed and frequency. To
+optimize storage costs, you can use appropriate storage
+classes based on the access speed and frequency of the data.
+For example, you can use Amazon S3 Standard for frequently
+accessed data and Amazon Glacier for archived data.
+[Amazon S3 Intelligent-Tiering](https://aws.amazon.com/s3/storage-classes/intelligent-tiering/ "https://aws.amazon.com/s3/storage-classes/intelligent-tiering/") can also automatically move data
+between storage classes based on changing access patterns.
+
+Avoid costs by using a schema-on-read service, such as
+[Amazon Athena](https://aws.amazon.com/athena/ "https://aws.amazon.com/athena/"), to query the data in its native form. Using
+Athena can help reduce the need for large-scale storage arrays
+or always-on databases to read raw archival data.
+
+To optimize storage costs, you can also use data lifecycle policies to automatically
+move data between different storage classes based on the stage of the data. For example, you
+can use [Amazon S3 lifecycle policies](../../../AmazonS3/latest/userguide/object-lifecycle-mgmt.md "../../../AmazonS3/latest/userguide/object-lifecycle-mgmt.md")
+to move data from S3 Standard to Amazon Glacier for archiving after a certain period of time.
+
+Amazon DynamoDB Accelerator (DAX) or Amazon Timestream for time-series: If you are using Amazon DynamoDB
+for real-time data storage, DAX can help improve read performance by caching frequently
+accessed data. It reduces the need to retrieve data from the database directly, thus
+optimizing data access. Alternatively, you can use Amazon Timestream as a fast, scalable, and
+serverless time-series purpose-built database for short-lived real-time time series data.
+
+**[CMCOST\_BP1.2] Use data partitioning for optimize performance and
+scalability**
+
+Raw vehicle data can be partitioned based on time, geography, or other factors to optimize
+storage and retrieval costs. For example, you can partition data by time to store data
+generated in different time intervals in separate Amazon S3 prefixes. This allows you to scan
+only the relevant data during query operations, reducing the amount of data scanned and the
+cost of querying.
+
+Implementing data partitioning offers several significant
+advantages, making it an essential approach for handling
+substantial volumes of data efficiently and effectively:
+
+Splitting the raw data into smaller partitions based on relevant attributes (e.g.,
+time, vehicle ID) can improve data retrieval and reduce costs. Additionally, compressing the
+data before storage can significantly reduce storage costs and improve data transfer speed.
+[AWS Glue](https://aws.amazon.com/glue/ "https://aws.amazon.com/glue/") or [Amazon Redshift](https://aws.amazon.com/redshift/ "https://aws.amazon.com/redshift/") can be used for data partitioning, while Amazon S3 provides
+built-in data compression options.
+
+**[CMCOST\_BP1.3] Choose the right services by evaluating storage
+characteristics and requirements for your use case.**
+
+Vehicles generate a massive amount of data, which needs to be stored for various reasons,
+including compliance, regulatory requirements, and future analysis. As the volume of data
+grows, so does the cost of storing and managing it. Cold storage, such as Amazon Glacier, is a
+popular option for storing data that is infrequently accessed but needs to be retained for
+the long term. However, due to factors like cost of retrieving the data from cold storage,
+the overall data retention cost can be high. Effectively managing this data is crucial for
+enhancing vehicle performance, improving user experiences, and enabling data-driven
+decision-making.
+
+Evaluate velocity, the volume of data coming and data retention/transfer cost from vehicles
+when selecting storage services.
+
+In this scenario, using a general-purpose database might be
+inefficient and costly. It would require constant maintenance
+to handle the high volume of incoming data and manage the
+expiration of outdated information.
+
+- For vehicle's short living time series data consider purpose-built database
+  service, [Amazon Timestream](https://aws.amazon.com/timestream/ "https://aws.amazon.com/timestream/"). Imagine a fleet
+  management system for a ride-sharing company. This system tracks the GPS coordinates,
+  speed, and passenger information of each vehicle in real-time. However, this data is
+  highly time-sensitive and loses its relevance after a short period, typically a few
+  days.
+- Here's where Amazon Timestream comes into play. It is optimized for precisely this type
+  of data. It's designed to handle large volumes of time series data efficiently,
+  automatically managing the retention of old data and ensuring high availability for
+  querying recent information. By employing Amazon Timestream, the ride-sharing company can
+  effectively manage their vehicle data without the overhead of handling it in a
+  traditional database. This not only leads to cost savings but also allows for smoother
+  and more efficient operations.
+- Your vehicle data use case may experience varying data
+  loads over time. Consider services like Amazon Aurora or
+  Amazon Redshift for scalable and flexible database
+  solutions that can adapt to changing demands without
+  compromising performance.
+- For data at lower scale of time, devices, or other
+  characteristics—Consider Amazon DynamoDB or Amazon Aurora
+  for short-term historical data. Use your data lifecycle
+  policies to optimize what is kept in the short-term
+  storage.
+- Amazon DynamoDB is a fully managed NoSQL database service
+  that is designed to handle low-scale to high-scale
+  workloads. It provides fast and predictable performance
+  with seamless scalability.
+  **[CMCOST\_BP1.4] Sanitize your data and ensure that only essential
+  and accurate data is transferred to the cloud.**
+
+Collecting only the necessary data is important for several
+reasons because it helps to reduce the amount of irrelevant
+data that can accumulate over time, which can clutter the
+system and make it more difficult to extract useful insights.
+Data sanitizing is a critical step in ensuring that only
+essential and accurate information is transferred to the
+cloud. This process involves identifying, cleansing, and
+validating data before it's sent for storage or processing in
+the cloud.
+
+For example, outliers in GPS coordinates that are far from regular routes might be
+flagged for further validation or omitted. Additionally, sensitive information like vehicle
+identification numbers or proprietary algorithms may be anonymized or encrypted to protect
+intellectual property and user privacy.
+
+By sanitizing the data before integration with the cloud, the
+connected vehicle system optimizes bandwidth usage, reduces
+storage costs, and ensures that the information stored in the
+cloud is of the highest quality and security. This practice is
+fundamental in building a robust and efficient connected
+vehicle ecosystem.
+
+Process data at edge as much as possible:
+
+- Edge analytics and decision making: Use edge computing platforms to perform
+  analytics and real-time decision-making directly in the vehicle. Implement AWS Lambda
+  functions on the edge to process data locally, enabling immediate actions without
+  incurring cloud round-trip latency.
+- Prioritize critical or high-priority data for immediate
+  transmission to the cloud, while less time-sensitive data
+  can be sent during periods of lower network activity. This
+  strategy optimizes data transfer efficiency and reduces
+  cloud processing costs.
+- Priority data (high sensitivity):
+  - Scenario: A vehicle detects an imminent collision with
+    an obstacle or another vehicle.
+  - Response: This data is considered critical and
+    requires immediate transmission to the cloud. The
+    system prioritizes it for real-time analysis and
+    action, ensuring the safety of the vehicle and its
+    surroundings.
+
+- Routine telemetry (lower sensitivity):
+  - Scenario: The vehicle's telemetry data, including GPS
+    location, fuel levels, and tire pressure, is collected
+    for regular maintenance and analysis.
+  - Response: This data, while important, isn't as
+    time-sensitive. It can be queued for transmission
+    during periods of lower network activity, such as
+    during off-peak hours or when the vehicle is in a
+    low-traffic area.
+    Data filtering and pre-processing:
+
+- Implement data filtering and pre-processing directly in
+  the vehicle's onboard systems. Use edge computing
+  solutions to analyze and filter out irrelevant or
+  redundant data at the source. This reduces the data volume
+  that needs to be sent to the cloud, leading to cost
+  savings on data transfer fees.
+- Aggregate data locally in the vehicle to reduce the number
+  of individual data packets sent to the cloud. Apply data
+  compression techniques to further optimize data transfer,
+  minimizing data transmission costs.
+  Use [cost calculators](https://calculator.aws/#/ "https://calculator.aws/#/") to model
+  different approaches for message size and count.
+
+- The [AWS Pricing Calculator](https://calculator.aws/#/ "https://calculator.aws/#/")can estimate costs for specific
+  message sizes, traffic, and operations.
+
+| CMCOST_2: How do you optimize your network consumption and interactions between<br>vehicles and cloud? |
+| ------------------------------------------------------------------------------------------------------ |
+|                                                                                                        |
+
+With an expansive amount of data collected from vehicles,
+optimizing network consumption and payload size is essential
+in to ensure efficient and effective data communication
+between vehicles and the cloud. With limited bandwidth and the
+need for real-time data processing, optimizing network
+consumption reduces data usage and reduces costs. Lightweight
+and efficient protocols such MQTT, data filtering,
+compression, caching, quality of service, and optimized
+routing is some of the best practices that can be employed.
+
+- MQTT (Message Queuing Telemetry Transport): MQTT is a
+  lightweight and efficient messaging protocol designed for
+  devices with limited processing power or bandwidth. It's
+  based on a publish-subscribe model, allowing efficient
+  communication between devices and the server.
+  For example, in a connected vehicle system, if various sensors need to send data to
+  the cloud, MQTT can be employed. It minimizes overhead and ensures reliable communication.
+
+- Data filtering: Data filtering involves the process of selectively extracting
+  relevant information from a larger dataset based on predefined criteria. This reduces
+  the volume of data that needs to be transmitted.
+
+For example, in a fleet of vehicles, not all sensor data may be equally important.
+Filtering out non-critical data ensures that only essential information is transmitted,
+saving bandwidth.
+
+- Compression: Compression reduces the size of data before transmission, decreasing
+  the amount of bandwidth required. This is particularly useful for transmitting large
+  datasets efficiently.
+
+For example, in connected vehicles, images or video feeds from cameras can be
+compressed before sending them to the cloud, reducing the amount of data that needs to
+be transmitted.
+
+- Caching: Caching involves storing frequently accessed data locally on the device or
+  in a nearby server. This minimizes the need for repeated requests to the cloud, reducing
+  latency and bandwidth usage.
+
+For example, in a connected vehicle, frequently requested map data or software
+updates can be cached locally, reducing the need for continual downloads.
+
+- Quality of Service (QoS): QoS defines the level of service reliability and delivery
+  assurance during data transmission. It ensures that data is delivered accurately and
+  reliably.
+
+For example, in a connected vehicle scenario, a high QoS level might be assigned to
+safety-critical data like collision warnings, while less critical telemetry data might
+have a lower QoS requirement.
+
+- Optimized routing: Optimized routing involves selecting the most efficient path for
+  data transmission to minimize delays and reduce congestion on the network.
+
+For example, in a fleet of vehicles, data can be routed through the most stable and
+low-latency network connections available, ensuring timely delivery.
+
+By implementing these practices, connected vehicle solutions
+can operate seamlessly and effectively, improving overall
+efficiency.
+
+**[CMCOST\_BP2.1] Compress and aggregate data whenever possible to reduce
+the amount of data that needs to be transmitted over the network.**
+
+Data filtering and aggregation:
+
+- Implement data filtering and aggregation logic at the edge to send only relevant
+  and summarized data to the cloud. Use AWS IoT Core rules engine to perform data
+  transformations and filtering before transmitting data to the target systems for storage
+  or consumption by microservice.
+- A common way to achieve better data transmission
+  efficiency is by combining a series of measurements into a
+  single message enabling also more efficient compression as
+  the volume of the message increases. You can leverage
+  [AWS IoT GreenGrass v2 components](https://aws.amazon.com/blogs/iot/5-tips-to-build-aws-iot-greengrass-v2-components/ "https://aws.amazon.com/blogs/iot/5-tips-to-build-aws-iot-greengrass-v2-components/") to implement your
+  aggregation function at edge.
+  Compress data whenever possible to reduce size of data transmitted.
+
+- Techniques such as `gzip` compression can reduce significantly the
+  size of data being sent. You can use [AWS IoT GreenGrass
+  v2 components](https://aws.amazon.com/blogs/iot/5-tips-to-build-aws-iot-greengrass-v2-components/ "https://aws.amazon.com/blogs/iot/5-tips-to-build-aws-iot-greengrass-v2-components/") to implement your compression function at edge.
+- You can also use Protocol Buffers (protobuf – binary format) that provides an
+  efficient structured compressing mechanism. You can use [AWS IoT Core and AWS Lambda](https://aws.amazon.com/blogs/iot/protobuf_with_aws_iot/ "https://aws.amazon.com/blogs/iot/protobuf_with_aws_iot/") to ingest and
+  process Protobuf for consumption.
+- If using AWS IoT FleetWise for data collection you can [configure your
+  campaign](../../../iot-fleetwise/latest/APIReference/API_CreateCampaign.md "../../../iot-fleetwise/latest/APIReference/API_CreateCampaign.md") to compress signals before transmitting data using
+  `SNAPPY`.
+
+**[CMCOST\_BP2.2] Adjust collection frequency depending on the
+context.**
+
+Evaluate and adjust the frequency of data collection depending
+on functional and business need. By adjusting the collection
+frequency of data from a connected vehicle based on the
+context, you can minimize unnecessary data transmission and
+optimize cloud resources. This approach helps to ensure that
+the most relevant and critical data is delivered to the AWS Cloud while reducing data transfer costs and improving overall
+data efficiency.
+
+- Adjust frequency as needed based on events or context in
+  the vehicle such as increased frequency telemetry when
+  operating in autonomous mode. You can configure
+  [Rules-based
+  collection campaign](../../../iot-fleetwise/latest/developerguide/campaigns.md "../../../iot-fleetwise/latest/developerguide/campaigns.md") in AWS IoT FleetWise or develop
+  an
+  [AWS IoT GreenGrass v2 component](https://aws.amazon.com/blogs/iot/5-tips-to-build-aws-iot-greengrass-v2-components/ "https://aws.amazon.com/blogs/iot/5-tips-to-build-aws-iot-greengrass-v2-components/") that dynamically adapt
+  collection frequency depending on an event in the vehicle.
+  Similarly, you can leverage same event-based collection
+  schemes to send to the cloud telemetry only if an event
+  happens or a rule is matched such collecting weather
+  telemetry only if engine overheat.
+- Define threshold values for each event or context
+  parameter that determine when the data collection
+  frequency should be adjusted. Set triggers to respond to
+  changes in the context, such as exceeding a certain speed
+  limit or encountering specific driving conditions.
+  **[CMCOST\_BP2.3] Choose the right communication service and
+  configuration depending on the use case.**
+
+Use MQTT 5 protocol properties to optimize bandwidth.
+
+- MQTT Protocol for Lightweight Communication: Use the
+  lightweight MQTT (Message Queuing Telemetry Transport)
+  protocol for communication between vehicles and AWS IoT Core. MQTT is efficient in terms of bandwidth and is
+  well-suited for IoT applications.
+- You can use MQTT 5 properties to further optimize the bandwidth between vehicle
+  and backend. You can set "Message Expiry Interval" to not hold messages indefinitely on
+  the client when client disconnects, this should be done in particular for messages that
+  have a performance expectations like Remote Operations that should be very short lived.
+- AWS IoT Core device shadow: Use the AWS IoT Core device shadow to store and synchronize
+  the current state of vehicles with the cloud (fleet management systems or user mobile
+  devices). This enables vehicles to retrieve the latest desired state from the cloud
+  without continual communication, reducing network consumption.
+  Optimize routing and use caching mechanisms:
+
+- **Caching:** Caching involves storing frequently accessed
+  data locally on the device or in a nearby server. This minimizes the need for repeated
+  requests to the cloud, reducing latency and bandwidth usage. Example: In a connected
+  vehicle, frequently requested map data or software updates can be cached locally,
+  reducing the need for continual downloads.
+- **Quality of Service (QoS):** QoS defines the level of
+  service reliability and delivery assurance during data transmission. It ensures that
+  data is delivered accurately and reliably. Example: In a connected vehicle scenario, a
+  high QoS level might be assigned to safety- critical data like collision warnings, while
+  less critical telemetry data might have a lower QoS requirement.
+- **Optimized routing:** Optimized routing involves selecting
+  the most efficient path for data transmission to minimize delays and reduce congestion
+  on the network. Example: In a fleet of vehicles, data can be routed through the most
+  stable and low-latency network connections available, ensuring timely delivery.
