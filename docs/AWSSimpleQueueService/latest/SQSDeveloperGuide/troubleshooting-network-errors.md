@@ -30,7 +30,7 @@ Example: telnet sqs.us-east-1.amazonaws.com 443
 
 - **Amazon Virtual Private Cloud (Amazon VPC) endpoints**
 
-If you access Amazon SQS through an Amazon VPC endpoint, then the endpoints security group must
+ If you access Amazon SQS through an Amazon VPC endpoint, then the endpoints security group must
 allow inbound traffic to the clients security group on port 443. The network ACL
 associated with the subnet of the VPC endpoint must have this configuration:
 

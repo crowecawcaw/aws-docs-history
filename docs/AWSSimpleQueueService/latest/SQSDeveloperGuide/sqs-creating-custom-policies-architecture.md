@@ -23,7 +23,7 @@ policies.
 Requesters and their incoming requests to the AWS
 service.
 
-![In the previous diagram, section number five.](images/number-5-red.png)
+![In the previous diagram, section number five.](/images/AWSSimpleQueueService/latest/SQSDeveloperGuide/images/number-5-red.png)
 The access policy language evaluation code. This is the set of code
 within the AWS service that evaluates incoming requests against the applicable
 policies and determines whether the requester is allowed access to the

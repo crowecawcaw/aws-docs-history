@@ -20,33 +20,36 @@ condition context keys available in IAM](../../../IAM/latest/UserGuide/reference
 
 Use the scroll bars to see the rest of the table.
 
-| Amazon Simple Queue Service API and required permissions for actions | Amazon SQS actions               | Required permissions                                    | Resource                                                |
-| -------------------------------------------------------------------- | -------------------------------- | ------------------------------------------------------- | ------------------------------------------------------- |
-| `AddPermission`                                                      | `sqs:AddPermission`              | `arn:aws:sqs:`region`:`account_id`:`queue_name``        |
-| `CancelMessageMoveTask`                                              | `sqs:CancelMessageMoveTask`      | `arn:aws:sqs:`region`:`account_id`:`dlq_queue_name``    |
-| `sqs:ReceiveMessage`                                                 |                                  | `sqs:DeleteMessage`                                     |
+| Amazon Simple Queue Service API and required permissions for actions | Amazon SQS actions                                      | Required permissions                                    | Resource |
+| -------------------------------------------------------------------- | ------------------------------------------------------- | ------------------------------------------------------- | -------- |
+| `AddPermission`                                                      | `sqs:AddPermission`                                     | `arn:aws:sqs:`region`:`account_id`:`queue_name``        |
+| `CancelMessageMoveTask`                                              | `sqs:CancelMessageMoveTask`                             | `arn:aws:sqs:`region`:`account_id`:`dlq_queue_name``    |
+| `sqs:ReceiveMessage`                                                 |
+| `sqs:DeleteMessage`                                                  |
 | `sqs:GetQueueAttributes`                                             |
-| `ChangeMessageVisibility`                                            | `sqs:ChangeMessageVisibility`    | `arn:aws:sqs:`region`:`account_id`:`queue_name``        |
+| `ChangeMessageVisibility`                                            | `sqs:ChangeMessageVisibility`                           | `arn:aws:sqs:`region`:`account_id`:`queue_name``        |
 | `ChangeMessageVisibilityBatch`                                       |
-| `CreateQueue`                                                        | `sqs:CreateQueue`                | `arn:aws:sqs:`region`:`account_id`:`queue_name``        |
-| `DeleteMessage`                                                      | `sqs:DeleteMessage`              | `arn:aws:sqs:`region`:`account_id`:`queue_name``        |
+| `CreateQueue`                                                        | `sqs:CreateQueue`                                       | `arn:aws:sqs:`region`:`account_id`:`queue_name``        |
+| `DeleteMessage`                                                      | `sqs:DeleteMessage`                                     | `arn:aws:sqs:`region`:`account_id`:`queue_name``        |
 | `DeleteMessageBatch`                                                 |
-| `DeleteQueue`                                                        | `sqs:DeleteQueue`                | `arn:aws:sqs:`region`:`account_id`:`queue_name``        |
-| `GetQueueAttributes`                                                 | `sqs:GetQueueAttributes`         | `arn:aws:sqs:`region`:`account_id`:`queue_name``        |
-| `GetQueueUrl`                                                        | `sqs:GetQueueUrl`                | `arn:aws:sqs:`region`:`account_id`:`queue_name``        |
-| `ListDeadLetterSourceQueues`                                         | `sqs:ListDeadLetterSourceQueues` | `arn:aws:sqs:`region`:`account_id`:`queue_name``        |
-| `ListMessageMoveTasks`                                               | `sqs:ListMessageMoveTasks`       | `arn:aws:sqs:`region`:`account_id`:`dlq_queue_name``    |
+| `DeleteQueue`                                                        | `sqs:DeleteQueue`                                       | `arn:aws:sqs:`region`:`account_id`:`queue_name``        |
+| `GetQueueAttributes`                                                 | `sqs:GetQueueAttributes`                                | `arn:aws:sqs:`region`:`account_id`:`queue_name``        |
+| `GetQueueUrl`                                                        | `sqs:GetQueueUrl`                                       | `arn:aws:sqs:`region`:`account_id`:`queue_name``        |
+| `ListDeadLetterSourceQueues`                                         | `sqs:ListDeadLetterSourceQueues`                        | `arn:aws:sqs:`region`:`account_id`:`queue_name``        |
+| `ListMessageMoveTasks`                                               | `sqs:ListMessageMoveTasks`                              | `arn:aws:sqs:`region`:`account_id`:`dlq_queue_name``    |
 | `sqs:GetQueueAttributes`                                             |
-| `ListQueues`                                                         | `sqs:ListQueues`                 | `arn:aws:sqs:`region`:`account_id`:*`                   |
-| `ListQueueTags`                                                      | `sqs:ListQueueTags`              | `arn:aws:sqs:`region`:`account_id`:`queue_name``        |
-| `PurgeQueue`                                                         | `sqs:PurgeQueue`                 | `arn:aws:sqs:`region`:`account_id`:`queue_name``        |
-| `ReceiveMessage`                                                     | `sqs:ReceiveMessage`             | `arn:aws:sqs:`region`:`account_id`:`queue_name``        |
-| `RemovePermission`                                                   | `sqs:RemovePermission`           | `arn:aws:sqs:`region`:`account_id`:`queue_name``        |
-| `SendMessage`                                                        | `sqs:SendMessage`                | `arn:aws:sqs:`region`:`account_id`:`queue_name``        |
+| `ListQueues`                                                         | `sqs:ListQueues`                                        | `arn:aws:sqs:`region`:`account_id`:*`                   |
+| `ListQueueTags`                                                      | `sqs:ListQueueTags`                                     | `arn:aws:sqs:`region`:`account_id`:`queue_name``        |
+| `PurgeQueue`                                                         | `sqs:PurgeQueue`                                        | `arn:aws:sqs:`region`:`account_id`:`queue_name``        |
+| `ReceiveMessage`                                                     | `sqs:ReceiveMessage`                                    | `arn:aws:sqs:`region`:`account_id`:`queue_name``        |
+| `RemovePermission`                                                   | `sqs:RemovePermission`                                  | `arn:aws:sqs:`region`:`account_id`:`queue_name``        |
+| `SendMessage`                                                        | `sqs:SendMessage`                                       | `arn:aws:sqs:`region`:`account_id`:`queue_name``        |
 | `SendMessageBatch`                                                   |
-| `SetQueueAttributes`                                                 | `sqs:SetQueueAttributes`         | `arn:aws:sqs:`region`:`account_id`:`queue_name``        |
-| `StartMessageMoveTask`                                               | `sqs:StartMessageMoveTask`       | `arn:aws:sqs:`region`:`account_id`:`source_queue_name`` |
-| `sqs:ReceiveMessage`                                                 |                                  | `sqs:DeleteMessage`                                     |
-| `sqs:GetQueueAttributes`                                             |                                  | `sqs:SendMessage`                                       | `arn:aws:sqs:`region`:`account_id`:`source_queue_name`` |
-| `TagQueue`                                                           | `sqs:TagQueue`                   | `arn:aws:sqs:`region`:`account_id`:`queue_name``        |
-| `UntagQueue`                                                         | `sqs:UntagQueue`                 | `arn:aws:sqs:`region`:`account_id`:`queue_name``        |
+| `SetQueueAttributes`                                                 | `sqs:SetQueueAttributes`                                | `arn:aws:sqs:`region`:`account_id`:`queue_name``        |
+| `StartMessageMoveTask`                                               | `sqs:StartMessageMoveTask`                              | `arn:aws:sqs:`region`:`account_id`:`source_queue_name`` |
+| `sqs:ReceiveMessage`                                                 |
+| `sqs:DeleteMessage`                                                  |
+| `sqs:GetQueueAttributes`                                             |
+| `sqs:SendMessage`                                                    | `arn:aws:sqs:`region`:`account_id`:`source_queue_name`` |
+| `TagQueue`                                                           | `sqs:TagQueue`                                          | `arn:aws:sqs:`region`:`account_id`:`queue_name``        |
+| `UntagQueue`                                                         | `sqs:UntagQueue`                                        | `arn:aws:sqs:`region`:`account_id`:`queue_name``        |

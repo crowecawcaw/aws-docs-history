@@ -34,7 +34,7 @@ table below.
 The following is a list of SDK versions across language variants for AWS JSON protocol for use with Amazon SQS APIs:
 
 | Language        | SDK client repository                                                                                  | Required SDK client version                                                                                                                                                                                                | Guide                                                                                                                              |
-| --------------- | ------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| --------------- | ------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
 | C++             | [aws/aws-sdk-cpp](https://github.com/aws/aws-sdk-cpp "https://github.com/aws/aws-sdk-cpp")             | [1.11.98](https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.198 "https://github.com/aws/aws-sdk-cpp/releases/tag/1.11.198")                                                                                             | [AWS SDK for C++](https://aws.amazon.com/sdk-for-cpp/ "https://aws.amazon.com/sdk-for-cpp/")                                       |
 | Golang 1.x      | [aws/aws-sdk-go](https://github.com/aws/aws-sdk-go "https://github.com/aws/aws-sdk-go")                | [v1.47.7](https://github.com/aws/aws-sdk-go/releases/tag/v1.47.7 "https://github.com/aws/aws-sdk-go/releases/tag/v1.47.7")                                                                                                 | [AWS SDK for Go](https://aws.amazon.com/sdk-for-go/ "https://aws.amazon.com/sdk-for-go/")                                          |
 | Golang 2.x      | [aws/aws-sdk-go-v2](https://github.com/aws/aws-sdk-go-v2 "https://github.com/aws/aws-sdk-go-v2")       | [v1.28.0](https://github.com/aws/aws-sdk-go-v2/blob/release-2023-11-09/service/sqs/CHANGELOG.md#v1270-2023-11-09 "https://github.com/aws/aws-sdk-go-v2/blob/release-2023-11-09/service/sqs/CHANGELOG.md#v1270-2023-11-09") | [AWS SDK for Go V2](https://aws.github.io/aws-sdk-go-v2/docs/ "https://aws.github.io/aws-sdk-go-v2/docs/")                         |
@@ -46,5 +46,66 @@ The following is a list of SDK versions across language variants for AWS JSON pr
 | PHP             | [aws/aws-sdk-php](https://github.com/aws/aws-sdk-php "https://github.com/aws/aws-sdk-php")             | [3.285.2](https://github.com/aws/aws-sdk-php/releases/tag/3.285.2 "https://github.com/aws/aws-sdk-php/releases/tag/3.285.2")                                                                                               | [AWS SDK for PHP](https://aws.amazon.com/sdk-for-php/ "https://aws.amazon.com/sdk-for-php/")                                       |
 | Python-boto3    | [boto/boto3](https://github.com/boto/boto3 "https://github.com/boto/boto3")                            | [1.28.82](https://github.com/boto/boto3/releases/tag/1.28.82 "https://github.com/boto/boto3/releases/tag/1.28.82")                                                                                                         | [AWS SDK for Python (Boto3)](https://aws.amazon.com/sdk-for-python/ "https://aws.amazon.com/sdk-for-python/")                      |
 | Python-botocore | [boto/botocore](https://github.com/boto/botocore/ "https://github.com/boto/botocore/")                 | [1.31.82](https://github.com/boto/botocore/releases/tag/1.31.82 "https://github.com/boto/botocore/releases/tag/1.31.82")                                                                                                   | [AWS SDK for Python (Boto3)](https://aws.amazon.com/sdk-for-python/ "https://aws.amazon.com/sdk-for-python/")                      |
-| awscli          | [AWS CLI](https://github.com/aws/aws-cli "https://github.com/aws/aws-cli")                             | [1.29.82](https://github.com/aws/aws-cli/releases/tag/1.29.82 "https://github.com/aws/aws-cli/releases/tag/1.29.82")                                                                                                       | [AWSCommand Line Interface](https://aws.amazon.com/cli/ "https://aws.amazon.com/cli/")                                             |
-| Ruby            | [aws/aws-sdk-ruby](https://github.com/aws/aws-sdk-ruby "https://github.com/aws/aws-sdk-ruby")          | [1.67.0](https://rubygems.org/gems/aws-sdk-sqs/versions/1.67.0 "https://rubygems.org/gems/aws-sdk-sqs/versions/1.67.0")                                                                                                    | [AWS SDK for Ruby](https://aws.amazon.com/sdk-for-ruby/ "https://aws.amazon.com/sdk-for-ruby/")                                    | ## What are the risks of enabling JSON protocol for my Amazon SQS workloads? If you are using a custom implementation of AWS SDK or a combination of custom clients and AWS SDK to interact with Amazon SQS that generates AWS Query based (aka XML-based) responses, it may be incompatible with AWS JSON protocol. If you encounter any issues, contact AWS Support. ## What if I am already on the latest AWS SDK version, but my open sourced solution does not support JSON? You must change your SDK version to the version previous to what you are using. See [How do I get started with AWS JSON protocols for Amazon SQS?](#json-protocol-getting-started "#json-protocol-getting-started") for more information. AWS SDK versions listed in [How do I get started with AWS JSON protocols for Amazon SQS?](#json-protocol-getting-started "#json-protocol-getting-started") uses JSON wire protocol for Amazon SQS APIs. If you change your AWS SDK to the previous version, your Amazon SQS APIs will use the AWS query. ## What languages are supported for AWS JSON protocol used in Amazon SQS APIs? Amazon SQS supports all language variants where AWS SDKs are generally available (GA). Currently, we don't support Kotlin, Rust, or Swift. To learn more about other language variants, see [Tools to Build on AWS](https://aws.amazon.com/developer/tools/ "https://aws.amazon.com/developer/tools/"). ## What regions are supported for AWS JSON protocol used in Amazon SQS APIs Amazon SQS supports AWS JSON protocol in all [AWS regions](../../../general/latest/gr/sqs-service.md "../../../general/latest/gr/sqs-service.md") where Amazon SQS is available. ## What latency improvements can I expect when upgrading to the specified AWS SDK versions for Amazon SQS using the AWS JSON protocol? AWS JSON protocol is more efficient at serialization and deserialization of requests and responses when compared to AWS query protocol. Based on AWS performance tests for a 5 KB message payload, JSON protocol for Amazon SQS reduces end-to-end message processing latency by up to 23%, and reduces application client side CPU and memory usage. ## Will AWS query protocol be deprecated? AWS query protocol will continue to be supported. You can continue using AWS query protocol as long as your AWS SDK version is set any previous version other that what is listed in [How do I get started with AWS JSON protocols for Amazon SQS](#json-protocol-getting-started "#json-protocol-getting-started"). ## Where can I find more information about AWS JSON protocol? You can find more information about JSON protocol at [AWS JSON 1.0 protocol](https://smithy.io/2.0/aws/protocols/aws-json-1_0-protocol.html "https://smithy.io/2.0/aws/protocols/aws-json-1_0-protocol.html") in the _Smithy_ documentation. For more about Amazon SQS API requests using AWS JSON protocol, see [Making query API requests using AWS JSON protocol in Amazon SQS](sqs-making-api-requests-json.md "sqs-making-api-requests-json.md"). |
+| awscli          | [AWS<br>CLI](https://github.com/aws/aws-cli "https://github.com/aws/aws-cli")                          | [1.29.82](https://github.com/aws/aws-cli/releases/tag/1.29.82 "https://github.com/aws/aws-cli/releases/tag/1.29.82")                                                                                                       | [AWSCommand Line Interface](https://aws.amazon.com/cli/ "https://aws.amazon.com/cli/")                                             |
+| Ruby            | [aws/aws-sdk-ruby](https://github.com/aws/aws-sdk-ruby "https://github.com/aws/aws-sdk-ruby")          | [1.67.0](https://rubygems.org/gems/aws-sdk-sqs/versions/1.67.0 "https://rubygems.org/gems/aws-sdk-sqs/versions/1.67.0")                                                                                                    | [AWS SDK for Ruby](https://aws.amazon.com/sdk-for-ruby/ "https://aws.amazon.com/sdk-for-ruby/")                                    |
+
+## What are the risks of enabling JSON protocol
+
+for my Amazon SQS workloads?
+
+If you are using a custom implementation of AWS SDK or a
+combination of custom clients and AWS SDK to interact with Amazon SQS that
+generates AWS Query based (aka XML-based) responses, it may be
+incompatible with AWS JSON protocol. If you encounter any issues,
+contact AWS Support.
+
+## What if I am already on the
+
+latest AWS SDK version, but my open sourced solution does not
+support JSON?
+
+You must change your SDK version to the version previous to what you are using.
+See [How do I get started with AWS JSON protocols for Amazon SQS?](#json-protocol-getting-started "#json-protocol-getting-started") for more information. AWS SDK versions listed in [How do I get started with AWS JSON protocols for Amazon SQS?](#json-protocol-getting-started "#json-protocol-getting-started") uses JSON wire protocol for
+Amazon SQS APIs. If you change your AWS SDK to the previous version, your
+Amazon SQS APIs will use the AWS query.
+
+## What languages are supported for
+
+AWS JSON protocol used in Amazon SQS APIs?
+
+Amazon SQS supports all language variants where AWS SDKs are generally
+available (GA). Currently, we don't support Kotlin, Rust, or Swift. To learn more
+about other language variants, see [Tools to Build on AWS](https://aws.amazon.com/developer/tools/ "https://aws.amazon.com/developer/tools/").
+
+## What regions are supported for
+
+AWS JSON protocol used in Amazon SQS APIs
+
+Amazon SQS supports AWS JSON protocol in all [AWS regions](../../../general/latest/gr/sqs-service.md "../../../general/latest/gr/sqs-service.md")
+where Amazon SQS is available.
+
+## What latency improvements can I expect
+
+when upgrading to the specified AWS SDK versions for Amazon SQS using
+the AWS JSON protocol?
+
+AWS JSON protocol is more efficient at serialization and
+deserialization of requests and responses when compared to AWS query
+protocol. Based on AWS performance tests for a 5 KB message payload,
+JSON protocol for Amazon SQS reduces end-to-end message processing latency by up to 23%,
+and reduces application client side CPU and memory usage.
+
+## Will AWS query protocol be
+
+deprecated?
+
+AWS query protocol will continue to be supported. You can continue
+using AWS query protocol as long as your AWS SDK
+version is set any previous version other that what is listed in [How do I get started with AWS JSON protocols for Amazon SQS](#json-protocol-getting-started "#json-protocol-getting-started").
+
+## Where can I find more information about
+
+AWS JSON protocol?
+
+You can find more information about JSON protocol at [AWS JSON 1.0 protocol](https://smithy.io/2.0/aws/protocols/aws-json-1_0-protocol.html "https://smithy.io/2.0/aws/protocols/aws-json-1_0-protocol.html") in the _Smithy_ documentation. For more about Amazon SQS API requests using
+AWS JSON protocol, see [Making query API requests using AWS JSON protocol in Amazon SQS](sqs-making-api-requests-json.md "sqs-making-api-requests-json.md").
