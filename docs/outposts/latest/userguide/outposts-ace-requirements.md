@@ -85,9 +85,9 @@ installation.
 
 These are the power requirements for an ACE rack.
 
-| Requirement                                 | Specification                                                                                                   |
-| ------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
-| **AC line voltage**                         | Single-phase 200 to 240 VAC; 50 or 60 Hz                                                                        |
-| **Power consumption**                       | 10 kVA single phase (AA+BB)                                                                                     |
-| **AC protection (upstream power breakers)** | For 2N input (redundant) only: C-curve, D-curve, or K-curve circuit breaker. B-curve or lower is not supported. |
-| **AC inlet type (receptacle)**              | IEC60309 or L6-30P whip connector types.                                                                        |
+| Requirement                                 | Specification                                                                                                      |
+| ------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| **AC line voltage**                         | Single-phase 200 to 240 VAC; 50 or 60 Hz                                                                           |
+| **Power consumption**                       | 10 kVA single phase (AA+BB)                                                                                        |
+| **AC protection (upstream power breakers)** | For 2N input (redundant) only: C-curve, D-curve, or K-curve circuit breaker.<br>B-curve or lower is not supported. |
+| **AC inlet type (receptacle)**              | IEC60309 or L6-30P whip connector types.                                                                           |
