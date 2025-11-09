@@ -124,7 +124,72 @@ The interaction between the two settings is that a setting of `BLOCK` always win
 lists some example configurations and their effective origin control settings.
 
 | Package origin control setting | Package group origin control setting | Effective origin control setting |
-| ------------------------------ | ------------------------------------ | -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------------------------ | ------------------------------------ | -------------------------------- |
 | PUBLISH: ALLOWUPSTREAM: ALLOW  | PUBLISH: ALLOWUPSTREAM: ALLOW        | PUBLISH: ALLOWUPSTREAM: ALLOW    |
 | PUBLISH: BLOCKUPSTREAM: ALLOW  | PUBLISH: ALLOWUPSTREAM: ALLOW        | PUBLISH: BLOCKUPSTREAM: ALLOW    |
-| PUBLISH: ALLOWUPSTREAM: ALLOW  | PUBLISH: ALLOWUPSTREAM: BLOCK        | PUBLISH: ALLOWUPSTREAM: BLOCK    | What this means is that a package with origin settings of **Publish: ALLOW** and **Upstream: ALLOW**, then it is effectively deferring to the associated package group's origin control settings. ## Editing package origin controls Package origin controls are configured automatically based on how the first package version of a package is added to the repository, for more information see [Default package origin control settings](#default-package-origin-control-settings "#default-package-origin-control-settings"). To add or edit package origin controls for a package in a CodeArtifact repository, perform the steps in the following procedure. ###### To add or edit package origin controls (console) 1. Open the AWS CodeArtifact console at [https://console.aws.amazon.com/codesuite/codeartifact/home](https://console.aws.amazon.com/codesuite/codeartifact/home "https://console.aws.amazon.com/codesuite/codeartifact/home"). 2. In the navigation pane, choose **Repositories**, and choose the repository that contains the package you want to edit. 3. In the **Packages** table, search for and select the package you want to edit. 4. From the package summary page, in **Origin controls**, choose **Edit**. 5. In **Edit origin controls**, choose the package origin controls you want to set for this package. Both package origin control settings, Publish and Upstream, must be set at the same time. <br>• To allow publishing package versions directly, in **Publish**, choose **Allow**. To block publishing of package versions, choose **Block**. <br>• To allow ingestion of packages from external repositories and pulling packages from upstream repositories, in **Upstream sources**, choose **Allow**. To block all ingestion and pulling of package versions from external and upstream repositories, choose **Block**. ###### To add or edit package origin controls (AWS CLI) 1. If you haven't, configure the AWS CLI by following the steps in [Setting up with AWS CodeArtifact](get-set-up-for-codeartifact.md "get-set-up-for-codeartifact.md"). 2. Use the `put-package-origin-configuration` command to add or edit package origin controls. Replace the following fields: <br>• Replace `my_domain` with the CodeArtifact domain that contains the package you want to update. <br>• Replace `my_repo` with the CodeArtifact repository that contains the package you want to update. <br>• Replace `npm` with the package format of the package you want to update. <br>• Replace `my_package` with the name of the package you want to update. <br>• Replace `ALLOW` and `BLOCK` with your desired package origin control settings. `` aws codeartifact put-package-origin-configuration --domain `my_domain` \ --repository `my_repo` --format `npm` --package `my_package` \ --restrictions publish=`ALLOW`,upstream=`BLOCK` `` ## Publishing and upstream repositories CodeArtifact doesn't allow publishing package versions that are present in reachable upstream repositories or public repositories. For example, suppose that you want to publish a Maven package `com.mycompany.mypackage:1.0` to a repository `myrepo`, and `myrepo` has an upstream repository with an external connection to Maven Central. Consider the following scenarios. 1. The package origin control settings on `com.mycompany.mypackage` are **Publish: ALLOW** and **Upstream: ALLOW**. If `com.mycompany.mypackage:1.0` is present in the upstream repository or in Maven Central, CodeArtifact rejects any attempt to publish to it in `myrepo` with a 409 conflict error. You could still publish a different version, such as `com.mycompany.mypackage:1.1`. 2. The package origin control settings on `com.mycompany.mypackage` are **Publish: ALLOW** and **Upstream: BLOCK**. You can publish any version of `com.mycompany.mypackage` to your repository that do not already exist because package versions are not reachable. 3. The package origin control settings on `com.mycompany.mypackage` are **Publish: BLOCK** and **Upstream: ALLOW**. You cannot publish any package versions directly to your repository. |
+| PUBLISH: ALLOWUPSTREAM: ALLOW  | PUBLISH: ALLOWUPSTREAM: BLOCK        | PUBLISH: ALLOWUPSTREAM: BLOCK    |
+
+What this means is that a package with origin settings of **Publish: ALLOW** and **Upstream: ALLOW**, then it
+is effectively deferring to the associated package group's origin control settings.
+
+## Editing package origin controls
+
+Package origin controls are configured automatically based on how the first package version of a package is added to the
+repository, for more information see
+[Default package origin control settings](#default-package-origin-control-settings "#default-package-origin-control-settings").
+To add or edit package origin controls for a package in a CodeArtifact repository, perform the steps in the following procedure.
+
+###### To add or edit package origin controls (console)
+
+1. Open the AWS CodeArtifact console at [https://console.aws.amazon.com/codesuite/codeartifact/home](https://console.aws.amazon.com/codesuite/codeartifact/home "https://console.aws.amazon.com/codesuite/codeartifact/home").
+2. In the navigation pane, choose **Repositories**, and choose the
+   repository that contains the package you want to edit.
+3. In the **Packages** table, search for and select the package you
+   want to edit.
+4. From the package summary page, in **Origin controls**, choose
+   **Edit**.
+5. In **Edit origin controls**, choose the package origin controls
+   you want to set for this package. Both package origin control settings, Publish and Upstream,
+   must be set at the same time.
+   - To allow publishing package versions directly, in
+     **Publish**, choose **Allow**. To block
+     publishing of package versions, choose **Block**.
+   - To allow ingestion of packages from external repositories and pulling packages from upstream repositories, in
+     **Upstream sources**, choose **Allow**.
+     To block all ingestion and pulling of package versions
+     from external and upstream repositories, choose **Block**.
+
+###### To add or edit package origin controls (AWS CLI)
+
+1. If you haven't, configure the AWS CLI by following the steps in [Setting up with AWS CodeArtifact](get-set-up-for-codeartifact.md "get-set-up-for-codeartifact.md").
+2. Use the `put-package-origin-configuration` command to add
+   or edit package origin controls. Replace the following fields:
+   - Replace `my_domain` with the CodeArtifact domain that contains the package you want to update.
+   - Replace `my_repo` with the CodeArtifact repository that contains the package you want to update.
+   - Replace `npm` with the package format of the package you want to update.
+   - Replace `my_package` with the name of the package you want to update.
+   - Replace `ALLOW` and `BLOCK` with your desired package origin control settings.
+
+```
+aws codeartifact put-package-origin-configuration --domain `my_domain` \
+--repository `my_repo` --format `npm` --package `my_package` \
+--restrictions publish=`ALLOW`,upstream=`BLOCK`
+```
+
+## Publishing and upstream
+
+repositories
+
+CodeArtifact doesn't allow publishing package versions that are present in reachable
+upstream repositories or public repositories. For example, suppose that you want to
+publish a Maven package `com.mycompany.mypackage:1.0` to a repository
+`myrepo`, and `myrepo` has an upstream repository with an
+external connection to Maven Central. Consider the following scenarios.
+
+1. The package origin control settings on `com.mycompany.mypackage` are **Publish: ALLOW** and **Upstream: ALLOW**. If `com.mycompany.mypackage:1.0` is
+   present in the upstream repository or in Maven Central, CodeArtifact rejects any attempt to
+   publish to it in `myrepo` with a 409 conflict error. You could still publish a different version, such as `com.mycompany.mypackage:1.1`.
+2. The package origin control settings on `com.mycompany.mypackage` are **Publish: ALLOW** and **Upstream: BLOCK**. You can publish
+   any version of `com.mycompany.mypackage` to your repository that do not already exist because package versions are not reachable.
+3. The package origin control settings on `com.mycompany.mypackage` are **Publish: BLOCK** and **Upstream: ALLOW**. You cannot
+   publish any package versions directly to your repository.

@@ -54,13 +54,144 @@ and correct CodeArtifact repository endpoint.
 
 The following table describes the parameters for the `login` command.
 
-| Parameter                                                                                                                                                                                                                    | Required                                                                                                                            | Description                                                                                                                                                                                                                                                                                                    |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- | --- | ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `--tool`                                                                                                                                                                                                                     | Yes                                                                                                                                 | The package manager to authenticate to. Possible values are `dotnet`, `npm`, `nuget`, `pip`, `swift` and `twine`.                                                                                                                                                                                              |
-| `--domain`                                                                                                                                                                                                                   | Yes                                                                                                                                 | The domain name that the repository belongs to.                                                                                                                                                                                                                                                                |
-| `--domain-owner`                                                                                                                                                                                                             | No                                                                                                                                  | The ID of the owner of the domain. This parameter is required if accessing a domain that is owned by an AWS account that you are not authenticated to. For more information, see [Cross-account domains](domain-overview.md#domain-overview-cross-account "domain-overview.md#domain-overview-cross-account"). |
-| `--repository`                                                                                                                                                                                                               | Yes                                                                                                                                 | The name of the repository to authenticate to.                                                                                                                                                                                                                                                                 |
-| `--duration-seconds`                                                                                                                                                                                                         | No                                                                                                                                  | The time, in seconds, that the login information is valid. The minimum value is 900\* and maximum value is 43200.                                                                                                                                                                                              |
-| `--namespace`                                                                                                                                                                                                                | No                                                                                                                                  | Associates a namespace with your repository tool.                                                                                                                                                                                                                                                              |
-| `--dry-run`                                                                                                                                                                                                                  | No                                                                                                                                  | Only print the commands that would be executed to connect your tool with your repository without making any changes to your configuration.                                                                                                                                                                     |
-| \*A value of 0 is also valid when calling `login` while assuming a role. Calling `login` with `--duration-seconds 0` creates a token with a lifetime equal to the remaining time in the session duration of an assumed role. | The following example shows how to fetch an authorization token with the `login` command. ```aws codeartifact login \ --tool`dotnet | npm                                                                                                                                                                                                                                                                                                            | nuget | pip | swift | twine`\ --domain`my_domain`\ --domain-owner`111122223333`\ --repository`my_repo` ``` For specific guidance on how to use the `login`command with npm, see [Configure and use npm with CodeArtifact](npm-auth.md "npm-auth.md"). For Python, see [Using CodeArtifact with Python](using-python.md "using-python.md"). ## Permissions required to call the`GetAuthorizationToken`API Both the`sts:GetServiceBearerToken`and the`codeartifact:GetAuthorizationToken`permissions are required to call the CodeArtifact`GetAuthorizationToken`API. To use a package manager with a CodeArtifact repository, your IAM user or role must allow`sts:GetServiceBearerToken`. While `sts:GetServiceBearerToken`can be added to a CodeArtifact domain resource policy, the permission will have no effect in that policy. ## Tokens created with the`GetAuthorizationToken`API You can call`get-authorization-token`to fetch an authorization token from CodeArtifact. ``` aws codeartifact get-authorization-token \ --domain`my_domain`\ --domain-owner`111122223333`\ --query authorizationToken \ --output text ``` You can change how long a token is valid using the`--duration-seconds`argument. The minimum value is 900 and the maximum value is 43200. The following example creates a token that will last for 1 hour (3600 seconds). ``` aws codeartifact get-authorization-token \ --domain`my_domain`\ --domain-owner`111122223333`\ --query authorizationToken \ --output text \ --duration-seconds`3600` ``` If calling `get-authorization-token`while assuming a role the token lifetime is independent of the maximum session duration of the role. You can configure the token to expire when the assumed role's session duration expires by setting`--duration-seconds`to 0. ``` aws codeartifact get-authorization-token \ --domain`my_domain`\ --domain-owner`111122223333`\ --query authorizationToken \ --output text \ --duration-seconds`0` ``` See the following documentation for more information: <br>• For guidance on tokens and environment variables, see [Pass an auth token using an environment variable](#env-var "#env-var"). <br>• For Python users, see [Configure pip without the login command](python-configure-pip.md#python-configure-without-pip "python-configure-pip.md#python-configure-without-pip") or [Configure and use twine with CodeArtifact](python-configure-twine.md "python-configure-twine.md"). <br>• For Maven users, see [Use CodeArtifact with Gradle](maven-gradle.md "maven-gradle.md") or [Use CodeArtifact with mvn](maven-mvn.md "maven-mvn.md"). <br>• For npm users, see [Configuring npm without using the login command](npm-auth.md#configuring-npm-without-using-the-login-command "npm-auth.md#configuring-npm-without-using-the-login-command"). ## Pass an auth token using an environment variable AWS CodeArtifact uses authorization tokens vended by the `GetAuthorizationToken`API to authenticate and authorize requests from build tools such as Maven and Gradle. For more information on these auth tokens, see [Tokens created with the GetAuthorizationToken API](#get-auth-token-api "#get-auth-token-api"). You can store these auth tokens in an environment variable that can be read by a build tool to obtain the token it needs to fetch packages from a CodeArtifact repository or publish packages to it. For security reasons, this approach is preferable to storing the token in a file where it might be read by other users or processes, or accidentally checked into source control. 1. Configure your AWS credentials as described in [Install or upgrade and then configure the AWS CLI](get-set-up-install-cli.md "get-set-up-install-cli.md"). 2. Set the`CODEARTIFACT_AUTH_TOKEN`environment variable: ###### Note In some scenarios, you don't need to include the`--domain-owner` argument. For more information, see [Cross-account domains](domain-overview.md#domain-overview-cross-account "domain-overview.md#domain-overview-cross-account"). <br>• macOS or Linux: ``` export CODEARTIFACT_AUTH_TOKEN=`aws codeartifact get-authorization-token --domain `my_domain` --domain-owner `111122223333` --query authorizationToken --output text` ``` <br>• Windows (using default command shell): ``` for /f %i in ('aws codeartifact get-authorization-token --domain `my_domain`--domain-owner`111122223333`--query authorizationToken --output text') do set CODEARTIFACT_AUTH_TOKEN=%i ``` <br>• Windows PowerShell: ``` $env:CODEARTIFACT_AUTH_TOKEN = aws codeartifact get-authorization-token --domain`my_domain`--domain-owner`111122223333` --query authorizationToken --output text ``` ## Revoking CodeArtifact authorization tokens When an authenticated user creates a token to access CodeArtifact resources, that token lasts until its customizable access period has ended. The default access period is 12 hours. In some circumstances, you might want to revoke access to a token before the access period has expired. You can revoke access to CodeArtifact resources by following these instructions. If you created the access token using temporary security credentials, such as _assumed roles_ or _federated user access_, you can revoke access by updating an IAM policy to deny access. For information, see [Disabling Permissions for Temporary Security Credentials](../../../IAM/latest/UserGuide/id_credentials_temp_control-access_disable-perms.md "../../../IAM/latest/UserGuide/id_credentials_temp_control-access_disable-perms.md") in the _IAM User Guide_. If you used long-term IAM user credentials to create the access token, you must modify the user's policy to deny access, or delete the IAM user. For more information, see [Changing Permissions for an IAM User](../../../IAM/latest/UserGuide/id_users_change-permissions.md "../../../IAM/latest/UserGuide/id_users_change-permissions.md") or [Deleting an IAM User](../../../IAM/latest/UserGuide/id_users_manage.md#id_users_deleting "../../../IAM/latest/UserGuide/id_users_manage.md#id_users_deleting"). |
+| Parameter                                                                                                                                                                                                                          | Required | Description                                                                                                                                                                                                                                                                                                          |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `--tool`                                                                                                                                                                                                                           | Yes      | The package manager to authenticate to. Possible values<br>are `dotnet`, `npm`, `nuget`, `pip`,<br>`swift` and `twine`.                                                                                                                                                                                              |
+| `--domain`                                                                                                                                                                                                                         | Yes      | The domain name that the repository belongs to.                                                                                                                                                                                                                                                                      |
+| `--domain-owner`                                                                                                                                                                                                                   | No       | The ID of the owner of the domain. This parameter is required if accessing a domain that<br>is owned by an AWS account that you are not authenticated to. For more information, see<br>[Cross-account domains](domain-overview.md#domain-overview-cross-account "domain-overview.md#domain-overview-cross-account"). |
+| `--repository`                                                                                                                                                                                                                     | Yes      | The name of the repository to authenticate to.                                                                                                                                                                                                                                                                       |
+| `--duration-seconds`                                                                                                                                                                                                               | No       | The time, in seconds, that the login information is valid. The<br>minimum value is 900\<br>• and maximum value is 43200.                                                                                                                                                                                             |
+| `--namespace`                                                                                                                                                                                                                      | No       | Associates a namespace with your repository tool.                                                                                                                                                                                                                                                                    |
+| `--dry-run`                                                                                                                                                                                                                        | No       | Only print the commands that would be executed to<br>connect your tool with your repository without making any changes to<br>your configuration.                                                                                                                                                                     |
+| \*A value of 0 is also valid when calling<br>`login` while assuming a role. Calling `login` with `--duration-seconds 0`<br>creates a token with a lifetime equal to the remaining time in the session duration of an assumed role. |
+
+The following example shows how to fetch an authorization token with the `login` command.
+
+```
+aws codeartifact login \
+    --tool `dotnet | npm | nuget | pip | swift | twine` \
+    --domain `my_domain` \
+    --domain-owner `111122223333` \
+    --repository `my_repo`
+```
+
+For specific guidance on how to use the `login` command with npm, see
+[Configure and use npm with CodeArtifact](npm-auth.md "npm-auth.md"). For Python, see
+[Using CodeArtifact with Python](using-python.md "using-python.md").
+
+## Permissions required to call the `GetAuthorizationToken` API
+
+Both the `sts:GetServiceBearerToken` and the `codeartifact:GetAuthorizationToken` permissions are required
+to call the CodeArtifact `GetAuthorizationToken` API.
+
+To use a package manager with a CodeArtifact repository, your IAM user
+or role must allow `sts:GetServiceBearerToken`. While `sts:GetServiceBearerToken` can be added to a CodeArtifact domain
+resource policy, the permission will have no effect in that policy.
+
+## Tokens created with the `GetAuthorizationToken` API
+
+You can call `get-authorization-token` to fetch an authorization token from CodeArtifact.
+
+```
+aws codeartifact get-authorization-token \
+    --domain `my_domain` \
+    --domain-owner `111122223333` \
+    --query authorizationToken \
+    --output text
+```
+
+You can change how long a token is valid using the `--duration-seconds` argument. The minimum value is 900
+and the maximum value is 43200. The following example creates a token that will last for 1 hour (3600 seconds).
+
+```
+aws codeartifact get-authorization-token \
+    --domain `my_domain` \
+    --domain-owner `111122223333` \
+    --query authorizationToken \
+    --output text \
+    --duration-seconds `3600`
+```
+
+If calling `get-authorization-token` while assuming a role the token
+lifetime is independent of the maximum session duration of the role. You can configure the token to expire when the
+assumed role's session duration expires by setting `--duration-seconds` to 0.
+
+```
+aws codeartifact get-authorization-token \
+    --domain `my_domain` \
+    --domain-owner `111122223333` \
+    --query authorizationToken \
+    --output text \
+    --duration-seconds `0`
+```
+
+See the following documentation for more information:
+
+- For guidance on tokens and environment variables, see [Pass an auth token using an environment variable](#env-var "#env-var").
+- For Python users, see [Configure pip without the login
+  command](python-configure-pip.md#python-configure-without-pip "python-configure-pip.md#python-configure-without-pip") or [Configure and use twine with CodeArtifact](python-configure-twine.md "python-configure-twine.md").
+- For Maven users, see [Use CodeArtifact with Gradle](maven-gradle.md "maven-gradle.md") or [Use CodeArtifact with mvn](maven-mvn.md "maven-mvn.md").
+- For npm users, see [Configuring npm without using the
+  login command](npm-auth.md#configuring-npm-without-using-the-login-command "npm-auth.md#configuring-npm-without-using-the-login-command").
+
+## Pass an auth token using an environment variable
+
+AWS CodeArtifact uses authorization tokens vended by the `GetAuthorizationToken` API to
+authenticate and authorize requests from build tools such as Maven and Gradle. For
+more information on these auth tokens, see [Tokens created with the GetAuthorizationToken API](#get-auth-token-api "#get-auth-token-api").
+
+You can store these auth tokens in an environment variable that can be read by a build tool to obtain the
+token it needs to fetch packages from a CodeArtifact repository or publish packages to it.
+
+For security reasons, this approach is preferable to storing the token in a file where it
+might be read by other users or processes, or accidentally checked into source control.
+
+1. Configure your AWS credentials as described in [Install or upgrade and then configure the
+   AWS CLI](get-set-up-install-cli.md "get-set-up-install-cli.md").
+2. Set the `CODEARTIFACT_AUTH_TOKEN` environment variable:
+
+###### Note
+
+In some scenarios, you don't need to include the `--domain-owner` argument. For
+more information, see [Cross-account domains](domain-overview.md#domain-overview-cross-account "domain-overview.md#domain-overview-cross-account").
+
+    * macOS or Linux:
+
+
+
+    ```
+    export CODEARTIFACT_AUTH_TOKEN=`aws codeartifact get-authorization-token --domain `my_domain` --domain-owner `111122223333` --query authorizationToken --output text`
+    ```
+    * Windows (using default command shell):
+
+
+
+    ```
+    for /f %i in ('aws codeartifact get-authorization-token --domain `my_domain` --domain-owner `111122223333` --query authorizationToken --output text') do set CODEARTIFACT_AUTH_TOKEN=%i
+    ```
+    * Windows PowerShell:
+
+
+
+    ```
+    $env:CODEARTIFACT_AUTH_TOKEN = aws codeartifact get-authorization-token --domain `my_domain` --domain-owner `111122223333` --query authorizationToken --output text
+    ```
+
+## Revoking CodeArtifact authorization tokens
+
+When an authenticated user creates a token to access CodeArtifact resources, that token
+lasts until its customizable access period has ended. The default access period is 12 hours.
+In some circumstances, you might want to revoke access to a
+token before the access period has expired. You can revoke access to CodeArtifact resources
+by following these instructions.
+
+If you created the access token using temporary security credentials, such as
+_assumed roles_ or _federated user
+access_, you can revoke access by updating an IAM policy to deny access.
+For information, see [Disabling Permissions for Temporary Security Credentials](../../../IAM/latest/UserGuide/id_credentials_temp_control-access_disable-perms.md "../../../IAM/latest/UserGuide/id_credentials_temp_control-access_disable-perms.md") in the
+_IAM User Guide_.
+
+If you used long-term IAM user credentials to create the access token, you must
+modify the user's policy to deny access, or delete the IAM user. For more
+information, see [Changing Permissions for an IAM User](../../../IAM/latest/UserGuide/id_users_change-permissions.md "../../../IAM/latest/UserGuide/id_users_change-permissions.md") or [Deleting an IAM
+User](../../../IAM/latest/UserGuide/id_users_manage.md#id_users_deleting "../../../IAM/latest/UserGuide/id_users_manage.md#id_users_deleting").

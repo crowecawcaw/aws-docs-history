@@ -114,7 +114,7 @@ the CodeArtifact CLI to specify an external connection, use the value in the **N
 parameter when you run the `associate-external-connection` command.
 
 | Repository type | Description                    | Name                         |
-| --------------- | ------------------------------ | ---------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| --------------- | ------------------------------ | ---------------------------- |
 | Maven           | Clojars repository             | `public:maven-clojars`       |
 | Maven           | CommonsWare Android repository | `public:maven-commonsware`   |
 | Maven           | Google Android repository      | `public:maven-googleandroid` |
@@ -124,4 +124,30 @@ parameter when you run the `associate-external-connection` command.
 | NuGet           | NuGet Gallery                  | `public:nuget-org`           |
 | Python          | Python Package Index           | `public:pypi`                |
 | Ruby            | RubyGems.org                   | `public:ruby-gems-org`       |
-| Rust            | Crates.io                      | `public:crates-io`           | ## Remove an external connection (CLI) To remove an external connection that was added by using the `associate-external-connection` command in the AWS CLI, use `disassociate-external-connection`. `` aws codeartifact disassociate-external-connection --external-connection `public:npmjs` \ --domain `my_domain` --domain-owner `111122223333` --repository `my_repo` `` Example output: ``{ "repository": { "name": `my_repo` "administratorAccount": "`123456789012`", "domainName": "`my_domain`", "domainOwner": "`111122223333`", "arn": "arn:aws:codeartifact:`us-west-2`:`111122223333`:repository/`my_domain`/`my_repo`", "description": "`A description of my_repo`", "upstreams": [], "externalConnections": [] } }`` |
+| Rust            | Crates.io                      | `public:crates-io`           |
+
+## Remove an external connection (CLI)
+
+To remove an external connection that was added by using the `associate-external-connection` command in the AWS CLI, use `disassociate-external-connection`.
+
+```
+aws codeartifact disassociate-external-connection --external-connection `public:npmjs` \
+    --domain `my_domain` --domain-owner `111122223333` --repository `my_repo`
+```
+
+Example output:
+
+```
+{
+    "repository": {
+        "name": `my_repo`
+        "administratorAccount": "`123456789012`",
+        "domainName": "`my_domain`",
+        "domainOwner": "`111122223333`",
+        "arn": "arn:aws:codeartifact:`us-west-2`:`111122223333`:repository/`my_domain`/`my_repo`",
+        "description": "`A description of my_repo`",
+        "upstreams": [],
+        "externalConnections": []
+    }
+}
+```

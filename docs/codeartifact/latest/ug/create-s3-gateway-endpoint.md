@@ -31,7 +31,7 @@ The following table describes the Amazon S3 buckets you should reference in your
 to CodeArtifact in each region.
 
 | Region         | Amazon S3 Bucket ARN                            |
-| -------------- | ----------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| -------------- | ----------------------------------------------- |
 | us-east-1      | arn:aws:s3:::assets-193858265520-us-east-1      |
 | us-east-2      | arn:aws:s3:::assets-250872398865-us-east-2      |
 | us-west-2      | arn:aws:s3:::assets-787052242323-us-west-2      |
@@ -44,4 +44,50 @@ to CodeArtifact in each region.
 | ap-northeast-1 | arn:aws:s3:::assets-660291247815-ap-northeast-1 |
 | ap-southeast-1 | arn:aws:s3:::assets-421485864821-ap-southeast-1 |
 | ap-southeast-2 | arn:aws:s3:::assets-860415559748-ap-southeast-2 |
-| ap-south-1     | arn:aws:s3:::assets-681137435769-ap-south-1     | You can use the `aws codeartifact describe-domain` command to fetch the Amazon S3 bucket used by a CodeArtifact domain. `` aws codeartifact describe-domain --domain `mydomain` `` `{ "domain": { "name": "mydomain", "owner": "111122223333", "arn": "arn:aws:codeartifact:us-west-2:111122223333:domain/mydomain", "status": "Active", "createdTime": 1583075193.861, "encryptionKey": "arn:aws:kms:us-west-2:111122223333:key/a73que8sq-ba...", "repositoryCount": 13, "assetSizeBytes": 513830295, "s3BucketArn": "arn:aws:s3:::assets-787052242323-us-west-2" } }` ### Example The following example illustrates how to provide access to the Amazon S3 buckets required for CodeArtifact operations in the `us-east-1` region. For other regions, update the `Resource` entry with the correct permission ARN for your region based on the table above. ``{ "Statement": [ { "Sid": "Access-to-specific-bucket-only", "Principal": "*", "Action": [ "s3:GetObject" ], "Effect": "Allow", "Resource": ["arn:aws:s3:::assets-`193858265520`-`us-east-1`/*"] } ] }`` |
+| ap-south-1     | arn:aws:s3:::assets-681137435769-ap-south-1     |
+
+You can use the `aws codeartifact describe-domain` command to fetch the Amazon S3 bucket used by a
+CodeArtifact domain.
+
+```
+aws codeartifact describe-domain --domain `mydomain`
+```
+
+```
+
+{
+  "domain": {
+    "name": "mydomain",
+    "owner": "111122223333",
+    "arn": "arn:aws:codeartifact:us-west-2:111122223333:domain/mydomain",
+    "status": "Active",
+    "createdTime": 1583075193.861,
+    "encryptionKey": "arn:aws:kms:us-west-2:111122223333:key/a73que8sq-ba...",
+    "repositoryCount": 13,
+    "assetSizeBytes": 513830295,
+    "s3BucketArn": "arn:aws:s3:::assets-787052242323-us-west-2"
+  }
+}
+
+```
+
+### Example
+
+The following example illustrates how to provide access to the Amazon S3 buckets required for CodeArtifact operations in the `us-east-1` region.
+For other regions, update the `Resource` entry with the correct permission ARN for your region based on the table above.
+
+```
+{
+  "Statement": [
+    {
+      "Sid": "Access-to-specific-bucket-only",
+      "Principal": "*",
+      "Action": [
+        "s3:GetObject"
+      ],
+      "Effect": "Allow",
+      "Resource": ["arn:aws:s3:::assets-`193858265520`-`us-east-1`/*"]
+    }
+  ]
+}
+```

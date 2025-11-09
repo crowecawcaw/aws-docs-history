@@ -32,12 +32,22 @@ This section lists `pip` commands where the `pip` client makes one
 or more requests to the registry it's been configured with. These commands have been verified
 to function correctly when invoked against a CodeArtifact repository.
 
+| Command                                                                                                                   | Description        |
+| ------------------------------------------------------------------------------------------------------------------------- | ------------------ |
+| [install](https://pip.pypa.io/en/stable/reference/pip_install/ "https://pip.pypa.io/en/stable/reference/pip_install/")    | Install packages.  |
+| [download](https://pip.pypa.io/en/stable/reference/pip_download/ "https://pip.pypa.io/en/stable/reference/pip_download/") | Download packages. |
+
+CodeArtifact does not implement `pip search`. If you have configured `pip` with a
+CodeArtifact repository, running `pip search` will search and show packages from
+[PyPI](https://pypi.org/ "https://pypi.org/").
+
+### Supported client-side commands
+
+These commands don't require any direct interaction with a repository, so CodeArtifact does not
+need to do anything to support them.
+
 | Command                                                                                                                                   | Description                                             |
-| ----------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [install](https://pip.pypa.io/en/stable/reference/pip_install/ "https://pip.pypa.io/en/stable/reference/pip_install/")                    | Install packages.                                       |
-| [download](https://pip.pypa.io/en/stable/reference/pip_download/ "https://pip.pypa.io/en/stable/reference/pip_download/")                 | Download packages.                                      | CodeArtifact does not implement `pip search`. If you have configured `pip` with a CodeArtifact repository, running `pip search` will search and show packages from [PyPI](https://pypi.org/ "https://pypi.org/"). ### Supported client-side commands These commands don't require any direct interaction with a repository, so CodeArtifact does not need to do anything to support them. |
-| Command                                                                                                                                   | Description                                             |
-| ---                                                                                                                                       | ---                                                     |
+| ----------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------- |
 | [uninstall](https://pip.pypa.io/en/stable/reference/pip_uninstall/ "https://pip.pypa.io/en/stable/reference/pip_uninstall/")              | Uninstall packages.                                     |
 | [freeze](https://pip.pypa.io/en/stable/reference/pip_freeze/ "https://pip.pypa.io/en/stable/reference/pip_freeze/")                       | Output installed packages in requirements format.       |
 | [list](https://pip.pypa.io/en/stable/reference/pip_list/ "https://pip.pypa.io/en/stable/reference/pip_list/")                             | List installed packages.                                |
