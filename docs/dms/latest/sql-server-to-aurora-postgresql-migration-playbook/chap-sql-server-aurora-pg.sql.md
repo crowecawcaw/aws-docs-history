@@ -1,14 +1,355 @@
-# Views for ANSI SQL
+# Table JOIN for ANSI SQL
 
-This topic provides reference information about migrating views from Microsoft SQL Server 2019 to Amazon Aurora PostgreSQL. You can understand the similarities and differences in view functionality between these two database systems, which is crucial for planning and executing a successful migration. The topic covers basic view concepts, usage patterns, and specific features like indexed views, partitioned views, and updateable views.
+This topic provides reference information about join operations in SQL Server and their compatibility with Amazon Aurora PostgreSQL. You can understand how different types of joins, such as INNER JOIN, OUTER JOIN, CROSS JOIN, and APPLY operations, are supported or need to be rewritten when migrating from SQL Server to Aurora PostgreSQL.
 
-| Feature compatibility                               | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                                           |
-| --------------------------------------------------- | ---------------------------------- | ------------------------- | --------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Four star feature compatibility                     | Four star automation level         | N/A                       | PostgreSQL doesn’t support indexed and partitioned views. | ## SQL Server Usage Views are schema objects that provide stored definitions for virtual tables. Similar to tables, views are data sets with uniquely named columns and rows. With the exception of indexed views, view objects don’t store data. They consist only of a query definition and are reevaluated for each invocation. Views are used as abstraction layers and security filters for the underlying tables. They can `JOIN` and `UNION` data from multiple source tables and use aggregates, window functions, and other SQL features as long as the result is a semi-proper set with uniquely identifiable columns and no order to the rows. You can use distributed views to query other databases and data sources using linked servers. As an abstraction layer, a view can decouple application code from the database schema. You can change the underlying tables without the need to modify the application code as long as the expected results of the view don’t change. You can use this approach to provide backward compatible views of data. As a security mechanism, a view can screen and filter source table data. You can perform permission management at the view level without explicit permissions to the base objects, provided the ownership chain is maintained. For more information, see [Overview of SQL Server Security](https://docs.microsoft.com/en-us/dotnet/framework/data/adonet/sql/overview-of-sql-server-security "https://docs.microsoft.com/en-us/dotnet/framework/data/adonet/sql/overview-of-sql-server-security"). View definitions are evaluated when they are created and aren’t affected by subsequent changes to the underlying tables. For example, a view that uses `SELECT *` doesn’t display columns that were added later to the base table. Similarly, if a column was dropped from the base table, invoking the view results in an error. Use the `SCHEMABINDING` option to prevent changes to base objects. ### Modifying Data Through Views Updatable Views can both select and modify data. Updatable views meet the following conditions: <br>• The DML targets only one base table. <br>• Columns being modified must be directly referenced from the underlying base tables. Computed columns, set operators, functions, aggregates, or any other expressions aren’t permitted. <br>• If a view is created with the CHECK OPTION, rows being updated can’t be filtered out of the view definition as the result of the update. ### Special View Types SQL Server provides three types of specialized views: <br>• **Indexed views**. These views are also known as materialized views or persisted views. Indexed vires are standard views that have been evaluated and persisted in a unique clustered index, much like a normal clustered primary key table. Each time the source data changes, SQL Server re-evaluates the indexed views automatically and updates them. Indexed views are typically used as a means to optimize performance by pre-processing operators such as aggregations, joins, and others. Queries needing this pre-processing don’t have to wait for it to be reevaluated on every query run. <br>• **Partitioned views** rejoin horizontally partitioned data sets from multiple underlying tables, each containing only a subset of the data. The view uses a `UNION ALL` query where the underlying tables can reside locally or in other databases (or even other servers). These types of views are called Distributed Partitioned Views (DPV). <br>• **System views** access server and object meta data. SQL Server also supports a set of standard `INFORMATION_SCHEMA` views for accessing object meta data. ### Syntax `CREATE [OR ALTER] VIEW [<Schema Name>.] <View Name> [(<Column Aliases> ])] [WITH [ENCRYPTION][SCHEMABINDING][VIEW_METADATA]] AS <SELECT Query> [WITH CHECK OPTION][;]` ### Examples The following example creates a view that aggregates items for each customer. `CREATE TABLE Orders ( OrderID INT NOT NULL PRIMARY KEY, OrderDate DATETIME NOT NULL DEFAULT GETDATE() );` `CREATE TABLE OrderItems ( OrderID INT NOT NULL REFERENCES Orders(OrderID), Item VARCHAR(20) NOT NULL, Quantity SMALLINT NOT NULL, PRIMARY KEY(OrderID, Item) );` `CREATE VIEW SalesView AS SELECT O.Customer, OI.Product, SUM(CAST(OI.Quantity AS BIGINT)) AS TotalItemsBought FROM Orders AS O INNER JOIN OrderItems AS OI ON O.OrderID = OI.OrderID;` The following example creates an indexed view that pre-aggregates items for each customer `CREATE VIEW SalesViewIndexed AS SELECT O.Customer, OI.Product, SUM_BIG(OI.Quantity) AS TotalItemsBought FROM Orders AS O INNER JOIN OrderItems AS OI ON O.OrderID = OI.OrderID;` `CREATE UNIQUE CLUSTERED INDEX IDX_SalesView ON SalesViewIndexed (Customer, Product);` The following example creates a partitioned view. `CREATE VIEW dbo.PartitioneView WITH SCHEMABINDING AS SELECT * FROM Table1 UNION ALL SELECT * FROM Table2 UNION ALL SELECT * FROM Table3` For more information, see [Views](https://docs.microsoft.com/en-us/sql/relational-databases/views/views?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/views/views?view=sql-server-ver15"), [Modify Data Through a View](https://docs.microsoft.com/en-us/sql/relational-databases/views/modify-data-through-a-view?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/relational-databases/views/modify-data-through-a-view?view=sql-server-ver15"), and [CREATE VIEW (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-view-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/t-sql/statements/create-view-transact-sql?view=sql-server-ver15") in the _SQL Server documentation_. ## PostgreSQL Usage The basic form of views is similar between PostgreSQL and SQL Server. A view defines a stored query based on one or more physical database tables that runs every time the view is accessed. More complex option such as indexed views or partitioned views aren’t supported, and may require a redesign or might application rewrite. ###### Note For Amazon Relational Database Service (Amazon RDS), starting with PostgreSQL 13, you can rename view columns using `ALTER VIEW` command. This option helps DBAs avoid dropping and recreating the view to change a column name. Use the following syntax to rename a column name in a view: `ALTER VIEW [ IF EXISTS ] name RENAME [ COLUMN ] column_name TO new_column_name`. For PostgreSQL versions lower than 13, you can change the column name in a view using the `ALTER TABLE` command. ### PostgreSQL View Privileges To create a view, make sure that you grant `SELECT` and `DML` privileges on the base tables or views to your role or user. For more information, see [GRANT](https://www.postgresql.org/docs/13/sql-grant.html "https://www.postgresql.org/docs/13/sql-grant.html") in the _PostgreSQL documentation_. ### PostgreSQL View Parameters **CREATE [OR REPLACE] VIEW** When you re-create an existing view, make sure that the new view has the same column structure as generated by the original view. The column structure includes column names, column order, and data types. It is sometimes preferable to drop the view and use the `CREATE VIEW` statement instead. `hr=# CREATE [OR REPLACE] VIEW VW_NAME AS SELECT COLUMNS FROM TABLE(s) [WHERE CONDITIONS]; hr=# DROP VIEW [IF EXISTS] VW_NAME;` In the example preceding, the `IF EXISTS` parameter is optional. \*\*WITH [ CASCADED | LOCAL ] CHECK OPTION** DML `INSERT` and `UPDATE` operations are verified against the view-based tables to ensure new rows satisfy the original structure conditions or the view-defining condition. If a conflict is detected, the DML operation fails. <br>• `LOCAL`. Verifies the view without a hierarchical check. <br>• `CASCADED`. Verifies all underlying base views using a hierarchical check. **Running DML Commands On Views\*\* PostgreSQL simple views are automatically updatable. No restrictions exist when performing DML operations on views. An updatable view may contain a combination of updatable and non-updatable columns. A column is updatable if it references an updatable column of the underlying base table. If not, the column is read-only and an error is raised if an `INSERT` or `UPDATE` statement is attempted on the column. ### Syntax ``` CREATE [ OR REPLACE ] [ TEMP | TEMPORARY ] [ RECURSIVE ] VIEW name [ ( column_name [,...] ) ] [ WITH ( view_option_name [= view_option_value] [, ... ] ) ] AS query [ WITH [ CASCADED | LOCAL ] CHECK OPTION ] ``### Examples The following example creates and updates a view without the `CHECK OPTION` parameter.`` CREATE OR REPLACE VIEW VW_DEP AS SELECT DEPARTMENT_ID, DEPARTMENT_NAME, MANAGER_ID, LOCATION_ID FROM DEPARTMENTS WHERE LOCATION_ID=1700; view VW_DEP created. UPDATE VW_DEP SET LOCATION_ID=1600; 21 rows updated. `The following example creates and updates a view with the LOCAL CHECK OPTION parameter.` CREATE OR REPLACE VIEW VW_DEP AS SELECT DEPARTMENT_ID, DEPARTMENT_NAME, MANAGER_ID, LOCATION_ID FROM DEPARTMENTS WHERE LOCATION_ID=1700 WITH LOCAL CHECK OPTION; view VW_DEP created. UPDATE VW_DEP SET LOCATION_ID=1600; SQL Error: ERROR: new row violates check option for view "vw_dep" ``` ## Summary |
-| Feature                                             | SQL Server                         | Aurora PostgreSQL         |                                                           | ---                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | ---                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | ---                                                                                                                                                    |
-| Indexed views                                       | Supported                          | N/A                       |                                                           | Partitioned views                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | Supported                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | N/A                                                                                                                                                    |
-| Updateable views                                    | Supported                          | Supported                 |                                                           | Prevent schema conflicts                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | `SCHEMABINDING` option                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | N/A                                                                                                                                                    |
-| Triggers on views                                   | `INSTEAD OF`                       | `INSTEAD OF`              |                                                           | Temporary Views                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | `CREATE VIEW #View…​`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| `CREATE [ OR REPLACE ] [ TEMP ] [ TEMPORARY ] VIEW` |                                    | Refresh view definition   | `sp_refreshview` / `ALTER VIEW`                           | `ALTER VIEW`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| Feature compatibility           | AWS SCT / AWS DMS automation level | AWS SCT action code index | Key differences                                                             |
+| ------------------------------- | ---------------------------------- | ------------------------- | --------------------------------------------------------------------------- |
+| Four star feature compatibility | Four star automation level         | N/A                       | `OUTER JOIN` with commas. `CROSS APPLY` and `OUTER APPLY` aren’t supported. |
 
-| For more information, see [Views](https://www.postgresql.org/docs/13/tutorial-views.html "https://www.postgresql.org/docs/13/tutorial-views.html") and [CREATE VIEW](https://www.postgresql.org/docs/13/sql-createview.html "https://www.postgresql.org/docs/13/sql-createview.html") in the _PostgreSQL documentation_.
+## SQL Server Usage
+
+### ANSI JOIN
+
+SQL Server supports the standard ANSI join types.
+
+- `<Set A> CROSS JOIN <Set B>`. Results in a Cartesian product of the two sets. Every `JOIN` starts as a Cartesian product.
+- `<Set A> INNER JOIN <Set B> ON <Join Condition>`. Filters the Cartesian product to only the rows where the join predicate evaluates to `TRUE`.
+- `<Set A> LEFT OUTER JOIN <Set B> ON <Join Condition>`. Adds to the `INNER JOIN` all the rows from the reserved left set with NULL for all the columns that come from the right set.
+- `<Set A> RIGHT OUTER JOIN <Set B> ON <Join Condition>` Adds to the `INNER JOIN` all the rows from the reserved right set with NULL for all the columns that come from the left set.
+- `<Set A> FULL OUTER JOIN <Set B> ON <Join Condition>`. Designates both sets as reserved and adds non-matching rows from both, similar to a `LEFT OUTER JOIN` and a `RIGHT OUTER JOIN`.
+
+### APPLY
+
+SQL Server also supports the `APPLY` operator, which is somewhat similar to a join. However, `APPLY` operators enable the creation of a correlation between `<Set A>` and `<Set B>` such that `<Set B>` may consist of a sub query, a `VALUES` row value constructor, or a table valued function that is evaluated for each row of `<Set A>` where the `<Set B>` query can reference columns from the current row in `<Set A>`. This functionality isn’t possible with any type of standard `JOIN` operator.
+
+There are two `APPLY` types:
+
+- `<Set A> CROSS APPLY <Set B>`. Similar to a `CROSS JOIN` in the sense that every row from `<Set A>` is matched with every row from `<Set B>`.
+- `<Set A> OUTER APPLY <Set B>`. Similar to a `LEFT OUTER JOIN` in the sense that rows from `<Set A>` are returned even if the sub query for `<Set B>` produces an empty set. In that case, NULL is assigned to all columns of `<Set B>`.
+
+### ANSI SQL 89 JOIN
+
+Up until version 2008R2, SQL Server also supported the old-style `JOIN` syntax including `LEFT` and `RIGHT OUTER JOIN`.
+
+The ANSI syntax for a `CROSS JOIN` operator was to list the sets in the `FROM` clause using commas as separators.
+
+```
+SELECT * FROM Table1,
+  Table2,
+  Table3...
+```
+
+To perform an `INNER JOIN`, you only needed to add the `JOIN` predicate as part of the `WHERE` clause.
+
+```
+SELECT * FROM Table1,
+  Table2
+WHERE Table1.Column1 = Table2.Column1
+```
+
+Although the ANSI standard didn’t specify outer joins at the time, most RDBMS supported them in one way or another. T-SQL supported outer joins by adding an asterisk to the left or the right of equality sign of the join predicate to designate the reserved table.
+
+```
+SELECT * FROM Table1,
+  Table2
+WHERE Table1.Column1 *= Table2.Column1
+```
+
+To perform a `FULL OUTER JOIN`, asterisks were placed on both sides of the equality sign of the join predicate.
+
+As of SQL Server 2008R2, outer joins using this syntax have been deprecated. For more information, see [Deprecated Database Engine Features in SQL Server 2008 R2](<https://docs.microsoft.com/en-us/previous-versions/sql/sql-server-2008-r2/ms143729(v=sql.105)?redirectedfrom=MSDN> "https://docs.microsoft.com/en-us/previous-versions/sql/sql-server-2008-r2/ms143729(v=sql.105)?redirectedfrom=MSDN") in the _SQL Server documentation_.
+
+###### Note
+
+Even though `INNER JOIN` using the ANSI SQL 89 syntax is still supported, they are highly discouraged due to being notorious for introducing hard-to-catch programming bugs.
+
+### Syntax
+
+**CROSS JOIN**
+
+```
+FROM <Table Source 1>
+  CROSS JOIN
+  <Table Source 2>
+```
+
+```
+-- ANSI 89
+FROM <Table Source 1>,
+  <Table Source 2>
+```
+
+**INNER / OUTER JOIN**
+
+```
+FROM <Table Source 1>
+  [ { INNER | { { LEFT | RIGHT | FULL } [ OUTER ] } }] JOIN
+  <Table Source 2>
+  ON <JOIN Predicate>
+```
+
+```
+-- ANSI 89
+FROM <Table Source 1>,
+  <Table Source 2>
+WHERE <Join Predicate>
+<Join Predicate>:: <Table Source 1 Expression> | = | *= | =* | *=* <Table Source 2 Expression>
+```
+
+**APPLY**
+
+```
+FROM <Table Source 1>
+  { CROSS | OUTER } APPLY
+  <Table Source 2>
+<Table Source 2>:: <SELECT sub-query> | <Table Valued UDF> | <VALUES clause>
+```
+
+### Examples
+
+Create the Orders and Items tables.
+
+```
+CREATE TABLE Items
+(
+  Item VARCHAR(20) NOT NULL
+  PRIMARY KEY
+  Category VARCHAR(20) NOT NULL,
+  Material VARCHAR(20) NOT NULL
+);
+```
+
+```
+INSERT INTO Items (Item, Category, Material)
+VALUES
+('M8 Bolt', 'Metric Bolts', 'Stainless Steel'),
+('M8 Nut', 'Metric Nuts', 'Stainless Steel'),
+('M8 Washer', 'Metric Washers', 'Stainless Steel'),
+('3/8" Bolt', 'Imperial Bolts', 'Brass')
+```
+
+```
+CREATE TABLE OrderItems
+(
+  OrderID INT NOT NULL,
+  Item VARCHAR(20) NOT NULL
+  REFERENCES Items(Item),
+  Quantity SMALLINT NOT NULL,
+  PRIMARY KEY(OrderID, Item)
+);
+```
+
+```
+INSERT INTO OrderItems (OrderID, Item, Quantity)
+VALUES
+(1, 'M8 Bolt', 100),
+(2, 'M8 Nut', 100),
+(3, 'M8 Washer', 200)
+```
+
+**INNER JOIN**
+
+```
+SELECT *
+FROM Items AS I
+  INNER JOIN
+  OrderItems AS OI
+  ON I.Item = OI.Item;
+-- ANSI SQL 89
+SELECT *
+FROM Items AS I,
+  OrderItems AS OI
+WHERE I.Item = OI.Item;
+```
+
+**LEFT OUTER JOIN**
+
+Find Items that were never ordered.
+
+```
+SELECT I.Item
+FROM Items AS I
+  LEFT OUTER JOIN
+  OrderItems AS OI
+  ON I.Item = OI.Item
+WHERE OI.OrderID IS NULL;
+
+-- ANSI SQL 89
+SELECT Item
+FROM
+(
+  SELECT I.Item, O.OrderID
+  FROM Items AS I,
+    OrderItems AS OI
+  WHERE I.Item *= OI.Item
+) AS LeftJoined
+WHERE LeftJoined.OrderID IS NULL;
+```
+
+**FULL OUTER JOIN**
+
+```
+CREATE TABLE T1(Col1 INT, COl2 CHAR(2));
+CREATE TABLE T2(Col1 INT, COl2 CHAR(2));
+
+INSERT INTO T1 (Col1, Col2)
+VALUES (1, 'A'), (2,'B');
+
+INSERT INTO T2 (Col1, Col2)
+VALUES (2,'BB'), (3,'CC');
+
+SELECT *
+FROM T1
+  FULL OUTER JOIN
+  T2
+  ON T1.Col1 = T2.Col1;
+```
+
+The preceding example produces the following results.
+
+```
+Col1  COl2  Col1  COl2
+1     A     NULL  NULL
+2     B     2     BB
+NULL  NULL  3     CC
+```
+
+For more information, see [FROM clause plus JOIN, APPLY, PIVOT (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/queries/from-transact-sql?view=sql-server-ver15 "https://docs.microsoft.com/en-us/sql/t-sql/queries/from-transact-sql?view=sql-server-ver15") in the _SQL Server documentation_.
+
+## PostgreSQL Usage
+
+Amazon Aurora PostgreSQL-Compatible Edition (Aurora PostgreSQL) supports all types of joins in the same way as SQL Server.
+
+- `<Set A> CROSS JOIN <Set B>`. Results in a Cartesian product of the two sets. Every `JOIN` starts as a Cartesian product.
+- `<Set A> INNER JOIN <Set B> ON <Join Condition>`. Filters the Cartesian product to only the rows where the join predicate evaluates to `TRUE`.
+- `<Set A> LEFT OUTER JOIN <Set B> ON <Join Condition>`. Adds to the `INNER JOIN` all the rows from the reserved left set with NULL for all the columns that come from the right set.
+- `<Set A> RIGHT OUTER JOIN <Set B> ON <Join Condition>` Adds to the `INNER JOIN` all the rows from the reserved right set with NULL for all the columns that come from the left set.
+- `<Set A> FULL OUTER JOIN <Set B> ON <Join Condition>`. Designates both sets as reserved and adds non-matching rows from both, similar to a `LEFT OUTER JOIN` and a `RIGHT OUTER JOIN`.
+
+PostgreSQL doesn’t support `APPLY` options. You can replace them with `INNER JOIN LATERAL` and `LEFT JOIN LATERAL`.
+
+### Syntax
+
+```
+FROM
+    <Table Source 1> CROSS JOIN <Table Source 2>
+  | <Table Source 1> INNER JOIN <Table Source 2>
+    ON <Join Predicate>
+  | <Table Source 1> {LEFT|RIGHT|FULL} [OUTER] JOIN <Table Source 2>
+    ON <Join Predicate>
+```
+
+### Migration Considerations
+
+For most `JOIN` statements, the syntax should be equivalent and no rewrites should be needed. Find the differences following.
+
+- ANSI SQL 89 isn’t supported.
+- `FULL OUTER JOIN` and `OUTER JOIN` using the pre-ANSI SQL 92 syntax aren’t supported, but you can use workarounds.
+- `CROSS APPLY` and `OUTER APPLY` aren’t supported. You can rewrite these statements using `INNER JOIN LATERAL` and `LEFT JOIN LATERAL`.
+
+### Examples
+
+Create the Orders and Items tables.
+
+```
+CREATE TABLE Items
+(
+  Item VARCHAR(20) NOT NULL
+  PRIMARY KEY
+  Category VARCHAR(20) NOT NULL,
+  Material VARCHAR(20) NOT NULL
+);
+```
+
+```
+INSERT INTO Items (Item, Category, Material)
+VALUES
+('M8 Bolt', 'Metric Bolts', 'Stainless Steel'),
+('M8 Nut', 'Metric Nuts', 'Stainless Steel'),
+('M8 Washer', 'Metric Washers', 'Stainless Steel'),
+('3/8" Bolt', 'Imperial Bolts', 'Brass')
+```
+
+```
+CREATE TABLE OrderItems
+(
+  OrderID INT NOT NULL,
+  Item VARCHAR(20) NOT NULL
+  REFERENCES Items(Item),
+  Quantity SMALLINT NOT NULL,
+  PRIMARY KEY(OrderID, Item)
+);
+```
+
+```
+INSERT INTO OrderItems (OrderID, Item, Quantity)
+VALUES
+(1, 'M8 Bolt', 100),
+(2, 'M8 Nut', 100),
+(3, 'M8 Washer', 200)
+```
+
+**INNER JOIN**
+
+```
+SELECT *
+FROM Items AS I
+  INNER JOIN
+  OrderItems AS OI
+  ON I.Item = OI.Item;
+```
+
+**LEFT OUTER JOIN**
+
+Find Items that were never ordered.
+
+```
+SELECT Item
+FROM Items AS I
+  LEFT OUTER JOIN
+  OrderItems AS OI
+  ON I.Item = OI.Item
+WHERE OI.OrderID IS NULL;
+```
+
+**FULL OUTER JOIN**
+
+```
+CREATE TABLE T1(Col1 INT, COl2 CHAR(2));
+CREATE TABLE T2(Col1 INT, COl2 CHAR(2));
+
+INSERT INTO T1 (Col1, Col2)
+VALUES (1, 'A'), (2,'B');
+
+INSERT INTO T2 (Col1, Col2)
+VALUES (2,'BB'), (3,'CC');
+
+SELECT *
+FROM T1
+FULL OUTER JOIN
+T2
+ON T1.Col1 = T2.Col1;
+```
+
+The preceding example produces the following results.
+
+```
+Col1  COl2  Col1  COl2
+1     A     NULL  NULL
+2     B     2     BB
+NULL  NULL  3     CC
+```
+
+## Summary
+
+The following table shows similarities, differences, and key migration considerations.
+
+| SQL Server feature                       | Aurora PostgreSQL feature | Comments                                       |
+| ---------------------------------------- | ------------------------- | ---------------------------------------------- |
+| `INNER JOIN` with `ON` clause or commas. | Supported.                |                                                |
+| `OUTER JOIN` with `ON` clause.           | Supported.                |                                                |
+| `OUTER JOIN` with commas.                | Not supported.            | Requires T-SQL rewrite post SQL Server 2008R2. |
+| `CROSS JOIN` or using commas.            | Supported.                |                                                |
+| `CROSS APPLY` and `OUTER APPLY`.         | Not supported.            | Rewrite required.                              |
+
+For more information, see [Controlling the Planner with Explicit JOIN Clauses](https://www.postgresql.org/docs/13/explicit-joins.html "https://www.postgresql.org/docs/13/explicit-joins.html") and [Joins Between Tables](https://www.postgresql.org/docs/13/tutorial-join.html "https://www.postgresql.org/docs/13/tutorial-join.html") in the _PostgreSQL documentation_.
