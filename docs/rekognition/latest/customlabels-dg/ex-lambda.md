@@ -50,7 +50,412 @@ Later you add the source code and optionally a layer to the Lambda function.
 7. Add the following environment variables. For each variable choose **Add enviroment variable**
    and then enter the variable key and value.
 
-| Key        | Value                                                                                                                                                                                                                    |
-| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| MODEL_ARN  | The Amazon Resource Name (ARN) of the model that you want your Lambda function to use. You can get the model ARN from the **Use Model** tab of the model's details page in the Amazon Rekognition Custom Labels console. |
-| CONFIDENCE | The minimum value (0–100) for the model's confidence in the prediction for a label. The Lambda function doesn't return labels with confidence values lower than this value.                                              | 8. Choose **Save** to save the environment variables. 9. On the **Permissions** pane, Under **Role name**, choose the execution role to open the role in the IAM console. 10. In the **Permissions** tab, choose **Add permissions** and then **Create inline policy**. 11. Choose **JSON** and replace the existing policy with the following policy. JSON `` `{ "Version":"2012-10-17", "Statement": [ { "Action": "rekognition:DetectCustomLabels", "Resource": "*", "Effect": "Allow", "Sid": "DetectCustomLabels" } ] }` `` 12. Choose **Next**. 13. In **Policy details**, enter a name for the policy, such as _DetectCustomLabels-access_. 14. Choose **Create policy**. 15. If you are storing images for analysis in an Amazon S3 bucket, repeat steps 10–14. 1. For step 11, use the following policy. Replace `bucket/folder path` with the Amazon S3 bucket and folder path to the images that you want to analyze. JSON `` `{ "Version":"2012-10-17", "Statement": [ { "Sid": "S3Access", "Effect": "Allow", "Action": "s3:GetObject", "Resource": "arn:aws:s3:::`bucket/folder path`/*" } ] }` `` 2. For step 13, choose a different policy name, such as _S3Bucket-access_. ## Step 2: (Optional) Create a layer (console) To run this example, You don't need to do this step. The `DetectCustomLabels` operation is included in the default Lambda Python environment as part of AWS SDK for Python (Boto3). If other parts of your Lambda function need recent AWS service updates that aren't in the default Lambda Python environment, do this step to add the latest Boto3 SDK release as a layer to your function. First, you create a .zip file archive that contains the Boto3 SDK. You then create a layer and add the .zip file archive to the layer. For more information, see [Using layers with your Lambda function](../../../lambda/latest/dg/invocation-layers.md#invocation-layers-using "../../../lambda/latest/dg/invocation-layers.md#invocation-layers-using"). ###### To create and add a layer (console) 1. Open a command prompt and enter the following commands. `pip install boto3 --target python/. zip boto3-layer.zip -r python/` 2. Note the name of the zip file (boto3-layer.zip). You need it in step 6 of this procedure. 3. Open the AWS Lambda console at [https://console.aws.amazon.com/lambda/](https://console.aws.amazon.com/lambda/ "https://console.aws.amazon.com/lambda/"). 4. In the navigation pane, choose **Layers**. 5. Choose **Create layer**. 6. Enter values for **Name** and **Description**. 7. Choose **Upload a .zip file** and choose **Upload**. 8. In the dialog box, choose the .zip file archive (boto3-layer.zip) that you created in step 1 of this procedure. 9. For compatible runtimes, choose **Python 3.9**. 10. Choose **Create** to create the layer. 11. Choose the navigation pane menu icon. 12. In the navigation pane, choose **Functions**. 13. In the resources list, choose the function that you created in [Step 1: Create an AWS Lambda function (console)](#example-lambda-create-function "#example-lambda-create-function"). 14. Choose the **Code** tab. 15. In the **Layers** section, choose **Add a layer**. 16. Choose **Custom layers**. 17. In **Custom layers**, choose the layer name that you entered in step 6. 18. In **Version** choose the layer version, which should be 1. 19. Choose **Add**. ## Step 3: Add Python code (console) In this step, you add Python code to your Lambda function by using the Lambda console code editor. The code analyzes a supplied image with `DetectCustomLabels` and returns a list of labels found in the image. The supplied image can be located in an Amazon S3 bucket or provided as byte64 encoded image bytes. ###### To add Python code (console) 1. If you're not in the Lambda console, do the following: 1. Open the AWS Lambda console at [https://console.aws.amazon.com/lambda/](https://console.aws.amazon.com/lambda/ "https://console.aws.amazon.com/lambda/"). 2. Open the Lambda function you created in [Step 1: Create an AWS Lambda function (console)](#example-lambda-create-function "#example-lambda-create-function"). 2. Choose the **Code** tab. 3. In **Code source**, replace the code in **lambda_function.py** with the following: `# Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved. # SPDX-License-Identifier: Apache-2.0 """ Purpose An AWS lambda function that analyzes images with an the Amazon Rekognition Custom Labels model. """ import json import base64 from os import environ import logging import boto3 from botocore.exceptions import ClientError # Set up logging. logger = logging.getLogger(__name__) # Get the model ARN and confidence. model_arn = environ['MODEL_ARN'] min_confidence = int(environ.get('CONFIDENCE', 50)) # Get the boto3 client. rek_client = boto3.client('rekognition') def lambda_handler(event, context): """ Lambda handler function param: event: The event object for the Lambda function. param: context: The context object for the lambda function. return: The labels found in the image passed in the event object. """ try: # Determine image source. if 'image' in event: # Decode the image image_bytes = event['image'].encode('utf-8') img_b64decoded = base64.b64decode(image_bytes) image = {'Bytes': img_b64decoded} elif 'S3Object' in event: image = {'S3Object': {'Bucket':  event['S3Object']['Bucket'], 'Name': event['S3Object']['Name']} } else: raise ValueError( 'Invalid source. Only image base 64 encoded image bytes or S3Object are supported.') # Analyze the image. response = rek_client.detect_custom_labels(Image=image, MinConfidence=min_confidence, ProjectVersionArn=model_arn) # Get the custom labels labels = response['CustomLabels'] lambda_response = { "statusCode": 200, "body": json.dumps(labels) } except ClientError as err: error_message = f"Couldn't analyze image. " + \ err.response['Error']['Message'] lambda_response = { 'statusCode': 400, 'body': { "Error": err.response['Error']['Code'], "ErrorMessage": error_message } } logger.error("Error function %s: %s", context.invoked_function_arn, error_message) except ValueError as val_error: lambda_response = { 'statusCode': 400, 'body': { "Error": "ValueError", "ErrorMessage": format(val_error) } } logger.error("Error function %s: %s", context.invoked_function_arn, format(val_error)) return lambda_response` 4. Choose **Deploy** to deploy your Lambda function. ## Step 4: Try your Lambda function In this step you use Python code on your computer to pass a local image, or an image in an Amazon S3 bucket, to your Lambda function. Images passed from a local computer must be smaller than 6291456 bytes. If your images are larger, upload the images to an Amazon S3 bucket and call the script with the Amazon S3 path to the image. For information about uploading image files to an Amazon S3 bucket, see [Uploading objects](../../../AmazonS3/latest/userguide/upload-objects.md "../../../AmazonS3/latest/userguide/upload-objects.md"). Make sure you run the code in the same AWS Region in which you created the Lambda function. You can view the AWS Region for your Lambda function in the navigation bar of the function details page in the [Lambda console](https://console.aws.amazon.com/lambda/ "https://console.aws.amazon.com/lambda/"). If the AWS Lambda function returns a timeout error, extend the timeout period for the Lambda function function, For more information, see [Configuring function timeout (console)](../../../lambda/latest/dg/configuration-function-common.md#configuration-timeout-console "../../../lambda/latest/dg/configuration-function-common.md#configuration-timeout-console"). For more information about invoking a Lambda function from your code, see [Invoking AWS Lambda Functions](../../../lambda/latest/dg/invoking-lambda-functions.md "../../../lambda/latest/dg/invoking-lambda-functions.md"). ###### To try your Lambda function 1. Make sure you have `lambda:InvokeFunction` permission. You can use the following policy. You can get the ARN for your Lambda function function from the function overview in the [Lambda console](https://console.aws.amazon.com/lambda/ "https://console.aws.amazon.com/lambda/"). To provide access, add permissions to your users, groups, or roles: <br>• Users and groups in AWS IAM Identity Center: Create a permission set. Follow the instructions in [Create a permission set](../../../singlesignon/latest/userguide/howtocreatepermissionset.md "../../../singlesignon/latest/userguide/howtocreatepermissionset.md") in the _AWS IAM Identity Center User Guide_. <br>• Users managed in IAM through an identity provider: Create a role for identity federation. Follow the instructions in [Create a role for a third-party identity provider (federation)](../../../IAM/latest/UserGuide/id_roles_create_for-idp.md "../../../IAM/latest/UserGuide/id_roles_create_for-idp.md") in the _IAM User Guide_. <br>• IAM users: + Create a role that your user can assume. Follow the instructions in [Create a role for an IAM user](../../../IAM/latest/UserGuide/id_roles_create_for-user.md "../../../IAM/latest/UserGuide/id_roles_create_for-user.md") in the _IAM User Guide_. + (Not recommended) Attach a policy directly to a user or add a user to a user group. Follow the instructions in [Adding permissions to a user (console)](../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console "../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console") in the _IAM User Guide_. 2. Install and configure AWS SDK for Python. For more information, see [Step 4: Set up the AWS CLI and AWS SDKs](su-awscli-sdk.md "su-awscli-sdk.md"). 3. [Start the model](rm-start.md "rm-start.md") that you specified in step 7 of [Step 1: Create an AWS Lambda function (console)](#example-lambda-create-function "#example-lambda-create-function") . 4. Save the following code to a file named `client.py`. `# Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved. # SPDX-License-Identifier: Apache-2.0 """ Purpose Test code for running the Amazon Rekognition Custom Labels Lambda function example code. """ import argparse import logging import base64 import json import boto3 from botocore.exceptions import ClientError logger = logging.getLogger(__name__) def analyze_image(function_name, image): """Analyzes an image with an AWS Lambda function. :param image: The image that you want to analyze. :return The status and classification result for the image analysis. """ lambda_client = boto3.client('lambda') lambda_payload = {} if image.startswith('s3://'): logger.info("Analyzing image from S3 bucket: %s", image) bucket, key = image.replace("s3://", "").split("/", 1) s3_object = { 'Bucket': bucket, 'Name': key } lambda_payload = {"S3Object": s3_object} # Call the lambda function with the image. else: with open(image, 'rb') as image_file: logger.info("Analyzing local image image: %s ", image) image_bytes = image_file.read() data = base64.b64encode(image_bytes).decode("utf8") lambda_payload = {"image": data} response = lambda_client.invoke(FunctionName=function_name, Payload=json.dumps(lambda_payload)) return json.loads(response['Payload'].read().decode()) def add_arguments(parser): """ Adds command line arguments to the parser. :param parser: The command line parser. """ parser.add_argument( "function", help="The name of the AWS Lambda function that you want " \ "to use to analyze the image.") parser.add_argument( "image", help="The local image that you want to analyze.") def main(): """ Entrypoint for script. """ try: logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s") # Get command line arguments. parser = argparse.ArgumentParser(usage=argparse.SUPPRESS) add_arguments(parser) args = parser.parse_args() # Get analysis results. result = analyze_image(args.function, args.image) status = result['statusCode'] if status == 200: labels = result['body'] labels = json.loads(labels) print(f"There are {len(labels)} labels in the image.") for custom_label in labels: confidence = int(round(custom_label['Confidence'], 0)) print( f"Label: {custom_label['Name']}: Confidence: {confidence}%") else: print(f"Error: {result['statusCode']}") print(f"Message: {result['body']}") except ClientError as error: logging.error(error) print(error) if __name__ == "__main__": main()` 5. Run the code. For the command line argument, supply the Lambda function name and the image that you want to analyze. You can supply a path to a local image, or the S3 path to an image stored in an Amazon S3 bucket. For example: `` python client.py `function_name s3://bucket/path/image.jpg` `` If the image is in an Amazon S3 bucket make sure it is the same bucket that you specified in step 15 of [Step 1: Create an AWS Lambda function (console)](#example-lambda-create-function "#example-lambda-create-function"). If successful, the output is a list of labels found in the image. If no labels are returned, consider lowering the confidence value that you set in step 7 of [Step 1: Create an AWS Lambda function (console)](#example-lambda-create-function "#example-lambda-create-function"). 6. If you have finished with the Lambda function and the model isn't used by other applications, [stop the model](rm-stop.md "rm-stop.md"). Remember to [start the model](rm-start.md "rm-start.md") the next time you want use the Lambda function. |
+| Key        | Value                                                                                                                                                                                                                                  |
+| ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| MODEL_ARN  | The Amazon Resource Name (ARN) of the model that you<br>want your Lambda function to use. You can get the model<br>ARN from the \*_Use Model_<br>• tab of the<br>model's details page in the Amazon Rekognition Custom Labels console. |
+| CONFIDENCE | The minimum value (0–100) for the model's<br>confidence in the prediction for a label. The Lambda<br>function doesn't return labels with confidence values<br>lower than this value.                                                   |
+
+8. Choose **Save** to save the environment variables.
+9. On the **Permissions** pane, Under **Role
+   name**, choose the execution role to open the role in the IAM
+   console.
+10. In the **Permissions** tab, choose
+    **Add permissions** and then **Create inline policy**.
+11. Choose **JSON** and replace the existing policy with the following policy.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Action": "rekognition:DetectCustomLabels",
+ "Resource": "*",
+ "Effect": "Allow",
+ "Sid": "DetectCustomLabels"
+ }
+ ]
+}`
+
+```
+
+12. Choose **Next**.
+13. In **Policy details**, enter a name for the policy, such as _DetectCustomLabels-access_.
+14. Choose **Create policy**.
+15. If you are storing images for analysis in an Amazon S3 bucket, repeat steps 10–14.
+    1.  For step 11, use the following policy. Replace
+        `bucket/folder path` with the Amazon S3
+        bucket and folder path to the images that you want to analyze.
+
+    JSON
+
+    ```
+    `{
+     "Version":"2012-10-17",
+     "Statement": [
+     {
+     "Sid": "S3Access",
+     "Effect": "Allow",
+     "Action": "s3:GetObject",
+     "Resource": "arn:aws:s3:::`bucket/folder path`/*"
+     }
+     ]
+    }`
+
+    ```
+
+    2.  For step 13, choose a different policy name, such as _S3Bucket-access_.
+
+## Step 2: (Optional) Create a layer (console)
+
+To run this example, You don't need to do this step. The
+`DetectCustomLabels` operation is included in the default Lambda
+Python environment as part of AWS SDK for Python (Boto3). If other parts of
+your Lambda function need recent AWS service updates that aren't in the default
+Lambda Python environment, do this step to add the latest Boto3 SDK release as a
+layer to your function.
+
+First, you create a .zip file archive that contains the Boto3 SDK. You
+then create a layer and add the .zip file archive to the layer. For more
+information, see [Using
+layers with your Lambda function](../../../lambda/latest/dg/invocation-layers.md#invocation-layers-using "../../../lambda/latest/dg/invocation-layers.md#invocation-layers-using").
+
+###### To create and add a layer (console)
+
+1. Open a command prompt and enter the following commands.
+
+```
+pip install boto3 --target python/.
+zip boto3-layer.zip -r python/
+
+```
+
+2. Note the name of the zip file (boto3-layer.zip). You need it in step 6 of this procedure.
+3. Open the AWS Lambda console at
+   [https://console.aws.amazon.com/lambda/](https://console.aws.amazon.com/lambda/ "https://console.aws.amazon.com/lambda/").
+4. In the navigation pane, choose **Layers**.
+5. Choose **Create layer**.
+6. Enter values for **Name** and
+   **Description**.
+7. Choose **Upload a .zip
+   file** and choose **Upload**.
+8. In the dialog box, choose the .zip file archive (boto3-layer.zip) that you created
+   in step 1 of this procedure.
+9. For compatible runtimes, choose **Python 3.9**.
+10. Choose **Create** to create the layer.
+11. Choose the navigation pane menu icon.
+12. In the navigation pane, choose **Functions**.
+13. In the resources list, choose the function that you created in [Step 1: Create an AWS Lambda function
+    (console)](#example-lambda-create-function "#example-lambda-create-function").
+14. Choose the **Code** tab.
+15. In the **Layers** section, choose **Add a
+    layer**.
+16. Choose **Custom layers**.
+17. In **Custom layers**, choose the layer name that you entered in step 6.
+18. In **Version** choose the layer version, which should be 1.
+19. Choose **Add**.
+
+## Step 3: Add Python code (console)
+
+In this step, you add Python code to your Lambda function by using the
+Lambda console code editor. The code analyzes a supplied image with
+`DetectCustomLabels` and returns a list of labels found in the image.
+The supplied image can be located in an Amazon S3 bucket or provided as byte64 encoded
+image bytes.
+
+###### To add Python code (console)
+
+1. If you're not in the Lambda console, do the following:
+   1. Open the AWS Lambda console at
+      [https://console.aws.amazon.com/lambda/](https://console.aws.amazon.com/lambda/ "https://console.aws.amazon.com/lambda/").
+   2. Open the Lambda function you created in
+      [Step 1: Create an AWS Lambda function
+      (console)](#example-lambda-create-function "#example-lambda-create-function").
+
+2. Choose the **Code** tab.
+3. In **Code source**, replace the code in
+   **lambda_function.py** with the following:
+
+```
+# Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+# SPDX-License-Identifier: Apache-2.0
+
+"""
+Purpose
+An AWS lambda function that analyzes images with an the Amazon Rekognition
+Custom Labels model.
+"""
+import json
+import base64
+from os import environ
+import logging
+import boto3
+
+from botocore.exceptions import ClientError
+
+# Set up logging.
+logger = logging.getLogger(__name__)
+
+# Get the model ARN and confidence.
+model_arn = environ['MODEL_ARN']
+min_confidence = int(environ.get('CONFIDENCE', 50))
+
+# Get the boto3 client.
+rek_client = boto3.client('rekognition')
+
+
+def lambda_handler(event, context):
+    """
+    Lambda handler function
+    param: event: The event object for the Lambda function.
+    param: context: The context object for the lambda function.
+    return: The labels found in the image passed in the event
+    object.
+    """
+
+    try:
+
+        # Determine image source.
+        if 'image' in event:
+            # Decode the image
+            image_bytes = event['image'].encode('utf-8')
+            img_b64decoded = base64.b64decode(image_bytes)
+            image = {'Bytes': img_b64decoded}
+
+
+        elif 'S3Object' in event:
+            image = {'S3Object':
+                     {'Bucket':  event['S3Object']['Bucket'],
+                      'Name': event['S3Object']['Name']}
+                     }
+
+        else:
+            raise ValueError(
+                'Invalid source. Only image base 64 encoded image bytes or S3Object are supported.')
+
+
+        # Analyze the image.
+        response = rek_client.detect_custom_labels(Image=image,
+            MinConfidence=min_confidence,
+            ProjectVersionArn=model_arn)
+
+        # Get the custom labels
+        labels = response['CustomLabels']
+
+        lambda_response = {
+            "statusCode": 200,
+            "body": json.dumps(labels)
+        }
+
+    except ClientError as err:
+        error_message = f"Couldn't analyze image. " + \
+            err.response['Error']['Message']
+
+        lambda_response = {
+            'statusCode': 400,
+            'body': {
+                "Error": err.response['Error']['Code'],
+                "ErrorMessage": error_message
+            }
+        }
+        logger.error("Error function %s: %s",
+            context.invoked_function_arn, error_message)
+
+    except ValueError as val_error:
+        lambda_response = {
+            'statusCode': 400,
+            'body': {
+                "Error": "ValueError",
+                "ErrorMessage": format(val_error)
+            }
+        }
+        logger.error("Error function %s: %s",
+            context.invoked_function_arn, format(val_error))
+
+    return lambda_response
+
+
+```
+
+4. Choose **Deploy** to deploy your Lambda function.
+
+## Step 4: Try your Lambda function
+
+In this step you use Python code on your computer to pass a local image, or an
+image in an Amazon S3 bucket, to your Lambda function. Images passed from a local computer
+must be smaller than 6291456 bytes. If your images are larger, upload the images to
+an Amazon S3 bucket and call the script with the Amazon S3 path to the image. For information
+about uploading image files to an Amazon S3 bucket, see [Uploading
+objects](../../../AmazonS3/latest/userguide/upload-objects.md "../../../AmazonS3/latest/userguide/upload-objects.md").
+
+Make sure you run the code in the same AWS Region in which you created the Lambda
+function. You can view the AWS Region for your Lambda function in the navigation
+bar of the function details page in the [Lambda console](https://console.aws.amazon.com/lambda/ "https://console.aws.amazon.com/lambda/").
+
+If the AWS Lambda function returns a timeout error, extend the timeout period for
+the Lambda function function, For more information, see [Configuring function timeout (console)](../../../lambda/latest/dg/configuration-function-common.md#configuration-timeout-console "../../../lambda/latest/dg/configuration-function-common.md#configuration-timeout-console").
+
+For more information about invoking a Lambda function from your code, see [Invoking AWS Lambda Functions](../../../lambda/latest/dg/invoking-lambda-functions.md "../../../lambda/latest/dg/invoking-lambda-functions.md").
+
+###### To try your Lambda function
+
+1. Make sure you have `lambda:InvokeFunction`
+   permission. You can use the following policy.
+
+You can get the ARN for your Lambda function function from the
+function overview in the [Lambda console](https://console.aws.amazon.com/lambda/ "https://console.aws.amazon.com/lambda/").
+
+To provide access, add permissions to your users, groups, or roles:
+
+    * Users and groups in AWS IAM Identity Center:
+
+
+    Create a permission set. Follow the instructions in [Create a permission set](../../../singlesignon/latest/userguide/howtocreatepermissionset.md "../../../singlesignon/latest/userguide/howtocreatepermissionset.md") in the *AWS IAM Identity Center User Guide*.
+    * Users managed in IAM through an identity provider:
+
+
+    Create a role for identity federation. Follow the instructions in [Create a role for a third-party identity provider (federation)](../../../IAM/latest/UserGuide/id_roles_create_for-idp.md "../../../IAM/latest/UserGuide/id_roles_create_for-idp.md")
+     in the *IAM User Guide*.
+    * IAM users:
+
+
+
+
+    	+ Create a role that your user can assume. Follow the instructions in [Create a role for an IAM user](../../../IAM/latest/UserGuide/id_roles_create_for-user.md "../../../IAM/latest/UserGuide/id_roles_create_for-user.md") in the *IAM User Guide*.
+    	+ (Not recommended) Attach a policy directly to a user or add a user to a user group. Follow the instructions in [Adding permissions to a user (console)](../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console "../../../IAM/latest/UserGuide/id_users_change-permissions.md#users_change_permissions-add-console") in the *IAM User Guide*.
+
+2. Install and configure AWS SDK for Python. For more information,
+   see [Step 4: Set up the AWS CLI and AWS SDKs](su-awscli-sdk.md "su-awscli-sdk.md").
+3. [Start the model](rm-start.md "rm-start.md") that you specified
+   in step 7 of [Step 1: Create an AWS Lambda function
+   (console)](#example-lambda-create-function "#example-lambda-create-function") .
+4. Save the following code to a file named `client.py`.
+
+```
+# Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+# SPDX-License-Identifier: Apache-2.0
+
+"""
+Purpose
+Test code for running the Amazon Rekognition Custom Labels Lambda
+function example code.
+"""
+
+import argparse
+import logging
+import base64
+import json
+import boto3
+
+from botocore.exceptions import ClientError
+
+
+logger = logging.getLogger(__name__)
+
+
+def analyze_image(function_name, image):
+    """Analyzes an image with an AWS Lambda function.
+    :param image: The image that you want to analyze.
+    :return The status and classification result for
+    the image analysis.
+    """
+
+    lambda_client = boto3.client('lambda')
+
+    lambda_payload = {}
+
+    if image.startswith('s3://'):
+        logger.info("Analyzing image from S3 bucket: %s", image)
+        bucket, key = image.replace("s3://", "").split("/", 1)
+        s3_object = {
+            'Bucket': bucket,
+            'Name': key
+        }
+        lambda_payload = {"S3Object": s3_object}
+
+    # Call the lambda function with the image.
+    else:
+        with open(image, 'rb') as image_file:
+            logger.info("Analyzing local image image: %s ", image)
+            image_bytes = image_file.read()
+            data = base64.b64encode(image_bytes).decode("utf8")
+
+            lambda_payload = {"image": data}
+
+    response = lambda_client.invoke(FunctionName=function_name,
+                                    Payload=json.dumps(lambda_payload))
+
+    return json.loads(response['Payload'].read().decode())
+
+
+def add_arguments(parser):
+    """
+    Adds command line arguments to the parser.
+    :param parser: The command line parser.
+    """
+
+    parser.add_argument(
+        "function", help="The name of the AWS Lambda function that you want " \
+        "to use to analyze the image.")
+    parser.add_argument(
+        "image", help="The local image that you want to analyze.")
+
+
+def main():
+    """
+    Entrypoint for script.
+    """
+    try:
+        logging.basicConfig(level=logging.INFO,
+                            format="%(levelname)s: %(message)s")
+
+        # Get command line arguments.
+        parser = argparse.ArgumentParser(usage=argparse.SUPPRESS)
+        add_arguments(parser)
+        args = parser.parse_args()
+
+        # Get analysis results.
+        result = analyze_image(args.function, args.image)
+        status = result['statusCode']
+
+        if status == 200:
+            labels = result['body']
+            labels = json.loads(labels)
+            print(f"There are {len(labels)} labels in the image.")
+            for custom_label in labels:
+                confidence = int(round(custom_label['Confidence'], 0))
+                print(
+                    f"Label: {custom_label['Name']}: Confidence: {confidence}%")
+        else:
+            print(f"Error: {result['statusCode']}")
+            print(f"Message: {result['body']}")
+
+    except ClientError as error:
+        logging.error(error)
+        print(error)
+
+
+if __name__ == "__main__":
+    main()
+
+```
+
+5. Run the code. For the command line argument, supply the Lambda function name and the
+   image that you want to analyze. You can supply a path to a local image, or
+   the S3 path to an image stored in an Amazon S3 bucket. For example:
+
+```
+python client.py `function_name s3://bucket/path/image.jpg`
+```
+
+If the image is in an Amazon S3 bucket make sure it is the same bucket that you
+specified in step 15 of [Step 1: Create an AWS Lambda function
+(console)](#example-lambda-create-function "#example-lambda-create-function").
+
+If successful, the output is a list of labels found in the image. If no
+labels are returned, consider lowering the confidence value that you set in step
+7 of [Step 1: Create an AWS Lambda function
+(console)](#example-lambda-create-function "#example-lambda-create-function"). 6. If you have finished with the Lambda function and the model isn't used by other applications,
+[stop the model](rm-stop.md "rm-stop.md"). Remember to [start the model](rm-start.md "rm-start.md") the next
+time you want use the Lambda function.

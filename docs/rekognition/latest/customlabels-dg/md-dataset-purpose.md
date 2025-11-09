@@ -108,9 +108,9 @@ Use the following table to determine how to label your images.
 You can combine image-level labels and bounding box labeled images in a single dataset.
 In this case, Amazon Rekognition Custom Labels chooses whether to create an image-level model or an object location model.
 
-| Example                                                                                                                   | Training images                                              | Test images                           |
-| ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------ | ------------------------------------- |
-| [Image classification](#md-dataset-image-classification "#md-dataset-image-classification")                               | 1 Image-level label per image                                | 1 Image-level label per image         |
-| [Multi-label classification](#md-dataset-image-classification-multi-label "#md-dataset-image-classification-multi-label") | Multiple image-level labels per image                        | Multiple image-level labels per image |
-| [Find brand locations](#md-dataset-purpose-brands "#md-dataset-purpose-brands")                                           | image level-labels (you can also use Labeled bounding boxes) | Labeled bounding boxes                |
-| [Find object locations](#md-dataset-purpose-localization "#md-dataset-purpose-localization")                              | Labeled bounding boxes                                       | Labeled bounding boxes                |
+| Example                                                                                                                   | Training images                                                 | Test images                           |
+| ------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------- | ------------------------------------- |
+| [Image classification](#md-dataset-image-classification "#md-dataset-image-classification")                               | 1 Image-level label per image                                   | 1 Image-level label per image         |
+| [Multi-label classification](#md-dataset-image-classification-multi-label "#md-dataset-image-classification-multi-label") | Multiple image-level labels per image                           | Multiple image-level labels per image |
+| [Find brand locations](#md-dataset-purpose-brands "#md-dataset-purpose-brands")                                           | image level-labels (you can also use Labeled bounding<br>boxes) | Labeled bounding boxes                |
+| [Find object locations](#md-dataset-purpose-localization "#md-dataset-purpose-localization")                              | Labeled bounding boxes                                          | Labeled bounding boxes                |

@@ -25,21 +25,24 @@ semantics.
 
 ## Limits
 
-| Validation                                                                                                                         | Limit                                                              | Error raised        |
-| ---------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------ | ------------------- | ------------ |
-| Manifest file size                                                                                                                 | Maximum 1 GB                                                       | Error               |
-| Maximum line count for a manifest file                                                                                             | Maximum of 250,000 dataset objects as lines in a manifest.         | Error               |
-| Lower boundary on total number of valid dataset objects per label                                                                  | >= 1                                                               | Error               |
-| Lower boundary on labels                                                                                                           | >=2                                                                | Error               |
-| Upper bound on labels                                                                                                              | <= 250                                                             | Error               |
-| Minimum bounding boxes per image                                                                                                   | 0                                                                  | None                |
-| Maximum bounding boxes per image                                                                                                   | 50                                                                 | None                | ## Semantics |
-| Validation                                                                                                                         | Limit                                                              | Error raised        |
-| ---                                                                                                                                | ---                                                                | ---                 |
-| Empty manifest                                                                                                                     |                                                                    | Error               |
-| Missing/in-accessible source-ref object                                                                                            | Number of objects less than 20%                                    | Warning             |
-| Missing/in-accessible source-ref object                                                                                            | Number of objects > 20%                                            | Error               |
-| Test labels not present in training dataset                                                                                        | At least 50% overlap in the labels                                 | Error               |
-| Mix of label vs. object examples for same label in a dataset. Classification and detection for the same class in a dataset object. |                                                                    | No error or warning |
-| Overlapping assets between test and train                                                                                          | There should not be an overlap between test and training datasets. |                     |
-| Images in a dataset must be from same bucket                                                                                       | Error if the objects are in a different bucket                     | Error               |
+| Validation                                                           | Limit                                                         | Error raised |
+| -------------------------------------------------------------------- | ------------------------------------------------------------- | ------------ |
+| Manifest file size                                                   | Maximum 1 GB                                                  | Error        |
+| Maximum line count for a manifest file                               | Maximum of 250,000 dataset objects as lines in a<br>manifest. | Error        |
+| Lower boundary on total number of valid dataset<br>objects per label | >= 1                                                          | Error        |
+| Lower boundary on labels                                             | >=2                                                           | Error        |
+| Upper bound on labels                                                | <= 250                                                        | Error        |
+| Minimum bounding boxes per image                                     | 0                                                             | None         |
+| Maximum bounding boxes per image                                     | 50                                                            | None         |
+
+## Semantics
+
+| Validation                                                                                                                               | Limit                                                                 | Error raised        |
+| ---------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------- | ------------------- |
+| Empty manifest                                                                                                                           |                                                                       | Error               |
+| Missing/in-accessible source-ref object                                                                                                  | Number of objects less than 20%                                       | Warning             |
+| Missing/in-accessible source-ref object                                                                                                  | Number of objects > 20%                                               | Error               |
+| Test labels not present in training dataset                                                                                              | At least 50% overlap in the labels                                    | Error               |
+| Mix of label vs. object examples for same label in<br>a dataset. Classification and detection for the same<br>class in a dataset object. |                                                                       | No error or warning |
+| Overlapping assets between test and train                                                                                                | There should not be an overlap between test and<br>training datasets. |                     |
+| Images in a dataset must be from same bucket                                                                                             | Error if the objects are in a different<br>bucket                     | Error               |

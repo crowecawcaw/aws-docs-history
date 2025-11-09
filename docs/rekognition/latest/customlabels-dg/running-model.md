@@ -105,7 +105,43 @@ to the `StartProjectVersion` operation.
 Amazon Rekognition Custom Labels provides the following Amazon CloudWatch Logs metrics that you can use to
 determine the current automatic scaling status for a model.
 
-| Metric                    | Description                                                                                    |
-| ------------------------- | ---------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `DesiredInferenceUnits`   | The number of inference units to which Amazon Rekognition Custom Labels is scaling up or down. |
-| `InServiceInferenceUnits` | The number of inference units that the model is using.                                         | If `DesiredInferenceUnits` = `InServiceInferenceUnits`, Amazon Rekognition Custom Labels is not currently scaling the number of inference units. If `DesiredInferenceUnits` > `InServiceInferenceUnits`, Amazon Rekognition Custom Labels is scaling up to the value of `DesiredInferenceUnits`. If `DesiredInferenceUnits` < `InServiceInferenceUnits`, Amazon Rekognition Custom Labels is scaling down to the value of `DesiredInferenceUnits`. For more information regarding the metrics returned by Amazon Rekognition Custom Labels and filtering dimensions, see [CloudWatch metrics for Rekognition](../dg/cloudwatch-metricsdim.md "../dg/cloudwatch-metricsdim.md"). To find out the maximum number of inference units that you requested for a model, call `DescribeProjectsVersion` and check the `MaxInferenceUnits` field in the response. For example code, see [Describing a model (SDK)](md-describing-model-sdk.md "md-describing-model-sdk.md"). ## Availability Zones Amazon Rekognition Custom Labels distributes inference units across multiple Availability Zones within an AWS Region to provide increased availability. For more information, see [Availability Zones](https://aws.amazon.com/about-aws/global-infrastructure/regions_az/#Availability_Zones "https://aws.amazon.com/about-aws/global-infrastructure/regions_az/#Availability_Zones"). To help protect your production models from Availability Zone outages and inference unit failures, start your production models with at least two inference units. If an Availability Zone outage occurs, all inference units in the Availability Zone are unavailable and model capacity is reduced. Calls to [DetectCustomLabels](../APIReference/API_DetectCustomLabels.md "../APIReference/API_DetectCustomLabels.md") are redistributed across the remaining inference units. Such calls succeed if they don’t exceed the supported Transactions Per Seconds (TPS) of the remaining inference units. After AWS repairs the Availability Zone, the inference units are restarted, and full capacity is restored. If a single inference unit fails, Amazon Rekognition Custom Labels automatically starts a new inference unit in the same Availability Zone. Model capacity is reduced until the new inference unit starts. |
+| Metric                    | Description                                                                                       |
+| ------------------------- | ------------------------------------------------------------------------------------------------- |
+| `DesiredInferenceUnits`   | The number of inference units to which Amazon Rekognition Custom Labels is<br>scaling up or down. |
+| `InServiceInferenceUnits` | The number of inference units that the model is<br>using.                                         |
+
+If `DesiredInferenceUnits` = `InServiceInferenceUnits`,
+Amazon Rekognition Custom Labels is not currently scaling the number of inference units.
+
+If `DesiredInferenceUnits` >
+`InServiceInferenceUnits`, Amazon Rekognition Custom Labels is scaling up to the value
+of `DesiredInferenceUnits`.
+
+If `DesiredInferenceUnits` <
+`InServiceInferenceUnits`, Amazon Rekognition Custom Labels is scaling down to the
+value of `DesiredInferenceUnits`.
+
+For more information regarding the metrics returned by Amazon Rekognition Custom Labels and
+filtering dimensions, see [CloudWatch metrics
+for Rekognition](../dg/cloudwatch-metricsdim.md "../dg/cloudwatch-metricsdim.md").
+
+To find out the maximum number of inference units that you requested for a
+model, call `DescribeProjectsVersion` and check the
+`MaxInferenceUnits` field in the response. For example code, see
+[Describing a model (SDK)](md-describing-model-sdk.md "md-describing-model-sdk.md").
+
+## Availability Zones
+
+Amazon Rekognition Custom Labels distributes inference units across multiple Availability Zones within an AWS
+Region to provide increased availability. For more information, see [Availability Zones](https://aws.amazon.com/about-aws/global-infrastructure/regions_az/#Availability_Zones "https://aws.amazon.com/about-aws/global-infrastructure/regions_az/#Availability_Zones"). To help protect your production models from
+Availability Zone outages and inference unit failures, start your production models with
+at least two inference units.
+
+If an Availability Zone outage occurs, all inference units in the Availability Zone are
+unavailable and model capacity is reduced. Calls to [DetectCustomLabels](../APIReference/API_DetectCustomLabels.md "../APIReference/API_DetectCustomLabels.md") are redistributed across the remaining inference units.
+Such calls succeed if they don’t exceed the supported Transactions Per Seconds (TPS) of
+the remaining inference units. After AWS repairs the Availability Zone, the inference
+units are restarted, and full capacity is restored.
+
+If a single inference unit fails, Amazon Rekognition Custom Labels automatically starts a new inference unit in the same Availability Zone.
+Model capacity is reduced until the new inference unit starts.
