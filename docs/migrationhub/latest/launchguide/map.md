@@ -1,4 +1,4 @@
-AWS Migration Hub will no longer be open to new customers starting November 7, 2025. To continue using the service, sign up prior to November 7, 2025. For capabilities similar to AWS Migration Hub, explore [AWS Transform](https://aws.amazon.com/transform "https://aws.amazon.com/transform").
+AWS Migration Hub is no longer open to new customers as of November 7, 2025. For capabilities similar to AWS Migration Hub, explore [AWS Transform](https://aws.amazon.com/transform "https://aws.amazon.com/transform").
 
 # Migration Acceleration Program (MAP)
 
@@ -112,14 +112,14 @@ approximate amount of the target AWS resources. You can also use it to create a 
 AWS services that are eligible for MAP credits but have not been tagged. To do so, select
 the filters below.
 
-| **Report parameters** | **Filter**               | **Setting**                                                                                                                                                      |
-| --------------------- | ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Time                  | Date range               | Specify a date range                                                                                                                                             |
-| Time                  | Granularity              | Specify a granularity                                                                                                                                            |
-| Group by              | Dimension                | Select Service, Linked account or Tag, as appropriate                                                                                                            |
-| Filters               | Service                  | Exclude non-MAP-2.0-eligible services                                                                                                                            |
-| Filters               | Usage type               | Exclude all "DataTransfer" values                                                                                                                                |
-| Filters               | Usage type group         | Exclude all "Data Transfer" values                                                                                                                               |
-| Filters               | Tag                      | Choose to view either tagged spend or untagged spend. You can also leave it blank and then use the 'Dimension' to show the split of tagged versus untagged spend |
-| Advanced options      | Aggregate costs by       | Amortized costs                                                                                                                                                  |
-| Advanced options      | Additional data settings | Untick all                                                                                                                                                       |
+| **Report parameters** | **Filter**               | **Setting**                                                                                                                                                            |
+| --------------------- | ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Time                  | Date range               | Specify a date range                                                                                                                                                   |
+| Time                  | Granularity              | Specify a granularity                                                                                                                                                  |
+| Group by              | Dimension                | Select Service, Linked account or Tag, as appropriate                                                                                                                  |
+| Filters               | Service                  | Exclude non-MAP-2.0-eligible services                                                                                                                                  |
+| Filters               | Usage type               | Exclude all "DataTransfer" values                                                                                                                                      |
+| Filters               | Usage type group         | Exclude all "Data Transfer" values                                                                                                                                     |
+| Filters               | Tag                      | Choose to view either tagged spend or untagged spend. You can also leave it<br>blank and then use the 'Dimension' to show the split of tagged versus untagged<br>spend |
+| Advanced options      | Aggregate costs by       | Amortized costs                                                                                                                                                        |
+| Advanced options      | Additional data settings | Untick all                                                                                                                                                             |
