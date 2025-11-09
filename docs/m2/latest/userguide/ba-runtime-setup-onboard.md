@@ -1,5 +1,7 @@
-AWS Mainframe Modernization Service (Managed Runtime Environment experience) will no longer be open to new customers starting on November 7, 2025. If you would like to use the service, please sign up prior to November 7, 2025. For capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed Experience). Existing customers can continue to use the service as normal. For more information, see
-[AWS Mainframe Modernization availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
+AWS Mainframe Modernization Service (Managed Runtime Environment experience) is no longer open to new customers. For
+capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed
+Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization
+availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
 
 # Onboarding AWS Blu Age Runtime
 
@@ -24,7 +26,7 @@ access the bucket for your AWS Region for AWS Blu Age Runtime (non-managed), use
 table.
 
 | AWS Region                | Release bucket                                           | Alpha pre-release bucket                                     |
-| ------------------------- | -------------------------------------------------------- | ------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------------------- | -------------------------------------------------------- | ------------------------------------------------------------ |
 | US East (Ohio)            | aws-bluage-runtime-artifacts-055777665268-us-east-2      | aws-bluage-runtime-artifacts-dev-055777665268-us-east-2      |
 | US East (N. Virginia)     | aws-bluage-runtime-artifacts-139023371234-us-east-1      | aws-bluage-runtime-artifacts-dev-139023371234-us-east-1      |
 | US West (N. California)   | aws-bluage-runtime-artifacts-788454048782-us-west-1      | aws-bluage-runtime-artifacts-dev-788454048782-us-west-1      |
@@ -45,4 +47,117 @@ table.
 | Asia Pacific (Sydney)     | aws-bluage-runtime-artifacts-726160321909-ap-southeast-2 | aws-bluage-runtime-artifacts-dev-726160321909-ap-southeast-2 |
 | Asia Pacific (Mumbai)     | aws-bluage-runtime-artifacts-905418353577-ap-south-1     | aws-bluage-runtime-artifacts-dev-905418353577-ap-south-1     |
 | Africa (Cape Town)        | aws-bluage-runtime-artifacts-992382777663-af-south-1     | aws-bluage-runtime-artifacts-dev-992382777663-af-south-1     |
-| Israel (Tel Aviv)         | aws-bluage-runtime-artifacts-471112516508-il-central-1   | aws-bluage-runtime-artifacts-dev-471112516508-il-central-1   | ## Using the AWS CLI to list the contents of the bucket After you are onboarded, you can list the contents of the bucket by running the following AWS CLI command in a terminal. `aws s3 ls `bucket-name``Replace`bucket-name`with the name of the bucket for your AWS Region from the previous table. This command returns a list of folders that correspond to different versions of the AWS Blu Age Runtime (non-managed) runtime, such as the following for a release bucket: ``` PRE 3.10.0/ PRE 4.0.0/ ``` Or the following for a build bucket: ``` PRE 4.1.0-alpha.8/ PRE 4.1.0-alpha.9/ ``` We recommend that you use the latest version available. If that isn't possible, then use the runtime version that was validated during the application refactoring phase. To list the available frameworks for a specific version, run the following command:`aws s3 ls s3://`bucket-name`/`version`/Framework/`Replace`bucket-name`with the name of the bucket for your AWS Region and`version`with the version you want. The following are two examples. For a release bucket:`aws s3 ls s3://aws-bluage-runtime-artifacts-139023371234-us-east-1/4.0.0/Framework/`The command returns a list of frameworks, such as: ``` 2024-04-08 16:11:19  152040176 aws-bluage-runtime-4.0.0.tar.gz 2024-04-08 16:11:50         45 aws-bluage-runtime-4.0.0.tar.gz.checksumSHA256 2024-04-08 16:11:52  176518889 aws-bluage-webapps-4.0.0.tar.gz 2024-04-08 16:12:28         45 aws-bluage-webapps-4.0.0.tar.gz.checksumSHA256 ``` For a build bucket:`aws s3 ls s3://aws-bluage-runtime-artifacts-dev-139023371234-us-east-1/4.1.0-alpha.9/Framework/`The command returns a list of frameworks, such as: ``` 2024-04-09 20:23:34  152304534 aws-bluage-runtime-4.1.0-alpha.9.tar.gz 2024-04-09 20:24:05         45 aws-bluage-runtime-4.1.0-alpha.9.tar.gz.checksumSHA256 2024-04-09 20:24:07  176262381 aws-bluage-webapps-4.1.0-alpha.9.tar.gz 2024-04-09 20:24:42         45 aws-bluage-webapps-4.1.0-alpha.9.tar.gz.checksumSHA256 ``` ## Download the framework You can download the framework for example to upgrade the AWS Blu Age Runtime version on an existing Amazon EC2 instance.`aws s3 cp s3://`bucket-name`/`version`/Framework/ `folder-of-your-choice` --recursive`Where: folder-of-your-choice folder path where you'd like to download the framework. For example:`aws s3 cp s3://aws-bluage-runtime-artifacts-139023371234-us-east-1/4.0.0/Framework/ . --recursive`This command produces the following output: ``` download: s3://aws-bluage-runtime-artifacts-139023371234-us-east-1/4.0.0/Framework/aws-bluage-runtime-4.0.0.tar.gz.checksumSHA256 to ./aws-bluage-runtime-4.0.0.tar.gz.checksumSHA256 download: s3://aws-bluage-runtime-artifacts-139023371234-us-east-1/4.0.0/Framework/aws-bluage-webapps-4.0.0.tar.gz.checksumSHA256 to ./aws-bluage-webapps-4.0.0.tar.gz.checksumSHA256 download: s3://aws-bluage-runtime-artifacts-139023371234-us-east-1/4.0.0/Framework/aws-bluage-webapps-4.0.0.tar.gz to ./aws-bluage-webapps-4.0.0.tar.gz download: s3://aws-bluage-runtime-artifacts-139023371234-us-east-1/4.0.0/Framework/aws-bluage-runtime-4.0.0.tar.gz to ./aws-bluage-runtime-4.0.0.tar.gz ``` You can list the framework files as follows:`ls -l` This command produces the following output: `total 230928 -rw-rw-r-- 1 cloudshell-user cloudshell-user 152040176 Apr  8 16:11 aws-bluage-runtime-4.0.0.tar.gz -rw-rw-r-- 1 cloudshell-user cloudshell-user        45 Apr  8 16:11 aws-bluage-runtime-4.0.0.tar.gz.checksumSHA256 -rw-rw-r-- 1 cloudshell-user cloudshell-user 176518889 Apr  8 16:11 aws-bluage-webapps-4.0.0.tar.gz -rw-rw-r-- 1 cloudshell-user cloudshell-user        45 Apr  8 16:12 aws-bluage-webapps-4.0.0.tar.gz.checksumSHA256` ###### Note Access to artifacts may be temporarily interrupted, and versions may be removed for security reasons. We strongly recommend that you store the artifacts you use in your own account. The local version should be used for reference in your internal architectures. |
+| Israel (Tel Aviv)         | aws-bluage-runtime-artifacts-471112516508-il-central-1   | aws-bluage-runtime-artifacts-dev-471112516508-il-central-1   |
+
+## Using the AWS CLI to list the contents of the
+
+bucket
+
+After you are onboarded, you can list the contents of the bucket by running the following
+AWS CLI command in a terminal.
+
+`aws s3 ls `bucket-name``
+
+Replace `bucket-name` with the name of the bucket for your AWS Region from the
+previous table.
+
+This command returns a list of folders that correspond to different versions of the AWS Blu Age Runtime (non-managed)
+runtime, such as the following for a release bucket:
+
+```
+PRE 3.10.0/
+PRE 4.0.0/
+```
+
+Or the following for a build bucket:
+
+```
+PRE 4.1.0-alpha.8/
+PRE 4.1.0-alpha.9/
+```
+
+We recommend that you use the latest version available. If that isn't possible, then use the
+runtime version that was validated during the application refactoring phase. To list the
+available frameworks for a specific version, run the following command:
+
+`aws s3 ls
+ s3://`bucket-name`/`version`/Framework/`
+
+Replace `bucket-name` with the name of the bucket for your AWS Region and
+`version` with the version you want. The following are two examples.
+
+For a release bucket:
+
+`aws s3 ls
+ s3://aws-bluage-runtime-artifacts-139023371234-us-east-1/4.0.0/Framework/`
+
+The command returns a list of frameworks, such as:
+
+```
+2024-04-08 16:11:19  152040176 aws-bluage-runtime-4.0.0.tar.gz
+2024-04-08 16:11:50         45 aws-bluage-runtime-4.0.0.tar.gz.checksumSHA256
+2024-04-08 16:11:52  176518889 aws-bluage-webapps-4.0.0.tar.gz
+2024-04-08 16:12:28         45 aws-bluage-webapps-4.0.0.tar.gz.checksumSHA256
+```
+
+For a build bucket:
+
+`aws s3 ls
+ s3://aws-bluage-runtime-artifacts-dev-139023371234-us-east-1/4.1.0-alpha.9/Framework/`
+
+The command returns a list of frameworks, such as:
+
+```
+2024-04-09 20:23:34  152304534 aws-bluage-runtime-4.1.0-alpha.9.tar.gz
+2024-04-09 20:24:05         45 aws-bluage-runtime-4.1.0-alpha.9.tar.gz.checksumSHA256
+2024-04-09 20:24:07  176262381 aws-bluage-webapps-4.1.0-alpha.9.tar.gz
+2024-04-09 20:24:42         45 aws-bluage-webapps-4.1.0-alpha.9.tar.gz.checksumSHA256
+```
+
+## Download the framework
+
+You can download the framework for example to upgrade the AWS Blu Age Runtime version on an existing Amazon EC2
+instance.
+
+`aws s3 cp
+ s3://`bucket-name`/`version`/Framework/
+ `folder-of-your-choice` --recursive`
+
+Where:
+
+folder-of-your-choice
+
+folder path where you'd like to download the framework.
+
+For example: `aws s3 cp
+ s3://aws-bluage-runtime-artifacts-139023371234-us-east-1/4.0.0/Framework/ .
+ --recursive`
+
+This command produces the following output:
+
+```
+download: s3://aws-bluage-runtime-artifacts-139023371234-us-east-1/4.0.0/Framework/aws-bluage-runtime-4.0.0.tar.gz.checksumSHA256 to ./aws-bluage-runtime-4.0.0.tar.gz.checksumSHA256
+download: s3://aws-bluage-runtime-artifacts-139023371234-us-east-1/4.0.0/Framework/aws-bluage-webapps-4.0.0.tar.gz.checksumSHA256 to ./aws-bluage-webapps-4.0.0.tar.gz.checksumSHA256
+download: s3://aws-bluage-runtime-artifacts-139023371234-us-east-1/4.0.0/Framework/aws-bluage-webapps-4.0.0.tar.gz to ./aws-bluage-webapps-4.0.0.tar.gz
+download: s3://aws-bluage-runtime-artifacts-139023371234-us-east-1/4.0.0/Framework/aws-bluage-runtime-4.0.0.tar.gz to ./aws-bluage-runtime-4.0.0.tar.gz
+```
+
+You can list the framework files as follows:
+
+`ls -l`
+
+This command produces the following output:
+
+```
+total 230928
+-rw-rw-r-- 1 cloudshell-user cloudshell-user 152040176 Apr  8 16:11 aws-bluage-runtime-4.0.0.tar.gz
+-rw-rw-r-- 1 cloudshell-user cloudshell-user        45 Apr  8 16:11 aws-bluage-runtime-4.0.0.tar.gz.checksumSHA256
+-rw-rw-r-- 1 cloudshell-user cloudshell-user 176518889 Apr  8 16:11 aws-bluage-webapps-4.0.0.tar.gz
+-rw-rw-r-- 1 cloudshell-user cloudshell-user        45 Apr  8 16:12 aws-bluage-webapps-4.0.0.tar.gz.checksumSHA256
+```
+
+###### Note
+
+Access to artifacts may be temporarily interrupted, and versions may be removed for
+security reasons. We strongly recommend that you store the artifacts you use in your own
+account. The local version should be used for reference in your internal architectures.

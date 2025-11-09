@@ -1,5 +1,7 @@
-AWS Mainframe Modernization Service (Managed Runtime Environment experience) will no longer be open to new customers starting on November 7, 2025. If you would like to use the service, please sign up prior to November 7, 2025. For capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed Experience). Existing customers can continue to use the service as normal. For more information, see
-[AWS Mainframe Modernization availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
+AWS Mainframe Modernization Service (Managed Runtime Environment experience) is no longer open to new customers. For
+capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed
+Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization
+availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
 
 # Create the AWS Identity and Access Management role
 
@@ -20,35 +22,36 @@ An IAM policy is created first and then attached to the role.
 
 ![JSON tab with no content](images/mf-create-iam-policy_2.png) 4. Replace `us-west-1` in the following JSON with the AWS Region where the Amazon S3 endpoint was defined, then copy and paste the JSON into the policy editor.
 
-```
+JSON
 
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Sid": "S3WriteObject",
-            "Effect": "Allow",
-            "Action": [
-                "s3:PutObject"
-            ],
-            "Resource": [
-                "arn:aws:s3:::aws-supernova-marketplace-us-west-1-prod/*"
-            ]
-        },
-        {
-            "Sid": "OtherRequiredActions",
-            "Effect": "Allow",
-            "Action": [
-                "sts:GetCallerIdentity",
-                "ec2:DescribeInstances",
-                "license-manager:ListReceivedLicenses"
-            ],
-            "Resource": [
-                "*"
-            ]
-        }
-    ]
-}
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Sid": "S3WriteObject",
+ "Effect": "Allow",
+ "Action": [
+ "s3:PutObject"
+ ],
+ "Resource": [
+ "arn:aws:s3:::aws-supernova-marketplace-us-west-1-prod/*"
+ ]
+ },
+ {
+ "Sid": "OtherRequiredActions",
+ "Effect": "Allow",
+ "Action": [
+ "sts:GetCallerIdentity",
+ "ec2:DescribeInstances",
+ "license-manager:ListReceivedLicenses"
+ ],
+ "Resource": [
+ "*"
+ ]
+ }
+ ]
+}`
 
 ```
 
@@ -78,24 +81,25 @@ After creating an IAM policy, you create an IAM role and attach it to the policy
 
 ![Role details with name and description entered.](images/mf-create-iam-role_4.png) 10. Under **Step 1: Select trusted entities** review the JSON and confirm it has the following values:
 
-```
+JSON
 
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Effect": "Allow",
-            "Action": [
-                "sts:AssumeRole"
-            ],
-            "Principal": {
-                "Service": [
-                    "ec2.amazonaws.com"
-                ]
-            }
-        }
-    ]
-}
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": [
+ "sts:AssumeRole"
+ ],
+ "Principal": {
+ "Service": [
+ "ec2.amazonaws.com"
+ ]
+ }
+ }
+ ]
+}`
 
 ```
 

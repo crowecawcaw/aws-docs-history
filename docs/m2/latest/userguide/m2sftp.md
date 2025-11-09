@@ -1,5 +1,7 @@
-AWS Mainframe Modernization Service (Managed Runtime Environment experience) will no longer be open to new customers starting on November 7, 2025. If you would like to use the service, please sign up prior to November 7, 2025. For capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed Experience). Existing customers can continue to use the service as normal. For more information, see
-[AWS Mainframe Modernization availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
+AWS Mainframe Modernization Service (Managed Runtime Environment experience) is no longer open to new customers. For
+capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed
+Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization
+availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
 
 # M2SFTP batch utility
 
@@ -18,7 +20,7 @@ To convert your mainframe FTP JCLs to use SFTP, change `PGM=FTP` to `PGM=M2SFTP`
 - [Supported platforms](#m2sftp-platforms "#m2sftp-platforms")
 - [Installing dependencies](#m2sftp-dependencies "#m2sftp-dependencies")
 - [Configure M2SFTP for AWS Mainframe Modernization Managed](#m2sftp-configure-managed "#m2sftp-configure-managed")
-- [Configure M2SFTP for AWS Mainframe Modernization runtime on Amazon EC2 (including AppStream 2.0)](#m2sftp-configure-customer-infra "#m2sftp-configure-customer-infra")
+- [Configure M2SFTP for AWS Mainframe Modernization runtime on Amazon EC2 (including WorkSpaces Applications)](#m2sftp-configure-customer-infra "#m2sftp-configure-customer-infra")
 - [Sample JCLs](#m2sftp-jcl "#m2sftp-jcl")
 - [Putty SFTP (PSFTP) client command reference](#m2sftp-cmd-ref "#m2sftp-cmd-ref")
 - [Next steps](#m2sftp-next "#m2sftp-next")
@@ -66,7 +68,7 @@ If your migrated applications are running on AWS Mainframe Modernization Managed
 
 To test your configuration, see [Sample JCLs](#m2sftp-jcl "#m2sftp-jcl").
 
-## Configure M2SFTP for AWS Mainframe Modernization runtime on Amazon EC2 (including AppStream 2.0)
+## Configure M2SFTP for AWS Mainframe Modernization runtime on Amazon EC2 (including WorkSpaces Applications)
 
 If your migrated applications are running on AWS Mainframe Modernization runtime on Amazon EC2, configure M2SFTP as follows.
 
@@ -188,7 +190,7 @@ The PSFTP client does not support all FTP commands.
 The following list shows all the commands that PSFTP does support.
 
 | Command | Description                                           |
-| ------- | ----------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------- | ----------------------------------------------------- |
 | !       | Run a local command                                   |
 | bye     | Finish your SFTP session                              |
 | cd      | Change your remote working directory                  |
@@ -214,4 +216,11 @@ The following list shows all the commands that PSFTP does support.
 | ren     | Move or rename file(s) on the remote server           |
 | reput   | Continue uploading files                              |
 | rm      | Delete files on the remote server                     |
-| rmdir   | Remove directories on the remote server               | ## Next steps To upload and download files into Amazon Simple Storage Service using SFTP, you could use M2SFTP in conjunction with the AWS Transfer Family, as described in the following blog posts. <br>• [Using AWS SFTP logical directories to build a simple data distribution service](https://aws.amazon.com/blogs/storage/using-aws-sftp-logical-directories-to-build-a-simple-data-distribution-service/ "https://aws.amazon.com/blogs/storage/using-aws-sftp-logical-directories-to-build-a-simple-data-distribution-service/") <br>• [Enable password authentication for AWS Transfer for SFTP using AWS Secrets Manager](https://aws.amazon.com/blogs/storage/enable-password-authentication-for-aws-transfer-for-sftp-using-aws-secrets-manager/ "https://aws.amazon.com/blogs/storage/enable-password-authentication-for-aws-transfer-for-sftp-using-aws-secrets-manager/") |
+| rmdir   | Remove directories on the remote server               |
+
+## Next steps
+
+To upload and download files into Amazon Simple Storage Service using SFTP, you could use M2SFTP in conjunction with the AWS Transfer Family, as described in the following blog posts.
+
+- [Using AWS SFTP logical directories to build a simple data distribution service](https://aws.amazon.com/blogs/storage/using-aws-sftp-logical-directories-to-build-a-simple-data-distribution-service/ "https://aws.amazon.com/blogs/storage/using-aws-sftp-logical-directories-to-build-a-simple-data-distribution-service/")
+- [Enable password authentication for AWS Transfer for SFTP using AWS Secrets Manager](https://aws.amazon.com/blogs/storage/enable-password-authentication-for-aws-transfer-for-sftp-using-aws-secrets-manager/ "https://aws.amazon.com/blogs/storage/enable-password-authentication-for-aws-transfer-for-sftp-using-aws-secrets-manager/")

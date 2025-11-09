@@ -1,5 +1,7 @@
-AWS Mainframe Modernization Service (Managed Runtime Environment experience) will no longer be open to new customers starting on November 7, 2025. If you would like to use the service, please sign up prior to November 7, 2025. For capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed Experience). Existing customers can continue to use the service as normal. For more information, see
-[AWS Mainframe Modernization availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
+AWS Mainframe Modernization Service (Managed Runtime Environment experience) is no longer open to new customers. For
+capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed
+Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization
+availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
 
 # TXT2PDF batch utility
 
@@ -11,7 +13,7 @@ the AWS Mainframe Modernization Rocket Software (formerly Micro Focus) runtime e
 
 - [Supported platforms](#txt2pdf-platforms "#txt2pdf-platforms")
 - [Configure TXT2PDF for AWS Mainframe Modernization Managed](#txt2pdf-configure-managed "#txt2pdf-configure-managed")
-- [Configure TXT2PDF for AWS Mainframe Modernization runtime on Amazon EC2 (including AppStream 2.0)](#txt2pdf-configure-customer-infra "#txt2pdf-configure-customer-infra")
+- [Configure TXT2PDF for AWS Mainframe Modernization runtime on Amazon EC2 (including WorkSpaces Applications)](#txt2pdf-configure-customer-infra "#txt2pdf-configure-customer-infra")
 - [Sample JCL](#txt2pdf-jcl "#txt2pdf-jcl")
 - [Modifications](#txt2pdf-mods "#txt2pdf-mods")
 - [References](#txt2pdf-ref "#txt2pdf-ref")
@@ -37,7 +39,7 @@ If your migrated applications are running on AWS Mainframe Modernization Managed
 
 To test your configuration, see [Sample JCL](#txt2pdf-jcl "#txt2pdf-jcl").
 
-## Configure TXT2PDF for AWS Mainframe Modernization runtime on Amazon EC2 (including AppStream 2.0)
+## Configure TXT2PDF for AWS Mainframe Modernization runtime on Amazon EC2 (including WorkSpaces Applications)
 
 If your migrated applications are running on AWS Mainframe Modernization runtime on Amazon EC2, configure TXT2PDF as follows.
 

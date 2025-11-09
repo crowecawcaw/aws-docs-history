@@ -1,18 +1,20 @@
-AWS Mainframe Modernization Service (Managed Runtime Environment experience) will no longer be open to new customers starting on November 7, 2025. If you would like to use the service, please sign up prior to November 7, 2025. For capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed Experience). Existing customers can continue to use the service as normal. For more information, see
-[AWS Mainframe Modernization availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
+AWS Mainframe Modernization Service (Managed Runtime Environment experience) is no longer open to new customers. For
+capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed
+Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization
+availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
 
-# Tutorial: Set up Rocket Enterprise Developer on AppStream 2.0
+# Tutorial: Set up Rocket Enterprise Developer on WorkSpaces Applications
 
 This tutorial describes how to set up Rocket Enterprise Developer (formerly Micro Focus Enterprise Developer) for one or more mainframe
 applications in order to maintain, compile, and test them using the Enterprise Developer features. The setup is
-based on the AppStream 2.0 Windows images that AWS Mainframe Modernization shares with the customer and on the creation of
-AppStream 2.0 fleets and stacks as described in [Tutorial: Set up AppStream 2.0 for use with Rocket Enterprise Analyzer and
+based on the WorkSpaces Applications Windows images that AWS Mainframe Modernization shares with the customer and on the creation of
+WorkSpaces Applications fleets and stacks as described in [Tutorial: Set up WorkSpaces Applications for use with Rocket Enterprise Analyzer and
 Rocket Enterprise Developer](set-up-appstream-mf.md "set-up-appstream-mf.md").
 
 ###### Important
 
-The steps in this tutorial assume that you set up AppStream 2.0 using the downloadable AWS CloudFormation
-template [cfn-m2-appstream-fleet-ea-ed.yaml](https://d1vi4vxke6c2hu.cloudfront.net/tutorial/cfn-m2-appstream-fleet-ea-ed.yaml "https://d1vi4vxke6c2hu.cloudfront.net/tutorial/cfn-m2-appstream-fleet-ea-ed.yaml"). For more information, see [Tutorial: Set up AppStream 2.0 for use with Rocket Enterprise Analyzer and
+The steps in this tutorial assume that you set up WorkSpaces Applications using the downloadable AWS CloudFormation
+template [cfn-m2-appstream-fleet-ea-ed.yaml](https://d1vi4vxke6c2hu.cloudfront.net/tutorial/cfn-m2-appstream-fleet-ea-ed.yaml "https://d1vi4vxke6c2hu.cloudfront.net/tutorial/cfn-m2-appstream-fleet-ea-ed.yaml"). For more information, see [Tutorial: Set up WorkSpaces Applications for use with Rocket Enterprise Analyzer and
 Rocket Enterprise Developer](set-up-appstream-mf.md "set-up-appstream-mf.md").
 
 You must perform the steps of this setup when the Enterprise Developer fleet and stack are up and
@@ -43,7 +45,7 @@ Libraries in `C:\Users\Public`
 
 If you need to access source code that is not yet loaded into CodeCommit repositories, but that is
 available in an Amazon S3 bucket, for example to perform the initial load of the source code into git,
-follow the procedure to create a virtual Windows disk as described in [Tutorial: Set up Enterprise Analyzer on AppStream 2.0](set-up-ea.md "set-up-ea.md").
+follow the procedure to create a virtual Windows disk as described in [Tutorial: Set up Enterprise Analyzer on WorkSpaces Applications](set-up-ea.md "set-up-ea.md").
 
 ###### Topics
 
@@ -83,7 +85,7 @@ follow the procedure to create a virtual Windows disk as described in [Tutorial:
       computer, or by choosing **Download credentials** to download this
       information as a .CSV file. You need this information to connect to CodeCommit.
 
-2. Start a session with AppStream 2.0 based on the url received in the welcome email. Use your email
+2. Start a session with WorkSpaces Applications based on the url received in the welcome email. Use your email
    as user name and create your password.
 3. Select your Enterprise Developer stack.
 4. On the menu page, choose **Desktop** to reach the Windows desktop streamed
@@ -127,7 +129,7 @@ server_side_encryption = AES256
    - Change `your-local-folder-path` to the path of the directory where you want
      the application files synced from the Amazon S3 bucket that contains them. For example,
      `D:\PhotonUser\My Files\Home Folder\m2-new`. This synced directory must be a
-     subdirectory of the Home Folder in order for AppStream 2.0 to properly back up and restore it on
+     subdirectory of the Home Folder in order for WorkSpaces Applications to properly back up and restore it on
      session start and end.
 
 ```
@@ -176,11 +178,11 @@ this target and before you roll out the new application to production.
 
 ## Subsequent sessions
 
-As you select a folder that is under AppStream 2.0 management like the home folder for the cloning
+As you select a folder that is under WorkSpaces Applications management like the home folder for the cloning
 of your CodeCommit repository, it will be saved and restored transparently across sessions. Complete
 the following steps the next time you need to work with the application:
 
-1. Start a session with AppStream 2.0 based on the url received in the welcome email.
+1. Start a session with WorkSpaces Applications based on the url received in the welcome email.
 2. Login with your email and permanent password.
 3. Select the Enterprise Developer stack.
 4. Launch `Rclone` to connect (see above) to the Amazon S3-backed disk when

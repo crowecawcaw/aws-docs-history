@@ -1,9 +1,11 @@
-AWS Mainframe Modernization Service (Managed Runtime Environment experience) will no longer be open to new customers starting on November 7, 2025. If you would like to use the service, please sign up prior to November 7, 2025. For capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed Experience). Existing customers can continue to use the service as normal. For more information, see
-[AWS Mainframe Modernization availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
+AWS Mainframe Modernization Service (Managed Runtime Environment experience) is no longer open to new customers. For
+capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed
+Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization
+availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
 
-# Tutorial: Use AWS Blu Age Developer on AppStream 2.0
+# Tutorial: Use AWS Blu Age Developer on WorkSpaces Applications
 
-This tutorial shows you how to access AWS Blu Age Developer on AppStream 2.0 and use it with a sample
+This tutorial shows you how to access AWS Blu Age Developer on WorkSpaces Applications and use it with a sample
 application so you can try out the features. When you finish this tutorial, you can use the same
 steps with your own applications.
 
@@ -34,7 +36,7 @@ application uses to store configuration information.
 5. For **Credential Settings**, choose **Manage master credentials in
    AWS Secrets Manager**. For more information, see [Password management with Amazon RDS and
    AWS Secrets Manager](../../../AmazonRDS/latest/UserGuide/rds-secrets-manager.md "../../../AmazonRDS/latest/UserGuide/rds-secrets-manager.md") in the _Amazon RDS User Guide_.
-6. Ensure that the VPC is the same as the one that you use for the AppStream 2.0 instance. You can
+6. Ensure that the VPC is the same as the one that you use for the WorkSpaces Applications instance. You can
    ask your admin for this value.
 7. For **VPC security group**, choose **Create
    New**.
@@ -54,13 +56,13 @@ create a rule of type **PostgreSQL**. For rule source, use the security group
 
 ## Step 2: Access the environment
 
-In this step, you access the AWS Blu Age development environment on AppStream 2.0.
+In this step, you access the AWS Blu Age development environment on WorkSpaces Applications.
 
-1. Contact your administrator for the proper way to access your AppStream 2.0 instance. For general
-   information about possible clients and configurations, see [AppStream 2.0 Access Methods
-   and Clients](../../../appstream2/latest/developerguide/clients-access-methods-user.md "../../../appstream2/latest/developerguide/clients-access-methods-user.md") in the _Amazon AppStream 2.0 Administration Guide_. Consider using the native
+1. Contact your administrator for the proper way to access your WorkSpaces Applications instance. For general
+   information about possible clients and configurations, see [WorkSpaces Applications Access Methods
+   and Clients](../../../appstream2/latest/developerguide/clients-access-methods-user.md "../../../appstream2/latest/developerguide/clients-access-methods-user.md") in the _Amazon WorkSpaces Applications Administration Guide_. Consider using the native
    client for the best experience.
-2. In AppStream 2.0 choose **Desktop**.
+2. In WorkSpaces Applications choose **Desktop**.
 
 ## Step 3: Set up the runtime
 
@@ -81,12 +83,12 @@ folder.
 In this step, you start the Eclipse IDE and choose a location where you want to create a
 workspace.
 
-1. In AppStream 2.0 choose the Launch Application icon on the toolbar, and then choose **Eclipse JEE**.
+1. In WorkSpaces Applications choose the Launch Application icon on the toolbar, and then choose **Eclipse JEE**.
 
-![Launch Application icon on the toolbar in AppStream 2.0. Eclipse JEE is selected.](images/aas-ba-eclipse.png) 2. When the launcher opens, enter the location where you want to create your workspace, and
+![Launch Application icon on the toolbar in WorkSpaces Applications. Eclipse JEE is selected.](images/aas-ba-eclipse.png) 2. When the launcher opens, enter the location where you want to create your workspace, and
 choose **Launch**.
 
-![Blu Age Eclipse IDE launcher in AppStream 2.0. Workspace is selected.](images/ba-eclipse-launcher.png)
+![Blu Age Eclipse IDE launcher in WorkSpaces Applications. Workspace is selected.](images/ba-eclipse-launcher.png)
 
 Optionally, you can launch Eclipse from the command line, as follows:
 
@@ -229,7 +231,7 @@ The editor content should now be similar to the following.
 
 In this step, you connect to the database that you created in [Step 1: Create a database](#tutorial-ba-developer-create-db "#tutorial-ba-developer-create-db").
 
-1. From the AppStream 2.0 instance, issue the following command in a terminal to launch
+1. From the WorkSpaces Applications instance, issue the following command in a terminal to launch
    `pgAdmin`:
 
 ```

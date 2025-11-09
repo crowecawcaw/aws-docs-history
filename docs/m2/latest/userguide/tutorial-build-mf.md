@@ -1,5 +1,7 @@
-AWS Mainframe Modernization Service (Managed Runtime Environment experience) will no longer be open to new customers starting on November 7, 2025. If you would like to use the service, please sign up prior to November 7, 2025. For capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed Experience). Existing customers can continue to use the service as normal. For more information, see
-[AWS Mainframe Modernization availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
+AWS Mainframe Modernization Service (Managed Runtime Environment experience) is no longer open to new customers. For
+capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed
+Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization
+availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
 
 # Tutorial: Setting up the Rocket Software (formerly Micro Focus) build for the
 
@@ -145,11 +147,247 @@ environment variables available within CodeBuild. For more information, see [Env
 
 At this point, your directory should look like this.
 
-````
+```
 (root directory name)
-|-- build.xml
-|-- buildspec.yml
-|-- LICENSE.txt
-|-- source
-|... etc. ``` 3. Zip the contents of the folder to a file named `BankDemo.zip`.. For this tutorial, you can't zip the folder. Instead, zip the contents of the folder to the file `BankDemo.zip`. ## Step 4: Upload the source files In this step, you upload the source code for the BankDemo sample application to your Amazon S3 input bucket. 1. Log in to the Amazon S3 console and choose **Buckets** in the left navigation pane. Then choose the input bucket you created previously. 2. Under **Objects**, choose **Upload**. 3. In the **Files and folders** section, choose **Add Files**. 4. Navigate to and choose your `BankDemo.zip` file. 5. Choose **Upload**. ## Step 5: Create IAM policies In this step, you create two [IAM policies](../../../IAM/latest/UserGuide/access_policies.md "../../../IAM/latest/UserGuide/access_policies.md"). One policy grants permissions for AWS Mainframe Modernization to access and use the Docker image that contains the Rocket Software build tools. This policy is not customized for customers. The other policy grants permissions for AWS Mainframe Modernization to interact with the input and output buckets, and with the [Amazon CloudWatch logs](../../../AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.md "../../../AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.md") that CodeBuild generates. To learn about creating an IAM policy, see [Editing IAM policies](../../../IAM/latest/UserGuide/access_policies_create.md "../../../IAM/latest/UserGuide/access_policies_create.md") in the *IAM User Guide*. ###### To create a policy for accessing Docker images 1. In the IAM console, copy the following policy document and paste it into the policy editor. JSON ``` `{ "Version":"2012-10-17", "Statement": [ { "Effect": "Allow", "Action": [ "ecr:GetAuthorizationToken" ], "Resource": "*" }, { "Effect": "Allow", "Action": [ "ecr:BatchCheckLayerAvailability", "ecr:GetDownloadUrlForLayer", "ecr:BatchGetImage" ], "Resource": "arn:aws:ecr:*:673918848628:repository/m2-enterprise-build-tools" }, { "Effect": "Allow", "Action": [ "s3:PutObject" ], "Resource": "arn:aws:s3:::aws-m2-repo-*-<region>-prod" } ] }` ``` 2. Provide a name for the policy, for example, `m2CodeBuildPolicy`. ###### To create a policy that allows AWS Mainframe Modernization to interact with buckets and logs 1. In the IAM console, copy the following policy document and paste it into the policy editor. Make sure to update `regionId` to the AWS Region, and `accountId` to your AWS account. 2. Provide a name for the policy, for example, `BankdemoCodeBuildRolePolicy`. ## Step 6: Create an IAM role In this step, you create a new [IAM role](../../../IAM/latest/UserGuide/id_roles.md "../../../IAM/latest/UserGuide/id_roles.md") that allows CodeBuild to interact with AWS resources for you, after you associate the IAM policies that you previously created with this new IAM role. For information about creating a service role, see [Creating a Role to Delegate Permissions to an AWS Service](../../../IAM/latest/UserGuide/id_roles_create_for-service.md "../../../IAM/latest/UserGuide/id_roles_create_for-service.md") in the *IAM User Guide*,. 1. Log in to the IAM console and choose **Roles** in the left navigation pane. 2. Choose **Create role**. 3. Under **Trusted entity type**, choose **AWS service**. 4. Under **Use cases for other AWS services**, choose **CodeBuild**, and then choose **CodeBuild** again. 5. Choose **Next**. 6. On the **Add permissions** page, choose **Next**. You assign a policy to the role later. 7. Under **Role details**, provide a name for the role, for example, `BankdemoCodeBuildServiceRole`. 8. Under **Select trusted entities**, verify that the policy document looks like the following: JSON ``` `{ "Version":"2012-10-17", "Statement": [ { "Effect": "Allow", "Principal": { "Service": "codebuild.amazonaws.com" }, "Action": "sts:AssumeRole" } ] }` ``` 9. Choose **Create role**. ## Step 7: Attach the IAM policies to the IAM role In this step, you attach the two IAM policies you previously created to the `BankdemoCodeBuildServiceRole` IAM role. 1. Log in to the IAM console and choose **Roles** in the left navigation pane. 2. In **Roles**, choose the role you created previously, for example, `BankdemoCodeBuildServiceRole`. 3. In **Permissions policies**, choose **Add permissions**, and then **Attach policies**. 4. In **Other permissions policies**, choose the policies that you created previously, for example, `m2CodeBuildPolicy` and `BankdemoCodeBuildRolePolicy`. 5. Choose **Attach policies.** ## Step 8: Create the CodeBuild project In this step, you create the CodeBuild project. 1. Log in to the CodeBuild console and choose **Create build project**. 2. In the **Project configuration** section, provide a name for the project, for example, `codebuild-bankdemo-project`. 3. In the **Source** section, for **Source provider**, choose **Amazon S3**, and then choose the input bucket you created previously, for example, `codebuild-regionId-accountId-input-bucket`. 4. In the **S3 object key or S3 folder** field, enter the name of the zip file that you uploaded to the S3 bucket. In this case, the file name is `bankdemo.zip`. 5. In the **Environment** section, choose **Custom image**. 6. In the **Environment type** field, choose **Linux**. 7. Under **Image registry**, choose **Other registry**. 8. In the **External registry URL** field, <br>• For Rocket Software v9: Enter `673918848628.dkr.ecr.us-west-1.amazonaws.com/m2-enterprise-build-tools:9.0.7.R1`. If you're using a different AWS Region with Rocket Software v9, you can also specify `673918848628.dkr.ecr.<m2-region>.amazonaws.com/m2-enterprise-build-tools:9.0.7.R1`, where <m2-region> is an AWS Region in which AWS Mainframe Modernization service is available (for example, `eu-west-3`). <br>• For Rocket Software v8: Enter `673918848628.dkr.ecr.us-west-2.amazonaws.com/m2-enterprise-build-tools:8.0.9.R1` <br>• For Rocket Software v7: Enter `673918848628.dkr.ecr.us-west-2.amazonaws.com/m2-enterprise-build-tools:7.0.R10` 9. Under **Service role**, choose **Existing service role**, and in the **Role ARN** field, choose the service role you created previously; for example, `BankdemoCodeBuildServiceRole`. 10. In the **Buildspec** section, choose **Use a buildspec file**. 11. In the **Artifacts** section, under **Type**, choose **Amazon S3**, and then choose your output bucket, for example, `codebuild-regionId-accountId-output-bucket`. 12. In the **Name** field, enter the name of a folder in the bucket that you want to contain the build output artifacts, for example, `bankdemo-output.zip`. 13. Under **Artifacts packaging**, choose **Zip**. 14. Choose **Create build project**. ## Step 9: Start the build In this step, you start the build. 1. Log in to the CodeBuild console. 2. In the left navigation pane, choose **Build projects**. 3. Choose the build project that you created previously, for example, `codebuild-bankdemo-project`. 4. Choose **Start build**. This command starts the build. The build runs asynchronously. The output of the command is a JSON that includes the attribute id. This attribute idis a reference to the CodeBuild build id of the build that you just started. You can view the status of the build in the CodeBuild console. You can also see detailed logs about the build execution in the console. For more information, see [View detailed build information](../../../codebuild/latest/userguide/getting-started-build-log-console.md "../../../codebuild/latest/userguide/getting-started-build-log-console.md") in the *AWS CodeBuild User Guide*. When the current phase is COMPLETED, it means that your build finished successfully, and your compiled artifacts are ready on Amazon S3. ## Step 10: Download output artifacts In this step, you download the output artifacts from Amazon S3. The Rocket Software build tool can create several different executable types. In this tutorial, it generates shared objects. 1. Log in to the Amazon S3 console. 2. In the **Buckets** role="bold"> section, choose the name of your output bucket, for example, `codebuild-regionId-accountId-output-bucket`. 3. Choose **Download** role="bold">. 4. Unzip the downloaded file. Navigate to the target folder to see the build artifacts. These include the `.so` Linux shared objects. ## Clean up resources If you no longer need the resources that you created for this tutorial, delete them to avoid additional charges. To do so, complete the following steps: <br>• Delete the S3 buckets that you created for this tutorial. For more information, see [Deleting a bucket](../../../AmazonS3/latest/userguide/delete-bucket.md "../../../AmazonS3/latest/userguide/delete-bucket.md") in the *Amazon Simple Storage Service User Guide*. <br>• Delete the IAM policies that you created for this tutorial. For more information, see [Deleting IAM policies](../../../IAM/latest/UserGuide/access_policies_manage-delete.md "../../../IAM/latest/UserGuide/access_policies_manage-delete.md") in the *IAM User Guide*. <br>• Delete the IAM role that you created for this tutorial. For more information, see [Deleting roles or instance profiles](../../../IAM/latest/UserGuide/id_roles_manage_delete.md "../../../IAM/latest/UserGuide/id_roles_manage_delete.md") in the *IAM User Guide*. <br>• Delete the CodeBuild project that you created for this tutorial. For more information, see [Delete a build project in CodeBuild](../../../codebuild/latest/userguide/delete-project.md "../../../codebuild/latest/userguide/delete-project.md") in the *AWS CodeBuild User Guide*.
-````
+    |-- build.xml
+    |-- buildspec.yml
+    |-- LICENSE.txt
+    |-- source
+         |... etc.
+```
+
+3. Zip the contents of the folder to a file named `BankDemo.zip`.. For
+   this tutorial, you can't zip the folder. Instead, zip the contents of the folder to the
+   file `BankDemo.zip`.
+
+## Step 4: Upload the source files
+
+In this step, you upload the source code for the BankDemo sample application to your Amazon S3
+input bucket.
+
+1. Log in to the Amazon S3 console and choose **Buckets** in the left
+   navigation pane. Then choose the input bucket you created previously.
+2. Under **Objects**, choose **Upload**.
+3. In the **Files and folders** section, choose **Add
+   Files**.
+4. Navigate to and choose your `BankDemo.zip` file.
+5. Choose **Upload**.
+
+## Step 5: Create IAM policies
+
+In this step, you create two [IAM policies](../../../IAM/latest/UserGuide/access_policies.md "../../../IAM/latest/UserGuide/access_policies.md"). One policy grants
+permissions for AWS Mainframe Modernization to access and use the Docker image that contains the Rocket Software build tools.
+This policy is not customized for customers. The other policy grants permissions for AWS Mainframe Modernization to
+interact with the input and output buckets, and with the [Amazon CloudWatch logs](../../../AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.md "../../../AmazonCloudWatch/latest/logs/WhatIsCloudWatchLogs.md") that
+CodeBuild generates.
+
+To learn about creating an IAM policy, see [Editing IAM policies](../../../IAM/latest/UserGuide/access_policies_create.md "../../../IAM/latest/UserGuide/access_policies_create.md") in the
+_IAM User Guide_.
+
+###### To create a policy for accessing Docker images
+
+1. In the IAM console, copy the following policy document and paste it into the policy
+   editor.
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Action": [
+ "ecr:GetAuthorizationToken"
+ ],
+ "Resource": "*"
+ },
+ {
+ "Effect": "Allow",
+ "Action": [
+ "ecr:BatchCheckLayerAvailability",
+ "ecr:GetDownloadUrlForLayer",
+ "ecr:BatchGetImage"
+ ],
+ "Resource": "arn:aws:ecr:*:673918848628:repository/m2-enterprise-build-tools"
+ },
+ {
+ "Effect": "Allow",
+ "Action": [
+ "s3:PutObject"
+ ],
+ "Resource": "arn:aws:s3:::aws-m2-repo-*-<region>-prod"
+ }
+ ]
+}`
+
+```
+
+2. Provide a name for the policy, for example, `m2CodeBuildPolicy`.
+
+###### To create a policy that allows AWS Mainframe Modernization to interact with buckets and logs
+
+1. In the IAM console, copy the following policy document and paste it into the policy
+   editor. Make sure to update `regionId` to the AWS Region, and
+   `accountId` to your AWS account.
+2. Provide a name for the policy, for example,
+   `BankdemoCodeBuildRolePolicy`.
+
+## Step 6: Create an IAM role
+
+In this step, you create a new [IAM role](../../../IAM/latest/UserGuide/id_roles.md "../../../IAM/latest/UserGuide/id_roles.md") that allows CodeBuild to interact
+with AWS resources for you, after you associate the IAM policies that you previously
+created with this new IAM role.
+
+For information about creating a service role, see [Creating a Role to Delegate Permissions
+to an AWS Service](../../../IAM/latest/UserGuide/id_roles_create_for-service.md "../../../IAM/latest/UserGuide/id_roles_create_for-service.md") in the _IAM User Guide_,.
+
+1. Log in to the IAM console and choose **Roles** in the left
+   navigation pane.
+2. Choose **Create role**.
+3. Under **Trusted entity type**, choose **AWS
+   service**.
+4. Under **Use cases for other AWS services**, choose
+   **CodeBuild**, and then choose **CodeBuild**
+   again.
+5. Choose **Next**.
+6. On the **Add permissions** page, choose **Next**.
+   You assign a policy to the role later.
+7. Under **Role details**, provide a name for the role, for example,
+   `BankdemoCodeBuildServiceRole`.
+8. Under **Select trusted entities**, verify that the policy document
+   looks like the following:
+
+JSON
+
+```
+`{
+ "Version":"2012-10-17",
+ "Statement": [
+ {
+ "Effect": "Allow",
+ "Principal": {
+ "Service": "codebuild.amazonaws.com"
+ },
+ "Action": "sts:AssumeRole"
+ }
+ ]
+ }`
+
+```
+
+9. Choose **Create role**.
+
+## Step 7: Attach the IAM policies to the IAM
+
+role
+
+In this step, you attach the two IAM policies you previously created to the
+`BankdemoCodeBuildServiceRole` IAM role.
+
+1. Log in to the IAM console and choose **Roles** in the left
+   navigation pane.
+2. In **Roles**, choose the role you created previously, for example,
+   `BankdemoCodeBuildServiceRole`.
+3. In **Permissions policies**, choose **Add
+   permissions**, and then **Attach policies**.
+4. In **Other permissions policies**, choose the policies that you
+   created previously, for example, `m2CodeBuildPolicy` and
+   `BankdemoCodeBuildRolePolicy`.
+5. Choose **Attach policies.**
+
+## Step 8: Create the CodeBuild project
+
+In this step, you create the CodeBuild project.
+
+1. Log in to the CodeBuild console and choose **Create build
+   project**.
+2. In the **Project configuration** section, provide a name for the
+   project, for example, `codebuild-bankdemo-project`.
+3. In the **Source** section, for **Source provider**,
+   choose **Amazon S3**, and then choose the input bucket you created
+   previously, for example, `codebuild-regionId-accountId-input-bucket`.
+4. In the **S3 object key or S3 folder** field, enter the name of the
+   zip file that you uploaded to the S3 bucket. In this case, the file name is
+   `bankdemo.zip`.
+5. In the **Environment** section, choose **Custom
+   image**.
+6. In the **Environment type** field, choose
+   **Linux**.
+7. Under **Image registry**, choose **Other
+   registry**.
+8. In the **External registry URL** field,
+   - For Rocket Software v9: Enter
+     `673918848628.dkr.ecr.us-west-1.amazonaws.com/m2-enterprise-build-tools:9.0.7.R1`.
+     If you're using a different AWS Region with Rocket Software v9, you can also specify `673918848628.dkr.ecr.<m2-region>.amazonaws.com/m2-enterprise-build-tools:9.0.7.R1`,
+     where <m2-region> is an AWS Region in which AWS Mainframe Modernization service is available (for
+     example, `eu-west-3`).
+   - For Rocket Software v8: Enter
+     `673918848628.dkr.ecr.us-west-2.amazonaws.com/m2-enterprise-build-tools:8.0.9.R1`
+   - For Rocket Software v7: Enter
+     `673918848628.dkr.ecr.us-west-2.amazonaws.com/m2-enterprise-build-tools:7.0.R10`
+
+9. Under **Service role**, choose **Existing service
+   role**, and in the **Role ARN** field, choose the service role
+   you created previously; for example, `BankdemoCodeBuildServiceRole`.
+10. In the **Buildspec** section, choose **Use a buildspec
+    file**.
+11. In the **Artifacts** section, under **Type**, choose
+    **Amazon S3**, and then choose your output bucket, for example,
+    `codebuild-regionId-accountId-output-bucket`.
+12. In the **Name** field, enter the name of a folder in the bucket that
+    you want to contain the build output artifacts, for example,
+    `bankdemo-output.zip`.
+13. Under **Artifacts packaging**, choose
+    **Zip**.
+14. Choose **Create build project**.
+
+## Step 9: Start the build
+
+In this step, you start the build.
+
+1. Log in to the CodeBuild console.
+2. In the left navigation pane, choose **Build projects**.
+3. Choose the build project that you created previously, for example,
+   `codebuild-bankdemo-project`.
+4. Choose **Start build**.
+
+This command starts the build. The build runs asynchronously. The output of the command is
+a JSON that includes the attribute id. This attribute idis a reference to the CodeBuild build id
+of the build that you just started. You can view the status of the build in the CodeBuild console.
+You can also see detailed logs about the build execution in the console. For more information,
+see [View detailed build
+information](../../../codebuild/latest/userguide/getting-started-build-log-console.md "../../../codebuild/latest/userguide/getting-started-build-log-console.md") in the _AWS CodeBuild User Guide_.
+
+When the current phase is COMPLETED, it means that your build finished successfully, and
+your compiled artifacts are ready on Amazon S3.
+
+## Step 10: Download output artifacts
+
+In this step, you download the output artifacts from Amazon S3. The Rocket Software build tool can create
+several different executable types. In this tutorial, it generates shared objects.
+
+1. Log in to the Amazon S3 console.
+2. In the **Buckets** role="bold"> section, choose the name of your output bucket,
+   for example, `codebuild-regionId-accountId-output-bucket`.
+3. Choose **Download** role="bold">.
+4. Unzip the downloaded file. Navigate to the target folder to see the build artifacts.
+   These include the `.so` Linux shared objects.
+
+## Clean up resources
+
+If you no longer need the resources that you created for this tutorial, delete them to
+avoid additional charges. To do so, complete the following steps:
+
+- Delete the S3 buckets that you created for this tutorial. For more information, see
+  [Deleting
+  a bucket](../../../AmazonS3/latest/userguide/delete-bucket.md "../../../AmazonS3/latest/userguide/delete-bucket.md") in the _Amazon Simple Storage Service User Guide_.
+- Delete the IAM policies that you created for this tutorial. For more information,
+  see [Deleting IAM
+  policies](../../../IAM/latest/UserGuide/access_policies_manage-delete.md "../../../IAM/latest/UserGuide/access_policies_manage-delete.md") in the _IAM User Guide_.
+- Delete the IAM role that you created for this tutorial. For more information, see
+  [Deleting roles or instance profiles](../../../IAM/latest/UserGuide/id_roles_manage_delete.md "../../../IAM/latest/UserGuide/id_roles_manage_delete.md") in the
+  _IAM User Guide_.
+- Delete the CodeBuild project that you created for this tutorial. For more information, see
+  [Delete
+  a build project in CodeBuild](../../../codebuild/latest/userguide/delete-project.md "../../../codebuild/latest/userguide/delete-project.md") in the _AWS CodeBuild User Guide_.

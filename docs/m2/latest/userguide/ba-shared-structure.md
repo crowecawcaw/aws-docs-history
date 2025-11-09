@@ -1,5 +1,7 @@
-AWS Mainframe Modernization Service (Managed Runtime Environment experience) will no longer be open to new customers starting on November 7, 2025. If you would like to use the service, please sign up prior to November 7, 2025. For capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed Experience). Existing customers can continue to use the service as normal. For more information, see
-[AWS Mainframe Modernization availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
+AWS Mainframe Modernization Service (Managed Runtime Environment experience) is no longer open to new customers. For
+capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed
+Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization
+availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
 
 # AWS Blu Age structure of a modernized application
 
@@ -480,30 +482,33 @@ This section contains lists of the AWS Blu Age and third-party fully qualified n
 
 ### AWS Blu Age fully qualified name mappings
 
-| Short name                       | Fully qualified name                                                              |
-| -------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------- |
-| `CallBuilder`                    | `com.netfective.bluage.gapwalk.runtime.statements.CallBuilder`                    |
-| `Configuration`                  | `com.netfective.bluage.gapwalk.datasimplifier.configuration.Configuration`        |
-| `ConfigurationBuilder`           | `com.netfective.bluage.gapwalk.datasimplifier.configuration.ConfigurationBuilder` |
-| `ExecutionController`            | `com.netfective.bluage.gapwalk.rt.call.ExecutionController`                       |
-| `ExecutionControllerImpl`        | `com.netfective.bluage.gapwalk.rt.call.internal.ExecutionControllerImpl`          |
-| `File`                           | `com.netfective.bluage.gapwalk.rt.io.File`                                        |
-| `MainProgramRunner`              | `com.netfective.bluage.gapwalk.rt.call.MainProgramRunner`                         |
-| `Program`                        | `com.netfective.bluage.gapwalk.rt.provider.Program`                               |
-| `ProgramContextStore`            | `com.netfective.bluage.gapwalk.rt.context.ProgramContextStore`                    |
-| `ProgramRegistry`                | `com.netfective.bluage.gapwalk.rt.provider.ProgramRegistry`                       |
-| `Record`                         | `com.netfective.bluage.gapwalk.datasimplifier.data.Record`                        |
-| `RecordEntity`                   | `com.netfective.bluage.gapwalk.datasimplifier.entity.RecordEntity`                |
-| `RuntimeContext`                 | `com.netfective.bluage.gapwalk.rt.context.RuntimeContext`                         |
-| `SimpleStateMachineController`   | `com.netfective.bluage.gapwalk.rt.statemachine.SimpleStateMachineController`      |
-| `StateMachineController`         | `com.netfective.bluage.gapwalk.rt.statemachine.StateMachineController`            |
-| `StateMachineRunner`             | `com.netfective.bluage.gapwalk.rt.statemachine.StateMachineRunner`                | ### Third party fully qualified name mappings |
-| Short name                       | Fully qualified name                                                              |
-| ---                              | ---                                                                               |
-| `@Autowired`                     | `org.springframework.beans.factory.annotation.Autowired`                          |
-| `@Bean`                          | `org.springframework.context.annotation.Bean`                                     |
-| `BeanFactory`                    | `org.springframework.beans.factory.BeanFactory`                                   |
-| `@Component`                     | `org.springframework.stereotype.Component`                                        |
-| `ConfigurableApplicationContext` | `org.springframework.context.ConfigurableApplicationContext`                      |
-| `@Import`                        | `org.springframework.context.annotation.Import`                                   |
-| `@Lazy`                          | `org.springframework.context.annotation.Lazy`                                     |
+| Short name                     | Fully qualified name                                                              |
+| ------------------------------ | --------------------------------------------------------------------------------- |
+| `CallBuilder`                  | `com.netfective.bluage.gapwalk.runtime.statements.CallBuilder`                    |
+| `Configuration`                | `com.netfective.bluage.gapwalk.datasimplifier.configuration.Configuration`        |
+| `ConfigurationBuilder`         | `com.netfective.bluage.gapwalk.datasimplifier.configuration.ConfigurationBuilder` |
+| `ExecutionController`          | `com.netfective.bluage.gapwalk.rt.call.ExecutionController`                       |
+| `ExecutionControllerImpl`      | `com.netfective.bluage.gapwalk.rt.call.internal.ExecutionControllerImpl`          |
+| `File`                         | `com.netfective.bluage.gapwalk.rt.io.File`                                        |
+| `MainProgramRunner`            | `com.netfective.bluage.gapwalk.rt.call.MainProgramRunner`                         |
+| `Program`                      | `com.netfective.bluage.gapwalk.rt.provider.Program`                               |
+| `ProgramContextStore`          | `com.netfective.bluage.gapwalk.rt.context.ProgramContextStore`                    |
+| `ProgramRegistry`              | `com.netfective.bluage.gapwalk.rt.provider.ProgramRegistry`                       |
+| `Record`                       | `com.netfective.bluage.gapwalk.datasimplifier.data.Record`                        |
+| `RecordEntity`                 | `com.netfective.bluage.gapwalk.datasimplifier.entity.RecordEntity`                |
+| `RuntimeContext`               | `com.netfective.bluage.gapwalk.rt.context.RuntimeContext`                         |
+| `SimpleStateMachineController` | `com.netfective.bluage.gapwalk.rt.statemachine.SimpleStateMachineController`      |
+| `StateMachineController`       | `com.netfective.bluage.gapwalk.rt.statemachine.StateMachineController`            |
+| `StateMachineRunner`           | `com.netfective.bluage.gapwalk.rt.statemachine.StateMachineRunner`                |
+
+### Third party fully qualified name mappings
+
+| Short name                       | Fully qualified name                                         |
+| -------------------------------- | ------------------------------------------------------------ |
+| `@Autowired`                     | `org.springframework.beans.factory.annotation.Autowired`     |
+| `@Bean`                          | `org.springframework.context.annotation.Bean`                |
+| `BeanFactory`                    | `org.springframework.beans.factory.BeanFactory`              |
+| `@Component`                     | `org.springframework.stereotype.Component`                   |
+| `ConfigurableApplicationContext` | `org.springframework.context.ConfigurableApplicationContext` |
+| `@Import`                        | `org.springframework.context.annotation.Import`              |
+| `@Lazy`                          | `org.springframework.context.annotation.Lazy`                |

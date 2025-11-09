@@ -1,5 +1,7 @@
-AWS Mainframe Modernization Service (Managed Runtime Environment experience) will no longer be open to new customers starting on November 7, 2025. If you would like to use the service, please sign up prior to November 7, 2025. For capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed Experience). Existing customers can continue to use the service as normal. For more information, see
-[AWS Mainframe Modernization availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
+AWS Mainframe Modernization Service (Managed Runtime Environment experience) is no longer open to new customers. For
+capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed
+Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization
+availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
 
 # Add configuration properties for the managed application with AWS Blu Age engine
 
@@ -419,9 +421,518 @@ Default: file:./setup/
 Currently, for deployment constraints, you must copy your dbds and psbs directories in the config directory of your application
 or in a subdirectory of the config directory: e.g., config/setup
 
-````
+```
 config
 |- setup
-|- dbds
-|- psbs ``` and set in application-jhdb.yml `jhdb.metadata.extrapath: file: ./config/setup/` **jhdb.navigation.cachenexts** Optional. The cache duration (in milliseconds) used in hierarchical navigation for an RDBMS. Type: number Default: 5000 **jhdb.query.limitJoinUsage** Optional. Specifies whether to use the limit join usage parameter on RDBMS graphs. Type: boolean Default: true **jhdb.use-db-prefix** Optional. Specifies whether to enable a database prefix in hierarchical navigation for an RDBMS. Type: boolean Default: true ### Gapwalk JICS properties **jics.data.dataJsonInitLocation** Optional. Location of the json file prepared by the Analyzer from parsing CSD, and used to initialize the jics database, Type: string Default: "" **jics.db.dataScriptLocation** Optional. Location of the initJics.sql script, prepared by Analyzer from parsing CSD exports from the mainframe. Type: string Default: "" **jics.db.dataTestQueryLocation** Optional. Location of a sql script containing a single sql query that is expected to return a count of objects (for example: counting number of records in the jics program table). If the count equals 0, database will be loaded using the `jics.db.dataScriptLocation` script, otherwise database load will be skipped. Type: string Default: "" **jics.db.ddlScriptLocation** Optional. The Jics ddl script location. Allows you to initiate the jics database schema using a .sql script. Type: string Default: "" `jics.db.ddlScriptLocation: ./jics/sql/jics.sql` **jics.db.schemaTestQueryLocation** Optional. Location of the sql file that should contain a unique query that returns the number of objects in the jics schema (if any). Type: string Default: "" **jics.runUnitLauncherPool.enable** Optional. Specifies whether to activate the run unit launcher pool in JICS. Type: boolean Default: false **jics.runUnitLauncherPool.size** Optional. The run unit launcher pool size in JICS. Type: number Default: 20 **jics.runUnitLauncherPool.validationInterval** Optional: The validation interval of the run unit launcher pool in JICS, expressed in milliseconds. Type: number Default: 1000 **jics.queues.sqs.region** Optional. The AWS Region for Amazon SQS, used in JICS. It is advised to be set the same region of the deployed application for performance, but it is not mandatory. Type: string Default: eu-west-1 **jics.xa.agent.timeout** Optional. Defines the maximum duration for the xa agent responsible for managing distributed transactions, to complete its operations. Type: number Default: null **mq.queues.sqs.region** Optional. The AWS Region for the Amazon SQS MQ service. Type: string Default: eu-west-3 **taskExecutor.allowCoreThreadTimeOut** Optional. Specifies whether to allow core threads to time out in JCIS. This enables dynamic growing and shrinking even in combination with a non-zero queue (since the max pool size will only grow once the queue is full). Type: boolean Default: false **taskExecutor.corePoolSize** Optional. When a transaction in a terminal is initiated via a groovy script, a new thread is created. Use this parameter to setup the core pool size. Type: number Default: 5 **taskExecutor.maxPoolSize** Optional. When a transaction in a terminal is initiated via a groovy script, a new thead is created. Use this parameter to setup the max pool size (max number of parallel threads). Type: number Default: 10 **taskExecutor.queueCapacity** Optional. When a transaction in a terminal is initiated via a groovy script, a new thead is created. Use this parameter to setup the queue size. (= maximum number of pending transactions when `taskExecutor.maxPoolSize` is reached) Type: number Default: 50 ### Gapwalk runtime properties **cacheMetadata** Optional. Specifies whether to cache database metadata. Type: boolean Default: true **check-groovy-file** Optional. Specifies whether to check groovy files content before registering. Type: boolean Default: true **databaseStatistics** Optional. Specifies whether to allow SQL builders to collect and display statistics information. Type: boolean Default: false **dateTimeFormat** Optional. The dateTimeFormat describes how to spill database date time timestamp type into data simplifier entities. Allowed values are `ISO` / `EUR` / `USA` / `LOCAL` Type: string Default: ISO **dbDateFormat** Optional. The database target date format. Type: string Default: yyyy-MM-dd **dbTimeFormat** Optional. The database target time format. Type: string Default: HH:mm:ss **dbTimestampFormat** Optional. The database target timestamp format. Type: string Default: yyyy-MM-dd HH:mm:ss.SSSSSS **fetchSize** Optional. The fetchSize value for cursors. Use when fetching data using chunks by load/unload utils. Type: number Default: 10 **forceDisableSQLTrimStringType** Optional. Specifies whether to disable trim of all sql string parameters. Type: boolean Default: false **localDateFormat** Optional. List of local date formats. Separate each format with `|`. Type: string **localTimeFormat** Optional. List of local time formats. Separate each format with `|` . Type: string **localTimestampFormat** Optional. List of local timestamp formats. Separate each format with `|`. Type: string Default: **pgmDateFormat** Optional. The date time format used in the programs. Type: string Default: yyyy-MM-dd **pgmTimeFormat** Optional. The time format used for pgm (programs) execution. Type: string Default: HH.mm.ss **pgmTimestampFormat** Optional. The timestamp format. Type: string Default: yyyy-MM-dd-HH.mm.ss.SSSSSS ### Gapwalk utility program properties **jcl.type** Optional. `.jcl` file type. Allowed values are `jcl` / `vse`. The IDCAMS utility PRINT/REPRO commands return 4 if the file is empty for non-vse jcl. Type: string Default: mvs **listcat.variablelengthpreprocessor.enabled** Optional. Specifies whether to enable the variable length preprocessor for the LISTCAT command. Type: boolean Default: false **listcat.variablelengthpreprocessor.type** Optional. The type of objects contained in the listcat file, if you enable `listcat.variablelengthpreprocessor.enabled`. Allowed values are `rdw` / `bdw`. Type: string Default: rdw **load.batchSize** Optional. The load utility batch size. Type: number Default: 0 **load.format.dbDate** Optional. The load utility database format to use. Type: string Default: yyyy-MM-dd **load.format.dbTime** Optional. The load utility database time to use. Type: string Default: HH:mm:ss **load.format.localDate** Optional. The load utility local date format to use. Type: string Default: dd.MM.yyyy|dd/MM/yyyy|yyyy-MM-dd **load.format.localTime** Optional. The load utility local time format to use. Type: string Default: HH:mm:ss|HH.mm.ss **load.sqlCodePointShift** Optional. The SQL code pointshift for load utility. Runs the shifting characters process. Required when your target database from DB2 is Postgresql. Type: number Default: 0 **sysPunchEncoding** Optional. The syspunch encoding character set. Supported values are `Cp1047` / `ASCII`. Type: string Default: ASCII **treatLargeNumberAsInteger** Optional. Specifies whether to treat large numbers as `Integer`. They are treated as `BigDecimal` by default. Type: boolean Default: false **unload.chunkSize** Optional. Chunk size used for unload utility. Type: number Default: 0 **unload.columnFiller** Optional. The unload utility column filler. Type: string Default: space **unload.fetchSize** Optional. Allows you to tune the fetch size when handling cursors in the unload utility. Type: number Default: 0 **unload.format.date** Optional. If `unload.useDatabaseConfiguration` is enabled, the date format to use in the unload utility. Type: string Default: MM/dd/yyyy **unload.format.time** Optional. If `unload.useDatabaseConfiguration` is enabled, the time format to use in the unload utility. Type: string Default: HH.mm.ss **unload.format.timestamp** Optional. If `unload.useDatabaseConfiguration` is enabled, the timestamp format to use in the unload utility. Type: string Default: yyyy-MM-dd-HH.mm.ss.SSSSSS **unload.nbi.whenNotNull** Optional. The Null Byte Indicator (nbi) value to add when value from database is not null. Type: hexadecimal Default: 00 **unload.nbi.whenNull** Optional. The Null Byte Indicator (nbi) value to add when value from database is null. Type: hexadecimal Default: 6F **unload.nbi.writeNullIndicator** Optional. Specifies whether to write out the null indicator in the unload output file. Type: boolean Default: false **unload.sqlCodePointShift** Optional. The SQL code pointshift for unload utility. Runs the shifting characters process. Required when your target database from DB2 is Postgresql. Type: number Default: 0 **unload.useDatabaseConfiguration** Optional. Specifies whether to use the date or time configuration from application-main.yml in unload utility. Type: boolean Default: false **unload.varCharIsNull** Optional. Use this parameter in INFTILB program, if set to `true` then all not nullable fields with blank (space) values returns an empty string. Type: boolean Default: false ### Other properties **qtemp.cleanup.threshold.hours** Optional. To specify when `qtemp.dblog` is enabled. The db partition lifetime (in hours). Type: number Default: 0 **qtemp.dblog** Optional. Whether to enable QTEMP Database logging. Type: boolean Default: false **qtemp.uuid.length** Optional. The QTEMP unique id length. Type: number Default: 9 **quartz.scheduler.stand-by-if-error** Optional. Specifies whether to trigger job execution if the job scheduler is in standby mode. If true, When enabled job execution is not triggered. Type: boolean Default: false **warmUpCache** Optional. Specifies whether to load all datacom table data into a warm up cache at server start. Type: boolean Default: false
-````
+   |- dbds
+   |- psbs
+```
+
+and set in application-jhdb.yml
+
+`jhdb.metadata.extrapath: file: ./config/setup/`
+
+**jhdb.navigation.cachenexts**
+
+Optional. The cache duration (in milliseconds) used in hierarchical navigation for an RDBMS.
+
+Type: number
+
+Default: 5000
+
+**jhdb.query.limitJoinUsage**
+
+Optional. Specifies whether to use the limit join usage parameter on RDBMS graphs.
+
+Type: boolean
+
+Default: true
+
+**jhdb.use-db-prefix**
+
+Optional. Specifies whether to enable a database prefix in hierarchical navigation for an RDBMS.
+
+Type: boolean
+
+Default: true
+
+### Gapwalk JICS properties
+
+**jics.data.dataJsonInitLocation**
+
+Optional. Location of the json file prepared by the Analyzer from parsing CSD, and used to initialize the jics database,
+
+Type: string
+
+Default: ""
+
+**jics.db.dataScriptLocation**
+
+Optional. Location of the initJics.sql script, prepared by Analyzer from parsing CSD exports from the mainframe.
+
+Type: string
+
+Default: ""
+
+**jics.db.dataTestQueryLocation**
+
+Optional. Location of a sql script containing a single sql query that is expected to return a count of objects (for example: counting number of records in the jics program table).
+If the count equals 0, database will be loaded using the `jics.db.dataScriptLocation` script, otherwise database load will be skipped.
+
+Type: string
+
+Default: ""
+
+**jics.db.ddlScriptLocation**
+
+Optional. The Jics ddl script location. Allows you to initiate the jics database schema using a .sql script.
+
+Type: string
+
+Default: ""
+
+`jics.db.ddlScriptLocation: ./jics/sql/jics.sql`
+
+**jics.db.schemaTestQueryLocation**
+
+Optional. Location of the sql file that should contain a unique query that returns the number of objects in the jics schema (if any).
+
+Type: string
+
+Default: ""
+
+**jics.runUnitLauncherPool.enable**
+
+Optional. Specifies whether to activate the run unit launcher pool in JICS.
+
+Type: boolean
+
+Default: false
+
+**jics.runUnitLauncherPool.size**
+
+Optional. The run unit launcher pool size in JICS.
+
+Type: number
+
+Default: 20
+
+**jics.runUnitLauncherPool.validationInterval**
+
+Optional: The validation interval of the run unit launcher pool in JICS, expressed in milliseconds.
+
+Type: number
+
+Default: 1000
+
+**jics.queues.sqs.region**
+
+Optional. The AWS Region for Amazon SQS, used in JICS.
+It is advised to be set the same region of the deployed application for performance, but it is not mandatory.
+
+Type: string
+
+Default: eu-west-1
+
+**jics.xa.agent.timeout**
+
+Optional. Defines the maximum duration for the xa agent responsible for managing distributed transactions, to complete its operations.
+
+Type: number
+
+Default: null
+
+**mq.queues.sqs.region**
+
+Optional. The AWS Region for the Amazon SQS MQ service.
+
+Type: string
+
+Default: eu-west-3
+
+**taskExecutor.allowCoreThreadTimeOut**
+
+Optional. Specifies whether to allow core threads to time out in JCIS. This enables dynamic growing and shrinking even in combination with a non-zero queue (since the max pool size will only grow once the queue is full).
+
+Type: boolean
+
+Default: false
+
+**taskExecutor.corePoolSize**
+
+Optional. When a transaction in a terminal is initiated via a groovy script, a new thread is created.
+Use this parameter to setup the core pool size.
+
+Type: number
+
+Default: 5
+
+**taskExecutor.maxPoolSize**
+
+Optional. When a transaction in a terminal is initiated via a groovy script, a new thead is created.
+Use this parameter to setup the max pool size (max number of parallel threads).
+
+Type: number
+
+Default: 10
+
+**taskExecutor.queueCapacity**
+
+Optional. When a transaction in a terminal is initiated via a groovy script, a new thead is created.
+Use this parameter to setup the queue size. (= maximum number of pending transactions when `taskExecutor.maxPoolSize` is reached)
+
+Type: number
+
+Default: 50
+
+### Gapwalk runtime properties
+
+**cacheMetadata**
+
+Optional. Specifies whether to cache database metadata.
+
+Type: boolean
+
+Default: true
+
+**check-groovy-file**
+
+Optional. Specifies whether to check groovy files content before registering.
+
+Type: boolean
+
+Default: true
+
+**databaseStatistics**
+
+Optional. Specifies whether to allow SQL builders to collect and display statistics information.
+
+Type: boolean
+
+Default: false
+
+**dateTimeFormat**
+
+Optional. The dateTimeFormat describes how to spill database date time timestamp type into data simplifier entities.
+Allowed values are `ISO` / `EUR` / `USA` / `LOCAL`
+
+Type: string
+
+Default: ISO
+
+**dbDateFormat**
+
+Optional. The database target date format.
+
+Type: string
+
+Default: yyyy-MM-dd
+
+**dbTimeFormat**
+
+Optional. The database target time format.
+
+Type: string
+
+Default: HH:mm:ss
+
+**dbTimestampFormat**
+
+Optional. The database target timestamp format.
+
+Type: string
+
+Default: yyyy-MM-dd HH:mm:ss.SSSSSS
+
+**fetchSize**
+
+Optional. The fetchSize value for cursors. Use when fetching data using chunks by load/unload utils.
+
+Type: number
+
+Default: 10
+
+**forceDisableSQLTrimStringType**
+
+Optional. Specifies whether to disable trim of all sql string parameters.
+
+Type: boolean
+
+Default: false
+
+**localDateFormat**
+
+Optional. List of local date formats. Separate each format with `|`.
+
+Type: string
+
+**localTimeFormat**
+
+Optional. List of local time formats. Separate each format with `|` .
+
+Type: string
+
+**localTimestampFormat**
+
+Optional. List of local timestamp formats. Separate each format with `|`.
+
+Type: string
+
+Default:
+
+**pgmDateFormat**
+
+Optional. The date time format used in the programs.
+
+Type: string
+
+Default: yyyy-MM-dd
+
+**pgmTimeFormat**
+
+Optional. The time format used for pgm (programs) execution.
+
+Type: string
+
+Default: HH.mm.ss
+
+**pgmTimestampFormat**
+
+Optional. The timestamp format.
+
+Type: string
+
+Default: yyyy-MM-dd-HH.mm.ss.SSSSSS
+
+### Gapwalk utility program properties
+
+**jcl.type**
+
+Optional. `.jcl` file type.
+Allowed values are `jcl` / `vse`.
+The IDCAMS utility PRINT/REPRO commands return 4 if the file is empty for non-vse jcl.
+
+Type: string
+
+Default: mvs
+
+**listcat.variablelengthpreprocessor.enabled**
+
+Optional. Specifies whether to enable the variable length preprocessor for the LISTCAT command.
+
+Type: boolean
+
+Default: false
+
+**listcat.variablelengthpreprocessor.type**
+
+Optional. The type of objects contained in the listcat file, if you enable `listcat.variablelengthpreprocessor.enabled`.
+Allowed values are `rdw` / `bdw`.
+
+Type: string
+
+Default: rdw
+
+**load.batchSize**
+
+Optional. The load utility batch size.
+
+Type: number
+
+Default: 0
+
+**load.format.dbDate**
+
+Optional. The load utility database format to use.
+
+Type: string
+
+Default: yyyy-MM-dd
+
+**load.format.dbTime**
+
+Optional. The load utility database time to use.
+
+Type: string
+
+Default: HH:mm:ss
+
+**load.format.localDate**
+
+Optional. The load utility local date format to use.
+
+Type: string
+
+Default: dd.MM.yyyy|dd/MM/yyyy|yyyy-MM-dd
+
+**load.format.localTime**
+
+Optional. The load utility local time format to use.
+
+Type: string
+
+Default: HH:mm:ss|HH.mm.ss
+
+**load.sqlCodePointShift**
+
+Optional. The SQL code pointshift for load utility.
+Runs the shifting characters process. Required when your target database from DB2 is Postgresql.
+
+Type: number
+
+Default: 0
+
+**sysPunchEncoding**
+
+Optional. The syspunch encoding character set. Supported values are `Cp1047` / `ASCII`.
+
+Type: string
+
+Default: ASCII
+
+**treatLargeNumberAsInteger**
+
+Optional. Specifies whether to treat large numbers as `Integer`. They are treated as `BigDecimal` by default.
+
+Type: boolean
+
+Default: false
+
+**unload.chunkSize**
+
+Optional. Chunk size used for unload utility.
+
+Type: number
+
+Default: 0
+
+**unload.columnFiller**
+
+Optional. The unload utility column filler.
+
+Type: string
+
+Default: space
+
+**unload.fetchSize**
+
+Optional. Allows you to tune the fetch size when handling cursors in the unload utility.
+
+Type: number
+
+Default: 0
+
+**unload.format.date**
+
+Optional. If `unload.useDatabaseConfiguration` is enabled, the date format to
+use in the unload utility.
+
+Type: string
+
+Default: MM/dd/yyyy
+
+**unload.format.time**
+
+Optional. If `unload.useDatabaseConfiguration` is enabled, the time format to use in the unload utility.
+
+Type: string
+
+Default: HH.mm.ss
+
+**unload.format.timestamp**
+
+Optional. If `unload.useDatabaseConfiguration` is enabled, the timestamp format to use in the unload utility.
+
+Type: string
+
+Default: yyyy-MM-dd-HH.mm.ss.SSSSSS
+
+**unload.nbi.whenNotNull**
+
+Optional. The Null Byte Indicator (nbi) value to add when value from database is not null.
+
+Type: hexadecimal
+
+Default: 00
+
+**unload.nbi.whenNull**
+
+Optional. The Null Byte Indicator (nbi) value to add when value from database is null.
+
+Type: hexadecimal
+
+Default: 6F
+
+**unload.nbi.writeNullIndicator**
+
+Optional. Specifies whether to write out the null indicator in the unload output file.
+
+Type: boolean
+
+Default: false
+
+**unload.sqlCodePointShift**
+
+Optional. The SQL code pointshift for unload utility. Runs the shifting characters process. Required when your target database from DB2 is Postgresql.
+
+Type: number
+
+Default: 0
+
+**unload.useDatabaseConfiguration**
+
+Optional. Specifies whether to use the date or time configuration from application-main.yml in unload utility.
+
+Type: boolean
+
+Default: false
+
+**unload.varCharIsNull**
+
+Optional. Use this parameter in INFTILB program, if set to `true` then all not nullable fields with blank (space) values returns an empty string.
+
+Type: boolean
+
+Default: false
+
+### Other properties
+
+**qtemp.cleanup.threshold.hours**
+
+Optional. To specify when `qtemp.dblog` is enabled. The db partition lifetime (in hours).
+
+Type: number
+
+Default: 0
+
+**qtemp.dblog**
+
+Optional. Whether to enable QTEMP Database logging.
+
+Type: boolean
+
+Default: false
+
+**qtemp.uuid.length**
+
+Optional. The QTEMP unique id length.
+
+Type: number
+
+Default: 9
+
+**quartz.scheduler.stand-by-if-error**
+
+Optional. Specifies whether to trigger job execution if the job scheduler is in standby mode. If true, When enabled job execution is not triggered.
+
+Type: boolean
+
+Default: false
+
+**warmUpCache**
+
+Optional. Specifies whether to load all datacom table data into a warm up cache at server start.
+
+Type: boolean
+
+Default: false

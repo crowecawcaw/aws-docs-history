@@ -1,5 +1,7 @@
-AWS Mainframe Modernization Service (Managed Runtime Environment experience) will no longer be open to new customers starting on November 7, 2025. If you would like to use the service, please sign up prior to November 7, 2025. For capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed Experience). Existing customers can continue to use the service as normal. For more information, see
-[AWS Mainframe Modernization availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
+AWS Mainframe Modernization Service (Managed Runtime Environment experience) is no longer open to new customers. For
+capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed
+Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization
+availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
 
 # What are data simplifiers in AWS Blu Age
 
@@ -141,14 +143,73 @@ They are associated with a contiguous span of underlying bytes ("range") and com
 
 All elementary types are subclasses of `RangeType`. Common types are:
 
-| COBOL Type                 | Data Simplifier Type                                                           |
-| -------------------------- | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `PIC X(n)`                 | `AlphanumericType`                                                             |
-| `PIC 9(n)`                 | `ZonedType`                                                                    |
-| `PIC 9(n) COMP-3`          | `PackedType`                                                                   |
-| `PIC 9(n) COMP-5`          | `BinaryType`                                                                   | #### Aggregate fields Aggregate fields organize the memory layout of their contents (other aggregates or elementary fields). They do not have an elementary type themselves. `Group` fields represent contiguous fields in memory. Each of their contained fields are laid out in the same order in memory, the first field being at offset `0` with respect to the group field position in memory, the second field being at offset `0 + (size in bytes of first field)`, etc. They are used to represent sequences of COBOL fields under the same containing field. `Union` fields represent multiples fields accessing the same memory. Each of their contained fields are laid out at offset `0` with respect to the union field position in memory. They are for example used to represent the COBOL "REDEFINES" construct (the first Union children being the redefined data item, the second children being its first redefinition, etc.). Array fields (subclasses of `Repetition`) represent the repetition, in memory, of the layout of their child field (be it an aggregate itself or an elementary item). They lay out a given number of such child layouts in memory, each being at offset `index * (size in bytes of child)`. They are used to represent COBOL "OCCURS" constructs. #### Primitives In some modernization cases, "Primitives" may also be used to present independent, "root" data items. Those are very similar in use to `RecordEntity` but don't come from it, nor are based on generated code. Instead they are directly provided by the AWS Blu Age runtime as subclasses of the `Primitive` interface. Examples of such provided classes are `Alphanumeric` or `ZonedDecimal`. ## Data binding and access Association between structured data and underlying data can be done in multiple ways. An important interface for this purpose is `RecordAdaptable`, which is used to obtain a `Record` providing a "writable view" on the `RecordAdaptable` underlying data. As we will see below, multiple classes implement `RecordAdaptable`. Reciprocally, AWS Blu Age APIs and code manipulating low-level memory (such as programs arguments, file I/O records, CICS comm area, allocated memory...) will often expect a `RecordAdaptable` as an handle to that memory. In the COBOL modernization case, most data items are associated with memory which will be fixed during the life time of the corresponding program execution. For this purpose, `RecordEntity` subclasses are instantiated once in a generated parent object (the program Context), and will take care of instantiating their underlying `Record`, based on the `RecordEntity` byte size. In other COBOL cases, such as associating LINKAGE elements with program arguments, or modernizing the SET ADDRESS OF construct, a `RecordEntity` instance must be associated with a provided `RecordAdaptable`. For this purpose, two mechanisms exist: <br>• if the `RecordEntity` instance already exists, the `RecordEntity.bind(RecordAdaptable)` method (inherited from `Bindable`) can be used to make this instance "point" to this `RecordAdaptable`. Any getter or setter called on the `RecordEntity` will then be backed (bytes reading or writing) by the underlying `RecordAdaptable` bytes. <br>• if the `RecordEntity` is to be instantiated, a generated constructor accepting a `RecordAdaptable` is available. Conversely, the `Record` currently bound to structured data can be accessed. For this, `RecordEntity` implements `RecordAdaptable`, so `getRecord()` can be called on any such instance. Finally, many COBOL or CICS verbs require access to a single field, for reading or writing purpose. The `RangeReference` class is used to represent such access. Its instances can be obtained from `RecordEntity` generated `getXXXReference()` methods (`XXX` being the accessed field), and passed to runtime methods. `RangeReference` is typically used to access whole `RecordEntity` or `Group`, while its subclass `ElementaryRangeReference` represents accesses to `Elementary` fields. Note that most observations above apply to `Primitive` subclasses, since they strive at implementing similar behavior as `RecordEntity` while being provided by the AWS Blu Age runtime (instead of generated code). For this purpose, all subclasses of `Primitive` implement `RecordAdaptable`, `ElementaryRangeReference` and `Bindable` interfaces so as to be usable in place of both `RecordEntity` subclasses and elementary fields. ## FQN of discussed Java types The following table shows the fully qualified names of the Java types discussed in this section. |
+| COBOL Type        | Data Simplifier Type |
+| ----------------- | -------------------- |
+| `PIC X(n)`        | `AlphanumericType`   |
+| `PIC 9(n)`        | `ZonedType`          |
+| `PIC 9(n) COMP-3` | `PackedType`         |
+| `PIC 9(n) COMP-5` | `BinaryType`         |
+
+#### Aggregate fields
+
+Aggregate fields organize the memory layout of their contents (other aggregates or elementary fields).
+They do not have an elementary type themselves.
+
+`Group` fields represent contiguous fields in memory.
+Each of their contained fields are laid out in the same order in memory, the first field being at offset `0` with respect to the group field position in memory, the second field being at offset `0 + (size in bytes of first field)`, etc.
+They are used to represent sequences of COBOL fields under the same containing field.
+
+`Union` fields represent multiples fields accessing the same memory.
+Each of their contained fields are laid out at offset `0` with respect to the union field position in memory.
+They are for example used to represent the COBOL "REDEFINES" construct (the first Union children being the redefined data item, the second children being its first redefinition, etc.).
+
+Array fields (subclasses of `Repetition`) represent the repetition, in memory, of the layout of their child field (be it an aggregate itself or an elementary item).
+They lay out a given number of such child layouts in memory, each being at offset `index * (size in bytes of child)`.
+They are used to represent COBOL "OCCURS" constructs.
+
+#### Primitives
+
+In some modernization cases, "Primitives" may also be used to present independent, "root"
+data items. Those are very similar in use to `RecordEntity` but don't come from it,
+nor are based on generated code. Instead they are directly provided by the AWS Blu Age runtime as
+subclasses of the `Primitive` interface. Examples of such provided classes are
+`Alphanumeric` or `ZonedDecimal`.
+
+## Data binding and access
+
+Association between structured data and underlying data can be done in multiple ways.
+
+An important interface for this purpose is `RecordAdaptable`, which is used to obtain a `Record` providing a "writable view" on the `RecordAdaptable` underlying data.
+As we will see below, multiple classes implement `RecordAdaptable`.
+Reciprocally, AWS Blu Age APIs and code manipulating low-level memory (such as programs arguments, file I/O records, CICS comm area, allocated memory...) will often expect a `RecordAdaptable` as an handle to that memory.
+
+In the COBOL modernization case, most data items are associated with memory which will be fixed during the life time of the corresponding program execution.
+For this purpose, `RecordEntity` subclasses are instantiated once in a generated parent object (the program Context), and will take care of instantiating their underlying `Record`, based on the `RecordEntity` byte size.
+
+In other COBOL cases, such as associating LINKAGE elements with program arguments, or modernizing the SET ADDRESS OF construct, a `RecordEntity` instance must be associated with a provided `RecordAdaptable`.
+For this purpose, two mechanisms exist:
+
+- if the `RecordEntity` instance already exists, the `RecordEntity.bind(RecordAdaptable)` method (inherited from `Bindable`) can be used to make this instance "point" to this `RecordAdaptable`.
+  Any getter or setter called on the `RecordEntity` will then be backed (bytes reading or writing) by the underlying `RecordAdaptable` bytes.
+- if the `RecordEntity` is to be instantiated, a generated constructor accepting a `RecordAdaptable` is available.
+
+Conversely, the `Record` currently bound to structured data can be accessed.
+For this, `RecordEntity` implements `RecordAdaptable`, so `getRecord()` can be called on any such instance.
+
+Finally, many COBOL or CICS verbs require access to a single field, for reading or writing purpose.
+The `RangeReference` class is used to represent such access.
+Its instances can be obtained from `RecordEntity` generated `getXXXReference()` methods (`XXX` being the accessed field), and passed to runtime methods.
+`RangeReference` is typically used to access whole `RecordEntity` or `Group`, while its subclass `ElementaryRangeReference` represents accesses to `Elementary` fields.
+
+Note that most observations above apply to `Primitive` subclasses, since they strive at implementing similar behavior as `RecordEntity` while being provided by the AWS Blu Age runtime (instead of generated code).
+For this purpose, all subclasses of `Primitive` implement `RecordAdaptable`, `ElementaryRangeReference` and `Bindable` interfaces so as to be usable in place of both `RecordEntity` subclasses and elementary fields.
+
+## FQN of discussed Java types
+
+The following table shows the fully qualified names of the Java types discussed in this section.
+
 | Short Name                 | Fully Qualified Name                                                           |
-| ---                        | ---                                                                            |
+| -------------------------- | ------------------------------------------------------------------------------ |
 | `Alphanumeric`             | `com.netfective.bluage.gapwalk.datasimplifier.elementary.Alphanumeric`         |
 | `AlphanumericType`         | `com.netfective.bluage.gapwalk.datasimplifier.metadata.type.AlphanumericType`  |
 | `BinaryType`               | `com.netfective.bluage.gapwalk.datasimplifier.metadata.type.BinaryType`        |

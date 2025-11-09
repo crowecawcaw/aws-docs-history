@@ -1,16 +1,16 @@
-AWS Mainframe Modernization Service (Managed Runtime Environment experience) will no longer be open to new customers starting on November 7, 2025. If you would like to use the service, please sign up prior to November 7, 2025. For capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed Experience). Existing customers can continue to use the service as normal. For more information, see
-[AWS Mainframe Modernization availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
+AWS Mainframe Modernization Service (Managed Runtime Environment experience) is no longer open to new customers. For
+capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed
+Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization
+availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
 
 # Edit data sets using Rocket Software (formerly Micro Focus) Data File Tools
 
 in Enterprise Developer
 
 You can view and edit data sets in AWS Mainframe Modernization using the Rocket Software runtime for any migrated data
-sets.
-The steps in this document will guide you through the process of accessing data sets
-using Data File Tools.
-This allows you to view and edit the migrated data sets as
-needed.
+sets.  The steps in this document will guide you through the process of accessing data sets
+using Data File Tools.  This allows you to view and edit the migrated data sets as
+needed. 
 
 ###### Topics
 
@@ -26,22 +26,18 @@ needed.
 
 ## Prerequisites
 
-Before you start, you must have an application deployed with the data sets
-imported
+Before you start, you must have an application deployed with the data sets  imported
 under the AWS Mainframe Modernization service using the Rocket Software engine.
 
-To continue with editing the data sets, you must complete the Step 1, Step 2,
-and
+To continue with editing the data sets, you must complete the Step 1, Step 2,  and
 (optionally) Step 3 from the [View data sets as tables and columns in Rocket Enterprise Developer (formerly
-Micro Focus Enterprise Developer)](view-datasets-tables-m2.md "view-datasets-tables-m2.md") page
-to
+Micro Focus Enterprise Developer)](view-datasets-tables-m2.md "view-datasets-tables-m2.md") page  to
 configure the ODBC connection, and Micro Focus datastore (that is, `MFDBFH`).
 
 ###### Important
 
 This guide assumes that you are using Amazon Aurora Postgres as Micro Focus datastore
-(`MFDBFH`)
-to store your application data.
+(`MFDBFH`)  to store your application data.
 
 ## Launch Rocket Software(formerly Micro Focus) Data File
 

@@ -1,5 +1,7 @@
-AWS Mainframe Modernization Service (Managed Runtime Environment experience) will no longer be open to new customers starting on November 7, 2025. If you would like to use the service, please sign up prior to November 7, 2025. For capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed Experience). Existing customers can continue to use the service as normal. For more information, see
-[AWS Mainframe Modernization availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
+AWS Mainframe Modernization Service (Managed Runtime Environment experience) is no longer open to new customers. For
+capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed
+Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization
+availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
 
 # M2WAIT batch utility
 
@@ -16,7 +18,7 @@ For more information, see [JES Alias](https://www.microfocus.com/documentation/e
 
 - [Supported platforms](#m2wait-platforms "#m2wait-platforms")
 - [Configure M2WAIT for AWS Mainframe Modernization Managed](#m2wait-configure-managed "#m2wait-configure-managed")
-- [Configure M2WAIT for AWS Mainframe Modernization runtime on Amazon EC2 (including AppStream 2.0)](#m2wait-configure-customer-infra "#m2wait-configure-customer-infra")
+- [Configure M2WAIT for AWS Mainframe Modernization runtime on Amazon EC2 (including WorkSpaces Applications)](#m2wait-configure-customer-infra "#m2wait-configure-customer-infra")
 - [Sample JCL](#m2wait-jcl "#m2wait-jcl")
 
 ## Supported platforms
@@ -34,7 +36,7 @@ If your migrated applications are running on AWS Mainframe Modernization Managed
 
 - Use the program M2WAIT in your JCL by passing input parameter as shown in [Sample JCL](#m2wait-jcl "#m2wait-jcl").
 
-## Configure M2WAIT for AWS Mainframe Modernization runtime on Amazon EC2 (including AppStream 2.0)
+## Configure M2WAIT for AWS Mainframe Modernization runtime on Amazon EC2 (including WorkSpaces Applications)
 
 If your migrated applications are running on AWS Mainframe Modernization runtime on Amazon EC2, configure M2WAIT as follows.
 

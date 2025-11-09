@@ -1,5 +1,7 @@
-AWS Mainframe Modernization Service (Managed Runtime Environment experience) will no longer be open to new customers starting on November 7, 2025. If you would like to use the service, please sign up prior to November 7, 2025. For capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed Experience). Existing customers can continue to use the service as normal. For more information, see
-[AWS Mainframe Modernization availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
+AWS Mainframe Modernization Service (Managed Runtime Environment experience) is no longer open to new customers. For
+capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed
+Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization
+availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
 
 # What is AWS Mainframe Modernization?
 
@@ -99,7 +101,7 @@ offers. Choose either the [Tutorial: Set up managed runtime for AWS Blu Age](tut
 Micro Focus)](tutorial-runtime-mf.md "tutorial-runtime-mf.md") for a complete,
 step-by-step tutorial.
 
-If you are interested in automated refactoring, check out the AWS Blu Age tools at [BluInsights](https://bluinsights.aws/ "https://bluinsights.aws/"). You can also set up AppStream 2.0 to access the
+If you are interested in automated refactoring, check out the AWS Blu Age tools at [BluInsights](https://bluinsights.aws/ "https://bluinsights.aws/"). You can also set up WorkSpaces Applications to access the
 AWS Blu Age Developer IDE, or the Rocket Enterprise Analyzer (formerly Micro Focus Enterprise Analyzer) and Rocket Enterprise Developer (formerly Micro Focus Enterprise Developer) tools.
 
 The tutorials and sample applications only give you a sense of what AWS Mainframe Modernization provides. When you

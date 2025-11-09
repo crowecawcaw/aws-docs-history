@@ -1,5 +1,7 @@
-AWS Mainframe Modernization Service (Managed Runtime Environment experience) will no longer be open to new customers starting on November 7, 2025. If you would like to use the service, please sign up prior to November 7, 2025. For capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed Experience). Existing customers can continue to use the service as normal. For more information, see
-[AWS Mainframe Modernization availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
+AWS Mainframe Modernization Service (Managed Runtime Environment experience) is no longer open to new customers. For
+capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed
+Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization
+availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
 
 # Tutorial: Set up managed runtime for Rocket Software (formerly
 
@@ -39,10 +41,10 @@ Amazon Relational Database Service, AWS Key Management Service, and AWS Secrets 
 
 - Make sure that you have access to a 3270 emulator to use the CICS connection.
   Free and trial 3270 emulators are available from third party websites.
-  Alternatively, you can start an AWS Mainframe Modernization AppStream 2.0 Rocket Software instance and use the Rumba 3270
+  Alternatively, you can start an AWS Mainframe Modernization WorkSpaces Applications Rocket Software instance and use the Rumba 3270
   emulator (not available for free).
 
-For information about AppStream 2.0, see [Tutorial: Set up AppStream 2.0 for use with Rocket Enterprise Analyzer and
+For information about WorkSpaces Applications, see [Tutorial: Set up WorkSpaces Applications for use with Rocket Enterprise Analyzer and
 Rocket Enterprise Developer](set-up-appstream-mf.md "set-up-appstream-mf.md").
 
 ###### Note

@@ -1,5 +1,7 @@
-AWS Mainframe Modernization Service (Managed Runtime Environment experience) will no longer be open to new customers starting on November 7, 2025. If you would like to use the service, please sign up prior to November 7, 2025. For capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed Experience). Existing customers can continue to use the service as normal. For more information, see
-[AWS Mainframe Modernization availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
+AWS Mainframe Modernization Service (Managed Runtime Environment experience) is no longer open to new customers. For
+capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed
+Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization
+availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
 
 # View data sets as tables and columns in Rocket Enterprise Developer (formerly
 
@@ -30,7 +32,7 @@ Steps 1 and 2 are one time activities. Repeat steps 3 and 4 for each data set to
 
 ## Prerequisites
 
-- You must have access to Rocket Enterprise Developer Desktop via AppStream 2.0.
+- You must have access to Rocket Enterprise Developer Desktop via WorkSpaces Applications.
 - You must have an application deployed and running under AWS Mainframe Modernization using the Rocket Software runtime
   engine.
 - You are storing your application data in Aurora PostgreSQL-Compatible Edition.
@@ -42,7 +44,7 @@ Steps 1 and 2 are one time activities. Repeat steps 3 and 4 for each data set to
 In this step, you set up an ODBC connection to the database that contains the data you want to view as tables and columns.
 This is a one-time only step.
 
-1. Log in to Rocket Enterprise Developer Desktop using AppStream 2.0 streaming URL.
+1. Log in to Rocket Enterprise Developer Desktop using WorkSpaces Applications streaming URL.
 2. Open **ODBC Data Source Administrator**, choose **User DSN** and then choose **Add**.
 3. In **Create New Data Source**, choose **PostgreSQL ANSI** and then choose **Finish**.
 4. Create a data source for `PG.POSTGRES` by providing the necessary database information, as follows:

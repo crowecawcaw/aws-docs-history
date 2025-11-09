@@ -1,21 +1,23 @@
-AWS Mainframe Modernization Service (Managed Runtime Environment experience) will no longer be open to new customers starting on November 7, 2025. If you would like to use the service, please sign up prior to November 7, 2025. For capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed Experience). Existing customers can continue to use the service as normal. For more information, see
-[AWS Mainframe Modernization availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
+AWS Mainframe Modernization Service (Managed Runtime Environment experience) is no longer open to new customers. For
+capabilities similar to AWS Mainframe Modernization Service (Managed Runtime Environment experience) explore AWS Mainframe Modernization Service (Self-Managed
+Experience). Existing customers can continue to use the service as normal. For more information, see [AWS Mainframe Modernization
+availability change](mainframe-modernization-availability-change.md "mainframe-modernization-availability-change.md").
 
-# Tutorial: Set up AppStream 2.0 for AWS Blu Age Developer IDE
+# Tutorial: Set up WorkSpaces Applications for AWS Blu Age Developer IDE
 
-AWS Mainframe Modernization provides several tools through Amazon AppStream 2.0. AppStream 2.0 is a fully managed, secure
+AWS Mainframe Modernization provides several tools through Amazon WorkSpaces Applications. WorkSpaces Applications is a fully managed, secure
 application streaming service that lets you stream desktop applications to users without rewriting
-applications. AppStream 2.0 provides users with instant access to the applications that they need with a
-responsive, fluid user experience on the device of their choice. Using AppStream 2.0 to host runtime engine-specific tools gives customer application teams the ability to use the tools directly
+applications. WorkSpaces Applications provides users with instant access to the applications that they need with a
+responsive, fluid user experience on the device of their choice. Using WorkSpaces Applications to host runtime engine-specific tools gives customer application teams the ability to use the tools directly
 from their web browsers, interacting with application files stored in either Amazon S3 buckets or CodeCommit
 repositories.
 
-For information about browser support in AppStream 2.0 see [System
-Requirements and Feature Support (Web Browser)](../../../appstream2/latest/developerguide/requirements-and-features-web-browser-admin.md "../../../appstream2/latest/developerguide/requirements-and-features-web-browser-admin.md") in the _Amazon AppStream 2.0 Administration Guide_. If you have issues when you are using
-AppStream 2.0 see [Troubleshooting AppStream
-2.0 User Issues](../../../appstream2/latest/developerguide/troubleshooting-user-issues.md "../../../appstream2/latest/developerguide/troubleshooting-user-issues.md") in the _Amazon AppStream 2.0 Administration Guide_.
+For information about browser support in WorkSpaces Applications see [System
+Requirements and Feature Support (Web Browser)](../../../appstream2/latest/developerguide/requirements-and-features-web-browser-admin.md "../../../appstream2/latest/developerguide/requirements-and-features-web-browser-admin.md") in the _Amazon WorkSpaces Applications Administration Guide_. If you have issues when you are using
+WorkSpaces Applications see [Troubleshooting AppStream
+2.0 User Issues](../../../appstream2/latest/developerguide/troubleshooting-user-issues.md "../../../appstream2/latest/developerguide/troubleshooting-user-issues.md") in the _Amazon WorkSpaces Applications Administration Guide_.
 
-This document describes how to set up AWS Blu Age Developer IDE on an AppStream 2.0 fleet.
+This document describes how to set up AWS Blu Age Developer IDE on an WorkSpaces Applications fleet.
 
 ###### Topics
 
@@ -39,11 +41,11 @@ For first time users, do this:
 
 ###### Important
 
-Amazon AppStream 2.0 uses IAM roles to manage your AppStream 2.0 resources and AWS will create
+Amazon WorkSpaces Applications uses IAM roles to manage your WorkSpaces Applications resources and AWS will create
 these roles when you do this.
 
 Then, download the [archive file](https://d3lkpej5ajcpac.cloudfront.net/appstream/bluage/appstream-bluage-developer-ide.zip "https://d3lkpej5ajcpac.cloudfront.net/appstream/bluage/appstream-bluage-developer-ide.zip") that contains the artifacts that you need to set up AWS Blu Age Developer IDE
-under AppStream 2.0.
+under WorkSpaces Applications.
 
 ###### Note
 
@@ -53,7 +55,7 @@ information on launching and connecting to an Amazon EC2 instance, see [Get star
 
 ## Step 1: Create an Amazon S3 bucket
 
-Create an Amazon S3 bucket in the same AWS Region as the AppStream 2.0 fleet that you will create.
+Create an Amazon S3 bucket in the same AWS Region as the WorkSpaces Applications fleet that you will create.
 This bucket will contain the artifacts that you need to complete this tutorial. For more
 information on buckets, see [Creating a bucket](../../../AmazonS3/latest/userguide/create-bucket-overview.md "../../../AmazonS3/latest/userguide/create-bucket-overview.md").
 
@@ -95,7 +97,7 @@ _Amazon S3 User Guide_.
 ## Step 4: Download AWS CloudFormation templates
 
 Download the following AWS CloudFormation templates. You need these templates to create and populate the
-AppStream 2.0 fleet.
+WorkSpaces Applications fleet.
 
 - [cfn-m2-appstream-elastic-fleet-linux.yaml](https://d3lkpej5ajcpac.cloudfront.net/appstream/bluage/developer-ide/CloudFormation/cfn-m2-appstream-elastic-fleet-linux.yaml "https://d3lkpej5ajcpac.cloudfront.net/appstream/bluage/developer-ide/CloudFormation/cfn-m2-appstream-elastic-fleet-linux.yaml")
 - [cfn-m2-appstream-bluage-dev-tools-linux.yaml](https://d3lkpej5ajcpac.cloudfront.net/appstream/bluage/developer-ide/CloudFormation/cfn-m2-appstream-bluage-dev-tools-linux.yaml "https://d3lkpej5ajcpac.cloudfront.net/appstream/bluage/developer-ide/CloudFormation/cfn-m2-appstream-bluage-dev-tools-linux.yaml")
@@ -107,7 +109,7 @@ AppStream 2.0 fleet.
 ## Step 5: Create the fleet with AWS CloudFormation
 
 In this step, you use the `cfn-m2-appstream-elastic-fleet-linux.yaml`
-AWS CloudFormation template to create an AppStream 2.0 fleet and stack to host the AWS Blu Age Developer IDE. After you
+AWS CloudFormation template to create an WorkSpaces Applications fleet and stack to host the AWS Blu Age Developer IDE. After you
 create the fleet and stack, you will run the other AWS CloudFormation templates you downloaded in the
 previous step to install the Developer IDE and other required tools.
 
@@ -159,9 +161,9 @@ correctly.
 After you create and start the fleet, you can create a temporary link to access the fleet
 through the native client.
 
-1. Navigate to AppStream 2.0 in the AWS Management Console and choose the previously created stack:
+1. Navigate to WorkSpaces Applications in the AWS Management Console and choose the previously created stack:
 
-![The Stacks page in AppStream 2.0 showing the stack created for AWS Mainframe Modernization.](images/aas-ba-stacks.png) 2. On the stack details page, choose the stack, and then choose **Associate
+![The Stacks page in WorkSpaces Applications showing the stack created for AWS Mainframe Modernization.](images/aas-ba-stacks.png) 2. On the stack details page, choose the stack, and then choose **Associate
 fleet**. 3. In the prompt, choose the fleet you created and started previously. 4. Choose **Associate**. 5. Choose the associated stack and from the **Actions** menu, choose
 **Create Streaming URL**, enter an arbitrary User ID and a URL
 expiration time, and then choose **Get URL**. You get an URL that you can
@@ -170,17 +172,17 @@ the native client.
 
 ## Clean up resources
 
-For the procedure to clean up the created stack and fleets, see [Create an AppStream 2.0 Fleet
+For the procedure to clean up the created stack and fleets, see [Create an WorkSpaces Applications Fleet
 and Stack](../../../appstream2/latest/developerguide/set-up-stacks-fleets.md "../../../appstream2/latest/developerguide/set-up-stacks-fleets.md").
 
-When you've deleted the AppStream 2.0 objects, you or the account administrator can also clean up
+When you've deleted the WorkSpaces Applications objects, you or the account administrator can also clean up
 the S3 buckets for Application Settings and Home Folders.
 
 ###### Note
 
 The home folder for a given user is unique across all fleets, so you might need to retain
-it if other AppStream 2.0 stacks are active in the same account.
+it if other WorkSpaces Applications stacks are active in the same account.
 
-You can't use the AppStream 2.0 console to delete users. Instead, you must use the service API
+You can't use the WorkSpaces Applications console to delete users. Instead, you must use the service API
 with the AWS CLI. For more information, see [User Pool
-Administration](../../../appstream2/latest/developerguide/user-pool-admin.md "../../../appstream2/latest/developerguide/user-pool-admin.md") in the _Amazon AppStream 2.0 Administration Guide_.
+Administration](../../../appstream2/latest/developerguide/user-pool-admin.md "../../../appstream2/latest/developerguide/user-pool-admin.md") in the _Amazon WorkSpaces Applications Administration Guide_.
