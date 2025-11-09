@@ -103,8 +103,69 @@ decide whether to [activate](versioning-model.md#model-activation "versioning-mo
 The following table lists the model promotion criterion.
 
 | Old data has labels? | New data has labels? | Model promotion criterion                                               | Metrics shown?         |
-| -------------------- | -------------------- | ----------------------------------------------------------------------- | ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| -------------------- | -------------------- | ----------------------------------------------------------------------- | ---------------------- |
 | Yes                  | Yes                  | Select best model based on comparison metrics                           | Yes for both models    |
 | Yes                  | No                   | Select old model                                                        | No for both models     |
 | No                   | Yes                  | Select new model, if the new model meets the required quality threshold | Yes for new model only |
-| No                   | No                   | Select new model                                                        | No for both models     | ### Model metrics The following `Model Metrics` are exposed in the [DescribeModelVersion](API_DescribeModelVersion.md "API_DescribeModelVersion.md") response. If a retrained model is the current active model version, then the same information is also returned in the [DescribeModel](API_DescribeModel.md "API_DescribeModel.md") response. <br>• **Recall:** The proportion of events that Lookout for Equipment correctly identified to the events that you labeled during the same period. For example, you may have labeled 10 events, but Lookout for Equipment only identified 9 of them. In this case, the recall is 90%. <br>• **Precision:** The proportion of true positives to total identified events. For example, if Lookout for Equipment identifies 10 events, but only 7 of those events correspond to events you labeled, then the precision is 70%. <br>• **MeanFractionalLeadTime:** A measurement of how quickly (relative to the length of the event), on average, Lookout for Equipment detects each event. For example, a typical event at your facility may last 10 hours. On average, it may take the model 3 hours to identify the event. In this case, the mean fractional lead time is 0.7. <br>• **AUC:** Area Under the Receiver Operating Characteristic Curve (AUC) measures the ability of a machine learning model to predict a higher score for positive examples as compared to negative examples. A value between 0 and 1 that indicates how well your model is able to separate the categories in your dataset. A value of 1 indicates that it was able to separate the categories perfectly. For more information, see ["A Visual Explanation of Receiver Operating Characteristic Curves and Area Under the Curve"](https://mlu-explain.github.io/roc-auc/ "https://mlu-explain.github.io/roc-auc/") at the _MLU Explain_ website. ### Model quality If new data has labels, Lookout for Equipment uses the metrics to perform a quality assessment of the model. To get the quality assessment, check the `ModelQuality` field in the response from [DescribeModel](API_DescribeModel.md "API_DescribeModel.md"), [DescribeModelVersion](API_DescribeModelVersion.md "API_DescribeModelVersion.md"), [ListModels](API_ListModels.md "API_ListModels.md"), [ListModelVersions](API_ListModelVersions.md "API_ListModelVersions.md"), or [CreateInferenceScheduler](API_CreateInferenceScheduler.md "API_CreateInferenceScheduler.md"). If Lookout for Equipment determines that the model quality is poor based on training metrics, the value is `POOR_QUALITY_DETECTED`. Otherwise, the value is `QUALITY_THRESHOLD_MET`. If the model is unlabeled, the model quality can't be assessed and the value of `ModelQuality` is `CANNOT_DETERMINE_QUALITY`. In this situation, you can get a model quality assessment by adding labels to the input dataset and retraining the model. If the previous model was labeled, Lookout for Equipment compares the metrics of each model on the new data to determine if the new model should be promoted. The quality assessment for the new model does not affect this comparison. If the previous model was unlabeled, Lookout for Equipment promotes the new model if the quality threshold is met. For information about using labels with your models, see [Understanding labeling](understanding-labeling.md "understanding-labeling.md"). For information about improving the quality of a model, see [Best practices with Amazon Lookout for Equipment](best-practices.md "best-practices.md"). |
+| No                   | No                   | Select new model                                                        | No for both models     |
+
+### Model metrics
+
+The following `Model Metrics` are exposed in the [DescribeModelVersion](API_DescribeModelVersion.md "API_DescribeModelVersion.md") response. If a retrained model is the current active
+model version, then the same information is also returned in the [DescribeModel](API_DescribeModel.md "API_DescribeModel.md") response.
+
+- **Recall:** The proportion of events that Lookout for Equipment
+  correctly identified to the events that you labeled during the same
+  period.
+
+For example, you may have labeled 10 events, but Lookout for Equipment only identified 9 of
+them. In this case, the recall is 90%.
+
+- **Precision:** The proportion of true positives
+  to total identified events.
+
+For example, if Lookout for Equipment identifies 10 events, but only 7 of those events
+correspond to events you labeled, then the precision is 70%.
+
+- **MeanFractionalLeadTime:** A measurement of how
+  quickly (relative to the length of the event), on average, Lookout for Equipment detects each
+  event.
+
+For example, a typical event at your facility may last 10 hours. On average,
+it may take the model 3 hours to identify the event. In this case, the mean
+fractional lead time is 0.7.
+
+- **AUC:** Area Under the Receiver Operating Characteristic Curve (AUC) measures
+  the ability of a machine learning model to predict a higher score for positive
+  examples as compared to negative examples. A value between 0 and 1 that
+  indicates how well your model is able to separate the categories in your
+  dataset. A value of 1 indicates that it was able to separate the categories
+  perfectly.
+
+For more information, see ["A Visual Explanation of Receiver Operating Characteristic Curves and Area
+Under the Curve"](https://mlu-explain.github.io/roc-auc/ "https://mlu-explain.github.io/roc-auc/") at the _MLU Explain_
+website.
+
+### Model quality
+
+If new data has labels, Lookout for Equipment uses the metrics to perform a quality assessment of the
+model. To get the quality assessment, check the `ModelQuality` field in the
+response from [DescribeModel](API_DescribeModel.md "API_DescribeModel.md"),
+[DescribeModelVersion](API_DescribeModelVersion.md "API_DescribeModelVersion.md"), [ListModels](API_ListModels.md "API_ListModels.md"), [ListModelVersions](API_ListModelVersions.md "API_ListModelVersions.md"), or [CreateInferenceScheduler](API_CreateInferenceScheduler.md "API_CreateInferenceScheduler.md").
+
+If Lookout for Equipment determines that the model quality is poor based on training metrics, the
+value is `POOR_QUALITY_DETECTED`. Otherwise, the value is
+`QUALITY_THRESHOLD_MET`. If the model is unlabeled, the model quality can't
+be assessed and the value of `ModelQuality` is
+`CANNOT_DETERMINE_QUALITY`. In this situation, you can get a model quality
+assessment by adding labels to the input dataset and retraining the model.
+
+If the previous model was labeled, Lookout for Equipment compares the metrics of each model on
+the new data to determine if the new model should be promoted. The quality assessment
+for the new model does not affect this comparison. If the previous model was unlabeled,
+Lookout for Equipment promotes the new model if the quality threshold is met.
+
+For information about using labels with your models, see [Understanding labeling](understanding-labeling.md "understanding-labeling.md").
+
+For information about improving the quality of a model, see [Best practices with
+Amazon Lookout for Equipment](best-practices.md "best-practices.md").
