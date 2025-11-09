@@ -70,8 +70,9 @@ AWS Region.
 | 64bit Amazon Linux 2 v3.3.6 running PHP 7.4                | ami-043c2fe01517fee08 | ami-0372ca355f0631dd9 |
 | 64bit Amazon Linux 2 v3.3.6 running PHP 8.0                | ami-028cba9013bc637a6 | ami-0739533aa5b6a86c7 |
 | 64bit Amazon Linux 2 v3.4.1 running Go 1                   | ami-0167fb079097ef915 | ami-0803c6bf11d776e3e |
+
 | Platform version                                           | Graviton image ID     | x86 image ID          |
-| ---                                                        | ---                   | ---                   |
+| ---------------------------------------------------------- | --------------------- | --------------------- |
 | 64bit Amazon Linux 2 v3.4.7 running Docker                 | ami-0fbdb88ce139244bf | ami-0c4d28cfe48cc422e |
 | 64bit Amazon Linux 2 v4.2.6 running Tomcat 8.5 Corretto 11 | ami-00e7b90f6d15fb548 | ami-0dfbd8b3d861e8aac |
 | 64bit Amazon Linux 2 v4.2.6 running Tomcat 8.5 Corretto 8  | ami-0d0c9c0fa9a42b771 | ami-020f5d80a0545c8cc |
@@ -83,8 +84,9 @@ AWS Region.
 | 64bit Amazon Linux 2 v3.3.6 running PHP 7.4                | ami-0f3cd4fdbbc4f374e | ami-041219a66d0e62231 |
 | 64bit Amazon Linux 2 v3.3.6 running PHP 8.0                | ami-04de7ac2259913496 | ami-0a2aa69f60f0db690 |
 | 64bit Amazon Linux 2 v3.4.1 running Go 1                   | ami-04e4857fb761845cd | ami-0684dc7c9ec0edb2a |
+
 | Platform version                                           | Graviton image ID     | x86 image ID          |
-| ---                                                        | ---                   | ---                   |
+| ---------------------------------------------------------- | --------------------- | --------------------- |
 | 64bit Amazon Linux 2 v3.4.7 running Docker                 | ami-0e88c6b05c0de1dd8 | ami-0f34cb0eaed253615 |
 | 64bit Amazon Linux 2 v4.2.6 running Tomcat 8.5 Corretto 11 | ami-0edaedc27675ab807 | ami-0132cfc935b57cac5 |
 | 64bit Amazon Linux 2 v4.2.6 running Tomcat 8.5 Corretto 8  | ami-0f029c18fe886357f | ami-0cba70acabaa88266 |
@@ -96,8 +98,9 @@ AWS Region.
 | 64bit Amazon Linux 2 v3.3.6 running PHP 7.4                | ami-04b54b1ed0c003aa0 | ami-0a21217b9014b2bfd |
 | 64bit Amazon Linux 2 v3.3.6 running PHP 8.0                | ami-062364b89b5e487a2 | ami-0d5aab2eeaa1c6567 |
 | 64bit Amazon Linux 2 v3.4.1 running Go 1                   | ami-0909c91d5269e31ea | ami-08e1ddaa6c0fea773 |
+
 | Platform version                                           | Graviton image ID     | x86 image ID          |
-| ---                                                        | ---                   | ---                   |
+| ---------------------------------------------------------- | --------------------- | --------------------- |
 | 64bit Amazon Linux 2 v3.4.7 running Docker                 | ami-02b1ab520319e74be | ami-0f4f0c5c4b516f4f6 |
 | 64bit Amazon Linux 2 v4.2.6 running Tomcat 8.5 Corretto 11 | ami-0a697f58fcc096123 | ami-07fd7e930ba9667e2 |
 | 64bit Amazon Linux 2 v4.2.6 running Tomcat 8.5 Corretto 8  | ami-0a638cf33cbb3a439 | ami-0b1e94b95052802fb |
@@ -109,8 +112,9 @@ AWS Region.
 | 64bit Amazon Linux 2 v3.3.6 running PHP 7.4                | ami-045385f52d4c6b937 | ami-08ebf387cdd834b48 |
 | 64bit Amazon Linux 2 v3.3.6 running PHP 8.0                | ami-0130ee3c8cd8006bd | ami-0fe2d65328bb2e51f |
 | 64bit Amazon Linux 2 v3.4.1 running Go 1                   | ami-08c9eae80a8c647cc | ami-0c6f9efe848321c20 |
+
 | Platform version                                           | Graviton image ID     | x86 image ID          |
-| ---                                                        | ---                   | ---                   |
+| ---------------------------------------------------------- | --------------------- | --------------------- |
 | 64bit Amazon Linux 2 v3.4.7 running Docker                 | ami-07e7185f4579f6531 | ami-0e48201b194947727 |
 | 64bit Amazon Linux 2 v4.2.6 running Tomcat 8.5 Corretto 11 | ami-04ce47ec8e90dcc7c | ami-0856ee4dbe31ea79d |
 | 64bit Amazon Linux 2 v4.2.6 running Tomcat 8.5 Corretto 8  | ami-08e963ac42a28938c | ami-04398221c977c9af7 |
@@ -122,8 +126,9 @@ AWS Region.
 | 64bit Amazon Linux 2 v3.3.6 running PHP 7.4                | ami-08ea109211334ebfe | ami-041bb03df03663aaf |
 | 64bit Amazon Linux 2 v3.3.6 running PHP 8.0                | ami-0c24252abe093100f | ami-0cbbcfc94741373f9 |
 | 64bit Amazon Linux 2 v3.4.1 running Go 1                   | ami-01ad97ab3f77c4fd8 | ami-0dd8585a6f115d6f2 |
+
 | Platform version                                           | Graviton image ID     | x86 image ID          |
-| ---                                                        | ---                   | ---                   |
+| ---------------------------------------------------------- | --------------------- | --------------------- |
 | 64bit Amazon Linux 2 v3.4.7 running Docker                 | ami-0f2b500c362adc1be | ami-016c0cb0caadec0a0 |
 | 64bit Amazon Linux 2 v4.2.6 running Tomcat 8.5 Corretto 11 | ami-0f944aa28a0a20aac | ami-00d53b22a8c592f86 |
 | 64bit Amazon Linux 2 v4.2.6 running Tomcat 8.5 Corretto 8  | ami-037a50f7eb6c5dacf | ami-090c2aad7de6af5ac |

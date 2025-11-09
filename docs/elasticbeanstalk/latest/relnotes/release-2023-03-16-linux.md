@@ -42,13 +42,14 @@ release](release-2023-03-07-linux.md "release-2023-03-07-linux.md").
 
 ### Docker
 
-| Platform Version and _Solution Stack Name_
-| AMI | ECS Agent | Docker | Docker Compose | Proxy Server |
-| --- | --- | --- | --- | --- | --- |
-| **Docker AL2 version 3.5.5** _64bit Amazon Linux 2 v3.5.5 running Docker_ | 2.0.20230221 | | 20.10.17-1 | 1.29.2 | nginx 1.22.1 |
-| **ECS AL2 version 3.2.5** _64bit Amazon Linux 2 v3.2.5 running ECS_ | 2.0.20230221 | 1.68.2 | | | | ### Python
-| Platform Version and _Solution Stack Name_
-| AMI | Language | Package Manager | Packager | meld3 | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| **Python 3.8 AL2 version 3.5.0** _64bit Amazon Linux 2 v3.5.0 running Python 3.8_ | 2.0.20230221 | Python 3.8.16 | pipenv 2023.2.18 | | | 3.2.0 | nginx 1.22.1 (default), Apache 2.4.55 |
-| **Python 3.7 AL2 version 3.5.0** _64bit Amazon Linux 2 v3.5.0 running Python 3.7_ | 2.0.20230221 | Python 3.7.16 | pipenv 2023.2.18 | | | 3.2.0 | nginx 1.22.1 (default), Apache 2.4.55 |
+| Platform Version and _Solution Stack Name_                                   | AMI          | ECS Agent | Docker     | Docker Compose | Proxy Server |
+| ---------------------------------------------------------------------------- | ------------ | --------- | ---------- | -------------- | ------------ |
+| **Docker AL2 version 3.5.5**<br>_64bit Amazon Linux 2 v3.5.5 running Docker_ | 2.0.20230221 |           | 20.10.17-1 | 1.29.2         | nginx 1.22.1 |
+| **ECS AL2 version 3.2.5**<br>_64bit Amazon Linux 2 v3.2.5 running ECS_       | 2.0.20230221 | 1.68.2    |            |                |              |
+
+### Python
+
+| Platform Version and _Solution Stack Name_                                           | AMI          | Language      | Package Manager  | Packager | meld3 | AWS X-Ray | Proxy Server                          |
+| ------------------------------------------------------------------------------------ | ------------ | ------------- | ---------------- | -------- | ----- | --------- | ------------------------------------- |
+| **Python 3.8 AL2 version 3.5.0**<br>_64bit Amazon Linux 2 v3.5.0 running Python 3.8_ | 2.0.20230221 | Python 3.8.16 | pipenv 2023.2.18 |          |       | 3.2.0     | nginx 1.22.1 (default), Apache 2.4.55 |
+| **Python 3.7 AL2 version 3.5.0**<br>_64bit Amazon Linux 2 v3.5.0 running Python 3.7_ | 2.0.20230221 | Python 3.7.16 | pipenv 2023.2.18 |          |       | 3.2.0     | nginx 1.22.1 (default), Apache 2.4.55 |

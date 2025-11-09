@@ -16,39 +16,42 @@ The following table lists the changes included in this release.
 - Be aware that at the time these release notes are published, the new platform versions might not yet be available in all the AWS Regions that
   Elastic Beanstalk supports. It might take a few hours for the release to complete.
 
-| **Category**          | **Description**                                               |
-| --------------------- | ------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Framework updates** |
-| **Framework**         | **Details**                                                   |
-| ---                   | ---                                                           |
-| **.NET Core**         | Updated .NET 9 to version 9.0.6 and .NET 8 to version 8.0.17. |
-|                       | **AWS component updates**                                     |
-| **Component**         | **Details**                                                   |
-| ---                   | ---                                                           |
-| **AMI**               | Updated the base AMI to version 2025.06.11.                   |
-| **AWS SDK for .NET**  | Updated the SDK to version 3.7.1062.0.                        |
-| **CloudWatch Agent**  | Updated the CloudWatch Agent to version 1.300056.0b1123.      |
-| **EC2Launch**         | Updated EC2Launch V2 to version 2.1.1.                        |
-|                       | **Additional changes with this release**                      | <br>• Elastic Beanstalk now supports an architecture flag in Windows deployment manifests, enabling control over PowerShell script execution architecture. <br>• New skipIISReset flag in Windows deployment manifests allows users to bypass IIS resets during deployments, reducing application downtime and deployment time in multi-application environments. |
+| **Category**                             | **Description**                                                                                                                                                                                                                                                                                                                                              |
+| ---------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------ | ---------------- | ---- | ------- | ------- | ---- | ------------------ | ------------------------------------------------------------- | ---- | ------------------------- | -------------------------------------- | ---- | ------------------------- | -------------------------------------------------------- | ---- | ------------------ | -------------------------------------- | --- |
+| **Framework updates**                    |                                                                                                                                                                                                                                                                                                                                                              | \*_Framework_<br>• | \*_Details_<br>• | <br> | --<br>• | --<br>• | <br> | \*_.NET Core_<br>• | Updated .NET 9 to version 9.0.6 and .NET 8 to version 8.0.17. |      |
+| **AWS component updates**                |                                                                                                                                                                                                                                                                                                                                                              | \*_Component_<br>• | \*_Details_<br>• | <br> | --<br>• | --<br>• | <br> | \*_AMI_<br>•       | Updated the base AMI to version 2025.06.11.                   | <br> | \*_AWS SDK for .NET_<br>• | Updated the SDK to version 3.7.1062.0. | <br> | \*_CloudWatch Agent_<br>• | Updated the CloudWatch Agent to version 1.300056.0b1123. | <br> | \*_EC2Launch_<br>• | Updated EC2Launch V2 to version 2.1.1. |     |
+| **Additional changes with this release** | • Elastic Beanstalk now supports an architecture flag in Windows deployment manifests, enabling control over PowerShell script execution architecture.<br>• New skipIISReset flag in Windows deployment manifests allows users to bypass IIS resets during deployments, reducing application downtime and deployment time in multi-application environments. |
 
-| ## New platform versions ###### These platforms are updated: <br>• [.NET on Windows Server](#release-2025-06-19-windows.platforms.net "#release-2025-06-19-windows.platforms.net") ### .NET on Windows Server #### Configuration basics
-| Platform Version | Solution Stack Name | Framework | Proxy Server |
-| --- | --- | --- | --- |
-| **Windows Server 2025 with IIS 10.0 version 2.19.2** | _64bit Windows Server 2025 v2.19.2 running IIS 10.0_ | .NET 9.0.6, supports 9.0.6, 8.0.17 .NET Framework 4.8.1, supports 4.x, 2.0 | IIS 10.0 |
-| **Windows Server Core 2025 with IIS 10.0 version 2.19.2** | _64bit Windows Server Core 2025 v2.19.2 running IIS 10.0_ | .NET 9.0.6, supports 9.0.6, 8.0.17 .NET Framework 4.8.1, supports 4.x, 2.0 | IIS 10.0 |
-| **Windows Server 2022 with IIS 10.0 version 2.19.2** | _64bit Windows Server 2022 v2.19.2 running IIS 10.0_ | .NET 9.0.6, supports 9.0.6, 8.0.17 .NET Framework 4.8.1, supports 4.x, 2.0 | IIS 10.0 |
-| **Windows Server Core 2022 with IIS 10.0 version 2.19.2** | _64bit Windows Server Core 2022 v2.19.2 running IIS 10.0_ | .NET 9.0.6, supports 9.0.6, 8.0.17 .NET Framework 4.8.1, supports 4.x, 2.0 | IIS 10.0 |
-| **Windows Server 2019 with IIS 10.0 version 2.19.2** | _64bit Windows Server 2019 v2.19.2 running IIS 10.0_ | .NET 9.0.6, supports 9.0.6, 8.0.17 .NET Framework 4.8, supports 4.x, 2.0 | IIS 10.0 |
-| **Windows Server Core 2019 with IIS 10.0 version 2.19.2** | _64bit Windows Server Core 2019 v2.19.2 running IIS 10.0_ | .NET 9.0.6, supports 9.0.6, 8.0.17 .NET Framework 4.8, supports 4.x, 2.0 | IIS 10.0 |
-| **Windows Server 2016 with IIS 10.0 version 2.19.2** | _64bit Windows Server 2016 v2.19.2 running IIS 10.0_ | .NET 9.0.6, supports 9.0.6, 8.0.17 .NET Framework 4.8, supports 4.x, 2.0 | IIS 10.0 |
-| **Windows Server Core 2016 with IIS 10.0 version 2.19.2** | _64bit Windows Server Core 2016 v2.19.2 running IIS 10.0_ | .NET 9.0.6, supports 9.0.6, 8.0.17 .NET Framework 4.8, supports 4.x, 2.0 | IIS 10.0 | #### More details
-| Platform Version | AMI version | AWS SDK for .NET | EC2Config | SSM Agent | Web Deploy | AWS X-Ray |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Windows Server 2025 with IIS 10.0 version 2.19.2** | 2025.06.11 | 3.7.1062.0 | | 3.3.2299.0 | 3.6 | 3.3.14 |
-| **Windows Server Core 2025 with IIS 10.0 version 2.19.2** | 2025.06.11 | 3.7.1062.0 | | 3.3.2299.0 | 3.6 | 3.3.14 |
-| **Windows Server 2022 with IIS 10.0 version 2.19.2** | 2025.06.11 | 3.7.1062.0 | | 3.3.2299.0 | 3.6 | 3.3.14 |
-| **Windows Server Core 2022 with IIS 10.0 version 2.19.2** | 2025.06.11 | 3.7.1062.0 | | 3.3.2299.0 | 3.6 | 3.3.14 |
-| **Windows Server 2019 with IIS 10.0 version 2.19.2** | 2025.06.11 | 3.7.1062.0 | | 3.3.2299.0 | 3.6 | 3.3.14 |
-| **Windows Server Core 2019 with IIS 10.0 version 2.19.2** | 2025.06.11 | 3.7.1062.0 | | 3.3.2299.0 | 3.6 | 3.3.14 |
-| **Windows Server 2016 with IIS 10.0 version 2.19.2** | 2025.06.11 | 3.7.1062.0 | | 3.3.2299.0 | 3.6 | 3.3.14 |
-| **Windows Server Core 2016 with IIS 10.0 version 2.19.2** | 2025.06.11 | 3.7.1062.0 | | 3.3.2299.0 | 3.6 | 3.3.14 |
+## New platform versions
+
+###### These platforms are updated:
+
+- [.NET on Windows Server](#release-2025-06-19-windows.platforms.net "#release-2025-06-19-windows.platforms.net")
+
+### .NET on Windows Server
+
+#### Configuration basics
+
+| Platform Version                                          | Solution Stack Name                                       | Framework                                                                     | Proxy Server |
+| --------------------------------------------------------- | --------------------------------------------------------- | ----------------------------------------------------------------------------- | ------------ |
+| **Windows Server 2025 with IIS 10.0 version 2.19.2**      | _64bit Windows Server 2025 v2.19.2 running IIS 10.0_      | .NET 9.0.6, supports 9.0.6, 8.0.17<br>.NET Framework 4.8.1, supports 4.x, 2.0 | IIS 10.0     |
+| **Windows Server Core 2025 with IIS 10.0 version 2.19.2** | _64bit Windows Server Core 2025 v2.19.2 running IIS 10.0_ | .NET 9.0.6, supports 9.0.6, 8.0.17<br>.NET Framework 4.8.1, supports 4.x, 2.0 | IIS 10.0     |
+| **Windows Server 2022 with IIS 10.0 version 2.19.2**      | _64bit Windows Server 2022 v2.19.2 running IIS 10.0_      | .NET 9.0.6, supports 9.0.6, 8.0.17<br>.NET Framework 4.8.1, supports 4.x, 2.0 | IIS 10.0     |
+| **Windows Server Core 2022 with IIS 10.0 version 2.19.2** | _64bit Windows Server Core 2022 v2.19.2 running IIS 10.0_ | .NET 9.0.6, supports 9.0.6, 8.0.17<br>.NET Framework 4.8.1, supports 4.x, 2.0 | IIS 10.0     |
+| **Windows Server 2019 with IIS 10.0 version 2.19.2**      | _64bit Windows Server 2019 v2.19.2 running IIS 10.0_      | .NET 9.0.6, supports 9.0.6, 8.0.17<br>.NET Framework 4.8, supports 4.x, 2.0   | IIS 10.0     |
+| **Windows Server Core 2019 with IIS 10.0 version 2.19.2** | _64bit Windows Server Core 2019 v2.19.2 running IIS 10.0_ | .NET 9.0.6, supports 9.0.6, 8.0.17<br>.NET Framework 4.8, supports 4.x, 2.0   | IIS 10.0     |
+| **Windows Server 2016 with IIS 10.0 version 2.19.2**      | _64bit Windows Server 2016 v2.19.2 running IIS 10.0_      | .NET 9.0.6, supports 9.0.6, 8.0.17<br>.NET Framework 4.8, supports 4.x, 2.0   | IIS 10.0     |
+| **Windows Server Core 2016 with IIS 10.0 version 2.19.2** | _64bit Windows Server Core 2016 v2.19.2 running IIS 10.0_ | .NET 9.0.6, supports 9.0.6, 8.0.17<br>.NET Framework 4.8, supports 4.x, 2.0   | IIS 10.0     |
+
+#### More details
+
+| Platform Version                                          | AMI version | AWS SDK for .NET | EC2Config | SSM Agent  | Web Deploy | AWS X-Ray |
+| --------------------------------------------------------- | ----------- | ---------------- | --------- | ---------- | ---------- | --------- |
+| **Windows Server 2025 with IIS 10.0 version 2.19.2**      | 2025.06.11  | 3.7.1062.0       |           | 3.3.2299.0 | 3.6        | 3.3.14    |
+| **Windows Server Core 2025 with IIS 10.0 version 2.19.2** | 2025.06.11  | 3.7.1062.0       |           | 3.3.2299.0 | 3.6        | 3.3.14    |
+| **Windows Server 2022 with IIS 10.0 version 2.19.2**      | 2025.06.11  | 3.7.1062.0       |           | 3.3.2299.0 | 3.6        | 3.3.14    |
+| **Windows Server Core 2022 with IIS 10.0 version 2.19.2** | 2025.06.11  | 3.7.1062.0       |           | 3.3.2299.0 | 3.6        | 3.3.14    |
+| **Windows Server 2019 with IIS 10.0 version 2.19.2**      | 2025.06.11  | 3.7.1062.0       |           | 3.3.2299.0 | 3.6        | 3.3.14    |
+| **Windows Server Core 2019 with IIS 10.0 version 2.19.2** | 2025.06.11  | 3.7.1062.0       |           | 3.3.2299.0 | 3.6        | 3.3.14    |
+| **Windows Server 2016 with IIS 10.0 version 2.19.2**      | 2025.06.11  | 3.7.1062.0       |           | 3.3.2299.0 | 3.6        | 3.3.14    |
+| **Windows Server Core 2016 with IIS 10.0 version 2.19.2** | 2025.06.11  | 3.7.1062.0       |           | 3.3.2299.0 | 3.6        | 3.3.14    |

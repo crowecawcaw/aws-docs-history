@@ -28,12 +28,14 @@ The release applies all security updates published in the [Amazon Linux Security
 
 ### Java SE
 
-| Platform Version and _Solution Stack Name_
-| AMI | Language | Tools | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- |
-| **Corretto 11 version 3.2.10** _64bit Amazon Linux 2 v3.2.10 running Corretto 11_ | 2.0.20211201 | Corretto 11.0.13.8.2 | Ant 1.10.7, Gradle 5.6.2, Maven 3.6.2 | 3.2.0 | nginx 1.20.0 |
-| **Corretto 8 version 3.2.10** _64bit Amazon Linux 2 v3.2.10 running Corretto 8_ | 2.0.20211201 | Corretto 8.312.07.2 | Ant 1.10.7, Gradle 5.6.2, Maven 3.6.2 | 3.2.0 | nginx 1.20.0 | ### Tomcat
-| Platform Version and _Solution Stack Name_ | AMI | Language | AWS X-Ray | Application Server | Proxy Server |
-| --- | --- | --- | --- | --- | --- |
-| **Corretto 11 with Tomcat 8.5 AL2 version 4.2.10** _64bit Amazon Linux 2 v4.2.10 running Tomcat 8.5 Corretto 11_ | 2.0.20211201 | Corretto 11.0.13.8.2 | 3.2.0 | Tomcat 8.5.72 | nginx 1.20.0 (default), Apache 2.4.51 |
-| **Corretto 8 with Tomcat 8.5 AL2 version 4.2.10** _64bit Amazon Linux 2 v4.2.10 running Tomcat 8.5 Corretto 8_ | 2.0.20211201 | Corretto 8.312.07.2 | 3.2.0 | Tomcat 8.5.72 | nginx 1.20.0 (default), Apache 2.4.51 |
+| Platform Version and _Solution Stack Name_                                           | AMI          | Language             | Tools                                 | AWS X-Ray | Proxy Server |
+| ------------------------------------------------------------------------------------ | ------------ | -------------------- | ------------------------------------- | --------- | ------------ |
+| **Corretto 11 version 3.2.10**<br>_64bit Amazon Linux 2 v3.2.10 running Corretto 11_ | 2.0.20211201 | Corretto 11.0.13.8.2 | Ant 1.10.7, Gradle 5.6.2, Maven 3.6.2 | 3.2.0     | nginx 1.20.0 |
+| **Corretto 8 version 3.2.10**<br>_64bit Amazon Linux 2 v3.2.10 running Corretto 8_   | 2.0.20211201 | Corretto 8.312.07.2  | Ant 1.10.7, Gradle 5.6.2, Maven 3.6.2 | 3.2.0     | nginx 1.20.0 |
+
+### Tomcat
+
+| Platform Version and _Solution Stack Name_                                                                          | AMI          | Language             | AWS X-Ray | Application Server | Proxy Server                          |
+| ------------------------------------------------------------------------------------------------------------------- | ------------ | -------------------- | --------- | ------------------ | ------------------------------------- |
+| **Corretto 11 with Tomcat 8.5 AL2 version 4.2.10**<br>_64bit Amazon Linux 2 v4.2.10 running Tomcat 8.5 Corretto 11_ | 2.0.20211201 | Corretto 11.0.13.8.2 | 3.2.0     | Tomcat 8.5.72      | nginx 1.20.0 (default), Apache 2.4.51 |
+| **Corretto 8 with Tomcat 8.5 AL2 version 4.2.10**<br>_64bit Amazon Linux 2 v4.2.10 running Tomcat 8.5 Corretto 8_   | 2.0.20211201 | Corretto 8.312.07.2  | 3.2.0     | Tomcat 8.5.72      | nginx 1.20.0 (default), Apache 2.4.51 |

@@ -22,7 +22,6 @@ Elastic Beanstalk supports. It might take a few hours for the release to complet
 
 ### .NET Core on Linux
 
-| Platform Version and _Solution Stack Name_
-| Framework | Proxy Server | AMI | AWS X‑Ray |
-| --- | --- | --- | --- | --- |
-| **.NET Core on AL2 version 1.0.0** _64bit Amazon Linux 2 v1.0.0 running .NET Core_ | .NET Core 3.1.5, supports 3.1.5, 2.1.19 | nginx 1.16.1 | 2.0.20200603 | 3.2.0 |
+| Platform Version and _Solution Stack Name_                                            | Framework                               | Proxy Server | AMI          | AWS X‑Ray |
+| ------------------------------------------------------------------------------------- | --------------------------------------- | ------------ | ------------ | --------- |
+| **.NET Core on AL2 version 1.0.0**<br>_64bit Amazon Linux 2 v1.0.0 running .NET Core_ | .NET Core 3.1.5, supports 3.1.5, 2.1.19 | nginx 1.16.1 | 2.0.20200603 | 3.2.0     |

@@ -40,8 +40,7 @@ platform release](release-2022-04-29-linux.md "release-2022-04-29-linux.md").
 
 ### Ruby
 
-| Platform Version and _Solution Stack Name_
-| AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 3.0 AL2 version 3.4.6** _64bit Amazon Linux 2 v3.4.6 running Ruby 3.0_ | 2.0.20220419 | Ruby 3.0.4-p208 | RubyGems 3.3.12 | Puma 5.6.4 | 3.2.0 | nginx 1.20.0 |
-| **Ruby 2.7 AL2 version 3.4.6** _64bit Amazon Linux 2 v3.4.6 running Ruby 2.7_ | 2.0.20220419 | Ruby 2.7.6-p219 | RubyGems 3.3.12 | Puma 5.6.4 | 3.2.0 | nginx 1.20.0 |
+| Platform Version and _Solution Stack Name_                                       | AMI          | Language        | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| -------------------------------------------------------------------------------- | ------------ | --------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 3.0 AL2 version 3.4.6**<br>_64bit Amazon Linux 2 v3.4.6 running Ruby 3.0_ | 2.0.20220419 | Ruby 3.0.4-p208 | RubyGems 3.3.12 | Puma 5.6.4         | 3.2.0     | nginx 1.20.0 |
+| **Ruby 2.7 AL2 version 3.4.6**<br>_64bit Amazon Linux 2 v3.4.6 running Ruby 2.7_ | 2.0.20220419 | Ruby 2.7.6-p219 | RubyGems 3.3.12 | Puma 5.6.4         | 3.2.0     | nginx 1.20.0 |

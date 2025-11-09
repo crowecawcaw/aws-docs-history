@@ -38,8 +38,7 @@ versions
 
 ### Ruby
 
-| Platform Version and _Solution Stack Name_
-| AMI | Language | Package Manager | Application Server | AWS X-Ray | Proxy Server |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Ruby 3.0 AL2 version 3.6.6** _64bit Amazon Linux 2 v3.6.6 running Ruby 3.0_ | 2.0.20230404 | Ruby 3.0.6-p216 | RubyGems 3.4.10 | Puma 6.2.1 | 3.2.0 | nginx 1.22.1 |
-| **Ruby 2.7 AL2 version 3.6.6** _64bit Amazon Linux 2 v3.6.6 running Ruby 2.7_ | 2.0.20230404 | Ruby 2.7.8-p225 | RubyGems 3.4.10 | Puma 6.2.1 | 3.2.0 | nginx 1.22.1 |
+| Platform Version and _Solution Stack Name_                                       | AMI          | Language        | Package Manager | Application Server | AWS X-Ray | Proxy Server |
+| -------------------------------------------------------------------------------- | ------------ | --------------- | --------------- | ------------------ | --------- | ------------ |
+| **Ruby 3.0 AL2 version 3.6.6**<br>_64bit Amazon Linux 2 v3.6.6 running Ruby 3.0_ | 2.0.20230404 | Ruby 3.0.6-p216 | RubyGems 3.4.10 | Puma 6.2.1         | 3.2.0     | nginx 1.22.1 |
+| **Ruby 2.7 AL2 version 3.6.6**<br>_64bit Amazon Linux 2 v3.6.6 running Ruby 2.7_ | 2.0.20230404 | Ruby 2.7.8-p225 | RubyGems 3.4.10 | Puma 6.2.1         | 3.2.0     | nginx 1.22.1 |

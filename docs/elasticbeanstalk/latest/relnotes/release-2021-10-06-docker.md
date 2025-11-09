@@ -25,7 +25,6 @@ Elastic Beanstalk supports. It might take a few hours for the release to complet
 
 ### Docker
 
-| Platform Version and _Solution Stack Name_
-| AMI | Docker | Docker Compose | Proxy Server |
-| --- | --- | --- | --- | --- |
-| **Docker AL2 version 3.4.7** _64bit Amazon Linux 2 v3.4.7 running Docker_ | 2.0.20210813 | 20.10.7-3 | 1.29.2 | nginx 1.20.0 |
+| Platform Version and _Solution Stack Name_                                   | AMI          | Docker    | Docker Compose | Proxy Server |
+| ---------------------------------------------------------------------------- | ------------ | --------- | -------------- | ------------ |
+| **Docker AL2 version 3.4.7**<br>_64bit Amazon Linux 2 v3.4.7 running Docker_ | 2.0.20210813 | 20.10.7-3 | 1.29.2         | nginx 1.20.0 |

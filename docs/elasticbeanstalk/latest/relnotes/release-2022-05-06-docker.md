@@ -29,8 +29,7 @@ This release updates the _Docker AL2_ platform to version 3.4.15. It provides th
 
 ### Docker
 
-| Platform Version and _Solution Stack Name_
-| AMI | Docker | Docker Compose | Proxy Server |
-| --- | --- | --- | --- | --- |
-| **Docker AL2 version 3.4.15** _64bit Amazon Linux 2 v3.4.15 running Docker_ | 2.0.20220426 | 20.10.13-2 | 1.29.2 | nginx 1.20.0 |
-| **ECS AL2 version 3.1.1** _64bit Amazon Linux 2 v3.1.1 running ECS_ | 2.0.20220419 | | | |
+| Platform Version and _Solution Stack Name_                                     | AMI          | Docker     | Docker Compose | Proxy Server |
+| ------------------------------------------------------------------------------ | ------------ | ---------- | -------------- | ------------ |
+| **Docker AL2 version 3.4.15**<br>_64bit Amazon Linux 2 v3.4.15 running Docker_ | 2.0.20220426 | 20.10.13-2 | 1.29.2         | nginx 1.20.0 |
+| **ECS AL2 version 3.1.1**<br>_64bit Amazon Linux 2 v3.1.1 running ECS_         | 2.0.20220419 |            |                |              |
