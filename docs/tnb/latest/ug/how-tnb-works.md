@@ -62,9 +62,9 @@ increase](../../../servicequotas/latest/userguide/request-quota-increase.md "../
 
 Your AWS account has the following quotas related to AWS TNB.
 
-| Resource quota                                | Description                                                                        | Default value | Adjustable? |
-| --------------------------------------------- | ---------------------------------------------------------------------------------- | ------------- | ----------- |
-| Network service instances                     | The maximum number of network service instances in one Region.                     | 800           | Yes         |
-| Concurrent ongoing network service operations | The maximum number of concurrent ongoing network service operations in one Region. | 40            | Yes         |
-| Network packages                              | The maximum number of network packages in one Region.                              | 40            | Yes         |
-| Function packages                             | The maximum number of function packages in one Region.                             | 200           | Yes         |
+| Resource quota                                | Description                                                                           | Default value | Adjustable? |
+| --------------------------------------------- | ------------------------------------------------------------------------------------- | ------------- | ----------- |
+| Network service instances                     | The maximum number of network service instances in one Region.                        | 800           | Yes         |
+| Concurrent ongoing network service operations | The maximum number of concurrent ongoing network service operations in one<br>Region. | 40            | Yes         |
+| Network packages                              | The maximum number of network packages in one Region.                                 | 40            | Yes         |
+| Function packages                             | The maximum number of function packages in one Region.                                | 200           | Yes         |

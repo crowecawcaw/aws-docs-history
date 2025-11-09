@@ -65,11 +65,224 @@ operations, such as instantiating or upgrading an network function to a new vers
 
 AWS TNB supports the following specifications.
 
-| Specification | Release                                                                                                                                                                                                   | Description                                                                             |
-| ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| ETSI SOL001   | [v3.6.1](https://www.etsi.org/deliver/etsi_gs/NFV-SOL/001_099/001/03.06.01_60/gs_NFV-SOL001v030601p.pdf "https://www.etsi.org/deliver/etsi_gs/NFV-SOL/001_099/001/03.06.01_60/gs_NFV-SOL001v030601p.pdf") | Defines standards for allowing TOSCA-based network function descriptors.                |
-| ETSI SOL002   | [v3.6.1](https://www.etsi.org/deliver/etsi_gs/NFV-SOL/001_099/002/03.06.01_60/gs_NFV-SOL002v030601p.pdf "https://www.etsi.org/deliver/etsi_gs/NFV-SOL/001_099/002/03.06.01_60/gs_NFV-SOL002v030601p.pdf") | Defines models around network function management.                                      |
-| ETSI SOL003   | [v3.6.1](https://www.etsi.org/deliver/etsi_gs/NFV-SOL/001_099/003/03.06.01_60/gs_NFV-SOL003v030601p.pdf "https://www.etsi.org/deliver/etsi_gs/NFV-SOL/001_099/003/03.06.01_60/gs_NFV-SOL003v030601p.pdf") | Defines standards for network function lifecycle management.                            |
-| ETSI SOL004   | [v3.6.1](https://www.etsi.org/deliver/etsi_gs/NFV-SOL/001_099/004/03.06.01_60/gs_NFV-SOL004v030601p.pdf "https://www.etsi.org/deliver/etsi_gs/NFV-SOL/001_099/004/03.06.01_60/gs_NFV-SOL004v030601p.pdf") | Defines CSAR standards for network function packages.                                   |
-| ETSI SOL005   | [v3.6.1](https://www.etsi.org/deliver/etsi_gs/NFV-SOL/001_099/005/03.06.01_60/gs_NFV-SOL005v030601p.pdf "https://www.etsi.org/deliver/etsi_gs/NFV-SOL/001_099/005/03.06.01_60/gs_NFV-SOL005v030601p.pdf") | Defines standards for network service package and network service lifecycle management. |
-| ETSI SOL007   | [v3.5.1](https://www.etsi.org/deliver/etsi_gs/NFV-SOL/001_099/007/03.05.01_60/gs_NFV-SOL007v030501p.pdf "https://www.etsi.org/deliver/etsi_gs/NFV-SOL/001_099/007/03.05.01_60/gs_NFV-SOL007v030501p.pdf") | Defines standards for allowing TOSCA-based network service descriptors.                 | ## Function package With AWS TNB, you can store function packages that comply with ETSI SOL001/SOL004 into a functions catalog. Then, you can upload Cloud Service Archive (CSAR) packages that contain artifacts describing your virtual network function. <br>• Virtual network function descriptor – Defines metadata for package onboarding and virtual network function management. You must name this file `vnfd.yaml`. <br>• Software Images – References virtual network function Container Images. Amazon Elastic Container Registry (Amazon ECR) can act as your virtual network function images repository. <br>• Additional Files – Use to manage the virtual network function; for example, scripts and Helm charts. The CSAR is a package defined by the OASIS TOSCA standard and includes a network/service descriptor that complies with the OASIS TOSCA YAML specification. For information about the required YAML specification, see [TOSCA reference for AWS TNB](tosca-reference.md "tosca-reference.md"). The following is an example virtual network function descriptor. `tosca_definitions_version: tnb_simple_yaml_1_0 topology_template: node_templates: SampleNF: type: tosca.nodes.AWS.VNF properties: descriptor_id: "SampleNF-descriptor-id" descriptor_version: "2.0.0" descriptor_name: "NF 1.0.0" provider: "SampleNF" requirements: helm: HelmChart HelmChart: type: tosca.nodes.AWS.Artifacts.Helm properties: implementation: "./SampleNF"` ## Network package A network package is a `.zip` file in CSAR (Cloud Service Archive) format. It defines the function packages you want to deploy and the AWS infrastructure you want to deploy them on.​ The network package contains the following files: <br>• A network descriptor file (`nsd.yaml`) in TOSCA format as described by ETSI SOL007. The `nsd.yaml` file contains references to uploaded [function packages](tnb-concepts.md#nf-packages "tnb-concepts.md#nf-packages") with their descriptor IDs. <br>• User data scripts, if any. <br>• Lifecycle hook scripts, if any. <br>• Plugins' `values.yaml` configuration files, if any. AWS TNB supports ETSI standards for the modeling of resources, such as network, service, and function, in the TOSCA language. AWS TNB makes it more efficient for you to use AWS services by modeling them in a way that your ETSI-compliant service orchestrator can understand. ### Network service descriptors for AWS TNB A network service descriptor (NSD) is a `.yaml` file in a network package that uses the TOSCA standard to describe the network functions that you want to deploy, and the AWS infrastructure that you want to deploy the network functions on. To define your NSD and configure your underlying resources and network lifecycle operations, you must understand the NSD TOSCA Schema supported by AWS TNB. Your NSD file is divided into the following parts: 1. TOSCA definition version – This is the first line of your NSD YAML file and contains the version information, shown in the following example. `tosca_definitions_version: tnb_simple_yaml_1_0` 2. VNFD – The NSD contains the definition of the network function on which to perform lifecycle operations. Each network function must be identified by the following values: <br>• A unique ID for `descriptor_id`. The ID must match the ID in the network function CSAR package. <br>• A unique name for `namespace`. The name must be associated with a unique ID to more easily reference throughout your NSD YAML file, shown in the following example. `vnfds: <br>• descriptor_id: "61465757-cb8f-44d8-92c2-b69ca0de025b" namespace: "amf"` 3. Topology template – Defines the resources to be deployed, the network function deployment, and any customized scripts, such as lifecycle hooks. This is shown in the following example. `topology_template: node_templates: SampleNS: type: tosca.nodes.AWS.NS properties: descriptor_id: "<Sample Identifier>" descriptor_version: "<Sample nversion>" descriptor_name: "<Sample name>"` 4. Additional nodes – Each modeled resource has sections for properties and requirements. The properties describe optional or mandatory attributes for a resource, such as the version. The requirements describe dependencies that must be provided as arguments. For example, to create an Amazon EKS Node Group Resource, it must be created within an Amazon EKS Cluster. This is shown in the following example. ``SampleEKSNode: type: tosca.nodes.AWS.Compute.EKSManagedNode properties: node_role: "arn:aws:iam::${AWS::TNB::AccountId}:role/`SampleRole`" capabilities: compute: properties: ami_type: "AL2_x86_64" instance_types: <br>• "t3.xlarge" key_pair: "SampleKeyPair" scaling: properties: desired_size: 1 min_size: 1 max_size: 1 requirements: cluster: SampleEKS subnets: <br>• SampleSubnet network_interfaces: <br>• SampleENI01 <br>• SampleENI02`` #### Example NSD The following is a snippet of an NSD showing how to model AWS services. The network function will be deployed on an Amazon EKS cluster with Kubernetes version 1.27. The subnets for the applications are Subnet01 and Subnet02. You can then define the NodeGroups for your applications with an Amazon Machine Image (AMI), instance type, and autoscaling configuration. ``tosca_definitions_version: tnb_simple_yaml_1_0 SampleNFEKS: type: tosca.nodes.AWS.Compute.EKS properties: version: "1.27" access: "ALL" cluster_role: "arn:aws:iam::${AWS::TNB::AccountId}:role/`SampleClusterRole`" capabilities: multus: properties: enabled: true requirements: subnets: <br>• Subnet01 <br>• Subnet02 SampleNFEKSNode01: type: tosca.nodes.AWS.Compute.EKSManagedNode properties: node_role: "arn:aws:iam::${AWS::TNB::AccountId}:role/`SampleNodeRole`" capabilities: compute: properties: ami_type: "AL2_x86_64" instance_types: <br>• "t3.xlarge" key_pair: "SampleKeyPair" scaling: properties: desired_size: 3 min_size: 2 max_size: 6 requirements: cluster: SampleNFEKS subnets: <br>• Subnet01 network_interfaces: <br>• ENI01 <br>• ENI02`` ## Management and operations for AWS TNB With AWS TNB, you can manage your network using standardized management operations in accordance with ETSI SOL003 and SOL005. You can use the AWS TNB APIs to perform lifecycle operations such as: <br>• Instantiating your network functions. <br>• Terminating your network functions. <br>• Updating your network functions to override Helm deployments. <br>• Updating an instantiated or updated network instance with a new network package and parameter values. <br>• Managing versions of your network functions packages. <br>• Managing versions of your NSDs. <br>• Retrieving information about your deployed network functions. |
+| Specification | Release                                                                                                                                                                                                   | Description                                                                                |
+| ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
+| ETSI SOL001   | [v3.6.1](https://www.etsi.org/deliver/etsi_gs/NFV-SOL/001_099/001/03.06.01_60/gs_NFV-SOL001v030601p.pdf "https://www.etsi.org/deliver/etsi_gs/NFV-SOL/001_099/001/03.06.01_60/gs_NFV-SOL001v030601p.pdf") | Defines standards for allowing TOSCA-based network function<br>descriptors.                |
+| ETSI SOL002   | [v3.6.1](https://www.etsi.org/deliver/etsi_gs/NFV-SOL/001_099/002/03.06.01_60/gs_NFV-SOL002v030601p.pdf "https://www.etsi.org/deliver/etsi_gs/NFV-SOL/001_099/002/03.06.01_60/gs_NFV-SOL002v030601p.pdf") | Defines models around network function management.                                         |
+| ETSI SOL003   | [v3.6.1](https://www.etsi.org/deliver/etsi_gs/NFV-SOL/001_099/003/03.06.01_60/gs_NFV-SOL003v030601p.pdf "https://www.etsi.org/deliver/etsi_gs/NFV-SOL/001_099/003/03.06.01_60/gs_NFV-SOL003v030601p.pdf") | Defines standards for network function lifecycle management.                               |
+| ETSI SOL004   | [v3.6.1](https://www.etsi.org/deliver/etsi_gs/NFV-SOL/001_099/004/03.06.01_60/gs_NFV-SOL004v030601p.pdf "https://www.etsi.org/deliver/etsi_gs/NFV-SOL/001_099/004/03.06.01_60/gs_NFV-SOL004v030601p.pdf") | Defines CSAR standards for network function packages.                                      |
+| ETSI SOL005   | [v3.6.1](https://www.etsi.org/deliver/etsi_gs/NFV-SOL/001_099/005/03.06.01_60/gs_NFV-SOL005v030601p.pdf "https://www.etsi.org/deliver/etsi_gs/NFV-SOL/001_099/005/03.06.01_60/gs_NFV-SOL005v030601p.pdf") | Defines standards for network service package and network service<br>lifecycle management. |
+| ETSI SOL007   | [v3.5.1](https://www.etsi.org/deliver/etsi_gs/NFV-SOL/001_099/007/03.05.01_60/gs_NFV-SOL007v030501p.pdf "https://www.etsi.org/deliver/etsi_gs/NFV-SOL/001_099/007/03.05.01_60/gs_NFV-SOL007v030501p.pdf") | Defines standards for allowing TOSCA-based network service<br>descriptors.                 |
+
+## Function package
+
+With AWS TNB, you can store function packages that comply with ETSI SOL001/SOL004
+into a functions catalog. Then, you can upload Cloud Service Archive (CSAR) packages that
+contain artifacts describing your virtual network function.
+
+- Virtual network function descriptor –
+  Defines
+  metadata for package onboarding and virtual network function management. You must name this file `vnfd.yaml`.
+- Software Images – References virtual network function Container Images. Amazon Elastic Container Registry (Amazon ECR)
+  can act as your virtual network function images repository.
+- Additional Files – Use to manage the virtual network function; for example, scripts and
+  Helm charts.
+
+The CSAR is a package defined by the OASIS TOSCA standard and includes a network/service
+descriptor that complies with the OASIS TOSCA YAML specification. For information about
+the required YAML specification, see [TOSCA reference for AWS TNB](tosca-reference.md "tosca-reference.md").
+
+The following is an example virtual network function descriptor.
+
+```
+tosca_definitions_version: tnb_simple_yaml_1_0
+
+topology_template:
+
+  node_templates:
+
+    SampleNF:
+      type: tosca.nodes.AWS.VNF
+      properties:
+        descriptor_id: "SampleNF-descriptor-id"
+        descriptor_version: "2.0.0"
+        descriptor_name: "NF 1.0.0"
+        provider: "SampleNF"
+      requirements:
+        helm: HelmChart
+
+    HelmChart:
+      type: tosca.nodes.AWS.Artifacts.Helm
+      properties:
+        implementation: "./SampleNF"
+```
+
+## Network package
+
+A network package is a `.zip` file in CSAR (Cloud Service Archive) format. It defines the
+function packages you want to deploy and the AWS infrastructure you want to deploy them
+on.​
+
+The network package contains the following files:
+
+- A network descriptor file (`nsd.yaml`) in TOSCA format as described by
+  ETSI SOL007.
+
+The `nsd.yaml` file contains references to uploaded [function
+packages](tnb-concepts.md#nf-packages "tnb-concepts.md#nf-packages") with their descriptor IDs.
+
+- User data scripts, if any.
+- Lifecycle hook scripts, if any.
+- Plugins' `values.yaml` configuration files, if any.
+
+AWS TNB supports ETSI standards for the modeling of resources, such as network, service,
+and function, in the TOSCA language. AWS TNB makes it more efficient for you to use
+AWS services by modeling them in a way that your ETSI-compliant service orchestrator can
+understand.
+
+### Network service descriptors for AWS TNB
+
+A network service descriptor (NSD) is a `.yaml` file in a network package that
+uses the TOSCA standard to describe the network functions that you want to deploy, and the AWS
+infrastructure that you want to deploy the network functions on. To define your NSD and
+configure your underlying resources and network lifecycle operations, you must understand the
+NSD TOSCA Schema supported by AWS TNB.
+
+Your NSD file is divided into the following parts:
+
+1. TOSCA definition version – This is the first line
+   of your NSD YAML file and contains the version information, shown in the following
+   example.
+
+```
+tosca_definitions_version: tnb_simple_yaml_1_0
+```
+
+2. VNFD – The NSD contains the definition of the
+   network function on which to perform lifecycle operations. Each network function must be
+   identified by the following values:
+   - A unique ID for `descriptor_id`. The ID must match the ID in the network function
+     CSAR package.
+   - A unique name for `namespace`. The name must be associated with a unique ID to more easily reference
+     throughout your NSD YAML file, shown in the following example.
+
+```
+vnfds:
+  - descriptor_id: "61465757-cb8f-44d8-92c2-b69ca0de025b"
+    namespace: "amf"
+```
+
+3. Topology template – Defines the resources to be
+   deployed, the network function deployment, and any customized scripts, such as lifecycle
+   hooks. This is shown in the following example.
+
+```
+topology_template:
+
+  node_templates:
+
+    SampleNS:
+      type: tosca.nodes.AWS.NS
+      properties:
+        descriptor_id: "<Sample Identifier>"
+        descriptor_version: "<Sample nversion>"
+        descriptor_name: "<Sample name>"
+```
+
+4. Additional nodes – Each modeled resource has
+   sections for properties and requirements. The properties describe optional or mandatory
+   attributes for a
+   resource,
+   such as the version. The requirements describe dependencies that must be provided as
+   arguments. For example, to create an Amazon EKS Node Group Resource, it must be created within an
+   Amazon EKS Cluster. This is shown in the following example.
+
+```
+SampleEKSNode:
+  type: tosca.nodes.AWS.Compute.EKSManagedNode
+  properties:
+    node_role: "arn:aws:iam::${AWS::TNB::AccountId}:role/`SampleRole`"
+  capabilities:
+    compute:
+      properties:
+        ami_type: "AL2_x86_64"
+        instance_types:
+          - "t3.xlarge"
+        key_pair: "SampleKeyPair"
+    scaling:
+      properties:
+        desired_size: 1
+        min_size: 1
+        max_size: 1
+  requirements:
+    cluster: SampleEKS
+    subnets:
+      - SampleSubnet
+    network_interfaces:
+      - SampleENI01
+      - SampleENI02
+```
+
+#### Example NSD
+
+The following is a snippet of an NSD showing how to model AWS services. The network
+function will be deployed on an Amazon EKS cluster with Kubernetes version 1.27. The subnets for the
+applications are Subnet01 and Subnet02. You can then define the NodeGroups for your applications
+with an Amazon Machine Image (AMI), instance type, and autoscaling configuration.
+
+```
+tosca_definitions_version: tnb_simple_yaml_1_0
+
+SampleNFEKS:
+  type: tosca.nodes.AWS.Compute.EKS
+  properties:
+    version: "1.27"
+    access: "ALL"
+    cluster_role: "arn:aws:iam::${AWS::TNB::AccountId}:role/`SampleClusterRole`"
+  capabilities:
+    multus:
+      properties:
+        enabled: true
+  requirements:
+    subnets:
+      - Subnet01
+      - Subnet02
+
+SampleNFEKSNode01:
+  type: tosca.nodes.AWS.Compute.EKSManagedNode
+  properties:
+    node_role: "arn:aws:iam::${AWS::TNB::AccountId}:role/`SampleNodeRole`"
+  capabilities:
+    compute:
+      properties:
+        ami_type: "AL2_x86_64"
+        instance_types:
+          - "t3.xlarge"
+        key_pair: "SampleKeyPair"
+    scaling:
+      properties:
+        desired_size: 3
+        min_size: 2
+        max_size: 6
+  requirements:
+    cluster: SampleNFEKS
+    subnets:
+      - Subnet01
+    network_interfaces:
+      - ENI01
+      - ENI02
+```
+
+## Management and operations for AWS TNB
+
+With AWS TNB, you can manage your network using standardized management operations in
+accordance with ETSI SOL003 and SOL005. You can use the AWS TNB APIs to perform lifecycle
+operations such as:
+
+- Instantiating your network functions.
+- Terminating your network functions.
+- Updating your network functions to override Helm deployments.
+- Updating an instantiated or updated network instance with a new network package and parameter values.
+- Managing versions of your network functions packages.
+- Managing versions of your NSDs.
+- Retrieving information about your deployed network functions.
