@@ -34,38 +34,144 @@ Suppose that your example logic is this: (sum of `TotalIOBytes` ÷ 1,048,576
 
 Then your CloudWatch metric information is the following.
 
-| ID  | Usable metrics                                                                                | Statistic                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | Period   |
-| --- | --------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------- | ----------------------------------------------------- |
-| m1  | <br>• `DataReadIOBytes` <br>• `DataWriteIOBytes` <br>• `MetadataIOBytes` <br>• `TotalIOBytes` | sum                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | 1 minute | Your metric math ID and expression are the following. |
-| ID  | Expression                                                                                    |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | ---      | ---                                                   |
-| e1  | `(m1/1048576)/PERIOD(m1)`                                                                     | ## Metric math: Percent throughput This metric math expression calculates the percent of overall throughput used for the different I/O types—for example, the percentage of total throughput that is driven by read requests. To calculate the percent of overall throughput used by one of the I/O types (`DataReadIOBytes`, `DataWriteIOBytes`, or `MetadataIOBytes`) for a time period, first multiply the respective sum statistic by 100. Then divide the result by the sum statistic of `TotalIOBytes` for the same period. Suppose that your example logic is this: (sum of `DataReadIOBytes` x 100 (to convert to percentage)) ÷ sum of `TotalIOBytes` Then your CloudWatch metric information is the following. |
-| ID  | Usable metric or metrics                                                                      | Statistic                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | Period   |
-| --- | ---                                                                                           | ---                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | ---      |
-| m1  | <br>• `TotalIOBytes`                                                                          | sum                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | 1 minute |
-| m2  | <br>• `DataReadIOBytes`                                                                       | sum                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | 1 minute | Your metric math ID and expression are the following. |
-| ID  | Expression                                                                                    |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | ---      | ---                                                   |
-| e1  | `(m2*100)/m1`                                                                                 | ## Metric math: Percentage of permitted throughput utilization To calculate the percentage of permitted throughput utilization (`MeteredIOBytes`) for a time period, first multiply the throughput in MiBps by 100. Then divide the result by the a average statistic of `PermittedThroughput` converted to MiB for the same period. Suppose that your example logic is this: (metric math expression for throughput in MiBps x 100 (to convert to percentage)) ÷ (sum of `PermittedThroughput` ÷ 1,048,576 (to convert bytes to MiB)) Then your CloudWatch metric information is the following.                                                                                                                         |
-| ID  | Usable metric or metrics                                                                      | Statistic                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | Period   |
-| --- | ---                                                                                           | ---                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | ---      |
-| m1  | `MeteredIOBytes`                                                                              | sum                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | 1 minute |
-| m2  | `PermittedThroughput`                                                                         | average                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | 1 minute | Your metric math ID and expression are the following. |
-| ID  | Expression                                                                                    |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | ---      | ---                                                   |
-| e1  | (m1/1048576)/PERIOD(m1)                                                                       |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | e2       | m2/1048576                                            |
-| e3  | `((e1)*100)/(e2)`                                                                             | ## Metric math: Throughput IOPS To calculate the average operations per second (IOPS) for a time period, divide the sample count statistic (`DataReadIOBytes`, `DataWriteIOBytes`, `MetadataIOBytes`, or `TotalIOBytes`) by the number of seconds in the period. Suppose that your example logic is this: sample count of `DataWriteIOBytes` ÷ seconds in the period Then your CloudWatch metric information is the following.                                                                                                                                                                                                                                                                                           |
-| ID  | Usable metrics                                                                                | Statistic                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | Period   |
-| --- | ---                                                                                           | ---                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | ---      |
-| m1  | <br>• `DataReadIOBytes` <br>• `DataWriteIOBytes` <br>• `MetadataIOBytes` <br>• `TotalIOBytes` | sample count                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | 1 minute | Your metric math ID and expression are the following. |
-| ID  | Expression                                                                                    |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | ---      | ---                                                   |
-| e1  | `m1/PERIOD(m1)`                                                                               | ## Metric math: Percentage of IOPS To calculate the percentage of IOPS per second of the different I/O types (`DataReadIOBytes`, `DataWriteIOBytes`, or `MetadataIOBytes`) for a time period, first multiply the respective sample count statistic by 100. Then divide that value by the sample count statistic of `TotalIOBytes` for the same period. Suppose that your example logic is this: (sample count of `MetadataIOBytes` x 100 (to convert to percentage)) ÷ sample count of `TotalIOBytes` Then your CloudWatch metric information is the following.                                                                                                                                                          |
-| ID  | Usable metrics                                                                                | Statistic                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | Period   |
-| --- | ---                                                                                           | ---                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | ---      |
-| m1  | <br>• `TotalIOBytes`                                                                          | sample count                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | 1 minute |
-| m2  | <br>• `DataReadIOBytes` <br>• `DataWriteIOBytes` <br>• `MetadataIOBytes`                      | sample count                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | 1 minute | Your metric math ID and expression are the following. |
-| ID  | Expression                                                                                    |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | ---      | ---                                                   |
-| e1  | (m2\*100)/m1                                                                                  | ## Metric math: Average I/O size in KiB To calculate the average I/O size (in KiB) for a period, divide the respective sum statistic for the `DataReadIOBytes`, `DataWriteIOBytes`, or `MetadataIOBytes` metric by the same sample count statistic of that metric. Suppose that your example logic is this: (sum of `DataReadIOBytes` ÷ 1,024 (to convert to KiB)) ÷ sample count of  `DataReadIOBytes` Then your CloudWatch metric information is the following.                                                                                                                                                                                                                                                        |
-| ID  | Usable metrics                                                                                | Statistic                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | Period   |
-| --- | ---                                                                                           | ---                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | ---      |
-| m1  | <br>• `DataReadIOBytes` <br>• `DataWriteIOBytes` <br>• `MetadataIOBytes`                      | sum                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | 1 minute |
-| m2  | <br>• `DataReadIOBytes` <br>• `DataWriteIOBytes` <br>• `MetadataIOBytes`                      | sample count                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | 1 minute | Your metric math ID and expression are the following. |
-| ID  | Expression                                                                                    |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | ---      | ---                                                   |
-| e1  | `(m1/1024)/m2`                                                                                | ## Using metric math through an AWS CloudFormation template for Amazon EFS You can also create metric math expressions through AWS CloudFormation templates. One such template is available for you to download and customize for use from the [Amazon EFS tutorials](https://github.com/aws-samples/amazon-efs-tutorial "https://github.com/aws-samples/amazon-efs-tutorial") on GitHub. For more information about using AWS CloudFormation templates, see [Working with AWS CloudFormation templates](../../../AWSCloudFormation/latest/UserGuide/template-guide.md "../../../AWSCloudFormation/latest/UserGuide/template-guide.md") in the _AWS CloudFormation User Guide._                                          |
+| ID  | Usable metrics                                                                         | Statistic | Period   |
+| --- | -------------------------------------------------------------------------------------- | --------- | -------- |
+| m1  | • `DataReadIOBytes`<br>• `DataWriteIOBytes`<br>• `MetadataIOBytes`<br>• `TotalIOBytes` | sum       | 1 minute |
+
+Your metric math ID and expression are the following.
+
+| ID  | Expression                |
+| --- | ------------------------- |
+| e1  | `(m1/1048576)/PERIOD(m1)` |
+
+## Metric math: Percent throughput
+
+This metric math expression calculates the percent of overall throughput used for the
+different I/O types—for example, the percentage of total throughput that is driven
+by read requests. To calculate the percent of overall throughput used by one of the I/O
+types (`DataReadIOBytes`, `DataWriteIOBytes`,
+or `MetadataIOBytes`) for a time period, first multiply the respective
+sum statistic by 100. Then divide the result by the sum statistic of
+`TotalIOBytes` for the same period.
+
+Suppose that your example logic is this: (sum of `DataReadIOBytes` x 100
+(to convert to percentage)) ÷ sum of `TotalIOBytes`
+
+Then your CloudWatch metric information is the following.
+
+| ID  | Usable metric or metrics | Statistic | Period   |
+| --- | ------------------------ | --------- | -------- |
+| m1  | • `TotalIOBytes`         | sum       | 1 minute |
+| m2  | • `DataReadIOBytes`      | sum       | 1 minute |
+
+Your metric math ID and expression are the following.
+
+| ID  | Expression    |
+| --- | ------------- |
+| e1  | `(m2*100)/m1` |
+
+## Metric math: Percentage of permitted
+
+throughput utilization
+
+To calculate the percentage of permitted throughput utilization
+(`MeteredIOBytes`) for a time period, first multiply the throughput in MiBps
+by 100. Then divide the result by the a average statistic of
+`PermittedThroughput` converted to MiB for the same period.
+
+Suppose that your example logic is this: (metric math expression for throughput in
+MiBps x 100 (to convert to percentage)) ÷ (sum of `PermittedThroughput` ÷
+1,048,576 (to convert bytes to MiB))
+
+Then your CloudWatch metric information is the following.
+
+| ID  | Usable metric or metrics | Statistic | Period   |
+| --- | ------------------------ | --------- | -------- |
+| m1  | `MeteredIOBytes`         | sum       | 1 minute |
+| m2  | `PermittedThroughput`    | average   | 1 minute |
+
+Your metric math ID and expression are the following.
+
+| ID  | Expression              |
+| --- | ----------------------- |
+| e1  | (m1/1048576)/PERIOD(m1) |
+| e2  | m2/1048576              |
+| e3  | `((e1)*100)/(e2)`       |
+
+## Metric math: Throughput IOPS
+
+To calculate the average operations per second (IOPS) for a time period, divide the
+sample count statistic (`DataReadIOBytes`, `DataWriteIOBytes`,
+`MetadataIOBytes`, or `TotalIOBytes`) by the number of seconds in
+the period.
+
+Suppose that your example logic is this: sample count of `DataWriteIOBytes`
+÷ seconds in the period
+
+Then your CloudWatch metric information is the following.
+
+| ID  | Usable metrics                                                                         | Statistic    | Period   |
+| --- | -------------------------------------------------------------------------------------- | ------------ | -------- |
+| m1  | • `DataReadIOBytes`<br>• `DataWriteIOBytes`<br>• `MetadataIOBytes`<br>• `TotalIOBytes` | sample count | 1 minute |
+
+Your metric math ID and expression are the following.
+
+| ID  | Expression      |
+| --- | --------------- |
+| e1  | `m1/PERIOD(m1)` |
+
+## Metric math: Percentage of IOPS
+
+To calculate the percentage of IOPS per second of the different I/O types
+(`DataReadIOBytes`, `DataWriteIOBytes`, or
+`MetadataIOBytes`) for a time period, first multiply the respective sample
+count statistic by 100. Then divide that value by the sample count statistic of
+`TotalIOBytes` for the same period.
+
+Suppose that your example logic is this: (sample count of `MetadataIOBytes`
+x 100 (to convert to percentage)) ÷ sample count of `TotalIOBytes`
+
+Then your CloudWatch metric information is the following.
+
+| ID  | Usable metrics                                                     | Statistic    | Period   |
+| --- | ------------------------------------------------------------------ | ------------ | -------- |
+| m1  | • `TotalIOBytes`                                                   | sample count | 1 minute |
+| m2  | • `DataReadIOBytes`<br>• `DataWriteIOBytes`<br>• `MetadataIOBytes` | sample count | 1 minute |
+
+Your metric math ID and expression are the following.
+
+| ID  | Expression   |
+| --- | ------------ |
+| e1  | (m2\*100)/m1 |
+
+## Metric math: Average I/O size in KiB
+
+To calculate the average I/O size (in KiB) for a period, divide the respective sum
+statistic for the `DataReadIOBytes`, `DataWriteIOBytes`, or
+`MetadataIOBytes` metric by the same sample count statistic of that
+metric.
+
+Suppose that your example logic is this: (sum of `DataReadIOBytes` ÷ 1,024
+(to convert to KiB)) ÷ sample count of  `DataReadIOBytes`
+
+Then your CloudWatch metric information is the following.
+
+| ID  | Usable metrics                                                     | Statistic    | Period   |
+| --- | ------------------------------------------------------------------ | ------------ | -------- |
+| m1  | • `DataReadIOBytes`<br>• `DataWriteIOBytes`<br>• `MetadataIOBytes` | sum          | 1 minute |
+| m2  | • `DataReadIOBytes`<br>• `DataWriteIOBytes`<br>• `MetadataIOBytes` | sample count | 1 minute |
+
+Your metric math ID and expression are the following.
+
+| ID  | Expression     |
+| --- | -------------- |
+| e1  | `(m1/1024)/m2` |
+
+## Using metric math through an AWS CloudFormation
+
+template for Amazon EFS
+
+You can also create metric math expressions through AWS CloudFormation templates. One such template
+is available for you to download and customize for use from the [Amazon EFS tutorials](https://github.com/aws-samples/amazon-efs-tutorial "https://github.com/aws-samples/amazon-efs-tutorial") on
+GitHub. For more information about using AWS CloudFormation templates, see [Working with AWS CloudFormation templates](../../../AWSCloudFormation/latest/UserGuide/template-guide.md "../../../AWSCloudFormation/latest/UserGuide/template-guide.md") in the
+_AWS CloudFormation User Guide._

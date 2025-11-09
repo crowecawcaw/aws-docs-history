@@ -24,6 +24,84 @@ port.
   The following table shows the specific security group rules required:
 
 | Security Group | Rule Type | Protocol | Port | Source/Destination          |
-| -------------- | --------- | -------- | ---- | --------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| -------------- | --------- | -------- | ---- | --------------------------- |
 | EC2 Instance   | Outbound  | TCP      | 2049 | Mount target security group |
-| Mount Target   | Inbound   | TCP      | 2049 | EC2 instance security group | ## Source ports for working with Amazon EFS To support a broad set of NFS clients, Amazon EFS allows connections from any source port. If you require that only privileged users can access Amazon EFS, we recommend using the following client firewall rule. Connect to your file system using SSH and run the following command: `iptables -I OUTPUT 1 -m owner --uid-owner 1-4294967294 -m tcp -p tcp --dport 2049 -j DROP` This command inserts a new rule at the start of the OUTPUT chain (`-I OUTPUT 1`). The rule prevents any unprivileged, nonkernel process (`-m owner --uid-owner 1-4294967294`) from opening a connection to NFS port 2049 (`-m tcp -p tcp –dport 2049`). ## Security considerations for network access An NFS version 4.1 (NFSv4.1) client can only mount a file system if it can make a network connection to the NFS port (TCP port 2049) of one of the file system's mount targets. Similarly, an NFSv4.1 client can only assert a user and group ID when accessing a file system if it can make this network connection. Whether you can make this network connection is governed by a combination of the following: <br>• **Network isolation provided by the mount targets' VPC** – File system mount targets can't have public IP addresses associated with them. The only targets that can mount file systems are the following: + Amazon EC2 instances in the local Amazon VPC + EC2 instances in connected VPCs + On-premises servers connected to an Amazon VPC by using AWS Direct Connect and an AWS Virtual Private Network (VPN) <br>• **Network access control lists (ACLs) for the VPC subnets of the client and mount targets, for access from outside the mount target's subnets** – To mount a file system, the client must be able to make a TCP connection to NFS port 2049 of a mount target and receive return traffic. <br>• **Rules of the client's and mount targets' VPC security groups, for all access** – For an EC2 instance to mount a file system, the following security group rules must be in effect: + The file system must have a mount target whose network interface has a security group with a rule that enables inbound connections on NFS port 2049 from the instance. You can enable inbound connections either by IP address (CIDR range) or security group. The source of the security group rules for the inbound NFS port on mount target network interfaces is a key element of file system access control. Inbound rules other than the one for NFS port 2049, and any outbound rules, aren't used by network interfaces for file system mount targets. + The mounting instance must have a network interface with a security group rule that enables outbound connections to NFS port 2049 on one of the file system's mount targets. You can enable outbound connections either by IP address (CIDR range) or security group. For more information, see [Managing mount targets](accessing-fs.md "accessing-fs.md"). ## Creating security groups ###### To create security groups for EC2 instances and EFS mount targets The following are the general steps that you'll perform when creating the security groups for Amazon EFS. For instructions on creating the security groups, see [Create a security group](../../../vpc/latest/userguide/creating-security-groups.md "../../../vpc/latest/userguide/creating-security-groups.md") in the _Amazon VPC User Guide_. 1. For your EC2 instances, create a security group with the following rules: <br>• An inbound rule that allows inbound access using Secure Shell (SSH) on **port 22** from your IP address or network. Optionally, restrict the **Source** address for security. <br>• An outbound rule that allows outbound access on NFS port 2049 to the mount target security group. Identify the mount target security group as the destination. 2. For your EFS mount target, create a security group with the following rules: <br>• An inbound rule that allows access on NFS port 2049 from the EC2 security group. Identify the EC2 security group as the source. ###### Note You don't need to add an outbound rule because the default outbound rule allows all outbound traffic. |
+| Mount Target   | Inbound   | TCP      | 2049 | EC2 instance security group |
+
+## Source ports for working with Amazon EFS
+
+To support a broad set of NFS clients, Amazon EFS allows connections from any source port. If
+you require that only privileged users can access Amazon EFS, we recommend using the following
+client firewall rule. Connect to your file system using SSH and run the following command:
+
+```
+iptables -I OUTPUT 1 -m owner --uid-owner 1-4294967294 -m tcp -p tcp --dport 2049 -j DROP
+```
+
+This command inserts a new rule at the start of the OUTPUT chain (`-I OUTPUT
+ 1`). The rule prevents any unprivileged, nonkernel process (`-m owner --uid-owner
+ 1-4294967294`) from opening a connection to NFS port 2049 (`-m tcp -p tcp –dport
+ 2049`).
+
+## Security considerations for network access
+
+An NFS version 4.1 (NFSv4.1) client can only mount a file system if it can make a
+network connection to the NFS port (TCP port 2049) of one of the file system's mount targets. Similarly, an
+NFSv4.1 client can only assert a user and group ID when accessing a file system if it can
+make this network connection.
+
+Whether you can make this network connection is governed by a combination of the
+following:
+
+- **Network isolation provided by the mount targets'
+  VPC** – File system mount targets can't have public IP addresses
+  associated with them. The only targets that can mount file systems are the following:
+  - Amazon EC2 instances in the local Amazon VPC
+  - EC2 instances in connected VPCs
+  - On-premises servers connected to an Amazon VPC by using AWS Direct Connect and an AWS Virtual Private Network (VPN)
+
+- **Network access control lists (ACLs) for the VPC subnets of the
+  client and mount targets, for access from outside the mount target's
+  subnets** – To mount a file system, the client must be able to make a
+  TCP connection to NFS port 2049 of a mount target and receive return traffic.
+- **Rules of the client's and mount targets' VPC security groups,
+  for all access** – For an EC2 instance to mount a file system, the
+  following security group rules must be in effect:
+  - The file system must have a mount target whose network interface has a security
+    group with a rule that enables inbound connections on NFS port 2049 from the
+    instance. You can enable inbound connections either by IP address (CIDR range) or
+    security group. The source of the security group rules for the inbound NFS port on
+    mount target network interfaces is a key element of file system access control.
+    Inbound rules other than the one for NFS port 2049, and any outbound rules,
+    aren't used by network interfaces for file system mount targets.
+  - The mounting instance must have a network interface with a security group rule
+    that enables outbound connections to NFS port 2049 on one of the file system's mount
+    targets. You can enable outbound connections either by IP address (CIDR range) or
+    security group.
+
+For more information, see [Managing mount targets](accessing-fs.md "accessing-fs.md").
+
+## Creating security groups
+
+###### To create security groups for EC2 instances and EFS mount targets
+
+The following are the general steps that you'll perform when creating the security
+groups for Amazon EFS. For instructions on creating the security groups, see [Create a security group](../../../vpc/latest/userguide/creating-security-groups.md "../../../vpc/latest/userguide/creating-security-groups.md") in the
+_Amazon VPC User Guide_.
+
+1. For your EC2 instances, create a security group with the following
+   rules:
+   - An inbound rule that allows inbound access using Secure
+     Shell (SSH) on **port 22** from your IP address or network. Optionally, restrict the
+     **Source** address for security.
+   - An outbound rule that allows outbound access on NFS port 2049 to the mount target security group.
+     Identify the mount target security group as the destination.
+
+2. For your EFS mount target, create a security group with the following
+   rules:
+   - An inbound rule that allows access on NFS port 2049 from the EC2 security group.
+     Identify the EC2 security group as the source.
+
+###### Note
+
+You don't need to add an outbound rule because the default outbound rule allows all outbound traffic.
