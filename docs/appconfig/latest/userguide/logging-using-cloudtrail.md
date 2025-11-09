@@ -89,6 +89,76 @@ value** column shows the `resources.type` value, which you would specify
 when configuring advanced event selectors using the AWS CLI or CloudTrail APIs. The **Data APIs logged to CloudTrail** column shows the API calls logged to CloudTrail
 for the resource type.
 
-| Data event type (console) | resources.type value            | Data APIs logged to CloudTrail\*                                                                                                                                                                                                                                                                                                                                                     |
-| ------------------------- | ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **AWS AppConfig**         | `AWS::AppConfig::Configuration` | <br>• [GetLatestConfiguration](../../2019-10-09/APIReference/API_appconfigdata_GetLatestConfiguration.md "../../2019-10-09/APIReference/API_appconfigdata_GetLatestConfiguration.md") <br>• [StartConfigurationSession](../../2019-10-09/APIReference/API_appconfigdata_StartConfigurationSession.md "../../2019-10-09/APIReference/API_appconfigdata_StartConfigurationSession.md") | \*You can configure advanced event selectors to filter on the `eventName`, `readOnly`, and `resources.ARN` fields to log only those events that are important to you. For more information about these fields, see [AdvancedFieldSelector](../../../awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.md "../../../awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.md"). ## AWS AppConfig management events in CloudTrail AWS AppConfig logs all AWS AppConfig control plane operations as management events. For a list of the AWS AppConfig control plane operations that AWS AppConfig logs to CloudTrail, see the [AWS AppConfig API Reference](../../2019-10-09/APIReference/Welcome.md "../../2019-10-09/APIReference/Welcome.md"). ## AWS AppConfig event examples An event represents a single request from any source and includes information about the requested API operation, the date and time of the operation, request parameters, and so on. CloudTrail log files aren't an ordered stack trace of the public API calls, so events don't appear in any specific order. The following example shows a CloudTrail event that demonstrates the [StartConfigurationSession](../../2019-10-09/APIReference/API_appconfigdata_StartConfigurationSession.md "../../2019-10-09/APIReference/API_appconfigdata_StartConfigurationSession.md") operation. `{ "eventVersion": "1.09", "userIdentity": { "type": "IAMUser", "principalId": "AIDACKCEVSQ6C2EXAMPLE", "arn": "arn:aws:iam::123456789012:user/Administrator", "accountId": "123456789012", "accessKeyId": "AKIAIOSFODNN7EXAMPLE", "sessionContext": { "sessionIssuer": {}, "attributes": { "creationDate": "2024-01-11T14:37:02Z", "mfaAuthenticated": "false" } } }, "eventTime": "2024-01-11T14:45:15Z", "eventSource": "appconfig.amazonaws.com", "eventName": "StartConfigurationSession", "awsRegion": "us-east-1", "sourceIPAddress": "203.0.113.0", "userAgent": "Boto3/1.34.11 md/Botocore#1.34.11 ua/2.0 os/macos#22.6.0 md/arch#x86_64 lang/python#3.11.4 md/pyimpl#CPython cfg/retry-mode#legacy Botocore/1.34.11", "requestParameters": { "applicationIdentifier": "rrfexample", "environmentIdentifier": "mexampleqe0", "configurationProfileIdentifier": "3eexampleu1" }, "responseElements": null, "requestID": "a1b2c3d4-5678-90ab-cdef-aaaaaEXAMPLE", "eventID": "a1b2c3d4-5678-90ab-cdef-bbbbbEXAMPLE", "readOnly": false, "resources": [ { "accountId": "123456789012", "type": "AWS::AppConfig::Configuration", "ARN": "arn:aws:appconfig:us-east-1:123456789012:application/rrfexample/environment/mexampleqe0/configuration/3eexampleu1" } ], "eventType": "AwsApiCall", "managementEvent": false, "recipientAccountId": "123456789012", "eventCategory": "Data", "tlsDetails": { "tlsVersion": "TLSv1.3", "cipherSuite": "TLS_AES_128_GCM_SHA256", "clientProvidedHostHeader": "appconfigdata.us-east-1.amazonaws.com" } }` For information about CloudTrail record contents, see [CloudTrail record contents](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-record-contents.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-record-contents.md") in the _AWS CloudTrail User Guide_. |
+| Data event type (console) | resources.type value            | Data APIs logged to CloudTrail\*                                                                                                                                                                                                                                                                                                                                                |
+| ------------------------- | ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **AWS AppConfig**         | `AWS::AppConfig::Configuration` | • [GetLatestConfiguration](../../2019-10-09/APIReference/API_appconfigdata_GetLatestConfiguration.md "../../2019-10-09/APIReference/API_appconfigdata_GetLatestConfiguration.md")<br>• [StartConfigurationSession](../../2019-10-09/APIReference/API_appconfigdata_StartConfigurationSession.md "../../2019-10-09/APIReference/API_appconfigdata_StartConfigurationSession.md") |
+
+\*You can configure advanced event selectors to filter on the `eventName`,
+`readOnly`, and `resources.ARN` fields to log only those events that
+are important to you. For more information about these fields, see [AdvancedFieldSelector](../../../awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.md "../../../awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.md").
+
+## AWS AppConfig management events in CloudTrail
+
+AWS AppConfig logs all AWS AppConfig control plane operations as management events. For a list
+of the AWS AppConfig control plane operations that AWS AppConfig logs to CloudTrail, see the
+[AWS AppConfig API Reference](../../2019-10-09/APIReference/Welcome.md "../../2019-10-09/APIReference/Welcome.md").
+
+## AWS AppConfig event examples
+
+An event represents a single request from any source and includes information about the requested API operation, the date and time of the operation, request parameters, and so on. CloudTrail log files aren't an ordered stack trace of the public API calls, so events don't appear in any specific order.
+
+The following example shows a CloudTrail event that demonstrates the [StartConfigurationSession](../../2019-10-09/APIReference/API_appconfigdata_StartConfigurationSession.md "../../2019-10-09/APIReference/API_appconfigdata_StartConfigurationSession.md") operation.
+
+```
+{
+      "eventVersion": "1.09",
+      "userIdentity": {
+        "type": "IAMUser",
+        "principalId": "AIDACKCEVSQ6C2EXAMPLE",
+        "arn": "arn:aws:iam::123456789012:user/Administrator",
+        "accountId": "123456789012",
+        "accessKeyId": "AKIAIOSFODNN7EXAMPLE",
+        "sessionContext": {
+          "sessionIssuer": {},
+          "attributes": {
+            "creationDate": "2024-01-11T14:37:02Z",
+            "mfaAuthenticated": "false"
+          }
+        }
+      },
+      "eventTime": "2024-01-11T14:45:15Z",
+      "eventSource": "appconfig.amazonaws.com",
+      "eventName": "StartConfigurationSession",
+      "awsRegion": "us-east-1",
+      "sourceIPAddress": "203.0.113.0",
+      "userAgent": "Boto3/1.34.11 md/Botocore#1.34.11 ua/2.0 os/macos#22.6.0 md/arch#x86_64 lang/python#3.11.4 md/pyimpl#CPython cfg/retry-mode#legacy Botocore/1.34.11",
+      "requestParameters": {
+        "applicationIdentifier": "rrfexample",
+        "environmentIdentifier": "mexampleqe0",
+        "configurationProfileIdentifier": "3eexampleu1"
+      },
+      "responseElements": null,
+      "requestID": "a1b2c3d4-5678-90ab-cdef-aaaaaEXAMPLE",
+      "eventID": "a1b2c3d4-5678-90ab-cdef-bbbbbEXAMPLE",
+      "readOnly": false,
+      "resources": [
+        {
+          "accountId": "123456789012",
+          "type": "AWS::AppConfig::Configuration",
+          "ARN": "arn:aws:appconfig:us-east-1:123456789012:application/rrfexample/environment/mexampleqe0/configuration/3eexampleu1"
+        }
+      ],
+      "eventType": "AwsApiCall",
+      "managementEvent": false,
+      "recipientAccountId": "123456789012",
+      "eventCategory": "Data",
+      "tlsDetails": {
+        "tlsVersion": "TLSv1.3",
+        "cipherSuite": "TLS_AES_128_GCM_SHA256",
+        "clientProvidedHostHeader": "appconfigdata.us-east-1.amazonaws.com"
+      }
+    }
+```
+
+For information about CloudTrail record contents, see [CloudTrail
+record contents](../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-record-contents.md "../../../awscloudtrail/latest/userguide/cloudtrail-event-reference-record-contents.md") in the _AWS CloudTrail User Guide_.
