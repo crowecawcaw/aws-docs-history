@@ -15,9 +15,190 @@ accounts. The device canaries act as key indicators of the system
 performance during simulation tests. Document the outputs of the
 tests, draft remediation plans, and perform user acceptance tests.
 
-| IOTPERF08: How do you make sure application operates within its scaling limits?         |
-| --------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-|                                                                                         | ## IOTPERF08-BP01 Load test your IoT applications Applications can be complex and have multiple dependencies. Testing the application under load helps identify problems before going into production. Load testing your IoT applications verifies that you understand the cloud-side performance characteristics and failure modes of your IoT architecture. Testing helps you understand how your application architecture operates under load, identify performance bottlenecks, and apply mitigating strategies prior to releasing changes to your production systems. **Prescriptive guidance IOTPERF08-BP01-01** _Simulate the real device behavior._ <br>• A device simulator should implement the device behavior as closely as possible. Test not only message publishing, but also connections, reconnections, subscriptions, enrollment, and other contextual events such as constrained network bandwidth. Start testing at a lower load, and progressively increase to 100%. Additionally, consider exercising the workload beyond the traditional expected load by performing stress tests. + Start the load test at a low percent of your estimated total device fleet (for example, 10%). + Evaluate the performance of your application using operational dashboards created to measure end-to-end delivery of device telemetry data and automated device commands. + Make any necessary changes to the application architecture to achieve desired performance goals. + Iterate these steps increasing the load until you get to 100%. + For further workload development, consider performing stress tests beyond usual load expected ### Resources <br>• [IoT Device Simulator](https://aws.amazon.com/solutions/implementations/iot-device-simulator/ "https://aws.amazon.com/solutions/implementations/iot-device-simulator/") ## IOTPERF08-BP02 Monitor and manage your IoT service quotas using available tools and metrics Be aware of the adjustable and unadjustable quotas of the AWS service, and continuously monitor the key performance indicators so that you can anticipate when actions must be taken to request increases in the service quotas and re-evaluate your architecture. Verify that your application operates within the quotas of the services that you are building on to provide the optimal performance to your users. Monitoring keeps you aware of which service quotas you might be reaching so that you can change your application to cope with the unadjustable quotas or to request the increase of an adjustable quota with sufficient lead time. **Level of risk exposed if this best practice is not established:** High **Prescriptive guidance IOTPERF08-BP02-01** _Be aware of the service quotas of the different IoT services._ <br>• Pay attention to which limits are adjustable quotas and which are unadjustable quotas as they require different approaches. For example: + An unadjustable _quota_, such a control plane request rate, requires changes in the application behavior to avoid the event repeating too often. Workarounds for unadjustable quotas might require different design decisions, such as using multiple accounts. It's good to know the unadjustable and adjustable quotas in advance so that you can make these design decisions as early as possible in the development process. + _Adjustable quotas_ should be monitored to anticipate the need for additional capacity and provide sufficient notice so that a request for a limit increase can be made well ahead of time. For example: <br>• For AWS IoT Core, alert on `RulesMessageThrottles`, `Connect.ClientIDThrottle`, `Connect.Throttle`, `PublishIn.Throttle`, `Subscribe.Throttle`, `Unsubscribe.Throttle`. <br>• For AWS IoT Device Management, monitor active continuous jobs, and active snapshot jobs in Service Quotas ### Resources <br>• [AWS IoT Core endpoints and quotas](../../../general/latest/gr/iot-core.md "../../../general/latest/gr/iot-core.md") <br>• [AWS IoT Device Defender endpoints and quotas](../../../general/latest/gr/iot_device_defender.md "../../../general/latest/gr/iot_device_defender.md") <br>• [AWS IoT Device Management endpoints and quotas](../../../general/latest/gr/iot_device_management.md "../../../general/latest/gr/iot_device_management.md") <br>• [AWS IoT Greengrass V2 endpoints and quotas](../../../general/latest/gr/greengrassv2.md "../../../general/latest/gr/greengrassv2.md") <br>• [AWS IoT SiteWise endpoints and quotas](../../../general/latest/gr/iot-sitewise.md "../../../general/latest/gr/iot-sitewise.md") |
-| IOTPERF09: How do you maintain visibility over the distributed infrastructure deployed? |
-| ---                                                                                     |
-|                                                                                         | ## IOTPERF09-BP01 Have device inventory in the IoT system that centralizes device configuration and diagnostics As the number of devices increases, monitor for performance bottlenecks when all the devices connect to the cloud-side. These devices could generate a large aggregate amount of data. To verify that you understand where to improve, gather device diagnostics to determine the immediate health of a device and any other devices in its proximity. **Level of risk exposed if this best practice is not established:** High **Prescriptive guidance IOTPERF09-BP01-01** _Deploy an agent to the device to start capturing the relevant diagnostic data._ <br>• For microprocessor-based applications, consider deploying the AWS Systems Manager Agent (SSM Agent) so that you can continuously monitor your device's performance metrics. <br>• There are sample agents provided to use on the device-side (device or gateway). If device-side diagnostic metrics cannot be obtained, then it is possible to obtain limited cloud-side metrics. For example: + TCP connections <br>• Connections <br>• Local-interface + Listening TCP/UDP ports <br>• Listening-TCP/UDP-ports <br>• Interface + Network statistics <br>• Bytes-in/out <br>• Packets-in/out <br>• Network-statistics <br>• To define and monitor metrics that are unique to your fleet or use case, use custom metrics, such as number of devices connected to Wi-Fi gateways, charge levels for batteries, or number of power cycles for smart plugs. **Prescriptive guidance IOTPERF09-BP01-02** _Measure, evaluate, and optimize device firmware updates with strategies such as canary deployment._ Firmware updates are critical to keep your IoT devices performant over time, but these updates might not always have the expected impact. As you deploy firmware updates to your devices, monitor your KPIs to verify that updates do not have any unintended impacts to the performance of your hardware devices or to your IoT applications. <br>• Deploy new firmware to a limited set of devices, and monitor the impact on performance before rolling the update out to the entire fleet. Stop deployment if degradation is detected. <br>• Use AWS IoT Jobs to manage over-the-air (OTA) updates and configure it to deploy to a limited set of devices. <br>• After the update, evaluate end-to-end performance of the system using your previously identified KPIs. <br>• If performance characteristics appear to have been impacted after the firmware release, use AWS IoT secure tunneling, a feature of AWS IoT Device Management, to remotely troubleshoot the device. <br>• Release additional firmware updates to remediate identified issues. ### Resources <br>• [Custom metrics](../../../iot-device-defender/latest/devguide/dd-detect-custom-metrics.md "../../../iot-device-defender/latest/devguide/dd-detect-custom-metrics.md") <br>• [Using Continuous Jobs with AWS IoT Device Management](https://aws.amazon.com/blogs/iot/using-continuous-jobs-with-aws-iot-device-management/ "https://aws.amazon.com/blogs/iot/using-continuous-jobs-with-aws-iot-device-management/") <br>• [Using Device Jobs for Over-the-Air Updates](https://aws.amazon.com/blogs/iot/using-device-jobs-for-over-the-air-updates/ "https://aws.amazon.com/blogs/iot/using-device-jobs-for-over-the-air-updates/") <br>• [Introducing Secure Tunneling for AWS IoT Device Management, a new secure way to troubleshoot IoT devices](https://aws.amazon.com/blogs/iot/introducing-secure-tunneling-for-aws-iot-device-management-a-new-secure-way-to-troubleshoot-iot-devices/ "https://aws.amazon.com/blogs/iot/introducing-secure-tunneling-for-aws-iot-device-management-a-new-secure-way-to-troubleshoot-iot-devices/")                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| IOTPERF08: How do you make sure<br>application operates within its scaling limits? |
+| ---------------------------------------------------------------------------------- |
+|                                                                                    |
+
+## IOTPERF08-BP01 Load test your IoT applications
+
+Applications can be complex and have multiple dependencies.
+Testing the application under load helps identify problems
+before going into production. Load testing your IoT applications
+verifies that you understand the cloud-side performance
+characteristics and failure modes of your IoT architecture.
+Testing helps you understand how your application architecture
+operates under load, identify performance bottlenecks, and apply
+mitigating strategies prior to releasing changes to your
+production systems.
+
+**Prescriptive guidance
+IOTPERF08-BP01-01**
+_Simulate the real device
+behavior._
+
+- A device simulator should implement the device behavior as
+  closely as possible. Test not only message publishing, but
+  also connections, reconnections, subscriptions, enrollment,
+  and other contextual events such as constrained network
+  bandwidth. Start testing at a lower load, and progressively
+  increase to 100%. Additionally, consider exercising the
+  workload beyond the traditional expected load by performing
+  stress tests.
+  - Start the load test at a low percent of your estimated
+    total device fleet (for example, 10%).
+  - Evaluate the performance of your application using
+    operational dashboards created to measure end-to-end
+    delivery of device telemetry data and automated device
+    commands.
+  - Make any necessary changes to the application
+    architecture to achieve desired performance goals.
+  - Iterate these steps increasing the load until you get to
+    100%.
+  - For further workload development, consider performing
+    stress tests beyond usual load expected
+
+### Resources
+
+- [IoT
+  Device Simulator](https://aws.amazon.com/solutions/implementations/iot-device-simulator/ "https://aws.amazon.com/solutions/implementations/iot-device-simulator/")
+
+## IOTPERF08-BP02 Monitor and manage your IoT service quotas using available tools and metrics
+
+Be aware of the adjustable and unadjustable quotas of the AWS
+service, and continuously monitor the key performance indicators
+so that you can anticipate when actions must be taken to request
+increases in the service quotas and re-evaluate your
+architecture. Verify that your application operates within the
+quotas of the services that you are building on to provide the
+optimal performance to your users.
+
+Monitoring keeps you aware of which service quotas you might be
+reaching so that you can change your application to cope with
+the unadjustable quotas or to request the increase of an
+adjustable quota with sufficient lead time.
+
+**Level of risk exposed if this best
+practice is not established:** High
+
+**Prescriptive guidance
+IOTPERF08-BP02-01**
+_Be aware of the service
+quotas of the different IoT services._
+
+- Pay attention to which limits are adjustable quotas and
+  which are unadjustable quotas as they require different
+  approaches. For example:
+  - An unadjustable _quota_, such a
+    control plane request rate, requires changes in the
+    application behavior to avoid the event repeating too
+    often. Workarounds for unadjustable quotas might require
+    different design decisions, such as using multiple
+    accounts. It's good to know the unadjustable and
+    adjustable quotas in advance so that you can make these
+    design decisions as early as possible in the development
+    process.
+  - _Adjustable quotas_ should be
+    monitored to anticipate the need for additional capacity
+    and provide sufficient notice so that a request for a
+    limit increase can be made well ahead of time. For
+    example:
+    - For AWS IoT Core, alert on `RulesMessageThrottles`,
+      `Connect.ClientIDThrottle`, `Connect.Throttle`,
+      `PublishIn.Throttle`, `Subscribe.Throttle`,
+      `Unsubscribe.Throttle`.
+    - For AWS IoT Device Management, monitor active
+      continuous jobs, and active snapshot jobs in Service Quotas
+
+### Resources
+
+- [AWS IoT Core endpoints and quotas](../../../general/latest/gr/iot-core.md "../../../general/latest/gr/iot-core.md")
+- [AWS IoT Device Defender endpoints and quotas](../../../general/latest/gr/iot_device_defender.md "../../../general/latest/gr/iot_device_defender.md")
+- [AWS IoT Device Management endpoints and quotas](../../../general/latest/gr/iot_device_management.md "../../../general/latest/gr/iot_device_management.md")
+- [AWS IoT Greengrass V2 endpoints and quotas](../../../general/latest/gr/greengrassv2.md "../../../general/latest/gr/greengrassv2.md")
+- [AWS IoT SiteWise endpoints and quotas](../../../general/latest/gr/iot-sitewise.md "../../../general/latest/gr/iot-sitewise.md")
+
+| IOTPERF09: How do you maintain<br>visibility over the distributed infrastructure<br>deployed? |
+| --------------------------------------------------------------------------------------------- |
+|                                                                                               |
+
+## IOTPERF09-BP01 Have device inventory in the IoT system that centralizes device configuration and diagnostics
+
+As the number of devices increases, monitor for performance
+bottlenecks when all the devices connect to the cloud-side.
+These devices could generate a large aggregate amount of data.
+To verify that you understand where to improve, gather device
+diagnostics to determine the immediate health of a device and
+any other devices in its proximity.
+
+**Level of risk exposed if this best
+practice is not established:** High
+
+**Prescriptive guidance
+IOTPERF09-BP01-01**
+_Deploy an agent to the
+device to start capturing the relevant diagnostic
+data._
+
+- For microprocessor-based applications, consider deploying
+  the AWS Systems Manager Agent (SSM Agent) so that you can
+  continuously monitor your device's performance metrics.
+- There are sample agents provided to use on the device-side
+  (device or gateway). If device-side diagnostic metrics
+  cannot be obtained, then it is possible to obtain limited
+  cloud-side metrics. For example:
+  - TCP connections
+    - Connections
+    - Local-interface
+
+  - Listening TCP/UDP ports
+    - Listening-TCP/UDP-ports
+    - Interface
+
+  - Network statistics
+    - Bytes-in/out
+    - Packets-in/out
+    - Network-statistics
+
+- To define and monitor metrics that are unique to your fleet
+  or use case, use custom metrics, such as number of devices
+  connected to Wi-Fi gateways, charge levels for batteries, or
+  number of power cycles for smart plugs.
+
+**Prescriptive guidance
+IOTPERF09-BP01-02**
+_Measure, evaluate, and
+optimize device firmware updates with strategies such as canary
+deployment._
+
+Firmware updates are critical to keep your IoT devices
+performant over time, but these updates might not always have
+the expected impact. As you deploy firmware updates to your
+devices, monitor your KPIs to verify that updates do not have
+any unintended impacts to the performance of your hardware
+devices or to your IoT applications.
+
+- Deploy new firmware to a limited set of devices, and monitor
+  the impact on performance before rolling the update out to
+  the entire fleet. Stop deployment if degradation is
+  detected.
+- Use AWS IoT Jobs to manage over-the-air (OTA) updates and
+  configure it to deploy to a limited set of devices.
+- After the update, evaluate end-to-end performance of the
+  system using your previously identified KPIs.
+- If performance characteristics appear to have been impacted
+  after the firmware release, use AWS IoT secure tunneling, a
+  feature of AWS IoT Device Management, to remotely
+  troubleshoot the device.
+- Release additional firmware updates to remediate identified
+  issues.
+
+### Resources
+
+- [Custom
+  metrics](../../../iot-device-defender/latest/devguide/dd-detect-custom-metrics.md "../../../iot-device-defender/latest/devguide/dd-detect-custom-metrics.md")
+- [Using
+  Continuous Jobs with AWS IoT Device Management](https://aws.amazon.com/blogs/iot/using-continuous-jobs-with-aws-iot-device-management/ "https://aws.amazon.com/blogs/iot/using-continuous-jobs-with-aws-iot-device-management/")
+- [Using
+  Device Jobs for Over-the-Air Updates](https://aws.amazon.com/blogs/iot/using-device-jobs-for-over-the-air-updates/ "https://aws.amazon.com/blogs/iot/using-device-jobs-for-over-the-air-updates/")
+- [Introducing Secure Tunneling for AWS IoT Device Management, a new
+  secure way to troubleshoot IoT devices](https://aws.amazon.com/blogs/iot/introducing-secure-tunneling-for-aws-iot-device-management-a-new-secure-way-to-troubleshoot-iot-devices/ "https://aws.amazon.com/blogs/iot/introducing-secure-tunneling-for-aws-iot-device-management-a-new-secure-way-to-troubleshoot-iot-devices/")

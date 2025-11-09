@@ -1,5 +1,79 @@
 # Software and architecture – Cloud
 
-| IOTSUS02: How do you incorporate optimized cloud services in your architecture to minimize your carbon footprint? |
-| ----------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|                                                                                                                   | [Studies by 451 Research](https://sustainability.aboutamazon.com/carbon-reduction-aws.pdf "https://sustainability.aboutamazon.com/carbon-reduction-aws.pdf") have shown that AWS' infrastructure is 3.6 times more energy efficient than the median of U.S. enterprise data centers surveyed and up to 5 times more energy efficient than the average in Europe. 451 Research also found that AWS can lower customers' workload carbon footprints by nearly 80% compared to surveyed enterprise data centers, and up to 96% once AWS is powered with 100% renewable energy by 2025.  While this makes it much easier to lower your carbon footprint for workloads in the cloud, it does not eliminate the need for optimization of cloud workloads. Use the AWS [customer carbon footprint tool](../../../awsaccountbilling/latest/aboutv2/what-is-ccft.md "../../../awsaccountbilling/latest/aboutv2/what-is-ccft.md") to view estimates of the carbon emissions associated with their usage of AWS products and services. This tool provides data visualizations to help customers understand their historical carbon emissions, evaluate emission trends as their use of AWS evolves, approximate the estimated carbon emissions they have avoided by using AWS instead of an on-premises data center, and review forecasted emissions.  The forecasted emissions are based on current usage and show how a customer's carbon footprint can change through its actions. More detailed guidance on sustainability practices in the cloud can be found in documentation relating to those services as well as in the [Sustainability Pillar](../sustainability-pillar/cloud-sustainability.md "../sustainability-pillar/cloud-sustainability.md") of the [AWS Well-Architected Framework](../framework/welcome.md "../framework/welcome.md"). ## IOTSUS02-BP01 Use the Basic Ingest feature in AWS IoT Core With the Basic Ingest feature, you can securely send device data to the AWS services supported by AWS IoT rule actions, without incurring messaging costs. Basic Ingest optimizes data flow by removing the publish/subscribe message broker from the ingestion path, making it more cost-effective and resource-efficient. **Level of risk exposed if this best practice is not established:** Low **Prescriptive guidance** When ingesting data to AWS IoT Core, consider whether to use the Basic Ingest feature or not. Use this approach if your application does not require multiple subscribers for the data being ingested. For ingestion mechanisms other than Basic Ingest (such as the Amazon Kinesis family of services), refer to the AWS IoT Lens for guidance on which service is appropriate for which use case. At this time, there are no additional sustainability best practices for these services. ## IOTSUS02-BP02 Choose an appropriate Quality of Service (QoS) level Higher QoS levels involve additional network overhead for acknowledgment and retransmission, which can increase power consumption. **Level of risk exposed if this best practice is not established:** Low **Prescriptive guidance** Use MQTT when you have IoT devices or other resource-constrained environments that need to communicate efficiently and reliably with a publish-subscribe messaging pattern. MQTT supports different quality of service (QoS) levels for message delivery. Consider using lower QoS levels (such as QoS 0) if the reliability of message delivery is not critical for your use case to reduce power consumption and network overhead. |
+| IOTSUS02: How do you incorporate optimized<br>cloud services in your architecture to minimize your carbon<br>footprint? |
+| ----------------------------------------------------------------------------------------------------------------------- |
+|                                                                                                                         |
+
+[Studies
+by 451 Research](https://sustainability.aboutamazon.com/carbon-reduction-aws.pdf "https://sustainability.aboutamazon.com/carbon-reduction-aws.pdf") have shown that AWS' infrastructure is 3.6
+times more energy efficient than the median of U.S. enterprise
+data centers surveyed and up to 5 times more energy efficient than
+the average in Europe. 451 Research also found that AWS can lower
+customers' workload carbon footprints by nearly 80% compared to
+surveyed enterprise data centers, and up to 96% once AWS is
+powered with 100% renewable energy by 2025.  While this makes it
+much easier to lower your carbon footprint for workloads in the
+cloud, it does not eliminate the need for optimization of cloud
+workloads.
+
+Use the AWS
+[customer
+carbon footprint tool](../../../awsaccountbilling/latest/aboutv2/what-is-ccft.md "../../../awsaccountbilling/latest/aboutv2/what-is-ccft.md") to view estimates of the carbon
+emissions associated with their usage of AWS products and
+services. This tool provides data visualizations to help customers
+understand their historical carbon emissions, evaluate emission
+trends as their use of AWS evolves, approximate the estimated
+carbon emissions they have avoided by using AWS instead of an
+on-premises data center, and review forecasted emissions.  The
+forecasted emissions are based on current usage and show how a
+customer's carbon footprint can change through its actions. 
+
+More detailed guidance on sustainability practices in the cloud
+can be found in documentation relating to those services as well
+as in the
+[Sustainability
+Pillar](../sustainability-pillar/cloud-sustainability.md "../sustainability-pillar/cloud-sustainability.md") of the
+[AWS Well-Architected Framework](../framework/welcome.md "../framework/welcome.md").
+
+## IOTSUS02-BP01 Use the Basic Ingest feature in AWS IoT Core
+
+With the Basic Ingest feature, you can securely send device data
+to the AWS services supported by AWS IoT rule actions, without
+incurring messaging costs. Basic Ingest optimizes data flow by
+removing the publish/subscribe message broker from the ingestion
+path, making it more cost-effective and resource-efficient.
+
+**Level of risk exposed if this best
+practice is not established:** Low
+
+**Prescriptive guidance**
+
+When ingesting data to AWS IoT Core, consider whether to use the
+Basic Ingest feature or not. Use this approach if your
+application does not require multiple subscribers for the data
+being ingested.
+
+For ingestion mechanisms other than Basic Ingest (such as the
+Amazon Kinesis family of services), refer to the AWS IoT Lens
+for guidance on which service is appropriate for which use case.
+At this time, there are no additional sustainability best
+practices for these services.
+
+## IOTSUS02-BP02 Choose an appropriate Quality of Service (QoS) level
+
+Higher QoS levels involve additional network overhead for
+acknowledgment and retransmission, which can increase power
+consumption.
+
+**Level of risk exposed if this best
+practice is not established:** Low
+
+**Prescriptive guidance**
+
+Use MQTT when you have IoT devices or other resource-constrained
+environments that need to communicate efficiently and reliably
+with a publish-subscribe messaging pattern. MQTT supports
+different quality of service (QoS) levels for message delivery.
+Consider using lower QoS levels (such as QoS 0) if the
+reliability of message delivery is not critical for your use
+case to reduce power consumption and network overhead.

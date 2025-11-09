@@ -47,6 +47,166 @@ In IIoT environments, to allow one-way data flow, access controls
 can be applied at the connectivity layer using security appliances
 such as firewalls and data diodes.
 
-| IOTSEC10: How do you make sure that device data is protected at rest and in transit? |
-| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-|                                                                                      | All traffic to and from AWS IoT must be encrypted using Transport Layer Security (TLS). In AWS IoT, security mechanisms protect data as it moves between AWS IoT and other devices or AWS services. In addition to AWS IoT, you must implement device-level security to protect not only the device's private key but also the data collected and processed on the device. For embedded development, AWS has several services that abstract components of the application layer while incorporating AWS security best practices by default on the edge. For microcontrollers, AWS recommends using [FreeRTOS](../../../freertos/latest/userguide/freertos-security.md "../../../freertos/latest/userguide/freertos-security.md"). FreeRTOS extends the FreeRTOS kernel with libraries for Bluetooth LE, TCP/IP, and other protocols. In addition, FreeRTOS contains a set of security APIs that allow you to create embedded applications that securely communicate with AWS IoT. For Linux-based devices, AWS IoT Greengrass can be used to accelerate the development and operations of connected device software to extend cloud functionality to the edge of your network. AWS IoT Greengrass implements several security features, including mutual X.509 certificate-based authentication with connected devices, AWS IAM policies and roles to manage communication permissions between AWS IoT Greengrass and cloud applications, and subscriptions, which are used to determine how and if data can be routed between connected devices and AWS IoT Greengrass core. Protect your data at rest by defining your requirements and implementing controls, including encryption, to reduce the risk of unauthorized access or loss. Protect your data in transit by defining your requirements and implementing controls, including encryption. Defining and implementing these controls reduces the risk of unauthorized data access or exposure. By providing the appropriate level of protection for your data in transit, you protect the confidentiality and integrity of your IoT data. ## IOTSEC10-BP01 Use encryption to protect IoT data in transit and at rest For data at rest, the Storage Networking Industry Association (SNIA) defines storage security as technical controls, which may include integrity, confidentiality and availability controls that protect storage resources and data from unauthorized users and uses. Thus, it is required to protect the confidentiality of sensitive data, such as the device identity, secrets, or user data by encrypting it at rest. For data in transit, use a secure transport mechanism such as TLS to protect the confidentiality and integrity of data transmitted to and from your devices. Both MQTT and HTTP communications can be protected using TLS-protected forms of those protocols. **Level of risk exposed if this best practice is not established:** High **Prescriptive guidance IOTSEC10-BP01-01** _Require the use of device SDKs or client libraries for the device to communicate to cloud._ Configure the IoT devices to communicate only over TLS to cloud endpoints. For example, use AWS IoT Greengrass or Amazon FreeRTOS SDKs to secure connectivity from your devices to AWS IoT Core over TLS 1.2. The AWS IoT Device SDK also enables the use of TLS-protected secure communications over TLS 1.2. **Prescriptive guidance IOTSEC10-BP01-02** _Encrypt data and secrets at rest on IoT devices._ As explained earlier in section IOTSEC02-BP03-03, take advantage of encryption utilities provided by the host operating system to encrypt the data stored at rest in the local filesystem. In addition, take advantage of Secure Elements (SEs) and TPMs. Trusted execution environments (TEEs) can add storage protections as well. ## IOTSEC10-BP02 Use data classification strategies to categorize data access based on levels of sensitivity Data classification and governance is the customer's responsibility. 1. Identify and classify data based on sensitivity collected throughout your IoT workload and learn their corresponding business use-case. 2. Identify and act on opportunities to stop collecting unused data, or adjusting data granularity and retention time. 3. Consider a defense in depth approach and reduce human access to device data. For more information, see [Manage data streams on the AWS IoT Greengrass core](../../../greengrass/v1/developerguide/stream-manager.md "../../../greengrass/v1/developerguide/stream-manager.md"). **Level of risk exposed if this best practice is not established:** Low **Prescriptive guidance IOTSEC10-BP02-01** _Implement data classification strategies for all data stored on devices or in the cloud, as well as all data sent over the network. Process data based on the level of sensitivity (for example, highly classified, or personally identifiable data)._ Before architecting an IoT application, data classification, governance, and controls must be designed and documented to reflect how the data can be persisted on the edge or in the cloud, and how data should be encrypted throughout its lifecycle. For example, by using AWS IoT Greengrass stream manager, you can define policies for storage type, size, and data retention on a per-stream basis. For highly classified data, you can define a separate data stream. ## IOTSEC10-BP03 Protect your IoT data in compliance with regulatory requirements Data governance is the rules, processes, and behavior that affect the way in which data is used, particularly as it regards openness, participation, accountability, effectiveness, and coherence. Data governance practices for IoT is important as it enables protecting classified data and complying with regulatory obligations. It helps to determine what data needs protection, or which data needs access control. For more information, see [AWS Cloud Enterprise Strategy Blog: Using a Cloud Center of Excellence (CCOE) to Transform the Entire Enterprise](https://aws.amazon.com/blogs/enterprise-strategy/using-a-cloud-center-of-excellence-ccoe-to-transform-the-entire-enterprise/ "https://aws.amazon.com/blogs/enterprise-strategy/using-a-cloud-center-of-excellence-ccoe-to-transform-the-entire-enterprise/"). **Level of risk exposed if this best practice is not established:** Medium **Prescriptive guidance IOTSEC10-BP03-01** _Define specific roles for personnel responsible for implementing IoT data governance._ For example, there might be a need for new roles to monitor security, from both the functional and policy perspectives, to control data when it moves from IoT environments to the cloud. **Prescriptive guidance IOTSEC10-BP03-02** _Define data governance policies to monitor compliance with approved standards._ For example, you might define a policy that requires security credentials to never be hardcoded, even on edge devices. Thus, use only services like AWS Secrets Manager to retrieve secrets in an encrypted manner. **Prescriptive guidance IOTSEC10-BP03-03** _Define clear responsibilities to drive the IoT data governance process._ Multiple administrative roles can exist for a single system. For instance, you may define roles for users who can replace defective devices, and separate roles for users who can apply security patches and upgrade device firmware. Note that roles and responsibilities might change over the lifecycle of your IoT systems. |
+| IOTSEC10: How do you make sure that device<br>data is protected at rest and in transit? |
+| --------------------------------------------------------------------------------------- |
+|                                                                                         |
+
+All traffic to and from AWS IoT must be encrypted using Transport
+Layer Security (TLS). In AWS IoT, security mechanisms protect data
+as it moves between AWS IoT and other devices or AWS services. In
+addition to AWS IoT, you must implement device-level security to
+protect not only the device's private key but also the data
+collected and processed on the device.
+
+For embedded development, AWS has several services that abstract
+components of the application layer while incorporating AWS
+security best practices by default on the edge. For
+microcontrollers, AWS recommends using
+[FreeRTOS](../../../freertos/latest/userguide/freertos-security.md "../../../freertos/latest/userguide/freertos-security.md").
+FreeRTOS extends the FreeRTOS kernel with libraries for Bluetooth
+LE, TCP/IP, and other protocols. In addition, FreeRTOS contains a
+set of security APIs that allow you to create embedded
+applications that securely communicate with AWS IoT.
+
+For Linux-based devices, AWS IoT Greengrass can be used to
+accelerate the development and operations of connected device
+software to extend cloud functionality to the edge of your
+network. AWS IoT Greengrass implements several security features,
+including mutual X.509 certificate-based authentication with
+connected devices, AWS IAM policies and roles to manage
+communication permissions between AWS IoT Greengrass and cloud
+applications, and subscriptions, which are used to determine how
+and if data can be routed between connected devices and AWS IoT Greengrass
+core.
+
+Protect your data at rest by defining your requirements and
+implementing controls, including encryption, to reduce the risk of
+unauthorized access or loss. Protect your data in transit by
+defining your requirements and implementing controls, including
+encryption. Defining and implementing these controls reduces the
+risk of unauthorized data access or exposure. By providing the
+appropriate level of protection for your data in transit, you
+protect the confidentiality and integrity of your IoT data.
+
+## IOTSEC10-BP01 Use encryption to protect IoT data in transit and at rest
+
+For data at rest, the Storage Networking Industry Association
+(SNIA) defines storage security as technical controls, which may
+include integrity, confidentiality and availability controls
+that protect storage resources and data from unauthorized users
+and uses. Thus, it is required to protect the confidentiality of
+sensitive data, such as the device identity, secrets, or user
+data by encrypting it at rest. For data in transit, use a secure
+transport mechanism such as TLS to protect the confidentiality
+and integrity of data transmitted to and from your devices. Both
+MQTT and HTTP communications can be protected using
+TLS-protected forms of those protocols.
+
+**Level of risk exposed if this best
+practice is not established:** High
+
+**Prescriptive guidance
+IOTSEC10-BP01-01** _Require the use of device
+SDKs or client libraries for the device to communicate to
+cloud._
+
+Configure the IoT devices to communicate only over TLS to cloud
+endpoints. For example, use AWS IoT Greengrass or Amazon
+FreeRTOS SDKs to secure connectivity from your devices to AWS IoT Core over TLS 1.2. The AWS IoT Device SDK also enables the
+use of TLS-protected secure communications over TLS 1.2.
+
+**Prescriptive guidance
+IOTSEC10-BP01-02** _Encrypt data and secrets
+at rest on IoT devices._
+
+As explained earlier in section IOTSEC02-BP03-03, take advantage
+of encryption utilities provided by the host operating system to
+encrypt the data stored at rest in the local filesystem. In
+addition, take advantage of Secure Elements (SEs) and TPMs.
+Trusted execution environments (TEEs) can add storage
+protections as well.
+
+## IOTSEC10-BP02 Use data classification
+
+strategies to categorize data access based on levels of
+sensitivity
+
+Data classification and governance is the customer's
+responsibility.
+
+1. Identify and classify data based on sensitivity collected
+   throughout your IoT workload and learn their corresponding
+   business use-case.
+2. Identify and act on opportunities to stop collecting unused
+   data, or adjusting data granularity and retention time.
+3. Consider a defense in depth approach and reduce human access
+   to device data.
+
+For more information, see
+[Manage
+data streams on the AWS IoT Greengrass core](../../../greengrass/v1/developerguide/stream-manager.md "../../../greengrass/v1/developerguide/stream-manager.md").
+
+**Level of risk exposed if this best
+practice is not established:** Low
+
+**Prescriptive guidance
+IOTSEC10-BP02-01** _Implement data
+classification strategies for all data stored on devices or in
+the cloud, as well as all data sent over the network. Process
+data based on the level of sensitivity (for example, highly
+classified, or personally identifiable data)._
+
+Before architecting an IoT application, data classification,
+governance, and controls must be designed and documented to
+reflect how the data can be persisted on the edge or in the
+cloud, and how data should be encrypted throughout its
+lifecycle. For example, by using AWS IoT Greengrass stream
+manager, you can define policies for storage type, size, and
+data retention on a per-stream basis. For highly classified
+data, you can define a separate data stream.
+
+## IOTSEC10-BP03 Protect your IoT data in compliance with regulatory requirements
+
+Data governance is the rules, processes, and behavior that
+affect the way in which data is used, particularly as it regards
+openness, participation, accountability, effectiveness, and
+coherence. Data governance practices for IoT is important as it
+enables protecting classified data and complying with regulatory
+obligations. It helps to determine what data needs protection,
+or which data needs access control. For more information, see
+[AWS Cloud Enterprise Strategy Blog: Using a Cloud Center of
+Excellence (CCOE) to Transform the Entire Enterprise](https://aws.amazon.com/blogs/enterprise-strategy/using-a-cloud-center-of-excellence-ccoe-to-transform-the-entire-enterprise/ "https://aws.amazon.com/blogs/enterprise-strategy/using-a-cloud-center-of-excellence-ccoe-to-transform-the-entire-enterprise/").
+
+**Level of risk exposed if this best
+practice is not established:** Medium
+
+**Prescriptive guidance
+IOTSEC10-BP03-01** _Define specific roles for
+personnel responsible for implementing IoT data
+governance._
+
+For example, there might be a need for new roles to monitor
+security, from both the functional and policy perspectives, to
+control data when it moves from IoT environments to the cloud.
+
+**Prescriptive guidance
+IOTSEC10-BP03-02** _Define data governance
+policies to monitor compliance with approved
+standards._
+
+For example, you might define a policy that requires security
+credentials to never be hardcoded, even on edge devices. Thus,
+use only services like AWS Secrets Manager to retrieve secrets
+in an encrypted manner.
+
+**Prescriptive guidance
+IOTSEC10-BP03-03** _Define clear
+responsibilities to drive the IoT data governance
+process._
+
+Multiple administrative roles can exist for a single system. For
+instance, you may define roles for users who can replace
+defective devices, and separate roles for users who can apply
+security patches and upgrade device firmware. Note that roles
+and responsibilities might change over the lifecycle of your IoT
+systems.

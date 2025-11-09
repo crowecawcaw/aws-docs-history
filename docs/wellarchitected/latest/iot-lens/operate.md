@@ -16,9 +16,138 @@ also must plan for operational excellence by creating a
 streamlined process of functional testing that allows you to
 simulate how devices may behave in their various environments.
 
-| IOTOPS07: How do you assess whether your IoT application meets your operational goals? |
-| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|                                                                                        | Evaluating your operational goals enables you to fine-tune and identify improvements throughout the lifecycle of your IoT application. Measuring and extracting operational and business value from your IoT application allows you to effectively drive high-value initiatives. ## IOTOPS07-BP01 Enable appropriate responses to events Key operational data elements are those data points that convey some notion of operational health of your application by classifying events. Detecting operational events early can uncover unforeseen risks in your application and give your operations team a head start to help prevent or reduce business interruption. By defining a minimum set of logs, metrics, and alarms, your operations team can provide a faster incident response which reduces risks of business disruption. **Level of risk exposed if this best practice is not established:** High **Prescriptive guidance IOTOPS07-BP01-01** _Configure logging to capture and store at least error-level events._ <br>• Use AWS IoT service logging options to capture error events in Amazon CloudWatch Logs <br>• Your devices create telemetry or diagnostic messages that are not stored in the registry or the device's shadow. Instead, these messages are delivered to AWS IoT using a number of MQTT topics. To make this data actionable, use the AWS IoT rules engine to route error messages to your automated remediation process and add diagnostic information to IoT messages. The rules engine inspects the status of a message and if it is an error, it starts the Step Function workflow to remediate the device based off the error message detail payload. **Prescriptive guidance IOTOPS07-BP01-02** _Create a dashboard for your responders to use in investigations of operational events to rapidly pinpoint the period of time when errors are logged._ <br>• Group clusters of error events into buckets of time to quickly identify when surges of errors were captured. <br>• Drill down into clusters of errors to identify any patterns to signal for triage response. **Prescriptive guidance IOTOPS07-BP01-03** _Configure an automated monitoring and alerting tool to detect common symptoms and warnings of operational issues._ <br>• For example, configure AWS IoT Device Defender to run a daily audit on at least the high and critical checks. <br>• Configure an Amazon SNS topic to notify a team email list, paging tool, or operations channel when AWS IoT Device Defender reports non-compliant resources in an audit. For more information, see [AWS IoT Device Defender Audit](../../../iot/latest/developerguide/device-defender-audit.md "../../../iot/latest/developerguide/device-defender-audit.md"). ## IOTOPS07-BP02 Use data-driven auditing metrics to detect if any of your IoT devices might have been broadly accessed Monitor and detect the abnormal usage patterns and possible misuse of devices and automate the quarantine steps. Programmatic methods to detect and quarantine devices from interacting with cloud resources enable teams to operate a fleet in a scalable way while minimizing a dependency on active human monitoring. **Level of risk exposed if this best practice is not established:** Medium **Prescriptive guidance IOTOPS07-BP02-01** _Use monitoring and logging services to detect anomalous behavior. Once you detect the compromised device, run programmatic actions to quarantine it._ <br>• Disable the certificate for further investigation and revoke the certificate to help prevent the device from any future use. <br>• Use AWS IoT CloudWatch metrics and logs to monitor for indications of misuse. If you detect misuse, quarantine the device so it does not impact the rest of the system. <br>• Use AWS IoT Device Defender to identify security issues and deviations from best practices |
-| IOTOPS08: How do you segment your device operations in your IoT application?           |
-| ---                                                                                    |
-|                                                                                        | You need to segment your device fleet to pinpoint operational challenges and direct incident response to the appropriate responder. Device fleet segmentation enables you to identify conditions under which devices operate sub optimally and minimize response time to security events. ## IOTOPS08-BP01 Use static and dynamic device attributes to identify devices with anomalous behavior Anomalies in fleet operations might only surface when analyzing metrics that aggregate across the boundaries of your static and dynamic groups or attributes. For example, devices that are running firmware version 2.0.10 and currently have a battery level over 50%. Static and dynamic groups allow for identifying and pinpointing devices in unique ways to monitor, analyze, and take corrective actions on device behavior. **Level of risk exposed if this best practice is not established:** Medium **Prescriptive guidance IOTOPS08-BP01-01** _Pinpoint devices with unusual communication patterns._ <br>• Use a combination of static and dynamic groups of devices to perform fleet indexing to group devices and identify behavioral patterns—connectivity status, and message transmission. <br>• Use lifecycle events, device connectivity, and data transmission patterns to detect anomalies and pinpoint unusual behavior using techniques such as statistical anomaly detection (for large fleet of devices). <br>• Once abnormal behavior has been identified, move rogue and abnormal devices into a different group so that remedial policies can be assigned and implemented on them. ### Resources <br>• [AWS IoT Core - Authorization](../../../iot/latest/developerguide/iot-authorization.md "../../../iot/latest/developerguide/iot-authorization.md") <br>• [AWS IoT - Device Defender](../../../iot-device-defender/latest/devguide/what-is-device-defender.md "../../../iot-device-defender/latest/devguide/what-is-device-defender.md")                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| IOTOPS07: How do you assess whether your<br>IoT application meets your operational goals? |
+| ----------------------------------------------------------------------------------------- |
+|                                                                                           |
+
+Evaluating your operational goals enables you to fine-tune and
+identify improvements throughout the lifecycle of your IoT
+application. Measuring and extracting operational and business
+value from your IoT application allows you to effectively drive
+high-value initiatives.
+
+## IOTOPS07-BP01 Enable appropriate responses to events
+
+Key operational data elements are those data points that convey
+some notion of operational health of your application by
+classifying events. Detecting operational events early can
+uncover unforeseen risks in your application and give your
+operations team a head start to help prevent or reduce business
+interruption. By defining a minimum set of logs, metrics, and
+alarms, your operations team can provide a faster incident
+response which reduces risks of business disruption.
+
+**Level of risk exposed if this best
+practice is not established:** High
+
+**Prescriptive guidance
+IOTOPS07-BP01-01** _Configure logging to capture
+and store at least error-level events._
+
+- Use AWS IoT service logging options to capture error events
+  in Amazon CloudWatch Logs
+- Your devices create telemetry or diagnostic messages that
+  are not stored in the registry or the device's shadow.
+  Instead, these messages are delivered to AWS IoT using a
+  number of MQTT topics. To make this data actionable, use the
+  AWS IoT rules engine to route error messages to your
+  automated remediation process and add diagnostic information
+  to IoT messages. The rules engine inspects the status of a
+  message and if it is an error, it starts the Step Function
+  workflow to remediate the device based off the error message
+  detail payload.
+
+**Prescriptive guidance
+IOTOPS07-BP01-02** _Create a dashboard for your
+responders to use in investigations of operational events to
+rapidly pinpoint the period of time when errors are
+logged._
+
+- Group clusters of error events into buckets of time to
+  quickly identify when surges of errors were captured.
+- Drill down into clusters of errors to identify any patterns
+  to signal for triage response.
+
+**Prescriptive guidance
+IOTOPS07-BP01-03** _Configure an automated
+monitoring and alerting tool to detect common symptoms and
+warnings of operational issues._
+
+- For example, configure AWS IoT Device Defender to run a
+  daily audit on at least the high and critical checks.
+- Configure an Amazon SNS topic to notify a team email list,
+  paging tool, or operations channel when AWS IoT Device Defender
+  reports non-compliant resources in an audit.
+
+For more information, see [AWS IoT Device Defender Audit](../../../iot/latest/developerguide/device-defender-audit.md "../../../iot/latest/developerguide/device-defender-audit.md").
+
+## IOTOPS07-BP02 Use data-driven auditing metrics to detect if any of your IoT devices might have been broadly accessed
+
+Monitor and detect the abnormal usage patterns and possible
+misuse of devices and automate the quarantine steps.
+Programmatic methods to detect and quarantine devices from
+interacting with cloud resources enable teams to operate a fleet
+in a scalable way while minimizing a dependency on active human
+monitoring.
+
+**Level of risk exposed if this best
+practice is not established:** Medium
+
+**Prescriptive guidance
+IOTOPS07-BP02-01** _Use monitoring and logging
+services to detect anomalous behavior. Once you detect the
+compromised device, run programmatic actions to quarantine
+it._
+
+- Disable the certificate for further investigation and revoke
+  the certificate to help prevent the device from any future
+  use.
+- Use AWS IoT CloudWatch metrics and logs to monitor for
+  indications of misuse. If you detect misuse, quarantine the
+  device so it does not impact the rest of the system.
+- Use AWS IoT Device Defender to identify security issues and
+  deviations from best practices
+
+| IOTOPS08: How do you segment your device<br>operations in your IoT application? |
+| ------------------------------------------------------------------------------- |
+|                                                                                 |
+
+You need to segment your device fleet to pinpoint operational
+challenges and direct incident response to the appropriate
+responder. Device fleet segmentation enables you to identify
+conditions under which devices operate sub optimally and
+minimize response time to security events.
+
+## IOTOPS08-BP01 Use static and dynamic device attributes to identify devices with anomalous behavior
+
+Anomalies in fleet operations might only surface when analyzing
+metrics that aggregate across the boundaries of your static and
+dynamic groups or attributes. For example, devices that are
+running firmware version 2.0.10 and currently have a battery
+level over 50%. Static and dynamic groups allow for identifying
+and pinpointing devices in unique ways to monitor, analyze, and
+take corrective actions on device behavior.
+
+**Level of risk exposed if this best
+practice is not established:** Medium
+
+**Prescriptive guidance
+IOTOPS08-BP01-01** _Pinpoint devices with unusual
+communication patterns._
+
+- Use a combination of static and dynamic groups of devices to
+  perform fleet indexing to group devices and identify
+  behavioral patterns—connectivity status, and message
+  transmission.
+- Use lifecycle events, device connectivity, and data
+  transmission patterns to detect anomalies and pinpoint
+  unusual behavior using techniques such as statistical
+  anomaly detection (for large fleet of devices).
+- Once abnormal behavior has been identified, move rogue and
+  abnormal devices into a different group so that remedial
+  policies can be assigned and implemented on them.
+
+### Resources
+
+- [AWS IoT Core - Authorization](../../../iot/latest/developerguide/iot-authorization.md "../../../iot/latest/developerguide/iot-authorization.md")
+- [AWS IoT - Device Defender](../../../iot-device-defender/latest/devguide/what-is-device-defender.md "../../../iot-device-defender/latest/devguide/what-is-device-defender.md")

@@ -21,6 +21,182 @@ from one application to another. Also, actions performed by the
 IoT application itself as well as actions performed by users of
 the IoT application should be logged.
 
-| IOTSEC06: How do you analyze application and device logs and metrics to detect security issues? |
-| ----------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|                                                                                                 | Your device logs and metrics play a critical role in monitoring security behavior of your IoT application. The way you configure your operations, and how anomalies are surfaced in your system will determine how quickly you can react to a security issue. By configuring your IoT logs and metrics appropriately, you can proactively mitigate potential security issues in your IoT application. In AWS IoT, you can implement detective controls using AWS IoT Device Defender, Amazon CloudWatch Logs, AWS IoT Greengrass logs and Amazon CloudWatch Metrics. AWS IoT Device Defender processes logs and metrics related to device behavior and connectivity behaviors of your devices. AWS IoT Device Defender also lets you continuously monitor security metrics from devices and AWS IoT Core for deviations from what you have defined as appropriate behavior for sets of devices or each device. Augment Device Defender metrics with the Amazon CloudWatch Metrics, Amazon CloudWatch Logs generated by AWS IoT Core, AWS IoT Greengrass logs and Amazon GuardDuty. These service-level logs provide important insight into activity about not only activities related to AWS IoT services and AWS IoT Core protocol usage, but also provide insight into the downstream applications running in AWS that are critical components of your end-to-end IoT application. All Amazon CloudWatch Logs should be analyzed centrally to correlate log information across all sources. AWS CloudTrail logs should be used to understand which AWS APIs have been used by which IAM principals as part of the IoT application processing. Implement logging in any automation created as a part of the IoT application. Most IoT applications include some type of automated processing using, for example, AWS Lambda functions or AWS Step Functions. Add appropriate logging to these function implementations as well. ## IOTSEC06-BP01 Collect and analyze logs and metrics to capture authorization errors and failures to enable appropriate response Device logs and metrics can provide your organization with the insight to be operationally efficient with your IoT workloads by identifying security events, anomalies, and issues from device data. Record error-level messages from AWS IoT Core to provide operational visibility to potential security issues. **Level of risk exposed if this best practice is not established:** Medium **Prescriptive guidance IOTSEC06-BP01-01** _Enable metrics and create alarms that track authorization and error metrics._ Observe the trends for these AWS IoT metrics: <br>• `Connect.AuthError` <br>• `PublishIn.AuthError` <br>• `PublishOut.AuthError` <br>• `Subscribe.AuthError` Configure CloudWatch alarms for each of the preceding metrics to alarm based on levels higher than normal for your workload. ## IOTSEC06-BP02 Send alerts when security events, misconfiguration, and behavior violations are detected Audit the configuration of your devices and detect and alert when a device behavior or IoT application processing differs from the expected behavior. Audit logs provide visibility into operational data that can indicate potential security issues active in the device fleet. **Level of risk exposed if this best practice is not established:** Medium **Prescriptive guidance IOTSEC06-BP02-01** _Enable metrics to detect security events from the data plane._ Create IoT Device Defender security profiles to generate events which could indicate security risks. AWS IoT Device Defender [Ccoud-side metrics](../../../iot-device-defender/latest/devguide/detect-cloud-side-metrics.md "../../../iot-device-defender/latest/devguide/detect-cloud-side-metrics.md") report on device behavior observed by AWS IoT Core. You can detect events based on configured rules. For example, create a security profile in AWS IoT Device Defender, that detects unusual device behavior that may be indicative of a unauthorized access by continuously monitoring activity between the device and AWS IoT Core. You can specify normal device behavior for a group of devices by setting up behaviors (rules) for these metrics. AWS IoT Device Defender monitors and evaluates each data point reported for these metrics against user-defined behaviors (rules) and alerts you if behavior outside the defined rules settings is detected. **Prescriptive guidance IOTSEC06-BP02-02** _Enable auditing to check misconfigurations._ Audit checks are necessary to determine that devices stay configured according to best practices throughout their lifecycle. For instance, it is necessary to audit devices regularly on basic checks such as logging, use of shared certificates and unique device identifiers. AWS IoT Device Defender audit checks can help you to continuously audit security configurations for compliance with security best practices and your own organizational security policies. Some of the auditing capabilities that are supported natively are `LOGGING-DISABLED-CHECK`, `IOT-POLICY-OVERLY-PERMISSIVE-CHECK`, `DEVICE-CERTIFICATE-SHARED-CHECK`, and `CONFLICTING-CLIENT-IDS-CHECK`. **Prescriptive guidance IOTSEC06-BP02-03** _Facilitate alerting on a behavior violation._ Enable alarms or notifications when the device behavior is anomalous based on configured IoT Device Defender rules. AWS IoT Device Defender Security Profiles can be set up to define limits for metric values so that alerts are signaled if device behavior is observed to be outside of these limits. **Prescriptive guidance IOTSEC06-BP02-04** _Capture device-side behavior metrics and alert on device behavior violations._ AWS IoT Device Defender can be configured to monitor device-side metrics which are reported to AWS IoT Device Defender from messages sent to AWS IoT Core by the device. Additional configuration and processing may be needed in the device in order to generate and send these device-side metrics. When available, these metrics can be used to alert you when behavior within the device is determined to be outside of normal ranges. Use AWS IoT Device Defender rules to monitor activity within the device. Appropriate action can then be taken, such as moving the device to a maintenance state or performing a remote OTA update on the device. ## IOTSEC06-BP03 Alert on non-compliant device configurations and remediate using automation Implement continuous monitoring to track device configurations and metrics. Regular auditing helps maintain security baselines and identify necessary updates as technologies evolve and new threats emerge. For example, cryptographic algorithms once known to provide secure digital signatures for device certificates can be weakened by advances in the computing and cryptoanalysis techniques. **Level of risk exposed if this best practice is not established:** Medium **Prescriptive guidance IOTSEC06-BP03-01** _Verify regular auditing is enabled for identifying configuration issues._ Audit checks are necessary to determine that devices stay configured according to best practices throughout their lifecycle. For instance, it is necessary to audit devices regularly on basic checks such as logging, use of shared certificates and unique device identifiers. AWS IoT Device Defender audit checks can help you to continuously audit security configurations for compliance with security best practices and your own organizational security policies. Some of the auditing capabilities that are supported natively are `LOGGING-DISABLED-CHECK`, `IOT-POLICY-OVERLY-PERMISSIVE-CHECK`, `DEVICE-CERTIFICATE-SHARED-CHECK`, and `CONFLICTING-CLIENT-IDS-CHECK`. A full list of audit features can be found in [Audit checks](../../../iot-device-defender/latest/devguide/device-defender-audit-checks.md "../../../iot-device-defender/latest/devguide/device-defender-audit-checks.md"). **Prescriptive guidance IOTSEC06-BP03-02** _Use automation to remediate issues._ Investigate issues by providing contextual and historical information about the device such as device metadata, device statistics, and historical alerts for the device. For example, you can use AWS IoT Device Defender built-in mitigation actions to perform mitigation steps on Audit and Detect alarms. Mitigations can include actions such as adding things to a thing group, replacing default policy version, and updating a device certificate. Another possible action is to enable a mitigation to re-enable logging and publish the finding to Amazon SNS should the `LOGGING-DISABLED-CHECK` find that logging is not enabled. Defining the actions taken when an alert is signaled is done by creating Lambda functions which are invoked through Amazon SNS when the alert is sent. |
+| IOTSEC06: How do you analyze application<br>and device logs and metrics to detect security issues? |
+| -------------------------------------------------------------------------------------------------- |
+|                                                                                                    |
+
+Your device logs and metrics play a critical role in monitoring
+security behavior of your IoT application. The way you configure
+your operations, and how anomalies are surfaced in your system
+will determine how quickly you can react to a security issue. By
+configuring your IoT logs and metrics appropriately, you can
+proactively mitigate potential security issues in your IoT
+application.
+
+In AWS IoT, you can implement detective controls using AWS IoT Device Defender, Amazon CloudWatch Logs, AWS IoT Greengrass logs
+and Amazon CloudWatch Metrics. AWS IoT Device Defender processes
+logs and metrics related to device behavior and connectivity
+behaviors of your devices. AWS IoT Device Defender also lets you
+continuously monitor security metrics from devices and AWS IoT Core for deviations from what you have defined as appropriate
+behavior for sets of devices or each device.
+
+Augment Device Defender metrics with the Amazon CloudWatch
+Metrics, Amazon CloudWatch Logs generated by AWS IoT Core, AWS IoT Greengrass logs and Amazon GuardDuty. These service-level logs
+provide important insight into activity about not only activities
+related to AWS IoT services and AWS IoT Core protocol usage, but
+also provide insight into the downstream applications running in
+AWS that are critical components of your end-to-end IoT
+application. All Amazon CloudWatch Logs should be analyzed
+centrally to correlate log information across all sources. AWS CloudTrail logs should be used to understand which AWS APIs have
+been used by which IAM principals as part of the IoT application
+processing.
+
+Implement logging in any automation created as a part of the IoT
+application. Most IoT applications include some type of automated
+processing using, for example, AWS Lambda functions or AWS Step Functions. Add appropriate logging to these function
+implementations as well.
+
+## IOTSEC06-BP01 Collect and analyze logs and metrics to capture authorization errors and failures to enable appropriate response
+
+Device logs and metrics can provide your organization with the
+insight to be operationally efficient with your IoT workloads by
+identifying security events, anomalies, and issues from device
+data. Record error-level messages from AWS IoT Core to provide
+operational visibility to potential security issues.
+
+**Level of risk exposed if this best
+practice is not established:** Medium
+
+**Prescriptive guidance
+IOTSEC06-BP01-01** _Enable metrics and create
+alarms that track authorization and error metrics._
+
+Observe the trends for these AWS IoT metrics:
+
+- `Connect.AuthError`
+- `PublishIn.AuthError`
+- `PublishOut.AuthError`
+- `Subscribe.AuthError`
+
+Configure CloudWatch alarms for each of the preceding metrics to
+alarm based on levels higher than normal for your workload.
+
+## IOTSEC06-BP02 Send alerts when security events, misconfiguration, and behavior violations are detected
+
+Audit the configuration of your devices and detect and alert
+when a device behavior or IoT application processing differs
+from the expected behavior. Audit logs provide visibility into
+operational data that can indicate potential security issues
+active in the device fleet.
+
+**Level of risk exposed if this best
+practice is not established:** Medium
+
+**Prescriptive guidance
+IOTSEC06-BP02-01** _Enable metrics to detect
+security events from the data plane._
+
+Create IoT Device Defender security profiles to generate events
+which could indicate security risks. AWS IoT Device Defender
+[Ccoud-side
+metrics](../../../iot-device-defender/latest/devguide/detect-cloud-side-metrics.md "../../../iot-device-defender/latest/devguide/detect-cloud-side-metrics.md") report on device behavior observed by AWS IoT Core. You can detect events based on configured rules. For
+example, create a security profile in AWS IoT Device Defender,
+that detects unusual device behavior that may be indicative of a
+unauthorized access by continuously monitoring activity between
+the device and AWS IoT Core. You can specify normal device
+behavior for a group of devices by setting up behaviors (rules)
+for these metrics. AWS IoT Device Defender monitors and
+evaluates each data point reported for these metrics against
+user-defined behaviors (rules) and alerts you if behavior
+outside the defined rules settings is detected.
+
+**Prescriptive guidance
+IOTSEC06-BP02-02** _Enable auditing to check
+misconfigurations._
+
+Audit checks are necessary to determine that devices stay
+configured according to best practices throughout their
+lifecycle. For instance, it is necessary to audit devices
+regularly on basic checks such as logging, use of shared
+certificates and unique device identifiers. AWS IoT Device Defender audit checks can help you to continuously audit
+security configurations for compliance with security best
+practices and your own organizational security policies. Some of
+the auditing capabilities that are supported natively are
+`LOGGING-DISABLED-CHECK`, `IOT-POLICY-OVERLY-PERMISSIVE-CHECK`,
+`DEVICE-CERTIFICATE-SHARED-CHECK`, and
+`CONFLICTING-CLIENT-IDS-CHECK`.
+
+**Prescriptive guidance
+IOTSEC06-BP02-03** _Facilitate alerting on a
+behavior violation._
+
+Enable alarms or notifications when the device behavior is
+anomalous based on configured IoT Device Defender rules. AWS IoT Device Defender Security Profiles can be set up to define limits
+for metric values so that alerts are signaled if device behavior
+is observed to be outside of these limits.
+
+**Prescriptive guidance
+IOTSEC06-BP02-04** _Capture device-side
+behavior metrics and alert on device behavior
+violations._
+
+AWS IoT Device Defender can be configured to monitor device-side
+metrics which are reported to AWS IoT Device Defender from
+messages sent to AWS IoT Core by the device. Additional
+configuration and processing may be needed in the device in
+order to generate and send these device-side metrics. When
+available, these metrics can be used to alert you when behavior
+within the device is determined to be outside of normal ranges.
+Use AWS IoT Device Defender rules to monitor activity within the
+device. Appropriate action can then be taken, such as moving the
+device to a maintenance state or performing a remote OTA update
+on the device.
+
+## IOTSEC06-BP03 Alert on non-compliant device configurations and remediate using automation
+
+Implement continuous monitoring to track device configurations
+and metrics. Regular auditing helps maintain security baselines
+and identify necessary updates as technologies evolve and new
+threats emerge. For example, cryptographic algorithms once known
+to provide secure digital signatures for device certificates can
+be weakened by advances in the computing and cryptoanalysis
+techniques.
+
+**Level of risk exposed if this best
+practice is not established:** Medium
+
+**Prescriptive guidance
+IOTSEC06-BP03-01** _Verify regular auditing is
+enabled for identifying configuration issues._
+
+Audit checks are necessary to determine that devices stay
+configured according to best practices throughout their
+lifecycle. For instance, it is necessary to audit devices
+regularly on basic checks such as logging, use of shared
+certificates and unique device identifiers. AWS IoT Device Defender audit checks can help you to continuously audit
+security configurations for compliance with security best
+practices and your own organizational security policies. Some of
+the auditing capabilities that are supported natively are
+`LOGGING-DISABLED-CHECK`, `IOT-POLICY-OVERLY-PERMISSIVE-CHECK`,
+`DEVICE-CERTIFICATE-SHARED-CHECK`, and
+`CONFLICTING-CLIENT-IDS-CHECK`. A full list of audit features can
+be found in
+[Audit checks](../../../iot-device-defender/latest/devguide/device-defender-audit-checks.md "../../../iot-device-defender/latest/devguide/device-defender-audit-checks.md").
+
+**Prescriptive guidance
+IOTSEC06-BP03-02** _Use automation to
+remediate issues._
+
+Investigate issues by providing contextual and historical
+information about the device such as device metadata, device
+statistics, and historical alerts for the device. For example,
+you can use AWS IoT Device Defender built-in mitigation actions
+to perform mitigation steps on Audit and Detect alarms.
+Mitigations can include actions such as adding things to a thing
+group, replacing default policy version, and updating a device
+certificate. Another possible action is to enable a mitigation
+to re-enable logging and publish the finding to Amazon SNS
+should the `LOGGING-DISABLED-CHECK` find that logging is not
+enabled. Defining the actions taken when an alert is signaled is
+done by creating Lambda functions which are invoked through
+Amazon SNS when the alert is sent.

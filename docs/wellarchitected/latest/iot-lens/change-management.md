@@ -1,8 +1,208 @@
 # Change management
 
-| IOTREL08: How do you update device firmware on your IoT device?        |
-| ---------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|                                                                        | It is important to implement the capability to revert to a previous version of your device firmware or your cloud application in the event of a failed rollout. If your application is well-architected, you will capture metrics from the device, as well as metrics generated by AWS IoT Core and AWS IoT Greengrass. You will also be alerted when your device canaries deviate from expected behavior after any cloud-side changes. ## IOTREL08-BP01 Use a mechanism to deploy and monitor firmware updates When performing over-the-air (OTA) updates to remote devices' firmware, make sure that the updates are controlled and reversible to avoid functional impact of the device to the user, or the device entering a non-recoverable state. Use tools that allow you to deploy and track management tasks in your device fleet. **Level of risk exposed if this best practice is not established:** Low **Prescriptive guidance IOTREL08-BP01-01** _Use a cloud-based update orchestrator to deploy your firmware._ <br>• You can use AWS IoT Jobs to send remote actions to one or many devices at once, control the deployment of jobs to your devices, and track the current and past status of job executions for each device. <br>• Using FreeRTOS OTA using AWS IoT Jobs: By using AWS IoT Jobs for FreeRTOS, you have reliability and security provided out of the box where OTA update job will send firmware to your end device over secure MQTT or HTTPS and system reserved topics are provided to keep track on the status of the job schedule. <br>• Using custom IoT jobs with AWS IoT connected devices: By using AWS IoT Jobs with one or more devices connected to AWS IoT gives you the ability to track the full roll out of the update. **Prescriptive guidance IOTREL08-BP01-02** _Version all of the device firmware artifacts._ <br>• Version all of the device firmware using Amazon S3. <br>• Version the manifest or execution steps for your device firmware. <br>• Implement a known-safe default firmware version for your devices to fall back to in the event of an error. <br>• Implement an update strategy using cryptographic code-signing, version checking, and multiple non-volatile storage partitions, to deploy software images and rollback. <br>• Version all IoT rules engine configurations in CloudFormation. <br>• Version all downstream AWS Cloud resources using AWS CloudFormation. <br>• Implement a rollback strategy for reverting cloud side changes using AWS CloudFormation and other infrastructure as code tools. Treating your infrastructure as code on AWS allows you to automate monitoring and change management for your IoT application. Make sure that updates can be verified, installed, or rolled back when necessary. Devices will need new features over time for better user experience and the firmware will need to be updated remotely. Devices should be designed to receive and update their firmware and the IoT application should be designed to send firmware updates and monitor the success of such an update send. ## IOTREL08-BP02 Configure firmware rollback capabilities in devices Augment hardware with software to hold two versions of firmware and the ability to switch between them. Devices can rapidly roll back to older firmware if the new firmware has issues. **Level of risk exposed if this best practice is not established:** Medium **Prescriptive guidance IOTREL08-BP02-01** _Leverage an RTOS with functionality to roll back device firmware._ By combining OTA agents provided by FreeRTOS or using AWS IoT Device SDK, you can create flexibility to hold two versions of firmware with the hardware that is capable of storing it. ## IOTREL08-BP03 Implement support for incremental updates to target device groups It is a good practice to test new firmware on a small group of devices. Using a smaller group of devices for firmware updates helps make sure that the firmware as well as the upgrade process is well tested before the entire fleet is updated. **Level of risk exposed if this best practice is not established:** Medium **Prescriptive guidance IOTREL08-BP03-01** _Use a cloud orchestrator in conjunction with device settings augmentation. Cloud services can help you control and manage jobs in tandem with the devices running the jobs._ <br>• The AWS IoT Jobs API provides a granular level of control from the cloud to the device for carrying out firmware update incrementally and roll back as needed. <br>• A job document created as part of AWS IoT job details the remote operations the device needs to perform. This includes shutting down rollouts based on timeouts, number of updates per device among other things. Devices can use this information to reject or accept firmware updates. ## IOTREL08-BP04 Implement dynamic configuration management for devices Deploying software changes to devices constitutes a high-risk operation due to the recovery cost associated with remotely deployed devices. When possible, prefer mechanisms for making changes using command-and-control channels to reduce the risk that comes with software deployments and firmware upgrades. This approach enables you to push some changes to devices while minimizing the risk of entering fault states that require on-premises recovery actions. Configuration changes reduce the amount of bandwidth compared to firmware updates. **Level of risk exposed if this best practice is not established:** Medium **Prescriptive guidance IOTREL08-BP04-01** _Use cloud tools to command and control devices. Changing configuration of devices is less error prone and easier to trace back than updating firmware._ <br>• Use Secure Tunneling or Systems Manager to facilitate patching of the operating system instead of pushing a new image to be loaded on the device. <br>• Use Device Shadows to command-and-control devices rather than sending commands directly to device. <br>• Use AWS IoT Device Management jobs to rotate expiring device certificates instead of pushing a new image with updated certificates. <br>• [AWS IoT secure tunneling](../../../iot/latest/developerguide/secure-tunneling.md "../../../iot/latest/developerguide/secure-tunneling.md") <br>• [AWS IoT Device Shadow service](../../../iot/latest/developerguide/iot-device-shadows.md "../../../iot/latest/developerguide/iot-device-shadows.md") |
-| IOTREL09: How do you perform functional testing for your IoT solution? |
-| ---                                                                    |
-|                                                                        | Testing IoT applications and backend services is expensive and can be a challenge due to the large pool of physical, connected devices required. Simulation helps test device integration and IoT backend services, without the need for physical devices. You can also monitor devices from the simulator or observe how backend services are processing the data. ## IOTREL09-BP01 Implement device simulation to synthesize the entire flow of IoT data Simulation scenarios can be configured to generate high volumes of traffic, simulating a large number of IoT devices interacting with the infrastructure simultaneously. By analyzing metrics such as message throughput, latency, and error rates during load testing, users can identify potential bottlenecks and optimize their infrastructure for reliability and responsiveness. **Level of risk exposed if this best practice is not established:** Low **Prescriptive guidance IOTREL09-BP01-01** _To augment your production device deployments, implement IoT simulations on Amazon Elastic Compute Cloud (Amazon EC2) as device canaries across several AWS Regions._ <br>• These device canaries are responsible for mirroring several of your business use cases, such as simulating error conditions like long-running transactions, sending telemetry, and implementing control operations. The device simulation framework must output extensive metrics, including but not limited to successes, errors, latency, and device ordering and then transmit all the metrics to your operations system. <br>• You must implement a variety of device simulation canaries that continue to test common device interactions directly against your production system. Device canaries assist in narrowing down the potential areas to investigate when operational metrics are not met. Device canaries can be used to raise preemptive alarms when the canary metrics fall below your expected SLA. **Prescriptive guidance IOTREL09-BP01-02** _The IoT Device Simulator simulates diverse scenarios to validate the logic and functionality of their IoT applications._ <br>• Launch fleets of virtually connected devices from a user-defined template and then simulate them to publish data at regular intervals to AWS IoT <br>• Simulation scenarios can be utilized to generate synthetic data for training ML models used in IoT applications. By simulating different environmental conditions, device behaviors, and data patterns, users can generate diverse datasets to train and validate ML algorithms. For more information see, [IoT Device Simulator](https://aws.amazon.com/solutions/implementations/iot-device-simulator/ "https://aws.amazon.com/solutions/implementations/iot-device-simulator/").                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| IOTREL08: How do you update device<br>firmware on your IoT device? |
+| ------------------------------------------------------------------ |
+|                                                                    |
+
+It is important to implement the capability to revert to a
+previous version of your device firmware or your cloud application
+in the event of a failed rollout. If your application is
+well-architected, you will capture metrics from the device, as
+well as metrics generated by AWS IoT Core and AWS IoT Greengrass.
+You will also be alerted when your device canaries deviate from
+expected behavior after any cloud-side changes.
+
+## IOTREL08-BP01 Use a mechanism to deploy and monitor firmware updates
+
+When performing over-the-air (OTA) updates to remote devices'
+firmware, make sure that the updates are controlled and
+reversible to avoid functional impact of the device to the user,
+or the device entering a non-recoverable state. Use tools that
+allow you to deploy and track management tasks in your device
+fleet.
+
+**Level of risk exposed if this best
+practice is not established:** Low
+
+**Prescriptive guidance
+IOTREL08-BP01-01** _Use a cloud-based update
+orchestrator to deploy your firmware._
+
+- You can use AWS IoT Jobs to send remote actions to one or
+  many devices at once, control the deployment of jobs to your
+  devices, and track the current and past status of job
+  executions for each device.
+- Using FreeRTOS OTA using AWS IoT Jobs: By using AWS IoT Jobs
+  for FreeRTOS, you have reliability and security provided out
+  of the box where OTA update job will send firmware to your
+  end device over secure MQTT or HTTPS and system reserved
+  topics are provided to keep track on the status of the job
+  schedule.
+- Using custom IoT jobs with AWS IoT connected devices: By
+  using AWS IoT Jobs with one or more devices connected to AWS IoT gives you the ability to track the full roll out of the
+  update.
+
+**Prescriptive guidance
+IOTREL08-BP01-02** _Version all of the device
+firmware artifacts._
+
+- Version all of the device firmware using Amazon S3.
+- Version the manifest or execution steps for your device
+  firmware.
+- Implement a known-safe default firmware version for your
+  devices to fall back to in the event of an error.
+- Implement an update strategy using cryptographic
+  code-signing, version checking, and multiple non-volatile
+  storage partitions, to deploy software images and rollback.
+- Version all IoT rules engine configurations in
+  CloudFormation.
+- Version all downstream AWS Cloud resources using
+  AWS CloudFormation.
+- Implement a rollback strategy for reverting cloud side
+  changes using AWS CloudFormation and other infrastructure as
+  code tools.
+
+Treating your infrastructure as code on AWS allows you to
+automate monitoring and change management for your IoT
+application. Make sure that updates can be verified, installed,
+or rolled back when necessary.
+
+Devices will need new features over time for better user
+experience and the firmware will need to be updated remotely.
+Devices should be designed to receive and update their firmware
+and the IoT application should be designed to send firmware
+updates and monitor the success of such an update send.
+
+## IOTREL08-BP02 Configure firmware rollback capabilities in devices
+
+Augment hardware with software to hold two versions of firmware
+and the ability to switch between them. Devices can rapidly roll
+back to older firmware if the new firmware has issues.
+
+**Level of risk exposed if this best
+practice is not established:** Medium
+
+**Prescriptive guidance
+IOTREL08-BP02-01** _Leverage an RTOS with
+functionality to roll back device firmware._
+
+By combining OTA agents provided by FreeRTOS or using AWS IoT Device SDK, you can create flexibility to hold two versions of
+firmware with the hardware that is capable of storing it.
+
+## IOTREL08-BP03 Implement support for incremental updates to target device groups
+
+It is a good practice to test new firmware on a small group of
+devices. Using a smaller group of devices for firmware updates
+helps make sure that the firmware as well as the upgrade process
+is well tested before the entire fleet is updated.
+
+**Level of risk exposed if this best
+practice is not established:** Medium
+
+**Prescriptive guidance
+IOTREL08-BP03-01** _Use a cloud orchestrator
+in conjunction with device settings augmentation. Cloud services
+can help you control and manage jobs in tandem with the devices
+running the jobs._
+
+- The AWS IoT Jobs API provides a granular level of control
+  from the cloud to the device for carrying out firmware
+  update incrementally and roll back as needed.
+- A job document created as part of AWS IoT job details the
+  remote operations the device needs to perform. This includes
+  shutting down rollouts based on timeouts, number of updates
+  per device among other things. Devices can use this
+  information to reject or accept firmware updates.
+
+## IOTREL08-BP04 Implement dynamic configuration management for devices
+
+Deploying software changes to devices constitutes a high-risk
+operation due to the recovery cost associated with remotely
+deployed devices. When possible, prefer mechanisms for making
+changes using command-and-control channels to reduce the risk
+that comes with software deployments and firmware upgrades. This
+approach enables you to push some changes to devices while
+minimizing the risk of entering fault states that require
+on-premises recovery actions. Configuration changes reduce the
+amount of bandwidth compared to firmware updates.
+
+**Level of risk exposed if this best
+practice is not established:** Medium
+
+**Prescriptive guidance
+IOTREL08-BP04-01** _Use cloud tools to command
+and control devices. Changing configuration of devices is less
+error prone and easier to trace back than updating
+firmware._
+
+- Use Secure Tunneling or Systems Manager to facilitate
+  patching of the operating system instead of pushing a new
+  image to be loaded on the device.
+- Use Device Shadows to command-and-control devices rather
+  than sending commands directly to device.
+- Use AWS IoT Device Management jobs to rotate expiring device
+  certificates instead of pushing a new image with updated
+  certificates.
+- [AWS IoT secure tunneling](../../../iot/latest/developerguide/secure-tunneling.md "../../../iot/latest/developerguide/secure-tunneling.md")
+- [AWS IoT Device Shadow service](../../../iot/latest/developerguide/iot-device-shadows.md "../../../iot/latest/developerguide/iot-device-shadows.md")
+
+| IOTREL09: How do you perform functional<br>testing for your IoT solution? |
+| ------------------------------------------------------------------------- |
+|                                                                           |
+
+Testing IoT applications and backend services is expensive and
+can be a challenge due to the large pool of physical, connected
+devices required. Simulation helps test device integration and
+IoT backend services, without the need for physical devices. You
+can also monitor devices from the simulator or observe how
+backend services are processing the data.
+
+## IOTREL09-BP01 Implement device simulation to synthesize the entire flow of IoT data
+
+Simulation scenarios can be configured to generate high volumes
+of traffic, simulating a large number of IoT devices interacting
+with the infrastructure simultaneously. By analyzing metrics
+such as message throughput, latency, and error rates during load
+testing, users can identify potential bottlenecks and optimize
+their infrastructure for reliability and responsiveness.
+
+**Level of risk exposed if this best
+practice is not established:** Low
+
+**Prescriptive guidance
+IOTREL09-BP01-01** _To augment your production
+device deployments, implement IoT simulations on Amazon Elastic Compute Cloud (Amazon EC2) as device canaries across several AWS Regions._
+
+- These device canaries are responsible for mirroring several
+  of your business use cases, such as simulating error
+  conditions like long-running transactions, sending
+  telemetry, and implementing control operations. The device
+  simulation framework must output extensive metrics,
+  including but not limited to successes, errors, latency, and
+  device ordering and then transmit all the metrics to your
+  operations system.
+- You must implement a variety of device simulation canaries
+  that continue to test common device interactions directly
+  against your production system. Device canaries assist in
+  narrowing down the potential areas to investigate when
+  operational metrics are not met. Device canaries can be used
+  to raise preemptive alarms when the canary metrics fall
+  below your expected SLA.
+
+**Prescriptive guidance
+IOTREL09-BP01-02** _The IoT Device Simulator
+simulates diverse scenarios to validate the logic and
+functionality of their IoT applications._
+
+- Launch fleets of virtually connected devices from a
+  user-defined template and then simulate them to publish data
+  at regular intervals to AWS IoT
+- Simulation scenarios can be utilized to generate synthetic
+  data for training ML models used in IoT applications. By
+  simulating different environmental conditions, device
+  behaviors, and data patterns, users can generate diverse
+  datasets to train and validate ML algorithms.
+
+For more information see,
+[IoT
+Device Simulator](https://aws.amazon.com/solutions/implementations/iot-device-simulator/ "https://aws.amazon.com/solutions/implementations/iot-device-simulator/").
