@@ -1,4 +1,4 @@
-AWS Migration Hub will no longer be open to new customers starting November 7, 2025. To continue using the service, sign up prior to November 7, 2025. For capabilities similar to AWS Migration Hub, explore [AWS Transform](https://aws.amazon.com/transform "https://aws.amazon.com/transform").
+AWS Migration Hub is no longer open to new customers as of November 7, 2025. For capabilities similar to AWS Migration Hub, explore [AWS Transform](https://aws.amazon.com/transform "https://aws.amazon.com/transform").
 
 # Roles and permissions
 
@@ -19,8 +19,16 @@ in the same resource. For example, an individual cannot simultaneously be a
 `JourneyAdmin` and a `JourneyContributor` within the same migration
 journey.
 
-| Resource type     | Possible member roles                                    |
-| ----------------- | -------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Migration space   | `MigrationSpaceAdmin`, `MigrationSpaceContributor`, none |
-| Migration journey | `JourneyAdmin`, `JourneyContributor`                     |
-| Team              | `TeamContributor`                                        | The following topics explain how to get these roles or assign them to others, and which actions each of the roles allow you to perform. ###### Topics <br>• [Roles](roles.md "roles.md") <br>• [Permissions](permissions-table.md "permissions-table.md") |
+| Resource type     | Possible member roles                                       |
+| ----------------- | ----------------------------------------------------------- |
+| Migration space   | `MigrationSpaceAdmin`, `MigrationSpaceContributor`,<br>none |
+| Migration journey | `JourneyAdmin`, `JourneyContributor`                        |
+| Team              | `TeamContributor`                                           |
+
+The following topics explain how to get these roles or assign them to others, and which
+actions each of the roles allow you to perform.
+
+###### Topics
+
+- [Roles](roles.md "roles.md")
+- [Permissions](permissions-table.md "permissions-table.md")
