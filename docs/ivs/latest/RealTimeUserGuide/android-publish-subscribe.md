@@ -422,6 +422,61 @@ void onParticipantJoined(@NonNull Stage stage, @NonNull ParticipantInfo particip
 }
 ```
 
+## Embed Messages
+
+The `embedMessage` method on ImageDevice allows you to insert metadata
+payloads directly into video frames during publishing. This enables
+frame-synchronized messaging for real-time applications. Message embedding is
+available only when using the SDK for real-time publishing (not low-latency
+publishing).
+
+Embedded messages are not guaranteed to arrive to subscribers because they are
+embedded directly within video frames and transmitted over UDP, which does not
+guarantee packet delivery. Packet loss during transmission can result in lost
+messages, especially in poor network conditions. To mitigate this, the
+`embedMessage` method includes a `repeatCount` parameter
+that duplicates the message across multiple consecutive frames, increasing delivery
+reliability. This capability is available only for video streams.
+
+### Using embedMessage
+
+Publishing clients can embed message payloads into their video stream using
+the `embedMessage` method on ImageDevice. The payload size must be
+greater than 0KB and less than 1KB. The number of embedded messages inserted per
+second must not exceed 10KB per second.
+
+```
+val surfaceSource: SurfaceSource = imageStream.device as SurfaceSource
+val message = "hello world"
+val messageBytes = message.toByteArray(StandardCharsets.UTF_8)
+
+try {
+    surfaceSource.embedMessage(messageBytes, 0)
+} catch (e: BroadcastException) {
+    Log.e("EmbedMessage", "Failed to embed message: ${e.message}")
+}
+```
+
+### Repeating Message Payloads
+
+Use `repeatCount` to duplicate the message across multiple frames
+for improved reliability. This value must be between 0 and 30. Receiving clients
+must have logic to de-duplicate the message.
+
+```
+try {
+    surfaceSource.embedMessage(messageBytes, 5)
+    // repeatCount: 0-30, receiving clients should handle duplicates
+} catch (e: BroadcastException) {
+    Log.e("EmbedMessage", "Failed to embed message: ${e.message}")
+}
+```
+
+### Reading Embedded Messages
+
+See "Get Supplemental Enhancement Information (SEI)" below for how to read
+embedded messages from incoming streams.
+
 ## Get Supplemental
 
 Enhancement Information (SEI)

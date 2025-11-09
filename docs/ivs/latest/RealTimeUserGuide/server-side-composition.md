@@ -16,4 +16,6 @@ workflows.
 - [Overview of IVS Server-Side Composition](ssc-overview.md "ssc-overview.md")
 - [Getting Started with IVS Server-Side Composition](ssc-getting-started.md "ssc-getting-started.md")
 - [Custom Participant Ordering](ssc-getting-started-custom-participant-ordering.md "ssc-getting-started-custom-participant-ordering.md")
-- [Enabling Screen Share in IVS Server-Side Composition](ssc-getting-started-screen-share.md "ssc-getting-started-screen-share.md")
+- [Enabling Screen Share in IVS Server-Side
+  Composition](ssc-getting-started-screen-share.md "ssc-getting-started-screen-share.md")
+- [Known Issues and Workarounds](ssc-known-issues.md "ssc-known-issues.md")

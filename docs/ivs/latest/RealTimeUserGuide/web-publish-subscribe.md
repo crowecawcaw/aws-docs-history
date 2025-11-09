@@ -592,8 +592,7 @@ Information (SEI)
 
 The Supplemental Enhancement Information (SEI) NAL unit is used to store
 frame-aligned metadata alongside the video. It can be used when publishing and
-subscribing to H.264 video streams. SEI insertion functionality is available only in
-the IVS Web broadcast SDK (not the mobile SDKs). SEI payloads are not guaranteed to
+subscribing to H.264 video streams. SEI payloads are not guaranteed to
 arrive to subscribers, especially in bad network conditions. As the SEI payload
 stores data directly within the H.264 frame structure, this capability cannot be
 leveraged for audio-only streams.

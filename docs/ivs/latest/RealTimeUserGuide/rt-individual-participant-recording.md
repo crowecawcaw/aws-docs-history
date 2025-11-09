@@ -336,33 +336,242 @@ must be met for all the recordings:
 Note that the default value of `recordingReconnectWindowSeconds` is 0,
 which disables merging.
 
+## Synchronize Multiple Participant
+
+Recordings
+
+Individual participant recordings include `EXT-X-PROGRAM-DATE-TIME` tags in
+HLS playlists, which provide precise UTC timestamps with millisecond accuracy for
+synchronizing recordings from multiple participants during post-processing.
+
+When you record multiple participants individually and want to create a synchronized
+composition (such as a side-by-side or picture-in-picture layout), you can use these
+timestamps to align the recordings accurately, even if participants joined the stage at
+different times or experienced discontinuities potentially caused by network
+interruptions.
+
+Each participant's HLS playlist includes `EXT-X-PROGRAM-DATE-TIME` tags
+that mark:
+
+- The start of the recording (first segment).
+- Any discontinuity points during the recording; e.g., when stitching occurs.
+
+These timestamps use millisecond precision and are synchronized across all
+participants using the same time reference.
+
+### Example HLS
+
+Playlist
+
+```
+#EXTM3U
+#EXT-X-VERSION:7
+#EXT-X-TARGETDURATION:12
+#EXT-X-PLAYLIST-TYPE:VOD
+#EXT-X-MAP:URI="init-0.mp4"
+#EXT-X-PROGRAM-DATE-TIME:2024-01-01T12:00:00.000Z
+#EXTINF:3.30091,
+0.mp4
+#EXTINF:5.63794,
+1.mp4
+#EXTINF:2.74290,
+2.mp4
+#EXT-X-DISCONTINUITY
+#EXT-X-MAP:URI="init-1.mp4"
+#EXT-X-PROGRAM-DATE-TIME:2024-01-01T12:00:52.772Z
+#EXTINF:2.54412,
+3.mp4
+#EXTINF:5.63649,
+4.mp4
+```
+
+The `EXT-X-PROGRAM-DATE-TIME` tags provide the exact UTC time for the
+first segment and at each discontinuity point, enabling precise synchronization with
+other participants' recordings.
+
+### Synchronization
+
+Workflow
+
+To synchronize multiple participant recordings, extract the
+`EXT-X-PROGRAM-DATE-TIME` timestamps from each participant's HLS
+playlist and use them to calculate time offsets. These offsets can then be applied
+during post-processing composition using video processing tools like FFmpeg. When
+discontinuities are present in the recordings, timestamps at those points provide
+the necessary timing references to maintain accurate synchronization throughout the
+entire recording.
+
+Note: For real-time synchronized output without post-processing, consider using
+server-side composition instead of individual participant recording.
+
 ## JSON Metadata Files
 
 This metadata is in JSON format. It comprises the following information:
 
-| Field                      | Type    | Required    | Description                                                                                                                                                                                                                                                                                                                                                                                                        |
-| -------------------------- | ------- | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `stage_arn`                | string  | Yes         | ARN of the stage being used as the source of the recording.                                                                                                                                                                                                                                                                                                                                                        |
-| `session_id`               | string  | Yes         | String representing the stage's `session_id` where the participant is recorded.                                                                                                                                                                                                                                                                                                                                    |
-| `participant_id`           | string  | Yes         | String representing the identifier of the recorded participant.                                                                                                                                                                                                                                                                                                                                                    |
-| `recording_started_at`     | string  | Conditional | RFC 3339 UTC timestamp when the recording started. This is unavailable when `recording_status` is `RECORDING_START_FAILED`. Also, see the note below for `recording_ended_at`.                                                                                                                                                                                                                                     |
-| `recording_ended_at`       | string  | Conditional | RFC 3339 UTC timestamp when the recording ended. This is available only when `recording_status` is `"RECORDING_ENDED"` or `"RECORDING_ENDED_WITH_FAILURE"`. **Note:** `recording_started_at` and `recording_ended_at` are timestamps when these events are generated and may not exactly match the HLS video-segment timestamps. To accurately determine the duration of a recording, use the `duration_ms` field. |
-| `recording_status`         | string  | Yes         | Status of the recording. Valid values: `"RECORDING_STARTED"`, `"RECORDING_ENDED"`, `"RECORDING_START_FAILED"`, `"RECORDING_ENDED_WITH_FAILURE"`.                                                                                                                                                                                                                                                                   |
-| `recording_status_message` | string  | Conditional | Descriptive information on the status. This is available only when `recording_status` is `"RECORDING_ENDED"` or `"RECORDING_ENDED_WITH_FAILURE"`.                                                                                                                                                                                                                                                                  |
-| `media`                    | object  | Yes         | Object that contains the enumerated objects of media content available for this recording. Valid value: `"hls"`.                                                                                                                                                                                                                                                                                                   |
-| <br>• `hls`                | object  | Yes         | Enumerated field that describes the Apple HLS format output.                                                                                                                                                                                                                                                                                                                                                       |
-| <br>• + `duration_ms`      | integer | Conditional | Duration of the recorded HLS content in milliseconds. This is available only when `recording_status` is `"RECORDING_ENDED"` or `"RECORDING_ENDED_WITH_FAILURE"`. If a failure occurred before any recording was done, this is 0.                                                                                                                                                                                   |
-| <br>• + `path`             | string  | Yes         | Relative path from the S3 prefix where HLS content is stored.                                                                                                                                                                                                                                                                                                                                                      |
-| <br>• + `playlist`         | string  | Yes         | Name of the HLS master playlist file.                                                                                                                                                                                                                                                                                                                                                                              |
-| <br>• + `renditions`       | object  | Yes         | Array of renditions (HLS variants) of metadata objects. There always is at least one rendition.                                                                                                                                                                                                                                                                                                                    |
-| <br>• + - `path`           | string  | Yes         | Relative path from the S3 prefix where HLS content is stored for this rendition.                                                                                                                                                                                                                                                                                                                                   |
-| <br>• + - `playlist`       | string  | Yes         | Name of the media playlist file for this rendition.                                                                                                                                                                                                                                                                                                                                                                |
-| <br>• `thumbnails`         | object  | Conditional | Enumerated field that describes thumbnails output. This is available only when the thumbnail configuration’s `storage` field includes `SEQUENTIAL`                                                                                                                                                                                                                                                                 |
-| <br>• + `path`             | string  | Yes         | Relative path from the S3 prefix where sequential thumbnail content is stored.                                                                                                                                                                                                                                                                                                                                     |
-| <br>• + `renditions`       | object  | Yes         | Array of renditions (thumbnail variants) of metadata objects. There always is at least one rendition.                                                                                                                                                                                                                                                                                                              |
-| <br>• + - `path`           | string  | Yes         | Relative path from the S3 prefix where thumbnail content is stored for this rendition.                                                                                                                                                                                                                                                                                                                             |
-| <br>• `latest_thumbnail`   | object  | Conditional | Enumerated field that describes thumbnails output. This is available only when the thumbnail configuration’s `storage` field includes `LATEST`.                                                                                                                                                                                                                                                                    |
-| <br>• + `path`             | string  | Yes         | Relative path from the S3 prefix where `latest_thumbnail` is stored.                                                                                                                                                                                                                                                                                                                                               |
-| <br>• + `renditions`       | object  | Yes         | Array of renditions (thumbnail variants) of metadata objects. There always is at least one rendition.                                                                                                                                                                                                                                                                                                              |
-| <br>• + - `path`           | string  | Yes         | Relative path from the S3 prefix where the latest thumbnail is stored for this rendition.                                                                                                                                                                                                                                                                                                                          |
-| `version`                  | string  | Yes         | The version of the metadata schema.                                                                                                                                                                                                                                                                                                                                                                                | ### Example: recording-started.json `{ "version": "v1", "stage_arn": "arn:aws:ivs:us-west-2:aws_account_id:stage/AbCdef1G2hij", "session_id": "st-ZyXwvu1T2s", "participant_id": "xYz1c2d3e4f", "recording_started_at": "2024-03-13T13:17:17Z", "recording_status": "RECORDING_STARTED", "media": { "hls": { "path": "media/hls", "playlist": "multivariant.m3u8", "renditions": [ { "path": "high", "playlist": "playlist.m3u8" } ] }, "thumbnails": { "path": "media/thumbnails", "renditions": [ { "path": "high" } ] }, "latest_thumbnail": { "path": "media/latest_thumbnail", "renditions": [ { "path": "high" } ] } } }` ### Example: recording-ended.json `{ "version": "v1", "stage_arn": "arn:aws:ivs:us-west-2:aws_account_id:stage/AbCdef1G2hij", "session_id": "st-ZyXwvu1T2s", "participant_id": "xYz1c2d3e4f", "recording_started_at": "2024-03-13T19:44:19Z", "recording_ended_at": "2024-03-13T19:55:04Z", "recording_status": "RECORDING_ENDED", "media": { "hls": { "duration_ms": 645237, "path": "media/hls", "playlist": "multivariant.m3u8", "renditions": [ { "path": "high", "playlist": "playlist.m3u8" } ] }, "thumbnails": { "path": "media/thumbnails", "renditions": [ { "path": "high" } ] }, "latest_thumbnail": { "path": "media/latest_thumbnail", "renditions": [ { "path": "high" } ] } } }` ### Example: recording-failed.json `{ "version": "v1", "stage_arn": "arn:aws:ivs:us-west-2:aws_account_id:stage/AbCdef1G2hij", "session_id": "st-ZyXwvu1T2s", "participant_id": "xYz1c2d3e4f", "recording_started_at": "2024-03-13T19:44:19Z", "recording_ended_at": "2024-03-13T19:55:04Z", "recording_status": "RECORDING_ENDED_WITH_FAILURE", "media": { "hls": { "duration_ms": 645237, "path": "media/hls", "playlist": "multivariant.m3u8", "renditions": [ { "path": "high", "playlist": "playlist.m3u8" } ] }, "thumbnails": { "path": "media/thumbnails", "renditions": [ { "path": "high" } ] }, "latest_thumbnail": { "path": "media/latest_thumbnail", "renditions": [ { "path": "high" } ] } } }` ## Converting Recordings to MP4 Individual participant recordings are stored in the HLS format, consisting of playlists and fragmented MP4 (fMP4) segments. To convert an HLS recording into a single MP4 file, install FFmpeg and run the following command: `ffmpeg -i /path/to/playlist.m3u8 -i /path/to/playlist.m3u8 -map 0:v -map 1:a -c copy output.mp4` |
+| Field                      | Type    | Required    | Description                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| -------------------------- | ------- | ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `stage_arn`                | string  | Yes         | ARN of the stage being used as the source of the<br>recording.                                                                                                                                                                                                                                                                                                                                                                                |
+| `session_id`               | string  | Yes         | String representing the stage's `session_id` where<br>the participant is recorded.                                                                                                                                                                                                                                                                                                                                                            |
+| `participant_id`           | string  | Yes         | String representing the identifier of the recorded<br>participant.                                                                                                                                                                                                                                                                                                                                                                            |
+| `recording_started_at`     | string  | Conditional | RFC 3339 UTC timestamp when the recording started. This is<br>unavailable when `recording_status` is<br>`RECORDING_START_FAILED`. Also, see the note below<br>for `recording_ended_at`.                                                                                                                                                                                                                                                       |
+| `recording_ended_at`       | string  | Conditional | RFC 3339 UTC timestamp when the recording ended. This is<br>available only when `recording_status` is<br>`"RECORDING_ENDED"` or<br>`"RECORDING_ENDED_WITH_FAILURE"`.<br>**Note:**<br>`recording_started_at` and<br>`recording_ended_at` are timestamps when these events<br>are generated and may not exactly match the HLS video-segment<br>timestamps. To accurately determine the duration of a recording, use<br>the `duration_ms` field. |
+| `recording_status`         | string  | Yes         | Status of the recording. Valid values:<br>`"RECORDING_STARTED"`,<br>`"RECORDING_ENDED"`,<br>`"RECORDING_START_FAILED"`,<br>`"RECORDING_ENDED_WITH_FAILURE"`.                                                                                                                                                                                                                                                                                  |
+| `recording_status_message` | string  | Conditional | Descriptive information on the status. This is available only<br>when `recording_status` is `"RECORDING_ENDED"`<br>or `"RECORDING_ENDED_WITH_FAILURE"`.                                                                                                                                                                                                                                                                                       |
+| `media`                    | object  | Yes         | Object that contains the enumerated objects of media content<br>available for this recording. Valid value:<br>`"hls"`.                                                                                                                                                                                                                                                                                                                        |
+| • `hls`                    | object  | Yes         | Enumerated field that describes the Apple HLS format<br>output.                                                                                                                                                                                                                                                                                                                                                                               |
+| • + `duration_ms`          | integer | Conditional | Duration of the recorded HLS content in milliseconds. This is<br>available only when `recording_status` is<br>`"RECORDING_ENDED"` or<br>`"RECORDING_ENDED_WITH_FAILURE"`. If a failure<br>occurred before any recording was done, this is 0.                                                                                                                                                                                                  |
+| • + `path`                 | string  | Yes         | Relative path from the S3 prefix where HLS content is<br>stored.                                                                                                                                                                                                                                                                                                                                                                              |
+| • + `playlist`             | string  | Yes         | Name of the HLS master playlist file.                                                                                                                                                                                                                                                                                                                                                                                                         |
+| • + `renditions`           | object  | Yes         | Array of renditions (HLS variants) of metadata objects. There<br>always is at least one rendition.                                                                                                                                                                                                                                                                                                                                            |
+| • + - `path`               | string  | Yes         | Relative path from the S3 prefix where HLS content is stored<br>for this rendition.                                                                                                                                                                                                                                                                                                                                                           |
+| • + - `playlist`           | string  | Yes         | Name of the media playlist file for this<br>rendition.                                                                                                                                                                                                                                                                                                                                                                                        |
+| • `thumbnails`             | object  | Conditional | Enumerated field that describes thumbnails output. This is<br>available only when the thumbnail configuration’s<br>`storage` field includes<br>`SEQUENTIAL`                                                                                                                                                                                                                                                                                   |
+| • + `path`                 | string  | Yes         | Relative path from the S3 prefix where sequential thumbnail<br>content is stored.                                                                                                                                                                                                                                                                                                                                                             |
+| • + `renditions`           | object  | Yes         | Array of renditions (thumbnail variants) of metadata objects.<br>There always is at least one rendition.                                                                                                                                                                                                                                                                                                                                      |
+| • + - `path`               | string  | Yes         | Relative path from the S3 prefix where thumbnail content is<br>stored for this rendition.                                                                                                                                                                                                                                                                                                                                                     |
+| • `latest_thumbnail`       | object  | Conditional | Enumerated field that describes thumbnails output. This is<br>available only when the thumbnail configuration’s<br>`storage` field includes<br>`LATEST`.                                                                                                                                                                                                                                                                                      |
+| • + `path`                 | string  | Yes         | Relative path from the S3 prefix where<br>`latest_thumbnail` is stored.                                                                                                                                                                                                                                                                                                                                                                       |
+| • + `renditions`           | object  | Yes         | Array of renditions (thumbnail variants) of metadata objects.<br>There always is at least one rendition.                                                                                                                                                                                                                                                                                                                                      |
+| • + - `path`               | string  | Yes         | Relative path from the S3 prefix where the latest thumbnail is<br>stored for this rendition.                                                                                                                                                                                                                                                                                                                                                  |
+| `version`                  | string  | Yes         | The version of the metadata schema.                                                                                                                                                                                                                                                                                                                                                                                                           |
+
+### Example:
+
+recording-started.json
+
+```
+{
+   "version": "v1",
+   "stage_arn": "arn:aws:ivs:us-west-2:aws_account_id:stage/AbCdef1G2hij",
+   "session_id": "st-ZyXwvu1T2s",
+   "participant_id": "xYz1c2d3e4f",
+   "recording_started_at": "2024-03-13T13:17:17Z",
+   "recording_status": "RECORDING_STARTED",
+   "media": {
+      "hls": {
+         "path": "media/hls",
+         "playlist": "multivariant.m3u8",
+         "renditions": [
+            {
+               "path": "high",
+               "playlist": "playlist.m3u8"
+            }
+         ]
+      },
+      "thumbnails": {
+         "path": "media/thumbnails",
+         "renditions": [
+            {
+               "path": "high"
+            }
+         ]
+      },
+      "latest_thumbnail": {
+         "path": "media/latest_thumbnail",
+         "renditions": [
+            {
+               "path": "high"
+            }
+         ]
+      }
+   }
+}
+```
+
+### Example: recording-ended.json
+
+```
+{
+   "version": "v1",
+   "stage_arn": "arn:aws:ivs:us-west-2:aws_account_id:stage/AbCdef1G2hij",
+   "session_id": "st-ZyXwvu1T2s",
+   "participant_id": "xYz1c2d3e4f",
+   "recording_started_at": "2024-03-13T19:44:19Z",
+   "recording_ended_at": "2024-03-13T19:55:04Z",
+   "recording_status": "RECORDING_ENDED",
+   "media": {
+      "hls": {
+         "duration_ms": 645237,
+         "path": "media/hls",
+         "playlist": "multivariant.m3u8",
+         "renditions": [
+            {
+               "path": "high",
+               "playlist": "playlist.m3u8"
+            }
+         ]
+      },
+      "thumbnails": {
+         "path": "media/thumbnails",
+         "renditions": [
+            {
+               "path": "high"
+            }
+         ]
+      },
+      "latest_thumbnail": {
+         "path": "media/latest_thumbnail",
+         "renditions": [
+            {
+               "path": "high"
+            }
+         ]
+      }
+   }
+}
+```
+
+### Example:
+
+recording-failed.json
+
+```
+{
+   "version": "v1",
+   "stage_arn": "arn:aws:ivs:us-west-2:aws_account_id:stage/AbCdef1G2hij",
+   "session_id": "st-ZyXwvu1T2s",
+   "participant_id": "xYz1c2d3e4f",
+   "recording_started_at": "2024-03-13T19:44:19Z",
+   "recording_ended_at": "2024-03-13T19:55:04Z",
+   "recording_status": "RECORDING_ENDED_WITH_FAILURE",
+   "media": {
+      "hls": {
+         "duration_ms": 645237,
+         "path": "media/hls",
+         "playlist": "multivariant.m3u8",
+         "renditions": [
+            {
+               "path": "high",
+               "playlist": "playlist.m3u8"
+            }
+         ]
+      },
+      "thumbnails": {
+         "path": "media/thumbnails",
+         "renditions": [
+            {
+               "path": "high"
+            }
+         ]
+      },
+      "latest_thumbnail": {
+         "path": "media/latest_thumbnail",
+         "renditions": [
+            {
+               "path": "high"
+            }
+         ]
+      }
+   }
+}
+```
+
+## Converting Recordings to MP4
+
+Individual participant recordings are stored in the HLS format, consisting of
+playlists and fragmented MP4 (fMP4) segments. To convert an HLS recording into a single
+MP4 file, install FFmpeg and run the following command:
+
+```
+ffmpeg -i /path/to/playlist.m3u8 -i /path/to/playlist.m3u8 -map 0:v -map 1:a -c copy output.mp4
+```

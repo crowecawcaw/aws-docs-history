@@ -1,21 +1,24 @@
-# Enabling Screen Share in IVS Server-Side Composition
+# Enabling Screen Share in IVS Server-Side
+
+Composition
 
 To use a fixed screen-share layout, follow the steps below.
 
-## Create the EncoderConfiguration Resource
+## Create
 
-The command below creates an EncoderConfiguration resource that configures
-server-side composition parameters (video bitrate, framerate, and
-resolution).
+the EncoderConfiguration Resource
+
+The command below creates an EncoderConfiguration resource that configures server-side
+composition parameters (video bitrate, framerate, and resolution).
 
 ```
 aws ivs-realtime create-encoder-configuration --name "test-ssc-with-screen-share" --video={bitrate=2000000,framerate=30,height=720,width=1280}
 ```
 
-Create a stage participant token with a `screen-share` attribute.
-Since we will specify `screen-share` as the name of the
-`featured` slot, we need to create a stage token with the
-`screen-share` attribute set to `true`:
+Create a stage participant token with a `screen-share` attribute. Since we
+will specify `screen-share` as the name of the `featured` slot, we
+need to create a stage token with the `screen-share` attribute set to
+`true`:
 
 ```
 aws ivs-realtime create-participant-token --stage-arn "arn:aws:ivs:us-east-1:123456789012:stage/u9OiE29bT7Xp" --attributes screen-share=true
@@ -40,8 +43,7 @@ The response is:
 
 Composition
 
-To start the composition using the screen-share feature, we use this
-command:
+To start the composition using the screen-share feature, we use this command:
 
 ```
 aws ivs-realtime start-composition --stage-arn "arn:aws:ivs:us-east-1:927810967299:stage/8faHz1SQp0ik" --destinations  '[{"channel": {"channelArn": "arn:aws:ivs:us-east-1:927810967299:channel/DOlMW4dfMR8r", "encoderConfigurationArn": "arn:aws:ivs:us-east-1:927810967299:encoder-configuration/DEkQHWPVaOwO"}}]' --layout '{"grid":{"featuredParticipantAttribute":"screen-share"}}'
