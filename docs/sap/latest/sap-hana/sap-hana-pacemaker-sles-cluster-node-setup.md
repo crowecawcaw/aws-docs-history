@@ -198,6 +198,81 @@ nodelist {
 _Example IP configuration:_
 
 | Network Interface | Node 1    | Node 2    |
-| ----------------- | --------- | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ----------------- | --------- | --------- |
 | ring0_addr        | 10.2.10.1 | 10.2.20.1 |
-| ring1_addr        | 10.2.10.2 | 10.2.20.2 | **3. Synchronize the modified configuration to all nodes:** `# csync2 -f /etc/corosync/corosync.conf` **4. Restart the cluster** `# crm cluster restart --all` ## Verify Corosync Configuration Verify network rings are active: `# corosync-cfgtool -s` _Example output_: `Printing ring status. Local node ID 1 RING ID 0 id      = 10.2.10.1 status  = ring 0 active with no faults RING ID 1 id      = 10.2.10.2 status  = ring 1 active with no faults` Both network rings should report "active with no faults". If either ring is missing, review the corosync configuration and check that `/etc/corosync/corosync.conf` changes have been synced to the secondary node. You may need to do this manually. Restart the cluster if needed. ## Configure Cluster Services Enable pacemaker to start automatically after reboot: `# systemctl enable pacemaker` Enabling pacemaker also handles corosync through service dependencies. The cluster will start automatically after reboot. For troubleshooting scenarios, you can choose to manually start services after boot instead. ## Verify Cluster Status **1. Check pacemaker service status:** `# systemctl status pacemaker` **2. Verify cluster status:** `# crm_mon -1` _Example output_: `Cluster Summary: <br>• Stack: corosync <br>• Current DC: hanahost01 (version 2.1.5+20221208.a3f44794f) - partition with quorum <br>• 2 nodes configured <br>• 0 resource instances configured Node List: <br>• Online: [ hanahost01 hanahost02 ] Active Resources: <br>• No active resources` |
+| ring1_addr        | 10.2.10.2 | 10.2.20.2 |
+
+**3. Synchronize the modified configuration to all nodes:**
+
+```
+# csync2 -f /etc/corosync/corosync.conf
+```
+
+**4. Restart the cluster**
+
+```
+# crm cluster restart --all
+```
+
+## Verify Corosync Configuration
+
+Verify network rings are active:
+
+```
+# corosync-cfgtool -s
+```
+
+_Example output_:
+
+```
+Printing ring status.
+Local node ID 1
+RING ID 0
+        id      = 10.2.10.1
+        status  = ring 0 active with no faults
+RING ID 1
+        id      = 10.2.10.2
+        status  = ring 1 active with no faults
+```
+
+Both network rings should report "active with no faults". If either ring is missing, review the corosync configuration and check that `/etc/corosync/corosync.conf` changes have been synced to the secondary node. You may need to do this manually. Restart the cluster if needed.
+
+## Configure Cluster Services
+
+Enable pacemaker to start automatically after reboot:
+
+```
+# systemctl enable pacemaker
+```
+
+Enabling pacemaker also handles corosync through service dependencies. The cluster will start automatically after reboot. For troubleshooting scenarios, you can choose to manually start services after boot instead.
+
+## Verify Cluster Status
+
+**1. Check pacemaker service status:**
+
+```
+# systemctl status pacemaker
+```
+
+**2. Verify cluster status:**
+
+```
+# crm_mon -1
+```
+
+_Example output_:
+
+```
+Cluster Summary:
+  * Stack: corosync
+  * Current DC: hanahost01 (version 2.1.5+20221208.a3f44794f) - partition with quorum
+  * 2 nodes configured
+  * 0 resource instances configured
+
+Node List:
+  * Online: [ hanahost01 hanahost02 ]
+
+Active Resources:
+  * No active resources
+```

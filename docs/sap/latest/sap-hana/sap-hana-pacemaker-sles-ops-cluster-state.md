@@ -41,10 +41,29 @@ Full List of Resources:
 
 The following table provides a list of useful commands.
 
-| Command              | Description                                                                                                         |
-| -------------------- | ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `crm_mon`            | Display cluster status on the console with updates as they occur                                                    |
-| `crm_mon -1`         | Display cluster status on the console just once, and exit                                                           |
-| `crm_mon -Arnf`      | -A Display node attributes -n Group resources by node -r Display inactive resources -f Display resource fail counts |
-| `crm help`           | View more options                                                                                                   |
-| `crm_mon --help-all` | View more options                                                                                                   | ## SUSE Hawk2 Hawk2 is a web-based graphical user interface for managing and monitoring pacemaker highly availability clusters. It must be enabled on every node in the cluster, to point your web browser on any node for accessing it. Use the following command to enable Hawk2. `# systemctl enable --now hawk # systemctl status hawk` Use the following URL to check security groups for access on port 7630 from your administrative host. `https://your-server:7630/ e.g https://hanahost01:7630` For more information, see [Configuring and Managing Cluster Resources with Hawk2](https://documentation.suse.com/sle-ha/12-SP5/html/SLE-HA-all/cha-conf-hawk2.html "https://documentation.suse.com/sle-ha/12-SP5/html/SLE-HA-all/cha-conf-hawk2.html") in the SUSE Documentation. |
+| Command              | Description                                                                                                                  |
+| -------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| `crm_mon`            | Display cluster status on the console with updates as they occur                                                             |
+| `crm_mon -1`         | Display cluster status on the console just once, and exit                                                                    |
+| `crm_mon -Arnf`      | -A Display node attributes<br>-n Group resources by node<br>-r Display inactive resources<br>-f Display resource fail counts |
+| `crm help`           | View more options                                                                                                            |
+| `crm_mon --help-all` | View more options                                                                                                            |
+
+## SUSE Hawk2
+
+Hawk2 is a web-based graphical user interface for managing and monitoring pacemaker highly availability clusters. It must be enabled on every node in the cluster, to point your web browser on any node for accessing it. Use the following command to enable Hawk2.
+
+```
+# systemctl enable --now hawk
+# systemctl status hawk
+```
+
+Use the following URL to check security groups for access on port 7630 from your administrative host.
+
+```
+https://your-server:7630/
+
+e.g https://hanahost01:7630
+```
+
+For more information, see [Configuring and Managing Cluster Resources with Hawk2](https://documentation.suse.com/sle-ha/12-SP5/html/SLE-HA-all/cha-conf-hawk2.html "https://documentation.suse.com/sle-ha/12-SP5/html/SLE-HA-all/cha-conf-hawk2.html") in the SUSE Documentation.

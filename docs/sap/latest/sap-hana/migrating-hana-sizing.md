@@ -68,9 +68,13 @@ In a scale-out scenario, you add capacity to your SAP HANA system by adding new 
 The following table illustrates example scale-up and scale-out sizing.
 
 | Scenario      | Source configuration      | Target configuration      |
-| ------------- | ------------------------- | ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------- | ------------------------- | ------------------------- |
 | **Scale-up**  | r5.8xlarge                | r5.16xlarge               |
 | **Scale-up**  | r5.16xlarge               | x2idn.16xlarge            |
 | **Scale-up**  | x2idn.32xlarge            | x2iedn.32xlarge           |
 | **Scale-out** | 3 nodes of x2idn.16xlarge | 4 nodes of x2idn.16xlarge |
-| **Scale-out** | x2idn.32xlarge            | 3 nodes of x2idn.16xlarge | When you finalize your SAP sizing and SAP HANA deployment models, you can plan your migration strategy. In addition to SAP HANA sizing, you may also need to size your SAP application tier. To find the SAP Application Performance Standard (SAPS) ratings of SAP-certified EC2 instances, see [SAP Standard Application Benchmarks](https://www.sap.com/about/benchmark.html "https://www.sap.com/about/benchmark.html") and the [SAP on AWS support note](https://service.sap.com/sap/support/notes/1656099 "https://service.sap.com/sap/support/notes/1656099") on the SAP website (SAP login required). |
+| **Scale-out** | x2idn.32xlarge            | 3 nodes of x2idn.16xlarge |
+
+When you finalize your SAP sizing and SAP HANA deployment models, you can plan your migration strategy.
+
+In addition to SAP HANA sizing, you may also need to size your SAP application tier. To find the SAP Application Performance Standard (SAPS) ratings of SAP-certified EC2 instances, see [SAP Standard Application Benchmarks](https://www.sap.com/about/benchmark.html "https://www.sap.com/about/benchmark.html") and the [SAP on AWS support note](https://service.sap.com/sap/support/notes/1656099 "https://service.sap.com/sap/support/notes/1656099") on the SAP website (SAP login required).

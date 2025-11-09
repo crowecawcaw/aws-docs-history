@@ -82,10 +82,10 @@ Daemon Status:
 
 The following table provides a list of useful commands.
 
-| Command              | Description                                                                                                         |
-| -------------------- | ------------------------------------------------------------------------------------------------------------------- |
-| `crm_mon`            | Display cluster status on the console with updates as they occur                                                    |
-| `crm_mon -1`         | Display cluster status on the console just once, and exit                                                           |
-| `crm_mon -Arnf`      | -A Display node attributes -n Group resources by node -r Display inactive resources -f Display resource fail counts |
-| `crm help`           | View more options                                                                                                   |
-| `crm_mon --help-all` | View more options                                                                                                   |
+| Command              | Description                                                                                                                  |
+| -------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| `crm_mon`            | Display cluster status on the console with updates as they occur                                                             |
+| `crm_mon -1`         | Display cluster status on the console just once, and exit                                                                    |
+| `crm_mon -Arnf`      | -A Display node attributes<br>-n Group resources by node<br>-r Display inactive resources<br>-f Display resource fail counts |
+| `crm help`           | View more options                                                                                                            |
+| `crm_mon --help-all` | View more options                                                                                                            |

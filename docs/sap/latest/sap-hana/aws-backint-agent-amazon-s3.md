@@ -17,6 +17,7 @@ After your SAP HANA system is successfully running on an Amazon EC2 instance, ve
 - [AWS Identity and Access Management](#aws-backint-agent-iam "#aws-backint-agent-iam")
 - [AWS Systems Manager Agent (SSM Agent)](#aws-backint-agent-ssm "#aws-backint-agent-ssm")
 - [Amazon S3 bucket](#s3-bucket "#s3-bucket")
+- [Data perimeter](#data-perimeter "#data-perimeter")
 - [AWS CLI](#install-aws-cli "#install-aws-cli")
 
 ### AWS Identity and Access Management
@@ -90,17 +91,72 @@ When you install the AWS Backint agent, you must provide the name of the S3 buck
 
 AWS Backint agent supports backing up to Amazon S3 with VPC endpoints. Amazon S3 gateway endpoint can improve performance, and help potentially avoid timeouts. It increases security while reducing cost. For more information, see [VPC Endpoints](../../../vpc/latest/userguide/vpc-endpoints.md "../../../vpc/latest/userguide/vpc-endpoints.md").
 
-**S3 storage classes** -- AWS Backint agent supports backing up your SAP HANA database to an Amazon S3 bucket with the S3 Standard, S3 Standard-IA, S3 One Zone-IA, and S3 Intelligent-Tiering storage classes. S3 Reduced Redundancy, Deep Archive, and Glacier storage classes are not supported by AWS Backint agent. By default, the S3 Standard storage class is used to store your backups. You can change the storage class to use for backups by modifying the AWS Backint agent configuration file. Alternatively, you can change your backup files to one of the supported storage classes through [S3 LifeCycle configuration](../../../AmazonS3/latest/dev/object-lifecycle-mgmt.md "../../../AmazonS3/latest/dev/object-lifecycle-mgmt.md") or directly using APIs. To learn more about Amazon S3 storage classes, see [Amazon S3 Storage Classes](../../../AmazonS3/latest/dev/storage-class-intro.md "../../../AmazonS3/latest/dev/storage-class-intro.md") in the _Amazon S3 Developer Guide_.
+**S3 storage classes** — AWS Backint agent supports backing up your SAP HANA database to an Amazon S3 bucket with the S3 Standard, S3 Standard-IA, S3 One Zone-IA, and S3 Intelligent-Tiering storage classes. S3 Reduced Redundancy, Deep Archive, and Glacier storage classes are not supported by AWS Backint agent. By default, the S3 Standard storage class is used to store your backups. You can change the storage class to use for backups by modifying the AWS Backint agent configuration file. Alternatively, you can change your backup files to one of the supported storage classes through [S3 LifeCycle configuration](../../../AmazonS3/latest/dev/object-lifecycle-mgmt.md "../../../AmazonS3/latest/dev/object-lifecycle-mgmt.md") or directly using APIs. To learn more about Amazon S3 storage classes, see [Amazon S3 Storage Classes](../../../AmazonS3/latest/dev/storage-class-intro.md "../../../AmazonS3/latest/dev/storage-class-intro.md") in the _Amazon S3 Developer Guide_.
 
 ###### Note
 
 S3 Intelligent-Tiering storage class enables movement of objects between four access tiers. It can also move objects to the archival tiers. However, **AWS Backint agent for SAP HANA does not support backup and recovery from archival tiers.** To recover or delete objects from the archival tiers, you must first [restore the archived S3 objects](../../../AmazonS3/latest/userguide/restoring-objects.md "../../../AmazonS3/latest/userguide/restoring-objects.md") before initiating a recovery or deletion with the AWS Backint agent.
 
-**Encryption**-- AWS Backint agent supports encrypting your SAP HANA backup files while storing them in Amazon S3, using server-side encryption with AWS KMS (KMS). You can encrypt your backups with a `aws-managed-key` called `aws/s3` or you can use your own custom symmetrical AWS KMS key stored in KMS. To encrypt your backup files with keys stored in KMS (AWS-managed or custom), you must provide the KMS ARN during the install, or update the AWS Backint agent configuration file at a later time. To learn more about encrypting your S3 objects using AWS KMS, see [How Amazon S3 uses AWS KMS](../../../kms/latest/developerguide/services-s3.md "../../../kms/latest/developerguide/services-s3.md") in the _AWS Key Management Service Developer Guide_. Alternatively, you can enable default encryption for your Amazon S3 bucket using keys managed by Amazon S3. To learn more about enabling default encryption for your bucket, see [How do I enable default encryption for an Amazon S3 bucket?](../../../AmazonS3/latest/user-guide/default-bucket-encryption.md "../../../AmazonS3/latest/user-guide/default-bucket-encryption.md") in the _Amazon S3 Console User Guide_.
+**Encryption** — AWS Backint agent supports encrypting your SAP HANA backup files while storing them in Amazon S3, using server-side encryption with AWS KMS (KMS). You can encrypt your backups with a `aws-managed-key` called `aws/s3` or you can use your own custom symmetrical AWS KMS key stored in KMS. To encrypt your backup files with keys stored in KMS (AWS-managed or custom), you must provide the KMS ARN during the install, or update the AWS Backint agent configuration file at a later time. To learn more about encrypting your S3 objects using AWS KMS, see [How Amazon S3 uses AWS KMS](../../../kms/latest/developerguide/services-s3.md "../../../kms/latest/developerguide/services-s3.md") in the _AWS Key Management Service Developer Guide_. Alternatively, you can enable default encryption for your Amazon S3 bucket using keys managed by Amazon S3. To learn more about enabling default encryption for your bucket, see [How do I enable default encryption for an Amazon S3 bucket?](../../../AmazonS3/latest/user-guide/default-bucket-encryption.md "../../../AmazonS3/latest/user-guide/default-bucket-encryption.md") in the _Amazon S3 Console User Guide_.
 
-**Object locking**-- You can store objects using a _write-once-read-many_ (WORM) model with S3 Object Lock. Use S3 Object Lock if you want to prevent your SAP HANA backup files from being accidentally deleted or overwritten for a specific time period or indefinitely. If S3 Object Lock is enabled, you can’t delete your SAP HANA backups stored in Amazon S3 using SAP HANA Cockpit, SAP HANA Studio, or SQL commands until the retention period expires. To learn about S3 Object Lock, see [Locking objects using S3 Object Lock](../../../AmazonS3/latest/dev/object-lock.md "../../../AmazonS3/latest/dev/object-lock.md") in the _Amazon S3 Developer Guide_.
+**Object locking** — You can store objects using a _write-once-read-many_ (WORM) model with S3 Object Lock. Use S3 Object Lock if you want to prevent your SAP HANA backup files from being accidentally deleted or overwritten for a specific time period or indefinitely. If S3 Object Lock is enabled, you can’t delete your SAP HANA backups stored in Amazon S3 using SAP HANA Cockpit, SAP HANA Studio, or SQL commands until the retention period expires. To learn about S3 Object Lock, see [Locking objects using S3 Object Lock](../../../AmazonS3/latest/dev/object-lock.md "../../../AmazonS3/latest/dev/object-lock.md") in the _Amazon S3 Developer Guide_.
 
-**Object tagging** -- By default, AWS Backint agent adds a tag called `AWSBackintAgentVersion` when it stores your SAP HANA backup files in your S3 bucket. This tag helps to identify the AWS Backint version and the SAP HANA version used when backing up your SAP HANA database. You can [list the value of the tags from S3 console](../../../AmazonS3/latest/user-guide/view-object-properties.md "../../../AmazonS3/latest/user-guide/view-object-properties.md") or [using APIs](../../../AmazonS3/latest/dev/object-tagging.md "../../../AmazonS3/latest/dev/object-tagging.md"). To disable default tagging, modify the AWS Backint agent configuration file.
+**Object tagging** — By default, AWS Backint agent adds a tag called `AWSBackintAgentVersion` when it stores your SAP HANA backup files in your S3 bucket. This tag helps to identify the AWS Backint version and the SAP HANA version used when backing up your SAP HANA database. You can [list the value of the tags from S3 console](../../../AmazonS3/latest/user-guide/view-object-properties.md "../../../AmazonS3/latest/user-guide/view-object-properties.md") or [using APIs](../../../AmazonS3/latest/dev/object-tagging.md "../../../AmazonS3/latest/dev/object-tagging.md"). To disable default tagging, modify the AWS Backint agent configuration file.
+
+### Data perimeter
+
+Service Control Policies (SCPs) may be used to control on an organization level which external S3 buckets may be used. The Backint Agent needs to be installed in your EC2 instance. In order to download it, you may want to access the official AWS S3 bucket where the installer binary is located from your EC2 instance. If you are using SCPs in your organization to prevent unintended access to external S3 buckets, it may be necessary to add a policy that explicitly allows access to the official AWS S3 bucket.
+The following example shows a Service Control Policy that is maintained in AWS Organizations and attached to a member account. It prevents all access to external S3 buckets and only allows specified S3 buckets.
+
+```
+{
+  "Version":"2012-10-17",
+  "Statement": [
+    {
+      "Sid": "EnforceResourcePerimeterAWSResources",
+      "Effect": "Deny",
+      "Action": "*",
+      "NotResource": [
+        "arn:aws:s3:::awssap-backint-agent",
+        "arn:aws:s3:::awssap-backint-agent/*"
+      ],
+      "Condition": {
+        "StringNotEqualsIfExists": {
+          "aws:ResourceOrgID": "<organization id>",
+          "aws:PrincipalTag/dp:exclude:resource": "true"
+        }
+      }
+    }
+  ]
+}
+```
+
+This policy denies access to all external S3 buckets that are not explicitly listed. Replace the placeholder with your Organization ID. This ID is in the form "o-<id>" where <id> is a 10 digit number.
+
+To allow S3 requests to traverse through an S3 VPC endpoint, a corresponding policy is required. Here is an example:
+
+```
+{
+    "Version":"2012-10-17",
+    "Statement": [
+        {
+            "Sid": "AllowRequestsToAWSOwnedResources",
+            "Effect": "Allow",
+            "Principal": "*",
+            "Action": [
+                "s3:GetObject",
+                "s3:ListBucket"
+            ],
+            "Resource": [
+                "arn:aws:s3:::awssap-backint-agent",
+                "arn:aws:s3:::awssap-backint-agent/*"
+            ]
+        }
+    ]
+}
+```
+
+For AWS GovCloud, replace the bucket name with s3://awssap-backint-agent-us-gov-east-1 or s3://awssap-backint-agent-us-gov-west-1.
 
 ### AWS CLI
 

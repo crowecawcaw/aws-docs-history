@@ -44,9 +44,126 @@ nvme3n1     259:4    0  500G  0 disk                          /dev/nvme3n1   vol
 Document the volume requirements and assignments in a structured format. This table will help ensure the correct commands for setting up the volumes.
 
 |             |             |              |                   |            |           |
-| ----------- | ----------- | ------------ | ----------------- | ---------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ----------- | ----------- | ------------ | ----------------- | ---------- | --------- |
 | Purpose     | Volume Size | Volume Count | Striping Required | Devices(s) | Volume(s) |
 | HANA Data   |             |              |                   |            |           |
 | HANA Log    |             |              |                   |            |           |
 | HANA Shared |             |              |                   |            |           |
-| Other       |             |              |                   |            |           | 3. **Review or Assign Tags (optional)** Tags help identify volumes in the AWS console and API commands, particularly useful during maintenance, volume extensions, or backup/restore operations. Review existing, or add new tags using the following command or the AWS Console. _Example_ `$ aws ec2 create-tags --resources vol-0abc123def456789a --tags Key=Name,Value="PRD - Hana Data Volume 1 of 2"` Repeat for all volumes. ## Create Filesystems Create Filesystems according to whether or not striping has been identifed as a requirement 1. **Configure Single Volumes** When performance requirements can be met using a single volume (including capacity for growth), create XFS filesystems directly on the device. _Example_ `# Create XFS filesystem with label for HANA Shared mkfs.xfs -f /dev/nvme4n1 -L HANA_SHARED # Create XFS filesystem with label for HANA Log mkfs.xfs -f /dev/nvme3n1 -L HANA_LOG` ###### Tip Labels provide consistent device identification across instance restarts. You can add or change a label on an existing XFS filesystem using `xfs_admin -L LABEL_NAME /dev/device_name`. Always use labels in /etc/fstab by referencing `/dev/disk/by-label/LABEL_NAME`. 2. **Configure Striped Volumes** Logical Volume Management (LVM) manages storage in three layers: Physical Volumes (created with pvcreate) are the actual disks, Volume Groups (created with vgcreate) combine these disks into storage pools, and Logical Volumes (created with lvcreate) are virtual partitions that can span multiple disks for features like striping. _Example_ `# Create physical volumes pvcreate /dev/nvme1n1 /dev/nvme2n1 # Create volume group vgcreate vg_hana_data /dev/nvme1n1 /dev/nvme2n1 # Create striped logical volume lvcreate -i 2 -I 256 -l 100%VG -n lv_hana_data vg_hana_data # Create XFS filesystem with label for HANA data mkfs.xfs -L HANA_DATA /dev/vg_hana_data/lv_hana_data` ###### Important <br>• Use 256 KB stripe size (`-I 256`) for data volumes <br>• Use 64 KB stripe size (`-I 64`) for log volumes <br>• The `-i` parameter should match the number of physical volumes. In the example we have 2 volumes. ## Create Mount Points 1. **Create filesystems and modify permissions** `# mkdir -p /hana/data /hana/log /hana/shared # chown <sid>adm:sapsys /hana/data /hana/log /hana/shared # chmod 750 /hana/data /hana/log /hana/shared` 2. **Configure fstab** The fstab file controls how Linux filesystem partitions, remote filesystems, and block devices are mounted into the filesystem. Add the following entries to `/etc/fstab`: _Example_ `# SAP HANA Storage Configuration /dev/disk/by-label/HANA_DATA       /hana/data       xfs    noatime,nodiratime,logbsize=256k       0  0 /dev/disk/by-label/HANA_LOG        /hana/log        xfs    noatime,nodiratime,logbsize=256k       0  0 /dev/disk/by-label/HANA_SHARED     /hana/shared     xfs    noatime,nodiratime,logbsize=256k       0  0` ## Mount and Verify 1. **Mount all filesytems** `# mount -a` 2. **Verify your final configuration** ``` # lsblk -o NAME,SIZE,TYPE,FSTYPE,LABEL,PATH,SERIAL | sed 's/vol0/vol-0/g' `*Example*` NAME SIZE TYPE FSTYPE LABEL PATH SERIAL nvme0n1 50G disk /dev/nvme0n1 vol-0xyz987uvw654321b ├─nvme0n1p1 2M part /dev/nvme0n1p1 ├─nvme0n1p2 20M part vfat EFI /dev/nvme0n1p2 └─nvme0n1p3 50G part xfs ROOT /dev/nvme0n1p3 nvme1n1 2.2T disk LVM2_member /dev/nvme1n1 vol-0abc123def456789a └─vg_hana_data-lv_hana_data 4.5T lvm xfs HANA_DATA /dev/mapper/vg_hana_data-lv_hana_data nvme2n1 2.2T disk LVM2_member /dev/nvme2n1 vol-0jkl789ghi123456d └─vg_hana_data-lv_hana_data 4.5T lvm xfs HANA_DATA /dev/mapper/vg_hana_data-lv_hana_data nvme3n1 500G disk xfs HANA_LOG /dev/nvme3n1 vol-0def456abc789123e nvme4n1 1T disk xfs HANA_SHARED /dev/nvme4n1 vol-0pqr456mno789123c ```3. **Restart System** Verify all mount points are correct using`mount`and`df -h` before rebooting, as incorrect /etc/fstab entries can prevent successful system boot. Once confirmed, restart the operating system to ensure filesystem persistence before HANA installation. |
+| Other       |             |              |                   |            |           |
+
+3. **Review or Assign Tags (optional)**
+
+Tags help identify volumes in the AWS console and API commands, particularly useful during maintenance, volume extensions, or backup/restore operations. Review existing, or add new tags using the following command or the AWS Console.
+
+_Example_
+
+```
+$ aws ec2 create-tags --resources vol-0abc123def456789a --tags Key=Name,Value="PRD - Hana Data Volume 1 of 2"
+```
+
+Repeat for all volumes.
+
+## Create Filesystems
+
+Create Filesystems according to whether or not striping has been identifed as a requirement
+
+1. **Configure Single Volumes**
+
+When performance requirements can be met using a single volume (including capacity for growth), create XFS filesystems directly on the device.
+
+_Example_
+
+```
+# Create XFS filesystem with label for HANA Shared
+mkfs.xfs -f /dev/nvme4n1 -L HANA_SHARED
+
+# Create XFS filesystem with label for HANA Log
+mkfs.xfs -f /dev/nvme3n1 -L HANA_LOG
+```
+
+###### Tip
+
+Labels provide consistent device identification across instance restarts. You can add or change a label on an existing XFS filesystem using `xfs_admin -L LABEL_NAME /dev/device_name`. Always use labels in /etc/fstab by referencing `/dev/disk/by-label/LABEL_NAME`. 2. **Configure Striped Volumes**
+
+Logical Volume Management (LVM) manages storage in three layers: Physical Volumes (created with pvcreate) are the actual disks, Volume Groups (created with vgcreate) combine these disks into storage pools, and Logical Volumes (created with lvcreate) are virtual partitions that can span multiple disks for features like striping.
+
+_Example_
+
+```
+# Create physical volumes
+pvcreate /dev/nvme1n1 /dev/nvme2n1
+
+# Create volume group
+vgcreate vg_hana_data /dev/nvme1n1 /dev/nvme2n1
+
+# Create striped logical volume
+lvcreate -i 2 -I 256 -l 100%VG -n lv_hana_data vg_hana_data
+
+# Create XFS filesystem with label for HANA data
+mkfs.xfs -L HANA_DATA /dev/vg_hana_data/lv_hana_data
+```
+
+###### Important
+
+    * Use 256 KB stripe size (`-I 256`) for data volumes
+    * Use 64 KB stripe size (`-I 64`) for log volumes
+    * The `-i` parameter should match the number of physical volumes. In the example we have 2 volumes.
+
+## Create Mount Points
+
+1. **Create filesystems and modify permissions**
+
+```
+# mkdir -p /hana/data /hana/log /hana/shared
+# chown <sid>adm:sapsys /hana/data /hana/log /hana/shared
+# chmod 750 /hana/data /hana/log /hana/shared
+```
+
+2. **Configure fstab**
+
+The fstab file controls how Linux filesystem partitions, remote filesystems, and block devices are mounted into the filesystem.
+
+Add the following entries to `/etc/fstab`:
+
+_Example_
+
+```
+# SAP HANA Storage Configuration
+/dev/disk/by-label/HANA_DATA       /hana/data       xfs    noatime,nodiratime,logbsize=256k       0  0
+/dev/disk/by-label/HANA_LOG        /hana/log        xfs    noatime,nodiratime,logbsize=256k       0  0
+/dev/disk/by-label/HANA_SHARED     /hana/shared     xfs    noatime,nodiratime,logbsize=256k       0  0
+```
+
+## Mount and Verify
+
+1. **Mount all filesytems**
+
+```
+# mount -a
+```
+
+2. **Verify your final configuration**
+
+```
+# lsblk -o NAME,SIZE,TYPE,FSTYPE,LABEL,PATH,SERIAL | sed 's/vol0/vol-0/g'
+```
+
+_Example_
+
+```
+NAME                         SIZE TYPE FSTYPE      LABEL       PATH                                  SERIAL
+nvme0n1                       50G disk                         /dev/nvme0n1                          vol-0xyz987uvw654321b
+├─nvme0n1p1                    2M part                         /dev/nvme0n1p1
+├─nvme0n1p2                   20M part vfat        EFI         /dev/nvme0n1p2
+└─nvme0n1p3                   50G part xfs         ROOT        /dev/nvme0n1p3
+nvme1n1                      2.2T disk LVM2_member             /dev/nvme1n1                          vol-0abc123def456789a
+└─vg_hana_data-lv_hana_data  4.5T lvm  xfs         HANA_DATA   /dev/mapper/vg_hana_data-lv_hana_data
+nvme2n1                      2.2T disk LVM2_member             /dev/nvme2n1                          vol-0jkl789ghi123456d
+└─vg_hana_data-lv_hana_data  4.5T lvm  xfs         HANA_DATA   /dev/mapper/vg_hana_data-lv_hana_data
+nvme3n1                      500G disk xfs         HANA_LOG    /dev/nvme3n1                          vol-0def456abc789123e
+nvme4n1                        1T disk xfs         HANA_SHARED /dev/nvme4n1                          vol-0pqr456mno789123c
+```
+
+3. **Restart System**
+
+Verify all mount points are correct using `mount` and `df -h` before rebooting, as incorrect /etc/fstab entries can prevent successful system boot. Once confirmed, restart the operating system to ensure filesystem persistence before HANA installation.

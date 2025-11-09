@@ -75,8 +75,111 @@ Initial setup can be performed using the following command
 ```
 
 | IP address type        | Example   |
-| ---------------------- | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ---------------------- | --------- |
 | <host_ip_1>            | 10.2.10.1 |
 | <host_additional_ip_1> | 10.2.10.2 |
 | <host_ip_2>            | 10.2.20.1 |
-| <host_additional_ip_2> | 10.2.20.2 | The timing parameters are optimized for AWS cloud environments: <br>• Increasing the value of totem token to 15s provides reliable cluster operation while accommodating normal cloud network characteristics. These settings prevent unnecessary failovers during brief network variations <br>• When scaling beyond two nodes, remove the two_node parameter from the quorum section. The timing parameters will automatically adjust using the token_coefficient feature to maintain appropriate failure detection as nodes are added. `# pcs cluster config update totem token=15000` ## Verify Configuration `# pcs cluster start --all` By enabling the pacemaker service, the server automatically joins the cluster after a reboot. This ensures that your system is protected. Alternatively, you can start the pacemaker service manually on boot. You can then investigate the cause of failure. Run the following command to check the status of the pacemaker service: `# systemctl status pacemaker` Example output: `● pacemaker.service - Pacemaker High Availability Cluster Manager Loaded: loaded (/usr/lib/systemd/system/pacemaker.service; enabled; vendor preset: disabled) Active: active (running) since Mon 2025-06-02 13:27:48 AEST; 39s ago Docs: man:pacemakerd https://clusterlabs.org/pacemaker/doc/ Main PID: 38554 (pacemakerd) Tasks: 7 Memory: 31.3M CPU: 136ms CGroup: /system.slice/pacemaker.service ├─38554 /usr/sbin/pacemakerd ├─38555 /usr/libexec/pacemaker/pacemaker-based ├─38556 /usr/libexec/pacemaker/pacemaker-fenced ├─38557 /usr/libexec/pacemaker/pacemaker-execd ├─38558 /usr/libexec/pacemaker/pacemaker-attrd ├─38559 /usr/libexec/pacemaker/pacemaker-schedulerd └─38560 /usr/libexec/pacemaker/pacemaker-controld` Once the cluster service pacemaker is started, check the cluster status with pcs command, as shown in the following example: `# pcs status` Example output: `# pcs status Cluster name: hana_cluster WARNINGS: No stonith devices and stonith-enabled is not false Cluster Summary: <br>• Stack: corosync <br>• Current DC: hanahost02 (version 2.0.5-9.el8_4.8-ba59be7122) - partition with quorum <br>• Last updated: Mon May 12 12:59:35 2025 <br>• Last change:  Mon May 12 12:59:25 2025 by hacluster via crmd on hanahost02 <br>• 2 nodes configured <br>• 0 resource instances configured Node List: <br>• Online: [ hanahost01 hanahost02 ] Full List of Resources: <br>• No resources Daemon Status: corosync: active/disabled pacemaker: active/disabled pcsd: active/enabled` The primary (hanahost01) and secondary (hanahost02) must show up as online. You can find the ring status and the associated IP address of the cluster with corosync-cfgtool command, as shown in the following example: `# corosync-cfgtool -s` Example output: `Local node ID 1, transport knet LINK ID 0 udp addr    = 10.2.10.1 status: nodeid:          1:     localhost nodeid:          2:     connected LINK ID 1 udp addr    = 10.2.10.2 status: nodeid:          1:     localhost nodeid:          2:     connected` |
+| <host_additional_ip_2> | 10.2.20.2 |
+
+The timing parameters are optimized for AWS cloud environments:
+
+- Increasing the value of totem token to 15s provides reliable cluster operation while accommodating normal cloud network characteristics. These settings prevent unnecessary failovers during brief network variations
+- When scaling beyond two nodes, remove the two_node parameter from the quorum section. The timing parameters will automatically adjust using the token_coefficient feature to maintain appropriate failure detection as nodes are added.
+
+```
+# pcs cluster config update totem token=15000
+```
+
+## Verify Configuration
+
+```
+# pcs cluster start --all
+```
+
+By enabling the pacemaker service, the server automatically joins the cluster after a reboot. This ensures that your system is protected. Alternatively, you can start the pacemaker service manually on boot. You can then investigate the cause of failure.
+
+Run the following command to check the status of the pacemaker service:
+
+```
+# systemctl status pacemaker
+```
+
+Example output:
+
+```
+● pacemaker.service - Pacemaker High Availability Cluster Manager
+     Loaded: loaded (/usr/lib/systemd/system/pacemaker.service; enabled; vendor preset: disabled)
+     Active: active (running) since Mon 2025-06-02 13:27:48 AEST; 39s ago
+       Docs: man:pacemakerd
+             https://clusterlabs.org/pacemaker/doc/
+   Main PID: 38554 (pacemakerd)
+      Tasks: 7
+     Memory: 31.3M
+        CPU: 136ms
+     CGroup: /system.slice/pacemaker.service
+             ├─38554 /usr/sbin/pacemakerd
+             ├─38555 /usr/libexec/pacemaker/pacemaker-based
+             ├─38556 /usr/libexec/pacemaker/pacemaker-fenced
+             ├─38557 /usr/libexec/pacemaker/pacemaker-execd
+             ├─38558 /usr/libexec/pacemaker/pacemaker-attrd
+             ├─38559 /usr/libexec/pacemaker/pacemaker-schedulerd
+             └─38560 /usr/libexec/pacemaker/pacemaker-controld
+```
+
+Once the cluster service pacemaker is started, check the cluster status with pcs command, as shown in the following example:
+
+```
+# pcs status
+```
+
+Example output:
+
+```
+# pcs status
+Cluster name: hana_cluster
+
+WARNINGS:
+No stonith devices and stonith-enabled is not false
+
+Cluster Summary:
+  * Stack: corosync
+  * Current DC: hanahost02 (version 2.0.5-9.el8_4.8-ba59be7122) - partition with quorum
+  * Last updated: Mon May 12 12:59:35 2025
+  * Last change:  Mon May 12 12:59:25 2025 by hacluster via crmd on hanahost02
+  * 2 nodes configured
+  * 0 resource instances configured
+
+Node List:
+  * Online: [ hanahost01 hanahost02 ]
+
+Full List of Resources:
+  * No resources
+
+Daemon Status:
+  corosync: active/disabled
+  pacemaker: active/disabled
+  pcsd: active/enabled
+```
+
+The primary (hanahost01) and secondary (hanahost02) must show up as online.
+You can find the ring status and the associated IP address of the cluster with corosync-cfgtool command, as shown in the following example:
+
+```
+# corosync-cfgtool -s
+```
+
+Example output:
+
+```
+Local node ID 1, transport knet
+LINK ID 0 udp
+        addr    = 10.2.10.1
+        status:
+                nodeid:          1:     localhost
+                nodeid:          2:     connected
+LINK ID 1 udp
+        addr    = 10.2.10.2
+        status:
+                nodeid:          1:     localhost
+                nodeid:          2:     connected
+```

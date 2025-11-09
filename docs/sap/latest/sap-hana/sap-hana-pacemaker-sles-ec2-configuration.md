@@ -192,7 +192,13 @@ Amazon EC2 STONITH agent uses AWS resource tags to identify Amazon EC2 instances
 Use the same tag key and the local hostname returned using the command hostname across instances. For example, a configuration with the values defined in Global AWS parameters would require the tags shown in the following table.
 
 | Amazon EC2    | Key example   | Value example |
-| ------------- | ------------- | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------- |
+| ------------- | ------------- | ------------- |
 | <instance_id> | <cluster_tag> | <hostname>    |
 | Instance 1    | pacemaker     | hanahost1     |
-| Instance 2    | pacemaker     | hanahost2     | You can run the following command locally to validate the tag values and IAM permissions to describe the tags. Run this command on all instances in the cluster, for all instances in the cluster. ``` $ aws ec2 describe-tags --filters "Name=resource-id,Values=<instance_id>" "Name=key,Values=<cluster_tag>" --region=<region> --output=text | cut -f5 ``` |
+| Instance 2    | pacemaker     | hanahost2     |
+
+You can run the following command locally to validate the tag values and IAM permissions to describe the tags. Run this command on all instances in the cluster, for all instances in the cluster.
+
+```
+$ aws ec2 describe-tags --filters "Name=resource-id,Values=<instance_id>" "Name=key,Values=<cluster_tag>" --region=<region> --output=text | cut -f5
+```
