@@ -69,8 +69,7 @@ console](https://console.aws.amazon.com/iotdm/ "https://console.aws.amazon.com/i
 **Amazon Elastic Container Registry (Amazon ECR)**
 
 With AWS Signer and the Notation CLI from the
-[Notary
-Project](https://notaryproject.dev/ "https://notaryproject.dev/"), you can sign
+[Notary  Project](https://notaryproject.dev/ "https://notaryproject.dev/"), you can sign
 container images stored in
 a container registry such as Amazon Elastic Container Registry (Amazon ECR). The signatures are stored in
 the registry alongside the images, where they are available for verifying

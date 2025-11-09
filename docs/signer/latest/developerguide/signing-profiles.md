@@ -21,14 +21,108 @@ This section describes the procedures and options for creating a signing profile
    (\_).
 4. For **Signing platform**, choose one of the listed platforms.
 
+| API name                    | Display name                      |
+| --------------------------- | --------------------------------- |
+| `AWSLambda-SHA384-ECDSA`    | AWS Lambda                        |
+| `Notation-OCI-SHA384-ECDSA` | Notation for container registries |
+
+5. Specify the **Signature validity period** in months,
+   days, or years. The default value is 135 months (11 years and 6
+   months).
+6. In the **Tags - optional** section, you can create a
+   **Tag key** and a **Tag value**, then
+   save it with the **Add tag** button. When you assign tags
+   to your signing profile, you can use tag-based resource policies to manage
+   access to the profile.
+
+You can assign up to 50 tags to a profile. 7. Choose **Create profile**.
+
+CLI
+This section describes the procedures and options for creating and managing signing
+profiles using the AWS CLI. A signing profile is a template that defines the following
+settings for associated signing jobs:
+
+- The _signing platform_ that designates the file type to
+  be signed. The following platforms are available in the AWS CLI.
+
 | API name                              | Display name                             |
-| ------------------------------------- | ---------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `AWSLambda-SHA384-ECDSA`              | AWS Lambda                               |
-| `Notation-OCI-SHA384-ECDSA`           | Notation for container registries        | 5. Specify the **Signature validity period** in months, days, or years. The default value is 135 months (11 years and 6 months). 6. In the **Tags - optional** section, you can create a **Tag key** and a **Tag value**, then save it with the **Add tag** button. When you assign tags to your signing profile, you can use tag-based resource policies to manage access to the profile. You can assign up to 50 tags to a profile. 7. Choose **Create profile**. CLI This section describes the procedures and options for creating and managing signing profiles using the AWS CLI. A signing profile is a template that defines the following settings for associated signing jobs: <br>• The _signing platform_ that designates the file type to be signed. The following platforms are available in the AWS CLI.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| API name                              | Display name                             |
-| ---                                   | ---                                      |
+| ------------------------------------- | ---------------------------------------- |
 | `AWSIoTDeviceManagement-SHA256-ECDSA` | AWS IoT Device Management SHA256-ECDSA   |
 | `AmazonFreeRTOS-Default`              | Amazon FreeRTOS SHA256-ECDSA             |
 | `AmazonFreeRTOS-TI-CC3220SF`          | Amazon FreeRTOS SHA1-RSA CC3220SF-Format |
 | `AWSLambda-SHA384-ECDSA`              | AWS Lambda                               |
-| `Notation-OCI-SHA384-ECDSA`           | Notation for container registries        | For more information about the configurations and parameters that are contained in signing platforms, see [SigningPlatform](../api/API_SigningPlatform.md "../api/API_SigningPlatform.md") in the _AWS Signer API Reference_. <br>• The signature format. <br>• The signature algorithms. <br>• The validity period of signatures. By default, signature validity is set to 135 months (11 years and 3 months), which is the maximum validity supported. The signature validity period is only applicable for `AWSLambda-SHA384-ECDSA` and `Notation-OCI-SHA384-ECDSA` signing platforms. After you create the signing profile, you can delegate control of it using [AWS Identity and Access Management (IAM)](../../../IAM/latest/UserGuide/introduction.md "../../../IAM/latest/UserGuide/introduction.md"). For more information about managing user permissions in AWS Signer, see [Identity and Access Management for AWS Signer](authen-overview.md "authen-overview.md"). Signing profiles can be created, inspected, listed, and canceled as shown in the following examples. <br>• [**put-signing-profile**](../../../cli/latest/reference/signer/put-signing-profile.md "../../../cli/latest/reference/signer/put-signing-profile.md") This command creates and saves an AWS Signer signing profile. Signatures generated using this platform will expire after the time specified by `--signature-validity-period`. This value may be specified using `DAYS`, `MONTHS`, or `YEARS`. If no validity period is specified, the default value is 135 months. In this example, the specified signing platform is `AWSLambda-SHA384-ECDSA`. `` `$` `aws signer put-signing-profile \ --profile-name `my_lambda_signing_profile` \ --platform-id AWSLambda-SHA384-ECDSA \ --signature-validity-period value=`10`, type='`MONTHS`'` `` <br>• [**get-signing-profile**](../../../cli/latest/reference/signer/get-signing-platform.md "../../../cli/latest/reference/signer/get-signing-platform.md") This command retrieves a signing profile for inspection. `` `$` `aws signer get-signing-profile` --profile-name `my_lambda_signing_profile` `` <br>• [**list-signing-profiles**](../../../cli/latest/reference/signer/list-signing-profiles.md "../../../cli/latest/reference/signer/list-signing-profiles.md") This command lists the signing profiles that you own or control. `` `$` `aws signer list-signing-profiles` `` <br>• [**cancel-signing-profile**](../../../cli/latest/reference/signer/cancel-signing-profile.md "../../../cli/latest/reference/signer/cancel-signing-profile.md") This command deletes a signing profile. `` `$` `aws signer cancel-signing-profile` \ --profile-name `my_lambda_signing_profile` \ --profile-version `profile_version` \ --reason "`e2e notation testing`" \ --effective-time `1111111111` `` API Signing profiles can be created, inspected, listed, and deleted using the following Signer API actions. <br>• [`PutSigningProfile`](../api/API_PutSigningProfile.md "../api/API_PutSigningProfile.md") <br>• [`CancelSigningProfile`](../api/API_CancelSigningProfile.md "../api/API_CancelSigningProfile.md") <br>• [`GetSigningProfile`](../api/API_GetSigningProfile.md "../api/API_GetSigningProfile.md") <br>• [`ListSigningProfiles`](../api/API_ListSigningProfiles.md "../api/API_ListSigningProfiles.md") |
+| `Notation-OCI-SHA384-ECDSA`           | Notation for container registries        |
+
+For more information about the configurations and parameters that are
+contained in signing platforms, see [SigningPlatform](../api/API_SigningPlatform.md "../api/API_SigningPlatform.md")
+in the _AWS Signer API Reference_.
+
+- The signature format.
+- The signature algorithms.
+- The validity period of signatures. By default, signature validity is set to 135 months
+  (11 years and 3 months), which is the maximum validity supported. The
+  signature validity period is only applicable for `AWSLambda-SHA384-ECDSA` and
+  `Notation-OCI-SHA384-ECDSA` signing platforms.
+
+After you create the signing profile, you can delegate control of it using [AWS Identity and Access Management (IAM)](../../../IAM/latest/UserGuide/introduction.md "../../../IAM/latest/UserGuide/introduction.md"). For more
+information about managing user permissions in AWS Signer, see [Identity and Access Management for AWS Signer](authen-overview.md "authen-overview.md").
+
+Signing profiles can be created, inspected, listed, and canceled as shown in the following
+examples.
+
+- [**put-signing-profile**](../../../cli/latest/reference/signer/put-signing-profile.md "../../../cli/latest/reference/signer/put-signing-profile.md")
+
+This command creates and saves an AWS Signer signing profile.
+
+Signatures generated using this platform will expire after the time specified by
+`--signature-validity-period`. This value may be specified
+using `DAYS`, `MONTHS`, or `YEARS`. If no
+validity period is specified, the default value is 135 months.
+
+In this example, the specified signing platform is
+`AWSLambda-SHA384-ECDSA`.
+
+```
+`$` `aws signer put-signing-profile \
+ --profile-name `my_lambda_signing_profile` \
+ --platform-id AWSLambda-SHA384-ECDSA \
+ --signature-validity-period value=`10`, type='`MONTHS`'`
+```
+
+- [**get-signing-profile**](../../../cli/latest/reference/signer/get-signing-platform.md "../../../cli/latest/reference/signer/get-signing-platform.md")
+
+This command retrieves a signing profile for inspection.
+
+```
+`$` `aws signer get-signing-profile` --profile-name `my_lambda_signing_profile`
+```
+
+- [**list-signing-profiles**](../../../cli/latest/reference/signer/list-signing-profiles.md "../../../cli/latest/reference/signer/list-signing-profiles.md")
+
+This command lists the signing profiles that you own or control.
+
+```
+`$` `aws signer list-signing-profiles`
+```
+
+- [**cancel-signing-profile**](../../../cli/latest/reference/signer/cancel-signing-profile.md "../../../cli/latest/reference/signer/cancel-signing-profile.md")
+
+This command deletes a signing profile.
+
+```
+`$` `aws signer cancel-signing-profile` \
+     --profile-name `my_lambda_signing_profile` \
+     --profile-version `profile_version` \
+     --reason "`e2e notation testing`" \
+     --effective-time `1111111111`
+```
+
+API
+Signing profiles can be created, inspected, listed, and deleted using the
+following Signer API actions.
+
+- [`PutSigningProfile`](../api/API_PutSigningProfile.md "../api/API_PutSigningProfile.md")
+- [`CancelSigningProfile`](../api/API_CancelSigningProfile.md "../api/API_CancelSigningProfile.md")
+
+- [`GetSigningProfile`](../api/API_GetSigningProfile.md "../api/API_GetSigningProfile.md")
+- [`ListSigningProfiles`](../api/API_ListSigningProfiles.md "../api/API_ListSigningProfiles.md")
