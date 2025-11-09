@@ -82,7 +82,7 @@ The following table lists the extended API operations for Amazon S3 on Outposts 
 their changes relative to Amazon S3.
 
 | API                                  | S3 on Outposts parameter value |
-| ------------------------------------ | ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ------------------------------------ | ------------------------------ |
 | `CreateBucket`                       | Bucket name as ARN, Outpost ID |
 | `ListRegionalBuckets`                | Outpost ID                     |
 | `DeleteBucket`                       | Bucket name as ARN             |
@@ -102,4 +102,13 @@ their changes relative to Amazon S3.
 | `ListAccessPoints`                   | Access point name as ARN       |
 | `PutAccessPointPolicy`               | Access point name as ARN       |
 | `GetAccessPointPolicy`               | Access point name as ARN       |
-| `DeleteAccessPointPolicy`            | Access point name as ARN       | ## Creating and managing S3 on Outposts buckets For more information about creating and managing S3 on Outposts buckets, see the following topics. ###### Topics |
+| `DeleteAccessPointPolicy`            | Access point name as ARN       |
+
+## Creating and managing
+
+S3 on Outposts buckets
+
+For more information about creating and managing S3 on Outposts buckets, see the
+following topics.
+
+###### Topics

@@ -8,9 +8,21 @@ access your Outposts buckets and perform object operations. For more information
 After you create an endpoint, you can use the ‘Status’ field, to understand the state of the endpoint. If your Outposts is offline, it will return a CREATE_FAILED. You can check your service link connection, delete the endpoint,
 and retry the create operation after your connection has resumed. For a list of additional error codes, see below. For more information, see [Endpoints](S3OutpostsWorkingBuckets.md#S3OutpostsEP "S3OutpostsWorkingBuckets.md#S3OutpostsEP").
 
-| API              | Status        | Failed Reason Error Code | Message - Failed Reason                                                                                                                                       |
-| ---------------- | ------------- | ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| API              | Status        | Failed Reason Error Code | Message<br>• Failed Reason                                                                                                                                    |
+| ---------------- | ------------- | ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `CreateEndpoint` | Create_Failed | OutpostNotReachable      | Endpoint could not be created as the service link connection to your Outposts home Region is down. Check your connection, delete the endpoint, and try again. |
 | `CreateEndpoint` | Create_Failed | InternalError            | Endpoint could not be created due to Internal Error. Please delete the endpoint and create again.                                                             |
 | `DeleteEndpoint` | Delete_Failed | OutpostNotReachable      | Endpoint could not be deleted as the service link connection to your Outposts home Region is down. Check your connection and please try again.                |
-| `DeleteEndpoint` | Delete_Failed | InternalError            | Endpoint could not be deleted due to Internal Error. Please try again.                                                                                        | For more information about working with buckets on S3 on Outposts, see [Working with S3 on Outposts buckets](S3OutpostsWorkingBuckets.md "S3OutpostsWorkingBuckets.md"). The following sections describe how to create and manage endpoints for S3 on Outposts. ###### Topics <br>• [Creating an endpoint on an Outpost](S3OutpostsCreateEndpoint.md "S3OutpostsCreateEndpoint.md") <br>• [Viewing a list of your Amazon S3 on Outposts endpoints](S3OutpostsListEndpoints.md "S3OutpostsListEndpoints.md") <br>• [Deleting an Amazon S3 on Outposts endpoint](S3OutpostsDeleteEndpoints.md "S3OutpostsDeleteEndpoints.md") |
+| `DeleteEndpoint` | Delete_Failed | InternalError            | Endpoint could not be deleted due to Internal Error. Please try again.                                                                                        |
+
+For more information about working with buckets on S3 on Outposts, see [Working with S3 on Outposts buckets](S3OutpostsWorkingBuckets.md "S3OutpostsWorkingBuckets.md").
+
+The following sections describe how to create and manage endpoints for S3 on Outposts.
+
+###### Topics
+
+- [Creating an endpoint on an Outpost](S3OutpostsCreateEndpoint.md "S3OutpostsCreateEndpoint.md")
+- [Viewing a list of your Amazon S3 on Outposts
+  endpoints](S3OutpostsListEndpoints.md "S3OutpostsListEndpoints.md")
+- [Deleting an Amazon S3 on Outposts
+  endpoint](S3OutpostsDeleteEndpoints.md "S3OutpostsDeleteEndpoints.md")

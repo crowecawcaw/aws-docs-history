@@ -31,7 +31,7 @@ policies
 View details about updates to AWS managed policies for S3 on Outposts since this
 service began tracking these changes.
 
-| Change                                                  | Description                                                                                                                                                               | Date            |
-| ------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
-| S3 on Outposts added `AWSS3OnOutpostsServiceRolePolicy` | S3 on Outposts added `AWSS3OnOutpostsServiceRolePolicy` as part of the service-linked role `AWSServiceRoleForS3OnOutposts`, which helps manage network resources for you. | October 3, 2023 |
-| S3 on Outposts started tracking changes                 | S3 on Outposts started tracking changes for its AWS managed policies.                                                                                                     | October 3, 2023 |
+| Change                                                     | Description                                                                                                                                                                        | Date            |
+| ---------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
+| S3 on Outposts added<br>`AWSS3OnOutpostsServiceRolePolicy` | S3 on Outposts added `AWSS3OnOutpostsServiceRolePolicy`<br>as part of the service-linked role<br>`AWSServiceRoleForS3OnOutposts`, which helps manage<br>network resources for you. | October 3, 2023 |
+| S3 on Outposts started tracking changes                    | S3 on Outposts started tracking changes for its AWS managed<br>policies.                                                                                                           | October 3, 2023 |
