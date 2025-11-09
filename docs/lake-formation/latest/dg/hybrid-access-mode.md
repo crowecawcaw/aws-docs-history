@@ -1,8 +1,7 @@
 # Hybrid access mode
 
 AWS Lake Formation _hybrid access mode_ supports two permission
-pathways to the same AWS Glue Data Catalog objects.
-In the first pathway,
+pathways to the same AWS Glue Data Catalog objects.  In the first pathway,
 Lake Formation allows you to select specific principals, and grant them Lake Formation permissions to access
 catalogs, databases, tables, and views by opting in. The second pathway allows all other principals to
 access these resources through the default IAM principal policies for Amazon S3 and AWS Glue actions.
@@ -12,8 +11,7 @@ permissions for all resources at this location or use hybrid access mode. The hy
 enforces only `CREATE_TABLE`, `CREATE_PARTITION`,
 `UPDATE_TABLE` permissions by default. When an Amazon S3 location is in the hybrid mode,
 you can enable Lake Formation permissions by opting in principals for the Data Catalog objects under that
-location.
-It means both Lake Formation permissions and IAM permissions can control access to
+location. It means both Lake Formation permissions and IAM permissions can control access to
 that data. This means that opted in principals will require both Lake Formation permissions and
 IAM permissions to access the data, while non-opted-in principals will continue to access data
 using only IAM permissions.
@@ -70,10 +68,8 @@ Data Catalog database pointing the Amazon S3 location using IAM permissions poli
 interrupting existing users' Lake Formation permissions.
 
 Before updating the data location registration to enable hybrid access mode, you need to
-first opt in principals that are currently accessing the resource with Lake Formation permissions.
-
-This is to prevent potential interruption to the current workflow.
-You need to also grant
+first opt in principals that are currently accessing the resource with Lake Formation permissions. 
+This is to prevent potential interruption to the current workflow.  You need to also grant
 `Super` permission on the tables in the database to the `IAMAllowedPrincipal` group.
 
 ###### Cross-account data sharing scenarios

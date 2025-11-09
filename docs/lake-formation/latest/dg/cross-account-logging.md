@@ -185,7 +185,15 @@ format changes, the next version will be `01`.
 Indicates the entity that accessed the data. Current values are:
 
 |      |                          |
-| ---- | ------------------------ | ----------------------------------------------------------------------------------------------------------------------------- |
+| ---- | ------------------------ |
 | `GL` | AWS Glue ETL job         |
 | `AT` | Athena                   |
-| `RE` | Amazon Redshift Spectrum | **`account-id`** The AWS account ID that requested credentials from Lake Formation. **`suffix`** A randomly generated string. |
+| `RE` | Amazon Redshift Spectrum |
+
+**`account-id`**
+
+The AWS account ID that requested credentials from Lake Formation.
+
+**`suffix`**
+
+A randomly generated string.

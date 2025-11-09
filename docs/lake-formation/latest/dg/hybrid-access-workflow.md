@@ -40,8 +40,7 @@ mode.
    temporary access, the analytical engine fetches the data from Amazon S3, and performs necessary
    filtering such as column, row, or cell filtering. When the engine finishes running the
    job, it returns the results back to the user. This process is called credential vending.
-   For more information,
-   see [Integrating third-party services with
+   For more information,  see [Integrating third-party services with
    Lake Formation](Integrating-with-LakeFormation.md "Integrating-with-LakeFormation.md").
 6. If the data location of the table is not registered with Lake Formation, the second call from
    the analytic engine is made directly to Amazon S3. The concerned Amazon S3 bucket policy and IAM

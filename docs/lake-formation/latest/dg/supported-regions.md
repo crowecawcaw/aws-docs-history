@@ -19,19 +19,19 @@ AWS Regions, see [How AWS Lake Formation differs for AWS GovCloud (US)](../../..
 The governed tables, transaction support, and storage optimizations
 features for Lake Formation are available in the following AWS Regions:
 
-| Region name               | Region parameter | Endpoint                                                                         |
-| ------------------------- | ---------------- | -------------------------------------------------------------------------------- |
-| US East (N. Virginia)     | us-east-1        | lakeformation.us-east-1.amazonaws.com lakeformation-fips.us-east-1.amazonaws.com |
-| US East (Ohio)            | us-east-2        | lakeformation.us-east-2.amazonaws.com lakeformation-fips.us-east-2.amazonaws.com |
-| US West (Oregon)          | us-west-2        | lakeformation.us-west-2.amazonaws.com lakeformation-fips.us-west-2.amazonaws.com |
-| Asia Pacific (Mumbai)     | ap-south-1       | lakeformation.ap-south-1.amazonaws.com                                           |
-| Asia Pacific (Seoul)      | ap-northeast-2   | lakeformation.ap-northeast-2.amazonaws.com                                       |
-| Asia Pacific (Singapore)  | ap-southeast-1   | lakeformation.ap-southeast-1.amazonaws.com                                       |
-| Asia Pacific (Sydney)     | ap-southeast-2   | lakeformation.ap-southeast-2.amazonaws.com                                       |
-| Asia Pacific (Tokyo)      | ap-northeast-1   | lakeformation.ap-northeast-1.amazonaws.com                                       |
-| Europe (Frankfurt)        | eu-central-1     | lakeformation.eu-central-1.amazonaws.com                                         |
-| Europe (Ireland)          | eu-west-1        | lakeformation.eu-west-1.amazonaws.com                                            |
-| Europe (London)           | eu-west-2        | lakeformation.eu-west-2.amazonaws.com                                            |
-| Europe (Stockholm)        | eu-north-1       | lakeformation.eu-north-1.amazonaws.com                                           |
-| Canada (Central)          | ca-central-1     | lakeformation.ca-central-1.amazonaws.com                                         |
-| South America (São Paulo) | sa-east-1        | lakeformation.sa-east-1.amazonaws.com                                            |
+| Region name               | Region parameter | Endpoint                                                                            |
+| ------------------------- | ---------------- | ----------------------------------------------------------------------------------- |
+| US East (N. Virginia)     | us-east-1        | lakeformation.us-east-1.amazonaws.com<br>lakeformation-fips.us-east-1.amazonaws.com |
+| US East (Ohio)            | us-east-2        | lakeformation.us-east-2.amazonaws.com<br>lakeformation-fips.us-east-2.amazonaws.com |
+| US West (Oregon)          | us-west-2        | lakeformation.us-west-2.amazonaws.com<br>lakeformation-fips.us-west-2.amazonaws.com |
+| Asia Pacific (Mumbai)     | ap-south-1       | lakeformation.ap-south-1.amazonaws.com                                              |
+| Asia Pacific (Seoul)      | ap-northeast-2   | lakeformation.ap-northeast-2.amazonaws.com                                          |
+| Asia Pacific (Singapore)  | ap-southeast-1   | lakeformation.ap-southeast-1.amazonaws.com                                          |
+| Asia Pacific (Sydney)     | ap-southeast-2   | lakeformation.ap-southeast-2.amazonaws.com                                          |
+| Asia Pacific (Tokyo)      | ap-northeast-1   | lakeformation.ap-northeast-1.amazonaws.com                                          |
+| Europe (Frankfurt)        | eu-central-1     | lakeformation.eu-central-1.amazonaws.com                                            |
+| Europe (Ireland)          | eu-west-1        | lakeformation.eu-west-1.amazonaws.com                                               |
+| Europe (London)           | eu-west-2        | lakeformation.eu-west-2.amazonaws.com                                               |
+| Europe (Stockholm)        | eu-north-1       | lakeformation.eu-north-1.amazonaws.com                                              |
+| Canada (Central)          | ca-central-1     | lakeformation.ca-central-1.amazonaws.com                                            |
+| South America (São Paulo) | sa-east-1        | lakeformation.sa-east-1.amazonaws.com                                               |

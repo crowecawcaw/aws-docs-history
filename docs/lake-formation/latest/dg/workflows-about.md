@@ -37,6 +37,10 @@ provides the following types of blueprints:
   Use the following table to help decide whether to use a database snapshot or incremental
   database blueprint.
 
-| Use database snapshot when...                                                                                                                                                                                    | Use incremental database when...                                                                                                                     |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
-| <br>• Schema evolution is flexible. (Columns are re-named, previous columns are deleted, and new columns are added in their place.) <br>• Complete consistency is needed between the source and the destination. | <br>• Schema evolution is incremental. (There is only successive addition of columns.) <br>• Only new rows are added; previous rows are not updated. | ###### Note Users cannot edit blue prints and workflows created by Lake Formation. |
+| Use database snapshot when...                                                                                                                                                                                     | Use incremental database when...                                                                                                                   |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| • Schema evolution is flexible. (Columns are re-named, previous columns are<br>deleted, and new columns are added in their place.)<br>• Complete consistency is needed between the source and the<br>destination. | • Schema evolution is incremental. (There is only successive addition of<br>columns.)<br>• Only new rows are added; previous rows are not updated. |
+
+###### Note
+
+Users cannot edit blue prints and workflows created by Lake Formation.

@@ -155,11 +155,14 @@ aws lakeformation grant-permissions --cli-input-json file://grantCreate
 The LF-Tag expression creator role gets the ability to create, update, or delete LF-Tag
 expressions.
 
-| Permission                     | Description                                                                                                                                                                                             |
-| ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| `Create`                       | A principal with this permission can add LF-Tag expressions in the data lake.                                                                                                                           |
-| `Drop`                         | A principal with this permission on an LF-Tag expression can delete an LF-Tag expression from the data lake.                                                                                            |
-| `Alter`                        | A principal with this permission on an LF-Tag expression can update the expression body of an LF-Tag expression.                                                                                        |
-| `Describe`                     | A principal with this permission on an LF-Tag expression can view the contents of an LF-Tag expression.                                                                                                 |
-| `Grant with LF-Tag expression` | This permission allows the recipient to use the tag expression as the resource when granting data or metadata access permissions. Granting `Grant with LF-Tag expression` implicitly grants `Describe`. |
-| `Super`                        | For LF-Tag expressions, the `Super` permission grants the ability to `Describe`, `Alter`, `Drop`, and grant permissions on the tag expression to other principals.                                      | These permissions are grantable. A principal who has been granted these permissions with the grant option can grant them to other principals. |
+| Permission                     | Description                                                                                                                                                                                                   |
+| ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Create`                       | A principal with this permission can add LF-Tag expressions in the data<br>lake.                                                                                                                              |
+| `Drop`                         | A principal with this permission on an LF-Tag expression can delete an<br>LF-Tag expression from the data lake.                                                                                               |
+| `Alter`                        | A principal with this permission on an LF-Tag expression can update<br>the expression body of an LF-Tag expression.                                                                                           |
+| `Describe`                     | A principal with this permission on an LF-Tag expression can view the<br>contents of an LF-Tag expression.                                                                                                    |
+| `Grant with LF-Tag expression` | This permission allows the recipient to use the tag expression as the resource<br>when granting data or metadata access permissions. Granting `Grant<br>with LF-Tag expression` implicitly grants `Describe`. |
+| `Super`                        | For LF-Tag expressions,<br>the `Super` permission grants the ability to `Describe`,<br>`Alter`, `Drop`, and grant permissions on the tag expression to other principals.                                      |
+
+These permissions are grantable. A principal who has been granted these permissions
+with the grant option can grant them to other principals.

@@ -52,7 +52,7 @@ role and vend temporary credentials to integrated AWS services to access tables 
 federated databases. If a location is registered with Lake Formation, and you want to use the same
 location for a table under a federated database, you need to register the same location
 with the **Enable Data Catalog Federation** option. 7. Choose **Hybrid access mode** to not enable Lake Formation permissions by default. When you register Amazon S3 location
-in hybrid access mode, you can enable Lake Formation permissions by opting in principals for databases and tables under that location.
+in hybrid access mode, you can enable Lake Formation permissions by opting in principals for databases and tables under that location. 
 
 For more information on setting up hybrid access mode, see [Hybrid access mode](hybrid-access-mode.md "hybrid-access-mode.md"). 8. Select **Register location**.
 

@@ -67,8 +67,7 @@ Replace catalog-name, account-A-id, and bucket-name with your specific values.
 The following CLI example shows how to view the details of the catalog.
 
 ```
-
-aws glue get-catalog \
+ aws glue get-catalog \
   --catalog-id account-id:catalog-name \
   --region us-east-1
 ```

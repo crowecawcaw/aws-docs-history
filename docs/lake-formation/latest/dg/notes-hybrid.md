@@ -1,8 +1,7 @@
 # Hybrid access mode considerations and limitations
 
 Hybrid access mode provides the flexibility to selectively enable Lake Formation permissions for
-databases and tables in your AWS Glue Data Catalog.
-With the Hybrid access mode, you now have an
+databases and tables in your AWS Glue Data Catalog.  With the Hybrid access mode, you now have an
 incremental path that allows you to set Lake Formation permissions for a specific set of users without
 interrupting the permission policies of other existing users or workloads.
 

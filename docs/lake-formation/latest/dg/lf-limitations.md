@@ -14,7 +14,7 @@ See [Service quotas](../../../general/latest/gr/lake-formation.md#limits_lake-fo
 - [Data filtering limitations](data-filtering-notes.md "data-filtering-notes.md")
 - [Hybrid access mode considerations and limitations](notes-hybrid.md "notes-hybrid.md")
 - [Limitations for bringing Amazon Redshift data warehouse data into the AWS Glue Data Catalog](notes-ns-catalog.md "notes-ns-catalog.md")
-- [S3 tables catalog integration limitations](notes-s3-catalog.md "notes-s3-catalog.md")
+- [S3 Tables catalog integration limitations](notes-s3-catalog.md "notes-s3-catalog.md")
 - [Hive metadata store data sharing considerations and
   limitations](notes-hms.md "notes-hms.md")
 - [Amazon Redshift data sharing limitations](notes-rs-datashare.md "notes-rs-datashare.md")

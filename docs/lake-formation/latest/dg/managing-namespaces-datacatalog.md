@@ -81,10 +81,19 @@ offers the following benefits:
 
 ## Roles and responsibilities
 
-|                                                |                                                                                                                                           |
-| ---------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Role**                                       | **Responsibility**                                                                                                                        |
-| Amazon Redshift producer cluster administrator | Registers the cluster or namespace with the Data Catalog.                                                                                 |
-| Lake Formation data lake administrator         | Accepts the cluster or namespace invitation, creates federated catalogs, and grants access on the federated catalogs to other principals. |
-| Lake Formation read only administrator         | Discovers the federated catalog, queries Amazon Redshift tables in the federated catalog.                                                 |
-| Data transfer role                             | Amazon Redshift assumes on your behalf to transfer data to and from the Amazon S3 bucket.                                                 | The following are the high-level steps to provide users access to an Amazon Redshift namespace: 1. In Amazon Redshift, the producer cluster administrator registers a cluster or namespace with the Data Catalog. 2. The data lake administrator accepts the namespace invitation from the Amazon Redshift producer cluster administrator, and creates a federated catalog in the Data Catalog. After completing this step, you can manage the Amazon Redshift namespace catalog within the Data Catalog. 3. Grant permissions to users on catalogs, databases and tables. You can share the entire namespace catalog or a subset of tables with users in the same account or another account. |
+|                                                |                                                                                                                                              |
+| ---------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Role**                                       | **Responsibility**                                                                                                                           |
+| Amazon Redshift producer cluster administrator | Registers the cluster or namespace with the Data Catalog.                                                                                    |
+| Lake Formation data lake administrator         | Accepts the cluster or namespace invitation, creates federated catalogs, and<br>grants access on the federated catalogs to other principals. |
+| Lake Formation read only administrator         | Discovers the federated catalog, queries Amazon Redshift tables in the federated<br>catalog.                                                 |
+| Data transfer role                             | Amazon Redshift assumes on your behalf to transfer data to and from the Amazon S3 bucket.                                                    |
+
+The following are the high-level steps to provide users access to an Amazon Redshift namespace:
+
+1. In Amazon Redshift, the producer cluster administrator registers a cluster or namespace with the Data Catalog.
+2. The data lake administrator accepts the namespace invitation from the Amazon Redshift producer
+   cluster administrator, and creates a federated catalog in the Data Catalog.
+
+After completing this step, you can manage the Amazon Redshift namespace catalog within the Data Catalog. 3. Grant permissions to users on catalogs, databases and tables. You can share the entire
+namespace catalog or a subset of tables with users in the same account or another account.

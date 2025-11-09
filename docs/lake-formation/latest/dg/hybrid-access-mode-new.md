@@ -5,8 +5,7 @@ Lake Formation users without interrupting the existing Data Catalog users' data 
 
 Scenario description - The data location is not registered with Lake Formation, and users' access
 to the Data Catalog database and tables is determined by IAM permissions policies for Amazon S3 and
-AWS Glue actions.
-The `IAMAllowedPrincipals` group by default has `Super` permissions on all tables in the database.
+AWS Glue actions.  The `IAMAllowedPrincipals` group by default has `Super` permissions on all tables in the database.
 
 ###### To enable hybrid access mode for a data location that is not registered with Lake Formation
 
@@ -23,14 +22,12 @@ Console
 
     ![Register location form for Amazon S3 data lake with path input, IAM role selection, and permission mode options.](images/hybrid-access-register-s3.png)
     4. On the **Register location** window, choose the **Amazon S3** path that you want to register with Lake Formation.
-    5. For **IAM role**, choose either the `AWSServiceRoleForLakeFormationDataAccess` service-linked role (the default) or a custom IAM
-
+    5. For **IAM role**, choose either the `AWSServiceRoleForLakeFormationDataAccess` service-linked role (the default) or a custom IAM 
      role that meets the requirements in [Requirements for roles used to register
      locations](registration-role.md "registration-role.md").
     6. Choose **Hybrid access mode** to apply fine-grained Lake Formation access
      control policies to opt-in principals and Data Catalog databases and tables
-     pointing to the registered location.
-
+     pointing to the registered location. 
 
 
     Choose Lake Formation to allow Lake Formation to authorize access requests to the registered location.
