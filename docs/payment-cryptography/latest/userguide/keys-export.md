@@ -516,13 +516,110 @@ You can modify or append key block information when exporting in ASC TR-31 or TR
 formats. The following table describes the TR-31 key block format and which elements you can
 modify during export.
 
-| Key Block Attribute | Purpose                                                                                                                                                                                                         | Can you modify during export?                                                                                                                                                                                                                         | Notes                                                                                                                                                                   |
-| ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Version ID          | Defines the method used to protect the key material. The standard includes: <br>• Version A and C (key variant - deprecated) <br>• Version B (derivation using TDES) <br>• Version D (key derivation using AES) | No                                                                                                                                                                                                                                                    | We use version B for TDES wrapping keys and version D for AES wrapping keys. We support versions A and C only for import operations.                                    |
-| Key Block Length    | Specifies the length of the remaining message                                                                                                                                                                   | No                                                                                                                                                                                                                                                    | We calculate this value automatically. The length might appear incorrect before decrypting the payload because we may add key padding as required by the specification. |
-| Key Usage           | Defines the permitted purposes for the key, such as: <br>• C0 (Card Verification) <br>• B0 (Base Derivation Key)                                                                                                | No                                                                                                                                                                                                                                                    |                                                                                                                                                                         |
-| Algorithm           | Specifies the algorithm of the underlying key. We support: <br>• T (TDES) <br>• H (HMAC) <br>• A (AES)                                                                                                          | No                                                                                                                                                                                                                                                    | We export this value as-is.                                                                                                                                             |
-| Key Usage           | Defines allowed operations, such as: <br>• Generate and Verify (C) <br>• Encrypt/Decrypt/Wrap/Unwrap (B)                                                                                                        | Yes\*                                                                                                                                                                                                                                                 |                                                                                                                                                                         |
-| Key Version         | Indicates the version number for key replacement/rotation. Defaults to 00 if not specified.                                                                                                                     | Yes - Can append                                                                                                                                                                                                                                      |                                                                                                                                                                         |
-| Key Exportability   | Controls whether the key can be exported: <br>• N - No Exportability <br>• E - Export according to X9.24 (key blocks) <br>• S - Export under key block or non-key block formats                                 | Yes\*                                                                                                                                                                                                                                                 |                                                                                                                                                                         |
-| Optional Key Blocks | Yes - Can append                                                                                                                                                                                                | Optional key blocks are name/value pairs cryptographically bound to the key. For example, KeySetID for DUKPT keys. We automatically calculate the number of blocks, length of each block, and padding block (PB) based on your name/value pair input. |                                                                                                                                                                         | _\*When modifying values, your new value must be more restrictive than the current value in AWS Payment Cryptography._ For example: <br>• If the current key mode of use is Generate=True,Verify=True, you can change it to Generate=True,Verify=False <br>• If the key is already set to not exportable, you can't change it to exportable When you export keys, we automatically apply the current values from the key being exported. However, you might want to modify or append those values before sending to the receiving system. Here are some common scenarios: <br>• When exporting a key to a payment terminal, set its exportability to `Not Exportable` because terminals typically only import keys and shouldn't export them. <br>• When you need to pass associated key metadata to the receiving system, use TR-31 optional headers to cryptographically bind the metadata to the key instead of creating a custom payload. <br>• Set the Key Version using the `KeyVersion` field to track key rotation. TR-31/X9.143 defines common headers, but you can use other headers as long as they meet AWS Payment Cryptography parameters and your receiving system can accept them. For more information about key block headers during export, see [Key Block Headers](../DataAPIReference/API_KeyBlockHeaders.md "../DataAPIReference/API_KeyBlockHeaders.md") in the API Guide. Here's an example of exporting a BDK key (for instance, to a KIF) with these specifications: <br>• Key version: 02 <br>• KeyExportability: NON_EXPORTABLE <br>• KeySetID: 00ABCDEFAB (00 indicates TDES key, ABCDEFABCD is the initial key) Because we don't specify key modes of use, this key inherits the mode of use from arn:aws:payment-cryptography:us-east-2::key/5rplquuwozodpwsp (DeriveKey = true). ###### Note Even when you set exportability to Not Exportable in this example, the [KIF](terminology.md#terms.kif "terminology.md#terms.kif") can still: <br>• Derive keys such as [IPEK/IK](terminology.md#terms.ipek "terminology.md#terms.ipek") used in DUKPT <br>• Export these derived keys to install on devices This is specifically allowed by the standards. `` `$` `aws payment-cryptography **export-key** \ `--key-material`='{"`Tr31KeyBlock`": { \ "`WrappingKeyIdentifier`": "arn:aws:payment-cryptography:us-east-2::key/ov6icy4ryas4zcza", \ "`KeyBlockHeaders`": { \ "`KeyModesOfUse`": { \ "`Derive`": true}, \ "`KeyExportability`": "NON_EXPORTABLE", \ "`KeyVersion`": "02", \ "`OptionalBlocks`": { \ "`BI`": "00ABCDEFABCD"}}} \ }' \ `--export-key-identifier` arn:aws:payment-cryptography:us-east-2::key/5rplquuwozodpwsp` `` `` `{ "WrappedKey": { "WrappedKeyMaterialFormat": "TR31_KEY_BLOCK", "KeyMaterial": "EXAMPLE_KEY_MATERIAL_TR31", "KeyCheckValue": "A4C9B3", "KeyCheckValueAlgorithm": "ANSI_X9_24" } }` `` ## Export asymmetric (RSA) keys To export a public key in certificate form, use the **get-public-key-certificate** command. This command returns: <br>• The certificate <br>• The root certificate Both certificates are in base64 encoding. ###### Note This operation is not idempotent—subsequent calls might generate different certificates even when using the same underlying key. `` `$` `aws payment-cryptography **get-public-key-certificate** \ `--key-identifier` arn:aws:payment-cryptography:us-east-2::key/5dza7xqd6soanjtb` `` `` `{ "KeyCertificate": "LS0tLS1CRUdJTi...", "KeyCertificateChain": "LS0tLS1CRUdJT..." }` `` |
+| Key Block Attribute | Purpose                                                                                                                                                                                                         | Can you modify during export?                                                                                                                                                                                                                                  | Notes                                                                                                                                                                         |
+| ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Version ID          | Defines the method used to protect the key material. The standard<br>includes:<br>• Version A and C (key variant - deprecated)<br>• Version B (derivation using TDES)<br>• Version D (key derivation using AES) | No                                                                                                                                                                                                                                                             | We use version B for TDES wrapping keys and version D for AES wrapping<br>keys. We support versions A and C only for import operations.                                       |
+| Key Block Length    | Specifies the length of the remaining message                                                                                                                                                                   | No                                                                                                                                                                                                                                                             | We calculate this value automatically. The length might appear incorrect<br>before decrypting the payload because we may add key padding as required by the<br>specification. |
+| Key Usage           | Defines the permitted purposes for the key, such as:<br>• C0 (Card Verification)<br>• B0 (Base Derivation Key)                                                                                                  | No                                                                                                                                                                                                                                                             |                                                                                                                                                                               |
+| Algorithm           | Specifies the algorithm of the underlying key. We support:<br>• T (TDES)<br>• H (HMAC)<br>• A (AES)                                                                                                             | No                                                                                                                                                                                                                                                             | We export this value as-is.                                                                                                                                                   |
+| Key Usage           | Defines allowed operations, such as:<br>• Generate and Verify (C)<br>• Encrypt/Decrypt/Wrap/Unwrap (B)                                                                                                          | Yes\*                                                                                                                                                                                                                                                          |                                                                                                                                                                               |
+| Key Version         | Indicates the version number for key replacement/rotation. Defaults to 00<br>if not specified.                                                                                                                  | Yes<br>• Can append                                                                                                                                                                                                                                            |                                                                                                                                                                               |
+| Key Exportability   | Controls whether the key can be exported:<br>• N - No Exportability<br>• E - Export according to X9.24 (key blocks)<br>• S - Export under key block or non-key block formats                                    | Yes\*                                                                                                                                                                                                                                                          |                                                                                                                                                                               |
+| Optional Key Blocks | Yes<br>• Can append                                                                                                                                                                                             | Optional key blocks are name/value pairs cryptographically bound to the<br>key. For example, KeySetID for DUKPT keys. We automatically calculate the number of<br>blocks, length of each block, and padding block (PB) based on your name/value pair<br>input. |                                                                                                                                                                               |
+
+_\*When modifying values, your new value must be more restrictive
+than the current value in AWS Payment Cryptography._ For example:
+
+- If the current key mode of use is Generate=True,Verify=True, you can change it to
+  Generate=True,Verify=False
+- If the key is already set to not exportable, you can't change it to exportable
+
+When you export keys, we automatically apply the current values from the key being
+exported. However, you might want to modify or append those values before sending to the
+receiving system. Here are some common scenarios:
+
+- When exporting a key to a payment terminal, set its exportability to `Not
+Exportable` because terminals typically only import keys and shouldn't export
+  them.
+- When you need to pass associated key metadata to the receiving system, use TR-31
+  optional headers to cryptographically bind the metadata to the key instead of creating a
+  custom payload.
+- Set the Key Version using the `KeyVersion` field to track key
+  rotation.
+
+TR-31/X9.143 defines common headers, but you can use other headers as long as they meet
+AWS Payment Cryptography parameters and your receiving system can accept them. For more information about key
+block headers during export, see [Key Block
+Headers](../DataAPIReference/API_KeyBlockHeaders.md "../DataAPIReference/API_KeyBlockHeaders.md") in the API Guide.
+
+Here's an example of exporting a BDK key (for instance, to a KIF) with these
+specifications:
+
+- Key version: 02
+- KeyExportability: NON_EXPORTABLE
+- KeySetID: 00ABCDEFAB (00 indicates TDES key, ABCDEFABCD is the initial key)
+
+Because we don't specify key modes of use, this key inherits the mode of use from
+arn:aws:payment-cryptography:us-east-2::key/5rplquuwozodpwsp (DeriveKey = true).
+
+###### Note
+
+Even when you set exportability to Not Exportable in this example, the [KIF](terminology.md#terms.kif "terminology.md#terms.kif") can still:
+
+- Derive keys such as [IPEK/IK](terminology.md#terms.ipek "terminology.md#terms.ipek") used in DUKPT
+- Export these derived keys to install on devices
+  This is specifically allowed by the standards.
+
+```
+`$` `aws payment-cryptography **export-key** \
+ `--key-material`='{"`Tr31KeyBlock`": { \
+ "`WrappingKeyIdentifier`": "arn:aws:payment-cryptography:us-east-2::key/ov6icy4ryas4zcza", \
+ "`KeyBlockHeaders`": { \
+ "`KeyModesOfUse`": { \
+ "`Derive`": true}, \
+ "`KeyExportability`": "NON_EXPORTABLE", \
+ "`KeyVersion`": "02", \
+ "`OptionalBlocks`": { \
+ "`BI`": "00ABCDEFABCD"}}} \
+ }' \
+ `--export-key-identifier` arn:aws:payment-cryptography:us-east-2::key/5rplquuwozodpwsp`
+```
+
+```
+`{
+"WrappedKey": {
+ "WrappedKeyMaterialFormat": "TR31_KEY_BLOCK",
+ "KeyMaterial": "EXAMPLE_KEY_MATERIAL_TR31",
+ "KeyCheckValue": "A4C9B3",
+ "KeyCheckValueAlgorithm": "ANSI_X9_24"
+ }
+}`
+```
+
+## Export asymmetric (RSA) keys
+
+To export a public key in certificate form, use the
+**get-public-key-certificate** command. This command returns:
+
+- The certificate
+- The root certificate
+
+Both certificates are in base64 encoding.
+
+###### Note
+
+This operation is not idempotent—subsequent calls might generate different certificates
+even when using the same underlying key.
+
+```
+`$` `aws payment-cryptography **get-public-key-certificate** \
+ `--key-identifier` arn:aws:payment-cryptography:us-east-2::key/5dza7xqd6soanjtb`
+
+```
+
+```
+`{
+"KeyCertificate": "LS0tLS1CRUdJTi...",
+"KeyCertificateChain": "LS0tLS1CRUdJT..."
+}`
+```
