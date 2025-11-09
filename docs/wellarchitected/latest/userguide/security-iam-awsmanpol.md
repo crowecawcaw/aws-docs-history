@@ -235,9 +235,9 @@ View details about updates to AWS managed policies for AWS WA Tool since this se
 tracking these changes. For automatic alerts about changes to this page, subscribe to the
 RSS feed on the AWS WA Tool [Document revisions](document-revisions.md "document-revisions.md") page.
 
-| Change                                | Description                                                                                                                                                        | Date          |
-| ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------- |
-| AWS WA Tool changed managed policy    | Added `"wellarchitected:Export*"` to `WellArchitectedConsoleReadOnlyAccess`.                                                                                       | June 22, 2023 |
-| AWS WA Tool added service role policy | Added `AWSWellArchitectedDiscoveryServiceRolePolicy` to allow AWS Well-Architected Tool to access AWS services and resources that relate to AWS WA Tool resources. | May 3, 2023   |
-| AWS WA Tool added permissions         | Added a new action to grant `ListAWSServiceAccessForOrganization` to allow AWS WA Tool to check if the AWS service access is enabled for AWS WA Tool.              | July 22, 2022 |
-| AWS WA Tool started tracking changes  | AWS WA Tool started tracking changes for its AWS managed policies.                                                                                                 | July 22, 2022 |
+| Change                                | Description                                                                                                                                                              | Date          |
+| ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------- |
+| AWS WA Tool changed managed policy    | Added `"wellarchitected:Export*"` to `WellArchitectedConsoleReadOnlyAccess`.                                                                                             | June 22, 2023 |
+| AWS WA Tool added service role policy | Added `AWSWellArchitectedDiscoveryServiceRolePolicy` to<br>allow AWS Well-Architected Tool to access AWS services and resources that relate to<br>AWS WA Tool resources. | May 3, 2023   |
+| AWS WA Tool added permissions         | Added a new action to grant<br>`ListAWSServiceAccessForOrganization` to allow AWS WA Tool to<br>check if the AWS service access is enabled for AWS WA Tool.              | July 22, 2022 |
+| AWS WA Tool started tracking changes  | AWS WA Tool started tracking changes for its AWS managed policies.                                                                                                       | July 22, 2022 |

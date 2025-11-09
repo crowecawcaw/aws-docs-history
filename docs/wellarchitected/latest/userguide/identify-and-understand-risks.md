@@ -87,16 +87,14 @@ on along with the projected time to address them.
 
 You can use following table to help you determine risk magnitude:
 
-| Likehood x impact
-| Negligible (1)
-| Minor (2)
-| Moderate (3)
-| Major (4)
-| Critical (5)
-|
-| --- | --- | --- | --- | --- | --- |
-| Almost certain (5) | 5 | 10 | 15 | 20 | 25 |
-| Likely (4) | 4 | 8 | 12 | 26 | 20 |
-| Possible (3) | 3 | 6 | 9 | 12 | 15 |
-| Unlikely (2) | 2 | 4 | 6 | 8 | 10 |
-| Rare (1) | 1 | 2 | 3 | 4 | 5 | Work as a group on HRIs and MRIs and the risks they bring to business. Create a list of HRIs that need to be addressed. Rank the risks based on business criticality to establish priority.
+| Likehood x impact  | Negligible (1) | Minor (2) | Moderate (3) | Major (4) | Critical (5) |
+| ------------------ | -------------- | --------- | ------------ | --------- | ------------ |
+| Almost certain (5) | 5              | 10        | 15           | 20        | 25           |
+| Likely (4)         | 4              | 8         | 12           | 26        | 20           |
+| Possible (3)       | 3              | 6         | 9            | 12        | 15           |
+| Unlikely (2)       | 2              | 4         | 6            | 8         | 10           |
+| Rare (1)           | 1              | 2         | 3            | 4         | 5            |
+
+Work as a group on HRIs and MRIs and the risks they bring to
+business. Create a list of HRIs that need to be addressed. Rank
+the risks based on business criticality to establish priority.
